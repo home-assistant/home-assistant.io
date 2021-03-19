@@ -15,16 +15,8 @@ ha_platforms:
 
 This integration allows you to control [Leviosa Zone hubs](https://leviosashades.com/products/leviosa-zone) from [Leviosa Motor Shades](https://leviosashades.com/).
 
-## Configuration
-
-To Add Leviosa Shades to your Home Assistant instance, please configure your Leviosa Shades and Zones with the app before doing it in Home Assistant. Once done, take the following steps:
-
-- Browse to your Home Assistant instance.
-- In the sidebar click on [Configuration](https://my.home-assistant.io/redirect/config).
-- From the configuration menu select [Integrations](https://my.home-assistant.io/redirect/integrations).
-- In the bottom right, click on the [Add Integration](https://my.home-assistant.io/redirect/config_flow_start?domain=leviosa_shades) button.
-- From the list, search and select *Leviosa Motor Shades Zone*.
-- Follow the instruction on screen to complete the set up. Each Leviosa Zone manages up to 6 groups of shades.
+{% include integrations/config_flow.md %}
+- Each Leviosa Zone manages up to 6 groups of shades.
 - If you have more than one Leviosa Zone in your Network, Home Assistant will display a list, with one IP address for each Leviosa Zone discovered in your network, in the same order as they were discovered. Once a Leviosa Zone is configured in Home Assistant, it will not appear in this list. Refer to the next section to find the IP address of each zone group.
 - If you have only one Leviosa Zone, then you'll be taken directly to the screen to enter the Leviosa Zone name and shade group names.
 - You can name the shade groups as you wish. They do not have to match the names already in the Leviosa App.
