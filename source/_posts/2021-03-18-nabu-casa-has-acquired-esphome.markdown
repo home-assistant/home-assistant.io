@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Nabu Casa has acquired ESPHome"
-description: "Nabu Casa has acquires ESPHome to ensure that the project can continue to flourish as a free and open source project."
+description: "Nabu Casa has acquired ESPHome to ensure that the project can continue to flourish as a free and open source project."
 date: 2021-03-18 00:00:00
 date_formatted: "March 18, 2021"
 author: Paulus Schoutsen
