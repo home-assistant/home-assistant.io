@@ -189,6 +189,6 @@ While an entity is in those states, the `entity_available` corresponding metric 
 For example:
 
 ```yaml
-- record: known_temperature_c
-  expr: temperature_c unless entity_available == 0
+- record: "known_temperature_c"
+  expr: "temperature_c unless entity_available == 0"
 ```
