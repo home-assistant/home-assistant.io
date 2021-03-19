@@ -20,7 +20,7 @@ This integration allows you to control [Leviosa Zone hubs](https://leviosashades
 ## Things to keep in mind
 
 - Each Leviosa Zone manages up to 6 groups of shades.
-- If you have more than one Leviosa Zone in your Network, Home Assistant will display a list, with one IP address for each Leviosa Zone discovered in your network, in the same order as they were discovered. Once a Leviosa Zone is configured in Home Assistant, it will not appear in this list. Refer to the next section to find the IP address of each zone group.
+- If you have more than one Leviosa Zone in your Network, Home Assistant will display a list, with one IP address for each Leviosa Zone discovered, in the same order as they were discovered. Once a Leviosa Zone is configured in Home Assistant, it will not appear in this list. Refer to the next section to find the IP address of each zone group.
 - If you have only one Leviosa Zone, then you'll be taken directly to the screen to enter the Leviosa Zone name and shade group names.
 - You can name the shade groups as you wish. They do not have to match the names already in the Leviosa App.
 - A `cover` entity for each shade group will be ready for you. An additional `cover` entity is created with the name of the zone (prefixed `all_`) to move all groups in a Leviosa Zone at the same time.
