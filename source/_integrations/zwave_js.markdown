@@ -218,7 +218,11 @@ Events are fired when you press a button on a remote (aka Central Scene support)
 
 ### Node events (Notification)
 
-These are events fired by the device using the notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
+Check the [Z-Wave JS notification event docs](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) for an explanation of the notification event data.
+
+#### Notification Command Class
+
+These are notification events fired by the device using the Notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
 
 ```json
 {
@@ -227,8 +231,32 @@ These are events fired by the device using the notification command class. The `
     "node_id": 1,
     "home_id": "974823419",
     "device_id": "ad8098fe80980974",
-    "label": "Keypad lock operation",
+    "command_class": 113,
+    "command_class_name": "Notification",
+    "type_": 6,
+    "event": 5,
+    "label": "Access Control",
+    "event_label": "Keypad lock operation",
     "parameters": {"userId": 1}
+}
+```
+
+#### Entry Control Command Class
+
+These are notification events fired by the device using the Entry Control command class.
+
+```json
+{
+    "type": "notification",
+    "domain": "zwave_js",
+    "node_id": 1,
+    "home_id": "974823419",
+    "command_class": 111,
+    "command_class_name": "Entry Control",
+    "device_id": "ad8098fe80980974",
+    "event_type": 6,
+    "data_type": 5,
+    "event_data": "555"
 }
 ```
 
