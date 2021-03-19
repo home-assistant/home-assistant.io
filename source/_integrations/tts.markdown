@@ -30,7 +30,8 @@ Depending on your setup, you might need to set a external URL (`external_url`) i
 
 </div>
 
-The following optional parameters can be used with any platform. However, the TTS integration will only look for global settings under the configuration of the first configured platform:
+The following optional parameters can be used with any platform.
+**Note**: When configuring multiple tts platform entries, the TTS integration will only look for global settings under the configuration of the first configured platform entry:
 
 {% configuration %}
 cache:
@@ -54,10 +55,10 @@ base_url:
   type: string
   default: value of internal URL
 service_name:
-  description: Define the service name.
+  description: The name of the `say` service to be added to the tts service domain.
   required: false
   type: string
-  default:  The service name default set to <platform>_say. For example, for google_translate tts, its service name default is `google_translate_say`.
+  default:  set to \{platform\}_say. For example, for tts platform `google_translate`, defaults to `google_translate_say`.
 {% endconfiguration %}
 
 The extended example from above would look like the following sample:
@@ -99,11 +100,13 @@ The Google cast devices (Google Home, Chromecast, etc.) present the following pr
 
 * They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). If you are _not_ using SSL then setting a internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
 
-* If you are using an SSL (e.g., `https://yourhost.example.org/...`) then you _must_ use the hostname in the certificate (e.g., `base_url: https://yourhost.example.org`). You cannot use an IP address since the certificate won't be valid for the IP address, and the cast device will refuse the connection.
+* If you are using SSL (e.g., `https://yourhost.example.org/...`) then you _must_ use the hostname in the certificate (e.g., `base_url: https://yourhost.example.org`). You cannot use an IP address since the certificate won't be valid for the IP address, and the cast device will refuse the connection.
 
 ## Service say
 
-The `say` service support `language` and on some platforms also `options` for set, i.e., *voice, motion, speed, etc*. The text for speech is set with `message`. Since release 0.92, service name can be defined in configuration `service_name` option.
+The `say` service (or its equivalent `service_name` you mapped it to as per above) supports additional parameters, like `language` and, on some platforms, also `options` for set, i.e., *voice, motion, speed, etc*. The text to be spoken is passed with the `message` parameter (Note that the tts platform does not do translation.  You should pass the message in the language you intend to have it spoken in.  For example, a message written in English and spoken using `es` as the language will result in an English message being spoken with a Spanish accent. 
+
+Note: since release 0.92, the service name can be defined in the platform's `service_name` configuration option.
 
 Say to all `media_player` device entities:
 
