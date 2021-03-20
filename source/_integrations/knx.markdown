@@ -68,14 +68,13 @@ In order to make use of the various platforms that KNX offers you will need to a
 
 ```yaml
 knx:
-  binary_sensor: !include knx_binary_sensor.yaml
-  switch: !include knx_switch.yaml
+  # configure platforms directly in configuration.yaml
+  binary_sensor:
+    - name: "My first binary sensor"
+      state_address: "1/2/3"
+    # etc...
+  # or outsource platform configuration to separate files
   sensor: !include knx_sensor.yaml
-  cover: !include knx_cover.yaml
-  light: !include knx_light.yaml
-  climate: !include knx_climate.yaml
-  notify: !include knx_notify.yaml
-  scene: !include knx_scene.yaml
 ```
 
 Please see the dedicated platform sections below about how to configure them correctly.
@@ -154,6 +153,7 @@ Explicit connection via KNX/IP routing. This requires multicast communication to
 
 ```yaml
 knx:
+  routing:
 ```
 
 {% configuration %}
@@ -295,27 +295,27 @@ KNX integration is able to expose entity states or attributes to KNX bus. The in
 # Example configuration.yaml entry
 knx:
   expose:
-    - type: "temperature"
-      entity_id: "sensor.owm_temperature"
+    - type: temperature
+      entity_id: sensor.owm_temperature
       address: "0/0/2"
-    - type: "string"
+    - type: string
       address: "0/6/4"
-      entity_id: "sensor.owm_weather"
-    - type: "binary"
-      entity_id: "binary_sensor.kitchen_window"
+      entity_id: sensor.owm_weather
+    - type: binary
+      entity_id: binary_sensor.kitchen_window
       address: "0/6/5"
-    - type: "binary"
-      entity_id: "light.office"
+    - type: binary
+      entity_id: light.office
       address: "0/3/0"
       default: false
-    - type: "percentU8"
-      entity_id: "light.office"
-      attribute: "brightness"
+    - type: percentU8
+      entity_id: light.office
+      attribute: brightness
       default: 0
       address: "0/3/1"
-    - type: "time"
+    - type: time
       address: "0/0/1"
-    - type: "datetime"
+    - type: datetime
       address: "0/0/23"
 ```
 
@@ -355,7 +355,7 @@ Binary sensors are read-only. To write to the KNX bus configure an exposure [KNX
 ```yaml
 knx:
   binary_sensor:
-    - name: sensor1
+    - name: "Sensor 1"
       state_address: "6/0/2"
 ```
 
@@ -409,27 +409,27 @@ Let's pretend you have a binary sensor with the name `Livingroom.Switch` and you
 automation:
   - trigger:
       platform: numeric_state
-      entity_id: binary_sensor.Livingroom_Switch
+      entity_id: binary_sensor.livingroom_switch
       attribute: counter
       above: 0
       below: 2
     condition: 
       - condition: state
         entity_id: binary_sensor.cover_abstell
-        state: "on"
+        state: on
     action:
       - entity_id: light.hue_color_lamp_1
         service: light.turn_on
   - trigger:
       platform: numeric_state
-      entity_id: binary_sensor.Livingroom_Switch
+      entity_id: binary_sensor.livingroom_switch
       attribute: counter
       above: 1
       below: 3
     condition:
       - condition: state
         entity_id: binary_sensor.cover_abstell
-        state: "on"
+        state: on
     action:
       - entity_id: light.hue_bloom_1
         service: homeassistant.turn_on
@@ -468,7 +468,7 @@ To use your KNX thermostats in your installation, add the following lines to you
 # Example configuration.yaml entry
 knx:
   climate:
-    - name: HASS-Kitchen.Temperature
+    - name: "Kitchen"
       temperature_address: "5/1/1"
       setpoint_shift_address: "5/1/2"
       setpoint_shift_state_address: "5/1/3"
@@ -483,7 +483,7 @@ Alternatively, if your device has dedicated binary group addresses for frost/nig
 # Example configuration.yaml entry
 knx:
   climate:
-    - name: HASS-Kitchen.Temperature
+    - name: "Kitchen"
       temperature_address: "5/1/1"
       setpoint_shift_address: "5/1/2"
       setpoint_shift_state_address: "5/1/3"
@@ -501,7 +501,7 @@ attributes of the climate device to avoid issues with exceeding valid temperatur
 # Example configuration.yaml entry
 knx:
   climate:
-    - name: HASS-Kitchen.Temperature
+    - name: "Kitchen"
       temperature_address: "5/1/2"
       target_temperature_address: "5/1/4"
       target_temperature_state_address: "5/1/1"
@@ -525,7 +525,7 @@ Example:
 # Example configuration.yaml entry
 knx:
   climate:
-    - name: HASS-Kitchen.Temperature
+    - name: "Kitchen"
       temperature_address: "5/1/1"
       setpoint_shift_address: "5/1/2"
       setpoint_shift_state_address: "5/1/3"
@@ -700,7 +700,7 @@ To use your KNX covers in your installation, add the following lines to your top
 # Example configuration.yaml entry
 knx:
   cover:
-    - name: "Kitchen.Shutter"
+    - name: "Kitchen shutter"
       move_long_address: "3/0/0"
       move_short_address: "3/0/1"
       stop_address: "3/0/4"
@@ -783,7 +783,7 @@ To use your KNX fan in your installation, add the following lines to your top le
 # Example configuration.yaml entry
 knx:
   fan:
-    - name: "ceiling fan"
+    - name: "Ceiling fan"
       address: "9/0/1"
       state_address: "9/0/2"
 ```
@@ -830,7 +830,7 @@ To use your KNX light in your installation, add the following lines to your top 
 # Example configuration.yaml entry
 knx:
   light:
-    - name: "kitchen"
+    - name: "Kitchen"
       address: "1/0/9"
 ```
 
@@ -948,14 +948,14 @@ For switching/light actuators that are only controlled by a single group address
 knx:
   light:
     # dimmable light
-    - name: Bedroom-Light-1
+    - name: "Bedroom Light 1"
       address: "1/0/9"
       state_address: "1/1/9"
       brightness_address: "1/2/9"
       brightness_state_address: "1/3/9"
     #
     # RGB light
-    - name: Bathroom-Light-1
+    - name: "Bathroom Light 1"
       address: "1/0/9"
       state_address: "1/1/9"
       brightness_address: "1/2/9"
@@ -964,7 +964,7 @@ knx:
       color_state_address: "1/5/9"
     #
     # tunable white light
-    - name: Office-Light-1
+    - name: "Office Light 1"
       address: "1/0/21"
       state_address: "1/1/21"
       brightness_address: "1/2/21"
@@ -976,7 +976,7 @@ knx:
       max_kelvin: 6200
     #
     # actuator without dedicated state communication object
-    - name: Cellar-Light-1
+    - name: "Cellar Light 1"
       address: "1/0/5"
       state_address: "1/0/5"
 ```
@@ -988,7 +988,7 @@ The KNX notify platform allows you to send notifications to [KNX](https://www.kn
 ```yaml
 knx:
   notify:
-    - name: Alarm
+    - name: "Alarm"
       address: "5/1/10"
 ```
 
@@ -1011,7 +1011,7 @@ The KNX scenes platform allows you to trigger [KNX](https://www.knx.org/) scenes
 # Example configuration.yaml entry
 knx:
   scene:
-    - name: Romantic
+    - name: "Romantic"
       address: 8/8/8
       scene_number: 23
 ```
@@ -1041,9 +1041,9 @@ Sensors are read-only. To write to the KNX bus configure an exposure [KNX Integr
 # Example configuration.yaml entry
 knx:
   sensor:
-    - name: Heating.Valve1
+    - name: "Heating Valve 1"
       state_address: "2/0/0"
-      type: "percent"
+      type: percent
 ```
 
 In order to actively read the sensor data from the bus every 30 minutes you can add the following lines to your `configuration.yaml`:
@@ -1052,9 +1052,9 @@ In order to actively read the sensor data from the bus every 30 minutes you can 
 # Example configuration.yaml entry
 knx:
   sensor:
-    - name: Heating.Valve1
+    - name: "Heating Valve 1"
       state_address: "2/0/0"
-      type: "percent"
+      type: percent
       sync_state: every 30
 ```
 
@@ -1231,14 +1231,14 @@ always_callback:
 # Example configuration.yaml entry
 knx:
   sensor:
-    - name: Heating.Valve1
+    - name: "Heating Valve 1"
       state_address: "2/0/0"
       sync_state: init
-      type: "percent"
-    - name: Kitchen.Temperature
+      type: percent
+    - name: "Kitchen Temperature"
       state_address: "6/2/1"
       sync_state: every 60
-      type: "temperature"
+      type: temperature
 ```
 
 ## Switch
@@ -1248,7 +1248,7 @@ The KNX switch platform is used as an interface to switching actuators.
 ```yaml
 knx:
   switch:
-    - name: Kitchen.Coffee
+    - name: "Kitchen coffee maker"
       address: "1/1/6"
 ```
 
@@ -1286,7 +1286,7 @@ To use your KNX weather station in your installation, add the following lines to
 # Example configuration.yaml entry
 knx:
   weather:
-    - name: "home"
+    - name: "Home"
       address_temperature: "7/0/0"
       address_brightness_south: "7/0/1"
       address_brightness_west: "7/0/2"
