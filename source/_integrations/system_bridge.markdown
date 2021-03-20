@@ -35,3 +35,58 @@ This integration provides the following sensors:
 | Filesystem(s)    | Space used for each drive letter / filesystem mount |
 | Operating System | Version information of the Operating System         |
 | Load             | System load percentage                              |
+
+## Services
+
+### Send Command
+
+Sends a command to the server to run.
+
+[![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=system_bridge.send_command)
+
+#### Examples
+
+```yaml
+service: system_bridge.send_command
+data:
+  bridge: device
+  command: code
+  arguments: /home/user/file.txt
+```
+
+```yaml
+service: system_bridge.send_command
+data:
+  bridge: device
+  command: python
+  arguments: '-V'
+```
+
+### Open Path/URL
+
+Open a URL or file on the server using the default application.
+
+[![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=system_bridge.open)
+
+#### Examples
+
+```yaml
+service: system_bridge.open
+data:
+  bridge: device
+  path: 'C:\image.jpg'
+```
+
+```yaml
+service: system_bridge.open
+data:
+  bridge: device
+  path: 'https://home-assistant.io'
+```
+
+```yaml
+service: system_bridge.open
+data:
+  bridge: device
+  path: 'steam://rungameid/814380'
+```
