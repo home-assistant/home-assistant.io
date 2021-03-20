@@ -19,7 +19,7 @@ ha_platforms:
 
 ## Prerequisites
 
-You will need your API key. This can be found and configured in the application's settings. 
+You will need your API key. This can be found and configured in the application's settings.
 
 {% include integrations/config_flow.md %}
 
