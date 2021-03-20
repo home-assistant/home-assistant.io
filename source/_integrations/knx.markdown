@@ -1087,14 +1087,18 @@ always_callback:
 
 | KNX DPT | type                          | size in byte | range                      | unit           |
 |--------:|-------------------------------|-------------:|:--------------------------:|----------------|
+| 5       | 1byte_unsigned                | 1            | 0 ... 255                  |                |
 | 5.001   | percent                       | 1            | 0 ... 100                  | %              |
 | 5.003   | angle                         | 1            | 0 ... 360                  | °              |
 | 5.004   | percentU8                     | 1            | 0 ... 255                  | %              |
-| 5.010   | pulse                         | 1            | 0 ... 255                  |                |
-| 5.010   | 1byte_unsigned                | 1            | 0 ... 255                  |                |
+| 5.005   | decimal_factor                | 1            | 0 ... 255                  |                |
+| 5.006   | tariff                        | 1            | 0 ... 254                  |                |
+| 5.010   | pulse                         | 1            | 0 ... 255                  | counter pulses |
+| 6       | 1byte_signed                  | 1            | -128 ... 127               |                |
 | 6.001   | percentV8                     | 1            | -128 ... 127               | %              |
 | 6.010   | counter_pulses                | 1            | -128 ... 127               | counter pulses |
-| 7.001   | 2byte_unsigned                | 2            | 0 ... 65535                | pulses         |
+| 7       | 2byte_unsigned                | 2            | 0 ... 65535                |                |
+| 7.001   | pulse_2byte                   | 2            | 0 ... 65535                | pulses         |
 | 7.002   | time_period_msec              | 2            | 0 ... 65535                | ms             |
 | 7.003   | time_period_10msec            | 2            | 0 ... 65535                | ms             |
 | 7.004   | time_period_100msec           | 2            | 0 ... 65535                | ms             |
@@ -1105,14 +1109,17 @@ always_callback:
 | 7.012   | current                       | 2            | 0 ... 65535                | mA             |
 | 7.013   | brightness                    | 2            | 0 ... 65535                | lx             |
 | 7.600   | color_temperature             | 2            | 0 ... 65535                | K              |
-| 8.001   | 2byte_signed                  | 2            | -32768 ... 32767           | pulses         |
+| 8       | 2byte_signed                  | 2            | -32768 ... 32767           |                |
+| 8.001   | pulse_2byte_signed            | 2            | -32768 ... 32767           | pulses         |
 | 8.002   | delta_time_ms                 | 2            | -32768 ... 32767           | ms             |
+| 8.003   | delta_time_10ms               | 2            | -32768 ... 32767           | ms             |
+| 8.004   | delta_time_100ms              | 2            | -32768 ... 32767           | ms             |
 | 8.005   | delta_time_sec                | 2            | -32768 ... 32767           | s              |
 | 8.006   | delta_time_min                | 2            | -32768 ... 32767           | min            |
 | 8.007   | delta_time_hrs                | 2            | -32768 ... 32767           | h              |
 | 8.010   | percentV16                    | 2            | -32768 ... 32767           | %              |
 | 8.011   | rotation_angle                | 2            | -32768 ... 32767           | °              |
-| 9.*     | enthalpy                      | 2            | -671088.64 ... 670760.96   | H              |
+| 9       | 2byte_float                   | 2            | -671088.64 ... 670760.96   |                |
 | 9.001   | temperature                   | 2            | -273 ... 670760            | °C             |
 | 9.002   | temperature_difference_2byte  | 2            | -670760 ... 670760         | K              |
 | 9.003   | temperature_a                 | 2            | -670760 ... 670760         | K/h            |
@@ -1124,6 +1131,7 @@ always_callback:
 | 9.010   | time_1                        | 2            | -670760 ... 670760         | s              |
 | 9.011   | time_2                        | 2            | -670760 ... 670760         | ms             |
 | 9.020   | voltage                       | 2            | -671088.64 ... 670760.96   | mV             |
+| 9.021   | curr                          | 2            | -671088.64 ... 670760.96   | mA             |
 | 9.022   | power_density                 | 2            | -671088.64 ... 670760.96   | W/m²           |
 | 9.023   | kelvin_per_percent            | 2            | -671088.64 ... 670760.96   | K/%            |
 | 9.024   | power_2byte                   | 2            | -671088.64 ... 670760.96   | kW             |
@@ -1131,8 +1139,12 @@ always_callback:
 | 9.026   | rain_amount                   | 2            | -671088.64 ... 670760.96   | l/m²           |
 | 9.027   | temperature_f                 | 2            | -459.6 ... 670760          | °F             |
 | 9.028   | wind_speed_kmh                | 2            | 0 ... 670760               | km/h           |
-| 12.***  | 4byte_unsigned                | 4            | 0 ... 4294967295           |                |
-| 13.***  | 4byte_signed                  | 4            | -2147483648 ... 2147483647 |                |
+| 9.?     | enthalpy                      | 2            | -671088.64 ... 670760.96   | H              |
+| 12      | 4byte_unsigned                | 4            | 0 ... 4294967295           |                |
+| 12.1200 | volume_liquid_litre           | 4            | 0 ... 4294967295           | l              |
+| 12.1201 | volume_m3                     | 4            | 0 ... 4294967295           | m³             |
+| 13      | 4byte_signed                  | 4            | -2147483648 ... 2147483647 |                |
+| 13.001  | pulse_4byte                   | 4            | -2147483648 ... 2147483647 | pulses         |
 | 13.002  | flow_rate_m3h                 | 4            | -2147483648 ... 2147483647 | m³/h           |
 | 13.010  | active_energy                 | 4            | -2147483648 ... 2147483647 | Wh             |
 | 13.011  | apparant_energy               | 4            | -2147483648 ... 2147483647 | VAh            |
@@ -1141,8 +1153,8 @@ always_callback:
 | 13.014  | apparant_energy_kvah          | 4            | -2147483648 ... 2147483647 | kVAh           |
 | 13.015  | reactive_energy_kvarh         | 4            | -2147483648 ... 2147483647 | kVARh          |
 | 13.100  | long_delta_timesec            | 4            | -2147483648 ... 2147483647 | s              |
+| 14      | 4byte_float                   | 4            |                            |                |
 | 14.000  | acceleration                  | 4            |                            | m/s²           |
-| 14.***  | 4byte_float                   | 4            |                            |                |
 | 14.001  | acceleration_angular          | 4            |                            | rad/s²         |
 | 14.002  | activation_energy             | 4            |                            | J/mol          |
 | 14.003  | activity                      | 4            |                            | s⁻¹            |
