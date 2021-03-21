@@ -183,7 +183,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    end: '{{ (now().replace(minute=0,second=0) + timedelta(hours=8)).replace(hour=16) }}'
+    end: "{{ (now().replace(minute=0,second=0) + timedelta(hours=8)).replace(hour=16) }}"
     duration:
         hours: 24
 ```
