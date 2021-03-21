@@ -13,14 +13,7 @@ ha_config_flow: true
 
 This `wallbox` sensor platform pulls data from https://my.wallbox.com for your wallbox charging station.
 
-## Configuration
-
-To enable this sensor in your installation, go to Configuration and Integrations and add a MyWallbox integration. You will need to fill in your wallbox:
-- serial number
--  your username (email)
--  password
-
-Add multiple wallboxes by renaming the integration after adding and choosing an unique and descriptive name.
+{% include integrations/config_flow.md %}
 
 ## Sensors
 
