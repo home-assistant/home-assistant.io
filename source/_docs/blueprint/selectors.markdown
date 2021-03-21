@@ -10,7 +10,7 @@ Some selectors can, for example, show a toggle button to turn something
 on or off, while another select can filter a list of devices to show
 only devices that have motion-sensing capabilities.
 
-Having the good selectors set on your blueprint automations inputs makes a
+Having good selectors set on your blueprint automation inputs makes a
 blueprint easier to use from the UI.
 
 The following selectors are currently available:
@@ -53,7 +53,7 @@ The add-on selector allows the user to input an add-on slug.
 On the user interface, it will list all installed add-ons and use the slug of the
 selected add-on.
 
-![Screenshot of an Add-on selector](/images/blueprints/selector-addon.png)
+![Screenshot of an add-on selector](/images/blueprints/selector-addon.png)
 
 This selector does not have any other options; therefore, it only has its key.
 
@@ -71,7 +71,7 @@ and entities that are assigned to those areas. For example, the areas list could
 be limited to areas with entities provided by the [ZHA](/integrations/zha)
 integration.
 
-In its most basic form, it doesn't require any options, which will show
+In its most basic form, this selector doesn't require any options, which will show
 all areas.
 
 ```yaml
@@ -183,9 +183,9 @@ A device selector can filter the list of devices, based on things like the
 manufacturer or model of the device, the entities the device provides or based
 on the domain that provided the device.
 
-![Screenshot of an device selector](/images/blueprints/selector-device.png)
+![Screenshot of a device selector](/images/blueprints/selector-device.png)
 
-In its most basic form, it doesn't require any options, which will show
+In its most basic form, this selector doesn't require any options, which will show
 all devices.
 
 ```yaml
@@ -270,7 +270,7 @@ entity.
 
 ![Screenshot of an entity selector](/images/blueprints/selector-entity.png)
 
-In its most basic form, it doesn't require any options, which will show
+In its most basic form, this selector doesn't require any options, which will show
 all entities.
 
 ```yaml
@@ -329,7 +329,7 @@ On the user interface, the input can either be in a slider or number mode.
 Both modes limit the user input by a minimal and maximum value, and can
 have a unit of measurement to go with it.
 
-In its most basic form, it requires a minimal and maximum value:
+In its most basic form, this selector requires a minimal and maximum value:
 
 ```yaml
 number:
@@ -425,7 +425,7 @@ options:
 
 ## Target selector
 
-The target selector is a rather special selector, allowing the user to selector
+The target selector is a rather special selector, allowing the user to select
 targeted entities, devices or areas for service calls. The value of
 the input will contain a special target format, that is accepted by
 service calls.
@@ -436,7 +436,7 @@ those properties in those areas.
 
 ![Screenshot of a target selector](/images/blueprints/selector-target.png)
 
-Its most basic form, doesn't require any options, which will allow the
+In its most basic form, this selector does not require any options, which will allow the
 user to target any entity, device or area available in the system.
 
 ```yaml

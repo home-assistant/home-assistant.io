@@ -40,6 +40,10 @@ name:
   description: Name to use in the frontend.
   required: true
   type: string
+unique_id:
+  description: An ID that uniquely identifies this weather entity. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 condition_template:
   description: The current weather condition.
   required: true

@@ -149,7 +149,7 @@ Set the domestic hot water setpoint on the OpenTherm Gateway. Not all boilers su
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `gateway_id` | no | The `gateway_id` as specified during configuration.
-| `dhw_override` | no | The domestic hot water setpoint to set on the gateway. Values between 0 and 90 are accepted, but not all boilers support this range. Check the values of the `slave_dhw_min_setp` and `slave_dhw_max_setp` sensors to see the supported range on your boiler.
+| `temperature` | no | The domestic hot water setpoint to set on the gateway. Values between 0 and 90 are accepted, but not all boilers support this range. Check the values of the `slave_dhw_min_setp` and `slave_dhw_max_setp` sensors to see the supported range on your boiler.
 
 ### Service `opentherm_gw.set_gpio_mode`
 

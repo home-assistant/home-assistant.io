@@ -34,7 +34,7 @@ ha_platforms:
 The `xiaomi_miio` integration supports the following devices:
 
 - [Xiaomi Gateway](#xiaomi-gateway)
-- [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2))
+- [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
 - [Xiaomi Air Purifier and Humidifier](#xiaomi-air-purifier-and-humidifier)
 - [Xiaomi Air Quality Monitor](#xiaomi-air-quality-monitor)
 - [Xiaomi IR Remote](#xiaomi-ir-remote)
@@ -1282,6 +1282,22 @@ automation:
         entity_id: vacuum.xiaomi_vacuum
       data:
         segments: 1
+```
+
+The original app for Xiaomi vacuum has a nice feature of room cleaning with repetition, you can achieve the same result with repeating segments:
+
+```yaml
+automation:
+  - alias: "Vacuum kitchen"
+    trigger:
+      - event: start
+        platform: homeassistant
+    action:
+      - service: xiaomi_miio.vacuum_clean_segment
+        target:
+          entity_id: vacuum.xiaomi_vacuum
+        data:
+          segments: [1, 1]
 ```
 
 ### Attributes
