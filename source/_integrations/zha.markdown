@@ -74,7 +74,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
   - Telegesis ETRX357USB (Note! This first have to be [flashed with other EmberZNet firmware](https://github.com/walthowd/husbzb-firmware))
   - Telegesis ETRX357USB-LRS (Note! This first have to be [flashed with other EmberZNet firmware](https://github.com/walthowd/husbzb-firmware))
   - Telegesis ETRX357USB-LRS+8M (Note! This first have to be [flashed with other EmberZNet firmware](https://github.com/walthowd/husbzb-firmware))
-- Texas Instruments based radios with Z-Stack 3.x.x (via the [zigpy-znp](https://github.com/zha-ng/zigpy-znp) library for zigpy)
+- Texas Instruments based radios (via the [zigpy-znp](https://github.com/zha-ng/zigpy-znp) library for zigpy)
   - [CC2652P/CC2652R/CC2652RB USB stick or dev board hardware flashed with Z-Stack 3.x.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
   - [CC1352P/CC1352R USB stick or dev board hardware flashed with Z-Stack 3.x.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
 - Digi XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
@@ -117,7 +117,7 @@ a new pop-up asking for a radio type. In the pop-up:
 | ------------- | ------------- |
 | `ezsp`  | Silicon Labs EmberZNet protocol (e.g., Elelabs, HUSBZB-1, Telegesis) |
 | `deconz` | dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II) |
-| `znp` | Texas Instruments: (e.g., CC2531, CC26x2, CC13x2, zzh!, Slaesh's coordinator) |
+| `znp` | Texas Instruments (e.g., CC2531, CC26x2, CC13x2, zzh!, Slaesh's coordinator) |
 | `ti_cc` | Texas Instruments (legacy) |
 | `zigate` | ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi) |
 | `xbee` | Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3) |
