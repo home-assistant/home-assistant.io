@@ -94,13 +94,6 @@ it is expected to see `NCP entered failed state. Requesting APP controller resta
 
 </div>
 
-### Experimental support for additional Zigbee radio modules
-
-- Texas Instruments based radios with Z-Stack Home 1.2.x (via the [zigpy-cc](https://github.com/zigpy/zigpy-cc) library for zigpy)
-  - [CC2531 USB stick hardware flashed with Z-Stack Home 1.2.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
-  - [CC2530 + CC2591/CC2592 USB stick hardware flashed with Z-Stack Home 1.2.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
-  - [CC2538 + CC2592 dev board hardware flashed with Z-Stack Home 1.2.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
-
 ## Configuration - GUI
 
 Connect your radio module and restart Home Assistant.
@@ -124,8 +117,8 @@ a new pop-up asking for a radio type. In the pop-up:
 | ------------- | ------------- |
 | `ezsp`  | Silicon Labs EmberZNet protocol (e.g., Elelabs, HUSBZB-1, Telegesis) |
 | `deconz` | dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II) |
-| `znp` | Texas Instruments new (active): Z-Stack 3.x.x ZNP protocol (e.g., CC26x2, CC13x2) |
-| `ti_cc` | Texas Instruments legacy & HA12: Z-Stack Home 1.2.x ZNP protocol (e.g., CC253x) |
+| `znp` | Texas Instruments: (e.g., CC2531, CC26x2, CC13x2, zzh!, Slaesh's coordinator) |
+| `ti_cc` | Texas Instruments (legacy) |
 | `zigate` | ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi) |
 | `xbee` | Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3) |
 
