@@ -55,7 +55,7 @@ verify_ssl:
   default: true
   type: boolean
 username:
-  description: The username used to authenticate. Can include the realm by appending "@<realm>"
+  description: The username used to authenticate. Can include the realm by appending "@<realm>".
   required: true
   type: string
 password:
