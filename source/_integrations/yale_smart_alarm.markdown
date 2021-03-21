@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: yale_smart_alarm
 ha_platforms:
   - alarm_control_panel
+  - lock
 ---
 
 The `yale_smart_alarm` platform provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.
@@ -25,6 +26,12 @@ alarm_control_panel:
   - platform: yale_smart_alarm
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
+    
+lock:
+  - platform: yale_smart_alarm
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    code: 123456
 ```
 
 {% configuration %}
@@ -45,6 +52,9 @@ area_id:
   required: false
   type: integer
   default: 1
+code:
+  description: Code for lock/unlock door
+  type: integer
 {% endconfiguration %}
 
 ## Automation example
