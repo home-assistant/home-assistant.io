@@ -3,6 +3,7 @@ title: Yale Smart Living
 description: Instructions on how to integrate Yale Smart Alarms into Home Assistant.
 ha_category:
   - Alarm
+  - Lock
 ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_domain: yale_smart_alarm
