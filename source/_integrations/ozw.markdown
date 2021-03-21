@@ -11,9 +11,18 @@ ha_codeowners:
   - '@marcelveldt'
   - '@MartinHjelmare'
 ha_domain: ozw
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
-This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT.
+This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT. If you're starting out with Z-Wave in Home Assistant, we recommend that you use [the Z-Wave JS integration](/integrations/zwave_js).
 
 ## Requirements
 
@@ -30,16 +39,7 @@ This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave
 
 - Supported Z-Wave dongle compatible with OpenZWave 1.6. See this [list](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules) of controllers. The Z-Wave controller dongle should be connected to the same host as where the ozwdaemon is running.
 
-## Configuration
-
-This integration can be configured using the integrations in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **OpenZWave (beta)**.
-After completing the configuration flow, the OpenZWave integration will be
-available.
+{% include integrations/config_flow.md %}
 
 ### Secure network key
 

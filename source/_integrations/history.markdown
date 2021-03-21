@@ -17,7 +17,7 @@ integration for storing the data and uses the same database setting.
 If any entities are excluded from being recorded,
 no history will be available for these entities.
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Basic configuration.yaml entry
@@ -164,15 +164,15 @@ The following characters can be used in entity globs:
 The history is stored in a SQLite database `home-assistant_v2.db` within your
 configuration directory unless the `recorder` integration is set up differently.
 
- - events table is all events except `time_changed` that happened while recorder integration was running.
- - states table contains all the `new_state` values of `state_changed` events.
- - Inside the states table you have:
-   - `entity_id`: the entity_id of the entity
-   - `state`: the state of the entity
-   - `attributes`: JSON of the state attributes
-   - `last_changed`: timestamp last time the state has changed. A state_changed event can happen when just attributes change.
-   - `last_updated`: timestamp anything has changed (state, attributes)
-   - `created`: timestamp this entry was inserted into the database
+- events table is all events except `time_changed` that happened while recorder integration was running.
+- states table contains all the `new_state` values of `state_changed` events.
+- Inside the states table you have:
+  - `entity_id`: the entity_id of the entity
+  - `state`: the state of the entity
+  - `attributes`: JSON of the state attributes
+  - `last_changed`: timestamp last time the state has changed.
+  - `last_updated`: timestamp anything has changed (state, attributes)
+  - `created`: timestamp this entry was inserted into the database
 
 When the `history` integration queries the states table it only selects states
 where the state has changed: `WHERE last_changed=last_updated`

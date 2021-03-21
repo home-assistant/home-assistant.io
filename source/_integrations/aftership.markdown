@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.85
 ha_iot_class: Cloud Polling
 ha_domain: aftership
+ha_platforms:
+  - sensor
 ---
 
 The `aftership` platform allows one to track deliveries by [AfterShip](https://www.aftership.com), a service that supports 490+ couriers worldwide. To use the tracking API functionality, the Essentials plan is required. This plan includes 100 shipments per month. There are various paid-for tiers after that.

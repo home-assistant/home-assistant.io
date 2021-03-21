@@ -8,6 +8,8 @@ ha_iot_class:
 ha_codeowners:
   - '@pvizeli'
 ha_domain: tts
+ha_platforms:
+  - notify
 ---
 
 Text-to-Speech (TTS) enables Home Assistant to speak to you.
@@ -110,7 +112,7 @@ Say to all `media_player` device entities:
 service: tts.google_translate_say
 entity_id: "all"
 data:
-  message: 'May the Force be with you.'
+  message: "May the Force be with you."
 ```
 
 Say to the `media_player.floor` device entity:
@@ -119,7 +121,7 @@ Say to the `media_player.floor` device entity:
 service: tts.google_translate_say
 entity_id: media_player.floor
 data:
-  message: 'May the Force be with you.'
+  message: "May the Force be with you."
 ```
 
 Say to the `media_player.floor` device entity in French:
@@ -128,18 +130,22 @@ Say to the `media_player.floor` device entity in French:
 service: tts.google_translate_say
 entity_id: media_player.floor
 data:
-  message: 'Que la force soit avec toi.'
-  language: 'fr'
+  message: "Que la force soit avec toi."
+  language: "fr"
 ```
 
 With a template:
 
+{% raw %}
+
 ```yaml
 service: tts.google_translate_say
 data:
-  message: "Temperature is {% raw %}{{states('sensor.temperature')}}{% endraw %}."
+  message: "Temperature is {{states('sensor.temperature')}}."
   cache: false
 ```
+
+{% endraw %}
 
 ## Cache
 

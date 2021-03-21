@@ -15,6 +15,13 @@ ha_domain: insteon
 ha_codeowners:
   - '@teharris1'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - switch
 ---
 
 This integration adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.
@@ -96,7 +103,7 @@ Trigger an INSTEON scene on or off, is done via automations. Two services are pr
 automation:
   # Trigger an INSTEON scene 25
   - id: trigger_scene_25_on
-    alias: Turn on scene 25
+    alias: "Turn on scene 25"
     action:
       - service: insteon.scene_on
         group: 25
@@ -119,7 +126,7 @@ This allows the mini-remotes to be configured as triggers for automations. Here 
 automation:
   # 4 or 8 button remote with button c pressed
   - id: light_on
-    alias: Turn a light on
+    alias: "Turn a light on"
     trigger:
       - platform: event
         event_type: insteon.button_on
@@ -132,11 +139,12 @@ automation:
         state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 
   # single button remote
   - id: light_off
-    alias: Turn a light off
+    alias: "Turn a light off"
     trigger:
       - platform: event
         event_type: insteon.button_on
@@ -148,7 +156,8 @@ automation:
         state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 ```
 
 ## Manual configuration
@@ -354,7 +363,7 @@ Trigger an INSTEON scene on or off is done via automations. Two services are pro
 automation:
   # Trigger an INSTEON scene 25
   - id: trigger_scene_25_on
-    alias: Turn on scene 25
+    alias: "Turn on scene 25"
     trigger:
       - ...
     action:
@@ -380,7 +389,7 @@ This allows the mini-remotes to be configured as triggers for automations. Here 
 automation:
   # 4 or 8 button remote with button c pressed
   - id: light_on
-    alias: Turn a light on
+    alias: "Turn a light on"
     trigger:
       - platform: event
         event_type: insteon.button_on
@@ -393,11 +402,12 @@ automation:
         state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 
   # single button remote
   - id: light_off
-    alias: Turn a light off
+    alias: "Turn a light off"
     trigger:
       - platform: event
         event_type: insteon.button_on
@@ -409,5 +419,6 @@ automation:
         state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 ```

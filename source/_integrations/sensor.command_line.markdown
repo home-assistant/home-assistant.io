@@ -74,7 +74,7 @@ sensor:
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     # If errors occur, make sure configuration file is encoded as UTF-8
     unit_of_measurement: "°C"
-    value_template: '{{ value | multiply(0.001) | round(1) }}'
+    value_template: "{{ value | multiply(0.001) | round(1) }}"
 ```
 
 {% endraw %}
@@ -184,8 +184,8 @@ sensor:
     json_attributes:
       - date
       - milliseconds_since_epoch
-    command: 'python3 /home/pi/.homeassistant/scripts/datetime.py'
-    value_template: '{{ value_json.time }}'
+    command: "python3 /home/pi/.homeassistant/scripts/datetime.py"
+    value_template: "{{ value_json.time }}"
 ```
 
 {% endraw %}

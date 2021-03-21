@@ -14,6 +14,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@anonym-tsk'
 ha_domain: starline
+ha_platforms:
+  - binary_sensor
+  - device_tracker
+  - lock
+  - sensor
+  - switch
 ---
 
 The `starline` integration lets you retrieve data of your [StarLine](https://www.alarmstarline.com/) security system from the [StarLine portal](https://my.starline.ru/). You will need a working StarLine account.
@@ -27,13 +33,9 @@ This integration provides the following platforms:
 - Switches: Start/stop engine, heater (webasto), additional channel and sound the horn.
 - Services: Update the state, set update frequency. More details can be found [here](#services).
 
-## Configuration
+## Prerequisites
 
-1. Create a new application in the [StarLine developer profile](https://my.starline.ru/developer).
-2. Open the integrations page and add the StarLine integration.
-3. Fill in your application ID, secret, login and password.
-
-After adding the integration, you can configure the API update interval using [`starline.set_scan_interval`](#set-scan-interval) service.
+Create a new application in the [StarLine developer profile](https://my.starline.ru/developer).
 
 <div class='note'>
 
@@ -42,6 +44,8 @@ By default, the state of integration will be updated every 3 minutes and OBD inf
 It is not recommended to set an update interval of less than 90 seconds.
 
 </div>
+
+{% include integrations/config_flow.md %}
 
 ## Services
 

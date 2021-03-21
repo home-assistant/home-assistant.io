@@ -62,7 +62,7 @@ variables:
       description: The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable.
       type: any
 fields:
-  description: "Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below. Please Note: In order for this description to be displayed in the Services tab of the Developer Tools in Lovelace, the script description must be defined as well."
+  description: "Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below. Please note: In order for this description to be displayed in the Services tab of the Developer Tools, the script description must be defined as well."
   required: false
   default: {}
   type: map
@@ -118,14 +118,14 @@ Mode | Description
 ```yaml
 script: 
   wakeup:
-    alias: Wake Up
+    alias: "Wake Up"
     icon: "mdi:party-popper"
-    description: 'Turns on the bedroom lights and then the living room lights after a delay'
+    description: "Turns on the bedroom lights and then the living room lights after a delay"
     variables:
       turn_on_entity: group.living_room
     fields:
       minutes:
-        description: 'The amount of time to wait before turning on the living room lights'
+        description: "The amount of time to wait before turning on the living room lights"
         example: 1
     # If called again while still running (probably in delay step), start over.
     mode: restart
@@ -137,17 +137,18 @@ script: 
           message: is waking up
           entity_id: device_tracker.paulus
           domain: light
-      - alias: Bedroom lights on
+      - alias: "Bedroom lights on"
         service: light.turn_on
-        data:
+        target:
           entity_id: group.bedroom
+        data:
           brightness: 100
       - delay:
           # supports seconds, milliseconds, minutes, hours
           minutes: "{{ minutes }}"
-      - alias: Living room lights on
+      - alias: "Living room lights on"
         service: light.turn_on
-        data:
+        target:
           entity_id: "{{ turn_on_entity }}"
 ```
 
@@ -165,15 +166,16 @@ automation:
   trigger:
     platform: state
     entity_id: light.bedroom
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   action:
     service: script.turn_on
-    entity_id: script.notify_pushover
+    target:
+      entity_id: script.notify_pushover
     data:
       variables:
-        title: 'State change'
-        message: 'The light is on!'
+        title: "State change"
+        message: "The light is on!"
 ```
 
 The other way is calling the script as a service directly. In this case, all service data will be made available as variables. If we apply this approach on the script above, it would look like this:
@@ -184,38 +186,42 @@ automation:
   trigger:
     platform: state
     entity_id: light.bedroom
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   action:
     service: script.notify_pushover
     data:
-      title: 'State change'
-      message: 'The light is on!'
+      title: "State change"
+      message: "The light is on!"
 ```
 
 Using the variables in the script requires the use of templates:
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
 script:
   notify_pushover:
-    description: 'Send a pushover notification'
+    description: "Send a pushover notification"
     fields:
       title:
-        description: 'The title of the notification'
-        example: 'State change'
+        description: "The title of the notification"
+        example: "State change"
       message:
-        description: 'The message content'
-        example: 'The light is on!'
+        description: "The message content"
+        example: "The light is on!"
     sequence:
       - condition: state
         entity_id: switch.pushover_notifications
         state: "on"
       - service: notify.pushover
         data:
-          title: "{% raw %}{{ title }}{% endraw %}"
-          message: "{% raw %}{{ message }}{% endraw %}"
+          title: "{{ title }}"
+          message: "{{ message }}"
 ```
+
+{% endraw %}
 
 ### Waiting for Script to Complete
 
@@ -239,7 +245,8 @@ script:
   script_1:
     sequence:
       - service: script.turn_on
-        entity_id: script.script_2
+        target:
+          entity_id: script.script_2
       # Perform some other steps here while second script runs...
       # Now wait for called script to complete.
       - wait_template: "{{ is_state('script.script_2', 'off') }}"

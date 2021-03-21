@@ -10,19 +10,14 @@ ha_config_flow: true
 ha_codeowners:
   - '@denniss17'
 ha_domain: huisbaasje
+ha_platforms:
+  - sensor
 ---
 
 The Huisbaasje integrations allows you to track your energy consumption collected
 by the monitoring device installed on your energy meters.
 
-## Configuration
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Huisbaasje**.
-Log in using your Huisbaasje account. After finishing, the Huisbaasje integration
-will be available.
-
+{% include integrations/config_flow.md %}
 ## Sensors
 
 This integration provides the following sensors:

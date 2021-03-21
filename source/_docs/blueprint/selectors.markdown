@@ -10,18 +10,20 @@ Some selectors can, for example, show a toggle button to turn something
 on or off, while another select can filter a list of devices to show
 only devices that have motion-sensing capabilities.
 
-Having the good selectors set on your blueprint automations inputs makes a
+Having good selectors set on your blueprint automation inputs makes a
 blueprint easier to use from the UI.
 
 The following selectors are currently available:
 
 - [Action selector](#action-selector)
+- [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
 - [Boolean selector](#boolean-selector)
 - [Device selector](#device-selector)
 - [Entity selector](#entity-selector)
 - [Number selector](#number-selector)
 - [Object selector](#object-selector)
+- [Select selector](#select-selector)
 - [Target selector](#target-selector)
 - [Text selector](#text-selector)
 - [Time selector](#time-selector)
@@ -42,6 +44,23 @@ This selector does not have any other options; therefore, it only has its key.
 action:
 ```
 
+## Add-on selector
+
+This can only be used on an installation with a Supervisor. For installations
+that do not have that, an error will be displayed.
+
+The add-on selector allows the user to input an add-on slug.
+On the user interface, it will list all installed add-ons and use the slug of the
+selected add-on.
+
+![Screenshot of an add-on selector](/images/blueprints/selector-addon.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+addon:
+```
+
 ## Area selector
 
 The area selector shows an area finder that can pick a single area. The value
@@ -52,7 +71,7 @@ and entities that are assigned to those areas. For example, the areas list could
 be limited to areas with entities provided by the [ZHA](/integrations/zha)
 integration.
 
-In its most basic form, it doesn't require any options, which will show
+In its most basic form, this selector doesn't require any options, which will show
 all areas.
 
 ```yaml
@@ -164,9 +183,9 @@ A device selector can filter the list of devices, based on things like the
 manufacturer or model of the device, the entities the device provides or based
 on the domain that provided the device.
 
-![Screenshot of an device selector](/images/blueprints/selector-device.png)
+![Screenshot of a device selector](/images/blueprints/selector-device.png)
 
-In its most basic form, it doesn't require any options, which will show
+In its most basic form, this selector doesn't require any options, which will show
 all devices.
 
 ```yaml
@@ -224,9 +243,9 @@ entity:
 
 An example entity selector that, will only show devices that are:
 
-- Provided by the [deCONZ](/integration/deconz) integration.
+- Provided by the [deCONZ](/integrations/deconz) integration.
 - Are a Philips Hue Remote of Model RWL021.
-- Provide a battery [sensor](/integration/sensor).
+- Provide a battery [sensor](/integrations/sensor).
 
 And this is what is looks like in YAML:
 
@@ -251,7 +270,7 @@ entity.
 
 ![Screenshot of an entity selector](/images/blueprints/selector-entity.png)
 
-In its most basic form, it doesn't require any options, which will show
+In its most basic form, this selector doesn't require any options, which will show
 all entities.
 
 ```yaml
@@ -285,8 +304,8 @@ device_class:
 
 An example entity selector that, will only show entities that are:
 
-- Provided by the [ZHA](/integration/zha) integration.
-- From the [Binary Sensor](/integration/binary_sensor) domain.
+- Provided by the [ZHA](/integrations/zha) integration.
+- From the [Binary Sensor](/integrations/binary_sensor) domain.
 - Have presented themselves as devices of a motion device class.
 
 And this is what it looks like in YAML:
@@ -310,7 +329,7 @@ On the user interface, the input can either be in a slider or number mode.
 Both modes limit the user input by a minimal and maximum value, and can
 have a unit of measurement to go with it.
 
-In its most basic form, it requires a minimal and maximum value:
+In its most basic form, this selector requires a minimal and maximum value:
 
 ```yaml
 number:
@@ -381,9 +400,32 @@ This selector does not have any other options; therefore, it only has its key.
 object:
 ```
 
+## Select selector
+
+The select selector shows a list of available options from which the user can choose. The value of the input contains the value of the selected option. Only a single option can be selected at a time.
+
+![Screenshot of a select selector](/images/blueprints/selector-select.png)
+
+The selector requires a list of options that the user can choose from.
+
+```yaml
+select:
+  options:
+    - Red
+    - Green
+    - Blue
+```
+
+{% configuration select %}
+options:
+  description: List of options that the user can choose from.
+  type: list
+  required: true
+{% endconfiguration %}
+
 ## Target selector
 
-The target selector is a rather special selector, allowing the user to selector
+The target selector is a rather special selector, allowing the user to select
 targeted entities, devices or areas for service calls. The value of
 the input will contain a special target format, that is accepted by
 service calls.
@@ -394,7 +436,7 @@ those properties in those areas.
 
 ![Screenshot of a target selector](/images/blueprints/selector-target.png)
 
-Its most basic form, doesn't require any options, which will allow the
+In its most basic form, this selector does not require any options, which will allow the
 user to target any entity, device or area available in the system.
 
 ```yaml

@@ -11,6 +11,10 @@ ha_release: 0.49
 ha_codeowners:
   - '@pnbruckner'
 ha_domain: amcrest
+ha_platforms:
+  - binary_sensor
+  - camera
+  - sensor
 ---
 
 The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera in Home Assistant.
@@ -113,6 +117,10 @@ binary_sensors:
       description: "Return `on` when a motion is detected, `off` when not. Motion detection is enabled by default for most cameras, if this functionality is not working check that it is enabled in Settings > Events > Video Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
     motion_detected_polled:
       description: "Return `on` when a motion is detected, `off` when not. Motion detection is enabled by default for most cameras, if this functionality is not working check that it is enabled in Settings > Events > Video Detection. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
+    crossline_detected:
+      description: "Return `on` when a tripwire tripping is detected, `off` when not. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
+    crossline_detected_polled:
+      description: "Return `on` when a tripwire is tripping is detected, `off` when not. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
     online:
       description: "Return `on` when camera is available (i.e., responding to commands), `off` when not."
 sensors:
@@ -373,6 +381,7 @@ amcrest:
     password: YOUR_PASSWORD
     binary_sensors:
       - motion_detected
+      - crossline_detected
       - online
     sensors:
       - sdcard

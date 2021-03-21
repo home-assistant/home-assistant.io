@@ -10,6 +10,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@jeroenterheerdt'
 ha_domain: egardia
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
 ---
 
 The `egardia` platform enables the ability to control an [Egardia](https://egardia.com/)/[Woonveilig](https://woonveilig.nl) control panel. These alarm panels are known under different brand names across the world, including Woonveilig in the Netherlands. This was tested on the WL-1716, GATE-01, GATE-02 and GATE-03 versions of the Egardia/Woonveilig platform. Not only will you integrate your alarm control panel, supported sensors (door contacts at this moment) will be added automatically.
@@ -45,7 +48,7 @@ version:
   description: The version of the Egardia system. `GATE-01`, `GATE-02` and `GATE-03` are currently supported.
   required: false
   type: string
-  default: 'GATE-01'
+  default: "GATE-01"
 port:
   description: The port of the alarm panel.
   required: false

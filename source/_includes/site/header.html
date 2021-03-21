@@ -2,41 +2,62 @@
   <div class="grid">
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
       <a href="/" class="site-title">
-        <img src="/images/home-assistant-logo.svg" width="36" height="36" alt="Home Assistant">
+        <img
+          src="/images/home-assistant-logo.svg"
+          width="36"
+          height="36"
+          alt="Home Assistant"
+        />
         <span>{{ site.title }}</span>
       </a>
     </div>
 
     <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
       <nav>
-        <input type="checkbox" id="toggle">
-        <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+        <input type="checkbox" id="toggle" />
+        <label
+          for="toggle"
+          class="toggle"
+          data-open="Main Menu"
+          data-close="Close Menu"
+        ></label>
         <ul class="menu pull-right">
-            {% comment %}
-              Example dropdown menu
+          <li><a href="/getting-started/">Getting started</a></li>
+          <li>
+            <a href="/docs/"
+              >Documentation <i class="icon icon-caret-down"></i
+            ></a>
+            <ul>
+              <li><a href="/installation/">Installation</a></li>
               <li>
-                <a>Getting started <i class="icon icon-caret-down"></i></a>
-                <ul>
-                  <li><a href="/getting-started/">Installing Home Assistant</a></li>
-                  <li><a href="/getting-started/configuration/">Configuration Basics</a></li>
-                </ul>
+                <a href="/docs/configuration/">Configuration</a>
               </li>
-            {% endcomment %}
-            <li><a href="/getting-started/">Getting started</a></li>
-            <li><a href="/integrations/">Integrations</a></li>
-            <li><a href="/docs/">Documentation</a></li>
-            <li><a href="/cookbook/">Examples</a></li>
-            <li><a href="/blog/">Blog</a></li>
-            <li><a href="/help/">Need help?</a></li>
-            <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+              <li>
+                <a href="/docs/automation/">Automation</a>
+              </li>
+              <li>
+                <a href="/docs/scripts/">Scripting</a>
+              </li>
+              <li>
+                <a href="/lovelace/">User Interface</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/integrations/">Integrations</a></li>
+          <li><a href="/cookbook/">Examples</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/help/">Need help?</a></li>
+          <li>
+            <a href="#" class="show-search"><i class="icon-search"></i></a>
+          </li>
         </ul>
       </nav>
 
-      <div class='search-container' style='display: none'>
-        <div class='search'>
+      <div class="search-container" style="display: none">
+        <div class="search">
           <i class="icon-search"></i>
-          <input id='search' placeholder='Search the documentation…'>
-          <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+          <input id="search" placeholder="Search the documentation…" />
+          <a href="#" class="close"><i class="icon-remove-sign"></i></a>
         </div>
       </div>
     </div>

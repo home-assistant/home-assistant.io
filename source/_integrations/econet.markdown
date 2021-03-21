@@ -13,6 +13,10 @@ ha_codeowners:
   - '@vangorra'
   - '@w1ll1am23'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - water_heater
 ---
 
 The `econet` platform is consuming the information provided by a [EcoNet enabled Rheem water heater or thermostat](https://www.rheem.com/EcoNet/Home).
@@ -46,3 +50,5 @@ The EcoNet Sensor platform lets you view sensors associated with your EcoNet the
 ### Water Heater
 
 The EcoNet Water Heater platform lets you control your EcoNet water heater. Water Heaters do not report the current water temperature.
+
+{% include integrations/config_flow.md %}

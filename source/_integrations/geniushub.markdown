@@ -12,6 +12,12 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@zxdavb'
 ha_domain: geniushub
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - switch
+  - water_heater
 ---
 
 The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its zones, devices, and issues.
@@ -82,7 +88,7 @@ Each such entity has a state attribute that will contain a list of any such issu
 {% raw %}
 
 ```yaml
-- alias: GeniusHub Error Alerts
+- alias: "GeniusHub Error Alerts"
   trigger:
     platform: numeric_state
     entity_id: sensor.geniushub_errors
@@ -103,7 +109,7 @@ This alert may be useful to see if the CH is being turned on whilst you're on a 
 {% raw %}
 
 ```yaml
-- alias: GeniusHub CH State Change Alert
+- alias: "GeniusHub CH State Change Alert"
   trigger:
     platform: state
     entity_id: binary_sensor.dual_channel_receiver_2_1
@@ -185,7 +191,7 @@ This is the recommended option.
 - Polls the hub directly (so is faster, say ~1s response time).
 - You have the option of specifying a MAC address (not recommended, see above).
 
-The hub does not have to be in the same subnet as your Home Assistant server.
+The hub does not have to be in the same subnet as your Home Assistant instance.
 
 ### Option 2: hub token only
 

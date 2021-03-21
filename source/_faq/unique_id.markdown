@@ -36,4 +36,4 @@ Typically, you'll see this when you create entities manually using YAML, but it 
 
 If your user profile has the "Advanced Mode" activated, you will also see the second paragraph in the popup with a link to the [customization user interface](/docs/configuration/customizing-devices/#customization-using-the-ui) for this specific entity, which offers some customization options.
 
-In case you want to read more about unique IDs, head over to this [developer documentation page](/docs/entity_registry_index/).
+In case you want to read more about unique IDs, head over to this [developer documentation page](https://developers.home-assistant.io/docs/entity_registry_index/).

@@ -1,16 +1,18 @@
 ---
-title: "Mazda Connected Services"
-description: "Instructions on how to integrate your Connected Services capable Mazda vehicle with Home Assistant."
-ha_release: "2021.3"
+title: Mazda Connected Services
+description: Instructions on how to integrate your Connected Services capable Mazda vehicle with Home Assistant.
+ha_release: '2021.3'
 ha_category:
   - Car
   - Sensor
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_quality_scale: platinum
 ha_config_flow: true
 ha_codeowners:
   - '@bdr99'
 ha_domain: mazda
+ha_platforms:
+  - sensor
 ---
 
 The Mazda Connected Services integration allows you to retrieve data from a Mazda vehicle. In order to use this integration, you must first register your vehicle using the MyMazda app ([iOS](https://apps.apple.com/us/app/mymazda/id451886367)/[Android](https://play.google.com/store/apps/details?id=com.interrait.mymazda)).

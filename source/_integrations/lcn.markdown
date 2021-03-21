@@ -15,6 +15,13 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@alengwenus'
 ha_domain: lcn
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - sensor
+  - switch
 ---
 
 The `lcn` integration for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.

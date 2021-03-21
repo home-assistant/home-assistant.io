@@ -8,6 +8,8 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@mezz64'
 ha_domain: hikvision
+ha_platforms:
+  - binary_sensor
 ---
 
 The Hikvision Binary Sensor is a platform that parses the event stream of a

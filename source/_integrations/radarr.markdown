@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.47
 ha_iot_class: Local Polling
 ha_domain: radarr
+ha_platforms:
+  - sensor
 ---
 
 This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.

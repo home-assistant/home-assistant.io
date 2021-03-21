@@ -8,6 +8,8 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@tomerfi'
 ha_domain: switcher_kis
+ha_platforms:
+  - switch
 ---
 
 This `Switcher` integration allows you to control the [Switcher V2 Water Heater](https://www.switcher.co.il/).
@@ -26,9 +28,9 @@ To retrieve your device's details, please follow the instructions [here](https:/
 
 ```yaml
 switcher_kis:
-  phone_id: 'REPLACE_WITH_PHONE_ID'
-  device_id: 'REPLACE_WITH_DEVICE_ID'
-  device_password: 'REPLACE_WITH_DEVICE_PASSWORD'
+  phone_id: "REPLACE_WITH_PHONE_ID"
+  device_id: "REPLACE_WITH_DEVICE_ID"
+  device_password: "REPLACE_WITH_DEVICE_PASSWORD"
 ```
 
 {% configuration %}

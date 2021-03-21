@@ -75,6 +75,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    suggested_area:
+      description: 'Suggest an area if the device isn’t in one yet.'
+      required: false
+      type: string
     sw_version:
       description: The firmware version of the device.
       required: false
@@ -165,7 +169,7 @@ sensor:
   - platform: mqtt
     name: "RSSI"
     state_topic: "home/sensor1/infojson"
-    unit_of_measurement: 'dBm'
+    unit_of_measurement: "dBm"
     value_template: "{{ value_json.RSSI }}"
     availability:
       - topic: "home/sensor1/status"
@@ -219,7 +223,7 @@ sensor:
   - platform: mqtt
     name: "Battery Tablet"
     state_topic: "owntracks/tablet/tablet"
-    unit_of_measurement: '%'
+    unit_of_measurement: "%"
     value_template: "{{ value_json.batt }}"
 ```
 {% endraw %}
@@ -245,12 +249,12 @@ sensor:
   - platform: mqtt
     name: "Temperature"
     state_topic: "office/sensor1"
-    unit_of_measurement: '°C'
+    unit_of_measurement: "°C"
     value_template: "{{ value_json.temperature }}"
   - platform: mqtt
     name: "Humidity"
     state_topic: "office/sensor1"
-    unit_of_measurement: '%'
+    unit_of_measurement: "%"
     value_template: "{{ value_json.humidity }}"
 ```
 {% endraw %}

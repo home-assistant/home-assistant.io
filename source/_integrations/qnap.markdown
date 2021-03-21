@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@colinodell'
 ha_domain: qnap
+ha_platforms:
+  - sensor
 ---
 
 This `qnap` sensor allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).
@@ -33,7 +35,7 @@ sensor:
 
 {% configuration %}
 host:
-  description: The IP address of the QNAP NAS to monitor.
+  description: The IP address of the QNAP NAS to monitor, i.e., `192.168.8.12`.
   required: true
   type: string
 port:
@@ -42,12 +44,12 @@ port:
   default: 8080
   type: integer
 ssl:
-  description: Whether to connect via `https`.
+  description: Whether to connect via `https`. You might need to configure `port` (i.e., `443`) and `verify_ssl` (i.e., `false`) accordingly.
   required: false
   default: false
   type: boolean
 verify_ssl:
-  description: Whether SSL certificates should be validated.
+  description: Whether SSL certificates should be validated. Set to `false` if you use the default, self-signed QNap certificate.
   required: false
   default: true
   type: boolean
@@ -57,7 +59,7 @@ timeout:
   default: 10
   type: integer
 username:
-  description: An user to connect to the QNAP NAS.
+  description: An administration user to connect to the QNAP NAS. This user must be a member of the _administration_ group.
   required: true
   type: string
 password:
@@ -116,21 +118,10 @@ monitored_conditions:
       description: Displays the used space of the volume as a percentage (creates a new entry for each volume).
 {% endconfiguration %}
 
-### Self-signed certificates
+### SSL and Self-signed certificates
 
-If your QNAP device uses self-signed certificates, set the `verify_ssl` option to `false`.
+If your QNAP device uses self-signed certificates, set the `verify_ssl` option to `false`. If you configured your device to accept SSL-only connections, please also check that you set `port` accordingly, or you might get an `SSL: WRONG_VERSION_NUMBER` error.
 
-### QNAP device support:
+### QNAP device support
 
-This integration has been tested on the following devices:
-
-- TS-231P2 (QTS 4.4.2)
-- TS-259 Pro+ (QTS 4.2.6)
-- TS-228 (QTS 4.3.6)
-- TS-410 (QTS 4.2.3)
-- TS-419 (QTS 4.2.3)
-- TS-451 (QTS 4.2.2)
-- TS-470 (QTS 4.2.2)
-- TS-639 (QTS 4.2.3)
-
-Other QNAP NAS devices using similar firmware should work fine. For more information about supported devices, or to report issues with your device, please visit the [qnapstats project](https://github.com/colinodell/python-qnapstats#device-support).
+This integration works with most (but not all) QNAP devices. A complete, up-to-date [list of compatible devices can be found here](https://github.com/colinodell/python-qnapstats#device-support).

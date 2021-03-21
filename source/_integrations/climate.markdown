@@ -41,8 +41,9 @@ automation:
     at: "07:15:00"
   action:
     - service: climate.set_aux_heat
-      data:
+      target:
         entity_id: climate.kitchen
+      data:
         aux_heat: true
 ```
 
@@ -66,9 +67,10 @@ automation:
     at: "07:15:00"
   action:
     - service: climate.set_preset_mode
-      data:
+      target:
         entity_id: climate.kitchen
-        preset_mode: 'eco'
+      data:
+        preset_mode: "eco"
 ```
 
 ### Service `climate.set_temperature`
@@ -93,8 +95,9 @@ automation:
     at: "07:15:00"
   action:
     - service: climate.set_temperature
-      data:
+      target:
         entity_id: climate.kitchen
+      data:
         temperature: 24
         hvac_mode: heat
 ```
@@ -107,8 +110,9 @@ automation:
     at: "07:15:00"
   action:
     - service: climate.set_temperature
-      data:
+      target:
         entity_id: climate.kitchen
+      data:
         target_temp_high: 24
         target_temp_low: 20
         hvac_mode: heat_cool
@@ -132,8 +136,9 @@ automation:
     at: "07:15:00"
   action:
     - service: climate.set_humidity
-      data:
+      target:
         entity_id: climate.kitchen
+      data:
         humidity: 60
 ```
 
@@ -155,9 +160,10 @@ automation:
     at: "07:15:00"
   action:
     - service: climate.set_fan_mode
-      data:
+      target:
         entity_id: climate.kitchen
-        fan_mode: 'On Low'
+      data:
+        fan_mode: "On Low"
 ```
 
 ### Service `climate.set_hvac_mode`
@@ -178,8 +184,9 @@ automation:
     at: "07:15:00"
   action:
     - service: climate.set_hvac_mode
-      data:
+      target:
         entity_id: climate.kitchen
+      data:
         hvac_mode: heat
 ```
 
@@ -201,8 +208,9 @@ automation:
     at: "07:15:00"
   action:
     - service: climate.set_swing_mode
-      data:
+      target:
         entity_id: climate.kitchen
+      data:
         swing_mode: 1
 ```
 

@@ -49,6 +49,9 @@ Enjoy the release!
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.2.1 - February 5](#release-202121---february-5)
+- [Release 2021.2.2 - February 9](#release-202122---february-9)
+- [Release 2021.2.3 - February 11](#release-202123---february-11)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -83,7 +86,7 @@ supported and tested.
 This release brings you the [Z-Wave JS integration](/integrations/zwave_js)!
 
 A brand new integration for Z-Wave in Home Assistant, full-blown, created
-in a just month by a bunch of awesome people!
+in just a month by a bunch of awesome people!
 
 More and more people were concerned about the future of Z-Wave with
 Home Assistant; meanwhile the [Z-Wave JS][zwavejs] project was rapidly growing
@@ -96,8 +99,8 @@ JS integration uses a WebSocket connection to a Z-Wave JS server.
 
 This means, in order to use this new integration, you'll need to run the
 Z-Wave JS server that sits in between your Z-Wave USB stick and Home Assistant.
-There are multiple options available on running the Z-Wave JS server,
-via Docker, manually, but there is also an Home Assistant add-on available.
+There are multiple options available for running the Z-Wave JS server,
+via Docker or manually, and there is also a Home Assistant add-on available.
 
 If you run an installation with a Supervisor, the add-on will even be
 set up automatically for you.
@@ -177,7 +180,7 @@ Over a year ago, Home Assistant started working on the
 OZW daemon, using MQTT as a transport. This project was promising and something
 we put a lot of time and effort in.
 
-Unfortunately, the OpenZWave project itself became a bit staler as most
+Unfortunately, the OpenZWave project itself became a bit stale as most
 of the upstream development is done by a single person:
 Justin Hammond (Fishwaldo).
 
@@ -320,13 +323,177 @@ The following integration got support for a new platform:
 - [WiLight][wilight docs] now supports fans, added by [@leofig-rj]
 - [Hyperion][hyperion docs] now has all kinds of advanced control switches,
   added by [@dermotduffy]
-  
+
 ## Integrations now available to set up from the UI
 
 The following integrations are now available via the Home Assistant UI:
 
 - [Somfy MyLink][somfy_mylink docs], done by [@bdraco]
 - [Foscam][foscam docs], done by [@skgsergio]
+
+## Release 2021.2.1 - February 5
+
+- Convert ozw climate values to correct units ([@Chrisgozd] - [#45369]) ([ozw docs])
+- Add support for iCloud 2FA ([@nzapponi] - [#45818]) ([icloud docs])
+- Don't log missing mpd artwork inappropriately ([@mweinelt] - [#45908]) ([mpd docs])
+- Fix entities device_info property in Harmony integration ([@bieniu] - [#45964]) ([harmony docs])
+- Fix Local Media in Media Browser ([@DeadEnded] - [#45987]) ([media_source docs])
+- Bump zwave-js-server-python to 0.17.1 ([@MartinHjelmare] - [#45988]) ([zwave_js docs])
+- Bump awesomeversion from 21.2.0 to 21.2.2 ([@ludeeus] - [#45993])
+- Do not listen for dhcp packets if the filter cannot be setup ([@bdraco] - [#46006]) ([dhcp docs])
+- Bump zwave-js-server-python to 0.17.2 ([@MartinHjelmare] - [#46010]) ([zwave_js docs])
+- dhcp does not need promisc mode. Disable it in scapy ([@bdraco] - [#46018]) ([dhcp docs])
+- Revert aioshelly ([@balloob] - [#46038]) ([shelly docs])
+- Prevent fritzbox callmonitor phonebook_id 0 from being ignored ([@obelix05] - [#45990]) ([fritzbox_callmonitor docs])
+- Upgrade holidays to 0.10.5.2 ([@fabaff] - [#46013]) ([workday docs])
+
+[#45369]: https://github.com/home-assistant/core/pull/45369
+[#45818]: https://github.com/home-assistant/core/pull/45818
+[#45908]: https://github.com/home-assistant/core/pull/45908
+[#45964]: https://github.com/home-assistant/core/pull/45964
+[#45987]: https://github.com/home-assistant/core/pull/45987
+[#45988]: https://github.com/home-assistant/core/pull/45988
+[#45990]: https://github.com/home-assistant/core/pull/45990
+[#45993]: https://github.com/home-assistant/core/pull/45993
+[#46006]: https://github.com/home-assistant/core/pull/46006
+[#46010]: https://github.com/home-assistant/core/pull/46010
+[#46013]: https://github.com/home-assistant/core/pull/46013
+[#46018]: https://github.com/home-assistant/core/pull/46018
+[#46038]: https://github.com/home-assistant/core/pull/46038
+[@Chrisgozd]: https://github.com/Chrisgozd
+[@DeadEnded]: https://github.com/DeadEnded
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@fabaff]: https://github.com/fabaff
+[@ludeeus]: https://github.com/ludeeus
+[@mweinelt]: https://github.com/mweinelt
+[@nzapponi]: https://github.com/nzapponi
+[@obelix05]: https://github.com/obelix05
+[dhcp docs]: /integrations/dhcp/
+[fritzbox_callmonitor docs]: /integrations/fritzbox_callmonitor/
+[harmony docs]: /integrations/harmony/
+[icloud docs]: /integrations/icloud/
+[media_source docs]: /integrations/media_source/
+[mpd docs]: /integrations/mpd/
+[ozw docs]: /integrations/ozw/
+[shelly docs]: /integrations/shelly/
+[workday docs]: /integrations/workday/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.2.2 - February 9
+
+- Fix zwave_js cover control for Up/Down and Open/Close ([@natekspencer] - [#45965]) ([zwave_js docs])
+- Fix foscam to work again with non-admin accounts and make RTSP port configurable again ([@skgsergio] - [#45975]) ([foscam docs])
+- Fix downloader path validation on subdir ([@gadgetchnnel] - [#46061]) ([downloader docs])
+- Fix deprecated method isAlive() ([@cdce8p] - [#46062]) ([zwave docs])
+- Improve deCONZ logbook to be more robust in different situations ([@Kane610] - [#46063]) ([deconz docs])
+- Fix zwave_js Notification CC sensors and binary sensors ([@raman325] - [#46072]) ([zwave_js docs])
+- Fix incorrect current temperature for homekit water heaters ([@bdraco] - [#46076]) ([homekit docs])
+- Use async_update_entry rather than updating config_entry.data directly in Axis ([@Kane610] - [#46078]) ([axis docs])
+- Handle missing value in all platforms of zwave_js ([@marcelveldt] - [#46081]) ([zwave_js docs])
+- update discovery scheme for zwave_js light platform ([@marcelveldt] - [#46082]) ([zwave_js docs])
+- Update zwave_js discovery scheme for boolean sensors in the Alarm CC ([@marcelveldt] - [#46085]) ([zwave_js docs])
+- Fix Google translate TTS by bumping gTTS from 2.2.1 to 2.2.2 ([@hmmbob] - [#46110]) ([google_translate docs])
+- Revert "Convert ozw climate values to correct units (#45369)" ([@dshokouhi] - [#46163]) ([ozw docs])
+- Enable KNX auto_reconnect for auto-discovered connections ([@farmio] - [#46178]) ([knx docs])
+- Ensure creating an index that already exists is forgiving for postgresql ([@bdraco] - [#46185]) ([recorder docs])
+- Fix Tado Power and Link binary sensors ([@Noltari] - [#46235]) ([tado docs])
+- Handle empty mylink response at startup ([@bdraco] - [#46241]) ([somfy_mylink docs])
+
+[#45965]: https://github.com/home-assistant/core/pull/45965
+[#45975]: https://github.com/home-assistant/core/pull/45975
+[#46061]: https://github.com/home-assistant/core/pull/46061
+[#46062]: https://github.com/home-assistant/core/pull/46062
+[#46063]: https://github.com/home-assistant/core/pull/46063
+[#46072]: https://github.com/home-assistant/core/pull/46072
+[#46076]: https://github.com/home-assistant/core/pull/46076
+[#46078]: https://github.com/home-assistant/core/pull/46078
+[#46081]: https://github.com/home-assistant/core/pull/46081
+[#46082]: https://github.com/home-assistant/core/pull/46082
+[#46085]: https://github.com/home-assistant/core/pull/46085
+[#46110]: https://github.com/home-assistant/core/pull/46110
+[#46163]: https://github.com/home-assistant/core/pull/46163
+[#46178]: https://github.com/home-assistant/core/pull/46178
+[#46185]: https://github.com/home-assistant/core/pull/46185
+[#46235]: https://github.com/home-assistant/core/pull/46235
+[#46241]: https://github.com/home-assistant/core/pull/46241
+[@Kane610]: https://github.com/Kane610
+[@Noltari]: https://github.com/Noltari
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@dshokouhi]: https://github.com/dshokouhi
+[@farmio]: https://github.com/farmio
+[@gadgetchnnel]: https://github.com/gadgetchnnel
+[@hmmbob]: https://github.com/hmmbob
+[@marcelveldt]: https://github.com/marcelveldt
+[@natekspencer]: https://github.com/natekspencer
+[@raman325]: https://github.com/raman325
+[@skgsergio]: https://github.com/skgsergio
+[axis docs]: /integrations/axis/
+[deconz docs]: /integrations/deconz/
+[downloader docs]: /integrations/downloader/
+[foscam docs]: /integrations/foscam/
+[google_translate docs]: /integrations/google_translate/
+[homekit docs]: /integrations/homekit/
+[knx docs]: /integrations/knx/
+[ozw docs]: /integrations/ozw/
+[recorder docs]: /integrations/recorder/
+[somfy_mylink docs]: /integrations/somfy_mylink/
+[tado docs]: /integrations/tado/
+[zwave docs]: /integrations/zwave/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.2.3 - February 11
+
+- Fix SNMP engine memory leak in Brother integration ([@bieniu] - [#46272]) ([brother docs])
+- Use oauthv3 for Tesla ([@alandtse] - [#45766]) ([tesla docs]) (breaking-change)
+- Bump pymyq to 3.0.1 ([@ehendrix23] - [#46079]) ([myq docs])
+- Revert transmission to check torrent lists by name rather than object ([@JPHutchins] - [#46190]) ([transmission docs])
+- Update powerwall for new authentication requirements ([@bdraco] - [#46254]) ([powerwall docs])
+- Fix Lutron Integration Protocol reconnect logic ([@bdraco] - [#46264]) ([lutron_caseta docs])
+- Bump roonapi to 0.0.32 ([@pavoni] - [#46286]) ([roon docs])
+- Add guards for missing value in binary_sensor platform of zwave_js integration ([@marcelveldt] - [#46293]) ([zwave_js docs])
+- Add reauth support for tesla ([@bdraco] - [#46307]) ([tesla docs])
+- Add `already_in_progress` string to roku config flow ([@bramkragten] - [#46333]) ([roku docs])
+- Restore Google/Alexa extra significant change checks ([@balloob] - [#46335]) ([alexa docs]) ([google_assistant docs])
+- Fix Shelly relay device set to light appliance type ([@thecode] - [#46181]) ([shelly docs])
+
+[#45766]: https://github.com/home-assistant/core/pull/45766
+[#46079]: https://github.com/home-assistant/core/pull/46079
+[#46181]: https://github.com/home-assistant/core/pull/46181
+[#46190]: https://github.com/home-assistant/core/pull/46190
+[#46254]: https://github.com/home-assistant/core/pull/46254
+[#46264]: https://github.com/home-assistant/core/pull/46264
+[#46272]: https://github.com/home-assistant/core/pull/46272
+[#46286]: https://github.com/home-assistant/core/pull/46286
+[#46293]: https://github.com/home-assistant/core/pull/46293
+[#46307]: https://github.com/home-assistant/core/pull/46307
+[#46333]: https://github.com/home-assistant/core/pull/46333
+[#46335]: https://github.com/home-assistant/core/pull/46335
+[@JPHutchins]: https://github.com/JPHutchins
+[@alandtse]: https://github.com/alandtse
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@ehendrix23]: https://github.com/ehendrix23
+[@marcelveldt]: https://github.com/marcelveldt
+[@pavoni]: https://github.com/pavoni
+[@thecode]: https://github.com/thecode
+[alexa docs]: /integrations/alexa/
+[brother docs]: /integrations/brother/
+[google_assistant docs]: /integrations/google_assistant/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[myq docs]: /integrations/myq/
+[powerwall docs]: /integrations/powerwall/
+[roku docs]: /integrations/roku/
+[roon docs]: /integrations/roon/
+[shelly docs]: /integrations/shelly/
+[tesla docs]: /integrations/tesla/
+[transmission docs]: /integrations/transmission/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
@@ -464,7 +631,7 @@ to make sure all RainMachine service calls have those.
   <p>
 
 The current state of the ecobee integration always behaves as if the
-selected hold duration is **Until next scheduled activity**.  
+selected hold duration is **Until next scheduled activity**.
 
 With this change the following settings are now respected:
 
@@ -781,6 +948,20 @@ consistency in some edge cases. For most uses, this should only improve
 the quality of matches.
 
 ([@CtrlZvi] - [#43672])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Obihai</b></summary>
+  <p>
+
+The `last_caller_info` sensor now has the leading `'' ` (quotes and space) removed
+as those were not needed and were randomly provided by the Obihai device.
+
+So previously the state would be `'' 8185551212` now it is `8185551212`
+
+([@dshokouhi] - [#44768])
 
   </p>
 </details>
@@ -1867,7 +2048,7 @@ The following integrations have been removed:
 [frontend docs]: /integrations/frontend/
 [generic_thermostat docs]: /integrations/generic_thermostat/
 [gogogate2 docs]: /integrations/gogogate2/
-[google docs]: /integrations/google/
+[google docs]: /integrations/calendar.google/
 [google_assistant docs]: /integrations/google_assistant/
 [google_cloud docs]: /integrations/google_cloud/
 [google_maps docs]: /integrations/google_maps/

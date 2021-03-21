@@ -9,6 +9,9 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@benleb'
 ha_domain: surepetcare
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `surepetcare` component allows you to get information on your Sure Petcare Connect Pet or Cat Flap.

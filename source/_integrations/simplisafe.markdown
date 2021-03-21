@@ -10,6 +10,11 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: simplisafe
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - lock
+  - sensor
 ---
 
 The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
@@ -29,10 +34,7 @@ There is currently support for the following device types within Home Assistant:
 
 * Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
 
-## Configuration
-
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}
 
 ## Services
 

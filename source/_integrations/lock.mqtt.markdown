@@ -85,6 +85,10 @@ device:
       description: 'The name of the device.'
       required: false
       type: string
+    suggested_area:
+      description: 'Suggest an area if the device isn’t in one yet.'
+      required: false
+      type: string
     sw_version:
       description: 'The firmware version of the device.'
       required: false
@@ -195,7 +199,7 @@ lock:
     optimistic: false
     qos: 1
     retain: true
-    value_template: '{{ value.x }}'
+    value_template: "{{ value.x }}"
 ```
 
 {% endraw %}

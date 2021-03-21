@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: pvoutput
+ha_platforms:
+  - sensor
 ---
 
 The `pvoutput` sensor platform consumes information from [PVOutput](https://pvoutput.org/) which were uploaded by your solar photovoltaic (PV) system.

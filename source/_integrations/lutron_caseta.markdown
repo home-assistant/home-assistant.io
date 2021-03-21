@@ -17,6 +17,14 @@ ha_config_flow: true
 ha_codeowners:
   - '@swails'
   - '@bdraco'
+ha_zeroconf: true
+ha_homekit: true
+ha_platforms:
+  - binary_sensor
+  - cover
+  - fan
+  - light
+  - switch
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches, shades, and sensors. It will also communicate with the Lutron Radio RA2 Main Repeater for the [RA2 Select](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RA2Select/Overview.aspx) product line of dimmers, switches, shades, and sensors.
@@ -37,7 +45,9 @@ Additionally RA2 Select Main Repeater (`RR-SEL-REP2-BL`) or Lutron Caséta Smart
 - Pico Remotes as [device triggers](/integrations/device_automation/)
 - Shade Remotes as [device triggers](/integrations/device_automation/)
 
-If you have physical access to the Lutron Bridge, to add `Lutron Caséta` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Lutron Caséta**.
+{% include integrations/config_flow.md %}
+
+## Manual configuration
 
 Alternatively, if you already have `caseta.key`, `caseta.crt`, `caseta-bridge.crt`, and cannot physically access the bridge to press the button, pairing can be done manually using the following steps:
 
@@ -153,7 +163,7 @@ For more information on working with binary sensors in Home Assistant, see the [
 
 ## Pico and Shade Remotes
 
-Pico and Shade remotes require a RA2 Select Main Repeater (`RR-SEL-REP2-BL`) or Lutron Caséta Smart Bridge PRO (`L-BDGPRO2-WH`) with Telnet Support enabled in the Lutron app under `Settings` >> `Advanced` >> `Intergration`
+Pico and Shade remotes require a RA2 Select Main Repeater (`RR-SEL-REP2-BL`) or Lutron Caséta Smart Bridge PRO (`L-BDGPRO2-WH`) with Telnet Support enabled in the Lutron app under `Settings` >> `Advanced` >> `Integration`
 
 Device Triggers are implemented for `press` and `release` of each button on the remotes via watching for `lutron_caseta_button_event` events in the format:
 

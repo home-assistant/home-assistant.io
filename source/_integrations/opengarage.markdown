@@ -9,6 +9,8 @@ ha_release: 0.44
 ha_domain: opengarage
 ha_codeowners:
   - '@danielhiversen'
+ha_platforms:
+  - cover
 ---
 
 The `opengarage` cover platform lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.

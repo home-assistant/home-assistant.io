@@ -10,6 +10,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: file
+ha_platforms:
+  - notify
+  - sensor
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -99,12 +102,16 @@ Assuming that the log file contains multiple values formatted as JSON like shown
 
 This would require the following entry in the `configuration.yaml` file to extract the temperature:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: file
     name: Temperature
     file_path: /home/user/.homeassistant/sensor.json
-    value_template: {% raw %}'{{ value_json.temperature }}'{% endraw %}
-    unit_of_measurement: '°C'
+    value_template: '{{ value_json.temperature }}'
+    unit_of_measurement: "°C"
 ```
+
+{% endraw %}

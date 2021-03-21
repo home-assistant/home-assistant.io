@@ -9,21 +9,15 @@ ha_domain: kulersky
 ha_codeowners:
   - '@emlove'
 ha_config_flow: true
+ha_platforms:
+  - light
 ---
 
 This integration connects Brightech Kuler Sky floor lamps to Home Assistant.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-This integration can be configured using the integrations page in Home Assistant.
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and search for **Kuler Sky**.
-
-The integration will scan for nearby Bluetooth devices, and ask you to select your lamp.
-
-## Additional information for Home Assistant Core on Python environments
+{% details "Notes for Home Assistant Core Installations" %}
 
 This integration requires `pybluez` to be installed. On Debian based installs, run:
 
@@ -44,3 +38,5 @@ sudo apt-get install libcap2-bin
 sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
 sudo setcap 'cap_net_raw+ep' `readlink -f \`which hcitool\``
 ```
+
+{% enddetails %}

@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: '0.91'
 ha_domain: aws
+ha_platforms:
+  - notify
 ---
 
 The `aws` integration provides a single place to interact with [Amazon Web Services](https://aws.amazon.com/). Currently it provides a notification platform that can send a message to [AWS SQS](https://aws.amazon.com/sqs/), [AWS SNS](https://aws.amazon.com/sns/), or invoke [AWS Lambda](https://aws.amazon.com/lambda/) functions.

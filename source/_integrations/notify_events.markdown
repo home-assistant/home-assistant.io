@@ -9,6 +9,8 @@ ha_codeowners:
   - '@matrozov'
   - '@papajojo'
 ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
 ---
 
 ## Description

@@ -11,6 +11,11 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@trekky12'
 ha_domain: pilight
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
+  - switch
 ---
 
 [Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://manual.pilight.org/protocols/index.html) are already available.

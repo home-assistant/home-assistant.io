@@ -214,7 +214,7 @@ For Inovelli LZW30-SN and LZW31-SN switches with a third button for configuratio
 
 Once this is complete, `zwave.scene_activated` events will fire according to which button press you perform. For information on what button press corresponds to what scene_id and scene_data in the event, see [Inovelli Knowledge Base > How To: Setting Up Scenes In Home Assistant](https://support.inovelli.com/portal/en/kb/articles/how-to-setting-up-scenes-in-home-assistant).
 
-### Zooz Scene Capable On/Off and Dimmer Wall Switches (Zen21v3 & Zen22v2 - Firmware 3.0+, Zen26 & Zen27 - Firmware 2.0+, Zen30 Double Switch)
+### Zooz Scene Capable On/Off and Dimmer Wall Switches (Zen21v3 & Zen22v2 - Firmware 3.0+, Zen26 & Zen27 - Firmware 2.0+, Zen30 Double Switch, Zen32 Scene Controller, Zen34 Remote Switch)
 
 Many Zooz switches that have been sold do not have the latest firmwares. Contact Zooz to obtain the over the air firmware update instructions and new user manual for the switches.
 
@@ -746,7 +746,174 @@ Zen30 (Double Switch):
   </Value>
 </CommandClass>
 ```
+Zen32 Scene Controller:
 
+```xml
+<CommandClass id="112">
+  <Value type="list" genre="config" index="1" label="LED indicator mode for relay" size="1" min="0" max="3" value="0">
+    <Help></Help>
+    <Item label="LED on when relay off, LED off when relay on" value="0"/>
+    <Item label="LED on when relay on, LED off when relay off" value="1"/>
+    <Item label="LED always off" value="2"/>
+    <Item label="LED always on" value="3"/>
+  </Value>
+  <Value type="list" genre="config" index="2" label="LED indicator mode for Button 1" size="1" min="0" max="3" value="0">
+    <Help></Help>
+    <Item label="LED on when dimmer off, LED off when dimmer on" value="0"/>
+    <Item label="LED on when dimmer on, LED off when dimmer off" value="1"/>
+    <Item label="LED always off" value="2"/>
+    <Item label="LED always on" value="3"/>
+  </Value>
+  <Value type="list" genre="config" index="3" label="LED indicator mode for Button 2" size="1" min="0" max="3" value="0">
+    <Help></Help>
+    <Item label="LED on when dimmer off, LED off when dimmer on" value="0"/>
+    <Item label="LED on when dimmer on, LED off when dimmer off" value="1"/>
+    <Item label="LED always off" value="2"/>
+    <Item label="LED always on" value="3"/>
+  </Value>
+  <Value type="list" genre="config" index="4" label="LED indicator mode for Button 3" size="1" min="0" max="3" value="0">
+    <Help></Help>
+    <Item label="LED on when dimmer off, LED off when dimmer on" value="0"/>
+    <Item label="LED on when dimmer on, LED off when dimmer off" value="1"/>
+    <Item label="LED always off" value="2"/>
+    <Item label="LED always on" value="3"/>
+  </Value>
+  <Value type="list" genre="config" index="5" label="LED indicator mode for Button 4" size="1" min="0" max="3" value="0">
+    <Help></Help>
+    <Item label="LED on when dimmer off, LED off when dimmer on" value="0"/>
+    <Item label="LED on when dimmer on, LED off when dimmer off" value="1"/>
+    <Item label="LED always off" value="2"/>
+    <Item label="LED always on" value="3"/>
+  </Value>
+  <Value type="list" genre="config" index="6" label="LED indicator color for relay" size="1" min="0" max="3" value="0">
+    <Help></Help>
+    <Item label="white" value="0"/>
+    <Item label="blue" value="1"/>
+    <Item label="green" value="2"/>
+    <Item label="red" value="3"/>
+  </Value>
+  <Value type="list" genre="config" index="7" label="LED indicator color for Button 1" size="1" min="0" max="3" value="0">
+    <Help></Help>
+    <Item label="white" value="0"/>
+    <Item label="blue" value="1"/>
+    <Item label="green" value="2"/>
+    <Item label="red" value="3"/>
+  </Value>
+  <Value type="list" genre="config" index="8" label="LED indicator color for Button 2" size="1" min="0" max="3" value="0">
+    <Help></Help>
+    <Item label="white" value="0"/>
+    <Item label="blue" value="1"/>
+    <Item label="green" value="2"/>
+    <Item label="red" value="3"/>
+  </Value>
+  <Value type="list" genre="config" index="9" label="LED indicator color for Button 3" size="1" min="0" max="3" value="0">
+    <Help></Help>
+    <Item label="white" value="0"/>
+    <Item label="blue" value="1"/>
+    <Item label="green" value="2"/>
+    <Item label="red" value="3"/>
+  </Value>
+  <Value type="list" genre="config" index="10" label="LED indicator color for Button 4" size="1" min="0" max="3" value="0">
+    <Help></Help>
+    <Item label="white" value="0"/>
+    <Item label="blue" value="1"/>
+    <Item label="green" value="2"/>
+    <Item label="red" value="3"/>
+  </Value>
+  <Value type="list" genre="config" index="11" label="LED indicator brightness for relay" size="1" min="0" max="2" value="0">
+    <Help></Help>
+    <Item label="bright (100%)" value="0"/>
+    <Item label="medium (60%)" value="1"/>
+    <Item label="low (30%)" value="2"/>
+  </Value>
+  <Value type="list" genre="config" index="12" label="LED indicator brightness for Button 1" size="1" min="0" max="2" value="0">
+    <Help></Help>
+    <Item label="bright (100%)" value="0"/>
+    <Item label="medium (60%)" value="1"/>
+    <Item label="low (30%)" value="2"/>
+  </Value>
+  <Value type="list" genre="config" index="13" label="LED indicator brightness for Button 2" size="1" min="0" max="2" value="0">
+    <Help></Help>
+    <Item label="bright (100%)" value="0"/>
+    <Item label="medium (60%)" value="1"/>
+    <Item label="low (30%)" value="2"/>
+  </Value>
+  <Value type="list" genre="config" index="14" label="LED indicator brightness for Button 3" size="1" min="0" max="2" value="0">
+    <Help></Help>
+    <Item label="bright (100%)" value="0"/>
+    <Item label="medium (60%)" value="1"/>
+    <Item label="low (30%)" value="2"/>
+  </Value>
+  <Value type="list" genre="config" index="15" label="LED indicator brightness for Button 4" size="1" min="0" max="2" value="0">
+    <Help></Help>
+    <Item label="bright (100%)" value="0"/>
+    <Item label="medium (60%)" value="1"/>
+    <Item label="low (30%)" value="2"/>
+  </Value>
+  <Value type="int" genre="config" index="16" label="Auto turn-off timer for relay" size="4" min="0" max="65535" value="0" units="minutes">
+     <Help>Set the time (in minutes) after which you want the switch to automatically turn off once it has been turned on.</Help>
+  </Value>
+  <Value type="int" genre="config" index="17" label="Auto turn-on timer for relay" size="4" min="0" max="65535" value="0" units="minutes">
+    <Help>Set the time (in minutes) after which you want the switch to automatically turn on once it has been turned off.</Help>
+  </Value>
+  <Value type="list" genre="config" index="18" label="State after power failure" size="1" min="0" max="2" value="0">
+    <Help></Help>
+    <Item label="Relay and buttons remember and restore last state" value="0"/>
+    <Item label="Relay and buttons forced to off after power failure" value="1"/>
+    <Item label="Relay and buttons forced to on after power failure" value="2"/>
+  </Value>
+  <Value type="list" genre="config" index="19" label="Disable / enable control on the relay" size="1" min="0" max="2" value="1">
+    <Help></Help>
+    <Item label="Disable local / physical control (from the button), enable Z-Wave control" value="0"/>
+    <Item label="Enable local / physical control (from the button), enable Z-Wave control" value="1"/>
+    <Item label="Disable local / physical control (from the button), disable Z-Wave control" value="2"/>
+  </Value>
+  <Value type="list" genre="config" index="20" label="Relay behavior with disabled local / Z-Wave control" size="1" min="0" max="1" value="1">
+    <Help></Help>
+    <Item label="report on/off status when button is pressed and change LED indicator status if Parameter 19 is set to value 0 or 2" value="0"/>
+    <Item label="DON’T report on/off status when button is pressed and DON’T change LED indicator status if Parameter 19 is set to value 0 or 2 (but the relay will always send central scene command)" value="1"/>
+  </Value>
+  <Value type="list" genre="config" index="21" label="3-way switch type" size="1" min="0" max="1" value="0">
+    <Help>Choose the type of 3-way switch you want to use with this switch in a 3-way set-up.</Help>
+    <Item label="regular mechanical 3-way on/off switch, use the connected 3-way switch to turn the light on or off (default)" value="0"/>
+    <Item label="momentary switch, click once to change status (light on or off)" value="1"/>
+  </Value>
+</CommandClass>
+```
+
+Zen34 Remote Switch:
+
+```xml
+<CommandClass id="112">
+ <Value type="list" index="1" genre="config" label="LED indicator mode" units="" min="0" max="3" value="1" size="1">
+     <Help>Choose the LED indicator mode for your Remote Switch</Help>
+        <Item label="LED always off" value="0" />
+        <Item label="LED on when button is pressed to indicate scene activation or association command" value="1" />
+	<Item label="LED always on in color specific under parameter 2" value="2" />
+	<Item label="LED always on in color specific under parameter 3" value="3" />
+ </Value>
+ <Value type="list" index="2" genre="config" label="LED indicator color for upper paddle triggers" units="" min="0" max="6" value="0" size="1">
+    <Help>Choose the LED indicator color for the upper paddle remote controle triggers</Help>
+        <Item label="White" value="0" />
+        <Item label="Blue" value="1" />
+   	<Item label="Green" value="2" />
+	<Item label="Red" value="3" />
+	<Item label="Magenta" value="4" />
+	<Item label="Yellow" value="5" />
+	<Item label="Cyan" value="6" />
+ </Value>
+ <Value type="list" index="3" genre="config" label="LED indicator color for lower paddle triggers" units="" min="0" max="6" value="0" size="1">
+    <Help>Choose the LED indicator color for the lower paddle remote control triggers</Help>
+      <Item label="White" value="0" />
+      <Item label="Blue" value="1" />
+      <Item label="Green" value="2" />
+      <Item label="Red" value="3" />
+      <Item label="Magenta" value="4" />
+      <Item label="Yellow" value="5" />
+      <Item label="Cyan" value="6" />
+ </Value>
+</CommandClass>
+```
 For Zooz switches, you'll need to update (or possibly add) the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 
 ```xml
@@ -770,6 +937,21 @@ For the Zooz Zen30 Double Switch, you'll need to add the `COMMAND_CLASS_CENTRAL_
 </CommandClass>
 ```
 
+For the Zooz Zen32 Scene Controller, you'll need to add the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+
+```xml
+<CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
+  <Instance index="1" />
+  <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="2" />
+  <Value type="int" genre="user" instance="1" index="1" label="Top Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+  <Value type="int" genre="user" instance="1" index="2" label="Small Button 1 Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+  <Value type="int" genre="user" instance="1" index="3" label="Small Button 2 Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+  <Value type="int" genre="user" instance="1" index="4" label="Small Button 3 Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+  <Value type="int" genre="user" instance="1" index="5" label="Small Button 4 Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+</CommandClass>
+</CommandClass>
+```
+
 Go to the Z-Wave Network Management section in the Home Assistant Configuration, select the node which has just been updated and enable the scene support configuration parameter.
 
 Once this is complete, you should see the following `zwave.scene_activated` events:
@@ -790,6 +972,46 @@ Held off|1|7800
 Held on|2|7800
 Released off|1|7740
 Released on|2|7740
+
+The Zooz ZEN34 Remote Switch has shown inverted `scene_id` values compared to other Zooz switches as well as different `scene_data` values depending on production run:
+
+Recent production runs have appeared with:
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+1x tap on|1|7680
+1x tap off|2|7680
+2x tap on|1|7860
+2x tap off|2|7860
+3x tap on|1|7920
+3x tap off|2|7920
+4x tap on|1|7980
+4x tap off|2|7980
+5x tap on|1|8040
+5x tap off|2|8040
+Held on|1|7800
+Held off|2|7800
+Released on|1|7740
+Released off|2|7740
+
+Early production runs have appeared with:
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+1x tap on|1|0
+1x tap off|2|0
+2x tap on|1|3
+2x tap off|2|3
+3x tap on|1|4
+3x tap off|2|4
+4x tap on|1|5
+4x tap off|2|5
+5x tap on|1|6
+5x tap off|2|6
+Held on|1|2
+Held off|2|2
+Released on|1|1
+Released off|2|1
 
 ### HomeSeer Switches
 
@@ -1081,7 +1303,7 @@ Let's see how this works in an automation for a Scene Master that's assigned as 
 
 ```yaml
 - id: "1234567890"
-  alias: Double-press Button 2 to toggle all lights
+  alias: "Double-press Button 2 to toggle all lights"
   trigger:
   - platform: event
     event_type: zwave.scene_activated
@@ -1093,7 +1315,8 @@ Let's see how this works in an automation for a Scene Master that's assigned as 
   action:
   - data:
     service: light.toggle
-      entity_id: group.all_lights
+      target:
+        entity_id: group.all_lights
 ```
 
 ### RFWDC Cooper 5-button Scene Control Keypad
@@ -1130,7 +1353,7 @@ Here is an example configuration needed for the scene controller:
 
 ```yaml
 automation:
-  - alias: Sync the indicator value on button events
+  - alias: "Sync the indicator value on button events"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -1320,7 +1543,7 @@ Button four release|4|7740
 Example Event:
 
 ```yaml
-- alias: MatrixButton2
+- alias: "MatrixButton2"
   trigger:
     - event_type: zwave.scene_activated
       platform: event
@@ -1330,7 +1553,8 @@ Example Event:
         scene_data: 7680
   action:
     - service: switch.toggle
-      entity_id: switch.office_fan
+      target:
+        entity_id: switch.office_fan
 ```
 
 ### Zooz S2 MultiRelay (Zen16)
@@ -1522,7 +1746,7 @@ Button two triple tap|2|4
 Example Event:
 
 ```yaml
-- alias: JascoButton1
+- alias: "JascoButton1"
   trigger:
     - event_type: zwave.scene_activated
       platform: event
@@ -1532,7 +1756,8 @@ Example Event:
         scene_data: 0
   action:
     - service: switch.toggle
-      entity_id: switch.office_fan
+      target:
+        entity_id: switch.office_fan
 ```
 
 ### EATON On/Off & Dimmer (RF9501/RF9540-N/RF9640-N/RF9601-N)

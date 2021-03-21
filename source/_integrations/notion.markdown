@@ -11,12 +11,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: notion
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `Notion` component retrieves data from [Notion](https://getnotion.com) wireless
 home monitoring sensor kits.
 
-## Configuration
-
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}

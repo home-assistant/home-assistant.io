@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.37
 ha_iot_class: Local Polling
 ha_domain: piglow
+ha_platforms:
+  - light
 ---
 
 The `piglow` platform lets you control the [Piglow](https://shop.pimoroni.com/products/piglow) lights on your Raspberry Pi from within Home Assistant.

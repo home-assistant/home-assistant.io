@@ -10,17 +10,14 @@ ha_config_flow: true
 ha_codeowners:
   - '@mampfes'
 ha_domain: wiffi
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 This integration allows you to connect your [STALL WIFFI](https://stall.biz) devices directly to Home Assistant.
 
-## Configuration via the frontend
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **STALL WIFFI**.
-After completing the configuration flow, the STALL WIFFI
-integration will be available.
+{% include integrations/config_flow.md %}
 
 ## Configure the WIFFI device
 

@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.72
 ha_iot_class: Local Polling
 ha_domain: xiaomi
+ha_platforms:
+  - camera
+  - device_tracker
 ---
 
 The `Xiaomi` camera platform allows you to utilize Xiaomi Cameras within Home Assistant.
@@ -51,8 +54,8 @@ To enable the platform, add the following lines to your`configuration.yaml` file
 camera:
   - platform: xiaomi
     name: Camera
-    host: '192.168.1.100'
-    model: 'yi'
+    host: "192.168.1.100"
+    model: "yi"
     password: YOUR_PASSWORD
 ```
 
@@ -105,11 +108,11 @@ One particularly useful adjustment deals with video size. Since Yi videos are fa
 camera:
   - platform: xiaomi
     name: My Camera
-    host: '192.168.1.100'
-    model: 'xiaofang'
+    host: "192.168.1.100"
+    model: "xiaofang"
     password: YOUR_PASSWORD
     path: /home/camera/feed
-    ffmpeg_arguments: '-vf scale=800:450'
+    ffmpeg_arguments: "-vf scale=800:450"
 ```
 ## Hostname template
 
@@ -120,7 +123,7 @@ camera:
   - platform: xiaomi
     name: Front Camera
     host: "{{ states.device_tracker.front_camera.attributes.ip }}"
-    model: 'yi'
+    model: "yi"
     password: 1234
     path: /tmp/sd/record
 ```

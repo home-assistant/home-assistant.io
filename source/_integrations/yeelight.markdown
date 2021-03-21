@@ -11,6 +11,9 @@ ha_codeowners:
   - '@zewelor'
   - '@shenxn'
 ha_domain: yeelight
+ha_platforms:
+  - binary_sensor
+  - light
 ---
 
 The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
@@ -20,9 +23,7 @@ There is support for the following device types within Home Assistant:
 - **Light** - The Yeelight platform for supporting lights.
 - **Binary Sensor** - The Yeelight platform for supporting binary sensors. Currently, only nightlight mode sensor for ceiling lights.
 
-## Configuration
-
-To set up this integration, go to **Integrations** under **Configuration** and find Yeelight in the `+` menu. You can leave the host field empty to set up discovered devices. To configure the devices, use the "Options" button in the integration card.
+{% include integrations/config_flow.md %}
 
 ### Custom effects
 
@@ -172,6 +173,7 @@ This integration is tested to work with the following models. If you have a diff
 | `color1`   | YLDP03YL     | LED Bulb (Color) - E26                           |
 | `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
 | `color4`   | YLDP13YL     | LED Bulb 1S (Color)                              |
+| `color6`   | YLDP13AYL    | LED Bulb 1S (Color)                              |
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
 | ?          | YLDD04YL     | Lightstrip (Color)                               |
@@ -181,6 +183,7 @@ This integration is tested to work with the following models. If you have a diff
 | `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
 | `ceiling1` | YLXD01YL     | Yeelight Ceiling Light                           |
 | `ceiling2` | YLXD03YL     | Yeelight Ceiling Light - Youth Version           |
+| ?          | YLXD62YI     | Yeelight Ceiling Light (Jiaoyue 260)             |
 | ?, may be `ceiling3` | YLXD04YL     | Yeelight Ceiling Light (Jiaoyue 450)   |
 | `ceiling3` | YLXD05YL     | Yeelight Ceiling Light (Jiaoyue 480)             |
 | `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |

@@ -11,23 +11,24 @@ You can also call the service to activate [a scene](/integrations/scene/) which 
 automation:
   # Change the light in the kitchen and living room to 150 brightness and color red.
   trigger:
-    platform: sun
-    event: sunset
+    - platform: sun
+      event: sunset
   action:
-    service: light.turn_on
-    data:
-      brightness: 150
-      rgb_color: [255, 0, 0]
-      entity_id:
-        - light.kitchen
-        - light.living_room
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.kitchen
+          - light.living_room
+      data:
+        brightness: 150
+        rgb_color: [255, 0, 0]
 
 automation 2:
   # Notify me on my mobile phone of an event
   trigger:
-    platform: sun
-    event: sunset
-    offset: -00:30
+    - platform: sun
+      event: sunset
+      offset: -00:30
   variables:
     notification_service: notify.paulus_iphone
   action:
@@ -47,13 +48,13 @@ Conditions can also be part of an action. You can combine multiple service calls
 automation:
 - alias: "Office at evening"
   trigger:
-    platform: state
-    entity_id: sensor.office_occupancy
-    to: "on" 
+    - platform: state
+      entity_id: sensor.office_occupancy
+      to: "on" 
   action:
     - service: notify.notify
       data:
-        message: Testing conditional actions
+        message: "Testing conditional actions"
     - condition: or
       conditions:
         - condition: numeric_state
@@ -63,6 +64,7 @@ automation:
         - condition: state
           entity_id: sensor.office_illuminance
           below: 10
-   - service: scene.turn_on
-      entity_id: scene.office_at_evening
+    - service: scene.turn_on
+      target:
+        entity_id: scene.office_at_evening
 ```

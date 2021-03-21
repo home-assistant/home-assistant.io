@@ -9,6 +9,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@TheLastProject'
 ha_domain: essent
+ha_platforms:
+  - sensor
 ---
 
 The `essent` platform uses [PyEssent](https://github.com/TheLastProject/PyEssent/) to communicate with the (undocumented) API of Dutch energy provider Essent. It provides sensors for each of your meters and tariffs, updated daily.

@@ -11,6 +11,11 @@ ha_domain: rachio
 ha_codeowners:
   - '@bdraco'
 ha_config_flow: true
+ha_homekit: true
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - switch
 ---
 
 The `rachio` platform allows you to control your [Rachio irrigation system](https://rachio.com/).
@@ -35,9 +40,7 @@ In order for Rachio switches and sensors to update, your Home Assistant instance
 
 </div>
 
-## Configuration
-
-To add `Rachio` go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Rachio**.
+{% include integrations/config_flow.md %}
 
 **Water-saving suggestion:**<br>
 After setting up the integration, change the options to set the duration in minutes to run when activating a zone switch to a maximum failsafe value when using scripts to control zones. If something goes wrong with your script, Home Assistant, or you hit the Rachio API rate limit of 1700 calls per day, the controller will still turn off the zone after this amount of time.
@@ -85,11 +88,12 @@ script:
   run_grass_zones:
     sequence: 
       - service: rachio.start_multiple_zone_schedule
-        data:
+        target:
           entity_id:
             - switch.front_yard_west
             - switch.front_yard_east
             - switch.side_yard_west
+        data:
           duration: 20, 15, 10
 ```
 
@@ -99,11 +103,12 @@ script:
   run_grass_zones:
     sequence: 
       - service: rachio.start_multiple_zone_schedule
-        data:
+        target:
           entity_id:
             - switch.front_yard_west
             - switch.front_yard_east
             - switch.side_yard_west
+        data:
           duration: 20
 ```
 ### Service `rachio.set_zone_moisture_percent`

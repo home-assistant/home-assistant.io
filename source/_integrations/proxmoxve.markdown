@@ -9,6 +9,8 @@ ha_codeowners:
   - '@k4ds3'
   - '@jhollowe'
 ha_domain: proxmoxve
+ha_platforms:
+  - binary_sensor
 ---
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.
@@ -53,11 +55,11 @@ verify_ssl:
   default: true
   type: boolean
 username:
-  description: The username used to authenticate.
+  description: The username used to authenticate. Can include the realm by appending "@<realm>".
   required: true
   type: string
 password:
-  description: The password used to authenticate. Can include the realm by appending "@<realm>"
+  description: The password used to authenticate.
   required: true
   type: string
 realm:
@@ -84,13 +86,15 @@ nodes:
       type: list
 {% endconfiguration %}
 
-Example with multiple VMs and no containers:
+Example with multiple VMs, no containers, self-signed certificate and pve realm for the user setup described below:
 
 ```yaml
 proxmoxve:
   - host: IP_ADDRESS
     username: USERNAME
     password: PASSWORD
+    verify_ssl: false
+    realm: pve
     nodes:
       - node: NODE_NAME
         vms:
@@ -108,38 +112,39 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 
 To be able to retrieve the status of VMs and containers, the user used to connect must minimally have the `VM.Audit` privilege. Below is a guide to how to configure a new user with the minimum required permissions.
 
-### Create Home Assistant Role
+### Create Home Assistant Group
 
-Before creating the user, we need to create a permissions role for the user.
+Before creating the user, we need to create a group for the user.
+Privileges can be either applied to Groups or Roles.
 
 1. Click `Datacenter`
-2. Open `Permissions` and click `Roles`
-3. Click the `Create` button above all the existing roles
-4. name the new role (e.g.,  "home-assistant")
-5. Click the arrow next to privileges and select `VM.Audit` in the dropdown
-6. Click `Create`
+2. Open `Permissions` and click `Groups`
+3. Click the `Create` button above all the existing groups
+4. Name the new group (e.g.,  "HomeAssistant")
+5. Click `Create`
+
+### Add Group Permissions to all Assets
+
+For the group to access the VMs we need to grant it the auditor role
+
+1. Click `Datacenter`
+2. Click `Permissions`
+3. Open `Add` and click `Group Permission`
+4. Select "/" for the path
+5. Select your Home Assistant group (`HomeAssistant`)
+6. Select the Auditor role (`PVEAuditor`)
+7. Make sure `Propagate` is checked
 
 ### Create Home Assistant User
 
-Creating a dedicated user for Home Assistant, limited to only the role just created is the most secure method. These instructions use the `pve` realm for the user. This allows a connection, but ensures that the user is not authenticated for SSH connections. If you use the `pve` realm, just be sure to add `realm: pve` to your configuration.
+Creating a dedicated user for Home Assistant, limited to only to the access just created is the most secure method. These instructions use the `pve` realm for the user. This allows a connection, but ensures that the user is not authenticated for SSH connections. If you use the `pve` realm, just be sure to add `realm: pve` to your configuration.
 
 1. Click `Datacenter`
 2. Open `Permissions` and click `Users`
 3. Click `Add`
 4. Enter a username (e.g., "hass")
 5. Set the realm to "Proxmox VE authentication server"
- Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
-6. Ensure `Enabled` is checked and `Expire` is set to "never"
-7. Click `Add`
-
-### Add User Permissions to Assets
-
-To apply the user and role just created, we need to give it permissions
-
-1. Click `Datacenter`
-2. Click `Permissions`
-3. Open `Add` and click `User Permission`
-4. Select "/" for the path
-5. Select your Home Assistant user (`hass`)
-6. Select the Home Assistant role (`home-assistant`)
-7. Make sure `Propagate` is checked
+6. Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
+7. Select the group just created earlier (`HomeAssistant`) to grant access to Proxmox
+8. Ensure `Enabled` is checked and `Expire` is set to "never"
+9. Click `Add`

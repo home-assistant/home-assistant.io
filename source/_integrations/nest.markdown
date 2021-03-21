@@ -15,6 +15,12 @@ ha_codeowners:
   - '@allenporter'
 ha_domain: nest
 ha_quality_scale: platinum
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - climate
+  - sensor
 ---
 
 The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events.
@@ -78,17 +84,20 @@ Project**. Note: This is a different type of project from the Device Access proj
 
 1. Give your API Project a name then click **Create**. Note: You can ignore the *Project ID* here as Home Assistant does not need it.
 
-1. Click *OAuth consent screen* and make sure you have that configured, otherwise, you can do that now.
+1. Click *OAuth consent screen* and make sure you have that configured, otherwise you can do that now...
     ![Screenshot of OAuth consent screen creation](/images/integrations/nest/oauth_consent_create.png)
 
-1. Select **External** (the only choice if you are not a G-Suite user) then click **Create**.  While you are here, you may click the *Let us know what you think* to give Google's OAuth team any feedback about your experience configuring credentials for self-hosted software. They make regular improvements to this flow and appear to value feedback.
+1. Select **External** (the only choice if you are not a G-Suite user) then click **Create**. While you are here, you may click the *Let us know what you think* to give Google's OAuth team any feedback about your experience configuring credentials for self-hosted software. They make regular improvements to this flow and appear to value feedback.
 
-1. The *App Information* screen needs you to enter an **App name** and **User support email**, then enter your email again under **Developer contact email**. These are only shown while you later go through the OAuth flow to authorize Home Assistant to access your account. Click **Save and Continue**.
+1. The *App Information* screen needs you to enter an **App name** and **User support email**, then enter your email again under **Developer contact email**. These are only shown while you later go through the OAuth flow to authorize Home Assistant to access your account. Click **Save and Continue**. Omit unnecessary information (e.g. logo) to avoid additional review by Google.
 
 1. On the *Scopes* step click **Save and Continue**.
 
 1. On the *Test Users* step, you need to add your Google Account (e.g., your @gmail.com address) to the list. Click *Save* on your test account then **Save and Continue** to finish the consent flow.
     ![Screenshot of OAuth consent screen test users](/images/integrations/nest/oauth_consent_test_users.png)
+
+1. Navigate back to the *OAuth consent screen* and click **Publish App** to set the *Publishing status* is *In Production* and not *Testing*. The warning says your *app will be available to any user with a Google Account* which refers to the fields you entered on the *App Information* screen if someone finds the URL. This does not expose your Google Account or Nest data.
+    ![Screenshot of OAuth consent screen production status](/images/integrations/nest/oauth_consent_production_status.png)
 
 1. Navigate to the **Credentials** page and click **Create Credentials**.
     ![Screenshot of APIs and Services Cloud Console](/images/integrations/nest/create_credentials.png)
@@ -182,7 +191,7 @@ subscriber_id:
 
 Once your developer account is set up and you have a valid `nest` entry in `configuration.yaml`, you need to connect devices with the following steps:
 
-1. From the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Click **Add Integration** then locate 'Nest'.
+1. Using your externally accessible address from the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Click **Add Integration** then locate 'Nest'.
 
 1. You should get redirected to Google to choose an account. This should be the same developer account you configured above.
 
@@ -212,6 +221,17 @@ everything, however, you can leave out any feature you do not wish to use with H
 
 - For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
 
+- Check **Configuration** then **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
+
+- *Reauthentication required often*: If you are frequently getting logged out, this means your authentication token was revoked by Google. This most likely reason is the *OAuth Consent Screen* is set to *Testing* by default which expires the token after 7 days. Follow the steps above to set it to *Production* to resolve this and reauthorize your integration one more time to get a new token. You may also see this as the error message *invalid_grant: Token has been expired or revoked*.  See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for more reasons on why your token may have expired. 
+
+- *Thermostat does not appear or is unavailable* happens due to a bug where the SDM API does return the devices. A common fix get the API to work again is to:
+    - Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
+    - In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
+    - Reload the integration in Home Assistant:  Navigate to **Configuration** then **Integrations**, click `...` next to *Nest* and choose **Reload**.
+
+- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double-check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you may want to walk through the Google instructions and issue commands directly against the API until you successfully get back the devices.
+
 - *Error 400: redirect_uri_mismatch* means that your OAuth Client ID is not configured to match your Home Assistant URL.
 
     - To resolve this, copy and paste the redirect URI in the error message (`https://<your_home_assistant_url>:<port>/auth/external/callback`).
@@ -235,10 +255,6 @@ everything, however, you can leave out any feature you do not wish to use with H
 - *Error 403: access_denied* means that you need to visit the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) and add your Google Account as a *Test User*.
 
 - *Error: invalid_client no application name* means the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) has not been fully configured for the project. Enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
-
-- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double-check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you may want to walk through the Google instructions and issue commands directly against the API until you successfully get back the devices.
-
-- *Thermostat not created* may be resolved by restarting the *Nest Thermostat*. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
 
 - *Subscriber error: Subscription misconfigured. Expected subscriber_id to match...* means that the `configuration.yaml` has an incorrect `subscriber_id` field. Re-enter the the *Subscription Name* which looks like `projects/project-label-22ee1/subscriptions/SUBSCRIBER_ID`. Make sure this is not the *Topic name*.
 
@@ -317,7 +333,7 @@ The lower level Pub/Sub subscriber receives events in real time and internally f
 This automation will trigger when a `nest_event` event type with a type of `camera_motion` is received from the specified `device_id`.
 
 ```yaml
-alias: motion alert
+alias: "motion alert"
 trigger:
   - platform: event
     event_type: nest_event

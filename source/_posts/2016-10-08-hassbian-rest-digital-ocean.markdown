@@ -42,6 +42,8 @@ There was a lot of work done on our implementation which are working with RESTfu
 
 The [REST sensor][rest-sensor] supports now HTTP authentication (basic and digest) and custom headers. This will allow you to access resources which are protected. This sample sensor will access GitHub and retrieve the latest release number while by-passing the rate limit for non-authenticated requests.
 
+{% raw %}
+
 ```yaml
 sensor
   - platform: rest
@@ -49,12 +51,14 @@ sensor
     username: YOUR_GITHUB_USERNAME
     password: YOUR_GITHUB_ACCESS_TOKEN
     authentication: basic
-    value_template: "{% raw %}{{ value_json.tag_name }}{% endraw %}"
+    value_template: "{{ value_json.tag_name }}"
     headers:
       Accept: application/vnd.github.v3+json
       Content-Type: application/json
       User-Agent: Home Assistant REST sensor
 ```
+
+{% endraw %}
 
 ### Misc
 

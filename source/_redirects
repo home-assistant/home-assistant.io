@@ -236,7 +236,6 @@
 /components/camera.ring /integrations/ring#camera
 /components/camera.rpi_camera /integrations/rpi_camera
 /components/camera.skybell /integrations/skybell#camera
-/components/camera.synology /integrations/synology
 /components/camera.usps /integrations/usps#camera
 /components/camera.uvc /integrations/uvc
 /components/camera.verisure /integrations/verisure
@@ -660,11 +659,9 @@
 /components/sensor.citybikes /integrations/citybikes
 /components/sensor.co2signal /integrations/co2signal
 /components/sensor.coinbase /integrations/coinbase
-/components/sensor.coinmarketcap /integrations/coinmarketcap
 /components/sensor.comed_hourly_pricing /integrations/comed_hourly_pricing
 /components/sensor.comfoconnect /integrations/comfoconnect
 /components/sensor.cpuspeed /integrations/cpuspeed
-/components/sensor.crimereports /integrations/crimereports
 /components/sensor.cups /integrations/cups
 /components/sensor.currencylayer /integrations/currencylayer
 /components/sensor.daikin /integrations/daikin#sensor
@@ -1210,7 +1207,6 @@
 /components/cmus /integrations/cmus
 /components/co2signal /integrations/co2signal
 /components/coinbase /integrations/coinbase
-/components/coinmarketcap /integrations/coinmarketcap
 /components/comed_hourly_pricing /integrations/comed_hourly_pricing
 /components/comfoconnect /integrations/comfoconnect
 /components/command_line /integrations/command_line
@@ -1232,7 +1228,6 @@
 /components/cover.xiaomi_aqara /integrations/cover.xiaomi_aqara
 /components/cppm_tracker /integrations/cppm_tracker
 /components/cpuspeed /integrations/cpuspeed
-/components/crimereports /integrations/crimereports
 /components/cups /integrations/cups
 /components/currencylayer /integrations/currencylayer
 /components/daikin /integrations/daikin
@@ -1851,7 +1846,6 @@
 /components/switcher_kis /integrations/switcher_kis
 /components/switchmate /integrations/switchmate
 /components/syncthru /integrations/syncthru
-/components/synology /integrations/synology
 /components/synology_chat /integrations/synology_chat
 /components/synology_srm /integrations/synology_srm
 /components/synologydsm /integrations/synology_dsm
@@ -2085,9 +2079,9 @@
 /getting-started/scripts-service-calls /docs/scripts/service-calls
 /getting-started/scripts-conditions /docs/scripts/conditions
 /getting-started/securing /docs/configuration/securing
-/getting-started/troubleshooting /docs/installation/troubleshooting
-/getting-started/troubleshooting-configuration /docs/configuration/troubleshooting
-/getting-started/updating /docs/installation/updating
+/getting-started/troubleshooting /docs/troubleshooting
+/getting-started/troubleshooting-configuration /docs/troubleshooting
+/getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml
 /getting-started/z-wave /docs/z-wave
 /getting-started/z-wave-devices /docs/z-wave/devices
@@ -2102,6 +2096,21 @@
 /topics/splitting_configuration /docs/configuration/splitting_configuration
 /topics/state_object /docs/configuration/state_object
 /topics/templating /docs/configuration/templating
+/common-tasks /common-tasks/os
+/docs/installation /installation
+/docs/installation/docker /installation
+/docs/installation/raspberry-pi /installation
+/docs/installation/updating /common-tasks/os
+/docs/installation/virtualenv /installation
+/hassio /getting-started
+/hassio/commandline /common-tasks/os#home-assistant-via-the-command-line
+/hassio/enable_i2c /common-tasks/os#enable-i2c
+/hassio/flashing_n2_otg /common-tasks/os#flashing-an-odroid-n2
+/hassio/haos_common_tasks /common-tasks/os
+/hassio/hassos_faq /faq
+/hassio/index /installation
+/hassio/installation /installation
+/hassio/installing_third_party_addons /common-tasks/os#installing-third-party-add-ons
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -2174,11 +2183,15 @@
 /integrations/lovelace /lovelace
 
 # Removed documentation
+/docs/installation /getting-started
+/docs/installation/dokcer /getting-started
 /docs/installation/hassbian /getting-started
 /docs/installation/macos /docs/installation/virtualenv
 /docs/installation/raspberry-pi-all-in-one /getting-started
 /getting-started/hassbian /getting-started
 /getting-started/installation-raspberry-pi-all-in-one /getting-started
+/docs/tools/keyring/ /docs/configuration/secrets
+/docs/tools/credstash/ /docs/configuration/secrets
 
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
@@ -2263,3 +2276,13 @@
 /integrations/ptvsd /more-info/removed-integration 301
 /components/nuimo_controller /more-info/removed-integration 301
 /integrations/nuimo_controller /more-info/removed-integration 301
+/components/camera.synology /more-info/removed-integration 301
+/components/synology /more-info/removed-integration 301
+/integrations/synology /more-info/removed-integration 301
+/components/sensor.crimereports /more-info/removed-integration 301
+/components/crimereports /more-info/removed-integration 301
+/integrations/crimereports /more-info/removed-integration 301
+/components/sensor.coinmarketcap /more-info/removed-integration 301
+/components/coinmarketcap /more-info/removed-integration 301
+/integrations/coinmarketcap /more-info/removed-integration 301
+/integrations/griddy /more-info/removed-integration 301

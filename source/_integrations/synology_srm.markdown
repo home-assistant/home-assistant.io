@@ -8,6 +8,8 @@ ha_release: 0.87
 ha_codeowners:
   - '@aerialls'
 ha_domain: synology_srm
+ha_platforms:
+  - device_tracker
 ---
 
 This platform allows you to detect presence by looking at connected devices to a [Synology SRM](https://www.synology.com/en-us/srm) router.

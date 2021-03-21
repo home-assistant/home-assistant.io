@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.11
 ha_iot_class: Local Polling
 ha_domain: proliphix
+ha_platforms:
+  - climate
 ---
 
 The `proliphix` climate platform let you control [Proliphix](http://www.proliphix.com) thermostat from Home Assistant.

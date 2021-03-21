@@ -81,6 +81,10 @@ collections:
 #   3rd Party Settings    #
 # ----------------------- #
 
+#Search
+algolia:
+  api_key: "ae96d94b201c5444c8a443093edf3efb"
+
 # Twitter
 twitter_user: balloob
 twitter_tweet_button: true
@@ -101,9 +105,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2021
-current_minor_version: 2
-current_patch_version: 0
-date_released: 2021-02-03
+current_minor_version: 3
+current_patch_version: 4
+date_released: 2021-03-12
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -133,7 +137,7 @@ defaults:
       footer: true
       sharing: true
       sidebar: true
-  # Enable table of contents for integrations
+  # Enable table of contents for integrations and installations
   #
   # To set toc as a default value, we need to set the scope with an empty path
   # and the collection as type
@@ -142,6 +146,19 @@ defaults:
   - scope:
       path: ""
       type: integrations
+    values:
+      toc: true
+  - scope:
+      path: "installation/*"
+    values:
+      toc: true
+      no_toc: true
+  - scope:
+      path: "common-tasks/*"
+    values:
+      toc: true
+  - scope:
+      path: "hassio/*"
     values:
       toc: true
 
@@ -156,3 +173,44 @@ include:
 toc:
   min_level: 2 # default: 1
   max_level: 3 # default: 6
+
+# Configuration for installation pages
+installation:
+  versions:
+    os: "5.12"
+    python: "3.8"
+  types:
+    odroid:
+      board: ODROID
+      installation_media: "eMMC module/SD card"
+      variants:
+        - name: "ODROID-N2"
+          key: "odroid-n2"
+        - name: "ODROID-N2+"
+          key: "odroid-n2"
+        - name: "ODROID-C2"
+          key: "odroid-c2"
+        - name: "ODROID-C4"
+          key: "odroid-c4"
+        - name: "ODROID-XU4"
+          key: "odroid-xu4"
+
+    raspberrypi:
+      board: Raspberry Pi
+      installation_media: "SD card"
+      variants:
+        - name: "Raspberry Pi 4 64-bit"
+          key: "rpi4-64"
+        - name: "Raspberry Pi 4 32-bit"
+          key: "rpi4"
+        - name: "Raspberry Pi 3 64-bit"
+          key: "rpi3-64"
+        - name: "Raspberry Pi 3 32-bit"
+          key: "rpi3"
+
+    tinkerboard:
+      board: ASUS Tinkerboard
+      installation_media: "eMMC module/SD card"
+      variants:
+        - name: "ASUS Tinkerboard"
+          key: "tinker"

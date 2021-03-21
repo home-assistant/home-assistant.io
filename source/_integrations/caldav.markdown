@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: '0.60'
 ha_domain: caldav
+ha_platforms:
+  - calendar
 ---
 
 The `caldav` platform allows you to connect to your WebDAV calendar and generate binary sensors. A different sensor will be created for each individual calendar, or you can specify custom calendars which match a criteria you define (more on that below). These sensors will be `on` if you have an on going event in that calendar or `off` if the event is later in time, or if there is no event at all. The WebDAV calendar get updated roughly every 15 minutes.
@@ -161,13 +163,14 @@ calendar:
 
 # automations.yaml
 - id: wakeup
-  alias: worktime wakeup
+  alias: "worktime wakeup"
   trigger:
     platform: time
     at: "06:40:00"
   action:
   - service: media_player.media_play
-    entity_id: media_player.bedroom
+    target:
+      entity_id: media_player.bedroom
   condition:
   - condition: state
     entity_id: calendar.work_holiday

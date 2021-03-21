@@ -8,6 +8,8 @@ ha_release: 0.7.6
 ha_domain: radiotherm
 ha_codeowners:
   - '@vinnyfuria'
+ha_platforms:
+  - climate
 ---
 
 The `radiotherm` climate platform let you control a thermostat from [Radio Thermostat](https://www.radiothermostat.com/) or [3M Filtrete](https://www.filtrete.com/). Your thermostat must have the Wi-Fi module installed and connected to your network.

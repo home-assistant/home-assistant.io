@@ -8,32 +8,37 @@ ha_category: Automation Examples
 
 This script allows you to use [TTS](/integrations/#text-to-speech) on Sonos.
 
+{% raw %}
+
 ```yaml
 script:
   sonos_say:
     alias: "Sonos TTS script"
     sequence:
      - service: sonos.snapshot
-       data:
-         entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
+       target:
+         entity_id: "{{ sonos_entity }}"
      - service: sonos.unjoin
-       data:
-         entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
+       target:
+         entity_id: "{{ sonos_entity }}"
      - service: media_player.volume_set
        data:
-         entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
-         volume_level: {% raw %}"{{ volume }}"{% endraw %}
+         entity_id: "{{ sonos_entity }}"
+         volume_level: "{{ volume }}"
      - service: tts.voicerss_say
        data:
-         entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
-         message: {% raw %}"{{ message }}"{% endraw %}
-     - delay: {% raw %}"{{ delay }}"{% endraw %}
+         entity_id: "{{ sonos_entity }}"
+         message: "{{ message }}"
+     - delay: "{{ delay }}"
      - service: sonos.restore
-       data:
-         entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
+       target:
+         entity_id: "{{ sonos_entity }}"
 ```
 
+{% endraw %}
+
 We call this now with:
+
 ```yaml
 automation:
   - alias: "test"
@@ -48,6 +53,7 @@ automation:
           message: "Your husband coming home!"
           delay: "00:00:05"
 ```
+
 Note that this example uses the `voicerss` text-to-speech platform. There are many platforms that can be used. The one installed by default with Home Assistant is Google TTS. This appears in your `configuration.yaml` file as:
 
 ```yaml
@@ -56,6 +62,7 @@ tts:
 ```
 
 If you want to use this TTS engine, change the line in the example provided to:
+
 ```txt
 - service: tts.google_translate_say
 ```

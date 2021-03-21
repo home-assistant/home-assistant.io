@@ -139,7 +139,8 @@ For example:
 ```yaml
 action:
   service: tts.cloud_say
-  entity_id: media_player.family_room_speaker
+  target:
+    entity_id: media_player.family_room_speaker
   data:
     message: These new voices sound absolutely stunning!
     options:

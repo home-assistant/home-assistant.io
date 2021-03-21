@@ -5,7 +5,11 @@ description: "Documentation for the Home Assistant Script Syntax."
 
 Scripts are a sequence of actions that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in [automations] and [Alexa/Amazon Echo] configurations.
 
+When the script is executed within an automation the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
+
 The script syntax basic structure is a list of key/value maps that contain actions. If a script contains only 1 action, the wrapping list can be omitted.
+
+All actions support an optional `alias`.
 
 ```yaml
 # Example script integration containing script syntax
@@ -13,10 +17,12 @@ script:
   example_script:
     sequence:
       # This is written using the Script Syntax
-      - service: light.turn_on
-        data:
+      - alias: "Turn on ceiling light"
+        service: light.turn_on
+        target:
           entity_id: light.ceiling
-      - service: notify.notify
+      - alias: "Notify that ceiling light is turned on"
+        service: notify.notify
         data:
           message: "Turned on the ceiling light!"
 ```
@@ -45,10 +51,11 @@ script:
 The most important one is the action to call a service. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
 
 ```yaml
-- alias: Bedroom lights on
+- alias: "Bedroom lights on"
   service: light.turn_on
-  data:
+  target:
     entity_id: group.bedroom
+  data:
     brightness: 100
 ```
 
@@ -62,20 +69,22 @@ Scripts may also use a shortcut syntax for activating scenes instead of calling 
 
 ## Variables
 
-The variables command allows you to set/override variables that will be accessible by templates in actions after it. See also [script variables] for how to define variables accessible in the entire script.
+The variables action allows you to set/override variables that will be accessible by templates in actions after it. See also [script variables] for how to define variables accessible in the entire script.
 
 {% raw %}
 
 ```yaml
-- variables:
+- alias: "Set variables"
+  variables:
     entities: 
       - light.kitchen
       - light.living_room
     brightness: 100
-- alias: Control lights
+- alias: "Control lights"
   service: light.turn_on
-  data:
+  target:
     entity_id: "{{ entities }}"
+  data:
     brightness: "{{ brightness }}"
 ```
 
@@ -87,6 +96,7 @@ While executing a script you can add a condition to stop further execution. When
 
 ```yaml
 # If paulus is home, continue to execute the script below these lines
+  alias: "Check if Paulus is home"
 - condition: state
   entity_id: device_tracker.paulus
   state: "home"
@@ -101,7 +111,8 @@ Delays are useful for temporarily suspending your script and start it at a later
 ```yaml
 # Seconds
 # Waits 5 seconds
-- delay: 5
+- alias: "Wait 5s"
+  delay: 5
 ```
 
 ```yaml
@@ -141,8 +152,6 @@ All forms accept templates.
 
 These actions allow a script to wait for entities in the system to be in a certain state as specified by a template, or some event to happen as expressed by one or more triggers.
 
-When used within an automation the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
-
 ### Wait Template
 
 This action evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
@@ -152,20 +161,22 @@ The template is re-evaluated whenever an entity ID that it references changes st
 {% raw %}
 ```yaml
 
-# Wait until media player have stop the playing
-- wait_template: "{{ is_state('media_player.floor', 'stop') }}"
+# Wait until media player is stopped
+- alias: "Wait until media player is stopped"
+  wait_template: "{{ is_state('media_player.floor', 'stop') }}"
 ```
 
 {% endraw %}
 
 ### Wait for Trigger
 
-This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires.
+This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires. All previously defined [trigger_variables](/docs/automation/trigger#trigger_variables), [variables](#variables) and [script variables] are passed to the trigger.
 {% raw %}
 
 ```yaml
 # Wait for a custom event or light to turn on and stay on for 10 sec
-- wait_for_trigger:
+- alias: "Wait for MY_EVENT or light on"
+  wait_for_trigger:
     - platform: event
       event_type: MY_EVENT
     - platform: state
@@ -234,16 +245,18 @@ This can be used to take different actions based on whether or not the condition
         - service: script.door_did_not_open
   default:
     - service: script.turn_on
-      entity_id:
-        - script.door_did_open
-        - script.play_fanfare
+      target:
+        entity_id:
+          - script.door_did_open
+          - script.play_fanfare
 
 # Wait a total of 10 seconds.
 - wait_template: "{{ is_state('binary_sensor.door_1', 'on') }}"
   timeout: 10
   continue_on_timeout: false
 - service: switch.turn_on
-  entity_id: switch.some_light
+  target:
+    entity_id: switch.some_light
 - wait_for_trigger:
     - platform: state
       entity_id: binary_sensor.door_2
@@ -252,7 +265,8 @@ This can be used to take different actions based on whether or not the condition
   timeout: "{{ wait.remaining }}"
   continue_on_timeout: false
 - service: switch.turn_off
-  entity_id: switch.some_light
+  target:
+    entity_id: switch.some_light
 ```
 {% endraw %}
 
@@ -261,7 +275,8 @@ This can be used to take different actions based on whether or not the condition
 This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the logbook.
 
 ```yaml
-- event: LOGBOOK_ENTRY
+- alias: "Fire LOGBOOK_ENTRY event"
+  event: LOGBOOK_ENTRY
   event_data:
     name: Paulus
     message: is waking up
@@ -271,6 +286,8 @@ This action allows you to fire an event. Events can be used for many things. It 
 
 You can also use event_data to fire an event with custom data. This could be used to pass data to another script awaiting
 an event trigger.
+
+The `event_data` accepts templates.
 
 {% raw %}
 
@@ -285,10 +302,10 @@ an event trigger.
 
 ### Raise and Consume Custom Events
 
-The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
+The following automation example shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
 ```yaml
-- alias: Fire Event
+- alias: "Fire Event"
   trigger:
     - platform: state
       entity_id: switch.kitchen
@@ -299,12 +316,12 @@ The following automation shows how to raise a custom event called `event_light_s
         state: "on"
 ```
 
-The following automation shows how to capture the custom event `event_light_state_changed`, and retrieve corresponding `entity_id` that was passed as the event data.
+The following automation example shows how to capture the custom event `event_light_state_changed` with an [Event Automation Trigger](/docs/automation/trigger#event-trigger), and retrieve corresponding `entity_id` that was passed as the event trigger data, see [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data) for more details.
 
 {% raw %}
 
 ```yaml
-- alias: Capture Event
+- alias: "Capture Event"
   trigger:
     - platform: event
       event_type: event_light_state_changed
@@ -334,18 +351,20 @@ script:
     mode: restart
     sequence:
       - service: light.turn_on
-        data:
+        target:
           entity_id: "light.{{ light }}"
-      - repeat:
+      - alias: "Cycle light 'count' times"
+        repeat:
           count: "{{ count|int * 2 - 1 }}"
           sequence:
             - delay: 2
             - service: light.toggle
-              data:
+              target:
                 entity_id: "light.{{ light }}"
   flash_hallway_light:
     sequence:
-      - service: script.flash_light
+      - alias: "Flash hallway light 3 times"
+        service: script.flash_light
         data:
           light: hallway
           count: 3
@@ -365,7 +384,7 @@ script:
   do_something:
     sequence:
       - service: script.get_ready_for_something
-      - alias: Repeat the sequence AS LONG AS the conditions are true
+      - alias: "Repeat the sequence AS LONG AS the conditions are true"
         repeat:
           while:
             - condition: state
@@ -413,7 +432,7 @@ automation:
         state: "off"
     mode: single
     action:
-      - alias: Repeat the sequence UNTIL the conditions are true
+      - alias: "Repeat the sequence UNTIL the conditions are true"
         repeat:
           sequence:
             # Run command that for some reason doesn't always work
@@ -461,6 +480,8 @@ Nesting is fully supported.
 Each sequence is paired with a list of conditions. (See the [conditions page] for available options and how multiple conditions are handled.) The first sequence whose conditions are all true will be run.
 An _optional_ `default` sequence can be included which will be run only if none of the sequences from the list are run.
 
+An _optional_ `alias` can be added to each of the sequences, excluding the `default` sequence.
+
 The `choose` action can be used like an "if" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
 
 {% raw %}
@@ -474,8 +495,8 @@ automation:
         to: "on"
     action:
       - choose:
-          # IF nobody home, sound the alarm!
-          - conditions:
+          - alias: "IF nobody home, sound the alarm!"
+            conditions:
               - condition: state
                 entity_id: group.family
                 state: not_home
@@ -484,7 +505,8 @@ automation:
                 data:
                   duration: 60
       - service: light.turn_on
-        entity_id: all
+        target:
+          entity_id: all
 ```
 
 ```yaml
@@ -495,20 +517,22 @@ automation:
         entity_id: binary_sensor.motion
     mode: queued
     action:
-      - choose:
+      - alias: "Turn on front lights if motion detected, else turn off"
+        choose:
           # IF motion detected
-          - conditions:
-              - condition: template
-                value_template: "{{ trigger.to_state.state == 'on' }}"
+          - alias: "Motion detected"
+            conditions: "{{ trigger.to_state.state == 'on' }}"
             sequence:
               - service: script.turn_on
-                entity_id:
-                  - script.slowly_turn_on_front_lights
-                  - script.announce_someone_at_door
+                target:
+                  entity_id:
+                    - script.slowly_turn_on_front_lights
+                    - script.announce_someone_at_door
         # ELSE (i.e., motion stopped)
         default:
           - service: light.turn_off
-            entity_id: light.front_lights
+            target:
+              entity_id: light.front_lights
 ```
 
 ```yaml
@@ -533,16 +557,19 @@ automation:
                 value_template: "{{ now().hour < 18 }}"
             sequence:
               - service: light.turn_off
-                entity_id: light.living_room
+                target:
+                  entity_id: light.living_room
               - service: script.sim_day
         # ELSE night
         default:
           - service: light.turn_off
-            entity_id: light.kitchen
+            target:
+              entity_id: light.kitchen
           - delay:
               minutes: "{{ range(1, 11)|random }}"
           - service: light.turn_off
-            entity_id: all
+            target:
+              entity_id: all
 ```
 
 {% endraw %}
@@ -571,13 +598,72 @@ automation:
                  is_state('binary_sensor.all_clear', 'off') }}
             sequence:
               - service: script.turn_on
-                entity_id: script.flash_lights
+                target:
+                  entity_id: script.flash_lights
               - service: script.arrive_home
                 data:
                   ok: false
           - conditions: "{{ trigger.to_state.state == 'Away' }}"
             sequence:
               - service: script.left_home
+```
+
+{% endraw %}
+
+
+More `choose` can be used together. This is the case of an IF-IF.
+
+The following example shows how a single automation can control entities that aren't related to each other but have in common the same trigger.
+
+When the sun goes below the horizon, the `porch` and `garden` lights must turn on. If someone is watching the TV in the living room, there is a high chance that someone is in that room, therefore the living room lights have to turn on too. The same concept applies to the `studio` room.
+
+{% raw %}
+
+```yaml
+# Example with "if" and "if"
+automation:
+  - alias: "Turn lights on when the sun gets dim and if some room is occupied"
+      trigger:
+        - platform: numeric_state
+          entity_id: sun.sun
+          attribute: elevation
+          below: 4
+      action:
+        # This must always apply
+        - service: light.turn_on
+          data:
+            brightness: 255
+            color_temp: 366
+          target:
+            entity_id:
+              - light.porch
+              - light.garden
+        # IF a entity is ON
+        - choose:
+            - conditions:
+                - condition: state
+                  entity_id: binary_sensor.livingroom_tv
+                  state: "on"
+              sequence:
+                - service: light.turn_on
+                  data:
+                    brightness: 255
+                    color_temp: 366
+                  target:
+                    entity_id: light.livingroom
+         # IF another entity not related to the previous, is ON
+        - choose:
+            - conditions:
+                - condition: state
+                  entity_id: binary_sensor.studio_pc
+                  state: "on"
+              sequence:
+                - service: light.turn_on
+                  data:
+                    brightness: 255
+                    color_temp: 366
+                  target:
+                    entity_id: light.studio
 ```
 
 {% endraw %}

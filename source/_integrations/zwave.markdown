@@ -11,14 +11,31 @@ ha_category:
   - Lock
   - Sensor
   - Switch
-featured: true
+featured: false
 ha_iot_class: Local Push
 ha_release: 0.7
 ha_config_flow: true
 ha_codeowners:
   - '@home-assistant/z-wave'
 ha_domain: zwave
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
+
+<p class='note warning'>
+
+This integration is deprecated. We recommend using [the Z-Wave JS integration](/integrations/zwave_js).
+
+The Z-Wave integration will no longer receive any updates. It will not be removed unless it becomes incompatible with a future version of Python.
+
+</p>
 
 The [Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
 
@@ -65,18 +82,20 @@ The following examples will instruct a Remotec ZXT-120 to turn the attached devi
 
 ```yaml
 automation:
-  - alias: Turn on Heater at 8pm
+  - alias: "Turn on Heater at 8pm"
     trigger:
       - platform: time
         at: "20:00:00"
     action:
       - service: climate.set_hvac_mode
-        data:
+        target:
           entity_id: climate.remotec_zxt120_heating_1_id
+        data:
           hvac_mode: Heat
       - service: climate.set_temperature
-        data:
+        target:
           entity_id: climate.remotec_zxt120_heating_1_39
+        data:
           temperature: 24
 ```
 
@@ -84,15 +103,16 @@ Generally, in Home Assistant, you can use the `homeassistant.turn_off` service t
 
 ```yaml
 automation:
-  - alias: Turn off Heater at 9pm
+  - alias: "Turn off Heater at 9pm"
     trigger:
       - platform: time
         at: "21:00:00"
     action:
       - service: climate.set_hvac_mode
-        data:
+        target:
           entity_id: climate.remotec_zxt120_heating_1_id
-          hvac_mode: 'Off'
+        data:
+          hvac_mode: "Off"
 ```
 
 **Note:** In the example above, the word `Off` is encased in single quotes to be valid YAML.

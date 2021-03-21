@@ -17,6 +17,15 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@SukramJ'
 ha_domain: homematicip_cloud
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - sensor
+  - switch
+  - weather
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
@@ -32,19 +41,9 @@ There is currently support for the following device types within Home Assistant:
 * Switch
 * Weather
 
-## Setup the integration via the frontend
+{% include integrations/config_flow.md %}
 
-Menu: *Configuration* -> *Integrations*
-
-Fill the form:
-
-* Your **access point ID** (SGTIN)
-* Optional a **name** to identify your access point, this will be used to prefix your device names.
-* The **PIN**, mandatory if one is used in the native HomematicIP App.
-
-The authentification token will be generated and stored internally.
-
-## Setup the integration using the configuration files
+## Manual configuration
 
 Generate the authentication token:
 
@@ -278,8 +277,9 @@ You can get the required index from the native Homematic IP App.
 ...
 action:
   service: homematicip_cloud.set_active_climate_profile
-  data:
+  target:
     entity_id: climate.livingroom
+  data:
     climate_profile_index: 1
 ```
 
@@ -299,7 +299,7 @@ Reset energy counter of measuring actuators.
 ...
 action:
   service: homematicip_cloud.reset_energy_counter
-  data:
+  target:
     entity_id: switch.livingroom
 ```
 

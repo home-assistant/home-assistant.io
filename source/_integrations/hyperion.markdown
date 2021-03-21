@@ -10,9 +10,13 @@ ha_codeowners:
   - '@dermotduffy'
 ha_quality_scale: platinum
 ha_config_flow: true
+ha_ssdp: true
+ha_platforms:
+  - light
+  - switch
 ---
 
-The `hyperion` platform allows you to integrate your
+The Hyperion integration allows you to integrate your
 [Hyperion](https://docs.hyperion-project.org/) into Home Assistant. Hyperion is
 an open source Ambilight implementation which runs on many platforms.
 
@@ -20,22 +24,7 @@ an open source Ambilight implementation which runs on many platforms.
 supported, the original [discontinued Hyperion](https://github.com/hyperion-project/hyperion) is not supported by
 this integration.
 
-## Configuration
-
-This integration can be configured using the integrations in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-In most cases, Hyperion servers will be automatically discovered by
-Home Assistant. Those automatically discovered devices are listed
-on the integrations page.
-
-If for some reason Hyperion isn't discovered, it can be added manually.
-
-Click on the `+` sign to add an integration and click on **Hyperion**.
-After completing the configuration flow, the Hyperion integration will be
-available.
+{% include integrations/config_flow.md %}
 
 ### Extra configuration of the integration
 
@@ -89,50 +78,53 @@ To start Hyperion with an effect, use the following automation:
 ```yaml
 automation:
 - id: one
-  alias: Turn Hyperion effect on when light goes on
+  alias: "Turn Hyperion effect on when light goes on"
   trigger:
     - platform: state
       entity_id: light.hyperion
-      to: 'on'
+      to: "on"
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.hyperion
+      data:
         effect: "Full color mood blobs"
 ```
 
 To have the lights playing an effect when pausing, idle or turn off a media player like Plex you can use this example:
 
 ```yaml
-- alias: Set hyperion effect after playback
+- alias: "Set hyperion effect after playback"
   trigger:
     - platform: state
       entity_id: media_player.plex
-      to: 'off'
+      to: "off"
     - platform: state
       entity_id: media_player.plex.plex
-      to: 'paused'
+      to: "paused"
     - platform: state
       entity_id: media_player.plex.plex
-      to: 'idle'
+      to: "idle"
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.hyperion
+      data:
         effect: "Full color mood blobs"
 ```
 
 To capture the screen when playing something on a media_player you can use this example:
 
 ```yaml
-- alias: Set hyperion when playback starts
+- alias: "Set hyperion when playback starts"
   trigger:
     - platform: state
       entity_id: media_player.plex
-      to: 'playing'
+      to: "playing"
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.hyperion
+      data:
         effect: V4L
 ```

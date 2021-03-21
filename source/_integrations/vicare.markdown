@@ -7,6 +7,11 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@oischinger'
 ha_domain: vicare
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - water_heater
 ---
 
 The `ViCare` integration lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.

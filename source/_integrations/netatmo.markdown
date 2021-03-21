@@ -15,9 +15,15 @@ ha_codeowners:
   - '@cgtobi'
 ha_config_flow: true
 ha_domain: netatmo
+ha_homekit: true
+ha_platforms:
+  - camera
+  - climate
+  - light
+  - sensor
 ---
 
-The `netatmo` integration platform is the main integration to integrate all Netatmo related platforms.
+The Netatmo integration platform is the main integration to integrate all Netatmo related platforms.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -27,12 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Webhook Events](#webhook-events)
 
-## Configuration
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Netatmo**.
-After completing the configuration flow, the Netatmo integration will be available.
+{% include integrations/config_flow.md %}
 
 ### Extra configuration of the integration
 
@@ -113,7 +114,7 @@ Example:
 
 ```yaml
 # Example automation for webhooks based Netatmo events
-- alias: Netatmo event example
+- alias: "Netatmo event example"
   description: "Count all events pushed by the Netatmo API"
   trigger:
     - event_data: {}
@@ -131,7 +132,7 @@ Example:
 
 ```yaml
 # Example automation for Netatmo Welcome
-- alias: Motion at home
+- alias: "Motion at home"
   description: "Motion detected at home"
   trigger:
     - event_type: netatmo_event
@@ -155,7 +156,7 @@ Example:
 
 ```yaml
 # Example automation for Netatmo Presence
-- alias: Motion at home
+- alias: "Motion at home"
   description: "Motion detected at home"
   trigger:
     - event_type: netatmo_event
@@ -179,7 +180,7 @@ Example:
 
 ```yaml
 # Example automation
-- alias: door or window open or movement
+- alias: "door or window open or movement"
   description: "Notifies which door or window is open or was moved"
   trigger:
     - event_type: netatmo_event

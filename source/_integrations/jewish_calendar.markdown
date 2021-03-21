@@ -8,6 +8,9 @@ ha_release: 0.79
 ha_codeowners:
   - '@tsvi'
 ha_domain: jewish_calendar
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The Jewish Calendar (`jewish_calendar`) integration displays a variety of information related to the Jewish Calendar as a variety of sensors.

@@ -50,6 +50,7 @@ fan:
           service: script.fan_direction
           data:
             direction: "{{ direction }}"
+        speed_count: 6
         preset_modes:
           - 'auto'
           - 'smart'
@@ -118,8 +119,22 @@ fan:
         required: false
         type: action
       preset_modes:
-        description: List of preset modes the fan is capable of.
+        description: List of preset modes the fan is capable of. This is an arbitrary list of strings and must not contain any speeds.
         required: false
         type: [string, list]
         default: []
+      speed_count:
+        description: The number of speeds the fan supports. Used to calculate the percentage step for the `fan.increase_speed` and `fan.decrease_speed` services.
+        required: false
+        type: integer
+        default: 100
 {% endconfiguration %}
+
+## Converting from speeds to percentage
+
+When converting a fan with 3 speeds from the old fan entity model, the following percentages can be used:
+ 
+0 - `off`
+33 - `low`
+66 - `medium`
+100 - `high`

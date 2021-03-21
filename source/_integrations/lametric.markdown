@@ -10,6 +10,8 @@ ha_release: 0.49
 ha_codeowners:
   - '@robbiet480'
 ha_domain: lametric
+ha_platforms:
+  - notify
 ---
 
 [LaMetric Time](https://lametric.com/) is a smart clock that can be used to access applications, listen to web radio and display notifications.

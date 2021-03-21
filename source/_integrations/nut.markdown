@@ -9,13 +9,14 @@ ha_domain: nut
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
+ha_zeroconf: true
+ha_platforms:
+  - sensor
 ---
 
 The `nut` sensor platform allows you to monitor a UPS (battery backup) by using data from a [NUT](https://networkupstools.org/) (Network UPS Tools) server.
 
-## Configuration
-
-To add `nut` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Network UPS Tools (NUT)**.
+{% include integrations/config_flow.md %}
 
 ## Example Resources
 

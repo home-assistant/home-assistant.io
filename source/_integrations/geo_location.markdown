@@ -51,7 +51,7 @@ zone:
     passive: true
 
 automation:
-  - alias: 'Bush Fire Alert'
+  - alias: "Bush Fire Alert"
     trigger:
       platform: geo_location
       source: nsw_rural_fire_service_feed

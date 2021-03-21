@@ -10,6 +10,10 @@ ha_category:
 ha_release: '0.40'
 ha_iot_class: Local Polling
 ha_domain: android_ip_webcam
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `android_ip_webcam` integration turns any Android phone or tablet into a network camera with multiple viewing options.

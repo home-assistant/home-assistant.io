@@ -9,6 +9,10 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.57
 ha_domain: snmp
+ha_platforms:
+  - device_tracker
+  - sensor
+  - switch
 ---
 
 A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/managing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and Wi-Fi registrations.
@@ -230,12 +234,12 @@ To create a sensor that displays the uptime for your printer in minutes, you can
 # Example configuration.yaml entry
 sensor:
   - platform: snmp
-    name: 'Printer uptime'
+    name: "Printer uptime"
     host: 192.168.2.21
     baseoid: 1.3.6.1.2.1.1.3.0
     accept_errors: true
-    unit_of_measurement: 'minutes'
-    value_template: '{{((value | int) / 6000) | int}}'
+    unit_of_measurement: "minutes"
+    value_template: "{{((value | int) / 6000) | int}}"
 ```
 
 {% endraw %}
@@ -389,12 +393,12 @@ switch:
   - platform: snmp
     name: SNMP v3 switch
     host: 192.168.0.3
-    version: '3'
-    username: 'myusername'
-    auth_key: 'myauthkey'
-    auth_protocol: 'hmac-sha'
-    priv_key: 'myprivkey'
-    priv_protocol: 'aes-cfb-128'
+    version: "3"
+    username: "myusername"
+    auth_key: "myauthkey"
+    auth_protocol: "hmac-sha"
+    priv_key: "myprivkey"
+    priv_protocol: "aes-cfb-128"
     baseoid: 1.3.6.1.4.1.19865.1.2.1.4.0
     payload_on: 1
     payload_off: 0
@@ -402,12 +406,12 @@ switch:
   - platform: snmp
     name: Enable PoE on Netgear switch port 2 using SNMP v3
     host: 192.168.0.4
-    version: '3'
-    username: 'myusername'
-    auth_key: 'myauthkey'
-    auth_protocol: 'hmac-sha'
-    priv_key: 'myprivkey'
-    priv_protocol: 'des'
+    version: "3"
+    username: "myusername"
+    auth_key: "myauthkey"
+    auth_protocol: "hmac-sha"
+    priv_key: "myprivkey"
+    priv_protocol: "des"
     baseoid: 1.3.6.1.4.1.4526.11.15.1.1.1.1.1.2
     payload_on: 15400
     payload_off: 3000

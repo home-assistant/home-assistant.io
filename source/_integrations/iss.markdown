@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.36
 ha_domain: iss
+ha_platforms:
+  - binary_sensor
 ---
 
 The `iss` platform uses the

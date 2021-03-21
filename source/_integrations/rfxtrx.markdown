@@ -16,6 +16,12 @@ ha_codeowners:
   - '@elupus'
   - '@RobBie1221'
 ha_domain: rfxtrx
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - sensor
+  - switch
 ---
 
 The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
@@ -28,9 +34,9 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensors)
 - [Binary Sensor](#binary-sensors)
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add RFXtrx integration go to **Configuration** >> **Integrations** and find the integration in the list. Choose between **Serial** or **Network**. For network configure host and port. For serial, a list of detected devices is presented. Choose the RFXCOM device or select **Enter Manually** to fill in the USB path manually.
+## Debug logging
 
 To receive debug logging from the RFXCOM device, add the following lines to `configuration.yaml`:
 
@@ -240,7 +246,7 @@ type_string: 'ARC'
 id_string': 'C3'
 data: '0710010143030170'
 values': 
-  Command: 'On'
+  Command: "On"
   Rssi numeric': 7
 ```
 
@@ -274,7 +280,7 @@ scene:
     light.ceiling_lights: off
 
 automation:
-  - alias: Use doorbell button to trigger scene
+  - alias: "Use doorbell button to trigger scene"
     trigger:
     - platform: event
       event_type: rfxtrx_event
@@ -286,7 +292,8 @@ automation:
           Sound: 9
     action:
       service: scene.turn_on
-      entity_id: scene.welcomescene
+      target:
+        entity_id: scene.welcomescene
 ```
 
 ## Services

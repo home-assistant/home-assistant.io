@@ -3,6 +3,10 @@
   {% assign root = url_parts[1] %}
   {% if root == 'integrations' %}
     {% include asides/component_navigation.html %}
+  {% elsif root == 'installation' %}
+    {% include asides/installation_navigation.html %}
+  {% elsif root == 'common-tasks' %}
+    {% include asides/common_tasks_navigation.html %}
   {% elsif root == 'cookbook' %}
     {% include asides/cookbook_navigation.html %}
   {% elsif root == 'lovelace' %}
@@ -30,6 +34,16 @@
       {% include post/sharing.html %}
       {% include asides/recent_posts.html %}
     {% endif %}
+  {% endif %}
+  {% if page.toc %}
+    {%- unless page.no_toc -%}
+      <section class="aside-module grid__item one-whole lap-one-half">
+        <div class='section'>
+          <h1 class="title delta">On this page</h1>
+          {{ content | toc_only }}
+        </div>
+      </section>
+    {%- endunless -%}
   {% endif %}
 </div>
 <script type="text/javascript">

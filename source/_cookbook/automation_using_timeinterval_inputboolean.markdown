@@ -27,7 +27,8 @@ automation:
     state: "on"
   action:
     service: light.turn_on
-    entity_id: light.woonkamer_livingcolors
+    target:
+      entity_id: light.woonkamer_livingcolors
     data:
       effect: random
       transition: 5

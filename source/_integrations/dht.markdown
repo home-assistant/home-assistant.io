@@ -7,6 +7,8 @@ ha_release: 0.7
 logo: dht.png
 ha_iot_class: Local Polling
 ha_domain: dht
+ha_platforms:
+  - sensor
 ---
 
 The `dht` sensor platform allows you to get the current temperature and humidity from a DHT11, DHT22 or AM2302 device.

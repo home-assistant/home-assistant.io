@@ -52,12 +52,12 @@ input_datetime:
         required: false
         type: string
       has_time:
-        description: Set to `true` if the input should have a time. At least one `has_time` or `has_date` must be defined.
+        description: Set to `true` if the input should have a time. At least one of `has_time` or `has_date` must be defined.
         required: false
         type: boolean
         default: false
       has_date:
-        description: Set to `true` if the input should have a date. At least one `has_time` or `has_date` must be defined.
+        description: Set to `true` if the input should have a date. At least one of `has_time` or `has_date` must be defined.
         required: false
         type: boolean
         default: false
@@ -121,7 +121,8 @@ automation:
     at: input_datetime.bedroom_alarm_clock_time
   action:
     service: light.turn_on
-    entity_id: light.bedroom
+    target:
+      entity_id: light.bedroom
 ```
 
 To dynamically set the `input_datetime` you can call
@@ -136,7 +137,7 @@ If you have a `datetime` object you can use its `timestamp` method. Of if you ha
   target:
     entity_id: input_datetime.XXX
   data:
-    time: '05:30:00'
+    time: "05:30:00"
 # Sets time to time from datetime object
 - service: input_datetime.set_datetime
   target:
@@ -148,7 +149,7 @@ If you have a `datetime` object you can use its `timestamp` method. Of if you ha
   target:
     entity_id: input_datetime.XXX
   data:
-    date: '2020-08-24'
+    date: "2020-08-24"
 # Sets date to date from datetime object
 - service: input_datetime.set_datetime
   target:
@@ -160,7 +161,7 @@ If you have a `datetime` object you can use its `timestamp` method. Of if you ha
   target:
     entity_id: input_datetime.XXX
   data:
-    datetime: '2020-08-25 05:30:00'
+    datetime: "2020-08-25 05:30:00"
 # Sets date and time from datetime object
 - service: input_datetime.set_datetime
   target:

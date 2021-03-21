@@ -17,17 +17,22 @@ ha_iot_class: Local Push
 ha_domain: shelly
 featured: true
 ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - sensor
+  - switch
 ---
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
-## Configuration
-
-To add a Shelly device to your installation, make sure they are connected to your Wi-Fi network first. Next, go to **Configuration** >> **Integrations** in the UI. If the new device is on the same network as Home Assistant, it is discovered automatically. Clicking "Configure" on the discovered device, adds it to Home Assistant. If your device isn't discovered automatically, click the button with `+` sign on the integrations page and from the list of integrations, select **Shelly** and follow the instructions shown.
-
 <div class="note">
 Integration is communicating directly with the device; cloud connection is not needed.
 </div>
+
+{% include integrations/config_flow.md %}
 
 ## Entity naming
 
@@ -74,7 +79,8 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
       click_type: single
   action:
     service: light.toggle
-    entity_id: light.living_room
+    target:
+      entity_id: light.living_room
 
 - alias: "Toggle living room lamp"
   trigger:
@@ -86,7 +92,8 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
       click_type: long
   action:
     service: light.toggle
-    entity_id: light.lamp_living_room
+    target:
+      entity_id: light.lamp_living_room
 ```
 
 ### Possible values for `click_type`
