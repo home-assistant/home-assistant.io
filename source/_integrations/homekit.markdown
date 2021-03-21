@@ -307,7 +307,7 @@ It is recommended to only edit a HomeKit instance in the UI that was created in 
 
 ### Accessory mode
 
-When exposing a Camera or Television media player (a `media_player` with device class `tv`) to HomeKit, `mode` must be set to `accessory`, and the include filter should be setup to only include a single entity.
+When exposing a Camera, Activity base dremote (a `remote` that supports activities) or Television media player (a `media_player` with device class `tv`) to HomeKit, `mode` must be set to `accessory`, and the include filter should be setup to only include a single entity.
 
 To quickly add all accessory modes entities in the UI:
 
