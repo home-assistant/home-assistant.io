@@ -15,7 +15,7 @@ ha_platforms:
   - sensor
 ---
 
-[System Bridge](https://github.com/timmo001/system-bridge) is an application that runs on your local machine to share system information via its API as well as allowing commands to be sent to the device.
+[System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API as well as allowing commands to be sent to the device.
 
 ## Prerequisites
 
