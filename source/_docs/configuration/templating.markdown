@@ -186,7 +186,7 @@ The `expand` function and filter can be used to sort entities and expand groups.
 
 ```text
 {% for tracker in expand('device_tracker.paulus', 'group.child_trackers') %}
-  {{ state_attr(tracker, 'battery') }}
+  {{ state_attr(tracker.entity_id, 'battery') }}
   {%- if not loop.last %}, {% endif -%}
 {% endfor %}
 ```
