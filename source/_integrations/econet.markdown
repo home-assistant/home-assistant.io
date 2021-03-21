@@ -45,7 +45,7 @@ The EcoNet Climate platform lets you control your EcoNet thermostat. Multi zone 
 
 ### Sensor
 
-The EcoNet Sensor platform lets you view sensors associated with your EcoNet thermostat or water heater. For example, alert count or availble hot water.
+The EcoNet Sensor platform lets you view sensors associated with your EcoNet thermostat or water heater. For example, alert count or available hot water.
 
 ### Water Heater
 
