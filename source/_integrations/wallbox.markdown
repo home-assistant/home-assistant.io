@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: wallbox
 ha_platforms:
   - sensor
+ha_config_flow: true
 ---
 
 This `wallbox` sensor platform pulls data from https://my.wallbox.com for your wallbox charging station.
