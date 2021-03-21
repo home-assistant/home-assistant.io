@@ -55,11 +55,11 @@ verify_ssl:
   default: true
   type: boolean
 username:
-  description: The username used to authenticate.
+  description: The username used to authenticate. Can include the realm by appending "@<realm>".
   required: true
   type: string
 password:
-  description: The password used to authenticate. Can include the realm by appending "@<realm>"
+  description: The password used to authenticate.
   required: true
   type: string
 realm:
