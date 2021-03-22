@@ -93,4 +93,4 @@ curl --header "Content-Type: application/json" \
 
 <p class='note'>webhook URL endpoints do not require authentication so pick a randomized webhook ID.</p>
 
-[trigger-doc]: /docs/automatin/trigger
+[trigger-doc]: /docs/automation/trigger
