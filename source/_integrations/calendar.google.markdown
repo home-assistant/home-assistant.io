@@ -80,7 +80,7 @@ The next time you run or restart Home Assistant, you should find a new notificat
 
 ## Calendar Configuration
 
-With every restart all calendars of the configured Google account will get pulled and added to the `google_calendars.yaml` and preconfigured as a single entity. By setting the 'track' variable to `true` the calendar will get monitored for new events which can be used for automations and it's content is shown on the 'Calendar' dashboard (mind 'max_results' is set to 5 by default).
+With every restart all calendars of the configured Google account will get pulled and added to the `google_calendars.yaml` and preconfigured as a single entity. By setting the 'track' variable to `true` the calendar will get monitored for new events which can be used for automations and its content is shown on the 'Calendar' dashboard (mind 'max_results' is set to 5 by default).
 
 A basic entry for a single calendar looks like:
 
