@@ -1,25 +1,9 @@
 ---
-title: "Automation Templating"
-description: "Advanced automation documentation using templating."
+title: "Automation Trigger Variables"
+description: "List all available variables made available by triggers."
 ---
 
 Automations support [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` template variable is available.
-
-<div class='note'>
-  
-  Be aware that if you reference a `trigger` state object in templates of an automation' `action` or `condition` sections, attempting to test that automation by calling the `automation.trigger` service or by clicking EXECUTE in the More Info box for the automation will not work. This is because the trigger state object doesn't exist in those contexts. One way to test automations like these is to manually check that the templates work as expected by pasting them in {% my developer_template title="Developer Tools > Template" %} together with your trigger's definition like:
-
-{%raw%}
-
-```yaml
-{% set trigger={'to_state':{'state': 'heat'}} %}
-{% set option = trigger.to_state.state %}
-{{ 'on' if option == 'heat' else 'off' }}
-```
-
-{%endraw%}
-  
-</div>
 
 ## Available Trigger Data
 
@@ -167,3 +151,17 @@ automation 3:
 {% endraw %}
 
 [state object]: /docs/configuration/state_object/
+
+## Troubleshooting
+
+Be aware that if you reference a `trigger` state object in templates of an automation' `action` or `condition` sections, attempting to test that automation by calling the `automation.trigger` service or by clicking EXECUTE in the More Info box for the automation will not work. This is because the trigger state object doesn't exist in those contexts. One way to test automations like these is to manually check that the templates work as expected by pasting them in {% my developer_template title="Developer Tools > Template" %} together with your trigger's definition like:
+
+{%raw%}
+
+```yaml
+{% set trigger={'to_state':{'state': 'heat'}} %}
+{% set option = trigger.to_state.state %}
+{{ 'on' if option == 'heat' else 'off' }}
+```
+
+{%endraw%}
