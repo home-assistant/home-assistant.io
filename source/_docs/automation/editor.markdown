@@ -31,3 +31,7 @@ message: Sensor value greater than 10
 
 Automation created or edited via the user interface, are activated immediately
 after save the automation.
+
+## Troubleshooting missing automations
+
+When you're creating automations using the GUI and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your `configuration.yaml`.
