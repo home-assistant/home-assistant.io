@@ -244,7 +244,7 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
 
 ### Improving Zigbee network range
 
-Low signal quality can lead to transmission errors and related issues. This section has a list of tips to improve signal quality which maximizes range and resolves most problems related to transmission errors.
+Low signal quality can lead to transmission errors and related issues. This section has a list of fundamental tips how to improve signal quality. Improving signal quality also maximizes range and resolves most problems related to transmission errors. Please try to follow at least some of this recommendation before posting on the community forums or reporting issues to developers and submitting debug logs.
 
 
 
