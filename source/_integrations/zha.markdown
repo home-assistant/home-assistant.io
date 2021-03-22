@@ -77,6 +77,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 - Texas Instruments based radios with Z-Stack 3.x.x (via the [zigpy-znp](https://github.com/zha-ng/zigpy-znp) library for zigpy)
   - [CC2652P/CC2652R/CC2652RB USB stick or dev board hardware flashed with Z-Stack 3.x.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
   - [CC1352P/CC1352R USB stick or dev board hardware flashed with Z-Stack 3.x.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
+  - [CC2538 USB stick or dev board hardware flashed with Z-Stack 3.x.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
 - Digi XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
   - [Digi XBee Series 3 (xbee3-24)](https://www.digi.com/products/embedded-systems/digi-xbee/rf-modules/2-4-ghz-rf-modules/xbee3-zigbee-3) and [Digi XBee Series S2C](https://www.digi.com/products/embedded-systems/digi-xbee/rf-modules/2-4-ghz-rf-modules/xbee-zigbee) modules
     - Note! While not a must, [it is recommend to upgrade XBee Series 3 and S2C to newest firmware firmware using XCTU](https://www.digi.com/resources/documentation/Digidocs/90002002/Default.htm#Tasks/t_load_zb_firmware.htm)
