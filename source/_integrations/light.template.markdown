@@ -31,12 +31,17 @@ light:
         color_template: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         turn_on:
           service: script.theater_lights_on
+          data: 
+            transition: "{{ transition | float}}"
         turn_off:
           service: script.theater_lights_off
+          data: 
+            transition: "{{ transition | float}}"
         set_level:
           service: script.theater_lights_level
           data:
             brightness: "{{ brightness }}"
+            transition: "{{ transition | float}}"
         set_temperature:
           service: input_number.set_value
           data:
