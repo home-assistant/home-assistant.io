@@ -74,7 +74,7 @@ If you set a valid value for `initial` this integration will start with state se
 
 ### Services
 
-This integration provides three services to modify the state of the `input_select`.
+This integration provides four services to modify the state of the `input_select`.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
@@ -82,6 +82,7 @@ This integration provides three services to modify the state of the `input_selec
 | `set_options` | `options`<br>`entity_id(s)` | Set the options for specific `input_select` entities.
 | `select_first` | | Select the first option.
 | `select_last` | | Select the last option.
+| `select_random` | | Select a random option.
 | `reload` | | Reload `input_select` configuration |
 
 #### Service `input_select.select_next`
