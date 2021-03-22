@@ -2,10 +2,9 @@
 
 Home Assistant using the Home Assistant Operating System which is a managed environment, which means you can't use existing methods to enable the I2C bus on a Raspberry Pi. In order to use I2C devices you will have to 
 - Enable I2C for the Home Assistant Operating System 
-- Configure the Raspberry Hats binary sensor integration to enable the I2C integration
 - Setup I2C devices e.g. sensors
 
-### Step by step instructions to enable I2C via SD card
+### Enable I2C with an SD card reader
 
 #### Access the boot partition
 
@@ -42,7 +41,7 @@ and make sure the first partition is available.
 - Another reboot might be necessary to make sure the just imported `rpi-i2c.conf` is
   present at boot time.
 
-### Via Home Assistant Operating System Terminal
+### Enable I2C via Home Assistant Operating System Terminal
 
 Alternatively, by attaching a keyboard and screen to your device, you can access the physical terminal to the Home Assistant Operating System.
 
@@ -62,9 +61,9 @@ You can enable i2c via this terminal:
   sync
   reboot
   ```
-### Check I2C activation on OS level
+### Troubleshooting
 
-After the reboot of the host, the I2C activation should now be visible under /dev.  If the folder contains an entry `i2c-1` or similar, your I2C config might work. You can check the status of I2C kernel modules by entering `lsmod | grep i2c`. If they are loaded, you should find at least the entry `i2c_dev`. Active usage of the modules is indicated by a number, e.g. `i2c_dev 20480 2` would indicate two active I2C data sources (e.g. a BMP280 temperature & pressure sensor) 
+After rebooting the host there should be `i2c-0` and similar device files in `/dev`. If such device files are missing, enabling I2C failed for some reason. You can check the status of I2C kernel modules by using `lsmod | grep i2c` in the terminal. If they are loaded, you should find at least the entry `i2c_dev`. Active usage of the modules is indicated by a number, e.g. `i2c_dev 20480 2` would indicate two active I2C device files.
 
 An active I2C can also be check with a multi meter showing 3.3 V on the I2C pins GPIO2 and GPIO3. 
   
