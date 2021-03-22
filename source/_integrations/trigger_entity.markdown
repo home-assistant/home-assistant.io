@@ -22,7 +22,7 @@ trigger_entity:
       webhook_id: my-super-secret-webhook-id
   sensor:
     - name: "Webhook Temperature"
-      value_template: "{{ trigger.json.temperature }}"
+      state: "{{ trigger.json.temperature }}"
 ```
 
 _(see [below](#example-adding-webhook-data-to-home-assistant) how to test this webhook example)_
@@ -54,7 +54,7 @@ sensor:
       required: false
       type: string
       default: None
-    value_template:
+    state:
       description: Defines a template to get the state of the sensor.
       required: true
       type: template
@@ -79,7 +79,7 @@ trigger_entity:
   sensor:
     - name: "Webhook Temperature"
       unique_id: "temperature"
-      value_template: "{{ trigger.json.temperature }}"
+      state: "{{ trigger.json.temperature }}"
 ```
 
 You can test this trigger entity with the following CURL command:
