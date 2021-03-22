@@ -244,7 +244,7 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
 
 ### Improving Zigbee network range
 
-One of the more commonly asked questions about using Zigbee with Home Assistant are regarding to improving or extending signal reception/transmission or resolving problems with poor link quality, thus here are gathered a few possible options to resolve most problems related to range extension. 
+Low signal quality can lead to transmission errors and related issues. This section has a list of tips to improve signal quality which maximizes range and resolves most problems related to transmission errors.
 
 The fact is that bad signal reception can be due to many different things and experienced Zigbee users in the community will normally advise that there are a few simple fundamental things that you should really attemt to do first in order to better optimize your Zigbee devices equipment which can resolve many basic problems related to signal strength or interferance issues. Note that there are always exceptions, however, if possible to try follow at least some of these general recommendations before you take more advanced steps like reporting issues to developers and submitting debug logs.
 
