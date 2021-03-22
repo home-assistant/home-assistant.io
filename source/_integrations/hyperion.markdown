@@ -32,8 +32,9 @@ All configuration options are offered from the frontend. Choose `Options` under 
 relevant entry on the `Integrations` page.
 
 Options supported:
-- **priority**: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
-
+- **Priority**: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
+- **Effects to hide**: An optional selection of effects to hide from the light effects
+  list. New effects added to the Hyperion server will be shown by default.
 ## Hyperion Instances
 
 This integration supports multiple Hyperion instances running on a single Hyperion
