@@ -95,10 +95,9 @@ A basic entry for a single calendar looks like:
 
 From this we will get a binary sensor `calendar.test_everything` triggered by any event on the calendar and will show the next 10 events on the 'Calendar' dashboard.
 
-
 A bit more elaborate configuration:
 
-```
+```yaml
 - cal_id: "*****@group.calendar.google.com"
   entities:
   - device_id: test_unimportant
@@ -122,9 +121,6 @@ If you use a `#` sign for `search` then wrap the whole search term in quotes.
 Otherwise everything following the hash sign would be considered a YAML comment.
 
 </div>
-
-
-
 
 {% configuration %}
 cal_id:
