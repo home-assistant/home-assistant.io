@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-Trigger Entities allow you to define entities using templates which are updated based on [automation triggers][trigger-docs]. The entity templates will have access to the [trigger variables](/docs/automation/templating/#available-trigger-data).
+Trigger Entities allow you to define entities using templates which are updated based on [automation triggers][trigger-doc]. The entity templates will have access to the [trigger variables](/docs/automation/templating/#available-trigger-data).
 
 ```yaml
 trigger_entity:
@@ -29,7 +29,7 @@ _(see [below](#example-adding-webhook-data-to-home-assistant) how to test this w
 
 {% configuration %}
 trigger:
-  description: The trigger configuration for this entity. [See trigger docs][trigger-docs]
+  description: The trigger configuration for this entity. [See trigger documentation][trigger-doc]
   required: true
   type: list
 unique_id:
@@ -93,4 +93,4 @@ curl --header "Content-Type: application/json" \
 
 <p class='note'>webhook URL endpoints do not require authentication so pick a randomized webhook ID.</p>
 
-[trigger-docs]: /docs/automatin/trigger
+[trigger-doc]: /docs/automatin/trigger
