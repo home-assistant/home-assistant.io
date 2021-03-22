@@ -23,29 +23,6 @@ As a first step you will need to enter your credentials to login into the [Salus
 
 Alternatively, add the following information to your `configuration.yaml` file:
 
-```yaml
-# Example configuration.yaml entry
-salus:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  device: 12345
-```
-
-{% configuration %}
-username:
-  description: The username for accessing your Salus account.
-  required: true
-  type: string
-password:
-  description: The password for accessing your Salus account.
-  required: true
-  type: string
-device:
-  description: The Salus device if of the device taken from the Salus account.
-  required: true
-  type: string
-{% endconfiguration %}
-
 ## Concepts
 
 The Salus Thermostat supports the following key concepts.
