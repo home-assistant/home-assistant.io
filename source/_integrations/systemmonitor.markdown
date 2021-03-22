@@ -23,7 +23,7 @@ sensor:
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
-        arg: /
+        arg: /config
       - type: memory_free
 ```
 
