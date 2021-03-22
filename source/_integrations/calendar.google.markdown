@@ -93,7 +93,7 @@ A basic entry for a single calendar looks like:
     max_results: 10
 ```
 
-From this we will get a binary sensor `calendar.test_everything` triggered by any event on the calendar and will show the next 10 events on the 'Calendar' dashboard.
+From this, we will get a binary sensor `calendar.test_everything` triggered by any event on the calendar and will show the next 10 events on the 'Calendar' dashboard.
 
 A bit more elaborate configuration:
 
