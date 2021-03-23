@@ -14,7 +14,7 @@ ha_platforms:
   - sensor
 ---
 
-The `sma` integration will poll a [SMA](http://www.sma-solar.com/) [(US)](https://www.sma-america.com/) solar inverter and present the values as sensors in Home Assistant.
+The SMA Solar integration will poll a [SMA](http://www.sma-solar.com/) [(US)](https://www.sma-america.com/) solar inverter and present the values as sensors in Home Assistant.
 
 The integration uses the web interface of the device. Before you start, make sure you are able to connect to the solar inverter from your favorite web browser.
 
