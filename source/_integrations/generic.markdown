@@ -139,3 +139,19 @@ camera:
     still_image_url: http://194.218.96.92/jpg/image.jpg
     stream_source: rtsp://194.218.96.92:554
 ```
+
+### Secured access to the camera
+
+To access a camera that requires secured access for still image or live stream (an HIK in my case).
+
+```yaml
+camera: 
+  - platform: generic
+    still_image_url: "http://192.168.1.100/ISAPI/Streaming/Channels/101/picture"
+    stream_source: "rtsp://USERNAME:PASSWORD@192.168.1.100:554/Streaming/Channels/102"
+    name: "My Camera"
+    verify_ssl: false
+    username: "USERNAME"
+    password: "PASSWORD"
+    authentication: digest
+```

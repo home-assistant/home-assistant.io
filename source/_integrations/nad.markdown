@@ -10,6 +10,11 @@ ha_domain: nad
 
 The `nad` platform allows you to control a [NAD receiver](https://nadelectronics.com/) through RS232, TCP and Telnet from Home Assistant.
 
+Please note that the RS232 interface is only tested with the NAD T748v2, but is should work with more NAD receivers.
+The Telnet interface is only tested with the NAD T787.
+
+## Configuration
+
 To add an NAD receiver to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -18,12 +23,13 @@ media_player:
   - platform: nad
     serial_port: /dev/ttyUSB0
 ```
+
 ```yaml
 # Example configuration.yaml entry for TCP configuration
 media_player:
   - platform: nad
     type: TCP
-    host: IP_ADDRESS
+    host: "IP_ADDRESS"
 ```
 
 {% configuration %}
@@ -89,7 +95,7 @@ A full configuration example could look like this:
 media_player:
   - platform: nad
     serial_port: /dev/ttyUSB0
-    name: NAD Receiver
+    name: "NAD Receiver"
     min_volume: -60
     max_volume: -20
     sources:

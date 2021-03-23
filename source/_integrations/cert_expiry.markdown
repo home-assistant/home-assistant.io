@@ -14,7 +14,8 @@ ha_platforms:
   - sensor
 ---
 
-The `cert_expiry` integration fetches the certificate from a configured host and displays its expiration in a timestamp sensor.
+The Certificate Expiry integration fetches the certificate from a configured host and displays its expiration in a timestamp sensor.
+The sensor checks and updates the certificate information for the configured host every 12 hours.
 
 {% include integrations/config_flow.md %}
 

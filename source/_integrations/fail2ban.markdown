@@ -128,7 +128,7 @@ proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 ```
 
-This snippet should be added within your Home Assistant server configuration, so you have something like the following:
+This snippet should be added within your Home Assistant configuration, so you have something like the following:
 
 ```bash
 server {

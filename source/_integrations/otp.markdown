@@ -57,5 +57,5 @@ Token: IHEDPEBEVA2WVHB7
 Copy and paste the token into your Home Assistant configuration and add it to your OTP generator. Verify that they generate the same code.
 
 <div class='note warning'>
-It is vital that your system clock is correct both on your Home Assistant server and on your OTP generator device (e.g., your phone). If not, the generated codes will not match! Make sure NTP is running and syncing your time correctly before creating an issue.
+It is vital that your system clock is correct both on your Home Assistant instance and on your OTP generator device (e.g., your phone). If not, the generated codes will not match! Make sure NTP is running and syncing your time correctly before creating an issue.
 </div>

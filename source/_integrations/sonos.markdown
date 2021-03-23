@@ -190,7 +190,7 @@ sonos:
       - 192.0.2.27
 ```
 
-If your Home Assistant server has multiple IP addresses, you can provide the IP address that should be used for Sonos auto-discovery. This is rarely needed since all addresses should be tried by default.
+If your Home Assistant instance has multiple IP addresses, you can provide the IP address that should be used for Sonos auto-discovery. This is rarely needed since all addresses should be tried by default.
 
 ```yaml
 # Example configuration.yaml entry using Sonos discovery on a specific interface

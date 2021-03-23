@@ -22,11 +22,11 @@ script:
        target:
          entity_id: "{{ sonos_entity }}"
      - service: media_player.volume_set
-       target:
+       data:
          entity_id: "{{ sonos_entity }}"
          volume_level: "{{ volume }}"
      - service: tts.voicerss_say
-       target:
+       data:
          entity_id: "{{ sonos_entity }}"
          message: "{{ message }}"
      - delay: "{{ delay }}"

@@ -168,7 +168,7 @@ automation:
 
 <div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, the trigger would fire a single time if a numeric_state goes into to 17.1-24.9 range (from 17 and below or 25 and above). It will only fire again, once it has left the defined range and enters it again.
+In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (from 17 and below or 25 and above). It will only fire again, once it has left the defined range and enters it again.
 </div>
 
 Number helpers (`input_number` entities) can be used in the `above` and `below` thresholds, making

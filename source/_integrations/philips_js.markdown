@@ -23,18 +23,18 @@ Instructions on how to activate the API and if your model is supported can be fo
 | Feature            | 1                | 5   | 6 (Android)        | 6 (Saphi)        |
 | ------------------ | ---------------- | --- | ------------------ | ---------------- |
 | Power On           | WOL / IR Blaster | ?   | Yes (if always on) | WOL / IR Blaster |
-| Volume Detect      | Yes              | ?   | Yes (not over CEC) | ?                |
-| Volume Up/Down     | Yes              | ?   | Yes                | No               |
-| Volume Set         | Yes              | ?   | Yes                | ?                |
+| Volume Detect      | Yes              | ?   | Yes (not over CEC) | Yes              |
+| Volume Up/Down     | Yes              | ?   | Yes                | Yes              |
+| Volume Set         | Yes              | ?   | Yes                | Yes              |
 | Source Select      | Yes              | ?   | Yes                | No               |
 | Source Detect      | Yes              | ?   | No                 | No               |
-| Channel Select     | Yes              | ?   | Yes                | ?                |
-| Channel Detect     | Yes              | ?   | Yes                | ?                |
-| Channel Favorites  | No               | ?   | Yes                | ?                |
+| Channel Select     | Yes              | ?   | Yes                | Yes              |
+| Channel Detect     | Yes              | ?   | Yes                | No               |
+| Channel Favorites  | No               | ?   | Yes                | Yes              |
 | Application Select | No               | ?   | Yes                | No               |
 | Application Detect | No               | ?   | Yes                | No               |
 | Browse URL         | No               | No  | No                 | No               |
-| Send Key           | No               | No  | No                 | No               |
+| Send Key           | No               | No  | No                 | Yes              |
 | Ambilight Control  | No               | No  | No                 | No               |
 
 ### Turn on device

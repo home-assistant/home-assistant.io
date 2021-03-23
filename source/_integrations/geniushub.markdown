@@ -191,7 +191,7 @@ This is the recommended option.
 - Polls the hub directly (so is faster, say ~1s response time).
 - You have the option of specifying a MAC address (not recommended, see above).
 
-The hub does not have to be in the same subnet as your Home Assistant server.
+The hub does not have to be in the same subnet as your Home Assistant instance.
 
 ### Option 2: hub token only
 
