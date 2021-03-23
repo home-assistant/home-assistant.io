@@ -98,6 +98,8 @@ If your system include the Supervisor this will also contain:
 
 ## Statistics
 
+You need to enable [basic analytics](#basic-analytics) to be able to enable this.
+
 This includes:
 
 - Number of integrations
