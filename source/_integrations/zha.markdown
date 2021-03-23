@@ -88,7 +88,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
   - [PiZiGate](https://zigate.fr/produit/pizigate-v1-0/)
   - [Wifi ZiGate](https://zigate.fr/produit/zigate-pack-wifi-v1-3/)
 
-#### Warning about WiFi-based Zigbee-to-Serial bridges/gateways
+#### Warning about Wi-Fi-based Zigbee-to-Serial bridges/gateways
 
 <div class="note warning">
 
