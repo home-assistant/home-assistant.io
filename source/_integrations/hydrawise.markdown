@@ -66,10 +66,10 @@ monitored_conditions:
   type: list
   default: All binary sensors are enabled.
   keys:
-    is_watering:
+    watering:
       description: The binary sensor is `on` when the zone is actively watering.
-    status:
-      description: This will indicate `on` when there is a connection to the Hydrawise cloud. It is not an indication of whether the irrigation controller hardware is online.
+    my_controller_status:
+      description: This will indicate `on` when there is a connection to the Hydrawise cloud. It is not an indication of whether the irrigation controller hardware is online. Only a single status sensor is created.
 {% endconfiguration %}
 
 <div class='note warning'>
