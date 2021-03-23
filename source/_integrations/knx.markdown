@@ -416,7 +416,7 @@ automation:
     condition: 
       - condition: state
         entity_id: binary_sensor.cover_abstell
-        state: on
+        state: "on"
     action:
       - entity_id: light.hue_color_lamp_1
         service: light.turn_on
@@ -429,7 +429,7 @@ automation:
     condition:
       - condition: state
         entity_id: binary_sensor.cover_abstell
-        state: on
+        state: "on"
     action:
       - entity_id: light.hue_bloom_1
         service: homeassistant.turn_on
