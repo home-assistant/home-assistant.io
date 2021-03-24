@@ -1,16 +1,6 @@
 ---
 ---
-{% comment %}
-Ugly workaround to make the release notes for 0.106 redirect nicely.
-We did a special release with a blog post, so the latest release Notes
-are going the wrong way. This hack can be removed after 0.107 is released.
-{% endcomment %}
-{% if site.current_minor_version == 106 %}
-  {% assign posts = site.categories['Release-Notes'] | where_exp: "post", "post.title contains 'Light brightness stepping'" %}
-{% else %}
-  {% assign posts = site.categories['Release-Notes'] | where_exp: "post", "post.title contains site.current_minor_version" %}
-{% endif %}
-{% assign recent_release_post = posts.first %}
+{% assign recent_release_post = site.categories['Core'] | first %}
 
 <script>
   document.location = '{{ recent_release_post.url }}{{ site.patch_version_notes }}';
