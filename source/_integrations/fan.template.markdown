@@ -124,7 +124,7 @@ fan:
         type: [string, list]
         default: []
       speed_count:
-        description: The number of speeds the fan supports. Used to calculate the percentage step for the `fan.increase_speed` and `fan.decrease_speed` services.
+        description: The number of speeds the fan supports. Used to calculate the percentage step for the `fan.increase_speed` and `fan.decrease_speed` services. Defaults to 100, but when `set_percentage` is used the number of speeds will defaults to 3 (being the values 33, 67 and 100).
         required: false
         type: integer
         default: 100
