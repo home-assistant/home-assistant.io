@@ -635,8 +635,8 @@
 /components/sensor.amcrest /integrations/amcrest
 /components/sensor.android_ip_webcam /integrations/android_ip_webcam#sensor
 /components/sensor.apcupsd /integrations/apcupsd#sensor
-/components/sensor.api_stream /integrations/sensor.websocket_api
-/components/sensor.api_streams /integrations/sensor.websocket_api
+/components/sensor.api_stream /integrations/websocket_api
+/components/sensor.api_streams /integrations/websocket_api
 /components/sensor.aqualogic /integrations/aqualogic#sensor
 /components/sensor.arduino /integrations/arduino#sensor
 /components/sensor.arest /integrations/arest#sensor
@@ -1076,6 +1076,7 @@
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio
 /integrations/remote.xiaomi_miio /integrations/xiaomi_miio
+/integrations/sensor.websocket_api /integrations/websocket_api
 /integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio
 /integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio
