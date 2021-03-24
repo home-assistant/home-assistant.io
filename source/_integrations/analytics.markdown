@@ -35,7 +35,7 @@ This includes:
 - The version of your system
 - The installation type of your system
 
-If your system include the Supervisor this will also contain:
+If your system includes the Supervisor this will also contain:
 
 - A boolean that indicates if the system is supported
 - A boolean that indicates if the system is healthy
@@ -140,4 +140,4 @@ For now, this is only being done for events inside the Supervisor if your system
 
 ## Receiver
 
-The receiver that the payloads are sent to is running as a [CloudFlare Worker](https://workers.cloudflare.com/) and the code for that can be inspected in the [home-assistant/analytics repository](https://github.com/home-assistant/analytics.home-assistant.io)
+The receiver that the payloads are sent to is running as a [CloudFlare Worker](https://workers.cloudflare.com/) and the code for that can be inspected in the [home-assistant/analytics repository](https://github.com/home-assistant/analytics.home-assistant.io).
