@@ -39,7 +39,7 @@ hass.bus.fire(name, {"wow": "from a Python script!"})
 ```
 
 - Start Home Assistant
-- Call service `python_script.hello_world` with parameters
+- Call service (can found at: settings-> scripts -> create new script. At the sequence area in the field action type) `python_script.hello_world` with parameters
 
 ```yaml
 name: you
