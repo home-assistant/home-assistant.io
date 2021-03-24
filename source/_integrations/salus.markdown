@@ -11,7 +11,7 @@ ha_codeowners:
   - '@cipacda'
 ---
 
-The `salus` integration lets control your connected [IT500 Salus](https://salus-it500.com/public/login.php) thermostat to control your home temperature.
+The Salus integration lets control your connected [IT500 Salus](https://salus-it500.com/public/login.php) thermostat to control your home temperature.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -19,9 +19,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-As a first step you will need to enter your credentials to login into the [Salus account](https://salus-it500.com/public/login.php), and on the second step you will be able to select the device you want to configure from a list of all devices in that account.
-
-Alternatively, add the following information to your `configuration.yaml` file:
+As a first step, you will need to enter your credentials to login into the [Salus account](https://salus-it500.com/public/login.php) and on the second step, you will be able to select the device you want to configure from a list of all devices in that account.
 
 ## Concepts
 
