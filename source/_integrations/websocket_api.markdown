@@ -31,7 +31,7 @@ The WebSocket API provides a sensor that will keep track of the number of curren
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: websocket_api
+  - platform: websocket_api
 ```
 
 This will create a sensor called `sensor.connected_clients` whose value is the total number of connected clients.
