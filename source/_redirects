@@ -1080,6 +1080,7 @@
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio
 /integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio
 /integrations/lovelace /lovelace
+/integrations/sensor.websocket_api /integrations/websocket_api
 
 # Renaming components to integrations
 /components /integrations
