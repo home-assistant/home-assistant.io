@@ -139,6 +139,38 @@ switch:
 
 {% endraw %}
 
+### Multiple actions for turn_on or turn_off
+
+This example shows multiple service calls for turn_on and turn_off.
+
+{% raw %}
+
+```yaml
+switch:
+  - platform: template
+    switches:
+      copy:
+        value_template: "{{ is_state('switch.source', 'on') }}"
+        turn_on:
+          - service: switch.turn_on
+            target:
+              entity_id: switch.target
+          - service: light.turn_on
+            target:
+              entity_id: light.target
+            data:
+              brightness_pct: 40
+        turn_off:
+          - service: switch.turn_off
+            target:
+              entity_id: switch.target
+          - service: light.turn_off
+            target:
+              entity_id: light.target
+```
+
+{% endraw %}
+
 ### Sensor and Two Switches
 
 This example shows a switch that takes its state from a sensor, and uses two
