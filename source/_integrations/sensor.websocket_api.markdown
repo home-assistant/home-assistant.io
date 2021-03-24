@@ -23,6 +23,8 @@ sensor:
   - platform: websocket_api
 ```
 
+This will create a sensor called `sensor.connected_clients` whose value is the total number of connected clients.
+
 ### Note
 
 This replaces the previous `api_streams` sensor.
