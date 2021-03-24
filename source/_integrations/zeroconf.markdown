@@ -30,10 +30,10 @@ zeroconf:
   type: map
   keys:
    default_interface:
-     description: By default, `zeroconf` will attempt to bind to all interfaces. For systems running using network isolation or similar, this may result in `zeroconf` being unavailable. Change this option to `true` if `zeroconf` does not function.
+     description: By default, `zeroconf` will broadcast on the default interface. For systems that require broadcasting `mdns` on all interfaces, change this option to `false` if `zeroconf` does not function.
      required: false
      type: boolean
-     default: false
+     default: true
    ipv6:
      description: By default, `zeroconf` will enable IPv6 support. If your network has trouble with IPv6 being enabled, you can set this option to `false`.
      required: false
