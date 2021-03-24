@@ -5,7 +5,9 @@ date: 2016-03-26 0:10:00 -0700
 date_formatted: "March 26, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Party people, 0.16 is here! The big thing with this release is that we have completely removed the barrier to get started by MQTT by being able to launch an embedded MQTT server: [hbMQTT]. Just add `mqtt:` to your config and a broker is launched and connected with Home Assistant.

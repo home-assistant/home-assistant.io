@@ -7,7 +7,9 @@ date_formatted: "July 22, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-07-0.113/social.png
 ---
 

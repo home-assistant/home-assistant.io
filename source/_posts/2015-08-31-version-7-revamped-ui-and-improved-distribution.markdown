@@ -5,7 +5,9 @@ date: 2015-08-31 14:12 -0700
 date_formatted: "August 31, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/screenshots/ui2015.png
 ---
 
