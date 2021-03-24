@@ -48,4 +48,8 @@ Please note that the `tts_service` parameter, must match the `service_name` defi
     description: "The `language` to be passed to the TTS `Service Say`"
     required: false
     type: string
+    default: "`en`"
 {% endconfiguration %}
+
+Check the [complete list of supported languages](https://translate.google.com/intl/en_ALL/about/languages/) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
+Use the 2 digit language code which you can find at the end of URL when you click on Language name.
