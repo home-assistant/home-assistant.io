@@ -137,6 +137,7 @@ data:
 ```
 
 Example 2:
+
 ```yaml
 service: zwave_js.bulk_set_partial_config_parameters
 target:
