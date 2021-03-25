@@ -27,7 +27,7 @@ The `roomba` integration allows you to control your [iRobot Roomba](https://www.
 
 <div class='note'>
   
-This platform has been tested and is confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 960, Roomba 890, and Braava jet m6 models, but should also work fine with any Wi-Fi enabled Roomba or Braava like the 690.  For auto discovery you will need to initate a Roomba reboot. For example, by holding the clean button for upto 20 seconds on an i7 or 980 . [More info here](https://homesupport.irobot.com/app/answers/detail/a_id/9087/~/rebooting-or-resetting-your-robot)
+This integration has been tested and confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 960, Roomba 890, and Braava jet m6 models, but should also work fine with any Wi-Fi enabled Roomba or Braava like the 690. For auto-discovery, you will need to initiate a Roomba reboot. For example, by holding the clean button for up to 20 seconds on an i7 or 980. [More information about rebooting your robot](https://homesupport.irobot.com/app/answers/detail/a_id/9087/~/rebooting-or-resetting-your-robot).
 
 </div>
 
