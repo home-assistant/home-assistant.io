@@ -266,7 +266,6 @@ Value Notification example:
 
 ```json
 {
-    "type": "value_notification",
     "domain": "zwave_js",
     "node_id": 1,
     "home_id": "974823419",
