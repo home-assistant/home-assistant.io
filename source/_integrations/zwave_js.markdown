@@ -232,7 +232,7 @@ These are notification events fired by devices using the Notification command cl
     "device_id": "ad8098fe80980974",
     "command_class": 113,
     "command_class_name": "Notification",
-    "type_": 6,
+    "type": 6,
     "event": 5,
     "label": "Access Control",
     "event_label": "Keypad lock operation",
