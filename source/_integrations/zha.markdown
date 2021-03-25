@@ -269,16 +269,25 @@ To add a new device:
 
 ### Using router devices
 
-You use routers to increase the number of Zigbee devices that can be used in a network. The total number of Zigbee devices that you have on a Zigbee network depends on a few things, but you should know that Zigbee coordinator hardware and firmware only plays a larger role in Zigbee networks with a lot of devices. More important is how many directly connected devices ("direct children") versus how many routers are connected to your Zigbee coordinator. Zigpy library which ZHA uses has an upper limit. This is 32 direct children, but if your Zigbee coordinator hardware is powerful enough then you can still have hundreds of Zigbee devices connected through routers.  
+Zigbee uses mesh networking as standard ny design and adding devices capable of acting as Zigbee router (sometimes also known as Zigbee signal repeaters or extenders) is very important because they increasing the total number of Zigbee devices that your Zigbee coordinator can control in its network as well as having an integral role in extending the overall range and coverage of your Zigbee network mesh. Fact is that without haveing at least a couple good Zigbee router devices available you will normally not have a stable Zigbee network.
 
-Even the least powerful Zigbee coordinator hardware supported by Zigpy is CC2530/2531 and its default firmware, only supports 20 devices connected directly to the coordinator. However, by having routers in your Zigbee network, the mesh network size can be extended. You can assume that most, if not all mains/AC-powered devices, e.g., wall-plugs and always powered-on lightbulbs in your Zigbee network can serve as a router. You can even use CC2530/CC2531 with router firmware, as additional routers (which in their turn have a limit of 21 devices).
+The total number of Zigbee devices that you have on a Zigbee network depends on a few things, but you should know that Zigbee coordinator hardware and firmware usually only start to play a larger role in a once you have around 40 devices or more in your Zigbee mesh network. More important is how many directly connected devices ("direct children") versus how many routers are and can be connected to your Zigbee coordinator. If your Zigbee coordinator hardware powerful and its firmware capable of it then you can still have a total of hundreds or even thousands of Zigbee devices connected indirecly through a mesh network with Zigbee router devives.
 
-An example using the default CC2531 coordinator firmware + two CC2531 routers; Your device limit will be:
+The least powerful Zigbee coordinator hardware supported by Zigpy is CC2530/2531 and its default firmware, only supports 15 devices connected directly to the coordinator. However, by having a backbone of good always-on Zigbee routers in your Zigbee network, the mesh network size can be extended exponentionally. You can assume that most, if not all mains-powered/AC-powered devices, e.g., wall-plugs and always powered-on lightbulbs in your Zigbee network can serve as a Zigbee router and can typically each act as a router for around 5 additional end devices, while some dedicated Zigbee router devices can each act as a router for as many as 50 devices. You can for example use a DIY CC2530/CC2531 with router firmware which have a limit of 21 devices, while a DIY CC2652P/CC2652R with router firmware which have a limit of 50 devices, or the IKEA TRÅDFRI Signal Repeater which can route about 10-20 devices.
+
+An example using a CC2531 with default coordinator firmware + two CC2531 routers; Your Zigbee network device limit will be:
 
 - Coordinator: 15 devices - 2 routers = 13
 - Router one: + 21 devices
 - Router two: + 21 devices
 - Total device limit = **55 devices**
+
+As an comparison example, using a CC2652 with default coordinator firmware + two CC652 routers; Your Zigbee network device limit will be:
+
+- Coordinator: 50 devices - 2 routers = 48
+- Router one: + 50 devices
+- Router two: + 50 devices
+- Total device limit = **148 devices**
 
 ## Troubleshooting
 
