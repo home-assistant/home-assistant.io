@@ -122,6 +122,7 @@ Let's use parameter 21 for [this device](https://devices.zwave-js.io/?jumpTo=0x0
 So in this case, the service would use the cached value for partial parameters `0xff0000`, `0x3f000000`, and `0x40000000`. If you send the raw integer value, it is assumed that you have calculated the full value, so in example 1, partial parameters `0xff0000`, `0x3f000000`, and `0x40000000` would all be set to `0`.
 
 Example 1:
+
 ```yaml
 service: zwave_js.bulk_set_partial_config_parameters
 target:
