@@ -72,6 +72,7 @@ This service will update a configuration parameter. To update multiple partial p
 Let's use parameter 31 for [this device](https://devices.zwave-js.io/?jumpTo=0x000c:0x0203:0x0001:0.0) as an example to show examples of different ways that the `LED 1 Blink Status (bottom)` partial parameter can be set. Note that in places where we are using different values for the same key, the different values are interchangeable across the examples. We can, for instance, use `1` or `Blink` interchangeably for the `value` in all of the examples.
 
 Example 1:
+
 ```yaml
 service: zwave_js.set_config_parameter
 target:
@@ -83,6 +84,7 @@ data:
 ```
 
 Example 2:
+
 ```yaml
 service: zwave_js.set_config_parameter
 target:
@@ -94,6 +96,7 @@ data:
 ```
 
 Example 3:
+
 ```yaml
 service: zwave_js.set_config_parameter
 target:
