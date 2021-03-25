@@ -117,7 +117,9 @@ This service will bulk set multiple partial configuration parameters. Be warned 
 
 #### Examples of bulk setting partial parameter values
 
-Let's use parameter 21 for [this device](https://devices.zwave-js.io/?jumpTo=0x031e:0x000a:0x0001:0.0) as an example to show how partial parameters can be bulk set. In this case, we want to set 0xff to 127, 0x7f00 to 10, and 0x8000 to 1 (or the raw value of 4735). Note that when using the dictionary format (examples 2 and 3) to map the partial parameter to values, the cached values for the missing partial parameters will be used. So in this case, the service would use the cached value for partial parameters 0xff0000, 0x3f000000, and 0x40000000. If you send the raw integer value, it is assumed that you have calculated the full value, so in example 1, partial parameters 0xff0000, 0x3f000000, and 0x40000000 would all be set to 0.
+Let's use parameter 21 for [this device](https://devices.zwave-js.io/?jumpTo=0x031e:0x000a:0x0001:0.0) as an example to show how partial parameters can be bulk set. In this case, we want to set `0xff` to `127`, `0x7f00` to `10`, and `0x8000` to `1` (or the raw value of `4735`). Note that when using the dictionary format (examples 2 and 3) to map the partial parameter to values, the cached values for the missing partial parameters will be used.
+
+So in this case, the service would use the cached value for partial parameters `0xff0000`, `0x3f000000`, and `0x40000000`. If you send the raw integer value, it is assumed that you have calculated the full value, so in example 1, partial parameters `0xff0000`, `0x3f000000`, and `0x40000000` would all be set to `0`.
 
 Example 1:
 ```yaml
