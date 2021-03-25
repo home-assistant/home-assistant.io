@@ -106,7 +106,7 @@ data:
 
 ### Service `zwave_js.bulk_set_partial_config_parameters`
 
-This service will bulk set multiple partial configuration parameters. Be warned that correctly using this service requires an advanced knowledge of Z-Wave to use correctly.
+This service will bulk set multiple partial configuration parameters. Be warned that correctly using this service requires advanced knowledge of Z-Wave to use correctly.
 
 | Service Data Attribute 	| Required  	| Description                                                                                                                               	|
 |------------------------	|-----------	|-------------------------------------------------------------------------------------------------------------------------------------------	|
