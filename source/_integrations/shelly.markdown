@@ -28,6 +28,12 @@ ha_platforms:
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
+## Shelly device configuration
+
+Shelly devices use the `CoIoT` protocol to communicate with integration. For Shelly firmware 1.10.0 or newer, `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
+
+We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. This is mandatory for Shelly Motion with firmware 1.1.0 or newer. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
+
 <div class="note">
 Integration is communicating directly with the device; cloud connection is not needed.
 </div>

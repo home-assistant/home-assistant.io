@@ -69,7 +69,3 @@ forecast_template:
   required: false
   type: template
 {% endconfiguration %}
-
-## Considerations
-
-If you are using the state of a integration that takes extra time to load, the Template Weather may get an `unknown` state during startup. This results in error messages in your log file until that integration has completed loading. If you use `is_state()` function in your template, you can avoid this situation.
