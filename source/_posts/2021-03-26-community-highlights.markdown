@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights: 14th edition"
-description: ""
+description: "Get started with a DIY smart door lock, A new card that you can use in Lovelace and listen to more background information about the future of ESPHome"
 date: 2021-03-26 00:00:00
 date_formatted: "March 26, 2021"
 author: Klaas Schoute
