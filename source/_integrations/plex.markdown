@@ -15,7 +15,7 @@ ha_platforms:
   - sensor
 ---
 
-The Plex integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. Media Players will allow you to control media playback and see the current playing item.
+The Plex integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [Media Players](/integrations/media_player/) and report playback status and library sizes via [Sensors](/integrations/sensor/) in Home Assistant. Media Players will allow you to control media playback and see the current playing item.
 
 Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is available for users with an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription. More information [here](#sonos-playback).
 
@@ -56,7 +56,16 @@ Alternatively, you can manually configure a Plex server connection by selecting 
 
 ## Sensor
 
-The Plex sensor platform monitors activity on a given Plex Media Server. The sensor state provides the a count of users currently watching media from the Plex server. Clicking the sensor shows who is watching what media.
+The activity sensor provides a count of users currently watching media from the Plex server. Clicking the sensor shows details for the active users and media streams.
+
+The library sensors show a count of items in each library. Depending on the library contents, the sensor will show extra detail in its attributes. For example, a library sensor for TV shows will represent the total number of episodes in the library and its attributes will also report the number of shows and seasons it contains.
+
+<div class='note info'>
+  
+The library sensors are disabled by default, but can be enabled via the Plex integration page.
+  
+</div>
+
 
 ## Media Player
 
