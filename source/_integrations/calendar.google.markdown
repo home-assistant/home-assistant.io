@@ -80,7 +80,7 @@ The next time you run or restart Home Assistant, you should find a new notificat
 
 ## Calendar Configuration
 
-Editing the `google_calendars.yaml` file.
+With every restart all calendars of the configured Google account will get pulled and added to the `google_calendars.yaml` and preconfigured as a single entity. By setting the 'track' variable to `true` the calendar will get monitored for new events which can be used for automations and its content is shown on the 'Calendar' dashboard (mind 'max_results' is set to 5 by default).
 
 A basic entry for a single calendar looks like:
 
@@ -90,18 +90,37 @@ A basic entry for a single calendar looks like:
   - device_id: test_everything
     name: Give me everything
     track: true
+    max_results: 10
+```
+
+From this, we will get a binary sensor `calendar.test_everything` triggered by any event on the calendar and will show the next 10 events on the 'Calendar' dashboard.
+
+A bit more elaborate configuration:
+
+```yaml
 - cal_id: "*****@group.calendar.google.com"
   entities:
+  - device_id: test_unimportant
+    name: UnImportant Stuff
+    track: true
+    search: "#UnImportant"
   - device_id: test_important
     name: Important Stuff
     track: true
     search: "#Important"
     offset: "!!"
-  - device_id: test_unimportant
-    name: UnImportant Stuff
-    track: true
-    search: "#UnImportant"
 ```
+
+From this we will end up with the binary sensors `calendar.test_unimportant` and `calendar.test_important` which will toggle themselves on/off based on events on the same calendar that match the search value set for each.
+`calendar.test_unimportant` will toggle for events whose title contain '#UnImportant'
+`calendar.test_important` will toggle for events whose title contain '#Important'. By using the offset variable an event title containing "#Important !!-10" will toggle the sensor 10 minutes before the event starts.
+
+<div class='note warning'>
+
+If you use a `#` sign for `search` then wrap the whole search term in quotes.
+Otherwise everything following the hash sign would be considered a YAML comment.
+
+</div>
 
 {% configuration %}
 cal_id:
@@ -153,21 +172,7 @@ entities:
       default: 5
 {% endconfiguration %}
 
-From this we will end up with the binary sensors `calendar.test_unimportant` and
-`calendar.test_important` which will toggle themselves on/off based on events on
-the same calendar that match the search value set for each.
-You'll also have a sensor `calendar.test_everything` that will
-not filter events out and always show the next event available.
 
-But what if you only wanted it to toggle based on all events?
-Just leave out the *search* parameter.
-
-<div class='note warning'>
-
-If you use a `#` sign for `search` then wrap the whole search term in quotes.
-Otherwise everything following the hash sign would be considered a YAML comment.
-
-</div>
 
 ### Sensor attributes
 
