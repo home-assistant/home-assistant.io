@@ -141,3 +141,18 @@ For now, this is only being done for events inside the Supervisor if your system
 ## Receiver
 
 The receiver that the payloads are sent to is running as a [CloudFlare Worker](https://workers.cloudflare.com/) and the code for that can be inspected in the [home-assistant/analytics repository](https://github.com/home-assistant/analytics.home-assistant.io).
+
+## Storage and usage
+
+When your installation send a payload, that payload includes a unique identifier, this identifier is used to make sure that future payload updates, only changes information from your installation.
+The data is stored in CloudFlare's KV (Key-Value) store for the [Receiver](#receiver), and will be stored for a maximum of 60 days since last update.
+
+This is an example of how the information is stored:
+
+key | value
+--|--
+`huuid:12a3456bc78d90123ef4567g789012h3` | `{"version": "2021.4.0", "installation_type": "Home Assistant OS"}`
+
+Like all other websites you visit the IP address and client information that sent the request will be visible to the remote server, this however is not stored by us (you are more than welcome to inspect [the code that receives the data](https://github.com/home-assistant/analytics.home-assistant.io)), CloudFlare will keep a log of all interactions, [see their privacy policy for more details about that](https://www.cloudflare.com/privacypolicy/)
+
+The data will be used to display the information on https://analytics.home-assistant.io and to analyze how users are using Home Assistant.
