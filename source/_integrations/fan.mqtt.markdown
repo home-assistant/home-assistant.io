@@ -132,21 +132,6 @@ payload_available:
   required: false
   type: string
   default: online
-payload_high_speed:
-  description: DEPRECATED - The payload that represents the fan's high speed.
-  required: false
-  type: string
-  default: high
-payload_low_speed:
-  description: DEPRECATED - The payload that represents the fan's low speed.
-  required: false
-  type: string
-  default: low
-payload_medium_speed:
-  description: DEPRECATED - The payload that represents the fan's medium speed.
-  required: false
-  type: string
-  default: medium
 payload_not_available:
   description: The payload that represents the unavailable state.
   required: false
@@ -211,12 +196,8 @@ retain:
   required: false
   type: boolean
   default: true
-speed_command_topic:
-  description: DEPRECATED - The MQTT topic to publish commands to change speed state.
-  required: false
-  type: string
 speed_range_min:
-  description: The minimum of numeric output range (`off` not included).
+  description: The minimum of numeric output range (`off` not included, so `speed_range_min` - 1 represents 0%).
   required: false
   type: integer
   default: 1
@@ -225,18 +206,6 @@ speed_range_max:
   required: false
   type: integer
   default: 100
-speed_state_topic:
-  description: DEPRECATED - The MQTT topic subscribed to receive speed state updates.
-  required: false
-  type: string
-speed_value_template:
-  description: "DEPRECATED - Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the speed payload."
-  required: false
-  type: string
-speeds:
-  description: "DEPRECATED - List of speeds this fan is capable of running at. Valid entries are `off`, `low`, `medium` and `high`."
-  required: false
-  type: [string, list]
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
