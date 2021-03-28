@@ -9,10 +9,14 @@ ha_category:
 ha_release: 0.85
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@snoof85'
+  - '@hacf-fr'
   - '@Quentame'
 ha_config_flow: true
 ha_domain: freebox
+ha_platforms:
+  - device_tracker
+  - sensor
+  - switch
 ---
 
 The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/).
@@ -23,10 +27,7 @@ There is currently support for the following device types within Home Assistant:
 * [Device tracker](#presence-detection) for connected devices
 * [Switch](#switch) to control Wi-Fi
 
-## Configuration
-
-If you have enabled the [discovery integration](/integrations/discovery/), your Freebox should be detected automatically.
-Otherwise, you can set it up manually via the frontend or via your `configuration.yaml` file.
+{% include integrations/config_flow.md %}
 
 You can find out your Freebox host and port by opening this address <http://mafreebox.freebox.fr/api_version> in your browser.
 The returned JSON should contain an `api_domain` (`host`) and a `https_port` (`port`).

@@ -17,6 +17,15 @@ ha_codeowners:
   - '@pvizeli'
   - '@danielperna84'
 ha_domain: homematic
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - lock
+  - notify
+  - sensor
+  - switch
 ---
 
 The [Homematic](https://www.homematic.com/) integration provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
@@ -37,7 +46,7 @@ Device support is available for most of the wired and wireless devices, as well 
 
 <div class='note info'>
 
-Since CCU Version 3, the internal firewalls are enabled by default. You have to grant full access for the `XML-RPC API` or specify the IP-address of the Home Assistant server and whitelist it, inside the CCU's security settings.
+Since CCU Version 3, the internal firewalls are enabled by default. You have to grant full access for the `XML-RPC API` or specify the IP-address of the Home Assistant instance and allowlist it, inside the CCU's security settings.
 
 </div>
 
@@ -203,17 +212,22 @@ This does *not* affect the entities in Home Assistant. They all use their own co
 
 ### Reading attributes of entities
 
-Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](/integrations/template) component. Here's an example of a template sensor that exposes the valve state of a thermostat.
+Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](/integrations/template) component. Here's an example of a template sensor that exposes the valve position of a thermostat.
+
+
+{% raw %}
 
 ```yaml
 sensor:
 - platform: template
   sensors:
     bedroom_valve:
-      value_template: "{% raw %}{{ state_attr('climate.leq123456', 'valve') }}{% endraw %}"
+      value_template: "{{ state_attr('climate.leq123456', 'level') }}"
       entity_id: climate.leq123456
-      friendly_name: 'Bedroom valve'
+      friendly_name: "Bedroom valve"
 ```
+
+{% endraw %}
 
 ### Variables
 
@@ -247,7 +261,8 @@ automation:
        param: PRESS_SHORT
    action:
      service: switch.turn_on
-     entity_id: switch.Kitchen_Ambience
+     target:
+       entity_id: switch.Kitchen_Ambience
 ```
 
 The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.
@@ -317,8 +332,9 @@ Set boolean variable to true:
 ...
 action:
   service: homematic.set_variable_value
-  data:
+  target:
     entity_id: homematic.ccu2
+  data:
     name: Variablename
     value: true
 ```
@@ -409,7 +425,8 @@ Manually set lock on KeyMatic devices:
 ...
 action:
   service: lock.lock
-  entity_id: lock.leq1234567
+  target:
+    entity_id: lock.leq1234567
 ```
 
 Manually set unlock on KeyMatic devices:
@@ -418,7 +435,8 @@ Manually set unlock on KeyMatic devices:
 ...
 action:
   service: lock.unlock
-  entity_id: lock.leq1234567
+  target:
+    entity_id: lock.leq1234567
 ```
 
 #### Detecting lost connections
@@ -442,7 +460,7 @@ binary_sensor:
           {{as_timestamp(now()) - as_timestamp(states.sensor.office_voltage.last_changed) < 600}}
 
 automation:
-  - alias: Homematic Reconnect
+  - alias: "Homematic Reconnect"
     trigger:
       platform: state
       entity_id: binary_sensor.homematic_up
@@ -472,20 +490,24 @@ automation:
 
   3. Set up a template sensor in Home Assistant, which contains the value of the system variable:
 
+     {% raw %}
+
      ```yaml
      - platform: template
        sensors:
          v_last_reboot:
-           value_template: "{% raw %}{{ state_attr('homematic.ccu2', 'V_Last_Reboot') or '01.01.1970 00:00:00' }}{% endraw %}"
+           value_template: "{{ state_attr('homematic.ccu2', 'V_Last_Reboot') or '01.01.1970 00:00:00' }}"
            icon_template: "mdi:clock"
            entity_id: homematic.ccu2
      ```
+
+     {% endraw %}
 
   4. Set up an automation which calls *homematic.reconnect* whenever the sensor variable changes:
 
      ```yaml
      automation:
-       - alias: Homematic CCU Reboot
+       - alias: "Homematic CCU Reboot"
          trigger:
            platform: state
            entity_id: sensor.v_last_reboot

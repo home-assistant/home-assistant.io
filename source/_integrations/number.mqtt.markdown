@@ -3,7 +3,7 @@ title: "MQTT Number"
 description: "Instructions on how to interact with a device exposing a Number through MQTT from within Home Assistant."
 ha_category:
   - Number
-ha_release: 2020.02
+ha_release: 2021.2
 ha_iot_class: Configurable
 ha_domain: mqtt
 ---

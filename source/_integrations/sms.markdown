@@ -10,6 +10,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@ocalvo'
 ha_domain: sms
+ha_platforms:
+  - notify
+  - sensor
 ---
 
 The `sms` integration allows having a local execution SMS notification via [Gammu](https://wammu.eu/gammu/). This is ideal when the internet is offline or when the power goes out.

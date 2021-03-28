@@ -7,6 +7,8 @@ ha_iot_class: Cloud Push
 ha_codeowners:
   - '@lufton'
 ha_domain: google_cloud
+ha_platforms:
+  - tts
 ---
 
 The `google_cloud` platform allows you to use [Google Cloud Platform](https://cloud.google.com/) API and integrate them into Home Assistant.

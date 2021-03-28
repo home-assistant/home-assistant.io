@@ -8,6 +8,8 @@ ha_domain: slack
 ha_iot_class: Cloud Push
 ha_codeowners:
   - '@bachya'
+ha_platforms:
+  - notify
 ---
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
@@ -44,7 +46,7 @@ notify:
   - name: NOTIFIER_NAME
     platform: slack
     api_key: YOUR_API_KEY
-    default_channel: '#general'
+    default_channel: "#general"
 ```
 
 {% configuration %}

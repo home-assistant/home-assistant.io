@@ -40,12 +40,17 @@ Enjoy the release!
 
 ../Frenck
 
-- [In memoriam of villhellm](#in-memoriam-of-villhellm)
+- [In memoriam of Villhellm](#in-memoriam-of-villhellm)
 - [Home Assistant Conference Videos](#home-assistant-conference-videos)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.1.1 - January 9](#release-202111---january-9)
+- [Release 2021.1.2 - January 14](#release-202112---january-14)
+- [Release 2021.1.3 - January 15](#release-202113---january-15)
+- [Release 2021.1.4 - January 16](#release-202114---january-16)
+- [Release 2021.1.5 - January 23](#release-202115---january-23)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -149,6 +154,108 @@ The following integration got support for a new platform:
 The following integrations are now available via the Home Assistant UI:
 
 - [BMW Connected Drive][bmw_connected_drive docs], done by [@rikroe]
+
+## Release 2021.1.1 - January 9
+
+- Fix KNX cover state return open when unknown ([@farmio] - [#44926]) ([knx docs])
+- Fix wait_template incorrectly matching falsey values ([@bdraco] - [#44938])
+- Disambiguate Supervisor HTTPUnauthorized on user/password validation ([@zeehio] - [#44940]) ([hassio docs])
+- Fix parameters when toggling light ([@emontnemery] - [#44950]) ([light docs])
+- Bump pymyq to 2.0.13 ([@ehendrix23] - [#44961]) ([myq docs])
+
+[#44926]: https://github.com/home-assistant/core/pull/44926
+[#44938]: https://github.com/home-assistant/core/pull/44938
+[#44940]: https://github.com/home-assistant/core/pull/44940
+[#44950]: https://github.com/home-assistant/core/pull/44950
+[#44961]: https://github.com/home-assistant/core/pull/44961
+[@bdraco]: https://github.com/bdraco
+[@ehendrix23]: https://github.com/ehendrix23
+[@emontnemery]: https://github.com/emontnemery
+[@farmio]: https://github.com/farmio
+[@zeehio]: https://github.com/zeehio
+[hassio docs]: /integrations/hassio/
+[knx docs]: /integrations/knx/
+[light docs]: /integrations/light/
+[myq docs]: /integrations/myq/
+
+## Release 2021.1.2 - January 14
+
+- Update the Utility Meter sensor status on HA start ([@dgomes] - [#44765]) ([utility_meter docs])
+- Bump bimmer_connected to 0.7.14 ([@rikroe] - [#45086]) ([bmw_connected_drive docs])
+- Fix neato battery sensor not ready ([@Santobert] - [#44946]) ([neato docs])
+- Fallback to tag for any AfterShip tracking that have no checkpoints ([@ludeeus] - [#45053]) ([aftership docs])
+- Bump MyQ to 2.0.14 ([@ehendrix23] - [#45067]) ([myq docs])
+- Fix OpenWeatherMap forecast timestamp ([@spacegaier] - [#45124]) ([openweathermap docs])
+- Add filtering ([@frenck] - [commit](https://github.com/home-assistant/core/commit/0bd2c13e261c7b3d96ba451c50f81dd3e659c5c9))
+
+[#44765]: https://github.com/home-assistant/core/pull/44765
+[#44946]: https://github.com/home-assistant/core/pull/44946
+[#45053]: https://github.com/home-assistant/core/pull/45053
+[#45067]: https://github.com/home-assistant/core/pull/45067
+[#45086]: https://github.com/home-assistant/core/pull/45086
+[#45124]: https://github.com/home-assistant/core/pull/45124
+[@Santobert]: https://github.com/Santobert
+[@dgomes]: https://github.com/dgomes
+[@ehendrix23]: https://github.com/ehendrix23
+[@ludeeus]: https://github.com/ludeeus
+[@rikroe]: https://github.com/rikroe
+[@spacegaier]: https://github.com/spacegaier
+[aftership docs]: /integrations/aftership/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[myq docs]: /integrations/myq/
+[neato docs]: /integrations/neato/
+[openweathermap docs]: /integrations/openweathermap/
+[utility_meter docs]: /integrations/utility_meter/
+
+## Release 2021.1.3 - January 15
+
+- Extend filter and filter tests ([@frenck] - [#45179]) ([http docs])
+- Bump aioHTTP 3.7.3 - YARL 1.6.3 ([@pvizeli] - [#45180])
+
+[#45179]: https://github.com/home-assistant/core/pull/45179
+[#45180]: https://github.com/home-assistant/core/pull/45180
+[@frenck]: https://github.com/frenck
+[@pvizeli]: https://github.com/pvizeli
+[http docs]: /integrations/http/
+
+## Release 2021.1.4 - January 16
+
+- Fix Home Connect ambient color ([@Sjack-Sch] - [#45038]) ([home_connect docs])
+- Fix HomeKit climate integration for devices with a single set point in Heat_Cool mode. ([@thevoltagesource] - [#45065]) ([homekit_controller docs])
+- Fix all forecast datetime values in OpenWeatherMap ([@spacegaier] - [#45202]) ([openweathermap docs])
+- Bump up ZHA dependency ([@Adminiuga] - [#45230]) ([zha docs])
+
+[#45038]: https://github.com/home-assistant/core/pull/45038
+[#45065]: https://github.com/home-assistant/core/pull/45065
+[#45202]: https://github.com/home-assistant/core/pull/45202
+[#45230]: https://github.com/home-assistant/core/pull/45230
+[@Adminiuga]: https://github.com/Adminiuga
+[@Sjack-Sch]: https://github.com/Sjack-Sch
+[@spacegaier]: https://github.com/spacegaier
+[@thevoltagesource]: https://github.com/thevoltagesource
+[home_connect docs]: /integrations/home_connect/
+[homekit_controller docs]: /integrations/homekit_controller/
+[openweathermap docs]: /integrations/openweathermap/
+[zha docs]: /integrations/zha/
+
+## Release 2021.1.5 - January 23
+
+- Update python-mpd2 to 3.0.3 ([@mweinelt] - [#45141]) ([mpd docs])
+- Bump pybotvac to 0.0.20 ([@Santobert] - [#45367]) ([neato docs])
+- Bump pyatmo to v4.2.2 ([@cgtobi] - [#45386]) ([netatmo docs])
+- Avoid misuse sanitize_path, clarify docs ([@balloob] - [#45469])
+
+[#45141]: https://github.com/home-assistant/core/pull/45141
+[#45367]: https://github.com/home-assistant/core/pull/45367
+[#45386]: https://github.com/home-assistant/core/pull/45386
+[#45469]: https://github.com/home-assistant/core/pull/45469
+[@Santobert]: https://github.com/Santobert
+[@balloob]: https://github.com/balloob
+[@cgtobi]: https://github.com/cgtobi
+[@mweinelt]: https://github.com/mweinelt
+[mpd docs]: /integrations/mpd/
+[neato docs]: /integrations/neato/
+[netatmo docs]: /integrations/netatmo/
 
 ## If you need help...
 

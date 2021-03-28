@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_domain: enphase_envoy
 ha_codeowners:
   - '@gtdiehl'
+ha_platforms:
+  - sensor
 ---
 
 A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).

@@ -12,9 +12,13 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: rainmachine
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
-The `rainmachine` integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
+The RainMachine integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -22,10 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - [Switch](#switch)
 
-## Configuration
-
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}
 
 ## Services
 

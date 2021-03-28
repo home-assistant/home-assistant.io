@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_domain: mvglive
+ha_platforms:
+  - sensor
 ---
 
 The `mvglive` sensor will give you the departure time of the next bus, tram, subway, or train at the next station or stop in the Munich public transport network. Additional details such as the line number and destination are present in the attributes.
@@ -74,14 +76,14 @@ sensor:
      - station: Hauptbahnhof
        name: Hbf
        destinations: ['München Flughafen Terminal','Markt Schwaben']
-       products: 'S-Bahn'
+       products: "S-Bahn"
        timeoffset: 2
      - station: Sendlinger Tor
        lines: ['U2','U8']
        number: 5
      - station: Scheidplatz
        products: ['U-Bahn']
-       directions: '1'
+       directions: "1"
 ```
 
 The first sensor will return S-Bahn departures to Munich Airport or Markt Schwaben that are at least 2 minutes away.

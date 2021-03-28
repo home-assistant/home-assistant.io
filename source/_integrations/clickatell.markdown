@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.56
 ha_domain: clickatell
+ha_platforms:
+  - notify
 ---
 
 The `clickatell` platform uses [Clickatell](https://clickatell.com) to deliver SMS notifications from Home Assistant.

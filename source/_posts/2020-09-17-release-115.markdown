@@ -230,7 +230,7 @@ this means that this setting is device-based and will be cleared when you logout
 You can now upload images for a person in the frontend!
 
 Select or drop an image in the input field and then crop it to a square. The
-image is stored on your Home Assistant server.
+image is stored on your Home Assistant instance.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rOlRnwaaT7Y" frameborder="0" allowfullscreen></iframe>
@@ -958,8 +958,9 @@ script:
   learn_tv_power:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: tv
           command: power
 ```
@@ -983,8 +984,9 @@ script:
   send_tv_power:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           command: b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
 ```
 
@@ -995,8 +997,9 @@ script:
   send_tv_power:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: tv
           command: power
 ```

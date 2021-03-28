@@ -53,7 +53,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 
 ## Create an Amazon Alexa Smart Home Skill
 
-- Sign in [Alexa Developer Console][alexa-dev-console], you can create your free account on the sign in page.
+- Sign in [Alexa Developer Console][alexa-dev-console], you can create your free account on the sign-in page. Note this *must* be created with the same Amazon account you use on your Alexa devices and app.
 - Go to `Alexa Skills` page if you are not, click `Create Skill` button to start the process.
 - Input `Skill name` as you like, select your skill's `Default language`.
 - Select `Smart Home` and `Provision your own`, then click `Create skill` button at top right corner.
@@ -119,7 +119,7 @@ Next you need create a Lambda function.
 - Scroll down a little bit, you will find `Environment variables`, you need add 1 environment variable and, if required, 3 optional variables. This is done by selecting `Manage environment variables` then adding the following:
   - *(required)* Key = BASE_URL, Value = your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
   - *(optional)* Key = NOT_VERIFY_SSL, Value = *True*. You can set this to *True* to ignore SSL issues, for example if you don't have a valid SSL certificate or you are using a self-signed certificate.
-  - *(optional)* Key = DEBUG, Value = *True*. Set this variable to log the debug message.
+  - *(optional)* Key = DEBUG, Value = *True*. Set this variable to log the debug message and to allow the LONG_LIVED_ACCESS_TOKEN
   - *(optional, not recommend)* Key = LONG_LIVED_ACCESS_TOKEN, Value = your Home Assistant Long-Lived Access Token. To avoid the use of a long-lived access token you will connect your Alexa Smart Home skill with your Home Assistant user account in the later steps, meaning you don't need to add it here. However, the access token you got from login flow is only valid for 30 minutes. It will be hard for you to test lambda function with the access token in test data. So for your convenience, you can remove the access token from the test data, [generate a long-lived access token][generate-long-lived-access-token] put here, then the function will fall back to read token from environment variables. (tips: You did not enable the security storage for your environment variables, so your token saved here is not that safe. You should only use it for debugging and testing purpose. You should remove and delete the long-lived access token after you finish the debugging.)
 
 <p class='img'>
@@ -167,9 +167,9 @@ After your Home Assistant has restarted, go back to `AWS Lambda Console`, you ar
 
 This test event is a `Discovery` directive, your Home Assistant instance will respond with a list of devices Alexa can interact with. This test data is lack of `token` in `payload.scope`, your Lambda function will read the `LONG_LIVED_ACCESS_TOKEN` from environment variable.
 
-Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN`, you will get a `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
+Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN`, or you haven't enabled `DEBUG` you will get a `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
 
-Now, you can login to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you put your long-lived access token to the `Environment variable`, do not forget click `Save` button before you `Test` again.
+Now, you can login to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you put your long-lived access token to the `Environment variable` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
 
 This time, you will get a list of your devices in the response. 🎉
 

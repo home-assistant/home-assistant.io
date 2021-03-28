@@ -13,12 +13,12 @@ The renderer uses [Marked.js](https://marked.js.org), which supports [several sp
 Screenshot of the Markdown card.
 </p>
 
-To add the Markdown card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Markdown** from the card picker.
+To add the Markdown card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Markdown** from the card picker.
 
 {% configuration %}
 type:
   required: true
-  description: markdown
+  description: "`markdown`"
   type: string
 content:
   required: true
@@ -41,7 +41,7 @@ entity_id:
   description: "A list of entity IDs so a template in `content:` only reacts to the state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities."
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 {% endconfiguration %}
 
@@ -86,7 +86,6 @@ card:
 
 {% endraw %}
 
-
 A special template variable - `user` is set up for the `content` of the card. It contains the currently logged in user.
 
 For example:
@@ -103,7 +102,7 @@ content: |
 
 ## Icons
 
-You can also use [materialdesignicons.com]() icons in the `content` of the card.
+You can also use [materialdesignicons.com](https://materialdesignicons.com/) icons in the `content` of the card.
 
 For example:
 

@@ -9,6 +9,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@indykoning'
 ha_domain: growatt_server
+ha_platforms:
+  - sensor
 ---
 
 This is a sensor to collect information from your Growatt inverters using [Growatt server](https://server.growatt.com/).
@@ -54,12 +56,12 @@ name:
 # Example configuration.yaml entry
 sensor:
   - platform: growatt_server
-    name: 'growatt home'
+    name: "growatt home"
     plant_id: 12345678
     username: username
     password: password
   - platform: growatt_server
-    name: 'growatt work'
+    name: "growatt work"
     plant_id: 87654321
     username: username
     password: password

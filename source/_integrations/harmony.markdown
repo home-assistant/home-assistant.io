@@ -10,7 +10,12 @@ ha_codeowners:
   - '@ehendrix23'
   - '@bramkragten'
   - '@bdraco'
+  - '@mkeesey'
 ha_domain: harmony
+ha_ssdp: true
+ha_platforms:
+  - remote
+  - switch
 ---
 
 The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](https://www.logitech.com/en-us/product/harmony-hub).
@@ -23,9 +28,9 @@ Supported units:
 - Harmony Elite
 - Harmony Pro 2400
 
-The preferred way to setup the Harmony remote for your installation is via **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Logitech Harmony Hub**.
+{% include integrations/config_flow.md %}
 
-Once `Logitech Harmony Hub` has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Configuration** >> **Integrations** >> **Your Logitech Harmony Hub**
+Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Configuration** >> **Integrations** >> **Your Logitech Harmony Hub**
 
 ### Configuration file
 
@@ -74,7 +79,8 @@ Using the activity name 'Watch TV', you can call a service via automation to swi
 ```yaml
 action:
   - service: remote.turn_on
-    entity_id: remote.bed_room_hub
+    target:
+      entity_id: remote.bed_room_hub
     data:
        activity: "Watch TV"
 ```
@@ -121,8 +127,9 @@ A typical service call for sending several button presses looks like this:
 
 ```yaml
 service: remote.send_command
-data:
+target:
   entity_id: remote.tv_room
+data:
   command:
     - PowerOn
     - Mute
@@ -132,8 +139,9 @@ data:
 OR
 ```yaml
 service: remote.send_command
-data:
+target:
   entity_id: remote.tv_room
+data:
   command:
     - PowerOn
     - Mute
@@ -154,8 +162,9 @@ A typical service call for changing the channel would be::
 
 ```yaml
 service: harmony.change_channel
-data:
+target:
   entity_id: remote.tv_room
+data:
   channel: 200
 ```
 
@@ -179,10 +188,10 @@ sensor:
     sensors:
       family_room:
         value_template: '{{ state_attr("remote.family_room", "current_activity") }}'
-        friendly_name: 'Family Room'
+        friendly_name: "Family Room"
       bedroom:
         value_template: '{{ state_attr("remote.bedroom", "current_activity") }}'
-        friendly_name: 'bedroom'
+        friendly_name: "bedroom"
 ```
 
 {% endraw %}
@@ -202,7 +211,8 @@ automation:
       value_template: '{{ trigger.to_state.attributes.current_activity == "Kodi" }}'
     action:
       service: input_boolean.turn_on
-      entity_id: input_boolean.notify
+      target:
+        entity_id: input_boolean.notify
   - alias: "PowerOff started from harmony hub"
     trigger:
       platform: state
@@ -212,7 +222,8 @@ automation:
       value_template: '{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'
     action:
       service: input_boolean.turn_off
-      entity_id: input_boolean.notify
+      target:
+        entity_id: input_boolean.notify
 ```
 
 {% endraw %}

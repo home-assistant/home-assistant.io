@@ -41,7 +41,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 - Climate: [MySensors] is now supported ([@kaustubhphatak])
 - Control Home Assistant with [keyboard shortcuts][keyboard_remote] ([@deisi])
 - More voluptuous config validations ([@fabaff], [@kellerza], [@balloob])
-- New [Nuimo] controller support added ([@gross1989])
+- New Nuimo controller support added ([@gross1989])
 - Sensor: BOM Weather component ([@tinglis1])
 - Automation: Option added to hide entity ([@milaq])
 - Sensor: [Emoncms] feeds now supported ([@joyrider])
@@ -170,7 +170,6 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [Kodi]: /integrations/kodi
 [Modbus]: /integrations/modbus/
 [Nest]: /integrations/nest/
-[Nuimo]: /integrations/nuimo_controller/
 [OpenALPR]: /integrations/openalpr_local/
 [passwordless]: /integrations/http/
 [Simplepush]: /integrations/simplepush

@@ -1,8 +1,7 @@
 ---
 title: Home Assistant Conference 2020
 show_title: false
-# is_homepage: true
-hide_github_edit: true
+feedback: false
 description: December 13, 2020 we will host the first online Home Assistant Conference.
 og_image: /images/conference/social.png
 ---
@@ -20,10 +19,10 @@ After the talks, attendees will be able to join various sessions about different
 
 ## Watch it back
 
-The conference is over! The live stream of the main stage is available below. All other videos will come online when we have time.
+The conference is over! All talks have been [published online on YouTube](https://www.youtube.com/playlist?list=PLKsVm4cWHDQDGRXnybFUOLlcDWPsroGGB) and are also embedded below:
 
 <div class="videoWrapper">
-  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/xSB_MuKkgxE?start=231" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLKsVm4cWHDQDGRXnybFUOLlcDWPsroGGB" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
 ## Keynotes & Talks schedule

@@ -60,7 +60,7 @@ Automations can be triggered on filesystem event data using a template. The foll
 ```yaml
 #Send notification for new image (including the image itself)
 automation:
-  alias: New file alert
+  alias: "New file alert"
   trigger:
     platform: event
     event_type: folder_watcher

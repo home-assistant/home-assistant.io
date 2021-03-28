@@ -6,13 +6,15 @@ ha_category:
 ha_release: 0.88
 ha_iot_class: Cloud Polling
 ha_domain: github
+ha_platforms:
+  - sensor
 ---
 
-The GitHub sensor integrates data from [GitHub](https://github.com/) to monitor your favorite repositories.
+The GitHub sensor allows you to monitor your favorite [GitHub](https://github.com/) repositories. Monitored information includes the amount of stargazers, forks, open issues and pull requests, the latest commit message, and more. 
 
 ## Setup
 
-To set up this sensor you will need a [personal access token](https://github.com/settings/tokens). You will need to check the `repo` scope for the sensor to function.
+To set up this sensor you will need a GitHub [personal access token](https://github.com/settings/tokens). You will need to check the `repo` scope for the sensor to function.
 
 ## Configuration
 

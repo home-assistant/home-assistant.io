@@ -8,6 +8,8 @@ ha_release: '0.60'
 ha_codeowners:
   - '@fabaff'
 ha_domain: alpha_vantage
+ha_platforms:
+  - sensor
 ---
 
 The `alpha_vantage` sensor platform uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market. This platform also provides detail about exchange rates.

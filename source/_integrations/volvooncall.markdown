@@ -6,6 +6,12 @@ ha_category:
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 ha_domain: volvooncall
+ha_platforms:
+  - binary_sensor
+  - device_tracker
+  - lock
+  - sensor
+  - switch
 ---
 
 The `volvooncall` integration offers integration with the [Volvo On Call](https://www.volvocars.com/intl/why-volvo/human-innovation/future-of-driving/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
@@ -131,7 +137,7 @@ volvooncall:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
   name:
-    YOUR_VIN_NUMBER: 'NEW_NAME'
+    YOUR_VIN_NUMBER: "NEW_NAME"
   resources:
     - odometer
     - lock

@@ -89,7 +89,7 @@ command_topic:
   required: true
   type: string
 device:
-  description: 'Information about the device this alarm panel is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
+  description: "Information about the device this alarm panel is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set."
   required: false
   type: map
   keys:
@@ -98,27 +98,31 @@ device:
       required: false
       type: list
     identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      description: "A list of IDs that uniquely identify the device. For example a serial number."
       required: false
       type: [list, string]
     manufacturer:
-      description: 'The manufacturer of the device.'
+      description: "The manufacturer of the device."
       required: false
       type: string
     model:
-      description: 'The model of the device.'
+      description: "The model of the device."
       required: false
       type: string
     name:
-      description: 'The name of the device.'
+      description: "The name of the device."
+      required: false
+      type: string
+    suggested_area:
+      description: 'Suggest an area if the device isn’t in one yet.'
       required: false
       type: string
     sw_version:
-      description: 'The firmware version of the device.'
+      description: "The firmware version of the device."
       required: false
       type: string
     via_device:
-      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
+      description: "Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant."
       required: false
       type: string
 json_attributes_template:

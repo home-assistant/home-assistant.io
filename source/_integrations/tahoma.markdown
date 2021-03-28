@@ -14,6 +14,12 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@philklei'
 ha_domain: tahoma
+ha_platforms:
+  - binary_sensor
+  - cover
+  - lock
+  - sensor
+  - switch
 ---
 
 The `Tahoma` integration platform is used as an interface to the [tahomalink.com](https://www.tahomalink.com) website. It adds covers, scenes and a sun sensor from the Tahoma platform.

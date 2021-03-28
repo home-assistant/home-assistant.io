@@ -9,13 +9,13 @@ ha_codeowners:
 ha_domain: nws
 ha_quality_scale: platinum
 ha_config_flow: true
+ha_platforms:
+  - weather
 ---
 
 The `nws` platform uses the [National Weather Service](https://www.weather.gov) web API as a source for meteorological data for your location.
 
-## Configuration
-
-To add `nws` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **National Weather Service (NWS)**. Multiple entries can be configured, but a unique set of latitude and longitude must be supplied for each.
+{% include integrations/config_flow.md %}
 
 According to the [API documentation](https://www.weather.gov/documentation/services-web-api/), a string is required for the API key, and an email address is suggested to be included within the string.
 

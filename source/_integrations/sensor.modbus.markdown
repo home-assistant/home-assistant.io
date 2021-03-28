@@ -55,7 +55,7 @@ registers:
     hub:
       description: The name of the hub.
       required: false
-      default: default
+      default: modbus_hub
       type: string
     slave:
       description: The number of the slave (Optional for tcp and upd Modbus).

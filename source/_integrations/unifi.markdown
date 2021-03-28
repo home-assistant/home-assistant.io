@@ -13,6 +13,11 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@Kane610'
 ha_domain: unifi
+ha_ssdp: true
+ha_platforms:
+  - device_tracker
+  - sensor
+  - switch
 ---
 
 [UniFi](https://www.ui.com/software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
@@ -23,15 +28,13 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Sensor](#sensor)
 
-## Configuration
-
-Home Assistant offers UniFi integration through **Configuration** -> **Integrations** -> **UniFi Controller**. Follow the instructions to get it set up.
+{% include integrations/config_flow.md %}
 
 The user needs administrator privileges in order to control switches.
 
 ### Extra configuration of the integration
 
-All configuration options are offered from the front end. Enter what UniFi integration you want to change options on and press the cog wheel.
+All configuration options are offered from the front end. Enter what UniFi integration you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
 
 ### Configuring Users
 
@@ -49,7 +52,7 @@ It is recommended that you run the UniFi controller in a dedicated virtual machi
 
 ## Presence detection
 
-This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi](https://unifi-network.ui.com/) controller.
+This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi](https://unifi-network.ui.com/) controller. By default devices are marked as away 300 seconds after they were last seen.
 
 ### Troubleshooting and Time Synchronization
 

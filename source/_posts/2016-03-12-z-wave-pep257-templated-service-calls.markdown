@@ -41,7 +41,7 @@ automation:
         {% else %}
           switch.turn_off
         {% endif %}
-      data:
+      target:
         entity_id: switch.{{ states('input_select.is') }}
 ```
 

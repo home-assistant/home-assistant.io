@@ -12,6 +12,10 @@ ha_config_flow: true
 ha_codeowners:
   - '@mvn23'
 ha_domain: opentherm_gw
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
 ---
 
 The `opentherm_gw` integration is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.
@@ -30,23 +34,22 @@ The OpenTherm protocol is based on polling. The thermostat sends requests to the
 
 # Configuration
 
-The OpenTherm Gateway can be added to Home Assistant through the `Integrations` panel in the `Configuration` page of the web interface.
+{% include integrations/config_flow.md %}
+
 The following configuration options are available:
-{% configuration %}
+
+{% configuration_basic %}
 name:
   description: "The friendly name used for the OpenTherm Gateway and its entities."
-  required: true
-  type: string
 path:
   description: "Path to the OpenTherm Gateway device as supported by [PySerial](https://pythonhosted.org/pyserial/url_handlers.html)."
-  required: true
-  type: string
 id:
   description: "The `gateway_id` for this OpenTherm Gateway's entity IDs and services. The entered value will be slugified."
-  required: false
-  type: string
-  default: "The slugified `name` of this OpenTherm Gateway."
-{% endconfiguration %}
+{% endconfiguration_basic %}
+
+<div class='note warning'>
+Please make sure no other device or application is connected to the OpenTherm Gateway at the same time as Home Assistant. This is not a supported scenario and may lead to unexpected results.
+</div>
 
 <div class='note'>
 The precision and floor_temperature settings that were supported in configuration.yaml entries have been lost upon import of the configuration.yaml entry into the Integrations panel. You can now configure them as per the following Options paragraph.
@@ -146,7 +149,7 @@ Set the domestic hot water setpoint on the OpenTherm Gateway. Not all boilers su
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `gateway_id` | no | The `gateway_id` as specified during configuration.
-| `dhw_override` | no | The domestic hot water setpoint to set on the gateway. Values between 0 and 90 are accepted, but not all boilers support this range. Check the values of the `slave_dhw_min_setp` and `slave_dhw_max_setp` sensors to see the supported range on your boiler.
+| `temperature` | no | The domestic hot water setpoint to set on the gateway. Values between 0 and 90 are accepted, but not all boilers support this range. Check the values of the `slave_dhw_min_setp` and `slave_dhw_max_setp` sensors to see the supported range on your boiler.
 
 ### Service `opentherm_gw.set_gpio_mode`
 

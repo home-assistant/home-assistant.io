@@ -14,19 +14,7 @@ The `shopping_list` integration allows you to keep track of shopping list items.
 
 Your shopping list will be accessible from the sidebar, and you can optionally add the [Shopping List card](/lovelace/shopping-list/) to your Lovelace dashboard. With the [Conversation integration](/integrations/conversation/) you can add items to your shopping list using voice commands like "Add eggs to my shopping list." 
 
-
-## Configuration - GUI
-
-From the Home Assistant front page go to **Configuration** and then select **Integrations** from the list.
-
-Use the plus button in the bottom right to add a new integration called **Shopping List**.
-
-## Configuration - Manual
-
-```yaml
-# Example configuration.yaml entry
-shopping_list:
-```
+{% include integrations/config_flow.md %}
 
 ## Services
 
@@ -34,15 +22,35 @@ You can add or remove items from your shopping list by using the following servi
 
 ### Service `shopping_list.add_item`
 
+Adds an item to the shopping list.
+
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `name`                 |       no | Name of the item to add. Example: "Milk"               |
 
 ### Service `shopping_list.complete_item`
 
+Marks an item as completed in the shopping list. It does not remove the item.
+
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `name`                 |       no | Name of the item to mark as completed. Example: "Milk" |
+
+### Service `shopping_list.incomplete_item`
+
+Marks an item as incomplete in the shopping list.
+
+| Service data attribute | Optional | Description                                            |
+|------------------------|----------|--------------------------------------------------------|
+| `name`                 |       no | Name of the item to mark as incomplete. Example: "Milk" |
+
+### Service `shopping_list.complete_all`
+
+Marks all items as completed in the shopping list. It does not remove the items.
+
+### Service `shopping_list.incomplete_all`
+
+Marks all items as incomplete in the shopping list.
 
 ## Using in Automations
 
@@ -56,8 +64,8 @@ service: notify.notify
 title: "Time to shop?"
 message: 'Click to open the shopping list'
 data:
-  clickAction: '/shopping-list'
-  url: '/shopping-list'
+  clickAction: "/shopping-list"
+  url: "/shopping-list"
 ```
 
 {% endraw %}

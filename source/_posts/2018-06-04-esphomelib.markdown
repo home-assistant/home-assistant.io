@@ -43,13 +43,13 @@ esphomeyaml:
   board: nodemcuv2
 
 wifi:
-  ssid: 'MySSID'
-  password: 'MyPassword'
+  ssid: "MySSID"
+  password: "MyPassword"
 
 mqtt:
-  broker: '192.168.178.83'
-  username: ''
-  password: ''
+  broker: "192.168.178.83"
+  username: ""
+  password: ""
 
 logger:
 ota:

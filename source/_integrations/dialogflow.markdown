@@ -49,7 +49,7 @@ To get the webhook URL, go to the integrations page in the configuration screen 
 - At the bottom of the page, expand "Fulfillment" and check "Use webhook".
 - Click "Save".
 - At the top right of the screen where it says "Try it now...", type, or say, the phrase you have previously defined and hit enter.
-- Dialogflow will now send a request to your Home Assistant server and display the response.
+- Dialogflow will now send a request to your Home Assistant instance and display the response.
 
 <div class='note warning'>
 
@@ -112,7 +112,7 @@ intent_script:
           {%- else -%}
             switch.turn_off
           {%- endif -%}
-        data:
+        target:
           entity_id: "switch.light_{{ Room | striptags | replace(' ', '_') }}"
 ```
 

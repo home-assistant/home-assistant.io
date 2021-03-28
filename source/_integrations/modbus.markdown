@@ -10,10 +10,16 @@ ha_codeowners:
   - '@janiversen'
   - '@vzahradnik'
 ha_domain: modbus
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - sensor
+  - switch
 ---
 
-[Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller).
-It currently supports sensors and switches which can be controlled over serial, TCP, and UDP connections.
+[Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable Logic Controller).
+It supports various types of devices which can be controlled over serial, TCP, and UDP connections.
 
 ## Configuration
 
@@ -48,7 +54,7 @@ port:
 name:
   description: Name for this hub. Must be unique, so it is required when setting up multiple instances.
   required: false
-  default: default
+  default: modbus_hub
   type: string
 timeout:
   description: Timeout for slave response in seconds.

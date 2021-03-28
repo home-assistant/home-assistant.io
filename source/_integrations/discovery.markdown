@@ -79,7 +79,6 @@ Valid values for ignore are:
  * `netgear_router`: NETGEAR routers
  * `octoprint`: Octoprint
  * `openhome`: Linn / Openhome
- * `panasonic_viera`: Panasonic Viera
  * `philips_hue`: Philips Hue
  * `sabnzbd`: SABnzbd downloader
  * `samsung_printer`: Samsung SyncThru Printer

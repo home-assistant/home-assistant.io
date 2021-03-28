@@ -287,7 +287,7 @@ anymore. - ([@abmantis] - [#25971])
   Example configuration entry:
   ```yaml
   - platform: statistics
-    name: 'MiAP2 PSI Stat'
+    name: "MiAP2 PSI Stat"
     entity_id: sensor.mi_ap2_aqi
   ```
 

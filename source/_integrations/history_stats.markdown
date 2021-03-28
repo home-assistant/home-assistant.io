@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_release: 0.39
 ha_quality_scale: internal
 ha_domain: history_stats
+ha_platforms:
+  - sensor
 ---
 
 The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
@@ -32,10 +34,10 @@ sensor:
   - platform: history_stats
     name: Lamp ON today
     entity_id: light.my_lamp
-    state: 'on'
+    state: "on"
     type: time
-    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-    end: '{{ now() }}'
+    start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    end: "{{ now() }}"
 ```
 
 {% endraw %}
@@ -135,8 +137,8 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-    end: '{{ now() }}'
+    start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    end: "{{ now() }}"
 ```
 
 {% endraw %}
@@ -146,7 +148,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    end: "{{ now().replace(hour=0, minute=0, second=0) }}"
     duration:
       hours: 24
 ```
@@ -158,7 +160,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: '{{ now().replace(hour=6, minute=0, second=0) }}'
+    start: "{{ now().replace(hour=6, minute=0, second=0) }}"
     duration:
       hours: 5
 ```
@@ -172,8 +174,20 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    start: '{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}'
-    end: '{{ now() }}'
+    start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}"
+    end: "{{ now() }}"
+```
+
+{% endraw %}
+
+**Next 4 pm**: 24 hours, from the last 4 pm till the next 4 pm. If it hasn't been 4 pm today, that would be 4 pm yesterday until 4 pm today. If it is already past 4 pm today, it will be 4 pm today until 4 pm tomorrow. When changing the start time, then add or subtract to the 8-hour buffer to match the next midnight.
+
+{% raw %}
+
+```yaml
+    end: "{{ (now().replace(minute=0,second=0) + timedelta(hours=8)).replace(hour=16) }}"
+    duration:
+        hours: 24
 ```
 
 {% endraw %}
@@ -183,7 +197,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    end: "{{ now().replace(hour=0, minute=0, second=0) }}"
     duration:
       days: 30
 ```
@@ -195,8 +209,8 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    start: '{{ 0 }}'
-    end: '{{ now() }}'
+    start: "{{ 0 }}"
+    end: "{{ now() }}"
 ```
 
 {% endraw %}

@@ -213,7 +213,7 @@ An improvement in the battery of your device and your data cap are going to
 like:
 
 When the Home Assistant UI is not visible for longer than 5 minutes, it
-disconnects from your Home Assistant server. This means you no longer get data or
+disconnects from your Home Assistant instance. This means you no longer get data or
 camera streams and your device can optimize resource and power consumption.
 
 Of course, when showing the browser (or browser tab) again, it will
@@ -334,7 +334,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ```yaml
 automation:
-  - alias: Test vacuum zone
+  - alias: "Test vacuum zone"
     trigger:
     - event: start
       platform: homeassistant
@@ -342,7 +342,7 @@ automation:
     action:
     - service: xiaomi_miio.vacuum_clean_zone
       data:
-        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
 
@@ -354,16 +354,17 @@ to:
 
 ```yaml
 automation:
-  - alias: Test vacuum zone
+  - alias: "Test vacuum zone"
     trigger:
     - event: start
       platform: homeassistant
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_zone
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum
-        repeats: '{{states('input_number.vacuum_passes')|int}}'
+      data:
+        repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
 

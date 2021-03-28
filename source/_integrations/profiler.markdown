@@ -13,9 +13,7 @@ ha_config_flow: true
 
 The Profiler integration provides a profile which is a set of statistics that identifies how much time each part of Home Assistant is taking. It can help track down a performance issue or provide insight about a misbehaving integration.
 
-## Configuration
-
-To add `Profiler` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Profiler**.
+{% include integrations/config_flow.md %}
 
 ### Service `profiler.start`
 

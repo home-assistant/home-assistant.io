@@ -245,7 +245,7 @@ vacuum:
       - medium
       - high
       - max
-    send_command_topic: 'vacuum/send_command'
+    send_command_topic: "vacuum/send_command"
 ```
 
 {% endraw %}
@@ -346,6 +346,10 @@ device:
       type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    suggested_area:
+      description: 'Suggest an area if the device isn’t in one yet.'
       required: false
       type: string
     sw_version:
@@ -478,7 +482,7 @@ vacuum:
       - medium
       - high
       - max
-    send_command_topic: 'vacuum/send_command'
+    send_command_topic: "vacuum/send_command"
 ```
 
 ### State MQTT Protocol
@@ -520,15 +524,16 @@ If params are provided service sends JSON as payload with such structure:
 Service trigger example:
 
 ```yaml
-- alias: Push command based on sensor
+- alias: "Push command based on sensor"
     trigger:
       - platform: state
         entity_id: sensor.sensor
     action:
       service: vacuum.send_command
+      target:
+        entity_id: vacuum.vacuum_entity
       data:
-        entity_id: 'vacuum.vacuum_entity'
-        command: 'custom_command'
+        command: "custom_command"
         params:
           - key: value
 ```
@@ -595,15 +600,16 @@ If params are provided service sends JSON as payload with such structure:
 Service trigger example:
 
 ```yaml
-- alias: Push command based on sensor
+- alias: "Push command based on sensor"
     trigger:
       - platform: state
         entity_id: sensor.sensor
     action:
       service: vacuum.send_command
+      target:
+        entity_id: vacuum.vacuum_entity
       data:
-        entity_id: 'vacuum.vacuum_entity'
-        command: 'custom_command'
+        command: "custom_command"
         params:
           - key: value
 ```

@@ -10,9 +10,13 @@ ha_release: 0.108
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@ryannazaretian'
   - '@bdraco'
 ha_domain: nexia
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
 ---
 
 The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com/) thermostats into Home Assistant.
@@ -24,11 +28,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Scene](#scene)
 
-## Configuration
-
-You will need your mynexia.com username and password to use this module.
-
-To add `Nexia` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Nexia**.
+{% include integrations/config_flow.md %}
 
 ### Binary Sensor
 

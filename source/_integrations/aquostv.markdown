@@ -74,5 +74,6 @@ Currently known supported models:
 - LC-60SQ15U
 - LC-50US40 (no volume control, not fully tested)
 - LC-70LE650U
+- LC-70LE747E (no volume control)
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/aquostv.markdown).

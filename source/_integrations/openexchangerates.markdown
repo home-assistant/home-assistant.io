@@ -3,10 +3,11 @@ title: Open Exchange Rates
 description: Instructions on how to integrate exchange rates from https://openexchangerates.org within Home Assistant.
 ha_category:
   - Finance
-logo: openexchangerates.png
 ha_iot_class: Cloud Polling
 ha_release: 0.23
 ha_domain: openexchangerates
+ha_platforms:
+  - sensor
 ---
 
 The `openexchangerates` sensor will show you the current exchange rate from [Open Exchange Rates](https://openexchangerates.org) that provides realtime exchange rates for [170 currencies](https://openexchangerates.org/currencies). The free account is limited to only USD as a base currency, allows 1000 requests per month, and updates every hour.

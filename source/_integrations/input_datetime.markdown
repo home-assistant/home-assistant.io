@@ -52,12 +52,12 @@ input_datetime:
         required: false
         type: string
       has_time:
-        description: Set to `true` if the input should have a time. At least one `has_time` or `has_date` must be defined.
+        description: Set to `true` if the input should have a time. At least one of `has_time` or `has_date` must be defined.
         required: false
         type: boolean
         default: false
       has_date:
-        description: Set to `true` if the input should have a date. At least one `has_time` or `has_date` must be defined.
+        description: Set to `true` if the input should have a date. At least one of `has_time` or `has_date` must be defined.
         required: false
         type: boolean
         default: false
@@ -121,7 +121,8 @@ automation:
     at: input_datetime.bedroom_alarm_clock_time
   action:
     service: light.turn_on
-    entity_id: light.bedroom
+    target:
+      entity_id: light.bedroom
 ```
 
 To dynamically set the `input_datetime` you can call
@@ -133,40 +134,47 @@ If you have a `datetime` object you can use its `timestamp` method. Of if you ha
 ```yaml
 # Sets time to 05:30:00
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
+  target:
+    entity_id: input_datetime.XXX
   data:
-    time: '05:30:00'
+    time: "05:30:00"
 # Sets time to time from datetime object
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
+  target:
+    entity_id: input_datetime.XXX
   data:
     time: "{{ now().strftime('%H:%M:%S') }}"
 # Sets date to 2020-08-24
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
+  target:
+    entity_id: input_datetime.XXX
   data:
-    date: '2020-08-24'
+    date: "2020-08-24"
 # Sets date to date from datetime object
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
+  target:
+    entity_id: input_datetime.XXX
   data:
     date: "{{ now().strftime('%Y-%m-%d') }}"
 # Sets date and time to 2020-08-25 05:30:00
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
+  target:
+    entity_id: input_datetime.XXX
   data:
-    datetime: '2020-08-25 05:30:00'
+    datetime: "2020-08-25 05:30:00"
 # Sets date and time from datetime object
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
+  target:
+    entity_id: input_datetime.XXX
   data:
     datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
 # Sets date and/or time from UNIX timestamp
 # This can be used whether the input_datetime has just a date,
 # or just a time, or has both
 - service: input_datetime.set_datetime
-  data:
+  target:
     entity_id: input_datetime.XXX
+  data:
     timestamp: "{{ now().timestamp() }}"
 ```
 

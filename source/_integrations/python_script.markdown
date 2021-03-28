@@ -39,7 +39,7 @@ hass.bus.fire(name, {"wow": "from a Python script!"})
 ```
 
 - Start Home Assistant
-- Call service `python_script.hello_world` with parameters
+- Call your new {% my developer_call_service service="python_script.hello_world" %} service (with parameters) from the {% my developer_services %}. 
 
 ```yaml
 name: you
@@ -67,9 +67,10 @@ if entity_id is not None:
 The above `python_script` can be called using the following YAML as an input.
 
 ```yaml
-service: python_script.turn_on_light
-  data:
+- service: python_script.turn_on_light
+  target:
     entity_id: light.bedroom
+  data:
     rgb_color: [255, 0, 0]
 ```
 

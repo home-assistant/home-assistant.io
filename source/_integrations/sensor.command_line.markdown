@@ -60,26 +60,6 @@ json_attributes:
 
 In this section you find some real-life examples of how to use this sensor.
 
-### Hard drive temperature
-
-There are several ways to get the temperature of your hard drive. A simple solution is to use [hddtemp](https://savannah.nongnu.org/projects/hddtemp/).
-
-```bash
-hddtemp -n /dev/sda
-```
-
-To use this information, the entry for a command-line sensor in the `configuration.yaml` file will look like this.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    name: HD Temperature
-    command: "hddtemp -n /dev/sda"
-    # If errors occur, make sure configuration file is encoded as UTF-8
-    unit_of_measurement: "°C"
-```
-
 ### CPU temperature
 
 Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your `configuration.yaml` file:
@@ -94,7 +74,7 @@ sensor:
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     # If errors occur, make sure configuration file is encoded as UTF-8
     unit_of_measurement: "°C"
-    value_template: '{{ value | multiply(0.001) | round(1) }}'
+    value_template: "{{ value | multiply(0.001) | round(1) }}"
 ```
 
 {% endraw %}
@@ -204,8 +184,8 @@ sensor:
     json_attributes:
       - date
       - milliseconds_since_epoch
-    command: 'python3 /home/pi/.homeassistant/scripts/datetime.py'
-    value_template: '{{ value_json.time }}'
+    command: "python3 /home/pi/.homeassistant/scripts/datetime.py"
+    value_template: "{{ value_json.time }}"
 ```
 
 {% endraw %}

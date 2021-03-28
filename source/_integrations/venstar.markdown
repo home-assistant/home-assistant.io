@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.62
 ha_iot_class: Local Polling
 ha_domain: venstar
+ha_platforms:
+  - climate
 ---
 
 The `venstar` climate platform allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.

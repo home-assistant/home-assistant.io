@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_domain: ezviz
 ha_codeowners:
   - '@baqs'
+ha_platforms:
+  - camera
 ---
 
 The `ezviz` sensor platform uses the EzvizLife API to interact with the devices.
@@ -74,7 +76,7 @@ camera_view: live
 elements:
   - icon: 'mdi:arrow-up'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       bottom: 50px
       right: 25px
     tap_action:
@@ -86,7 +88,7 @@ elements:
     type: icon
   - icon: 'mdi:arrow-down'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       bottom: 0px
       right: 25px
     tap_action:
@@ -98,7 +100,7 @@ elements:
     type: icon
   - icon: 'mdi:arrow-left'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       bottom: 25px
       right: 50px
     tap_action:
@@ -110,7 +112,7 @@ elements:
     type: icon
   - icon: 'mdi:arrow-right'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       bottom: 25px
       right: 0px
     tap_action:
@@ -122,7 +124,7 @@ elements:
     type: icon
   - icon: 'mdi:run-fast'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       top: 25px
       right: 25px
     tap_action:
@@ -134,7 +136,7 @@ elements:
     type: icon
   - icon: 'mdi:run'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       top: 25px
       right: 0px
     tap_action:
@@ -146,7 +148,7 @@ elements:
     type: icon
   - icon: 'mdi:eye'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 25px
       top: 50px
     tap_action:
@@ -158,7 +160,7 @@ elements:
     type: icon
   - icon: 'mdi:eye-off'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 0px
       top: 50px
     tap_action:
@@ -170,7 +172,7 @@ elements:
     type: icon
   - icon: 'mdi:volume-high'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 25px
       top: 75px
     tap_action:
@@ -182,7 +184,7 @@ elements:
     type: icon
   - icon: 'mdi:volume-off'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 0px
       top: 75px
     tap_action:
@@ -194,7 +196,7 @@ elements:
     type: icon
   - icon: 'mdi:led-on'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 25px
       top: 100px
     tap_action:
@@ -206,7 +208,7 @@ elements:
     type: icon
   - icon: 'mdi:led-off'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 0px
       top: 100px
     tap_action:
@@ -218,7 +220,7 @@ elements:
     type: icon
   - icon: 'mdi:brightness-4'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 25px
       top: 100px
     tap_action:
@@ -230,7 +232,7 @@ elements:
     type: icon
   - icon: 'mdi:brightness-5'
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 0px
       top: 100px
     tap_action:

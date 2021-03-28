@@ -12,21 +12,33 @@ ha_codeowners:
   - '@balloob'
   - '@bieniu'
   - '@thecode'
+  - '@chemelli74'
 ha_iot_class: Local Push
 ha_domain: shelly
 featured: true
 ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - sensor
+  - switch
 ---
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
-## Configuration
+## Shelly device configuration
 
-To add a Shelly device to your installation, make sure they are connected to your Wi-Fi network first. Next, go to **Configuration** >> **Integrations** in the UI. If the new device is on the same network as Home Assistant, it is discovered automatically. Clicking "Configure" on the discovered device, adds it to Home Assistant. If your device isn't discovered automatically, click the button with `+` sign on the integrations page and from the list of integrations, select **Shelly** and follow the instructions shown.
+Shelly devices use the `CoIoT` protocol to communicate with integration. For Shelly firmware 1.10.0 or newer, `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
+
+We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. This is mandatory for Shelly Motion with firmware 1.1.0 or newer. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
 
 <div class="note">
 Integration is communicating directly with the device; cloud connection is not needed.
 </div>
+
+{% include integrations/config_flow.md %}
 
 ## Entity naming
 
@@ -73,7 +85,8 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
       click_type: single
   action:
     service: light.toggle
-    entity_id: light.living_room
+    target:
+      entity_id: light.living_room
 
 - alias: "Toggle living room lamp"
   trigger:
@@ -85,7 +98,8 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
       click_type: long
   action:
     service: light.toggle
-    entity_id: light.lamp_living_room
+    target:
+      entity_id: light.lamp_living_room
 ```
 
 ### Possible values for `click_type`
@@ -108,5 +122,4 @@ Not all devices support all input events. You can check on [Shelly API Reference
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
-- Support for battery-powered devices is limited (also applies to USB powered Shelly H&T)
-
+- Before set up, battery-powered devices must be woken up by pressing the button on the device.

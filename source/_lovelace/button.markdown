@@ -11,7 +11,7 @@ The Button card allows you to add buttons to perform tasks.
 Screenshot of three Button Cards.
 </p>
 
-To add the Button card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Button** from the card picker. All options for this card can be configured via the user interface.
+To add the Button card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Button** from the card picker. All options for this card can be configured via the user interface.
 
 ## Card Settings
 
@@ -29,7 +29,7 @@ Show Icon:
 Icon Height:
   description: The height of the icon, in pixels.
 Theme:
-  description: The card theme, which may be set to any installed theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
+  description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
 Tap Action:
   description: The action taken on card tap. For more information, see the [action documentation](/lovelace/actions/#tap-action).
 Hold Action:
@@ -43,7 +43,7 @@ This is for if you use YAML mode or prefer to use YAML in the Code Editor in the
 {% configuration %}
 type:
   required: true
-  description: button
+  description: "`button`"
   type: string
 entity:
   required: false
@@ -58,7 +58,7 @@ icon:
   required: false
   description: The icon that is displayed on the card. It defaults to the entity domain icon only if the card interacts with an entity. Otherwise, if not configured, no icon is displayed.
   type: string
-  default: Entity Domain Icon
+  default: Entity domain icon
 show_name:
   required: false
   description: If false, the button name is not shown on the card.
@@ -98,7 +98,7 @@ double_tap_action:
   type: map
 theme:
   required: false
-  description: The card theme, which may be set to any theme from the `themes.yaml` file. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 {% endconfiguration %}
 

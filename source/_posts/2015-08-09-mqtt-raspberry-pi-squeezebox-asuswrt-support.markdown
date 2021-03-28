@@ -76,7 +76,7 @@ __Slack notification support__
 notify:
   platform: slack
   api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-  default_channel: '#general'
+  default_channel: "#general"
 ```
 
 __Edimax Smart Switches support__

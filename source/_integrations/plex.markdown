@@ -11,6 +11,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@jjlawren'
 ha_domain: plex
+ha_platforms:
+  - sensor
 ---
 
 The Plex integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. Media Players will allow you to control media playback and see the current playing item.
@@ -24,9 +26,7 @@ There is currently support for the following device types within Home Assistant:
 
 If a Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
 
-### Configuration
-
-The Plex integration is set up via **Configuration** -> **Integrations**. During the configuration, you will be redirected to the [Plex](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the Plex server linked to the provided account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the **Integrations** page. Upon completeion, Home Assistant will be displayed as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
+{% include integrations/config_flow.md %}
 
 ### Integration Options
 
@@ -239,19 +239,21 @@ Example script:
 play_plex_on_tv:
   sequence:
     - service: media_player.select_source
-      entity_id: media_player.smart_tv
+      target:
+        entity_id: media_player.smart_tv
       data:
-        source: 'Plex'
+        source: "Plex"
     - wait_template: "{{ is_state('media_player.smart_tv', 'On') }}"
-      timeout: '00:00:10'
+      timeout: "00:00:10"
     - service: plex.scan_for_clients
     - wait_template: "{{ not is_state('media_player.plex_smart_tv', 'unavailable') }}"
-      timeout: '00:00:10'
+      timeout: "00:00:10"
       continue_on_timeout: false
     - service: media_player.play_media
-      data:
+      target:
         entity_id: media_player.plex_smart_tv
-        media_content_id: '{"library_name": "Movies", "title": "Zoolander"}'
+      data:
+        media_content_id: "{"library_name": "Movies", "title": "Zoolander"}"
         media_content_type: movie
 ```
 

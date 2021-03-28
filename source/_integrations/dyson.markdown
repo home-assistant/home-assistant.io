@@ -10,6 +10,12 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.47
 ha_domain: dyson
+ha_platforms:
+  - air_quality
+  - climate
+  - fan
+  - sensor
+  - vacuum
 ---
 
 The `dyson` integration is the main integration to integrate all [Dyson](https://www.dyson.com) related platforms.
@@ -191,7 +197,7 @@ Set the oscillation angle of the selected fan(s).
 | `angle_low` | Yes | The angle at which the oscillation should start | 1 |
 | `angle_high` | Yes | The angle at which the oscillation should end | 255 |
 
-#### Service `dyson.flow_direction_front` (only for DP04 and TP04)
+#### Service `dyson.set_flow_direction_front` (only for DP04 and TP04)
 
 Set the fan flow direction.
 
@@ -207,7 +213,7 @@ Set the sleep timer.
 | Service data attribute | Required | Description | Example |
 | --- | --- | --- | --- |
 | `entity_id` | No | Name(s) of the entities to set the sleep timer for | "fan.pure_cool" |
-| `flow_direction_front` | Yes | The value in minutes to set the timer to, 0 to disable it | true |
+| `timer` | Yes | The value in minutes to set the timer to, 0 to disable it | 30 |
 
 ## Sensor
 
