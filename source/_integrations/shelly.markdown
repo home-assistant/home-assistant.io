@@ -119,6 +119,17 @@ Not all devices support all input events. You can check on [Shelly API Reference
 
 </div>
 
+## Services
+
+### Service `shelly.ota_update`
+
+Triggers an over-the-air update for selected Shelly device(s). At least one of `area_id` or `device_id` has to be provided. This could be easily done via the target selector on UI.
+
+  | Service data attribute | Required | Type | Description |
+  | ---------------------- | -------- | ---- | ----------- |
+  | `area_id` | no | `list` | Area or list of areas to trigger OTA update (_only Shelly devices will be touched_) |
+  | `device_id` | no | `list` | Device or list of devices to trigger OTA update |
+
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
