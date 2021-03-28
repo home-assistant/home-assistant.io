@@ -122,5 +122,5 @@ Not all devices support all input events. You can check on [Shelly API Reference
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
-- Shelly 4Pro is not supported (device based on old CoAP v1 protocol)
+- Shelly 4Pro and Shelly Sense are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
