@@ -34,6 +34,7 @@ To set it up, add the following information to your `configuration.yaml` file:
 sensor:
   - platform: edl21
     serial_port: /dev/ttyUSB0
+    min_time_between_updates: 60
 ```
 
 {% configuration %}
@@ -45,6 +46,11 @@ serial_port:
   description: The device to communicate with. When using ser2net, use socket://host:port.
   required: true
   type: string
+min_time_between_updates:
+  description: Minimum waiting time between two consecutive updates form the meter in seconds.
+  required: false
+  type: integer
+  default: 60
 {% endconfiguration %}
 
 ### ser2net
