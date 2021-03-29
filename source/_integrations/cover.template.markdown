@@ -145,7 +145,8 @@ In this section you will find some real-life examples of how to use this cover.
 ### Garage Door
 
 This example converts a garage door with a controllable switch and position
-sensor into a cover.
+sensor into a cover. The condition check is optional, but suggested if you
+use the same switch to open and close the garage.
 
 {% raw %}
 
@@ -158,13 +159,21 @@ cover:
         friendly_name: "Garage Door"
         position_template: "{{ states('sensor.garage_door') }}"
         open_cover:
-          service: switch.turn_on
-          target:
-            entity_id: switch.garage_door
+          - condition:
+            condition: state
+            entity_id: sensor.garage_door
+            state: "off"
+          - service: switch.turn_on
+            target:
+              entity_id: switch.garage_door
         close_cover:
-          service: switch.turn_off
-          target:
-            entity_id: switch.garage_door
+          - condition:
+            condition: state
+            entity_id: sensor.garage_door
+            state: "on"
+          - service: switch.turn_off
+            target:
+              entity_id: switch.garage_door
         stop_cover:
           service: switch.turn_on
           target:
