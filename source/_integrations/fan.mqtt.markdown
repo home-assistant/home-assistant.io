@@ -278,7 +278,7 @@ fan:
     speed_range_max: 100
 ```
 
-This example demonstrates how to use command templates with json output.
+This example demonstrates how to use command templates with JSON output.
 
 ```yaml
 # Example configuration.yaml
