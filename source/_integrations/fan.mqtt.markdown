@@ -168,7 +168,6 @@ payload_oscillation_on:
 percentage_command_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `percentage_command_topic`.
   required: false
-  type: template
 percentage_command_topic:
   description: The MQTT topic to publish commands to change the fan speed state based on a percentage.
   required: false
