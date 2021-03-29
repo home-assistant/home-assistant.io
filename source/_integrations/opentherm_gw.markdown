@@ -64,7 +64,7 @@ Read Precision:
   description: "The desired read precision for this device. Used to display the current temperature on the climate entity. Can be used to match your actual thermostat's precision. Set to `0` to use the default value for your unit preference."
 Set Precision:
   description: "The desired set precision for this device. Used as step size for setting temperature setpoint from the climate entity. Can be used to match your actual thermostat's precision. Set to `0` to use the default value for your unit preference."
-Setpoint Override Mode:
+Temporary Setpoint Override Mode:
   description: "The desired setpoint override mode. When Temporary Setpoint Override Mode is set to on, the thermostat will be able to cancel the setpoint override after a program change. When the option is set to off, the Setpoint Override Mode will be ‘Constant’ and a manual temperature adjustment on the thermostat is needed to cancel the setpoint override."
 Floor Temperature:
   description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behavior for Home Assistant is to round temperatures to the nearest value. Enable this setting to override this behavior and round to the lower value according to the configured precision."
