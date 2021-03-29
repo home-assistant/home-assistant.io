@@ -281,6 +281,7 @@ Supported abbreviations for device registry configuration:
     'mf':                  'manufacturer',
     'mdl':                 'model',
     'sw':                  'sw_version',
+    'sa':                  'suggested_area',
 ```
 
 ## Support by third-party tools
