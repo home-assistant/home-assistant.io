@@ -5,7 +5,9 @@ date: 2019-04-24 00:11:03
 date_formatted: "April 24, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-04-release-92/components.png
 ---
 

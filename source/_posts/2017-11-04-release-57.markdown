@@ -5,7 +5,9 @@ date: 2017-11-04 04:00:00
 date_formatted: "November 4, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-11-0.57/languages.png
 ---
 

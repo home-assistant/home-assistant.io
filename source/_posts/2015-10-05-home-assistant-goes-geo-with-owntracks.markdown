@@ -5,7 +5,9 @@ date: 2015-10-05 21:49:00 0000
 date_formatted: "October 5, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/screenshots/map.png
 ---
 
