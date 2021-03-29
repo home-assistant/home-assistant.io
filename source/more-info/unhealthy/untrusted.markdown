@@ -1,12 +1,12 @@
 ---
-title: "System detect untrusted content"
-description: "More information on why untrusted content makes an installation as unhealthy."
+title: "System detected untrusted content"
+description: "More information on why untrusted content marks an installation as unhealthy."
 ---
 
 ## The issue
 
-We detect untrusted code. It look like someone/something try to inject not signed images or code. Don't worry, we block this action and nothing was apply.
+Home Assistant detected untrusted code. It looks like someone/something tried to inject not signed images or code into your Home Assistant system. But don't worry, we blocked this action and nothing was applied.
 
 ## The solution
 
-Please make sure your Network is not affected by an Hacker and try it again. For reset this status, you need restart the Supervisor.
+Please make sure your network is not affected by an intruder and try it again. To reset this status, you need to restart the Supervisor.
