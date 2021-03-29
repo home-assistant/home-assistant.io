@@ -122,7 +122,7 @@ Possible log severity levels, listed in order from most severe to least severe, 
 
 Service-specific Regular Expression filters for logs. A message is omitted if it matches the Regular Expression.
 
-An example config might look like this:
+An example configuration might look like this:
 
 ```yaml
 # Example configuration.yaml entry
