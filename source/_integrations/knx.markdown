@@ -134,6 +134,11 @@ local_ip:
   description: IP address of the local interface.
   type: string
   required: false
+route_back:
+  description: When True the KNXnet/IP Server shall use the IP address and the port number from the IP package received as the target IP address or port number for the response to the KNXnet/IP Client (for NAT / Docker).
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
 ### Routing
