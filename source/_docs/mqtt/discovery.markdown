@@ -46,6 +46,7 @@ discovery_prefix:
 {% endconfiguration %}
 
 ### Discovery topic
+
 The discovery topic need to follow a specific format:
 
 ```text
