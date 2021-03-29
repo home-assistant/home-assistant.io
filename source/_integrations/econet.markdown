@@ -19,12 +19,9 @@ ha_platforms:
   - water_heater
 ---
 
-The `econet` platform is consuming the information provided by a [EcoNet enabled Rheem water heater or thermostat](https://www.rheem.com/EcoNet/Home).
+The EcoNet integrations is consuming the information provided by a [EcoNet enabled Rheem water heater or thermostat](https://www.rheem.com/EcoNet/Home).
 
-## Configuration
-
-1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'Rheem EcoNet Products' and click 'Configure'.
-2. Enter the information requested, email and password, and click 'Submit'.
+{% include integrations/config_flow.md %}
 
 ## Platforms
 
@@ -37,11 +34,11 @@ EcoNet devices may be represented by one or more platforms.
 
 ### Binary Sensor
 
-The EcoNet Binary Sensor platform lets you view binary states of sensors associated with your EcoNet thermostat or water heater. For example, if the device is curently running.
+The EcoNet Binary Sensor platform lets you view binary states of sensors associated with your EcoNet thermostat or water heater. For example, if the device is currently running.
 
 ### Climate
 
-The EcoNet Climate platform lets you control your EcoNet thermostat. Multi zone HVAC systems will have 1 Climate entity per zone.
+The EcoNet Climate platform lets you control your EcoNet thermostat. Multi-zone HVAC systems will have 1 Climate entity per zone.
 
 ### Sensor
 
@@ -50,5 +47,3 @@ The EcoNet Sensor platform lets you view sensors associated with your EcoNet the
 ### Water Heater
 
 The EcoNet Water Heater platform lets you control your EcoNet water heater. Water Heaters do not report the current water temperature.
-
-{% include integrations/config_flow.md %}
