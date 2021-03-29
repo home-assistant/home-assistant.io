@@ -57,7 +57,7 @@ jobs:
       - name: Check out files from GitHub
         uses: actions/checkout@v2
       - name: Setting up Ruby 2.6
-        uses: ruby/setup-ruby@v1.66.0
+        uses: ruby/setup-ruby@v1.66.1
         with:
           ruby-version: 2.6
       - name: Setup Ruby Gems cache

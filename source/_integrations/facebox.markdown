@@ -12,7 +12,7 @@ The `facebox` image processing platform allows you to detect and recognize faces
 
 ## Setup
 
-Facebox runs in a Docker container and it is recommended that you run this container on a machine with a minimum of 2 GB RAM. On your machine with Docker, run the Facebox container with:
+Facebox runs in a Docker container and it is recommended that you run this container on a x86 machine with a minimum of 2 GB RAM (an ARM version is not available). On your machine with Docker, run the Facebox container with:
 
 ```bash
 MB_KEY="INSERT-YOUR-KEY-HERE"

@@ -3,18 +3,18 @@ title: "Lovelace"
 description: "Lovelace is a powerful and configurable dashboard for Home Assistant."
 ---
 
-Lovelace is the Home Assistant dashboard. It's a fast, customizable and powerful way for users to manage their homes, working on mobile and desktop.
+Lovelace is the Home Assistant dashboard. It is a fast, customizable and powerful way for users to manage their home using their mobiles and desktops.
 
 - 29 different cards to place and configure as you like.
-- Dashboard Editor: Gives you the ability to manage your Lovelace dashboard including a live preview when editing cards.
+- Dashboard Editor: Allows you to manage your Lovelace dashboard by including a live preview when editing cards.
 - Fast: Using a static configuration allows us to build up the dashboard once.
 - Customizable:
-  - Cards have numerous options to configure how your data is presented.
+  - Cards have a number of options which help to configure your data as required.
   - Themes (even at a per card basis).
   - Ability to override names and icons of entities.
   - Custom Cards from our amazing community are fully supported.
 
-To start, go to the Home Assistant Overview page, click the three dots at the top right of the screen and select 'Edit Dashboard'. Then click the blue '+ Add Card' icon at the bottom right and select a card to add.
+To start, go to the Home Assistant Overview page, click on the three dots at the top right of the screen and select 'Edit Dashboard'. Then click on the blue '+ Add Card' icon at the bottom right and select a card to add.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XY3R0xI45wA" frameborder="0" allowfullscreen></iframe>
