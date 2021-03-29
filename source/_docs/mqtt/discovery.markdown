@@ -45,6 +45,8 @@ discovery_prefix:
   type: string
 {% endconfiguration %}
 
+### Discovery topic
+
 The discovery topic need to follow a specific format:
 
 ```text
@@ -55,9 +57,11 @@ The discovery topic need to follow a specific format:
 - `<node_id>` (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 - `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 
+Best practice for entities with a `unique_id` is to set `<object_id>` to `unique_id` and omit the `<node_id>`.
+
 The payload must be a JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
 
-An empty payload will cause a previously discovered device to be deleted.
+Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
 
 The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
