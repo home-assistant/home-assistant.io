@@ -1073,14 +1073,19 @@
 /components/xiaomi /integrations/xiaomi_aqara
 /integrations/air_quality.xiaomi_miio /integrations/xiaomi_miio
 /integrations/alarm_control_panel.xiaomi_miio /integrations/xiaomi_miio
+/integrations/binary_sensor.modbus /integrations/modbus
+/integrations/climate.modbus /integrations/modbus
+/integrations/cover.modbus /integrations/modbus
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio
+/integrations/lovelace /lovelace
 /integrations/remote.xiaomi_miio /integrations/xiaomi_miio
 /integrations/sensor.websocket_api /integrations/websocket_api
+/integrations/sensor.modbus /integrations/modbus
 /integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
+/integrations/switch.modbus /integrations/modbus
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio
 /integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio
-/integrations/lovelace /lovelace
 
 # Renaming components to integrations
 /components /integrations
