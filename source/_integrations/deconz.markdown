@@ -192,24 +192,24 @@ automation:
   - alias: "'Toggle lamp from dimmer'"
     initial_state: "on"
     trigger:
-      platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_control_1
-        event: 1002
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: remote_control_1
+          event: 1002
     action:
-      service: light.toggle
-      target:
-        entity_id: light.lamp
+      - service: light.toggle
+        target:
+          entity_id: light.lamp
 
   - alias: "Increase brightness of lamp from dimmer"
     initial_state: "on"
     trigger:
-      platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_control_1
-        event: 2002
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: remote_control_1
+          event: 2002
     action:
       - service: light.turn_on
         target:
@@ -222,11 +222,11 @@ automation:
   - alias: "Decrease brightness of lamp from dimmer"
     initial_state: "on"
     trigger:
-      platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_control_1
-        event: 3002
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: remote_control_1
+          event: 3002
     action:
       - service: light.turn_on
         target:
@@ -239,15 +239,15 @@ automation:
   - alias: 'Turn lamp on when turning cube clockwise'
     initial_state: "on"
     trigger:
-      platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_control_1
-        gesture: 7
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: remote_control_1
+          gesture: 7
     action:
-      service: light.turn_on
-      target:
-        entity_id: light.lamp
+      - service: light.turn_on
+        target:
+          entity_id: light.lamp
 ```
 
 {% endraw %}
@@ -286,27 +286,27 @@ automation:
   - alias: "Flash Hue Bulb with Doorbell Motion"
     mode: single
     trigger:
-    - platform: state
-      entity_id: binary_sensor.doorbell_motion
-      to: "on"
+      - platform: state
+        entity_id: binary_sensor.doorbell_motion
+        to: "on"
     action:
-    - service: deconz.configure
-      data:
-        entity: light.hue_lamp
-        field: /state
+      - service: deconz.configure
         data:
-          'on': true
-          hue: 65535
-          sat: 255
-          bri: 255
-          alert: breathe
-    - delay: 00:00:15
-    - service: deconz.configure
-      data:
-        entity: light.hue_lamp
-        field: /state
+          entity: light.hue_lamp
+          field: /state
+          data:
+            'on': true
+            hue: 65535
+            sat: 255
+            bri: 255
+            alert: "breathe"
+      - delay: 00:00:15
+      - service: deconz.configure
         data:
-          'on': false
+          entity: light.hue_lamp
+          field: "/state"
+          data:
+            'on': false
 ```
 
 ## Binary Sensor

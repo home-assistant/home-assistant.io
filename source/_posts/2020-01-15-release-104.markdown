@@ -7,7 +7,9 @@ date_formatted: "January 15, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-01-0.104/components.png
 ---
 

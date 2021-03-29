@@ -5,7 +5,9 @@ date: 2015-01-13 08:29:04 -0800
 date_formatted: January 13, 2015
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 For thet majority of its existence, Home Assistant primary focus was on presence detection, lights and switches. But not anymore as we're expanding the supported devices. Today, we're proud to introduce Nest Thermostat integration for Home Assistant contributed by [Stefano Fiorini](https://github.com/sfiorini)!
