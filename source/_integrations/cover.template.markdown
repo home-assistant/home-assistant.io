@@ -162,7 +162,7 @@ cover:
           - condition:
             condition: state
             entity_id: sensor.garage_door
-            state: 'off'
+            state: "off"
           - service: switch.turn_on
             target:
               entity_id: switch.garage_door
@@ -170,7 +170,7 @@ cover:
           - condition:
             condition: state
             entity_id: sensor.garage_door
-            state: 'on'
+            state: "on"
           - service: switch.turn_off
             target:
               entity_id: switch.garage_door
