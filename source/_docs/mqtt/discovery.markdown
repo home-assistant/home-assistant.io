@@ -217,7 +217,6 @@ Supported abbreviations:
     'pos_tpl':             'position_template',
     'spd_rng_min':         'speed_range_min',
     'spd_rng_max':         'speed_range_max',
-    'spd_val_tpl':         'speed_value_template',
     'src_type':            'source_type',
     'stat_clsd':           'state_closed',
     'stat_closing':        'state_closing',
