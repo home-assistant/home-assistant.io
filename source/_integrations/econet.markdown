@@ -19,7 +19,7 @@ ha_platforms:
   - water_heater
 ---
 
-The EcoNet integrations is consuming the information provided by a [EcoNet enabled Rheem water heater or thermostat](https://www.rheem.com/EcoNet/Home).
+The EcoNet integration is consuming the information provided by a [EcoNet enabled Rheem water heater or thermostat](https://www.rheem.com/EcoNet/Home).
 
 {% include integrations/config_flow.md %}
 
