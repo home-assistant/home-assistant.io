@@ -128,21 +128,6 @@ payload_available:
   required: false
   type: string
   default: online
-payload_high_speed:
-  description: The payload that represents the fan's high speed.
-  required: false
-  type: string
-  default: high
-payload_low_speed:
-  description: The payload that represents the fan's low speed.
-  required: false
-  type: string
-  default: low
-payload_medium_speed:
-  description: The payload that represents the fan's medium speed.
-  required: false
-  type: string
-  default: medium
 payload_not_available:
   description: The payload that represents the unavailable state.
   required: false
@@ -168,6 +153,35 @@ payload_oscillation_on:
   required: false
   type: string
   default: oscillate_on
+percentage_command_topic:
+  description: The MQTT topic to publish commands to change the fan speed state based on a percentage.
+  required: false
+  type: string
+percentage_state_topic:
+  description: The MQTT topic subscribed to receive fan speed based on percentage.
+  required: false
+  type: string
+percentage_value_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from fan percentage speed.
+  required: false
+  type: string
+preset_mode_command_topic:
+  description: The MQTT topic to publish commands to change the preset mode.
+  required: false
+  type: string
+preset_mode_state_topic:
+  description: The MQTT topic to publish commands to change the preset mode.
+  required: false
+  type: string
+preset_mode_value_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the preset_mode payload.
+  required: false
+  type: string
+preset_modes:
+  description: List of preset modes this fan is capable of running at. Common examples include `auto`, `smart`, `whoosh`, `eco` and `breeze`.
+  required: false
+  type: [list]
+  default: []
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -178,22 +192,16 @@ retain:
   required: false
   type: boolean
   default: true
-speed_command_topic:
-  description: The MQTT topic to publish commands to change speed state.
+speed_range_min:
+  description: The minimum of numeric output range (`off` not included, so `speed_range_min` - 1 represents 0%).
   required: false
-  type: string
-speed_state_topic:
-  description: The MQTT topic subscribed to receive speed state updates.
+  type: integer
+  default: 1
+speed_range_max:
+  description: The maximum of numeric output range (representing 100%).
   required: false
-  type: string
-speed_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the speed payload."
-  required: false
-  type: string
-speeds:
-  description: "List of speeds this fan is capable of running at. Valid entries are `off`, `low`, `medium` and `high`."
-  required: false
-  type: [string, list]
+  type: integer
+  default: 100
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
@@ -220,10 +228,10 @@ In this section you find some real-life examples of how to use this fan.
 
 ### Full configuration
 
-The example below shows a full configuration for a MQTT fan.
+The example below shows a full configuration for a MQTT fan using percentage and preset modes.
 
 ```yaml
-# Example configuration.yaml entry
+# Example using percentage based speeds with preset modes configuration.yaml
 fan:
   - platform: mqtt
     name: "Bedroom Fan"
@@ -231,19 +239,21 @@ fan:
     command_topic: "bedroom_fan/on/set"
     oscillation_state_topic: "bedroom_fan/oscillation/state"
     oscillation_command_topic: "bedroom_fan/oscillation/set"
-    speed_state_topic: "bedroom_fan/speed/state"
-    speed_command_topic: "bedroom_fan/speed/set"
+    percentage_state_topic: "bedroom_fan/speed/percentage_state"
+    percentage_command_topic: "bedroom_fan/speed/percentage"
+    preset_mode_state_topic: "bedroom_fan/speed/preset_mode_state"
+    preset_mode_command_topic: "bedroom_fan/speed/preset_mode"
+    preset_modes:
+       -  "auto"
+       -  "smart"
+       -  "whoosh"
+       -  "eco"
+       -  "breeze"
     qos: 0
     payload_on: "true"
     payload_off: "false"
     payload_oscillation_on: "true"
     payload_oscillation_off: "false"
-    payload_low_speed: "low"
-    payload_medium_speed: "medium"
-    payload_high_speed: "high"
-    speeds:
-      - "off"
-      - low
-      - medium
-      - high
+    speed_range_min: 1
+    speed_range_max: 100
 ```
