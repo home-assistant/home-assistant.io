@@ -13,8 +13,6 @@ ha_config_flow: true
 
 The Flexpool integration allows you to keep track of your miner details page by adding sensors for workers and pool statistics.
 
-To add the Flexpool sensors to your installation, specify an Ethereum address to watch in the `configuration.yaml` file. You can also optionally provide a token name to retrieve and ERC-20 token balance. If no token is provided then the balance retrieved will be in ETH. You can also optionally provide the token contract address in case the token name is not found.
-
 {% include integrations/config_flow.md %}
 
 ## Sensors
