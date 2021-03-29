@@ -252,11 +252,44 @@ from the same group:
 
 ### Service `zha.remove`
 
-This service remove an existing device from the network.
+This service removes an existing device from the network.
 
 |  Data | Optional | Description |
 | ---- | ---- | ----------- |
 | `ieee` | no | IEEE address of the device to remove 
+
+### Service `zha.set_lock_user_code`
+
+This service sets a lock code on a Zigbee lock.
+
+|  Data | Optional | Description |
+| --------- | ---- | ----------- |
+| `code_slot` | no | Which lock code slot to store the code. Ex. 1-32 will work for Kwikset 954
+| `user_code` | no | Code to set on the lock. Ex. Kwikset accepts numbers 4-8 digits in length
+
+### Service `zha.clear_lock_user_code`
+
+This service clears a lock code from a Zigbee lock.
+
+|  Data | Optional | Description |
+| --------- | ---- | ----------- |
+| `code_slot` | no | Which lock code slot to clear
+
+### Service `zha.enable_lock_user_code`
+
+This service enables a lock code on a Zigbee lock.
+
+|  Data | Optional | Description |
+| --------- | ---- | ----------- |
+| `code_slot` | no | Which lock code slot to enable
+
+### Service `zha.disable_lock_user_code`
+
+This service disables a lock code on a Zigbee lock.
+
+|  Data | Optional | Description |
+| --------- | ---- | ----------- |
+| `code_slot` | no | Which lock code slot to disable
 
 ## Adding devices
 
