@@ -3,7 +3,7 @@ title: Legrand Home+ Control
 description: Instructions on how to integrate Legrand Home+ Control into Home Assistant.
 ha_category:
   - Switch
-ha_release: '2021.03'
+ha_release: 2021.4
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@chemaaa'
