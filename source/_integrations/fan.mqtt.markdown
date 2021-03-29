@@ -56,6 +56,10 @@ availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
+command_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic`.
+  required: false
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the fan state.
   required: true
@@ -115,6 +119,10 @@ optimistic:
   required: false
   type: boolean
   default: "`true` if no state topic defined, else `false`."
+oscillation_command_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `oscillation_command_topic`.
+  required: false
+  type: template
 oscillation_command_topic:
   description: The MQTT topic to publish commands to change the oscillation state.
   required: false
@@ -157,6 +165,10 @@ payload_oscillation_on:
   required: false
   type: string
   default: oscillate_on
+percentage_command_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `percentage_command_topic`.
+  required: false
+  type: template
 percentage_command_topic:
   description: The MQTT topic to publish commands to change the fan speed state based on a percentage.
   required: false
@@ -169,6 +181,10 @@ percentage_value_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from fan percentage speed.
   required: false
   type: string
+preset_mode_command_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `preset_mode_command_topic`.
+  required: false
+  type: template
 preset_mode_command_topic:
   description: The MQTT topic to publish commands to change the preset mode.
   required: false
@@ -260,4 +276,28 @@ fan:
     payload_oscillation_off: "false"
     speed_range_min: 1
     speed_range_max: 100
+```
+
+This example demonstrates how to use command templates with json output.
+
+```yaml
+# Example configuration.yaml
+# Example using command templates
+fan:
+  - platform: mqtt
+    name: "Bedroom Fan"
+    command_topic: "bedroom_fan/on/set"
+    command_template: "{ state: '{{ value }}'}"
+    oscillation_command_topic: "bedroom_fan/oscillation/set"
+    oscillation_command_template: "{ oscillation: '{{ value }}'}"
+    percentage_command_topic: "bedroom_fan/speed/percentage"
+    percentage_command_template: "{ percentage: {{ value }}}"
+    preset_mode_command_topic: "bedroom_fan/speed/preset_mode"
+    preset_mode_command_template: "{ preset_mode: '{{ value }}'}"
+    preset_modes:
+       -  "auto"
+       -  "smart"
+       -  "whoosh"
+       -  "eco"
+       -  "breeze"
 ```
