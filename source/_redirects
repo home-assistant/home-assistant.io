@@ -2117,6 +2117,7 @@
 /hassio/index /installation
 /hassio/installation /installation
 /hassio/installing_third_party_addons /common-tasks/os#installing-third-party-add-ons
+/integrations/faadelays /integrations/faa_delays
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
