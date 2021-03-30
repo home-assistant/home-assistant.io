@@ -1,0 +1,529 @@
+---
+layout: post
+title: "2021.4: Beta release notes"
+description: "The beta release notes for the upcoming Home Assistant Core 2021.4 release."
+date: 2021-3-30 00:00:00
+date_formatted: "April 7, 2021"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2021-04/social.png
+feedback: true
+---
+
+<a href='/integrations/#version/2021.4'><img src='/images/blog/2021-04/social.png' style='border: 0;box-shadow: none;'></a>
+
+These are the beta release notes for Home Assistant Core 2021.4 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/Lovelace:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the Supervisor:<br>
+  <https://github.com/home-assistant/supervisor/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+description (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+- [Lorem ipsum](#lorem-ipsum)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [New Platforms](#new-platforms)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [If you need help...](#if-you-need-help)
+- [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+## Automation debugging
+
+Lorem ipsum
+
+<!--<p class='img'>
+<img src='/images/blog/2021-04/lorem.png' alt='Screenshot of lorem ipsum'>
+Screenshot of a lorem ipsum occurrence in Home Assistant.
+</p>-->
+
+## Home Assistant Analytics
+
+Lorem ipsum
+
+https://analytics.home-assistant.io
+
+## Filtering automations
+
+Lorem ipsum
+
+## Z-Wave JS device configuration
+
+Lorem ipsum
+
+## UI selectors for script fields
+
+Lorem ipsum
+
+## Other noteworthy changes
+
+There is much more juice in this release; here are some of the other
+noteworthy changes this release:
+
+- Lorem ipsum, thanks to [@frenck]!
+
+To format, candidates from the backend:
+
+- Add Xiaomi Miio fan config flow ([@starkillerOG] - [#46866]) ([xiaomi_miio docs]) (breaking-change)
+- Add remote control platform to Panasonic Viera ([@joogps] - [#42450]) ([panasonic_viera docs]) (new-platform)
+- Add zeroconf discovery to Freebox ([@Quentame] - [#47045]) ([discovery docs]) ([freebox docs])
+- Add suggested_area support to devolo Home Control ([@Shutgun] - [#47063]) ([devolo_home_control docs])
+- Add hassio addon_update service and hassio config entry with addon and OS devices and entities ([@raman325] - [#46342]) ([hassio docs]) (new-platform)
+- Add support for a list of known hosts to Google Cast ([@emontnemery] - [#47232]) ([cast docs])
+- Add remote control support to philips_js ([@elupus] - [#47249]) ([philips_js docs]) (new-platform)
+- Add battery sensor for gogogate2 wireless door sensor ([@emontnemery] - [#47145]) ([gogogate2 docs]) (new-platform)
+- Add services for izone airflow min/max ([@Nick-Adams-AU] - [#45727]) ([izone docs])
+- Add force_update to tasmota sensors ([@rlehfeld] - [#47052]) ([tasmota docs])
+- Add suggested_area support to Apple TV ([@bdraco] - [#47015]) ([apple_tv docs])
+- Add Tado weather support ([@Noltari] - [#44807]) ([tado docs]) (new-platform)
+- Fix light brightness_step on multiple entities ([@emontnemery] - [#47746]) ([light docs])
+- Hoist mqtt name property and add icon support to MqttEntity ([@kristianheljas] - [#47165]) ([mqtt docs])
+- Add apply_filter attribute to recorder.purge service ([@cdce8p] - [#45826]) ([recorder docs])
+- Add HomeKit support for new CO / CO2 device class ([@iMicknl] - [#47737]) ([demo docs]) ([homekit docs])
+- Add device_info to Apple TV entities ([@postlund] - [#47837]) ([apple_tv docs])
+- Verisure: Remove JSONPath, unique IDs, small cleanups ([@frenck] - [#47870]) ([verisure docs])
+- Add suggested area support to august ([@bdraco] - [#47930]) ([august docs])
+- Support all Xiaomi Miio gateway switches ([@starkillerOG] - [#46657]) ([xiaomi_miio docs])
+- Add suggested_area to MQTT discovery ([@RadekHvizdos] - [#47903]) ([mqtt docs])
+- Add config flow to Verisure ([@frenck] - [#47880]) ([verisure docs]) (breaking-change)
+- Move Verisure services to entity services ([@frenck] - [#47905]) ([verisure docs]) (breaking-change)
+- Add devices to Verisure integration ([@frenck] - [#47913]) ([verisure docs])
+- Add reauthentication to Verisure ([@frenck] - [#47972]) ([verisure docs])
+- Add support for light color modes ([@emontnemery] - [#47720]) ([kulersky docs]) ([light docs]) ([yeelight docs]) ([zerproc docs])
+- Add device classes to Verisure sensors ([@frenck] - [#47990]) ([verisure docs])
+- Add definitions for grouping media players ([@klada] - [#41193]) ([media_player docs])
+- Add Opentherm Gateway current and setpoint precision ([@Martidjen] - [#47484]) ([opentherm_gw docs])
+- Warn on undefined variables in templates ([@emontnemery] - [#48140]) (breaking-change)
+- Add an option to hide selected Hyperion effects ([@dermotduffy] - [#45689]) ([hyperion docs])
+- Improve Docker and Kubernetes support for KNX ([@plomosits] - [#48065]) ([knx docs])
+- Add august doorbells to dhcp discovery ([@bdraco] - [#48244]) ([august docs])
+- Add dhcp discovery support to blink ([@bdraco] - [#48243]) ([blink docs])
+- Add Ambient Station PM25 indoor sensor ([@conflipper] - [#47970]) ([ambient_station docs])
+- Add broadlink dhcp discovery ([@bdraco] - [#48408]) ([broadlink docs])
+- Add dsmr monthly and yearly totals ([@robertdelpeut] - [#48253]) ([dsmr_reader docs])
+- Add support for Selectors in Script service fields ([@frenck] - [#48469]) ([script docs])
+
+## New Integrations
+
+We welcome the following new integrations this release:
+
+- [Pentair ScreenLogic][screenlogic docs], added by [@dieselrabbit]
+- [Legrand Home+ Control][homepluscontrol docs], added by [@chemaaa]
+
+## New Platforms
+
+The following integration got support for a new platform:
+
+- [Lorem Ipsum][lorem_ipsum docs] has now support for lorems, added by [@frenck]
+
+- Add remote control platform to Panasonic Viera ([@joogps] - [#42450]) ([panasonic_viera docs]) (new-platform)
+- Add hassio addon_update service and hassio config entry with addon and OS devices and entities ([@raman325] - [#46342]) ([hassio docs]) (new-platform)
+- Add remote control support to philips_js ([@elupus] - [#47249]) ([philips_js docs]) (new-platform)
+- Add battery sensor for gogogate2 wireless door sensor ([@emontnemery] - [#47145]) ([gogogate2 docs]) (new-platform)
+- Add Tado weather support ([@Noltari] - [#44807]) ([tado docs]) (new-platform)
+- Add econet thermostat support and use getattr for sensors ([@w1ll1am23] - [#45564]) ([econet docs]) (new-integration) (new-platform)
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- [Xiaomi Miio][xiaomi_miio docs], fans, sensors and lights, done by [@starkillerOG]
+
+## If you need help...
+
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
+
+Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/core/issues). Make sure to fill in all fields of the issue template.
+
+<!--more-->
+
+## Breaking Changes
+
+Below is a listing of the breaking change for this release, per subject or
+integration. Click on one of those to read more about the breaking change
+for that specific item.
+
+{% details "Xiaomi Miio" %}
+
+The Xiaomi Miio Fan, Sensor & Light platforms can now be configured via the
+UI.
+
+If you currently have them configured using YAML configuration, they will
+be automatically imported into the UI on upgrade. After upgrading, you can
+safely remove the YAML configuration for these devices.
+
+([@starkillerOG] - [#46866] [#46964] [#47161]) ([xiaomi_miio docs])
+
+{% enddetails %}
+
+{% details "KNX" %}
+
+The `config_file` YAML option for KNX is deprecated, please remove it from
+your YAML configuration if you have it configured.
+
+Float types are no longer valid for sensor / expose sensor type because the
+trailing zeros caused troubles when splitting to two integers.
+
+([@farmio] - [#46874] [#48005]) ([knx docs])
+
+{% enddetails %}
+
+{% details "LIFX Legacy" %}
+
+The LIFX Legacy platform is deprecated and will be removed in Home Assistant
+Core 2021.6.0. Use the LIFX integration instead.
+
+([@frenck] - [#47235]) ([lifx_legacy docs])
+
+{% detatils %}
+
+{% details "Secrets" %}
+
+At this moment, we are unsure if this is a breaking change or not, so we
+list it, just to be sure.
+
+We are now explicitly only supporting secrets inside your Home Assistant Core
+and Lovelace configuration files (and anything included from there). Secrets
+are no longer supported in other loaded YAML files.
+
+([@balloob] - [#47034])
+
+{% enddetails %}
+
+{% details "HomeKit" %}
+
+The HomeKit `auto_start` configuration option has been deprecated. It dates
+from the "old"-days to prevent entities not being available yet when HomeKit
+started. However, nowadays, Home Assistant ensures all entities are available
+on startup instantly.
+
+Therefore, this option is no longer needed. If you still have it in your
+configuration (and have automations for it to start HomeKit); those can be
+safely removed as well.
+
+([@frenck] - [#47470]) ([homekit docs])
+
+{% enddetails %}
+
+{% details "Hive" %}
+
+The Hive integration can now be configured via the UI and configuring it via
+YAML is now deprecated. If you have an existing YAML configuration,
+it will be automatically imported on upgrade. After the upgrade,
+the YAML configuration can be safely removed.
+
+([@KJonline] - [#47300]) ([hive docs])
+
+{% enddetails %}
+
+{% details "Wake On LAN" %}
+
+Wake on LAN component now assumes a dummy state if a host is not provided.
+Before, the state was only based on the `host` config parameter, which is
+listed as optional.
+
+With this change the `host` config is still optional, but if it is not defined,
+the state of the switch is simply the last action that was taken. If you're
+relying on a Wake on LAN entity in an automation or script, please make sure
+that your assumptions about state still hold.
+
+([@ntilley905] - [#47719]) ([wake_on_lan docs])
+
+{% enddetails %}
+
+{% details "Verisure" %}
+
+The Verisure integration largely rewritten and is now configured via the Home
+Assistant user interface.
+
+Your existing YAML configuration will be automatically imported when upgrading
+Home Assistant Core. After the upgrade completes, you can safely remove the
+existing Verisure YAML configuration.
+
+If after upgrade your Verisure alarm system doesn't appear, please check your
+[integrations dashboard](https://my.home-assistant.io/redirect/integrations/).
+In rare cases (with accounts that have access to multiple Verisure alarm
+systems), it might be needed to select the specific Verisure alarm system to
+migrate.
+
+This also means the YAML configuration for the Verisure integration is now
+deprecated and will be removed in Home Assistant Core 2021.6.0.
+
+The services provided by the Verisure integration have changed to match the
+standard way of how Home Assistant handles services. The following services
+are affected by this change:
+
+- {% my developer_call_service service="verisure.capture_smartcam" %}
+- {% my developer_call_service service="verisure.disable_autolock" %}
+- {% my developer_call_service service="verisure.enable_autolock" %}
+
+Previously these services required a `device_serial` parameter, they have now
+changed to accept a regular Home Assistant entity, device or area as a target.
+For example:
+
+```yaml
+- service: verisure.enable_autolock
+  target:
+     entity_id: lock.my_verisure_lock
+```
+
+If you used any of these services in your automations or scripts, please make
+sure you update them after updating to Home Assistant Core 2021.4.0.
+
+([@frenck] - [#47880] [#47905]) ([verisure docs])
+
+{% enddetails %}
+
+{% details "Prometheus" %}
+
+Before this change, all sensors in an unknown state when the Prometheus exporter
+starts (i.e.: when Home Assistant starts) were being setup and metrics were
+exported with a default value of `0`. Now, they will not be exported anymore
+(unless they become available again) - they can be found by searching for
+metrics where `entity_available` is `0` (will reveal both entities that are
+in unknown or unavailable state).
+
+You should update any automations, scripts or 3rd party data consumers that
+depend on the old prometheus export with default value `0`.
+
+([@inetAnt] - [#47840]) ([prometheus docs])
+
+{% enddetails %}
+
+{% details "August" %}
+
+August has fully transitioned to configuration via UI. YAML configuration is
+no longer supported. Existing YAML configuration has already been imported
+automatically in the previous releases and can now safely be removed from your
+configuration files.
+
+([@bdraco] - [#47615]) ([august docs])
+
+{% enddetails %}
+
+{% details "Workday" %}
+
+The Workday integration used to operate on the timezone configured on the
+system, instead of the timezone configured in Home Assistant. This can become
+problematic, for example, if your system runs on UTC, but you are 11 hours
+ahead of that.
+
+This behavior has been correct and the workday sensors now rely on the timezone
+configured in Home Assistant. You might need to adjust to this, if you have
+automations, scripts or templates that previously manually corrected this.
+
+([@schiermi] - [#47927]) ([workday docs])
+
+{% enddetails %}
+
+{% details "Ubiquiti UniFi Video" %}
+
+The datetime returned in the `last_recording_start_time` state attribute of the
+uvc camera entity was changed from local time to be UTC time. All times in state
+attributes must be UTC time. You should update any automations or scripts that
+depends on this state attribute.
+
+([@sycx2] - [#41438]) ([uvc docs])
+
+{% enddetails %}
+
+{% details "Z-Wave JS" %}
+
+Zwave JS climate devices that report their temperature in Fahrenheit will now
+report in tenth precision instead of whole precision, when the device supports
+it.
+
+Previously, when those devices reported a temperature of, for example, 67.6F it
+would be rounded and reported in whole precision as 68F. Those devices will now
+report the temperature with tenth precision, thus 67.6F.
+
+This means that if you currently have automation that depends on the temperature
+reported by these devices you may have to adjust their functionality to work
+properly with how the temperature is now being reported.
+
+([@chilicheech] - [#48133]) ([zwave_js docs])\
+
+{% enddetails %}
+
+{% details "Templates" %}
+
+Previously, during template rendering, undefined variables are replaced with an
+empty string. As an example the template `{{undefined_variable}}` will render as
+the empty string. This is error prone as it means misspelled or non existent
+variables are silently accepted by the template engine.
+
+Starting this release, there will be a warning message in the log when a
+variable is undefined, but it is still rendered as the empty string. So, besides
+the warning, right now, nothing changes.
+
+Starting with Home Assistant 2021.10, undefined variables will be treated as an
+error and template rendering will fail.
+
+To allow rendering of templates where it is expected that a variably may not
+be defined without logging a warning or failing to render, use the `default`
+filter: `{{undefined_variable | default}}`.
+
+([@emontnemery] - [#48140])
+
+{% enddetails %}
+
+{% details "ZeroConf" %}
+
+Zeroconf will now only listen on the default interface by default.
+
+If you need to broadcast mDNS responses to all interfaces or retain the
+previous behavior, set [default_interface](/integrations/zeroconf/#default_interface)
+to `false`.
+
+With multiple interfaces, mDNS traffic processing happened numerous times since
+the duplicate packets appeared on each interface. This behavior was not
+desirable for most cases which necessitated a change in the default.
+
+The Home Assistant Operating System has multiple interfaces and was affected.
+
+([@bdraco] - [#48302]) ([zeroconf docs])
+
+{% enddetails %}
+
+{% details "Google Cast" %}
+
+The YAML configuration for the Google Cast integration has been deprecated and
+will be fully removed in  Home Assistant Core 2021.6.0.
+
+If you have existing YAML configuration for the Google Cast integration, please
+remove it from your configuration.
+
+([@emontnemery] - [#47269]) ([cast docs])
+
+{% enddetails %}
+
+{% details "Neato" %}
+
+Vacuum attributes `clean start`, `clean stop` and camera
+attribute `generated_at` are now in a timestamp format.
+
+New format is "2021-03-20T10:35:47Z". This allow automation to use their
+value based on `as_timestamp()`.
+
+If you relies on these attributes in your automation or script, you might need
+to adjust them to match this change.
+
+([@chemelli74] - [#48150]) ([neato docs])
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+The [fan entity model](https://developers.home-assistant.io/docs/core/entity/fan/)
+has been changed. This impacts the way the MQTT Fan supports speeds and the
+following configuration options are deprecated and will be removed in
+Home Assistant Core 2021.7.0:
+
+- `speed_command_topic`
+- `speed_state_topic`
+- `state_value_template`
+- `speed_list`
+
+([@jbouwh] - [#47944]) ([mqtt docs])
+
+{% enddetails %}
+
+{% details "Core / Custom integrations" %}
+
+Block detectable I/O in the event loop
+
+We added a warning when this happens last April and gave developers
+a year to fix the instability. We now prevent the instability by
+raising RuntimeError when code attempts to do known I/O in the
+event loop instead of the executor.
+
+We now provide a suggestion on how to fix the code that is causing
+the issue.
+
+([@bdraco] - [#48387])
+
+{% enddetails %}
+
+{% details "ModBus" %}
+
+You can now use the new style configuration when configuring the modbus
+integration. The existing configuration style is kept, allowing you to change
+gradually.
+
+Remark the existing configuration style will be removed in a couple of releases.
+
+Example of an existing configuration:
+
+```yaml
+modbus:
+  - name: "hub1"
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+
+sensor:
+  platform: modbus
+  registers:
+    - name: "Sensor1"
+      hub: "hub1"
+      unit_of_measurement: "°C"
+      slave: 1
+      register: 100
+```
+
+Same configuration in new style:
+
+```yaml
+modbus:
+  - name: "hub1"
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+    sensors:
+      - name: "Sensor1"
+        slave: 1
+        address: 100
+```
+
+([@janiversen] - [#46591]) ([modbus docs])
+
+{% enddetails %}
+
+## Farewell to the following
+
+The following integrations are no longer available as of this release:
+
+- **Lorem ipsum** has been removed, the used API has been out of lorem
+    for a long time already. ([@frenck] - [#12345])
+
+- Remove griddy integration ([@bdraco] - [#47218]) ([griddy docs])
+
+
+## All changes
+
+{% details "Click to see all changes!" %}
+
+Lorem ipsum
+
+{% enddetails %}
+
+[#12345]: https://www.home-assistant.io
+[@frenck]: https://github.com/frenck
+[lorem_ipsum docs]: https://www.home-assistant.io
