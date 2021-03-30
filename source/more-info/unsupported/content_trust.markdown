@@ -5,14 +5,14 @@ description: "More information on why disabling content-trust marks the installa
 
 ## The issue
 
-You have disable the content trust check. That means we can't veryify anymore if the content is trusted and was not modify by attackers.
-We strongly recomment to have this enabled.
+You have disabled the content-trust check. That means Home Assistant can't verify anymore if the content is trusted and was not modified by attackers.
+We strongly recommend to have this check enabled.
 
-For Content-Trust, we use the OpenSource solution [CodeNotary](https://codenotary.io).
+For content-trust, we use the open source solution [CodeNotary](https://codenotary.io).
 
 ## The solution
 
-To solve this you need to re-enable the protection mechanism by content-trust by using the CLI:
+To resolve this status, you need to re-enable the content-trust protection mechanism by using the CLI:
 
 ```bash
 ha supervisor options --content-trust
