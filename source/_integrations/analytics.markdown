@@ -148,10 +148,11 @@ When your installation send a payload, that payload includes a unique identifier
 The data is stored in CloudFlare's KV (Key-Value) store for the [Receiver](#receiver), and will be stored for a maximum of 60 days since last update.
 
 This is an example of how the information is stored:
+{% configuration_basic %}
+"huuid:12a3456bc78d90123ef4567g789012h3":
+  description: "{'version': '2021.4.0', 'installation_type': 'Home Assistant OS'}"
 
-key | value
---|--
-`huuid:12a3456bc78d90123ef4567g789012h3` | `{"version": "2021.4.0", "installation_type": "Home Assistant OS"}`
+{% endconfiguration_basic %}
 
 Like all other websites you visit the IP address and client information that sent the request will be visible to the remote server, this however is not stored by us (you are more than welcome to inspect [the code that receives the data](https://github.com/home-assistant/analytics.home-assistant.io)), CloudFlare will keep a log of all interactions, [see their privacy policy for more details about that](https://www.cloudflare.com/privacypolicy/)
 
