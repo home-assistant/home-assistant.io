@@ -159,16 +159,14 @@ cover:
         friendly_name: "Garage Door"
         position_template: "{{ states('sensor.garage_door') }}"
         open_cover:
-          - condition:
-            condition: state
+          - condition: state
             entity_id: sensor.garage_door
             state: "off"
           - service: switch.turn_on
             target:
               entity_id: switch.garage_door
         close_cover:
-          - condition:
-            condition: state
+          - condition: state
             entity_id: sensor.garage_door
             state: "on"
           - service: switch.turn_off
