@@ -2020,6 +2020,7 @@
 # Moved documentation
 /details/database /docs/backend/database
 /details/updater /docs/backend/updater
+/docs/backend/updater /integrations/analytics
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
