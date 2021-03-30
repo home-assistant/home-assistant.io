@@ -20,4 +20,4 @@ A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and
 
 ### Obtaining the password
 
-For newer models, the username `envoy` without a password will grant access to the device. For older models, the password for the `installer` user can be obtained with this: (tool)[https://thecomputerperson.wordpress.com/2016/08/28/reverse-engineering-the-enphase-installer-toolkit/].
+For newer models, the username `envoy` without a password will grant access to the device. For older models, the password for the `installer` user can be obtained with this: [tool](https://thecomputerperson.wordpress.com/2016/08/28/reverse-engineering-the-enphase-installer-toolkit/).
