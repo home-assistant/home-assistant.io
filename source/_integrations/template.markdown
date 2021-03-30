@@ -120,7 +120,7 @@ sensor:
 
 ## Configuration for trigger-based template sensors
 
-Trigger-based template sensors allow the user to define [an automation trigger][trigger-doc] for a group of template sensors. Whenever the trigger fires, the template sensor will re-render and it will have access to [the trigger data](https://www.home-assistant.io/docs/automation/templating/) in the templates. This feature is a great way to create data based on webhook data, or have sensors be updated based on a time-schedule.
+Trigger-based template sensors allow the user to define [an automation trigger][trigger-doc] for a group of template sensors. Whenever the trigger fires, the template sensor will re-render and it will have access to [the trigger data](/docs/automation/templating/) in the templates. This feature is a great way to create data based on webhook data, or have sensors be updated based on a time-schedule.
 
 Trigger-based template entities are defined in YAML directly under the `template:` key. You can define multiple configuration blocks as a list. Each block defines one or more triggers and the sensors that should be updated when the trigger fires.
 
