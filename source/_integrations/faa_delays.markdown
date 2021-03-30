@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@ntilley905'
-ha_domain: faadelays
+ha_domain: faa_delays
 ---
 
 The FAA Delays integration collects and displays information about delays at US Airports based on the
