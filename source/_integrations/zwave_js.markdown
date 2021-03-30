@@ -214,33 +214,58 @@ Valid code slots are between 1-254.
 
 ## Events
 
-Events are fired when you press a button on a remote (aka Central Scene support) or when a stateless value is being signalled by a device. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribe to `zwave_js_event`. Once you know what the event data looks like, you can use this to create automations.
+There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.
 
 ### Node events (Notification)
 
-These are events fired by the device using the notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
+Check the [Z-Wave JS notification event documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) for an explanation of the notification event data. These events fire with the `zwave_js_notification` event type.
+
+#### Notification Command Class
+
+These are notification events fired by devices using the Notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
 
 ```json
 {
-    "type": "notification",
     "domain": "zwave_js",
     "node_id": 1,
     "home_id": "974823419",
     "device_id": "ad8098fe80980974",
-    "label": "Keypad lock operation",
+    "command_class": 113,
+    "command_class_name": "Notification",
+    "type": 6,
+    "event": 5,
+    "label": "Access Control",
+    "event_label": "Keypad lock operation",
     "parameters": {"userId": 1}
+}
+```
+
+#### Entry Control Command Class
+
+These are notification events fired by devices using the Entry Control command class.
+
+```json
+{
+    "domain": "zwave_js",
+    "node_id": 1,
+    "home_id": "974823419",
+    "device_id": "ad8098fe80980974",
+    "command_class": 111,
+    "command_class_name": "Entry Control",
+    "event_type": 6,
+    "data_type": 5,
+    "event_data": "555"
 }
 ```
 
 ## Scene events (Value Notification)
 
-Value Notifications are used for stateless values, like `Central Scenes` and `Scene Activation`.
+Value Notifications are used for stateless values, like `Central Scenes` and `Scene Activation`. These events fire with the `zwave_js_value_notification` event type.
 
 Value Notification example:
 
 ```json
 {
-    "type": "value_notification",
     "domain": "zwave_js",
     "node_id": 1,
     "home_id": "974823419",
