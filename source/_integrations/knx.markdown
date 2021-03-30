@@ -100,6 +100,11 @@ rate_limit:
   required: false
   default: 20
   type: integer
+use_unique_id:
+  description: The integration will use the unique id provided by the underlying device.
+  required: false
+  default: false
+  type: boolean
 state_updater:
   description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home Assistant. Set this option to False to prevent this behavior.
   required: false
