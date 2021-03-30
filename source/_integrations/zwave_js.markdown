@@ -113,6 +113,21 @@ This service will refresh the value(s) for an entity. This service will generate
 | `entity_id`            	| yes      	| Entity or list of entities to refresh values for.                                                                                                	|
 | `refresh_all_values`   	| no       	| Whether all values should be refreshed. If  `false`, only the primary value will be refreshed. If  `true`, all watched values will be refreshed. 	|
 
+### Service `zwave_js.set_value`
+
+This service will set a value on a Z-Wave device. It is for advanced use cases where you need to modify the state of a node and can't do it using native Home Assistant entity functionality. Be warned that correctly using this service requires advanced knowledge of Z-Wave. The service provides minimal validation and blindly calls the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere. To set a config parameter, you should use the `zwave_js.set_config_parameter` or `zwave_js.bulk_set_partial_config_parameters` services instead of this one.
+
+| Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
+|------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
+| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                         |
+| `command_class`       	| yes       	| ID of Command Class that you want to set the value for. 	                                                                                            |
+| `property`            	| yes       	| ID of Property that you want to set the value for. 	                                                                                                  |
+| `property_key`        	| no        	| ID of Property Key that you want to set the value for. 	                                                                                              |
+| `endpoint`   	          | no        	| ID of Endpoint that you want to set the value for. 	                                                                                                  |
+| `value`   	            | yes        	| The new value that you want to set. 	                                                                                                                |
+| `wait_for_result`   	  | no        	| Boolean that indicates whether or not to wait for a response from the node. If not included in the payload, the integration will decide whether to wait or not. If set to `true`, note that the service call can take a while if setting a value on an asleep battery device. |
+
 ### Service `zwave_js.set_lock_usercode`
 
 This service will set the usercode of a lock to X at code slot Y.
