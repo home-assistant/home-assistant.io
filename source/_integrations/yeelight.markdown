@@ -16,6 +16,10 @@ ha_platforms:
   - light
 ---
 
+<div class='note warning'>
+  Yeelight has recently begun to remove local control of their devices without warning. Do not upgrade to firmware version 2.0.6_0041 or later on any devices to maintain local control of your devices. You may also be able to replace the firmware on your devices with ESPHome. See [this thread on our forums](https://community.home-assistant.io/t/hacking-yeelight-fw-enabling-lan-control/284406) for more information.
+</div>
+
 The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
 
 There is support for the following device types within Home Assistant:
