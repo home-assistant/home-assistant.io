@@ -18,7 +18,7 @@ To resolve this status, you need to re-enable the content-trust protection mecha
 ha supervisor options --content-trust
 ```
 
-When you have the content-trust, restart the Supervisor.
+When you have enabled the content-trust, restart the Supervisor.
 
 ```bash
 ha supervisor restart
