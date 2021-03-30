@@ -17,11 +17,11 @@ The Analytics integration will collect information about the running Home Assist
 
 When enabled the integration will send data 15 minutes after each start, and every 24h after startup. When the data is sent the full payload will be printed to your log.
 
-The collected data is available to the public at https://analytics.home-assistant.io
+The collected data is available to the public at <https://analytics.home-assistant.io>
 
 ## Configuration
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually, just enabling the integration will nok make it sent analytics:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually, just enabling the integration will **not** make it sent analytics:
 
 ```yaml
 analytics:
@@ -144,8 +144,8 @@ The receiver that the payloads are sent to is running as a [CloudFlare Worker](h
 
 ## Storage and usage
 
-When your installation send a payload, that payload includes a unique identifier, this identifier is used to make sure that future payload updates, only changes information from your installation.
-The data is stored in CloudFlare's KV (Key-Value) store for the [Receiver](#receiver), and will be stored for a maximum of 60 days since last update.
+When your installation sends a payload, that payload includes a unique identifier, this identifier is used to make sure that future payload updates, only change information from your installation.
+The data is stored in CloudFlare's KV (Key-Value) store for the [Receiver](#receiver), and will be stored for a maximum of 60 days since the last update.
 
 This is an example of how the information is stored:
 {% configuration_basic %}
@@ -154,6 +154,6 @@ This is an example of how the information is stored:
 
 {% endconfiguration_basic %}
 
-Like all other websites you visit the IP address and client information that sent the request will be visible to the remote server, this however is not stored by us (you are more than welcome to inspect [the code that receives the data](https://github.com/home-assistant/analytics.home-assistant.io)), CloudFlare will keep a log of all interactions, [see their privacy policy for more details about that](https://www.cloudflare.com/privacypolicy/)
+Like all other websites you visit, the IP address and client information that sent the request will be visible to the remote server, this, however, is not stored by us (you are more than welcome to inspect [the code that receives the data](https://github.com/home-assistant/analytics.home-assistant.io)), CloudFlare will keep a log of all interactions, [see their privacy policy for more details about that](https://www.cloudflare.com/privacypolicy/)
 
-The data will be used to display the information on https://analytics.home-assistant.io and to analyze how users are using Home Assistant. This allows for workload prioritizing to focus resources on improving the areas that are most important to our users.
+The data will be used to display the information on <https://analytics.home-assistant.io> and to analyze how users are using Home Assistant. This allows for workload prioritizing to focus resources on improving the areas that are most important to our users.
