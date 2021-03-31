@@ -10,6 +10,8 @@ ha_codeowners:
   - '@elupus'
 ha_domain: philips_js
 ha_config_flow: true
+ha_platforms:
+  - remote
 ---
 
 The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.

@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@ntilley905'
 ha_domain: faa_delays
+ha_platforms:
+  - binary_sensor
 ---
 
 The FAA Delays integration collects and displays information about delays at US Airports based on the

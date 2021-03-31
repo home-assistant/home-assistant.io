@@ -18,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - camera
   - sensor
+ha_dhcp: true
 ---
 
 The `blink` integration lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.

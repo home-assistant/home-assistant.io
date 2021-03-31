@@ -8,8 +8,6 @@ ha_release: 0.92
 ha_iot_class: Assumed State
 ha_domain: somfy_mylink
 ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
 ha_dhcp: true
 ha_platforms:
   - cover
