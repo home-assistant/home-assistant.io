@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2021.4: Beta release notes"
+title: "2021.4: For our advanced users ❤️ (Beta release notes)"
 description: "The beta release notes for the upcoming Home Assistant Core 2021.4 release."
-date: 2021-3-30 00:00:00
+date: 2021-3-31 00:00:00
 date_formatted: "April 7, 2021"
 author: Franck Nijhof
 author_twitter: frenck
@@ -35,7 +35,12 @@ description (not title), so we can classify your issue correctly.
 
 Issues introduced in the beta are processed with priority.
 
-- [Lorem ipsum](#lorem-ipsum)
+- [Automation debugging](#automation-debugging)
+- [Home Assistant Analytics](#home-assistant-analytics)
+- [Filtering automations, scripts and scenes](#filtering-automations-scripts-and-scenes)
+- [Z-Wave JS update](#z-wave-js-update)
+- [Trigger-based template sensors](#trigger-based-template-sensors)
+- [UI selectors for script fields](#ui-selectors-for-script-fields)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -47,7 +52,23 @@ Issues introduced in the beta are processed with priority.
 
 ## Automation debugging
 
-Lorem ipsum
+Wait, why didn't that light turn on? Why isn't the thermostat adjusted?
+Why is this automation not working? What is going on here?! This is a haunted
+house!?!
+
+Sounds familiar? I'm sure we all had these moment, but are you ready for this?
+We can now debug automations!
+
+<blockquote class="twitter-tweet"><p lang="et" dir="ltr">jajajajaja<br><br>(automation visualization magic by <a href="https://twitter.com/thomasloven?ref_src=twsrc%5Etfw">@thomasloven</a>, backend work by emontnemery and UI by me) <a href="https://t.co/w4qOhWzZgv">pic.twitter.com/w4qOhWzZgv</a></p>&mdash; Paulus Schoutsen (@balloob) <a href="https://twitter.com/balloob/status/1376058028219277313?ref_src=twsrc%5Etfw">March 28, 2021</a>
+</blockquote>
+
+View details on previous automation runs, and see details on each step to
+explore what happened.
+
+TODO:
+- Add screenshots / recordings
+- Thank everybody involved in this, Erik, Paulus, Bram, Thomas this is awesome!
+- More body to the paragraph
 
 <!--<p class='img'>
 <img src='/images/blog/2021-04/lorem.png' alt='Screenshot of lorem ipsum'>
@@ -56,28 +77,130 @@ Screenshot of a lorem ipsum occurrence in Home Assistant.
 
 ## Home Assistant Analytics
 
-Lorem ipsum
+Now don't be scared by the title!
 
-https://analytics.home-assistant.io
+Today we introduce, Home Assistant Analytics. Opt-in, privacy aware, public
+and open source. Just as it all should be for our project.
 
-## Filtering automations
+Ludeeus did an amazing job writing this new integration (that replaces the
+updater). You decide if you turn it on or not; however, we guarantee its privacy
+aware. Doubt it? Review it! Everything is open source!
 
-Lorem ipsum
+Not open enough for you? Well, maybe you want to view the public result:
 
-## Z-Wave JS device configuration
+<https://analytics.home-assistant.io>
 
-Lorem ipsum
+So why do we do this? Well, it helps the project and all contributors to
+see things like: Most used integrations. This can greatly help with improving
+project priorities.
+
+"But the updater did this already, right?" Yes, well, thing has been broken
+actually. So while we had some data, it was barely usable (actually not useable
+at all). Instead of fixing the updater, we now have a better solution that
+better matches our project goals.
+
+TODO:
+- Improve text
+- Add screenshot or embed analytics?
+- Instructions on how to activate?
+- Link to documentation
+
+## Filtering automations, scripts and scenes
+
+Categorizing things like automations, is definitely one of the most requested
+things in our history. This became clear again during last years month of
+what the heck and in various issues/discussions/feature requests.
+
+Suggestions for labels, folders, and many more have been created. However,
+we already have some great categorizing features in Home Assistant itself:
+
+Devices & Areas
+
+As of today, you can filter your automations, scripts and scenes based on
+the device or area they are put in, or affect. Not only can you now
+show show the automations that are used in your living room area, but you can
+also filter automations with just the ones that touch your thermostat.
+
+TODO:
+- Add screenshot
+- Improve text
+
+## Z-Wave JS update
+
+You can now configure each device. When you view a device in the Home
+Assistant frontend, you can click on "CONFIGURE DEVICE" to manage and adjust
+device (node) specific configuration parameters for the selected device.
+
+Furthermore two new services are introduced:
+
+- `zwave_js.bulk_set_partial_config_parameters`
+- `zwave_js.set_value`
+
+TODO:
+- Add more text to this
+- Add screenshot
+- Missing Z-Wave updates?
+
+## Trigger-based template sensors
+
+This release adds initial support for pretty advanced new feature, that can
+be really helpful. Sensors, that are updated based on triggers and the
+data that comes with it.
+
+{% raw %}
+```yaml
+# Example configuration entry
+template:
+  - trigger:
+      - platform: webhook
+        webhook_id: my-super-secret-webhook-id
+    sensor:
+      - name: "Webhook Temperature"
+        state: "{{ trigger.json.temperature }}"
+      - name: "Webhook Humidity"
+        state: "{{ trigger.json.humidity }}"
+```
+
+{% endraw %}
+
+You can test this trigger entity with the following CURL command:
+
+```bash
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"temperature": 5, "humidity": 34}' \
+  http://homeassistant.local:8123/api/webhook/my-super-secret-webhook-id
+```
+
+TODO:
+- Extend story
+- Clean up/simplify example
+- Note on sensor only at this point, hopefully more soon!
 
 ## UI selectors for script fields
 
-Lorem ipsum
+You can now use UI Selectors for you scripts field parameters. This
+brings UI capabilities to scripts. It works both in the dev tools -> services,
+but also in the automation UI.
+
+Example: <https://next.home-assistant.io/integrations/script/#full-configuration>
+Selectors: <https://next.home-assistant.io/docs/blueprint/selectors/>
+More extensive service description example: <https://developers.home-assistant.io/docs/dev_101_services/#service-descriptions>
+
+TODO: 
+- Improve documentation. I noticed when linking this, that documentation around
+  fields is low.
+- Screenshot
+- More text
+- Example?
 
 ## Other noteworthy changes
 
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- Lorem ipsum, thanks to [@frenck]!
+- Lorem ipsum, thanks to [@frenck]! ;)
+- TODO with items from below.
 
 To format, candidates from the backend:
 
@@ -119,26 +242,47 @@ To format, candidates from the backend:
 - Add broadlink dhcp discovery ([@bdraco] - [#48408]) ([broadlink docs])
 - Add dsmr monthly and yearly totals ([@robertdelpeut] - [#48253]) ([dsmr_reader docs])
 - Add support for Selectors in Script service fields ([@frenck] - [#48469]) ([script docs])
+- Allow specifying template entities based on triggers ([@balloob] - [#48169]) ([trigger docs]) (new-integration)
+- Command template support for MQTT fan ([@jbouwh] - [#48413]) ([mqtt docs]) (breaking-change)
+- Add image proxy to Kodi media browser ([@cgtobi] - [#47315]) ([kodi docs])
+- Add opentherm_gw option for setpoint override mode ([@Martidjen] - [#48465]) ([opentherm_gw docs])
+- Add zwave_js.set_value service ([@raman325] - [#48487]) ([zwave_js docs])
+- Add support for capturing renewals to dhcp discovery ([@bdraco] - [#48242]) ([dhcp docs])
+- KNX passive group addresses ([@farmio] - [#48009]) ([knx docs])
+- Add regex-based filters to logger component ([@jshufro] - [#48439]) ([logger docs])
+- Add color_mode support to MQTT JSON light ([@emontnemery] - [#47993]) ([light docs]) ([mqtt docs]) (breaking-change)
+- Add Plex library count sensors ([@jjlawren] - [#48339]) ([plex docs])
+- KNX entities now have a unique_id, so can be used in the frontend ([@marvin-w] - [#48522]) ([knx docs])
+
+To format, candidates from the frontend:
+
+- Number format options in your user profile! (?) @?
+- Enable turning off edit mode in panel views (#8625) @thomasloven
+- Quick Bar: Use command category labels instead of icons (#7692) @donkawechico
+- Fix rendering when selecting all in datatable (#8749) @bramkragten
+- Add filtering by devices/areas to scripts (#8748) @bramkragten
+- Add filtering by devices/areas to scenes (#8747) @bramkragten
+- Add filtering to automaton overview (#8736) @bramkragten
+- Show if config entry is not loaded (#8717) @bramkragten
 
 ## New Integrations
 
 We welcome the following new integrations this release:
 
-- [Pentair ScreenLogic][screenlogic docs], added by [@dieselrabbit]
+- [Analytics][analytics docs], added by [@ludeeus]
 - [Legrand Home+ Control][homepluscontrol docs], added by [@chemaaa]
+- [Pentair ScreenLogic][screenlogic docs], added by [@dieselrabbit]
 
 ## New Platforms
 
 The following integration got support for a new platform:
 
-- [Lorem Ipsum][lorem_ipsum docs] has now support for lorems, added by [@frenck]
-
-- Add remote control platform to Panasonic Viera ([@joogps] - [#42450]) ([panasonic_viera docs]) (new-platform)
-- Add hassio addon_update service and hassio config entry with addon and OS devices and entities ([@raman325] - [#46342]) ([hassio docs]) (new-platform)
-- Add remote control support to philips_js ([@elupus] - [#47249]) ([philips_js docs]) (new-platform)
-- Add battery sensor for gogogate2 wireless door sensor ([@emontnemery] - [#47145]) ([gogogate2 docs]) (new-platform)
-- Add Tado weather support ([@Noltari] - [#44807]) ([tado docs]) (new-platform)
-- Add econet thermostat support and use getattr for sensors ([@w1ll1am23] - [#45564]) ([econet docs]) (new-integration) (new-platform)
+- [Gogogate2 and iSmartGate][gogogate2 docs] provides battery sensors for wiresless door sensors, added by [@emontnemery]
+- [Panasonic Viera][panasonic_viera docs] has now support for remotes, added by [@joogps]
+- [Philips TV][philips_js docs] now has support for remotes, added by [@elupus]
+- [Rheem EcoNet Products] now have support for climate entities, added by [@w1ll1am23].
+- [Supervisor][hassio docs] integration now has entities and services for things like versions and pending updates, added by [@raman325]
+- [Tado] now has weather support, added by [@Noltari]
 
 ## Integrations now available to set up from the UI
 
@@ -214,7 +358,7 @@ Core 2021.6.0. Use the LIFX integration instead.
 
 ([@frenck] - [#47235]) ([lifx_legacy docs])
 
-{% detatils %}
+{% enddetails %}
 
 {% details "Secrets" %}
 
@@ -380,7 +524,27 @@ This means that if you currently have automation that depends on the temperature
 reported by these devices you may have to adjust their functionality to work
 properly with how the temperature is now being reported.
 
-([@chilicheech] - [#48133]) ([zwave_js docs])\
+([@chilicheech] - [#48133]) ([zwave_js docs])
+
+The event names for Z-Wave JS value notification (central scene) events will
+now be called `zwave_js_value_notification` and notification (e.g.,
+locking or unlocking a lock) events will now be called `zwave_js_notification`.
+
+For notification events, the properties that Z-Wave JS provides have changed,
+and we have changed the HA event property names to reflect that. The parameter
+that used to be called `label` (The human-readable label for the
+notification **event**) is now called `event_label` as there is now a
+new `label` property which is the human-readable label for the notification
+**type**.
+
+In addition, we now support notification events for two command classes, Entry
+Control and Notification, so the command class is reflected in the event data.
+You can learn more about the different command class notifications and what each
+parameter means for the different notifications here:
+
+<https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot>
+
+([@raman325] - [#48094]) ([zwave_js docs])
 
 {% enddetails %}
 
@@ -463,7 +627,12 @@ Home Assistant Core 2021.7.0:
 - `state_value_template`
 - `speed_list`
 
-([@jbouwh] - [#47944]) ([mqtt docs])
+Additionally,`preset_modes` and `percentage` are added to replace the legacy
+model supporting only three speeds `low`, `medium` and `high`.
+Therefore, `command templates` for `state`, `oscillation`, `preset_mode` and
+`percentage` are introduced.
+
+([@jbouwh] - [#47944] [#48413]) ([mqtt docs])
 
 {% enddetails %}
 
@@ -528,15 +697,64 @@ modbus:
 
 {% enddetails %}
 
+{% details "Updater" %}
+
+The `reporting` and `include_used_components` configuration options have now
+been deprecated, the `updater` integration will no longer report any analytics.
+
+The analytics has moved to it's own integration.
+See the [`analytics` integration](/integrations/analytics) for more details on
+how to configure it.
+
+([@ludeeus] - [#48518]) ([updater docs])
+
+{% enddetails %}
+
+{% details "SolarEdge" %}
+
+The SolarEdge configuration via YAML has been deprecated and will be removed in
+a future release of Home Assistant. The integration is using a configuration via
+the UI for two years now.
+
+Existing YAML configurations are automatically imported into the UI, and can be
+safely removed from your YAML configuration.
+
+([@frenck] - [#48533]) ([solaredge docs])
+
+{% enddetails %}
+
+{% details "SolarEdge" %}
+
+MQTT JSON light now supports `color_mode` which should be used together with
+`supported_color_modes` to signal the light's features.
+
+Feature flags `color_temp`, `hs`, `rgb`, `white_value`, `xy` are all deprecated
+and support will be removed in 2021.10.
+
+([@emontnemery] - [#47993]) ([mqtt docs])
+
+{% enddetails %}
+
+{% details "Ping" %}
+
+When restarting Home Assistant, the previous ping sensor state is now
+restored and then updated in the background to allow startup to proceed
+without the risk of timing out.
+
+When the user has many ping sensors, the ping integration could
+timeout starting up because each ping has to happen in the
+executor.
+
+([@bdraco] - [#43869]) ([ping docs])
+
+{% enddetails %}
+
 ## Farewell to the following
 
 The following integrations are no longer available as of this release:
 
-- **Lorem ipsum** has been removed, the used API has been out of lorem
-    for a long time already. ([@frenck] - [#12345])
-
-- Remove griddy integration ([@bdraco] - [#47218]) ([griddy docs])
-
+- **Griddy** has been removed, Ercot shut down Griddy after the massive power
+  mess in Texas in mid February. ([@bdraco] - [#47218])
 
 ## All changes
 
