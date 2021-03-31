@@ -8,6 +8,8 @@ ha_release: 0.17
 ha_iot_class: Local Polling
 ha_domain: panasonic_viera
 ha_config_flow: true
+ha_platforms:
+  - remote
 ---
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
