@@ -16,6 +16,7 @@ ha_platforms:
   - cover
   - sensor
   - switch
+  - fan
 ---
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable Logic Controller).
@@ -31,6 +32,7 @@ Platforms:
   - cover
   - sensor
   - switch
+  - fan
 
 are all defined as part of the modbus configuration. The old configuration style, (having each outside the modbus configuration is still supported, but will cause a warning, and will be removed in a later release).
 
@@ -734,6 +736,111 @@ modbus:
         address: 13
         input_type: coil
       - name: Switch2
+        slave: 2
+        address: 14
+```
+
+### Configuring platform fan
+
+The `modbus` fan platform allows you to control [Modbus](http://www.modbus.org/)-enabled fans. We support two types of Modbus fans — coil-based and register-based.
+
+To use your Modbus fans in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+modbus:
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+    fans:
+      - name: Fan1
+        address: 13
+        input_type: coil
+      - name: Fan2
+        slave: 2
+        address: 14
+        input_type: coil
+      - name: Register1
+        address: 11
+        command_on: 1
+        command_off: 0
+```
+
+{% configuration %}
+fans:
+  description: The array contains a list of all your Modbus fans.
+  required: true
+  type: map
+  keys:
+    address:
+      description: Coil number or register
+      required: true
+      type: integer
+    command_on:
+      description: Value to write to turn on the switch.
+      required: true
+      type: integer
+    command_off:
+      description: Value to write to turn off the switch.
+      required: true
+      type: integer
+    input_type:
+      description: type of adddress (holding/discrete/coil)
+      required: false
+      default: holding
+      type: integer
+    name:
+      description: Name of the switch.
+      required: true
+      type: string
+    scan_interval:
+      description: Defines the update interval of the sensor in seconds.
+      required: false
+      type: integer
+      default: 15
+    slave:
+      description: The number of the slave (can be omitted for tcp and udp Modbus).
+      required: true
+      type: integer
+    state_on:
+      description: Register value when switch is on.
+      required: false
+      default: same as command_on
+      type: integer
+    state_off:
+      description: Register value when switch is off.
+      required: false
+      default: same as command_off
+      type: integer
+    verify_register:
+      description: Register to readback.
+      required: false
+      default: same as register
+      type: string
+    verify_state:
+      description: Define if is possible to readback the status of the switch.
+      required: false
+      default: true
+      type: boolean
+{% endconfiguration %}
+
+#### Full example
+
+Example fans, for which the state is polled from Modbus every 15 seconds.
+
+```yaml
+modbus:
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+    fans:
+      - name: Fan1
+        slave: 1
+        address: 13
+        input_type: coil
+      - name: Fan2
         slave: 2
         address: 14
 ```
