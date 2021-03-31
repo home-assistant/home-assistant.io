@@ -99,3 +99,5 @@ This communication needs to be allowed on your local network. If the blinds are 
 
 Please make sure the motion gateway and the device running Home Assistant are on the same VLAN and multicasting is enabled/allowed by your router.
 If using separate VLANs, make sure the 238.0.0.18:32100 and 238.0.0.18:32101 ports are open for communication between those VLANs (not tested or confirmed to work).
+
+For some Asus routers "IGMP snooping" on the used wireless interface needs to be disabled to let the IGMP/multicast messages through.
