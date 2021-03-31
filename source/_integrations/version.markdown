@@ -34,17 +34,17 @@ name:
   type: string
   default: "`Current Version` in case of `source: local`, `Latest Version` otherwise."
 beta:
-  description: Flag to indicate that it will check for beta versions, only supported for the sources `pypi`, `hassio` and `docker`.
+  description: Flag to indicate that it will check for beta versions, only supported for the sources `pypi`, `supervisor` and `container`.
   required: false
   type: boolean
   default: false
 image:
-  description: The image you want to check against, this is only supported for `hassio` and `docker`, see full list under.
+  description: The image you want to check against, this is only supported for `supervisor` and `container`, see full list under.
   required: false
   type: string
   default: default
 source:
-  description: The source you want to check against, possible values are `local`, `pypi`, `hassio`, `haio` and `docker`.
+  description: The source you want to check against, possible values are `local`, `pypi`, `supervisor`, `haio` and `container`.
   required: false
   type: string
   default: local
