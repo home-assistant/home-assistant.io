@@ -19,14 +19,6 @@ When enabled the integration will send data 15 minutes after each start, and eve
 
 The collected data is available to the public at <https://analytics.home-assistant.io>
 
-## Configuration
-
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually, just enabling the integration will **not** make it sent analytics:
-
-```yaml
-analytics:
-```
-
 ## Basic analytics
 
 This includes:
