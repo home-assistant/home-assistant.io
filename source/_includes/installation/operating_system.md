@@ -91,7 +91,8 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 {% elsif page.installation_type == 'alternative' %}
 - [KVM/Proxmox][qcow2] (.qcow2)
 - [VMware ESXi/vSphere][Virtual Appliance] (.ova)
-{% elsif page.installation_type == 'windows' %}
+{% endif %}
+{% if page.installation_type == 'windows' %}
 - [Hyper-V][vhdx] (.vhdx)
 {% endif %}
 {% endif %}
@@ -153,8 +154,8 @@ _All these can be extended if your usage calls for more resources._
 - title: VMware ESXi/vSphere
   content: |
     Use the “E1001” or “E1001E” virtual network adapater. There are confirmed mDNS/Multicast discovery issues when using VMware’s “VMXnet3” virtual network adapter.
-
-{% elsif page.installation_type == 'windows' %}
+{% endif %}
+{% if page.installation_type == 'windows' %}
 - title: Hyper-V
   content: |
     <div class='note warning'>
