@@ -28,7 +28,7 @@ This integration allows you to control [Tasmota](https://tasmota.github.io/docs/
 ## Requirements
 
 - MQTT broker and the [MQTT integration](/integrations/mqtt/) set up in Home Assistant.
-- Tasmota devices' MQTT setting configured to communicate with the MQTT broker
+- Tasmota devices' MQTT setting configured to communicate with the MQTT broker.
 - Tasmota devices flashed with version 9.2, or later.
 - Tasmota devices configured for native discovery (`SetOption19 0`)
 
@@ -48,6 +48,6 @@ Tasmota Buttons, Fans, Lights, relays, Sensors, Shutters and Switches are suppor
 
 {% include integrations/config_flow.md %}
 
-You must also configure each Tasmota device's MQTT settings to communicate with whatever MQTT broker you are using. Enter the broker address under host and enter a username / password combination that allows access to the broker.
+You must also configure each Tasmota device's MQTT settings to communicate with whatever MQTT broker you are using. Enter the broker address under host and enter a username/password combination that allows access to the broker.
 
-If using the Mosquitto Broker Add-on for Home Assistant, first create a new Home Assistant user under Configuration > Users. Then, in Tasmota > Configure MQTT under "Host" enter the address of your Home Assistant instance and under "User" and "Password" enter the Home Assistant user you just created.
+If using the Mosquitto Broker add-on for Home Assistant, first create a new Home Assistant user under {% my users title="Configuration > Users" %}. Then, in Tasmota > Configure MQTT under "Host" enter the address of your Home Assistant instance and under "User" and "Password" enter the Home Assistant user you just created.
