@@ -15,6 +15,7 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 | Function          | [`default`](#default-schema) | [`json`](#json-schema) | [`template`](#template-schema) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
 | Brightness        | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Color mode        |                                                            | ✔                                                                    |                                                                                |
 | Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Effects           | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Flashing          | ✘                                                          | ✔                                                                    | ✔                                                                            |
@@ -397,16 +398,19 @@ light:
 
 The `mqtt` light platform with JSON schema lets you control a MQTT-enabled light that can receive [JSON](https://en.wikipedia.org/wiki/JSON) messages.
 
-This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and white values. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed:
+This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and white values. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed. The `color_mode` will not be present in messages sent to the light. It is optional in messages received from the light, but can be used to disambiguate the current mode in the light. In the example below, `color_mode` is set to `rgb` and `color_temp`, `color.c`, `color.w`, color.x`, `color.y`, `color.h`, `color.s` will all be ignored:
 
 ```json
 {
   "brightness": 255,
+  "color_mode": "rgb",
   "color_temp": 155,
   "color": {
     "r": 255,
     "g": 180,
     "b": 200,
+    "c": 100,
+    "w": 50,
     "x": 0.406,
     "y": 0.301,
     "h": 344.0,
@@ -474,8 +478,8 @@ brightness_scale:
   required: false
   type: integer
   default: 255
-color_temp:
-  description: Flag that defines if the light supports color temperature.
+color_mode:
+  description: Flag that defines if the light supports color modes.
   required: false
   type: boolean
   default: false
@@ -531,11 +535,6 @@ flash_time_short:
   required: false
   type: integer
   default: 2
-hs:
-  description: Flag that defines if the light supports HS colors.
-  required: false
-  type: boolean
-  default: false
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -586,11 +585,6 @@ retain:
   required: false
   type: boolean
   default: false
-rgb:
-  description: Flag that defines if the light supports RGB colors.
-  required: false
-  type: boolean
-  default: false
 schema:
   description: The schema to use. Must be `json` to select the JSON schema".
   required: false
@@ -600,20 +594,14 @@ state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
   type: string
+supported_color_modes:
+  description: A list of color modes supported by the list. This is required if `color_mode` is `True`. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`.
+  required: false
+  type: list
 unique_id:
    description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
    required: false
    type: string
-white_value:
-  description: Flag that defines if the light supports white values.
-  required: false
-  type: boolean
-  default: false
-xy:
-  description: Flag that defines if the light supports XY colors.
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration %}
 
 <div class='note warning'>
@@ -645,7 +633,8 @@ light:
     state_topic: "home/rgb1"
     command_topic: "home/rgb1/set"
     brightness: true
-    rgb: true
+    color_mode: true
+    supported_color_modes: ["rgb"]
 ```
 
 ### Brightness and no RGB support
@@ -661,6 +650,8 @@ light:
     state_topic: "home/rgb1"
     command_topic: "home/rgb1/set"
     brightness: true
+    color_mode: true
+    supported_color_modes: ["brightness"]
 ```
 
 ### Brightness Scaled
@@ -676,6 +667,8 @@ light:
     command_topic: "home/light/set"
     brightness: true
     brightness_scale: 4095
+    color_mode: true
+    supported_color_modes: ["brightness"]
 ```
 
 Home Assistant will then convert its 8bit value in the message to and from the device:
@@ -689,7 +682,7 @@ Home Assistant will then convert its 8bit value in the message to and from the d
 
 ### HS Color
 
-To use a light with hue+saturation as the color model, set `hs` to `true` in the platform configuration:
+To use a light with hue+saturation as the color model, set `supported_color_modes` to `["hs"]` in the platform configuration:
 
 ```yaml
 light:
@@ -698,7 +691,8 @@ light:
     name: mqtt_json_hs_light
     state_topic: "home/light"
     command_topic: "home/light/set"
-    hs: true
+    color_mode: true
+    supported_color_modes: ["hs"]
 ```
 
 Home Assistant expects the hue values to be in the range 0 to 360 and the saturation values to be scaled from 0 to 100. For example, the following is a blue color shade:
@@ -706,6 +700,7 @@ Home Assistant expects the hue values to be in the range 0 to 360 and the satura
 ```json
 {
   "state": "ON",
+  "color_mode": "hs",
   "color": {
     "h": 24.0,
     "s": 100.0
@@ -726,8 +721,8 @@ light:
     state_topic: "home/rgbw1"
     command_topic: "home/rgbw1/set"
     brightness: true
-    rgb: true
-    white_value: true
+    color_mode: true
+    supported_color_modes: ["rgbw"]
 ```
 
 
