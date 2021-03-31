@@ -9,11 +9,23 @@ ha_quality_scale: internal
 ha_domain: binary_sensor
 ---
 
-Binary sensors gather information about the state of devices which have a "digital" return value (either 1 or 0). These can be switches, contacts, pins, etc. These sensors only have two states: **0/off/low/closed/false** and **1/on/high/open/true**. Knowing that there are only two states allows Home Assistant to represent these sensors in a better way in the frontend according to their functionality.
+Binary sensors are similar to other [sensors](https://www.home-assistant.io/integrations/sensor) in that they monitor the states and conditions of different entities. Where binary sensors differ is they can only return one of two mutually exclusive values. For example, a binary sensor for a window may report a value of `open` or `closed`, a switch `on` or `off`, a condition `true` or `false`.  	
+	
+This *either/or* constraint is what makes these sensors binary. They are digital in nature, whereas analog sensors, like temperature and weight sensors, return a range of values.	
+	
+Some binary sensors are created automatically when you add a device integration. For example, adding the [ecobee integration](https://www.home-assistant.io/integrations/ecobee/) will create a binary sensor to detect room occupancy. Other binary sensors can be created manually using the [template platform](https://www.home-assistant.io/integrations/binary_sensor.template/).
 
 ### Device Class
 
-The way these sensors are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for binary sensors:
+Knowing a sensor is binary impacts how the sensor's current state may be represented in Home Assistant's UI (see [Lovelace](https://www.home-assistant.io/lovelace/)). Opposing states may be given diffent icons, colors, and value labels to highlight a particular state over the other. This is set by the binary sensor's device class.
+	
+Here are a few examples of this representation in the UI:
+<p class='img'>
+<img src='/images/screenshots/binary_sensor_classes_icons.png' />
+Example of various device classes icons in `on` and `off` state. The on image in this example has `state_color: true` specified in the Entities card configuration to receive the icon coloring.
+</p>
+
+The full list of supported binary sensor device classes is below *(note: these may also be modified in the [customizing section](https://www.home-assistant.io/docs/configuration/customizing-devices)).*
 
 - **None**: Generic on/off. This is the default and doesn't need to be set.
 - **battery**: `on` means low, `off` means normal
@@ -41,9 +53,6 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **vibration**: `on` means vibration detected, `off` means no vibration (clear)
 - **window**: `on` means open, `off` means closed
 
-For analog sensors please check the [integration overview](/integrations/sensor).
+For comparison, here are the [device classes](https://www.home-assistant.io/integrations/sensor#device-class) for analog sensors.
 
-<p class='img'>
-<img src='/images/screenshots/binary_sensor_classes_icons.png' />
-Example of various device classes icons in `on` and `off` state. The on image in this example has `state_color: true` specified in the Entities card configuration to receive the icon coloring.
-</p>
+
