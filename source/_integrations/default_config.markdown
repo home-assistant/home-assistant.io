@@ -11,7 +11,6 @@ ha_quality_scale: internal
 
 This integration is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded are:
 
-- [Analytics](/integrations/analytics) (`analytics`)
 - [Automation](/integrations/automation/) (`automation`)
 - [Home Assistant Cloud](/integrations/cloud/) (`cloud`)
 - [Configuration](/integrations/config/) (`config`)
