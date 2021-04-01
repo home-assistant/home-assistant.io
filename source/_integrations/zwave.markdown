@@ -155,3 +155,7 @@ Z-Wave locks will expose three services under the lock domain to manage usercode
 | clear_usercode | Clears a usercode at code_slot X. Valid code_slots are 1-254, but max is defined by the lock.          |
 | get_usercode   | Get a usercode from the lock at code_slot. Valid code_slots are 1-254, but max is defined by the lock. |
 | set_usercode   | Sets usercode to X at code_slot Y. Valid usercodes are at least 4 digits, and max defined by the lock. |
+
+### Device specific support
+
+For more information about device specific support please visit [this page](/docs/z-wave/device-specific)
