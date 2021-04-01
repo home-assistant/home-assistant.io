@@ -715,7 +715,6 @@
 /components/sensor.fritzbox /integrations/fritzbox#sensor
 /components/sensor.fritzbox_callmonitor /integrations/fritzbox_callmonitor
 /components/sensor.fritzbox_netmonitor /integrations/fritzbox_netmonitor
-/components/sensor.geizhals /integrations/geizhals
 /components/sensor.geo_rss_events /integrations/geo_rss_events
 /components/sensor.github /integrations/github
 /components/sensor.gitlab_ci /integrations/gitlab_ci
@@ -1367,7 +1366,6 @@
 /components/futurenow /integrations/futurenow
 /components/garadget /integrations/garadget
 /components/gc100 /integrations/gc100
-/components/geizhals /integrations/geizhals
 /components/generic_ip_camera /integrations/generic
 /components/generic_thermostat /integrations/generic_thermostat
 /components/geniushub /integrations/geniushub
@@ -2294,3 +2292,6 @@
 /components/coinmarketcap /more-info/removed-integration 301
 /integrations/coinmarketcap /more-info/removed-integration 301
 /integrations/griddy /more-info/removed-integration 301
+/components/geizhals /more-info/removed-integration 301
+/components/sensor.geizhals /more-info/removed-integration 301
+/integrations/geizhals /more-info/removed-integration 301
