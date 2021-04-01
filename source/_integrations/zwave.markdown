@@ -39,6 +39,17 @@ The Z-Wave integration will no longer receive any updates. It will not be remove
 
 The [Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
 
+## Configuration
+
+If you have setup the requirements, then add the following entry `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+zwave:
+```
+
+## Device support
+
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
@@ -50,16 +61,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-## Configuration
-
-If you have setup the requirements, then add the following entry `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-zwave:
-```
-
-## Climate
+### Climate
 
 To get your Z-Wave thermostat or HVAC unit working with Home Assistant, follow the instructions for the general [Z-Wave component](/getting-started/z-wave/).
 
@@ -76,7 +78,7 @@ Once enabled, any Z-Wave climate devices will be available to Home Assistant. Mu
 - `climate.remotec_zxt120_heating_1_id`: Allows you to control the connected device. See below for examples.
 - `sensor.remotec_zxt120_temperature_38`: A sensor which returns the current temperature set on the attached device.
 
-### Automating Z-Wave Climate Devices
+#### Automating Z-Wave Climate Devices
 
 The following examples will instruct a Remotec ZXT-120 to turn the attached device mode to Heating, and set the temperature at 24 degrees after 8pm. Add it to `automation.yaml`.
 
@@ -117,7 +119,7 @@ automation:
 
 **Note:** In the example above, the word `Off` is encased in single quotes to be valid YAML.
 
-### Test if it works
+#### Test if it works
 
 A simple way to test if your Z-Wave climate device is working is to use **Developer Tools** -> **Services**. Choose the applicable Climate service from the list of **Available services:** and enter something like the sample below into the **Service Data** field and then press **CALL SERVICE**.
 
@@ -126,7 +128,7 @@ entity_id: climate.remotec_zxt120_heating_1_id
 hvac_mode: Heat
 ```
 
-## Cover
+### Cover
 
 Z-Wave garage doors, blinds, and roller shutters are supported as cover in Home Assistant.
 
@@ -142,7 +144,7 @@ zwave:
       invert_percent: true
 ```
 
-## Lock
+### Lock
 
 To get your Z-Wave locks working with Home Assistant, follow the instructions for the general [Z-Wave component](#configuration).
 
