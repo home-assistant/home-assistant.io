@@ -37,16 +37,13 @@ The Z-Wave integration will no longer receive any updates. It will not be remove
 
 </div>
 
-The [Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
+The [Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices.
 
-## Configuration
+## Quick start
 
-If you have setup the requirements, then add the following entry `configuration.yaml` file:
+To add Z-Wave to your installation, plug the Z-Wave stick into the device that runs Home Assistant. Then Go to Configuration >> Integrations in the UI. Click the "Add integration" button in the bottom right and from the list of integrations, select "Z-Wave" and follow the instructions shown.
 
-```yaml
-# Example configuration.yaml entry
-zwave:
-```
+For more information, please see the [detailed installation instructions](#detailed-installation-instructions).
 
 ## Device support
 
