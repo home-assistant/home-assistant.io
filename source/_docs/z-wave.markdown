@@ -37,6 +37,6 @@ Visit the [Z-Wave JS integration](/integrations/zwave_js) page to get started wi
 
 ## Instant status updates
 
-When you toggle a switch or control a light locally you may find that it takes some time for that to be reflected in Home Assistant. That's because Lutron had patents on the status updates using the *Hail* command class, the traditional way of allowing devices to tell the controller that something happened locally. The same result can be achieved through the *Association* command class, or *Central Scene* command class (though, *Central Scene* isn't [fully supported](https://github.com/OpenZWave/open-zwave/pull/1125) in OpenZWave).
+When you toggle a switch or control a light locally you may find that it takes some time for that to be reflected in Home Assistant. That's because Lutron had patents on the status updates using the *Hail* command class, the traditional way of allowing devices to tell the controller that something happened locally. The same result can be achieved through the *Association* command class, or *Central Scene* command class.
 
 If you search [the Z-Wave products database](https://products.z-wavealliance.org/) for your product and it lists one of those in the **Controlled** command classes (not the **Supported** command classes), then your device will be able to report state changes when they happen.
