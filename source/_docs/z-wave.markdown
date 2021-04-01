@@ -33,9 +33,7 @@ There are 12 different regions for Z-Wave devices, which relates to the frequenc
 
 ## Getting started
 
-You'll now need to connect your [controller](/docs/z-wave/controllers/), [configure](/docs/z-wave/installation) the Z-Wave integration, then [add some devices](/docs/z-wave/adding) using the [control panel](/docs/z-wave/control-panel). [This explains](/docs/z-wave/devices/) about devices, and how [entities are named](/docs/z-wave/entities).
-
-You can get more information on the [available services](/docs/z-wave/services/) and [events](/docs/z-wave/events/), what the [query stages](/docs/z-wave/query-stage) of battery powered devices are, as well as details on configuring [specific devices](/docs/z-wave/device-specific/).
+Visit the [Z-Wave JS integration](/integrations/zwave_js) page to get started with Z-Wave in Home Assistant.
 
 ## Instant status updates
 
