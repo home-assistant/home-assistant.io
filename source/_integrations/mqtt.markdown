@@ -43,7 +43,7 @@ mqtt:
 Manual configuration is required when connecting to a broker over TLS.
 
 ```yaml
-# Example configuration.yaml entry for connecting over TLS without host name verification
+# Example configuration.yaml entry
 mqtt:
   certificate: "PATH_TO_CA.crt"
   broker: "IP_ADDRESS_BROKER"
