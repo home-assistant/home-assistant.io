@@ -50,7 +50,6 @@ mqtt:
   port: 8883
   username: "MQTT_USERNAME"
   password: !secret MQTT_PASSWORD
-  tls_insecure: true
 
 ```
 
