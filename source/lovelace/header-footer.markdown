@@ -74,7 +74,8 @@ entities:
     show_icon:
       required: false
       description: If false, the icon is not shown.
-      type: boolean default: "true"
+      type: boolean
+      default: "true"
     image:
       required: false
       description: Override the entity image.
