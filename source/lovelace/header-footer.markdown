@@ -71,6 +71,10 @@ entities:
       required: false
       description: Override the entity icon. You can use any icon from [MaterialDesignIcons.com](http://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
       type: string
+    show_icon:
+      required: false
+      description: If false, the icon is not shown.
+      type: boolean default: "true"
     image:
       required: false
       description: Override the entity image.
