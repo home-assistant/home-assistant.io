@@ -25,7 +25,7 @@ The Z-Wave standard was improved with Z-Wave Plus, and if you only use Z-Wave pl
 
 ## What do you need to use Z-Wave
 
-There are 2 basic things you'll need to use Z-Wave, a Z-Wave [controller](/docs/z-wave/controllers/) and one or more [devices](/docs/z-wave/devices/).
+There are 2 basic things you'll need to use Z-Wave, a Z-Wave [controller](/docs/z-wave/controllers/) and one or more [devices](https://products.z-wavealliance.org/).
 
 ### Regional differences
 
