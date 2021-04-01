@@ -39,6 +39,19 @@ To connect to your [own MQTT broker](/docs/mqtt/broker#run-your-own):
 mqtt:
   broker: IP_ADDRESS_BROKER
 ```
+Manual configuration is required when conencting to a broker over TLS.
+
+```yaml
+# Example configuration.yaml entry for connecting over TLS without host name verification
+mqtt:
+  certificate: PATH_TO_CA.crt
+  broker: IP_ADDRESS_BROKER
+  port: PORT_BROKER
+  username: MQTT_USERNAME
+  password: !secret MQTT_PASSWORD
+  tls_insecure: true
+
+```
 
 ## Additional features
 
