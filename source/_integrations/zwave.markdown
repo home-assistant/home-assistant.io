@@ -131,7 +131,7 @@ Z-Wave garage doors, blinds, and roller shutters are supported as cover in Home 
 
 To get your Z-Wave covers working with Home Assistant, follow the instructions for the general [Z-Wave component](#configuration).
 
-If you discover that you need to [invert the operation](/docs/z-wave/installation/#invert_openclose_buttons) of open/close for a particular device, you may change this behavior in your Z-Wave section of your `configuration.yaml` file as follows, in addition you can also [invert percent position](/docs/z-wave/installation/#invert_percent):
+If you discover that you need to [invert the operation](#invert_openclose_buttons) of open/close for a particular device, you may change this behavior in your Z-Wave section of your `configuration.yaml` file as follows, in addition you can also [invert percent position](#invert_percent):
 
 ```yaml
 zwave:
@@ -429,7 +429,7 @@ If you're getting errors like:
 openzwave-embed/open-zwave-master/libopenzwave.a: No such file or directory
 ```
 
-Then the problem is that you're missing `libudev-dev` (or the equivalent for your distribution), please [install it](/docs/z-wave/installation/#linux).
+Then the problem is that you're missing `libudev-dev` (or the equivalent for your distribution), please [install it](#linux-with-home-assistant-core).
 
 #### Random failures
 
