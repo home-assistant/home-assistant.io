@@ -167,51 +167,51 @@ sensor:
   description: List of sensors to create from the trigger data.
   required: true
   type: map
-    keys:
-      state:
-        description: Defines a template to get the state of the sensor.
-        required: true
-        type: template
-      name:
-        description: Defines a template to get the name of the sensor.
-        required: false
-        type: template
-      unique_id:
-        description: An ID that uniquely identifies this sensor. Will be combined with the unique ID of the configuration block if available.
-        required: false
-        type: string
-      unit_of_measurement:
-        description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
-        required: false
-        type: string
-        default: None
-      icon:
-        description: Defines a template for the icon of the sensor.
-        required: false
-        type: template
-      picture_template:
-        description: Defines a template for the entity picture of the sensor.
-        required: false
-        type: template
-      attributes:
-        description: Defines templates for attributes of the sensor.
-        required: false
-        type: map
-        keys:
-          "attribute: template":
-            description: The attribute and corresponding template.
-            required: true
-            type: template
-      availability:
-        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the component will always be `available`.
-        required: false
-        type: template
-        default: true
-      device_class:
-        description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
-        required: false
-        type: device_class
-        default: None
+  keys:
+    state:
+      description: Defines a template to get the state of the sensor.
+      required: true
+      type: template
+    name:
+      description: Defines a template to get the name of the sensor.
+      required: false
+      type: template
+    unique_id:
+      description: An ID that uniquely identifies this sensor. Will be combined with the unique ID of the configuration block if available.
+      required: false
+      type: string
+    unit_of_measurement:
+      description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
+      required: false
+      type: string
+      default: None
+    icon:
+      description: Defines a template for the icon of the sensor.
+      required: false
+      type: template
+    picture_template:
+      description: Defines a template for the entity picture of the sensor.
+      required: false
+      type: template
+    attributes:
+      description: Defines templates for attributes of the sensor.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
+    availability:
+      description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the component will always be `available`.
+      required: false
+      type: template
+      default: true
+    device_class:
+      description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+      required: false
+      type: device_class
+      default: None
 {% endconfiguration %}
 
 <p class='note'>It's currently only possible to define trigger-based entities via the top-level configuration. These entities are not yet included when reloading template entities.</p>
