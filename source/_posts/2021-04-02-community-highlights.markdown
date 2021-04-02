@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights: 15th edition"
-description: ""
+description: "Get started with the banner card, have the volume of your media players automatically adjusted with a blueprint and a mega project in the field of Hydroponic"
 date: 2021-04-02 00:00:00
 date_formatted: "April 2, 2021"
 author: Klaas Schoute
