@@ -54,14 +54,14 @@ If you denied access to all locations and applications it is normal to receive a
 ## Sensors
 
 Utilisation:
-- `cpu_other_load`: Displays unspecified (that is, not user or system) load in percentage.
-- `cpu_user_load`: Displays user load in percentage.
-- `cpu_system_load`: Displays system load in percentage.
-- `cpu_total_load`: Displays combined load in percentage.
-- `cpu_1min_load`: Displays maximum load in past minute.
-- `cpu_5min_load`: Displays maximum load in past 5 minutes.
-- `cpu_15min_load`: Displays maximum load in past 15 minutes.
-- `memory_real_usage`: Displays percentage of memory used.
+- `cpu_load_other`: Displays unspecified (that is, not user or system) load in percentage.
+- `cpu_load_user`: Displays user load in percentage.
+- `cpu_load_system`: Displays system load in percentage.
+- `cpu_load_total`: Displays combined load in percentage.
+- `cpu_load_1min`: Displays maximum load in past minute.
+- `cpu_load_5min`: Displays maximum load in past 5 minutes.
+- `cpu_load_15min`: Displays maximum load in past 15 minutes.
+- `memory_usage_real`: Displays percentage of memory used.
 - `memory_size`: Displays total size of memory in MB.
 - `memory_cached`: Displays total size of cache in MB.
 - `memory_available_swap`: Displays total size of available swap in MB.
@@ -73,20 +73,20 @@ Utilisation:
 
 Information:
 - `temperature`: Displays the temperature of the NAS.
-- `uptime`: Displays the uptime of the NAS (in seconds).
+- `last_boot`: Displays the uptime of the NAS (in seconds).
 
 For each disk:
-- `disk_smart_status`: Displays the S.M.A.R.T status of the disk.
-- `disk_status`: Displays the status of the disk.
-- `disk_temp`: Displays the temperature of the disk.
+- `disk_x_status_smart`: Displays the S.M.A.R.T status of the disk.
+- `disk_x_status`: Displays the status of the disk.
+- `disk_x_temperature`: Displays the temperature of the disk.
 
 For each volume:
-- `volume_status`: Displays the status of the volume.
-- `volume_size_total`: Displays the total size of the volume in TB's.
-- `volume_size_used`: Displays the used space on this volume in TB's.
-- `volume_percentage_used`: Displays the percentage used for this volume.
-- `volume_disk_temp_avg`: Displays the average temperature of all disks in the volume.
-- `volume_disk_temp_max`: Displays the maximum temperature of all disks in the volume.
+- `volume_x_status`: Displays the status of the volume.
+- `volume_x_total_size`: Displays the total size of the volume in TB's.
+- `volume_x_used_size`: Displays the used space on this volume in TB's.
+- `volume_x_volume_used`: Displays the percentage used for this volume.
+- `volume_x_average_disk_temp`: Displays the average temperature of all disks in the volume.
+- `volume_x_maximum_disk_temp`: Displays the maximum temperature of all disks in the volume.
 
 
 ## Binary sensors
@@ -98,8 +98,8 @@ Upgrade:
 - `update_available`: Displays on if a DSM update is available.
 
 For each disk:
-- `disk_exceed_bad_sector_thr`: Displays on to indicate if the disk exceeded the maximum bad sector threshold. (Does not work with DSM 5.x)
-- `disk_below_remain_life_thr`: Displays on to indicate if the disk dropped below the remain life threshold. (Does not work with DSM 5.x)
+- `drive_x_exceeded_max_bad_sectors`: Displays on to indicate if the disk exceeded the maximum bad sector threshold. (Does not work with DSM 5.x)
+- `drive_x_below_min_remaining_life`: Displays on to indicate if the disk dropped below the remain life threshold. (Does not work with DSM 5.x)
 
 
 ## Switch
