@@ -142,7 +142,7 @@ The data is stored in CloudFlare's KV (Key-Value) store for the [Receiver](#rece
 This is an example of how the information is stored:
 {% configuration_basic %}
 "huuid:12a3456bc78d90123ef4567g789012h3":
-  description: "{'version': '2021.4.0', 'installation_type': 'Home Assistant OS'}"
+  description: "{'version': '2021.4.0', 'installation_type': 'Home Assistant OS', 'country': 'NO'}"
 
 {% endconfiguration_basic %}
 
