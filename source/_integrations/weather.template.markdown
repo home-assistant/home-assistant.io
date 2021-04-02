@@ -35,6 +35,8 @@ weather:
 
 {% endraw %}
 
+**Note:** The templates' values need to be in the units given below - the weather template will make sure that the values reported to Home Assistant are in appropriate units according to the system settings (metric or imperial).
+
 {% configuration %}
 name:
   description: Name to use in the frontend.
@@ -53,7 +55,7 @@ temperature_template:
   required: true
   type: template
 humidity_template:
-  description: The current humidity.
+  description: The current humidity in %.
   required: true
   type: template
 attribution_template:
@@ -61,23 +63,23 @@ attribution_template:
   required: false
   type: string
 pressure_template:
-  description: The current air pressure.
+  description: The current air pressure in hPa.
   required: false
   type: template
 wind_speed_template:
-  description: The current wind speed.
+  description: The current wind speed in m/s.
   required: false
   type: template
 wind_bearing_template:
-  description: The current wind bearing.
+  description: The current wind bearing in °.
   required: false
   type: template
 ozone_template:
-  description: The current ozone level.
+  description: The current ozone level in ppm.
   required: false
   type: template
 visibility_template:
-  description: The current visibility.
+  description: The current visibility in km.
   required: false
   type: template
 forecast_template:
