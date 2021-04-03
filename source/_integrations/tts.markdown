@@ -8,6 +8,7 @@ ha_iot_class:
 ha_codeowners:
   - '@pvizeli'
 ha_domain: tts
+ha_quality_scale: internal
 ha_platforms:
   - notify
 ---

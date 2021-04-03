@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.7
 ha_domain: logbook
 ha_iot_class:
+ha_quality_scale: internal
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />
