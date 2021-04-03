@@ -11,7 +11,7 @@ ha_domain: homepilot
 ---
 
 The [Rademacher HomePilot](https://www.rademacher.de/smart-home/produkte/homepilot) integration allows you to connect your Rademacher HomePilot Hub or Smart2Smart Bridge with Home Assistant.
-The [pyhomepilot libary](https://github.com/Nico0302/pyhomepilot) is used for communicating.
+The [pyhomepilot libary](https://github.com/Nico0302/pyhomepilot) is used for communication.
 
 Support is currently limited to automatic blinds.
 
