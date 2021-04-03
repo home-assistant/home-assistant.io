@@ -462,12 +462,12 @@ automation:
 
 HomeKit relies heavily on your home hub to keep track of Bluetooth devices. Additionally, each home hub has to keep track of every HomeKit accessory that you bridge. If you have many accessories, notably cameras or Bluetooth devices, **consider disabling older home hubs**.
 
-The following home hubs showed strong results with at least 300 accessories:
+The following home hubs showed strong results when testing with 300 accessories:
 
 - HomePod
 - HomePod Mini
 
-The following home hubs showed strong results with at least 200 accessories:
+The following home hubs showed strong results when testing with 200 accessories:
 
 - Apple TV 4k
 
