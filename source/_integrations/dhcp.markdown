@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 2021.2
 ha_domain: dhcp
+ha_quality_scale: internal
 ha_codeowners:
   - '@bdraco'
 ---

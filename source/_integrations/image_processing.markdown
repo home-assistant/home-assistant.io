@@ -5,6 +5,7 @@ ha_category:
   - Image Processing
 ha_release: 0.36
 ha_domain: image_processing
+ha_quality_scale: internal
 ha_iot_class:
 ---
 

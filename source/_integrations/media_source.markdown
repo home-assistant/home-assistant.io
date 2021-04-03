@@ -8,6 +8,7 @@ ha_domain: media_source
 ha_codeowners:
   - '@hunterjm'
 ha_iot_class:
+ha_quality_scale: internal
 ---
 
 The Media Source integration platform allows integrations to expose media for

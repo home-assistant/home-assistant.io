@@ -4,6 +4,7 @@ description: Instructions on how to setup your remotes with Home Assistant.
 ha_release: 0.34
 ha_domain: remote
 ha_iot_class:
+ha_quality_scale: internal
 ---
 
 Keeps track which remotes are in your environment, their state and allows you to control them.
