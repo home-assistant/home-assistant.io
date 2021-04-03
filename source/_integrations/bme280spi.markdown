@@ -157,7 +157,7 @@ ls /dev/spidev*
 
 ## Connect sensors
 
-### SPI0 (available on J8/P1 headers on all RPi versions)
+### SPI0 (available on J8/P1 headers on all Raspberry Pi versions)
 
 |SPI Function|Header Pin|Broadcom Pin Name|Broadcom Pin Function|
 |------------|----------|-----------------|---------------------|
