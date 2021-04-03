@@ -22,14 +22,14 @@ To enable the compensation sensor, add the following lines to your `configuratio
 # Example configuration.yaml entry
 compensation:
   media_player_db_volume:
-    entity_id: media_player.yamaha_receiver
+    source: media_player.yamaha_receiver
     data_points:
       - [0.2, -80.0]
       - [1.0, 0.0]
 ```
 
 {% configuration %}
-entity_id:
+source:
   description: The entity to monitor.
   required: true
   type: string
@@ -37,10 +37,9 @@ data_points:
   description: "The collection of data point conversions with the format `[uncompensated_value, compensated_value]`.  e.g., `[1.0, 2.1]`. The number of required data points is equal to the polynomial `degree` + 1. For example, a linear compensation (with `degree: 1`) requires at least 2 data points."
   required: true
   type: list
-name:
-  description: Name of the sensor to use in the frontend.
+unique_id:
+  description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
   required: false
-  default: Compensation
   type: string
 attribute:
   description: Attribute to monitor.
