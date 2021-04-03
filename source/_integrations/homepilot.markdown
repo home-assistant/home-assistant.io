@@ -1,7 +1,7 @@
 ---
 title: "Rademacher HomePilot"
 description: "Instructions for connecting Rademacher HomePilot devices."
-ha_release: "2021.3"
+ha_release: "2021.5"
 ha_category: Cover
 ha_iot_class: "Local Polling"
 ha_config_flow: true
@@ -22,7 +22,7 @@ To add the Rademacher HomePilot integration to your installation:
 - Go to the Integrations menu: **Configuration** >> **Integrations** in the UI.
 - Click the button with the `+` sign at the bottom right of the screen.
 - Select **Rademacher HomePilot** from the list of integrations.
-- Fill in the IP adress or hostname of your Rademacher Hub or Bridge under **Host**.
+- Fill in the IP address or hostname of your Rademacher Hub or Bridge under **Host**.
 - If you protected your Rademacher Hub or Bridge with a password you should also enter it.
 - Click on **SUBMIT** to complete the setup.
 
