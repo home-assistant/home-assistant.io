@@ -464,9 +464,12 @@ HomeKit relies heavily on your home hub to keep track of Bluetooth devices. Addi
 
 The following home hubs have been tested successfully with a large number of devices (>300):
 
+- HomePod
+- HomePod Mini
+
+The following home hubs have been tested successfully with a large number of devices (>200):
+
 - Apple TV 4k
-- Home Pod
-- Home Pod Mini
 
 The following home hubs have been reported to have trouble with a large number of devices:
 
