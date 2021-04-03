@@ -469,7 +469,7 @@ The following home hubs showed strong results when testing with 300 accessories:
 
 The following home hubs showed strong results when testing with 200 accessories:
 
-- Apple TV 4k
+- Apple TV 4k (best results when using ethernet instead of WiFi)
 
 The following home hubs have been reported to have trouble with a large number of accessories:
 
