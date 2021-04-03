@@ -300,7 +300,7 @@ climates:
 
 | Service | Description |
 | ------- | ----------- |
-| set_temperature | Set Temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
+| set_temperature (#set-temperature)| Set Temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
 
 ### Configuring platform cover
 
@@ -760,7 +760,7 @@ modbus:
 
 | Service | Description |
 | ------- | ----------- |
-| write_register | Write register. Requires `hub`, `unit`, `address` and `value` fields. `value` can be either single value or an array |
+| write_register (#write_register)| Write register. Requires `hub`, `unit`, `address` and `value` fields. `value` can be either single value or an array |
 
 Description:
 
@@ -774,7 +774,7 @@ Description:
 
 | Service | Description |
 | ------- | ----------- |
-| write_coil | Write coil. Requires `hub`, `unit`, `address` and `state` fields. `state` can be either single bolean or an array |
+| write_coil (#write_coil)| Write coil. Requires `hub`, `unit`, `address` and `state` fields. `state` can be either single bolean or an array |
 
 Description:
 
