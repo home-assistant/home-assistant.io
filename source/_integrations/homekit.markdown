@@ -460,18 +460,18 @@ automation:
 
 ### All or some devices are intermittently unresponsive
 
-HomeKit relies heavily on your home hub to keep track of Bluetooth devices. Additionally, each home hub has to keep track of every HomeKit accessory that you bridge. If you have many accessories or Bluetooth devices, **consider disabling older home hubs**.
+HomeKit relies heavily on your home hub to keep track of Bluetooth devices. Additionally, each home hub has to keep track of every HomeKit accessory that you bridge. If you have many accessories, notably cameras or Bluetooth devices, **consider disabling older home hubs**.
 
-The following home hubs have been tested successfully with a large number of devices (>300):
+The following home hubs showed strong results with at least 300 accessories:
 
 - HomePod
 - HomePod Mini
 
-The following home hubs have been tested successfully with a large number of devices (>200):
+The following home hubs showed strong results with at least 200 accessories:
 
 - Apple TV 4k
 
-The following home hubs have been reported to have trouble with a large number of devices:
+The following home hubs have been reported to have trouble with a large number of accessories:
 
 - Apple TV HD
 - Various iPad models
