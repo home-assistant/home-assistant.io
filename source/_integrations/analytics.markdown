@@ -3,7 +3,7 @@ title: Analytics
 description: Share system analytics and diagnostics
 ha_category:
   - Other
-ha_release: 2021.4 
+ha_release: 2021.4
 ha_iot_class: Cloud Push
 ha_quality_scale: internal
 ha_codeowners:
@@ -11,26 +11,29 @@ ha_codeowners:
 ha_domain: analytics
 ---
 
-The Analytics integration will collect information about the running Home Assistant instance and its environment. The information sent depends on what sections you enable in the integration, by default nothing is enabled. The different sections can be controlled in the UI under **{% my general title="Configuration >> General" %}**.
+Home Assistant allows users to share their usage data via the analytics integration. The aggregated data is available at <https://analytics.home-assistant.io>. It is used to influence Home Assistant development priorities and to convince manufacturers to add local control and privacy focused features.
+
+## Data Collection
+
+The information sent depends on what you opt-in to. You can opt-in during onboarding and by going to **{% my general title="Configuration >> General" %}**.
 
 **{% my general badge %}**
 
-When enabled the integration will send data 15 minutes after each start, and every 24h after startup. When the data is sent the full payload will be printed to your log.
+When enabled, data will be send 15 minutes after each start, and every 24h after startup. Sent data is printed to your log.
 
-The collected data is available to the public at <https://analytics.home-assistant.io>
-
-## Basic analytics
+### Basic analytics
 
 This includes:
 
-- The UUID of your system
-- The version of your system
-- The installation type of your system
+- Unique identifier for your system (to ensure each installation is counted once)
+- Home Assistant version
+- Home Assistant installation type
+- Your country (derived server-side from your IP-address)
 
-If your system includes the Supervisor this will also contain:
+If your system includes the Supervisor, this will also contain:
 
-- A boolean that indicates if the system is supported
-- A boolean that indicates if the system is healthy
+- If your installation is supported
+- If your installation is healthy
 
 {% details Example payload %}
 
@@ -48,20 +51,21 @@ If your system includes the Supervisor this will also contain:
 
 {% enddetails %}
 
-## Usage analytics
+### Usage analytics
 
-You need to enable [basic analytics](#basic-analytics) to be able to enable this.
+_Required basic analytics to be enabled._
 
 This includes:
 
 - The names of all your integrations
 
-If your system include the Supervisor this will also contain:
+If your system includes the Supervisor, this will also contain:
 
-- The name of all installed add-ons
-- The version of all installed add-ons
-- The state of protection mode of all installed add-ons
-- The state of the auto update toggle of all installed add-ons
+- For each add-on
+  - Name
+  - Version
+  - If protection mode is enabled
+  - If auto update is enabled
 
 {% details Example payload %}
 
@@ -88,9 +92,9 @@ If your system include the Supervisor this will also contain:
 
 {% enddetails %}
 
-## Statistics
+### Statistics
 
-You need to enable [basic analytics](#basic-analytics) to be able to enable this.
+_Required basic analytics to be enabled._
 
 This includes:
 
@@ -99,7 +103,7 @@ This includes:
 - Number of entities
 - Number of automations
 
-If your system include the Supervisor this will also contain:
+If your system includes the Supervisor, this will also contain:
 
 - Number of installed add-ons
 
@@ -124,20 +128,19 @@ If your system include the Supervisor this will also contain:
 
 {% enddetails %}
 
-## Diagnostics
+### Diagnostics
 
-This is not sent to the same [Receiver](#receiver) as the rest of the information enabled with this integration. Crash reports are sent to [Sentry](https://sentry.io/welcome/). This data will not be made public and will only be available to a few core developers.
+If enabled, a crash report will be collected when an unexpected error occurs and uploaded to [Sentry](https://sentry.io). These reports will help fix bugs and improve performance and stability.
 
-For now, this is only being done for events inside the Supervisor if your system has that. If this changes to include other parts of the ecosystem it will be mentioned in the release notes and the documentation here will be updated.
+Crash reports are only visible to the Home Assistant core developers. This feature is currently limited to the Supervisor.
 
-## Receiver
+## Data storage & processing
 
-The receiver that the payloads are sent to is running as a [CloudFlare Worker](https://workers.cloudflare.com/) and the code for that can be inspected in the [home-assistant/analytics repository](https://github.com/home-assistant/analytics.home-assistant.io).
+All data is received and processed by the Home Assistant Analytics Receiver ([source](https://github.com/home-assistant/analytics.home-assistant.io)).
 
-## Storage and usage
+When your installation sends a payload, that payload includes a unique identifier. This identifier is used to make sure that your installation is only counted once.
 
-When your installation sends a payload, that payload includes a unique identifier, this identifier is used to make sure that future payload updates, only change information from your installation.
-The data is stored in CloudFlare's KV (Key-Value) store for the [Receiver](#receiver), and will be stored for a maximum of 60 days since the last update.
+Your data is securely stored in [CloudFlare's Key-Value store](https://www.cloudflare.com/products/workers-kv/). It will be stored for a maximum of 60 days since the last update. Only aggregated data is made publicly available.
 
 This is an example of how the information is stored:
 {% configuration_basic %}
@@ -145,7 +148,3 @@ This is an example of how the information is stored:
   description: "{'version': '2021.4.0', 'installation_type': 'Home Assistant OS', 'country': 'NO'}"
 
 {% endconfiguration_basic %}
-
-Like all other websites you visit, the IP address and client information that sent the request will be visible to the remote server, other than the country-code of origin for the request nothing else is stored by us (you are more than welcome to inspect [the code that receives the data](https://github.com/home-assistant/analytics.home-assistant.io)), CloudFlare will keep a log of all interactions, [see their privacy policy for more details about that](https://www.cloudflare.com/privacypolicy/)
-
-The data will be used to display the information on <https://analytics.home-assistant.io> and to analyze how users are using Home Assistant. This allows for workload prioritizing to focus resources on improving the areas that are most important to our users.
