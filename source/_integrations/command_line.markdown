@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.12
 ha_iot_class: Local Polling
 ha_domain: command_line
+ha_quality_scale: internal
 ha_platforms:
   - binary_sensor
   - cover

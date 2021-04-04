@@ -4,6 +4,7 @@ description: Instructions on how to setup water heater devices within Home Assis
 ha_release: 0.81
 ha_domain: water_heater
 ha_iot_class:
+ha_quality_scale: internal
 ---
 
 The `water_heater` integration is built for the controlling and monitoring of hot water heaters.

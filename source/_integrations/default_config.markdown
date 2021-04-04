@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.88
 ha_domain: default_config
 ha_iot_class: Calculated
+ha_quality_scale: internal
 ---
 
 This integration is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded are:

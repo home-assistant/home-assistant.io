@@ -51,7 +51,7 @@ uptime status page of [Reddit](https://www.redditstatus.com).
     <a href="https://github.com/dylandoamaral/uptime-card" target="_blank">
         <img
             src='/images/blog/2021-03-26-community-highlights/uptime-card.png'
-            alt="How this blueprint works"
+            alt="How the uptime-card will looks like"
             style='border: 0;box-shadow: none;width:75%;'
         />
     </a>
