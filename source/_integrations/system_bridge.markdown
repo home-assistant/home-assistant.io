@@ -38,11 +38,11 @@ This integration provides the following sensors:
 
 ## Services
 
-### Send Command
+### Service `system_bridge.send_command`
 
 Sends a command to the server to run.
 
-[![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=system_bridge.send_command)
+{% my developer_call_service service="system_bridge.send_command" title="Open your Home Assistant instance and show your service developer tools with a specific service selected." %}
 
 #### Examples
 
@@ -62,31 +62,31 @@ data:
   arguments: '-V'
 ```
 
-### Open Path/URL
+### Service `system_bridge.open`
 
 Open a URL or file on the server using the default application.
 
-[![Open your Home Assistant instance and show your service developer tools with a specific service selected.](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=system_bridge.open)
+{% my developer_call_service service="system_bridge.open" title="Open your Home Assistant instance and show your service developer tools with a specific service selected." %}
 
 #### Examples
 
 ```yaml
 service: system_bridge.open
 data:
-  bridge: device
-  path: 'C:\image.jpg'
+  bridge: "device"
+  path: "C:\image.jpg"
 ```
 
 ```yaml
 service: system_bridge.open
 data:
-  bridge: device
-  path: 'https://home-assistant.io'
+  bridge: "device"
+  path: "https://home-assistant.io"
 ```
 
 ```yaml
 service: system_bridge.open
 data:
-  bridge: device
-  path: 'steam://rungameid/814380'
+  bridge: "device"
+  path: "steam://rungameid/814380"
 ```
