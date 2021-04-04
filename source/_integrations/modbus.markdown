@@ -296,11 +296,11 @@ climates:
       default: C
 {% endconfiguration %}
 
-#### Services
+#### set-temperature
 
 | Service | Description |
 | ------- | ----------- |
-| set_temperature (#set-temperature)| Set Temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
+| set_temperature | Set Temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
 
 ### Configuring platform cover
 
@@ -756,11 +756,11 @@ modbus:
     name: hub2
 ```
 
-### Services
+### write_register
 
 | Service | Description |
 | ------- | ----------- |
-| write_register (#write_register)| Write register. Requires `hub`, `unit`, `address` and `value` fields. `value` can be either single value or an array |
+| write_register | Write register. Requires `hub`, `unit`, `address` and `value` fields. `value` can be either single value or an array |
 
 Description:
 
@@ -771,10 +771,11 @@ Description:
 | address   | Address of the Register (e.g., 138) |
 | value     | A single value or an array of 16-bit values. Single value will call modbus function code 6. Array will call modbus function code 16. Array might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]` |
 
+### write_coil
 
 | Service | Description |
 | ------- | ----------- |
-| write_coil (#write_coil)| Write coil. Requires `hub`, `unit`, `address` and `state` fields. `state` can be either single bolean or an array |
+| write_coil | Write coil. Requires `hub`, `unit`, `address` and `state` fields. `state` can be either single bolean or an array |
 
 Description:
 
