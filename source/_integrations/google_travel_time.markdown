@@ -35,6 +35,7 @@ Tracking can be setup to track entities of type `device_tracker`, `zone`, `senso
 
 Origin: device_tracker.mobile_phone
 Destination: zone.home
+
 #### Tracking entity to zone friendly name (e.g. "Eddies House")
 
 Origin: zone.home
