@@ -36,7 +36,7 @@ When you have multiple Leviosa Zones, you'll need to know which IP address is as
 
 ## Services to move your blinds to intermediate positions
 
-When you want your blinds to go to intermediate positions defined by you, set these intermediate positions with the [Leviosa remote controller](https://cdn.shopify.com/s/files/1/1346/0347/files/Leviosa_Shades_Programming_instructions.pdf?). These intermediate positions are stored in each Leviosa shade motor, and two services in Home Assistant tell shades in each group to move there. If you do not program intermediate points, the shade will fully travel to the upper or lower limit when these services are used. Once the intermediate positions are set, you can:
+When you want your blinds to go to intermediate positions defined by you, set these intermediate positions with the [Leviosa remote controller](https://cdn.shopify.com/s/files/1/1346/0347/files/Leviosa_Shades_Programming_instructions.pdf?). These intermediate positions are stored in each Leviosa shade motor, and two services in Home Assistant tell shades in each group to move there. If you do not program intermediate points, the shade willfully travels to the upper or lower limit when these services are used. Once the intermediate positions are set, you can:
 
 - Use `leviosa_shades.next_up_pos` to move up to the next intermediate position.
 - Use `leviosa_shades.next_down_pos` to move down to the next intermediate position.
