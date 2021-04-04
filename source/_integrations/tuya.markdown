@@ -38,7 +38,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-During configuration, be careful to select the [country code](https://www.countrycode.org/) and the platform corresponding to those used by you in the app. Once configuration flow is completed, the devices configured in your app will be automatically discovered.
+During configuration, be careful to select the [country code](https://www.countrycode.org/) and the platform corresponding to those used by you in the app. Once configuration flow is completed, the devices configured in your app will be automatically discovered. Additionally, if you username or e-mail address isn't accepted, please try using your phone number (minus the country code) as your username.
 
 ## Integration Options
 
