@@ -30,6 +30,7 @@ To set up a `google_travel_time` sensor, go to the Integrations section in the C
 Tracking can be setup to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the Origin or Destination then every 5 minutes when the platform updates it will use the latest location of that entity.
 
 ### Examples
+
 #### Tracking entity to entity
 
 Origin: device_tracker.mobile_phone
