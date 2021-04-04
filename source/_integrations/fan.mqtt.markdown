@@ -282,6 +282,8 @@ fan:
     speed_range_max: 100
 ```
 
+{% raw %}}
+
 This example demonstrates how to use command templates with JSON output.
 
 ```yaml
@@ -295,7 +297,7 @@ fan:
     oscillation_command_topic: "bedroom_fan/oscillation/set"
     oscillation_command_template: "{ oscillation: '{{ value }}'}"
     percentage_command_topic: "bedroom_fan/speed/percentage"
-    percentage_command_template: "{ percentage: {{ value }}}"
+    percentage_command_template: "{ percentage: '{{ value }}'}"
     preset_mode_command_topic: "bedroom_fan/speed/preset_mode"
     preset_mode_command_template: "{ preset_mode: '{{ value }}'}"
     preset_modes:
@@ -305,3 +307,5 @@ fan:
        -  "eco"
        -  "breeze"
 ```
+
+{% endraw %}
