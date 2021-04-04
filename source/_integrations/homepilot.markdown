@@ -15,14 +15,4 @@ The [pyhomepilot library](https://github.com/Nico0302/pyhomepilot) is used for c
 
 Support is currently limited to automatic blinds.
 
-## Configuration
-
-To add the Rademacher HomePilot integration to your installation:
-
-- Go to the Integrations menu: **Configuration** >> **Integrations** in the UI.
-- Click the button with the `+` sign at the bottom right of the screen.
-- Select **Rademacher HomePilot** from the list of integrations.
-- Fill in the IP address or hostname of your Rademacher Hub or Bridge under **Host**.
-- If you protected your Rademacher Hub or Bridge with a password you should also enter it.
-- Click on **SUBMIT** to complete the setup.
-
+{% include integrations/config_flow.md %}
