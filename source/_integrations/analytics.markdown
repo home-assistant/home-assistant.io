@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: analytics
 ---
 
-Home Assistant allows users to share their usage data via the analytics integration. The aggregated data is available at <https://analytics.home-assistant.io>. It is used to influence Home Assistant development priorities and to convince manufacturers to add local control and privacy focused features.
+Home Assistant allows users to share their usage data via the analytics integration. The aggregated data is available at <https://analytics.home-assistant.io>. It is used to influence Home Assistant development priorities and to convince manufacturers to add local control and privacy-focused features.
 
 ## Data Collection
 
@@ -19,7 +19,7 @@ The information sent depends on what you opt-in to. You can opt-in during onboar
 
 **{% my general badge %}**
 
-When enabled, data will be send 15 minutes after each start, and every 24h after startup. Sent data is printed to your log.
+When enabled, data will be sent 15 minutes after each start, and every 24h after startup. Sent data is printed to your log.
 
 ### Basic analytics
 
@@ -53,7 +53,7 @@ If your system includes the Supervisor, this will also contain:
 
 ### Usage analytics
 
-_Required basic analytics to be enabled._
+_Requires basic analytics to be enabled._
 
 This includes:
 
@@ -94,7 +94,7 @@ If your system includes the Supervisor, this will also contain:
 
 ### Statistics
 
-_Required basic analytics to be enabled._
+_Requires basic analytics to be enabled._
 
 This includes:
 
