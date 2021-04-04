@@ -443,6 +443,24 @@ automation:
 
 ## Troubleshooting
 
+### All or some devices are intermittently unresponsive
+
+HomeKit relies heavily on your home hub to keep track of Bluetooth devices. Additionally, each home hub has to keep track of every HomeKit accessory that you bridge. If you have many accessories, notably cameras or Bluetooth devices, **consider disabling HomeKit on older home hubs**.
+
+The following home hubs showed strong results when testing with 300 accessories:
+
+- HomePod
+- HomePod Mini
+
+The following home hubs showed strong results when testing with 200 accessories:
+
+- Apple TV 4k (best results when using ethernet instead of WiFi)
+
+The following home hubs have been reported to have trouble with a large number of accessories:
+
+- Apple TV HD
+- Various iPad models
+
 ### Resetting when created via YAML
 
  1. Delete the `HomeKit` integration in the **{% my integrations %}** screen.
@@ -538,17 +556,13 @@ If you have any iOS 12.x devices signed into your iCloud account, media player e
 
 #### Accessories are all listed as not responding
 
-There are reports where the IGMP settings in a router were causing issues with HomeKit. This resulted in a situation where all of the Home Assistant HomeKit accessories stopped responding a few minutes after Home Assistant (re)started. Double check your router's IGPM settings if you experiencing this issue. The default IGMP settings typically work best.
+There are reports where the IGMP settings in a router were causing issues with HomeKit. This resulted in a situation where all of the Home Assistant HomeKit accessories stopped responding a few minutes after Home Assistant (re)started. Double check your router's IGMP settings if you experiencing this issue. The default IGMP settings typically work best.
 
 See [specific entity doesn't work](#specific-entity-doesnt-work)
 
 #### Accessory not responding - after restart or update
 
 See [resetting accessories](#resetting-accessories)
-
-#### Accessory not responding - randomly
-
-Unfortunately, that sometimes happens at the moment. It might help to close the `Home` App and delete it from the cache. Usually, the accessory should get back to responding after a few minutes at most.
 
 #### The linked battery sensor isn't recognized
 
