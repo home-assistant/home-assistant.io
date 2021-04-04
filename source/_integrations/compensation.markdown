@@ -5,7 +5,7 @@ ha_category:
   - Utility
   - Sensor
 ha_iot_class: Calculated
-ha_release: "2021.4.0"
+ha_release: "2021.5"
 ha_quality_scale: internal
 ha_codeowners:
   - '@petro31'
