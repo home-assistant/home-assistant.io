@@ -3,7 +3,7 @@ title: "Automation Editor"
 description: "Instructions on how to use the automation editor."
 ---
 
-From the UI choose **{% my config %}** which is located in the sidebar, then click on **{% my automations %}** to go to the automation editor. Press the **+** sign in the lower right corner to get started. This example is based on the manual steps described in the [Getting started section](/getting-started/automation/) for a [`random` sensor](/integrations/random#sensor).
+From the UI choose **{% my config %}** which is located in the sidebar, then click on **{% my automations %}** to go to the automation editor. Press the **+** sign in the lower right corner to get started. This page uses the [Random sensor](/integrations/random#sensor) as an example. Any other sensor with a numeric value, can be used as well.
 
 Choose a meaningful name for your automation rules.
 
