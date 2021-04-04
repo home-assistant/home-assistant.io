@@ -296,7 +296,9 @@ climates:
       default: C
 {% endconfiguration %}
 
-#### Services
+## Services
+
+### Service `modbus.set-temperature`
 
 | Service | Description |
 | ------- | ----------- |
@@ -756,14 +758,13 @@ modbus:
     name: hub2
 ```
 
-### Services
-
+### Service `modbus.write_register`
 
 | Service | Description |
 | ------- | ----------- |
 | write_register | Write register. Requires `hub`, `unit`, `address` and `value` fields. `value` can be either single value or an array |
 
-#### Service Data Attributes
+Description:
 
 | Attribute | Description |
 | --------- | ----------- |
@@ -771,6 +772,22 @@ modbus:
 | unit      | Slave address (1-255, mostly 255 if you talk to Modbus via TCP) |
 | address   | Address of the Register (e.g., 138) |
 | value     | A single value or an array of 16-bit values. Single value will call modbus function code 6. Array will call modbus function code 16. Array might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]` |
+
+### Service `modbus.write_coil`
+
+| Service | Description |
+| ------- | ----------- |
+| write_coil | Write coil. Requires `hub`, `unit`, `address` and `state` fields. `state` can be either single bolean or an array |
+
+Description:
+
+| Attribute | Description |
+| --------- | ----------- |
+| hub       | Hub name (defaults to 'default' when omitted) |
+| unit      | Slave address (1-255, mostly 255 if you talk to Modbus via TCP) |
+| address   | Address of the Register (e.g., 138) |
+| state     | A single boolean or an array of booleans. Single boolean will call modbus function code 6. Array will call modbus function code 16.
+..
 
 ## Log warning (v1.0.8 and onwards)
 
