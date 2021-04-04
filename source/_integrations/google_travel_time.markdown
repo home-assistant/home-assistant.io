@@ -21,9 +21,7 @@ You need to register for an API key by following the instructions [here](https:/
 
 A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 645 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/distance-matrix/usage-and-billing#set-caps)
 
-## Configuration
-
-To set up a `google_travel_time` sensor, go to the Integrations section in the Configuration tab of the Home Assistant UI, click the `+` button in the bottom right of the page, and search for `Google Travel Time`.
+{% include integrations/config_flow.md %}
 
 ## Dynamic Configuration
 
