@@ -296,7 +296,9 @@ climates:
       default: C
 {% endconfiguration %}
 
-#### Service `modbus.set-temperature`
+## Services
+
+### Service `modbus.set-temperature`
 
 | Service | Description |
 | ------- | ----------- |
