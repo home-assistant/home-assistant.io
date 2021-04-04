@@ -45,6 +45,6 @@ Both services need the `entity_id` of the shade group that you want to move
 
 ## Troubleshooting
 
-- You cannot use the Home Assistant UI to move your blinds to arbitrary positions, only to completely open/close them. Use the services explained above to move to your pre-set intermedate positions.
+- You cannot use the Home Assistant UI to move your blinds to arbitrary positions, only to completely open/close them. Use the services explained above to move to your pre-set intermediate positions.
 - The services above will only fully open or close the blinds if you do not set intermediate positions using a Leviosa remote.
 - If Home Assistant cannot find your Leviosa Zone hubs, double check that you can ping your Home Assistant instance as well as your Leviosa Zones from the same node in your network, and the all nodes are on the same subnet. If you have a network switch that can filter multicast packets, ensure it is not filtering SSDP traffic. Home Assistant can only discover your Leviosa Zone hubs if the SSDP advertisements can reach the Home Assistant instance.
