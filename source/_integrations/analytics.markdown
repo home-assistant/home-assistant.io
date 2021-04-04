@@ -132,7 +132,7 @@ If your system includes the Supervisor, this will also contain:
 
 If enabled, a crash report will be collected when an unexpected error occurs and uploaded to [Sentry](https://sentry.io). These reports will help fix bugs and improve performance and stability.
 
-Crash reports are only visible to the Home Assistant core developers. This feature is currently limited to the Supervisor.
+Crash reports are only visible to the Home Assistant Core developers. This feature is currently limited to the Supervisor.
 
 ## Data storage & processing
 
