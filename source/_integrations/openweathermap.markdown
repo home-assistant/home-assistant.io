@@ -27,7 +27,7 @@ There is currently support for the following device types within Home Assistant:
 You need an API key, which is free, but requires a [registration](https://home.openweathermap.org/users/sign_up).
 
 <div class='note'>
-If you register an new API key with OpenWeatherMap, it will be activated automatically, between 10 minutes and 2 hours
+If you register an new API key with OpenWeatherMap, it will be activated automatically, this typically takes between 10 minutes and 2 hours
 after your successful registration. Keep in mind when configuring this integration, that you new API key might
 not be activated yet.
 </div>
