@@ -35,7 +35,7 @@ host:
     required: true
     type: string
 token:
-    description: "See [Fortinet Developer Network](https://fndn.fortinet.net) for how to create an API token. Remember this integration only needs read access to a FortiGate, so configure the API user to only to have limited and read-only access."
+    description: "See: [Generate an API token for FortiOS](https://registry.terraform.io/providers/fortinetdev/fortios/latest/docs/guides/fgt_token) for how to create an API token. Remember this integration only needs read access to a FortiGate, so configure the API user to only to have limited and read-only access."
     required: true
     type: string
 verify_ssl:
