@@ -3,7 +3,7 @@ title: Rako Controls Lights
 description: Instructions on how to integrate Rako Controls Lights with Home Assistant.
 ha_category:
   - Light
-ha_release: 2021.2.0
+ha_release: 2021.5.0
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -16,7 +16,7 @@ Rako smart lighting controls lead the way in providing state-of-the-art digital 
 
 The [Rako Controls Hub](https://rakocontrols.com/wkhub/) and its predecessor, the Rako Controls Bridge module, offer local network control of Rako's lighting modules. The Bridge has since been discontinued in favour of the Hub.
 
-This integration was written for and tested with the Bridge. [Rako Controls' Integration documentation](https://rakocontrols.com/integration/system-integration/) specifies that the The Rako Hub may also be accessed using the same interface as the Bridge, although this is untested.
+This integration was tested working with the both the Rako Hub and the discontinued Rako Bridge. 
 
 
 ## Configuration
