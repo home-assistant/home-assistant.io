@@ -11,7 +11,7 @@ ha_platforms:
 ha_config_flow: true
 ---
 
-The Wallbiox integration pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station.
+The Wallbox integration pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station.
 
 {% include integrations/config_flow.md %}
 
