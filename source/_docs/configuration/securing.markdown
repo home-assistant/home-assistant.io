@@ -15,7 +15,7 @@ After installation we strongly recommend you perform the following tasks before 
 
 * **Set up [encrypted access](/docs/configuration/securing/#remote-access)**.  Set up HTTPS to encrypt your communication. HTTP will allow eavesdropping on your passwords and other communications.  Make sure it says "https" for your external URL.<br>
 {% my general badge %}
-* **Ensure all [Updates](/common-tasks/os/#update) are applied**. Running older versions of Home Assistant can expose you to vulnerabilities that have been resolved in a newer release but could be exploitable until you update. You can check your version in the Home Assistant Info screen.
+* **Ensure all [Updates](/common-tasks/os/#update) are applied**. Running older versions of Home Assistant can expose you to vulnerabilities which have been resolved in a newer release but could be exploitable until you update. You can check your version in the Home Assistant Info screen.
 {% my info badge %}
 * **Secure all access methods**. Some installation methods have dependencies on Terminals, SSH and other access methods. It is best to remove or secure these access methods when unused or not needed.  
 
@@ -34,13 +34,7 @@ Configuration changes carry risk. These risks can be reduced by performing the f
 
 Your system is your own responsibility. You should perform regular [Software Updates](/common-tasks/os/#update) along with maintenance to ensure your system is secure. Many of these tasks can be automated. Your specific setup will dictate additional tasks.
 
-* **Perform [Snapshots](/common-tasks/os/#snapshots).** Snapshots are a quick way to get your system back up and running in the event of failure.
-{% my supervisor_snapshots badge %}
-* **Check [Home Assistant Alerts](https://alerts.home-assistant.io/).** An informed user is able to make better decisions than an uninformed user.
-* **Read the [Release Notes](https://github.com/home-assistant/operating-system/releases/).** Breaking changes can occur during updates and the release notes are Home Assistant's way of notifying you of these changes.
 * **Update [Encryption Certificates](/docs/configuration/securing/#remote-access).** TLS certs expire on a regular basis. Once expired your browser will not recognize them as valid.
-* **Ensure all add-ons are updated.** Running old versions of add-ons can lead to exploitable vulnerabilities which are not present in current versions.
-{% my supervisor badge %}
 * **Prune Integrations/add-ons.** Remove unused Integrations and add-ons to reduce your risk of exposure.
 {% my supervisor badge %}
 
