@@ -3,6 +3,7 @@ title: Hive
 description: Instructions on how to integrate Hive devices with Home Assistant.
 ha_category:
   - Hub
+  - Alarm Control Panel
   - Binary Sensor
   - Climate
   - Light
@@ -16,6 +17,7 @@ ha_codeowners:
   - '@KJonline'
 ha_domain: hive
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - climate
   - light
@@ -90,6 +92,14 @@ script:
 ```
 
 ## Platforms
+
+### Alarm Control Panel
+
+The `hive` alarm control panel integration integrates your Hive alarm into Home Assistant.
+
+The platform supports the following Hive devices:
+
+- Hive Home Shield
 
 ### Binary Sensor
 
