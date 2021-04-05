@@ -18,6 +18,7 @@ The Wallbiox integration pulls data from the [MyWallbox Portal](https://my.wallb
 ## Sensors
 
 The integration adds the following sensors:
+
 - Added Energy
 - Added Range
 - Charging Power
