@@ -137,11 +137,7 @@ Furthermore two new services are introduced:
 - `zwave_js.bulk_set_partial_config_parameters`
 - `zwave_js.set_value`
 
-<div class='note'>
-There are breaking changes in the Z-Wave JS integration that could affect
-your existing automations. Be sure to read the
-[breaking changes](#breaking-changes) section for more info.
-</div>
+There are breaking changes in the Z-Wave JS integration that could affect your existing automations. Be sure to read the [breaking changes](#breaking-changes) section for more info.
 
 TODO:
 - Add more text to this
