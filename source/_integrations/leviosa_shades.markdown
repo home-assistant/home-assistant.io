@@ -41,8 +41,6 @@ When you want your blinds to go to intermediate positions defined by you, set th
 - Use `leviosa_shades.next_up_pos` to move up to the next intermediate position.
 - Use `leviosa_shades.next_down_pos` to move down to the next intermediate position.
 
-Both services need the `entity_id` of the shade group that you want to move
-
 ## Troubleshooting
 
 - You cannot use the Home Assistant UI to move your blinds to arbitrary positions, only to completely open/close them. Use the services explained above to move to your pre-set intermediate positions.
