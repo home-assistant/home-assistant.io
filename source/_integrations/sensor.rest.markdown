@@ -283,7 +283,7 @@ sensor:
         value_template: "{{ state_attr('sensor.json_time', 'date') }}"
       milliseconds:
         friendly_name: "milliseconds"
-        value_template: "{{ states.sensor.json_time.attributes['milliseconds_since_epoch'] }}"
+        value_template: "{{ state_attr('sensor.json_time', 'milliseconds_since_epoch') }}"
 ```
 
 {% endraw %}
@@ -390,19 +390,19 @@ sensor:
   - platform: template
     sensors:
       bedroom1_temperature:
-        value_template: "{{ states.sensor.room_sensors.attributes['bedroom1']['temperature'] }}"
+        value_template: "{{ state_attr('sensor.room_sensors', 'bedroom1')['temperature'] }}"
         device_class: temperature
         unit_of_measurement: "°C"
       bedroom1_humidity:
-        value_template: "{{ states.sensor.room_sensors.attributes['bedroom1']['humidity'] }}"
+        value_template: "{{ state_attr('sensor.room_sensors', 'bedroom1')['humidity'] }}"
         device_class: humidity
         unit_of_measurement: "%"
       bedroom1_battery:
-        value_template: "{{ states.sensor.room_sensors.attributes['bedroom1']['battery'] }}"
+        value_template: "{{ state_attr('sensor.room_sensors', 'bedroom1')['battery'] }}"
         device_class: battery
         unit_of_measurement: "V"
       bedroom2_temperature:
-        value_template: "{{ states.sensor.room_sensors.attributes['bedroom2']['temperature'] }}"
+        value_template: "{{ state_attr('sensor.room_sensors', 'bedroom2')['temperature'] }}"
         device_class: temperature
         unit_of_measurement: "°C"
 ```
@@ -433,18 +433,18 @@ sensor:
     sensors:
        steam_temp:
         friendly_name: Steam Temp
-        value_template: "{{ states.sensor.steam_system_data.attributes['temp0'] | regex_findall_index('([0-9]+)XF') }}"
+        value_template: "{{ state_attr('sensor.steam_system_data', 'temp0') | regex_findall_index('([0-9]+)XF') }}"
         unit_of_measurement: "°F"
        steam_time_remaining:
         friendly_name: "Steam Time Remaining"
-        value_template: "{{ states.sensor.steam_system_data.attributes['time0'] }}"
+        value_template: "{{ state_attr('sensor.steam_system_data', 'time0') }}"
         unit_of_measurement: "minutes"
 
 switch:
   - platform: template
     switches:
       steam:
-        value_template: "{{ states.sensor.steam_system_data.attributes['usr0'] | int >= 1 }}"
+        value_template: "{{ state_attr('sensor.steam_system_data', 'usr0') | int >= 1 }}"
         turn_on:
           - service: rest_command.set_steam_led
             data:
