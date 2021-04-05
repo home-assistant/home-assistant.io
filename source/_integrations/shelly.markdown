@@ -123,12 +123,15 @@ Not all devices support all input events. You can check on [Shelly API Reference
 
 ### Service `shelly.ota_update`
 
-Triggers an over-the-air update for selected Shelly device(s). At least one of `area_id` or `device_id` has to be provided. This could be easily done via the target selector on UI.
+Triggers an over-the-air update for selected Shelly device(s). At least one of `area_id` or `device_id` has to be provided. This could be easily done via the target selector on UI. If both `url`and `beta` parameter are set, still ota update from specified `url` is triggered, because it is more specific.
 
-  | Service data attribute | Required | Type | Description |
-  | ---------------------- | -------- | ---- | ----------- |
-  | `area_id` | no | `list` | Area or list of areas to trigger OTA update (_only Shelly devices will be touched_) |
-  | `device_id` | no | `list` | Device or list of devices to trigger OTA update |
+  | Service data attribute | Required | Type | Default | Description |
+  | ---------------------- | -------- | ---- | ------- | ----------- |
+  | `area_id` | no | `list` || Area or list of areas to trigger OTA update (_only Shelly devices will be touched_) |
+  | `device_id` | no | `list` || Device or list of devices to trigger OTA update |
+  | `url` | no | `bool` || Run firmware update from specified URL |
+  | `beta` | no | `bool` | `false` | Run firmware update from beta URL (*if available*) |
+  | `force` | no | `bool` | `false` | Allows downgrade from beta-version to latest release-version and reinstall of current release-version |
 
 ## Known issues and limitations
 
