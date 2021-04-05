@@ -60,7 +60,7 @@ sensor:
   - platform: template
     sensors:
       power_consumption:
-              value_template: "{% if is_state_attr("sensor.pvoutput", "power_consumption", "NaN") %}0{% else %}{{ state_attr("sensor.pvoutput", "power_consumption") }}{% endif %}"
+              value_template: '{% if is_state_attr("sensor.pvoutput", "power_consumption", "NaN") %}0{% else %}{{ state_attr("sensor.pvoutput", "power_consumption") }}{% endif %}'
         friendly_name: "Using"
         unit_of_measurement: "Watt"
       energy_consumption:
