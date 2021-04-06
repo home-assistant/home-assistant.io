@@ -40,6 +40,22 @@ Integration is communicating directly with the device; cloud connection is not n
 
 {% include integrations/config_flow.md %}
 
+{% configuration %}
+coap_port:
+  description: Let you set a port to use.
+  required: false
+  type: integer
+  default: 5683
+{% endconfiguration %}
+
+The sample below shows a configuration entry with possible values:
+
+```yaml
+# Example configuration.yaml entry
+shelly:
+  coap_port: 12345
+```
+
 ## Entity naming
 
 The integration uses the following strategy to name its entities:
@@ -53,10 +69,10 @@ Examples:
 
 | Device Name | Channel Name   | Entity Name                     |
 | ----------- | -------------- | --------------------------------|
-| `Not set`   |	`Not Set`	     | shellyswitch25-ABC123 Channel 1 |
-| `Not set`	  | Kids Room Bulb | Kids Room Bulb                  |
-| Kitchen     |	`Not Set`	     | Kitchen Channel 1               |
-| Bedroom	    | Round Bulb     | Round Bulb                      |
+| `Not set`   | `Not Set`      | shellyswitch25-ABC123 Channel 1 |
+| `Not set`   | Kids Room Bulb | Kids Room Bulb                  |
+| Kitchen     | `Not Set`      | Kitchen Channel 1               |
+| Bedroom     | Round Bulb     | Round Bulb                      |
 
 Names are set from the device web page:
 
@@ -107,11 +123,11 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
 | Shelly input event | Click Type    |
 | ------------------ | --------------|
 | `S`                | `single`      |
-| `SS`	             | `double`      |
+| `SS`               | `double`      |
 | `SSS`              | `triple`      |
-| `L`	               | `long`        |
-| `SL`	             | `single_long` |
-| `LS`	             | `long_single` |
+| `L`                | `long`        |
+| `SL`               | `single_long` |
+| `LS`               | `long_single` |
 
 <div class="note">
 
