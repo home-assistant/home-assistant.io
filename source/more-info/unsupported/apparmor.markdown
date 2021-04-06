@@ -5,8 +5,8 @@ description: "More information on why missing AppArmor marks the installation as
 
 ## The issue
 
-AppArmor is how the Supervisor does handling all the security around Add-ons,
-without this, multiple things that the Supervisor missing important security mechanics.
+AppArmor is how the Supervisor does handling all the security around add-ons,
+without this, the Supervisor is missing important security mechanics to protect your system and data within it.
 
 ## The solution
 
