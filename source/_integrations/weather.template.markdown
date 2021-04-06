@@ -67,7 +67,7 @@ pressure_template:
   required: false
   type: template
 wind_speed_template:
-  description: The current wind speed in m/s.
+  description: The current wind speed in km/h.
   required: false
   type: template
 wind_bearing_template:
