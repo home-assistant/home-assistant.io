@@ -21,6 +21,16 @@ The `homeassistant` integration provides services for controlling Home Assistant
 
 Reads the configuration files and checks them for correctness, but **does not** load them into Home Assistant. Creates a persistent notification and log entry if errors are found.
 
+### Service `homeassistant.reload_config_entry`
+
+Reloads an integration config entry.
+
+| Service data attribute    | Description                                           |
+|---------------------------|-------------------------------------------------------|
+| `entity_id`               | List of entity ids used to reference a config entry.  |
+| `area_id`                 | List of area ids used to reference a config entry.    |
+| `device_id`               | List of device ids used to reference a config entry.  |
+
 ### Service `homeassistant.reload_core_config`
 
 Reloads the core configuration under `homeassistant:` and all linked files. Once loaded the new configuration is applied. New `customize:` information will be applied the next time the state of the entity gets updated.

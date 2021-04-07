@@ -56,12 +56,28 @@ humidity_template:
   description: The current humidity.
   required: true
   type: template
+attribution_template:
+  description: The attribution to be shown in the frontend.
+  required: false
+  type: string
 pressure_template:
   description: The current air pressure.
   required: false
   type: template
 wind_speed_template:
   description: The current wind speed.
+  required: false
+  type: template
+wind_bearing_template:
+  description: The current wind bearing.
+  required: false
+  type: template
+ozone_template:
+  description: The current ozone level.
+  required: false
+  type: template
+visibility_template:
+  description: The current visibility.
   required: false
   type: template
 forecast_template:

@@ -58,13 +58,13 @@ There is currently support for the following device types within Home Assistant:
 
 ## Basic Configuration
 
-To use your KNX bus in your installation, add the following lines to your `configuration.yaml` file:
+To use your KNX devices from Home Assistant, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 knx:
 ```
 
-In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main `configuration.yaml` file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files as shown below:
+In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main `configuration.yaml` file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files. See [Splitting up the configuration](/docs/configuration/splitting_configuration/).
 
 ```yaml
 knx:
@@ -79,18 +79,7 @@ knx:
 
 Please see the dedicated platform sections below about how to configure them correctly.
 
-Alternatively, if you want to use the [XKNX](https://xknx.io/) library abstraction (e.g., to re-use the configuration also for other scripted tools outside of Home Assistant):
-
-```yaml
-knx:
-  config_file: "/path/to/xknx.yaml"
-```
-
 {% configuration %}
-config_file:
-  description: The path for XKNX configuration file. See [xknx.io](https://xknx.io/configuration) for details.
-  required: false
-  type: string
 individual_address:
   description: The KNX individual address (IA) that shall be used for routing or if a tunneling server doesn't assign an IA at connection.
   required: false
@@ -118,6 +107,33 @@ state_updater:
   type: boolean
 {% endconfiguration %}
 
+### Group addresses
+
+Group addresses are configured as strings or integers in the format "1/2/3" for 3-level GA-structure, "1/2" for 2-level GA-structure or "1" for free GA-structure.
+
+The HA KNX integration uses configured `state_address` or `*_state_address` to update the state of a function. These addresses are read by GroupValueRead requests on startup and when there was no incoming telegram for one hour (default `sync_state`).
+
+It is possible to configure passive/listening group addresses for all functions of every KNX platform (except `expose` and `notify`). This allows having multiple group addresses to update the state of its function (e.g., the brightness of a light). When group addresses are configured as a list of strings, the first item is the active sending or state-reading address and the rest is registered as passive addresses. This schema behaves like in ETS configuration where the first is the "sending" address and others are just for updating the communication object.
+
+If your KNX device provides active state communication objects it is advised to use `*_state_address` instead of passive addresses as it reduces configuration complexity and avoids wrong states (e.g., when channels are logically locked).
+
+```yaml
+knx:
+  switch:
+    - name: "Switch without passive addresses"
+      address: "1/1/1" # this is the address that will be sent to
+      state_address: "8/8/8"  # this is the address GroupValueRead requests are sent to
+    - name: "Switch with passive addresses"
+      address: 
+        - "1/1/1" # this is the address that will be sent to
+        - "1/1/2" # this and following are passive addresses
+        - "1/1/3"
+      state_address: 
+        - "8/8/8" # this is the address GroupValueRead requests are sent to
+        - "8/8/2" # this and following are passive addresses
+        - "8/8/3"
+```
+
 ## Connection
 
 Under normal conditions no connection configuration should be needed. The integration will auto-detect KNX/IP interfaces and connect to one. This requires multicast communication to work in your environment.
@@ -144,6 +160,11 @@ port:
 local_ip:
   description: IP address of the local interface.
   type: string
+  required: false
+route_back:
+  description: When True the KNXnet/IP Server shall use the IP address and the port number from the IP package received as the target IP address or port number for the response to the KNXnet/IP Client (for NAT / Docker).
+  type: boolean
+  default: false
   required: false
 {% endconfiguration %}
 
@@ -267,7 +288,7 @@ The `knx.event_register` service can be used to register (or unregister) group a
 address:
   description: Group address that shall be added or removed.
   required: true
-  type: string
+  type: [string, list]
 remove:
   description: If `True` the group address will be removed.
   required: false
@@ -363,7 +384,7 @@ knx:
 state_address:
   description: KNX group address of the binary sensor. *DPT 1*
   required: true
-  type: string
+  type: [string, list]
 name:
   description: A name for this device used within Home Assistant.
   required: false
@@ -569,7 +590,7 @@ name:
 temperature_address:
   description: KNX group address for reading current room temperature from KNX bus. *DPT 9.001*
   required: true
-  type: string
+  type: [string, list]
 temperature_step:
   description: Defines the step size in Kelvin for each step of setpoint_shift.
   required: false
@@ -578,19 +599,19 @@ temperature_step:
 target_temperature_address:
   description: KNX group address for setting target temperature. *DPT 9.001*
   required: false
-  type: string
+  type: [string, list]
 target_temperature_state_address:
   description: KNX group address for reading current target temperature from KNX bus. *DPT 9.001*
   required: true
-  type: string
+  type: [string, list]
 setpoint_shift_address:
   description: KNX address for setpoint_shift. *DPT 6.010 or DPT 9.002 based on setpoint_shift_mode*
   required: false
-  type: string
+  type: [string, list]
 setpoint_shift_state_address:
   description: KNX address for reading setpoint_shift. *DPT 6.010 or DPT 9.002 based on setpoint_shift_mode*
   required: false
-  type: string
+  type: [string, list]
 setpoint_shift_mode:
   description: Defines the internal device DPT used. Either 'DPT6010' or 'DPT9002'.
   required: false
@@ -609,51 +630,51 @@ setpoint_shift_max:
 operation_mode_address:
   description: KNX address for setting operation mode (Frost protection/night/comfort). *DPT 20.102*
   required: false
-  type: string
+  type: [string, list]
 operation_mode_state_address:
   description: KNX address for reading operation mode. *DPT 20.102*
   required: false
-  type: string
+  type: [string, list]
 controller_status_address:
   description: KNX address for HVAC controller status (in accordance with KNX AN 097/07 rev 3).
   required: false
-  type: string
+  type: [string, list]
 controller_status_state_address:
   description: KNX address for reading HVAC controller status.
   required: false
-  type: string
+  type: [string, list]
 controller_mode_address:
   description: KNX address for setting HVAC controller modes. *DPT 20.105*
   required: false
-  type: string
+  type: [string, list]
 controller_mode_state_address:
   description: KNX address for reading HVAC control mode. *DPT 20.105*
   required: false
-  type: string
+  type: [string, list]
 heat_cool_address:
   description: KNX address for switching between heat/cool mode. *DPT 1.100*
   required: false
-  type: string
+  type: [string, list]
 heat_cool_state_address:
   description: KNX address for reading heat/cool mode. *DPT 1.100*
   required: false
-  type: string
+  type: [string, list]
 operation_mode_frost_protection_address:
   description: KNX address for switching on/off frost/heat protection mode. *DPT 1*
   required: false
-  type: string
+  type: [string, list]
 operation_mode_night_address:
   description: KNX address for switching on/off night mode. *DPT 1*
   required: false
-  type: string
+  type: [string, list]
 operation_mode_comfort_address:
   description: KNX address for switching on/off comfort mode. *DPT 1*
   required: false
-  type: string
+  type: [string, list]
 operation_mode_standby_address:
   description: KNX address for switching on/off standby mode. *DPT 1*
   required: false
-  type: string  
+  type: [string, list]
 operation_modes:
   description: Overrides the supported operation modes. Provide the supported `preset_mode` values for your device.
   required: false
@@ -665,7 +686,7 @@ controller_modes:
 on_off_address:
   description: KNX address for switching the climate device on/off. *DPT 1*
   required: false
-  type: string
+  type: [string, list]
 on_off_invert:
   description: Value for switching the climate device on/off is inverted.
   required: false
@@ -674,7 +695,7 @@ on_off_invert:
 on_off_state_address:
   description: KNX address for gathering the current state (on/off) of the climate device. *DPT 1*
   required: false
-  type: string
+  type: [string, list]
 min_temp:
   description: Override the minimum temperature.
   required: false
@@ -719,31 +740,31 @@ name:
 move_long_address:
   description: KNX group address for moving the cover full up or down. *DPT 1*
   required: false
-  type: string
+  type: [string, list]
 move_short_address:
   description: KNX group address for moving the cover short time up or down. Used by some covers also as the means to stop the cover, if no dedicated `stop_address` exists on the actuator. *DPT 1*
   required: false
-  type: string
+  type: [string, list]
 stop_address:
   description: KNX group address for stopping the current movement from the cover. *DPT 1*
   required: false
-  type: string
+  type: [string, list]
 position_address:
   description: KNX group address for moving the cover to the dedicated position. *DPT 5.001*
   required: false
-  type: string
+  type: [string, list]
 position_state_address:
   description: Separate KNX group address for requesting the current position of the cover. *DPT 5.001*
   required: false
-  type: string
+  type: [string, list]
 angle_address:
   description: KNX group address for moving the cover to the dedicated angle. *DPT 5.001*
   required: false
-  type: string
+  type: [string, list]
 angle_state_address:
   description: Separate KNX group address for requesting the current angle of cover. *DPT 5.001*
   required: false
-  type: string
+  type: [string, list]
 travelling_time_down:
   description: Time cover needs to travel down in seconds. Needed to calculate the intermediate positions of cover while traveling.
   required: false
@@ -796,19 +817,19 @@ name:
 address:
   description: KNX group address for setting the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
   required: true
-  type: string
+  type: [string, list]
 state_address:
   description: KNX group address for retrieving the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
   required: false
-  type: string
+  type: [string, list]
 oscillation_address:
   description: KNX group address for switching the fan oscillation on or off. *DPT 1*
   required: false
-  type: string
+  type: [string, list]
 oscillation_state_address:
   description: KNX group address for retrieving the state of the fan oscillation. *DPT 1*
   required: false
-  type: string
+  type: [string, list]
 max_step:
   description: The maximum amount of steps for a step-controlled fan. If set, the integration will convert percentages to steps automatically.
   required: false
@@ -838,11 +859,11 @@ knx:
 address:
   description: KNX group address for switching the light on and off. *DPT 1.001*
   required: true
-  type: string
+  type: [string, list]
 state_address:
   description: KNX group address for retrieving the switch state of the light. *DPT 1.001*
   required: false
-  type: string
+  type: [string, list]
 name:
   description: A name for this device used within Home Assistant.
   required: false
@@ -850,27 +871,27 @@ name:
 brightness_address:
   description: KNX group address for setting the brightness of the light in percent (absolute dimming). *DPT 5.001*
   required: false
-  type: string
+  type: [string, list]
 brightness_state_address:
   description: KNX group address for retrieving the brightness of the light in percent. *DPT 5.001*
   required: false
-  type: string
+  type: [string, list]
 color_address:
   description: KNX group address for setting the RGB color of the light. *DPT 232.600*
   required: false
-  type: string
+  type: [string, list]
 color_state_address:
   description: KNX group address for retrieving the RGB color of the light. *DPT 232.600*
   required: false
-  type: string
+  type: [string, list]
 rgbw_address:
   description: KNX group address for setting the RGBW color of the light. *DPT 251.600*
   required: false
-  type: string
+  type: [string, list]
 rgbw_state_address:
   description: KNX group address for retrieving the RGBW color of the light. *DPT 251.600*
   required: false
-  type: string
+  type: [string, list]
 individual_colors:
   description: Used when the actuator only supports individual group addresses for colors. When `address` is specified for all 3 (or 4) individual colors the root `address` key can be omitted.
   required: false
@@ -883,21 +904,19 @@ individual_colors:
       keys:
         address:
           description: KNX group address to switch the red component. *DPT 1.001*
-          type: string
+          type: [string, list]
           required: false
         state_address:
           description: KNX group address for the state of the red component. *DPT 1.001*
-          type: string
+          type: [string, list]
           required: false
         brightness_address:
           description: KNX group address to set the brightness of the red component. *DPT 5.001*
-          type: string
+          type: [string, list]
           required: true
         brightness_state_address:
           description: KNX group address for the current brightness of the red component. *DPT 5.001*
-          type: string
-          required: false
-          type: string
+          type: [string, list]
           required: false
     green:
       description: Group addresses for the green component. Same keys available as for red component above.
@@ -914,11 +933,11 @@ individual_colors:
 color_temperature_address:
   description: KNX group address for setting the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
   required: false
-  type: string
+  type: [string, list]
 color_temperature_state_address:
   description: KNX group address for retrieving the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
   required: false
-  type: string
+  type: [string, list]
 color_temperature_mode:
   description: Color temperature group address data type. `absolute` color temperature in Kelvin. *color_temperature_address -> DPT 7.600*. `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
   required: false
@@ -996,7 +1015,7 @@ knx:
 address:
   description: KNX group address of the notification. *DPT 16.000*
   required: true
-  type: string
+  type: [string, list]
 name:
   description: A name for this device used within Home Assistant.
   required: false
@@ -1020,7 +1039,7 @@ knx:
 address:
   description: KNX group address for the scene. *DPT 17.001*
   required: true
-  type: string
+  type: [string, list]
 scene_number:
   description: KNX scene number to be activated (range 1..64 ).
   required: true
@@ -1062,7 +1081,7 @@ knx:
 state_address:
   description: KNX group address of the sensor.
   required: true
-  type: string
+  type: [string, list]
 type:
   description: A type from the value types table below must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
   required: true
@@ -1268,7 +1287,7 @@ knx:
 address:
   description: KNX group address for switching the switch on/off. *DPT 1*
   required: true
-  type: string
+  type: [string, list]
 name:
   description: A name for this device used within Home Assistant.
   required: false
@@ -1277,7 +1296,7 @@ name:
 state_address:
   description: Separate KNX group address for retrieving the switch state. *DPT 1*
   required: false
-  type: string
+  type: [string, list]
 invert:
   description: Invert the telegrams payload before processing or sending.
   required: false
@@ -1324,55 +1343,55 @@ name:
 address_temperature:
   description: KNX group address for reading current outside temperature from KNX bus. *DPT 9.001*
   required: true
-  type: string
+  type: [string, list]
 address_brightness_south:
   description: KNX group address for reading current brightness to south coordinate from KNX bus. *DPT 9.004*
   required: false
-  type: string
+  type: [string, list]
 address_brightness_west:
   description: KNX group address for reading current brightness to west coordinate from KNX bus. *DPT 9.004*
   required: false
-  type: string
+  type: [string, list]
 address_brightness_east:
   description: KNX group address for reading current brightness to east coordinate from KNX bus. *DPT 9.004*
   required: false
-  type: string
+  type: [string, list]
 address_brightness_north:
   description: KNX group address for reading current brightness to north coordinate from KNX bus. *DPT 9.004*
   required: false
-  type: string
+  type: [string, list]
 address_wind_bearing:
   description: KNX group address for reading current wind bearing from KNX bus. *DPT 5.003*
   required: false
-  type: string
+  type: [string, list]
 address_wind_speed:
   description: KNX group address for reading current wind speed from KNX bus. *DPT 9.005*
   required: false
-  type: string
+  type: [string, list]
 address_rain_alarm:
   description: KNX group address for reading if rain alarm is on/off.
   required: false
-  type: string
+  type: [string, list]
 address_frost_alarm:
   description: KNX group address for reading if frost alarm is on/off.
   required: false
-  type: string
+  type: [string, list]
 address_wind_alarm:
   description: KNX group address for reading if wind alarm is on/off.
   required: false
-  type: string
+  type: [string, list]
 address_day_night:
   description: KNX group address for reading if it's day/night.
   required: false
-  type: string
+  type: [string, list]
 address_air_pressure:
   description: KNX address reading current air pressure. *DPT 9.006*
   required: false
-  type: string
+  type: [string, list]
 address_humidity:
   description: KNX address for reading current humidity. *DPT 9.007*
   required: false
-  type: string
+  type: [string, list]
 create_sensors:
   description: If true, dedicated sensor entities are created for all configured properties.
   required: false

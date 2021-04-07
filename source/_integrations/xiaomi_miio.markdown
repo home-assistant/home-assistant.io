@@ -36,8 +36,7 @@ The `xiaomi_miio` integration supports the following devices:
 - [Xiaomi Gateway](#xiaomi-gateway)
 - [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
 - [Xiaomi Air Purifier and Humidifier](#xiaomi-air-purifier-and-humidifier)
-- [Xiaomi Air Quality Index Monitor](#xiaomi-air-quality-index-monitor)
-- [Xiaomi Mi Air Quality Monitor](#xiaomi-mi-air-quality-monitor)
+- [Xiaomi Air Quality Monitor](#xiaomi-air-quality-monitor)
 - [Xiaomi IR Remote](#xiaomi-ir-remote)
 - [Xiaomi Mi Robot Vacuum](#xiaomi-mi-robot-vacuum)
 - [Xiaomi Philips Light](#xiaomi-philips-light)
@@ -239,6 +238,26 @@ These subdevices are fully implemented in HomeAssistant:
 | -------------------------------- | ----------------------- | --------------- | ------------------------------------------------ |
 | Weather sensor                   | lumi.sensor_ht          | WSDCGQ01LM      | readout `temperature` and `humidity`             |
 | Weather sensor                   | lumi.weather.v1         | WSDCGQ11LM      | readout `temperature`, `humidity` and `pressure` |
+| Wall switch single               | lumi.ctrl_ln1           | QBKG11LM        | load_power, status, turn_on, turn_off, toggle    |
+| Wall switch single               | lumi.ctrl_ln1.aq1       | QBKG11LM        | load_power, status, turn_on, turn_off, toggle    |
+| Wall switch no neutral           | lumi.ctrl_neutral1.v1   | QBKG04LM        | status, turn_on, turn_off, toggle                |
+| Wall switch double               | lumi.ctrl_ln2           | QBKG12LM        | load_power, status, turn_on, turn_off, toggle    |
+| Wall switch double               | lumi.ctrl_ln2.aq1       | QBKG12LM        | load_power, status, turn_on, turn_off, toggle    |
+| Wall switch double no neutral    | lumi.ctrl_neutral2      | QBKG03LM        | status, turn_on, turn_off, toggle                |
+| D1 wall switch triple            | lumi.switch.n3acn3      | QBKG26LM        | load_power, status, turn_on, turn_off, toggle    |
+| D1 wall switch triple no neutral | lumi.switch.l3acn3      | QBKG25LM        | load_power, status, turn_on, turn_off, toggle    |
+| Wall outlet                      | lumi.ctrl_86plug.v1     | QBCZ11LM        | status, turn_on, turn_off, toggle                |
+| Wall outlet                      | lumi.ctrl_86plug.aq1    | QBCZ11LM        | load_power, status, turn_on, turn_off, toggle    |
+| Plug                             | lumi.plug               | ZNCZ02LM        | load_power, status, turn_on, turn_off, toggle    |
+| Relay                            | lumi.relay.c2acn01      | LLKZMK11LM      | load_power, status, turn_on, turn_off, toggle    |
+| Smart bulb E27                   | lumi.light.aqcn02       | ZNLDP12LM       | on/off, brightness, color temperature            |
+| IKEA smart bulb E27 white        | ikea.light.led1545g12   | LED1545G12      | on/off, brightness, color temperature            |
+| IKEA smart bulb E27 white        | ikea.light.led1546g12   | LED1546G12      | on/off, brightness, color temperature            |
+| IKEA smart bulb E12 white        | ikea.light.led1536g5    | LED1536G5       | on/off, brightness, color temperature            |
+| IKEA smart bulb GU10 white       | ikea.light.led1537r6    | LED1537R6       | on/off, brightness, color temperature            |
+| IKEA smart bulb E27 white        | ikea.light.led1623g12   | LED1623G12      | on/off, brightness, color temperature            |
+| IKEA smart bulb GU10 white       | ikea.light.led1650r5    | LED1650R5       | on/off, brightness, color temperature            |
+| IKEA smart bulb E12 white        | ikea.light.led1649c5    | LED1649C5       | on/off, brightness, color temperature            |
 
 ### Recognized subdevices (not yet implemented)
 
@@ -266,18 +285,6 @@ These subdevices are recognized by the python-miio code but are still being work
 | Remote switch double             | lumi.sensor_86sw2.v1    | WXKG02LM 2016   |
 | Remote switch double             | lumi.remote.b286acn01   | WXKG02LM 2018   |
 | D1 remote switch double          | lumi.remote.b286acn02   | WXKG07LM        |
-| Wall switch single               | lumi.ctrl_ln1           | QBKG11LM        |
-| Wall switch single               | lumi.ctrl_ln1.aq1       | QBKG11LM        |
-| Wall switch no neutral           | lumi.ctrl_neutral1.v1   | QBKG04LM        |
-| Wall switch double               | lumi.ctrl_ln2           | QBKG12LM        |
-| Wall switch double               | lumi.ctrl_ln2.aq1       | QBKG12LM        |
-| Wall switch double no neutral    | lumi.ctrl_neutral2      | QBKG03LM        |
-| D1 wall switch triple            | lumi.switch.n3acn3      | QBKG26LM        |
-| D1 wall switch triple no neutral | lumi.switch.l3acn3      | QBKG25LM        |
-| Wall outlet                      | lumi.ctrl_86plug.v1     | QBCZ11LM        |
-| Wall outlet                      | lumi.ctrl_86plug.aq1    | QBCZ11LM        |
-| Plug                             | lumi.plug               | ZNCZ02LM        |
-| Relay                            | lumi.relay.c2acn01      | LLKZMK11LM      |
 | Curtain                          | lumi.curtain            | ZNCLDJ11LM      |
 | Curtain                          | lumi.curtain.aq2        | ZNGZDJ11LM      |
 | Curtain B1                       | lumi.curtain.hagl04     | ZNCLDJ12LM      |
@@ -285,14 +292,6 @@ These subdevices are recognized by the python-miio code but are still being work
 | Door lock S2                     | lumi.lock.acn02         | ZNMS12LM        |
 | Door lock S2 pro                 | lumi.lock.acn03         | ZNMS13LM        |
 | Vima cylinder lock               | lumi.lock.v1            | A6121           |
-| Smart bulb E27                   | lumi.light.aqcn02       | ZNLDP12LM       |
-| IKEA smart bulb E27 white        | ikea.light.led1545g12   | LED1545G12      |
-| IKEA smart bulb E27 white        | ikea.light.led1546g12   | LED1546G12      |
-| IKEA smart bulb E12 white        | ikea.light.led1536g5    | LED1536G5       |
-| IKEA smart bulb GU10 white       | ikea.light.led1537r6    | LED1537R6       |
-| IKEA smart bulb E27 white        | ikea.light.led1623g12   | LED1623G12      |
-| IKEA smart bulb GU10 white       | ikea.light.led1650r5    | LED1650R5       |
-| IKEA smart bulb E12 white        | ikea.light.led1649c5    | LED1649C5       |
 | Thermostat S2                    | lumi.airrtc.tcpecn02    | KTWKQ03ES       |
 
 ## Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)
@@ -349,6 +348,13 @@ Supported devices:
 | Air Humidifier CA4     | zhimi.humidifier.ca4   | |
 | Air Humidifier CB1     | zhimi.humidifier.cb1   | |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
+
+
+### Configuration
+
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
+
+To add a Xiaomi Air Purifier to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
 
 ### Features
 
@@ -677,37 +683,6 @@ This model uses newer MiOT communication protocol.
   - `motor_speed`
   - `extra_features`
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
-
-To add a Xiaomi Air Purifier to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-fan:
-# Example configuration.yaml entry
-  - platform: xiaomi_miio
-    host: 192.168.130.66
-    token: YOUR_TOKEN
-```
-
-{% configuration %}
-host:
-  description: The IP address of your miio fan.
-  required: true
-  type: string
-token:
-  description: The API token of your miio fan.
-  required: true
-  type: string
-name:
-  description: The name of your miio fan.
-  required: false
-  type: string
-  default: Xiaomi Air Purifier
-model:
-  description: The model of your miio fan. See the table above for valid values (f.e. `zhimi.airpurifier.v2`). This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
-  required: false
-  type: string
-{% endconfiguration %}
 
 ### Platform Services
 
@@ -893,91 +868,29 @@ Check if the device is in the same subnet as the Home Assistant instance. Otherw
 
 If it's not possible to use VLANs for some reason, your last resort may be using NAT translation, between the IPs.
 
-## Xiaomi Air Quality Index Monitor
+## Xiaomi Air Quality Monitor
 
-The `xiaomi_miio` sensor platform is observing your Xiaomi Mi Air Quality Monitor (PM2.5) and reporting the air quality index.
+The `xiaomi_miio` Air Quality Monitor is observing your Xiaomi Mi Air Quality Monitor (PM2.5) and reporting the air quality index and other values.
 
 Currently, the supported features are:
 
 - Air Quality Index (AQI)
+- Particulate matter 2.5
 - Attributes
   - power
   - charging
   - battery
   - time_stat
-
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token.
-
-### Configuration
-
-To add a Xiaomi Mi Air Quality Monitor to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: xiaomi_miio
-    host: IP_ADDRESS
-    token: YOUR_TOKEN
-```
-
-{% configuration %}
-host:
-  description: The IP address of your miio device.
-  required: true
-  type: string
-token:
-  description: The API token of your miio device.
-  required: true
-  type: string
-name:
-  description: The name of your miio device.
-  required: false
-  type: string
-  default: Xiaomi Miio Sensor
-{% endconfiguration %}
-
-## Xiaomi Mi Air Quality Monitor
-
-The `xiaomi_miio` sensor platform is observing your Xiaomi Mi Air Quality Monitor and reporting the air quality values.
-
-Currently, the supported features are:
-
-- Particulate matter 2.5
-- Attributes
   - carbon_dioxide_equivalent
   - total_volatile_organic_compounds
   - temperature
   - humidity
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token.
-
 ### Configuration
 
-To add a Xiaomi Mi Air Quality Monitor to your installation, add the following to your `configuration.yaml` file:
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
 
-```yaml
-# Example configuration.yaml entry
-air_quality:
-  - platform: xiaomi_miio
-    host: IP_ADDRESS
-    token: YOUR_TOKEN
-```
-
-{% configuration %}
-host:
-  description: The IP address of your miio device.
-  required: true
-  type: string
-token:
-  description: The API token of your miio device.
-  required: true
-  type: string
-name:
-  description: The name of your miio device.
-  required: false
-  type: string
-  default: Xiaomi Miio Air Quality Monitor
-{% endconfiguration %}
+To add a Xiaomi Mi Air Quality Monitor to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
 
 ## Xiaomi IR Remote
 
@@ -1513,6 +1426,12 @@ It seems to be the case that Numbers 1..15 are used to number the intitial segme
 
 The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philips LED Ball Lamp, Xiaomi Philips Zhirui LED Bulb E14 Candle Lamp, Xiaomi Philips Zhirui Downlight, Xiaomi Philips LED Ceiling Lamp, Xiaomi Philips Eyecare Lamp 2, Xiaomi Philips Moonlight Bedside Lamp and Philips Zhirui Desk Lamp.
 
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
+
+### Configuration
+
+To add a Xiaomi Philips Light to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
+
 ### Features
 
 ### Philips LED Ball Lamp, Philips Zhirui LED Candle Lamp and Philips Zhirui Downlight
@@ -1596,40 +1515,6 @@ Supported models: `philips.light.moonlight`
   - total_assistant_sleep_time
   - brand_sleep
   - brand
-
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
-
-To add a Xiaomi Philips Light to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entries
-light:
-  - platform: xiaomi_miio
-    name: Xiaomi Philips Smart LED Ball
-    host: 192.168.130.67
-    token: YOUR_TOKEN
-    model: philips.light.bulb
-```
-
-{% configuration %}
-host:
-  description: The IP address of your miio light.
-  required: true
-  type: string
-token:
-  description: The API token of your miio light.
-  required: true
-  type: string
-name:
-  description: The name of your miio light.
-  required: false
-  type: string
-  default: Xiaomi Philips Light
-model:
-  description: The model of your light. Valid values are `philips.light.sread1`, `philips.light.ceiling`, `philips.light.zyceiling`, `philips.light.moonlight`, `philips.light.bulb`, `philips.light.candle`, `philips.light.candle2`, `philips.light.mono1` and `philips.light.downlight`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
-  required: false
-  type: string
-{% endconfiguration %}
 
 ### Platform Services
 

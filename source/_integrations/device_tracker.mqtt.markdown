@@ -133,6 +133,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    suggested_area:
+      description: 'Suggest an area if the device isn’t in one yet.'
+      required: false
+      type: string
     sw_version:
       description: The firmware version of the device.
       required: false
@@ -142,7 +146,7 @@ device:
       required: false
       type: string
 icon:
-  description: The icon for the device tracker.
+  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:

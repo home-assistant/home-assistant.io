@@ -52,7 +52,7 @@ circuit:
   required: false
   type: integer
 heating_type:
-  description: One of `generic`, `gas` or `heatpump`. Specifying the heating_type provides additional attributes and sensors specific for the heating system.
+  description: One of `generic`, `gas`, `heatpump` or `fuelcell`. Specifying the heating_type provides additional attributes and sensors specific for the heating system.
   required: false
   type: string
   default: generic

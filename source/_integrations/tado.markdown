@@ -8,6 +8,7 @@ ha_category:
   - Water Heater
   - Presence Detection
   - Sensor
+  - Weather
 ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -34,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - Water Heater - for water heater zones.
 - [Presence Detection](#presence-detection)
 - Sensor - for some additional information of the zones.
+- Weather - for information about the current weather at the location of your Tado home.
 
 {% include integrations/config_flow.md %}
 

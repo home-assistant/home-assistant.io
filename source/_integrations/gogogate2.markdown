@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_homekit: true
 ha_platforms:
   - cover
+  - sensor
 ---
 
 The `gogogate2` cover platform lets you control Gogogate2 and iSmartGate enabled garage doors and gates through Home Assistant. Device names in Home Assistant are generated based on the names defined in the GogoGate2 or iSmartGate mobile app.

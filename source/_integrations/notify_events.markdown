@@ -104,6 +104,7 @@ The following attributes can be placed inside `data` for extended functionality.
 | `priority` | For recipients which supports priority, the message will be highlighted accordingly.<br>Available values: `lowest`, `low`, `normal`, `high`, `highest`.
 | `images`   | Array of images to attach (see item properties below).
 | `files`    | Array of files to attach (see item properties below).
+| `token`    | Notify.Events channel token (in case you want to override the channel to get this message to).
 
 Every item of images and files has the following properties:
 

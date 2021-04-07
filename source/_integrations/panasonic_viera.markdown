@@ -3,19 +3,27 @@ title: Panasonic Viera
 description: Instructions on how to integrate a Panasonic Viera TV with Home Assistant.
 ha_category:
   - Media Player
+  - Remote
 ha_release: 0.17
 ha_iot_class: Local Polling
 ha_domain: panasonic_viera
 ha_config_flow: true
+ha_platforms:
+  - remote
 ---
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
+
+There is currently support for the following device types within Home Assistant:
+
+- Media Player
+- [Remote](#remote)
 
 {% include integrations/config_flow.md %}
 
 If your TV needs to be paired, you will be prompted to type the PIN code that will be displayed on it.
 
-To allow your TV to be turned on or controlled while off, enable `Powered On By Apps` in the TV Settings: **Network > TV Remote App Settings**
+To allow your TV to be turned on or controlled while off, enable `Powered On By Apps` in your settings (if available): **Network > TV Remote App Settings**
 
 ## Manual configuration
 
@@ -88,6 +96,23 @@ script:
         target:
           entity_id: media_player.living_room_tv
 ```
+
+### Remote
+
+When the integration is configured, two entities will be created: a `media_player` and a `remote`. The remote allows you to send key commands to your TV with the `remote.send_command` service.
+
+Some of the known valid key values are:
+
+- `up`
+- `down`
+- `left`
+- `right`
+- `select`
+- `home`
+- `back`
+- `power`
+
+The list with all known valid keys can be found [here](https://github.com/florianholzapfel/panasonic-viera/blob/521cefadc8e1543514ce41d3d49e9218d1c2302d/panasonic_viera/__init__.py#L35). Additionally, you can also send custom commands, such as `"NRC_HOME-ONOFF"` (which is the same as `home`).
 
 ### Currently known supported models
 
