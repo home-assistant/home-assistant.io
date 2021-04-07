@@ -205,9 +205,9 @@ As of today, you can filter your automations, scripts and scenes by area,
 device or entity. For automations and scripts, it goes one step further; it
 magically finds those that affect the area, device or entity being filtered.
 
-So, you can now look at the automations affecting in your living room area
+So, you can now look at the automations affecting your living room area
 (even if those automations itself are not in the living room area) and also
-filter the automations list with just the ones that touch your thermostat.
+filter the automation list with just the ones that touch your thermostat.
 
 ## Z-Wave JS update
 
