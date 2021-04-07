@@ -30,6 +30,7 @@ ha_platforms:
   - lock
   - sensor
   - switch
+ha_zeroconf: true
 ---
 
 The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://zigbeealliance.org) directly to Home Assistant, using one of the many available Zigbee coordinators.

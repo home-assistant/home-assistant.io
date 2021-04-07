@@ -6,8 +6,6 @@ ha_category:
 ha_release: 0.23
 ha_iot_class: Local Push
 ha_domain: hdmi_cec
-ha_codeowners:
-  - '@newAM'
 ha_platforms:
   - switch
 ---

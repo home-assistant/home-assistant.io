@@ -22,6 +22,7 @@ ha_platforms:
   - sensor
   - switch
   - water_heater
+ha_config_flow: true
 ---
 
 The Hive integration for Home Assistant allows you to interact with supported devices and services offered by

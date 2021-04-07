@@ -56,6 +56,8 @@ As the project grew, so did Otto’s obligations in his personal life until they
 
 We are going to bring our experience gained from the Home Assistant project and apply it to ESPHome, like focus on community and ease of use. If you have any ideas, make sure to share them in the [ESPHome discord](https://discord.gg/KhAMKrd).
 
+**Update**: I've joined the Home Assistant podcast to discuss the acquisition. [Episode 83 is worth a listen.](https://hasspodcast.io/ha083/)
+
 **About Nabu Casa**<br>
 Nabu Casa was founded by the founders of Home Assistant. It exists to make the privacy-centered smart home accessible to everyone. Nabu Casa has no investors and is solely funded by users via Home Assistant Cloud subscriptions. With Home Assistant, Nabu Casa already works on making sure the brains of your home are the best it can be. And with ESPHome they will help you make sure that other devices are too.
 

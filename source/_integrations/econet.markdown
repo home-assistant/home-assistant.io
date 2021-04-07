@@ -15,6 +15,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - climate
   - sensor
   - water_heater
 ---
