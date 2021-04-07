@@ -40,6 +40,18 @@ mqtt:
   broker: IP_ADDRESS_BROKER
 ```
 
+Manual configuration is required when connecting to a broker over TLS.
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  certificate: "PATH_TO_CA.crt"
+  broker: "IP_ADDRESS_BROKER"
+  port: 8883
+  username: "MQTT_USERNAME"
+  password: !secret MQTT_PASSWORD
+```
+
 ## Additional features
 
 - [Certificate](/docs/mqtt/certificate/)
