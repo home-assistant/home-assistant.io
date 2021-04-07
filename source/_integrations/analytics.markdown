@@ -40,7 +40,7 @@ If your system includes the Supervisor, this will also contain:
 
 ```json
 {
-  "huuid": "12a3456bc78d90123ef4567g789012h3",
+  "uuid": "12a3456bc78d90123ef4567g789012h3",
   "version": "2021.4.0",
   "installation_type": "Home Assistant OS",
   "supervisor": {
@@ -72,7 +72,7 @@ If your system includes the Supervisor, this will also contain:
 
 ```json
 {
-  "huuid": "12a3456bc78d90123ef4567g789012h3",
+  "uuid": "12a3456bc78d90123ef4567g789012h3",
   "version": "2021.4.0",
   "installation_type": "Home Assistant OS",
   "supervisor": {
@@ -112,7 +112,7 @@ If your system includes the Supervisor, this will also contain:
 
 ```json
 {
-  "huuid": "12a3456bc78d90123ef4567g789012h3",
+  "uuid": "12a3456bc78d90123ef4567g789012h3",
   "version": "2021.4.0",
   "installation_type": "Home Assistant OS",
   "supervisor": {
@@ -145,7 +145,7 @@ Your data is securely stored in [CloudFlare's Key-Value store](https://www.cloud
 
 This is an example of how the information is stored:
 {% configuration_basic %}
-"huuid:12a3456bc78d90123ef4567g789012h3":
+"uuid:12a3456bc78d90123ef4567g789012h3":
   description: "{'version': '2021.4.0', 'installation_type': 'Home Assistant OS', 'country': 'NO'}"
 
 {% endconfiguration_basic %}
