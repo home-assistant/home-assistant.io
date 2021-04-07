@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2021.4: For our advanced users ❤️ (Beta release notes)"
-description: "The beta release notes for the upcoming Home Assistant Core 2021.4 release."
-date: 2021-3-31 00:00:00
+title: "2021.4: For our advanced users ❤️"
+description: "Debug and trace your automations runs! Home Assistant Analytics! Trigger based template! and much more..."
+date: 2021-04-07 00:00:00
 date_formatted: "April 7, 2021"
 author: Franck Nijhof
 author_twitter: frenck
@@ -16,27 +16,23 @@ feedback: true
 
 <a href='/integrations/#version/2021.4'><img src='/images/blog/2021-04/social.png' style='border: 0;box-shadow: none;'></a>
 
-These are the beta release notes for Home Assistant Core 2021.4 (and is thus a
-work in progress).
+Survived April fools day? I assure you, this April release is no joke!
 
-If you encounter any issues with the beta release, please report them on GitHub:
+This release is dedicated to our more advanced user base, as it is packed with
+some really advanced features and enhancements our more experienced users will
+love. Ready to debug your automations? Yeah...
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+Not that advanced of a user? I'm sure there is something in here for you to
+look forward to as well.
 
-Please be sure to include the beta version you are running in the issue
-description (not title), so we can classify your issue correctly.
+Enjoy the release!
 
-Issues introduced in the beta are processed with priority.
+../Frenck
 
+- [Database upgrades, please be patient](#database-upgrades-please-be-patient)
 - [Automation debugging](#automation-debugging)
 - [Home Assistant Analytics](#home-assistant-analytics)
+- [Warnings for undefined variables in Templates](#warnings-for-undefined-variables-in-templates)
 - [Filtering automations, scripts and scenes](#filtering-automations-scripts-and-scenes)
 - [Z-Wave JS update](#z-wave-js-update)
 - [Trigger-based template sensors](#trigger-based-template-sensors)
@@ -50,107 +46,202 @@ Issues introduced in the beta are processed with priority.
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
+## Database upgrades, please be patient
+
+This release contains database migrations, meaning that the format of how your
+history is stored is changing. This migration is automatically performed after
+upgrading and takes a bit of time. The time it takes depends on how much history
+you have stored and how fast your system is.
+
+Please be patient when upgrading to this release.
+
 ## Automation debugging
 
 Wait, why didn't that light turn on? Why isn't the thermostat adjusted?
 Why is this automation not working? What is going on here?! This is a haunted
 house!?!
 
-Sounds familiar? I'm sure we all had these moment, but are you ready for this?
+Sounds familiar? I'm sure we all had these moments, but are you ready for this?
 We can now debug automations!
 
-<blockquote class="twitter-tweet"><p lang="et" dir="ltr">jajajajaja<br><br>(automation visualization magic by <a href="https://twitter.com/thomasloven?ref_src=twsrc%5Etfw">@thomasloven</a>, backend work by emontnemery and UI by me) <a href="https://t.co/w4qOhWzZgv">pic.twitter.com/w4qOhWzZgv</a></p>&mdash; Paulus Schoutsen (@balloob) <a href="https://twitter.com/balloob/status/1376058028219277313?ref_src=twsrc%5Etfw">March 28, 2021</a>
-</blockquote>
+<p class='img'>
+<img src='/images/blog/2021-04/automation-tracing.png' alt='Screenshot showing the automation trace of a previously ran automation'>
+Screenshot showing the automation trace of a previously ran automation.
+</p>
 
-View details on previous automation runs, and see details on each step to
-explore what happened.
+The above screenshot shows a previous run of an automation. The automation
+is displayed in the form of an interactive graph. You can see which path it took
+and each step of the automation can be click and viewed in detail on what
+happened. It traces the complete run of an automation run.
 
-TODO:
-- Add screenshots / recordings
-- Thank everybody involved in this, Erik, Paulus, Bram, Thomas this is awesome!
-- More body to the paragraph
+If an automation didn't run as it should, this will allows you to debug and
+understand why it ran the way it did.
 
-<!--<p class='img'>
-<img src='/images/blog/2021-04/lorem.png' alt='Screenshot of lorem ipsum'>
-Screenshot of a lorem ipsum occurrence in Home Assistant.
-</p>-->
+This extremely advanced and super useful feature is thanks to the hard work
+of [@emontnemery] who, build the backend for this. The beautiful graphing was
+made by [@thomasloven], and all the frontend work by [@balloob] & [@bramkragten].
+Finally, all the (beta) testers that provided traces samples that helped
+squash bugs. Thanks all!
+
+Got questions about this feature? Want to see it in action? Be sure to tune in
+to the 2021.4 release party stream later today!
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9V9DHB5nsNQ" frameborder="0" allowfullscreen></iframe>
+</div>
+
+[@thomasloven]: https://github.com/thomasloven
 
 ## Home Assistant Analytics
 
 Now don't be scared by the title!
 
-Today we introduce, Home Assistant Analytics. Opt-in, privacy aware, public
+Today we introduce: Home Assistant Analytics. Opt-in, privacy-aware, public
 and open source. Just as it all should be for our project.
 
-Ludeeus did an amazing job writing this new integration. You decide if you turn
-it on or not; however, we guarantee its privacy aware. Doubt it? Review it!
+[@ludeeus] did a fantastic job writing this new integration. You decide if you
+turn it on or not; however, we guarantee its privacy-aware. Doubt it? Review it!
 Everything is open source!
 
-Not open enough for you? Well, maybe you want to view the public result:
+Not open enough for you? We are publishing the result for everybody to see:
+
+<p class='img'>
+<img src='/images/blog/2021-04/analytics.png' alt='Screenshot of the Home Assistant Analytics website'>
+Screenshot of the Home Assistant Analytics website.
+</p>
+
+Well, maybe you want to view the public result yourself:
 
 <https://analytics.home-assistant.io>
 
 So why do we do this? Well, it helps the project and all contributors to
-see things like: Most used integrations. This can greatly help with improving
-project priorities.
+see things like: Most used integrations. This can significantly help with
+improving project priorities. It also helps to convince manufacturers to work
+with Home Assistant, add local control and privacy-focused features.
 
-"But the updater did this already, right?" Yes, well, thing has been broken
-actually. So while we had some data, it was barely usable (actually not useable
-at all). Instead of fixing the updater, we now have a better solution that
-better matches our project goals. The update still exists, it now just does one
-single thing: Showing if an update is available.
+"But the updater did this already, right?" Yes, well, the updater has actually
+been broken. So while we had some data, it was barely usable (actually not
+useable at all). Instead of fixing the updater, we now have a better solution
+that better matches our project goals. The updater still exists; it now just
+does one single thing: Showing if an update is available.
 
-TODO:
-- Improve text
-- Add screenshot or embed analytics?
-- Instructions on how to activate?
-- Link to documentation
+Want to help the project out? Please enable Home Assistant Analytics. We
+would be very grateful!
+
+You can find the settings in the {% my general title="general configuration options" %},
+or click the My Home Assistant button below to go directly to it.
+
+{% my general badge %}
+
+<p class='img'>
+<img src='/images/blog/2021-04/enable-analytics.png' alt='Screenshot of the Home Assistant Analytics options'>
+Screenshot of the Home Assistant Analytics options, you control the amount of
+data you share.
+</p>
+
+For more information on how this all works and what data is shared,
+[check out our documentation](/integrations/analytics).
+
+Thanks for sharing already! ❤️
+
+## Warnings for undefined variables in Templates
+
+This feature is really cool. While technically a small improvement, it is a
+change that can impact you (as in "breaking"), but also, will greatly help you!
+
+So imaging this little template: `{% raw %}{{ my_variable }}{% endraw %}`
+
+Previously, if `my_variable` would not exist in the template or system as a
+variable, Home Assistant would just ignore it and skip over it.
+
+While this can be convenient, it can become problematic when it was misspelled
+or referring to a variable that doesn't exist at all. For example, if you
+would have mistyped it: `{% raw %}{{ my_varaible }}{% endraw %}`, you would
+never know something is wrong, unless you spotted it.
+
+As of today, Home Assistant will tell you this, using a warning in the logs!
+
+<p class='img'>
+<img src='/images/blog/2021-04/undefined.png' alt='Screenshot of undefined variable warning log'>
+Screenshot of undefined variable warning log.
+</p>
+
+This helps to find templates that behave unexpectedly because the variable
+you thought was there, isn't. It is quite possible you get a bunch
+of warnings after upgrading to this release. Fixing those warnings, really helps
+to improve your setup.
+
+So, what if a viable isn't always there, but I still want to use it? Well,
+you can give it a default, for example:
+`{% raw %}{{ my_variable | default }}{% endraw %}`. Or even an default value
+(10 in this example): `{% raw %}{{ my_variable | default(10) }}{% endraw %}`.
+
+Please note that these are just warnings for now. We plan to replace the warning
+with an error as of Home Assistant 2021.10 (in October).
 
 ## Filtering automations, scripts and scenes
 
 Categorizing things like automations, is definitely one of the most requested
-things in our history. This became clear again during last years month of
-what the heck and in various issues/discussions/feature requests.
+things in our history. This became clear again during last year's month of what
+the heck and various issues/discussions/feature requests.
 
 Suggestions for labels, folders, and many more have been created. However,
 we already have some great categorizing features in Home Assistant itself:
 
-Devices & Areas
+Devices, Areas & Entities.
+
+<p class='img'>
+<img src='/images/blog/2021-04/filters.png' alt='Screenshot of filtering automations by the living room area'>
+Screenshot of filtering automations by living room area.
+</p>
 
 As of today, you can filter your automations, scripts and scenes based on
-the device or area they are put in, or affect. Not only can you now
-show show the automations that are used in your living room area, but you can
-also filter automations with just the ones that touch your thermostat.
-
-TODO:
-- Add screenshot
-- Improve text
+the area they are put in, or the device/entity they affect. You now show the
+automations used in your living room area, but you can also filter automations
+with just the ones that touch your thermostat.
 
 ## Z-Wave JS update
 
-You can now configure each device. When you view a device in the Home
-Assistant frontend, you can click on "CONFIGURE DEVICE" to manage and adjust
-device (node) specific configuration parameters for the selected device.
+So before we talk about The nice new things in Z-Wave JS, there are breaking
+changes in this release for the Z-Wave JS integration that could affect your
+existing automations. Be sure to read the [breaking changes](#breaking-changes)
+section for more info.
 
-Furthermore two new services are introduced:
+Alright, now the fun stuff! You can now configure each Z-Wave device straight
+from within Home Assistant. When you view a device in the Home Assistant
+frontend, you can click on "CONFIGURE DEVICE" button that is shown on each
+device page. This allows you to manage and adjust device (node) specific
+configuration parameters for the selected device.
 
-- `zwave_js.bulk_set_partial_config_parameters`
-- `zwave_js.set_value`
+<p class='img'>
+<img src='/images/blog/2021-04/zwave-device.png' alt='Screenshot of configuring a Z-Wave device from within Home Assistant'>
+Screenshot of configuring a Z-Wave device from within Home Assistant.
+</p>
 
-There are breaking changes in the Z-Wave JS integration that could affect your existing automations. Be sure to read the [breaking changes](#breaking-changes) section for more info.
+Furthermore two new, advanced, services are introduced:
 
-TODO:
-- Add more text to this
-- Add screenshot
-- Missing Z-Wave updates?
+- {% my developer_call_service service="zwave_js.set_value" %}, a service that
+  is capable of setting set a value on a Z-Wave device directly, bypassing
+  Home Assistant.
+- {% my developer_call_service service="zwave_js.bulk_set_partial_config_parameters" %},
+  a service that will allow you to set configuration parameters in bulk.
 
 ## Trigger-based template sensors
 
-This release adds initial support for pretty advanced new feature, that can
-be really helpful. Sensors, that are updated based on triggers and the
-data that comes with it.
+This release adds initial support for a pretty advanced new, helpful feature.
+Template sensors, that are updated based on triggers and the data that comes
+with it.
+
+Whenever the trigger fires, the template sensor will re-render and it will
+have access to the trigger data in the templates. This feature is a great way
+to create data based on webhook data, or have sensors be updated based on a
+time schedule.
+
+See, for example, this these two template sensors that update based on a single
+webhook trigger using data pushed into the webhook:
 
 {% raw %}
+
 ```yaml
 # Example configuration entry
 template:
@@ -175,100 +266,66 @@ curl --header "Content-Type: application/json" \
   http://homeassistant.local:8123/api/webhook/my-super-secret-webhook-id
 ```
 
-TODO:
-- Extend story
-- Clean up/simplify example
-- Note on sensor only at this point, hopefully more soon!
+It is not just webhooks! Any trigger that you can use in automations, can be
+used to update these types of template sensors.
+
+For this release, it only works for sensors; other platforms are supported yet.
+
+Please note: that these new template sensors are configured under the `template:`
+key in the configuration and is using a new configuration format and keys.
+For more information, [see the documentation](/integrations/template/#configuration-for-trigger-based-template-sensors).
 
 ## UI selectors for script fields
 
 You can now use UI Selectors for you scripts field parameters. This
-brings UI capabilities to scripts. It works both in the dev tools -> services,
-but also in the automation UI.
+brings the same UI capabilities that Blueprint have to scripts. This allow for
+creating advanced scripts that you can later easily reuse in your UI
+(even in UI automation).
 
-Example: <https://next.home-assistant.io/integrations/script/#full-configuration>
-Selectors: <https://next.home-assistant.io/docs/blueprint/selectors/>
-More extensive service description example: <https://developers.home-assistant.io/docs/dev_101_services/#service-descriptions>
+<p class='img'>
+<img src='/images/blog/2021-04/scripts-selectors.png' alt='Screenshot of scripts using selects in its fields'>
+Screenshot of scripts using selects in its fields.
+</p>
 
-TODO: 
-- Improve documentation. I noticed when linking this, that documentation around
-  fields is low.
-- Screenshot
-- More text
-- Example?
+For more details on these new field configuration option, see the
+[scripts documentation](/integrations/script)
 
 ## Other noteworthy changes
 
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- Lorem ipsum, thanks to [@frenck]! ;)
-- TODO with items from below.
+- The Supervisor is now in the integrations dashboard, and provides entities
+  for all kinds of things! These entities are disabled by default, so head
+  over and see if there is anything to enable. Thanks [@raman325]!
+- The develo Home Control ([@Shutgun]), Apple TV ([@bdraco]), August ([@bdraco])
+  and MQTT ([@RadekHvizdos]) integrations can now suggest areas.
+- You can now configure additional Google Cast devices by IP address via the
+  integrations options. This is helpful in case of mDNS issues.
+  Thanks [@emontnemery]!
+- [@joshmcrty] added support for selecting the number formatting you like on
+  your profile! Awesome work!
 
-To format, candidates from the backend:
+<p class='img'>
+<img src='/images/blog/2021-04/number-format.png' alt='Screenshot of selecting the number format you prefer in your profile'>
+Screenshot of selecting the number format you prefer.
+</p>
 
-- Add Xiaomi Miio fan config flow ([@starkillerOG] - [#46866]) ([xiaomi_miio docs]) (breaking-change)
-- Add remote control platform to Panasonic Viera ([@joogps] - [#42450]) ([panasonic_viera docs]) (new-platform)
-- Add zeroconf discovery to Freebox ([@Quentame] - [#47045]) ([discovery docs]) ([freebox docs])
-- Add suggested_area support to devolo Home Control ([@Shutgun] - [#47063]) ([devolo_home_control docs])
-- Add hassio addon_update service and hassio config entry with addon and OS devices and entities ([@raman325] - [#46342]) ([hassio docs]) (new-platform)
-- Add support for a list of known hosts to Google Cast ([@emontnemery] - [#47232]) ([cast docs])
-- Add remote control support to philips_js ([@elupus] - [#47249]) ([philips_js docs]) (new-platform)
-- Add battery sensor for gogogate2 wireless door sensor ([@emontnemery] - [#47145]) ([gogogate2 docs]) (new-platform)
-- Add services for izone airflow min/max ([@Nick-Adams-AU] - [#45727]) ([izone docs])
-- Add force_update to tasmota sensors ([@rlehfeld] - [#47052]) ([tasmota docs])
-- Add suggested_area support to Apple TV ([@bdraco] - [#47015]) ([apple_tv docs])
-- Add Tado weather support ([@Noltari] - [#44807]) ([tado docs]) (new-platform)
-- Fix light brightness_step on multiple entities ([@emontnemery] - [#47746]) ([light docs])
-- Hoist mqtt name property and add icon support to MqttEntity ([@kristianheljas] - [#47165]) ([mqtt docs])
-- Add apply_filter attribute to recorder.purge service ([@cdce8p] - [#45826]) ([recorder docs])
-- Add HomeKit support for new CO / CO2 device class ([@iMicknl] - [#47737]) ([demo docs]) ([homekit docs])
-- Add device_info to Apple TV entities ([@postlund] - [#47837]) ([apple_tv docs])
-- Verisure: Remove JSONPath, unique IDs, small cleanups ([@frenck] - [#47870]) ([verisure docs])
-- Add suggested area support to august ([@bdraco] - [#47930]) ([august docs])
-- Support all Xiaomi Miio gateway switches ([@starkillerOG] - [#46657]) ([xiaomi_miio docs])
-- Add suggested_area to MQTT discovery ([@RadekHvizdos] - [#47903]) ([mqtt docs])
-- Add config flow to Verisure ([@frenck] - [#47880]) ([verisure docs]) (breaking-change)
-- Move Verisure services to entity services ([@frenck] - [#47905]) ([verisure docs]) (breaking-change)
-- Add devices to Verisure integration ([@frenck] - [#47913]) ([verisure docs])
-- Add reauthentication to Verisure ([@frenck] - [#47972]) ([verisure docs])
-- Add support for light color modes ([@emontnemery] - [#47720]) ([kulersky docs]) ([light docs]) ([yeelight docs]) ([zerproc docs])
-- Add device classes to Verisure sensors ([@frenck] - [#47990]) ([verisure docs])
-- Add definitions for grouping media players ([@klada] - [#41193]) ([media_player docs])
-- Add Opentherm Gateway current and setpoint precision ([@Martidjen] - [#47484]) ([opentherm_gw docs])
-- Warn on undefined variables in templates ([@emontnemery] - [#48140]) (breaking-change)
-- Add an option to hide selected Hyperion effects ([@dermotduffy] - [#45689]) ([hyperion docs])
-- Improve Docker and Kubernetes support for KNX ([@plomosits] - [#48065]) ([knx docs])
-- Add august doorbells to dhcp discovery ([@bdraco] - [#48244]) ([august docs])
-- Add dhcp discovery support to blink ([@bdraco] - [#48243]) ([blink docs])
-- Add Ambient Station PM25 indoor sensor ([@conflipper] - [#47970]) ([ambient_station docs])
-- Add broadlink dhcp discovery ([@bdraco] - [#48408]) ([broadlink docs])
-- Add dsmr monthly and yearly totals ([@robertdelpeut] - [#48253]) ([dsmr_reader docs])
-- Add support for Selectors in Script service fields ([@frenck] - [#48469]) ([script docs])
-- Allow specifying template entities based on triggers ([@balloob] - [#48169]) ([trigger docs]) (new-integration)
-- Command template support for MQTT fan ([@jbouwh] - [#48413]) ([mqtt docs]) (breaking-change)
-- Add image proxy to Kodi media browser ([@cgtobi] - [#47315]) ([kodi docs])
-- Add opentherm_gw option for setpoint override mode ([@Martidjen] - [#48465]) ([opentherm_gw docs])
-- Add zwave_js.set_value service ([@raman325] - [#48487]) ([zwave_js docs])
-- Add support for capturing renewals to dhcp discovery ([@bdraco] - [#48242]) ([dhcp docs])
-- KNX passive group addresses ([@farmio] - [#48009]) ([knx docs])
-- Add regex-based filters to logger component ([@jshufro] - [#48439]) ([logger docs])
-- Add color_mode support to MQTT JSON light ([@emontnemery] - [#47993]) ([light docs]) ([mqtt docs]) (breaking-change)
-- Add Plex library count sensors ([@jjlawren] - [#48339]) ([plex docs])
-- KNX entities now have a unique_id, so can be used in the frontend ([@marvin-w] - [#48522]) ([knx docs])
-- Add operation sensor to Shelly Gas ([@chemelli74] - [#48462]) ([shelly docs])
-- Add Qingping Air Monitor Lite support support ([@arturdobo] - [#48181]) ([xiaomi_miio docs]) (new-integration)
+- [@marvin-w] added support for unqiue IDs to KNX entities. So, as a KNX user
+  you can now tweak your entities in the frontend and group them into areas!
+- HomeKit now support he CO/CO2 device classes, thanks to [@iMicknl]!
+- [@robertdelpeut] added monthly and yearly totals to the DMSR sensor, thanks!
+- Hyperion users can now hide certain effect from the UI using integration
+  options. Thanks, [@dermotduffy]!
+- Got that one message in your logs that you don't care about? [@jshufro]
+  added support for filtering log messages using regular expression!
+- The Plex integration now provides library counter sensors! These
+  are disabled by default by can be enabled if you like that. Thanks, [@jjlawren].
+- The Quickbar had an update from [@donkawechico]! So press that C & E letters
+  on you keyboard to see the beautiful new labels.
 
-To format, candidates from the frontend:
-
-- Number format options in your user profile! (?) @?
-- Enable turning off edit mode in panel views (#8625) @thomasloven
-- Quick Bar: Use command category labels instead of icons (#7692) @donkawechico
-- Fix rendering when selecting all in datatable (#8749) @bramkragten
-- Add filtering by devices/areas to scripts (#8748) @bramkragten
-- Add filtering by devices/areas to scenes (#8747) @bramkragten
-- Add filtering to automaton overview (#8736) @bramkragten
-- Show if config entry is not loaded (#8717) @bramkragten
+[@joshmcrty]: https://github.com/joshmcrty
+[@donkawechico]: https://github.com/donkawechico
 
 ## New Integrations
 
@@ -294,6 +351,8 @@ The following integration got support for a new platform:
 The following integrations are now available via the Home Assistant UI:
 
 - [Xiaomi Miio][xiaomi_miio docs], fans, sensors and lights, done by [@starkillerOG]
+- [Hive][hive docs], done by [@KJonline]
+- [Verisure][verisure docs], done by [@frenck]
 
 ## If you need help...
 
@@ -373,6 +432,11 @@ list it, just to be sure.
 We are now explicitly only supporting secrets inside your Home Assistant Core
 and Lovelace configuration files (and anything included from there). Secrets
 are no longer supported in other loaded YAML files.
+
+This change should not affect regular users of Home Assistant, however, we
+have been made aware that some custom integrations may cause problems. If
+you are a user of Dwains theme, the HomeKit Infused theme or lovelace_gen,
+please make sure to update those or check with the upstream project.
 
 ([@balloob] - [#47034])
 
@@ -1383,13 +1447,56 @@ The following integrations are no longer available as of this release:
 - Remove Hass.io terms in strings.json ([@LEJOUI] - [#48541]) ([adguard docs]) ([almond docs]) ([deconz docs]) ([mqtt docs])
 - Create homekit locks according to spec ([@bdraco] - [#48453]) ([homekit docs])
 - Update frontend to 20210331.0 ([@bramkragten] - [#48552]) ([frontend docs])
-- Improve Plex device handling ([@jjlawren] - [#48369]) ([plex docs])
+- Improve Plex device handling ([@jjlawren] - [#48369]) ([plex docs]) (breaking-change)
 - Add operation sensor to Shelly Gas ([@chemelli74] - [#48462]) ([shelly docs])
 - Use Mapping[str, Any] instead of dict in Entity ([@KapJI] - [#48421])
-- Add Qingping Air Monitor Lite support support ([@arturdobo] - [#48181]) ([xiaomi_miio docs]) (new-integration)
+- Add Qingping Air Monitor Lite support support ([@arturdobo] - [#48181]) ([xiaomi_miio docs])
 - Use SOURCE_REAUTH constant for starting reauth flows ([@bdraco] - [#48553])
 - Improve automation trace tests ([@emontnemery] - [#48542]) ([trace docs])
 - Provide the improved service UX with deCONZ services ([@Kane610] - [#48382]) ([deconz docs])
+- Fix timer.finish to cancel callback ([@youknowjack0] - [#48549]) ([timer docs]) (beta fix)
+- Remove analytics from default_config ([@ludeeus] - [#48566]) ([default_config docs]) (beta fix)
+- Fix incorrect constant import in Ambient PWS ([@bachya] - [#48574]) ([ambient_station docs]) (beta fix)
+- Don't care about DPI entries when looking for clients to be restored from UniFi ([@Kane610] - [#48579]) ([unifi docs]) (beta fix)
+- Cleanup orphan devices in onewire integration ([@epenet] - [#48581]) ([onewire docs]) (beta fix)
+- Return config entry details for 1-step config flows ([@emontnemery] - [#48585]) ([config docs]) (beta fix)
+- Upgrade numpy to 1.20.2 ([@frenck] - [#48597]) ([iqvia docs]) ([opencv docs]) ([tensorflow docs]) ([trend docs]) (beta fix)
+- Allow templatable service target to support scripts ([@frenck] - [#48600]) (beta fix)
+- Fix websocket search for related ([@frenck] - [#48603]) ([search docs]) (beta fix)
+- Clean up mobile app ([@balloob] - [#48607]) ([mobile_app docs]) (beta fix)
+- Update frontend to 20210402.0 ([@bramkragten] - [#48609]) ([frontend docs]) (beta fix)
+- Increase time out for http requests done in Axis integration ([@Kane610] - [#48610]) ([axis docs]) (beta fix)
+- Include script script_execution in script and automation traces ([@emontnemery] - [#48576]) ([trace docs]) (beta fix)
+- Include blueprint input in automation trace ([@emontnemery] - [#48575]) ([automation docs]) ([script docs]) ([trace docs]) (beta fix)
+- Bump aioshelly to 0.6.2 ([@thecode] - [#48620]) ([shelly docs]) (beta fix)
+- Fix trigger template entities without a unique ID ([@balloob] - [#48631]) ([template docs]) (beta fix)
+- Support modern config for the trigger based template entity ([@balloob] - [#48635]) ([template docs]) (beta fix)
+- Updated frontend to 20210402.1 ([@bramkragten] - [#48639]) ([frontend docs]) (beta fix)
+- Bump aiodiscover to 1.3.3 for dhcp ([@bdraco] - [#48644]) ([dhcp docs]) (beta fix)
+- Only listen for zeroconf when the esphome device cannot connect ([@bdraco] - [#48645]) ([esphome docs]) (beta fix)
+- Fix AEMET town timestamp format ([@Noltari] - [#48647]) ([aemet docs]) (beta fix)
+- Prevent config entry retry from blocking startup ([@bdraco] - [#48660]) (beta fix)
+- Fix Raspi GPIO binary_sensor produces unreliable responses ([@mburget] - [#48170]) ([rpi_gpio docs]) (beta fix)
+- Implement Ignore list for poll control configuration on Ikea devices ([@Adminiuga] - [#48667]) ([zha docs]) (beta fix)
+- Bump zwave_js dependency to 0.23.1 ([@raman325] - [#48682]) ([zwave_js docs]) (beta fix)
+- Fix verisure deadlock ([@balloob] - [#48691]) ([verisure docs]) (beta fix)
+- Abort discovery for unsupported doorbird accessories ([@bdraco] - [#48710]) ([doorbird docs]) (beta fix)
+- Improve warnings on undefined template errors ([@emontnemery] - [#48713]) (beta fix)
+- Bump pychromecast to 9.1.2 ([@emontnemery] - [#48714]) ([cast docs]) (beta fix)
+- Flag brightness support for MQTT RGB lights ([@emontnemery] - [#48718]) ([mqtt docs]) (beta fix)
+- Fix infinite recursion in LazyState ([@blueshiftlabs] - [#48719]) ([history docs]) (beta fix)
+- Allow reloading top-level template entities ([@balloob] - [#48733]) ([template docs]) (beta fix)
+- Updated frontend to 20210406.0 ([@balloob] - [#48734]) ([frontend docs]) (beta fix)
+- Do not activate Met.no without setting a Home coordinates ([@frenck] - [#48741]) ([met docs]) (beta fix)
+- Generate a seperate UUID for the analytics integration ([@ludeeus] - [#48742]) ([analytics docs]) (beta fix)
+- Rename hassio config entry title to Supervisor ([@frenck] - [#48748]) ([hassio docs]) (beta fix)
+- Use microsecond precision for datetime values on MariaDB/MySQL ([@agners] - [#48749]) ([recorder docs]) (beta fix)
+- Add custom integrations to analytics ([@ludeeus] - [#48753]) ([analytics docs]) (beta fix) (new-integration)
+- Solve cast delaying startup when discovered devices are slow to setup ([@bdraco] - [#48755]) ([cast docs]) (beta fix)
+- Met.no - only update data if coordinates changed ([@Danielhiversen] - [#48756]) ([met docs]) (beta fix)
+- Remove login details before logging SQL errors ([@emontnemery] - [#48758]) ([sql docs]) (beta fix)
+- Fix whitespace error in cast ([@emontnemery] - [#48763]) ([cast docs]) (beta fix)
+- Update frontend to 20210407.0 ([@bramkragten] - [#48765]) ([frontend docs]) (beta fix)
 
 {% enddetails %}
 
@@ -1828,6 +1935,7 @@ The following integrations are no longer available as of this release:
 [#48167]: https://github.com/home-assistant/core/pull/48167
 [#48168]: https://github.com/home-assistant/core/pull/48168
 [#48169]: https://github.com/home-assistant/core/pull/48169
+[#48170]: https://github.com/home-assistant/core/pull/48170
 [#48175]: https://github.com/home-assistant/core/pull/48175
 [#48176]: https://github.com/home-assistant/core/pull/48176
 [#48178]: https://github.com/home-assistant/core/pull/48178
@@ -2016,8 +2124,50 @@ The following integrations are no longer available as of this release:
 [#48541]: https://github.com/home-assistant/core/pull/48541
 [#48542]: https://github.com/home-assistant/core/pull/48542
 [#48546]: https://github.com/home-assistant/core/pull/48546
+[#48549]: https://github.com/home-assistant/core/pull/48549
 [#48552]: https://github.com/home-assistant/core/pull/48552
 [#48553]: https://github.com/home-assistant/core/pull/48553
+[#48566]: https://github.com/home-assistant/core/pull/48566
+[#48574]: https://github.com/home-assistant/core/pull/48574
+[#48575]: https://github.com/home-assistant/core/pull/48575
+[#48576]: https://github.com/home-assistant/core/pull/48576
+[#48579]: https://github.com/home-assistant/core/pull/48579
+[#48581]: https://github.com/home-assistant/core/pull/48581
+[#48585]: https://github.com/home-assistant/core/pull/48585
+[#48597]: https://github.com/home-assistant/core/pull/48597
+[#48600]: https://github.com/home-assistant/core/pull/48600
+[#48603]: https://github.com/home-assistant/core/pull/48603
+[#48607]: https://github.com/home-assistant/core/pull/48607
+[#48609]: https://github.com/home-assistant/core/pull/48609
+[#48610]: https://github.com/home-assistant/core/pull/48610
+[#48620]: https://github.com/home-assistant/core/pull/48620
+[#48631]: https://github.com/home-assistant/core/pull/48631
+[#48635]: https://github.com/home-assistant/core/pull/48635
+[#48639]: https://github.com/home-assistant/core/pull/48639
+[#48644]: https://github.com/home-assistant/core/pull/48644
+[#48645]: https://github.com/home-assistant/core/pull/48645
+[#48647]: https://github.com/home-assistant/core/pull/48647
+[#48660]: https://github.com/home-assistant/core/pull/48660
+[#48667]: https://github.com/home-assistant/core/pull/48667
+[#48682]: https://github.com/home-assistant/core/pull/48682
+[#48691]: https://github.com/home-assistant/core/pull/48691
+[#48710]: https://github.com/home-assistant/core/pull/48710
+[#48713]: https://github.com/home-assistant/core/pull/48713
+[#48714]: https://github.com/home-assistant/core/pull/48714
+[#48718]: https://github.com/home-assistant/core/pull/48718
+[#48719]: https://github.com/home-assistant/core/pull/48719
+[#48733]: https://github.com/home-assistant/core/pull/48733
+[#48734]: https://github.com/home-assistant/core/pull/48734
+[#48741]: https://github.com/home-assistant/core/pull/48741
+[#48742]: https://github.com/home-assistant/core/pull/48742
+[#48748]: https://github.com/home-assistant/core/pull/48748
+[#48749]: https://github.com/home-assistant/core/pull/48749
+[#48753]: https://github.com/home-assistant/core/pull/48753
+[#48755]: https://github.com/home-assistant/core/pull/48755
+[#48756]: https://github.com/home-assistant/core/pull/48756
+[#48758]: https://github.com/home-assistant/core/pull/48758
+[#48763]: https://github.com/home-assistant/core/pull/48763
+[#48765]: https://github.com/home-assistant/core/pull/48765
 [@Adminiuga]: https://github.com/Adminiuga
 [@Antoni-Czaplicki]: https://github.com/Antoni-Czaplicki
 [@B-Hartley]: https://github.com/B-Hartley
@@ -2052,6 +2202,7 @@ The following integrations are no longer available as of this release:
 [@TheNetAdmin]: https://github.com/TheNetAdmin
 [@abmantis]: https://github.com/abmantis
 [@adamjernst]: https://github.com/adamjernst
+[@agners]: https://github.com/agners
 [@alandtse]: https://github.com/alandtse
 [@alengwenus]: https://github.com/alengwenus
 [@allenporter]: https://github.com/allenporter
@@ -2060,6 +2211,7 @@ The following integrations are no longer available as of this release:
 [@andreasbrett]: https://github.com/andreasbrett
 [@arturdobo]: https://github.com/arturdobo
 [@austinmroczek]: https://github.com/austinmroczek
+[@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@bdr99]: https://github.com/bdr99
 [@bdraco]: https://github.com/bdraco
@@ -2068,6 +2220,7 @@ The following integrations are no longer available as of this release:
 [@bieniu]: https://github.com/bieniu
 [@billsq]: https://github.com/billsq
 [@blejdfist]: https://github.com/blejdfist
+[@blueshiftlabs]: https://github.com/blueshiftlabs
 [@bramkragten]: https://github.com/bramkragten
 [@c99koder]: https://github.com/c99koder
 [@cdce8p]: https://github.com/cdce8p
@@ -2099,6 +2252,7 @@ The following integrations are no longer available as of this release:
 [@elyobelyob]: https://github.com/elyobelyob
 [@emlove]: https://github.com/emlove
 [@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
 [@esev]: https://github.com/esev
 [@fabaff]: https://github.com/fabaff
 [@farmio]: https://github.com/farmio
@@ -2131,6 +2285,7 @@ The following integrations are no longer available as of this release:
 [@kristianheljas]: https://github.com/kristianheljas
 [@ludeeus]: https://github.com/ludeeus
 [@marvin-w]: https://github.com/marvin-w
+[@mburget]: https://github.com/mburget
 [@mdonoughe]: https://github.com/mdonoughe
 [@mdz]: https://github.com/mdz
 [@mib1185]: https://github.com/mib1185
@@ -2175,6 +2330,7 @@ The following integrations are no longer available as of this release:
 [@vlebourl]: https://github.com/vlebourl
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@xonestonex]: https://github.com/xonestonex
+[@youknowjack0]: https://github.com/youknowjack0
 [@zxdavb]: https://github.com/zxdavb
 [accuweather docs]: /integrations/accuweather/
 [acmeda docs]: /integrations/acmeda/
@@ -2200,6 +2356,7 @@ The following integrations are no longer available as of this release:
 [august docs]: /integrations/august/
 [automation docs]: /integrations/automation/
 [awair docs]: /integrations/awair/
+[axis docs]: /integrations/axis/
 [blink docs]: /integrations/blink/
 [bmp280 docs]: /integrations/bmp280/
 [bond docs]: /integrations/bond/
@@ -2223,6 +2380,7 @@ The following integrations are no longer available as of this release:
 [dhcp docs]: /integrations/dhcp/
 [discovery docs]: /integrations/discovery/
 [dlna_dmr docs]: /integrations/dlna_dmr/
+[doorbird docs]: /integrations/doorbird/
 [dsmr_reader docs]: /integrations/dsmr_reader/
 [ecobee docs]: /integrations/ecobee/
 [econet docs]: /integrations/econet/
@@ -2266,6 +2424,7 @@ The following integrations are no longer available as of this release:
 [icloud docs]: /integrations/icloud/
 [incomfort docs]: /integrations/incomfort/
 [intesishome docs]: /integrations/intesishome/
+[iqvia docs]: /integrations/iqvia/
 [izone docs]: /integrations/izone/
 [keenetic_ndms2 docs]: /integrations/keenetic_ndms2/
 [kmtronic docs]: /integrations/kmtronic/
@@ -2292,6 +2451,7 @@ The following integrations are no longer available as of this release:
 [mcp23017 docs]: /integrations/mcp23017/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player docs]: /integrations/media_player/
+[met docs]: /integrations/met/
 [meteo_france docs]: /integrations/meteo_france/
 [minecraft_server docs]: /integrations/minecraft_server/
 [mobile_app docs]: /integrations/mobile_app/
@@ -2311,7 +2471,9 @@ The following integrations are no longer available as of this release:
 [octoprint docs]: /integrations/octoprint/
 [omnilogic docs]: /integrations/omnilogic/
 [onboarding docs]: /integrations/onboarding/
+[onewire docs]: /integrations/onewire/
 [onvif docs]: /integrations/onvif/
+[opencv docs]: /integrations/opencv/
 [opentherm_gw docs]: /integrations/opentherm_gw/
 [openweathermap docs]: /integrations/openweathermap/
 [panasonic_viera docs]: /integrations/panasonic_viera/
@@ -2345,6 +2507,7 @@ The following integrations are no longer available as of this release:
 [solax docs]: /integrations/solax/
 [somfy_mylink docs]: /integrations/somfy_mylink/
 [spotify docs]: /integrations/spotify/
+[sql docs]: /integrations/sql/
 [squeezebox docs]: /integrations/squeezebox/
 [ssdp docs]: /integrations/ssdp/
 [stream docs]: /integrations/stream/
@@ -2354,15 +2517,18 @@ The following integrations are no longer available as of this release:
 [tasmota docs]: /integrations/tasmota/
 [tellduslive docs]: /integrations/tellduslive/
 [template docs]: /integrations/template/
+[tensorflow docs]: /integrations/tensorflow/
 [tesla docs]: /integrations/tesla/
 [thethingsnetwork docs]: /integrations/thethingsnetwork/
 [tibber docs]: /integrations/tibber/
+[timer docs]: /integrations/timer/
 [tod docs]: /integrations/tod/
 [todoist docs]: /integrations/todoist/
 [toon docs]: /integrations/toon/
 [tplink docs]: /integrations/tplink/
 [trace docs]: /integrations/trace/
 [tradfri docs]: /integrations/tradfri/
+[trend docs]: /integrations/trend/
 [trigger docs]: /integrations/trigger/
 [twentemilieu docs]: /integrations/twentemilieu/
 [twitter docs]: /integrations/twitter/
