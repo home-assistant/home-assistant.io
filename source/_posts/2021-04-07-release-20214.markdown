@@ -25,6 +25,9 @@ love. Ready to debug your automations? Yeah...
 Not that advanced of a user? I'm sure there is something in here for you to
 look forward to as well.
 
+Oh, by the way, have you heard the news of ESPHome joining the Home Assistant
+family? If not, you should definitely [read the blog post announcing it](/blog/2021/03/18/nabu-casa-has-acquired-esphome/)!
+
 Enjoy the release!
 
 ../Frenck
@@ -70,18 +73,21 @@ Screenshot showing the automation trace of a previously ran automation.
 </p>
 
 The above screenshot shows a previous run of an automation. The automation
-is displayed in the form of an interactive graph. You can see which path it took
-and each step of the automation can be click and viewed in detail on what
-happened. It traces the complete run of an automation run.
+is displayed using an interactive graph, which highlights which path the
+automation took. Each node in the graph can be clicked to view the details on
+what happened with the automation during that specific step. It traces the
+complete run of an automation run.
 
-If an automation didn't run as it should, this will allows you to debug and
+If an automation didn't run as it should, this will allow you to debug and
 understand why it ran the way it did.
 
 This extremely advanced and super useful feature is thanks to the hard work
-of [@emontnemery] who, build the backend for this. The beautiful graphing was
+of [@emontnemery] who build the backend for this. The beautiful graphing was
 made by [@thomasloven], and all the frontend work by [@balloob] & [@bramkragten].
-Finally, all the (beta) testers that provided traces samples that helped
-squash bugs. Thanks all!
+Marvelous job guys! Thanks!
+
+Additionally, a special thanks to all the (beta) testers that helped testing
+this feature and those who provided trace samples that helped to squash bugs!
 
 Got questions about this feature? Want to see it in action? Be sure to tune in
 to the 2021.4 release party stream later today!
@@ -123,7 +129,7 @@ with Home Assistant, add local control and privacy-focused features.
 been broken. So while we had some data, it was barely usable (actually not
 useable at all). Instead of fixing the updater, we now have a better solution
 that better matches our project goals. The updater still exists; it now just
-does one single thing: Showing if an update is available.
+does one single thing: showing if an update is available.
 
 Want to help the project out? Please enable Home Assistant Analytics. We
 would be very grateful!
@@ -171,7 +177,7 @@ you thought was there, isn't. It is quite possible you get a bunch
 of warnings after upgrading to this release. Fixing those warnings, really helps
 to improve your setup.
 
-So, what if a viable isn't always there, but I still want to use it? Well,
+So, what if a variable isn't always there, but I still want to use it? Well,
 you can give it a default, for example:
 `{% raw %}{{ my_variable | default }}{% endraw %}`. Or even an default value
 (10 in this example): `{% raw %}{{ my_variable | default(10) }}{% endraw %}`.
@@ -181,7 +187,7 @@ with an error as of Home Assistant 2021.10 (in October).
 
 ## Filtering automations, scripts and scenes
 
-Categorizing things like automations, is definitely one of the most requested
+Categorizing automations, is definitely one of the most requested
 things in our history. This became clear again during last year's month of what
 the heck and various issues/discussions/feature requests.
 
@@ -195,10 +201,13 @@ Devices, Areas & Entities.
 Screenshot of filtering automations by living room area.
 </p>
 
-As of today, you can filter your automations, scripts and scenes based on
-the area they are put in, or the device/entity they affect. You now show the
-automations used in your living room area, but you can also filter automations
-with just the ones that touch your thermostat.
+As of today, you can filter your automations, scripts and scenes by area,
+device or entity. For automations and scripts, it goes one step further; it
+magically finds those that affect the area, device or entity being filtered.
+
+So, you can now look at the automations affecting in your living room area
+(even if those automations itself are not in the living room area) and also
+filter the automations list with just the ones that touch your thermostat.
 
 ## Z-Wave JS update
 
@@ -221,7 +230,7 @@ Screenshot of configuring a Z-Wave device from within Home Assistant.
 Furthermore two new, advanced, services are introduced:
 
 - {% my developer_call_service service="zwave_js.set_value" %}, a service that
-  is capable of setting set a value on a Z-Wave device directly, bypassing
+  is capable of setting a value on a Z-Wave device directly, bypassing
   Home Assistant.
 - {% my developer_call_service service="zwave_js.bulk_set_partial_config_parameters" %},
   a service that will allow you to set configuration parameters in bulk.
@@ -237,7 +246,7 @@ have access to the trigger data in the templates. This feature is a great way
 to create data based on webhook data, or have sensors be updated based on a
 time schedule.
 
-See, for example, this these two template sensors that update based on a single
+See, for example, these two template sensors that update based on a single
 webhook trigger using data pushed into the webhook:
 
 {% raw %}
@@ -269,7 +278,7 @@ curl --header "Content-Type: application/json" \
 It is not just webhooks! Any trigger that you can use in automations, can be
 used to update these types of template sensors.
 
-For this release, it only works for sensors; other platforms are supported yet.
+For this release, it only works for sensors; other platforms are not supported yet.
 
 Please note: that these new template sensors are configured under the `template:`
 key in the configuration and is using a new configuration format and keys.
@@ -295,9 +304,10 @@ For more details on these new field configuration options, see the
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- The Supervisor is now in the integrations dashboard, and provides entities
+- The Supervisor is now also in the integrations dashboard, and provides entities
   for all kinds of things! These entities are disabled by default, so head
-  over and see if there is anything to enable. Thanks [@raman325]!
+  over to the integration and see if there anything in there you could use.
+  Thanks [@raman325]!
 - The develo Home Control ([@Shutgun]), Apple TV ([@bdraco]), August ([@bdraco])
   and MQTT ([@RadekHvizdos]) integrations can now suggest areas.
 - You can now configure additional Google Cast devices by IP address via the
@@ -311,18 +321,18 @@ noteworthy changes this release:
 Screenshot of selecting the number format you prefer.
 </p>
 
-- [@marvin-w] added support for unqiue IDs to KNX entities. So, as a KNX user
+- [@marvin-w] added support for unique IDs to KNX entities. So, as a KNX user
   you can now tweak your entities in the frontend and group them into areas!
-- HomeKit now support he CO/CO2 device classes, thanks to [@iMicknl]!
+- HomeKit now supports CO/CO2 device classes, thanks to [@iMicknl]!
 - [@robertdelpeut] added monthly and yearly totals to the DMSR sensor, thanks!
-- Hyperion users can now hide certain effect from the UI using integration
+- Hyperion users can now hide certain effects from the UI using integration
   options. Thanks, [@dermotduffy]!
 - Got that one message in your logs that you don't care about? [@jshufro]
   added support for filtering log messages using regular expression!
-- The Plex integration now provides library counter sensors! These
+- The Plex integration now provides library count sensors! These
   are disabled by default by can be enabled if you like that. Thanks, [@jjlawren].
-- The Quickbar had an update from [@donkawechico]! So press that C & E letters
-  on you keyboard to see the beautiful new labels.
+- The Quickbar had an update from [@donkawechico]! So press those C & E keys
+  on you keyboard to see those beautiful new labels.
 
 [@joshmcrty]: https://github.com/joshmcrty
 [@donkawechico]: https://github.com/donkawechico
