@@ -179,7 +179,7 @@ to improve your setup.
 
 So, what if a variable isn't always there, but I still want to use it? Well,
 you can give it a default, for example:
-`{% raw %}{{ my_variable | default }}{% endraw %}`. Or even an default value
+`{% raw %}{{ my_variable | default }}{% endraw %}`. Or even a default value
 (10 in this example): `{% raw %}{{ my_variable | default(10) }}{% endraw %}`.
 
 Please note that these are just warnings for now. We plan to replace the warning
@@ -352,7 +352,7 @@ The following integration got support for a new platform:
 - [Gogogate2 and iSmartGate][gogogate2 docs] provides battery sensors for wiresless door sensors, added by [@emontnemery]
 - [Panasonic Viera][panasonic_viera docs] has now support for remotes, added by [@joogps]
 - [Philips TV][philips_js docs] now has support for remotes, added by [@elupus]
-- [Rheem EcoNet Products] now have support for climate entities, added by [@w1ll1am23].
+- [Rheem EcoNet Products][ecobee docs] now have support for climate entities, added by [@w1ll1am23].
 - [Supervisor][hassio docs] integration now has entities and services for things like versions and pending updates, added by [@raman325]
 - [Tado][tado docs] now has weather support, added by [@Noltari]
 
@@ -2439,7 +2439,7 @@ The following integrations are no longer available as of this release:
 [homekit_controller docs]: /integrations/homekit_controller/
 [homematic docs]: /integrations/homematic/
 [homematicip_cloud docs]: /integrations/homematicip_cloud/
-[homepluscontrol docs]: /integrations/homepluscontrol/
+[homepluscontrol docs]: /integrations/home_plus_control/
 [http docs]: /integrations/http/
 [hue docs]: /integrations/hue/
 [huisbaasje docs]: /integrations/huisbaasje/
