@@ -3,7 +3,7 @@ title: Met Éireann
 description: Instructions on how to integrate Met Éireann with Home Assistant.
 ha_category:
   - Weather
-ha_release: 0.115
+ha_release: 2021.5
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
