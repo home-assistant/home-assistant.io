@@ -106,7 +106,7 @@ Everything is open source!
 Not open enough for you? We are publishing the result for everybody to see:
 
 <p class='img'>
-<img src='/images/blog/2021-04/analytics.png' alt='Screenshot of the Home Assistant Analytics website'>
+<a href="https://analytics.home-assistant.io" target="_blank"><img src='/images/blog/2021-04/analytics.png' alt='Screenshot of the Home Assistant Analytics website'></a>
 Screenshot of the Home Assistant Analytics website.
 </p>
 
@@ -129,7 +129,7 @@ Want to help the project out? Please enable Home Assistant Analytics. We
 would be very grateful!
 
 You can find the settings in the {% my general title="general configuration options" %},
-or click the My Home Assistant button below to go directly to it.
+or click the My Home Assistant button below to go directly to it. (Only visible to owner users)
 
 {% my general badge %}
 
