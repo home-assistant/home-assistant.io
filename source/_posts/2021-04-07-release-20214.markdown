@@ -344,7 +344,7 @@ The following integration got support for a new platform:
 - [Philips TV][philips_js docs] now has support for remotes, added by [@elupus]
 - [Rheem EcoNet Products] now have support for climate entities, added by [@w1ll1am23].
 - [Supervisor][hassio docs] integration now has entities and services for things like versions and pending updates, added by [@raman325]
-- [Tado] now has weather support, added by [@Noltari]
+- [Tado][tado docs] now has weather support, added by [@Noltari]
 
 ## Integrations now available to set up from the UI
 
