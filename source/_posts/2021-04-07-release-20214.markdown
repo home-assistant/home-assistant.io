@@ -844,6 +844,8 @@ The following integrations are no longer available as of this release:
 
 - **Griddy** has been removed, Ercot shut down Griddy after the massive power
   mess in Texas in mid February. ([@bdraco] - [#47218])
+- **Social Blade** has been removed as it was broken and violated ADR-004 
+  which prohibits integrations that rely on web scraping. ([@frenck] - [#48677])
 
 ## All changes
 
@@ -2171,6 +2173,7 @@ The following integrations are no longer available as of this release:
 [#48647]: https://github.com/home-assistant/core/pull/48647
 [#48660]: https://github.com/home-assistant/core/pull/48660
 [#48667]: https://github.com/home-assistant/core/pull/48667
+[#48677]: https://github.com/home-assistant/core/pull/48677
 [#48682]: https://github.com/home-assistant/core/pull/48682
 [#48691]: https://github.com/home-assistant/core/pull/48691
 [#48710]: https://github.com/home-assistant/core/pull/48710
