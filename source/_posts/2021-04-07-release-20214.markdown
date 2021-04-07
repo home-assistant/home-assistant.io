@@ -287,7 +287,7 @@ creating advanced scripts that you can later easily reuse in your UI
 Screenshot of scripts using selects in its fields.
 </p>
 
-For more details on these new field configuration option, see the
+For more details on these new field configuration options, see the
 [scripts documentation](/integrations/script)
 
 ## Other noteworthy changes
@@ -815,6 +815,16 @@ timeout starting up because each ping has to happen in the
 executor.
 
 ([@bdraco] - [#43869]) ([ping docs])
+
+{% enddetails %}
+
+{% details "Plex Media Server" %}
+
+Devices representing Plex Web `media_player` devices are now removed. Any
+automations, scenes, or scripts based on the device will need to be changed
+to use the `media_player` entity.
+
+([@jjlawren] - [#48369]) ([plex docs])
 
 {% enddetails %}
 
@@ -1497,6 +1507,8 @@ The following integrations are no longer available as of this release:
 - Remove login details before logging SQL errors ([@emontnemery] - [#48758]) ([sql docs]) (beta fix)
 - Fix whitespace error in cast ([@emontnemery] - [#48763]) ([cast docs]) (beta fix)
 - Update frontend to 20210407.0 ([@bramkragten] - [#48765]) ([frontend docs]) (beta fix)
+- Reject nan, inf from generic_thermostat sensor ([@emontnemery] - [#48771]) (beta fix)
+- Update frontend to 20210407.1 ([@bramkragten] - [#48778]) ([frontend docs]) (beta fix)
 
 {% enddetails %}
 
@@ -2168,6 +2180,8 @@ The following integrations are no longer available as of this release:
 [#48758]: https://github.com/home-assistant/core/pull/48758
 [#48763]: https://github.com/home-assistant/core/pull/48763
 [#48765]: https://github.com/home-assistant/core/pull/48765
+[#48771]: https://github.com/home-assistant/core/pull/48771
+[#48778]: https://github.com/home-assistant/core/pull/48778
 [@Adminiuga]: https://github.com/Adminiuga
 [@Antoni-Czaplicki]: https://github.com/Antoni-Czaplicki
 [@B-Hartley]: https://github.com/B-Hartley
