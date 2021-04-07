@@ -59,7 +59,7 @@ Plugs are type `switch` when autodiscovery has been disabled.
 
 ### Bulbs
 
-Other bulbs may also work, but with limited color temperatures.  If you find a bulb isn't reaching the full color temperature boundaries, submit a bug report.
+Other bulbs may also work, but with limited color temperatures. If you find a bulb isn't reaching the full-color temperature boundaries, submit a bug report.
 
 - LB100
 - LB110
