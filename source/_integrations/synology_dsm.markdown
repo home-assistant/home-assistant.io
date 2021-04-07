@@ -53,61 +53,49 @@ If you denied access to all locations and applications it is normal to receive a
 
 ## Sensors
 
-Utilisation:
-- `cpu_load_other`: Displays unspecified (that is, not user or system) load in percentage.
-- `cpu_load_user`: Displays user load in percentage.
-- `cpu_load_system`: Displays system load in percentage.
-- `cpu_load_total`: Displays combined load in percentage.
-- `cpu_load_1min`: Displays maximum load in past minute.
-- `cpu_load_5min`: Displays maximum load in past 5 minutes.
-- `cpu_load_15min`: Displays maximum load in past 15 minutes.
-- `memory_usage_real`: Displays percentage of memory used.
-- `memory_size`: Displays total size of memory in MB.
-- `memory_cached`: Displays total size of cache in MB.
-- `memory_available_swap`: Displays total size of available swap in MB.
-- `memory_available_real`: Displays total size of memory used (based on real memory) in MB.
-- `memory_total_swap`: Displays total size of actual memory in MB.
-- `memory_total_real`: Displays total size of real memory in MB.
-- `network_up`: Displays total up speed of network interfaces (combines all interfaces).
-- `network_down`: Displays total down speed of network interfaces (combines all interfaces).
+### CPU Utilisation sensors
 
-Information:
-- `temperature`: Displays the temperature of the NAS.
-- `last_boot`: Displays the uptime of the NAS (in seconds).
+Entities reporting the current and combined CPU utilisation of the NAS. There are sensors the report the current CPU load, seperated by User, System and other. By default only the User sensor is enabled.
 
-For each disk:
-- `disk_x_status_smart`: Displays the S.M.A.R.T status of the disk.
-- `disk_x_status`: Displays the status of the disk.
-- `disk_x_temperature`: Displays the temperature of the disk.
+There are also combined CPU load sensors. These report the total CPU load for the entire NAS. Available as current, 1min, 5min and 15min load sensors. By default the 1min load sensor is disabled.
 
-For each volume:
-- `volume_x_status`: Displays the status of the volume.
-- `volume_x_total_size`: Displays the total size of the volume in TB's.
-- `volume_x_used_size`: Displays the used space on this volume in TB's.
-- `volume_x_volume_used`: Displays the percentage used for this volume.
-- `volume_x_average_disk_temp`: Displays the average temperature of all disks in the volume.
-- `volume_x_maximum_disk_temp`: Displays the maximum temperature of all disks in the volume.
+### Memory Utilisation sensors
 
+Entities reporting the current and combined memory and swap utilisation of the NAS. These sensors include the total installed amount, the currently free amount and the % of memory used. 
+
+### Network sensors
+
+Entities reporting the current network transfer rates of the NAS. Both upload and download sensors are available.
+
+### General sensors
+
+Entities reporting the internal temperature and the uptime of the NAS. The uptime sensor is disabled by default.
+
+### Disk sensors
+
+Entities reporting the internal temperature, status (as shown in Synology DSM) and SMART status for each drive inside the NAS. The SMART status sensor is disabled by default.
+
+### Volume sensors
+
+Entities reporting status, total size (TB), used size (TB), % of volume used, average disk temperature and maximum disk temperature for each volume inside the NAS. By default the total size and maximum disk temperature sensors are disabled.
 
 ## Binary sensors
 
-Security:
-- `security_status`: Displays safe to indicate if the NAS is safe.
+### General sensors
 
-Upgrade:
-- `update_available`: Displays on if a DSM update is available.
+Entities reporting the update and security status of the NAS.
 
-For each disk:
-- `drive_x_exceeded_max_bad_sectors`: Displays on to indicate if the disk exceeded the maximum bad sector threshold. (Does not work with DSM 5.x)
-- `drive_x_below_min_remaining_life`: Displays on to indicate if the disk dropped below the remain life threshold. (Does not work with DSM 5.x)
+### Disk sensors
 
+Similar to the [normal disk sensors](#disk-sensors), there are binary sensors reporting each drive's status. These sensors report if a drive has exceeded the maximum threshold for detected bad sectors and if a drive has dropped below the threshold for it's remaining life.
 
 ## Switch
-- `home_mode`: Displays a toggle to enable/disable the [Surveillance Station](https://www.synology.com/en-us/surveillance) Home mode.
 
+A switch is available to enable/disable the [Surveillance Station](https://www.synology.com/en-us/surveillance) Home mode.
 
 ## Cameras
-- `{camera_name}`: Displays cameras added in [Surveillance Station](https://www.synology.com/en-us/surveillance).
+
+For each camera added in [Surveillance Station](https://www.synology.com/en-us/surveillance), a camera will be created in Home Assistant.
 
 ## Services
 
