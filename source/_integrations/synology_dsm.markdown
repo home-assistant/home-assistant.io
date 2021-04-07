@@ -55,7 +55,7 @@ If you denied access to all locations and applications it is normal to receive a
 
 ### CPU Utilisation sensors
 
-Entities reporting the current and combined CPU utilisation of the NAS. There are sensors the report the current CPU load, seperated by User, System and other. By default only the User sensor is enabled.
+Entities reporting the current and combined CPU utilisation of the NAS. There are sensors the report the current CPU load, separated by User, System and other. By default only the User sensor is enabled.
 
 There are also combined CPU load sensors. These report the total CPU load for the entire NAS. Available as current, 1min, 5min and 15min load sensors. By default the 1min load sensor is disabled.
 
