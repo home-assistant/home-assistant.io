@@ -352,7 +352,7 @@ The following integration got support for a new platform:
 - [Gogogate2 and iSmartGate][gogogate2 docs] provides battery sensors for wiresless door sensors, added by [@emontnemery]
 - [Panasonic Viera][panasonic_viera docs] has now support for remotes, added by [@joogps]
 - [Philips TV][philips_js docs] now has support for remotes, added by [@elupus]
-- [Rheem EcoNet Products][ecobee docs] now have support for climate entities, added by [@w1ll1am23].
+- [Rheem EcoNet Products][econet docs] now have support for climate entities, added by [@w1ll1am23].
 - [Supervisor][hassio docs] integration now has entities and services for things like versions and pending updates, added by [@raman325]
 - [Tado][tado docs] now has weather support, added by [@Noltari]
 
