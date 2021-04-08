@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2021-04-09-android-april-2021/Companion.png
 ---
 
-Hey Everyone! Its time for the April 2021 Android release. We told you guys last month that we would be aligning our releases closer to Home Assistant core so here we are! Another month went by and the Android app has started to see more contributers coming along. Thank you for everyone who has come by this month to contribute to all the awesome features this month. Hopefully you will join us next month as we can always use more contributers to move forward faster.
+Hey Everyone! Its time for the April 2021 Android release. Last month we wrote that we would be aligning our releases closer to Home Assistant core so here we are! Another month went by and the Android app has started to see more contributors coming along. Thank you for everyone who has come by this month to contribute to all the awesome features this month. Hopefully you will join us next month as we can always use more contributors to move forward faster.
 
 ## In-App Log Viewer
 
