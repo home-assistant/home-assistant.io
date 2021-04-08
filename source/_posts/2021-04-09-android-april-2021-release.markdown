@@ -1,8 +1,8 @@
 ---
 title: "Home Assistant Companion Android App April 2021 Release"
 description: "Search/Filter, In-App Log Viewer & Shortcuts in the April 2021 Android Release"
-date: 2021-04-07 00:00:00
-date_formatted: "April 9, 2021"
+date: 2021-04-08 00:00:00
+date_formatted: "April 8, 2021"
 comments: true
 author: Daniel Shokouhi
 categories: Release-Notes
