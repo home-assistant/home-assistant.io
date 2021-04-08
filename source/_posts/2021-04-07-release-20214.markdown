@@ -364,6 +364,54 @@ The following integrations are now available via the Home Assistant UI:
 - [Hive][hive docs], done by [@KJonline]
 - [Verisure][verisure docs], done by [@frenck]
 
+## Release 2021.4.1 - April 8
+
+- Check all endpoints for zwave_js.climate fan mode and operating state ([@raman325] - [#48800]) ([zwave_js docs])
+- Add missing super call in Verisure Camera entity ([@JohNan] - [#48812]) ([verisure docs])
+- Fix iCloud extra attributes ([@nzapponi] - [#48815]) ([icloud docs])
+- Replace redacted stream recorder credentials with '****' ([@emontnemery] - [#48832]) ([stream docs])
+- Fix mysensor cover closed state ([@MartinHjelmare] - [#48833]) ([mysensors docs])
+- Validate supported_color_modes for MQTT JSON light ([@emontnemery] - [#48836]) ([light docs]) ([mqtt docs])
+- Bump speedtest-cli to 2.1.3 ([@spacegaier] - [#48861]) ([speedtestdotnet docs])
+- Correct wrong x in frontend manifest ([@bramkragten] - [#48865]) ([frontend docs])
+- Fix motion_blinds gateway signal strength sensor ([@starkillerOG] - [#48866]) ([motion_blinds docs])
+- Fix possibly missing changed_by in Verisure Alarm ([@frenck] - [#48867]) ([verisure docs])
+- Fix optional data payload in Prowl messaging service ([@frenck] - [#48868]) ([prowl docs])
+- Update frontend to 20210407.2 ([@bramkragten] - [#48888]) ([frontend docs])
+
+[#48800]: https://github.com/home-assistant/core/pull/48800
+[#48812]: https://github.com/home-assistant/core/pull/48812
+[#48815]: https://github.com/home-assistant/core/pull/48815
+[#48832]: https://github.com/home-assistant/core/pull/48832
+[#48833]: https://github.com/home-assistant/core/pull/48833
+[#48836]: https://github.com/home-assistant/core/pull/48836
+[#48861]: https://github.com/home-assistant/core/pull/48861
+[#48865]: https://github.com/home-assistant/core/pull/48865
+[#48866]: https://github.com/home-assistant/core/pull/48866
+[#48867]: https://github.com/home-assistant/core/pull/48867
+[#48868]: https://github.com/home-assistant/core/pull/48868
+[#48888]: https://github.com/home-assistant/core/pull/48888
+[@JohNan]: https://github.com/JohNan
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@nzapponi]: https://github.com/nzapponi
+[@raman325]: https://github.com/raman325
+[@spacegaier]: https://github.com/spacegaier
+[@starkillerOG]: https://github.com/starkillerOG
+[frontend docs]: /integrations/frontend/
+[icloud docs]: /integrations/icloud/
+[light docs]: /integrations/light/
+[motion_blinds docs]: /integrations/motion_blinds/
+[mqtt docs]: /integrations/mqtt/
+[mysensors docs]: /integrations/mysensors/
+[prowl docs]: /integrations/prowl/
+[speedtestdotnet docs]: /integrations/speedtestdotnet/
+[stream docs]: /integrations/stream/
+[verisure docs]: /integrations/verisure/
+[zwave_js docs]: /integrations/zwave_js/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
