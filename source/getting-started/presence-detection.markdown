@@ -23,8 +23,7 @@ During the setup of Home Assistant Companion on your mobile device, the app will
 
 ### Room based presence detection
 
-Presence detetion is not limited to tell if a you are home or not. You can use PIR motion sensors which is provided by brands several brands. The sensor will be exposed as a [binary sensor][binary-sensor] inside Home Assistant and can then be used to trigger all kinds of cool automations. The most basic is to control the lights. This can be done using this blueprint.
-[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fmy.home-assistant.io%2Fredirect%2Fblueprint_import%2F%3Fblueprint_url%3Dhttps%253A%252F%252Fcommunity.home-assistant.io%252Ft%252Fturn-light-on-and-off-based-on-detected-motion%252F255994)
+Presence detetion is not limited to tell if a you are home or not. You can use PIR motion sensors which is provided by brands several brands. The sensor will be exposed as a [binary sensor][binary-sensor] inside Home Assistant and can then be used to trigger all kinds of cool automations. The most basic would be to turn on the lights when motion is detected. 
 
 ### Zones
 
