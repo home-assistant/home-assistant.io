@@ -188,6 +188,10 @@ binary_sensors:
       description: The number of the slave.
       required: false
       type: integer
+    address:
+      description: Address of the Register.
+      required: false
+      type: integer
 {% endconfiguration %}
 
 
