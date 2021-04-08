@@ -631,6 +631,7 @@ modbus:
         offset: 0
         precision: 1
         data_type: integer
+        scan_interval: 10
 ```
 
 ### Configuring platform switch
@@ -733,9 +734,11 @@ modbus:
         slave: 1
         address: 13
         input_type: coil
+        scan_interval: 10
       - name: Switch2
         slave: 2
         address: 14
+        scan_interval: 10
 ```
 
 #### Multiple connections
