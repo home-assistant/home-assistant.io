@@ -15,7 +15,7 @@ Hey Everyone! It's time for the April 2021 Android release. Last month we wrote 
 
 This release has a new feature that will make viewing and sharing the logs MUCH easier. Some of you may recall the large number of steps needed to get Android logs when you open issues. This usually involved installing [Android Studio](https://developer.android.com/studio) or another app and having to plug your device into a computer to grant some special ADB permissions. This was very difficult to get set up for the average user and just wasn't user-friendly.
 
-Now when you navigate to App Configuration you will see a new Show and Share Logs section that will show all the logs from our app. This will include debug logs that we may have placed to help you troubleshoot issues such as location not updating or if the app has used the correct URL. You are not only able to view this log but also share and select from it so you can copy the logs to a [GitHub issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) for our team to look into.
+We've added a new option to the App Configuration called "Show and Share Logs". It will show all the logs from our app, including debug logs to help troubleshoot issues such as when the location does not update or if the app is using the correct URL. You are not only able to view this log but also share and select from it so you can copy the logs to a [GitHub issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) for our team to look into.
 
 <p class='img'>
 <img src='/images/blog/2021-04-09-android-april-2021/log_viewer.png' alt='Screenshot of in-app log viewer'></a>
