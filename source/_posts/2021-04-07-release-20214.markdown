@@ -694,7 +694,7 @@ to adjust them to match this change.
 
 {% enddetails %}
 
-{% details "MQTT" %}
+{% details "MQTT Fan" %}
 
 The [fan entity model](https://developers.home-assistant.io/docs/core/entity/fan/)
 has been changed. This impacts the way the MQTT Fan supports speeds and the
@@ -802,7 +802,7 @@ safely removed from your YAML configuration.
 
 {% enddetails %}
 
-{% details "SolarEdge" %}
+{% details "MQTT Light" %}
 
 MQTT JSON light now supports `color_mode` which should be used together with
 `supported_color_modes` to signal the light's features.
