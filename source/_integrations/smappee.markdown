@@ -30,7 +30,7 @@ This will provide you a limited number of entities only.
 If your home network doesn't support mDNS you can still manually initiate the Smappee integration by choosing the LOCAL option and entering the IP address of the Smappee monitor through the configuration flow.
 
 #### Sensor
-A sensor entity is being added for the current active power usage [Watt]. In case of solar production an entity for the active power production is added as well [Watt].
+A sensor entity is being added for the current active power usage. In case of solar production an entity for the active power production is added as well.
 
 Smappee Infinity devices will also provide entities for the current reactive, voltages for each phase and current active powers for each configured load (submeter).
 
@@ -55,12 +55,12 @@ smappee:
 Once Home Assistant restarted, go to Configuration > Integrations and select the Smappee integration. You will be redirected to a login page and be able to select the locations you would like to use within Home Assistant.
 
 #### Sensor
-Sensor entities are being added for the current active power usage [Watt],
-the always on active power [Watt], today's total consumption [Wh],
-total consumption during the current hour [Wh], total consumption during the last 5 minutes [Wh]
-and the always on (slumber) consumption from today [Wh]. In case of solar production entities for the active power production [Watt],
-today's total solar production [Wh]
-and the solar production during the current hour [Wh] are added as well.
+Sensor entities are being added for the current active power usage,
+the always on active power, today's total consumption,
+total consumption during the current hour, total consumption during the last 5 minutes
+and the always on (slumber) consumption from today. In case of solar production entities for the active power production,
+today's total solar production
+and the solar production during the current hour are added as well.
 
 Smappee Pro, Plus and Infinity devices will create current active powers for each configured load (submeter).
 
