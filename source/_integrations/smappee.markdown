@@ -64,7 +64,7 @@ and the solar production during the current hour are added as well.
 
 Smappee Pro, Plus and Infinity devices will create current active powers for each configured load (submeter).
 
-In case a Smappee Gas and/or Water meter is installed as well, an entity showing todays consumption is provided.
+In case a Smappee Gas and/or Water meter is installed as well, an entity showing today's consumption is provided.
 
 Additionally, Smappee Infinity devices will also provide entities for the line voltages and phase voltages (for each phase).
 
