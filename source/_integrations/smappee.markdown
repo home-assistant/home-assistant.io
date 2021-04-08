@@ -24,7 +24,7 @@ The Smappee integration will allow users to integrate their Smappee monitors, Sm
 
 ## Local discovery
 
-In most cases, the Smappee Energy, Solar, Plus, Pro and Infinity monitors will be automatically discovered by Home Assistant through network scanning.
+In most cases, the Smappee Energy, Solar, Plus, Pro and Genius monitors will be automatically discovered by Home Assistant through network scanning.
 Those automatically discovered Smappee devices are listed on the integrations page and can be configured without any additional details.
 This will provide you a limited number of entities only.
 If your home network doesn't support mDNS you can still manually initiate the Smappee integration by choosing the LOCAL option and entering the IP address of the Smappee monitor through the configuration flow.
@@ -32,7 +32,7 @@ If your home network doesn't support mDNS you can still manually initiate the Sm
 #### Sensor
 A sensor entity is being added for the current active power usage. In case of solar production an entity for the active power production is added as well.
 
-Smappee Infinity devices will also provide entities for the current reactive, voltages for each phase and current active powers for each configured load (submeter).
+Smappee Genius devices will also provide entities for the current reactive, voltages for each phase and current active powers for each configured load (submeter).
 
 #### Switch
 Switch entities are created for each Smappee Switch and Smappee Comfort Plug.
@@ -62,11 +62,11 @@ and the always on (slumber) consumption from today. In case of solar production 
 today's total solar production
 and the solar production during the current hour are added as well.
 
-Smappee Pro, Plus and Infinity devices will create current active powers for each configured load (submeter).
+Smappee Pro, Plus and Genius devices will create current active powers for each configured load (submeter).
 
 In case a Smappee Gas and/or Water meter is installed as well, an entity showing today's consumption is provided.
 
-Additionally, Smappee Infinity devices will also provide entities for the line voltages and phase voltages (for each phase).
+Additionally, Smappee Genius devices will also provide entities for the line voltages and phase voltages (for each phase).
 
 #### Switch
 Switch entities are created for each Smappee Switch, Smappee Comfort Plug and Smappee Output module.
