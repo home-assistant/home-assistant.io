@@ -15,12 +15,16 @@ Screenshot of Home Assistant showing a school, work and home zone and two people
 
 ### Adding presence detection
 
-There are different ways of setting up presence detection. Usually the easiest way to detect presence is by checking which devices are connected to the network. You can do that if you have one of our [supported routers][routers]. By leveraging what your router already knows, you can easily detect if people are at home.
+There are different ways of setting up presence detection using the official intergrations. Usually the easiest way to detect presence is by checking which devices are connected to the network. You can do that if you have one of our [supported routers][routers] which will provide information on which devices are connected. By leveraging what your router already knows, you can easily detect if people are at home. One thing to consider is that some devices drop of the network to save battery, which could lead to false state changes.
 
-It's also possible to run an app on your phone to provide detailed location information to your Home Assistant instance. For iOS and Android, we suggest using the [Home Assistant Companion app][companion].
+It's also possible to run an app on your phone to provide detailed location information to your Home Assistant instance. For iOS and Android, we suggest using the [Home Assistant Companion app][companion]. The easiest way to configure remote access is to subscribe to [Nabu casa][nabu-casa]. This service removes the need to handle router settings, SSL certificates, and so much more.
 
 During the setup of Home Assistant Companion on your mobile device, the app will ask for permission to allow the device's location to be provided to Home Assistant. Allowing this will create a `device_tracker` entity for that device which can be used in automations and conditions.
 
+### Room based presence detection
+
+Presence detetion is not limited to tell if a you are home or not. You can use PIR motion sensors which is provided by brands several brands. The sensor will be exposed as a [binary sensor][binary-sensor] inside Home Assistant and can then be used to trigger all kinds of cool automations. The most basic is to control the lights. This can be done using this blueprint.
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fmy.home-assistant.io%2Fredirect%2Fblueprint_import%2F%3Fblueprint_url%3Dhttps%253A%252F%252Fcommunity.home-assistant.io%252Ft%252Fturn-light-on-and-off-based-on-detected-motion%252F255994)
 
 ### Zones
 
@@ -32,6 +36,7 @@ Zones allow you to name areas on a map. These areas can then be used to name the
 The map view will hide all devices that are home.
 </div>
 
+[binary-sensor] https://www.home-assistant.io/integrations/binary_sensor/
 [routers]: /integrations/#presence-detection
 [nmap]: /integrations/nmap_tracker
 [ha-bluetooth]: /integrations/bluetooth_tracker
@@ -46,5 +51,6 @@ The map view will hide all devices that are home.
 [condition]: /getting-started/automation-condition/#zone-condition
 [ha-map]: /integrations/map/
 [companion]: https://companion.home-assistant.io/
+[nabu-casa]: https://www.nabucasa.com/
 
 {% include getting-started/next_step.html step="Join the Community" link="/getting-started/join-the-community/" %}
