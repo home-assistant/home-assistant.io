@@ -20,13 +20,13 @@ ha_platforms:
   - switch
 ---
 
-The Smappee integration will allow users to integrate their Smappee monitors, plugs and switches into Home Assistant using the [official API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview) or the limited local API.
+The Smappee integration will allow users to integrate their Smappee monitors, Smappee Comfort Plugs and Smappee Switches into Home Assistant using the local API, local MQTT broker or the [official cloud API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview).
 
 ## Local discovery
 
-In most cases, the Smappee legacy devices (Energy and Solar) will be automatically discovered by Home Assistant through network scanning.
+In most cases, the Smappee Energy, Solar, Plus, Pro and Genius monitors will be automatically discovered by Home Assistant through network scanning.
 Those automatically discovered Smappee devices are listed on the integrations page and can be configured without any additional details.
-This will provide you a limited number of entities only (realtime power values, solar if applicable and the installed Smappee Comfort Plugs and Switches).
+This will provide you a limited number of entities only (realtime power values, solar if applicable and the installed Smappee Comfort Plugs and Smappee Switches).
 If your home network doesn't support mDNS you can still manually initiate the Smappee integration by choosing the LOCAL option and entering the IP address of the Smappee monitor through the configuration flow.
 
 If you have API credentials, we strongly suggest you use the Smappee cloud configured integration by following the scheme below.
