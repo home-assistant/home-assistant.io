@@ -28,6 +28,8 @@ ha_platforms:
 
 The `Tesla` integration offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.
 
+Note: MFA on your Tesla Account is not supported at this time.
+
 This integration provides the following platforms:
 
 - Binary sensors - such as update available, parking, and charger connection.
