@@ -32,7 +32,6 @@ This Hive integration uses the same username and password you use on the [Hive w
 
 {% include integrations/config_flow.md %}
 
-
 ## Options
 
 Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press the options button*
@@ -145,6 +144,7 @@ The `hive` switch platform integrates your Hive plugs into Home Assistant, enabl
 The platform supports the following Hive products:
 
 - Hive Active Plug
+- Hive Heat on Demand
 
 ### Water Heater
 
