@@ -16,7 +16,7 @@ Home Assistant allows users to share their usage data via the analytics integrat
 
 ## Data Collection
 
-The information sent depends on what you opt-in to. You can opt-in during onboarding and by going to **{% my general title="Configuration >> General" %}** when logged in with the _owner_ account.
+The information sent depends on what you opt-in to. You can opt-in during onboarding and by going to **{% my general title="Configuration >> General" %}**.
 
 **{% my general badge %}**
 
