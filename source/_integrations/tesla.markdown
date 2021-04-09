@@ -28,7 +28,6 @@ ha_platforms:
 
 The `Tesla` integration offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.
 
-Note: MFA on your Tesla Account is not supported at this time.
 
 This integration provides the following platforms:
 
@@ -40,6 +39,12 @@ This integration provides the following platforms:
 - Switch - Charger and max range switch to allow you to start/stop charging and set max range charging. Update switch to allow you to disable polling of vehicles to conserve battery. Sentry mode switch to enable or disable Sentry mode.
 
 {% include integrations/config_flow.md %}
+
+<div class='note warning'>
+  
+  Note: MFA on your Tesla Account is not supported at this time.
+
+</div>
 
 ## Options
 
