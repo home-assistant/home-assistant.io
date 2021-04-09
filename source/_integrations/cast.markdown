@@ -22,10 +22,10 @@ Support for mDNS discovery in your local network is mandatory. Make sure that yo
 Known hosts:
   description: "A comma separated list of host names or IP-addresses of cast devices, use if mDNS discovery is not working"
 Allowed UUIDs:
-  description: "A comma separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`. This option is only visible if advanced mode is available.
+  description: A comma separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))`. This option is only visible if advanced mode is enabled in your user profile.
 Ignore CEC:
-  description: "A comma separated list of Chromecasts that should ignore CEC data for determining the
-        active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)". This option is only visible if advanced mode is available.
+  description: A comma separated list of Chromecasts that should ignore CEC data for determining the
+        active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data). This option is only visible if advanced mode is enabled in your user profile.
 {% endconfiguration_basic %}
 
 ## Home Assistant Cast
@@ -188,7 +188,5 @@ Cast devices can only be automatically discovered if they are on the same subnet
 Setups with cast devices on a different subnet than Home Assistant are not recommended and not supported.
 If this is not possible, it's necessary to either enable mDNS forwarding between the subnets or to provide a list of known hosts.
 
-<div class='note warning'>
+### Docker
 When running Home Assistant Core in a [Docker container](/docs/installation/docker/), the command line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put it on the host's network, otherwise the Home Assistant Core will not be able to connect to any Cast device.
-</div>
-
