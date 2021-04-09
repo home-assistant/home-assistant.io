@@ -22,7 +22,6 @@ sensor:
   - platform: pvoutput
     system_id: YOUR_SYSTEM_ID
     api_key: YOUR_API_KEY
-    scan_interval: 120
 ```
 
 {% configuration %}
@@ -41,12 +40,6 @@ name:
   type: string
 {% endconfiguration %}
 
-<div class='note warning'>
-
-It's recommended to set `scan_interval:` according to a value greater than 60 seconds. The service only allows 60 requests per hour but the sensor's default is 30 seconds.
-
-</div>
-
 To format the PVoutput sensor it's recommended to use the [template component](/topics/templating/). For example:
 
 {% raw %}
@@ -56,7 +49,6 @@ sensor:
   - platform: pvoutput
     system_id: YOUR_SYSTEM_ID
     api_key: YOUR_API_KEY
-    scan_interval: 150
   - platform: template
     sensors:
       power_consumption:
