@@ -412,6 +412,51 @@ The following integrations are now available via the Home Assistant UI:
 [verisure docs]: /integrations/verisure/
 [zwave_js docs]: /integrations/zwave_js/
 
+## Release 2021.4.2 - April 9
+
+- Account for openweathermap 'dew_point' not always being present ([@hanskroner] - [#48826]) ([openweathermap docs])
+- Catch expected errors and log them in rituals perfume genie ([@milanmeu] - [#48870]) ([rituals_perfume_genie docs])
+- Extend media source URL expiry to 24h ([@emontnemery] - [#48912]) ([media_source docs])
+- Bump pykodi to 0.2.4 ([@cgtobi] - [#48913]) ([kodi docs])
+- Handle exceptions when looking for new version ([@ludeeus] - [#48922]) ([version docs])
+- Change discovery timeout from 10 to 60 ([@ludeeus] - [#48924]) ([hassio docs])
+- Fix "notify.events" trim() issue + add initial tests ([@spacegaier] - [#48928]) ([notify_events docs])
+- Bump pykodi to 0.2.5 ([@cgtobi] - [#48930]) ([kodi docs])
+- Bump ZHA quirks library ([@dmulcahey] - [#48931]) ([zha docs])
+- Extend Google Cast media source URL expiry to 24h ([@Ph-Wagner] - [#48937]) ([cast docs])
+- Fix Plex live TV handling ([@jjlawren] - [#48953]) ([plex docs])
+
+[#48826]: https://github.com/home-assistant/core/pull/48826
+[#48870]: https://github.com/home-assistant/core/pull/48870
+[#48912]: https://github.com/home-assistant/core/pull/48912
+[#48913]: https://github.com/home-assistant/core/pull/48913
+[#48922]: https://github.com/home-assistant/core/pull/48922
+[#48924]: https://github.com/home-assistant/core/pull/48924
+[#48928]: https://github.com/home-assistant/core/pull/48928
+[#48930]: https://github.com/home-assistant/core/pull/48930
+[#48931]: https://github.com/home-assistant/core/pull/48931
+[#48937]: https://github.com/home-assistant/core/pull/48937
+[#48953]: https://github.com/home-assistant/core/pull/48953
+[@Ph-Wagner]: https://github.com/Ph-Wagner
+[@cgtobi]: https://github.com/cgtobi
+[@dmulcahey]: https://github.com/dmulcahey
+[@emontnemery]: https://github.com/emontnemery
+[@hanskroner]: https://github.com/hanskroner
+[@jjlawren]: https://github.com/jjlawren
+[@ludeeus]: https://github.com/ludeeus
+[@milanmeu]: https://github.com/milanmeu
+[@spacegaier]: https://github.com/spacegaier
+[cast docs]: /integrations/cast/
+[hassio docs]: /integrations/hassio/
+[kodi docs]: /integrations/kodi/
+[media_source docs]: /integrations/media_source/
+[notify_events docs]: /integrations/notify_events/
+[openweathermap docs]: /integrations/openweathermap/
+[plex docs]: /integrations/plex/
+[rituals_perfume_genie docs]: /integrations/rituals_perfume_genie/
+[version docs]: /integrations/version/
+[zha docs]: /integrations/zha/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
