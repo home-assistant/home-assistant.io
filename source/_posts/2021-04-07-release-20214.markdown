@@ -324,7 +324,7 @@ Screenshot of selecting the number format you prefer.
 - [@marvin-w] added support for unique IDs to KNX entities. So, as a KNX user
   you can now tweak your entities in the frontend and group them into areas!
 - HomeKit now supports CO/CO2 device classes, thanks to [@iMicknl]!
-- [@robertdelpeut] added monthly and yearly totals to the DSMR sensor, thanks!
+- [@robertdelpeut] added monthly and yearly totals to the DMSR sensor, thanks!
 - Hyperion users can now hide certain effects from the UI using integration
   options. Thanks, [@dermotduffy]!
 - Got that one message in your logs that you don't care about? [@jshufro]
