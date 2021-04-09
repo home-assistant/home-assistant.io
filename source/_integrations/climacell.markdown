@@ -19,6 +19,10 @@ The ClimaCell integration allows you to obtain weather information from the [Cli
 
 You can obtain a free API key by signing up with [ClimaCell](https://developer.climacell.co/sign-up?_ga=2.137889264.1908484805.1591592950-510691096.1591288729).
 
+<div class="note">
+At this time, the integration only supports the v3 API. ClimaCell has stopped issuing API keys for the v3 API, so if you are just signing up, you will need to wait for the V4 update.
+</div>
+
 The integration will automatically set the refresh interval based on the number of ClimaCell integrations that are using the same API key for a given Home Assistant instance. The integration currently assumes you are using a free account so the max requests per day is 1000. If you want to use a paid account to increase the number of max requests and increase the update frequency, please open a Home Assistant issue for the integration.
 
 ## Supported Forecast Types

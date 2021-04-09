@@ -21,6 +21,6 @@ According to the [API documentation](https://www.weather.gov/documentation/servi
 
 Providing a METAR station code is optional, and if not supplied, the closest station to the latitude and longitude will be chosen. A list of nearby stations is printed to the log with level `DEBUG` if no station is supplied. Stations can also be found on the [NOAA website](https://www.cnrfc.noaa.gov/metar.php). Codes with only three characters, for example, `ADW` should be prefixed with the letter K, `KADW`.
 
-Two weather entities are created for each entry in the configuration: one for day and night forecasts and one for hourly forecasts. The hourly forecast entity is disabled after configuration but can be enabled by the user. The time supplied for each forecast is the start time for the forecast. Sensors are also created as disabled entities after configuration and can be enabled by the user.
+Two weather entities are created for each entry in the configuration: one for day and night forecasts and one for hourly forecasts. The hourly forecast entity is disabled after configuration but can be enabled by the user. The time supplied for each forecast is the start time for the forecast.
 
 Details about the API are available in the [NWS API documentation](https://www.weather.gov/documentation/services-web-api). The [pynws](https://github.com/MatthewFlamm/pynws) library is used to retrieve data.
