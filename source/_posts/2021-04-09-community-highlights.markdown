@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights: 16th edition"
-description: ""
+description: "Google Home custom integration so you can read timers and alarms, get started with the tempometer gauge card and a lot of new inspiration for your own Lovelace dashboard."
 date: 2021-04-09 00:00:00
 date_formatted: "April 9, 2021"
 author: Klaas Schoute
