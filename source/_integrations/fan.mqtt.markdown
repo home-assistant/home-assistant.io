@@ -217,12 +217,12 @@ retain:
   type: boolean
   default: true
 speed_range_min:
-  description: The minimum of numeric output range (`off` not included, so `speed_range_min` - 1 represents 0%).
+  description: The minimum of numeric output range (`off` not included, so `speed_range_min` - 1 represents 0%). The number of speeds within the speed_range / 100 will determine the `percentage_step`.
   required: false
   type: integer
   default: 1
 speed_range_max:
-  description: The maximum of numeric output range (representing 100%).
+  description: The maximum of numeric output range (representing 100%). The number of speeds within the speed_range / 100 will determine the `percentage_step`.
   required: false
   type: integer
   default: 100
@@ -253,6 +253,7 @@ In this section you find some real-life examples of how to use this fan.
 ### Full configuration
 
 The example below shows a full configuration for a MQTT fan using percentage and preset modes.
+There are 10 speeds within the speed range, so  `percentage_step` = 100 / 10 steps = 10.0 %.
 
 ```yaml
 # Example using percentage based speeds with preset modes configuration.yaml
@@ -279,10 +280,10 @@ fan:
     payload_oscillation_on: "true"
     payload_oscillation_off: "false"
     speed_range_min: 1
-    speed_range_max: 100
+    speed_range_max: 10
 ```
 
-{% raw %}}
+{% raw %}
 
 This example demonstrates how to use command templates with JSON output.
 
