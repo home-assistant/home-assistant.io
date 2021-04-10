@@ -71,6 +71,10 @@ verify_ssl:
   required: false
   default: true
   type: boolean
+rtsp_transport:
+  description: "Set the RTSP transport protocol to `tcp`, `udp`, `udp_multicast` or `http`."
+  required: false
+  type: string
 {% endconfiguration %}
 
 <p class='img'>
