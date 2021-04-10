@@ -679,7 +679,7 @@ switches:
       required: true
       type: integer
     input_type:
-      description: type of adddress (holding/discrete/coil)
+      description: type of adddress (holding/input/coil)
       required: false
       default: holding
       type: integer
