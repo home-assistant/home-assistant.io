@@ -55,13 +55,13 @@ If you denied access to all locations and applications it is normal to receive a
 
 ### CPU Utilisation sensors
 
-Entities reporting the current and combined CPU utilisation of the NAS. There are sensors the report the current CPU load, separated by User, System and other. By default only the User sensor is enabled.
+Entities reporting the current and combined CPU utilization of the NAS. There are sensors the report the current CPU load, separated by User, System and others. By default, only the User sensor is enabled.
 
 There are also combined CPU load sensors. These report the total CPU load for the entire NAS. Available as current, 1min, 5min and 15min load sensors. By default the 1min load sensor is disabled.
 
 ### Memory Utilisation sensors
 
-Entities reporting the current and combined memory and swap utilisation of the NAS. These sensors include the total installed amount, the currently free amount and the % of memory used. 
+Entities reporting the current and combined memory and swap utilization of the NAS. These sensors include the total installed amount, the currently free amount and the % of memory used. 
 
 ### Network sensors
 
@@ -87,7 +87,7 @@ Entities reporting the update and security status of the NAS.
 
 ### Disk sensors
 
-Similar to the [normal disk sensors](#disk-sensors), there are binary sensors reporting each drive's status. These sensors report if a drive has exceeded the maximum threshold for detected bad sectors and if a drive has dropped below the threshold for it's remaining life.
+Similar to the [normal disk sensors](#disk-sensors), there are binary sensors reporting each drive's status. These sensors report if a drive has exceeded the maximum threshold for detected bad sectors and if a drive has dropped below the threshold for its remaining life.
 
 ## Switch
 
