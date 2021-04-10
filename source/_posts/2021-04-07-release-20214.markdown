@@ -459,6 +459,38 @@ The following integrations are now available via the Home Assistant UI:
 [version docs]: /integrations/version/
 [zha docs]: /integrations/zha/
 
+## Release 2021.4.3 - April 10
+
+- Add TTS engines in config.components ([@ludeeus] - [#48939]) ([tts docs])
+- Implement percentage_step and preset_mode is not not speed fix for MQTT fan ([@jbouwh] - [#48951]) ([mqtt docs])
+- Bump devolo Home Control to support old websocket-client versions again ([@Shutgun] - [#48960]) ([devolo_home_control docs])
+- Fix config forwarding ([@balloob] - [#48967]) ([template docs])
+- Prevent ping id allocation conflict with device_tracker ([@bdraco] - [#48969]) ([ping docs])
+- Fix Shelly button device triggers ([@thecode] - [#48974]) ([shelly docs])
+- Update python-smarttub to 0.0.23 ([@mdz] - [#48978]) ([smarttub docs])
+
+[#48939]: https://github.com/home-assistant/core/pull/48939
+[#48951]: https://github.com/home-assistant/core/pull/48951
+[#48960]: https://github.com/home-assistant/core/pull/48960
+[#48967]: https://github.com/home-assistant/core/pull/48967
+[#48969]: https://github.com/home-assistant/core/pull/48969
+[#48974]: https://github.com/home-assistant/core/pull/48974
+[@Shutgun]: https://github.com/Shutgun
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@jbouwh]: https://github.com/jbouwh
+[@ludeeus]: https://github.com/ludeeus
+[@thecode]: https://github.com/thecode
+[devolo_home_control docs]: /integrations/devolo_home_control/
+[mqtt docs]: /integrations/mqtt/
+[ping docs]: /integrations/ping/
+[shelly docs]: /integrations/shelly/
+[template docs]: /integrations/template/
+[tts docs]: /integrations/tts/
+[#48978]: https://github.com/home-assistant/core/pull/48978
+[@mdz]: https://github.com/mdz
+[smarttub docs]: /integrations/smarttub/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
