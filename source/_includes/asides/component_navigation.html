@@ -19,7 +19,7 @@
   {%- endif -%}
 
   <div class='section'>
-    The {{ page.name | default: page.title }} integration was introduced with Home Assistant {{ page.ha_release | default: "unknown" }},
+    The {{ page.name | default: page.title }} integration was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
     and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io" target="_blank" rel="noopener">
     {{ 100 | times: site.data.analytics_data.integrations[page.ha_domain] | divided_by: site.data.analytics_data.reports_integrations | ceil }}%</a> of the active installations.
     Its IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup> is {{ page.ha_iot_class | default: "unknown" }}
