@@ -53,8 +53,8 @@
     {%- if site.data.analytics_data.integrations[page.ha_domain] -%}
       {% assign percentage = 100 | times: site.data.analytics_data.integrations[page.ha_domain] | divided_by: site.data.analytics_data.reports_integrations | ceil %}
       <div class='section analytics-data'>
-        <span>Active in {{ percentage }}% Home Assistant installations<i>*</i></span>
-        <i>*Calculated by the <a href="/integrations/analytics">Analytics integration</a></i>
+        Used by {{ percentage }}% of the Home Assistant installations<i>*</i>
+        <i>*Calculated by the <a href="https://analytics.home-assistant.io" target="_blank" rel="noopener">Analytics integration</a></i>
       </div>
     {%- endif -%}
   {%- endif -%}
