@@ -19,8 +19,7 @@ It also exposes an RTSP stream, by using the local camera IPs (so the device hos
 
 As there is no official documentation for the API, the component retrieves data from the API used in the Ezviz mobile app, [hosted here](https://apiieu.ezvizlife.com).
 
-As you see, here is the way to describe the camera credentials.
-The password for each camera is usually written underneath the device, near the QR code. It is also code "verification code".
+The password for each camera is usually written near the QR code. This could be underneath the device or in the user manual. It is usually referred to as the camera "verification code".
 
 {% include integrations/config_flow.md %}
 
