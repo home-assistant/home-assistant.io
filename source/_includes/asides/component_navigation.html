@@ -50,8 +50,13 @@
     <div class='section'>
       Source: <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>View on GitHub</a>
     </div>
-    <div id="integration_usage" class='section' style='margin-bottom: 0;'>
-    </div>
+    {%- if site.data.analytics_data.integrations[page.ha_domain] -%}
+      {% assign percentage = 100 | times: site.data.analytics_data.integrations[page.ha_domain] | divided_by: site.data.analytics_data.reports_integrations | ceil %}
+      <div class='section analytics-data'>
+        <span>Active in {{ percentage }}% Home Assistant installations<i>*</i></span>
+        <i>*Calculated by the <a href="/integrations/analytics">Analytics integration</a></i>
+      </div>
+    {%- endif -%}
   {%- endif -%}
 
   {%- if page.ha_category.first -%}
@@ -69,5 +74,4 @@
 
 </section>
 
-<script id="integration_usage_script" domain="{{ page.ha_domain }}" src="/javascripts/integration_usage.js"></script>
 <script src="https://alerts.home-assistant.io/ce-alert-link.js"></script>
