@@ -44,6 +44,8 @@ Enjoy the release!
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.4.1 - April 8](#release-202141---april-8)
+- [Release 2021.4.2 - April 9](#release-202142---april-9)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
