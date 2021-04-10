@@ -73,7 +73,6 @@ Save the last recorded video of a camera to a local file. Note that in most case
 | `name`                 | no       | Name of camera containing video to save. |
 | `filename`             | no       | Location of save file.                   |
 
-
 ```yaml
 homeassistant:
   allowlist_external_dirs:
@@ -91,7 +90,7 @@ Send a new pin to blink.  Since Blink's 2FA implementation is new and changing, 
 
 ### Other Services
 
-In addition to the services mentioned above, there are generic `camera` and `alarm_control_panel` services available for use as well. The `camera.enable_motion_detection` and `camera.disable_motion_detection` services allow for individual cameras to be enabled and disabled, respectively, within the Blink system. The `alarm_control_panel.alarm_arm_away` and `alarm_control_panel.alarm_disarm` services allow for the whole system to be armed and disarmed, respectively.  Blink Mini cameras linked to an existing sync module cannot be armed/disarmed via Home Assistant.
+In addition to the services mentioned above, there are generic `camera` and `alarm_control_panel` services available for use as well. The `camera.enable_motion_detection` and `camera.disable_motion_detection` services allow for individual cameras to be enabled and disabled, respectively, within the Blink system. The `alarm_control_panel.alarm_arm_away` and `alarm_control_panel.alarm_disarm` services allow for the whole system to be armed and disarmed, respectively.  Blink Mini cameras linked to an existing sync module cannot be armed/disarmed individually via Home Assistant.
 
 ## Examples
 
