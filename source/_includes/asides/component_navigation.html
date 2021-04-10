@@ -19,19 +19,19 @@
   {%- endif -%}
 
   <div class='section'>
-    The {{ page.name | default: page.title }} integration was added with the {{ page.ha_release | default: "0.7" }} release.
     {% assign percentage = 100 | times: site.data.analytics_data.integrations[page.ha_domain] | divided_by: site.data.analytics_data.reports_integrations | ceil %}
-    <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io" target="_blank" rel="noopener">{{ percentage }}%</a> of Home Assistant installations is using this integration
-    {%- if page.ha_iot_class -%}
-    , it features a {{ page.ha_iot_class }} IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>
-    {%- endif -%}
+    {% assign iot_class = page.ha_iot_class | default: "unknown" %}
+
+    The {{ page.name | default: page.title }} integration was added in Home Assistant {{ page.ha_release | default: "unknown" }}.
+    and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io" target="_blank" rel="noopener">{{ percentage }}%</a> of the active installations.
+    It's IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup> is {{ iot_class }}
 
     {% if page.ha_quality_scale -%}
-    {%- if page.ha_iot_class %} and a {%- else %} it features a {%- endif -%}
-      <a href='/docs/quality_scale/'> {{page.ha_quality_scale}} </a>quality scale
+      and scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale.</a>
     {%- endif -%}
-    {%- if page.ha_domain -%}
-    . You can find the source for this integration on <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>GitHub</a>.
+
+    {% if page.ha_domain %}
+    You can find the source for this integration on <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>GitHub</a>.
     {%- endif -%}
   </div>
 
