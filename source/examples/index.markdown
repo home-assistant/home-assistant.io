@@ -19,7 +19,7 @@ A great place to find popular configurations is on this
 [automations]: /getting-started/automation/
 [github-search]: https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories
 
-## Popular blueprints
+## Popular Blueprints
 
 This is a list of the most popular [blueprints](/integrations/blueprint) in the [Blueprint Exchange category on the forums](https://community.home-assistant.io/c/blueprints-exchange/53/l/top/all).
 
