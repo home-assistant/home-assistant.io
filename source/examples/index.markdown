@@ -1,8 +1,7 @@
 ---
-title: "Cookbook"
+title: "Examples"
 description: "Community maintained list of different ways to use Home Assistant."
 sidebar: false
-regenerate: true
 feedback: false
 ---
 
@@ -20,20 +19,27 @@ A great place to find popular configurations is on this
 [automations]: /getting-started/automation/
 [github-search]: https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories
 
-{% assign cookbook = site.cookbook | sort: 'title' %}
-{% assign categories = cookbook | map: 'ha_category' | uniq | sort %}
+## Popular blueprints
+
+This is a list of the most popular [blueprints](/integrations/blueprint) in the [Blueprint Exchange category on the forums](https://community.home-assistant.io/c/blueprints-exchange/53/l/top/all).
+
+{% for post in site.data.blueprint_exchange_data limit:25 %}
+
+- [{{post.title}}](https://community.home-assistant.io/t/{{post.id}})
+
+{%- for tag in post.tags %}
+  [`{{tag}}`](https://community.home-assistant.io/tag/{{tag}})
+  {%- endfor -%}
+{% endfor %}
+
+{% assign examples = site.examples | sort: 'title' %}
+{% assign categories = examples | map: 'ha_category' | uniq | sort %}
+
 {% for category in categories %}
+
 ## {{ category }}
 
-  {% if category == 'Automation Examples' %}
-
-  {% elsif category == 'Full configuration.yaml examples' %}
-Some users keep a public scrubbed copy of their `configuration.yaml` to learn from.
-  {% elsif category == '' %}
-
-  {% endif %}
-
-  {% for recipe in cookbook %}
+  {% for recipe in examples %}
     {% if recipe.ha_category == category %}
       {% if recipe.ha_external_link %}
   * [{{recipe.title}} <i class="icon-external-link"></i>]({{recipe.ha_external_link}})

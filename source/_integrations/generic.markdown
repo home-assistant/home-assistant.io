@@ -78,7 +78,7 @@ rtsp_transport:
 {% endconfiguration %}
 
 <p class='img'>
-  <a href='/cookbook/google_maps_card/'>
+  <a href='/examples/google_maps_card/'>
     <img src='/images/integrations/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
     Example showing the Generic camera platform pointing at a dynamic Google Map image.
   </a>

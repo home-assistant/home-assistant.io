@@ -33,6 +33,8 @@ task :generate do
   abort("Generating CSS failed") unless success
   success = system "rake analytics_data"
   abort("Generating analytics data failed") unless success
+  success = system "rake blueprint_exchange_data"
+  abort("Generating blueprint exchange data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   if ENV["CONTEXT"] != 'production'
@@ -68,7 +70,8 @@ task :preview, :listen do |t, args|
   puts "Starting to watch source with Jekyll and Compass."
   puts "Now listening on http://localhost:#{server_port}"
   system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
-  success = system "rake analytics_data"
+  system "rake analytics_data"
+  system "rake blueprint_exchange_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   compassPid = Process.spawn("compass watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
@@ -184,7 +187,17 @@ task :analytics_data do
   File.open("#{source_dir}/_data/analytics_data.json", "w") do |file|
     file.write(JSON.generate(remote_data[last_entry]))
   end
+end
 
+desc "Download data from the blueprint exchange @ community.home-assistant.io"
+task :blueprint_exchange_data do
+  uri = URI('https://community.home-assistant.io/c/blueprints-exchange/53/l/top/all.json')
+
+  remote_data = JSON.parse(Net::HTTP.get(uri))
+
+  File.open("#{source_dir}/_data/blueprint_exchange_data.json", "w") do |file|
+    file.write(JSON.generate(remote_data['topic_list']['topics']))
+  end
 end
 
 def get_stdin(message)
