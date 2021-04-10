@@ -26,12 +26,12 @@
     , it features a {{ page.ha_iot_class }} IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>
     {%- endif -%}
 
-    {% if page.ha_iot_class -%}
-    {%- if page.ha_quality_scale %} and a {%- else -%} it features a {%- endif -%}
-      <a href='/docs/quality_scale/'> {{page.ha_quality_scale}} </a>quality scale.
+    {% if page.ha_quality_scale -%}
+    {%- if page.ha_iot_class %} and a {%- else %} it features a {%- endif -%}
+      <a href='/docs/quality_scale/'> {{page.ha_quality_scale}} </a>quality scale
     {%- endif -%}
     {%- if page.ha_domain -%}
-    You can find the source for this integration on <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>GitHub</a>.
+    . You can find the source for this integration on <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>GitHub</a>.
     {%- endif -%}
   </div>
 
