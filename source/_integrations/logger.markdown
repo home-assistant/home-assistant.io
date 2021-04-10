@@ -131,7 +131,7 @@ logger:
   logs:
     custom_components.my_integration: critical
   filters:
-    custom_component.my_integartion:
+    custom_component.my_integration:
       - "HTTP 429" # Filter all HTTP 429 errors
       - "Request to .*unreliable.com.* Timed Out"
     homeassistant.components.nws:
