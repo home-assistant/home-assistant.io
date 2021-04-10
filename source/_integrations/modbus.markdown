@@ -519,7 +519,7 @@ modbus:
       - name: Sensor2
         unit_of_measurement: mg
         slave: 1
-        register: 110
+        address: 110
         count: 2
       - name: Sensor3
         unit_of_measurement: °C
