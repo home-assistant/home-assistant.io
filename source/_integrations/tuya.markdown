@@ -23,7 +23,7 @@ ha_platforms:
   - switch
 ---
 
-The `tuya` integration is the main integration to integrate [Tuya Smart](https://www.tuya.com) related platforms, except the Zigbee hub. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.
+The `tuya` integration is the main integration to integrate [Tuya Smart](https://www.tuya.com) related platforms, except the Zigbee hub. This includes devices linked with the Tuya, Smart Life, and Jinvoo Smart apps. You will need your account information (username, password and account country code) from one of these apps to discover and control devices which related to your account.
 
 **Important**: Not all Tuya devices are supported by the `tuya API` used by this integration. For more details refer to [TuyaHA Library](https://github.com/PaulAnnekov/tuyaha).
 
