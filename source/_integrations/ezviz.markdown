@@ -26,4 +26,4 @@ The password for each camera is usually written underneath the device, near the 
 
 Your cameras will now show under integration options as "discovered devices". Please complete the setup for each camera to see the video stream within Home Assistant.
 
-You can also change the camera options should you need to access a high or low res stream. Generally though it will just work without any modification to options.
+You can also change the camera options should you need to access a high or low res stream. Generally, though it will just work without any modification to options.
