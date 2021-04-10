@@ -727,6 +727,7 @@ knx:
       stop_address: "3/0/4"
       position_address: "3/0/3"
       position_state_address: "3/0/2"
+      locked_state_address: "3/0/5"
       travelling_time_down: 51
       travelling_time_up: 61
 ```
@@ -785,6 +786,10 @@ invert_angle:
   required: false
   default: false
   type: boolean
+locked_state_address:
+  description: KNX group address for requesting the current lock state for this cover. *DPT 1*
+  required: false
+  type: string
 device_class:
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   required: false
