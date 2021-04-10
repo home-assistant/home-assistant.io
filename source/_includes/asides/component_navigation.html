@@ -47,15 +47,15 @@
   {%- endif -%}
 
   {%- if page.ha_domain -%}
-    <div class='section'>
-      Source: <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>View on GitHub</a>
-    </div>
     {%- if site.data.analytics_data.integrations[page.ha_domain] -%}
       {% assign percentage = 100 | times: site.data.analytics_data.integrations[page.ha_domain] | divided_by: site.data.analytics_data.reports_integrations | ceil %}
       <div class='section'>
         Used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io" target="_blank" rel="noopener">{{ percentage }}%</a> of Home Assistant installations
       </div>
     {%- endif -%}
+    <div class='section'>
+      Source: <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>View on GitHub</a>
+    </div>
   {%- endif -%}
 
   {%- if page.ha_category.first -%}
