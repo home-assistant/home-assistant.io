@@ -80,32 +80,3 @@ The Hue API doesn't activate scenes directly; rather, they must be associated wi
 Neither group names nor scene names are guaranteed unique in Hue. If you are observing unexpected behavior from calling Hue scenes in Home Assistant, make the names of your Hue scenes more specific in the Hue app.
 
 The Hue hub has limited space for scenes and will delete scenes if new ones get created that would overflow that space. The API documentation says this is based on the scenes that are "least recently used."
-
-## Advanced use of custom Hue Groups
-
-This is considered an advanced method, if you are in need for other grouping than the rooms feature provided by Hue, we recommend to use [Home Assistant Light Groups](/integrations/light.group/) instead.
-
-The Hue API allows you to group lights. Home Assistant also supports grouping of entities by itself, but sometimes it can be useful to use Hue groups to group light bulbs. Using native Hue groups, Home Assistant only needs to send one API call to change the state of all the bulbs in those groups instead of one call for every light in the group. This causes all the bulbs to change state simultaneously.
-
-One example of such Hue groups are rooms. These rooms can be managed via the Hue app and do not require anything described in this paragraph. A bulb can only exist in one room at the time, however
-Hue has a notion of another light group, which does not have this limitation. These can only be created via manually via the Hue API.
-
-The Hue `LightGroup` can be created manually through the API. A bulb can only exist in one `Room`, but can exist in more than one `LightGroup`.
-
-Example:
-
-To create a `LightGroup` named `Ceiling lights` that contains the lights 1, 2, and 3, execute the following command:
-
-```bash
-curl -XPOST -d '{"name": "Ceiling lights", "lights": ["1", "2", "3"]}' http://<bridge>/api/<username>/groups
-```
-
-The `<username>` is the string that is used to register Home Assistant with the bridge. You can find it in the `core.config_entries` file in `/PATH-TO-YOUR-CONFIGURATION/.storage/`. `<bridge>` is the IP address or hostname of your Hue bridge.
-
-You can find the IDs of your lights by executing the following command:
-
-```bash
-curl http://<bridge>/api/<username>/lights
-```
-
-Home Assistant will automatically detect your new `LightGroup` and add it to the interface.
