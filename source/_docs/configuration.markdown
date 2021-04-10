@@ -20,7 +20,7 @@ If you want to use a different folder for configuration, use the configuration c
 
 Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains integrations to be loaded along with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable specific functionality.
 
-If you run into trouble while configuring Home Assistant, refer the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [`configuration.yaml` examples](/cookbook/#example-configurationyaml).
+If you run into trouble while configuring Home Assistant, refer the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [`configuration.yaml` examples](/examples/#example-configurationyaml).
 
 <div class='note tip'>
 
