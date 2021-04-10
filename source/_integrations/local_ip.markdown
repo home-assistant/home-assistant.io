@@ -9,7 +9,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@issacg'
 ha_domain: local_ip
-ha_quality_scale: internal
 ha_platforms:
   - sensor
 ---
