@@ -19,12 +19,10 @@
   {%- endif -%}
 
   <div class='section'>
-    {% assign percentage = 100 | times: site.data.analytics_data.integrations[page.ha_domain] | divided_by: site.data.analytics_data.reports_integrations | ceil %}
-    {% assign iot_class = page.ha_iot_class | default: "unknown" %}
-
-    The {{ page.name | default: page.title }} integration was added in Home Assistant {{ page.ha_release | default: "unknown" }}.
-    and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io" target="_blank" rel="noopener">{{ percentage }}%</a> of the active installations.
-    It's IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup> is {{ iot_class }}
+    The {{ page.name | default: page.title }} integration was added in Home Assistant {{ page.ha_release | default: "unknown" }},
+    and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io" target="_blank" rel="noopener">
+    {{ 100 | times: site.data.analytics_data.integrations[page.ha_domain] | divided_by: site.data.analytics_data.reports_integrations | ceil }}%</a> of the active installations.
+    It's IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup> is {{ page.ha_iot_class | default: "unknown" }}
 
     {% if page.ha_quality_scale -%}
       and scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale.</a>
