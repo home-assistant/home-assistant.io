@@ -50,6 +50,8 @@
     <div class='section'>
       Source: <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>View on GitHub</a>
     </div>
+    <div id="integration_usage" class='section' style='margin-bottom: 0;'>
+    </div>
   {%- endif -%}
 
   {%- if page.ha_category.first -%}
@@ -67,4 +69,5 @@
 
 </section>
 
+<script id="integration_usage_script" domain="{{ page.ha_domain }}" src="/javascripts/integration_usage.js"></script>
 <script src="https://alerts.home-assistant.io/ce-alert-link.js"></script>
