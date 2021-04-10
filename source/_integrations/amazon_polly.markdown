@@ -49,10 +49,6 @@ region_name:
   required: false
   type: [string, list]
   default: us-east-1
-name:
-  description: "Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`."
-  required: false
-  type: string
 text_type:
   description: "Specify wherever to use text (default) or ssml markup by default."
   required: false
