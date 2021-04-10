@@ -40,22 +40,6 @@ Integration is communicating directly with the device; cloud connection is not n
 
 {% include integrations/config_flow.md %}
 
-{% configuration %}
-coap_port:
-  description: Let you set a port to use.
-  required: false
-  type: integer
-  default: 5683
-{% endconfiguration %}
-
-The sample below shows a configuration entry with possible values:
-
-```yaml
-# Example configuration.yaml entry
-shelly:
-  coap_port: 12345
-```
-
 ## Entity naming
 
 The integration uses the following strategy to name its entities:
@@ -134,6 +118,18 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
 Not all devices support all input events. You can check on [Shelly API Reference](https://shelly-api-docs.shelly.cloud/) website what types of Shelly input events your device supports.
 
 </div>
+
+## CoAP port
+
+In some cases it may be needed to customize the CoAP port (default:5683) your HA instance is listening to.
+
+In order to change it, add the following key to you configuration.yaml:
+
+```yaml
+# Example configuration.yaml entry
+shelly:
+  coap_port: 12345
+```
 
 ## Known issues and limitations
 
