@@ -63,6 +63,10 @@ homeassistant:
 To play media from a media source via a service call, use the uri scheme `media-source://media_source/<media_dir>/<path>`.
 Default `media_dir`is `local`.
 
+<div class="note">
+The Media Source integration does not do any transcoding of media, meaning media files must be natively supported by the web browser (for playing in the frontend) or media player. Web browsers and Google Cast media players typically have very limited video container and codec support. If a video file is not supported by your web browser it will fail to play. Please check the documentation of your web browser or media player.
+</div>
+
 Example:
 ```yaml
 service: media_player.play_media
