@@ -487,7 +487,7 @@ Telegram callbacks also support arguments and commands the same way as normal me
       data:
         show_alert: true
         callback_query_id: "{{ trigger.event.data.id }}"
-        message: "I repeat: {{trigger.event.data["args"]}}"
+        message: "I repeat: {{trigger.event.data['args']}}"
 ```
 
 {% endraw %}
