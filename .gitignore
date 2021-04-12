@@ -5,6 +5,7 @@
 .pygments-cache
 public
 source/_data/analytics_data.json
+source/_data/blueprint_exchange_data.json
 source/_stash
 source/stylesheets/screen.css
 source/.jekyll-cache/
