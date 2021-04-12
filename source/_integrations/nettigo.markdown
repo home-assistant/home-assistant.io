@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bieniu'
-ha_domain: nettigo
+ha_domain: nam
 ha_platforms:
   - air_quality
   - sensor
