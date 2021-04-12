@@ -60,9 +60,7 @@ Switch entities are created for each Smappee Switch and Smappee Comfort Plug.
 
 
 ## Cloud API configuration
-If you have API credentials, we strongly suggest you use the Smappee cloud configured integration by following the scheme below.
-
-To use the Smappee integration you need a personal `client_id` and `client_secret` and add these to your `configuration.yaml` file. The `client_id` and `client_secret` can be obtained by contacting [info@smappee.com](mailto:info@smappee.com) and require a recurring monthly fee.
+To use the Smappee cloud integration you need a personal `client_id` and `client_secret` and add these to your `configuration.yaml` file. The `client_id` and `client_secret` can be obtained by contacting [info@smappee.com](mailto:info@smappee.com) and require a recurring monthly fee.
 For any information about the use of the API please refer to the [Smappee API space](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview).
 
 ```yaml
