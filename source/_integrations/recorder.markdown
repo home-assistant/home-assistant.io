@@ -47,12 +47,7 @@ recorder:
       description: The time in seconds, that the recorder sleeps when trying to connect to the database.
       required: false
       default: 3
-      type: integer
-    db_integrity_check:
-      description: When using SQLite, if Home Assistant does not restart cleanly or the recorder fails to shut down, a `quick_check` is performed on the database to ensure it is usable. If `db_integrity_check` is disabled, the system will only perform necessary sanity checks and skip the `quick_check`. Home Assistant may not be able to automatically recover and start the recorder in the event the database is malformed if `db_integrity_check` is disabled.
-      required: false
-      default: true
-      type: boolean      
+      type: integer 
     auto_purge:
       description: Automatically purge the database every night at 04:12 local time. Purging keeps the database from growing indefinitely, which takes up disk space and can make Home Assistant slow. If you disable `auto_purge` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically.
       required: false
