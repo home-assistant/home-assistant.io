@@ -208,9 +208,17 @@ $primary-color: #049cdb;
       border: 0;
       box-shadow: none;
       margin: 15px;
-      width: 200px;
+      width: 100%;
       max-width: 40%;
       max-height: 70px;
+    }
+
+    .square {
+      width: initial;
+    }
+
+    .round {
+      border-radius: 50%;
     }
   }
 }
