@@ -10,6 +10,7 @@ ha_codeowners:
   - '@milanmeu'
 ha_domain: rituals_perfume_genie
 ha_platforms:
+  - sensor
   - switch
 ---
 
