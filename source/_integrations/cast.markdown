@@ -188,5 +188,6 @@ Cast devices can only be automatically discovered if they are on the same subnet
 Setups with cast devices on a different subnet than Home Assistant are not recommended and not supported.
 If this is not possible, it's necessary to either enable mDNS forwarding between the subnets or to provide a list of known hosts.
 
-### Docker
-When running Home Assistant Core in a [Docker container](/docs/installation/docker/), the command line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put it on the host's network, otherwise the Home Assistant Core will not be able to connect to any Cast device.
+### Home Assistant Container
+
+When running the [Home Assistant Container](/installation/linux#install-home-assistant-container) in Docker, make sure it is running with host network mode. Running without it is not supported by the Home Assistant project, and will cause this integration to be unable to discover to your Cast devices.
