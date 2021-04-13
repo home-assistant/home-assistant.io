@@ -3,10 +3,10 @@ ARG VARIANT=2.6
 FROM mcr.microsoft.com/vscode/devcontainers/ruby:${VARIANT}
 
 # Install node
-ARG NODE_VERSION="12.1"
+COPY .nvmrc /.nvmrc
 RUN \
   su vscode -c \
-    "source /usr/local/share/nvm/nvm.sh && nvm install $NODE_VERSION 2>&1"
+    "source /usr/local/share/nvm/nvm.sh && nvm install $(cat /.nvmrc) 2>&1"
 
 # Locale env vars
 ENV \
