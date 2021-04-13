@@ -45,7 +45,7 @@ This will provide you a limited number of entities only.
 If your home network doesn't support mDNS you can still manually initiate the Smappee integration by choosing the LOCAL option and entering the IP address of the Smappee monitor through the configuration flow.
 
 #### Sensor
-A sensor entity is being added for the current active power usage. In case of solar production an entity for the active power production is added as well.
+A sensor entity is being added for the current active power usage. In case of solar production, an entity for active power production is added as well.
 
 Smappee Genius devices will also provide entities for the current reactive, voltages for each phase and current active powers for each configured load (submeter).
 
