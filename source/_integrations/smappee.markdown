@@ -50,6 +50,7 @@ A sensor entity is being added for the current active power usage. In case of so
 Smappee Genius devices will also provide entities for the current reactive, voltages for each phase and current active powers for each configured load (submeter).
 
 #### Switch
+
 Switch entities are created for each Smappee Switch and Smappee Comfort Plug.
 
 
