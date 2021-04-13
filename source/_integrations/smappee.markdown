@@ -83,11 +83,12 @@ In case a Smappee Gas and/or Water meter is installed as well, an entity showing
 Additionally, Smappee Genius devices will also provide entities for the line voltages and phase voltages (for each phase).
 
 #### Switch
+
 Switch entities are created for each Smappee Switch, Smappee Comfort Plug and Smappee Output module.
 
 #### Binary sensor
-For each discovered NILM appliance a binary sensor is being added showing the current state of the appliance.
 
+For each discovered NILM appliance a binary sensor is being added showing the current state of the appliance.
 
 {% configuration %}
 client_id:
