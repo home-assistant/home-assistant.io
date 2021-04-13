@@ -142,7 +142,6 @@ Besides the standard services provided by the Home Assistant [Climate](/integrat
 - `ecobee.resume_program`
 - `ecobee.set_fan_min_on_time`
 - `ecobee.set_dst_mode`
-- `ecobee.set_humidifier_mode`
 - `ecobee.set_mic_mode`
 - `ecobee.set_occupancy_modes`
 
