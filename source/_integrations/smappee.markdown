@@ -22,9 +22,6 @@ ha_platforms:
 
 The Smappee integration will allow users to integrate their Smappee monitors, Smappee Comfort Plugs and Smappee Switches into Home Assistant using the local API, local MQTT broker or the [official cloud API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview).
 
-
-
-
 ## Smappee monitors
 The table below summarizes the available options to initiatie the Smappee integration in Home Assistant per Smappee monitor type.
 
