@@ -37,9 +37,6 @@ The table below summarizes the available options to initiate the Smappee integra
 |Smappee Wi-Fi Connect|No|Yes|
 |Smappee P1/S1 module|No|Yes|
 
-
-
-
 ## Local discovery
 
 In most cases, the Smappee Energy, Solar, Plus, Pro and Genius monitors will be automatically discovered by Home Assistant through network scanning.
