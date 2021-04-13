@@ -31,7 +31,7 @@ subscribe_topic:
   required: false
   type: string
 ignore_event:
-  description: Ignore sending these [events](/docs/configuration/events/) over mqtt.
+  description: List of [events](/docs/configuration/events/) which will not be sent over mqtt.
   required: false
   type: list
 {% endconfiguration %}
