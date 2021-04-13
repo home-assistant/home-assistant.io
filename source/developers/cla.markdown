@@ -1,9 +1,9 @@
 ---
-title: "Contributor License Agreement"
-description: "The Code of Conduct for Home Assistant projects."
+title: "Developer Certificate of Origin"
+description: "The Developer Certificate of Origin for Home Assistant projects."
 ---
 
-# Contributor License Agreement
+# Developer Certificate of Origin
 
 ```txt
 By making a contribution to this project, I certify that:
@@ -35,10 +35,10 @@ and not mention sign-off.
 
 ## Signing
 
-If you have not signed the CLA and you submit a pull request to a repository under the Home Assistant organization, a link will be automatically generated. Just follow the link and the instructions in the link.
+If you have not signed the DCO and you submit a pull request to a repository under the Home Assistant organization, a link will be automatically generated. Just follow the link and the instructions in the link.
 
 ## Adoption
 
-This Contributor License Agreement (CLA) was first announced on January 21st, 2017 in [this][cla-blog] blog post and adopted January 28th, 2017.
+This Developer Certificate of Origin (DCO) was first announced on January 21st, 2017 in [this][cla-blog] blog post and adopted January 28th, 2017.
 
 [cla-blog]: /blog/2017/01/21/home-assistant-governance/
