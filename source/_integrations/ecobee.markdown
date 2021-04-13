@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Notifications
   - Climate
+  - Humidifier
   - Weather
 featured: true
 ha_release: 0.9
@@ -17,6 +18,7 @@ ha_domain: ecobee
 ha_platforms:
   - binary_sensor
   - climate
+  - humidifier
   - notify
   - sensor
   - weather
