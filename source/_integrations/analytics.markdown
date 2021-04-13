@@ -29,7 +29,8 @@ This includes:
 - Unique identifier for your system (to ensure each installation is counted once)
 - Home Assistant version
 - Home Assistant installation type
-- Your country (derived server-side from your IP-address)
+- Your country-code (derived server-side from your IP-address), example: `"NO"` for Norway.
+  - If you live in the US this will also include the region (state) code, example: `"US_CO"` will be used if you live in Colorado.
 
 If your system includes the Supervisor, this will also contain:
 
