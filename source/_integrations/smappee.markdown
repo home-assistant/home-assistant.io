@@ -44,12 +44,12 @@ Those automatically discovered Smappee devices are listed on the integrations pa
 This will provide you a limited number of entities only.
 If your home network doesn't support mDNS you can still manually initiate the Smappee integration by choosing the LOCAL option and entering the IP address of the Smappee monitor through the configuration flow.
 
-#### Sensor
+### Sensor
 A sensor entity is being added for the current active power usage. In case of solar production, an entity for active power production is added as well.
 
 Smappee Genius devices will also provide entities for the current reactive, voltages for each phase and current active powers for each configured load (submeter).
 
-#### Switch
+### Switch
 
 Switch entities are created for each Smappee Switch and Smappee Comfort Plug.
 
@@ -68,7 +68,7 @@ smappee:
 
 Once Home Assistant restarted, go to Configuration > Integrations and select the Smappee integration. You will be redirected to a login page and be able to select the locations you would like to use within Home Assistant.
 
-#### Sensor
+### Sensor
 
 Sensor entities are being added for the current active power usage,
 the always-on active power, today's total consumption,
@@ -82,11 +82,11 @@ In case a Smappee Gas and/or Water meter is installed as well, an entity showing
 
 Additionally, Smappee Genius devices will also provide entities for the line voltages and phase voltages (for each phase).
 
-#### Switch
+### Switch
 
 Switch entities are created for each Smappee Switch, Smappee Comfort Plug and Smappee Output module.
 
-#### Binary sensor
+### Binary sensor
 
 For each discovered NILM appliance a binary sensor is being added showing the current state of the appliance.
 
