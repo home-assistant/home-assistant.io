@@ -492,6 +492,64 @@ The following integrations are now available via the Home Assistant UI:
 [@mdz]: https://github.com/mdz
 [smarttub docs]: /integrations/smarttub/
 
+## Release 2021.4.4 - April 13
+
+- Move cast config flow tests to test_config_flow ([@emontnemery] - [#48362]) ([cast docs])
+- Bump nexia to 0.9.6 ([@bdraco] - [#48982]) ([nexia docs])
+- Set Lyric hold time to use local time instead of utc ([@timmo001] - [#48994]) ([lyric docs])
+- Fix Shelly brightness offset ([@thecode] - [#49007]) ([shelly docs])
+- Bump ha-philipsjs to 2.7.0 ([@elupus] - [#49008]) ([philips_js docs])
+- Fix use search instead of match to filter logs ([@frenck] - [#49017]) ([logger docs])
+- Resolve potential roku setup memory leaks ([@ctalkington] - [#49025]) ([roku docs])
+- Bump aiohomekit to 0.2.61 ([@bdraco] - [#49044]) ([homekit_controller docs])
+- Fix cast options flow overwriting data ([@emontnemery] - [#49051]) ([cast docs])
+- Quote media_source paths ([@emontnemery] - [#49054]) ([http docs])
+- mqtt fan percentage to speed_range and received speed_state fix ([@jbouwh] - [#49060]) ([mqtt docs])
+- Catch unknown equipment values ([@dieselrabbit] - [#49073]) ([screenlogic docs])
+- Downgrade logger message about homekit id missing ([@bdraco] - [#49079]) ([homekit_controller docs])
+- Upgrade maxcube-api to 0.4.2 ([@unaiur] - [#49106]) ([maxcube docs])
+- Check all endpoints for zwave_js.climate hvac_action ([@jjlawren] - [#49115]) ([zwave_js docs])
+
+[#48362]: https://github.com/home-assistant/core/pull/48362
+[#48982]: https://github.com/home-assistant/core/pull/48982
+[#48994]: https://github.com/home-assistant/core/pull/48994
+[#49007]: https://github.com/home-assistant/core/pull/49007
+[#49008]: https://github.com/home-assistant/core/pull/49008
+[#49017]: https://github.com/home-assistant/core/pull/49017
+[#49025]: https://github.com/home-assistant/core/pull/49025
+[#49044]: https://github.com/home-assistant/core/pull/49044
+[#49051]: https://github.com/home-assistant/core/pull/49051
+[#49054]: https://github.com/home-assistant/core/pull/49054
+[#49060]: https://github.com/home-assistant/core/pull/49060
+[#49073]: https://github.com/home-assistant/core/pull/49073
+[#49079]: https://github.com/home-assistant/core/pull/49079
+[#49106]: https://github.com/home-assistant/core/pull/49106
+[#49115]: https://github.com/home-assistant/core/pull/49115
+[@bdraco]: https://github.com/bdraco
+[@ctalkington]: https://github.com/ctalkington
+[@dieselrabbit]: https://github.com/dieselrabbit
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@jjlawren]: https://github.com/jjlawren
+[@thecode]: https://github.com/thecode
+[@timmo001]: https://github.com/timmo001
+[@unaiur]: https://github.com/unaiur
+[cast docs]: /integrations/cast/
+[homekit_controller docs]: /integrations/homekit_controller/
+[http docs]: /integrations/http/
+[logger docs]: /integrations/logger/
+[lyric docs]: /integrations/lyric/
+[maxcube docs]: /integrations/maxcube/
+[mqtt docs]: /integrations/mqtt/
+[nexia docs]: /integrations/nexia/
+[philips_js docs]: /integrations/philips_js/
+[roku docs]: /integrations/roku/
+[screenlogic docs]: /integrations/screenlogic/
+[shelly docs]: /integrations/shelly/
+[zwave_js docs]: /integrations/zwave_js/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
