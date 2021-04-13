@@ -168,6 +168,10 @@ enable_quirks:
   required: false
   type: boolean
   default: true
+custom_quirks_path:
+  description: Full path to a directory containing custom quirk modules that will take precedence over any built-in quirks matching a device.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### OTA firmware updates
