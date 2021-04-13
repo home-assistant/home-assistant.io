@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Notifications
   - Climate
+  - Humidifier
   - Weather
 featured: true
 ha_release: 0.9
@@ -130,8 +131,6 @@ The ecobee climate entity has some extra attributes to represent the state of th
 | `climate_mode` | This is the climate mode that is active, or would be active if no override is active.
 | `equipment_running` | This is a comma-separated list of equipment that is currently running.
 | `fan_min_on_time` | The minimum amount of time (in minutes) that the fan will run per hour. This is determined by the minimum fan runtime setting which can be changed in the ecobee app or on the thermostat itself.
-| `humidifier_mode` | This is only shown if a humidifier is controlled by ecobee and displays the current humidifier mode.
-| `humidifier_modes` | This is only shown if a humidifier is controlled by ecobee and displays the valid humidifier modes: `auto` / `off` / `manual`.
 
 ## Services
 
@@ -198,15 +197,6 @@ Enable/disable automatic daylight savings time.
 | ---------------------- | -------- | ------------------------------------------------- |
 | `entity_id`            | yes      | ecobee thermostat on which to set daylight savings time mode |
 | `dst_enabled`          | no       | true or false                                     |
-
-### Service `ecobee.set_humidifier_mode`
-
-Set the humidifier mode.
-
-| Service data attribute | Optional | Description                                       |
-| ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | yes      | ecobee thermostat on which to set the humidifier mode |
-| `humidifier_mode`      | no       | Mode to set humidifier (auto, off, or manual).    |
 
 ### Service `ecobee.set_mic_mode`
 
