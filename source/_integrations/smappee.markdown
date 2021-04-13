@@ -69,11 +69,11 @@ smappee:
 Once Home Assistant restarted, go to Configuration > Integrations and select the Smappee integration. You will be redirected to a login page and be able to select the locations you would like to use within Home Assistant.
 
 #### Sensor
+
 Sensor entities are being added for the current active power usage,
-the always on active power, today's total consumption,
+the always-on active power, today's total consumption,
 total consumption during the current hour, total consumption during the last 5 minutes
-and the always on (slumber) consumption from today. In case of solar production entities for the active power production,
-today's total solar production
+and the always-on (slumber) consumption from today. In case of solar production, entities for the active power production, today's total solar production
 and the solar production during the current hour are added as well.
 
 Smappee Pro, Plus and Genius devices will create current active powers for each configured load (submeter).
