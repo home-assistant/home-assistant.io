@@ -3,7 +3,7 @@ title: Picnic
 description: How to setup and use the Picnic integration in Home Assistant.
 ha_category:
   - Other
-ha_release: 2021.4
+ha_release: 2021.5
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -19,12 +19,10 @@ The Picnic integration allows one to get information from [Picnic](https://picni
 
 ## Sensors
 
-This integration provides the following sensors. The term delivery and order
+This integration provides the following sensors. Some sensors are disabled by default when adding the integration.
 
 | Name                           | Description                                                                                                                                         |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Completed deliveries           | Number of delivered orders.                                                                                                                     |
-| Total orders                   | Total amount of orders, including canceled orders, deliveries in progress and completed deliveries.                                                |
 | Cart items count               | The amount of different products currently in the cart.                                                                                             |
 | Cart total price               | The total price for products currently in the cart.                                                                                                 |
 | Selected slot start            | Start of the selected delivery slot, `unavailable` if none is selected.                                                                             |
