@@ -115,7 +115,7 @@ Zones with the name `-` will be ignored, just as the AirBase application is work
 
 </div>
 
-Additionally the Daikin Streamer (air purifier) function can be toggled on supported devices using a switch.
+Additionally the Daikin Streamer (air purifier) function can be toggled onsupported devices using a switch. Note that it isn't currently possible to reliably detect whether a specific device has streamer support, so the switch may appear in the UI even if the functionality isn't actually supported.
 
 ## Region Changing
 

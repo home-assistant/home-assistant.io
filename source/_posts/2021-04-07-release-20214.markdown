@@ -44,6 +44,9 @@ Enjoy the release!
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.4.1 - April 8](#release-202141---april-8)
+- [Release 2021.4.2 - April 9](#release-202142---april-9)
+- [Release 2021.4.3 - April 10](#release-202143---april-10)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -324,7 +327,7 @@ Screenshot of selecting the number format you prefer.
 - [@marvin-w] added support for unique IDs to KNX entities. So, as a KNX user
   you can now tweak your entities in the frontend and group them into areas!
 - HomeKit now supports CO/CO2 device classes, thanks to [@iMicknl]!
-- [@robertdelpeut] added monthly and yearly totals to the DMSR sensor, thanks!
+- [@robertdelpeut] added monthly and yearly totals to the DSMR sensor, thanks!
 - Hyperion users can now hide certain effects from the UI using integration
   options. Thanks, [@dermotduffy]!
 - Got that one message in your logs that you don't care about? [@jshufro]
@@ -363,6 +366,189 @@ The following integrations are now available via the Home Assistant UI:
 - [Xiaomi Miio][xiaomi_miio docs], fans, sensors and lights, done by [@starkillerOG]
 - [Hive][hive docs], done by [@KJonline]
 - [Verisure][verisure docs], done by [@frenck]
+
+## Release 2021.4.1 - April 8
+
+- Check all endpoints for zwave_js.climate fan mode and operating state ([@raman325] - [#48800]) ([zwave_js docs])
+- Add missing super call in Verisure Camera entity ([@JohNan] - [#48812]) ([verisure docs])
+- Fix iCloud extra attributes ([@nzapponi] - [#48815]) ([icloud docs])
+- Replace redacted stream recorder credentials with '****' ([@emontnemery] - [#48832]) ([stream docs])
+- Fix mysensor cover closed state ([@MartinHjelmare] - [#48833]) ([mysensors docs])
+- Validate supported_color_modes for MQTT JSON light ([@emontnemery] - [#48836]) ([light docs]) ([mqtt docs])
+- Bump speedtest-cli to 2.1.3 ([@spacegaier] - [#48861]) ([speedtestdotnet docs])
+- Correct wrong x in frontend manifest ([@bramkragten] - [#48865]) ([frontend docs])
+- Fix motion_blinds gateway signal strength sensor ([@starkillerOG] - [#48866]) ([motion_blinds docs])
+- Fix possibly missing changed_by in Verisure Alarm ([@frenck] - [#48867]) ([verisure docs])
+- Fix optional data payload in Prowl messaging service ([@frenck] - [#48868]) ([prowl docs])
+- Update frontend to 20210407.2 ([@bramkragten] - [#48888]) ([frontend docs])
+
+[#48800]: https://github.com/home-assistant/core/pull/48800
+[#48812]: https://github.com/home-assistant/core/pull/48812
+[#48815]: https://github.com/home-assistant/core/pull/48815
+[#48832]: https://github.com/home-assistant/core/pull/48832
+[#48833]: https://github.com/home-assistant/core/pull/48833
+[#48836]: https://github.com/home-assistant/core/pull/48836
+[#48861]: https://github.com/home-assistant/core/pull/48861
+[#48865]: https://github.com/home-assistant/core/pull/48865
+[#48866]: https://github.com/home-assistant/core/pull/48866
+[#48867]: https://github.com/home-assistant/core/pull/48867
+[#48868]: https://github.com/home-assistant/core/pull/48868
+[#48888]: https://github.com/home-assistant/core/pull/48888
+[@JohNan]: https://github.com/JohNan
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@nzapponi]: https://github.com/nzapponi
+[@raman325]: https://github.com/raman325
+[@spacegaier]: https://github.com/spacegaier
+[@starkillerOG]: https://github.com/starkillerOG
+[frontend docs]: /integrations/frontend/
+[icloud docs]: /integrations/icloud/
+[light docs]: /integrations/light/
+[motion_blinds docs]: /integrations/motion_blinds/
+[mqtt docs]: /integrations/mqtt/
+[mysensors docs]: /integrations/mysensors/
+[prowl docs]: /integrations/prowl/
+[speedtestdotnet docs]: /integrations/speedtestdotnet/
+[stream docs]: /integrations/stream/
+[verisure docs]: /integrations/verisure/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.4.2 - April 9
+
+- Account for openweathermap 'dew_point' not always being present ([@hanskroner] - [#48826]) ([openweathermap docs])
+- Catch expected errors and log them in rituals perfume genie ([@milanmeu] - [#48870]) ([rituals_perfume_genie docs])
+- Extend media source URL expiry to 24h ([@emontnemery] - [#48912]) ([media_source docs])
+- Bump pykodi to 0.2.4 ([@cgtobi] - [#48913]) ([kodi docs])
+- Handle exceptions when looking for new version ([@ludeeus] - [#48922]) ([version docs])
+- Change discovery timeout from 10 to 60 ([@ludeeus] - [#48924]) ([hassio docs])
+- Fix "notify.events" trim() issue + add initial tests ([@spacegaier] - [#48928]) ([notify_events docs])
+- Bump pykodi to 0.2.5 ([@cgtobi] - [#48930]) ([kodi docs])
+- Bump ZHA quirks library ([@dmulcahey] - [#48931]) ([zha docs])
+- Extend Google Cast media source URL expiry to 24h ([@Ph-Wagner] - [#48937]) ([cast docs])
+- Fix Plex live TV handling ([@jjlawren] - [#48953]) ([plex docs])
+
+[#48826]: https://github.com/home-assistant/core/pull/48826
+[#48870]: https://github.com/home-assistant/core/pull/48870
+[#48912]: https://github.com/home-assistant/core/pull/48912
+[#48913]: https://github.com/home-assistant/core/pull/48913
+[#48922]: https://github.com/home-assistant/core/pull/48922
+[#48924]: https://github.com/home-assistant/core/pull/48924
+[#48928]: https://github.com/home-assistant/core/pull/48928
+[#48930]: https://github.com/home-assistant/core/pull/48930
+[#48931]: https://github.com/home-assistant/core/pull/48931
+[#48937]: https://github.com/home-assistant/core/pull/48937
+[#48953]: https://github.com/home-assistant/core/pull/48953
+[@Ph-Wagner]: https://github.com/Ph-Wagner
+[@cgtobi]: https://github.com/cgtobi
+[@dmulcahey]: https://github.com/dmulcahey
+[@emontnemery]: https://github.com/emontnemery
+[@hanskroner]: https://github.com/hanskroner
+[@jjlawren]: https://github.com/jjlawren
+[@ludeeus]: https://github.com/ludeeus
+[@milanmeu]: https://github.com/milanmeu
+[@spacegaier]: https://github.com/spacegaier
+[cast docs]: /integrations/cast/
+[hassio docs]: /integrations/hassio/
+[kodi docs]: /integrations/kodi/
+[media_source docs]: /integrations/media_source/
+[notify_events docs]: /integrations/notify_events/
+[openweathermap docs]: /integrations/openweathermap/
+[plex docs]: /integrations/plex/
+[rituals_perfume_genie docs]: /integrations/rituals_perfume_genie/
+[version docs]: /integrations/version/
+[zha docs]: /integrations/zha/
+
+## Release 2021.4.3 - April 10
+
+- Add TTS engines in config.components ([@ludeeus] - [#48939]) ([tts docs])
+- Implement percentage_step and preset_mode is not not speed fix for MQTT fan ([@jbouwh] - [#48951]) ([mqtt docs])
+- Bump devolo Home Control to support old websocket-client versions again ([@Shutgun] - [#48960]) ([devolo_home_control docs])
+- Fix config forwarding ([@balloob] - [#48967]) ([template docs])
+- Prevent ping id allocation conflict with device_tracker ([@bdraco] - [#48969]) ([ping docs])
+- Fix Shelly button device triggers ([@thecode] - [#48974]) ([shelly docs])
+- Update python-smarttub to 0.0.23 ([@mdz] - [#48978]) ([smarttub docs])
+
+[#48939]: https://github.com/home-assistant/core/pull/48939
+[#48951]: https://github.com/home-assistant/core/pull/48951
+[#48960]: https://github.com/home-assistant/core/pull/48960
+[#48967]: https://github.com/home-assistant/core/pull/48967
+[#48969]: https://github.com/home-assistant/core/pull/48969
+[#48974]: https://github.com/home-assistant/core/pull/48974
+[@Shutgun]: https://github.com/Shutgun
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@jbouwh]: https://github.com/jbouwh
+[@ludeeus]: https://github.com/ludeeus
+[@thecode]: https://github.com/thecode
+[devolo_home_control docs]: /integrations/devolo_home_control/
+[mqtt docs]: /integrations/mqtt/
+[ping docs]: /integrations/ping/
+[shelly docs]: /integrations/shelly/
+[template docs]: /integrations/template/
+[tts docs]: /integrations/tts/
+[#48978]: https://github.com/home-assistant/core/pull/48978
+[@mdz]: https://github.com/mdz
+[smarttub docs]: /integrations/smarttub/
+
+## Release 2021.4.4 - April 13
+
+- Move cast config flow tests to test_config_flow ([@emontnemery] - [#48362]) ([cast docs])
+- Bump nexia to 0.9.6 ([@bdraco] - [#48982]) ([nexia docs])
+- Set Lyric hold time to use local time instead of utc ([@timmo001] - [#48994]) ([lyric docs])
+- Fix Shelly brightness offset ([@thecode] - [#49007]) ([shelly docs])
+- Bump ha-philipsjs to 2.7.0 ([@elupus] - [#49008]) ([philips_js docs])
+- Fix use search instead of match to filter logs ([@frenck] - [#49017]) ([logger docs])
+- Resolve potential roku setup memory leaks ([@ctalkington] - [#49025]) ([roku docs])
+- Bump aiohomekit to 0.2.61 ([@bdraco] - [#49044]) ([homekit_controller docs])
+- Fix cast options flow overwriting data ([@emontnemery] - [#49051]) ([cast docs])
+- Quote media_source paths ([@emontnemery] - [#49054]) ([http docs])
+- mqtt fan percentage to speed_range and received speed_state fix ([@jbouwh] - [#49060]) ([mqtt docs])
+- Catch unknown equipment values ([@dieselrabbit] - [#49073]) ([screenlogic docs])
+- Downgrade logger message about homekit id missing ([@bdraco] - [#49079]) ([homekit_controller docs])
+- Upgrade maxcube-api to 0.4.2 ([@unaiur] - [#49106]) ([maxcube docs])
+- Check all endpoints for zwave_js.climate hvac_action ([@jjlawren] - [#49115]) ([zwave_js docs])
+
+[#48362]: https://github.com/home-assistant/core/pull/48362
+[#48982]: https://github.com/home-assistant/core/pull/48982
+[#48994]: https://github.com/home-assistant/core/pull/48994
+[#49007]: https://github.com/home-assistant/core/pull/49007
+[#49008]: https://github.com/home-assistant/core/pull/49008
+[#49017]: https://github.com/home-assistant/core/pull/49017
+[#49025]: https://github.com/home-assistant/core/pull/49025
+[#49044]: https://github.com/home-assistant/core/pull/49044
+[#49051]: https://github.com/home-assistant/core/pull/49051
+[#49054]: https://github.com/home-assistant/core/pull/49054
+[#49060]: https://github.com/home-assistant/core/pull/49060
+[#49073]: https://github.com/home-assistant/core/pull/49073
+[#49079]: https://github.com/home-assistant/core/pull/49079
+[#49106]: https://github.com/home-assistant/core/pull/49106
+[#49115]: https://github.com/home-assistant/core/pull/49115
+[@bdraco]: https://github.com/bdraco
+[@ctalkington]: https://github.com/ctalkington
+[@dieselrabbit]: https://github.com/dieselrabbit
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@jjlawren]: https://github.com/jjlawren
+[@thecode]: https://github.com/thecode
+[@timmo001]: https://github.com/timmo001
+[@unaiur]: https://github.com/unaiur
+[cast docs]: /integrations/cast/
+[homekit_controller docs]: /integrations/homekit_controller/
+[http docs]: /integrations/http/
+[logger docs]: /integrations/logger/
+[lyric docs]: /integrations/lyric/
+[maxcube docs]: /integrations/maxcube/
+[mqtt docs]: /integrations/mqtt/
+[nexia docs]: /integrations/nexia/
+[philips_js docs]: /integrations/philips_js/
+[roku docs]: /integrations/roku/
+[screenlogic docs]: /integrations/screenlogic/
+[shelly docs]: /integrations/shelly/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
@@ -694,7 +880,7 @@ to adjust them to match this change.
 
 {% enddetails %}
 
-{% details "MQTT" %}
+{% details "MQTT Fan" %}
 
 The [fan entity model](https://developers.home-assistant.io/docs/core/entity/fan/)
 has been changed. This impacts the way the MQTT Fan supports speeds and the
@@ -802,7 +988,7 @@ safely removed from your YAML configuration.
 
 {% enddetails %}
 
-{% details "SolarEdge" %}
+{% details "MQTT Light" %}
 
 MQTT JSON light now supports `color_mode` which should be used together with
 `supported_color_modes` to signal the light's features.

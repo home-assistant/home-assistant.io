@@ -1,7 +1,13 @@
 {
   "name": "home-assistant.io",
-  "context": "..",
-  "dockerFile": "../Dockerfile",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": "..",
+    "args": {
+      "VARIANT": "2.6",
+      "NODE_VERSION": "12.1",
+    }
+  },
   "appPort": [4000],
   "postCreateCommand": "bundle install && npm install",
   "containerEnv": {"DEVCONTAINER": "true"},

@@ -440,8 +440,8 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
   - `round(x, "floor")` will always round down to `x` decimals
   - `round(x, "ceil")` will always round up to `x` decimals
   - `round(1, "half")` will always round to the nearest .5 value. `x` should be 1 for this mode
-- Filter `max` will obtain the largest item in a sequence.
-- Filter `min` will obtain the smallest item in a sequence.
+- Filter `[x, y, ...] | max` will obtain the largest item in a sequence.
+- Filter `[x, y, ...] | min` will obtain the smallest item in a sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
@@ -544,7 +544,7 @@ The following overview contains a couple of options to get the needed values:
 
 {% endraw %}
 
-To evaluate a response, go to **{% my developer_templates title="Developer Tools -> Template" %}**, create your output in "Template editor", and check the result.
+To evaluate a response, go to **{% my developer_template title="Developer Tools -> Template" %}**, create your output in "Template editor", and check the result.
 
 {% raw %}
 

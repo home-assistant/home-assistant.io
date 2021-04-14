@@ -105,7 +105,7 @@ Project**. Note: This is a different type of project from the Device Access proj
 1. From the drop-down list select *OAuth client ID*.
     ![Screenshot of OAuth client ID selection](/images/integrations/nest/oauth_client_id.png)
 
-1. Enter *Web Application* for the Application typex, since you will use this with Home Assistant.
+1. Enter *Web Application* for the Application type, since you will use this with Home Assistant.
 
 1. Pick a name for your credential.
 

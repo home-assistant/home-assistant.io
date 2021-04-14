@@ -2115,6 +2115,12 @@
 /hassio/installation /installation
 /hassio/installing_third_party_addons /common-tasks/os#installing-third-party-add-ons
 /integrations/faadelays /integrations/faa_delays
+/cookbook/notify.mqtt /examples#notifications
+/cookbook/#example-configurationyaml /examples/#example-configurationyaml
+/cookbook/#user-interface /examples/#user-interface
+/cookbook/#infrastructure /examples/#infrastructure
+/cookbook/#automation-examples /examples
+/cookbook /examples
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942

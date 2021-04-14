@@ -71,7 +71,6 @@ Other bulbs may also work, but with limited color temperatures. If you find a bu
 - KL125
 - KL130
 - KB130
-- KL430
 
 ## Configuration
 

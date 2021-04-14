@@ -6,6 +6,7 @@ ha_category:
 logo: geo_location.png
 ha_release: 0.78
 ha_domain: geo_location
+ha_quality_scale: internal
 ha_iot_class:
 ---
 

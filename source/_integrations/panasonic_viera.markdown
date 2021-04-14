@@ -141,11 +141,13 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-55FZ802B
 - TX-58AX802B
 - TX-58DX700B
+- TX-65CX800E
 - TX-65EXW784
 - TX-65FX720W
 - TX-L42ET50
 - TX-L47ET60E (can't power on)
 - TX-P42STW50
+- TX-P42VT30E
 - TX-P50GT30Y
 - TX-P50GT60E
 

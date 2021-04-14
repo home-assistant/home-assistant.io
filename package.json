@@ -20,6 +20,6 @@
   "scripts": {
     "markdown:lint": "remark --quiet --frail .",
     "textlint:all": "textlint source",
-    "textlint": "textlint source/_cookbook source/_docs source/_faq source/_integrations source/_lovelace source/cloud source/getting-started source/hassio source/lovelace"
+    "textlint": "textlint source/_examples source/_docs source/_faq source/_integrations source/_lovelace source/cloud source/getting-started source/hassio source/lovelace"
   }
 }

@@ -93,15 +93,15 @@ state_color:
   default: false
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  description: Action taken on row tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  description: Action taken on row tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  description: Action taken on row double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -171,15 +171,15 @@ action_name:
   default: "`Run`"
 tap_action:
   required: true
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  description: Action taken on button tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  description: Action taken on button tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  description: Action taken on button double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -226,15 +226,15 @@ entities:
       default: "true"
     tap_action:
       required: false
-      description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+      description: Action taken on button tap. See [action documentation](/lovelace/actions/#tap-action).
       type: map
     hold_action:
       required: false
-      description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+      description: Action taken on button tap and hold. See [action documentation](/lovelace/actions/#hold-action).
       type: map
     double_tap_action:
       required: false
-      description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+      description: Action taken on button double tap. See [action documentation](/lovelace/actions/#double-tap-action).
       type: map
 {% endconfiguration %}
 
