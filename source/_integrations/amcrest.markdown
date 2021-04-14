@@ -165,7 +165,7 @@ Some binary sensors provide two choices for method of operation: streaming or po
 
 Once loaded, the Amcrest integration will generate (Home Assistant) events when it receives event notifications in the stream sent by the camera. This is only possible if the camera model and firmware implement the streaming method (see [above](#streaming-vs-polled-binary-sensors)). The event type is `amcrest` and the data is as follows:
 
-```
+```json
 {
   "camera": "<name of the camera that triggered the event>",
   "event": "<amcrest-specific code of the event>",
