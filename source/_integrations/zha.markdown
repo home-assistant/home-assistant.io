@@ -272,7 +272,7 @@ This "Zigbee Home Automation: remove" service removes an existing device from th
 
 |  Data | Optional | Description |
 | ---- | ---- | ----------- |
-| `ieee_address` | no | IEEE address of the device to remove
+| `ieee` | no | IEEE address of the device to remove
 
 ### Service `zha.set_lock_user_code`
 
