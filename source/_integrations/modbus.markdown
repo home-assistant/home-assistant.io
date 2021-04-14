@@ -612,7 +612,7 @@ If you specify scale or offset as floating point values, double precision floati
 
 #### Full example
 
-Example a temperature sensor with a 10 seconds scan interval:
+Example temperature sensor with a default scan interval:
 
 ```yaml
 modbus:
@@ -720,7 +720,7 @@ switches:
 
 #### Full example
 
-Example switches, for which the state is polled from Modbus every 10 seconds.
+Example switches, for which the state is polled from Modbus every 15 seconds (default).
 
 ```yaml
 modbus:
