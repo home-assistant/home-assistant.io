@@ -164,6 +164,7 @@ The `hive` switch platform integrates your Hive plugs into Home Assistant, enabl
 The platform supports the following Hive products:
 
 - Hive Active Plug
+- Hive Heat on Demand
 
 ### Water Heater
 
