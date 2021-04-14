@@ -17,7 +17,7 @@ ha_platforms:
   - sensor
 ---
 
-The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera in Home Assistant.
+The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -160,6 +160,23 @@ documentation to install the `ffmpeg`.
 ### Streaming vs Polled Binary Sensors
 
 Some binary sensors provide two choices for method of operation: streaming or polled. Streaming is more responsive and causes less network traffic because the camera will tell Home Assistant when the sensor's state has changed. Polled mode queries the camera periodically (every five seconds) to check the state of the sensor. Therefore streaming is the better option. However, some camera models and versions of camera firmware do not seem to implement the streaming method properly. Therefore the polled mode is also available. It is recommended to use the streaming mode (e.g., `motion_detected`) first, and if that doesn't work (e.g., results in constant errors), then try the polled mode instead (e.g., `motion_detected_polled`.)
+
+## Events
+
+Once loaded, the Amcrest integration will generate (Home Assistant) events when it receives event notifications in the stream sent by the camera. This is only possible if the camera model and firmware implement the streaming method (see [above](#streaming-vs-polled-binary-sensors)). The event type is `amcrest` and the data is as follows:
+
+```json
+{
+  "camera": "<name of the camera that triggered the event>",
+  "event": "<amcrest-specific code of the event>",
+  "payload": {
+    <json-encoded content sent by the device
+     through the streaming protocol>
+  }
+ }
+```
+
+The event code is sent by Amcrest or Dahua devices in the payload as a "Code" member. To ease event matching in automations, this code is replicated in a more top-level `event` member in `data`.
 
 ## Services
 
