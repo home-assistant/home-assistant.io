@@ -50,7 +50,7 @@ The Home Assistant Community forums have a specific tag for blueprints. This tag
 Using blueprints is nice and easy, but what if you could create that one missing
 blueprint that our community definitely needs?
 
-Learn more about blueprint by [reading our tutorial on creating a blueprint](//docs/blueprint/tutorial/).
+Learn more about blueprint by [reading our tutorial on creating a blueprint](/docs/blueprint/tutorial/).
 
 ## Troubleshooting missing automations
 
