@@ -10,17 +10,8 @@ ha_platforms:
   - tts
 ---
 
-The `picotts` text-to-speech platform uses offline pico Text-to-Speech engine to read a text with natural sounding voices.
-This requires to install the pico TTS library on the system, typically on Debian just do `sudo apt-get install libttspico-utils`
-On some Raspbian release, this package is missing but you can just copy the arm deb package from Debian.
-
-On Debian Buster, the package is missing, use the following commands to install it:
-
-```bash
-wget http://ftp.us.debian.org/debian/pool/non-free/s/svox/libttspico0_1.0+git20130326-9_armhf.deb
-wget http://ftp.us.debian.org/debian/pool/non-free/s/svox/libttspico-utils_1.0+git20130326-9_armhf.deb
-sudo apt-get install -f ./libttspico0_1.0+git20130326-9_armhf.deb ./libttspico-utils_1.0+git20130326-9_armhf.deb
-```
+The `picotts` text-to-speech platform uses [Pico TTS library](https://github.com/naggety/picotts) to read out text with natural sounding voices.
+Pico TTS is a powerful open-source engine that runs locally (cloudless) so it can work even without an internet connection.
 
 ## Configuration
 
@@ -50,3 +41,15 @@ tts:
   - platform: picotts
     language: "fr-FR"
 ```
+
+## Manual library installation
+
+If you need to manually install the pico TTS library on your system, typically on Debian just do `sudo apt-get install libttspico-utils`
+On some Raspbian release, this package is missing but you can just copy the arm deb package from Debian.
+
+On Debian Buster, the package is missing, use the following commands to install it:
+
+```bash
+wget http://ftp.us.debian.org/debian/pool/non-free/s/svox/libttspico0_1.0+git20130326-9_armhf.deb
+wget http://ftp.us.debian.org/debian/pool/non-free/s/svox/libttspico-utils_1.0+git20130326-9_armhf.deb
+sudo apt-get install -f ./libttspico0_1.0+git20130326-9_armhf.deb ./libttspico-utils_1.0+git20130326-9_armhf.deb
