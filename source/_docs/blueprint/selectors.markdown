@@ -18,13 +18,19 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
+  - [Example area selectors](#example-area-selectors)
 - [Boolean selector](#boolean-selector)
 - [Device selector](#device-selector)
+  - [Example device selector](#example-device-selector)
 - [Entity selector](#entity-selector)
+  - [Example entity selector](#example-entity-selector)
 - [Number selector](#number-selector)
+  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [Select selector](#select-selector)
+- [Tag selector](#tag-selector)
 - [Target selector](#target-selector)
+  - [Example target selectors](#example-target-selectors)
 - [Text selector](#text-selector)
 - [Time selector](#time-selector)
 
@@ -422,6 +428,19 @@ options:
   type: list
   required: true
 {% endconfiguration %}
+
+## Tag selector
+
+The tag selector shows a tag finder that can pick a single tag. The value of the input will contain the tag id of the user-selected tag.
+
+![Screenshot of a tag selector](/images/blueprints/selector-tag.png)
+
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+tag:
+```
 
 ## Target selector
 
