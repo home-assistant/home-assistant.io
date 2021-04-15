@@ -452,8 +452,8 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 
 ### Regular expressions
 
-- Filter `string|regex_match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
-- Filter `string|regex_search(find, ignorecase=True)` will match the find expression anywhere in the string using regex.
+- Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
+- Test `string is search(find, ignorecase=True)` will match the find expression anywhere in the string using regex.
 - Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
 - Filter `string|regex_findall_index(find='', index=0, ignorecase=False)` will find all regex matches of find in string and return the match at index (findall returns an array of matches).
 
