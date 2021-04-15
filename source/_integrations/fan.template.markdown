@@ -110,6 +110,10 @@ fan:
         description: Defines an action to run when the fan is given a speed percentage command.
         required: false
         type: action
+      set_preset_mode:
+        description: Defines an action to run when the fan is given a preset command.
+        required: false
+        type: action
       set_oscillating:
         description: Defines an action to run when the fan is given an osc state command.
         required: false
