@@ -30,7 +30,7 @@ This includes:
 - Home Assistant version
 - Home Assistant installation type
 - Your country-code (derived server-side from your IP-address), example: `"NO"` for Norway.
-  - If you live in the US this will also include the region (state) code, example: `"US_CO"` will be used if you live in Colorado.
+  - If you live in the US this will also include the region (state) code, example: `"CO"` will be used if you live in Colorado.
 
 If your system includes the Supervisor, this will also contain:
 
