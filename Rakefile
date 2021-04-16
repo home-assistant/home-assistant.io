@@ -33,6 +33,8 @@ task :generate do
   abort("Generating CSS failed") unless success
   success = system "rake analytics_data"
   abort("Generating analytics data failed") unless success
+  success = system "rake version_data"
+  abort("Generating version data failed") unless success
   success = system "rake blueprint_exchange_data"
   abort("Generating blueprint exchange data failed") unless success
   success = system "jekyll build"
@@ -71,6 +73,7 @@ task :preview, :listen do |t, args|
   puts "Now listening on http://localhost:#{server_port}"
   system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
   system "rake analytics_data"
+  system "rake version_data"
   system "rake blueprint_exchange_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   compassPid = Process.spawn("compass watch")
@@ -186,6 +189,17 @@ task :analytics_data do
 
   File.open("#{source_dir}/_data/analytics_data.json", "w") do |file|
     file.write(JSON.generate(remote_data[last_entry]))
+  end
+end
+
+desc "Download version data from version.home-assistant.io"
+task :version_data do
+  uri = URI('https://version.home-assistant.io/stable.json')
+
+  remote_data = JSON.parse(Net::HTTP.get(uri))
+
+  File.open("#{source_dir}/_data/version_data.json", "w") do |file|
+    file.write(JSON.generate(remote_data))
   end
 end
 
