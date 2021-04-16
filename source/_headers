@@ -18,5 +18,3 @@
   Cache-Control: public, max-age: 1800, s-maxage=604800, must-revalidate
 /static/*
   Cache-Control: public, max-age: 1800, s-maxage=604800, must-revalidate
-/integrations.json
-  Access-Control-Allow-Origin: *
