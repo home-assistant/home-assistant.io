@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights: 17th edition"
-description: ""
+description: "know when your washing machine is ready with a blueprint, get started with the battery state card and bring your smart assistant to the kitchen with Holodeck"
 date: 2021-04-16 00:00:00
 date_formatted: "April 16, 2021"
 author: Klaas Schoute
@@ -28,7 +28,7 @@ with a blueprint.
 With the blueprint from [Sbyx](https://community.home-assistant.io/u/sbyx) you
 put a smart plug on the washing machine and you get a notification when the
 laundry is ready. Read more about it on the [community forum][week_blueprint] or
-install this automation in your instance with a click on the my button!
+install this automation in your instance with a click on the My button!
 
 {% my blueprint_import badge blueprint_url="https://gist.github.com/sbyx/6d8344d3575c9865657ac51915684696" %}
 
@@ -71,7 +71,7 @@ on [Reddit][reddit] and maybe I'll pick it out for the next edition.
 
 We also came across a very cool project on our [community forum][community] namely
 the Holodeck, made by [smowk](https://community.home-assistant.io/u/smowk): a smart
-assistant in your kitchen. It projects images (like a lovelace dashboard or cooking
+assistant in your kitchen. It projects images (like a Lovelace dashboard or cooking
 video) onto your kitchen cupboard and could be operated by voice. You can read a lot
 more about it [here][community_project].
 
