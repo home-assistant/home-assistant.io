@@ -70,7 +70,7 @@ password:
   required: true
   type: string
 home_id:
-  description: The id of your home of which you want to track devices. If provided, the Tado device tracker will tack *all* devices known to Tado associated with this home. See below how to find it.
+  description: The id of your home of which you want to track devices. If provided, the Tado device tracker will track *all* devices known to Tado associated with this home. See below how to find it.
   required: false
   type: integer
 {% endconfiguration %}
