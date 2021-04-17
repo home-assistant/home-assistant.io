@@ -61,7 +61,7 @@ On macOS `python-vlc` won’t find the VLC plugin directory unless you add this 
 export VLC_PLUGIN_PATH=$VLC_PLUGIN_PATH:/Applications/VLC.app/Contents/MacOS/plugins
 ```
 
-## Additional configuration for Raspberry Pi
+## Additional configuration on Linux
 
 You need to add the `homeassistant` user to the `audio` group:
 
