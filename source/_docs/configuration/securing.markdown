@@ -25,8 +25,6 @@ Configuration changes carry risk. These risks can be reduced by performing the f
 
 * **Perform pre- and post-[Snapshots](/common-tasks/os/#snapshots).** In the event a configuration change needs to be reverted, you can easily revert using snapshots.
 {% my supervisor_snapshots badge %}
-* **Run [configuration checks](/common-tasks/os/#configuration-check).** After making configuration changes, you should ensure your configuration is valid so it will operate as expected.
-{% my server_controls badge %}
 * **Use built-in [secrets](/docs/configuration/secrets/) handling.** When requesting help from the [forums](https://community.home-assistant.io/) you will want to share your configuration. Secrets reduce your risk of exposure of sensitive data. Alternatively, many integrations can be set up via the user interface and will accept your password outside of your `configuration.yaml`. Check your integrations to see if they support this.
 {% my integrations badge %}
 
