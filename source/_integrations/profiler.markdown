@@ -73,3 +73,12 @@ Stop logging the growth of objects in memory.
 | `type` | no | The type of object to dump to the log.
 
 When `start_log_objects` highlights the growth of a collection of objects in memory, this service can help investigate. The `repr` of each object that matches `type` will be logged.
+
+### Service `profiler.log_thread_frames`
+
+Log the current frames for all threads.
+
+### Service `profiler.log_event_loop_scheduled`
+
+Log what is scheduled in the event loop.
+
