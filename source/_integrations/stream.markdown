@@ -20,7 +20,7 @@ The `stream` integration provides a way to proxy live streams through Home Assis
 To enable this component, add the following lines to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry.  There are not additional options.
+# Example configuration.yaml entry. There are no additional options.
 stream:
 ```
 
