@@ -20,21 +20,21 @@ The `myq` cover platform lets you control MyQ-Enabled garage doors through Home 
 
 {% include integrations/config_flow.md %}
 
-## Binary Sensor
+### Binary Sensor
 
 Your MyQ gateway will appear as a binary sensor that shows if the device is connected.
 
-## Cover
+### Cover
 
 Garage doors and gates linked to your `MyQ` account will appear as covers.
 
-# Using HomeKit controller for local control - ***No Apple device required***
+## Using HomeKit controller for local control - ***No Apple device required***
 
 If you have a [`819LMB`](https://www.liftmaster.com/myq-home-bridge/p/G819LMB) or [`MYQ-G0303-SP`](https://www.chamberlain.com/myq-g0303-sp/p/MYQ-G0303-SP), Home Assistant can speak Home Kit Accessory Protocol and control the device over the local network without the need to access to the cloud service. As a bonus, updates are push and near-instantaneous.
 
 To use HomeKit Controller:
 
-## If bridge is currently paired (otherwise skip these steps)
+### If bridge is currently paired (otherwise skip these steps)
  - Open the Apple Home App to the Home that the MyQ device is paired with
  - Touch the Home Icon
  - Choose `Home Settings`
@@ -42,7 +42,7 @@ To use HomeKit Controller:
  - Touch the `MyQ-...` bridge
  - Touch `Remove Bridge from Home`
 
-## Pairing with Home Assistant
+### Pairing with Home Assistant
  - Go to `Configuration` >> `Integrations` in the Home Assistant UI
  - Click the button with + sign, and from the list of integrations, select  ***HomeKit Controller***.
  - Select the `MyQ-...` bridge
