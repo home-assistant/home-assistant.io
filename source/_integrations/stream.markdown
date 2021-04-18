@@ -13,8 +13,7 @@ ha_codeowners:
 ha_domain: stream
 ---
 
-The `stream` integration provides a way to proxy live streams through Home Assistant. Most users should not need to know
-about it or configure anything since it is an internal component used by the [`camera`](/integrations/camera) integration.
+The `stream` integration provides a way to proxy live streams through Home Assistant. Most users should not need to know about it or configure anything since it is an internal component used by the [`camera`](/integrations/camera) integration.
 
 ## Configuration
 
