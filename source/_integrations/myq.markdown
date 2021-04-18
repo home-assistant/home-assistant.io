@@ -30,7 +30,7 @@ Garage doors and gates linked to your `MyQ` account will appear as covers.
 
 ## Using HomeKit controller for local control - ***No Apple device required***
 
-If you have a [`819LMB`](https://www.liftmaster.com/myq-home-bridge/p/G819LMB) or [`MYQ-G0303-SP`](https://www.chamberlain.com/myq-g0303-sp/p/MYQ-G0303-SP), Home Assistant can speak Home Kit Accessory Protocol and control the device over the local network without the need to access to the cloud service. As a bonus, updates are push and near-instantaneous.
+If you have a [`819LMB`](https://www.liftmaster.com/myq-home-bridge/p/G819LMB) or [`MYQ-G0303-SP`](https://www.chamberlain.com/myq-g0303-sp/p/MYQ-G0303-SP), Home Assistant can speak HomeKit Accessory Protocol and control the device over the local network without the need to access to the cloud service. As a bonus, updates are push and near-instantaneous.
 
 To use HomeKit Controller:
 
