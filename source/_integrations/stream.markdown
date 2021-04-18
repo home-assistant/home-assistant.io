@@ -24,9 +24,6 @@ To enable this component, add the following lines to your `configuration.yaml` f
 stream:
 ```
 
-## Streaming in Lovelace
-
-As of Home Assistant version 0.92 you can now live-stream a camera feed directly in lovelace.
 To do this add either [picture-entity](/lovelace/picture-entity/), [picture-glance](/lovelace/picture-glance/) or [picture-elements](/lovelace/picture-elements/), set `camera_image` to a stream-ready camera entity and set `camera_view` to `live` in one of your Lovelace views.
 
 ## Troubleshooting
