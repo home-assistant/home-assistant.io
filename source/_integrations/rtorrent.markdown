@@ -8,7 +8,24 @@ ha_iot_class: Local Polling
 ha_domain: rtorrent
 ha_platforms:
   - sensor
+  - switch
 ---
+
+There is currently support for the following device types within Home Assistant:
+
+- [Sensor](#sensor)
+- [Switch](#switch)
+
+<div class="note">
+This integration requires the rTorrent XML-RPC API exposed on an HTTP interface.
+Note that for security reasons, simply using the SCGI interface (default `localhost:5000`) of rTorrent won't work.
+
+The [official reference](https://github.com/rakshasa/rtorrent/wiki/RPC-Setup-XMLRPC) describes how to set up that HTTP interface.
+
+Alternatively, the [arch-rtorrentvpn](https://github.com/binhex/arch-rtorrentvpn) container can be used with `url` set to `http://admin:rutorrent@127.0.0.1:9080/RPC2`.
+</div>
+
+## Sensor
 
 The `rtorrent` platform allows you to monitor your downloads with [rTorrent](https://rakshasa.github.io/rtorrent/) from within Home Assistant and setup automations based on the information.
 
@@ -30,12 +47,6 @@ sensor:
       - 'downloading_torrents'
       - 'active_torrents'
 ```
-
-This sensor requires the rTorrent XML-RPC API exposed on an HTTP interface.
-Note that for security reasons, simply using the SCGI interface (default `localhost:5000`) of rTorrent won't work.
-The [official reference](https://github.com/rakshasa/rtorrent/wiki/RPC-Setup-XMLRPC) describes how to set up that HTTP interface.
-
-Alternatively, the [arch-rtorrentvpn](https://github.com/binhex/arch-rtorrentvpn) container can be used with `url` set to `http://admin:rutorrent@127.0.0.1:9080/RPC2`.
 
 {% configuration %}
 url:
@@ -69,4 +80,28 @@ monitored_variables:
       description: The number of torrents that are leeching.
     active_torrents:
       description: The number of torrents that are actively ( measurable speed ) leeching, seeding or both.
+{% endconfiguration %}
+
+## Switch
+
+The `rtorrent` switch platform allows you to control your [rTorrent](https://rakshasa.github.io/rtorrent/) client from within Home Assistant. The platform enables you switch all your active torrents in pause, and then unpause them all.
+
+To add this switch to your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: rtorrent
+    url: "http://<user>:<password>@<host>:<port>/RPC2"
+```
+
+{% configuration %}
+url:
+  description: The URL to the HTTP endpoint of the rTorrent XML-RPC API.
+  required: true
+  type: string
+name:
+  description: The name to use when displaying this rTorrent switch.
+  required: false
+  type: string
 {% endconfiguration %}
