@@ -101,6 +101,10 @@ broadcast_port:
   description: The port to send the magic packet to.
   required: false
   type: integer
+unique_id:
+  description: An ID that uniquely identifies this WOL switch. If two switches have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### Examples
