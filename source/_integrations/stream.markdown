@@ -13,7 +13,8 @@ ha_codeowners:
 ha_domain: stream
 ---
 
-The `stream` integration provides a way to proxy live streams through Home Assistant as an internal component used by the [`camera`](/integrations/camera) integration. The integration currently only supports proxying H.264 source streams to the HLS format and requires at least FFmpeg >= 4.
+The `stream` integration provides a way to proxy live streams through Home Assistant as an internal component used by the [`camera`](/integrations/camera) integration. The integration currently supports proxying H.264 and H.265 source streams to the HLS protocol and requires at least FFmpeg >= 4. Note that H.265 support is limited to Safari, iOS, and Android.
+The `stream` integration also provides limited support for audio. PCM codecs (e.g. G.711/G.723/G.726/G.729) are not supported. ADTS AAC audio is also currently not supported. Most other AAC and MP3 encoded audio should work.
 
 ## Configuration
 
