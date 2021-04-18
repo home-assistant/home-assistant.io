@@ -15,6 +15,15 @@ ha_domain: stream
 
 The `stream` integration provides a way to proxy live streams through Home Assistant as an internal component used by the [`camera`](/integrations/camera) integration. The integration currently only supports proxying H.264 source streams to the HLS format and requires at least FFmpeg >= 4.
 
+## Configuration
+
+To enable this component, add the following lines to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry.  There are not additional options.
+stream:
+```
+
 ## Streaming in Lovelace
 
 As of Home Assistant version 0.92 you can now live-stream a camera feed directly in lovelace.
