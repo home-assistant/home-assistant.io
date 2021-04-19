@@ -36,6 +36,8 @@ The `Overkiz by Somfy` integration platform is used by many different vendors, l
 - Somfy Connexoon IO
 - Somfy Connexoon RTS
 
+If you use a Somfy hub, you could also use the [Somfy integration](/integrations/somfy/) which utilises the official API.
+
 ## Supported devices
 
 Over 6,000 devices from 60 brands compatible with the Overkiz platform. This integration will pull your devices and map them to the Home Assistant platforms.
@@ -52,13 +54,18 @@ The Overkiz integration periodically retrieves new events. Change the update int
 
 ## Known limitations
 
+### Z-Wave, Hue and Sonos not supported
 
-### Z-Wave not supported
+Even though Overkiz supports adding Z-Wave, Hue and Sonos devices, this isn't supported in the Overkiz integration. All these platforms have native integrations in Home Assistant which are more stable and have more features.
+
+### Overkiz API limits
+
+`Execution queue is full on gateway: #xxxx-xxxx-xxxx (soft limit: 10)`
+
+`Server busy, please try again later. (Too many executions)`
 
 TODO
 
-### Execution queue is full on gateway: #xxxx-xxxx-xxxx (soft limit: 10)
+### Internet connectivity required
 
-TODO
-
-## Advanced
+TODO -> Velux box + integration
