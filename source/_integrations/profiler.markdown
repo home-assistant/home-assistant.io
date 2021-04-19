@@ -111,7 +111,7 @@ An example is below:
 
 ### Service `profiler.log_event_loop_scheduled`
 
-Log what is scheduled in the event loop. This can be helpful in in tracking down integrations that do not stop listeners on stop or do not have sufficient locking to avoid scheduling updates before the previous update finished.
+Log what is scheduled in the event loop. This can be helpful in tracking down integrations that do not stop listeners when Home Assistant stops or do not have sufficient locking to avoid scheduling updates before the previous update is finished.
 
 Each upcoming scheduled item is logged similar to the below example:
 
