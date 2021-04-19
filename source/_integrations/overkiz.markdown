@@ -40,7 +40,7 @@ If you use a Somfy hub, you could also try the [Somfy integration](/integrations
 
 ## Supported devices
 
-Over 6,000 devices from 60 brands compatible with the Overkiz platform. This integration will pull your devices and map them to the Home Assistant platforms.
+Over 6000 devices from 60 brands are compatible with the Overkiz platform. This integration will retrieve your devices and map them to the supported Home Assistant platforms.
 
 {% include integrations/config_flow.md %}
 
@@ -60,11 +60,12 @@ Even though Overkiz supports adding Z-Wave, Hue and Sonos devices, this isn't su
 
 ### Overkiz API limits
 
-`Execution queue is full on gateway: #xxxx-xxxx-xxxx (soft limit: 10)`
+**Execution queue is full on gateway: #xxxx-xxxx-xxxx (soft limit: 10)**
+If you 
 
-`Server busy, please try again later. (Too many executions)`
+**Server busy, please try again later. (Too many executions)**
 
-TODO
+The Overkiz platform can handle, during rush hours
 
 ### Internet connectivity required
 
