@@ -709,27 +709,28 @@ switches:
     verify:
       description: read from modbus device to verify switch.
       required: false
-      type: structure
-    verify/address:
-      description: address to read from. 
-      required: false
-      default: write address
-      type: integer
-    verify/inpu_type:
-      description: type of adddress (holding/coil/discrete/input)
-      required: false
-      default: write_type
-      type: integer
-    verify/state_on:
-      description: value when switch is on.
-      required: false
-      default: same as command_on
-      type: integer
-    verify/state_off:
-      description: value when switch is off.
-      required: false
-      default: same as command_off
-      type: integer
+      type: map
+      keys:
+        address:
+          description: address to read from. 
+          required: false
+          default: write address
+          type: integer
+        input_type:
+          description: type of adddress (holding/coil/discrete/input)
+          required: false
+          default: write_type
+          type: integer
+        state_on:
+          description: value when switch is on.
+          required: false
+          default: same as command_on
+          type: integer
+        state_off:
+          description: value when switch is off.
+          required: false
+          default: same as command_off
+          type: integer
 {% endconfiguration %}
 
 #### Full example
