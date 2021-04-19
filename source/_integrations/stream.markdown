@@ -24,7 +24,6 @@ The `stream` component is automatically loaded by `default_config` and enabled b
 stream:
 ```
 
-
 ## Technical Details
 
 The integration currently supports proxying H.264 and H.265 source streams to the HLS protocol and requires at least FFmpeg >= 4. Note that H.265 support is limited to Safari, iOS, and Android. The `stream` integration also provides limited support for audio. PCM codecs (e.g. G.711/G.723/G.726/G.729) are not supported. ADTS AAC audio is also currently not supported. Most other AAC and MP3 encoded audio should work.
