@@ -49,6 +49,7 @@ Enjoy the release!
 - [Release 2021.4.3 - April 10](#release-202143---april-10)
 - [Release 2021.4.4 - April 13](#release-202144---april-13)
 - [Release 2021.4.5 - April 16](#release-202145---april-16)
+- [Release 2021.4.6 - April 19](#release-202146---april-19)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -586,6 +587,30 @@ The following integrations are now available via the Home Assistant UI:
 [mqtt_eventstream docs]: /integrations/mqtt_eventstream/
 [mysensors docs]: /integrations/mysensors/
 [spotify docs]: /integrations/spotify/
+
+## Release 2021.4.6 - April 19
+
+- Apply Precision/Scale/Offset to struct in modbus sensor ([@janiversen] - [#48544]) ([modbus docs])
+- Upgrade pyMetno to 0.8.2 ([@Danielhiversen] - [#49308]) ([met docs]) ([norway_air docs])
+- Fix exception in roomba discovery when the device does not respond on the first try ([@bdraco] - [#49360]) ([roomba docs])
+- Fix deadlock when restarting scripts ([@emontnemery] - [#49410])
+- Google report state: thermostatMode should be a string, not null ([@bramkragten] - [#49342]) ([google_assistant docs])
+
+[#48544]: https://github.com/home-assistant/core/pull/48544
+[#49308]: https://github.com/home-assistant/core/pull/49308
+[#49342]: https://github.com/home-assistant/core/pull/49342
+[#49360]: https://github.com/home-assistant/core/pull/49360
+[#49410]: https://github.com/home-assistant/core/pull/49410
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@janiversen]: https://github.com/janiversen
+[google_assistant docs]: /integrations/google_assistant/
+[met docs]: /integrations/met/
+[modbus docs]: /integrations/modbus/
+[norway_air docs]: /integrations/norway_air/
+[roomba docs]: /integrations/roomba/
 
 ## If you need help...
 
