@@ -36,7 +36,7 @@ The `Overkiz by Somfy` integration platform is used by many different vendors, l
 - Somfy Connexoon IO
 - Somfy Connexoon RTS
 
-If you use a Somfy hub, you could also use the [Somfy integration](/integrations/somfy/) which utilises the official API.
+If you use a Somfy hub, you could also try the [Somfy integration](/integrations/somfy/) which utilises the official API.
 
 ## Supported devices
 
