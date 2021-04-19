@@ -268,7 +268,7 @@ from the same group:
 
 ### Service `zha.remove`
 
-This "Zigbee Home Automation: remove" service removes an existing device from the network. IEEE address of the device can be found on the device card of Zigbee devices, (example of IEEE address data parameter format is `00:0d::6f:00:05:7d:2d:34`).
+This service removes an existing device from the network. You can find the IEEE address of the device on the device card of Zigbee devices. An example of an IEEE address data parameter format is `00:0d::6f:00:05:7d:2d:34`.
 
 |  Data | Optional | Description |
 | ---- | ---- | ----------- |
