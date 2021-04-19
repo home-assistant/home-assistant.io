@@ -24,7 +24,6 @@ The `stream` component is automatically loaded by `default_config` and enabled b
 stream:
 ```
 
-To do this add either [picture-entity](/lovelace/picture-entity/), [picture-glance](/lovelace/picture-glance/) or [picture-elements](/lovelace/picture-elements/), set `camera_image` to a stream-ready camera entity and set `camera_view` to `live` in one of your Lovelace views.
 
 ## Technical Details
 
