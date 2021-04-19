@@ -61,12 +61,13 @@ Even though Overkiz supports adding Z-Wave, Hue and Sonos devices, this isn't su
 ### Overkiz API limits
 
 **Execution queue is full on gateway: #xxxx-xxxx-xxxx (soft limit: 10)**
-If you 
+
+The Overkiz has a limit of 10 actions that can be executed in parallel. Currently this can only be solved by adding a time-out in between your executions, where you need to take the execution time into account.
 
 **Server busy, please try again later. (Too many executions)**
 
-The Overkiz platform can handle, during rush hours
+During peak hours, it could happen that the Overkiz platform is unable to execute your command. The integration will try to retry this command, however this is not guaranteed to succeed. 
 
 ### Internet connectivity required
 
-TODO -> Velux box + integration
+This integration communicates via the cloud based Overkiz API, since Overkiz doesn't expose a local API on their hubs. If you are only using Somfy IO compatible devices, you could purchase a Velux hub and use to [the Velux integration](/integrations/velux/) which has a local API.
