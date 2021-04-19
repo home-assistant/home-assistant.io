@@ -76,7 +76,7 @@ When `start_log_objects` highlights the growth of a collection of objects in mem
 
 ### Service `profiler.log_thread_frames`
 
-To help discover run away threads, why the executor is overloaded, or other threading problem, the current frames for each running thread will be logged when this service is called.
+To help discover run away threads, why the executor is overloaded, or other threading problems, the current frames for each running thread will be logged when this service is called.
 
 An example is below:
 
@@ -116,4 +116,3 @@ Log what is scheduled in the event loop. This can be helpful in in tracking down
 Each upcoming scheduled item is logged similar to the below example:
 
 `[homeassistant.components.profiler] Scheduled: <TimerHandle when=1528307.1818668307 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobType.Coroutinefunction <bound method DataUpdateCoordinator._handle_refresh_interval of <homeassistant.components.screenlogic.ScreenlogicDataUpdateCoordinator object at 0x7f985d896d30>>>) at /usr/src/homeassistant/homeassistant/helpers/event.py:1175>`
-
