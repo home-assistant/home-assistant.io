@@ -100,5 +100,9 @@ and `off`, the group state will be `on` or `off`.
 It is possible to create a group that the system cannot calculate a group state.
 Groups with entities from unsupported domains will always have an unknown state.
 
+Devices like motion sensors that re-trigger their state change periodically will not be
+bubbled up to the group. For automations with timeouts that need to re-trigger, like motion
+sensor lights, instead create multiple triggers in the automation.
+
 These groups can still be in templates with the `expand()` directive, called using the
 `homeassistant.turn_on` and `homeassistant.turn_off` services, etc.
