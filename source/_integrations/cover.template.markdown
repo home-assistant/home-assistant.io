@@ -54,12 +54,12 @@ cover:
         required: false
         type: string
       value_template:
-        description: Defines a template to get the state of the cover. Valid values are `open`/`true` or `opening`/`closing`/`closed`/`false`. [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
-        required: exclusive
+        description: Defines a template to get the state of the cover. Valid values are `open`/`true` (which map to `current_position = 100`, that is "fully open"), `closed`/`false` (which map to `current_position = 0`, that is "fully closed"), or `opening`/`closing` (which directly map to the corresponding cover state *and* `current_position = 0`). If [`value_template`](#value_template) and [`position_template`](#position_template) are specified concurrently, then [`position_template`](#position_template) takes precedence. In particular, except for `opening` and `closing` the actual result of [`value_template`](#value_template) is ignored since the `open`/`closed` state of covers is computed from their `current_position`.
+        required: false
         type: template
       position_template:
-        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
-        required: exclusive
+        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). See [above](#value_template) for what happens when [`value_template`](#value_template) and [`position_template`](#position_template) are both specified.
+        required: false
         type: template
       icon_template:
         description: Defines a template to specify which icon to use.
@@ -270,6 +270,55 @@ automation:
           entity_id: cover.cover_group
         data:
           position: 25
+```
+
+{% endraw %}
+
+### Use both `value_template` and `position_template`
+
+This example shows how to use both `value_template` and `position_template`. Care is taken to return results coherent with each other, even if this is actually not needed since `position_template` takes precedence. Here we suppose that the garage is driven by independent switches for each direction, and some sensor is able to measure the door position continuously from `0` to `100`.
+
+{% raw %}
+
+```yaml
+cover:
+  - platform: template
+    covers:
+      garage_door:
+        device_class: garage
+        friendly_name: "Garage Door"
+        value_template: >-
+            {% if is_state('switch.garage_up', 'on') %}
+                opening
+            {% elif if state('switch.garage_down', 'on') %}
+                closing
+            {% elif is_state('sensor.garage_door_position', '0') %}
+                closed
+            {% else %}
+                open
+            {% endif %}
+        position_template: "{{ states('sensor.garage_door_position') }}"
+        open_cover:
+          - service: switch.turn_off
+            target:
+              entity_id: switch.garage_down
+          - service: switch.turn_on
+            target:
+              entity_id: switch.garage_up
+        close_cover:
+          - service: switch.turn_off
+            target:
+              entity_id: switch.garage_up
+          - service: switch.turn_on
+            target:
+              entity_id: switch.garage_down
+        stop_cover:
+          - service: switch.turn_off
+            target:
+              entity_id: switch.garage_up
+          - service: switch.turn_off
+            target:
+              entity_id: switch.garage_down
 ```
 
 {% endraw %}
