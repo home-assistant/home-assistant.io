@@ -46,10 +46,10 @@ added/removed from Home Assistant.
 The effect list is dynamically pulled from the Hyperion server. The following
 extra effects will be available:
 
-- BOBLIGHTSERVER: Use a Boblight-Server configured in Hyperion.
-- GRABBER: Use a 'Platform Capture' grabber that is configured in Hyperion.
-- V4L: Use a 'USB Capture' V4L device that is configured in Hyperion.
-- Solid: Use a solid color only.
+- 'Boblight Server': Use a 'Boblight Server' configured in Hyperion.
+- 'Platform Capture': Use a 'Platform Capture' grabber that is configured in Hyperion.
+- 'USB Capture': Use a 'USB Capture' device that is configured in Hyperion.
+- 'Solid': Use a solid color only.
 
 ## Advanced Entities
 
@@ -114,7 +114,7 @@ To have the lights playing an effect when pausing, idle or turn off a media play
         effect: "Full color mood blobs"
 ```
 
-To capture the screen when playing something on a media_player you can use this example:
+To capture the screen on a USB capture device, when playing something on a media_player, you can use this example:
 
 ```yaml
 - alias: "Set hyperion when playback starts"
@@ -127,5 +127,5 @@ To capture the screen when playing something on a media_player you can use this 
       target:
         entity_id: light.hyperion
       data:
-        effect: V4L
+        effect: "USB Capture"
 ```
