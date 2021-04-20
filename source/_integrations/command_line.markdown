@@ -25,7 +25,7 @@ To use your Command binary sensor in your installation, add the following to you
 # Example configuration.yaml entry
 binary_sensor:
   - platform: command_line
-    command: "cat /proc/sys/net/ipv4/ip_forward"
+    command: 'cat /proc/sys/net/ipv4/ip_forward'
 ```
 
 <div class='note'>
