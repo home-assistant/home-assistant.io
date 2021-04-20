@@ -314,10 +314,10 @@ automation:
 
 ## Alarm Control Panel
 
-Entity of a physical keypad. Can be in 4 different modes (`arm_away`, `arm_home`, `arm_night` or `disarmed`). Changing the state will do an audible notification from the keypad.
+The entity of a physical keypad. Can be in 4 different modes (`arm_away`, `arm_home`, `arm_night` or `disarmed`). Changing the state will do an audible notification from the keypad.
 
 The Device also exposes a new event type `deconz_alarm_event` which signals a user action with the keypad.
-The Payload consists of an event (`arm_away`, `arm_home`, `arm_night` or `disarmed`) and a four digit code.
+The Payload consists of an event (`arm_away`, `arm_home`, `arm_night` or `disarmed`) and a four-digit code.
 
 ## Binary Sensor
 
