@@ -112,7 +112,7 @@ Some of the known valid key values are:
 - `back`
 - `power`
 
-The list with all known valid keys can be found [here](https://github.com/florianholzapfel/panasonic-viera/blob/521cefadc8e1543514ce41d3d49e9218d1c2302d/panasonic_viera/__init__.py#L35). Additionally, you can also send custom commands, such as `"NRC_HOME-ONOFF"` (which is the same as `home`).
+The list with all known valid keys can be found [here](https://github.com/florianholzapfel/panasonic-viera/blob/521cefadc8e1543514ce41d3d49e9218d1c2302d/panasonic_viera/__init__.py#L35). Additionally, you can also send custom commands, such as `"NRC_HOME-ONOFF"` (which is the same as `home`). Two further undocumented commands are `"NRC_CHG_HDMI1-ONOFF"` and `"NRC_CHG_HDMI1-ONOFF"` for selecting HDMI inputs.
 
 ### Currently known supported models
 
