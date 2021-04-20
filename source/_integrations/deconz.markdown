@@ -3,6 +3,7 @@ title: deCONZ
 description: Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
 ha_category:
   - Hub
+  - Alarm
   - Binary Sensor
   - Cover
   - Fan
@@ -20,6 +21,7 @@ ha_codeowners:
 ha_domain: deconz
 ha_ssdp: true
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - climate
   - cover
@@ -36,6 +38,7 @@ ha_platforms:
 
 There is currently support for the following device types within Home Assistant:
 
+- [Alarm Control Panel](#alarm-control-panel)
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
 - [Cover](#cover)
@@ -308,6 +311,13 @@ automation:
           data:
             'on': false
 ```
+
+## Alarm Control Panel
+
+Entity of a physical keypad. Can be in 4 different modes (`arm_away`, `arm_home`, `arm_night` or `disarmed`). Changing the state will do an audible notification from the keypad.
+
+The Device also exposes a new event type `deconz_alarm_event` which signals a user action with the keypad.
+The Payload consists of an event (`arm_away`, `arm_home`, `arm_night` or `disarmed`) and a four digit code.
 
 ## Binary Sensor
 
