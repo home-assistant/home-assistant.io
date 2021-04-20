@@ -15,7 +15,7 @@ ha_zeroconf: true
 
 {% include integrations/config_flow.md %}
 
-Support for mDNS discovery in your local network is mandatory. Make sure that your router has this feature enabled. This is even required if you entered the IP addresses of the Cast devices are manually in the configuration as mentioned below.
+Support for mDNS discovery in your local network is mandatory for automatic discovery. Make sure that your router has this feature enabled. If mDNS does not work in your network, the IP addresses of the Cast devices can be manually entered in the configuration as mentioned below.
 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
