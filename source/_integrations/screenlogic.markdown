@@ -21,7 +21,7 @@ ha_platforms:
   - switch
 ---
 
-The Pentair ScreenLogic integration allows you to integrate your Pentair Intellitouch or EasyTouch pool controller with Home Assistant via the [Pentair ScreenLogic](https://www.pentair.com/en-us/products/residential/pool-spa-equipment/pool-automation/screenlogic2_interfaceforintellitouchandeasytouchautomationsystems.html) gateway.
+The Pentair ScreenLogic integration allows you to integrate your Pentair IntelliTouch or EasyTouch pool controller with Home Assistant via the [Pentair ScreenLogic](https://www.pentair.com/en-us/products/residential/pool-spa-equipment/pool-automation/screenlogic2_interfaceforintellitouchandeasytouchautomationsystems.html) gateway.
 
 {% include integrations/config_flow.md %}
 
@@ -30,3 +30,43 @@ The Pentair ScreenLogic integration allows you to integrate your Pentair Intelli
 ScreenLogic options are set via **Configuration** -> **Integrations** -> **Pentair ScreenLogic** -> **Options**.
 
 * Seconds between scans - How many seconds between each polling of the ScreenLogic gateway.
+
+## Services
+
+### `screenlogic.set_color_mode`
+
+Sets the operation of any connected color-capable lights.
+
+| Service data attribute | Optional | Description                                                         |
+| ---------------------- | -------- | ------------------------------------------------------------------- |
+| `device_id`            | no       | The `device_id` of the ScreenLogic Gateway to set to color mode on. |
+| `color_mode`           | no       | The color mode to set. Valid values are listed below.               |
+
+## Reference
+
+### Color Modes
+
+| color_mode   | Name         | Description                                                                                               |
+| ------------ | ------------ | --------------------------------------------------------------------------------------------------------- |
+| `all_off`    | All Off      | Turns all light circuits off.                                                                             |
+| `all_on`     | All On       | Turns all light circuits on to their last mode.                                                           |
+| `color_set`  | Color Set    | Sets light circuits to their pre-set colors as set in the pool controller.                                |
+| `color_sync` | Color Sync   | Synchronize all IntelliBrite, SAm, SAL, or FIBERworks color changing lights and synchronize their colors. |
+| `color_swim` | Color Swim   | Cycles through white, magenta, blue and green colors. (Emulates Pentair SAm color changing light.)        |
+| `party`      | Party        | Rapid color changing building the energy and excitement.                                                  |
+| `romance`    | Romance      | Slow color transitions creating a mesmerizing and calming effect.                                         |
+| `caribbean`  | Caribbean    | Transitions between a variety of blues and greens.                                                        |
+| `american`   | American     | Patriotic red, white and blue transition.                                                                 |
+| `sunset`     | Sunset       | Dramatic transitions of orange, red and magenta tones.                                                    |
+| `royal`      | Royal        | Richer, deeper, color tones.                                                                              |
+| `save`       | Save Color   | Save the exact colors that are being displayed.                                                           |
+| `recall`     | Recall Color | Recall the saved colors.                                                                                  |
+| `blue`       | Blue         | Fixed color: Blue                                                                                         |
+| `green`      | Green        | Fixed color: Green                                                                                        |
+| `red`        | Red          | Fixed color: Red                                                                                          |
+| `white`      | White        | Fixed color: White                                                                                        |
+| `magenta`    | Magenta      | Fixed color: Magenta                                                                                      |
+| `thumper`    | Thumper      | Toggles the solenoid thumper on MagicStream laminars.                                                     |
+| `next_mode`  | Next Mode    | Cycle to the next color mode.                                                                             |
+| `reset`      | Reset        | Reset light modes.                                                                                        |
+| `hold`       | Hold         | Hold light transitions.                                                                                   |
