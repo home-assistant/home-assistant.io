@@ -24,5 +24,3 @@ The platforms cover the following levels (if they are available):
 - The N2O (nitrogen oxide) level.
 - The NO (nitrogen monoxide) level.
 - The NO2 (nitrogen dioxide) level.
-
-[integrations]: https://www.home-assistant.io/integrations/#health
