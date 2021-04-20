@@ -11,8 +11,7 @@ ha_platforms:
 ---
 
 The `systemmonitor` sensor platform allows you to monitor disk usage,
-memory usage, CPU usage, and running processes. This platform has superseded the
-process integration which is now considered deprecated.
+memory usage, CPU usage, and running processes. 
 
 To add this platform to your installation,
 add the following to your `configuration.yaml` file:
