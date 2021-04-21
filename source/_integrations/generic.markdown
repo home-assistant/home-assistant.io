@@ -1,12 +1,14 @@
 ---
-title: "Generic IP Camera"
-description: "Instructions on how to integrate IP cameras within Home Assistant."
+title: Generic
+description: Instructions on how to integrate IP cameras within Home Assistant.
 ha_category:
   - Camera
 logo: home-assistant.png
 ha_release: pre 0.7
 ha_iot_class: Configurable
-ha_domain: camera
+ha_domain: generic
+ha_platforms:
+  - camera
 ---
 
 The `generic` camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.
@@ -69,10 +71,14 @@ verify_ssl:
   required: false
   default: true
   type: boolean
+rtsp_transport:
+  description: "Set the RTSP transport protocol to `tcp`, `udp`, `udp_multicast` or `http`."
+  required: false
+  type: string
 {% endconfiguration %}
 
 <p class='img'>
-  <a href='/cookbook/google_maps_card/'>
+  <a href='/examples/google_maps_card/'>
     <img src='/images/integrations/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
     Example showing the Generic camera platform pointing at a dynamic Google Map image.
   </a>
@@ -89,7 +95,7 @@ camera:
   - platform: generic
     name: Weather
     still_image_url: https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/meteogram.svg
-    content_type: 'image/svg+xml'
+    content_type: "image/svg+xml"
 ```
 
 ### Local image
@@ -136,4 +142,20 @@ camera:
     name: Streaming Enabled
     still_image_url: http://194.218.96.92/jpg/image.jpg
     stream_source: rtsp://194.218.96.92:554
+```
+
+### Secured access to the camera
+
+To access a camera that requires secured access for still image or live stream (an HIK in my case).
+
+```yaml
+camera: 
+  - platform: generic
+    still_image_url: "http://192.168.1.100/ISAPI/Streaming/Channels/101/picture"
+    stream_source: "rtsp://USERNAME:PASSWORD@192.168.1.100:554/Streaming/Channels/102"
+    name: "My Camera"
+    verify_ssl: false
+    username: "USERNAME"
+    password: "PASSWORD"
+    authentication: digest
 ```

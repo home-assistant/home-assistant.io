@@ -10,6 +10,10 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: mystrom
+ha_platforms:
+  - binary_sensor
+  - light
+  - switch
 ---
 
 The `mystrom` light platform allows you to control your [myStrom](https://mystrom.ch/en/) WiFi Bulbs.
@@ -174,7 +178,7 @@ switch:
 
 {% configuration %}
 host:
-  description: "The IP address of your myStrom switch, e.g., `http://192.168.1.32`."
+  description: "The IP address of your myStrom switch, e.g., `192.168.1.32`."
   required: true
   type: string
 name:

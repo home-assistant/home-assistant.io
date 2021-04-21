@@ -15,29 +15,4 @@ The `Dune HD` integration allows you to control a [Dune HD media player](https:/
 
 Devices with firmware 110127_2105_beta or above are supported. Some functions may depend on the version of the protocol (volume / mute control is only available with version 2 onwards).
 
-## Configuration
-
-To add `Dune HD` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Dune HD**.
-
-If you have following configuration in your `configuration.yaml` file it will be imported to the Integrations:
-
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: dunehd
-    host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: IP address or hostname of the device, e.g., 192.168.1.32.
-  required: true
-  type: string
-name:
-  description: Name of the device.
-  required: false
-  default: Dune HD
-  type: string
-{% endconfiguration %}
-
-After importing, you can safely remove this configuration from the `configuration.yaml` file.
+{% include integrations/config_flow.md %}

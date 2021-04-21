@@ -5,6 +5,9 @@ ha_category:
   - Image Processing
 ha_release: 0.29
 ha_domain: ffmpeg
+ha_iot_class:
+ha_platforms:
+  - camera
 ---
 
 The `ffmpeg` integration allows other Home Assistant integrations to process video and audio streams. This integration supports all FFmpeg versions since 3.0.0; if you have an older version, please update.

@@ -7,6 +7,8 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.53
 ha_domain: mycroft
+ha_platforms:
+  - notify
 ---
 
 [Mycroft](https://mycroft.ai) is an open source voice assistant that allows you to send notifications and more to Mycroft from Home Assistant.
@@ -55,5 +57,5 @@ name:
 Send a mesage to Mycroft by calling `notify.mycroft` service:
 
 ```yaml
-message: "hey"
+message: "Hey Mycroft. Turn on the office light. "
 ```

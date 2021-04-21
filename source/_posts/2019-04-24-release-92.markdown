@@ -5,7 +5,9 @@ date: 2019-04-24 00:11:03
 date_formatted: "April 24, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-04-release-92/components.png
 ---
 
@@ -405,7 +407,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Catch connection reset ([@balloob] - [#22982]) ([websocket_api docs])
 - Stream support for Netatmo cameras ([@cgtobi] - [#22952]) ([netatmo docs])
 - Google Assistant: Migrate light setting trait to use HSV color spectrum ([@balloob] - [#22980]) ([google_assistant docs]) (breaking change)
-- Bump pyubee version to support more models and detect model automatically ([@mzdrale] - [#22450]) ([ubee docs])
+- Bump pyubee version to support more models and detect model automatically ([@mzdrale] - [#22450])
 - Load requirements and dependencies from manifests. Fallback to current `REQUIREMENTS` and `DEPENDENCIES` ([@rohankapoorcom] - [#22717]) (breaking change)
 - Add device HmIP-MIOB to Homematic IP Cloud ([@SukramJ] - [#22975]) ([homematicip_cloud docs])
 - Prevent the projector to toogle on/off ([@stbkde] - [#22985]) ([epson docs])
@@ -1081,7 +1083,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [trend docs]: /integrations/trend/
 [tts docs]: /integrations/tts/
 [twilio docs]: /integrations/twilio/
-[ubee docs]: /integrations/ubee/
 [version docs]: /integrations/version/
 [water_heater docs]: /integrations/water_heater/
 [websocket_api docs]: /integrations/websocket_api/

@@ -38,10 +38,9 @@ Any service data passed into the service call to activate the shell command will
 `stdout` and `stderr` output from the command are both captured and will be logged by setting the [log level](/integrations/logger/) to debug.
 
 ```yaml
-
 # Apply value of a GUI slider to the shell_command
 automation:
-  - alias: run_set_ac
+  - alias: "run_set_ac"
     trigger:
       platform: state
       entity_id: input_number.ac_temperature

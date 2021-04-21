@@ -8,37 +8,19 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@pschmitt'
   - '@pvizeli'
+  - '@pree'
 ha_domain: nuki
+ha_platforms:
+  - lock
+ha_config_flow: true
+ha_dhcp: true
 ---
 
-The `nuki` platform allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via either a [software bridge](https://play.google.com/store/apps/details?id=io.nuki.bridge) or a [physical bridge](https://nuki.io/en/bridge/).
+The `nuki` platform allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via a [Nuki Bridge](https://nuki.io/en/bridge/).
 
 To add a Nuki bridge to your installation, you need to enable developer mode on your bridge and define a port and an access token. This can be achieved using the [Android app](https://play.google.com/store/apps/details?id=io.nuki) or [iPhone app](https://apps.apple.com/app/nuki-smart-lock/id1044998081). Go to manage my devices, and select the bridge. Within the bridge configuration turn on the HTTP API and check the details in the screen. Please note that the API token should be 6-20 characters long, even though the app allows you to set a longer one.
-Then add the following to your `configuration.yaml` file:
 
-```yaml
-# Example configuration.yaml entry
-lock:
-  - platform: nuki
-    host: 192.168.1.120
-    token: fe2345ef
-```
-
-{% configuration %}
-host:
-  description: The IP or hostname of the Nuki bridge.
-  required: true
-  type: string
-port:
-  description: The port on which the Nuki bridge is listening on.
-  required: false
-  default: 8080
-  type: integer
-token:
-  description: The token that was defined when setting up the bridge.
-  required: true
-  type: string
-{% endconfiguration %}
+Once you have the token set, to add `Nuki` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Nuki**.
 
 ## Services
 

@@ -77,8 +77,6 @@ include:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `MQTT Statestream`, you can use the `include` and `exclude` parameters.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 mqtt_statestream:
@@ -93,8 +91,6 @@ mqtt_statestream:
     entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 

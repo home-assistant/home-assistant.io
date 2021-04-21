@@ -11,6 +11,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
 ha_domain: integration
+ha_platforms:
+  - sensor
 ---
 
 The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. The integration sensors is updated upon changes of the **source**. Fast sampling source sensors provide better results. In this implementation, the default is the Trapezoidal method, but Left and Right methods can optionally be used.

@@ -22,6 +22,30 @@ sensor:
 ```
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
@@ -51,6 +75,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    suggested_area:
+      description: 'Suggest an area if the device isn’t in one yet.'
+      required: false
+      type: string
     sw_version:
       description: The firmware version of the device.
       required: false
@@ -75,7 +103,7 @@ force_update:
   type: boolean
   default: false
 icon:
-  description: The icon for the sensor.
+  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
@@ -141,7 +169,7 @@ sensor:
   - platform: mqtt
     name: "RSSI"
     state_topic: "home/sensor1/infojson"
-    unit_of_measurement: 'dBm'
+    unit_of_measurement: "dBm"
     value_template: "{{ value_json.RSSI }}"
     availability:
       - topic: "home/sensor1/status"
@@ -195,7 +223,7 @@ sensor:
   - platform: mqtt
     name: "Battery Tablet"
     state_topic: "owntracks/tablet/tablet"
-    unit_of_measurement: '%'
+    unit_of_measurement: "%"
     value_template: "{{ value_json.batt }}"
 ```
 {% endraw %}
@@ -221,12 +249,12 @@ sensor:
   - platform: mqtt
     name: "Temperature"
     state_topic: "office/sensor1"
-    unit_of_measurement: '°C'
+    unit_of_measurement: "°C"
     value_template: "{{ value_json.temperature }}"
   - platform: mqtt
     name: "Humidity"
     state_topic: "office/sensor1"
-    unit_of_measurement: '%'
+    unit_of_measurement: "%"
     value_template: "{{ value_json.humidity }}"
 ```
 {% endraw %}
@@ -250,7 +278,6 @@ home/bathroom/analog/brightness 290.00
 
 The configuration will look like the example below:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -258,4 +285,3 @@ sensor:
     name: "Brightness"
     state_topic: "home/bathroom/analog/brightness"
 ```
-{% endraw %}

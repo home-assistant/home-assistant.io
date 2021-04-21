@@ -53,7 +53,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 
 ## Create an Amazon Alexa Smart Home Skill
 
-- Sign in [Alexa Developer Console][alexa-dev-console], you can create your free account on the sign in page.
+- Sign in [Alexa Developer Console][alexa-dev-console], you can create your free account on the sign-in page. Note this *must* be created with the same Amazon account you use on your Alexa devices and app.
 - Go to `Alexa Skills` page if you are not, click `Create Skill` button to start the process.
 - Input `Skill name` as you like, select your skill's `Default language`.
 - Select `Smart Home` and `Provision your own`, then click `Create skill` button at top right corner.
@@ -79,7 +79,7 @@ Amazon also provided a [step-by-step guide](https://developer.amazon.com/docs/sm
 
 </div>
 
-OK, let's go. You first need sign in your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tire benefit. You don't need worry the cost if your account already pass the first 12 months, AWS provides up to 1 million Lambda request, 1GB outbound data and all inbound data for free, every month, all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for details.
+OK, let's go. You first need to sign in to your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tire benefit. You don't need worry the cost if your account already pass the first 12 months, AWS provides up to 1 million Lambda request, 1GB outbound data and all inbound data for free, every month, all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for details.
 
 ### Create an IAM Role for Lambda
 
@@ -108,17 +108,18 @@ Next you need create a Lambda function.
 
 - Click `Functions` in the left navigation bar, display list of your Lambda functions.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
-- Select *Python 3.6* or *Python 3.7* as `Runtime`.
+- Select *Python 3.6*, *Python 3.7* or *Python 3.8* as `Runtime`.
 - Make sure select *Use an existing role* as `Execution role`, then select the role you just created from `Existing role` list.
 - Click `Create function`, then you can configuration detail of Lambda function.
 - Under `Configuration` tab, expand `Designer` (if it isn't already expanded), then click `+ Add trigger` in the left part of the panel, then click `Alexa Smart Home` from the drop down list to add a Alexa Smart Home trigger to your Lambda function.
 - You will then be prompted to input the `Skill ID` from the skill you created in previous step. (Tips: you may need switch back to Alexa Developer Console to copy the `Skill ID`.) Then click `Add`.
 - Click your Lambda function icon in the middle of the diagram (above Layers), scroll down you will see a `Function code` window.
 - Clear the example code, copy the Python script from: [https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b](https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b) (modified code to support Alexa's proactive mode, see details below)
+- Click `Deploy` button to publish updated code.
 - Scroll down a little bit, you will find `Environment variables`, you need add 1 environment variable and, if required, 3 optional variables. This is done by selecting `Manage environment variables` then adding the following:
   - *(required)* Key = BASE_URL, Value = your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
   - *(optional)* Key = NOT_VERIFY_SSL, Value = *True*. You can set this to *True* to ignore SSL issues, for example if you don't have a valid SSL certificate or you are using a self-signed certificate.
-  - *(optional)* Key = DEBUG, Value = *True*. Set this variable to log the debug message.
+  - *(optional)* Key = DEBUG, Value = *True*. Set this variable to log the debug message and to allow the LONG_LIVED_ACCESS_TOKEN
   - *(optional, not recommend)* Key = LONG_LIVED_ACCESS_TOKEN, Value = your Home Assistant Long-Lived Access Token. To avoid the use of a long-lived access token you will connect your Alexa Smart Home skill with your Home Assistant user account in the later steps, meaning you don't need to add it here. However, the access token you got from login flow is only valid for 30 minutes. It will be hard for you to test lambda function with the access token in test data. So for your convenience, you can remove the access token from the test data, [generate a long-lived access token][generate-long-lived-access-token] put here, then the function will fall back to read token from environment variables. (tips: You did not enable the security storage for your environment variables, so your token saved here is not that safe. You should only use it for debugging and testing purpose. You should remove and delete the long-lived access token after you finish the debugging.)
 
 <p class='img'>
@@ -166,9 +167,9 @@ After your Home Assistant has restarted, go back to `AWS Lambda Console`, you ar
 
 This test event is a `Discovery` directive, your Home Assistant instance will respond with a list of devices Alexa can interact with. This test data is lack of `token` in `payload.scope`, your Lambda function will read the `LONG_LIVED_ACCESS_TOKEN` from environment variable.
 
-Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN`, you will get a `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
+Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN`, or you haven't enabled `DEBUG` you will get a `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
 
-Now, you can login to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you put your long-lived access token to the `Environment variable`, do not forget click `Save` button before you `Test` again.
+Now, you can login to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you put your long-lived access token to the `Environment variable` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
 
 This time, you will get a list of your devices in the response. 🎉
 
@@ -192,7 +193,7 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 - Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL:PORT]`
   - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
   - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
-    - Note: you must use a valid/trusted SSL Certificate and port 443 for account linking to work
+    - Note: you must use a valid/trusted SSL Certificate for account linking to work
   - `Client ID`:
     - `https://pitangui.amazon.com/` if you are in US
     - `https://layla.amazon.com/` if you are in EU
@@ -348,10 +349,13 @@ The supported locales are:
 - `en-US`
 - `es-ES`
 - `es-MX`
+- `es-US`
 - `fr-CA`
 - `fr-FR`
+- `hi-IN`
 - `it-IT`
 - `ja-JP`
+- `pt-BR`
 
 See [List of Capability Interfaces and Supported Locales][alexa-supported-locales].
 
@@ -367,8 +371,6 @@ The `endpoint`, `client_id` and `client_secret` are optional, and are only requi
 
 By default, no entity will be excluded. To limit which entities are being exposed to Alexa, you can use the `filter` parameter. Keep in mind that only [supported platforms](#supported-platforms) can be added.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 alexa:
@@ -382,8 +384,6 @@ alexa:
       exclude_entities:
         - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 

@@ -13,9 +13,17 @@ This integration allows you to track and control various light bulbs. Read the i
 
 ### Default turn-on values
 
-To set the default color, brightness and transition values when the light is turned on, create a custom `light_profiles.csv` (as described below in the `profile` attribute of `light.turn_on`).
+To set the default color, brightness and transition values when the light is turned on, create a custom `light_profiles.csv`, normally located in the default configuration folder where you find `configuration.yaml`. 
 
-The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g., for `light.ceiling_2` the `id` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supercede the `all_lights` default setting.
+The `light_profiles.csv` has to have a header. The format of the header is:
+
+```txt
+profile,color_x,color_y,brightness,transition
+```
+
+The field transition is optional and can be omitted.
+
+The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g., for `light.ceiling_2` the `profile` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supercede the `all_lights` default setting.
 
 ### Service `light.turn_on`
 
@@ -25,7 +33,7 @@ Most lights do not support all attributes. You can check the integration documen
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of lights. To target all the lights use all as `entity_id`.
+| `entity_id` | no | String or list of strings that point at `entity_id`s of lights. To target all the lights use `all` as `entity_id`.
 | `transition` | yes | Number that represents the time (in seconds) the light should take to transition to the new state.
 | `profile` | yes | String with the name of one of the [built-in profiles](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv) (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory. Light profiles define an xy color, brightness and a transition value (if no transition is desired, set to 0 or leave out the column entirely). If a profile is given, and a brightness is set, then the profile brightness will be overwritten.
 | `hs_color` | yes | A list containing two floats representing the hue and saturation of the color you want the light to be. Hue is scaled 0-360, and saturation is scaled 0-100.
@@ -52,29 +60,31 @@ In order to apply attributes to an entity, you will need to add `data:` to the c
 # Example configuration.yaml entry
 automation:
 - id: one
-  alias: Turn on light when motion is detected
+  alias: "Turn on light when motion is detected"
   trigger:
     - platform: state
       entity_id: binary_sensor.motion_1
-      to: 'on'
+      to: "on"
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.living_room
+      data:
         brightness: 255
         kelvin: 2700
 ```
 ```yaml
 # Ledlist morning on, red
 - id: llmor
-  alias: Stair morning on
+  alias: "Stair morning on"
   trigger:
   - at: '05:00'
     platform: time
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.ledliststair
+      data:
         brightness: 130
         rgb_color: [255,0,0]
 ```

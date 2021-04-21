@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/frontend'
 ha_domain: panel_iframe
+ha_iot_class:
 ---
 
 The `panel_iframe` support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar and can contain external resources like the web frontend of your router, your monitoring system, or your media server.
@@ -22,14 +23,14 @@ To enable Panel iFrames in your installation, add the following to your `configu
 # Example configuration.yaml entry
 panel_iframe:
   router:
-    title: 'Router'
-    url: 'http://192.168.1.1'
+    title: "Router"
+    url: "http://192.168.1.1"
   fridge:
-    title: 'Fridge'
-    url: 'http://192.168.1.5'
+    title: "Fridge"
+    url: "http://192.168.1.5"
   otherapp:
-    title: 'Other App'
-    url: '/otherapp'
+    title: "Other App"
+    url: "/otherapp"
 ```
 
 {% configuration %}

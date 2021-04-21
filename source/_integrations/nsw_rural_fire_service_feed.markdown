@@ -87,7 +87,7 @@ Depending on your personal circumstances with regards to bush fire risk you may 
 # Example configuration.yaml entry
 geo_location:
   - platform: nsw_rural_fire_service_feed
-    entity_namespace: 'nsw_fire_service_feed'
+    entity_namespace: "nsw_fire_service_feed"
     radius: 10
     categories:
       - 'Emergency Warning'

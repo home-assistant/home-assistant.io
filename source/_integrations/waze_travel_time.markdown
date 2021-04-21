@@ -7,6 +7,8 @@ ha_iot_class: Cloud Polling
 ha_release: 0.67
 ha_config_flow: true
 ha_domain: waze_travel_time
+ha_platforms:
+  - sensor
 ---
 
 The `waze_travel_time` sensor provides travel time from the [Waze](https://www.waze.com/).
@@ -29,6 +31,7 @@ Using the flexible option to set a sensor value to the `Destination`, you can se
 In the following example, the `Input Select` is converted into an address which is used to modify the destination for Waze route calculation from `device_tracker.myphone` location (It takes a few minutes for the value to update due to the interval of Waze data fetching).
 
 {% raw %}
+
 ```yaml
 input_select:
   destination:
@@ -52,7 +55,9 @@ sensor:
             {%- else -%}
               Unknown
             {%- endif %}
+
 ```
+
 {% endraw %}
 
 ### Various configurations that are supported

@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.47
 ha_quality_scale: internal
 ha_domain: python_script
+ha_iot_class:
 ---
 
 This integration allows you to write Python scripts that are exposed as services in Home Assistant. Each Python file created in the `<config>/python_scripts/` folder will be exposed as a service. The content is not cached so you can easily develop: edit file, save changes, call service. The scripts are run in a sandboxed environment. The following variables are available in the sandbox:
@@ -38,7 +39,7 @@ hass.bus.fire(name, {"wow": "from a Python script!"})
 ```
 
 - Start Home Assistant
-- Call service `python_script.hello_world` with parameters
+- Call your new {% my developer_call_service service="python_script.hello_world" %} service (with parameters) from the {% my developer_services %}. 
 
 ```yaml
 name: you
@@ -66,20 +67,22 @@ if entity_id is not None:
 The above `python_script` can be called using the following YAML as an input.
 
 ```yaml
-service: python_script.turn_on_light
-  data:
+- service: python_script.turn_on_light
+  target:
     entity_id: light.bedroom
+  data:
     rgb_color: [255, 0, 0]
 ```
 
 ## Documenting your Python scripts
 
-You can add descriptions for your Python scripts that will be shown in the Call Services tab of the Developer Options page. To do so, simply create a `services.yaml` file in your `<config>/python_scripts` folder. Using the above Python script as an example, the `services.yaml` file would look like:
+You can add names and descriptions for your Python scripts that will be shown in the frontend. To do so, simply create a `services.yaml` file in your `<config>/python_scripts` folder. Using the above Python script as an example, the `services.yaml` file would look like:
 
 ```yaml
 # services.yaml
 turn_on_light:
-  description: Turn on a light and set its color.
+  name: Turn on light
+  description: Turn on a specific light and set its color.
   fields:
     entity_id:
       description: The light that will be turned on.

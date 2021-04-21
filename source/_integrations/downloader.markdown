@@ -6,6 +6,7 @@ ha_category:
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_domain: downloader
+ha_iot_class:
 ---
 
 The `downloader` integration provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
@@ -57,7 +58,7 @@ Along with the event the following payload parameters are available:
 #### Example Automation:
 
 ```yaml
-- alias: Download Failed Notification
+- alias: "Download Failed Notification"
   trigger:
     platform: event
     event_type: downloader_download_failed

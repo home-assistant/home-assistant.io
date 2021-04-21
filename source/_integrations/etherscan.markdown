@@ -7,6 +7,8 @@ ha_category:
 ha_release: 0.47
 ha_iot_class: Cloud Polling
 ha_domain: etherscan
+ha_platforms:
+  - sensor
 ---
 
 The `Etherscan` sensor platform displays Ether and ERC-20 token balances from [Etherscan.io](https://etherscan.io).
@@ -17,7 +19,7 @@ To add the Etherscan sensor to your installation, specify an Ethereum address to
 # Example configuration.yaml entry
 sensor:
   - platform: etherscan
-    address: '0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359'
+    address: "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"
   - platform: etherscan
     address: "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"
     token: OMG

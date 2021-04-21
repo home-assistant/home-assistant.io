@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.7
 ha_domain: logbook
 ha_iot_class:
+ha_quality_scale: internal
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />
@@ -13,12 +14,12 @@ ha_iot_class:
 The logbook integration provides a different perspective on the history of your
 house by showing all the changes that happened to your house in reverse
 chronological order. It depends on
-the `recorder` integration for storing the data. This means that if the
+the [`recorder`](/integrations/recorder/) integration for storing the data. This means that if the
 [`recorder`](/integrations/recorder/) integration is set up to use e.g., MySQL or
 PostgreSQL as data store, the `logbook` integration does not use the default
 SQLite database to store data.
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -66,8 +67,6 @@ include:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 logbook:
@@ -81,8 +80,6 @@ logbook:
     entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 
@@ -171,7 +168,7 @@ component to fire an event.
 # Example configuration.yaml entry
 script:
   add_logbook_entry:
-    alias: Add Logbook
+    alias: "Add Logbook"
     sequence:
       - service: logbook.log
         data:

@@ -4,6 +4,8 @@
 # General use redirects
 /join-chat https://discord.gg/BzQNTqK
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
+/get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
+/latest-security-alert /blog/2021/01/23/security-disclosure2/
 
 # Older development pages
 /developers https://developers.home-assistant.io
@@ -234,7 +236,6 @@
 /components/camera.ring /integrations/ring#camera
 /components/camera.rpi_camera /integrations/rpi_camera
 /components/camera.skybell /integrations/skybell#camera
-/components/camera.synology /integrations/synology
 /components/camera.usps /integrations/usps#camera
 /components/camera.uvc /integrations/uvc
 /components/camera.verisure /integrations/verisure
@@ -366,7 +367,6 @@
 /components/device_tracker.tplink /integrations/tplink
 /components/device_tracker.traccar /integrations/traccar
 /components/device_tracker.trackr /integrations/trackr
-/components/device_tracker.ubee /integrations/ubee
 /components/device_tracker.ubus /integrations/ubus
 /components/device_tracker.unifi /integrations/unifi
 /components/device_tracker.unifi_direct /integrations/unifi_direct
@@ -603,7 +603,6 @@
 /components/notify.twitter /integrations/twitter
 /components/notify.webostv /integrations/webostv
 /components/notify.xmpp /integrations/xmpp
-/components/notify.yessssms /integrations/yessssms
 /components/openalpr /integrations/openalpr_local
 /components/pollen /integrations/iqvia
 /components/public_sensor.netatmo /integrations/netatmo
@@ -636,8 +635,8 @@
 /components/sensor.amcrest /integrations/amcrest
 /components/sensor.android_ip_webcam /integrations/android_ip_webcam#sensor
 /components/sensor.apcupsd /integrations/apcupsd#sensor
-/components/sensor.api_stream /integrations/sensor.websocket_api
-/components/sensor.api_streams /integrations/sensor.websocket_api
+/components/sensor.api_stream /integrations/websocket_api
+/components/sensor.api_streams /integrations/websocket_api
 /components/sensor.aqualogic /integrations/aqualogic#sensor
 /components/sensor.arduino /integrations/arduino#sensor
 /components/sensor.arest /integrations/arest#sensor
@@ -660,11 +659,9 @@
 /components/sensor.citybikes /integrations/citybikes
 /components/sensor.co2signal /integrations/co2signal
 /components/sensor.coinbase /integrations/coinbase
-/components/sensor.coinmarketcap /integrations/coinmarketcap
 /components/sensor.comed_hourly_pricing /integrations/comed_hourly_pricing
 /components/sensor.comfoconnect /integrations/comfoconnect
 /components/sensor.cpuspeed /integrations/cpuspeed
-/components/sensor.crimereports /integrations/crimereports
 /components/sensor.cups /integrations/cups
 /components/sensor.currencylayer /integrations/currencylayer
 /components/sensor.daikin /integrations/daikin#sensor
@@ -718,7 +715,6 @@
 /components/sensor.fritzbox /integrations/fritzbox#sensor
 /components/sensor.fritzbox_callmonitor /integrations/fritzbox_callmonitor
 /components/sensor.fritzbox_netmonitor /integrations/fritzbox_netmonitor
-/components/sensor.geizhals /integrations/geizhals
 /components/sensor.geo_rss_events /integrations/geo_rss_events
 /components/sensor.github /integrations/github
 /components/sensor.gitlab_ci /integrations/gitlab_ci
@@ -853,7 +849,6 @@
 /components/sensor.smartthings /integrations/smartthings#sensor
 /components/sensor.snmp /integrations/snmp#sensor
 /components/sensor.sochain /integrations/sochain
-/components/sensor.socialblade /integrations/socialblade
 /components/sensor.solaredge /integrations/solaredge
 /components/sensor.sonarr /integrations/sonarr
 /components/sensor.speedtest /integrations/speedtestdotnet
@@ -1076,13 +1071,19 @@
 /components/xiaomi /integrations/xiaomi_aqara
 /integrations/air_quality.xiaomi_miio /integrations/xiaomi_miio
 /integrations/alarm_control_panel.xiaomi_miio /integrations/xiaomi_miio
+/integrations/binary_sensor.modbus /integrations/modbus
+/integrations/climate.modbus /integrations/modbus
+/integrations/cover.modbus /integrations/modbus
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio
+/integrations/lovelace /lovelace
 /integrations/remote.xiaomi_miio /integrations/xiaomi_miio
+/integrations/sensor.websocket_api /integrations/websocket_api
+/integrations/sensor.modbus /integrations/modbus
 /integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
+/integrations/switch.modbus /integrations/modbus
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio
 /integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio
-/integrations/lovelace /lovelace
 
 # Renaming components to integrations
 /components /integrations
@@ -1210,7 +1211,6 @@
 /components/cmus /integrations/cmus
 /components/co2signal /integrations/co2signal
 /components/coinbase /integrations/coinbase
-/components/coinmarketcap /integrations/coinmarketcap
 /components/comed_hourly_pricing /integrations/comed_hourly_pricing
 /components/comfoconnect /integrations/comfoconnect
 /components/command_line /integrations/command_line
@@ -1232,7 +1232,6 @@
 /components/cover.xiaomi_aqara /integrations/cover.xiaomi_aqara
 /components/cppm_tracker /integrations/cppm_tracker
 /components/cpuspeed /integrations/cpuspeed
-/components/crimereports /integrations/crimereports
 /components/cups /integrations/cups
 /components/currencylayer /integrations/currencylayer
 /components/daikin /integrations/daikin
@@ -1366,7 +1365,6 @@
 /components/futurenow /integrations/futurenow
 /components/garadget /integrations/garadget
 /components/gc100 /integrations/gc100
-/components/geizhals /integrations/geizhals
 /components/generic_ip_camera /integrations/generic
 /components/generic_thermostat /integrations/generic_thermostat
 /components/geniushub /integrations/geniushub
@@ -1620,7 +1618,6 @@
 /components/nsw_fuel_station /integrations/nsw_fuel_station
 /components/nsw_rural_fire_service_feed /integrations/nsw_rural_fire_service_feed
 /components/nuheat /integrations/nuheat
-/components/nuimo_controller /integrations/nuimo_controller
 /components/nuki /integrations/nuki
 /components/nut /integrations/nut
 /components/nws /integrations/nws
@@ -1684,7 +1681,6 @@
 /components/proximity /integrations/proximity
 /components/proxy /integrations/proxy
 /components/ps4 /integrations/ps4
-/components/ptvsd /integrations/ptvsd
 /components/pulseaudio_loopback /integrations/pulseaudio_loopback
 /components/push /integrations/push
 /components/pushbullet /integrations/pushbullet
@@ -1799,7 +1795,6 @@
 /components/snips /integrations/snips
 /components/snmp /integrations/snmp
 /components/sochain /integrations/sochain
-/components/socialblade /integrations/socialblade
 /components/solaredge /integrations/solaredge
 /components/solaredge_local /integrations/solaredge_local
 /components/solax /integrations/solax
@@ -1853,7 +1848,6 @@
 /components/switcher_kis /integrations/switcher_kis
 /components/switchmate /integrations/switchmate
 /components/syncthru /integrations/syncthru
-/components/synology /integrations/synology
 /components/synology_chat /integrations/synology_chat
 /components/synology_srm /integrations/synology_srm
 /components/synologydsm /integrations/synology_dsm
@@ -1916,7 +1910,6 @@
 /components/twilio_sms /integrations/twilio_sms
 /components/twitch /integrations/twitch
 /components/twitter /integrations/twitter
-/components/ubee /integrations/ubee
 /components/ubus /integrations/ubus
 /components/ue_smart_radio /integrations/ue_smart_radio
 /components/uk_transport /integrations/uk_transport
@@ -2000,7 +1993,6 @@
 /components/yandextts /integrations/yandextts
 /components/yeelight /integrations/yeelight
 /components/yeelightsunflower /integrations/yeelightsunflower
-/components/yessssms /integrations/yessssms
 /components/yi /integrations/yi
 /components/zabbix /integrations/zabbix
 /components/zamg /integrations/zamg
@@ -2024,6 +2016,7 @@
 # Moved documentation
 /details/database /docs/backend/database
 /details/updater /docs/backend/updater
+/docs/backend/updater /integrations/analytics
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
@@ -2054,6 +2047,8 @@
 /ecosystem/notebooks/stats https://data.home-assistant.io
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 /integrations/auth /docs/authentication
+/integrations/automation /docs/automation
+/integrations/blueprint /docs/automation/using_blueprints
 /integrations/binary_sensor.knx /integrations/knx#binary-sensor
 /integrations/climate.knx /integrations/knx#climate
 /integrations/cover.knx /integrations/knx#cover
@@ -2087,9 +2082,9 @@
 /getting-started/scripts-service-calls /docs/scripts/service-calls
 /getting-started/scripts-conditions /docs/scripts/conditions
 /getting-started/securing /docs/configuration/securing
-/getting-started/troubleshooting /docs/installation/troubleshooting
-/getting-started/troubleshooting-configuration /docs/configuration/troubleshooting
-/getting-started/updating /docs/installation/updating
+/getting-started/troubleshooting /docs/troubleshooting
+/getting-started/troubleshooting-configuration /docs/troubleshooting
+/getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml
 /getting-started/z-wave /docs/z-wave
 /getting-started/z-wave-devices /docs/z-wave/devices
@@ -2104,6 +2099,28 @@
 /topics/splitting_configuration /docs/configuration/splitting_configuration
 /topics/state_object /docs/configuration/state_object
 /topics/templating /docs/configuration/templating
+/common-tasks /common-tasks/os
+/docs/installation /installation
+/docs/installation/docker /installation
+/docs/installation/raspberry-pi /installation
+/docs/installation/updating /common-tasks/os
+/docs/installation/virtualenv /installation
+/hassio /getting-started
+/hassio/commandline /common-tasks/os#home-assistant-via-the-command-line
+/hassio/enable_i2c /common-tasks/os#enable-i2c
+/hassio/flashing_n2_otg /common-tasks/os#flashing-an-odroid-n2
+/hassio/haos_common_tasks /common-tasks/os
+/hassio/hassos_faq /faq
+/hassio/index /installation
+/hassio/installation /installation
+/hassio/installing_third_party_addons /common-tasks/os#installing-third-party-add-ons
+/integrations/faadelays /integrations/faa_delays
+/cookbook/notify.mqtt /examples#notifications
+/cookbook/#example-configurationyaml /examples/#example-configurationyaml
+/cookbook/#user-interface /examples/#user-interface
+/cookbook/#infrastructure /examples/#infrastructure
+/cookbook/#automation-examples /examples
+/cookbook /examples
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -2176,12 +2193,112 @@
 /integrations/lovelace /lovelace
 
 # Removed documentation
+/docs/installation /getting-started
+/docs/installation/dokcer /getting-started
 /docs/installation/hassbian /getting-started
 /docs/installation/macos /docs/installation/virtualenv
 /docs/installation/raspberry-pi-all-in-one /getting-started
 /getting-started/hassbian /getting-started
 /getting-started/installation-raspberry-pi-all-in-one /getting-started
+/docs/tools/keyring/ /docs/configuration/secrets
+/docs/tools/credstash/ /docs/configuration/secrets
 
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
 /state-of-the-union /blog/2019/11/22/state-of-the-union
+
+
+# Removed integrations
+/components/alarm_control_panel.alarmdotcom /more-info/removed-integration 301
+/components/alarm_control_panel.ialarm /more-info/removed-integration 301
+/components/device_tracker.ubee /more-info/removed-integration 301
+/components/device_tracker.xfinity  /more-info/removed-integration 301
+/components/edp_redy /more-info/removed-integration 301
+/components/fedex /more-info/removed-integration 301
+/components/fortigate /more-info/removed-integration 301
+/components/history_graph /more-info/removed-integration 301
+/components/hydroquebec /more-info/removed-integration 301
+/components/linksys_ap /more-info/removed-integration 301
+/components/liveboxplaytv /more-info/removed-integration 301
+/components/lock.lockitron /more-info/removed-integration 301
+/components/lockitron /more-info/removed-integration 301
+/components/media_player.liveboxplaytv /more-info/removed-integration 301
+/components/media_player.liveboxplaytv /more-info/removed-integration 301
+/components/nma /more-info/removed-integration 301
+/components/notify.nma /more-info/removed-integration 301
+/components/notify.pushetta /more-info/removed-integration 301
+/components/notify.yessssms /more-info/removed-integration 301
+/components/postnl /more-info/removed-integration 301
+/components/pushetta /more-info/removed-integration 301
+/components/ruter /more-info/removed-integration 301
+/components/sensor.bom /more-info/removed-integration 301
+/components/sensor.duke_energy  /more-info/removed-integration 301
+/components/sensor.gearbest /more-info/removed-integration 301
+/components/sensor.hydroquebec /more-info/removed-integration 301
+/components/sensor.linky /more-info/removed-integration 301
+/components/sensor.mopar /more-info/removed-integration 301
+/components/sensor.postnl /more-info/removed-integration 301
+/components/sensor.prezzibenzina /more-info/removed-integration 301
+/components/sensor.teksavvy /more-info/removed-integration 301
+/components/sensor.yweather /more-info/removed-integration 301
+/components/simple_alarm /more-info/removed-integration 301
+/components/srp_energy /more-info/removed-integration 301
+/components/switch.edp_redy /more-info/removed-integration 301
+/components/sytadin /more-info/removed-integration 301
+/components/teksavvy /more-info/removed-integration 301
+/components/uber /more-info/removed-integration 301
+/components/ups /more-info/removed-integration 301
+/components/usps /more-info/removed-integration 301
+/components/weather.bom /more-info/removed-integration 301
+/components/weather.yweather /more-info/removed-integration 301
+/components/weblink /more-info/removed-integration 301
+/components/yessssms /more-info/removed-integration 301
+/components/yweather /more-info/removed-integration 301
+/integrations/alarmdotcom /more-info/removed-integration 301
+/integrations/bom /more-info/removed-integration 301
+/integrations/ciscospark /more-info/removed-integration 301
+/integrations/duke_energy /more-info/removed-integration 301
+/integrations/edp_redy /more-info/removed-integration 301
+/integrations/fortigate /more-info/removed-integration 301
+/integrations/gearbest /more-info/removed-integration 301
+/integrations/history_graph /more-info/removed-integration 301
+/integrations/hydroquebec /more-info/removed-integration 301
+/integrations/ialarm /more-info/removed-integration 301
+/integrations/linky /more-info/removed-integration 301
+/integrations/liveboxplaytv /more-info/removed-integration 301
+/integrations/liveboxplaytv /more-info/removed-integration 301
+/integrations/lockitron /more-info/removed-integration 301
+/integrations/mopar /more-info/removed-integration 301
+/integrations/nma /more-info/removed-integration 301
+/integrations/postnl /more-info/removed-integration 301
+/integrations/prezzibenzina /more-info/removed-integration 301
+/integrations/pushetta /more-info/removed-integration 301
+/integrations/salt /more-info/removed-integration 301
+/integrations/simple_alarm /more-info/removed-integration 301
+/integrations/teksavvy /more-info/removed-integration 301
+/integrations/ubee /more-info/removed-integration 301
+/integrations/uber /more-info/removed-integration 301
+/integrations/weblink /more-info/removed-integration 301
+/integrations/xfinity /more-info/removed-integration 301
+/integrations/yessssms /more-info/removed-integration 301
+/integrations/yweather /more-info/removed-integration 301
+/components/ptvsd /more-info/removed-integration 301
+/integrations/ptvsd /more-info/removed-integration 301
+/components/nuimo_controller /more-info/removed-integration 301
+/integrations/nuimo_controller /more-info/removed-integration 301
+/components/camera.synology /more-info/removed-integration 301
+/components/synology /more-info/removed-integration 301
+/integrations/synology /more-info/removed-integration 301
+/components/sensor.crimereports /more-info/removed-integration 301
+/components/crimereports /more-info/removed-integration 301
+/integrations/crimereports /more-info/removed-integration 301
+/components/sensor.coinmarketcap /more-info/removed-integration 301
+/components/coinmarketcap /more-info/removed-integration 301
+/integrations/coinmarketcap /more-info/removed-integration 301
+/integrations/griddy /more-info/removed-integration 301
+/components/geizhals /more-info/removed-integration 301
+/components/sensor.geizhals /more-info/removed-integration 301
+/integrations/geizhals /more-info/removed-integration 301
+/components/sensor.socialblade /more-info/removed-integration 301
+/components/socialblade /more-info/removed-integration 301
+/integrations/socialblade /more-info/removed-integration 301

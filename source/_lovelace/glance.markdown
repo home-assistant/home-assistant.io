@@ -11,12 +11,12 @@ The Glance card is useful to group multiple sensors in a compact overview. Keep 
 Screenshot of the Glance card.
 </p>
 
-To add the Glance card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Glance** from the card picker.
+To add the Glance card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Glance** from the card picker.
 
 {% configuration %}
 type:
   required: true
-  description: glance
+  description: "`glance`"
   type: string
 entities:
   required: true
@@ -24,7 +24,7 @@ entities:
   type: list
 title:
   required: false
-  description: Card title
+  description: Card title.
   type: string
 show_name:
   required: false
@@ -38,12 +38,12 @@ show_icon:
   default: "true"
 show_state:
   required: false
-  description: Show entity state-text.
+  description: Show entity state text.
   type: boolean
   default: "true"
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 columns:
   required: false
@@ -51,7 +51,7 @@ columns:
   type: integer
 state_color:
   required: false
-  description: Set to `true` to have icons colored when entity is active
+  description: Set to `true` to have icons colored when entity is active.
   type: boolean
   default: true
 {% endconfiguration %}
@@ -63,7 +63,7 @@ If you define entities as objects instead of strings, you can add more customiza
 {% configuration %}
 entity:
   required: true
-  description: Home Assistant entity ID.
+  description: Entity ID.
   type: string
 name:
   required: false
@@ -84,7 +84,7 @@ show_last_changed:
   default: false
 show_state:
   required: false
-  description: Show entity state-text.
+  description: Show entity state text.
   type: boolean
   default: true
 tap_action:
@@ -106,7 +106,7 @@ double_tap_action:
 {% configuration badges %}
 user:
   required: true
-  description: User id that can see the view tab.
+  description: User ID that can see the view tab.
   type: string
 {% endconfiguration %}
 

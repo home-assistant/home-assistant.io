@@ -22,7 +22,8 @@ You can then activate each scene with its name from the smartphone app:
 
 ```yaml
   - service: scene.turn_on
-    entity_id: scene.goodnight
+    target:
+      entity_id: scene.goodnight
 ```
 
 {% configuration %}

@@ -12,52 +12,18 @@ ha_codeowners:
   - '@engrbm87'
   - '@JPHutchins'
 ha_domain: transmission
+ha_platforms:
+  - sensor
+  - switch
 ---
 
 The Transmission integration allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.
 
 ## Setup
 
-Your Transmission client must first be configured to allow remote access. In your Transmission client navigate to **Preferences** -> **Remote** tab and then click the **Allow remote access** checkbox. 
+Your Transmission client must first be configured to allow remote access. In your Transmission client navigate to **Preferences** -> **Remote** tab and then click the **Allow remote access** checkbox.
 
-## Configuration
-
-In Home Assistant, navigate to **Configuration** -> **Integrations** and click the plus button to add a new integration and search for **Transmission**. For legacy support old Transmission configuration is imported and set up as a new integration. Make sure to remove `monitored_conditions` as they are now automatically added to Home Assistant.
-
-Alternatively, the integration can be set up via YAML by adding the following lines to your `configuration.yaml`:
-
-```yaml
-transmission:
-  host: 192.168.1.1
-```
-
-{% configuration %}
-host:
-  description: "This is the IP address of your Transmission daemon, e.g., `192.168.1.1` or `https://example.com/transmission/rpc`."
-  required: true
-  type: string
-port:
-  description: The port your Transmission daemon uses.
-  required: false
-  type: integer
-  default: 9091
-name:
-  description: The name to use when displaying this Transmission instance in the frontend.
-  required: false
-  type: string
-username:
-  description: Your Transmission username, if you use authentication.
-  required: false
-  type: string
-password:
-  description: Your Transmission password, if you use authentication.
-  required: false
-  type: string
-scan_interval:
-  description: How frequently to query for new data. Defaults to 120 seconds.
-  required: false
-  type: integer
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Integration Entities
 
@@ -77,10 +43,9 @@ The Transmission integration will add the following sensors and switches.
 - `switch.transmission_switch`: A switch to start/stop all torrents.
 - `switch.transmission_turtle_mode`: A switch to enable turtle mode (a.k.a. alternative speed limits).
 
-
 ## Event Automation
 
-The Transmission integration is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus, which allows to implement any kind of automation.
+The Transmission integration is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus containing the torrent name and ID, which can be used with automations.
 
 Possible events are:
 
@@ -90,20 +55,26 @@ Possible events are:
 
 Inside of the event, there is the name of the torrent that is started or completed, as it is seen in the Transmission User Interface.
 
-Example of configuration of an automation with completed torrents:
+Example of an automation that notifies on successful download and removes the torrent from the client:
 
 {% raw %}
+
 ```yaml
-- alias: Completed Torrent
+- alias: "Notify and remove completed torrent"
   trigger:
     platform: event
     event_type: transmission_downloaded_torrent
   action:
-    service: notify.telegram_notifier
-    data:
-      title: "Torrent completed!"
-      message: "{{trigger.event.data.name}}"
+    - service: notify.telegram_notifier
+      data:
+        title: "Torrent completed!"
+        message: "{{trigger.event.data.name}}"
+    - service: transmission.remove_torrent
+      data:
+        name: "Transmission"
+        id: "{{trigger.event.data.id}}"
 ```
+
 {% endraw %}
 
 ## Services
@@ -127,6 +98,23 @@ Removes a torrent from the client.
 | `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
 | `delete_data` | yes | Delete torrent data (Default: false)
 
+### Service `start_torrent`
+
+Starts a torrent.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `name`    | no | Name of the configured instance (Default: "Transmission")
+| `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
+
+### Service `stop_torrent`
+
+Stops a torrent.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `name`    | no | Name of the configured instance (Default: "Transmission")
+| `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
 
 ## Templating
 
@@ -135,6 +123,7 @@ Removes a torrent from the client.
 All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in **Developer Tools** -> **States** -> `sensor.transmission_total_torrents` -> **Attributes**, or by adding a [Markdown card](/lovelace/markdown/) to Lovelace with the following code:
 
 {% raw %}
+
 ```yaml
 content: >
   {% set payload = state_attr('sensor.transmission_total_torrents', 'torrent_info') %}
@@ -144,4 +133,5 @@ content: >
   {{ name|truncate(20) }} is {{ data.percent_done }}% complete, {{ data.eta }} remaining {% endfor %}
 type: markdown
 ```
+
 {% endraw %}

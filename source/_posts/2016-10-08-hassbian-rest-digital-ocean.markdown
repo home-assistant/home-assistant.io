@@ -5,7 +5,9 @@ date: 2016-10-08 03:04:05 +0000
 date_formatted: "October 08, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Yes, after only nine days comes 0.30. Don't worry, we will try to keep our usual release cycle and not start to release every day.
@@ -42,6 +44,8 @@ There was a lot of work done on our implementation which are working with RESTfu
 
 The [REST sensor][rest-sensor] supports now HTTP authentication (basic and digest) and custom headers. This will allow you to access resources which are protected. This sample sensor will access GitHub and retrieve the latest release number while by-passing the rate limit for non-authenticated requests.
 
+{% raw %}
+
 ```yaml
 sensor
   - platform: rest
@@ -49,12 +53,14 @@ sensor
     username: YOUR_GITHUB_USERNAME
     password: YOUR_GITHUB_ACCESS_TOKEN
     authentication: basic
-    value_template: '{% raw %}{{ value_json.tag_name }}{% endraw %}'
+    value_template: "{{ value_json.tag_name }}"
     headers:
       Accept: application/vnd.github.v3+json
       Content-Type: application/json
       User-Agent: Home Assistant REST sensor
 ```
+
+{% endraw %}
 
 ### Misc
 

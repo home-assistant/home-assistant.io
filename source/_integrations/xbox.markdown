@@ -12,27 +12,25 @@ ha_codeowners:
   - '@hunterjm'
 ha_domain: xbox
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - remote
+  - sensor
 ---
 
 The Xbox integration allows you to control Xbox One (or newer) consoles from Home Assistant.
 
-Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant Cloud account linking service. Set up the integration through **Configuration -> Integrations -> Xbox**. Ensure you login using the Microsoft account that is linked to your Xbox consoles. Note that for the media player and remote entities to be added your Xbox will need to have remote features enabled via Settings-Remote Features (you may need to uprade your controller firmware).
+Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant Cloud account linking service.
+
+{% include integrations/config_flow.md %}
+
+Note that for the media player and remote entities to be added your Xbox will need to have remote features enabled via **Settings -> Devices & connections -> Remote features** (you may need to upgrade your controller firmware).
 
 <div class='note'>
 
 Because it uses the Home Assistant Cloud account linking service you **must** have either `cloud:` or `default_config:` in your `configuration.yaml`.
 
 </div>
-
-- [Media Player](#media-player)
-  - [Service `play_media`](#service-play_media)
-- [Remote](#remote)
-  - [Service `send_command`](#service-send_command)
-  - [Picture Elements Card](#picture-elements-card)
-- [Binary Sensor](#binary-sensor)
-- [Sensor](#sensor)
-- [Media Source](#media-source)
-- [Manual Configuration](#manual-configuration)
 
 ## Media Player
 
@@ -42,13 +40,13 @@ The Xbox media player platform will create Media Player entities for each consol
 
 Launches an application on the Xbox console using the application's product ID. Also supports "Home" and "TV" to navigate to the dashboard or Live TV respectively.
 
-You can find Product IDs by using the **Developer Tools -> Events** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
+You can find Product IDs using the **{% my developer_events title="Developer Tools -> Events" %}** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
 
 | Service data attribute | Description                           |
 | ---------------------- | --------------------------------------|
 | `entity_id`            | `entity_id` of the Xbox media player  |
-| `media_content_id`   | "Home"/"TV"/{product_id}                |
-| `media_content_type` | Any Value                               |
+| `media_content_id`     | "Home"/"TV"/{product_id}              |
+| `media_content_type`   | Any Value                             |
 
 **Examples:**
 
@@ -166,7 +164,7 @@ elements:
     service: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
-      command: 'A'
+      command: "A"
     style:
       top: 82.5%
       left: 80.05%
@@ -179,7 +177,7 @@ elements:
     service: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
-      command: 'X'
+      command: "X"
     style:
       top: 60.0%
       left: 70.6%
@@ -192,7 +190,7 @@ elements:
     service: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
-      command: 'B'
+      command: "B"
     style:
       top: 60.0%
       left: 89.5%
@@ -205,7 +203,7 @@ elements:
     service: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
-      command: 'Y'
+      command: "Y"
     style:
       top: 37.9%
       left: 80.05%
@@ -230,8 +228,8 @@ elements:
     service: media_player.play_media
     service_data:
       entity_id: media_player.xboxone
-      media_content_type: ''
-      media_content_id: 'Home'
+      media_content_type: ""
+      media_content_id: "Home"
     style:
       top: 22.2%
       left: 47.2%
@@ -243,9 +241,9 @@ elements:
 
 ## Binary Sensor
 
-The Xbox binary sensor platform automatically keeps track of your "**Favorite** friends". In your friends list, select **Change friendship -> Favorite** in order to have that person automatically pulled into Home Assistant.
+The Xbox binary sensor platform automatically keeps track of your "**Favorite** friends". In your friends list, select **Change friendship -> Favorite** to have that person automatically pulled into Home Assistant.
 
-There are 4 binary sensors that are added, 3 of which are disabled by default. They can be enabled in the "Xbox Live" service on the devices page.
+4 binary sensors are added, 3 of which are disabled by default. They can be enabled in the "Xbox Live" service on the devices page.
 
 | Entity ID | Default | Description                                                                                  |
 | ----------------------------------------- | -------- | ------------------------------------------------------------|
@@ -258,7 +256,7 @@ There are 4 binary sensors that are added, 3 of which are disabled by default. T
 
 Just like the binary sensors, the Xbox sensor platform automatically keeps track of your "**Favorite** friends".
 
-There are 4 sensors that are added, **all** of which are disabled by default. They can be enabled in the "Xbox Live" service on the devices page.
+4 sensors are added, **all** of which are disabled by default. They can be enabled in the "Xbox Live" service on the devices page.
 
 | Entity ID | Default | Description                                                                                      |
 | ---------------------------------| -------- | -------------------------------------------------------------------------|

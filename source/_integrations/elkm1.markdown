@@ -16,6 +16,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@gwww'
   - '@bdraco'
+ha_platforms:
+  - alarm_control_panel
+  - climate
+  - light
+  - sensor
+  - switch
 ---
 
 The Elk-M1 is a home security and automation controller that is capable of alarm control panel functions and automation.
@@ -118,9 +124,9 @@ The complete list of trouble statuses are:
 - Display Message In Keypad Line 2
 - Fire (zone is part of status)
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add `ElkM1` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Elk-M1 Control**.
+## Manual configuration
 
 Alternatively, configuration through the `configuration.yaml` file
 is supported (example below).
@@ -424,7 +430,7 @@ The `event_data` contains the following:
 
 ## Services
 
-Besides the standard Home Assistant services for Climate, Light, Scene, Sensor,
+Besides the standard Home Assistant services for Alarm Control Panel, Climate, Light, Scene, Sensor,
 and Switch the ElkM1 integration offers these additional services:
 
 - `elkm1.alarm_arm_home_instant`

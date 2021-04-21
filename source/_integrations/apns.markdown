@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.31
 ha_iot_class: Cloud Push
 ha_domain: apns
+ha_platforms:
+  - notify
 ---
 
 The `apns` platform uses the Apple Push Notification service (APNS) to deliver notifications from Home Assistant.

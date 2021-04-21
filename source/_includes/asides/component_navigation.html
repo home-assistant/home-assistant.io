@@ -6,6 +6,10 @@
     {%- else -%}
       <img src='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo.png' srcset='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo@2x.png 2x' />
     {%- endif -%}
+
+    {%- if page.ha_config_flow and page.ha_domain -%}
+      {% my config_flow_start badge domain=page.ha_domain %}
+    {%- endif -%}
   </div>
 
   {%- if page.ha_domain -%}
@@ -14,45 +18,20 @@
     </div>
   {%- endif -%}
 
-  {%- if page.ha_iot_class -%}
-    <div class='section'>
-      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: {{ page.ha_iot_class }}
-    </div>
-  {%- endif -%}
+  <div class='section'>
+    The {{ page.name | default: page.title }} integration was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
+    and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io" target="_blank" rel="noopener">
+    {{ 100.0 | times: site.data.analytics_data.integrations[page.ha_domain] | divided_by: site.data.analytics_data.reports_integrations | round: 1 | remove: ".0" }}%</a> of the active installations.
+    Its IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup> is {{ page.ha_iot_class | default: "unknown" }}
 
-  {%- if page.ha_quality_scale -%}
-    <div class='section'>
-      Quality Scale: <a href='/docs/quality_scale/'>
-        {%- if page.ha_quality_scale == 'platinum' -%}
-          🏆 (platinum)
-        {%- elsif page.ha_quality_scale == 'gold' -%}
-          🥇 (gold)
-        {%- elsif page.ha_quality_scale == 'silver' -%}
-          🥈 (silver)
-        {%- elsif page.ha_quality_scale == 'internal' -%}
-          🏠 (internal)
-        {%- endif -%}
-      </a>
-    </div>
-  {%- endif -%}
+    {%- if page.ha_quality_scale %}
+      and scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale</a>
+    {%- endif -%}.
 
-  {%- if page.ha_release -%}
-    <div class='section'>
-      Introduced in release: {{ page.ha_release }}
-    </div>
-  {%- endif -%}
-
-  {%- if page.ha_config_flow -%}
-    <div class='section'>
-      This integration is configurable via UI
-    </div>
-  {%- endif -%}
-
-  {%- if page.ha_domain -%}
-    <div class='section'>
-      Source: <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>View on GitHub</a>
-    </div>
-  {%- endif -%}
+    {% if page.ha_domain %}
+    You can find the source for this integration on <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>GitHub</a>.
+    {%- endif -%}
+  </div>
 
   {%- if page.ha_category.first -%}
     <div class='section'>
@@ -66,6 +45,7 @@
     </ul>
     </div>
   {%- endif -%}
+
 </section>
 
 <script src="https://alerts.home-assistant.io/ce-alert-link.js"></script>

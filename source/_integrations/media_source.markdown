@@ -7,6 +7,8 @@ ha_release: 0.115
 ha_domain: media_source
 ha_codeowners:
   - '@hunterjm'
+ha_iot_class:
+ha_quality_scale: internal
 ---
 
 The Media Source integration platform allows integrations to expose media for
@@ -24,7 +26,7 @@ media_source:
 
 ## Local Media
 
-By default, the integration by default looks for media in a specified folder.
+By default, the integration looks for media in a specified folder.
 If other `media_dirs` are not declared you need to use `/media/local` path for 
 example in companion app notification.
 
@@ -61,11 +63,16 @@ homeassistant:
 To play media from a media source via a service call, use the uri scheme `media-source://media_source/<media_dir>/<path>`.
 Default `media_dir`is `local`.
 
+<div class="note">
+Web browsers and Google Cast media players have very limited video container and codec support. The Media Source integration does not do any transcoding of media, meaning media files must be natively supported by your media player or web browser (for playing in the frontend). If a video file is not supported by your media player or web browser it will fail to play. Please check the documentation of your media player or web browser for lists of supported video formats.
+</div>
+
 Example:
 ```yaml
 service: media_player.play_media
-data:
+target:
   entity_id: media_player.living_room_tv
+data:
   media_content_type: video/mp4
   media_content_id: media-source://media_source/local/videos/favourites/Epic Sax Guy 10 Hours.mp4
 ```

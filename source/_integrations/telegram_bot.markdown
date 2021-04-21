@@ -16,7 +16,7 @@ If you don't need to receive messages, you can use the [broadcast](/integrations
 
 ## Notification services
 
-Available services: `send_message`, `send_photo`, `send_document`, `send_location`, `send_sticker`, `edit_message`, `edit_replymarkup`, `edit_caption`, `answer_callback_query`, `delete_message` and `leave_chat`.
+Available services: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `edit_message`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message` and `leave_chat`.
 
 ### Service `telegram_bot.send_message`
 
@@ -27,14 +27,14 @@ Send a notification.
 | `message`                 |       no | Message body of the notification. |
 | `title`                   |      yes | Optional title for your notification. Will be composed as '%title\n%message'. |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
-| `parse_mode`              |      yes | Parser for the message text: `html` or `markdown`. |
+| `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 | `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
 
-### Service `telegram_bot.send_photo` and `telegram_bot.send_sticker`
+### Service `telegram_bot.send_photo` 
 
 Send a photo.
 
@@ -47,9 +47,10 @@ Send a photo.
 | `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
 | `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_notification`     |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
-| `timeout`                 |      yes | Timeout for send photo. Will help with timeout errors (poor internet connection, etc) |
+| `timeout`                 |      yes | Timeout for sending photo in seconds. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 | `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
@@ -67,9 +68,69 @@ Send a video.
 | `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
 | `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
-| `timeout`                 |      yes | Timeout for send video. Will help with timeout errors (poor internet connection, etc) |
+| `timeout`                 |      yes | Timeout for sending video in seconds. Will help with timeout errors (poor internet connection, etc) |
+| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
+| `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
+
+### Service `telegram_bot.send_animation`
+
+Send an animation.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `url`                     |       no | Remote path to a GIF or H.264/MPEG-4 AVC video without sound. |
+| `file`                    |       no | Local path to a GIF or H.264/MPEG-4 AVC video without sound.  |
+| `caption`                 |      yes | The title of the animation. |
+| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
+| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
+| `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
+| `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
+| `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
+| `timeout`                 |      yes | Timeout for sending video in seconds. Will help with timeout errors (poor internet connection, etc) |
+| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
+| `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
+
+### Service `telegram_bot.send_voice`
+
+Send a voice message.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `url`                     |       no | Remote path to a voice message. |
+| `file`                    |       no | Local path to a voice message.  |
+| `caption`                 |      yes | The title of the voice message. |
+| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
+| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
+| `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
+| `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
+| `timeout`                 |      yes | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc) |
+| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
+| `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
+
+### Service `telegram_bot.send_sticker`
+
+Send a sticker.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `url`                     |       no | Remote path to a static .webp or animated .tgs sticker. |
+| `file`                    |       no | Local path to a static .webp or animated .tgs sticker.  |
+| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
+| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
+| `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `disable_notification`     |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
+| `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
+| `timeout`                 |      yes | Timeout for sending photo in seconds. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 | `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
@@ -87,9 +148,10 @@ Send a document.
 | `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
 | `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
-| `timeout`                 |      yes | Timeout for send document. Will help with timeout errors (poor internet connection, etc) |
+| `timeout`                 |      yes | Timeout for sending document in seconds. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 | `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
@@ -118,7 +180,7 @@ Edit a previously sent message in a conversation.
 | `chat_id`                 |       no | The chat_id where to edit the message.  |
 | `message`                 |       no | Message body of the notification. |
 | `title`                   |      yes | Optional title for your notification. Will be composed as '%title\n%message'. |
-| `parse_mode`              |      yes | Parser for the message text: `html` or `markdown`. |
+| `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
@@ -235,11 +297,11 @@ trigger:
   platform: event
   event_type: telegram_command
   event_data:
-    command: '/ping'
+    command: "/ping"
 action:
   - service: notify.notify
     data:
-      message: 'pong'
+      message: "pong"
 ```
 
 An example that shows keyboard interaction with `notify.telegram`
@@ -249,11 +311,11 @@ trigger:
   platform: event
   event_type: telegram_command
   event_data:
-    command: '/start'
+    command: "/start"
 action:
   - service: notify.telegram
     data:
-      message: 'commands'
+      message: "commands"
       data:
         keyboard:
           - '/ping, /alarm'
@@ -267,14 +329,16 @@ trigger:
   platform: event
   event_type: telegram_command
   event_data:
-    command: '/siren'
+    command: "/siren"
 action:
   - service: homeassistant.turn_on
-    entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
+    target:
+      entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
   - delay:
       seconds: 10
   - service: homeassistant.turn_off
-    entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
+    target:
+      entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
 ```
 
 An example to show the use of event_data in action:
@@ -287,7 +351,7 @@ An example to show the use of event_data in action:
     platform: event
     event_type: telegram_command
     event_data:
-      command: '/speak'
+      command: "/speak"
   action:
     - service: notify.kitchen_echo
       data:
@@ -317,9 +381,9 @@ Text repeater:
   action:
     - service: telegram_bot.send_message
       data:
-        title: '*Dumb automation*'
-        target: '{{ trigger.event.data.user_id }}'
-        message: 'You said: {{ trigger.event.data.text }}'
+        title: "*Dumb automation*"
+        target: "{{ trigger.event.data.user_id }}"
+        message: "You said: {{ trigger.event.data.text }}"
         disable_notification: true
         inline_keyboard:
           - "Edit message:/edit_msg, Don't:/do_nothing"
@@ -338,18 +402,18 @@ Message editor:
     platform: event
     event_type: telegram_callback
     event_data:
-      command: '/edit_msg'
+      command: "/edit_msg"
   action:
     - service: telegram_bot.answer_callback_query
       data:
-        callback_query_id: '{{ trigger.event.data.id }}'
-        message: 'Editing the message!'
+        callback_query_id: "{{ trigger.event.data.id }}"
+        message: "Editing the message!"
         show_alert: true
     - service: telegram_bot.edit_message
       data:
-        message_id: '{{ trigger.event.data.message.message_id }}'
-        chat_id: '{{ trigger.event.data.chat_id }}'
-        title: '*Message edit*'
+        message_id: "{{ trigger.event.data.message.message_id }}"
+        chat_id: "{{ trigger.event.data.chat_id }}"
+        title: "*Message edit*"
         inline_keyboard:
           - "Edit message:/edit_msg, Don't:/do_nothing"
           - "Remove this button:/remove_button"
@@ -371,16 +435,16 @@ Keyboard editor:
     platform: event
     event_type: telegram_callback
     event_data:
-      command: '/remove_button'
+      command: "/remove_button"
   action:
     - service: telegram_bot.answer_callback_query
       data:
-        callback_query_id: '{{ trigger.event.data.id }}'
-        message: 'Callback received for editing the inline keyboard!'
+        callback_query_id: "{{ trigger.event.data.id }}"
+        message: "Callback received for editing the inline keyboard!"
     - service: telegram_bot.edit_replymarkup
       data:
-        message_id: 'last'
-        chat_id: '{{ trigger.event.data.chat_id }}'
+        message_id: "last"
+        chat_id: "{{ trigger.event.data.chat_id }}"
         inline_keyboard:
           - "Edit message:/edit_msg, Don't:/do_nothing"
 ```
@@ -397,12 +461,12 @@ Only acknowledges the 'NO' answer:
     platform: event
     event_type: telegram_callback
     event_data:
-      command: '/do_nothing'
+      command: "/do_nothing"
   action:
     - service: telegram_bot.answer_callback_query
       data:
-        callback_query_id: '{{ trigger.event.data.id }}'
-        message: 'OK, you said no!'
+        callback_query_id: "{{ trigger.event.data.id }}"
+        message: "OK, you said no!"
 ```
 
 {% endraw %}
@@ -417,13 +481,13 @@ Telegram callbacks also support arguments and commands the same way as normal me
     platform: event
     event_type: telegram_callback
     event_data:
-      command: '/repeat'
+      command: "/repeat"
   action:
     - service: telegram_bot.answer_callback_query
       data:
         show_alert: true
-        callback_query_id: '{{ trigger.event.data.id }}'
-        message: 'I repeat: {{trigger.event.data["args"]}}'
+        callback_query_id: "{{ trigger.event.data.id }}"
+        message: "I repeat: {{trigger.event.data['args']}}"
 ```
 
 {% endraw %}
@@ -445,11 +509,11 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
     - service: input_number.set_value
       data_template:
         entity_id: input_number.chat_id
-        value: '{{ trigger.event.data.chat_id }}'
+        value: "{{ trigger.event.data.chat_id }}"
     - service: input_number.set_value
       data_template:
         entity_id: input_number.message_id
-        value: '{{ trigger.event.data.message_id }}'
+        value: "{{ trigger.event.data.message_id }}"
 ```
 
 {% endraw %}

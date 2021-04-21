@@ -7,7 +7,9 @@ date_formatted: "December 11, 2019"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-12-0.103/components.png
 ---
 
@@ -232,7 +234,7 @@ All services for use in Home Assistant are moved to their integration naming spa
 
   ```yaml
   - id: plant_unreachable
-    alias: plant unreachable
+    alias: "plant unreachable"
     trigger:
       - entity_id: sensor.plant_moisture
         for: 01:00:00
@@ -556,7 +558,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - move service constants to const.py, move custom services to monoprice domain ([@raman325] - [#29099]) ([monoprice docs]) (breaking change)
 - Move imports to top for uptimerobot ([@springstan] - [#29103]) ([uptimerobot docs])
 - Move imports to top for twilio_call ([@springstan] - [#29104]) ([twilio_call docs])
-- Move imports to top for ubee ([@springstan] - [#29105]) ([ubee docs])
+- Move imports to top for ubee ([@springstan] - [#29105])
 - Move flexit imports at top-level ([@Quentame] - [#29097]) ([flexit docs])
 - Move flunearyou imports at top-level ([@Quentame] - [#29096]) ([flunearyou docs])
 - Move folder_watcher imports at top-level ([@Quentame] - [#29095]) ([folder_watcher docs])
@@ -758,7 +760,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for nmap_tracker ([@springstan] - [#29364]) ([nmap_tracker docs])
 - Move imports to top for nmbs ([@springstan] - [#29365]) ([nmbs docs])
 - Move imports to top for noaa_tides ([@springstan] - [#29366]) ([noaa_tides docs])
-- Move imports to top for nuimo_controller ([@springstan] - [#29367]) ([nuimo_controller docs])
+- Move imports to top for nuimo_controller ([@springstan] - [#29367])
 - Move imports to top for openhome ([@springstan] - [#29369]) ([openhome docs])
 - Allow negative altitude in location updates ([@balloob] - [#29381]) ([mobile_app docs])
 - Move imports to top for lametric ([@springstan] - [#29406]) ([lametric docs])
@@ -1646,7 +1648,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [notion docs]: /integrations/notion/
 [nsw_rural_fire_service_feed docs]: /integrations/nsw_rural_fire_service_feed/
 [nuheat docs]: /integrations/nuheat/
-[nuimo_controller docs]: /integrations/nuimo_controller/
 [nut docs]: /integrations/nut/
 [nzbget docs]: /integrations/nzbget/
 [ombi docs]: /integrations/ombi/
@@ -1771,7 +1772,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tts docs]: /integrations/tts/
 [tuya docs]: /integrations/tuya/
 [twilio_call docs]: /integrations/twilio_call/
-[ubee docs]: /integrations/ubee/
 [unifi docs]: /integrations/unifi/
 [unifi_direct docs]: /integrations/unifi_direct/
 [universal docs]: /integrations/universal/

@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: logger
+ha_iot_class:
 ---
 
 The `logger` integration lets you define the level of logging activities in Home
@@ -20,6 +21,8 @@ add the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 logger:
 ```
+
+The log severity level is `warning` if the logger integration is not enabled in `configuration.yaml`.
 
 To log all messages and ignore events lower than critical for specified
 components:
@@ -85,6 +88,14 @@ where **namespace** is the *<component_namespace>* currently logging.
       '&lt;component_namespace&gt;':
         description: Logger namespace of the component. See [log_level](#log-levels).
         type: string
+  filters:
+    description: Regular Expression logging filters.
+    required: false
+    type: map
+    keys:
+      '&lt;component_namespace&gt;':
+        description: Logger namespace of the component and a list of Regular Expressions. See [Log Filters](#log-filters).
+        type: list
 {% endconfiguration %}
 
 In the example, do note the difference between 'glances_api' and 'homeassistant.components.glances' namespaces,
@@ -106,6 +117,26 @@ Possible log severity levels, listed in order from most severe to least severe, 
 - info
 - debug
 - notset
+
+### Log Filters
+
+Service-specific Regular Expression filters for logs. A message is omitted if it matches the Regular Expression.
+
+An example configuration might look like this:
+
+```yaml
+# Example configuration.yaml entry
+logger:
+  default: info
+  logs:
+    custom_components.my_integration: critical
+  filters:
+    custom_component.my_integration:
+      - "HTTP 429" # Filter all HTTP 429 errors
+      - "Request to .*unreliable.com.* Timed Out"
+    homeassistant.components.nws:
+      - "^Error handling request$"
+```
 
 ## Services
 

@@ -6,6 +6,7 @@ ha_category:
 logo: geo_location.png
 ha_release: 0.78
 ha_domain: geo_location
+ha_quality_scale: internal
 ha_iot_class:
 ---
 
@@ -34,6 +35,7 @@ Conditions can be used to further filter entities, for example by inspecting the
 The following example automation creates a notification on the screen when a fire classified as 'Bush Fire' is reported within a predefined bush fire alert zone:
 
 {% raw %}
+
 ```yaml
 geo_location:
   - platform: nsw_rural_fire_service_feed
@@ -50,7 +52,7 @@ zone:
     passive: true
 
 automation:
-  - alias: 'Bush Fire Alert'
+  - alias: "Bush Fire Alert"
     trigger:
       platform: geo_location
       source: nsw_rural_fire_service_feed
@@ -65,4 +67,5 @@ automation:
           message: "{{ trigger.to_state.name }} - {{ trigger.to_state.attributes.status }}"
           title: "Bush Fire Alert"
 ```
+
 {% endraw %}

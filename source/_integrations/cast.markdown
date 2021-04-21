@@ -10,13 +10,23 @@ ha_config_flow: true
 ha_domain: cast
 ha_codeowners:
   - '@emontnemery'
+ha_zeroconf: true
 ---
 
-You can enable the Cast integration by going to the Integrations page inside the configuration panel.
-
-## Setup
+{% include integrations/config_flow.md %}
 
 Support for mDNS discovery in your local network is mandatory. Make sure that your router has this feature enabled. This is even required if you entered the IP addresses of the Cast devices are manually in the configuration as mentioned below.
+
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
+Known hosts:
+  description: "A comma-separated list of hostnames or IP-addresses of cast devices, use if mDNS discovery is not working"
+Allowed UUIDs:
+  description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))`. This option is only visible if advanced mode is enabled in your user profile.
+Ignore CEC:
+  description: A comma-separated list of Chromecasts that should ignore CEC data for determining the
+        active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data). This option is only visible if advanced mode is enabled in your user profile.
+{% endconfiguration_basic %}
 
 ## Home Assistant Cast
 
@@ -24,7 +34,7 @@ Home Assistant has its own Cast application to show the Home Assistant UI on any
 
 ```yaml
 cast_downstairs_on_kitchen:
-  alias: Show Downstairs on kitchen
+  alias: "Show Downstairs on kitchen"
   sequence:
     - data:
         dashboard_path: lovelace
@@ -51,10 +61,11 @@ Optional:
 
 ```yaml
 'cast_youtube_to_my_chromecast':
-  alias: Cast YouTube to My Chromecast
+  alias: "Cast YouTube to My Chromecast"
   sequence:
-    - data:
+    - target:
         entity_id: media_player.my_chromecast
+      data:
         media_content_type: cast
         media_content_id: '
           {
@@ -76,10 +87,11 @@ Optional:
 
 ```yaml
 'cast_supla_to_my_chromecast':
-  alias: Cast supla to My Chromecast
+  alias: "Cast supla to My Chromecast"
   sequence:
-    - data:
+    - target:
         entity_id: media_player.my_chromecast
+      data:
         media_content_type: cast
         media_content_id: '
           {
@@ -95,55 +107,87 @@ To cast media directly from a configured Plex server, set the fields [as documen
 
 ```yaml
 'cast_plex_to_chromecast':
-  alias: Cast Plex to Chromecast
+  alias: "Cast Plex to Chromecast"
   sequence:
   - service: media_player.play_media
-    data:
+    target:
       entity_id: media_player.chromecast
+    data:
       media_content_type: movie
       media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
 ```
 
-## Advanced use
+### Play (almost) any kind of media
 
-### Manual configuration
+Chromecasts can play many kinds of modern [media (image/audio/video) formats](https://developers.google.com/cast/docs/media). As a rule of thumb, if a Chrome browser can play a media file a Chromecast will be able to handle that too.
 
-By default, any discovered Cast device is added to Home Assistant. This can be restricted by supplying a list of allowed chrome casts.
+The media needs to be accessible via HTTP(S). Chromecast devices do not support other protocols like DLNA or playback from an SMB file share.
+
+You can play MP3 streams like net radios, FLAC files or videos from your local network with the `media_player.play_media` service, as long as the media is accessible via HTTP(S). You need to set the `media_content_id` to the media URL and `media_content_type` to a matching content type.
 
 ```yaml
-# Example configuration.yaml entry
-cast:
-  media_player:
-    - uuid: "ae3be716-b011-4b88-a75d-21478f4f0822"
+# Play a video file from the local network:
+service: media_player.play_media
+target:
+  entity_id: media_player.chromecast
+data:
+  media_content_type: "video"
+  media_content_id: "http://192.168.0.100/movies/sample-video.mkv"
 ```
 
-{% configuration %}
-media_player:
-  description: A list that contains advanced configuration options.
-  required: false
-  type: list
-  keys:
-    uuid:
-      description: UUID of a Cast device to add to Home Assistant. Use only if you don't want to add all available devices. The device won't be added until discovered through mDNS. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=["Living Room TV", "Bedroom TV", "Office Chromecast"]))"
-      required: false
-      type: string
-    ignore_cec:
-      description: >
-        A list of Chromecasts that should ignore CEC data for determining the
-        active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)
-      required: false
-      type: list
-{% endconfiguration %}
+```yaml
+# Show a jpeg image:
+service: media_player.play_media
+target:
+  entity_id: media_player.chromecast
+data:
+  media_content_type: "image/jpeg"
+  media_content_id: "http://via.placeholder.com/1024x600.jpg/0B6B94/FFFFFF/?text=Hello,%20Home%20Assistant!"
+```
 
-### Docker and Cast devices and Home Assistant on different subnets
+Extra media metadata (for example title, subtitle, artist or album name) can be passed into the service and that will be shown on the Chromecast display.
+For the possible metadata types and values check [Google cast documentation > MediaInformation > metadata field](https://developers.google.com/cast/docs/reference/messages#MediaInformation).
 
-Cast devices can only be discovered and connected to if they are on the same subnet as Home Assistant.
+```yaml
+# Play a movie from the internet, with extra metadata provided:
+service: media_player.play_media
+target:
+  entity_id: media_player.chromecast
+data:
+  media_content_type: "video/mp4"
+  media_content_id: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+  extra: 
+    metadata: 
+      metadataType: 1
+      title: "Big Buck Bunny"
+      subtitle: "By Blender Foundation, Licensed under the Creative Commons Attribution license"
+      images:
+        - url: "https://peach.blender.org/wp-content/uploads/watchtrailer.gif"
+```
 
-When running Home Assistant Core in a [Docker container](/docs/installation/docker/), the command line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put it on the host's network, otherwise the Home Assistant Core will not be able to connect to any Cast device.
+```yaml
+# Play a netradio, with extra metadata provided:
+service: media_player.play_media
+target:
+  entity_id: media_player.chromecast
+data:
+  media_content_type: "audio/mp3"
+  media_content_id: "http://stream.tilos.hu:8000/tilos" 
+  extra: 
+    metadata: 
+      metadataType: 3
+      title: "Radio TILOS"
+      artist: "LIVE"
+      images:
+        - url: "https://tilos.hu/images/kockalogo.png"
+```
 
+## Cast devices and Home Assistant on different subnets
+
+Cast devices can only be automatically discovered if they are on the same subnet as Home Assistant.
 Setups with cast devices on a different subnet than Home Assistant are not recommended and not supported.
+If this is not possible, it's necessary to either enable mDNS forwarding between the subnets or to provide a list of known hosts.
 
-If this is not possible, it's necessary to:
+### Home Assistant Container
 
-- Enable mDNS forwarding between the subnets.
-- Enable source NAT to make requests from Home Assistant to the Chromecast appear to come from the same subnet as the Chromecast.
+When running the [Home Assistant Container](/installation/linux#install-home-assistant-container) in Docker, make sure it is running with host network mode. Running without it is not supported by the Home Assistant project, and will cause this integration to be unable to discover to your Cast devices.

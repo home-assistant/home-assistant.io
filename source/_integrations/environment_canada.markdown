@@ -10,6 +10,10 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaeldavie'
 ha_domain: environment_canada
+ha_platforms:
+  - camera
+  - sensor
+  - weather
 ---
 
 The `environment_canada` weather platforms provide meteorological data for Canadian locations from [Environment Canada](https://weather.gc.ca/index_e.html).
@@ -56,7 +60,7 @@ weather:
 - The platform checks for new data every 10 minutes, and the source data is typically updated hourly within 10 minutes after the hour.
 - If no name is given, the weather entity will be named `weather.<station_name>`.
 - The platform automatically determines which weather station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
-    - A specific station code of the form `AB/s0000123` based on those listed in [this CSV file](http://dd.weatheroffice.ec.gc.ca/citypage_weather/docs/site_list_towns_en.csv), or
+    - A specific station code of the form `AB/s0000123` based on those listed in [this CSV file](https://dd.weather.gc.ca/citypage_weather/docs/site_list_towns_en.csv), or
     - A specific latitude/longitude
 
 {% configuration %}
@@ -123,7 +127,7 @@ sensor:
     - `statements` - Current special weather statements.
     - `endings` - Alerts that have recently ended.
 - The platform automatically determines which weather station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
-    - A specific station code of the form `AB/s0000123` based on those listed in [this CSV file](http://dd.weatheroffice.ec.gc.ca/citypage_weather/docs/site_list_towns_en.csv), or
+    - A specific station code of the form `AB/s0000123` based on those listed in [this CSV file](https://dd.weather.gc.ca/citypage_weather/docs/site_list_towns_en.csv), or
     - A specific latitude/longitude
 - In the case of multiple alerts in the same category, the titles of each are concatenated together with a pipe (`|`) separator.
 
@@ -157,6 +161,7 @@ scan_interval:
 If you would like to have alerts announced via a text-to-speech service, you can use a script similar to the following:
 
 {% raw %}
+
 ```yaml
 weather_alert_tts:
   sequence:
@@ -164,6 +169,7 @@ weather_alert_tts:
       data:
         message: "{{ states('sensor.warnings') }} in effect."
 ```
+
 {% endraw %}
 
 ## Camera

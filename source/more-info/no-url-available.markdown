@@ -84,6 +84,12 @@ Some additional notes:
   might cause problems with casting to media devices.
 - If you do not have an external address for your Home Assistant instance,
   leave that field empty.
+- Ensure that the URL you provide matches the true address your browser uses to
+  reach the instance. Many popular browsers will hide the www subdomain; if you
+  try to configure `http://foo.bar`, but you're actually at `http://www.foo.bar`,
+  OAuth will fail and you will receive this error. You can always check the
+  actual domain by pasting `javascript:alert(document.location)` in your address
+  bar and pressing enter.
 
 After setting the URLs, click save. There is no need to restart Home Assistant
 your changes are applied immediately.

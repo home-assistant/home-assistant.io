@@ -7,7 +7,9 @@ date_formatted: "July 22, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-07-0.113/social.png
 ---
 
@@ -80,11 +82,13 @@ automation:
         to: "on"
     action:
       - service: light.turn_on
-        entity_id: light.bulb
+        target:
+          entity_id: light.bulb
       - delay:
           seconds: 10
       - service: light.turn_off
-        entity_id: light.bulb
+        target:
+          entity_id: light.bulb
 ```
 
 This automation turns on a light bulb when the button is pressed, and after
@@ -240,14 +244,16 @@ automation:
                 state: "on"
             sequence:
               - service: light.turn_on
-                entity_id: light.bulb
+                target:
+                  entity_id: light.bulb
           - conditions:
               - condition: state
                 entity_id: binary_sensor.button2
                 state: "on"
             sequence:
               - service: light.turn_off
-                entity_id: light.bulb
+                target:
+                  entity_id: light.bulb
         default:
           - service: notify.frenck
             data:
@@ -284,7 +290,8 @@ script:
         count: 10
         sequence:
           - service: light.toggle
-            entity_id: light.bulb
+            target:
+              entity_id: light.bulb
           - delay:
               milliseconds: 500
 ```
@@ -1041,7 +1048,7 @@ In general, all variables that start with `paper` will be removed at some point.
 - Fix entity_component test flapping ([@bdraco] - [#37445])
 - Fix flapping geo_json_events tests ([@frenck] - [#37471]) ([geo_json_events docs])
 - Fix geonetnz_quakes test flapping ([@emontnemery] - [#37473]) ([geonetnz_quakes docs])
-- Call sync function from async context ([@timvancann] - [#37324]) ([avri docs])
+- Call sync function from async context ([@timvancann] - [#37324])
 - Support empty output of MQTT binary_sensor value_template ([@emontnemery] - [#37420]) ([mqtt docs])
 - Publish birth and will messages by default ([@emontnemery] - [#37371]) ([mqtt docs]) (breaking-change)
 - Fix flapping google_assistant tests ([@frenck] - [#37480]) ([google_assistant docs])
@@ -1684,7 +1691,6 @@ In general, all variables that start with `paper` will be removed at some point.
 [asuswrt docs]: /integrations/asuswrt/
 [august docs]: /integrations/august/
 [automation docs]: /integrations/automation/
-[avri docs]: /integrations/avri/
 [azure_event_hub docs]: /integrations/azure_event_hub/
 [bayesian docs]: /integrations/bayesian/
 [bond docs]: /integrations/bond/

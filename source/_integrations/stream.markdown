@@ -9,6 +9,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@hunterjm'
   - '@uvjustin'
+  - '@allenporter'
 ha_domain: stream
 ---
 
@@ -47,9 +48,10 @@ For example, the following action in an automation would take a recording from `
 ```yaml
 action:
   service: camera.record
-  data:
+  target:
     entity_id: camera.quintal
-    filename: '/config/www/my_stream.mp4'
+  data:
+    filename: "/config/www/my_stream.mp4"
     duration: 30
 ```
 

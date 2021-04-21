@@ -47,6 +47,10 @@ $primary-color: #049cdb;
     padding-right: 5px;
     padding-left: 5px;
   }
+
+  .feedback {
+    margin-bottom: 32px;
+  }
 }
 
 .hero {
@@ -157,6 +161,9 @@ $primary-color: #049cdb;
       color: white;
       border-bottom-left-radius: 2px;
       border-bottom-right-radius: 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
       .title {
         font-size: 20px;
@@ -166,6 +173,13 @@ $primary-color: #049cdb;
       .subtitle {
         font-size: 12px;
         font-weight: initial;
+      }
+
+      svg {
+        fill: white;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
       }
     }
   }
@@ -194,8 +208,17 @@ $primary-color: #049cdb;
       border: 0;
       box-shadow: none;
       margin: 15px;
-      width: 200px;
+      width: 100%;
       max-width: 40%;
+      max-height: 70px;
+    }
+
+    .square {
+      width: initial;
+    }
+
+    .round {
+      border-radius: 50%;
     }
   }
 }
@@ -426,16 +449,36 @@ div.note {
 .aside-module {
   .section {
     margin-bottom: 10px;
-  }
+
+    ul.section-nav {
+      margin-left: 0px;
+
+      li.toc-entry {
+        list-style-type: none;
+        li {
+          list-style-type: circle;
+          margin-left: 1em;
+        }
+        ul {
+          margin-left: 1em;
+        }
+      }
+    }
+
+ }
 
   .brand-logo-container {
     text-align: center;
-    height: 87px;
     margin-top: 50px;
-    margin-bottom: 25px;
+    display: grid;
+    justify-items: center;
 
     img {
       max-height: 67px;
+    }
+
+    a.my img {
+      margin-top: 20px;
     }
   }
 }
@@ -480,7 +523,8 @@ a code {
   color: $primary-color;
 }
 
-twitter-widget {
+twitter-widget,
+.twitter-tweet-rendered {
   margin-left: auto;
   margin-right: auto;
 }
@@ -603,4 +647,44 @@ code {
   border: 1px solid #ddd;
   border-radius: 0.4em;
   padding: 0.1em 0.4em;
+}
+
+@media only screen and (max-width: $menu-collapse) {
+  #not_found {
+    .page {
+      text-align: center;
+
+      .search404-container {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $menu-collapse) {
+  #not_found {
+    .page {
+      text-align: center;
+      margin-bottom: 300px;
+
+      .search404-container {
+        margin-bottom: 32px;
+
+        #search404 {
+          width: 420px;
+        }
+      }
+    }
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+}
+
+a.my {
+  img {
+    border: 0px;
+  }
 }

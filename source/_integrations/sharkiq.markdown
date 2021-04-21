@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@ajmarks'
 ha_domain: sharkiq
+ha_platforms:
+  - vacuum
 ---
 
 The `sharkiq` integration allows you to control your [Shark IQ](https://www.sharkclean.com/vacuums/robot-vacuums/) vacuum.
@@ -19,9 +21,7 @@ The `sharkiq` integration allows you to control your [Shark IQ](https://www.shar
 
 This platform has been tested and is confirmed to be working with the Shark IQ R101AE robot vacuum with self-empty base but should also work with the R100.
 
-## Configuration
-
-To add your Shark IQ vacuum to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with + sign and from the list of integrations select Shark IQ.
+{% include integrations/config_flow.md %}
 
 ## Services
 
@@ -32,3 +32,10 @@ Currently supported services are:
 - `stop`
 - `return_to_base`
 - `locate`
+
+## Troubleshooting
+
+### Integration Disconnecting
+
+If the integration frequently disconnects and you have an ad blocker runner like [Pi-hole](https://pi-hole.net/) or [AdGuard](https://adguard.com) add `ads-field.aylanetworks.com` to the Allow list . This domain is needed for the connection and can be part of the automatic blocking because of `ads` being part of the subdomain.
+

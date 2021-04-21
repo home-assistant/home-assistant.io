@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_release: 0.39
 ha_quality_scale: internal
 ha_domain: history_stats
+ha_platforms:
+  - sensor
 ---
 
 The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
@@ -25,17 +27,19 @@ Examples of what you can track:
 To enable the history statistics sensor, add the following lines to your `configuration.yaml`:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: history_stats
     name: Lamp ON today
     entity_id: light.my_lamp
-    state: 'on'
+    state: "on"
     type: time
-    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-    end: '{{ now() }}'
+    start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    end: "{{ now() }}"
 ```
+
 {% endraw %}
 
 {% configuration %}
@@ -44,9 +48,9 @@ entity_id:
   required: true
   type: string
 state:
-  description: The state you want to track.
+  description: The states you want to track.
   required: true
-  type: string
+  type: [list, string]
 name:
   description: Name displayed on the frontend. Note that it is used by Home Assistant to generate sensor's `object_id` so it is advisable to choose a unique one and change name for frontend using [customization](/docs/configuration/customizing-devices/#friendly_name) or via [Lovelace](/lovelace/entities/#name).
   required: false
@@ -131,30 +135,36 @@ Here are some examples of periods you could work with, and what to write in your
 **Today**: starts at 00:00 of the current day and ends right now.
 
 {% raw %}
+
 ```yaml
-    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-    end: '{{ now() }}'
+    start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    end: "{{ now() }}"
 ```
+
 {% endraw %}
 
 **Yesterday**: ends today at 00:00, lasts 24 hours.
 
 {% raw %}
+
 ```yaml
-    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    end: "{{ now().replace(hour=0, minute=0, second=0) }}"
     duration:
       hours: 24
 ```
+
 {% endraw %}
 
 **This morning (6AM - 11AM)**: starts today at 6, lasts 5 hours.
 
 {% raw %}
+
 ```yaml
-    start: '{{ now().replace(hour=6, minute=0, second=0) }}'
+    start: "{{ now().replace(hour=6, minute=0, second=0) }}"
     duration:
       hours: 5
 ```
+
 {% endraw %}
 
 **Current week**: starts last Monday at 00:00, ends right now.
@@ -162,29 +172,47 @@ Here are some examples of periods you could work with, and what to write in your
 Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekday (86400 is the number of seconds in one day, the weekday is 0 on Monday, 6 on Sunday).
 
 {% raw %}
+
 ```yaml
-    start: '{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}'
-    end: '{{ now() }}'
+    start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}"
+    end: "{{ now() }}"
 ```
+
+{% endraw %}
+
+**Next 4 pm**: 24 hours, from the last 4 pm till the next 4 pm. If it hasn't been 4 pm today, that would be 4 pm yesterday until 4 pm today. If it is already past 4 pm today, it will be 4 pm today until 4 pm tomorrow. When changing the start time, then add or subtract to the 8-hour buffer to match the next midnight.
+
+{% raw %}
+
+```yaml
+    end: "{{ (now().replace(minute=0,second=0) + timedelta(hours=8)).replace(hour=16) }}"
+    duration:
+        hours: 24
+```
+
 {% endraw %}
 
 **Last 30 days**: ends today at 00:00, lasts 30 days. Easy one.
 
 {% raw %}
+
 ```yaml
-    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    end: "{{ now().replace(hour=0, minute=0, second=0) }}"
     duration:
       days: 30
 ```
+
 {% endraw %}
 
 **All your history** starts at timestamp = 0, and ends right now.
 
 {% raw %}
+
 ```yaml
-    start: '{{ 0 }}'
-    end: '{{ now() }}'
+    start: "{{ 0 }}"
+    end: "{{ now() }}"
 ```
+
 {% endraw %}
 
 <div class='note'>

@@ -52,11 +52,11 @@ This will tweet a message when an MQTT message is received that the smoke alarm 
 ```yaml
 # Configuration.yaml entry
 automation:
-- alias: Post a tweet when fire alarm is triggered
+- alias: "Post a tweet when fire alarm is triggered"
   trigger:
     platform: mqtt
     mqtt_topic: home/alarm/fire
-    mqtt_payload: 'on'
+    mqtt_payload: "on"
 
   action:
     service: ifttt.trigger

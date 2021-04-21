@@ -5,7 +5,9 @@ date: 2019-05-16 04:11:03
 date_formatted: "May 16, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-05-release-93/components.png
 ---
 
@@ -81,7 +83,7 @@ For those of you that like to power down your Sonos, Home Assistant should now h
 
 - Adds Orange Pi GPIO platform ([@pascallj] - [#22541]) ([orangepi_gpio docs]) (new-integration) (new-platform)
 - Essent sensor ([@TheLastProject] - [#23513]) ([essent docs]) (new-integration) (new-platform)
-- Ptvsd debugger component. ([@Swamp-Ig] - [#23336]) ([ptvsd docs]) (new-integration)
+- Ptvsd debugger component. ([@Swamp-Ig] - [#23336]) (new-integration)
 - Ambiclimate ([@Danielhiversen] - [#22827]) ([ambiclimate docs]) (new-integration) (new-platform)
 - Add Intergas InComfort Lan2RF gateway ([@zxdavb] - [#23736]) ([incomfort docs]) (new-integration) (new-platform)
 
@@ -282,7 +284,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix non-syncthru supporting printers ([@nielstron] - [#21482]) ([syncthru docs])
 - Add support for a wider variety of EnOcean devices ([@bdurrer] - [#22052]) ([enocean docs])
 - Convert Pollen.com sensor into IQVIA component ([@bachya] - [#22986]) ([iqvia docs]) ([pollen docs]) (breaking change) (new-integration) (new-platform)
-- Upgrade to pyubee==0.6 ([@StevenLooman] - [#23355]) ([ubee docs])
+- Upgrade to pyubee==0.6 ([@StevenLooman] - [#23355])
 - Fix tox.ini lint target ([@ViViDboarder] - [#23359])
 - Add media player external url ([@balloob] - [#23337]) ([media_player docs])
 - Fix race condition. ([@mitchellrj] - [#21244]) ([plex docs])
@@ -341,7 +343,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Always pad mac addresses from nmap tracker with leading zeros ([@mikeage] - [#23492]) ([nmap_tracker docs]) (breaking change)
 - Update mysensors sensor icons ([@MartinHjelmare] - [#23491]) ([mysensors docs])
 - Add bypass and automatic bypass switch for Danfor Air. ([@JonasPed] - [#23572]) ([danfoss_air docs])
-- Ptvsd debugger component. ([@Swamp-Ig] - [#23336]) ([ptvsd docs]) (new-integration)
+- Ptvsd debugger component. ([@Swamp-Ig] - [#23336]) (new-integration)
 - Fix min/max temp and humidity for homekit_controller climate ([@Jc2k] - [#23421]) ([homekit_controller docs])
 - Fix failing state update tests ([@etheralm] - [#23575])
 - render_with_collect method for template ([@Swamp-Ig] - [#23283])
@@ -828,7 +830,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [plex docs]: /integrations/plex/
 [pollen docs]: /integrations/iqvia
 [ps4 docs]: /integrations/ps4/
-[ptvsd docs]: /integrations/ptvsd/
 [rainmachine docs]: /integrations/rainmachine/
 [recorder docs]: /integrations/recorder/
 [rest docs]: /integrations/rest/
@@ -859,7 +860,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tplink_lte docs]: /integrations/tplink_lte/
 [traccar docs]: /integrations/traccar/
 [trend docs]: /integrations/trend/
-[ubee docs]: /integrations/ubee/
 [upc_connect docs]: /integrations/upc_connect/
 [upnp docs]: /integrations/upnp/
 [velux docs]: /integrations/velux/

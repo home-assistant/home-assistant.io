@@ -15,6 +15,13 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@alengwenus'
 ha_domain: lcn
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - sensor
+  - switch
 ---
 
 The `lcn` integration for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.
@@ -183,7 +190,7 @@ climates:
       description: "Measurement unit ([VAR_UNIT](#variables-and-units))."
       required: false
       type: string
-      default: 'celsius'
+      default: "celsius"
     min_temp:
       description: "Minimum target temperature."
       required: false
@@ -302,7 +309,7 @@ sensors:
       description: "Measurement unit ([VAR_UNIT](#variables-and-units))."
       required: false
       type: string
-      default: 'native'
+      default: "native"
 
 switches:
   description: List of your switches.
@@ -402,7 +409,7 @@ The [MOTOR_PORT](#ports) values specify which hardware relay or outputs configur
 | Constant | Values |
 | -------- | ------ |
 | LED_STATE | `on`, `off`, `blink`, `flicker` |
-| LOGICOP_STATE | `not`, `or`, `and` |
+| LOGICOP_STATE | `none`, `some`, `all` |
 | KEY_STATE | `hit`, `make`, `break`, `dontsend` |
 
 ### Keys:
