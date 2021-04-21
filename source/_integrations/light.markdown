@@ -27,7 +27,7 @@ The `.default` suffix should be added to the entity identifier of each light to 
 
 <div class='note'>
 
-If a light entity is in the `on` state, the default profile will only be applied if it is called in the service call data attribute `profile`, like any other named profile.
+If a light entity is in the `on` state, the default profile brightness and will only be applied if it is called in the service call data attribute `profile`, like any other named profile. The transition attribute will be applied for all `light.turn_on`, `light.toggle` and `light.turn_off` service calls, unless specified otherwise in the service call data.
 
 </div>
 
