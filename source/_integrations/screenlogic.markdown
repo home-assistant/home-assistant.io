@@ -37,10 +37,10 @@ ScreenLogic options are set via **Configuration** -> **Integrations** -> **Penta
 
 Sets the operation of any connected color-capable lights.
 
-| Service data attribute | Optional | Description                                                         |
-| ---------------------- | -------- | ------------------------------------------------------------------- |
-| `device_id`            | no       | The `device_id` of the ScreenLogic Gateway to set to color mode on. |
-| `color_mode`           | no       | The color mode to set. Valid values are listed below.               |
+| Service data attribute | Optional | Description                                                                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `target`               | no       | An `area` containing the ScreenLogic device, the ScreenLogic `device` itself, or any `entity` from the ScreenLogic device you wish to set the color mode on. |
+| `color_mode`           | no       | The color mode to set. Valid values are listed below.                                                                                                        |
 
 ## Reference
 
