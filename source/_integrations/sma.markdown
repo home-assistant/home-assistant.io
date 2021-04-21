@@ -55,7 +55,7 @@ Sensors available in the library:
 
 ### Custom Sensors
 
-The SMA WebConnect module supports a wide variety of sensors, but not all of these have been mapped in the `pysma` library. New sensors can be tested by using yaml config. The yaml config is deprecated for production use. An example is shown below. You will need: A sensor name, the SMA sensor key and the unit. The path attribute is a custom JMESpath to extract the sensor value and typically not required (advanced use only).
+The SMA WebConnect module supports a wide variety of sensors, but not all of these have been mapped in the `pysma` library. New sensors can be tested by using YAML configuration. The YAML config is deprecated, nevertheless, an example is provided below. You will need a sensor name, the SMA sensor key and the unit. The path attribute is a custom JMESpath to extract the sensor value and typically not required (advanced use only).
 
 Example:
 
