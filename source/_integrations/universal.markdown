@@ -39,6 +39,18 @@ media_player:
       volume_mute:
         service: SERVICE
         data: SERVICE_DATA
+      media_play:
+        service: SERVICE
+        data: SERVICE_DATA
+      media_pause:
+        service: SERVICE
+        data: SERVICE_DATA       
+      media_previous_track:
+        service: SERVICE
+        data: SERVICE_DATA
+      media_next_track:
+        service: SERVICE
+        data: SERVICE_DATA 
     attributes:
       is_volume_muted: ENTITY_ID|ATTRIBUTE
       state: ENTITY_ID|ATTRIBUTE
@@ -59,7 +71,7 @@ state_template:
   required: false
   type: template
 commands:
-  description: "Commands to be overwritten. Most, if not all, media player service commands can be overwritten. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, and `volume_mute` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
+  description: "Commands to be overwritten. Almost all media player service commands can be overwritten. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, `volume_mute`, `media_play`, `media_pause`, `media_stop`, `media_previous_track`, `media_next_track` and `play_media` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
   required: false
   type: string
 attributes:
