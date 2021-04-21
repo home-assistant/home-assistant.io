@@ -63,3 +63,17 @@ media_player:
       target:
         entity_id: switch.tv_switch
 ```
+
+## Change channel through play_media service
+
+The `play_media` service can be used in a script to switch to the specified TV channel. It selects the major channel number according to the `media_content_id` parameter:
+
+```yaml
+# Example action entry in script to switch to channel number 15
+service: media_player.play_media
+target:
+  entity_id: media_player.lg_tv
+data:
+  media_content_id: 15
+  media_content_type: channel
+```
