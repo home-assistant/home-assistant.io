@@ -43,7 +43,7 @@ zeroconf:
 
 ## `default_interface` auto detection
 
-If the `default_interface` is not set, the value is not auto detected based on the system routing next hop for mdns broadcast address (`224.0.0.251`).
+If the `default_interface` is not set, the value is not auto detected based on the system routing next hop for the mdns broadcast address (`224.0.0.251`).
 
 If the next hop cannot be detected or is a loopback address, zeroconf will broadcast on all interfaces. If the next hop is a non-loopback address, zeroconf will only broadcast on the default interface.
 
