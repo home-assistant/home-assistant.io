@@ -5,7 +5,7 @@ ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
 ha_release: 2021.5
-ha_domain: bond
+ha_domain: vulcan
 ha_codeowners:
   - '@Antoni-Czaplicki'
 ha_config_flow: true
