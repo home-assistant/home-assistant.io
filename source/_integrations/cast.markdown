@@ -190,9 +190,9 @@ The Google Cast integration relies on the [Zeroconf integration](/integrations/z
 
 ### Cast devices and Home Assistant on different subnets
 
-Cast devices can only be automatically discovered if they are on the same subnet as Home Assistant.
-Setups with cast devices on a different subnet than Home Assistant are not recommended and not supported.
-If this is not possible, it's necessary to either enable mDNS forwarding between the subnets or to configure a list of known hosts.
+Cast devices can only be automatically discovered if they are on the same subnet as Home Assistant because mDNS packets are not routed across subnets.
+Automatic discovery in setups with cast devices on a different subnet than Home Assistant are not recommended and not supported.
+If it is not possible, it's necessary to either enable mDNS forwarding between the subnets or to configure a list of known hosts.
 
 ### Home Assistant Container
 
