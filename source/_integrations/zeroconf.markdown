@@ -30,7 +30,7 @@ zeroconf:
   type: map
   keys:
    default_interface:
-     description: `zeroconf` will attempt to detect the best value based on available routing information. For systems that require broadcasting mDNS on all interfaces, change this option to `false` if `zeroconf` does not function.
+     description: By default, `zeroconf` will attempt to detect the best value based on available routing information. For systems that require broadcasting mDNS on all interfaces, change this option to `false` if `zeroconf` does not function.
      required: false
      type: boolean
      default: true
