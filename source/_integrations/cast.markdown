@@ -182,16 +182,18 @@ data:
         - url: "https://tilos.hu/images/kockalogo.png"
 ```
 
-## Trouble shooting automatic discovery
+## Troubleshooting automatic discovery
+
 mDNS relies on UDP multicast, which may fail for various reasons. If none of the tips in this section helps, the recommended solution is to ensure all cast devices have static IPs assigned to them and configure a list of known hosts.
 
 ### Zeroconf configuration
+
 The Google Cast integration relies on the [Zeroconf integration](/integrations/zeroconf) for mDNS discovery. The Zeroconf integration has some configuration options which impact mDNS routing.
 
 ### Cast devices and Home Assistant on different subnets
 
 Cast devices can only be automatically discovered if they are on the same subnet as Home Assistant because mDNS packets are not routed across subnets.
-Automatic discovery in setups with cast devices on a different subnet than Home Assistant are not recommended and not supported.
+Automatic discovery in setups with cast devices on a different subnet than Home Assistant is not recommended and not supported.
 If it is not possible, it's necessary to either enable mDNS forwarding between the subnets or to configure a list of known hosts.
 
 ### Home Assistant Container
