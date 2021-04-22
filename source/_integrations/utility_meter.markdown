@@ -74,6 +74,8 @@ offset:
 
 ## Services
 
+Some of the services are only available if tariffs are configured.
+
 ### Service `utility_meter.reset`
 
 Reset the Utility Meter. All sensors tracking tariffs will be reset to 0.
