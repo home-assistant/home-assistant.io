@@ -31,7 +31,9 @@ This integration allows you to control [Tasmota](https://tasmota.github.io/docs/
 - Tasmota devices' MQTT setting configured to communicate with the MQTT broker.
 - Tasmota devices flashed with version 9.2, or later.
 - Tasmota devices configured for native discovery (`SetOption19 0`)
-- Do not change the FullTopic in the MQTT settings in order to use this feature. Leave it as default.
+- The Tasmota integration supports custom fulltopic, but it is strongly suggested to leave fulltopic at its default, because
+  Tasmota does not prevent setting an invalid or non-unique fulltopic, for example a fulltopic without the %prefix% or %topic% tokens, 
+  which would prevent discovery.
 
 ## Supported Features
 
