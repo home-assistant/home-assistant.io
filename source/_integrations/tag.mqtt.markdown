@@ -74,9 +74,13 @@ To test, you can use the command line tool `mosquitto_pub` shipped with `mosquit
 
 Discover the tag scanner:
 
+{% raw %}
+
 ```bash
 mosquitto_pub -h 127.0.0.1 -t homeassistant/tag/0AFFD2/config -m '{"topic": "0AFFD2/tag_scanned", "value_template": "{{ value_json.PN532.UID }}"}'
 ```
+
+{% endraw %}
 
 Generate tag scanned event:
 
@@ -87,4 +91,3 @@ mosquitto_pub -h 127.0.0.1 -t 0AFFD2/tag_scanned -m '{"Time":"2020-09-28T17:02:1
 ```
 
 {% endraw %}
-
