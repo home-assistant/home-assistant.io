@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights: 18th edition"
-description: ""
+description: "Pause a movie with a blueprint, get started with the EV Charger Card and an update from the internship regarding Home Assistant Energy!"
 date: 2021-04-23 00:00:00
 date_formatted: "April 23, 2021"
 author: Klaas Schoute
