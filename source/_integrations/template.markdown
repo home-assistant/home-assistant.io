@@ -38,7 +38,7 @@ Sensors and binary (on/off) sensors are covered on this page. For other types, p
 
 Sensor and binary sensor template entities are defined in YAML directly under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensors and/or binary sensor entities and can contain an optional update trigger.
 
-_For old sensor/binary sensor configuration format, [see below](#legacy-sensor-configuration-format)._
+_For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
 ## State-based template sensors
 
@@ -64,7 +64,7 @@ template:
 
 ## Trigger-based template sensors
 
-If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data, or update entities based on a time-schedule.
+If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data, or update entities based on a schedule.
 
 Whenever the trigger fires, all related entities will re-render and it will have access to [the trigger data](/docs/automation/templating/) in the templates.
 
@@ -76,33 +76,18 @@ Trigger-based entities do not automatically update when states referenced in the
 # Example configuration entry
 template:
   - trigger:
-      - platform: webhook
-        webhook_id: my-super-secret-webhook-id
+      - platform: time_pattern
+        # This will update every night
+        hours: 0
+        minutes: 0
     sensor:
-      - name: "Webhook Temperature"
-        state: "{{ trigger.json.temperature }}"
-        unit_of_measurement: °C
-
-      - name: "Webhook Humidity"
-        state: "{{ trigger.json.humidity }}"
-        unit_of_measurement: %
-
-    binary_sensor:
-      - name: "Motion"
-        state: "{{ trigger.json.motion }}"
-        device_class: motion
+      # Keep track how many days have past since a date
+      - name: Not smoking
+        state: '{{ ( ( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round }}'
+        unit_of_measurement: "Days"
 ```
 
 {% endraw %}
-
-You can test this trigger entity with the following CURL command:
-
-```bash
-curl --header "Content-Type: application/json" \
-  --request POST \
-  --data '{"temperature": 5, "humidity": 34, "motion": true}' \
-  http://homeassistant.local:8123/api/webhook/my-super-secret-webhook-id
-```
 
 {% configuration %}
 trigger:
@@ -268,6 +253,43 @@ If you are using the state of a platform that might not be available during star
 
 In this section, you find some real-life examples of how to use this sensor.
 
+### Storing webhook information
+
+Template entities can be triggered using any automation trigger, including webhook triggers. Use a trigger-based template entity to store this information in template entities.
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: webhook
+        webhook_id: my-super-secret-webhook-id
+    sensor:
+      - name: "Webhook Temperature"
+        state: "{{ trigger.json.temperature }}"
+        unit_of_measurement: °C
+
+      - name: "Webhook Humidity"
+        state: "{{ trigger.json.humidity }}"
+        unit_of_measurement: %
+
+    binary_sensor:
+      - name: "Motion"
+        state: "{{ trigger.json.motion }}"
+        device_class: motion
+```
+
+{% endraw %}
+
+You can test this trigger entity with the following CURL command:
+
+```bash
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"temperature": 5, "humidity": 34, "motion": true}' \
+  http://homeassistant.local:8123/api/webhook/my-super-secret-webhook-id
+```
+
 ### Sun Angle
 
 This example shows the sun angle in the frontend.
@@ -348,27 +370,6 @@ template:
 
 {% endraw %}
 
-### Combining Multiple Sensors
-
-This example combines multiple CO sensors into a single overall
-status. When using templates with binary sensors, you need to return
-`true` or `false` explicitly.
-
-{% raw %}
-
-```yaml
-template:
-  - binary_sensor:
-      - name: "CO"
-        device_class: gas
-        state: >
-          {{ is_state('binary_sensor.bedroom_co_status', 'on')
-             or is_state('binary_sensor.kitchen_co_status', 'on')
-             or is_state('binary_sensor.wardrobe_co_status', 'on') }}
-```
-
-{% endraw %}
-
 ### Washing Machine Running
 
 This example creates a washing machine "load running" sensor by monitoring an
@@ -441,11 +442,9 @@ template:
 
 {% endraw %}
 
-### Change the icon when state changes
+### Change the icon when a state changes
 
-This example demonstrates how to use `icon_template` to change the entity's
-icon as its state changes, it evaluates the state of its own sensor and uses a
-conditional statement to output the appropriate icon.
+This example demonstrates how to use template to change the icon as it's state changes. This icon is referencing it's own state.
 
 {% raw %}
 
@@ -464,156 +463,6 @@ template:
 ```
 
 {% endraw %}
-
-### Change The Entity Picture
-
-This example shows how to change the entity picture based on the day/night cycle.
-
-{% raw %}
-
-```yaml
-template:
-  - sensor:
-      - name: "Day/Night"
-        state: >
-          {% if is_state('sun.sun', 'above_horizon') %}
-            Day
-          {% else %}
-            Night
-          {% endif %}
-        picture: >
-          {% if is_state('sun.sun', 'above_horizon') %}
-            /local/daytime.png
-          {% else %}
-            /local/nighttime.png
-          {% endif %}
-```
-
-{% endraw %}
-
-### Change the name
-
-This example shows how to change the `name` based on a state.
-
-{% raw %}
-
-```yaml
-template:
-  - sensor/:
-      - name: >
-          {% if states('sensor.power_consumption')|float < 0 %}
-            Power Consumption
-          {% else %}
-            Power Production
-          {% endif %}
-        state: "{{ states('sensor.power_consumption') }}"
-        unit_of_measurement: "kW"
-```
-
-{% endraw %}
-
-### Working without entities
-
-The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
-
-This template defines a trigger to update at midnight.
-
-{% raw %}
-
-```yaml
-template:
-  - trigger:
-      - platform: time_pattern
-        # This will update every night
-        hours: 0
-        minutes: 0
-    sensor:
-      - name: Not smoking
-        state: '{{ ( ( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-        unit_of_measurement: "Days"
-```
-
-{% endraw %}
-
-## Legacy Sensor configuration format
-
-_This format still works but is no longer recommended. [Use modern configuration](#configuration-variables)._
-
-This format is configured as a platform for the `sensor` integration and not directly under the `template` integration.
-
-{% raw %}
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: template
-    sensors:
-      solar_angle:
-        friendly_name: "Sun angle"
-        unit_of_measurement: "degrees"
-        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-
-      sunrise:
-        value_template: "{{ state_attr('sun.sun', 'next_rising') }}"
-```
-
-{% endraw %}
-
-{% configuration %}
-  sensors:
-    description: Map of your sensors.
-    required: true
-    type: map
-    keys:
-      friendly_name:
-        description: Name to use in the frontend.
-        required: false
-        type: string
-      friendly_name_template:
-        description: Defines a template for the name to be used in the frontend (this overrides friendly_name).
-        required: false
-        type: template
-      unique_id:
-        description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
-        required: false
-        type: string
-      unit_of_measurement:
-        description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
-        required: false
-        type: string
-        default: None
-      value_template:
-        description: Defines a template to get the state of the sensor.
-        required: true
-        type: template
-      icon_template:
-        description: Defines a template for the icon of the sensor.
-        required: false
-        type: template
-      entity_picture_template:
-        description: Defines a template for the entity picture of the sensor.
-        required: false
-        type: template
-      attribute_templates:
-        description: Defines templates for attributes of the sensor.
-        required: false
-        type: map
-        keys:
-          "attribute: template":
-            description: The attribute and corresponding template.
-            required: true
-            type: template
-      availability_template:
-        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
-        required: false
-        type: template
-        default: true
-      device_class:
-        description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
-        required: false
-        type: device_class
-        default: None
-{% endconfiguration %}
 
 ## Legacy binary sensor configuration format
 
@@ -694,4 +543,84 @@ sensors:
           description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`. This can also be a template.
           required: false
           type: time
+{% endconfiguration %}
+
+## Legacy Sensor configuration format
+
+_This format still works but is no longer recommended. [Use modern configuration](#configuration-variables)._
+
+This format is configured as a platform for the `sensor` integration and not directly under the `template` integration.
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: template
+    sensors:
+      solar_angle:
+        friendly_name: "Sun angle"
+        unit_of_measurement: "degrees"
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+
+      sunrise:
+        value_template: "{{ state_attr('sun.sun', 'next_rising') }}"
+```
+
+{% endraw %}
+
+{% configuration %}
+  sensors:
+    description: Map of your sensors.
+    required: true
+    type: map
+    keys:
+      friendly_name:
+        description: Name to use in the frontend.
+        required: false
+        type: string
+      friendly_name_template:
+        description: Defines a template for the name to be used in the frontend (this overrides friendly_name).
+        required: false
+        type: template
+      unique_id:
+        description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
+        required: false
+        type: string
+      unit_of_measurement:
+        description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
+        required: false
+        type: string
+        default: None
+      value_template:
+        description: Defines a template to get the state of the sensor.
+        required: true
+        type: template
+      icon_template:
+        description: Defines a template for the icon of the sensor.
+        required: false
+        type: template
+      entity_picture_template:
+        description: Defines a template for the entity picture of the sensor.
+        required: false
+        type: template
+      attribute_templates:
+        description: Defines templates for attributes of the sensor.
+        required: false
+        type: map
+        keys:
+          "attribute: template":
+            description: The attribute and corresponding template.
+            required: true
+            type: template
+      availability_template:
+        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        required: false
+        type: template
+        default: true
+      device_class:
+        description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+        required: false
+        type: device_class
+        default: None
 {% endconfiguration %}
