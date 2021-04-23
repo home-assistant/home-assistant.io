@@ -57,7 +57,7 @@ template:
           {% set bedroom = states.sensor.bedroom_temperature.state | float %}
           {% set kitchen = states.sensor.kitchen_temperature.state | float %}
 
-          {{ ((bedroom + living) / 2) | round(1) }}
+          {{ ((bedroom + kitchen) / 2) | round(1) }}
 ```
 
 {% endraw %}
