@@ -185,10 +185,9 @@ task :analytics_data do
   uri = URI('https://analytics.home-assistant.io/data.json')
 
   remote_data = JSON.parse(Net::HTTP.get(uri))
-  last_entry=remote_data.keys().sort().reverse()[0]
 
   File.open("#{source_dir}/_data/analytics_data.json", "w") do |file|
-    file.write(JSON.generate(remote_data[last_entry]))
+    file.write(remote_data.current)
   end
 end
 
