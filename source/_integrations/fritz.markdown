@@ -20,7 +20,6 @@ The `fritz` platform offers presence detection by looking at connected devices t
 
 {% include integrations/config_flow.md %}
 
-
 <div class='note'>
 TR-064 needs to be enabled in the FRITZ!Box network settings for Home Assistant to login and read device info.
 </div>
