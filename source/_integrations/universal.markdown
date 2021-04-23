@@ -44,7 +44,7 @@ media_player:
         data: SERVICE_DATA
       media_pause:
         service: SERVICE
-        data: SERVICE_DATA       
+        data: SERVICE_DATA
       media_previous_track:
         service: SERVICE
         data: SERVICE_DATA
