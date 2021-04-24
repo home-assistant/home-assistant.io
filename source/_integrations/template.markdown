@@ -130,7 +130,7 @@ binary_sensor:
       required: false
       type: time
     auto_off:
-      description: **Requires a trigger.** After how much time the entity should turn off after it rendered 'on'.
+      description: "**Requires a trigger.** After how much time the entity should turn off after it rendered 'on'."
       required: false
       type: time
 "[both sensor and binary_sensor entities]":
