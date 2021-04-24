@@ -129,6 +129,10 @@ binary_sensor:
       description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`. This can also be a template.
       required: false
       type: time
+    auto_off:
+      description: **Requires a trigger.** After how much time the entity should turn off after it rendered 'on'.
+      required: false
+      type: time
 "[both sensor and binary_sensor entities]":
   description: Fields that can be used above for both sensors and binary sensors.
   required: false
