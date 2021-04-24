@@ -18,6 +18,8 @@ The Gree integration allows you to control a [Gree Smart HVAC](http://global.gre
 
 There is currently support for the following device types within Home Assistant:
 
+- [Configuration](#configuration)
+- [Supported models](#supported-models)
 - [Climate](#climate)
 - [Switch](#switch)
 
@@ -53,4 +55,9 @@ Preset mode **Away** represents Gree's "8°C heating mode."
 
 ## Switch
 
-Gree devices expose a switch to turn on/off the light panel displaying the temperature set point and HVAC mode.
+Gree devices expose multiple switches to control various features:
+
+- Light Panel, turns the front panel light on/off
+- Quiet Mode, enables/disables the quiet mode feature
+- Xtra Fan, enables/disables extra fan mode to remove help moisture from coils
+
