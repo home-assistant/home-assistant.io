@@ -22,6 +22,10 @@ The `sonos` integration allows you to control your [Sonos](https://www.sonos.com
 
 Battery sensors are currently supported for the `Sonos Roam` and `Sonos Move` devices.
 
+Besides showing the current battery capacity, these sensors provide additional attributes:
+- `charging`: Indicates if the speaker is currently connected to an external power source.
+- `power_source`: The current power source of the speaker, such as `BATTERY`, `SONOS_CHARGING_RING`, or `USB_POWER`.
+
 ## Services
 
 The Sonos integration makes various custom services available.
