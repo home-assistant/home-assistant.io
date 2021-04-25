@@ -121,7 +121,7 @@ Enable or disable DynamicEQ setting.
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
-| `entity_id`            |       no | Name of entity to send command to. For example `media_player.marantz`|
+| `entity_id`            |       yes | Name of entity to send command to. For example `media_player.marantz`|
 | `dynamic_eq`           |       no | True/false for enable/disable.|
 
 #### Service `denonavr.update_audyssey`
