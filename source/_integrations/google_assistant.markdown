@@ -194,6 +194,19 @@ entity_config:
           description: Allows for associating this device to a Room in Google Assistant.
           required: false
           type: string
+        channel_list:
+          description: List of available channels (only for Channel Trait)
+          required: false
+          type: list
+          keys:
+            channel_name:
+              description: Name of the channel
+              required: true
+              type: string
+            channel_number:
+              description: Numeric identifier for the channel
+              required: true
+              type: string
 {% endconfiguration %}
 
 ### Available domains
@@ -248,6 +261,40 @@ Here are the modes that are currently available:
 - fan-only
 - dry
 - eco
+
+### TV Channels
+
+The is no tv channel object in home-assistant. To change channel by name with Google Assistant, you must provide a `channel_list` for your entity.
+
+```yaml
+# Example configuration.yaml entry
+google_assistant:
+  project_id: YOUR_PROJECT_ID
+  service_account: !include SERVICE_ACCOUNT.JSON
+  report_state: true
+  exposed_domains:
+    - media_player
+  entity_config:
+    media_player.living_room_tv:
+      channel_list:
+        - channel_name: "ABC"
+          channel_number: 1
+        - channel_name: "Fox"
+          channel_number: 2
+```
+
+```yaml
+# Example configuration.yaml entry with channel json config
+google_assistant:
+  project_id: YOUR_PROJECT_ID
+  service_account: !include SERVICE_ACCOUNT.JSON
+  report_state: true
+  exposed_domains:
+    - media_player
+  entity_config:
+    media_player.living_room_tv:
+      channel_list: !include GOOGLE_ASSISTANT_CHANNEL_LIST.JSON
+```
 
 ### Troubleshooting
 
