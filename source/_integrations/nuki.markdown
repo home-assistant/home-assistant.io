@@ -26,7 +26,7 @@ To add a Nuki bridge to your installation, you need to enable developer mode on 
 
 ## Services
 
-### Service `nuki,lock_n_go`
+### Service `nuki.lock_n_go`
 
 This will first unlock, wait a few seconds (20 by default) then re-lock. The wait period can be customized through the app.
 See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking-with-the-smart-lock/) for more details about this feature.
