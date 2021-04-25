@@ -51,11 +51,11 @@ For example, you can have a template that takes the averages of two sensors. Hom
 ```yaml
 template:
   - sensor:
-      - name: Average temperature
-        unit_of_measurement: °C
+      - name: "Average temperature"
+        unit_of_measurement: "°C"
         state: >
-          {% set bedroom = states.sensor.bedroom_temperature.state | float %}
-          {% set kitchen = states.sensor.kitchen_temperature.state | float %}
+          {% set bedroom = states('sensor.bedroom_temperature') | float %}
+          {% set kitchen = states('sensor.kitchen_temperature') | float %}
 
           {{ ((bedroom + kitchen) / 2) | round(1) }}
 ```
@@ -207,27 +207,27 @@ time any state changed event happens if any part of the state is accessed. When 
 is only re-rendered when a state is added or removed from the system. On busy systems with many entities or hundreds of
 thousands state changed events per day, templates may re-render more than desirable.
 
-In the below example, re-renders are limited to once per minute:
+In the below example, re-renders are limited to once per minute because we iterate over all available entities:
 
 {% raw %}
 
 ```yaml
 template:
   - binary_sensor:
-      - name: Has Unavailable States
+      - name: "Has Unavailable States"
         state: "{{ states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}"
 ```
 
 {% endraw %}
 
-In the below example, re-renders are limited to once per second:
+In the below example, re-renders are limited to once per second because we iterate over all entities in a single domain (sensor):
 
 {% raw %}
 
 ```yaml
 template:
   - binary_sensor:
-      - name: Has Unavailable States
+      - name: "Has Unavailable States"
         state: "{{ states.sensor | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}"
 ```
 
@@ -423,20 +423,20 @@ template:
   - binary_sensor:
       - name: My Device
         state: >
-          {{ is_state('device_tracker.my_device_nmap','home') or is_state('device_tracker.my_device_gps','home') }}
+          {{ is_state('device_tracker.my_device_nmap', 'home') or is_state('device_tracker.my_device_gps', 'home') }
         device_class: "presence"
         attributes:
           latitude: >
-            {% if is_state('device_tracker.my_device_nmap','home') %}
-              {{ state_attr('zone.home','latitude') }}
+            {% if is_state('device_tracker.my_device_nmap', 'home') %}
+              {{ state_attr('zone.home', 'latitude') }}
             {% else %}
-              {{ state_attr('device_tracker.my_device_gps','latitude') }}
+              {{ state_attr('device_tracker.my_device_gps', 'latitude') }}
             {% endif %}
           longitude: >
-            {% if is_state('device_tracker.my_device_nmap','home') %}
-              {{ state_attr('zone.home','longitude') }}
+            {% if is_state('device_tracker.my_device_nmap', 'home') %}
+              {{ state_attr('zone.home', 'longitude') }}
             {% else %}
-              {{ state_attr('device_tracker.my_device_gps','longitude') }}
+              {{ state_attr('device_tracker.my_device_gps', 'longitude') }}
             {% endif %}
 ```
 
@@ -479,8 +479,7 @@ binary_sensor:
     sensors:
       sun_up:
         friendly_name: "Sun is up"
-        value_template: >
-          {{ state_attr('sun.sun', 'elevation')|float > 0 }}
+        value_template: {{ state_attr('sun.sun', 'elevation') > 0 }}
 ```
 
 {% endraw %}

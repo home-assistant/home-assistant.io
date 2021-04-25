@@ -1072,6 +1072,7 @@
 /integrations/air_quality.xiaomi_miio /integrations/xiaomi_miio
 /integrations/alarm_control_panel.xiaomi_miio /integrations/xiaomi_miio
 /integrations/binary_sensor.modbus /integrations/modbus
+/integrations/binary_sensor.template /integrations/template
 /integrations/climate.modbus /integrations/modbus
 /integrations/cover.modbus /integrations/modbus
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio
