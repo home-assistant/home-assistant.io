@@ -55,6 +55,6 @@ Preset mode **Away** represents Gree's "8°C heating mode."
 
 Gree devices expose multiple switches to control various features:
 
-- Light Panel, turns the front panel light on/off
-- Quiet Mode, enables/disables the quiet mode feature
-- Xtra Fan, enables/disables extra fan mode to remove help moisture from coils
+- Light Panel, turns the front panel light on/off.
+- Quiet Mode, enables/disables the quiet mode feature.
+- Xtra Fan, enables/disables extra fan mode to remove help moisture from coils.
