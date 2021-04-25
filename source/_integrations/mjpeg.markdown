@@ -83,11 +83,11 @@ camera:
 ```
 
 Example of using a DCS-930L Wireless N Network Camera from D-Link:
-NB: if you don't change the default port, it is not necessary to put it in the code at IP_CAM
+
 ```yaml
 camera:
   - platform: mjpeg
-    name: YOUR_FRIENDLY_NAME
-    still_image_url: http://USER:PASSWORD@IP_CAM:PORT/image/jpeg.cgi
-    mjpeg_url: http://USER:PASSWORD@IP_CAM:PORT/video/mjpg.cgi
+    name: "YOUR_FRIENDLY_NAME"
+    still_image_url: "http://USER:PASSWORD@IP_CAM:PORT/image/jpeg.cgi"
+    mjpeg_url: "http://USER:PASSWORD@IP_CAM:PORT/video/mjpg.cgi"
 ```
