@@ -3,6 +3,7 @@ title: Sonos
 description: Instructions on how to integrate Sonos devices into Home Assistant.
 ha_category:
   - Media Player
+  - Sensor
 featured: true
 ha_release: 0.7.3
 ha_iot_class: Local Push
@@ -16,6 +17,10 @@ ha_ssdp: true
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
 
 {% include integrations/config_flow.md %}
+
+## Battery support
+
+Battery sensors are currently supported for the `Sonos Roam` and `Sonos Move` devices.
 
 ## Services
 
