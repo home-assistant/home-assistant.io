@@ -264,7 +264,7 @@ Here are the modes that are currently available:
 
 ### TV Channels
 
-The is no tv channel object in home-assistant. To change channel by name with Google Assistant, you must provide a `channel_list` for your entity.
+The is no TV channel object in Home Assistant. To change channel by name with Google Assistant, you must provide a `channel_list` for your entity.
 
 ```yaml
 # Example configuration.yaml entry
