@@ -24,8 +24,8 @@ Player data: allows you to view and monitor your player data from [Habitica](htt
 - Player's name
 - Player's health points
 - Player's max health
-- Player's manna points
-- Player's max manna points
+- Player's mana points
+- Player's max mana points
 - Player's experience
 - Player's experience to the next level
 - Player's level
