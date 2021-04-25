@@ -89,9 +89,6 @@ zone1:
   description: Specifies if zone 1 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
 zone2:
   description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
-  required: false
-  default: false
-  type: boolean
 update_audyssey:
   description: Specifies if Audyssey settings should be updated. This can take up to 10 Seconds for some receivers.
   required: false
@@ -126,5 +123,13 @@ Enable or disable DynamicEQ setting.
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Name of entity to send command to. For example `media_player.marantz`|
 | `dynamic_eq`           |       no | True/false for enable/disable.|
+
+#### Service `denonavr.update_audyssey`
+
+Update Audyssey settings. This can take up to 10 Seconds for some receivers.
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            |       yes | Name of entity to send command to. For example `media_player.marantz`|
 
 [Denon]: /integrations/denon
