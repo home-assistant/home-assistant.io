@@ -16,7 +16,7 @@ ha_platforms:
   - cover
 ---
 
-The `myq` cover platform lets you control MyQ-Enabled garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your MyQ Device mobile app.
+The MyQ integration lets you control MyQ-Enabled garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your MyQ Device mobile app.
 
 {% include integrations/config_flow.md %}
 
@@ -35,23 +35,25 @@ If you have a [`819LMB`](https://www.liftmaster.com/myq-home-bridge/p/G819LMB) o
 To use HomeKit Controller:
 
 ### If bridge is currently paired (otherwise skip these steps)
- - Open the Apple Home App to the Home that the MyQ device is paired with
- - Touch the Home Icon
- - Choose `Home Settings`
- - Scroll down to `Hubs and Bridges`
- - Touch the `MyQ-...` bridge
- - Touch `Remove Bridge from Home`
+
+- Open the Apple Home App to the Home that the MyQ device is paired with.
+- Touch the Home Icon.
+- Choose `Home Settings`.
+- Scroll down to `Hubs and Bridges`.
+- Touch the `MyQ-...` bridge.
+- Touch `Remove Bridge from Home`.
 
 ### Pairing with Home Assistant
- - Go to `Configuration` >> `Integrations` in the Home Assistant UI
- - Click the button with + sign, and from the list of integrations, select  ***HomeKit Controller***.
- - Select the `MyQ-...` bridge
- - Enter the pairing code that is physically printed on a sticker on the bridge.
- - Complete the remaining steps.
+
+- Go to {% my integrations title="Configuration >> Integrations" %} in the Home Assistant UI.
+- Click the button with + sign, and from the list of integrations, select  ***HomeKit Controller***.
+- Select the `MyQ-...` bridge.
+- Enter the pairing code that is physically printed on a sticker on the bridge.
+- Complete the remaining steps.
 
 If you want the devices to be accessible via HomeKit, create a HomeKit Bridge using the following steps:
- - Go to `Configuration` >> `Integrations` in the Home Assistant UI
- - Click the button with + sign, and from the list of integrations, select  ***HomeKit***.
- - Create a bridge for the `cover` domain
- - Follow the instructions to pair with the bridge.
 
+- Go to {% my integrations title="Configuration >> Integrations" %} in the Home Assistant UI.
+- Click the button with + sign, and from the list of integrations, select  ***HomeKit***.
+- Create a bridge for the `cover` domain.
+- Follow the instructions to pair with the bridge.
