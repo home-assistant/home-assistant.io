@@ -10,18 +10,11 @@ ha_codeowners:
 ha_domain: kostal_plenticore
 ---
 
-The `kostal_plenticore` integration allows you to get data from [Kostal Plenticore](https://www.kostal-solar-electric.com/) solar inverters and integrate them into your Home Assistant installation. It allows you also to change some of settings values of the inverter.
+The Kostal Plenticore integration allows you to get data from [Kostal Plenticore](https://www.kostal-solar-electric.com/) solar inverters and integrate them into your Home Assistant installation. It allows you also to change some of settings values of the inverter.
 
 The integration uses the REST-API interface which is also used by the integrated Web-UI and therefore uses the same password.
 
-## Configuration
-
-The `kostal_plenticore` integration is configured via the Home Assistant user interface.
-
-1. Go to the *Integration* page
-2. Click add and search for *Kostal Plenticore*
-3. Enter the Hostname or IP of the inverter and the local Web-UI password
-4. You can also change the default name *Plenticore* to whatever you like. It is used to prefix all entities.
+{% include integrations/config_flow.md %}
 
 ## Sensors
 
@@ -108,7 +101,7 @@ Setting values change less often, therefore these sensors are only polled every 
 
 ## Services
 
-### Service `write_setting_value`
+### Service `kostal_plenticore.write_setting_value`
 
 Write a new value to a setting.
 
