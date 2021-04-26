@@ -21,16 +21,4 @@ There is currently support for the following platforms within Home Assistant:
 
 - Binary sensor - mic muted/unmuted and meeting live/not-live
 
-## Configuration
-
-The integration can be enabled using the frontend.
-
-The integration requires authentication to work.
-
-### Configuration via the frontend
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **mutesync**,
-and follow the configuration flow. After finishing, the Mutesync
-integration will be available.
+{% include integrations/config_flow.md %}
