@@ -4,7 +4,7 @@ description: Instructions on how to setup MQTT eventstream within Home Assistant
 ha_category:
   - Other
 ha_release: 0.11
-ha_iot_class: Configurable
+ha_iot_class: Local Polling
 ha_domain: mqtt_eventstream
 ---
 

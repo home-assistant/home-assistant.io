@@ -9,7 +9,6 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
   - '@Shulyaka'
-ha_iot_class:
 ---
 
 The `humidifier` integration is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.

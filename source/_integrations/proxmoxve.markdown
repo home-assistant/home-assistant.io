@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@k4ds3'
   - '@jhollowe'
+  - '@Corbeno'
 ha_domain: proxmoxve
 ha_platforms:
   - binary_sensor

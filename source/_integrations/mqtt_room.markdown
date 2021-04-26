@@ -4,7 +4,7 @@ description: Instructions on how to track room presence within Home Assistant.
 ha_category:
   - Presence Detection
 ha_release: 0.27
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt_room
 ha_platforms:
   - sensor

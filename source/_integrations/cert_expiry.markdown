@@ -4,7 +4,7 @@ description: Instructions on how to set up HTTPS (SSL) certificate expiry sensor
 ha_category:
   - Network
 ha_release: 0.44
-ha_iot_class: Configurable
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Cereal2nd'

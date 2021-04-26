@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@DylanGore'
 ha_domain: met_eireann
+ha_platforms:
+  - weather
 ---
 
 The Met Éireann integration uses the [Met Éireann](https://met.ie) (The Irish Meteorological Service) Public Weather Forecast API to provide current and forecasted weather data for a given location. This integration is in no way affiliated with or endorsed by Met Éireann.

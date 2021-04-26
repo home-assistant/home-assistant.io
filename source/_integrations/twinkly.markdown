@@ -6,7 +6,7 @@ ha_category:
 ha_release: 2020.12
 ha_config_flow: true
 ha_domain: twinkly
-ha_iot_class: Local pull
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@dr1rrb'
 ha_platforms:

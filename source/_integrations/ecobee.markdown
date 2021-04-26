@@ -10,7 +10,7 @@ ha_category:
   - Weather
 featured: true
 ha_release: 0.9
-ha_iot_class: Cloud Poll
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@marthoc'
@@ -18,7 +18,6 @@ ha_domain: ecobee
 ha_platforms:
   - binary_sensor
   - climate
-  - humidifier
   - notify
   - sensor
   - weather

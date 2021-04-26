@@ -6,7 +6,6 @@ ha_category:
 ha_release: 0.19
 ha_quality_scale: internal
 ha_domain: climate
-ha_iot_class:
 ---
 
 The Climate integration allows you to control and monitor HVAC (heating, ventilating, and air conditioning) devices and thermostats.

@@ -5,7 +5,7 @@ ha_category:
   - Camera
 logo: home-assistant.png
 ha_release: pre 0.7
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: generic
 ha_platforms:
   - camera

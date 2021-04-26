@@ -1,5 +1,5 @@
 ---
-title: MotionEye
+title: motionEye
 description: Instructions on how to integrate MotionEye into Home Assistant.
 ha_category:
   - Camera
@@ -8,7 +8,6 @@ ha_iot_class: Local Polling
 ha_domain: motioneye
 ha_codeowners:
   - '@dermotduffy'
-ha_quality_scale:
 ha_config_flow: true
 ha_platforms:
   - camera

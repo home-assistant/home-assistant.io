@@ -8,7 +8,6 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: websocket_api
-ha_iot_class:
 ha_platforms:
   - sensor
 ---

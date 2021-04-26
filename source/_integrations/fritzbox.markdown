@@ -16,6 +16,8 @@ ha_platforms:
   - climate
   - sensor
   - switch
+ha_codeowners:
+  - '@mib1185'
 ---
 
 The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ!DECT](https://en.avm.de/products/fritzdect/) devices like switches, sensors and thermostats.

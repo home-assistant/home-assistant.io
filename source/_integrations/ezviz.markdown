@@ -7,11 +7,14 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_domain: ezviz
 ha_codeowners:
-  - '@baqs'
   - '@RenierM26'
+  - '@baqs'
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - camera
+  - sensor
+  - switch
 ---
 
 The `ezviz` sensor platform uses the EzvizLife API to interact with the devices.

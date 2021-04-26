@@ -4,7 +4,6 @@ description: Instructions on how to use the Input Boolean helper with Home Assis
 ha_category:
   - Automation
 ha_release: 0.11
-ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'

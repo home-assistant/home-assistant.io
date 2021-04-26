@@ -5,7 +5,6 @@ ha_category:
   - Camera
 ha_release: 0.65
 ha_domain: proxy
-ha_iot_class:
 ha_platforms:
   - camera
 ---

@@ -7,7 +7,6 @@ ha_release: 0.115
 ha_domain: media_source
 ha_codeowners:
   - '@hunterjm'
-ha_iot_class:
 ha_quality_scale: internal
 ---
 

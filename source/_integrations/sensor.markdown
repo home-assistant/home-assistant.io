@@ -6,7 +6,6 @@ ha_category:
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: sensor
-ha_iot_class:
 ---
 
 Sensors are a basic platform component in Home Assistant. They monitor the states and conditions of a variety of entities. An entity can be many things. This can include a physical device like a motion sensor that reports the battery level, a web service that retrieves the weather temperature, a built-in function that calculates the sun's elevation relative to your GPS position, or even a custom sensor you may have created to report the free space on your laptop. These are all *things* reporting different types of information.

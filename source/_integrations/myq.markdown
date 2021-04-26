@@ -14,6 +14,7 @@ ha_homekit: true
 ha_platforms:
   - binary_sensor
   - cover
+ha_dhcp: true
 ---
 
 The MyQ integration lets you control MyQ-Enabled garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your MyQ Device mobile app.

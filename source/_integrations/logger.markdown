@@ -8,7 +8,6 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: logger
-ha_iot_class:
 ---
 
 The `logger` integration lets you define the level of logging activities in Home
