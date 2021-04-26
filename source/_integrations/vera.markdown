@@ -33,7 +33,7 @@ The supported Vera hubs (Edge, Plus and Secure) are no longer available and the 
 
 The newer Ezlo hubs use a different firmware and are not supported by this integration.
 
-[Z-Wave JS](https://www.home-assistant.io/integrations/zwave_js/) is a better choice for new Z-Wave users or for users wanting support for new Z-Wave devices.
+[Z-Wave JS](/integrations/zwave_js/) is a better choice for new Z-Wave users or for users wanting support for new Z-Wave devices.
 
 There is currently support for the following device types within Home Assistant:
 
