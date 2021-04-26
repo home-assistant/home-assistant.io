@@ -22,10 +22,18 @@
     The {{ page.name | default: page.title }} integration was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
     and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io" target="_blank" rel="noopener">
     {{ 100.0 | times: site.data.analytics_data.integrations[page.ha_domain] | divided_by: site.data.analytics_data.reports_integrations | round: 1 | remove: ".0" }}%</a> of the active installations.
-    Its IoT class is <a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'>{{ page.ha_iot_class | default: "unknown" }}</a>
+
+    {%- if page.ha_iot_class -%}
+      Its IoT class is <a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'>{{ page.ha_iot_class }}</a>
+    {%- endif -%}
 
     {%- if page.ha_quality_scale %}
-      and scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale</a>
+      {% if page.ha_iot_class %}
+        and
+      {% else %}
+        It
+      {% endif %}
+      scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale</a>
     {%- endif -%}.
 
     {% if page.ha_domain %}
