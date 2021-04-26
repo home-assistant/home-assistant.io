@@ -28,7 +28,9 @@ ha_platforms:
 ---
 
 The [Vera](https://getvera.com/) hub is a controller mainly for connecting to Z-Wave devices. 
+
 The supported Vera hubs (Edge, Plus and Secure) are no longer available and the firmware is not being actively enhanced by the vendor. New Z-Wave devices are not directly supported and so are not easy to add to the platform.
+
 The newer Ezlo hubs use a different firmware and are not supported by this integration.
 
 [Z-Wave JS](https://www.home-assistant.io/integrations/zwave_js/) is a better choice for new Z-Wave users or for users wanting support for new Z-Wave devices.
