@@ -3,6 +3,12 @@ title: "Z-Wave Devices"
 description: "What you need to know about Z-Wave devices."
 ---
 
+<div class='note'>
+
+This Z-Wave integration is deprecated and replaced with a [new implementation based on Z-Wave JS](/integrations/zwave_js); it's currently in beta, and you can [try it now](/integrations/zwave_js/).
+
+</div>
+
 ## Devices, Nodes, Entities
 
 The *device* is the hardware, and also used when referring to the node and all its entities. There are 3 main types of devices:

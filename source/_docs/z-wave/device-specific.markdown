@@ -3,6 +3,12 @@ title: "Z-Wave Device Specific Settings"
 description: "Notes for specific Z-Wave devices."
 ---
 
+<div class='note'>
+
+This Z-Wave integration is deprecated and replaced with a [new implementation based on Z-Wave JS](/integrations/zwave_js); it's currently in beta, and you can [try it now](/integrations/zwave_js/).
+
+</div>
+
 ## Device Categories
 
 ### Motion or alarm sensors

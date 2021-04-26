@@ -3,6 +3,13 @@ title: "Z-Wave"
 description: "Installation of the Z-Wave component."
 ---
 
+<div class='note'>
+
+This Z-Wave integration is deprecated and replaced with a [new implementation based on Z-Wave JS](/integrations/zwave_js); it's currently in beta, and you can [try it now](/integrations/zwave_js/).
+
+</div>
+
+
 Z-Wave can be configured using the Z-Wave *Integration* in the *Configuration* menu, or manually using an entry in `configuration.yaml`
 
 ## Configuration
