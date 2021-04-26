@@ -81,3 +81,13 @@ camera:
     password: BLUE_IRIS_PASSWORD
     authentication: basic
 ```
+
+Example of using a DCS-930L Wireless N Network Camera from D-Link:
+
+```yaml
+camera:
+  - platform: mjpeg
+    name: "YOUR_FRIENDLY_NAME"
+    still_image_url: "http://USER:PASSWORD@IP_CAM:PORT/image/jpeg.cgi"
+    mjpeg_url: "http://USER:PASSWORD@IP_CAM:PORT/video/mjpg.cgi"
+```

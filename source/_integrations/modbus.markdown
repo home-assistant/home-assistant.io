@@ -174,7 +174,7 @@ binary_sensors:
       description: type of adddress (holding/discrete/coil)
       required: false
       default: holding
-      type: integer
+      type: string
     name:
       description: Name for this binary_sensor. Must be unique.
       required: true
@@ -187,6 +187,10 @@ binary_sensors:
     slave:
       description: The number of the slave.
       required: false
+      type: integer
+    address:
+      description: Address of the Register.
+      required: true
       type: integer
 {% endconfiguration %}
 
@@ -684,7 +688,7 @@ switches:
       description: type of adddress (holding/input/coil)
       required: false
       default: holding
-      type: integer
+      type: string
     name:
       description: Name of the switch.
       required: true

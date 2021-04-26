@@ -272,11 +272,11 @@ from the same group:
 
 ### Service `zha.remove`
 
-This service removes an existing device from the network.
+This service removes an existing device from the network. You can find the IEEE address of the device on the device card of Zigbee devices. An example of an IEEE address data parameter format is `00:0d::6f:00:05:7d:2d:34`.
 
 |  Data | Optional | Description |
 | ---- | ---- | ----------- |
-| `ieee` | no | IEEE address of the device to remove 
+| `ieee` | no | IEEE address of the device to remove
 
 ### Service `zha.set_lock_user_code`
 
@@ -385,16 +385,23 @@ logger:
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 
-Philips Hue bulbs that have previously been added to another bridge won't show up during search. You have to restore your bulbs back to factory settings first. To achieve this, you basically have the following options.
+Philips Hue bulbs/lights that have previously been paired/added to another bridge/gateway will not show up during search in ZHA to pair/add a Zigbee device. That is because you have to first manually restore your bulbs/lights back to their factory default settings first, and just removing them from your old bridge/gateway is not enough to do so. Instead to achieve a proper device factory reset you can use one of these methods below.
+
+Using a Philips Hue Dimmer Switch or Lutron Connected Bulb Remote is probably the easiest way to factory-reset your bulbs. For this to work, the remote does not have to be paired with your previous bridge. Also, make sure there are no other Hue bulbs nearby that have just been turned on when using this method as you otherwise risk resetting them too.
 
 #### Philips Hue Dimmer Switch
 
-Using a Philips Hue Dimmer Switch is probably the easiest way to factory-reset your bulbs. For this to work, the remote doesn't have to be paired with your previous bridge.
+1. Turn on your Hue bulb/light you want to reset. (It is important that the bulb has just been turned).
+2. Hold the Philips Hue Dimmer Switch near your bulb (closer than 10 centimeters / 4 inches).
+3. Press and hold the (I)/(ON) and (O)/(OFF) buttons on the Philips Hue Dimmer Switch for about 10 seconds continuously until your bulb starts to blink.
+4. Your bulb should stop blinking and eventually turn on again. At the same time, a green light on the top left of your remote indicates that your bulb has been successfully reset to factory default settings.
 
-1. Turn on your Hue bulb you want to reset
-2. Hold the Dimmer Switch near your bulb (< 10 cm)
-3. Press and hold the (I)/(ON) and (O)/(OFF) buttons of the Dimmer Switch for about 10 seconds until your bulb starts to blink
-4. Your bulb should stop blinking and eventually turn on again. At the same time, a green light on the top left of your remote indicates that your bulb has been successfully reset to factory settings.
+#### Lutron Connected Bulb Remote
+
+1. Turn on your Hue bulb/light you want to reset. (It is important that the bulb has just been turned).
+2. Hold the Dimmer Switch near your bulb (closer than 10 centimeters / 4 inches)
+3. Press and hold the 2nd (up arrow) and 4th (light off) buttons on the Lutron Connected Bulb Remote simultaneously for about 10 seconds continuously until your bulb starts to blink and the green LED on the remote should also start blink slowly.
+4. Continue to hold both buttons on the remote until the green LED on it stops blinking. Your bulb should also have stopped blinking and eventually turn on again indicating that your bulb has been successfully reset to factory default settings.
 
 #### hue-thief
 

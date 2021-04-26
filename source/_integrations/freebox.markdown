@@ -24,7 +24,7 @@ The `freebox` integration allows you to observe and control [Freebox router](htt
 
 There is currently support for the following device types within Home Assistant:
 
-* [Sensor](#sensor) with traffic and temperature metrics
+* [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space and missed calls
 * [Device tracker](#presence-detection) for connected devices
 * [Switch](#switch) to control Wi-Fi
 
@@ -104,7 +104,11 @@ refreshes the devices states.
 ## Sensor
 
 This platform offers you sensors to monitor a Freebox router.
-The monitored conditions are internal temperature and upload and download rates in KB/s.
+The monitored metrics are:
+* Internal temperature
+* Upload and download rates (in KB/s)
+* Free partition space of used disks
+* Number of missed calls
 
 ## Service
 

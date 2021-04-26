@@ -106,8 +106,8 @@ social:
 # Home Assistant release details
 current_major_version: 2021
 current_minor_version: 4
-current_patch_version: 4
-date_released: 2021-04-13
+current_patch_version: 6
+date_released: 2021-04-19
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -177,7 +177,6 @@ toc:
 # Configuration for installation pages
 installation:
   versions:
-    os: "5.13"
     python: "3.8"
   types:
     odroid:

@@ -47,6 +47,9 @@ Enjoy the release!
 - [Release 2021.4.1 - April 8](#release-202141---april-8)
 - [Release 2021.4.2 - April 9](#release-202142---april-9)
 - [Release 2021.4.3 - April 10](#release-202143---april-10)
+- [Release 2021.4.4 - April 13](#release-202144---april-13)
+- [Release 2021.4.5 - April 16](#release-202145---april-16)
+- [Release 2021.4.6 - April 19](#release-202146---april-19)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -549,6 +552,65 @@ The following integrations are now available via the Home Assistant UI:
 [screenlogic docs]: /integrations/screenlogic/
 [shelly docs]: /integrations/shelly/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.4.5 - April 16
+
+- Bump aiodiscover to 1.3.4 ([@bdraco] - [#49142]) ([dhcp docs])
+- Fix setting up remotes that lack a supported features list in homekit ([@bdraco] - [#49152]) ([homekit docs])
+- Don't receive homeassistant_* events from MQTT eventstream ([@emontnemery] - [#49158]) ([mqtt_eventstream docs])
+- Set deprecated supported_features for MQTT JSON light ([@emontnemery] - [#49167]) ([light docs]) ([mqtt docs])
+- Upgrade spotipy to 2.18.0 ([@frenck] - [#49220]) ([spotify docs])
+- Fix race when restarting script ([@emontnemery] - [#49247])
+- Fix mysensors sensor protocol version check ([@MartinHjelmare] - [#49257]) ([mysensors docs])
+- Fix Coronavirus integration robustness ([@frenck] - [#49287]) ([coronavirus docs])
+- Mark camera as a base platform ([@ludeeus] - [#49297])
+
+[#49142]: https://github.com/home-assistant/core/pull/49142
+[#49152]: https://github.com/home-assistant/core/pull/49152
+[#49158]: https://github.com/home-assistant/core/pull/49158
+[#49167]: https://github.com/home-assistant/core/pull/49167
+[#49220]: https://github.com/home-assistant/core/pull/49220
+[#49247]: https://github.com/home-assistant/core/pull/49247
+[#49257]: https://github.com/home-assistant/core/pull/49257
+[#49287]: https://github.com/home-assistant/core/pull/49287
+[#49297]: https://github.com/home-assistant/core/pull/49297
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@ludeeus]: https://github.com/ludeeus
+[coronavirus docs]: /integrations/coronavirus/
+[dhcp docs]: /integrations/dhcp/
+[homekit docs]: /integrations/homekit/
+[light docs]: /integrations/light/
+[mqtt docs]: /integrations/mqtt/
+[mqtt_eventstream docs]: /integrations/mqtt_eventstream/
+[mysensors docs]: /integrations/mysensors/
+[spotify docs]: /integrations/spotify/
+
+## Release 2021.4.6 - April 19
+
+- Apply Precision/Scale/Offset to struct in modbus sensor ([@janiversen] - [#48544]) ([modbus docs])
+- Upgrade pyMetno to 0.8.2 ([@Danielhiversen] - [#49308]) ([met docs]) ([norway_air docs])
+- Fix exception in roomba discovery when the device does not respond on the first try ([@bdraco] - [#49360]) ([roomba docs])
+- Fix deadlock when restarting scripts ([@emontnemery] - [#49410])
+- Google report state: thermostatMode should be a string, not null ([@bramkragten] - [#49342]) ([google_assistant docs])
+
+[#48544]: https://github.com/home-assistant/core/pull/48544
+[#49308]: https://github.com/home-assistant/core/pull/49308
+[#49342]: https://github.com/home-assistant/core/pull/49342
+[#49360]: https://github.com/home-assistant/core/pull/49360
+[#49410]: https://github.com/home-assistant/core/pull/49410
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@janiversen]: https://github.com/janiversen
+[google_assistant docs]: /integrations/google_assistant/
+[met docs]: /integrations/met/
+[modbus docs]: /integrations/modbus/
+[norway_air docs]: /integrations/norway_air/
+[roomba docs]: /integrations/roomba/
 
 ## If you need help...
 

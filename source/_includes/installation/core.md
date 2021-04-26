@@ -76,7 +76,7 @@ Start Home Assistant Core for the first time. This will complete the installatio
 hass
 ```
 
-You can now reach your installation on your Raspberry Pi over the web interface on `http://homeassistant.local:8123`.
+You can now reach your installation via the web interface on `http://homeassistant.local:8123`.
 
 <div class='note'>
 

@@ -14,7 +14,7 @@ The `uk_transport` sensor will display the time in minutes until the next depart
 
 <div class='note warning'>
 
-Additional sensors can be added but at the expense of a reduced refresh rate. 2 sensors can be updated every 2*87 = 174 seconds, and so on.
+Additional sensors can be added but at the expense of a reduced refresh rate. 2 sensors can be updated every 2*87 = 174 seconds, and so on. Calculating and setting this rate is automatically handles by the integration.
 
 </div>
 

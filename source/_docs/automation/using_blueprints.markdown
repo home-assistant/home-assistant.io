@@ -45,6 +45,13 @@ The Home Assistant Community forums have a specific tag for blueprints. This tag
 
 [blueprint-forums]: /get-blueprints
 
+## Creating new blueprints
+
+Using blueprints is nice and easy, but what if you could create that one missing
+blueprint that our community definitely needs?
+
+Learn more about blueprint by [reading our tutorial on creating a blueprint](/docs/blueprint/tutorial/).
+
 ## Troubleshooting missing automations
 
 When you're creating automations using blueprints and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your `configuration.yaml`.
