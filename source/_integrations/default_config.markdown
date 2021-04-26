@@ -5,7 +5,6 @@ ha_category:
   - Other
 ha_release: 0.88
 ha_domain: default_config
-ha_iot_class: Calculated
 ha_quality_scale: internal
 ---
 

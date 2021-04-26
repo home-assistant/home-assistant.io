@@ -5,7 +5,7 @@ ha_category:
   - History
   - Sensor
 ha_release: 0.9
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_codeowners:
   - '@fabaff'
   - '@mdegat01'

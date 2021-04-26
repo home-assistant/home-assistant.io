@@ -5,11 +5,12 @@ ha_category:
   - Utility
   - Sensor
 ha_iot_class: Calculated
-ha_release: "2021.5"
-ha_quality_scale: internal
+ha_release: '2021.5'
 ha_codeowners:
-  - '@petro31'
+  - '@Petro31'
 ha_domain: compensation
+ha_platforms:
+  - sensor
 ---
 
 The Compensation integration consumes the state from other sensors. It exports the compensated value as state and the following values as attributes: `entity_id` and `coefficients`.  A single polynomial, linear by default, is fit to all data points provided.

@@ -1,5 +1,5 @@
 ---
-title: Kostal Plenticore
+title: Kostal Plenticore Solar Inverter
 description: Instructions on how to integrate Kostal Plenticore solar inverter within Home Assistant.
 ha_category: Energy
 ha_release: 2021.5
@@ -8,6 +8,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@stegm'
 ha_domain: kostal_plenticore
+ha_platforms:
+  - sensor
 ---
 
 The Kostal Plenticore integration allows you to get data from [Kostal Plenticore](https://www.kostal-solar-electric.com/) solar inverters and integrate them into your Home Assistant installation. It allows you also to change some of settings values of the inverter.

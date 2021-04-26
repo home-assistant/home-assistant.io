@@ -7,7 +7,6 @@ logo: geo_location.png
 ha_release: 0.78
 ha_domain: geo_location
 ha_quality_scale: internal
-ha_iot_class:
 ---
 
 Geolocation aware entities are typically related to events in the real world in the vicinity of Home Assistant's location, like for example weather events, bush fires or earthquakes.

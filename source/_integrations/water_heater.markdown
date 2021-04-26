@@ -3,7 +3,6 @@ title: Water Heater
 description: Instructions on how to setup water heater devices within Home Assistant.
 ha_release: 0.81
 ha_domain: water_heater
-ha_iot_class:
 ha_quality_scale: internal
 ---
 

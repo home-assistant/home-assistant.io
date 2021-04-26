@@ -48,4 +48,3 @@ If the `default_interface` is unset, the value is auto-detected based on the sys
 If the next-hop cannot be detected or is a loopback address, `zeroconf` will broadcast on all interfaces. If the next hop is a non-loopback address, `zeroconf` will only broadcast on the default interface.
 
 Setting the `default_interface` to `true` or `false` will override the auto detection.
-

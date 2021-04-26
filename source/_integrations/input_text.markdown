@@ -4,7 +4,6 @@ description: Instructions on how to integrate the Input Text integration into Ho
 ha_category:
   - Automation
 ha_release: 0.53
-ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'

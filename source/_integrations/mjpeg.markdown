@@ -4,7 +4,7 @@ description: Instructions on how to integrate IP cameras within Home Assistant.
 ha_category:
   - Camera
 ha_release: pre 0.7
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mjpeg
 ha_platforms:
   - camera

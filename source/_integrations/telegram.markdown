@@ -4,7 +4,7 @@ description: Instructions on how to add Telegram notifications to Home Assistant
 ha_category:
   - Notifications
 ha_release: 0.7.5
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Polling
 ha_domain: telegram
 ha_platforms:
   - notify

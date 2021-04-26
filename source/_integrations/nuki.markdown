@@ -11,6 +11,7 @@ ha_codeowners:
   - '@pree'
 ha_domain: nuki
 ha_platforms:
+  - binary_sensor
   - lock
 ha_config_flow: true
 ha_dhcp: true

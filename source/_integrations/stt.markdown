@@ -5,7 +5,6 @@ ha_release: '0.102'
 ha_codeowners:
   - '@pvizeli'
 ha_domain: stt
-ha_iot_class:
 ha_quality_scale: internal
 ---
 

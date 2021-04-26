@@ -7,7 +7,6 @@ ha_release: 0.105
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: search
-ha_iot_class:
 ha_quality_scale: internal
 ---
 

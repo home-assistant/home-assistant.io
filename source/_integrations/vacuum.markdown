@@ -3,7 +3,6 @@ title: Vacuum
 description: Instructions on how to setup and use vacuum's in Home Assistant.
 ha_release: 0.51
 ha_domain: vacuum
-ha_iot_class:
 ha_quality_scale: internal
 ---
 

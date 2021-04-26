@@ -5,7 +5,7 @@ ha_category:
   - Hub
   - Sensor
 ha_release: 0.55
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_codeowners:
   - '@fabaff'
 ha_domain: thethingsnetwork

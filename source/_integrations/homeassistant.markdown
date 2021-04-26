@@ -8,7 +8,6 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant
-ha_iot_class:
 ---
 
 The Home Assistant integration provides generic implementations like the generic `homeassistant.turn_on`.

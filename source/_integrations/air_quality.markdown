@@ -2,7 +2,6 @@
 title: Air Quality
 description: Instructions on how to add air quality sensors with Home Assistant
 ha_release: 0.85
-ha_iot_class:
 ha_domain: air_quality
 ha_quality_scale: internal
 ---

@@ -7,7 +7,7 @@ ha_category:
 ha_release: 0.13
 ha_quality_scale: internal
 ha_domain: proximity
-ha_iot_class:
+ha_iot_class: Calculated
 ---
 
 The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.
