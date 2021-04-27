@@ -4,7 +4,7 @@ description: Instructions on how to integrate Mutesync button with Home Assistan
 ha_category:
   - Network
   - Binary Sensor
-ha_release: 0.79 # TODO which one?
+ha_release: 2021.5
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
