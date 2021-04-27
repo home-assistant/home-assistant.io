@@ -22,7 +22,7 @@ ha_codeowners:
   - '@adminiuga'
 ha_domain: zha
 ha_platforms:
-  - alarm
+  - alarm_control_panel
   - binary_sensor
   - climate
   - cover
