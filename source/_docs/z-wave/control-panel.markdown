@@ -10,7 +10,7 @@ The Z-Wave control panel is available via **Configuration** &rarr; **Integration
 
 <div class='note'>
 
-This Z-Wave integration is deprecated and replaced with a [new implementation based on Z-Wave JS](/integrations/zwave_js); it's currently in beta, and you can [try it now](/integrations/zwave_js/).
+This Z-Wave integration is deprecated and has been replaced with a [new implementation based on Z-Wave JS](/integrations/zwave_js); You can [try it now](/integrations/zwave_js/).
 
 </div>
 
