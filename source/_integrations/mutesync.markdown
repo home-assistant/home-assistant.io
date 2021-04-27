@@ -10,7 +10,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@currentoor'
 ha_domain: mutesync
-ha_ssdp: true
 ha_platforms:
   - binary_sensor
 ---
