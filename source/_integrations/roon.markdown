@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@pavoni'
 ha_domain: roon
+ha_platforms:
+  - media_player
 ---
 
 The Roon integration allows you to control [RoonLabs](https://roonlabs.com/) music players from Home Assistant.

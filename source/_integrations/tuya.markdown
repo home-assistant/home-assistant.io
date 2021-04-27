@@ -20,6 +20,7 @@ ha_platforms:
   - cover
   - fan
   - light
+  - scene
   - switch
 ha_dhcp: true
 ---

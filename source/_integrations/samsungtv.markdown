@@ -10,6 +10,8 @@ ha_codeowners:
   - '@escoand'
 ha_domain: samsungtv
 ha_ssdp: true
+ha_platforms:
+  - media_player
 ---
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).

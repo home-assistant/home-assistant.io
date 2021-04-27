@@ -28,6 +28,7 @@ ha_platforms:
   - fan
   - light
   - notify
+  - scene
   - sensor
   - switch
   - weather

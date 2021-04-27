@@ -18,6 +18,7 @@ ha_domain: ecobee
 ha_platforms:
   - binary_sensor
   - climate
+  - humidifier
   - notify
   - sensor
   - weather

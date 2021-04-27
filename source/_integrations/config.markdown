@@ -8,6 +8,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: config
+ha_platforms:
+  - scene
 ---
 
 The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.

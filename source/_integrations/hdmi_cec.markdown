@@ -7,6 +7,7 @@ ha_release: 0.23
 ha_iot_class: Local Push
 ha_domain: hdmi_cec
 ha_platforms:
+  - media_player
   - switch
 ---
 

@@ -11,6 +11,8 @@ ha_domain: cast
 ha_codeowners:
   - '@emontnemery'
 ha_zeroconf: true
+ha_platforms:
+  - media_player
 ---
 
 {% include integrations/config_flow.md %}

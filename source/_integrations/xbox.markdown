@@ -14,6 +14,7 @@ ha_domain: xbox
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - media_player
   - remote
   - sensor
 ---

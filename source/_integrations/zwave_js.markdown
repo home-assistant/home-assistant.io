@@ -25,6 +25,7 @@ ha_platforms:
   - fan
   - light
   - lock
+  - number
   - sensor
   - switch
 ---

@@ -16,6 +16,7 @@ ha_platforms:
   - binary_sensor
   - cover
   - light
+  - scene
   - switch
 ---
 

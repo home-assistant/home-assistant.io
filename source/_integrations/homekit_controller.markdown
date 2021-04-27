@@ -29,8 +29,10 @@ ha_platforms:
   - climate
   - cover
   - fan
+  - humidifier
   - light
   - lock
+  - media_player
   - sensor
   - switch
 ---

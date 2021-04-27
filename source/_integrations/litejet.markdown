@@ -11,6 +11,7 @@ ha_domain: litejet
 ha_config_flow: true
 ha_platforms:
   - light
+  - scene
   - switch
 ha_codeowners:
   - '@joncar'

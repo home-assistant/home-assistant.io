@@ -16,6 +16,7 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - climate
+  - scene
   - sensor
 ---
 

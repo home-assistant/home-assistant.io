@@ -30,6 +30,7 @@ ha_platforms:
   - fan
   - light
   - lock
+  - number
   - sensor
   - switch
 ha_zeroconf: true

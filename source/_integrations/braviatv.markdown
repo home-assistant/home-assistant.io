@@ -9,6 +9,8 @@ ha_codeowners:
   - '@bieniu'
 ha_domain: braviatv
 ha_config_flow: true
+ha_platforms:
+  - media_player
 ---
 
 The `braviatv` platform allows you to control a [Sony Bravia TV](https://www.sony.com/).
