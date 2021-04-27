@@ -12,6 +12,8 @@ ha_codeowners:
 ha_domain: analytics
 ---
 
+{% assign current_version = site.current_major_version | append: "." | append: site.current_minor_version | append: "." | append: site.current_patch_version  %}
+
 Home Assistant allows users to share their usage data via the analytics integration. The aggregated data is available at <https://analytics.home-assistant.io>. It is used to influence Home Assistant development priorities and to convince manufacturers to add local control and privacy-focused features.
 
 ## Data Collection
@@ -37,16 +39,25 @@ If your system includes the Supervisor, this will also contain:
 - If your installation is supported
 - If your installation is healthy
 
+If you are running Home Assistant Operating System, this will also contain:
+
+- The board type you are using
+- The version of the Operating System
+
 {% details Example payload %}
 
 ```json
 {
   "uuid": "12a3456bc78d90123ef4567g789012h3",
-  "version": "2021.4.0",
+  "version": "{{current_version}}",
   "installation_type": "Home Assistant OS",
   "supervisor": {
     "healthy": true,
     "supported": true
+  },
+  "operating_system": {
+    "board": "odroid-n2",
+    "version:": "{{site.data.version_data.hassos['odroid-n2']}}"
   }
 }
 ```
@@ -74,12 +85,16 @@ If your system includes the Supervisor, this will also contain:
 ```json
 {
   "uuid": "12a3456bc78d90123ef4567g789012h3",
-  "version": "2021.4.0",
+  "version": "{{current_version}}",
   "installation_type": "Home Assistant OS",
   "supervisor": {
     "healthy": true,
     "supported": true
   },
+  "operating_system": {
+    "board": "odroid-n2",
+    "version:": "{{site.data.version_data.hassos['odroid-n2']}}"
+  }
   "integrations": ["awesome_integration"],
     "addons": [
         {
@@ -114,12 +129,16 @@ If your system includes the Supervisor, this will also contain:
 ```json
 {
   "uuid": "12a3456bc78d90123ef4567g789012h3",
-  "version": "2021.4.0",
+  "version": "{{current_version}}",
   "installation_type": "Home Assistant OS",
   "supervisor": {
     "healthy": true,
     "supported": true
   },
+  "operating_system": {
+    "board": "odroid-n2",
+    "version:": "{{site.data.version_data.hassos['odroid-n2']}}"
+  }
   "state_count": 1,
   "automation_count": 2,
   "integration_count": 3,
@@ -147,6 +166,6 @@ Your data is securely stored in [CloudFlare's Key-Value store](https://www.cloud
 This is an example of how the information is stored:
 {% configuration_basic %}
 "uuid:12a3456bc78d90123ef4567g789012h3":
-  description: "{'version': '2021.4.0', 'installation_type': 'Home Assistant OS', 'country': 'NO'}"
+  description: "{'version': '{{current_version}}', 'installation_type': 'Home Assistant OS', 'country': 'NO'}"
 
 {% endconfiguration_basic %}
