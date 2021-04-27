@@ -286,7 +286,7 @@ These are notification events fired by devices using the Entry Control command c
 }
 ```
 
-## Scene events (Value Notification)
+### Scene events (Value Notification)
 
 Value Notifications are used for stateless values, like `Central Scenes` and `Scene Activation`. These events fire with the `zwave_js_value_notification` event type.
 
@@ -307,6 +307,32 @@ Value Notification example:
     "property_key": "001",
     "property_key_name": "001",
     "value": "KeyPressed",
+    "value_raw": 0
+}
+```
+
+### Value updated events
+
+Due to some devices not following the Z-Wave spec, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to to capture any value updates that are received by an entity. This event is **enabled on a per device basis.** The following devices currently support this event:
+
+- Vision Security ZL7432 In Wall Dual Relay Switch
+
+Value Updated example:
+
+```json
+{
+    "node_id": 4,
+    "home_id": "974823419",
+    "device_id": "ad8098fe80980974",
+    "entity_id": "switch.in_wall_dual_relay_switch",
+    "command_class": 37,
+    "command_class_name": "Switch Binary",
+    "endpoint": 0,
+    "property": "currentValue",
+    "property_name": "currentValue",
+    "property_key": null,
+    "property_key_name": null,
+    "value": 0,
     "value_raw": 0
 }
 ```
