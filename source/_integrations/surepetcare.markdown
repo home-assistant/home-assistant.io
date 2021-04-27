@@ -25,9 +25,6 @@ To add a flap, feeder or pet, add the following to your `configuration.yaml` fil
 surepetcare:
   username: YOUR_SURE_PETCARE_LOGIN
   password: YOUR_SURE_PETCARE_PASSWORD
-  feeders: [12345, 67890]
-  flaps: [13579]
-  pets: [24680]
 ```
 
 {% configuration %}
@@ -39,23 +36,6 @@ surepetcare:
     description: The Sure Petcare Password
     required: true
     type: string
-  flaps:
-    description: The IDs of the Sure Petcare flaps
-    required: false
-    type: list
-  feeders:
-    description: The IDs of the Sure Petcare feeders
-    required: false
-    type: list
-  pets:
-    description: The Sure Petcare IDs of the Pets to show
-    required: false
-    type: list
-  scan_interval:
-    description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
-    required: false
-    default: 3 minutes
-    type: time
 {% endconfiguration %}
 
 ## Services
