@@ -40,24 +40,6 @@ Roon uses a path based on the roon browser hierarchy to specify which media to p
 
  For example to play the album Harvest by Neil Young you should set `media_content_id` to `Library/Artists/Neil Young/Harvest` and to play BBC Radio 4 you would set `media_content_id` to `My Live Radio/BBC Radio 4`
 
-### Service `roon.join`
-
-Group players together.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | ID of the player that will be the master of the group.
-| `join_ids` | no | id(s) of the players that will join the master.
-
-### Service `roon.unjoin`
-
-Remove players from a group.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | ID of the player that is the master of the group.
-| `unlink_name` | yes | id(s) of the players that will be unjoined from the group. If not specified, all players will be unjoined from the master.
-
 ### Service `roon.transfer`
 
 Transfer playback from one player to another.
