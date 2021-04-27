@@ -30,6 +30,8 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **pressure**: Pressure in hPa or mbar.
 - **timestamp**: Datetime object or timestamp string (ISO 8601).
 - **voltage**: Voltage in V.
+- **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG)
+- **carbon_dioxine**: Carbon Dioxine in CO2 (Smoke)
 
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />
