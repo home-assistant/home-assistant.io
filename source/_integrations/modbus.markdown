@@ -524,7 +524,6 @@ modbus:
         address: 100
       - name: Sensor2
         unit_of_measurement: mg
-        slave: 1
         address: 110
         count: 2
       - name: Sensor3
@@ -581,11 +580,11 @@ sensors:
       required: false
       default: 0
       type: integer
-    reverse_order:
-      description: Reverse the order of registers when count >1.
+    swap:
+      description: swap the order of bytes/words, options are none, byte, word, word_byte.
       required: false
-      default: false
-      type: boolean
+      default: none
+      type: string 
     scale:
       description: Scale factor (output = scale * value + offset).
       required: false
