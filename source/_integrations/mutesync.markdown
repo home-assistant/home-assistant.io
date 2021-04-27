@@ -2,8 +2,7 @@
 title: Mutesync
 description: Instructions on how to integrate Mutesync button with Home Assistant.
 ha_category:
-  - Network
-  - Binary Sensor
+  - Presence Detection
 ha_release: 2021.5
 ha_iot_class: Local Polling
 ha_config_flow: true
