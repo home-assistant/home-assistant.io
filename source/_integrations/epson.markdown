@@ -9,6 +9,8 @@ ha_domain: epson
 ha_codeowners:
   - '@pszafer'
 ha_config_flow: true
+ha_platforms:
+  - media_player
 ---
 
 The `epson` platform allows you to control a Epson projector from Home Assistant.

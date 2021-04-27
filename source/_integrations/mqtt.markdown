@@ -18,6 +18,8 @@ ha_platforms:
   - cover
   - fan
   - lock
+  - number
+  - scene
   - sensor
   - switch
 ---

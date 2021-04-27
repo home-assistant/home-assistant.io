@@ -8,6 +8,8 @@ ha_codeowners:
   - '@jalmeroth'
 ha_iot_class: Local Polling
 ha_domain: yamaha_musiccast
+ha_platforms:
+  - media_player
 ---
 
 The `yamaha_musiccast` platform allows you to control [Yamaha MusicCast Receivers](https://usa.yamaha.com/products/audio_visual/musiccast/index.html) from Home Assistant.

@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: sisyphus
 ha_platforms:
   - light
+  - media_player
 ---
 
 The [Sisyphus](https://sisyphus-industries.com/) integration for Home Assistant allows you to observe and control your Sisyphus Kinetic Art Table.

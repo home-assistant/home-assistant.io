@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_domain: vlc
+ha_platforms:
+  - media_player
 ---
 
 The `vlc` platform allows you to control [VLC media player](https://www.videolan.org/vlc/index.html).

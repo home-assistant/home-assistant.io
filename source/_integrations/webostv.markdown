@@ -10,6 +10,7 @@ ha_codeowners:
   - '@bendavid'
 ha_domain: webostv
 ha_platforms:
+  - media_player
   - notify
 ---
 

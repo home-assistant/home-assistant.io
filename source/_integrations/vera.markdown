@@ -23,6 +23,7 @@ ha_platforms:
   - cover
   - light
   - lock
+  - scene
   - sensor
   - switch
 ---

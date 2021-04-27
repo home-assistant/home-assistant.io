@@ -9,6 +9,7 @@ ha_iot_class: Local Polling
 ha_domain: panasonic_viera
 ha_config_flow: true
 ha_platforms:
+  - media_player
   - remote
 ---
 

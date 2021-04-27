@@ -12,6 +12,7 @@ ha_codeowners:
   - '@jjlawren'
 ha_domain: plex
 ha_platforms:
+  - media_player
   - sensor
 ---
 

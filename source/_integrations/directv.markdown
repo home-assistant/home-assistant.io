@@ -13,6 +13,7 @@ ha_codeowners:
 ha_quality_scale: gold
 ha_ssdp: true
 ha_platforms:
+  - media_player
   - remote
 ---
 

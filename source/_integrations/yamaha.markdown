@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.16
 ha_iot_class: Local Polling
 ha_domain: yamaha
+ha_platforms:
+  - media_player
 ---
 
 The `yamaha` platform allows you to control [Yamaha Network Receivers](https://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.

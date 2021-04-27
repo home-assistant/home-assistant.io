@@ -15,6 +15,7 @@ ha_codeowners:
 ha_ssdp: true
 ha_homekit: true
 ha_platforms:
+  - media_player
   - remote
 ---
 

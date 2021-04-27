@@ -24,6 +24,7 @@ ha_platforms:
   - cover
   - fan
   - light
+  - scene
   - switch
 ---
 

@@ -8,6 +8,8 @@ ha_release: 0.63
 ha_codeowners:
   - '@dgomes'
 ha_domain: mediaroom
+ha_platforms:
+  - media_player
 ---
 
 The `mediaroom` integration allows you to control a [Mediaroom](https://en.wikipedia.org/wiki/Ericsson_Mediaroom) Set-Top Box (STB) from Home Assistant.

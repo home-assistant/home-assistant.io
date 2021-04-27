@@ -13,6 +13,8 @@ ha_codeowners:
   - '@cgtobi'
 ha_ssdp: true
 ha_platforms:
+  - binary_sensor
+  - media_player
   - sensor
 ---
 

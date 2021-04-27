@@ -8,6 +8,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant
+ha_platforms:
+  - scene
 ---
 
 The Home Assistant integration provides generic implementations like the generic `homeassistant.turn_on`.

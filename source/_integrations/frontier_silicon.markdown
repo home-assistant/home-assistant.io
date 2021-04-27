@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: '0.40'
 ha_domain: frontier_silicon
+ha_platforms:
+  - media_player
 ---
 
 This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the [UNDOK] app.

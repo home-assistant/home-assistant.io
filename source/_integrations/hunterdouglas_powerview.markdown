@@ -14,6 +14,7 @@ ha_codeowners:
 ha_homekit: true
 ha_platforms:
   - cover
+  - scene
   - sensor
 ---
 
