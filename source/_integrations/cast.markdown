@@ -122,7 +122,7 @@ To do so, `media_content_type` should be set to `cast`, and `media_content_id` s
 
 ### BubbleUPNP
 
-The BubbleUPNP app similar functionality to the built in Default Media Receiver app, and can be used as a backup if the default app fails to play the media.
+The BubbleUPNP app has similar functionality to the built in Default Media Receiver app, and can be used as a backup if the default app fails to play the media.
 
 #### Media parameters
 
@@ -136,7 +136,7 @@ Optional:
 #### Example:
 ```yaml
 'cast_bubbleupnp_to_my_chromecast':
-  alias: "Cast YouTube to My Chromecast"
+  alias: "Cast a video to My Chromecast using BubbleUPNP"
   sequence:
     - target:
         entity_id: media_player.my_chromecast
