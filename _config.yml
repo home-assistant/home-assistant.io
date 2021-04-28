@@ -8,8 +8,7 @@ title: Home Assistant
 subtitle: Open source home automation that puts local control and privacy first.
 author: Home Assistant
 simple_search: https://www.google.com/search
-description:
-  Open source home automation that puts local control and privacy first.
+description: Open source home automation that puts local control and privacy first.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -105,9 +104,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2021
-current_minor_version: 4
-current_patch_version: 6
-date_released: 2021-04-19
+current_minor_version: 5
+current_patch_version: 0
+date_released: 2021-05-05
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
