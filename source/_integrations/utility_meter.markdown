@@ -206,11 +206,9 @@ sensor:
     sensors:
       daily_energy:
         friendly_name: Daily Energy
-        unit_of_measurement: kWh
         value_template: "{{ states('sensor.daily_energy_offpeak')|float + states('sensor.daily_energy_peak')|float }}"
       monthly_energy:
         friendly_name: Monthly Energy
-        unit_of_measurement: kWh
         value_template: "{{ states('sensor.monthly_energy_offpeak')|float + states('sensor.monthly_energy_peak')|float }}"
 ```
 
