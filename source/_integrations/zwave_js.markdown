@@ -342,7 +342,8 @@ Value Updated example:
 ```
 
 This event can be used to trigger a refresh of values when the new state needs to be retrieved. Here's an example automation:
-```
+
+```yaml
 trigger:
   platform: event
   event_type: zwave_js_value_updated
