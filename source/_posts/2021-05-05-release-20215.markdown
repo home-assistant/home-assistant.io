@@ -43,7 +43,8 @@ processes.
 - [Startup visibility - What is taking so long?](#startup-visibility---what-is-taking-so-long)
 - [Ever wonder why Home Assistant didn’t restart when you pressed the restart button?](#ever-wonder-why-home-assistant-didnt-restart-when-you-pressed-the-restart-button)
 - [Memory Leaks](#memory-leaks)
-- [Lorem ipsum](#lorem-ipsum)
+- [Updated look and feel for the integration dashboard](#updated-look-and-feel-for-the-integration-dashboard)
+- [Color modes!](#color-modes)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -84,8 +85,8 @@ corruption when saving events or states to the database. This release extends
 this live recovery to work during migration and purge.This also means no more
 waiting for a database check on unclean shutdown!
 
-Finally, the recorder performance has been improved and SD Cards should last
-a bit longer now, as we reduced how frequently we write to the database.
+Finally, the recorder performance has been improved by reducing the write
+frequency.
 
 ## Startup visibility - What is taking so long?
 
@@ -164,52 +165,6 @@ of the light.
 <insert screenshot>
 
 At this moment not all integrations are able to support color modes yet.
-
-## Enter and exit criteria improvements for zones
-
-TODO:
-
-- Improve wording/flow a little
-- Pull down image locally, use standard image block
-- link justus502
-- Maybe move up a little?
-
-The enter and exit criteria for zones have been improved this release.
-
-So, location updates from device trackers have a center location and an accuracy.
-The true location of the device can be anywhere within the circle centered at
-location, with radius accuracy. Likewise, zones are circular defined by a center
-location and a radius.
-
-The previous criteria for zones would at every location update find the zone
-nearest to the center of the location update where the circles defined by the
-location update and the zone were overlapping, no matter how big the circle
-defined by the location update was.
-
-This meant it was possible to jump in to a very small zone based on a highly
-inaccurate location update.
-
-To illustrate further, @justus502 made an illustration:
-
-<img src="https://user-images.githubusercontent.com/14281572/115867224-165ab080-a43b-11eb-9deb-68d0763e321e.png" width="500" height="500">
-
-The brown circles are the GPS-coordinates in the center and the (in)accuracy
-sent by the device. The green circles are zones and their center in the middle.
-The red circle is the actual location of the device.
-
-The old logic would consider the device to be within all three zones
-(the green circles), and would pick the one to the upper left.
-
-As of this release it no longer enter a zone unless the location
-(the brown circle) is entirely within the green circle, this means none of the
-three zones in the illustration would be entered.
-
-Once a zone has been entered however, less accurate location updates
-(a larger brown circle) are allowed, and the zone won't be exited unless the
-location (brown circle) is no longer overlapping the zone (the green circle).
-
-TL;DR: This change will improve the zone a tracked device is in, is
-be less "jumpy" and will reduce false positives.
 
 <!--<p class='img'>
 <img src='/images/blog/2021-05/automation-tracing.png' alt='Screenshot of lorem ipsum'>
@@ -691,7 +646,7 @@ Please adjust your YAML configuration for this change.
 
 The following integrations are no longer available as of this release:
 
-- **Geuzhals** has been removed. ([@frenck] - [#48594])
+- **Geizhals** has been removed. ([@frenck] - [#48594])
 - **Social Blade** has been removed. ([@frenck] - [#48677])
 
 Both integrations were in a broken state and using webscaping methods to gather
