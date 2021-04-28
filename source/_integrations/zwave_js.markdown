@@ -341,6 +341,19 @@ Value Updated example:
 }
 ```
 
+This event can be used to trigger a refresh of values when the new state needs to be retrieved. Here's an example automation:
+```
+trigger:
+  platform: event
+  event_type: zwave_js_value_updated
+  event_data:
+    entity_id: switch.in_wall_dual_relay_switch
+action:
+  - service: zwave_js.refresh_value
+    target:
+      entity_id: switch.in_wall_dual_relay_switch_2, switch.in_wall_dual_relay_switch_3
+```
+
 ## Current Limitations
 
 As this integration is still in the early stages there are some important limitations to be aware of.
