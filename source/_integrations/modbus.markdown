@@ -171,9 +171,9 @@ binary_sensors:
       required: false
       type: string
     input_type:
-      description: type of adddress (holding/discrete/coil)
+      description: type of adddress (discrete/coil)
       required: false
-      default: holding
+      default: coil
       type: string
     name:
       description: Name for this binary_sensor. Must be unique.
