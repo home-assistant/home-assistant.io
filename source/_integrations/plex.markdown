@@ -30,8 +30,6 @@ The Plex integration is set up via **Configuration** -> **Integrations**. During
 
 During setup, the integration will check all possible ways to connect to your Plex server(s) - i.e., the local network IP address or the public IP address of your internet connection, HTTP or HTTPS, directly or via the domain `plex.direct`, and chose local over public and secure over insecure. You can check your HA log to see which connection was chosen. If your internet router uses DNS rebind protection, the direct connection to the local address via `plex.direct` will fail (see [Plex documentation](https://support.plex.tv/articles/206225077-how-to-use-secure-server-connections/) - scroll way down to DNS Rebinding). To avoid this, configure your router to allow the domain `plex.direct`, if possible.
 
-Please note that if the connection using the public IP address was chosen and you have a dynamic public IP or your public IP changes connecting to the server will fail. In that case use the manual configuration (see below) to ensure that a local IP is being used for the connection.
-
 ### Integration Options
 
 Several options are provided to adjust the behavior of `media_player` entities. These can be changed at **Plex** -> **Options** on the Integrations page.
