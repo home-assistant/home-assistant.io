@@ -48,78 +48,11 @@ Home Assistant Cast requires your Home Assistant installation to be accessible v
 
 </div>
 
-## Casting other apps
+## Playing media
 
-### YouTube
+### Using the built in media player app (Default Media Receiver)
 
-- `app_name`: `youtube`
-- `media_id`: YouTube video ID
-
-Optional:
-- `enqueue`: Enqueue only
-- `playlist_id`: Play video with `media_id` from this playlist
-
-```yaml
-'cast_youtube_to_my_chromecast':
-  alias: "Cast YouTube to My Chromecast"
-  sequence:
-    - target:
-        entity_id: media_player.my_chromecast
-      data:
-        media_content_type: cast
-        media_content_id: '
-          {
-            "app_name": "youtube",
-            "media_id": "dQw4w9WgXcQ"
-          }'
-      service: media_player.play_media
-```
-
-### [Supla](https://www.supla.fi/)
-
-Example values to cast the item at https://www.supla.fi/audio/3601824
-
-- `app_name`: `supla`
-- `media_id`: Supla item ID
-
-Optional:
-- `is_live`: Item is a livestream
-
-```yaml
-'cast_supla_to_my_chromecast':
-  alias: "Cast supla to My Chromecast"
-  sequence:
-    - target:
-        entity_id: media_player.my_chromecast
-      data:
-        media_content_type: cast
-        media_content_id: '
-          {
-            "app_name": "supla",
-            "media_id": "3601824"
-          }'
-      service: media_player.play_media
-```
-
-### Plex
-
-To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#service-play_media) and prepend the `media_content_id` with `plex://`:
-
-```yaml
-'cast_plex_to_chromecast':
-  alias: "Cast Plex to Chromecast"
-  sequence:
-  - service: media_player.play_media
-    target:
-      entity_id: media_player.chromecast
-    data:
-      media_content_type: movie
-      media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
-```
-
-### Play (almost) any kind of media
-
-Chromecasts can play many kinds of modern [media (image/audio/video) formats](https://developers.google.com/cast/docs/media). As a rule of thumb, if a Chrome browser can play a media file a Chromecast will be able to handle that too.
+Chromecasts can play many kinds of modern [media (image/audio/video) formats](https://developers.google.com/cast/docs/media) using the built in app Default Media Receiver. As a rule of thumb, if a Chrome browser can play a media file a Chromecast will be able to handle that too.
 
 The media needs to be accessible via HTTP(S). Chromecast devices do not support other protocols like DLNA or playback from an SMB file share.
 
@@ -180,6 +113,114 @@ data:
       artist: "LIVE"
       images:
         - url: "https://tilos.hu/images/kockalogo.png"
+```
+
+### Casting with other apps
+
+It's possible to play with other apps than the default media receiver.
+To do so, `media_content_type` should be set to `cast`, and `media_content_id` should be a JSON dict with parameters for the app, including the app name.
+
+### BubbleUPNP
+
+The BubbleUPNP app similar functionality to the built in Default Media Receiver app, and can be used as a backup if the default app fails to play the media.
+
+#### Media parameters
+
+Mandatory
+- `app_name`: `bubbleupnp`
+- `media_id`: The URL to play
+
+Optional:
+- `media_type`: Media type, e.g. `video/mp4`, `audio/mp3`, `image/jpeg`, defaults to `video/mp4`.
+
+#### Example:
+```yaml
+'cast_bubbleupnp_to_my_chromecast':
+  alias: "Cast YouTube to My Chromecast"
+  sequence:
+    - target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "bubbleupnp",
+            "media_id": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "media_type": "video/mp4"
+          }'
+      service: media_player.play_media
+```
+
+### YouTube
+
+#### Media parameters
+
+Mandatory
+- `app_name`: `youtube`
+- `media_id`: YouTube video ID
+
+Optional:
+- `enqueue`: Enqueue only
+- `playlist_id`: Play video with `media_id` from this playlist
+
+#### Example:
+```yaml
+'cast_youtube_to_my_chromecast':
+  alias: "Cast YouTube to My Chromecast"
+  sequence:
+    - target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "youtube",
+            "media_id": "dQw4w9WgXcQ"
+          }'
+      service: media_player.play_media
+```
+
+### [Supla](https://www.supla.fi/)
+
+Example values to cast the item at https://www.supla.fi/audio/3601824
+
+- `app_name`: `supla`
+- `media_id`: Supla item ID
+
+Optional:
+- `is_live`: Item is a livestream
+
+#### Example:
+```yaml
+'cast_supla_to_my_chromecast':
+  alias: "Cast supla to My Chromecast"
+  sequence:
+    - target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "supla",
+            "media_id": "3601824"
+          }'
+      service: media_player.play_media
+```
+
+### Plex
+
+To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#service-play_media) and prepend the `media_content_id` with `plex://`:
+
+```yaml
+'cast_plex_to_chromecast':
+  alias: "Cast Plex to Chromecast"
+  sequence:
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.chromecast
+    data:
+      media_content_type: movie
+      media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
 ```
 
 ## Troubleshooting automatic discovery
