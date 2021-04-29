@@ -1183,7 +1183,6 @@ their data, which is not allowed for core integrations.
 
 {% enddetails %}
 
-[#180]: https://github.com/home-assistant/docker/pull/180
 [#39429]: https://github.com/home-assistant/core/pull/39429
 [#40933]: https://github.com/home-assistant/core/pull/40933
 [#41525]: https://github.com/home-assistant/core/pull/41525
