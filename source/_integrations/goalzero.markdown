@@ -13,7 +13,7 @@ ha_platforms:
   - binary_sensor
 ---
 
-This `goalzero` integration pulls data from a Wifi enabled Goal Zero Yeti.
+This `goalzero` integration pulls data from a Wifi enabled Goal Zero Yeti. For more information, visit https://www.goalzero.com
 
 {% include integrations/config_flow.md %}
 
