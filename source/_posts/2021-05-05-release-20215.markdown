@@ -45,6 +45,7 @@ processes.
 - [Memory Leaks](#memory-leaks)
 - [Updated look and feel for the integration dashboard](#updated-look-and-feel-for-the-integration-dashboard)
 - [Color modes!](#color-modes)
+- [Docker](#docker)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -170,6 +171,21 @@ At this moment not all integrations are able to support color modes yet.
 <img src='/images/blog/2021-05/automation-tracing.png' alt='Screenshot of lorem ipsum'>
 Screenshot of lorem ipsum.
 </p>-->
+
+## Docker
+
+We now using Docker and GitHub container registry. If you want use the new GHCR, just use `ghcr.io/home-assistant/home-assistant` instead of `homeassistant/home-assistant`.
+
+Our core images are now also signed with [CodeNotary](https://codenotary.io) and allow to check integrity of our images.
+CodeNotary is a distributed Ledger solution using the [immudb](https://github.com/codenotary/immudb) as a database for built-in cryptographic proof and verification.
+
+If you running the Supervisord or Operating-System, we check allready the integrity of our distributed content. If you running the container installation,
+you can install the [VCN](https://github.com/codenotary/vcn) or simple `bash <(curl https://getvcn.codenotary.io -L)`. Now you can use it like:
+
+```sh
+docker pull ghcr.io/home-assistant/home-assistant:2021.5.0
+vcn authenticate --org home-assistant.io docker://ghcr.io/home-assistant/home-assistant:2021.5.0
+```
 
 ## Other noteworthy changes
 
@@ -641,6 +657,19 @@ Please adjust your YAML configuration for this change.
 ([@TheGardenMonkey] - [#41525])
 
 {% enddetails %}
+
+{% details "Container udev" %}
+
+We don't run a udev instance anymore inside the container. This was used by the Supervisor
+which now using the host udev over all containers.
+
+For now, we have a fallback ENV variable `USING_UDEV=1` which you can set on your container
+to get the old behavier and give you time for using the docker way to map/use devices.
+
+([@pvizeli]- [])
+
+{% enddetails %}
+
 
 ## Farewell to the following
 
