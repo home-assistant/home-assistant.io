@@ -57,7 +57,7 @@ processes.
 
 ## Code Editor bug & Safari
 
-We are aware of bug with CodeMirror, the code editor in Home Assistant that
+We are aware of bug with CodeMirror, the code editor in Home Assistant 
 used for things like YAML, when using the Safari browser.
 
 We currently advise not to use Safari when using the code editor in
@@ -69,6 +69,8 @@ We are working with the upstream project to have this fixed during the beta.
 
 There is a database upgrade this release, but worry not as database upgrades
 now happen in the background and no longer prevent Home Assistant from starting.
+During migration, Home Assistant will prevent being restarted or stopped until 
+the migration has been completed.
 
 Thanks to [@lmagyar] and [@raman325] we now can store events up to
 64 characters and the recorder won’t get stuck if there is one exceeding that
@@ -78,12 +80,12 @@ And if you have ever had to wait for the recorder to shutdown, worry no more
 as Home Assistant can now shut down successfully, even when the database is
 broken.
 
-Talking about broken databases: If you have ever had database corruption of
+Talking about broken databases: if you have ever had database corruption of
 your sqlite database, you probably know how much of a pain it is to get things
 back up and running again. We recently added live recovery to allow
 Home Assistant to recover and start a new database when the recorder encountered
 corruption when saving events or states to the database. This release extends
-this live recovery to work during migration and purge.This also means no more
+this live recovery to work during migration and purge. This also means no more
 waiting for a database check on unclean shutdown!
 
 Finally, the recorder performance has been improved by reducing the write
@@ -108,7 +110,7 @@ TODO:
 - Wording/flow adjustments
 
 The restart button now provides feedback so you know right away if a restart
-can’t happen because of invalid config, broken integration, or database upgrade
+can’t happen because of invalid config, broken integration or database upgrade
 in progress.
 
 We adjusted timeouts and fixed a few places were shutdown would block
@@ -174,7 +176,8 @@ Screenshot of lorem ipsum.
 
 ## Docker
 
-We now using Docker and GitHub container registry. If you want use the new GHCR, just use `ghcr.io/home-assistant/home-assistant` instead of `homeassistant/home-assistant`.
+We are now using both Docker and GitHub container registries. If you want use the new GHCR, 
+just use `ghcr.io/home-assistant/home-assistant` instead of `homeassistant/home-assistant`.
 
 Our core images are now also signed with [CodeNotary](https://codenotary.io) and allow to check integrity of our images.
 CodeNotary is a distributed Ledger solution using the [immudb](https://github.com/codenotary/immudb) as a database for built-in cryptographic proof and verification.
@@ -318,7 +321,7 @@ need to adjust to this change.
 
 The unit of measurement from System Monitor timestamp sensors has been removed.
 It used to be set to empty string. If you have automations, scripts or external
-data recvorder that rely on unit of measurement for these sensors, you might
+data recorder that rely on unit of measurement for these sensors, you might
 need to adjust to this change.
 
 ([@MartinHjelmare] - [#48431])
@@ -392,7 +395,7 @@ to this change. Custom integration authors should review their event types.
 {% details "Hive" %}
 
 The existing Hive service `heating_boost` will be deprecated in Home Assistant
-release 2021.0.6 and a new service to replace it has been created called
+release 2021.6 and a new service to replace it has been created called
 `heating_boost_on`.
 
 If you use the `heating_boost` Hive service please update your configuration
@@ -456,7 +459,7 @@ Events created by your system are queued and processed when the migration is
 completed. There is a safety to start discarding events if more than ~30000
 events happen before migration is completed to avoid memory exhaustion.
 
-During migration, Home Assistant will prevent being start or stopped and
+During migration, Home Assistant will prevent being started or stopped and
 this will also disable the `homeassistant.stop` and `homeassistant.start`
 services until the migration has been completed.
 
@@ -503,7 +506,7 @@ The following attributes are no longer available:
 
 {% details "Shelly" %}
 
-The Shelly Wi-fi RSSI sensor unit was wrong, it is **dBm** and not **dB**.
+The Shelly Wifi RSSI sensor unit was wrong, it is **dBm** and not **dB**.
 If you rely on the unit of measurement from this sensor, you might need to
 adjust to this change.
 
@@ -628,7 +631,7 @@ The following YAML configuration options have been deprecated:
 - `pets`
 - `scan_interval`
 
-If you have one of these options in your YAML cnfiguration, you can safely
+If you have one of these options in your YAML configuration, you can safely
 remove those.
 
 ([@benleb] - [#49223])
@@ -637,7 +640,7 @@ remove those.
 
 {% details "RoonLabs music player" %}
 
-The RoonLabs music player `media_player` previous had integration specific
+The RoonLabs music player `media_player` previously had integration specific
 services for `roon.join` and `roon.un_join`. These have been removed removes
 and replaced with the `media_player.join` and `media_player.unjoin` services.
 
@@ -649,7 +652,7 @@ If you use these services in your automations or script, you need to adjust thos
 
 {% details "DHT Sensor" %}
 
-The `pin` configuration option is currently is an integer but will need to be
+The `pin` configuration option is currently an integer but will need to be
 prefixed with D for Raspberry Pi platforms.
 
 Please adjust your YAML configuration for this change.
@@ -666,7 +669,7 @@ which now using the host udev over all containers.
 For now, we have a fallback ENV variable `USING_UDEV=1` which you can set on your container
 to get the old behavier and give you time for using the docker way to map/use devices.
 
-([@pvizeli]- [])
+([@pvizeli]- [#180])
 
 {% enddetails %}
 
@@ -1178,6 +1181,7 @@ their data, which is not allowed for core integrations.
 
 {% enddetails %}
 
+[#180]: https://github.com/home-assistant/docker/pull/180
 [#39429]: https://github.com/home-assistant/core/pull/39429
 [#40933]: https://github.com/home-assistant/core/pull/40933
 [#41525]: https://github.com/home-assistant/core/pull/41525
