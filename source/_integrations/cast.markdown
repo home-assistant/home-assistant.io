@@ -126,7 +126,7 @@ The BubbleUPNP app has similar functionality to the built in Default Media Recei
 
 #### Media parameters
 
-Mandatory
+Mandatory:
 - `app_name`: `bubbleupnp`
 - `media_id`: The URL to play
 
@@ -155,7 +155,7 @@ Optional:
 
 #### Media parameters
 
-Mandatory
+Mandatory:
 - `app_name`: `youtube`
 - `media_id`: YouTube video ID
 
