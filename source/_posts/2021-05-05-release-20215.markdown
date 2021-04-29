@@ -183,8 +183,8 @@ If you running the Supervisord or Operating-System, we check allready the integr
 you can install the [VCN](https://github.com/codenotary/vcn) or simple `bash <(curl https://getvcn.codenotary.io -L)`. Now you can use it like:
 
 ```sh
-$ docker pull ghcr.io/home-assistant/home-assistant:2021.5.0
-$ vcn authenticate --org home-assistant.io docker://ghcr.io/home-assistant/home-assistant:2021.5.0
+docker pull ghcr.io/home-assistant/home-assistant:2021.5.0
+vcn authenticate --org home-assistant.io docker://ghcr.io/home-assistant/home-assistant:2021.5.0
 ```
 
 ## Other noteworthy changes
