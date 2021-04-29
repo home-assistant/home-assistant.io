@@ -671,6 +671,8 @@ to get the old behavier and give you time for using the docker way to map/use de
 
 ([@pvizeli]- [#180])
 
+[#180]: https://github.com/home-assistant/docker/pull/180
+
 {% enddetails %}
 
 
