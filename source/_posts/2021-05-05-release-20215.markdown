@@ -506,7 +506,7 @@ The following attributes are no longer available:
 
 {% details "Shelly" %}
 
-The Shelly Wifi RSSI sensor unit was wrong, it is **dBm** and not **dB**.
+The Shelly Wi-Fi RSSI sensor unit was wrong, it is **dBm** and not **dB**.
 If you rely on the unit of measurement from this sensor, you might need to
 adjust to this change.
 
