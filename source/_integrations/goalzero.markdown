@@ -15,7 +15,7 @@ ha_codeowners:
   - '@tkdrob'
 ---
 
-This `goalzero` integration pulls data from a Wifi enabled Goal Zero Yeti.
+This `goalzero` integration pulls data from a Wi-fi enabled Goal Zero Yeti.
 
 {% include integrations/config_flow.md %}
 
@@ -40,11 +40,11 @@ The following sensors will also be created:
 - **Amps In**: Shows the ampere input. (disabled by default)
 - **Watts Out**: Shows the watt output.
 - **Amps Out**: Shows the ampere output. (disabled by default)
-- **WH Out**: Shows the watt hour output. (disabled by default)
-- **WH Stored**: Shows the current watt hours stored.
-- **volts**: Shows the voltage of the battery. (disabled by default)
+- **WH Out**: Shows the watt-hour output. (disabled by default)
+- **WH Stored**: Shows the current watt-hours stored.
+- **Volts**: Shows the voltage of the battery. (disabled by default)
 - **State of Charge Percent**: Shows the current battery charge percentage.
 - **Temperature**: Shows the battery temperature.
 - **Time to Empty/Full**: Shows the time left in minutes to empty or full depending on current usage. Shows -1 when there is no battery activity.
-- **Wifi Strength**: Shows the Wifi strength the device has with the connected access point.
+- **Wi-fi Strength**: Shows the Wi-fi strength the device has with the connected access point.
 - **Up Time**: The time in seconds since the last reboot. (disabled by default)
