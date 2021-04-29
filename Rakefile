@@ -187,7 +187,7 @@ task :analytics_data do
   remote_data = JSON.parse(Net::HTTP.get(uri))
 
   File.open("#{source_dir}/_data/analytics_data.json", "w") do |file|
-    file.write(remote_data.current)
+    file.write(JSON.generate(remote_data['current']))
   end
 end
 
