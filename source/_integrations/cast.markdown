@@ -127,13 +127,16 @@ The BubbleUPNP app has similar functionality to the built in Default Media Recei
 #### Media parameters
 
 Mandatory:
+
 - `app_name`: `bubbleupnp`
 - `media_id`: The URL to play
 
 Optional:
+
 - `media_type`: Media type, e.g. `video/mp4`, `audio/mp3`, `image/jpeg`, defaults to `video/mp4`.
 
 #### Example:
+
 ```yaml
 'cast_bubbleupnp_to_my_chromecast':
   alias: "Cast a video to My Chromecast using BubbleUPNP"
@@ -156,14 +159,17 @@ Optional:
 #### Media parameters
 
 Mandatory:
+
 - `app_name`: `youtube`
 - `media_id`: YouTube video ID
 
 Optional:
+
 - `enqueue`: Enqueue only
 - `playlist_id`: Play video with `media_id` from this playlist
 
 #### Example:
+
 ```yaml
 'cast_youtube_to_my_chromecast':
   alias: "Cast YouTube to My Chromecast"
@@ -182,15 +188,17 @@ Optional:
 
 ### [Supla](https://www.supla.fi/)
 
-Example values to cast the item at https://www.supla.fi/audio/3601824
+Example values to cast the item at <https://www.supla.fi/audio/3601824>
 
 - `app_name`: `supla`
 - `media_id`: Supla item ID
+
 
 Optional:
 - `is_live`: Item is a livestream
 
 #### Example:
+
 ```yaml
 'cast_supla_to_my_chromecast':
   alias: "Cast supla to My Chromecast"
