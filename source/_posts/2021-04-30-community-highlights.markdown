@@ -37,7 +37,7 @@ Information on [how to share](#got-a-tip-for-the-next-edition).
 This week's blueprint is that of [delphiki](https://community.home-assistant.io/u/delphiki),
 with which you can plan on which days of the week your vacuum cleaner should start
 cleaning and at what time. Try it out! Read more about it on the [community forum][week_blueprint]
-or install this automation in your instance with a click on the my button!
+or install this automation in your instance with a click on the My button!
 
 {% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/vacuum-schedule/256590" %}
 
@@ -91,7 +91,7 @@ Maybe the name still sounds fairly unknown to you, but [OpenTTS](https://github.
 is an add-on, which gives you the possibility to use multiple open source
 Text to Speech systems. So that you can eventually have text spoken on: for
 example, a Google Home speaker. [synesthesiam](https://github.com/synesthesiam)
-recently released a new release for OpenTTS and you can install it as an
+recently released a new version of OpenTTS and you can install it as an
 add-on in Home Assistant.
 
 <a href="https://github.com/synesthesiam/hassio-addons"><img style="border: 0;" src="https://gh-card.dev/repos/synesthesiam/hassio-addons.svg"></a>
