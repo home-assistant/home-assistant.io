@@ -87,6 +87,8 @@ well-known models that are now available on the market.
 ## OpenTTS 2.0
 ------
 
+{% my supervisor_add_addon_repository badge repository_url="https://github.com/synesthesiam/hassio-addons" %}
+
 Maybe the name still sounds fairly unknown to you, but [OpenTTS](https://github.com/synesthesiam/hassio-addons)
 is an add-on, which gives you the possibility to use multiple open source
 Text to Speech systems. So that you can eventually have text spoken on: for
