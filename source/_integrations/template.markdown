@@ -23,7 +23,22 @@ ha_platforms:
   - weather
 ---
 
-The `template` platform supports sensors which get their values from other entities.
+The `template` integration allows creating entities which derive their values from other entities. This is done by defining [templates](/docs/configuration/templating/) for each property of an entity, like the name or the state. Entities are updated automatically whenever a value that a template relies on changes.
+
+For template sensors it's also possible to derive the state from [automation triggers](#configuration-for-trigger-based-template-sensors).
+
+Available template platforms:
+
+- [Alarm_control_panel](/integrations/alarm_control_panel.template/)
+- [Binary_sensor](/integrations/binary_sensor.template/)
+- [Cover](/integrations/cover.template/)
+- [Fan](/integrations/fan.template/)
+- [Light](/integrations/light.template/)
+- [Lock](/integrations/lock.template/)
+- Sensor (this page)
+- [Switch](/integrations/switch.template/)
+- [Vacuum](/integrations/vacuum.template/)
+- [Weather](/integrations/weather.template/)
 
 ## Configuration
 
@@ -49,7 +64,7 @@ sensor:
 
 {% configuration %}
   sensors:
-    description: List of your sensors.
+    description: Map of your sensors.
     required: true
     type: map
     keys:
@@ -90,7 +105,7 @@ sensor:
           "attribute: template":
             description: The attribute and corresponding template.
             required: true
-            type: template        
+            type: template
       availability_template:
         description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
         required: false
@@ -102,6 +117,106 @@ sensor:
         type: device_class
         default: None
 {% endconfiguration %}
+
+## Configuration for trigger-based template sensors
+
+Trigger-based template sensors allow the user to define [an automation trigger][trigger-doc] for a group of template sensors. Whenever the trigger fires, the template sensor will re-render and it will have access to [the trigger data](/docs/automation/templating/) in the templates. This feature is a great way to create data based on webhook data, or have sensors be updated based on a time-schedule.
+
+Trigger-based template entities are defined in YAML directly under the `template:` key. You can define multiple configuration blocks as a list. Each block defines one or more triggers and the sensors that should be updated when the trigger fires.
+
+Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added by defining a [state trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
+
+{% raw %}
+
+```yaml
+# Example configuration entry
+template:
+  - trigger:
+      - platform: webhook
+        webhook_id: my-super-secret-webhook-id
+    sensor:
+      - name: "Webhook Temperature"
+        state: "{{ trigger.json.temperature }}"
+      - name: "Webhook Humidity"
+        state: "{{ trigger.json.humidity }}"
+```
+
+{% endraw %}
+
+You can test this trigger entity with the following CURL command:
+
+```bash
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"temperature": 5, "humidity": 34}' \
+  http://homeassistant.local:8123/api/webhook/my-super-secret-webhook-id
+```
+
+<p class='note'>Configuration under the <code>template:</code> key uses a different format compared to the platform configuration.</p>
+
+{% configuration %}
+trigger:
+  description: The trigger configuration for this entity. [See trigger documentation](/docs/automation/trigger)
+  required: true
+  type: list
+unique_id:
+  description: The unique ID for this trigger. This will be prefixed to all unique IDs of all entities in this block.
+  required: false
+  type: string
+sensor:
+  description: List of sensors to create from the trigger data.
+  required: true
+  type: map
+  keys:
+    state:
+      description: Defines a template to get the state of the sensor.
+      required: true
+      type: template
+    name:
+      description: Defines a template to get the name of the sensor.
+      required: false
+      type: template
+    unique_id:
+      description: An ID that uniquely identifies this sensor. Will be combined with the unique ID of the configuration block if available.
+      required: false
+      type: string
+    unit_of_measurement:
+      description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
+      required: false
+      type: string
+      default: None
+    icon:
+      description: Defines a template for the icon of the sensor.
+      required: false
+      type: template
+    picture:
+      description: Defines a template for the entity picture of the sensor.
+      required: false
+      type: template
+    attributes:
+      description: Defines templates for attributes of the sensor.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
+    availability:
+      description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the component will always be `available`.
+      required: false
+      type: template
+      default: true
+    device_class:
+      description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+      required: false
+      type: device_class
+      default: None
+{% endconfiguration %}
+
+<p class='note'>It's currently only possible to define trigger-based entities via the top-level configuration. These entities are not yet included when reloading template entities.</p>
+
+[trigger-doc]: /docs/automation/trigger
 
 ## Considerations
 

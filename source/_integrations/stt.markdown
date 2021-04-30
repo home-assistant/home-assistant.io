@@ -6,6 +6,7 @@ ha_codeowners:
   - '@pvizeli'
 ha_domain: stt
 ha_iot_class:
+ha_quality_scale: internal
 ---
 
 Speech-to-Text (STT) allows you to stream speech data to the STT API and get text back.

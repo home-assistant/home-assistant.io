@@ -9,6 +9,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@hunterjm'
   - '@uvjustin'
+  - '@allenporter'
 ha_domain: stream
 ---
 

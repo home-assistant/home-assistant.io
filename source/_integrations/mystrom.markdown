@@ -178,7 +178,7 @@ switch:
 
 {% configuration %}
 host:
-  description: "The IP address of your myStrom switch, e.g., `http://192.168.1.32`."
+  description: "The IP address of your myStrom switch, e.g., `192.168.1.32`."
   required: true
   type: string
 name:

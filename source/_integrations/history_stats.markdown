@@ -180,6 +180,18 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 
 {% endraw %}
 
+**Next 4 pm**: 24 hours, from the last 4 pm till the next 4 pm. If it hasn't been 4 pm today, that would be 4 pm yesterday until 4 pm today. If it is already past 4 pm today, it will be 4 pm today until 4 pm tomorrow. When changing the start time, then add or subtract to the 8-hour buffer to match the next midnight.
+
+{% raw %}
+
+```yaml
+    end: "{{ (now().replace(minute=0,second=0) + timedelta(hours=8)).replace(hour=16) }}"
+    duration:
+        hours: 24
+```
+
+{% endraw %}
+
 **Last 30 days**: ends today at 00:00, lasts 30 days. Easy one.
 
 {% raw %}

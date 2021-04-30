@@ -635,8 +635,8 @@
 /components/sensor.amcrest /integrations/amcrest
 /components/sensor.android_ip_webcam /integrations/android_ip_webcam#sensor
 /components/sensor.apcupsd /integrations/apcupsd#sensor
-/components/sensor.api_stream /integrations/sensor.websocket_api
-/components/sensor.api_streams /integrations/sensor.websocket_api
+/components/sensor.api_stream /integrations/websocket_api
+/components/sensor.api_streams /integrations/websocket_api
 /components/sensor.aqualogic /integrations/aqualogic#sensor
 /components/sensor.arduino /integrations/arduino#sensor
 /components/sensor.arest /integrations/arest#sensor
@@ -1073,13 +1073,19 @@
 /components/xiaomi /integrations/xiaomi_aqara
 /integrations/air_quality.xiaomi_miio /integrations/xiaomi_miio
 /integrations/alarm_control_panel.xiaomi_miio /integrations/xiaomi_miio
+/integrations/binary_sensor.modbus /integrations/modbus
+/integrations/climate.modbus /integrations/modbus
+/integrations/cover.modbus /integrations/modbus
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio
+/integrations/lovelace /lovelace
 /integrations/remote.xiaomi_miio /integrations/xiaomi_miio
+/integrations/sensor.websocket_api /integrations/websocket_api
+/integrations/sensor.modbus /integrations/modbus
 /integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
+/integrations/switch.modbus /integrations/modbus
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio
 /integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio
-/integrations/lovelace /lovelace
 
 # Renaming components to integrations
 /components /integrations
@@ -2014,6 +2020,7 @@
 # Moved documentation
 /details/database /docs/backend/database
 /details/updater /docs/backend/updater
+/docs/backend/updater /integrations/analytics
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
@@ -2111,6 +2118,13 @@
 /hassio/index /installation
 /hassio/installation /installation
 /hassio/installing_third_party_addons /common-tasks/os#installing-third-party-add-ons
+/integrations/faadelays /integrations/faa_delays
+/cookbook/notify.mqtt /examples#notifications
+/cookbook/#example-configurationyaml /examples/#example-configurationyaml
+/cookbook/#user-interface /examples/#user-interface
+/cookbook/#infrastructure /examples/#infrastructure
+/cookbook/#automation-examples /examples
+/cookbook /examples
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -2285,3 +2299,4 @@
 /components/sensor.coinmarketcap /more-info/removed-integration 301
 /components/coinmarketcap /more-info/removed-integration 301
 /integrations/coinmarketcap /more-info/removed-integration 301
+/integrations/griddy /more-info/removed-integration 301

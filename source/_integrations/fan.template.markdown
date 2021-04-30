@@ -54,7 +54,7 @@ fan:
         preset_modes:
           - 'auto'
           - 'smart'
-          - 'woosh'
+          - 'whoosh'
 ```
 
 {% endraw %}

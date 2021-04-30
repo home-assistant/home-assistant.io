@@ -31,7 +31,7 @@ ha_platforms:
 
 This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant.
 
-Please review the limitations [below](/integrations/zwave_js/#current-limitations) before you get started as a few devices still may not work or only work partially. 
+Please review the limitations [below](/integrations/zwave_js/#current-limitations) before you get started as a few devices still may not work or only work partially.
 
 ## Quick start (Home Assistant including Supervisor)
 
@@ -57,7 +57,7 @@ Advanced users: Make sure that the server started successfully by inspecting the
 
 ### Service `zwave_js.set_config_parameter`
 
-This service will update a configuration parameter. At this time, it is not possible to update multiple partial parameters in a single call, but we hope to add support for that in the future.
+This service will update a configuration parameter. To update multiple partial parameters in a single call, use the `zwave_js.bulk_set_partial_config_parameters` service.
 
 | Service Data Attribute 	| Required  	| Description                                                                                                                               	|
 |------------------------	|-----------	|-------------------------------------------------------------------------------------------------------------------------------------------	|
@@ -72,6 +72,7 @@ This service will update a configuration parameter. At this time, it is not poss
 Let's use parameter 31 for [this device](https://devices.zwave-js.io/?jumpTo=0x000c:0x0203:0x0001:0.0) as an example to show examples of different ways that the `LED 1 Blink Status (bottom)` partial parameter can be set. Note that in places where we are using different values for the same key, the different values are interchangeable across the examples. We can, for instance, use `1` or `Blink` interchangeably for the `value` in all of the examples.
 
 Example 1:
+
 ```yaml
 service: zwave_js.set_config_parameter
 target:
@@ -83,6 +84,7 @@ data:
 ```
 
 Example 2:
+
 ```yaml
 service: zwave_js.set_config_parameter
 target:
@@ -94,14 +96,75 @@ data:
 ```
 
 Example 3:
+
 ```yaml
 service: zwave_js.set_config_parameter
 target:
-  entity_id: switch.fan	
+  entity_id: switch.fan
 data:
   entity_id: switch.fan
   parameter: "LED 1 Blink Status (bottom)"
   value: "Blink"
+```
+
+### Service `zwave_js.bulk_set_partial_config_parameters`
+
+This service will bulk set multiple partial configuration parameters. Be warned that correctly using this service requires advanced knowledge of Z-Wave to use correctly.
+
+| Service Data Attribute 	| Required  	| Description                                                                                                                               	|
+|------------------------	|-----------	|-------------------------------------------------------------------------------------------------------------------------------------------	|
+| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
+| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                                	|
+| `parameter`            	| yes       	| The parameter number or the name of the property. The name of the property is case sensitive.                                             	|
+| `value`                	| yes       	| Either the raw integer value that you want to set for the entire parameter, or a dictionary where the keys are the bitmasks (in integer or hex form) and the values are the value you want to set on each partial. Note that when using a dictionary, and bitmasks that are not provided will be set to their currently cached values.                       	|
+
+#### Examples of bulk setting partial parameter values
+
+Let's use parameter 21 for [this device](https://devices.zwave-js.io/?jumpTo=0x031e:0x000a:0x0001:0.0) as an example to show how partial parameters can be bulk set. In this case, we want to set `0xff` to `127`, `0x7f00` to `10`, and `0x8000` to `1` (or the raw value of `4735`).
+
+<div class='note'>
+
+When using the dictionary format to map the partial parameter to values, the cached values for the missing partial parameters will be used. So in examples 2 and 3, the service would use the cached value for partial parameters `0xff0000`, `0x3f000000`, and `0x40000000` because new values haven't been specified. If you send the raw integer value, it is assumed that you have calculated the full value, so in example 1, partial parameters `0xff0000`, `0x3f000000`, and `0x40000000` would all be set to `0`.
+
+</div>
+
+Example 1:
+
+```yaml
+service: zwave_js.bulk_set_partial_config_parameters
+target:
+  entity_id: switch.fan
+data:
+  parameter: 21
+  value: 4735
+```
+
+Example 2:
+
+```yaml
+service: zwave_js.bulk_set_partial_config_parameters
+target:
+  entity_id: switch.fan
+data:
+  parameter: 21
+  value:
+    0xff: 127
+    0x7f00: 10
+    0x8000: 1
+```
+
+Example 3:
+
+```yaml
+service: zwave_js.bulk_set_partial_config_parameters
+target:
+  entity_id: switch.fan
+data:
+  parameter: 21
+  value:
+    255: 127
+    32512: 10
+    32768: 1
 ```
 
 ### Service `zwave_js.refresh_value`
@@ -112,6 +175,21 @@ This service will refresh the value(s) for an entity. This service will generate
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
 | `entity_id`            	| yes      	| Entity or list of entities to refresh values for.                                                                                                	|
 | `refresh_all_values`   	| no       	| Whether all values should be refreshed. If  `false`, only the primary value will be refreshed. If  `true`, all watched values will be refreshed. 	|
+
+### Service `zwave_js.set_value`
+
+This service will set a value on a Z-Wave device. It is for advanced use cases where you need to modify the state of a node and can't do it using native Home Assistant entity functionality. Be warned that correctly using this service requires advanced knowledge of Z-Wave. The service provides minimal validation and blindly calls the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere. To set a config parameter, you should use the `zwave_js.set_config_parameter` or `zwave_js.bulk_set_partial_config_parameters` services instead of this one.
+
+| Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
+|------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
+| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                         |
+| `command_class`       	| yes       	| ID of Command Class that you want to set the value for. 	                                                                                            |
+| `property`            	| yes       	| ID of Property that you want to set the value for. 	                                                                                                  |
+| `property_key`        	| no        	| ID of Property Key that you want to set the value for. 	                                                                                              |
+| `endpoint`   	          | no        	| ID of Endpoint that you want to set the value for. 	                                                                                                  |
+| `value`   	            | yes        	| The new value that you want to set. 	                                                                                                                |
+| `wait_for_result`   	  | no        	| Boolean that indicates whether or not to wait for a response from the node. If not included in the payload, the integration will decide whether to wait or not. If set to `true`, note that the service call can take a while if setting a value on an asleep battery device. |
 
 ### Service `zwave_js.set_lock_usercode`
 
@@ -136,33 +214,58 @@ Valid code slots are between 1-254.
 
 ## Events
 
-Events are fired when you press a button on a remote (aka Central Scene support) or when a stateless value is being signalled by a device. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribe to `zwave_js_event`. Once you know what the event data looks like, you can use this to create automations.
+There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.
 
 ### Node events (Notification)
 
-These are events fired by the device using the notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
+Check the [Z-Wave JS notification event documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) for an explanation of the notification event data. These events fire with the `zwave_js_notification` event type.
+
+#### Notification Command Class
+
+These are notification events fired by devices using the Notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
 
 ```json
 {
-    "type": "notification",
     "domain": "zwave_js",
     "node_id": 1,
     "home_id": "974823419",
     "device_id": "ad8098fe80980974",
-    "label": "Keypad lock operation",
+    "command_class": 113,
+    "command_class_name": "Notification",
+    "type": 6,
+    "event": 5,
+    "label": "Access Control",
+    "event_label": "Keypad lock operation",
     "parameters": {"userId": 1}
+}
+```
+
+#### Entry Control Command Class
+
+These are notification events fired by devices using the Entry Control command class.
+
+```json
+{
+    "domain": "zwave_js",
+    "node_id": 1,
+    "home_id": "974823419",
+    "device_id": "ad8098fe80980974",
+    "command_class": 111,
+    "command_class_name": "Entry Control",
+    "event_type": 6,
+    "data_type": 5,
+    "event_data": "555"
 }
 ```
 
 ## Scene events (Value Notification)
 
-Value Notifications are used for stateless values, like `Central Scenes` and `Scene Activation`.
+Value Notifications are used for stateless values, like `Central Scenes` and `Scene Activation`. These events fire with the `zwave_js_value_notification` event type.
 
 Value Notification example:
 
 ```json
 {
-    "type": "value_notification",
     "domain": "zwave_js",
     "node_id": 1,
     "home_id": "974823419",
@@ -185,7 +288,6 @@ Value Notification example:
 As this integration is still in the early stages there are some important limitations to be aware of.
 
 - While support for the most common devices is working, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
-- Configuration of Z-Wave nodes within the Home Assistant UI is not yet implemented, but a [service](#service-zwave_js.set_config_parameter) is available with limited configuration capabilities.  If the service doesn't meet your needs, you will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to manage device configuration.
 - There currently is no migration path available from any of the other Z-Wave implementations in Home Assistant. Your Z-Wave network is however stored on your stick so migrating will only require you to redo your device and entity naming.
 
 You can keep track of the Roadmap for the Z-Wave JS integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).

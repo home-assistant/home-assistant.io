@@ -11,7 +11,7 @@ ha_domain: script
 ha_iot_class:
 ---
 
-The `script` integration allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via services.
+The script integration allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via services.
 
 ## Configuration
 
@@ -62,21 +62,41 @@ variables:
       description: The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable.
       type: any
 fields:
-  description: "Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below. Please note: In order for this description to be displayed in the Services tab of the Developer Tools, the script description must be defined as well."
+  description: "Information about the script field parameters; see the [Passing variables to scripts](#passing-variables-to-scripts) section below. Please note: In order for this description to be displayed in the Services tab of the Developer Tools, the script description must be defined as well."
   required: false
   default: {}
   type: map
   keys:
-    PARAMETER_NAME:
-      description: A parameter used by this script.
+    FIELD_NAME:
+      description: A parameter field used by this script. All sub-options are only used for creating a representation of this script in the UI.
       type: map
       keys:
+        name:
+          description: The name of this script parameter field.
+          type: string
         description:
-          description: A description of PARAMETER_NAME.
+          description: A description of this of this script parameter.
           type: string
+        advanced:
+          description: Marks this field as an advanced parameter. This causes it only to be shown in the UI, when the user has advanced mode enabled.
+          type: boolean
+          default: false
+        required:
+          description: Mark if this field is required. This is a UI only feature.
+          type: boolean
+          default: false
         example:
-          description: An example value for PARAMETER_NAME.
+          description: An example value. This will only be shown in table of options available in the Services tab of the Developer Tools.
           type: string
+        default:
+          description: The default value for this field, as shown in the UI.
+          type: any
+        selector:
+          description: >
+            The [selector](/docs/blueprint/selectors/) to use for this input. A
+            selector defines how the input is displayed in the frontend UI.
+          type: selector
+          required: false
 mode:
   description: "Controls what happens when script is invoked while it is still running from one or more previous invocations. See [Script Modes](#script-modes)."
   required: false
@@ -125,8 +145,15 @@ script: 
       turn_on_entity: group.living_room
     fields:
       minutes:
+        name: Minutes
         description: "The amount of time to wait before turning on the living room lights"
-        example: 1
+        selector:
+          number:
+            min: 0
+            max: 60
+            step: 1
+            unit_of_measurement: minutes
+            mode: slider
     # If called again while still running (probably in delay step), start over.
     mode: restart
     sequence:

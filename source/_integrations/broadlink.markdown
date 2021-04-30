@@ -16,6 +16,7 @@ ha_platforms:
   - remote
   - sensor
   - switch
+ha_dhcp: true
 ---
 
 The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:

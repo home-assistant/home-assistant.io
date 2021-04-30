@@ -13,11 +13,20 @@ ha_codeowners:
 ha_zeroconf: true
 ---
 
-You can enable the Cast integration by going to the Integrations page inside the configuration panel.
-
-## Setup
+{% include integrations/config_flow.md %}
 
 Support for mDNS discovery in your local network is mandatory. Make sure that your router has this feature enabled. This is even required if you entered the IP addresses of the Cast devices are manually in the configuration as mentioned below.
+
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
+Known hosts:
+  description: "A comma-separated list of hostnames or IP-addresses of cast devices, use if mDNS discovery is not working"
+Allowed UUIDs:
+  description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))`. This option is only visible if advanced mode is enabled in your user profile.
+Ignore CEC:
+  description: A comma-separated list of Chromecasts that should ignore CEC data for determining the
+        active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data). This option is only visible if advanced mode is enabled in your user profile.
+{% endconfiguration_basic %}
 
 ## Home Assistant Cast
 
@@ -173,46 +182,12 @@ data:
         - url: "https://tilos.hu/images/kockalogo.png"
 ```
 
-## Advanced use
+## Cast devices and Home Assistant on different subnets
 
-### Manual configuration
-
-By default, any discovered Cast device is added to Home Assistant. This can be restricted by supplying a list of allowed chrome casts.
-
-```yaml
-# Example configuration.yaml entry
-cast:
-  media_player:
-    - uuid: "ae3be716-b011-4b88-a75d-21478f4f0822"
-```
-
-{% configuration %}
-media_player:
-  description: A list that contains advanced configuration options.
-  required: false
-  type: list
-  keys:
-    uuid:
-      description: UUID of a Cast device to add to Home Assistant. Use only if you don't want to add all available devices. The device won't be added until discovered through mDNS. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`
-      required: false
-      type: string
-    ignore_cec:
-      description: >
-        A list of Chromecasts that should ignore CEC data for determining the
-        active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)
-      required: false
-      type: list
-{% endconfiguration %}
-
-### Docker and Cast devices and Home Assistant on different subnets
-
-Cast devices can only be discovered and connected to if they are on the same subnet as Home Assistant.
-
-When running Home Assistant Core in a [Docker container](/docs/installation/docker/), the command line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put it on the host's network, otherwise the Home Assistant Core will not be able to connect to any Cast device.
-
+Cast devices can only be automatically discovered if they are on the same subnet as Home Assistant.
 Setups with cast devices on a different subnet than Home Assistant are not recommended and not supported.
+If this is not possible, it's necessary to either enable mDNS forwarding between the subnets or to provide a list of known hosts.
 
-If this is not possible, it's necessary to:
+### Home Assistant Container
 
-- Enable mDNS forwarding between the subnets.
-- Enable source NAT to make requests from Home Assistant to the Chromecast appear to come from the same subnet as the Chromecast.
+When running the [Home Assistant Container](/installation/linux#install-home-assistant-container) in Docker, make sure it is running with host network mode. Running without it is not supported by the Home Assistant project, and will cause this integration to be unable to discover to your Cast devices.

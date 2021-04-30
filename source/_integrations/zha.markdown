@@ -30,6 +30,7 @@ ha_platforms:
   - lock
   - sensor
   - switch
+ha_zeroconf: true
 ---
 
 The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://zigbeealliance.org) directly to Home Assistant, using one of the many available Zigbee coordinators.
@@ -66,17 +67,17 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
   - [RaspBee II (a.k.a. RaspBee 2) Raspberry Pi Shield from dresden elektronik](https://www.dresden-elektronik.com/product/raspbee-II.html)
   - [RaspBee Raspberry Pi Shield from dresden elektronik](https://phoscon.de/raspbee)
 - Silicon Labs EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
-  - [ITEAD Sonoff ZBBridge](https://www.itead.cc/smart-home/sonoff-zbbridge.html) (Note! This first have to be flashed with [Tasmota firmware and Silabs EmberZNet NCP EZSP UART Host firmware](https://www.digiblur.com/2020/07/how-to-use-sonoff-zigbee-bridge-with.html))
+  - [ITead Zigbee 3.0 USB Dongle (EFR32MG21) Model 9888010100045](https://www.itead.cc/zigbee-3-0-usb-dongle.html)
+  - [ITead Sonoff ZBBridge](https://www.itead.cc/smart-home/sonoff-zbbridge.html) (Note! [WiFi-based bridges are not recommended for ZHA with EZSP radios](https://github.com/home-assistant/home-assistant.io/issues/17170). Also, this first have to be flashed with [Tasmota firmware and Silabs EmberZNet NCP EZSP UART Host firmware to use as Serial-to-IP adapter](https://www.digiblur.com/2020/07/how-to-use-sonoff-zigbee-bridge-with.html))
   - [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee Ember 3581 USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/walthowd/husbzb-firmware))
   - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)/[POPP ZB-Stick](https://shop.zwave.eu/detail/index/sArticle/2496) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
   - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
   - Bitron Video/Smabit BV AV2010/10 USB-Stick with Silicon Labs Ember 3587
-  - Telegesis ETRX357USB (Note! This first have to be [flashed with other EmberZNet firmware](https://github.com/walthowd/husbzb-firmware))
-  - Telegesis ETRX357USB-LRS (Note! This first have to be [flashed with other EmberZNet firmware](https://github.com/walthowd/husbzb-firmware))
-  - Telegesis ETRX357USB-LRS+8M (Note! This first have to be [flashed with other EmberZNet firmware](https://github.com/walthowd/husbzb-firmware))
+  - Telegesis ETRX357USB/ETRX357USB-LR/ETRX357USB-LRS+8M (Note! These first have to be [flashed with other EmberZNet firmware](https://github.com/walthowd/husbzb-firmware))
 - Texas Instruments based radios (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
   - [CC2652P/CC2652R/CC2652RB USB stick or dev board hardware flashed with Z-Stack 3.x.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
   - [CC1352P/CC1352R USB stick or dev board hardware flashed with Z-Stack 3.x.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
+  - [CC2538 USB stick or dev board hardware flashed with Z-Stack 3.x.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
 - Digi XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
   - [Digi XBee Series 3 (xbee3-24)](https://www.digi.com/products/embedded-systems/digi-xbee/rf-modules/2-4-ghz-rf-modules/xbee3-zigbee-3) and [Digi XBee Series S2C](https://www.digi.com/products/embedded-systems/digi-xbee/rf-modules/2-4-ghz-rf-modules/xbee-zigbee) modules
     - Note! While not a must, [it is recommend to upgrade XBee Series 3 and S2C to newest firmware firmware using XCTU](https://www.digi.com/resources/documentation/Digidocs/90002002/Default.htm#Tasks/t_load_zb_firmware.htm)
@@ -86,6 +87,8 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
   - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/)
   - [PiZiGate](https://zigate.fr/produit/pizigate-v1-0/)
   - [Wifi ZiGate](https://zigate.fr/produit/zigate-pack-wifi-v1-3/)
+
+#### Warning about Wi-Fi-based Zigbee-to-Serial bridges/gateways
 
 <div class="note warning">
 
@@ -179,7 +182,23 @@ zha:
 
 You can choose if the IKEA or LEDVANCE provider should be set to enabled (`true`) or disabled (`false`) individually. After the OTA firmware upgrades are finished, you can set these to `false` again if you do not want ZHA to automatically download and perform OTA firmware upgrades in the future.
 
-Note that the `otau_directory` setting is optional and can be used for any firmware files you have downloaded yourself.
+Note that the `otau_directory` setting is optional and can be used for any firmware files you have downloaded yourself, for any device type and manufacturer. For example, Philips Hue firmwares manually downloaded from [here](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/OTA-Image-Types---Firmware-versions) and/or [here](https://github.com/Koenkk/zigbee-OTA/blob/a02a4cb33f7c46b4d2916805bfcad582124ec975/index.json) added to the `otau_directory` can be flashed, although a manual `zha.issue_zigbee_cluster_command` command currently (as of 2021.3.3) must be issued against the IEEE of the Philips Hue device under Developer Tools->Services, e.g.:
+
+```yaml
+service: zha.issue_zigbee_cluster_command
+data:
+  ieee: "xx:xx:xx:xx:xx:xx:xx:xx"
+  endpoint_id: 11
+  cluster_id: 25
+  cluster_type: out
+  command: 0
+  command_type: client
+  args:
+    - 0
+    - 100
+```
+
+Note: `cluster_id: 25` may also be `cluster_id: 0x0019`. The two are synonymous. 
 
 ### Defining Zigbee channel to use
 
@@ -242,11 +261,44 @@ from the same group:
 
 ### Service `zha.remove`
 
-This service remove an existing device from the network.
+This service removes an existing device from the network.
 
 |  Data | Optional | Description |
 | ---- | ---- | ----------- |
 | `ieee` | no | IEEE address of the device to remove 
+
+### Service `zha.set_lock_user_code`
+
+This service sets a lock code on a Zigbee lock.
+
+|  Data | Optional | Description |
+| --------- | ---- | ----------- |
+| `code_slot` | no | Which lock code slot to store the code. Ex. 1-32 will work for Kwikset 954
+| `user_code` | no | Code to set on the lock. Ex. Kwikset accepts numbers 4-8 digits in length
+
+### Service `zha.clear_lock_user_code`
+
+This service clears a lock code from a Zigbee lock.
+
+|  Data | Optional | Description |
+| --------- | ---- | ----------- |
+| `code_slot` | no | Which lock code slot to clear
+
+### Service `zha.enable_lock_user_code`
+
+This service enables a lock code on a Zigbee lock.
+
+|  Data | Optional | Description |
+| --------- | ---- | ----------- |
+| `code_slot` | no | Which lock code slot to enable
+
+### Service `zha.disable_lock_user_code`
+
+This service disables a lock code on a Zigbee lock.
+
+|  Data | Optional | Description |
+| --------- | ---- | ----------- |
+| `code_slot` | no | Which lock code slot to disable
 
 ## Adding devices
 

@@ -516,8 +516,7 @@ The example configuration entry below create two request to your local InfluxDB 
 sensor:
   platform: influxdb
   host: localhost
-
-username: home-assistant
+  username: home-assistant
   password: password
   queries:
     - name: last value of foo

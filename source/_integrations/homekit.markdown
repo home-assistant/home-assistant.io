@@ -57,7 +57,7 @@ homekit:
         linked_battery_sensor: sensor.living_room_motion_battery
         low_battery_threshold: 31
       light.kitchen_table:
-        name: "Kitchen Table Light"
+        name: Kitchen Table Light
       lock.front_door:
         code: 1234
       media_player.living_room:
@@ -69,9 +69,9 @@ homekit:
       switch.bedroom_outlet:
         type: outlet
       camera.back_porch:
-        support_audio: true
-  - name: "HASS Bridge 2"
-    port: 56332
+        support_audio: True
+  - name: HASS Bridge 2
+    port: 21065
     filter:
       include_domains:
         - light
@@ -83,16 +83,11 @@ homekit:
   required: true
   type: map
   keys:
-    auto_start:
-      description: Flag if the HomeKit Server should start automatically after the Home Assistant Core Setup is done. ([Disable Auto Start](#disable-auto-start))
-      required: false
-      type: boolean
-      default: true
     port:
       description: Port for the HomeKit extension. If you are adding more than one instance they need to have different values for port.
       required: false
       type: integer
-      default: 51827
+      default: 21063
     name:
       description: Need to be individual for each instance of Home Assistant using the integration on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.
       required: false
@@ -304,12 +299,6 @@ Currently, this integration uses the `entity_id` to generate a unique `accessory
 
 The HomeKit Accessory Protocol Specification only allows a maximum of 150 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s). If you plan on exceeding the 150 devices limit, it is possible to create multiple bridges. If you need specific configuration for some entities via `entity_config` be sure to add them to a bridge configured via `YAML`.
 
-### Persistence Storage
-
-Unfortunately, `HomeKit` doesn't support any persistent storage - only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems, it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If, for some reason, some entities are not set up, their configuration will be deleted. (State unknown or similar will not cause any issues.)
-
-A common situation might be if you decide to disable parts of the configuration for testing. Please make sure to disable `auto start` and `turn off` the `Start HomeKit` automation (if you have one).
-
 ### Multiple HomeKit instances
 
 If you create a HomeKit integration via the UI (i.e., **Configuration** >> **Integrations**), it must be configured via the UI **only**. While the UI only offers limited configuration options at the moment, any attempt to configure a HomeKit instance created in the UI via the `configuration.yaml` file will result in another instance of HomeKit running on a different port.
@@ -318,12 +307,12 @@ It is recommended to only edit a HomeKit instance in the UI that was created in 
 
 ### Accessory mode
 
-When exposing a Camera or Television media player (a `media_player` with device class `tv`) to HomeKit, `mode` must be set to `accessory`, and the include filter should be setup to only include a single entity.
+When exposing a Camera, Activity based remote (a `remote` that supports activities), Lock, or Television media player (a `media_player` with device class `tv`) to HomeKit, `mode` must be set to `accessory`, and the include filter should be setup to only include a single entity.
 
 To quickly add all accessory modes entities in the UI:
 
 1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Configuration >> Integrations" domain=page.ha_domain %}**).
-2. Select `media_player` and `camera` domains.
+2. Select `media_player`, `remote`, `lock`, and `camera` domains.
 3. Complete the flow as normal.
 4. Additional HomeKit entries for each entity that must operate in accessory mode will be created for each entity that does not already have one.
 5. If you have already created another HomeKit bridge for the non-accessory mode entities, the new bridge can safely be removed.
@@ -337,10 +326,6 @@ To add a single entity in accessory mode:
 4. Select the entity.
 5. Complete the options flow
 6. [Pair the accessory](#setup).
-
-## Disable Auto Start
-
-It is not needed (anymore) to disable `Auto Start` for all accessories to be available for `HomeKit` as Home Assistant restores all entities on start instantly.
 
 ## Configure Filter
 
@@ -397,7 +382,7 @@ Restart your Home Assistant instance. This feature requires running an mDNS forw
 If you have a firewall configured on your Home Assistant system, make sure you open the following ports:
 
 - UDP: 5353
-- TCP: 51827 (or the configured/used `port` in the integration settings).
+- TCP: 21063 (or the configured/used `port` in the integration settings).
 
 ## Supported Components
 
@@ -457,6 +442,24 @@ automation:
 ```
 
 ## Troubleshooting
+
+### All or some devices are intermittently unresponsive
+
+HomeKit relies heavily on your home hub to keep track of Bluetooth devices. Additionally, each home hub has to keep track of every HomeKit accessory that you bridge. If you have many accessories, notably cameras or Bluetooth devices, **consider disabling HomeKit on older home hubs**.
+
+The following home hubs showed strong results when testing with 300 accessories:
+
+- HomePod
+- HomePod Mini
+
+The following home hubs showed strong results when testing with 200 accessories:
+
+- Apple TV 4k (best results when using ethernet instead of WiFi)
+
+The following home hubs have been reported to have trouble with a large number of accessories:
+
+- Apple TV HD
+- Various iPad models
 
 ### Resetting when created via YAML
 
@@ -537,10 +540,6 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 
 ### Issues during normal use
 
-#### Some of my devices don't show up - Z-Wave / Discovery
-
-See [disable auto start](#disable-auto-start)
-
 #### My entity doesn't show up
 
 Check if the domain of your entity is [supported](#supported-components). If it is, check your [filter](#configure-filter) settings. Make sure the spelling is correct, especially if you use `include_entities`.
@@ -557,17 +556,13 @@ If you have any iOS 12.x devices signed into your iCloud account, media player e
 
 #### Accessories are all listed as not responding
 
-There are reports where the IGMP settings in a router were causing issues with HomeKit. This resulted in a situation where all of the Home Assistant HomeKit accessories stopped responding a few minutes after Home Assistant (re)started. Double check your router's IGPM settings if you experiencing this issue. The default IGMP settings typically work best.
+There are reports where the IGMP settings in a router were causing issues with HomeKit. This resulted in a situation where all of the Home Assistant HomeKit accessories stopped responding a few minutes after Home Assistant (re)started. Double check your router's IGMP settings if you experiencing this issue. The default IGMP settings typically work best.
 
 See [specific entity doesn't work](#specific-entity-doesnt-work)
 
 #### Accessory not responding - after restart or update
 
 See [resetting accessories](#resetting-accessories)
-
-#### Accessory not responding - randomly
-
-Unfortunately, that sometimes happens at the moment. It might help to close the `Home` App and delete it from the cache. Usually, the accessory should get back to responding after a few minutes at most.
 
 #### The linked battery sensor isn't recognized
 

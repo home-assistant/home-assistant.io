@@ -23,7 +23,7 @@ ha_platforms:
   - switch
 ---
 
-The `tuya` integration is the main integration to integrate [Tuya Smart](https://www.tuya.com) related platforms, except the Zigbee hub. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.
+The `tuya` integration is the main integration to integrate [Tuya Smart](https://www.tuya.com) related platforms, except the Zigbee hub. This includes devices linked with the Tuya, Smart Life, and Jinvoo Smart apps. You will need your account information (username, password and account country code) from one of these apps to discover and control devices which related to your account.
 
 **Important**: Not all Tuya devices are supported by the `tuya API` used by this integration. For more details refer to [TuyaHA Library](https://github.com/PaulAnnekov/tuyaha).
 
@@ -38,7 +38,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-During configuration, be careful to select the [country code](https://www.countrycode.org/) and the platform corresponding to those used by you in the app. Once configuration flow is completed, the devices configured in your app will be automatically discovered.
+During configuration, be careful to select the [country code](https://www.countrycode.org/) and the platform corresponding to those used by you in the app. Once configuration flow is completed, the devices configured in your app will be automatically discovered. Additionally, if your username or e-mail address isn't accepted, please try using your phone number (minus the country code) as your username.
 
 ## Integration Options
 

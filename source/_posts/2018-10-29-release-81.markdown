@@ -5,7 +5,9 @@ date: 2018-10-26 00:01:00
 date_formatted: "October 26, 2018"
 author: Tinkerer
 author_twitter: Dubh_Ad
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-10-release-81/social.png
 ---
 

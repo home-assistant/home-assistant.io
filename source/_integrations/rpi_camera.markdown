@@ -12,6 +12,10 @@ ha_platforms:
 
 The `rpi_camera` integration allows you to integrate the Raspberry Pi camera into Home Assistant. This integration uses the application [`raspistill`](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md) to store the image from camera.
 
+<div class='note'>
+This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
+</div>
+
 ## Configuration
 
 To enable this camera in your installation, add the following to your `configuration.yaml` file:

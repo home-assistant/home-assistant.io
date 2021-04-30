@@ -31,6 +31,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [PyconFR 2018 - Faire de la domotique libriste avec Python](https://www.youtube.com/watch?v=Eu6umBJ51I4) (French) ([Slides](https://hackmd.io/p/BJTSyDkqm)) - October 2018
 - [Build your own smart home with Home Assistant](https://zmonkey.org/blog/files/Home%20Assistant%202018%20v1.0.pdf) at [OpenWest](https://openwest.org) - June 2018
 - [Automate your home with Home Assistant](https://www.youtube.com/watch?v=SSrgi4iHGbs) at [foss-north 2018](https://foss-north.se/2018/speakers-and-talks.html#jparadies) - March 2018
+- [Home Assistant - Smart Home für Jedermann](https://www.youtube.com/watch?v=74oPCh0NS4Y) (German) at [Pi and More 2018](https://piandmore.de/de/conference/pam10-5/schedule/event/305) ([Slides](https://benleb.de/talks/pam105_homeassistant.pdf)) - February 2018
 - [Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/english/2017-qecampX) at QECampX 2017 - October 2017
 - [Open Source Heimautomation mit Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-maker-faire-zurich) at [Mini Maker Faire Zurich 2017](https://www.makerfairezurich.ch/en/) - September 2017
 - [Why we can't have the Internet of Nice Things: A home automation primer](https://www.openwest.org/custom/description.php?id=92) at [OpenWest 2017](https://www.openwest.org) - July 2017

@@ -29,7 +29,7 @@ sensor:
   - platform: rest
     resource: http://IP_ADDRESS/ENDPOINT
     method: POST
-    payload: "{ "device" : "heater" }"
+    payload: '{ "device" : "heater" }'
 ```
 
 or a template based request:
@@ -155,7 +155,7 @@ sensor:
   - platform: rest
     resource: http://ip.jsontest.com
     name: External IP
-    value_template: '{{ value_json.ip }}'
+    value_template: "{{ value_json.ip }}"
 ```
 
 {% endraw %}
@@ -171,7 +171,7 @@ sensor:
   - platform: rest
     resource: http://IP_ADRRESS:61208/api/2/mem/used
     name: Used mem
-    value_template: '{{ value_json.used| multiply(0.000000954) | round(0) }}'
+    value_template: "{{ value_json.used| multiply(0.000000954) | round(0) }}"
     unit_of_measurement: MB
 ```
 
@@ -190,7 +190,7 @@ sensor:
   - platform: rest
     resource: http://IP_ADDRESS:8123/api/states/sensor.weather_temperature
     name: Temperature
-    value_template: '{{ value_json.state }}'
+    value_template: "{{ value_json.state }}"
     unit_of_measurement: "°C"
 ```
 
@@ -252,7 +252,7 @@ sensor:
     username: YOUR_GITHUB_USERNAME
     password: YOUR_GITHUB_ACCESS_TOKEN
     authentication: basic
-    value_template: '{{ value_json.tag_name }}'
+    value_template: "{{ value_json.tag_name }}"
     headers:
       Accept: application/vnd.github.v3+json
       Content-Type: application/json
@@ -275,15 +275,15 @@ sensor:
       - date
       - milliseconds_since_epoch
     resource: http://date.jsontest.com/
-    value_template: '{{ value_json.time }}'
+    value_template: "{{ value_json.time }}"
   - platform: template
     sensors:
       date:
         friendly_name: "Date"
-        value_template: "{{ states.sensor.json_time.attributes["date"] }}"
+        value_template: "{{ state_attr('sensor.json_time', 'date') }}"
       milliseconds:
         friendly_name: "milliseconds"
-        value_template: '{{ states.sensor.json_time.attributes["milliseconds_since_epoch"] }}'
+        value_template: "{{ state_attr('sensor.json_time', 'milliseconds_since_epoch') }}"
 ```
 
 {% endraw %}
@@ -303,7 +303,7 @@ sensor:
       - city
       - zipcode
     resource: https://jsonplaceholder.typicode.com/users
-    value_template: '{{ value_json[0].name }}'
+    value_template: "{{ value_json[0].name }}"
 ```
 
 {% endraw %}
@@ -319,27 +319,27 @@ sensor:
     json_attributes:
       - main
       - weather
-    value_template: '{{ value_json["weather"][0]["description"].title() }}'
+    value_template: "{{ value_json['weather'][0]['description'].title() }}"
     resource: https://api.openweathermap.org/data/2.5/weather?zip=80302,us&APPID=VERYSECRETAPIKEY
   - platform: template
     sensors:
       owm_weather:
-        value_template: '{{ state_attr('sensor.owm_report', 'weather')[0]["description"].title() }}'
-        entity_picture_template: '{{ "https://openweathermap.org/img/w/"+state_attr('sensor.owm_report', 'weather')[0]["icon"].lower()+".png" }}'
+        value_template: "{{ state_attr('sensor.owm_report', 'weather')[0]['description'].title() }}"
+        entity_picture_template: "{{ 'https://openweathermap.org/img/w/' + state_attr('sensor.owm_report', 'weather')[0]['icon'].lower() + '.png' }}"
         entity_id: sensor.owm_report
       owm_temp:
         friendly_name: "Outside temp"
-        value_template: '{{ state_attr('sensor.owm_report', 'main')["temp"]-273.15 }}'
+        value_template: "{{ state_attr(['sensor.owm_report', 'main')['temp'] - 273.15 }}"
         unit_of_measurement: "°C"
         entity_id: sensor.owm_report
       owm_pressure:
         friendly_name: "Outside pressure"
-        value_template: '{{ state_attr('sensor.owm_report', 'main')["pressure"] }}'
+        value_template: "{{ state_attr('sensor.owm_report', 'main')['pressure'] }}"
         unit_of_measurement: "hP"
         entity_id: sensor.owm_report
       owm_humidity:
         friendly_name: "Outside humidity"
-        value_template: '{{ state_attr('sensor.owm_report', 'main')["humidity"] }}'
+        value_template: "{{ state_attr('sensor.owm_report', 'main')['humidity'] }}"
         unit_of_measurement: "%"
         entity_id: sensor.owm_report
 ```
@@ -390,19 +390,19 @@ sensor:
   - platform: template
     sensors:
       bedroom1_temperature:
-        value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["temperature"] }}'
+        value_template: "{{ state_attr('sensor.room_sensors', 'bedroom1')['temperature'] }}"
         device_class: temperature
         unit_of_measurement: "°C"
       bedroom1_humidity:
-        value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["humidity"] }}'
+        value_template: "{{ state_attr('sensor.room_sensors', 'bedroom1')['humidity'] }}"
         device_class: humidity
         unit_of_measurement: "%"
       bedroom1_battery:
-        value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["battery"] }}'
+        value_template: "{{ state_attr('sensor.room_sensors', 'bedroom1')['battery'] }}"
         device_class: battery
         unit_of_measurement: "V"
       bedroom2_temperature:
-        value_template: '{{ states.sensor.room_sensors.attributes["bedroom2"]["temperature"] }}'
+        value_template: "{{ state_attr('sensor.room_sensors', 'bedroom2')['temperature'] }}"
         device_class: temperature
         unit_of_measurement: "°C"
 ```
@@ -433,18 +433,18 @@ sensor:
     sensors:
        steam_temp:
         friendly_name: Steam Temp
-        value_template: '{{ states.sensor.steam_system_data.attributes["temp0"] | regex_findall_index("([0-9]+)XF") }}'
+        value_template: "{{ state_attr('sensor.steam_system_data', 'temp0') | regex_findall_index('([0-9]+)XF') }}"
         unit_of_measurement: "°F"
        steam_time_remaining:
         friendly_name: "Steam Time Remaining"
-        value_template: '{{ states.sensor.steam_system_data.attributes["time0"] }}'
+        value_template: "{{ state_attr('sensor.steam_system_data', 'time0') }}"
         unit_of_measurement: "minutes"
 
 switch:
   - platform: template
     switches:
       steam:
-        value_template: '{{ states.sensor.steam_system_data.attributes["usr0"] | int >= 1 }}'
+        value_template: "{{ state_attr('sensor.steam_system_data', 'usr0') | int >= 1 }}"
         turn_on:
           - service: rest_command.set_steam_led
             data:

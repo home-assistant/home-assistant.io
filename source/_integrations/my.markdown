@@ -6,6 +6,7 @@ ha_category:
 ha_release: 2021.3
 ha_domain: my
 ha_iot_class:
+ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ---
