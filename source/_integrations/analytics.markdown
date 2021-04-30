@@ -59,7 +59,8 @@ _Requires basic analytics to be enabled._
 
 This includes:
 
-- The names of all your integrations
+- The names of all your core integrations
+- The names and versions of all your custom integrations if you have any
 
 If your system includes the Supervisor, this will also contain:
 
