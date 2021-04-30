@@ -1,13 +1,15 @@
 ---
 title: Leviton Decora Wi-Fi
-description: Instructions on how to setup Leviton Decora Smart Wi-Fi switches/dimmers within Home Assistant.
+description: Instructions on how to setup Leviton Decora Smart Wi-Fi switches/dimmers/fan controllers within Home Assistant.
 ha_category:
   - Light
+  - Fan
 ha_iot_class: Cloud Polling
 ha_release: 0.51
 ha_domain: decora_wifi
 ha_platforms:
   - light
+  - fan
 ---
 
 Support for [Leviton Decora Wi-Fi](https://www.leviton.com/en/products/lighting-controls/decora-smart-with-wifi) dimmers/switches via the MyLeviton API.
@@ -23,6 +25,20 @@ To enable these lights, add the following lines to your `configuration.yaml` fil
 ```yaml
 # Example configuration.yaml entry
 light:
+  - platform: decora_wifi
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+```
+
+Supported Fan Controller (tested):
+
+- [DW4SF-1BW](https://www.leviton.com/en/products/dw4sf) (Decora Smart Wi-Fi Fan Speed Controller)
+
+To enable fan controllers, add the following lines to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+Fan:
   - platform: decora_wifi
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
