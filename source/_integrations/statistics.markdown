@@ -1,17 +1,14 @@
 ---
 title: Statistics
 description: Instructions on how to integrate statistical sensors into Home Assistant.
+logo: home-assistant.png
 ha_category:
   - Utility
-  - Sensor
 ha_iot_class: Local Polling
 ha_release: '0.30'
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
-ha_domain: statistics
-ha_platforms:
-  - sensor
 ---
 
 The `statistics` sensor platform observes the state of a source sensor and provides statistical characteristics about its recent past. This integration can be quite useful in automations, e.g., to trigger an action when the number of brewed coffee over a day gets too high (see `total`) or when the air humidity in the bathroom settles after a hot shower (see `change`).
@@ -93,5 +90,5 @@ precision:
 {% endconfiguration %}
 
 <p class='img'>
-  <img src='/images/screenshots/stats-sensor.png' />
+  <img src='{{site_root}}/images/screenshots/stats-sensor.png' />
 </p>
