@@ -41,7 +41,7 @@ a service to create a visual notification with.
 This service also works when the light is turned off and will turn off the
 light after the identification sequence has been completed.
 
-{% my developer_call_service badge service="service=elgato.identify" %}
+{% my developer_call_service badge service="elgato.identify" %}
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
