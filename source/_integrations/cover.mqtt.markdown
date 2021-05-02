@@ -168,7 +168,7 @@ position_open:
   type: integer
   default: 100
 position_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `position_topic` topic."
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `position_topic` topic. Within the template the following variables are available for the calculation of the position: __entity__, The ID of the entity itself. It can be used to reverence its attribuetes; __position_open__; __position_closed__; __tilt_min__; __tilt_max__"
   required: false
   type: string
 position_topic:
@@ -186,21 +186,9 @@ retain:
   type: boolean
   default: false
 set_position_template:
-  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. 
-  Following variables are available inside the template:
-  |Variable-name  |Description  |
-  --- | --- 
-  |postition|The target position in percent|
-  |entity|The entity-ID of the current entyty; can be used to reverence all attributes of the entity|
-  |position_open|value as defines, else 100%|
-  |position_closed|value as defines, else 0%|
-  |tilt_min|value as defines, else 0%|
-  |tilt_max|value as defines, else 100%|
-  
-  If no template is defined, the position (0-100) will be calculated according to `position_open` and `position_closed` values."
+  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. Within the template the following variables are available for the calculation of the set-position: __position__, the set-position in percent; __entity__, The ID of the entity itself. It can be used to reverence its attribuetes; __position_open__; __position_closed__; __tilt_min__; __tilt_max__. If no template is defined, the position (0-100) will be calculated according to `position_open` and `position_closed` values."
   required: false
   type: string
-  
 set_position_topic:
   description: "The MQTT topic to publish position commands to. You need to set position_topic as well if you want to use position topic. Use template if position topic wants different values than within range `position_closed` - `position_open`. If template is not defined and `position_closed != 100` and `position_open != 0` then proper position value is calculated from percentage position."
   required: false
@@ -240,17 +228,13 @@ tilt_closed_value:
   type: integer
   default: 0
 tilt_command_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_command_topic` topic."
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_command_topic` topic. Within the template the following variables are available for the calculation of the position: __tilt_position__, the target tilt position in percent; __entity__, The ID of the entity itself. It can be used to reverence its attribuetes; __position_open__; __position_closed__; __tilt_min__; __tilt_max__."
   required: false
   type: string
 tilt_command_topic:
   description: The MQTT topic to publish commands to control the cover tilt.
   required: false
   type: string
-tilt_from_position:
-  description: Calculate the tilt value  from the change of the position and vice versa. This is useful for Venetian blinds, that don't have a topic for the tilt. It takes the value from `tilt_max` as the percentage that it takes for a full turn of the slats. It cannot be used together with `tilt_command_topic`.
-  required: false
-  type: boolean
 tilt_max:
   description: The maximum tilt value.
   required: false
@@ -272,7 +256,7 @@ tilt_optimistic:
   type: boolean
   default: "`true` if `tilt_status_topic` is not defined, else `false`"
 tilt_status_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic."
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic. Within the template the following variables are available for the calculation of the position: __entity__, The ID of the entity itself. It can be used to reverence its attribuetes; __position_open__; __position_closed__; __tilt_min__; __tilt_max__."
   required: false
   type: string
 tilt_status_topic:
