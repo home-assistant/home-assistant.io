@@ -186,9 +186,21 @@ retain:
   type: boolean
   default: false
 set_position_template:
-  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. If no template is defined, the position (0-100) will be calculated according to `position_open` and `position_closed` values."
+  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. 
+  Following variables are available inside the template:
+  |Variable-name  |Description  |
+  --- | --- 
+  |postition|The target position in percent|
+  |entity|The entity-ID of the current entyty; can be used to reverence all attributes of the entity|
+  |position_open|value as defines, else 100%|
+  |position_closed|value as defines, else 0%|
+  |tilt_min|value as defines, else 0%|
+  |tilt_max|value as defines, else 100%|
+  
+  If no template is defined, the position (0-100) will be calculated according to `position_open` and `position_closed` values."
   required: false
   type: string
+  
 set_position_topic:
   description: "The MQTT topic to publish position commands to. You need to set position_topic as well if you want to use position topic. Use template if position topic wants different values than within range `position_closed` - `position_open`. If template is not defined and `position_closed != 100` and `position_open != 0` then proper position value is calculated from percentage position."
   required: false
