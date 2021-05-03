@@ -57,7 +57,7 @@ processes.
 
 ## Code Editor bug & Safari
 
-We are aware of bug with CodeMirror, the code editor in Home Assistant F
+We are aware of bug with CodeMirror, the code editor in Home Assistant 
 used for things like YAML, when using the Safari browser.
 
 We currently advise not to use Safari when using the code editor in
