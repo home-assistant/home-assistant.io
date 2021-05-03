@@ -749,22 +749,27 @@ To use your Modbus lights in your installation, add the following to your `confi
 ```yaml
 # Example configuration.yaml entry
 modbus:
-  - name: hub1
-    type: tcp
+  - type: tcp
     host: IP_ADDRESS
     port: 502
     lights:
       - name: Light1
         address: 13
-        input_type: coil
+        write_type: coil
       - name: Light2
         slave: 2
         address: 14
-        input_type: coil
+        write_type: coil
+        verify:
       - name: Register1
         address: 11
         command_on: 1
         command_off: 0
+        verify:
+            input_type: holding
+            address: 127
+            state_on: 25
+            state_off: 1
 ```
 
 {% configuration %}
@@ -778,20 +783,22 @@ lights:
       required: true
       type: integer
     command_on:
-      description: Value to write to turn on the switch.
-      required: true
+      description: Value to write to turn on the light.
+      required: false
+      default: 0x01
       type: integer
     command_off:
-      description: Value to write to turn off the switch.
-      required: true
+      description: Value to write to turn off the light.
+      required: false
+      default: 0x00
       type: integer
-    input_type:
-      description: type of adddress (holding/discrete/coil)
+    write_type:
+      description: type of adddress (holding/coil)
       required: false
       default: holding
       type: integer
     name:
-      description: Name of the switch.
+      description: Name of the light.
       required: true
       type: string
     scan_interval:
@@ -801,33 +808,39 @@ lights:
       default: 15
     slave:
       description: The number of the slave (can be omitted for tcp and udp Modbus).
-      required: true
+      required: false
       type: integer
-    state_on:
-      description: Register value when switch is on.
+      default: 0
+    verify:
+      description: read from modbus device to verify light.
       required: false
-      default: same as command_on
-      type: integer
-    state_off:
-      description: Register value when switch is off.
-      required: false
-      default: same as command_off
-      type: integer
-    verify_register:
-      description: Register to readback.
-      required: false
-      default: same as register
-      type: string
-    verify_state:
-      description: Define if is possible to readback the status of the switch.
-      required: false
-      default: true
-      type: boolean
+      type: map
+      keys:
+        address:
+          description: address to read from. 
+          required: false
+          default: write address
+          type: integer
+        input_type:
+          description: type of adddress (holding/coil/discrete/input)
+          required: false
+          default: write_type
+          type: integer
+        state_on:
+          description: value when light is on.
+          required: false
+          default: same as command_on
+          type: integer
+        state_off:
+          description: value when light is off.
+          required: false
+          default: same as command_off
+          type: integer
 {% endconfiguration %}
 
 #### Full example
 
-Example lights, for which the state is polled from Modbus every 15 seconds.
+Example lights, for which the state is not polled.
 
 ```yaml
 modbus:
@@ -835,7 +848,7 @@ modbus:
     type: tcp
     host: IP_ADDRESS
     port: 502
-    lights:
+    switches:
       - name: Light1
         slave: 1
         address: 13
