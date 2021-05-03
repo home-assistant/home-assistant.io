@@ -484,6 +484,8 @@ Using custom sensors is deprecated and not possible using the UI. Feel free to
 submit additional sensors to be added as standard sensors to the
 [pysma library](https://github.com/kellerza/pysma/blob/master/pysma/__init__.py#L100).
 
+The `pv_power` sensor is now reporting DC power of solar panels side A and named `pv_power_a` for new installations. `grid_power` is the total power supplied to the grid.
+
 ([@rklomp] - [#48003])
 
 {% enddetails %}
