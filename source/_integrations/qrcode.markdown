@@ -45,14 +45,15 @@ source:
 An automation using this integration could look like this:
 
 ```yaml
-- alias: 'Catch QR code and arm the alarm system'
-  trigger:
-    platform: state
-    entity_id: image_processing.qr_front_door
-    to: !secret arm_qr_code_value
-  action:
-    service: alarm_control_panel.alarm_arm_away
-    entity_id: alarm_control_panel.home_alarm
-    data:
-      code: !secret my_alarm_code
+automation:
+  - alias: 'Catch QR code and arm the alarm system'
+    trigger:
+      platform: state
+      entity_id: image_processing.qr_front_door
+      to: !secret ARM_QR_CODE_VALUE
+    action:
+      service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.home_alarm
+      data:
+        code: !secret MY_ALARM_CODE
 ```
