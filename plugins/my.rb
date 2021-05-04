@@ -33,6 +33,7 @@ module Jekyll
         query += [["addon", options[:addon]]] if options.include? :addon
         query += [["blueprint_url", options[:blueprint_url]]] if options.include? :blueprint_url
         query += [["domain", options[:domain]]] if options.include? :domain
+        query += [["repository_url", options[:repository_url]]] if options.include? :repository_url
         query += [["service", options[:service]]] if options.include? :service
         unless query.empty?
             uri.query = URI.encode_www_form(query)

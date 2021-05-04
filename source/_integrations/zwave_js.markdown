@@ -287,7 +287,7 @@ These are notification events fired by devices using the Entry Control command c
 }
 ```
 
-## Scene events (Value Notification)
+### Scene events (Value Notification)
 
 Value Notifications are used for stateless values, like `Central Scenes` and `Scene Activation`. These events fire with the `zwave_js_value_notification` event type.
 
