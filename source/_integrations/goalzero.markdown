@@ -14,7 +14,7 @@ ha_codeowners:
   - '@tkdrob'
 ---
 
-This `goalzero` integration pulls data from a Wifi enabled Goal Zero Yeti.
+This Goal Zero Yeti integration pulls data from a Wifi-enabled [Goal Zero Yeti](https://www.goalzero.com).
 
 {% include integrations/config_flow.md %}
 
