@@ -25,7 +25,7 @@ title:
   description: The card title.
   type: string
 image:
-  required: false
+  required: true
   description: Background image URL.
   type: string
 camera_image:
