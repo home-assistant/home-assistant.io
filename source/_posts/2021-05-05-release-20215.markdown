@@ -263,7 +263,7 @@ noteworthy changes this release:
 - The ZHA integration now has configuration options in the UI, allowing you
   to set things like default transition times for your lights.
   Thanks [@dmulcahey]!
-- The Z-Wave JS integration now allows you to Re-interview a device from the
+- The Z-Wave JS integration now allows you to re-interview a device from the
   UI thanks to [@cgarwood].
 - [@cgarwood] didn't stop there, you can now opt-in for sending Z-Wave JS
   telemetry to the Z-Wave JS project to help them out. This can be turned
