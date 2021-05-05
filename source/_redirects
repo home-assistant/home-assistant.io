@@ -1064,7 +1064,6 @@
 /components/weather.ipma /integrations/ipma
 /components/weather.met /integrations/met
 /components/weather.meteo_france /integrations/meteo_france
-/components/weather.meteoclimatic /integrations/meteoclimatic
 /components/weather.metoffice /integrations/metoffice
 /components/weather.openweathermap /integrations/openweathermap#weather
 /components/weather.smhi /integrations/smhi
