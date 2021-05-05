@@ -243,8 +243,7 @@ cryptographic proof and verification.
 If you are running the Home Assistant Operating System or a Supervised
 installation type, we already check the integrity of our distributed content.
 If you running the Container installation, you can install the
-[VCN](https://github.com/codenotary/vcn) tool by running
-`bash <(curl https://getvcn.codenotary.io -L)`.
+[VCN](https://github.com/codenotary/vcn) tool.
 
 Now you can use it like so:
 
