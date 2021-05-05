@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2021.5: Stability, "
+title: "2021.5: Stability, performance, triggers, color modes!"
 description: "Improved database and start up handling, an updated look and feel for the integrations dashboard and color modes for lights!"
 date: 2021-05-05 00:00:00
 date_formatted: "May 5, 2021"
