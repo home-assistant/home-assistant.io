@@ -58,7 +58,7 @@ tap_action:
       default: none
     target:
       required: false
-      description: "Service target when `action` defined as `call-service`" (see [Service Targets](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/#service-targets))
+      description: "Service target when `action` defined as `call-service` (see [Service Targets](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/#service-targets))"
       type: list
       default: none
     confirmation:
@@ -110,7 +110,7 @@ hold_action:
       default: none
     target:
       required: false
-      description: "Service target when `action` defined as `call-service`" (see [Service Targets](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/#service-targets))
+      description: "Service target when `action` defined as `call-service` (see [Service Targets](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/#service-targets))"
       type: list
       default: none
     confirmation:
@@ -162,7 +162,7 @@ double_tap_action:
       default: none
     target:
       required: false
-      description: "Service target when `action` defined as `call-service`" (see [Service Targets](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/#service-targets))
+      description: "Service target when `action` defined as `call-service` (see [Service Targets](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/#service-targets))"
       type: list
       default: none
     confirmation:
