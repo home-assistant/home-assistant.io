@@ -65,7 +65,7 @@ vapid_prv_key:
   required: true
   type: string
 vapid_email:
-  description: The e-mail account associated with your Firebase project, [see configuring the platform](#configuring-the-platform).
+  description: The e-mail account of your Google account associated with your Firebase project, [see configuring the platform](#configuring-the-platform).
   required: true
   type: string
 gcm_api_key:
@@ -99,7 +99,7 @@ The `html5` platform can only function if all of the following requirements are 
 6. Select the ['Cloud Messaging' tab](https://console.firebase.google.com/project/_/settings/cloudmessaging).
 7. Generate a new key pair under the Web configuration listing at the bottom of the page. To view the private key click the three dots to the right and 'Show private key'.
 8. Select the ['Service Accounts' tab](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk).
-9. Get the email address for the project under the text that says "Firebase service account".
+9. Get the email address for the project under the text that says "Firebase service account" for reference. This is not what you have to insert in `vapid_email`! You'll have to insert your Google account e-mail there.
 
 ### Setting up your browser
 
