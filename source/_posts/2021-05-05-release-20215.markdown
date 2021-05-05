@@ -128,27 +128,24 @@ custom integration (they show a little package label).
 
 ## Color modes!
 
-TODO:
-- Make story out of it
-- Add screenshot
+We now have support for RGBWW, RGBW and many more color modes!
 
-We now have support RGBWW, RGBW and many more color modes! Previously, we
-relied mainly on HS & Brightness (HSB/HSV) and colors in Home Assistant was
-based on that. But now, an integration can provide the actual color mode an
-light supports. This allow Home Assistant (and integration to adjust the
-behavior for the light better.
+Previously, we relied mainly on HS (Hue Saturation) & Brightness (HSB/HSV)
+and colors in Home Assistant was based on that. But now, an integration can
+provide the actual color mode an light supports. This allows Home Assistant
+(and integrations) to adjust the behavior for the light better.
 
 For example, the frontend will adjust the color picker based on the color mode
-of the light.
+of the light. The more info dialog for lights have been modernized to support
+this change:
 
-<insert screenshot>
+<p class='img'>
+<img src='/images/blog/2021-05/rgbww-light.png' alt='Screenshot of the updated more info dialog for lights'>
+Screenshot of the updated more info dialog for lights.
+</p>
 
-At this moment not all integrations are able to support color modes yet.
-
-<!--<p class='img'>
-<img src='/images/blog/2021-05/automation-tracing.png' alt='Screenshot of lorem ipsum'>
-Screenshot of lorem ipsum.
-</p>-->
+Please notes, that at this moment not all integrations are able to support color
+modes yet. However, all lights do have an nice updated UI as in the screenshot.
 
 ## Docker
 
@@ -193,7 +190,6 @@ Backend things/candidates:
 - Support all available Google Cloud TTS languages ([@hmmbob] - [#49208]) ([google_cloud docs])
 - Add binary sensor platform to Rituals Perfume Genie Integration ([@milanmeu] - [#49207]) ([rituals_perfume_genie docs]) (new-platform)
 - Add support for multiple AdGuard instances ([@eifinger] - [#49116]) ([adguard docs])
-- Add alarm control panel support to deCONZ integration ([@Kane610] - [#48736]) ([deconz docs]) (new-platform)
 - Skip recorder commit if there is nothing to do ([@bdraco] - [#49614]) ([recorder docs])
 - Add battery support for Sonos speakers ([@jjlawren] - [#49441]) ([sonos docs]) (new-platform)
 - Add Blueprint foundation to Scripts ([@frenck] - [#48621]) ([config docs]) ([script docs])
