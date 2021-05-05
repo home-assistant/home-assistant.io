@@ -37,7 +37,7 @@ Lorem ipsum
 
 ## Database upgrades & performance
 
-There is a database upgrade this release, but worry not as database upgrades
+There is a database upgrade in this release, but worry not as database upgrades
 now happen in the background and no longer prevent Home Assistant from starting.
 During migration, Home Assistant will prevent being restarted or stopped until 
 the migration has been completed.
@@ -46,12 +46,12 @@ Thanks to [@lmagyar] and [@raman325] we now can store events up to
 64 characters and the recorder won’t get stuck if there is one exceeding that
 length.
 
-And if you have ever had to wait for the recorder to shutdown, worry no more
+And if you have ever had to wait for the recorder to shut down, worry no more
 as Home Assistant can now shut down successfully, even when the database is
 broken.
 
 Talking about broken databases: if you have ever had database corruption of
-your sqlite database, you probably know how much of a pain it is to get things
+your SQLite database, you probably know how much of a pain it is to get things
 back up and running again. We recently added live recovery to allow
 Home Assistant to recover and start a new database when the recorder encountered
 corruption when saving events or states to the database. This release extends
