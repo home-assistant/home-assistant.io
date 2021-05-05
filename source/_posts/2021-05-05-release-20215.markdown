@@ -63,7 +63,7 @@ want to tell me who it is...)
 
 There is a database upgrade in this release, but worry not as database upgrades
 now happen in the background and no longer prevent Home Assistant from starting.
-During migration, Home Assistant will prevent being restarted or stopped until 
+During migration, Home Assistant will prevent being restarted or stopped until
 the migration has been completed.
 
 Thanks to [@lmagyar] and [@raman325] we now can store events up to
@@ -177,47 +177,31 @@ In the previous release, we introduced a trigger-based template sensor. This
 release extends on that features by adding support for trigger-based binary
 sensors using templates.
 
-This is an example of a webhook that is creating multiple template (binary)
-sensors:
+Trigger-based binary sensors can also be configured with an `auto_off` duration. This will automatically turn a binary sensor state to `off` after the specified duration.
 
 {% raw %}
 
 ```yaml
 template:
   - trigger:
-      - platform: webhook
-        webhook_id: my-super-secret-webhook-id
-    sensor:
-      - name: "Webhook Temperature"
-        state: "{{ trigger.json.temperature }}"
-        unit_of_measurement: °C
-      - name: "Webhook Humidity"
-        state: "{{ trigger.json.humidity }}"
-        unit_of_measurement: %
+      - platform: event
+        event_type: netatmo_event
+        event_data:
+          type: movement
     binary_sensor:
       - name: "Motion"
-        state: "{{ trigger.json.motion }}"
+        # We use auto_off, so just set it to true on each trigger
+        state: "true"
         device_class: motion
+        # Automatically turn off 60 seconds after the last event
+        auto_off: 60
 ```
 
 {% endraw %}
 
-The above template would create 2 sensors, and one binary sensor based on
-JSON data it receives via a webhook and could be triggered using this command:
-
-```bash
-curl --header "Content-Type: application/json" \
-  --request POST \
-  --data '{"temperature": 5, "humidity": 34, "motion": true}' \
-  http://homeassistant.local:8123/api/webhook/my-super-secret-webhook-id
-```
-
-So, webhooks is one example, but you can do tons of things with this magic!
-
 Some other ideas:
 
-- You could create a binary sensor from any event in Home
-  Assistant event (e.g., a motion sensor event)
+- [Store webhook information in Home Assistant](/integrations/template/#storing-webhook-information)
 - One that updates based on a time trigger once a day
   (e.g., "Is is my birthday? binary sensor).
 
