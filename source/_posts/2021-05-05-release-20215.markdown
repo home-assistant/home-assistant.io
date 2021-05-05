@@ -1342,6 +1342,8 @@ their data, which is not allowed for core integrations.
 - Add color_mode support to tasmota light ([@emontnemery] - [#49599]) ([tasmota docs]) (breaking-change) (beta fix)
 - Fix fitbit RuntimeError: I/O must be done in the executor ([@vlebourl] - [#50058]) ([fitbit docs]) (beta fix)
 - Bump motioneye-client to v0.3.6 . ([@dermotduffy] - [#50096]) ([motioneye docs]) (beta fix)
+- Remove surepetcare usage of deprecated config options ([@benleb] - [#50113]) ([surepetcare docs]) (beta fix)
+- Fix Tasmota color scaling and RGBW lights ([@emontnemery] - [#50120]) ([tasmota docs]) (beta fix)
 
 {% enddetails %}
 
@@ -1901,6 +1903,8 @@ their data, which is not allowed for core integrations.
 [#50064]: https://github.com/home-assistant/core/pull/50064
 [#50093]: https://github.com/home-assistant/core/pull/50093
 [#50096]: https://github.com/home-assistant/core/pull/50096
+[#50113]: https://github.com/home-assistant/core/pull/50113
+[#50120]: https://github.com/home-assistant/core/pull/50120
 [@AaronDavidSchneider]: https://github.com/AaronDavidSchneider
 [@Adminiuga]: https://github.com/Adminiuga
 [@Bouni]: https://github.com/Bouni
