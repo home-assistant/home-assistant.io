@@ -173,11 +173,13 @@ modes yet. However, all lights do have an nice updated UI as in the screenshot.
 
 ## Tigger-based binary template sensor
 
-In the previous release, we introduced a trigger-based template sensor. This
-release extends on that features by adding support for trigger-based binary
-sensors using templates.
+In the [previous release][previous], we introduced a trigger-based template
+sensor. This release extends on that features by adding support for
+trigger-based binary sensors using templates.
 
-Trigger-based binary sensors can also be configured with an `auto_off` duration. This will automatically turn a binary sensor state to `off` after the specified duration.
+Trigger-based binary sensors can also be configured with an `auto_off` duration.
+This will automatically turn a binary sensor state to `off` after the specified
+duration.
 
 {% raw %}
 
