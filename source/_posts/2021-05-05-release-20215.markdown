@@ -111,19 +111,19 @@ Thanks for {% my general title="turning on analytics" %}!
 
 ## Updated look and feel for the integration dashboard
 
-TODO:
-
-- Screenshot
-- Improve flow/writing
-
 The {% my integrations title="Integrations dashboard" %} has been updated to
-have a more compacted look and provide more useful information.
+have a more compact look and provide more useful information.
 
 For example, it now shows the state of the integration and in case of a
 failure, it will now tell you why that is.
 
+<p class='img'>
+<img src='/images/blog/2021-05/integrations-dashboard.png' alt='Screenshot of the updated integrations dashboard'>
+Screenshot of the updated integrations dashboard.
+</p>
+
 Additionally, you can now recognize integrations that rely on the cloud
-(they show a little cloud label) and integration that are installed as
+(they show a little cloud label) and integrations that are installed as
 custom integration (they show a little package label).
 
 ## Color modes!
