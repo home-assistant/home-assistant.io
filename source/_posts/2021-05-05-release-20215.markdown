@@ -16,27 +16,7 @@ feedback: true
 
 <!--<a href='/integrations/#version/2021.5'><img src='/images/blog/2021-05/social.png' style='border: 0;box-shadow: none;'></a>-->
 
-These are the beta release notes for Home Assistant Core 2021.5 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-description (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
-This release we did an exhaustive review of the startup, shutdown, and upgrade
-processes.
+Lorem ipsum
 
 - [Code Editor bug & Safari](#code-editor-bug--safari)
 - [Database upgrades & performance](#database-upgrades--performance)
