@@ -124,8 +124,8 @@ We adjusted timeouts and fixed a few places where shutdown would block
 forever, for example, when restarting Home Assistant the configuration gets
 checked and there was a case that could hang in this check forever.
 
-This means restarts are faster now! as more parts of Home Assistant now
-cancel/react to the shutdown procedure better
+This means restarts are faster now! As more parts of Home Assistant now
+cancel/react to the shutdown procedure better than before
 (from the Month of [What the Heck][wth]).
 
 We also audited the top 35 integrations to make sure they stop polling on stop.
@@ -171,7 +171,7 @@ Screenshot of the updated more info dialog for lights.
 Please notes, that at this moment not all integrations are able to support color
 modes yet. However, all lights do have an nice updated UI as in the screenshot.
 
-## Tigger-based binary template sensor
+## Trigger-based binary template sensor
 
 In the [previous release][previous], we introduced a trigger-based template
 sensor. This release extends on that features by adding support for
@@ -205,7 +205,7 @@ Some other ideas:
 
 - [Store webhook information in Home Assistant](/integrations/template/#storing-webhook-information)
 - One that updates based on a time trigger once a day
-  (e.g., "Is is my birthday? binary sensor).
+  (e.g., "Is is my birthday?" binary sensor).
 
 [previous]: /blog/2021/04/07/release-20214/#trigger-based-template-sensors
 
