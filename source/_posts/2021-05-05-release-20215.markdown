@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2021.5: Beta release notes"
-description: "Beta release notes for Home Assistant 2021.5"
-date: 2021-04-28 00:00:00
+title: "2021.5: "
+description: ""
+date: 2021-05-05 00:00:00
 date_formatted: "May 5, 2021"
 author: Franck Nijhof
 author_twitter: frenck
@@ -14,7 +14,7 @@ og_image: /images/blog/2021-05/social.png
 feedback: true
 ---
 
-<!--<a href='/integrations/#version/2021.5'><img src='/images/blog/2021-05/social.png' style='border: 0;box-shadow: none;'></a>-->
+<a href='/integrations/#version/2021.5'><img src='/images/blog/2021-05/social.png' style='border: 0;box-shadow: none;'></a>
 
 Lorem ipsum
 
@@ -647,6 +647,39 @@ to get the old behavier and give you time for using the docker way to map/use de
 
 {% enddetails %}
 
+{% details "Light profiles" %}
+
+When a light entity has a default profile associated, the default profile will
+only be applied for the `light.turn_on` service call when the light state is
+off or no data is sent with the service call.
+
+The transition attribute from the default profile in `light_profiles.csv` will
+also be applied when `light.turn_off` is called.
+
+([@karliemeads] - [#49376]) ([light docs])
+
+{% enddetails %}
+
+{% details "SimpliSafe" %}
+
+The unpublished SimpliSafe cloud API no longer provides a functioning websocket.
+Therefore, the integration will no longer be able to receive `SIMPLISAFE_EVENT`
+or `SIMPLISAFE_NOTIFICATION` events, nor will it be possible for stage changes
+performed outside of Home Assistant (e.g., via the keypad) to be reflected in
+Home Assistant in near-realtime.
+
+([@bachya] - [#49876]) ([simplisafe docs])
+
+{% enddetails %}
+
+{% details "Tasmota" %}
+
+Tasmota lights no longer supports deprecated white_value, use `rgbw_color`
+instead.
+
+([@emontnemery] - [#49599]) ([tasmota docs])
+
+{% enddetails %}
 
 ## Farewell to the following
 
