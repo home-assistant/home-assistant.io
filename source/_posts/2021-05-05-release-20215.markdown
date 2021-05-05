@@ -253,6 +253,9 @@ For now, we have a fallback environment variable `USING_UDEV=1` which you can
 set on your container to get the old behavior. This gives you time for using
 the Docker way to map/use devices.
 
+If you run a system that uses the Supervisor, this is automatically taken
+care of.
+
 ([@pvizeli]- [#180])
 
 [#180]: https://github.com/home-assistant/docker/pull/180
