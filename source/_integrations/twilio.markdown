@@ -6,6 +6,7 @@ ha_category:
 ha_release: '0.40'
 ha_config_flow: true
 ha_domain: twilio
+ha_iot_class: Cloud Push
 ---
 
 The `twilio` integration enables the sending of notifications via SMS and the creation of calls with [Twilio](https://twilio.com).
@@ -58,5 +59,6 @@ automation:
       action: call_service
   action:
     service: light.turn_on
-    entity_id: light.office
+    target:
+      entity_id: light.office
 ```

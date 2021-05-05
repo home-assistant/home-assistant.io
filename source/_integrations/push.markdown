@@ -8,6 +8,8 @@ ha_release: 0.74
 ha_codeowners:
   - '@dgomes'
 ha_domain: push
+ha_platforms:
+  - camera
 ---
 
 The `push` camera platform allows you to integrate images sent over HTTP POST to Home Assistant as a camera. External applications/daemons/scripts are therefore able to "stream" images through Home Assistant.
@@ -22,7 +24,7 @@ The `push` camera can as an example be used with [motionEye](https://github.com/
 
 In motionEye, under **File Storage -> Run A Command** type in:
 ```bash
-curl -X POST -F "image=@%f" http://my.hass.server.com:8123/api/webhoo\k/my_custom_webhook_id
+curl -X POST -F "image=@%f" http://my.hass.server.com:8123/api/webhook/my_custom_webhook_id
 # inserting a backslash in the middle of "webhook" stops Motion to move the command to a webhook
 ```
 

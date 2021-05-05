@@ -4,10 +4,13 @@ description: Instructions on how to add Telegram notifications to Home Assistant
 ha_category:
   - Notifications
 ha_release: 0.7.5
+ha_iot_class: Cloud Polling
 ha_domain: telegram
+ha_platforms:
+  - notify
 ---
 
-The `telegram` platform uses [Telegram](https://web.telegram.org) to deliver notifications from Home Assistant to your Android device, your Windows phone, or your iOS device.
+The `telegram` platform uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
 
 ## Setup
 
@@ -15,7 +18,7 @@ The requirements are:
 
 - You need a [Telegram bot](https://core.telegram.org/bots). Please follow those [instructions](https://core.telegram.org/bots#6-botfather) to create one and get the token for your bot. Keep in mind that bots are not allowed to contact users. You need to make the first contact with your user. Meaning that you need to send a message to the bot from your user.
 - You need to configure a [Telegram bot in Home Assistant](/integrations/telegram_bot) and define there your API key and the allowed chat ids to interact with.
-- The `chat_id` of an allowed user. 
+- The `chat_id` of an allowed user or group to which the bot is added.
 
 **Method 1:** You can get your `chat_id` by sending any message to the [GetIDs bot](https://t.me/getidsbot).
 
@@ -75,14 +78,20 @@ telegram_bot:
   - platform: polling
     api_key: YOUR_API_KEY
     allowed_chat_ids:
-      - CHAT_ID_1
-      - CHAT_ID_2
+      - CHAT_ID_1 # example: 123456789 for the chat_id of a user
+      - CHAT_ID_2 # example: -987654321 for the chat_id of a group
       - CHAT_ID_3
 
 # Example configuration.yaml entry for the notifier
 notify:
-  - name: NOTIFIER_NAME
-    platform: telegram
+  - platform: telegram
+    name: NOTIFIER_NAME
+    chat_id: CHAT_ID_1
+    
+  # It is possible to add multiple notifiers by using another chat_id
+  # the example belows shows an additional notifier which sends messages to the bot which is added to a group
+  - platform: telegram
+    name: NOTIFIER_NAME_OF_GROUP
     chat_id: CHAT_ID_2
 ```
 
@@ -97,7 +106,7 @@ name:
   default: notify
   type: string
 chat_id:
-  description: The chat ID of your user.
+  description: The chat ID of the users or group
   required: true
   type: integer
 {% endconfiguration %}
@@ -111,7 +120,7 @@ To use notifications, please see the [getting started with automation page](/get
 action:
   service: notify.NOTIFIER_NAME
   data:
-    title: '*Send a message*'
+    title: "*Send a message*"
     message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
     data:
       inline_keyboard:
@@ -151,7 +160,7 @@ action:
       photo:
         - url: http://192.168.1.28/camera.jpg
           username: admin
-          password: secrete
+          password: secret
         - file: /tmp/picture.jpg
           caption: Picture Title xy
         - url: http://somebla.ie/video.png
@@ -207,7 +216,7 @@ Since Home Assistant version 0.48 you have to [whitelist the source folder](/doc
 configuration.yaml
 ...
 homeassistant:
-  whitelist_external_dirs:
+  allowlist_external_dirs:
     - /tmp
     - /home/kenji/data
 ```
@@ -227,7 +236,7 @@ action:
       video:
         - url: http://192.168.1.28/camera.mp4
           username: admin
-          password: secrete
+          password: secret
         - file: /tmp/video.mp4
           caption: Video Title xy
         - url: http://somebla.ie/video.mp4

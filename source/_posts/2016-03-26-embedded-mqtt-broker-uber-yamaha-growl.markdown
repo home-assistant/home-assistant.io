@@ -5,10 +5,12 @@ date: 2016-03-26 0:10:00 -0700
 date_formatted: "March 26, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
-Party people, 0.16 is here! The big thing with this release is that we have completely removed the barrier to get started by MQTT by being able to launch an embedded MQTT server: [hbMQTT]. Just add `mqtt:` to your config and a broker is launched and connected with Home Assistant. See the [documentation][embedded server] for more info.
+Party people, 0.16 is here! The big thing with this release is that we have completely removed the barrier to get started by MQTT by being able to launch an embedded MQTT server: [hbMQTT]. Just add `mqtt:` to your config and a broker is launched and connected with Home Assistant.
 
 Further in this release a bunch of cool new stuff, bug fixes and rewrites for the Vera and Tellstick component (see breaking changes section at bottom for this!).
 
@@ -49,7 +51,6 @@ Rock on.
 [@robbiet480]: https://github.com/robbiet480
 [@srcLurker]: https://github.com/srcLurker
 [@stefan-jonasson]: https://github.com/stefan-jonasson
-[embedded server]: /integrations/mqtt/#use-the-embedded-broker
 [Arduino]: /integrations/arduino#switch
 [Discovery]: /integrations/discovery/
 [Growl (GNTP)]: /integrations/gntp

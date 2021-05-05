@@ -5,7 +5,9 @@ date: 2019-01-23 00:01:02
 date_formatted: "January 23, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-01-lovelace/demo.png
 ---
 

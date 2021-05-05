@@ -6,85 +6,41 @@ ha_category:
 ha_release: 0.27
 ha_iot_class: Local Polling
 ha_domain: fritzbox_callmonitor
+ha_config_flow: true
+ha_platforms:
+  - sensor
 ---
 
 The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) routers on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
 It can also access the internal phone book of the router to look up the names corresponding to the phone numbers and store them in the state attributes.
 
+## Prerequisites
+
+To use the FRITZ!Box call monitor in your installation, a user with at least `FRITZ!Box Settings` and `Voice messages, faxes, FRITZ!App Fon and call list` rights has to be created:
+
+1.  Open the web user interface via `fritz.box` or the IP address of your FRITZ!Box (e.g. `192.168.1.1`).
+2.  Log in with your admin user credentials. The default admin user credentials can be found at the bottom of your FRITZ!Box.
+3.  Navigate to **System** -> **FRITZ!Box User**.
+4.  Click the `Add User` button.
+5.  Enable the option `User account enabled`.
+6.  Enter a user name and password.
+7.  Check the rights boxes next to `FRITZ!Box Settings`, which automatically checks the boxes for `Voice messages, faxes, FRITZ!App Fon and call list` and `Smart Home`.
+8.  Click the `Apply` button.
+
 ## Setup
 
-To activate the call monitor on your FRITZ!Box, dial #96\*5\* from any phone connected to it.
+To activate the call monitor on your FRITZ!Box, dial **#96\*5\*** from any phone connected to it.
 
-## Configuration
-
-To use the FRITZ!Box call monitor in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: fritzbox_callmonitor
-```
-
-{% configuration %}
-name:
-  description: Give the sensor a friendly name for in the front-end.
-  required: false
-  default: Phone
-  type: string
-host:
-  description: The IP address of your router, e.g., 192.168.1.1. It is optional since every FRITZ!Box is also reachable by using the IP address 169.254.1.1. If you have a local DNS server and have assigned a hostname to your FRITZ!Box, you can also use that here instead of the IP address.
-  required: false
-  default: 169.254.1.1
-  type: string
-port:
-  description: The TCP port of the call monitor. There is usually no reason to change this.
-  required: false
-  default: 1012
-  type: integer
-username:
-  description: FRITZ!Box user's user name. This is required to use the phone book lookup feature. The user needs to have the "voice message, fax message, Fritz!App Fon and call list" permission.
-  required: false
-  type: string
-password:
-  description: FRITZ!Box user's user password. This is required to use the phone book lookup feature.
-  required: false
-  type: string
-phonebook:
-  description: Numerical ID identifying the phonebook to be used. If there is just one phonebook, this is usually 0.
-  required: false
-  default: 0
-  type: integer
-prefixes:
-  description: In case of a local call, the phone number seen by the router might differ from the one stored in the phone book by an area code, similarly for the international prefix. To remedy this, a list of prefixes, that can be appended to the phone number in case it is not found in the phone book, can be given.
-  required: false
-  type: list
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Examples
-
-### Full configuration
-
-The example below shows a full configuration for a call monitor with phone book support.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: fritzbox_callmonitor
-    name: Phone
-    username: my_username
-    password: my_password
-    phonebook: 0
-    prefixes:
-      - '+49'
-      - '+4989'
-      - '089'
-```
 
 ### Send notifications on state change
 
 This example shows how to send notifications whenever the sensor's state changes. You will get notified both when you receive a call and also when a call is placed.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry.
 automation:
@@ -94,7 +50,7 @@ automation:
         entity_id: sensor.phone
     action:
       - service: notify.notify
-        data_template:
+        data:
           title: "Phone"
           message: >-
             {% if is_state("sensor.phone", "idle") %}
@@ -107,4 +63,5 @@ automation:
               Talking to {{ state_attr('sensor.phone', 'with_name') }} ({{ state_attr('sensor.phone', 'with') }})
             {% endif %}
 ```
+
 {% endraw %}

@@ -1,7 +1,6 @@
 ---
 title: ADS
 description: Connect Home Assistant to TwinCAT devices via the ADS interface
-logo: beckhoff.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -12,6 +11,12 @@ ha_category:
 ha_release: '0.60'
 ha_iot_class: Local Push
 ha_domain: ads
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - sensor
+  - switch
 ---
 
 The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](https://www.beckhoff.hu/english.asp?twincat/default.htm) and other devices implementing this interface.
@@ -31,7 +36,7 @@ To enable ADS, add the following lines to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 ads:
-  device: '127.0.0.1.1.1'
+  device: "127.0.0.1.1.1"
   port: 801
 ```
 
@@ -139,8 +144,8 @@ file:
 sensor:
   - platform: ads
     adsvar: GVL.temperature
-    unit_of_measurement: '°C'
-    adstype: integer
+    unit_of_measurement: "°C"
+    adstype: int
 ```
 
 {% configuration %}

@@ -3,11 +3,15 @@ title: Nextcloud
 description: Instructions on how to integrate Nextcloud monitor api data into Home Assistant.
 ha_category:
   - Sensor
+  - Binary Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.108
 ha_domain: nextcloud
 ha_codeowners:
   - '@meichthys'
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) information into Home Assistant.
@@ -27,7 +31,7 @@ To enable the Nextcloud integration, add the following lines to your `configurat
 ```yaml
 # Example configuration.yaml entry
 nextcloud:
-  url: Https://YOUR_NEXTCLOUD_URL
+  url: https://YOUR_NEXTCLOUD_URL
   username: YOUR_USERNAME
   password: YOUR_APP_PASSWORD
 

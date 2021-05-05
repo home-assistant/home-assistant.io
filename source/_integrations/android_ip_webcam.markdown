@@ -10,6 +10,10 @@ ha_category:
 ha_release: '0.40'
 ha_iot_class: Local Polling
 ha_domain: android_ip_webcam
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `android_ip_webcam` integration turns any Android phone or tablet into a network camera with multiple viewing options.
@@ -103,7 +107,7 @@ switches:
       description: Control the focus.
     gps_active:
       description: Control the GPS.
-    motion_detection:
+    motion_detect:
       description: Control the motion detector.
     night_vision:
       description: Control the night vision.
@@ -151,6 +155,7 @@ android_ip_webcam:
       - ffc
       - focus
       - gps_active
+      - motion_detect
       - night_vision
       - overlay
       - torch
@@ -178,9 +183,9 @@ You can setup the binary motion sensor with the following in your `configuration
 binary_sensor:
   - platform: rest
     name: Kitchen Motion
-    sensor_class: motion
+    device_class: motion
     resource: http://IP_ADDRESS:PORT/sensors.json?sense=motion_active
-    value_template: '{{ value_json.motion_active.data[0][1][0] | round(0) }}'
+    value_template: "{{ value_json.motion_active.data[0][1][0] | round(0) }}"
 ```
 
 {% endraw %}

@@ -4,9 +4,7 @@ description: Instructions on how to the Foursquare API into Home Assistant.
 ha_category:
   - Social
 ha_release: 0.26
-ha_iot_class: Cloud Polling and Cloud Push
-ha_codeowners:
-  - '@robbiet480'
+ha_iot_class: Cloud Push
 ha_domain: foursquare
 ---
 
@@ -52,13 +50,14 @@ Foursquare check-in events can be used out of the box to trigger automation acti
 
 ```yaml
 automation:
-  - alias: Trigger action when you check into a venue.
+  - alias: "Trigger action when you check into a venue."
     trigger:
       platform: event
       event_type: foursquare.push
     action:
       service: script.turn_on
-      entity_id: script.my_action
+      target:
+        entity_id: script.my_action
 ```
 
 ### Check ins

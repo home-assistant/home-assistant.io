@@ -7,7 +7,9 @@ date_formatted: "June 10, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-06-0.111/social.png
 ---
 
@@ -322,6 +324,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
   Previously it was set after the action that was part of the trigger was done.
 
   ([@basnijholt] - [#35671]) ([automation docs])
+  
+  **Command Line Sensors**
+  
+  The fix for command line sensors removing quotes with template breaks any sensors where the quote has been escaped using a backslash.
+  E.g. to work around the previous bug a quote could be added using \" and this must now be replaced with simply "
+  
+  (@shenxn - #35559) (command_line docs)
 
 ## Farewell to the following
 
@@ -397,6 +406,57 @@ The integrations below have been removed:
 [myq docs]: /integrations/myq/
 [powerwall docs]: /integrations/powerwall/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
+
+## Release 0.111.3 - June 16
+
+- Upgrade wled 0.4.3 ([@frenck] - [#36760])
+- Fix history graphs with mysql/mariadb ([@bdraco] - [#36769])
+- Fix nanoleaf attribute when running an effect ([@N1c093] - [#36794])
+- Bump ZHA quirks to 0.0.40 ([@dmulcahey] - [#36797])
+- Fix X10 devices and adding default links ([@teharris1] - [#36807])
+- Fire config changed event during start ([@balloob] - [#36812])
+- Bump aioasuswrt to 1.2.6 ([@kennedyshead] - [#36820])
+- Fix cloudhooks coming in for non existing webhooks ([@balloob] - [#36836])
+
+[@bdraco]: https://github.com/bdraco
+[@N1c093]: https://github.com/N1c093
+[@dmulcahey]: https://github.com/dmulcahey
+[@teharris1]: https://github.com/teharris1
+[@balloob]: https://github.com/balloob
+[@kennedyshead]: https://github.com/kennedyshead
+[#36760]: https://github.com/home-assistant/core/pull/36760
+[#36769]: https://github.com/home-assistant/core/pull/36769
+[#36794]: https://github.com/home-assistant/core/pull/36794
+[#36797]: https://github.com/home-assistant/core/pull/36797
+[#36807]: https://github.com/home-assistant/core/pull/36807
+[#36812]: https://github.com/home-assistant/core/pull/36812
+[#36820]: https://github.com/home-assistant/core/pull/36820
+[#36836]: https://github.com/home-assistant/core/pull/36836
+
+## Release 0.111.4 - June 17
+
+- Fix llamalab_automate notify priority ([@fb22] - [#36845]) ([llamalab_automate docs])
+- Bump Axis dependency to fix issue where ports dont initialize ([@Kane610] - [#36860]) ([axis docs])
+- Fix Daikin zeroconf discovery flow error ([@fredrike] - [#36868]) ([daikin docs])
+- Upgrade pymetno ([@Danielhiversen], [@balloob] - [#36880]) ([met docs]) ([norway_air docs])
+- Fix yr HTTP error handling ([@pnbruckner] - [#36889])
+
+[#36889]: https://github.com/home-assistant/core/pull/36889
+[#36845]: https://github.com/home-assistant/core/pull/36845
+[#36860]: https://github.com/home-assistant/core/pull/36860
+[#36868]: https://github.com/home-assistant/core/pull/36868
+[#36880]: https://github.com/home-assistant/core/pull/36880
+[@Kane610]: https://github.com/Kane610
+[@pnbruckner]: https://github.com/pnbruckner
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@balloob]: https://github.com/balloob
+[@fb22]: https://github.com/fb22
+[@fredrike]: https://github.com/fredrike
+[axis docs]: /integrations/axis/
+[daikin docs]: /integrations/daikin/
+[llamalab_automate docs]: /integrations/llamalab_automate/
+[met docs]: /integrations/met/
+[norway_air docs]: /integrations/norway_air/
 
 ## All changes
 

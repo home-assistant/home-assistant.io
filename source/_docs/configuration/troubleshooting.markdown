@@ -1,7 +1,6 @@
 ---
 title: "Troubleshooting your configuration"
 description: "Common problems with tweaking your configuration and their solutions."
-redirect_from: /getting-started/troubleshooting-configuration/
 ---
 
 It can happen that you run into trouble while configuring Home Assistant. Perhaps an integration is not showing up or is acting strangely. This page will discuss a few of the most common problems.
@@ -14,13 +13,13 @@ Whenever an integration or configuration option results in a warning, it will be
 
 When an integration does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your integration you are trying to set up.
 
-If you have incorrect entries in your configuration files you can use the configuration check command (below) to assist in identifying them. 
+If you have incorrect entries in your configuration files you can use the configuration check command (below) to assist in identifying them.
 
 ### Problems with the configuration
 
 One of the most common problems with Home Assistant is an invalid `configuration.yaml` or other configuration file.
 
-- With Home Assistant you can use the [`ha` command](/hassio/commandline/#home-assistant): `ha core check`.
+- With Home Assistant OS and Supervised you can use the [`ha` command](/hassio/commandline/#home-assistant): `ha core check`.
   - You can test your configuration with Home Assistant Core using the command line with: `hass --script check_config`. If you need to provide the path for your configuration you can do this using the `-c` argument like this: `hass --script check_config -c /path/to/your/config/dir`.
   - On Docker you can use `docker exec home-assistant python -m homeassistant --script check_config --config /config` - where `home-assistant` is the name of the container.
 - The configuration files, including `configuration.yaml` must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.

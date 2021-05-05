@@ -1,11 +1,19 @@
 ---
 title: RFLink
 description: Instructions on how to integrate RFLink gateway into Home Assistant.
-logo: rflink.png
 ha_category:
   - Hub
+ha_iot_class: Assumed State
 ha_release: 0.38
 ha_domain: rflink
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - sensor
+  - switch
+ha_codeowners:
+  - '@javicalle'
 ---
 
 The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.rflink.nl/blog2/download), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
@@ -57,6 +65,11 @@ reconnect_interval:
   required: false
   default: 10
   type: integer
+tcp_keepalive_idle_timer:
+  description: Time in seconds to wait since last data packet was seen before a TCP KEEPALIVE is sent. Value of 0 will disable this feature.
+  required: false
+  default: 3600
+  type: integer 
 {% endconfiguration %}
 
 ### Full example
@@ -100,6 +113,7 @@ When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming d
 rflink:
   host: 192.168.0.10
   port: 1234
+  tcp_keepalive_idle_timer: 600
 ```
 
 ### Adding devices Automatically
@@ -108,6 +122,7 @@ In order to have your devices discovered automatically, you need to add the foll
 When pressing the button on the physical remote, RFLink detects the signal and the device should be added automatically to Home Assistant.
 
 ```yaml
+# Example configuration.yaml entry
 light:
   - platform: rflink
     automatic_add: true
@@ -116,9 +131,9 @@ sensor:
     automatic_add: true
 ```
 
-[RFLink Switches](/integrations/switch.rflink/) and [RFLink Binary Sensors](/integrations/binary_sensor.rflink/) cannot be added automatically. 
+[RFLink Switches](/integrations/switch.rflink/) and [RFLink Binary Sensors](/integrations/binary_sensor.rflink/) cannot be added automatically.
 
-The RFLink integration does not know the difference between a binary sensor, a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group, hide it or configure a nice name.
+The RFLink integration does not know the difference between a binary sensor, a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group or configure a nice name.
 
 ### Ignoring devices
 
@@ -159,6 +174,7 @@ If you find a device is recognized differently, with different protocols or the 
 For debugging purposes or context when investigating issues you can enable debug logging for RFLink with the following configuration snippet:
 
 ```yaml
+# Example configuration.yaml entry
 logger:
   default: error
   logs:

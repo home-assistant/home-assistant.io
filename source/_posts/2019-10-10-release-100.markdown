@@ -7,7 +7,9 @@ date_formatted: "October 10, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-09-0.100/components.png
 ---
 
@@ -218,7 +220,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - `contact / mailing_list` has changed to `contact / ml`, to migrate change the `mailing_list` key to `ml`
   - `location / address` is no longer required but is optional as the latitude and longitude properties of the location are added automatically from the HA config). There is no need to change anything. - ([@Bouni] - [#26453]) ([spaceapi docs])
 
-- **Linky** - Linky sensors have been grouped to one Linky device. Users will need to remove and re-add the Linky integration to clear the device registry. - ([@piitaya] - [#26738]) ([linky docs])
+- **Linky** - Linky sensors have been grouped to one Linky device. Users will need to remove and re-add the Linky integration to clear the device registry. - ([@piitaya] - [#26738])
 
 - **Elv** - ELV/PCA is now its own integration. Existing configuration should be removed and replaced. Optionally the port for the serial interface can be specified (default is: /dev/ttyUSB0). - ([@majuss] - [#26552]) ([elv docs])
 
@@ -416,7 +418,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump up ZHA dependencies ([@Adminiuga] - [#26746])
 - fix onvif/camera setting up error ([@sanyatuning] - [#26825]) ([onvif docs])
 - Bump homematicip_cloud to 0.10.11 ([@SukramJ] - [#26852]) ([homematicip_cloud docs])
-- Group Linky sensors to Linky meter device ([@piitaya] - [#26738]) ([linky docs]) (breaking change)
+- Group Linky sensors to Linky meter device ([@piitaya] - [#26738]) (breaking change)
 - Add unit to 'charging_level_hv' bwm_connected_drive sensor ([@timmccor] - [#26861]) ([bmw_connected_drive docs])
 - Add reproduce state template ([@balloob] - [#26866])
 - Put draw_box in image_processing ([@robmarkcole] - [#26712]) ([doods docs]) ([image_processing docs]) ([tensorflow docs])
@@ -471,7 +473,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix possible OpenUV exception due to missing data ([@bachya] - [#26958]) ([openuv docs])
 - Update pythonegardia to 1.0.40 ([@SneakSnackSnake] - [#27009]) ([egardia docs])
 - Improve ecobee service schemas ([@marthoc] - [#26955]) ([ecobee docs])
-- Add more providers, bump yessssms version to 0.4.1 ([@flowolf] - [#26874]) ([yessssms docs])
+- Add more providers, bump yessssms version to 0.4.1 ([@flowolf] - [#26874])
 - Upgrade youtube_dl to 2019.09.28 ([@BKPepe] - [#27031]) ([media_extractor docs])
 - Add availability_template to Template Cover platform ([@grillp] - [#26509]) ([template docs])
 - Add availability_template to Template Binary Sensor platform ([@grillp] - [#26510]) ([template docs])
@@ -908,7 +910,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [evohome docs]: /integrations/evohome/
 [fedex docs]: /integrations/fedex/
 [frontend docs]: /integrations/frontend/
-[generic docs]: /integrations/generic/
 [geniushub docs]: /integrations/geniushub/
 [geonetnz_quakes docs]: /integrations/geonetnz_quakes/
 [glances docs]: /integrations/glances/
@@ -1002,7 +1003,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [xbox_live docs]: /integrations/xbox_live/
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [yandex_transport docs]: /integrations/yandex_transport/
-[yessssms docs]: /integrations/yessssms/
 [zha docs]: /integrations/zha/
 [zone docs]: /integrations/zone/
 [zwave docs]: /integrations/zwave/

@@ -3,63 +3,36 @@ title: Awair
 description: Instructions on how to setup Awair devices in Home Assistant.
 ha_category:
   - Health
+ha_config_flow: true
 ha_release: 0.84
 ha_iot_class: Cloud Polling
 ha_codeowners:
+  - '@ahayworth'
   - '@danielsjf'
 ha_domain: awair
+ha_platforms:
+  - sensor
 ---
 
-The `awair` sensor platform will fetch data from your [Awair device(s)](https://getawair.com).
+The Awair integration will fetch data from your [Awair devices](https://getawair.com).
 
-You will need to request access to the Awair API and obtain an access token from the Awair [Developer Console](https://developer.getawair.com/).
+You will need to request access to the Awair API and obtain an access token from the Awair [Developer Console](https://developer.getawair.com/). It is free, but getting a token can take up to 24 hours.
 
-## Configuring the Platform
-
-To enable these sensors, add the following lines to your `configuration.yaml` file:
-
-```yaml
-sensor:
-  - platform: awair
-    access_token: ACCESS_TOKEN
-```
-
-The Awair API has stringent usage quotas. The API method to discover devices in your account is
-limited to only 6 calls per 24 hours. If you find that you've exceeded this quota, you may optionally
-append device information to your configuration to bypass this call:
-
-```yaml
-sensor:
-  - platform: awair
-    access_token: ACCESS_TOKEN
-    devices:
-      - uuid: UUID
-```
-
-{% configuration %}
-access_token:
-  description: The access token for the Awair API.
-  required: true
-  type: string
-devices:
-  description: An optional list to manually configure devices rather than relying upon API discovery.
-  required: false
-  type: list
-  keys:
-    uuid:
-      description: UUID of the Awair sensor to monitor.
-      required: true
-      type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Available Sensors
 
-The platform will fetch all available sensors from each Awair device linked to your account. Supported sensors:
+The integration will fetch data from each device linked to your Awair developer account. The following sensors are supported:
 
   * Temperature
   * Humidity
-  * CO2
-  * VOC
-  * Dust, PM2.5, PM10: varies according to Awair model
+  * Carbon dioxide
+  * Total volatile organic compounds
+  * PM2.5 density
+  * PM10 density
+  * Sound level
+  * Luminescence
 
-This platform refreshes at an interval based on a 300 API call per-day quota, and the number of devices you have configured.
+Not all devices support all sensors; consult Awair's documentation to find out what sensors are present on your device. For first-generation Awair devices with a "dust" sensor, the integration will create identical PM2.5 and PM10 sensors (which reflects the capabilities of the sensor - it can detect dust between PM2.5 and PM10 but cannot differentiate between them).
+
+This integration refreshes once every 5 minutes, based on the [default per-device quota](https://docs.developer.getawair.com/?version=latest#tiers--quotas) of 300 API calls per day.

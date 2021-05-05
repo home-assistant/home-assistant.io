@@ -8,13 +8,15 @@ The History Graph card allows you to display a graph for each of the entities li
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_history_graph.png' alt='Screenshot of the history graph card for entities without a unit_of_measurement'>
-Screenshot of the history graph card, when the sensor has no `unit_of_measurement` defined.
+Screenshot of the History Graph card, when the sensor has no `unit_of_measurement` defined.
 </p>
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_history_graph_lines.png' alt='Screenshot of the history graph card for entities with a unit_of_measurement'>
-Screenshot of the history graph card, when the sensor has a `unit_of_measurement` defined.
+Screenshot of the History Graph card, when the sensor has a `unit_of_measurement` defined.
 </p>
+
+To add the History Graph card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **History Graph** from the card picker. All options for this card can be configured via the user interface.
 
 {% configuration %}
 type:
@@ -48,7 +50,7 @@ If you define entities as objects instead of strings, you can add more customiza
 {% configuration %}
 entity:
   required: true
-  description: Home Assistant entity ID.
+  description: Entity ID.
   type: string
 name:
   required: false
@@ -57,6 +59,8 @@ name:
 {% endconfiguration %}
 
 ## Example
+
+Alternatively, the card can be configured using YAML:
 
 ```yaml
 type: history-graph

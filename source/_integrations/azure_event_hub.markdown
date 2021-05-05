@@ -4,6 +4,7 @@ description: Setup for Azure Event Hub integration
 ha_category:
   - History
 ha_release: 0.94
+ha_iot_class: Cloud Push
 ha_codeowners:
   - '@eavanvalkenburg'
 ha_domain: azure_event_hub
@@ -75,7 +76,7 @@ max_delay:
   type: integer
   default: 30
 filter:
-  description: Filter domains and entities for Event Hub.
+  description: Filter domains and entities for Event Hub. ([Configure Filter](#configure-filter))
   required: true
   type: map
   default: Includes all entities from all domains
@@ -86,6 +87,14 @@ filter:
       type: list
     exclude_domains:
       description: List of domains to exclude (e.g., `light`).
+      required: false
+      type: list
+    include_entity_globs:
+      description: Include all entities matching a listed pattern (e.g., `sensor.weather_*`).
+      required: false
+      type: list
+    exclude_entity_globs:
+      description: Exclude all entities matching a listed pattern (e.g., `sensor.weather_*`).
       required: false
       type: list
     include_entities:
@@ -99,16 +108,55 @@ filter:
 {% endconfiguration %}
 
 <div class='note warning'>
-Not filtering domains or entities will send every event to Azure Event Hub, thus taking up a lot of space. 
+Not filtering domains or entities will send every event to Azure Event Hub, thus taking up a lot of space.
 </div>
 
 <div class='note warning'>
 Event Hubs have a retention time of at most 7 days, if you do not capture or use the events they are deleted automatically from the Event Hub, the default retention is 1 day.
 </div>
 
+### Configure Filter
+
+By default, no entity will be excluded. To limit which entities are being exposed to `Azure Event Hub`, you can use the `filter` parameter.
+
+```yaml
+# Example filter to include specified domains and exclude specified entities
+azure_event_hub:
+  event_hub_namespace: NAMESPACE_NAME
+  event_hub_instance_name: EVENT_HUB_INSTANCE_NAME
+  event_hub_sas_policy: SAS_POLICY_NAME
+  event_hub_sas_key: SAS_KEY
+  filter:
+    include_domains:
+      - alarm_control_panel
+      - light
+    include_entity_globs:
+      - binary_sensor.*_occupancy
+    exclude_entities:
+      - light.kitchen_light
+```
+
+Filters are applied as follows:
+
+1. No includes or excludes - pass all entities
+2. Includes, no excludes - only include specified entities
+3. Excludes, no includes - only exclude specified entities
+4. Both includes and excludes:
+   - Include domain and/or glob patterns specified
+      - If domain is included, and entity not excluded or match exclude glob pattern, pass
+      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - If domain is not included, glob pattern does not match, and entity not included, fail
+   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
+      - If domain is excluded and entity not included, fail
+      - If entity matches exclude glob pattern and entity not included, fail
+      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
+   - Neither include or exclude specifies domains or glob patterns
+      - If entity is included, pass (as #2 above)
+      - If entity include and exclude, the entity exclude is ignored
+
 ### Advanced configuration
 
-This is what the configuration will look like when using a connection string directly, instead of the four parameters. It also shows how to set the send_interval and max_delay to something other than the default. This means once every minute the integration will connect to your hub and send messages, but the messages have to be less than 65 seconds old at the time of sending for them to be counted (send_interval + max_delay). 
+This is what the configuration will look like when using a connection string directly, instead of the four parameters. It also shows how to set the send_interval and max_delay to something other than the default. This means once every minute the integration will connect to your hub and send messages, but the messages have to be less than 65 seconds old at the time of sending for them to be counted (send_interval + max_delay).
 
 ```yaml
 # Connection string config with non-defaults for send_interval and max_delay

@@ -20,7 +20,7 @@ This post will give you a small overview of some other possibilities on how to u
 
 ## Manual usage
 
-The simplest but not the coolest way as a human to interact with a Home Assistant sensor is launching a command manually. Let's create a "Mood" sensor. For simplicity Home Assistant and the MQTT broker are both running on the same host. The needed configuration snipplets to add to the `configuration.yaml` file consists of two parts: one for the broker and one for the sensor.
+The simplest but not the coolest way as a human to interact with a Home Assistant sensor is launching a command manually. Let's create a "Mood" sensor. For simplicity Home Assistant and the MQTT broker are both running on the same host. The needed configuration snippets to add to the `configuration.yaml` file consists of two parts: one for the broker and one for the sensor.
 
 ```yaml
 mqtt:

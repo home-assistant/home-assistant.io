@@ -39,6 +39,10 @@ vacuum:
         description: Name to use in the frontend.
         required: false
         type: string
+      unique_id:
+        description: An ID that uniquely identifies this vacuum. Set this to a unique value to allow customization through the UI.
+        required: false
+        type: string
       value_template:
         description: "Defines a template to get the state of the vacuum. Valid value: `docked`/`cleaning`/`idle`/`paused`/`returning`/`error`"
         required: false
@@ -51,6 +55,15 @@ vacuum:
         description: Defines a template to get the fan speed of the vacuum.
         required: false
         type: template
+      attribute_templates:
+        description: Defines templates for attributes of the sensor.
+        required: false
+        type: map
+        keys:
+          "attribute: template":
+            description: The attribute and corresponding template.
+            required: true
+            type: template          
       availability_template:
         description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
         required: false
@@ -103,20 +116,23 @@ vacuum:
       living_room_vacuum:
         start:
           - service: remote.send_command
-            data:
+            target:
               entity_id: remote.harmony_hub
+            data:
               command: Clean
               device: 52840686
         return_to_base:
           - service: remote.send_command
-            data:
+            target:
               entity_id: remote.harmony_hub
+            data:
               command: Home
               device: 52840686
         clean_spot:
           - service: remote.send_command
-            data:
+            target:
               entity_id: remote.harmony_hub
+            data:
               command: SpotCleaning
               device: 52840686
 ```
@@ -149,12 +165,39 @@ vacuum:
             service: script.vacuum_locate_vacuum
         set_fan_speed:
             service: script.vacuum_set_fan_speed
-            data_template:
+            data:
               speed: "{{ fan_speed }}"
         fan_speeds:
             - Low
             - Medium
             - High
+```
+
+{% endraw %}
+
+### Add Custom Attributes
+
+This example shows how to add custom attributes.
+
+{% raw %}
+
+```yaml
+vacuum:
+  - platform: template
+    vacuums:
+      living_room_vacuum:
+        value_template: "{{ states('sensor.vacuum_state') }}"
+        battery_level_template: "{{ states('sensor.vacuum_battery_level')|int }}"
+        fan_speed_template: "{{ states('sensor.vacuum_fan_speed') }}"
+        attribute_templates:
+          status: >-
+            {% if (states('sensor.robot_vacuum_robot_cleaner_movement') == "after" and states('sensor.robot_vacuum_robot_cleaner_cleaning_mode') == "stop")  %}
+              Charging to Resume
+            {% elif states('sensor.robot_vacuum_robot_cleaner_cleaning_mode') == "auto" %}
+              Cleaning
+            {% else %}
+              Charging
+            {% endif %}
 ```
 
 {% endraw %}

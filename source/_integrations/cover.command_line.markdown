@@ -62,6 +62,11 @@ covers:
           description: The name used to display the cover in the frontend.
           required: false
           type: string
+        command_timeout:
+          description: Defines number of seconds for command timeout.
+          required: false
+          type: integer
+          default: 15
 {% endconfiguration %}
 
 ## Examples
@@ -69,6 +74,9 @@ covers:
 In this section you find some real-life examples of how to use this sensor.
 
 ### Full configuration
+
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -80,11 +88,12 @@ cover:
         command_close: move_command down garage
         command_stop: move_command stop garage
         command_state: state_command garage
-        value_template: {% raw %}>
+        value_template: >
           {% if value == 'open' %}
           100
           {% elif value == 'closed' %}
           0
           {% endif %}
-          {% endraw %}
 ```
+
+{% endraw %}

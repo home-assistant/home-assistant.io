@@ -11,21 +11,28 @@ ha_release: 0.98
 ha_codeowners:
   - '@CoMPaTech'
   - '@bouwew'
+  - '@brefra'
 ha_config_flow: true
 ha_domain: plugwise
+ha_zeroconf: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - switch
 ---
 
 This enables [Plugwise](https://www.plugwise.com) components with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
-The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol) and [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products. See below list for more details.
+The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and the [Stretch](https://www.plugwise.com/nl_NL/het-systeem) product. See below list for more details.
 
-Platforms available - depending on your Smile and setup are include:
+Platforms available - depending on your Smile and setup include:
 
  - `climate` (for the Anna and Lisa products, or a single Tom)
  - `sensor` (for all relevant products including the Smile P1)
  - `binary_sensor` (for domestic hot water and secondary heater)
- - `switch` (for Plugs)
+ - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
 
-The password can be found on the bottom of your Smile, it should consist of 6 characters. To find your IP address use the Plugwise App: 
+The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
 
  - Open the Plugwise App and choose the 'Settings'-icon (&#9776;) and choose 'HTML-interface'. 
  - Go to the (lower) 'Settings'-icon (&#9776;) and choose 'Preferences'. 
@@ -33,19 +40,23 @@ The password can be found on the bottom of your Smile, it should consist of 6 ch
 
 ## Entities
 
-This integration will show all Plugwise devices present in your Plugwise configuration. In addition you will see a 'Smile' device representing your central Plugwise gateway (i.e. the Smile, Smile P1 or Adam).
+This integration will show all Plugwise entities present in your Plugwise configuration. In addition, you will see a 'Smile' entity representing your central Plugwise gateway (i.e., the Smile, Smile P1 or Adam).
 
-For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom' these will show up as individual devices. For setups where an auxiliary heater (or heater/cooler) is present there will be an additional device representing it called 'Auxiliary'.
+For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual entities. When there are more (than one) Plugwise thermostats present, an "Auxiliary Device" will be added, representing the active heating/cooling device present in your climate system. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as switches. Various other measures of your setup will be available as sensors or binary sensors.
 
-Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Smile will be assigned to your gateway device. Auxiliary Heater(/Cooler) measurements such as 'boiler_temperature' will be assigned to the Auxiliary entity.
+Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Smile will be assigned to your gateway entity. Auxiliary Heater(/Cooler) measurements such as 'boiler_temperature' will be assigned to the Auxiliary entity.
 
 ## Configuration
 
-To set up this integration, click Configuration in the sidebar and then click Integrations. Add a new integration using the "+" button in the lower right corner and look for 'Plugwise'. Click configure and you will be presented with a dialog requesting the Smile ID or password of your Smile and it's IP address. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located.
+The Plugwise Smile(s) present in your network will be automatically detected via Zeroconf discovery and will be shown on the Integrations-page. To set up an integration, click the "CONFIGURATION" button on the discovered integration and you will be presented with a dialog requesting your Smile password. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located. The username `smile` is shown as a default, when configuring your Stretch change this to `stretch` accordingly.
 
-Depending on your `climate` setup an auxiliary entitiy will be added when there is information available about such Plugwise devices. If you have "plug"s (as in, pluggable switches that come with an Adam) those will be discovered as `switch`es. Various other measures of your setup will be available as `sensor`s or `binary_sensor`s.
+Repeat the above procedure for each Smile gateway (i.e., if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
 
-Repeat the above procedure for each Smile gateway (i.e. if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
+After adding the Plugwise integration(s), the default Smile-data refresh-interval can be changed by pressing the "OPTIONS" button: change the number via the up- or down-button and press "SUBMIT".
+
+<div class='note warning'>
+When you have an Anna and an Adam, make sure to only configure the Adam integration. You can press the "IGNORE" button on the Anna integration to remove this integration. In case you need to rediscover the Adam integration, make sure to click the "STOP IGNORING" button on the Plugwise integration first, available via "show ignored integrations".
+</div>
 
 ### Services
 
@@ -59,7 +70,7 @@ script:
   force_adam_update:
     sequence:
       - service: homeassistant.update_entity
-        data:
+        target:
           entity_id: climate.anna
 ```
 
@@ -78,8 +89,9 @@ script:
   lisa_reactive_last_schedule:
     sequence:
       - service: climate.set_hvac_mode
-        data:
+        target:
           entity_id: climate.lisa_bios
+        data:
           hvac_mode: auto
 ```
 
@@ -102,8 +114,9 @@ script:
   anna_set_predefined_temperature:
     sequence:
       - service: climate.set_temperature
-        data:
+        target:
           entity_id: climate.anna
+        data:
           temperature: 19.5
 ```
 
@@ -138,12 +151,17 @@ Adam (zone_control):
 
 Anna (thermostat):
 
- - v4.0
- - v3.1
- - v1.8
+ - v4.x
+ - v3.x
+ - v1.x
 
 Smile P1 (DSMR):
 
- - v4.0
- - v3.3
- - v2.5
+ - v4.x
+ - v3.x
+ - v2.x
+
+Stretch (power switches):
+
+ - v3.x
+ - v2.x

@@ -9,24 +9,26 @@ ha_category:
 ha_release: 0.85
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@snoof85'
+  - '@hacf-fr'
   - '@Quentame'
 ha_config_flow: true
 ha_domain: freebox
+ha_platforms:
+  - device_tracker
+  - sensor
+  - switch
+ha_zeroconf: true
 ---
 
 The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/).
 
 There is currently support for the following device types within Home Assistant:
 
-* [Sensor](#sensor) with traffic and temperature metrics
+* [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space and missed calls
 * [Device tracker](#presence-detection) for connected devices
 * [Switch](#switch) to control Wi-Fi
 
-## Configuration
-
-If you have enabled the [discovery integration](/integrations/discovery/), your Freebox should be detected automatically.
-Otherwise, you can set it up manually via the frontend or via your `configuration.yaml` file.
+{% include integrations/config_flow.md %}
 
 You can find out your Freebox host and port by opening this address <http://mafreebox.freebox.fr/api_version> in your browser.
 The returned JSON should contain an `api_domain` (`host`) and a `https_port` (`port`).
@@ -79,6 +81,7 @@ To make the Wi-Fi switch and the reboot service working you will have to add "Mo
 
 Only the routers with Freebox OS are supported:
 
+* Freebox V8 also known as Freebox Pop
 * Freebox V7 also known as Freebox Delta
 * Freebox V6 also known as Freebox Revolution
 * Freebox mini 4k
@@ -101,7 +104,11 @@ refreshes the devices states.
 ## Sensor
 
 This platform offers you sensors to monitor a Freebox router.
-The monitored conditions are internal temperature and upload and download rates in KB/s.
+The monitored metrics are:
+* Internal temperature
+* Upload and download rates (in KB/s)
+* Free partition space of used disks
+* Number of missed calls
 
 ## Service
 

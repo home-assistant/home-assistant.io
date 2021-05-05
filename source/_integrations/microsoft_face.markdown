@@ -3,6 +3,7 @@ title: Microsoft Face
 description: Instructions on how to integrate Microsoft Face integration into Home Assistant.
 ha_category:
   - Image Processing
+ha_iot_class: Cloud Push
 ha_release: 0.37
 ha_domain: microsoft_face
 ---
@@ -66,7 +67,7 @@ via the Frontend, a script, or the REST API.
 ```yaml
 service: microsoft_face.create_group
 data:
-  name: 'Family'
+  name: "Family"
 ```
 
 - *microsoft_face.create_person*
@@ -76,7 +77,7 @@ data:
 service: microsoft_face.create_person
 data:
   group: family
-  name: 'Hans Maier'
+  name: "Hans Maier"
 ```
 
 You need to add an image of a person. You can add multiple images for every
@@ -89,7 +90,7 @@ send a local image to your Azure resource.
 service: microsoft_face.face_person
 data:
   group: family
-  name: 'Hans Maier'
+  name: "Hans Maier"
   camera_entity: camera.door
 ```
 

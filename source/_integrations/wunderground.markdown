@@ -6,13 +6,15 @@ ha_category:
 ha_release: 0.27
 ha_iot_class: Cloud Polling
 ha_domain: wunderground
+ha_platforms:
+  - sensor
 ---
 
 The `wunderground` platform uses [Weather Underground](https://www.wunderground.com/) as a source for current weather information.
 
 <div class='note warning'>
 
-Obtain a WUnderground API key [here](https://www.wunderground.com/weather/api). They no longer offer free API keys, and all keys must be paid for. At this time existing free keys will continue to work, but will be disabled Dec 31, 2018, except you own a personal weather station and provide your data to WU (PWS Uploader). As of Sept 6, 2018 Weather Underground states they are declaring the [End of Service for the Weather Underground API](https://apicommunity.wunderground.com/weatherapi/topics/end-of-service-for-the-weather-underground-api). They say they will develop new plans for non-commercial users. No timeline for this has been announced.
+Weather Underground API no longer offers API keys. The API is generally not available for use, except if you own a personal weather station and provide your data to WU (PWS Uploader).
 
 Please consider this when using the following information.
 

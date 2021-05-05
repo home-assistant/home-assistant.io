@@ -14,7 +14,7 @@ The Picture Glance card shows an image and corresponding entity states as an ico
 {% configuration %}
 type:
   required: true
-  description: picture-glance
+  description: "`picture-glance`"
   type: string
 entities:
   required: true
@@ -60,12 +60,12 @@ entity:
   type: string
 show_state:
   required: false
-  description: Show entity state-text.
+  description: Show entity state text.
   type: boolean
   default: true
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 tap_action:
   required: false
@@ -88,19 +88,19 @@ If you define entities as objects instead of strings, you can add more customiza
 {% configuration %}
 entity:
   required: true
-  description: Home Assistant entity ID.
+  description: Entity ID.
   type: string
 attribute:
   required: false
-  description: Attribute of the entity to display instead of the state
+  description: Attribute of the entity to display instead of the state.
   type: string
 prefix:
   required: false
-  description: Prefix to display before the attribute's value
+  description: Prefix to display before the attribute's value.
   type: string
 suffix:
   required: false
-  description: Suffix to display after the attribute's value
+  description: Suffix to display after the attribute's value.
   type: string
 icon:
   required: false
@@ -108,7 +108,7 @@ icon:
   type: string
 show_state:
   required: false
-  description: Show entity state-text.
+  description: Show entity state text.
   type: boolean
   default: true
 tap_action:
@@ -130,7 +130,7 @@ double_tap_action:
 {% configuration badges %}
 user:
   required: true
-  description: User id that can see the view tab.
+  description: User ID that can see the view tab.
   type: string
 {% endconfiguration %}
 

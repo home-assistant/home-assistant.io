@@ -13,6 +13,10 @@ ha_quality_scale: gold
 ha_codeowners:
   - '@fredrike'
 ha_domain: point
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - sensor
 ---
 
 The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant URL + `/api/minut`, e.g.,  `http://localhost:8123/api/minut`. The `client_id` and `client_secret` should be used as below.
@@ -72,16 +76,21 @@ The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is im
 
 Each Point exposes the following binary sensors:
 
+- **alarm**: `On` means alarm sound was recognised, `Off` means normal
 - **battery**: `On` means low, `Off` means normal
 - **button_press**: `On` means the button was pressed, `Off` means normal
 - **cold**: `On` means cold, `Off` means normal
 - **connectivity**: `On` means connected, `Off` means disconnected
 - **dry**: `On` means too dry, `Off` means normal
+- **glass**: `On` means the sound of glass break was detected, `Off` means normal
 - **heat**: `On` means hot, `Off` means normal
 - **light**: `On` means light detected, `Off` means no light
 - **moisture**: `On` means moisture detected (wet), `Off` means no moisture (dry)
+- **motion**: `On` means motion was detected, `Off` means no motion
+- **noise**: `On` means noise was detected, `Off` means noise levels have gone back to normal
 - **sound**: `On` means sound detected, `Off` means no sound (clear)
-- **tamper**: `On` means the point was removed or attached, `Off` means normal
+- **tamper**: `On` means the point was removed, `Off` means normal
+- **tamper_old**: `On` means the point was removed or attached, `Off` means normal (this is only supported on some "old" devices)
 
 <div class="note">
 
@@ -93,32 +102,31 @@ The binary sensors **button_press**, **sound** and **tamper** are switched `On` 
 
 The following example show how to implement an automation for the **button_press** binary sensor.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
-  alias: Point button press
+  alias: "Point button press"
   trigger:
   - platform: state
     entity_id: binary_sensor.point_button_press  # Change this accordingly
-    to: 'on'
+    to: "on"
   action:
   - service: persistent_notification.create
     data:
       title: Point button press
       message: Point button was pressed.
 ```
-{% endraw %}
 
 ### Webhook events
 
 The events shown as [binary sensors](#binary-sensor) are sent to Home Assistant as webhooks with the `event_type` set to `point_webhook_received`. Below is an example of how to use such a webhook do note the `trigger.event.data.event.device_id` which translates to the id of the Point device that sent the event.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
-  alias: Point button press (webhook)
+  alias: "Point button press (webhook)"
   trigger:
   - platform: event
     event_type: point_webhook_received
@@ -128,10 +136,11 @@ automation:
     value_template: "{{ trigger.event.data.event.type == 'short_button_press' }}"
   action:
   - service: persistent_notification.create
-    data_template:
+    data:
       title: Point button press (webhook)
       message: "Button press on Point {{ trigger.event.data.event.device_id }}"
 ```
+
 {% endraw %}
 
 ## Sensor

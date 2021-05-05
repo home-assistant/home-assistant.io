@@ -11,6 +11,9 @@ ha_codeowners:
   - '@frenck'
 ha_quality_scale: platinum
 ha_domain: elgato
+ha_zeroconf: true
+ha_platforms:
+  - light
 ---
 
 The [Elgato Key Light](https://www.elgato.com/en/gaming/key-light) sets the
@@ -20,25 +23,41 @@ bar for high-end studio lightning. With 80 LEDs, that put out a massive
 The LED light panel is created specifically, and designed for streamers
 and content creators, many of whom operate on platforms like YouTube and Twitch.
 
-## Configuration
-
-This integration can be configured using the integrations in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-In most cases, Elgato Key Lights devices will be automatically discovered by
-Home Assistant. Those automatically discovered devices are listed
-on the integrations page.
-
-If for some reason (e.g., due to lack of mDNS support on your network),
-the Elgato Key Light isn't discovered, it can be added manually.
-
-Click on the `+` sign to add an integration and click on **Elgato Key Light**.
-After completing the configuration flow, the Key Light integration will be
-available.
+{% include integrations/config_flow.md %}
 
 ## Lights
 
 This integration adds the Key Light device as a light in Home Assistant, and
 allows you to control the color temperature, brightness, and its on/off state.
+
+## Services
+
+### Service `elgato.identify`
+
+The identify service shortly blinks the Elgato light. Originally meant as
+a way to identify which light you are talking to, it can also be used as
+a service to create a visual notification with.
+
+This service also works when the light is turned off and will turn off the
+light after the identification sequence has been completed.
+
+{% my developer_call_service badge service="elgato.identify" %}
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | Yes | String or list of Elgato light entity IDs.
+
+Example automation, in YAML format, that triggers a visual notification when
+a binary sensor (a doorbell) is triggered:
+
+```yaml
+- alias: Visual doorbell notification example
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell
+      to: "on"
+  action:
+    - service: elgato.identify
+      target:
+        entity_id: light.elgato_key_light
+```

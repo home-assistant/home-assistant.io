@@ -5,7 +5,9 @@ date: 2016-07-01 00:31:00 +0000
 date_formatted: "July 1, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's time for Home Assistant 0.23 and it's full of goodies. It's also the release that bumps us over a 1000 tests and to 94% test coverage! Also our install issues on the Raspberry Pi and Synology have been resolved.

@@ -5,32 +5,40 @@ ha_category:
   - Other
 ha_release: 0.88
 ha_domain: default_config
+ha_quality_scale: internal
 ---
 
 This integration is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded are:
 
-- [Automation](/integrations/automation/)
-- [Home Assistant Cloud](/integrations/cloud/)
-- [Configuration](/integrations/config/)
-- [Frontend](/integrations/frontend/)
-- [History](/integrations/history/)
-- [Input boolean](/integrations/input_boolean)
-- [Input datetime](/integrations/input_datetime)
-- [Input number](/integrations/input_number)
-- [Input select](/integrations/input_select)
-- [Input text](/integrations/input_text)
-- [Logbook](/integrations/logbook/)
-- [Map](/integrations/map/)
-- [Mobile App Support](/integrations/mobile_app/)
-- [Person](/integrations/person/)
-- [Scene](/integrations/scene/)
-- [Scripts](/integrations/script/)
-- [Simple Service Discovery Protocol (SSDP)](/integrations/ssdp/)
-- [Sun](/integrations/sun/)
-- [System Health](/integrations/system_health/)
-- [Updater](/integrations/updater/)
-- [Zero-configuration networking (zeroconf)](/integrations/zeroconf/)
-- [Zone](/integrations/zone)
+- [Automation](/integrations/automation/) (`automation`)
+- [Home Assistant Cloud](/integrations/cloud/) (`cloud`)
+- [Configuration](/integrations/config/) (`config`)
+- [Counter](/integrations/counter/) (`counter`)
+- [DHCP Discovery](/integrations/dhcp/) (`dhcp`)
+- [Frontend](/integrations/frontend/) (`frontend`)
+- [History](/integrations/history/) (`history`)
+- [Image](/integrations/image/) (`image`)
+- [Input boolean](/integrations/input_boolean/) (`input_boolean`)
+- [Input datetime](/integrations/input_datetime/) (`input_datetime`)
+- [Input number](/integrations/input_number/) (`input_number`)
+- [Input select](/integrations/input_select/) (`input_select`)
+- [Input text](/integrations/input_text/) (`input_text`)
+- [Logbook](/integrations/logbook/) (`logbook`)
+- [Map](/integrations/map/) (`map`)
+- [Media Source](/integrations/media_source/) (`media_source`)
+- [Mobile App Support](/integrations/mobile_app/) (`mobile_app`)
+- [My Home Assistant](/integrations/my/) (`my`)
+- [Person](/integrations/person/) (`person`)
+- [Scene](/integrations/scene/) (`scene`)
+- [Scripts](/integrations/script/) (`script`)
+- [Simple Service Discovery Protocol (SSDP)](/integrations/ssdp/) (`ssdp`)
+- [Sun](/integrations/sun/) (`sun`)
+- [System Health](/integrations/system_health/) (`system_health`)
+- [Tag](/integrations/tag/) (`tag`)
+- [Timer](/integrations/timer/) (`timer`)
+- [Updater](/integrations/updater/) (`updater`)
+- [Zero-configuration networking (zeroconf)](/integrations/zeroconf/) (`zeroconf`)
+- [Zone](/integrations/zone/) (`zone`)
 
 ## Configuration
 

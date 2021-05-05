@@ -1,10 +1,15 @@
 ---
 title: Text-to-Speech (TTS)
 description: Instructions on how to set up Text-to-Speech (TTS) with Home Assistant.
+ha_category:
+  - Text-to-speech
 ha_release: 0.35
 ha_codeowners:
   - '@pvizeli'
 ha_domain: tts
+ha_quality_scale: internal
+ha_platforms:
+  - notify
 ---
 
 Text-to-Speech (TTS) enables Home Assistant to speak to you.
@@ -92,7 +97,9 @@ The Google cast devices (Google Home, Chromecast, etc.) present the following pr
 
 * They [reject self-signed certificates](#self-signed-certificates).
 
-* They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). Setting a internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
+* They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). If you are _not_ using SSL then setting a internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
+
+* If you are using an SSL (e.g., `https://yourhost.example.org/...`) then you _must_ use the hostname in the certificate (e.g., `base_url: https://yourhost.example.org`). You cannot use an IP address since the certificate won't be valid for the IP address, and the cast device will refuse the connection.
 
 ## Service say
 
@@ -105,7 +112,7 @@ Say to all `media_player` device entities:
 service: tts.google_translate_say
 entity_id: "all"
 data:
-  message: 'May the Force be with you.'
+  message: "May the Force be with you."
 ```
 
 Say to the `media_player.floor` device entity:
@@ -114,7 +121,7 @@ Say to the `media_player.floor` device entity:
 service: tts.google_translate_say
 entity_id: media_player.floor
 data:
-  message: 'May the Force be with you.'
+  message: "May the Force be with you."
 ```
 
 Say to the `media_player.floor` device entity in French:
@@ -123,18 +130,22 @@ Say to the `media_player.floor` device entity in French:
 service: tts.google_translate_say
 entity_id: media_player.floor
 data:
-  message: 'Que la force soit avec toi.'
-  language: 'fr'
+  message: "Que la force soit avec toi."
+  language: "fr"
 ```
 
 With a template:
 
+{% raw %}
+
 ```yaml
 service: tts.google_translate_say
-data_template:
-  message: "Temperature is {% raw %}{{states('sensor.temperature')}}{% endraw %}."
+data:
+  message: "Temperature is {{states('sensor.temperature')}}."
   cache: false
 ```
+
+{% endraw %}
 
 ## Cache
 
@@ -157,6 +168,7 @@ The return code is 200 if the file is generated. The message body will contain a
 
 ```json
 {
+    "path": "/api/tts_proxy/265944c108cbb00b2a621be5930513e03a0bb2cd_en_-_demo.mp3",
     "url": "http://127.0.0.1:8123/api/tts_proxy/265944c108cbb00b2a621be5930513e03a0bb2cd_en_-_demo.mp3"
 }
 ```
@@ -164,7 +176,7 @@ The return code is 200 if the file is generated. The message body will contain a
 Sample `curl` command:
 
 ```bash
-$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+$ curl -X POST -H "Authorization: Bearer <ACCESS TOKEN>" \
        -H "Content-Type: application/json" \
        -d '{"message": "I am speaking now", "platform": "amazon_polly"}' \
        http://localhost:8123/api/tts_get_url

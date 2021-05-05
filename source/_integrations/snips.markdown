@@ -5,6 +5,7 @@ ha_category:
   - Voice
 ha_release: 0.48
 ha_domain: snips
+ha_iot_class: Local Push
 ---
 
 <div class='note warning'>
@@ -144,6 +145,7 @@ In Home Assistant, we trigger actions based on intents produced by Snips using t
 Note: If your Snips action is prefixed with a username (e.g., `john:playmusic` or `john__playmusic`), the Snips integration in Home Assistant will try and strip off the username. Bear this in mind if you get the error `Received unknown intent` even when what you see on the MQTT bus looks correct. Internally the Snips integration is trying to match the non-username version of the intent (i.e., just `playmusic`).
 
 {% raw %}
+
 ```yaml
 snips:
 
@@ -151,13 +153,15 @@ intent_script:
   ActivateLightColor:
     action:
       - service: light.turn_on
-        data_template:
-          entity_id: light.{{ objectLocation | replace(" ","_") }}
-          color_name: {{ objectColor }}
+        target:
+          entity_id: 'light.{{ objectLocation | replace(" ","_") }}'
+        data:
+          color_name: "{{ objectColor }}"
 ```
+
 {% endraw %}
 
-In the `data_template` block, we have access to special variables, corresponding to the slot names for the intent. In the present case, the `ActivateLightColor` has two slots, `objectLocation` and `objectColor`.
+In the `data` block, we have access to special variables, corresponding to the slot names for the intent. In the present case, the `ActivateLightColor` has two slots, `objectLocation` and `objectColor`.
 
 ### Special slots
 
@@ -168,14 +172,15 @@ In the above example, the slots are plain strings. However, Snips has a duration
 In this example if we had an intent triggered with 'Set a timer for five minutes', `duration:` would equal 300 and `duration_raw:` would be set to 'five minutes'. The duration can be easily used to trigger Home Assistant events and the `duration_raw:` could be used to send a human readable response or alert.
 
 {% raw %}
+
 ```yaml
 SetTimer:
   speech:
     type: plain
-    text: 'Set a timer'
+    text: "Set a timer"
   action:
     service: script.set_timer
-    data_template:
+    data:
       name: "{{ timer_name }}"
       duration: "{{ timer_duration }}"
       siteId: "{{ site_id }}"
@@ -183,6 +188,7 @@ SetTimer:
       duration_raw: "{{ raw_value }}"
       probability: "{{ probability }}"
 ```
+
 {% endraw %}
 
 ### Sending TTS Notifications
@@ -207,10 +213,6 @@ You can send TTS notifications to Snips using the `snips.say` and `snips.say_act
 | `can_be_enqueued`      |      yes | If True, session waits for an open session to end, if False session is dropped if one is running. |
 | `intent_filter`        |      yes | Array of Strings - A list of intents names to restrict the NLU resolution to on the first query. |
 
-### Snips Support
-
-There is an active [Forum](https://forum.snips.ai) for further support.
-
 ### Configuration Examples
 
 #### Turn on a light
@@ -220,7 +222,7 @@ intent_script:
   turn_on_light:
     speech:
       type: plain
-      text: 'OK, turning on the light'
+      text: "OK, turning on the light"
     action:
       service: light.turn_on
 ```
@@ -232,10 +234,10 @@ intent_script:
   OpenGarageDoor:
     speech:
       type: plain
-      text: 'OK, opening the garage door'
+      text: "OK, opening the garage door"
     action:
       - service: cover.open_cover
-        data:
+        target:
           entity_id: garage_door
 ```
 
@@ -249,14 +251,14 @@ automation:
     trigger:
      - platform: state
         entity_id: binary_sensor.my_garage_door_sensor
-        from: 'off'
-        to: 'on'
+        from: "off"
+        to: "on"
         for:
           minutes: 10
     sequence:
       service: snips.say_action
         data:
-          text: 'Garage door has been open 10 minutes, would you like me to close it?'
+          text: "Garage door has been open 10 minutes, would you like me to close it?"
           intent_filter:
             - closeGarageDoor
 
@@ -265,7 +267,7 @@ intent_script:
   closeGarageDoor:
     speech:
       type: plain
-      text: 'OK, closing the garage door'
+      text: "OK, closing the garage door"
     action:
       - service: script.garage_door_close
 ```
@@ -291,6 +293,7 @@ So now you can open and close your garage door, let's check the weather. Add the
 Then add this to your configuration file.
 
 {% raw %}
+
 ```yaml
 intent_script:
   searchWeatherForecast:
@@ -304,4 +307,5 @@ intent_script:
         {{ states('sensor.dark_sky_weather_daily_high_temperature') | round(0)}}
         and {{ states('sensor.dark_sky_weather_hourly_summary') }}
 ```
+
 {% endraw %}

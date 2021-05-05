@@ -3,11 +3,20 @@ title: Growl (GnGNTP)
 description: Instructions for adding GNTP/Growl notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Local Push
 ha_release: 0.16
-ha_codeowners:
-  - '@robbiet480'
 ha_domain: gntp
+ha_platforms:
+  - notify
 ---
+
+<div class='note warning'>
+
+The Growl (GnGNTP) integration has been deprecated and is going to be removed
+in Home Assistant Core 2021.6. The Growl project
+[has retired](https://growl.github.io/growl/).
+
+</div>
 
 [GNTP](http://growl.info/documentation/developer/gntp.php) is a specification for sending and receiving notifications between computers. The most well known server implementations are [Growl](http://growl.info) for Mac and [Growl for Windows](http://www.growlforwindows.com/).
 

@@ -7,10 +7,16 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_iot_class: Local Push
 ha_release: '0.20'
 ha_codeowners:
   - '@kellerza'
 ha_domain: qwikswitch
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
+  - switch
 ---
 
 The `qwikswitch` integration is the main integration to integrate various [QwikSwitch](https://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.
@@ -94,7 +100,7 @@ QwikSwitch devices (i.e., transmitter buttons) will fire events on the Home Assi
 
 ```yaml
 automation:
-  - alias: Action - Respond to A button press
+  - alias: "Action - Respond to A button press"
     trigger:
       platform: event
       event_type: qwikswitch.button.@12df34

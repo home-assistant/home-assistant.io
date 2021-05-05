@@ -7,6 +7,10 @@ ha_category:
 ha_release: 0.49
 ha_iot_class: Local Push
 ha_domain: wake_on_lan
+ha_platforms:
+  - switch
+ha_codeowners:
+  - '@ntilley905'
 ---
 
 The `wake_on_lan` integration enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices to turn them on.
@@ -46,6 +50,11 @@ Sample service data:
 }
 ```
 
+<div class='note'>
+This usually only works if the Target Device is connected to the same network. Routing the WakeOnLan packet to a different subnet requires a special configuration on your router or may not be possible.
+The Service to Route the packet is most likely named "IP Helper" which may support WakeOnLan, but not all Routers support this.
+</div>
+
 ## Switch
 
 The `wake_on_lan` (WOL) switch platform allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
@@ -76,7 +85,7 @@ name:
   default: Wake on LAN
   type: string
 host:
-  description: The IP address or hostname to check the state of the device (on/off).
+  description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
   required: false
   type: string
 turn_off:
@@ -121,5 +130,5 @@ switch:
       service: shell_command.turn_off_TARGET
 
 shell_command:
-  turn_off_TARGET: 'ssh hass@TARGET sudo pm-suspend'
+  turn_off_TARGET: "ssh hass@TARGET sudo pm-suspend"
 ```

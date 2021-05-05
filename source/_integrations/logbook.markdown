@@ -5,6 +5,7 @@ ha_category:
   - History
 ha_release: 0.7
 ha_domain: logbook
+ha_quality_scale: internal
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />
@@ -12,12 +13,12 @@ ha_domain: logbook
 The logbook integration provides a different perspective on the history of your
 house by showing all the changes that happened to your house in reverse
 chronological order. It depends on
-the `recorder` integration for storing the data. This means that if the
+the [`recorder`](/integrations/recorder/) integration for storing the data. This means that if the
 [`recorder`](/integrations/recorder/) integration is set up to use e.g., MySQL or
 PostgreSQL as data store, the `logbook` integration does not use the default
 SQLite database to store data.
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,7 +27,7 @@ logbook:
 
 {% configuration %}
 exclude:
-  description: "Configure which integrations should **not** create logbook entries."
+  description: "Configure which integrations should **not** create logbook entries. ([Configure Filter](#configure-filter))"
   required: false
   type: map
   keys:
@@ -34,12 +35,16 @@ exclude:
       description: The list of entity ids to be excluded from creating logbook entries.
       required: false
       type: list
+    entity_globs:
+      description: Exclude all entities matching a listed pattern from creating logbook entries (e.g., `sensor.weather_*`).
+      required: false
+      type: list
     domains:
       description: The list of domains to be excluded from creating logbook entries.
       required: false
       type: list
 include:
-  description: Configure which integrations should create logbook entries.
+  description: Configure which integrations should create logbook entries. ([Configure Filter](#configure-filter))
   required: false
   type: map
   keys:
@@ -47,11 +52,47 @@ include:
       description: The list of entity ids to be included in creating logbook entries.
       required: false
       type: list
+    entity_globs:
+      description: Include all entities matching a listed pattern when creating logbook entries (e.g., `sensor.weather_*`).
+      required: false
+      type: list
     domains:
       description: The list of domains to be included in creating logbook entries.
       required: false
       type: list
 {% endconfiguration %}
+
+## Configure Filter
+
+By default, no entity will be excluded. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
+
+```yaml
+# Example filter to include specified domains and exclude specified entities
+logbook:
+  include:
+    domains:
+      - alarm_control_panel
+      - light
+    entity_globs:
+      - binary_sensor.*_occupancy
+  exclude:
+    entities:
+      - light.kitchen_light
+```
+
+Filters are applied as follows:
+
+1. No includes or excludes - pass all entities
+2. Includes, no excludes - only include specified entities
+3. Excludes, no includes - only exclude specified entities
+4. Both includes and excludes - include specified entities and exclude specified entities from the remaining.
+
+The following characters can be used in entity globs:
+
+- `*` - The asterisk represents zero, one, or multiple characters
+- `.` - The period represents a single character
+
+### Common filtering examples
 
 If you want to exclude messages of some entities or domains from the logbook
 just add the `exclude` parameter like:
@@ -63,6 +104,8 @@ logbook:
     entities:
       - sensor.last_boot
       - sensor.date
+    entity_globs:
+      - sensor.weather_*
     domains:
       - sun
 ```
@@ -96,14 +139,14 @@ logbook:
     entities:
       - sensor.last_boot
       - sensor.date
+    entity_globs:
+      - sensor.weather_*
 ```
 
 ### Exclude Events
 
-Entities customized as hidden are excluded from the logbook by default,
-but sometimes you want to show the entity in the UI and not in the logbook.
-For instance you use the `sensor.date`to show the current date in the UI,
-but you do not want a logbook entry for that sensor every day.
+If you have `sensor.date` to show the current date in the UI,
+but you do not want a logbook entry for that sensor every day it can be excluded.
 To exclude these entities just add them to the `exclude` > `entities` list in
 the configuration of the logbook.
 
@@ -111,6 +154,9 @@ To exclude all events from a whole domain add it to the `exclude` > `domain`
 list. For instance you use the `sun` domain only to trigger automations on the
 `azimuth` attribute, then you possible are not interested in the logbook entries
 for sun rise and sun set.
+
+Excluded entities still take up space in the database. It may be advisable to
+exclude them in `recorder` instead.
 
 ### Custom Entries
 
@@ -121,13 +167,26 @@ component to fire an event.
 # Example configuration.yaml entry
 script:
   add_logbook_entry:
-    alias: Add Logbook
+    alias: "Add Logbook"
     sequence:
       - service: logbook.log
-        data_template:
+        data:
           name: Kitchen
           message: is being used
           # Optional
           entity_id: light.kitchen
           domain: light
 ```
+
+
+<div class="note warning">
+
+When calling the `logbook.log` service without a `domain` or `entity_id`, entries will be added with the the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
+
+</div>
+
+<div class='note'>
+
+Sensor entities that have been assigned units (i.e., have a `unit_of_measurement` attribute) are assumed to change frequently and those sensors are automatically excluded from the logbook.
+
+</div>

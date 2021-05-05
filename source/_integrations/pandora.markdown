@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.22
 ha_iot_class: Local Polling
 ha_domain: pandora
+ha_platforms:
+  - media_player
 ---
 
 If you have a Pandora account, you can control it from Home Assistant with this media player.

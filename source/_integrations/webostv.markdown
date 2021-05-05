@@ -9,6 +9,9 @@ ha_release: 0.18
 ha_codeowners:
   - '@bendavid'
 ha_domain: webostv
+ha_platforms:
+  - media_player
+  - notify
 ---
 
 The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS Smart TV.
@@ -108,6 +111,10 @@ Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this f
 
 On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
+<div class='note'>
+This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
+</div>
+
 ```yaml
 # Example configuration.yaml entry
 wake_on_lan: # enables `wake_on_lan` domain
@@ -130,7 +137,9 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 
 ## Sources
 
-To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration.
+To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration. If you leave the `sources:` configuration empty, the `media_player` will offer all sources of the TV. If you list a subset of sources in the configuration, only those will be displayed.
+
+Note: it is normal and expected behavior that for a switched-off TV only the Live TV source is offered in the `media_player`, even if you have configured other sources as well. These will show up as soon as the TV is switched on.
 
 ## Change channel through play_media service
 
@@ -143,15 +152,17 @@ The `play_media` service can be used in a script to switch to the specified TV c
 ```yaml
 # Example action entry in script to switch to channel number 1
 service: media_player.play_media
-data:
+target:
   entity_id: media_player.lg_webos_smart_tv
+data:
   media_content_id: 1
   media_content_type: "channel"
 
 # Example action entry in script to switch to channel including 'TF1' in its name
 service: media_player.play_media
-data:
+target:
   entity_id: media_player.lg_webos_smart_tv
+data:
   media_content_id: "TF1"
   media_content_type: "channel"
 ```
@@ -184,7 +195,7 @@ Available services: `button`, `command`
 | Service data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
-| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
+| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
 
 ### Service `webostv.command`
 
@@ -201,15 +212,17 @@ script:
   home_button:
     sequence:
       - service: webostv.button
-        data:
+        target:
           entity_id:  media_player.lg_webos_smart_tv
+        data:
           button: "HOME"
 
   open_google_command:
     sequence:
       - service: webostv.command
-        data:
+        target:
           entity_id:  media_player.lg_webos_smart_tv
+        data:
           command: "system.launcher/open"
           payload:
             target: https://www.google.com
@@ -223,11 +236,11 @@ The icon can be overridden for individual notifications by providing a path to a
 
 ```yaml
 automation:
-  - alias: Front door motion
+  - alias: "Front door motion"
     trigger:
       platform: state
       entity_id: binary_sensor.front_door_motion
-      to: 'on'
+      to: "on"
     action:
       service: notify.livingroom_tv
       data:
@@ -235,3 +248,7 @@ automation:
         data:
           icon: "/home/homeassistant/images/doorbell.png"
 ```
+
+## Notes
+
+If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on port 3000 with the TCP protocol from Home Assistant to your TV.

@@ -8,9 +8,11 @@ ha_release: 0.104
 ha_codeowners:
   - '@basnijholt'
 ha_domain: kef
+ha_platforms:
+  - media_player
 ---
 
-The `kef` platform allows you to control the [KEF LS50 Wireless](https://international.kef.com/products/ls50-wireless) and [KEF LSX](https://international.kef.com/products/lsx) speakers from Home Assistant.
+The `kef` platform allows you to control the KEF LS50 Wireless and [KEF LSX](https://international.kef.com/products/lsx) speakers from Home Assistant.
 
 Supported devices:
 

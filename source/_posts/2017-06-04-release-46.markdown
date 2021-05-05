@@ -5,7 +5,9 @@ date: 2017-06-04 01:04:05 +0000
 date_formatted: "June 4, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-06-0.46/components.png
 ---
 
@@ -27,7 +29,7 @@ It's time for 0.46! This release does not have too many new integrations, instea
 - Fix typos in Wunderground component (Percipitation -> Precipitation) ([@mje-nz] - [#7901]) ([sensor.wunderground docs])
 - Mqtt cover: Making command topic optional and add ability to set up/down position including ability to template the value ([@cribbstechnologies] - [#7841]) ([cover.mqtt docs])
 - Media Player - OpenHome: Fixed metadata issue ([@bazwilliams] - [#7932]) ([media_player.openhome docs])
-- Sensor - MetOffice: Fix last updated date ([@cyberjacob] - [#7965]) ([sensor.metoffice docs])
+- Sensor - MetOffice: Fix last updated date ([@cyberjacob] - [#7965]) ([metoffice docs])
 - Prevent Roku doing I/O in event loop ([@balloob] - [#7969]) ([media_player.roku docs])
 
 ## Breaking changes
@@ -345,6 +347,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.sonos docs]: /integrations/sonos
 [media_player.spotify docs]: /integrations/spotify
 [media_player.volumio docs]: /integrations/volumio
+[metoffice docs]: /integrations/metoffice/
 [modbus docs]: /integrations/modbus/
 [mqtt.discovery docs]: /docs/mqtt/discovery/
 [notify.ios docs]: /docs/ecosystem/ios/notifications/basic/
@@ -388,7 +391,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cyberjacob]: https://github.com/cyberjacob
 [@mje-nz]: https://github.com/mje-nz
 [cover.mqtt docs]: /integrations/cover.mqtt/
-[sensor.metoffice docs]: /integrations/sensor.metoffice/
 [sensor.wunderground docs]: /integrations/wunderground
 [media_player.roku docs]: /integrations/roku#media-player
 [discord]: https://discord.gg/c5DvZ4e

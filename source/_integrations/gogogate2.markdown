@@ -1,6 +1,6 @@
 ---
-title: Gogogate2
-description: Instructions on how to integrate Gogogate2-Enabled garage door covers into Home Assistant.
+title: Gogogate2 and iSmartGate
+description: Instructions on how to integrate Gogogate2 and iSmartGate enabled garage door covers into Home Assistant.
 logo: gogogate2.png
 ha_category:
   - Cover
@@ -10,15 +10,12 @@ ha_domain: gogogate2
 ha_codeowners:
   - '@vangorra'
 ha_config_flow: true
+ha_homekit: true
+ha_platforms:
+  - cover
+  - sensor
 ---
 
-The GogoGate2 integration lets you control Gogogate2-Enabled garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Gogogate2 mobile app.
+The `gogogate2` cover platform lets you control Gogogate2 and iSmartGate enabled garage doors and gates through Home Assistant. Device names in Home Assistant are generated based on the names defined in the GogoGate2 or iSmartGate mobile app.
 
-## Configuration
-
-<div class='note'>
-It is recommended to assign a static IP address to your GogoGate device. This ensures that it won't change IP addresses, so you won't have to change the configuration if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your GogoGate2, check the label on the bottom.
-</div>
-
-1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'GogoGate2' and click 'Configure'.
-2. Enter the IP address, username, password and name for the device and click 'Submit'.
+{% include integrations/config_flow.md %}
