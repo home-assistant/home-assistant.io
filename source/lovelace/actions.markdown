@@ -56,6 +56,11 @@ tap_action:
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
+    target:
+      required: false
+      description: "Service target when `action` defined as `call-service`" (see [Service Targets](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/#service-targets))
+      type: list
+      default: none
     confirmation:
       required: false
       description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
@@ -103,6 +108,11 @@ hold_action:
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
+    target:
+      required: false
+      description: "Service target when `action` defined as `call-service`" (see [Service Targets](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/#service-targets))
+      type: list
+      default: none
     confirmation:
       required: false
       description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
@@ -149,6 +159,11 @@ double_tap_action:
       required: false
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
+      default: none
+    target:
+      required: false
+      description: "Service target when `action` defined as `call-service`" (see [Service Targets](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/#service-targets))
+      type: list
       default: none
     confirmation:
       required: false
