@@ -18,11 +18,9 @@ feedback: true
 
 Lorem ipsum
 
-- [Code Editor bug & Safari](#code-editor-bug--safari)
 - [Database upgrades & performance](#database-upgrades--performance)
 - [Startup visibility - What is taking so long?](#startup-visibility---what-is-taking-so-long)
-- [Ever wonder why Home Assistant didn’t restart when you pressed the restart button?](#ever-wonder-why-home-assistant-didnt-restart-when-you-pressed-the-restart-button)
-- [Memory Leaks](#memory-leaks)
+- [Why Home Assistant didn’t restart when I pressed the restart button?](#why-home-assistant-didnt-restart-when-i-pressed-the-restart-button)
 - [Updated look and feel for the integration dashboard](#updated-look-and-feel-for-the-integration-dashboard)
 - [Color modes!](#color-modes)
 - [Docker](#docker)
