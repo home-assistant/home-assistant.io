@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2021.5: "
-description: ""
+title: "2021.5: Stability, "
+description: "Improved database and start up handling, an updated look and feel for the integrations dashboard and color modes for lights!"
 date: 2021-05-05 00:00:00
 date_formatted: "May 5, 2021"
 author: Franck Nijhof
@@ -34,6 +34,12 @@ improvement as well!
 May... For me, that feels like the summer is slowly trying to make its
 appearance and I'm looking forward to it 🕶. Do you have a summer
 Home Automation project figured out yet?
+
+Oh, and don't forget to tune into the release party live stream later today!
+(Spoiler alower: I've heard we might have a special guest, only Paulus didn't
+want to tell me who it is...)
+
+2021.5 Stream Party on YouTube: <https://www.youtube.com/watch?v=bvAKUz-bmqU>
 
 ../Frenck
 
