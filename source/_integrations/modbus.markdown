@@ -49,7 +49,7 @@ modbus:
 
 {% configuration %}
 delay:
-  description: Time to sleep in seconds after connecting and before sending messages. Some modbus-tcp servers need a short delay typically 1-2 seconds in order to prepare the communication. If a server accepts connecting, but there is no response to the requests send, this parameter might help.
+  description: Time to delay messagees in seconds after connecting. Some modbus devices need a delay typically 1-2 seconds after connection is established in order to prepare the communication. If a device accepts connecting with no response to the requests send or the device disconnects, this parameter might help.
   required: false
   default: 0
   type: integer
