@@ -869,7 +869,7 @@ their data, which is not allowed for core integrations.
 - Cancel discovery flows that are initializing at shutdown ([@bdraco] - [#49241])
 - Define data flow result type ([@KapJI] - [#49260]) ([bond docs]) ([hassio docs]) ([huawei_lte docs]) ([hyperion docs]) ([zwave_js docs])
 - Fix shelly RSSI sensor unit ([@thecode] - [#49265]) ([shelly docs]) (breaking-change)
-- Fix Tasmota Wifi Signal Strength unit ([@thecode] - [#49263]) ([tasmota docs])
+- Fix Tasmota Wifi Signal Strength unit ([@thecode] - [#49263]) ([tasmota docs]) (breaking-change)
 - Add `search` and `match` as Jinja tests ([@mdegat01] - [#49229])
 - Add common light helpers to test for feature support ([@emontnemery] - [#49199]) ([alexa docs]) ([google_assistant docs]) ([homekit docs]) ([light docs])
 - Add support for multiple AdGuard instances ([@eifinger] - [#49116]) ([adguard docs])
@@ -1182,6 +1182,72 @@ their data, which is not allowed for core integrations.
 - Add selectors to google services ([@tkdrob] - [#49796]) ([google docs])
 - Add tampering sensor to deCONZ integration ([@Kane610] - [#49776]) ([deconz docs])
 - Bump frontend to 20210428.0 ([@balloob] - [#49821]) ([frontend docs])
+- Add service target to Neato ([@chemelli74] - [#49803]) ([neato docs]) (beta fix)
+- Fix color setting in LIFX services ([@amelchio] - [#49822]) ([lifx docs]) (beta fix)
+- Bump pyairvisual to 5.0.8 ([@bachya] - [#49823]) ([airvisual docs]) (beta fix)
+- Set ClimaCell API limit to 500 requests/day ([@raman325] - [#49828]) ([climacell docs]) (beta fix)
+- Remove DHT from Raspberry Pi machine builds ([@frenck] - [#49829]) (beta fix)
+- Apply default light profile only when light is toggled from off to on ([@karliemeads] - [#49376]) ([light docs]) (breaking-change) (beta fix)
+- Add auto_off to binary sensor template entity ([@balloob] - [#49615]) ([template docs]) (beta fix)
+- Catch missing/unavailable response from modbus ([@janiversen] - [#49632]) ([modbus docs]) (beta fix)
+- Fix Fritz device tracker multiple routers ([@AaronDavidSchneider] - [#49808]) ([fritz docs]) (beta fix)
+- Improve Waze Travel Time import and naming logic ([@raman325] - [#49838]) ([waze_travel_time docs]) (beta fix)
+- Improve Google Travel Time import and naming logic ([@raman325] - [#49839]) ([google_travel_time docs]) (beta fix)
+- hassfest detect built-in domain override for custom integrations ([@frenck] - [#49845]) (beta fix)
+- Rename FlowResultDict to FlowResult ([@KapJI] - [#49847]) (beta fix)
+- Fix `host_valid()` logic in BraviaTV config flow ([@bieniu] - [#49857]) ([braviatv docs]) (beta fix)
+- Fix `host_valid()` logic in DuneHD config flow ([@bieniu] - [#49860]) ([dunehd docs]) (beta fix)
+- Use EVENT_HOMEASSISTANT_STARTED instead of EVENT_HOMEASSISTANT_START ([@raman325] - [#49861]) ([google_travel_time docs]) ([waze_travel_time docs]) (beta fix)
+- Fix `host_valid()` logic in Vilfo config flow ([@bieniu] - [#49862]) ([vilfo docs]) (beta fix)
+- Fix options flow bugs in Google/Waze Time Travel ([@raman325] - [#49866]) ([google_travel_time docs]) ([waze_travel_time docs]) (beta fix)
+- Add color modes to Shelly light ([@thecode] - [#49867]) ([shelly docs]) (beta fix)
+- Restore missing Huawei LTE cleanup on HA stop ([@scop] - [#49871]) ([huawei_lte docs]) (beta fix)
+- Fix jumpy Verisure Wallplug state ([@frenck] - [#49880]) ([verisure docs]) (beta fix)
+- Update frontend to 20210407.1 ([@bramkragten] - [#49882]) ([frontend docs]) (beta fix)
+- Remove no-longer-functioning SimpliSafe websocket support ([@bachya] - [#49876]) ([simplisafe docs]) (breaking-change) (beta fix)
+- Reduced polling interval for mutesync integration ([@currentoor] - [#49884]) ([mutesync docs]) (beta fix)
+- Don't validate inputs on platform setup for Google/Waze travel time ([@raman325] - [#49886]) ([google_travel_time docs]) ([waze_travel_time docs]) (beta fix)
+- Update frontend to 20210429.0 ([@frenck] - [#49896]) ([frontend docs]) (beta fix)
+- Fix unexpected data in Waze config flow import ([@frenck] - [#49902]) ([waze_travel_time docs]) (beta fix)
+- Fix unexpected data in Google Travel Time config flow import ([@frenck] - [#49903]) ([google_travel_time docs]) (beta fix)
+- Move ZHA config panel section translations to the backend ([@dmulcahey] - [#49816]) ([zha docs]) (beta fix)
+- Small ZHA code cleanup ([@dmulcahey] - [#49908]) ([zha docs]) (beta fix)
+- Use header URI in Plex config flow ([@jjlawren] - [#49915]) ([plex docs]) (beta fix)
+- Update frontend to 20210430.0 ([@bramkragten] - [#49928]) ([frontend docs]) (beta fix)
+- Bump xbox-webapi to 2.0.11 ([@hunterjm] - [#49929]) ([xbox docs]) (beta fix)
+- Iqvia to check bad fetch during setup ([@balloob] - [#49931]) ([iqvia docs]) (beta fix)
+- Bump Tesla dependency teslajsonpy to 0.18.3 ([@alandtse] - [#49939]) ([tesla docs]) (beta fix)
+- Shelly light color mode bugfix ([@thecode] - [#49948]) ([shelly docs]) (beta fix)
+- Fix light services descriptions ([@thecode] - [#49951]) ([light docs]) (beta fix)
+- Bump up ZHA dependencies ([@Adminiuga] - [#49959]) ([zha docs]) (beta fix)
+- Bump simplisafe-python to 9.6.10 ([@bachya] - [#49962]) ([simplisafe docs]) (beta fix)
+- Bump pysonos to 0.0.44 to fix client session race ([@bdraco] - [#49964]) ([sonos docs]) (beta fix)
+- Fix KeyError in IQVIA ([@bachya] - [#49968]) ([iqvia docs]) (beta fix)
+- Correct the selector for frontend.set_theme service ([@bramkragten] - [#49952]) ([frontend docs]) (beta fix)
+- Handle different entity_id formats ([@balloob] - [#49969]) ([recorder docs]) (beta fix)
+- Fix Shelly external sensors invalid 999 value ([@thecode] - [#49994]) ([shelly docs]) (beta fix)
+- Upgrade yeelight to 0.6.2 ([@TheZoker] - [#49995]) ([yeelight docs]) (beta fix)
+- Check exception causes for matching strings during recorder migration ([@bdraco] - [#49999]) ([recorder docs]) (beta fix)
+- Fix Shelly battery operated devices value rounding ([@thecode] - [#49966]) ([shelly docs]) (beta fix)
+- Fix KNX light unique_id ([@farmio] - [#49967]) ([knx docs]) (beta fix)
+- Fix saving a scene ([@bramkragten] - [#49980]) ([config docs]) (beta fix)
+- Handle Timeout exceptions in system_health ([@ludeeus] - [#50017]) ([system_health docs]) (beta fix)
+- Fix Blink entity service schema ([@frenck] - [#50019]) ([blink docs]) (beta fix)
+- Fix ELKM1 entity service schema ([@frenck] - [#50020]) ([elkm1 docs]) (beta fix)
+- Fix Genius Hub entity service schema ([@frenck] - [#50024]) ([geniushub docs]) (beta fix)
+- Fix Harmony entity service schema ([@frenck] - [#50025]) ([harmony docs]) (beta fix)
+- Mitigate NMBS key errors ([@Mariusthvdb] - [#50026]) ([nmbs docs]) (beta fix)
+- Fix Nexia entity service schema ([@frenck] - [#50027]) ([nexia docs]) (beta fix)
+- Bump pysmappee to 0.2.25 ([@bsmappee] - [#50031]) ([smappee docs]) (beta fix)
+- Update frontend to 20210503.0 ([@bramkragten] - [#50036]) ([frontend docs]) (beta fix)
+- Guard logbook assuming entity ID is a string ([@balloob] - [#50047]) ([logbook docs]) (beta fix)
+- Handle missing transport_state on media update in sonos ([@bdraco] - [#50051]) ([sonos docs]) (beta fix)
+- Fix KNX climate unque_id ([@farmio] - [#50054]) ([knx docs]) (beta fix)
+- Catch Shelly set state exceptions when device is inaccessible ([@thecode] - [#50064]) ([shelly docs]) (beta fix)
+- Update frontend to 20210504.0 ([@bramkragten] - [#50093]) ([frontend docs]) (beta fix)
+- Add color_mode support to tasmota light ([@emontnemery] - [#49599]) ([tasmota docs]) (breaking-change) (beta fix)
+- Fix fitbit RuntimeError: I/O must be done in the executor ([@vlebourl] - [#50058]) ([fitbit docs]) (beta fix)
+- Bump motioneye-client to v0.3.6 . ([@dermotduffy] - [#50096]) ([motioneye docs]) (beta fix)
 
 {% enddetails %}
 
@@ -1443,6 +1509,7 @@ their data, which is not allowed for core integrations.
 [#49362]: https://github.com/home-assistant/core/pull/49362
 [#49366]: https://github.com/home-assistant/core/pull/49366
 [#49374]: https://github.com/home-assistant/core/pull/49374
+[#49376]: https://github.com/home-assistant/core/pull/49376
 [#49381]: https://github.com/home-assistant/core/pull/49381
 [#49384]: https://github.com/home-assistant/core/pull/49384
 [#49393]: https://github.com/home-assistant/core/pull/49393
@@ -1559,6 +1626,7 @@ their data, which is not allowed for core integrations.
 [#49593]: https://github.com/home-assistant/core/pull/49593
 [#49594]: https://github.com/home-assistant/core/pull/49594
 [#49597]: https://github.com/home-assistant/core/pull/49597
+[#49599]: https://github.com/home-assistant/core/pull/49599
 [#49604]: https://github.com/home-assistant/core/pull/49604
 [#49606]: https://github.com/home-assistant/core/pull/49606
 [#49607]: https://github.com/home-assistant/core/pull/49607
@@ -1566,11 +1634,13 @@ their data, which is not allowed for core integrations.
 [#49611]: https://github.com/home-assistant/core/pull/49611
 [#49613]: https://github.com/home-assistant/core/pull/49613
 [#49614]: https://github.com/home-assistant/core/pull/49614
+[#49615]: https://github.com/home-assistant/core/pull/49615
 [#49616]: https://github.com/home-assistant/core/pull/49616
 [#49617]: https://github.com/home-assistant/core/pull/49617
 [#49624]: https://github.com/home-assistant/core/pull/49624
 [#49626]: https://github.com/home-assistant/core/pull/49626
 [#49631]: https://github.com/home-assistant/core/pull/49631
+[#49632]: https://github.com/home-assistant/core/pull/49632
 [#49634]: https://github.com/home-assistant/core/pull/49634
 [#49635]: https://github.com/home-assistant/core/pull/49635
 [#49636]: https://github.com/home-assistant/core/pull/49636
@@ -1667,14 +1737,77 @@ their data, which is not allowed for core integrations.
 [#49799]: https://github.com/home-assistant/core/pull/49799
 [#49800]: https://github.com/home-assistant/core/pull/49800
 [#49802]: https://github.com/home-assistant/core/pull/49802
+[#49803]: https://github.com/home-assistant/core/pull/49803
 [#49805]: https://github.com/home-assistant/core/pull/49805
 [#49806]: https://github.com/home-assistant/core/pull/49806
 [#49807]: https://github.com/home-assistant/core/pull/49807
+[#49808]: https://github.com/home-assistant/core/pull/49808
 [#49811]: https://github.com/home-assistant/core/pull/49811
 [#49813]: https://github.com/home-assistant/core/pull/49813
 [#49815]: https://github.com/home-assistant/core/pull/49815
+[#49816]: https://github.com/home-assistant/core/pull/49816
 [#49817]: https://github.com/home-assistant/core/pull/49817
 [#49821]: https://github.com/home-assistant/core/pull/49821
+[#49822]: https://github.com/home-assistant/core/pull/49822
+[#49823]: https://github.com/home-assistant/core/pull/49823
+[#49828]: https://github.com/home-assistant/core/pull/49828
+[#49829]: https://github.com/home-assistant/core/pull/49829
+[#49838]: https://github.com/home-assistant/core/pull/49838
+[#49839]: https://github.com/home-assistant/core/pull/49839
+[#49845]: https://github.com/home-assistant/core/pull/49845
+[#49847]: https://github.com/home-assistant/core/pull/49847
+[#49857]: https://github.com/home-assistant/core/pull/49857
+[#49860]: https://github.com/home-assistant/core/pull/49860
+[#49861]: https://github.com/home-assistant/core/pull/49861
+[#49862]: https://github.com/home-assistant/core/pull/49862
+[#49866]: https://github.com/home-assistant/core/pull/49866
+[#49867]: https://github.com/home-assistant/core/pull/49867
+[#49871]: https://github.com/home-assistant/core/pull/49871
+[#49876]: https://github.com/home-assistant/core/pull/49876
+[#49880]: https://github.com/home-assistant/core/pull/49880
+[#49882]: https://github.com/home-assistant/core/pull/49882
+[#49884]: https://github.com/home-assistant/core/pull/49884
+[#49886]: https://github.com/home-assistant/core/pull/49886
+[#49896]: https://github.com/home-assistant/core/pull/49896
+[#49902]: https://github.com/home-assistant/core/pull/49902
+[#49903]: https://github.com/home-assistant/core/pull/49903
+[#49908]: https://github.com/home-assistant/core/pull/49908
+[#49915]: https://github.com/home-assistant/core/pull/49915
+[#49928]: https://github.com/home-assistant/core/pull/49928
+[#49929]: https://github.com/home-assistant/core/pull/49929
+[#49931]: https://github.com/home-assistant/core/pull/49931
+[#49939]: https://github.com/home-assistant/core/pull/49939
+[#49948]: https://github.com/home-assistant/core/pull/49948
+[#49951]: https://github.com/home-assistant/core/pull/49951
+[#49952]: https://github.com/home-assistant/core/pull/49952
+[#49959]: https://github.com/home-assistant/core/pull/49959
+[#49962]: https://github.com/home-assistant/core/pull/49962
+[#49964]: https://github.com/home-assistant/core/pull/49964
+[#49966]: https://github.com/home-assistant/core/pull/49966
+[#49967]: https://github.com/home-assistant/core/pull/49967
+[#49968]: https://github.com/home-assistant/core/pull/49968
+[#49969]: https://github.com/home-assistant/core/pull/49969
+[#49980]: https://github.com/home-assistant/core/pull/49980
+[#49994]: https://github.com/home-assistant/core/pull/49994
+[#49995]: https://github.com/home-assistant/core/pull/49995
+[#49999]: https://github.com/home-assistant/core/pull/49999
+[#50017]: https://github.com/home-assistant/core/pull/50017
+[#50019]: https://github.com/home-assistant/core/pull/50019
+[#50020]: https://github.com/home-assistant/core/pull/50020
+[#50024]: https://github.com/home-assistant/core/pull/50024
+[#50025]: https://github.com/home-assistant/core/pull/50025
+[#50026]: https://github.com/home-assistant/core/pull/50026
+[#50027]: https://github.com/home-assistant/core/pull/50027
+[#50031]: https://github.com/home-assistant/core/pull/50031
+[#50036]: https://github.com/home-assistant/core/pull/50036
+[#50047]: https://github.com/home-assistant/core/pull/50047
+[#50051]: https://github.com/home-assistant/core/pull/50051
+[#50054]: https://github.com/home-assistant/core/pull/50054
+[#50058]: https://github.com/home-assistant/core/pull/50058
+[#50064]: https://github.com/home-assistant/core/pull/50064
+[#50093]: https://github.com/home-assistant/core/pull/50093
+[#50096]: https://github.com/home-assistant/core/pull/50096
+[@AaronDavidSchneider]: https://github.com/AaronDavidSchneider
 [@Adminiuga]: https://github.com/Adminiuga
 [@Bouni]: https://github.com/Bouni
 [@Bre77]: https://github.com/Bre77
@@ -1693,6 +1826,7 @@ their data, which is not allowed for core integrations.
 [@KapJI]: https://github.com/KapJI
 [@Lau1406]: https://github.com/Lau1406
 [@MarBra]: https://github.com/MarBra
+[@Mariusthvdb]: https://github.com/Mariusthvdb
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@MatthewFlamm]: https://github.com/MatthewFlamm
 [@Noltari]: https://github.com/Noltari
@@ -1702,11 +1836,13 @@ their data, which is not allowed for core integrations.
 [@Shutgun]: https://github.com/Shutgun
 [@StevenLooman]: https://github.com/StevenLooman
 [@TheGardenMonkey]: https://github.com/TheGardenMonkey
+[@TheZoker]: https://github.com/TheZoker
 [@Tho85]: https://github.com/Tho85
 [@ZephireNZ]: https://github.com/ZephireNZ
 [@abmantis]: https://github.com/abmantis
 [@adrienbrault]: https://github.com/adrienbrault
 [@alandtse]: https://github.com/alandtse
+[@amelchio]: https://github.com/amelchio
 [@amitfin]: https://github.com/amitfin
 [@apapadopoulou]: https://github.com/apapadopoulou
 [@bachya]: https://github.com/bachya
@@ -1747,9 +1883,11 @@ their data, which is not allowed for core integrations.
 [@glmnet]: https://github.com/glmnet
 [@gralin]: https://github.com/gralin
 [@hmmbob]: https://github.com/hmmbob
+[@hunterjm]: https://github.com/hunterjm
 [@janiversen]: https://github.com/janiversen
 [@jbouwh]: https://github.com/jbouwh
 [@jjlawren]: https://github.com/jjlawren
+[@karliemeads]: https://github.com/karliemeads
 [@koying]: https://github.com/koying
 [@l2dy]: https://github.com/l2dy
 [@lmagyar]: https://github.com/lmagyar
@@ -1800,6 +1938,7 @@ their data, which is not allowed for core integrations.
 [advantage_air docs]: /integrations/advantage_air/
 [aemet docs]: /integrations/aemet/
 [airly docs]: /integrations/airly/
+[airvisual docs]: /integrations/airvisual/
 [alexa docs]: /integrations/alexa/
 [amazon_polly docs]: /integrations/amazon_polly/
 [ambient_station docs]: /integrations/ambient_station/
@@ -1812,7 +1951,9 @@ their data, which is not allowed for core integrations.
 [august docs]: /integrations/august/
 [automation docs]: /integrations/automation/
 [axis docs]: /integrations/axis/
+[blink docs]: /integrations/blink/
 [bond docs]: /integrations/bond/
+[braviatv docs]: /integrations/braviatv/
 [broadlink docs]: /integrations/broadlink/
 [brother docs]: /integrations/brother/
 [camera docs]: /integrations/camera/
@@ -1832,10 +1973,12 @@ their data, which is not allowed for core integrations.
 [dlna_dmr docs]: /integrations/dlna_dmr/
 [doorbird docs]: /integrations/doorbird/
 [dsmr docs]: /integrations/dsmr/
+[dunehd docs]: /integrations/dunehd/
 [ecobee docs]: /integrations/ecobee/
 [econet docs]: /integrations/econet/
 [edl21 docs]: /integrations/edl21/
 [elgato docs]: /integrations/elgato/
+[elkm1 docs]: /integrations/elkm1/
 [emonitor docs]: /integrations/emonitor/
 [emulated_hue docs]: /integrations/emulated_hue/
 [enphase_envoy docs]: /integrations/enphase_envoy/
@@ -1846,6 +1989,7 @@ their data, which is not allowed for core integrations.
 [ffmpeg docs]: /integrations/ffmpeg/
 [fireservicerota docs]: /integrations/fireservicerota/
 [firmata docs]: /integrations/firmata/
+[fitbit docs]: /integrations/fitbit/
 [flo docs]: /integrations/flo/
 [folder_watcher docs]: /integrations/folder_watcher/
 [freebox docs]: /integrations/freebox/
@@ -1888,6 +2032,7 @@ their data, which is not allowed for core integrations.
 [icloud docs]: /integrations/icloud/
 [insteon docs]: /integrations/insteon/
 [intent_script docs]: /integrations/intent_script/
+[iqvia docs]: /integrations/iqvia/
 [isy994 docs]: /integrations/isy994/
 [jewish_calendar docs]: /integrations/jewish_calendar/
 [kmtronic docs]: /integrations/kmtronic/
@@ -1895,8 +2040,10 @@ their data, which is not allowed for core integrations.
 [kodi docs]: /integrations/kodi/
 [kostal_plenticore docs]: /integrations/kostal_plenticore/
 [kwb docs]: /integrations/kwb/
+[lifx docs]: /integrations/lifx/
 [light docs]: /integrations/light/
 [litterrobot docs]: /integrations/litterrobot/
+[logbook docs]: /integrations/logbook/
 [logi_circle docs]: /integrations/logi_circle/
 [lyric docs]: /integrations/lyric/
 [maxcube docs]: /integrations/maxcube/
@@ -1921,6 +2068,8 @@ their data, which is not allowed for core integrations.
 [neato docs]: /integrations/neato/
 [nest docs]: /integrations/nest/
 [netatmo docs]: /integrations/netatmo/
+[nexia docs]: /integrations/nexia/
+[nmbs docs]: /integrations/nmbs/
 [notify docs]: /integrations/notify/
 [nuki docs]: /integrations/nuki/
 [nws docs]: /integrations/nws/
@@ -1952,6 +2101,7 @@ their data, which is not allowed for core integrations.
 [sense docs]: /integrations/sense/
 [sensor docs]: /integrations/sensor/
 [shelly docs]: /integrations/shelly/
+[simplisafe docs]: /integrations/simplisafe/
 [sma docs]: /integrations/sma/
 [smappee docs]: /integrations/smappee/
 [smarttub docs]: /integrations/smarttub/
@@ -1968,10 +2118,12 @@ their data, which is not allowed for core integrations.
 [surepetcare docs]: /integrations/surepetcare/
 [swiss_hydrological_data docs]: /integrations/swiss_hydrological_data/
 [synology_dsm docs]: /integrations/synology_dsm/
+[system_health docs]: /integrations/system_health/
 [systemmonitor docs]: /integrations/systemmonitor/
 [tasmota docs]: /integrations/tasmota/
 [tellduslive docs]: /integrations/tellduslive/
 [template docs]: /integrations/template/
+[tesla docs]: /integrations/tesla/
 [tibber docs]: /integrations/tibber/
 [tod docs]: /integrations/tod/
 [tplink docs]: /integrations/tplink/
@@ -1986,6 +2138,7 @@ their data, which is not allowed for core integrations.
 [vera docs]: /integrations/vera/
 [verisure docs]: /integrations/verisure/
 [vicare docs]: /integrations/vicare/
+[vilfo docs]: /integrations/vilfo/
 [wake_on_lan docs]: /integrations/wake_on_lan/
 [waze_travel_time docs]: /integrations/waze_travel_time/
 [websocket_api docs]: /integrations/websocket_api/
