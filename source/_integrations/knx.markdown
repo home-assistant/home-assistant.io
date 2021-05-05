@@ -1447,7 +1447,7 @@ Every `*_state_address` is read on startup and sequentially if not configured di
 
 #### Unresponsive system
 
-- The timeout for logging the errors (2 seconds) is started when the GroupValueRead request is scheduled to be sent. On systems experiencing high loads sending can be delayed (e.g. RaspberryPi running lots of integrations at startup).
+- The timeout for logging the errors (2 seconds) is started when the GroupValueRead request is scheduled to be sent. On systems experiencing high loads sending can be delayed (e.g. Raspberry Pi running lots of integrations at startup).
 Incoming response telegrams are always processed, so no information gets lost.
 
 ### Duplicate entities
