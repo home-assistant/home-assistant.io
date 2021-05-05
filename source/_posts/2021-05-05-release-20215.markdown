@@ -168,7 +168,7 @@ this change:
 Screenshot of the updated more info dialog for lights.
 </p>
 
-Please notes, that at this moment not all integrations are able to support color
+Please note, that at this moment not all integrations are able to support color
 modes yet. However, all lights do have an nice updated UI as in the screenshot.
 
 ## Trigger-based binary template sensor
@@ -254,7 +254,7 @@ noteworthy changes this release:
   integrations.
 - The TTS service by Home Assistant Cloud now uses an improved bitrate,
   making it sound even more impressive.
-- ClimaCell now supports the v4 API. So, I've you've wanted to test it out you
+- ClimaCell now supports the v4 API. So, If you've wanted to test it out you
   can now actually use it with the new API keys. Thanks [@raman325]!
 - If you are into templating, we now have `min()` and `max()` available
   as functions in Jinja templates.
