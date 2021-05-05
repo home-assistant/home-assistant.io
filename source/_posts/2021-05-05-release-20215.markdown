@@ -86,26 +86,28 @@ This My button brings you right to it:
 
 {% my info badge %}
 
-## Ever wonder why Home Assistant didn’t restart when you pressed the restart button?
+## Why Home Assistant didn’t restart when I pressed the restart button?
 
-TODO:
-- Title...
-- Wording/flow adjustments
+So, why didn't Home Assistant restart when you press the restart button?
+This question we have seen quite a few times and was a rather annoying
+occurrence that has been improved.
 
-The restart button now provides feedback so you know right away if a restart
-can’t happen because of invalid config, broken integration or database upgrade
-in progress.
+The restart button now provides feedback! So you know right away if a restart
+can’t happen because of invalid configuration, broken integration or database
+upgrade in progress.
 
-We adjusted timeouts and fixed a few places were shutdown would block
+We adjusted timeouts and fixed a few places where shutdown would block
 forever, for example, when restarting Home Assistant the configuration gets
 checked and there was a case that could hang in this check forever.
 
-Restarts are faster now... (WTH https://community.home-assistant.io/t/wth-stopping-service-is-too-slow/220507),
-as more parts of Home Assistant now cancel/react to the shutdown procedure
-better.
+This means restarts are faster now! as more parts of Home Assistant now
+cancel/react to the shutdown procedure better
+(from the Month of [What the Heck][wth]).
 
 We also audited the top 35 integrations to make sure they stop polling on stop.
 Thanks for {% my general title="turning on analytics" %}!
+
+[wth]: https://community.home-assistant.io/t/wth-stopping-service-is-too-slow/220507
 
 ## Memory Leaks
 
