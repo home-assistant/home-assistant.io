@@ -23,6 +23,7 @@ Lorem ipsum
 - [Why Home Assistant didn’t restart when I pressed the restart button?](#why-home-assistant-didnt-restart-when-i-pressed-the-restart-button)
 - [Updated look and feel for the integration dashboard](#updated-look-and-feel-for-the-integration-dashboard)
 - [Color modes!](#color-modes)
+- [Tigger-based binary template sensor](#tigger-based-binary-template-sensor)
 - [Docker images now signed and available on the GitHub Container Registry](#docker-images-now-signed-and-available-on-the-github-container-registry)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -144,6 +145,58 @@ Screenshot of the updated more info dialog for lights.
 
 Please notes, that at this moment not all integrations are able to support color
 modes yet. However, all lights do have an nice updated UI as in the screenshot.
+
+## Tigger-based binary template sensor
+
+In the previous release, we introduced a trigger-based template sensor. This
+release extends on that features by adding support for trigger-based binary
+sensors using templates.
+
+This is an example of a webhook that is creating multiple template (binary)
+sensors:
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: webhook
+        webhook_id: my-super-secret-webhook-id
+    sensor:
+      - name: "Webhook Temperature"
+        state: "{{ trigger.json.temperature }}"
+        unit_of_measurement: °C
+      - name: "Webhook Humidity"
+        state: "{{ trigger.json.humidity }}"
+        unit_of_measurement: %
+    binary_sensor:
+      - name: "Motion"
+        state: "{{ trigger.json.motion }}"
+        device_class: motion
+```
+
+{% endraw %}
+
+The above template would create 2 sensors, and one binary sensor based on
+JSON data it receives via a webhook and could be triggered using this command:
+
+```bash
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"temperature": 5, "humidity": 34, "motion": true}' \
+  http://homeassistant.local:8123/api/webhook/my-super-secret-webhook-id
+```
+
+So, webhooks is one example, but you can do tons of things with this magic!
+
+Some other ideas:
+
+- You could create a binary sensor from any event in Home
+  Assistant event (e.g., a motion sensor event)
+- One that updates based on a time trigger once a day
+  (e.g., "Is is my birthday? binary sensor).
+
+[previous]: /blog/2021/04/07/release-20214/#trigger-based-template-sensors
 
 ## Docker images now signed and available on the GitHub Container Registry
 
