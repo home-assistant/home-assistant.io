@@ -206,6 +206,7 @@ Backend things/candidates:
 - Add Rituals Perfume Genie sensor platform ([@milanmeu] - [#48270]) ([rituals_perfume_genie docs]) (new-platform)
 - Live db migrations and recovery ([@bdraco] - [#49036]) ([recorder docs]) (breaking-change)
 - Support min()/max() as template function ([@frenck] - [#48996])
+- Add alarm control panel support to ZHA ([@dmulcahey] - [#49080]) ([zha docs]) (new-platform)
 - Add support for custom configurations in ZHA ([@dmulcahey] - [#48423]) ([zha docs])
 - Allow top level non-trigger template entities ([@balloob] - [#48976]) ([template docs])
 - Added Spanish US voice to Google Cloud TTS ([@soundch3z] - [#49200]) ([google_cloud docs])
