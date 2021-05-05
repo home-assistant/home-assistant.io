@@ -13,6 +13,7 @@ ha_domain: template
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - climate
   - cover
   - fan
   - light
@@ -28,6 +29,7 @@ The `template` integration allows creating entities which derive their values fr
 Sensors and binary (on/off) sensors are covered on this page. For other types, please see the specific pages:
 
 - [Alarm_control_panel](/integrations/alarm_control_panel.template/)
+- [Climate](/integrations/climate.template/)
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
 - [Light](/integrations/light.template/)
