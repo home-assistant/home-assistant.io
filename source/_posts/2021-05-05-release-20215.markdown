@@ -184,35 +184,29 @@ noteworthy changes this release:
 - We did an audit of memory leaks and fixed a couple of generic cases in our
   core codebase. But also fixed over 15 cases during unload/reload in popular
   integrations.
+- The TTS service by Home Assistant Cloud now uses an improved bitrate,
+  making it sound even more impressive.
+- ClimaCell now supports the v4 API. So, I've you've wanted to test it out you
+  can now actually use it with the new API keys. Thanks [@raman325]!
+- If you are into templating, we now have `min()` and `max()` available
+  as functions in Jinja templates.
+- The AdGuard integration now supports multiple instances thanks to [@eifinger].
+- When viewing your logs in the frontend, the log entry will tell you if
+  the log was created by a custom integration.
+- If you have a Sonos Move or Sonos Roam, you can now see their battery level
+  and charging state. Thanks for that [@hufman] and [@jjlawren].
+- Template covers now can have an opening and closing state, which was added by
+  [@bdr99], thanks for that!
+- The ZHA integration now has configuration options in the UI, allowing you
+  to set things like default transition times for your lights.
+  Thanks [@dmulcahey]!
+- The Z-Wave JS integration now allows you to Re-interview a device from the
+  UI thanks to [@cgarwood].
+- [@cgarwood] didn't stop there, you can now opt-in for sending Z-Wave JS
+  telemetry to the Z-Wave JS project to help them out. This can be turned
+  on in the Z-Wave JS configuration panel.
 
-
-Backend things/candidates:
-
-- Add ClimaCell v4 API support ([@raman325] - [#47575]) ([climacell docs])
-- Add hive boost off functionality ([@KJonline] - [#48701]) ([hive docs]) (breaking-change)
-- Allow template covers to have opening and closing states ([@bdr99] - [#47925]) ([template docs])
-- Bump hass-nabucasa 0.43 ([@balloob] - [#48964]) ([cloud docs])
-- Add new attributes to Climacell ([@raman325] - [#48707]) ([climacell docs])
-- Reintroduce iAlarm integration ([@RyuzakiKK] - [#43525]) ([ialarm docs]) (new-integration)
-- Add Rituals Perfume Genie sensor platform ([@milanmeu] - [#48270]) ([rituals_perfume_genie docs]) (new-platform)
-- Live db migrations and recovery ([@bdraco] - [#49036]) ([recorder docs]) (breaking-change)
-- Support min()/max() as template function ([@frenck] - [#48996])
-- Add support for custom configurations in ZHA ([@dmulcahey] - [#48423]) ([zha docs])
-- Allow top level non-trigger template entities ([@balloob] - [#48976]) ([template docs])
-- Added Spanish US voice to Google Cloud TTS ([@soundch3z] - [#49200]) ([google_cloud docs])
-- Support all available Google Cloud TTS languages ([@hmmbob] - [#49208]) ([google_cloud docs])
-- Add binary sensor platform to Rituals Perfume Genie Integration ([@milanmeu] - [#49207]) ([rituals_perfume_genie docs]) (new-platform)
-- Add support for multiple AdGuard instances ([@eifinger] - [#49116]) ([adguard docs])
-- Skip recorder commit if there is nothing to do ([@bdraco] - [#49614]) ([recorder docs])
-- Add battery support for Sonos speakers ([@jjlawren] - [#49441]) ([sonos docs]) (new-platform)
-- Add Blueprint foundation to Scripts ([@frenck] - [#48621]) ([config docs]) ([script docs])
-
-Frontend things/candidates:
-
-- Align layout of all cards (#8931) @balloob
-- Highlight if log comes from custom component (#8912) @balloob
-- Add UI for Z-Wave JS Device Reinterview (#8957) @cgarwood
-- Add opt-in toggle for zwave-js telemetry to config panel (#8958) @cgarwood
+[@hufman]: https://github.com/hufman
 
 ## New Integrations
 
