@@ -737,10 +737,16 @@ need to adjust to this change.
 
 {% details "Tasmota" %}
 
-Tasmota lights no longer supports deprecated white_value, use `rgbw_color`
+Tasmota lights no longer supports deprecated `white_value`, use `rgbw_color`
 instead.
 
 ([@emontnemery] - [#49599]) ([tasmota docs])
+
+The Tasmota Wi-Fi RSSI sensor unit was wrong, it is **dBm** and not **dB**.
+If you rely on the unit of measurement from this sensor, you might need to
+adjust to this change.
+
+([@thecode] - [#49263]) ([tasmota docs])
 
 {% enddetails %}
 
