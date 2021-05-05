@@ -246,6 +246,9 @@ and shipped by the Home Assistant project.
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
+- Are you in meetings a lot? The new [mutesync][mutesync docs] integration
+  shows if you're in a meeting and if you're muted in Home Assistant. This will
+  unlock some cool do-not-disturb automations.
 - We did an audit of memory leaks and fixed a couple of generic cases in our
   core codebase. But also fixed over 15 cases during unload/reload in popular
   integrations.
