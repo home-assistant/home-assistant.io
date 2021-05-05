@@ -506,7 +506,8 @@ The integration will add as many useable entities for you as possible from the i
 
 ### I renamed my devices in Z-Wave JS 2 MQTT but those names are not visible in Home Assistant
 
-Correct. Only a few devices actually support having their name stored in the hardware. In case your device supports it, you can rename it from the control panel and it will be stored on your device (and Home Assistant will prefer that name). Most devices don't support that feature. Zwavejs2mqtt changes are only available within the application and not stored/synced with the actual Z-Wave network and thus not populated to Home Assistant.
+The names are only loaded when the Z-Wave JS integration is started. For Home Assistant
+to pick up those new names, either reload the integration or restart Home Assistant.
 
 ## Troubleshooting Issues
 
