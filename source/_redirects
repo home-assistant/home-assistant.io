@@ -2,7 +2,7 @@
 #
 
 # General use redirects
-/join-chat https://discord.gg/BzQNTqK
+/join-chat https://discord.gg/home-assistant
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
 /latest-security-alert /blog/2021/01/23/security-disclosure2/
