@@ -109,15 +109,6 @@ Thanks for {% my general title="turning on analytics" %}!
 
 [wth]: https://community.home-assistant.io/t/wth-stopping-service-is-too-slow/220507
 
-## Memory Leaks
-
-TODO:
-- Extend or move to other noteworthy changes
-
-We did an audit of memory leaks and fixed a couple of generic cases in our core
-codebase. But also fixed over 15 cases during unload/reload in popular
-integrations.
-
 ## Updated look and feel for the integration dashboard
 
 TODO:
@@ -179,6 +170,11 @@ vcn authenticate --org home-assistant.io docker://ghcr.io/home-assistant/home-as
 
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
+
+- We did an audit of memory leaks and fixed a couple of generic cases in our
+  core codebase. But also fixed over 15 cases during unload/reload in popular
+  integrations.
+
 
 Backend things/candidates:
 
