@@ -221,9 +221,11 @@ Some other ideas:
 
 We are now using both DockerHub and the new GitHub Container Registry.
 
-If you want to use the new GitHub Container Registry, just use
+If you want to use the new GitHub Container Registry, just use:
+
 `ghcr.io/home-assistant/home-assistant`
-instead of `homeassistant/home-assistant`.
+
+(Instead of `homeassistant/home-assistant`)
 
 Our core images are now also signed with [CodeNotary](https://codenotary.io)
 and allowing you to check the integrity of our images.
