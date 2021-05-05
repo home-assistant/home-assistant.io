@@ -63,15 +63,28 @@ frequency.
 
 ## Startup visibility - What is taking so long?
 
-TODO:
-- Some rewording / flow fixes
-- Screenshot
-
 Ever wondered why starting up Home Assistant took so long?
 
 Stop wondering, as you can now see which integration is delaying startup as
-the integration taking the longest time to setup is now displayed when
+the integration taking the longest time to set up is now displayed when
 Home Assistant is starting.
+
+<p class='img'>
+<img src='/images/blog/2021-05/still-starting.png' alt='Screenshot of Home Assistant starting'>
+Screenshot of Home Assistant reporting integrations that are being set up.
+</p>
+
+And in case you missed those notifications, you can always check the
+information panel afterward.
+
+<p class='img'>
+<img src='/images/blog/2021-05/setup-time.png' alt='Screenshot of information panel showing integration set up times'>
+Screenshot of information panel showing integration set up times.
+</p>
+
+This My button brings you right to it:
+
+{% my info badge %}
 
 ## Ever wonder why Home Assistant didn’t restart when you pressed the restart button?
 
