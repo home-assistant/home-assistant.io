@@ -19,8 +19,8 @@ feedback: true
 Here I am again, a month later. Are you used to these monthly release cycles
 yet? Hello, 2021.5! Nice to see you this May!
 
-I would say this release is a bit more "slow" compared to the previous release
-(which was epic, in my opinion!). But "slow" is not a bad thing!
+I would say this release is a bit less feature rich compared to the previous
+release (which was epic, in my opinion!). But it is not a bad thing!
 
 Some really good stability improvements have been introduced this release! Not
 the hot new items you want to explore immediately, but these fundamental things
