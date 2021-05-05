@@ -244,7 +244,22 @@ Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 
-{% details "Custom integration" %}
+{% details "Container udev" %}
+
+We no longer run an udev instance inside our containers. This was used by the
+Supervisor which now is using the host udev in all containers.
+
+For now, we have a fallback environment variable `USING_UDEV=1` which you can
+set on your container to get the old behavior. This gives you time for using
+the Docker way to map/use devices.
+
+([@pvizeli]- [#180])
+
+[#180]: https://github.com/home-assistant/docker/pull/180
+
+{% enddetails %}
+
+{% details "Custom integrations" %}
 
 Custom integrations now require a version key in their manifest file, this also
 means that all custom integrations now require a manifest file.
@@ -266,35 +281,75 @@ custom integration.
 
 {% enddetails %}
 
-{% details "Google Travel Time" %}
+{% details "Events" %}
 
-The Google Travel Time integration is now configured via the UI. Configuring
+An event fired with an `event_type` of more than 64 characters would previously
+result in recorder errors but the event would otherwise work. Now, firing an
+event with more than 64 characters in the event type will raise immediately.
+
+If you are using long events in your automations or scripts, you should adjust
+to this change. Custom integration authors should review their event types.
+
+([@raman325] - [#48115])
+
+{% enddetails %}
+
+{% details "ASUSWRT" %}
+
+The `device_tracker` entity state attribute `ip_address` has been changed and is
+now be named `ip`. You need to update automations and scripts that use this
+attribute.
+
+([@bieniu] - [#48764])
+
+{% enddetails %}
+
+{% details "AVM FRITZ!Box Tools" %}
+
+The AVM FRITZ!Box Tools integration is now configured via the UI. Configuring
 the integration via YAML is now deprecated. Existing YAML configuration is
 automatically imported on upgrade and can be safely removed after upgrade.
 
-([@raman325] - [#43509])
+([@chemelli74] - [#48287])
 
 {% enddetails %}
 
-{% details "Garmin Connect" %}
+{% details "AVM FRITZ!SmartHome" %}
 
-The unit of measurement from Garmin Connect timestamp sensors has been removed.
-It used to be set to empty string. If you have automations, scripts or external
-data recvorder that rely on unit of measurement for these sensors, you might
-need to adjust to this change.
+YAML configuration for AVM FRITZ!SmartHome has been removed, after it has been
+deprecated for 12 months. Configuration via UI is fully integrated. Existing
+YAML configuration has already been imported automatically in the previous
+releases and can now safely be removed from your configuration files.
 
-([@MartinHjelmare] - [#48431])
+([@mib1185] - [#49663])
 
 {% enddetails %}
 
-{% details "System Monitor" %}
+{% details "DHT Sensor" %}
 
-The unit of measurement from System Monitor timestamp sensors has been removed.
-It used to be set to empty string. If you have automations, scripts or external
-data recorder that rely on unit of measurement for these sensors, you might
-need to adjust to this change.
+The `pin` configuration option is currently an integer but will need to be
+prefixed with D for Raspberry Pi platforms.
 
-([@MartinHjelmare] - [#48431])
+Please adjust your YAML configuration for this change.
+
+([@TheGardenMonkey] - [#41525])
+
+{% enddetails %}
+
+{% details "ecobee" %}
+
+ecobee climate devices will change the reported temperature precision for their
+`current_temperature` attribute from whole degrees to 0.1 degree increments.
+Automations which rely on whole-number precision may need adjustments.
+
+([@bjpetit] - [#48086])
+
+Setting a fan hold in the ecobee integration will no longer also set a
+temperature hold. If any automations assumed that the temperature would be set
+when calling the set_fan_mode service on an ecobee device, those automations
+will need to add the appropriate `set_temperature` service call.
+
+([@jjlawren] - [#48697])
 
 {% enddetails %}
 
@@ -309,70 +364,6 @@ All sensors are now configured by default. Each inverter has a unique ID and
 can now be disabled in the UI.
 
 ([@bdraco] - [#48517])
-
-{% enddetails %}
-
-{% details "Waze Travel Time" %}
-
-The Waze Travel Time integration is now configured via the UI. Configuring
-the integration via YAML is now deprecated. Existing YAML configuration is
-automatically imported on upgrade and can be safely removed after upgrade.
-
-([@raman325] - [#43419])
-
-{% enddetails %}
-
-{% details "ASUSWRT" %}
-
-The `device_tracker` entity state attribute `ip_address` has been changed and is
-now be named `ip`. You need to update automations and scripts that use this
-attribute.
-
-([@bieniu] - [#48764])
-
-{% enddetails %}
-
-{% details " Recollect Waste" %}
-
-Recollect Waste pickup dates are now stored as UTC timestamps.
-
-([@bachya] - [#48690])
-
-{% enddetails %}
-
-{% details "KNX" %}
-
-The `config_file` YAML option for KNX was deprecated before and has now been
-removed.
-
-([@marvin-w] - [#48799])
-
-{% enddetails %}
-
-{% details "Events" %}
-
-An event fired with an `event_type` of more than 64 characters would previously
-result in recorder errors but the event would otherwise work. Now, firing an
-event with more than 64 characters in the event type will raise immediately.
-
-If you are using long events in your automations or scripts, you should adjust
-to this change. Custom integration authors should review their event types.
-
-([@raman325] - [#48115])
-
-{% enddetails %}
-
-{% details "Hive" %}
-
-The existing Hive service `heating_boost` will be deprecated in Home Assistant
-release 2021.6 and a new service to replace it has been created called
-`heating_boost_on`.
-
-If you use the `heating_boost` Hive service please update your configuration
-to the new service. A deprecation warning will be printed to the logs when the
-deprecated service is used.
-
-([@KJonline] - [#48701])
 
 {% enddetails %}
 
@@ -405,84 +396,13 @@ will need to adjust to this change.
 
 {% enddetails %}
 
-{% details "Litter-Robot" %}
+{% details "Garmin Connect" %}
+The unit of measurement from Garmin Connect timestamp sensors has been removed.
+It used to be set to empty string. If you have automations, scripts or external
+data recvorder that rely on unit of measurement for these sensors, you might
+need to adjust to this change.
 
-`reset_waste_drawer`, `set_sleep_mode`, and `set_wait_time` now have their own
-services. Previously, they were triggered by using `send_command`.
-If you used any of those commands in your automations or scripts, you'll need
-to replace them with their service counter-part.
-
-([@natekspencer] - [#48300])
-
-{% enddetails %}
-
-{% details "Recorder" %}
-
-Database migrations are now done in the background and no longer prevent
-Home Assistant from starting.
-
-The migration is started shortly after the started event since they are CPU
-intensive (mostly just sqlite since its in the same process) and we do not want
-to compete with startup.
-
-Events created by your system are queued and processed when the migration is
-completed. There is a safety to start discarding events if more than ~30000
-events happen before migration is completed to avoid memory exhaustion.
-
-During migration, Home Assistant will prevent being started or stopped and
-this will also disable the `homeassistant.stop` and `homeassistant.start`
-services until the migration has been completed.
-
-The sqlite database recovery logic can now recover at point after setup
-including purge, migration, and event insert. In short we can _always_
-(hopefully) recover and start a new db without a restart.
-
-The quick check is no longer performed on unclean shutdown since we can always
-recover live. The `db_integrity_check` option has been deprecated.
-
-([@bdraco] - [#49036] [#49098])
-
-{% enddetails %}
-
-{% details "SMA Solar" %}
-
-The SMA integration is now configured via the UI. Configuring the integration
-via YAML is now deprecated. Existing YAML configuration is automatically
-imported on upgrade and can be safely removed after upgrade.
-
-Using custom sensors is deprecated and not possible using the UI. Feel free to
-submit additional sensors to be added as standard sensors to the
-[pysma library](https://github.com/kellerza/pysma/blob/master/pysma/__init__.py#L100).
-
-The `pv_power` sensor is now reporting DC power of solar panels side A and named `pv_power_a` for new installations. `grid_power` is the total power supplied to the grid.
-
-([@rklomp] - [#48003])
-
-{% enddetails %}
-
-{% details "Swiss Hydrological Data" %}
-
-FEON/BAFU changed their data which required removing some of the attributes.
-
-The following attributes are no longer available:
-
-- delta-24h
-- max-1h
-- min-1h
-- mean-1h
-- previous-24h
-
-([@Bouni] - [#49119])
-
-{% enddetails %}
-
-{% details "Shelly" %}
-
-The Shelly Wi-Fi RSSI sensor unit was wrong, it is **dBm** and not **dB**.
-If you rely on the unit of measurement from this sensor, you might need to
-adjust to this change.
-
-([@thecode] - [#49265])
+([@MartinHjelmare] - [#48431])
 
 {% enddetails %}
 
@@ -497,57 +417,60 @@ The Growl project has now fully retired, see: <https://growl.github.io/growl/>
 
 {% enddetails %}
 
-{% details "ecobee" %}
+{% details "Google Travel Time" %}
 
-ecobee climate devices will change the reported temperature precision for their
-`current_temperature` attribute from whole degrees to 0.1 degree increments.
-Automations which rely on whole-number precision may need adjustments.
-
-([@bjpetit] - [#48086])
-
-Setting a fan hold in the ecobee integration will no longer also set a
-temperature hold. If any automations assumed that the temperature would be set
-when calling the set_fan_mode service on an ecobee device, those automations
-will need to add the appropriate `set_temperature` service call.
-
-([@jjlawren] - [#48697])
-
-{% enddetails %}
-
-{% details "ZeroConf" %}
-
-If the `default_interface` is not set, the value is auto-detected based on the
-system routing next hop for the mDNS broadcast address (`224.0.0.251`).
-
-If the next-hop cannot be detected or is a loopback address, `zeroconf` will
-broadcast on all interfaces. If the next hop is a non-loopback address,
-`zeroconf` will only broadcast on the default interface.
-
-Setting the `default_interface` to `true` or `false` will override the auto
-detection.
-
-([@bdraco] - [#49529])
-
-{% enddetails %}
-
-{% details "AVM FRITZ!Box Tools" %}
-
-The AVM FRITZ!Box Tools integration is now configured via the UI. Configuring
+The Google Travel Time integration is now configured via the UI. Configuring
 the integration via YAML is now deprecated. Existing YAML configuration is
 automatically imported on upgrade and can be safely removed after upgrade.
 
-([@chemelli74] - [#48287])
+([@raman325] - [#43509])
 
 {% enddetails %}
 
-{% details "AVM FRITZ!SmartHome" %}
+{% details "Hive" %}
 
-YAML configuration for AVM FRITZ!SmartHome has been removed, after it has been
-deprecated for 12 months. Configuration via UI is fully integrated. Existing
-YAML configuration has already been imported automatically in the previous
-releases and can now safely be removed from your configuration files.
+The existing Hive service `heating_boost` will be deprecated in Home Assistant
+release 2021.6 and a new service to replace it has been created called
+`heating_boost_on`.
 
-([@mib1185] - [#49663])
+If you use the `heating_boost` Hive service please update your configuration
+to the new service. A deprecation warning will be printed to the logs when the
+deprecated service is used.
+
+([@KJonline] - [#48701])
+
+{% enddetails %}
+
+{% details "KNX" %}
+
+The `config_file` YAML option for KNX was deprecated before and has now been
+removed.
+
+([@marvin-w] - [#48799])
+
+{% enddetails %}
+
+{% details "Light profiles" %}
+
+When a light entity has a default profile associated, the default profile will
+only be applied for the `light.turn_on` service call when the light state is
+off or no data is sent with the service call.
+
+The transition attribute from the default profile in `light_profiles.csv` will
+also be applied when `light.turn_off` is called.
+
+([@karliemeads] - [#49376]) ([light docs])
+
+{% enddetails %}
+
+{% details "Litter-Robot" %}
+
+`reset_waste_drawer`, `set_sleep_mode`, and `set_wait_time` now have their own
+services. Previously, they were triggered by using `send_command`.
+If you used any of those commands in your automations or scripts, you'll need
+to replace them with their service counter-part.
+
+([@natekspencer] - [#48300])
 
 {% enddetails %}
 
@@ -594,6 +517,92 @@ Swap allows `none`/`byte`/`word`/`word_byte` options.
 
 {% enddetails %}
 
+{% details "Recollect Waste" %}
+
+Recollect Waste pickup dates are now stored as UTC timestamps.
+
+([@bachya] - [#48690])
+
+{% enddetails %}
+
+{% details "Recorder" %}
+
+Database migrations are now done in the background and no longer prevent
+Home Assistant from starting.
+
+The migration is started shortly after the started event since they are CPU
+intensive (mostly just sqlite since its in the same process) and we do not want
+to compete with startup.
+
+Events created by your system are queued and processed when the migration is
+completed. There is a safety to start discarding events if more than ~30000
+events happen before migration is completed to avoid memory exhaustion.
+
+During migration, Home Assistant will prevent being started or stopped and
+this will also disable the `homeassistant.stop` and `homeassistant.start`
+services until the migration has been completed.
+
+The sqlite database recovery logic can now recover at point after setup
+including purge, migration, and event insert. In short we can _always_
+(hopefully) recover and start a new db without a restart.
+
+The quick check is no longer performed on unclean shutdown since we can always
+recover live. The `db_integrity_check` option has been deprecated.
+
+([@bdraco] - [#49036] [#49098])
+
+{% enddetails %}
+
+{% details "RoonLabs music player" %}
+
+The RoonLabs music player `media_player` previously had integration specific
+services for `roon.join` and `roon.un_join`. These have been removed removes
+and replaced with the `media_player.join` and `media_player.unjoin` services.
+
+If you use these services in your automations or script, you need to adjust those.
+
+([@pavoni] - [#49667])
+
+{% enddetails %}
+
+{% details "Shelly" %}
+
+The Shelly Wi-Fi RSSI sensor unit was wrong, it is **dBm** and not **dB**.
+If you rely on the unit of measurement from this sensor, you might need to
+adjust to this change.
+
+([@thecode] - [#49265])
+
+{% enddetails %}
+
+{% details "SimpliSafe" %}
+
+The unpublished SimpliSafe cloud API no longer provides a functioning websocket.
+Therefore, the integration will no longer be able to receive `SIMPLISAFE_EVENT`
+or `SIMPLISAFE_NOTIFICATION` events, nor will it be possible for stage changes
+performed outside of Home Assistant (e.g., via the keypad) to be reflected in
+Home Assistant in near-realtime.
+
+([@bachya] - [#49876]) ([simplisafe docs])
+
+{% enddetails %}
+
+{% details "SMA Solar" %}
+
+The SMA integration is now configured via the UI. Configuring the integration
+via YAML is now deprecated. Existing YAML configuration is automatically
+imported on upgrade and can be safely removed after upgrade.
+
+Using custom sensors is deprecated and not possible using the UI. Feel free to
+submit additional sensors to be added as standard sensors to the
+[pysma library](https://github.com/kellerza/pysma/blob/master/pysma/__init__.py#L100).
+
+The `pv_power` sensor is now reporting DC power of solar panels side A and named `pv_power_a` for new installations. `grid_power` is the total power supplied to the grid.
+
+([@rklomp] - [#48003])
+
+{% enddetails %}
+
 {% details "Sure Petcare" %}
 
 The following YAML configuration options have been deprecated:
@@ -610,65 +619,30 @@ remove those.
 
 {% enddetails %}
 
-{% details "RoonLabs music player" %}
+{% details "Swiss Hydrological Data" %}
 
-The RoonLabs music player `media_player` previously had integration specific
-services for `roon.join` and `roon.un_join`. These have been removed removes
-and replaced with the `media_player.join` and `media_player.unjoin` services.
+FEON/BAFU changed their data which required removing some of the attributes.
 
-If you use these services in your automations or script, you need to adjust those.
+The following attributes are no longer available:
 
-([@pavoni] - [#49667])
+- delta-24h
+- max-1h
+- min-1h
+- mean-1h
+- previous-24h
 
-{% enddetails %}
-
-{% details "DHT Sensor" %}
-
-The `pin` configuration option is currently an integer but will need to be
-prefixed with D for Raspberry Pi platforms.
-
-Please adjust your YAML configuration for this change.
-
-([@TheGardenMonkey] - [#41525])
+([@Bouni] - [#49119])
 
 {% enddetails %}
 
-{% details "Container udev" %}
+{% details "System Monitor" %}
 
-We don't run a udev instance anymore inside the container. This was used by the Supervisor
-which now using the host udev over all containers.
+The unit of measurement from System Monitor timestamp sensors has been removed.
+It used to be set to empty string. If you have automations, scripts or external
+data recorder that rely on unit of measurement for these sensors, you might
+need to adjust to this change.
 
-For now, we have a fallback ENV variable `USING_UDEV=1` which you can set on your container
-to get the old behavier and give you time for using the docker way to map/use devices.
-
-([@pvizeli]- [#180])
-
-[#180]: https://github.com/home-assistant/docker/pull/180
-
-{% enddetails %}
-
-{% details "Light profiles" %}
-
-When a light entity has a default profile associated, the default profile will
-only be applied for the `light.turn_on` service call when the light state is
-off or no data is sent with the service call.
-
-The transition attribute from the default profile in `light_profiles.csv` will
-also be applied when `light.turn_off` is called.
-
-([@karliemeads] - [#49376]) ([light docs])
-
-{% enddetails %}
-
-{% details "SimpliSafe" %}
-
-The unpublished SimpliSafe cloud API no longer provides a functioning websocket.
-Therefore, the integration will no longer be able to receive `SIMPLISAFE_EVENT`
-or `SIMPLISAFE_NOTIFICATION` events, nor will it be possible for stage changes
-performed outside of Home Assistant (e.g., via the keypad) to be reflected in
-Home Assistant in near-realtime.
-
-([@bachya] - [#49876]) ([simplisafe docs])
+([@MartinHjelmare] - [#48431])
 
 {% enddetails %}
 
@@ -678,6 +652,32 @@ Tasmota lights no longer supports deprecated white_value, use `rgbw_color`
 instead.
 
 ([@emontnemery] - [#49599]) ([tasmota docs])
+
+{% enddetails %}
+
+{% details "Waze Travel Time" %}
+
+The Waze Travel Time integration is now configured via the UI. Configuring
+the integration via YAML is now deprecated. Existing YAML configuration is
+automatically imported on upgrade and can be safely removed after upgrade.
+
+([@raman325] - [#43419])
+
+{% enddetails %}
+
+{% details "ZeroConf" %}
+
+If the `default_interface` is not set, the value is auto-detected based on the
+system routing next hop for the mDNS broadcast address (`224.0.0.251`).
+
+If the next-hop cannot be detected or is a loopback address, `zeroconf` will
+broadcast on all interfaces. If the next hop is a non-loopback address,
+`zeroconf` will only broadcast on the default interface.
+
+Setting the `default_interface` to `true` or `false` will override the auto
+detection.
+
+([@bdraco] - [#49529])
 
 {% enddetails %}
 
