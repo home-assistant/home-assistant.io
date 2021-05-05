@@ -16,7 +16,26 @@ feedback: true
 
 <a href='/integrations/#version/2021.5'><img src='/images/blog/2021-05/social.png' style='border: 0;box-shadow: none;'></a>
 
-Lorem ipsum
+Here I am again, a month later. Are you used to these monthly release cycles
+yet? Hello, 2021.5! Nice to see you this May!
+
+I would say this release is a bit more "slow" compared to the previous release
+(which was epic, in my opinion!). But "slow" is not a bad thing!
+
+Some really good stability improvements have been introduced this release! Not
+the hot new items you want to explore immediately, but these fundamental things
+will really help our systems now and in the future. Making this release an
+upgrade that would be a smooth sail for most of us (check the breaking changes).
+
+The most visual part changed this release can be found in the facelift that the
+integrations dashboard got. Oh, and the new color modes for lights is an amazing
+improvement as well!
+
+May... For me, that feels like the summer is slowly trying to make its
+appearance and I'm looking forward to it 🕶. Do you have a summer
+Home Automation project figured out yet?
+
+../Frenck
 
 - [Database upgrades & performance](#database-upgrades--performance)
 - [Startup visibility - What is taking so long?](#startup-visibility---what-is-taking-so-long)
