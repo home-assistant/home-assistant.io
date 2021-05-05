@@ -345,14 +345,14 @@ ecobee climate devices will change the reported temperature precision for their
 `current_temperature` attribute from whole degrees to 0.1 degree increments.
 Automations which rely on whole-number precision may need adjustments.
 
-([@bjpetit] - [#48086])
+([@jjlawren] - [#48697])
 
 Setting a fan hold in the ecobee integration will no longer also set a
 temperature hold. If any automations assumed that the temperature would be set
 when calling the set_fan_mode service on an ecobee device, those automations
 will need to add the appropriate `set_temperature` service call.
 
-([@jjlawren] - [#48697])
+([@bjpetit] - [#48086])
 
 {% enddetails %}
 
