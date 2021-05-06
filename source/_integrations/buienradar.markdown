@@ -6,9 +6,11 @@ ha_category:
   - Weather
 ha_release: 0.47
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_codeowners:
   - '@mjj4791'
   - '@ties'
+  - '@Robbie1221'
 ha_domain: buienradar
 ha_platforms:
   - camera
@@ -16,14 +18,16 @@ ha_platforms:
   - weather
 ---
 
-The `buienradar` platform uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
+The `buienradar` integration uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
 
 The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the Buienradar weather/sensor component).  A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0).
 
 Besides the weather platform, there is currently support for the following additional device types:
 
 - [Camera](#camera): Radar map
-- [Sensor](/integrations/sensor.buienradar/): More customizable
+- [Sensor](#sensor): Extended weather data
+
+{% include integrations/config_flow.md %}
 
 ## Configuration
 
