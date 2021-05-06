@@ -36,7 +36,9 @@ Please review the limitations [below](/integrations/zwave_js/#current-limitation
 
 ## Quick start (Home Assistant including Supervisor)
 
-To add Z-Wave JS to your installation, plug the Z-Wave stick into the device that runs Home Assistant. Then Go to Configuration >> Integrations in the UI. Click the "Add integration" button in the bottom right and from the list of integrations, select "Z-Wave JS" and follow the instructions shown.
+Z-Wave JS is compatible with all known Z-Wave Series 500 (Gen5) and Z-Wave Series 700 (Gen7) controller adapters in stick/dongle/module formats.
+
+To add Z-Wave JS to your installation, plug-in/connect your Z-Wave adapter to the computer that runs Home Assistant. Then Go to Configuration >> Integrations in the UI. Click the "Add integration" button in the bottom right and from the list of integrations, select "Z-Wave JS" and follow the instructions shown.
 
 Note: A new network key is automatically generated for you. If this Z-Wave stick has already paired with secure devices, you need to enter the previously used network key. Make sure that you keep a backup of this key in a safe place in case you need to move your Z-Wave stick to another device.
 
@@ -411,8 +413,6 @@ There are a few topics created on the forums that might be of your interest:
 
 You can also visit the `#zwave` channel on [our discord](/join-chat/).
 
-## Advanced installation instructions
-
 The above instructions won't work if you are using Home Assistant Container, Home Assistant Core, or you don't want to use the built-in Z-Wave JS Server add-on. Below you'll find the more detailed set-up instructions that covers all use cases.
 
 ### Requirements
@@ -421,11 +421,44 @@ Controlling your Z-Wave network using the Z-Wave JS integration has the followin
 
 1. Run [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server). This application provides the connection between your Z-Wave USB stick and Home Assistant. This server runs separately from Home Assistant so your Z-Wave mesh will keep running if you restart or stop Home Assistant. The Home Assistant Z-Wave JS integration connects to this server via a websocket connection. You need to run this Z-Wave server before you can use the integration.
 
-2. [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). The Z-Wave controller dongle should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave server you need to provide the path to this stick. It's recommended to use the `/dev/serial-by-id/yourdevice` version of the path to your stick, to make sure the path doesn't change over reboots. The most common known path is `/dev/serial/by-id/usb-0658_0200-if00`.
+Z-Wave JS is compatible with all known Z-Wave Series 500 (Gen5) and Z-Wave Series 700 (Gen7) adapters in stick/dongle/module formats.
+
+2. [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). 
+3. Z-Wave JS is compatible with all known Z-Wave Series 500 (Gen5) and Z-Wave Series 700 (Gen7) controller adapters in stick/dongle/module formats.
+
+6. The Z-Wave controller adapter should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave server you need to provide the path to this stick. It's recommended to use the `/dev/serial-by-id/yourdevice` version of the path to your stick, to make sure the path doesn't change over reboots. The most common known path is `/dev/serial/by-id/usb-0658_0200-if00`.
 
 3. A **network key**. This key is used in order to connect securely to compatible devices. The network key consists of 32 hexadecimal characters, for example `2232666D100F795E5BB17F0A1BB7A146` (do not use this one, pick a random one). Without a network key security enabled devices cannot be added securely and will not function correctly. You must provide this network key in the configuration part of the Z-Wave JS Server. For new installations, a unique default key will be auto generated for you. TIP: You could use a site like random.org to create your own random network key. Make sure that you keep a backup of this key in a safe place. You will need to enter the same key to be able to access the securely paired devices.
 
 4. The Z-Wave JS integration in Home Assistant. This integration connects to the Z-Wave JS Server to retrieve the info from your Z-Wave network and turns it into Home Assistant devices and entities.
+
+#### Examples of compatible Z0-Wave controller adapter hardware:
+
+Z-Wave JS is know to be compatible with all known Z-Wave Series 500 (Gen5) and Z-Wave Series 700 (Gen7) adapters in USB stick/dongle and serial module formats.
+
+The following devices have been confirmed to work with Z-Wave JS:
+
+- Aeotec Z-Stick 5 / Gen5
+- Aeotec Z-Stick 5+ / Gen5+ (Model ZW090-A/B/C)
+- Aeotec Z-Stick 7 / Gen7 (Model ZWA010)
+- Aeotec Z-Pi 7 (Model ZWA025)
+- Everspring USB stick - Gen 5
+- Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee Ember 3581 USB Adapter)
+- Sigma Designs UZB-5 / 500 Series Stick
+- Sigma Designs UZB-7 / 700 Series (Model SLUSB001A / SLUSB7000A)
+- Vision USB stick - Gen5
+- Zooz Z-Wave Plus S2 stick ZST10 500 Series
+- Zooz Z-Wave Plus S2 stick ZST10 700 Series
+- ZWave.me Razberry Board
+- ZWave.me UZB1 stick
+
+It is recommend that you purchase a [Z-Wave Plus](https://z-wavealliance.org/z-wave_plus_certification/) compatible controller, to take advantage of the improvements this provides. As Z-Wave JS does not support the S2 security specifications, as such there is no need today to buy one just for support of the S2 feature, however that support for the S2 security specifications could possible be added to Z-Wave JS in the future (more infomation [here](https://github.com/zwave-js/node-zwave-js/projects/4)).
+
+<div class='note'>
+  
+There are [known USB voltage compatability issues](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) with older hardware revision of Aeotec Z-Stick 5 / Gen5 not working on the Raspberry Pi 4. Aeotec has released a 2020 hardware revision Aeotec Z-Stick 5+ / Gen5+ (Model ZW090-A/B/C) which specifically fixes this USB voltage compatibility issue with Raspberry Pi 4. Both hardware revisions of Aeotec Z-Stick 5 / Gen5 are still being sold, an since then Aeotec has already released Aeotec Z-Stick 7 / Gen7 which aslo adds Z-Wave 700 Series support, so please make informed purchasing decisions if using paired with a Raspberry Pi 4.
+
+</div>
 
 ### Running the Z-Wave JS Server
 
