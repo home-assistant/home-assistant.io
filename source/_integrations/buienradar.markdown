@@ -31,7 +31,7 @@ Besides the weather platform, there is currently support for the following addit
 
 ## Camera
 
-The `buienradar` camera platform uses [buienradar.nl](https://buienradar.nl/) as a source for the last rain radar map. The overview image of the whole of the Netherlands is loaded and shown as a camera in Home Assistant.
+The `buienradar` camera platform uses [buienradar.nl](https://buienradar.nl/) as a source for the last rain radar map. The overview image of the whole of the Netherlands is loaded and shown as a camera in Home Assistant. The Netherlands is the default country and can be changed to Belgium (see [Setting options](#setting-options)).
 
 Internally this component uses the radar map image as [documented](https://www.buienradar.nl/overbuienradar/gratis-weerdata) on buienradar.nl.
 The downloaded image is cached to prevent Home Assistant from making a new request to buienradar.nl multiple times a minute when Home Assistant checks for new stills from the camera.
@@ -85,6 +85,29 @@ The following entities will be created:
 - `conditiondetailed_1d` `conditiondetailed_2d` `conditiondetailed_3d` `conditiondetailed_4d` `conditiondetailed_5d`: Symbol and detailed expected condition.
 - `conditionexact_1d` `conditionexact_2d` `conditionexact_3d` `conditionexact_4d` `conditionexact_5d`: Symbol and full expected condition (in English).
 - `symbol_1d` `symbol_2d` `symbol_3d` `symbol_4d` `symbol_5d`: Symbol and full expected condition (in Dutch).
+
+## Setting options
+
+To configure options for `buienradar` integration go to **Configuration** >> **Integrations** and press **Options** on the Buienradar card.
+
+{% configuration %}
+country_code:
+  description: You can (optionally) specify the country code (NL or BE) of the
+    country to display on the camera.
+  required: false
+  default: NL
+  type: string
+delta:
+  description: Time interval in seconds between image updates
+  required: false
+  default: 600
+  type: integer
+timeframe:
+  description: Minutes to look ahead for precipitation forecast sensors (minimum 5, maximum 120).
+  required: false
+  default: 60
+  type: integer
+{% endconfiguration %}
 
 _[Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)
 Buienradar makes free weather data available for use by individuals and businesses (website/intranet). The use of the weather data is allowed for **non-commercial purposes**. Please refer to the full usage statement linked above to confirm your use or to request permission._
