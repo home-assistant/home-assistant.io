@@ -75,7 +75,7 @@ Notes:
 
 - <a name="note_5">Bridge devices have no sensors</a>. The `aux` and `main` branches are searched for additional 1-wire devices during discovery.  
 
-- <a name="note_6">Multisensors manufactures by Embedded Data Systems. Currently only EDS0068 (temperature/humidity/barometric pressure/light) is supported.
+- <a name="note_6">Multisensors manufactured by Embedded Data Systems</a>. Currently only EDS0066 (temperature/barometric pressure) and EDS0068 (temperature/humidity/barometric pressure/light) are supported.
 
 ## Interfacing with the 1-wire bus
 
