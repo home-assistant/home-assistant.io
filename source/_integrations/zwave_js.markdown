@@ -413,6 +413,8 @@ There are a few topics created on the forums that might be of your interest:
 
 You can also visit the `#zwave` channel on [our discord](/join-chat/).
 
+## Advanced installation instructions
+
 The above instructions won't work if you are using Home Assistant Container, Home Assistant Core, or you don't want to use the built-in Z-Wave JS Server add-on. Below you'll find the more detailed set-up instructions that covers all use cases.
 
 ### Requirements
@@ -421,12 +423,7 @@ Controlling your Z-Wave network using the Z-Wave JS integration has the followin
 
 1. Run [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server). This application provides the connection between your Z-Wave USB stick and Home Assistant. This server runs separately from Home Assistant so your Z-Wave mesh will keep running if you restart or stop Home Assistant. The Home Assistant Z-Wave JS integration connects to this server via a websocket connection. You need to run this Z-Wave server before you can use the integration.
 
-Z-Wave JS is compatible with all known Z-Wave Series 500 (Gen5) and Z-Wave Series 700 (Gen7) adapters in stick/dongle/module formats.
-
-2. [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). 
-3. Z-Wave JS is compatible with all known Z-Wave Series 500 (Gen5) and Z-Wave Series 700 (Gen7) controller adapters in stick/dongle/module formats.
-
-6. The Z-Wave controller adapter should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave server you need to provide the path to this stick. It's recommended to use the `/dev/serial-by-id/yourdevice` version of the path to your stick, to make sure the path doesn't change over reboots. The most common known path is `/dev/serial/by-id/usb-0658_0200-if00`.
+2. Z-Wave JS is compatible with all known Z-Wave Series 500 (Gen5) and Z-Wave Series 700 (Gen7) controller adapters in stick/dongle/module formats. The Z-Wave controller adapter should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave server you need to provide the path to this stick. It's recommended to use the `/dev/serial-by-id/yourdevice` version of the path to your stick, to make sure the path doesn't change over reboots. The most common known path is `/dev/serial/by-id/usb-0658_0200-if00`.
 
 3. A **network key**. This key is used in order to connect securely to compatible devices. The network key consists of 32 hexadecimal characters, for example `2232666D100F795E5BB17F0A1BB7A146` (do not use this one, pick a random one). Without a network key security enabled devices cannot be added securely and will not function correctly. You must provide this network key in the configuration part of the Z-Wave JS Server. For new installations, a unique default key will be auto generated for you. TIP: You could use a site like random.org to create your own random network key. Make sure that you keep a backup of this key in a safe place. You will need to enter the same key to be able to access the securely paired devices.
 
