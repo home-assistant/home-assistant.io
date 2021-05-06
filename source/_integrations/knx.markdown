@@ -1439,7 +1439,7 @@ Every `*_state_address` is read on startup and sequentially if not configured di
 
 #### No communication object (CO) assigned to the group address (GA) has the Read-Flag set in ETS
 
-- Enable the read flag for *one* CO assigned to the GA. Use the one most likely to hold the current state (e.g., for a climate entity's `brightness_state_address` the according CO of the dimming actuator).
+- Enable the read flag for *one* CO assigned to the GA. Use the one most likely to hold the current state (e.g., for a light entity's `brightness_state_address` the according CO of the dimming actuator).
 
 #### Response telegrams are not passing a line coupler, router or other filter in the installation
 
@@ -1464,7 +1464,7 @@ The `unique_id` for KNX entities is generated based on required configuration va
 - climate: `temperature_address` `target_temperature_state_address` `target_temperature_address` `setpoint_shift_address`
 - cover: `move_long_address` `position_address`
 - fan: `address`
-- light: `address` or all combined `brightness_address` if `individual_colors` is used
+- light: `address` or all combined `brightness_address` if only `individual_colors` is used
 - notify: `address`
 - scene: `address` and `scene_number`
 - sensor: `state_address`
@@ -1474,5 +1474,10 @@ The `unique_id` for KNX entities is generated based on required configuration va
 There can not be multiple entities on the same platform sharing these exact group addresses, even if they differ in other configuration.
 
 ### xknx.yaml configuration
+
+```log
+> The 'config_file' option near /homeassistant/configuration.yaml:42 is deprecated, please remove it from your configuration
+> Invalid config for [knx]: [config_file] is an invalid option for [knx]. Check: knx->knx->config_file.
+```
 
 The feature to specify a xknx configuration schema file in the Home Assistant configuration YAML file (via `config_file:`) is deprecated since Home Assistant 2021.4. You can use the [xknx.yaml config converter](https://xknx.io/config-converter/) to convert it to a Home Assistant compatible `configuration.yaml` schema.
