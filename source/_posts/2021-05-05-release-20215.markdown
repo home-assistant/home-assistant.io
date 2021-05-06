@@ -636,6 +636,9 @@ recover live. The `db_integrity_check` option has been deprecated.
 
 ([@bdraco] - [#49036] [#49098])
 
+If you are using a postgresql database please verify that your connection url starts with `postgresql://`.
+In case you use still the old url starting with `postgres://`, please replace it with `postgresql://` otherwise you will get an error to setup the recorder.
+
 {% enddetails %}
 
 {% details "RoonLabs music player" %}
