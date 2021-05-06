@@ -21,9 +21,9 @@ The Syncthing integration allows you to monitor states of your synced folders fr
 
 ## Setup
 
-To setup the monitoring you need to get the ***API key***. Open the syncthing web 
-interface(eg: http://127.0.0.1:8384) in the browser and go to **Actions** -> **Settings**. You will find
-the key on right of the settings dialog.
+To set up the monitoring you need to get an **API key**. Open the Syncthing web 
+interface(e.g., `http://127.0.0.1:8384`) in the browser and go to **Actions** -> **Settings**. You will find
+the key on the right of the settings dialog.
 
 ## Configuration
 
