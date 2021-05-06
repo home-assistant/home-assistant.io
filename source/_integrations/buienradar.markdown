@@ -92,13 +92,13 @@ To configure options for `buienradar` integration go to **Configuration** >> **I
 
 {% configuration %}
 country_code:
-  description: You can (optionally) specify the country code (NL or BE) of the
+  description: You can specify the country code (NL or BE) of the
     country to display on the camera.
   required: false
   default: NL
   type: string
 delta:
-  description: Time interval in seconds between image updates
+  description: Time interval in seconds between camera image updates
   required: false
   default: 600
   type: integer
