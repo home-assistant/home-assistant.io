@@ -1,11 +1,10 @@
 ---
 title: Syncthing
 description: Instructions on how to integrate Syncthing within Home Assistant.
-logo: syncthing.png
 ha_category:
   - Downloading
   - Sensor
-ha_release: 0.115
+ha_release: 2021.06
 ha_iot_class: Local Polling
 ha_quality_scale: silver
 ha_config_flow: true
