@@ -1416,7 +1416,7 @@ Add the following lines to your Home Assistant `configuration.yaml` to activate 
 logger:
   default: warning
   logs:
-    # For most debugging needs `xnx.log` and one of `xknx.knx` or `xknx.telegram` be a good choice.
+    # For most debugging needs `xnx.log` and one of `xknx.knx` or `xknx.telegram` are a good choice.
     xknx: debug  # sets the level of all loggers
     xknx.log: debug  # provides general information (connection, etc.)
     xknx.raw_socket: debug  # logs incoming CEMI frames in raw hex format
@@ -1425,7 +1425,7 @@ logger:
     xknx.state_updater: debug  # provides information about the state updater
 ```
 
-You can use the service logger.set_level to change log level of a handler on a running instance.
+You can use the service `logger.set_level` to change the log level of a handler on a running instance.
 [![Open your Home Assistant instance and show your service developer tools.](https://my.home-assistant.io/badges/developer_services.svg)](https://my.home-assistant.io/redirect/developer_services/)
 
 ### Group address can not be read
@@ -1439,9 +1439,9 @@ Every `*_state_address` is read on startup and sequentially if not configured di
 
 #### No communication object (CO) assigned to the group address (GA) has the Read-Flag set in ETS
 
-- Enable the read flag for *one* CO assigned to the GA. Possibly the one most likely to hold the current state (e.g., for climates `brightness_state_address` the according CO of the dimming actuator).
+- Enable the read flag for *one* CO assigned to the GA. Use the one most likely to hold the current state (e.g., for a climate entity's `brightness_state_address` the according CO of the dimming actuator).
 
-#### Response Telegrams are not passing a line coupler, router or other filter in the installation
+#### Response telegrams are not passing a line coupler, router or other filter in the installation
 
 - Use a dummy device in ETS for Home Assistant. These can be found in the ETS online catalog. Assign it to the line your interface connects Home Assistant to and link its communication objects to the group addresses you are using in Home Assistant. ETS will generate filter tables that are applied to your line couplers after updating their application.
 
@@ -1455,16 +1455,16 @@ Incoming response telegrams are always processed, so no information gets lost.
 If you find following error in your log you seem to have a duplicated entity in your configuration.
 
 ```log
-Platform knx does not generate unique IDs. ID 1/2/3 already exists - ignoring paltform.name
+Platform knx does not generate unique IDs. ID 1/2/3 already exists - ignoring platform.name
 ```
 
-`unique_id` for KNX entities is generated of required configuration values.
+The `unique_id` for KNX entities is generated based on required configuration values.
 
 - binary_sensor: `state_address`
 - climate: `temperature_address` `target_temperature_state_address` `target_temperature_address` `setpoint_shift_address`
 - cover: `move_long_address` `position_address`
 - fan: `address`
-- light: `address` or all `brightness_address` of `individual_colors`
+- light: `address` or all combined `brightness_address` if `individual_colors` is used
 - notify: `address`
 - scene: `address` and `scene_number`
 - sensor: `state_address`
@@ -1475,4 +1475,4 @@ There can not be multiple entities on the same platform sharing these exact grou
 
 ### xknx.yaml configuration
 
-The configuration schema used in the YAML file configured in `config_file:` is deprecated since Home Assistant 2021.4. You can use the [xknx.yaml config converter](https://xknx.io/config-converter/) to convert it to a Home Assistant compatible `configuration.yaml` schema.
+The feature to specify a xknx configuration schema file in the Home Assistant configuration YAML file (via `config_file:`) is deprecated since Home Assistant 2021.4. You can use the [xknx.yaml config converter](https://xknx.io/config-converter/) to convert it to a Home Assistant compatible `configuration.yaml` schema.
