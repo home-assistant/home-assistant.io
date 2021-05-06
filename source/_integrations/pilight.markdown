@@ -11,6 +11,11 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@trekky12'
 ha_domain: pilight
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
+  - switch
 ---
 
 [Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://manual.pilight.org/protocols/index.html) are already available.
@@ -42,7 +47,7 @@ host:
   default: 127.0.0.1
   type: string
 port:
-  description: "The network port to connect to, see also: (https://manual.pilight.org/development/api.html)."
+  description: "The network port to connect to, see also: (https://manual.pilight.org/development/socket/index.html)."
   required: false
   default: 5001
   type: integer
@@ -57,7 +62,7 @@ whitelist:
   type: string
 {% endconfiguration %}
 
-In this example only received RF codes using a daycom or Intertechno protocol are put on the event bus and only when the device id is 42. For more possible settings please look at the receiver section of the pilight [API](https://manual.pilight.org/development/api.html).
+In this example only received RF codes using a daycom or Intertechno protocol are put on the event bus and only when the device id is 42. For more possible settings please look at the receiver section of the pilight [API](https://manual.pilight.org/development/index.html).
 
 A full configuration sample could look like the sample below:
 
@@ -85,7 +90,7 @@ To enable a Pilight binary sensor in your installation, add the following to you
 # Example configuration.yaml entry
 binary_sensor:
   - platform: pilight
-    variable: 'state'
+    variable: "state"
 ```
 
 {% configuration %}
@@ -133,11 +138,11 @@ A full configuration example could look like this:
 # Example configuration.yaml entry
 binary_sensor:
   - platform: pilight
-    name: 'Motion'
-    variable: 'state'
+    name: "Motion"
+    variable: "state"
     payload:
       unitcode: 371399
-    payload_on: 'closed'
+    payload_on: "closed"
     disarm_after_trigger: true
     reset_delay_sec: 30
 ```
@@ -154,7 +159,7 @@ sensor:
   - platform: pilight
     variable: temperature
     payload:
-      uuid: '0000-b8-27-eb-f447d3'
+      uuid: "0000-b8-27-eb-f447d3"
 ```
 
 {% configuration %}
@@ -185,23 +190,23 @@ This section shows a real life example how to use values of a weather station.
 # Example configuration.yaml entry
 sensor:
   - platform: pilight
-    name: 'Temperature'
-    variable: 'temperature'
+    name: "Temperature"
+    variable: "temperature"
     payload:
       uuid: 0000-b8-27-eb-f1f72e
-    unit_of_measurement: '°C'
+    unit_of_measurement: "°C"
   - platform: pilight
-    name: 'Humidity'
-    variable: 'humidity'
+    name: "Humidity"
+    variable: "humidity"
     payload:
       uuid: 0000-b8-27-eb-f1f72e
-    unit_of_measurement: '%'
+    unit_of_measurement: "%"
   - platform: pilight
-    name: 'Battery'
-    variable: 'battery'
+    name: "Battery"
+    variable: "battery"
     payload:
       uuid: 0000-b8-27-eb-f1f72e
-    unit_of_measurement: '%'
+    unit_of_measurement: "%"
 ```
 
 ## Switch
@@ -268,7 +273,7 @@ Variables for the different codes (`on_code` and `off_code`):
 - **'off'** (*Optional*): `1` or `0`
 - **'on'** (*Optional*): `1` or `0`
 
-For possible code entries, look at the [pilight API](https://manual.pilight.org/development/api.html). All commands allowed by [pilight-send](https://manual.pilight.org/programs/send.html) can be used. Which means that if, for a certain protocol, there are different parameters used, you should be able to replace the variables above by the proper ones required by the specific protocol. When using the `elro_800_switch` or `mumbi` protocol, for example, you will have to replace the variable `unit` with `unitcode` or there will be errors occurring.
+For possible code entries, look at the [pilight API](https://manual.pilight.org/development/index.html). All commands allowed by [pilight-send](https://manual.pilight.org/programs/send.html) can be used. Which means that if, for a certain protocol, there are different parameters used, you should be able to replace the variables above by the proper ones required by the specific protocol. When using the `elro_800_switch` or `mumbi` protocol, for example, you will have to replace the variable `unit` with `unitcode` or there will be errors occurring.
 
 Variables for the different receive codes (`on_code_receive` and `off_code_receive`):
 
@@ -298,19 +303,21 @@ switch:
           systemcode: 14462
           unit: 6
           id: 34
-          state: 'on'
+          state: "on"
         off_code_receive:
           protocol: daycom
           systemcode: 14462
           unit: 6
           id: 34
-          state: 'off'
+          state: "off"
 ```
 
 ## Light
 
 Pilight dimmer devices, which can have different brightness values, can be used as a light. 
-The configuration parameters are the same for dimmers and switches. 
+The configuration parameters are the same for dimmers and switches, but dimmers support a minimum and maximum dimming level.
+
+The `dimlevel_min` and `dimlevel_max` settings are to be set in the range of `0` to `15`, as used by pilight. Any dimming performed by Home Assistant (most likely in a `0` to `100` range) will be converted as a percentage of the available configured range in Pilight.
 
 {% configuration %}
 lights:
@@ -331,6 +338,8 @@ light:
   - platform: pilight
     lights:
       test2:
+        dimlevel_min: 2
+        dimlevel_max: 14
         on_code:
           protocol: kaku_dimmer
           id: 23298822
@@ -345,12 +354,12 @@ light:
           protocol: kaku_dimmer
           id: 23298822
           unit: 10
-          state: 'on'
+          state: "on"
         off_code_receive:
           protocol: kaku_dimmer
           id: 23298822
           unit: 10
-          state: 'off'
+          state: "off"
 ```
 
 ## Troubleshooting

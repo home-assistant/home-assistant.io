@@ -7,7 +7,9 @@ date_formatted: "May 20, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-05-0.110/social.png
 ---
 
@@ -203,7 +205,7 @@ for writing automations in YAML:
 
 ```yaml
 # Example automation
-alias: Turn kitchen lights off when alarm is armed.
+alias: "Turn kitchen lights off when alarm is armed."
 trigger:
   - platform: state
     entity_id: alarm_control_panel.home_alarm
@@ -215,7 +217,8 @@ condition:
         state: disarmed
 action:
   - service: light.turn_off
-    entity_id: light.kitchen
+    target:
+      entity_id: light.kitchen
 ```
 
 ## HomeKit
@@ -1052,7 +1055,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump plexwebsocket to 0.0.8 ([@jjlawren] - [#35351]) ([plex docs])
 - Enable async_update for entities in NWS ([@MatthewFlamm] - [#35048]) ([nws docs])
 - Migrate ISY994 to PyISY v2 ([@shbatm] - [#35338]) ([isy994 docs]) (breaking-change)
-- Delete flapping automatic tests ([@bdraco] - [#35356]) ([automatic docs])
+- Delete flapping automatic tests ([@bdraco] - [#35356])
 - Rewrite JuiceNet for async and config flow ([@jesserockz] - [#34365]) ([juicenet docs])
 - Add modbus sensor string data_type ([@bradkeifer] - [#35269]) ([modbus docs])
 - Capitalize kane610 in codeowners since scripts are case sensitive ([@Kane610] - [#35375]) ([axis docs]) ([deconz docs]) ([unifi docs])
@@ -1731,7 +1734,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [arest docs]: /integrations/arest/
 [atag docs]: /integrations/atag/
 [august docs]: /integrations/august/
-[automatic docs]: /integrations/automatic/
 [automation docs]: /integrations/automation/
 [axis docs]: /integrations/axis/
 [basic config docs]: /docs/configuration/basic/

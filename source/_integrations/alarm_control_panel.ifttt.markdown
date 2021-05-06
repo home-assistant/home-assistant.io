@@ -43,6 +43,11 @@ code:
   description: The code for the alarm control panel.
   required: false
   type: string
+code_arm_required:
+  description: If true, the code is required to arm the alarm.
+  required: false
+  type: boolean
+  default: true
 event_arm_away:
   description: IFTTT webhook event to call when the state is set to armed away.
   required: false

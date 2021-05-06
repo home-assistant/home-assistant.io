@@ -3,9 +3,12 @@ title: Universal Media Player
 description: Instructions on how to create a universal media player in Home Assistant.
 ha_category:
   - Media Player
+ha_iot_class: Calculated
 ha_release: 0.11
 ha_quality_scale: internal
 ha_domain: universal
+ha_platforms:
+  - media_player
 ---
 
 Universal Media Players combine multiple existing entities in Home Assistant into one media player entity. This is used for creating a single entity that controls an entire media center.
@@ -41,6 +44,7 @@ media_player:
     attributes:
       is_volume_muted: ENTITY_ID|ATTRIBUTE
       state: ENTITY_ID|ATTRIBUTE
+    device_class: tv
 ```
 
 {% configuration %}
@@ -50,18 +54,22 @@ name:
   type: string
 children:
   description: Ordered list of child media players this entity will control.
-  required: true
+  required: false
   type: list
 state_template:
   description: "A [template](/topics/templating/) can be specified to render the state of the media player. This way, the state could depend on entities different from media players, like switches or input booleans."
   required: false
   type: template
 commands:
-  description: "Commands to be overwritten. Possible entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down` and `volume_mute`."
+  description: "Commands to be overwritten. Most, if not all, media player service commands can be overwritten. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, and `volume_mute` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
   required: false
   type: string
 attributes:
-  description: "Attributes that can be overwritten. Possible entries are `is_volume_muted`, `state`, `source`, `source_list` and `volume_level`. The values should be an entity ID and state attribute separated by a pipe character (|). If the entity ID's state should be used, then only the entity id should be provided."
+  description: "Attributes that can be overwritten. Most, if not all, media player attributes can be overwritten. Example entries are `is_volume_muted`, `state`, `source`, `source_list` and `volume_level`. The values should be an entity ID and state attribute separated by a pipe character (|). If the entity ID's state should be used, then only the entity id should be provided."
+  required: false
+  type: string
+device_class:
+  description: The device class that this entity represents. Can be `tv`, `speaker`, or `receiver`.
   required: false
   type: string
 {% endconfiguration %}
@@ -73,6 +81,8 @@ It is recommended that the command `turn_on`, the command `turn_off`, and the at
 It is also recommended that the command `volume_up`, the command `volume_down`, the command `volume_mute`, and the attribute `is_volume_muted` all be provided together. The attribute `is_volume_muted` should return either True or the on state when the volume is muted. The `volume_mute` service should toggle the mute setting.
 
 When providing `select_source` as a command, it is recommended to also provide the attributes `source`, and `source_list`. The `source` attribute is the currently select source, while the `source_list` attribute is a list of all available sources.
+
+When using `state_template`, if you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see the [example](/integrations/binary_sensor.template/#working-without-entities) in the template binary_sensor.
 
 ## Usage examples
 
@@ -94,34 +104,36 @@ media_player:
   commands:
     turn_on:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.living_room_tv
     turn_off:
       service: switch.turn_off
-      data:
+      target:
         entity_id: switch.living_room_tv
     volume_up:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.living_room_volume_up
     volume_down:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.living_room_volume_down
     volume_mute:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.living_room_mute
     select_source:
       service: media_player.select_source
-      data_template:
+      target:
         entity_id: media_player.receiver
-        source: '{{ source }}'
+      data:
+        source: "{{ source }}"
     volume_set:
       service: media_player.volume_set
-      data_template:
+      target:
         entity_id: media_player.receiver
-        volume_level: '{{ volume_level }}'
+      data:
+        volume_level: "{{ volume_level }}"
 
   attributes:
     state: switch.living_room_tv
@@ -168,11 +180,11 @@ media_player:
   commands:
     turn_on:
       service: media_player.turn_on
-      data:
+      target:
         entity_id: media_player.kodi
     turn_off:
       service: media_player.turn_off
-      data:
+      target:
         entity_id: media_player.kodi
   attributes:
     is_volume_muted: media_player.kodi|is_volume_muted
@@ -183,51 +195,55 @@ media_player:
   host: 192.168.1.10
   turn_on_action:
   - service: input_boolean.turn_on
-    data:
+    target:
       entity_id: input_boolean.kodi_tv_state
   - service: media_player.kodi_call_method
-    data:
+    target:
       entity_id: media_player.kodi
+    data:
       method: Addons.ExecuteAddon
       addonid: script.json-cec
       params:
         command: activate
   turn_off_action:
   - service: input_boolean.turn_off
-    data:
+    target:
       entity_id: input_boolean.kodi_tv_state
   - service: media_player.media_stop
-    data:
+    target:
       entity_id: media_player.kodi
   - service: media_player.kodi_call_method
-    data:
+    target:
       entity_id: media_player.kodi
+    data:
       method: Addons.ExecuteAddon
       addonid: script.json-cec
       params:
         command: standby
 
 automation:
-- alias: Turn on the TV when Kodi is activated
+- alias: "Turn on the TV when Kodi is activated"
   trigger:
     platform: state
     entity_id: media_player.kodi_tv
-    from: 'off'
-    to: 'playing'
+    from: "off"
+    to: "playing"
   action:
   - service: media_player.turn_on
-    entity_id: media_player.kodi_tv
+    target:
+      entity_id: media_player.kodi_tv
 
-- alias: Turn off the TV when Kodi is in idle > 15 min
+- alias: "Turn off the TV when Kodi is in idle > 15 min"
   trigger:
     platform: state
     entity_id: media_player.kodi_tv
-    to: 'idle'
+    to: "idle"
     for:
       minutes: 15
   action:
   - service: media_player.turn_off
-    entity_id: media_player.kodi_tv
+    target:
+      entity_id: media_player.kodi_tv
 ```
 
 {% endraw %}
@@ -249,27 +265,33 @@ media_player:
     commands:
       turn_on:
         service: remote.turn_on
-        entity_id: remote.alexander_down_guest
+        target:
+          entity_id: remote.alexander_down_guest
       turn_off:
         service: remote.turn_off
-        entity_id: remote.alexander_down_guest
+        target:
+          entity_id: remote.alexander_down_guest
       volume_up:
         service: remote.send_command
-        entity_id: remote.alexander_down_guest
+        target:
+          entity_id: remote.alexander_down_guest
         data:
           device: Receiver
           command: VolumeUp
       volume_down:
         service: remote.send_command
-        entity_id: remote.alexander_down_guest
+        target:
+          entity_id: remote.alexander_down_guest
         data:
           device: Receiver
           command: VolumeDown
       select_source:
         service: remote.turn_on
-        data_template:
+        target:
           entity_id: remote.alexander_down_guest
-          activity: '{{ source }}'
+        data:
+          activity: "{{ source }}"
+    device_class: tv
 ```
 
 {% endraw %}

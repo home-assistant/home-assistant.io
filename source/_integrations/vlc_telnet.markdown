@@ -7,7 +7,10 @@ ha_release: 0.95
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@rodripf'
+  - '@dmcc'
 ha_domain: vlc_telnet
+ha_platforms:
+  - media_player
 ---
 
 The `vlc_telnet` platform allows you to control a [VLC media player](https://www.videolan.org/vlc/index.html) using the built in telnet interface.
@@ -47,6 +50,10 @@ Only the "music" media type is supported for now.
 
 This service will control any instance of VLC player on the network with the telnet interface activated. 
 To activate the telnet interface on your VLC Player please read the [official VLC documentation](https://wiki.videolan.org/Documentation:Modules/telnet/). Also remember to add a firewall rule allowing inbound connections for the port used in the device running VLC.
+
+In case the VLC is running on a host with a locale other than English, you may get some errors during the volume change.
+This is related to the different use of the decimal separator in other countries.
+Consider to set the locale to `en_US` before starting VLC.
 
 ## Full configuration
 

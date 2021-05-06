@@ -47,10 +47,14 @@ $primary-color: #049cdb;
     padding-right: 5px;
     padding-left: 5px;
   }
+
+  .feedback {
+    margin-bottom: 32px;
+  }
 }
 
 .hero {
-  background-color: #038FC7;
+  background-color: #038fc7;
   padding-bottom: 0;
 
   .lead {
@@ -69,14 +73,15 @@ $primary-color: #049cdb;
 .material-card {
   background-color: #fefefe;
   border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
 
   h1 {
     font-family: Roboto, Noto, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-size: 24px;
     font-weight: 400;
-    letter-spacing: -.012em;
+    letter-spacing: -0.012em;
     line-height: 40px;
     color: #212121;
     padding: 20px 16px 12px;
@@ -124,14 +129,14 @@ $primary-color: #049cdb;
   }
 
   .highlight-blog-post {
-    font-size: 2.0rem;
+    font-size: 2rem;
     line-height: 1.15;
     padding: 15px;
     display: block;
     text-decoration: none;
     color: white;
-    transition: background-color .5s;
-    background-color: #038FC7;
+    transition: background-color 0.5s;
+    background-color: #038fc7;
 
     &.large {
       font-size: 2.25rem;
@@ -139,7 +144,7 @@ $primary-color: #049cdb;
     }
 
     &:hover {
-      background-color: lighten(#038FC7, 10%);
+      background-color: lighten(#038fc7, 10%);
     }
   }
 
@@ -152,10 +157,13 @@ $primary-color: #049cdb;
 
     .caption {
       padding: 16px 12px 12px;
-      background-color: rgba(0, 0, 0, .54);
+      background-color: rgba(0, 0, 0, 0.54);
       color: white;
       border-bottom-left-radius: 2px;
       border-bottom-right-radius: 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
       .title {
         font-size: 20px;
@@ -165,6 +173,13 @@ $primary-color: #049cdb;
       .subtitle {
         font-size: 12px;
         font-weight: initial;
+      }
+
+      svg {
+        fill: white;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
       }
     }
   }
@@ -193,8 +208,17 @@ $primary-color: #049cdb;
       border: 0;
       box-shadow: none;
       margin: 15px;
-      width: 200px;
+      width: 100%;
       max-width: 40%;
+      max-height: 70px;
+    }
+
+    .square {
+      width: initial;
+    }
+
+    .round {
+      border-radius: 50%;
     }
   }
 }
@@ -214,11 +238,12 @@ dt:hover a.title-link {
     position: absolute;
     top: 5px;
     left: -25px;
-    padding-right: 40px;
+    padding-right: 5px;
+    padding-left: 5px;
     font-family: "FontAwesome";
     font-size: 15px;
     color: #999;
-    content: "\f0c1"
+    content: "\f0c1";
   }
 }
 
@@ -258,13 +283,16 @@ dt:hover a.title-link {
   }
 }
 
-article.post, article.page, article.listing {
+article.post,
+article.page,
+article.listing {
   font-size: 1.125em;
   line-height: 1.6;
 
-  img, table {
+  img,
+  table {
     border-radius: 3px;
-    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
     vertical-align: middle;
   }
 
@@ -273,17 +301,18 @@ article.post, article.page, article.listing {
     box-shadow: none;
   }
 
-  & > table, & > .entry-content > table {
-    background-color: #F3FCF5;
+  & > table,
+  & > .entry-content > table {
+    background-color: #f3fcf5;
   }
 
   p.img {
-    background-color: #FFF;
+    background-color: #fff;
     border-radius: 5px;
     text-align: center;
     padding-bottom: 3px;
-    font-size: .9rem;
-    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+    font-size: 0.9rem;
+    box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
 
     img {
       display: block;
@@ -313,7 +342,6 @@ article.post, article.page, article.listing {
   }
 
   h1 {
-
   }
 
   h2 {
@@ -351,14 +379,15 @@ article.post, article.page, article.listing {
   }
 }
 
-p.note, div.note {
+p.note,
+div.note {
   position: relative;
 
   background: #e7f2fa;
 
   padding: 40px 12px 6px 12px;
   margin-bottom: 24px;
-  box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
 
   p {
     margin-bottom: 0px;
@@ -366,7 +395,7 @@ p.note, div.note {
 
   &::before {
     font-family: "FontAwesome", sans-serif;
-    content: "\f05a" " Note " attr(data-title);
+    content: "\f05a"" Note " attr(data-title);
     background-color: #6ab0de;
     color: white;
     font-weight: bold;
@@ -384,14 +413,13 @@ p.note, div.note {
   }
 
   &.warning {
-    background-color: #F7F9E1;
+    background-color: #f7f9e1;
 
     &::before {
-      background-color: rgb(187, 185, 13);;
-      content: "\f071" " Warning " attr(data-title);
+      background-color: rgb(187, 185, 13);
+      content: "\f071"" Warning " attr(data-title);
     }
   }
-
 }
 
 .copyright {
@@ -421,16 +449,36 @@ p.note, div.note {
 .aside-module {
   .section {
     margin-bottom: 10px;
-  }
+
+    ul.section-nav {
+      margin-left: 0px;
+
+      li.toc-entry {
+        list-style-type: none;
+        li {
+          list-style-type: circle;
+          margin-left: 1em;
+        }
+        ul {
+          margin-left: 1em;
+        }
+      }
+    }
+
+ }
 
   .brand-logo-container {
     text-align: center;
-    height: 87px;
     margin-top: 50px;
-    margin-bottom: 25px;
+    display: grid;
+    justify-items: center;
 
     img {
       max-height: 67px;
+    }
+
+    a.my img {
+      margin-top: 20px;
     }
   }
 }
@@ -457,7 +505,7 @@ p.note, div.note {
   float: right;
   margin-left: 8px;
   margin-bottom: 8px;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 ul.sidebar-menu {
@@ -475,7 +523,8 @@ a code {
   color: $primary-color;
 }
 
-twitter-widget {
+twitter-widget,
+.twitter-tweet-rendered {
   margin-left: auto;
   margin-right: auto;
 }
@@ -500,16 +549,12 @@ div.config-vars {
   }
 
   .nested .config-vars-item:last-child {
-    border: none
+    border: none;
   }
 
   .config-vars-label {
     padding-bottom: 4px;
     position: relative;
-
-    > span {
-      padding-right: 4px;
-    }
 
     &:hover a.title-link::before {
       position: absolute;
@@ -525,17 +570,17 @@ div.config-vars {
 
   .config-vars-label-name {
     font-weight: bold;
-    font-size: 16px; 
+    font-size: 16px;
     color: #222222bd;
   }
 
   .config-vars-type {
-    color :#8792a2;
+    color: #8792a2;
     font-size: 13px;
   }
 
   .config-vars-required {
-    color :#8792a2;
+    color: #8792a2;
     font-size: 13px;
     text-transform: lowercase;
 
@@ -543,6 +588,10 @@ div.config-vars {
       color: #e56f4a;
       text-transform: uppercase;
       font-size: 11px;
+    }
+
+    .default {
+      text-transform: None;
     }
   }
 
@@ -570,7 +619,7 @@ div.config-vars {
 }
 
 code {
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 0.8em;
   color: #1990b8;
   word-spacing: normal;
@@ -587,12 +636,55 @@ code {
   hyphens: none;
 
   background-color: #fdfdfd;
-  background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
+  background-image: linear-gradient(
+    transparent 50%,
+    rgba(69, 142, 209, 0.04) 50%
+  );
   background-size: 3em 3em;
   background-origin: content-box;
   background-attachment: local;
 
   border: 1px solid #ddd;
   border-radius: 0.4em;
-  padding: .1em .4em
+  padding: 0.1em 0.4em;
+}
+
+@media only screen and (max-width: $menu-collapse) {
+  #not_found {
+    .page {
+      text-align: center;
+
+      .search404-container {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $menu-collapse) {
+  #not_found {
+    .page {
+      text-align: center;
+      margin-bottom: 300px;
+
+      .search404-container {
+        margin-bottom: 32px;
+
+        #search404 {
+          width: 420px;
+        }
+      }
+    }
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+}
+
+a.my {
+  img {
+    border: 0px;
+  }
 }

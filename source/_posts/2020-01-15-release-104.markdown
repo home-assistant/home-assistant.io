@@ -7,7 +7,9 @@ date_formatted: "January 15, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-01-0.104/components.png
 ---
 
@@ -358,8 +360,8 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
   ```yaml
   media_player:
     - platform: vizio
-      host: '<IP>:<PORT>'
-      access_token: '<AUTH_TOKEN>'
+      host: "<IP>:<PORT>"
+      access_token: "<AUTH_TOKEN>"
       device_class: tv
   ```
 
@@ -723,8 +725,8 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - Sort imports according to PEP8 for components starting with "N" ([@basnijholt] - [#29773])
 - Sort imports according to PEP8 for components starting with "W" ([@basnijholt] - [#29781])
 - Sort imports according to PEP8 for components starting with "Q" ([@basnijholt] - [#29785])
-- Sort imports according to PEP8 for components starting with "Y" ([@basnijholt] - [#29783]) ([yale_smart_alarm docs]) ([yamaha docs]) ([yamaha_musiccast docs]) ([yandex_transport docs]) ([yeelightsunflower docs]) ([yessssms docs]) ([yr docs])
-- Sort imports according to PEP8 for components starting with "X" ([@basnijholt] - [#29782]) ([x10 docs]) ([xbox_live docs]) ([xeoma docs]) ([xfinity docs]) ([xiaomi_tv docs]) ([xmpp docs]) ([xs1 docs])
+- Sort imports according to PEP8 for components starting with "Y" ([@basnijholt] - [#29783]) ([yale_smart_alarm docs]) ([yamaha docs]) ([yamaha_musiccast docs]) ([yandex_transport docs]) ([yeelightsunflower docs])
+- Sort imports according to PEP8 for components starting with "X" ([@basnijholt] - [#29782]) ([x10 docs]) ([xbox_live docs]) ([xeoma docs]) ([xiaomi_tv docs]) ([xmpp docs]) ([xs1 docs])
 - Move imports to top for homekit ([@springstan] - [#29560]) ([homekit docs])
 - Cleanup removed component ([@pvizeli] - [#29788])
 - Sort imports according to PEP8 for 'script' folder ([@basnijholt] - [#29790])
@@ -2073,7 +2075,6 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [x10 docs]: /integrations/x10/
 [xbox_live docs]: /integrations/xbox_live/
 [xeoma docs]: /integrations/xeoma/
-[xfinity docs]: /integrations/xfinity/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [xiaomi_tv docs]: /integrations/xiaomi_tv/
 [xmpp docs]: /integrations/xmpp/
@@ -2084,8 +2085,6 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 [yandex_transport docs]: /integrations/yandex_transport/
 [yeelight docs]: /integrations/yeelight/
 [yeelightsunflower docs]: /integrations/yeelightsunflower/
-[yessssms docs]: /integrations/yessssms/
-[yr docs]: /integrations/yr/
 [zamg docs]: /integrations/zamg/
 [zengge docs]: /integrations/zengge/
 [zeroconf docs]: /integrations/zeroconf/

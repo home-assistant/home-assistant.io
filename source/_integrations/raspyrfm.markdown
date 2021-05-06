@@ -1,17 +1,18 @@
 ---
 title: RaspyRFM
 description: Instructions on how to integrate RaspyRFM switches into Home Assistant.
-logo: seegelsysteme.png
 ha_category:
   - Switch
 ha_release: 0.85
 ha_iot_class: Assumed State
 ha_domain: raspyrfm
+ha_platforms:
+  - switch
 ---
 
 The `raspyrfm` integration adds support for cheap RC 433 MHz outlets via one of the supported gateways.
 
-Initially, this integration was created to support the Simple Solutions `ConnAir` gateway which has been discontinued. There are custom alternatives that reimplemented the protocol used by the ConnAir though like this [ConnAir emulator](https://github.com/Phunkafizer/RaspyRFM/blob/master/connair.py) which can be used in conjunction with the [RaspyRFM-II](https://www.seegel-systeme.de/produkt/raspyrfm-ii) RC module for a Raspberry Pi.
+Initially, this integration was created to support the Simple Solutions `ConnAir` gateway which has been discontinued. There are custom alternatives that reimplemented the protocol used by the ConnAir gateway like this [ConnAir emulator](https://github.com/Phunkafizer/RaspyRFM#connairpy) which can be used in conjunction with the [RaspyRFM-II](https://www.seegel-systeme.de/produkt/raspyrfm-ii) RC module for a Raspberry Pi.
 
 Other vendors of 433 MHz RC outlets have also created gateways that use a very similar protocol and can also be used with this integration like the Intertechno [ITGW-433 LAN Gateway](https://www.intertechno24.de/LAN-Gateway/Gateway-ITGW-433.html).
 

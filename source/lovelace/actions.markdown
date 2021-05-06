@@ -35,7 +35,7 @@ tap_action:
       required: true
       description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
       type: string
-      default: "`toggle`"
+      default: "`toggle` (some cards overwrite default to `more-info` if the provided entity cannot be toggled)"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
@@ -65,7 +65,7 @@ tap_action:
 
 ## Hold Action
 
-Action that will be performed when an object on a card is tapped and held.
+Action that will be performed when an object on a card is tapped, held for at least half a second and then released. Action will only be triggered once, not continuously during hold.
 
 ```yaml
 hold_action:
@@ -167,6 +167,10 @@ double_tap_action:
   confirmation:
     text: Are you sure you want to restart?
   service: script.restart
+hold_action:
+  action: call-service
+  confirmation: true
+  service: script.do_other_thing
 ```
 
 {% configuration confirmation%}
@@ -185,9 +189,20 @@ exemptions:
 {% configuration exemptions %}
 user:
   required: true
-  description: User id that can see the view tab.
+  description: User ID for which the confirmation dialog will **not** be shown.
   type: string
 {% endconfiguration %}
+
+```yaml
+double_tap_action:
+  action: call-service
+  confirmation:
+    text: Are you sure you want to restart?
+    exemptions:
+      - user: x9405b8c64ee49bb88c42000e0a9dfa8
+      - user: 88bcfbdc39155d16c3b2d09cbf8b0367
+  service: script.restart
+```
 
 ## Examples
 

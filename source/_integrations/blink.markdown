@@ -13,6 +13,12 @@ ha_codeowners:
   - '@fronzbot'
 ha_domain: blink
 ha_config_flow: true
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - camera
+  - sensor
+ha_dhcp: true
 ---
 
 The `blink` integration lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.
@@ -67,7 +73,6 @@ Save the last recorded video of a camera to a local file. Note that in most case
 | `name`                 | no       | Name of camera containing video to save. |
 | `filename`             | no       | Location of save file.                   |
 
-
 ```yaml
 homeassistant:
   allowlist_external_dirs:
@@ -85,7 +90,7 @@ Send a new pin to blink.  Since Blink's 2FA implementation is new and changing, 
 
 ### Other Services
 
-In addition to the services mentioned above, there are generic `camera` and `alarm_control_panel` services available for use as well. The `camera.enable_motion_detection` and `camera.disable_motion_detection` services allow for individual cameras to be enabled and disabled, respectively, within the Blink system. The `alarm_control_panel.alarm_arm_away` and `alarm_control_panel.alarm_disarm` services allow for the whole system to be armed and disarmed, respectively.  Blink Mini cameras linked to an existing sync module cannot be armed/disarmed via Home Assistant.
+In addition to the services mentioned above, there are generic `camera` and `alarm_control_panel` services available for use as well. The `camera.enable_motion_detection` and `camera.disable_motion_detection` services allow for individual cameras to be enabled and disabled, respectively, within the Blink system. The `alarm_control_panel.alarm_arm_away` and `alarm_control_panel.alarm_disarm` services allow for the whole system to be armed and disarmed, respectively.  Blink Mini cameras linked to an existing sync module cannot be armed/disarmed individually via Home Assistant.
 
 ## Examples
 
@@ -96,16 +101,17 @@ The following are some examples showing how to correctly make service calls usin
 This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in home-assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example makes use of services found in the [camera integration](/integrations/camera#service-snapshot)
 
 ```yaml
-alias: Blink Snap Picture
+alias: "Blink Snap Picture"
 sequence:
   - service: blink.trigger_camera
-    data:
+    target:
       entity_id: camera.blink_my_camera
   - delay: 00:00:05
   - service: blink.blink_update
   - service: camera.snapshot
-    data:
+    target:
       entity_id: camera.blink_my_camera
+    data:
       filename: /tmp/my_image.jpg
 ```
 
@@ -117,14 +123,15 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
 
 ```yaml
 - id: arm_blink_when_away
-  alias: Arm Blink When Away
+  alias: "Arm Blink When Away"
   trigger:
     platform: state
     entity_id: all
-    to: 'not_home'
+    to: "not_home"
   action:
     service: alarm_control_panel.alarm_arm_away
-    entity_id: alarm_control_panel.blink_my_sync_module
+    target:
+      entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
 ### Disarm Blink When Home
@@ -133,14 +140,15 @@ Similar to the previous example, this automation will disarm blink when arriving
 
 ```yaml
 - id: disarm_blink_when_home
-  alias: Disarm Blink When Home
+  alias: "Disarm Blink When Home"
   trigger:
     platform: state
     entity_id: all
-    to: 'home'
+    to: "home"
   action:
     service: alarm_control_panel.alarm_disarm
-    entity_id: alarm_control_panel.blink_my_sync_module
+    target:
+      entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
 ### Save Video Locally When Motion Detected
@@ -150,18 +158,19 @@ When motion is detected, you can use the Blink Home Assistant integration to sav
 Again, this example assumes your camera's name (in the blink app) is `My Camera` and your sync module name is `My Sync Module`.  The file will be saved to `/tmp/videos/blink_video_{YYYMMDD_HHmmSS}.mp4` where `{YYYYMMDD_HHmmSS}` will be a timestamp create via the use of [templating](/docs/configuration/templating/).
 
 {% raw %}
+
 ```yaml
 - id: save_blink_video_on_motion
-  alias: Save Blink Video on Motion
+  alias: "Save Blink Video on Motion"
   trigger:
     platform: state
     entity_id: binary_sensor.blink_my_camera_motion_detected
-    to: 'on'
+    to: "on"
   action:
     service: blink.save_video
-    data_template:
+    data:
       name: "My Camera"
       filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
-
 ```
+
 {% endraw %}

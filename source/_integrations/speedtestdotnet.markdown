@@ -11,6 +11,8 @@ ha_codeowners:
   - '@rohankapoorcom'
   - '@engrbm87'
 ha_domain: speedtestdotnet
+ha_platforms:
+  - sensor
 ---
 
 The `speedtestdotnet` integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
@@ -19,36 +21,7 @@ By default, a speed test will be run every hour. The user can change the update 
 
 Most Speedtest.net servers require TCP port 8080 outbound to function. Without this port open you may experience significant delays or no results at all. See note on their [help page](https://www.speedtest.net/help).
 
-## Configuration
-
-Set up the integration through **Configuration -> Integrations -> Speedtest.net**. Once configured you can select the server to run the test against, from the options menu. You can also change the update interval and optionally disable auto-update.
-
-
-To import the configuration from `configuration.yaml` refer to the below example.
-
-```yaml
-# Example configuration.yaml entry
-speedtestdotnet:
-```
-
-For the `server_id` check the list of [available servers](https://speedtest.net/speedtest-servers.php).
-
-{% configuration %}
-server_id:
-  description: Specify the speed test server to perform the test against.
-  required: false
-  type: integer
-scan_interval:
-  description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
-  required: false
-  default: 60 minutes
-  type: time
-manual:
-  description: "`true` or `false` to turn manual mode on or off. Manual mode will disable scheduled speed tests."
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Integration Sensors
 
@@ -101,6 +74,7 @@ speedtestdotnet:
 ### Using as a trigger in an automation
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 automation:
@@ -118,6 +92,7 @@ automation:
     action:
       - service: shell_command.red
 ```
+
 {% endraw %}
 
 ## Notes

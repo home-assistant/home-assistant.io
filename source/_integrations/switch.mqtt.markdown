@@ -47,6 +47,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -80,6 +85,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    suggested_area:
+      description: 'Suggest an area if the device isn’t in one yet.'
+      required: false
+      type: string
     sw_version:
       description: The firmware version of the device.
       required: false
@@ -89,7 +98,7 @@ device:
       required: false
       type: string
 icon:
-  description: Icon for the switch.
+  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
@@ -215,7 +224,6 @@ mosquitto_pub -h 127.0.0.1 -t home/bathroom/gpio/13 -m "1"
 
 The configuration will look like the example below:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 switch:
@@ -226,4 +234,3 @@ switch:
     payload_on: "1"
     payload_off: "0"
 ```
-{% endraw %}

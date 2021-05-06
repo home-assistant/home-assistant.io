@@ -5,6 +5,7 @@ ha_category:
   - History
 ha_release: 0.7
 ha_domain: logbook
+ha_quality_scale: internal
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />
@@ -12,12 +13,12 @@ ha_domain: logbook
 The logbook integration provides a different perspective on the history of your
 house by showing all the changes that happened to your house in reverse
 chronological order. It depends on
-the `recorder` integration for storing the data. This means that if the
+the [`recorder`](/integrations/recorder/) integration for storing the data. This means that if the
 [`recorder`](/integrations/recorder/) integration is set up to use e.g., MySQL or
 PostgreSQL as data store, the `logbook` integration does not use the default
 SQLite database to store data.
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -65,8 +66,6 @@ include:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 logbook:
@@ -81,25 +80,17 @@ logbook:
       - light.kitchen_light
 ```
 
-{% endraw %}
-
 Filters are applied as follows:
 
 1. No includes or excludes - pass all entities
 2. Includes, no excludes - only include specified entities
 3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+4. Both includes and excludes - include specified entities and exclude specified entities from the remaining.
+
+The following characters can be used in entity globs:
+
+- `*` - The asterisk represents zero, one, or multiple characters
+- `.` - The period represents a single character
 
 ### Common filtering examples
 
@@ -176,10 +167,10 @@ component to fire an event.
 # Example configuration.yaml entry
 script:
   add_logbook_entry:
-    alias: Add Logbook
+    alias: "Add Logbook"
     sequence:
       - service: logbook.log
-        data_template:
+        data:
           name: Kitchen
           message: is being used
           # Optional

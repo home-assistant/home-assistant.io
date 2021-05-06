@@ -3,12 +3,35 @@ title: "Dashboards and Views"
 description: "The Lovelace UI is a powerful and configurable interface for Home Assistant."
 ---
 
-### Dashboards
+You can define multiple dashboards in Lovelace. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
 
-You can define multiple dashboards that all have their own YAML file, and add custom resources that are shared by all dashboards.
-To create new or manage existing (with `mode: storage` only) dashboards, click on `Configuration` in the sidebar and then on `Lovelace Dashboards`.
+You can manage your dashboards via the user interface. Go to **Configuration** -> **Lovelace Dashboards**. Here you can see all defined dashboards and create new ones.
 
-The key of the dashboard is used as the URL, this needs to contain a hyphen (`-`).
+### Using YAML for the default dashboard
+
+To change the default dashboard, create a new file `ui-lovelace.yaml` in your configuration directory and add the following section to your `configuration.yaml` and restart Home Assistant:
+
+```yaml
+lovelace:
+  mode: yaml
+```
+
+A good way to start this file is to copy and paste the "Raw configuration" from the UI so your manual configuration starts the same as your existing UI.
+
+- Click `Overview` in your sidebar.
+- Click the three dots menu (top-right) and click on `Edit Dashboard`.
+- Click the three dots menu again and click on `Raw configuration editor`.
+- There you see the configuration for your current Lovelace UI. Copy that into the `<config>/ui-lovelace.yaml` file.
+
+Once you take control of your UI via YAML, the Home Assistant interface for modifying it won't be available anymore and new entities will not automatically be added to your UI.
+
+When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button in the menu at the top of the UI.
+
+To revert back to using the UI to edit your Lovelace interface, remove the `lovelace` section from your `configuration.yaml` and copy the contents of your `ui-lovelace.yaml` into the raw configuration section of Home Assistant and restart.
+
+### Adding more dashboards with YAML
+
+It is also possible to use YAML to define multiple dashboards. Each dashboard will be loaded from its own YAML file.
 
 ```yaml
 lovelace:
@@ -36,6 +59,7 @@ lovelace:
 ```
 
 You can also add YAML dashboards when your main dashboard is UI configured:
+
 ```yaml
 lovelace:
   mode: storage
@@ -86,16 +110,16 @@ dashboards:
       type: string
     icon:
       required: false
-      description: The icon to show in the sidebar.
+      description: The icon to show in the sidebar. You can use any icon from [MaterialDesignIcons.com](http://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
       type: string
     show_in_sidebar:
       required: false
-      description: Should this view be shown in the sidebar.
+      description: Should this dashboard be shown in the sidebar.
       type: boolean
       default: true
     require_admin:
       required: false
-      description: Should this view be only accessible for admin users.
+      description: Should this dashboard be only accessible for admin users.
       type: boolean
       default: false
 {% endconfiguration %}
@@ -203,7 +227,7 @@ views:
       default: view index
     icon:
       required: false
-      description: Icon-name from Material Design Icons.
+      description: Icon-name from Material Design Icons. You can use any icon from [MaterialDesignIcons.com](http://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
       type: string
     panel:
       required: false
@@ -298,6 +322,7 @@ views:
     cards:
       ...
 ```
+
 ### Options For Visible
 
 If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
@@ -305,7 +330,7 @@ If you define `visible` as objects instead of a boolean to specify conditions fo
 {% configuration badges %}
 user:
   required: true
-  description: User id that can see the view tab (unique hex value found on the Users configuration page).
+  description: User ID that can see the view tab (unique hex value found on the Users configuration page).
   type: string
 {% endconfiguration %}
 
@@ -348,280 +373,4 @@ frontend:
   themes:
     example:
       lovelace-background: center / cover no-repeat url("/local/background.png") fixed
-```
-
-## Badges
-
-### State Label Badge
-
-The State Label badge allows you to dislay a state badge
-
-```yaml
-type: state-label
-entity: light.living_room
-```
-
-{% configuration state_label %}
-type:
-  required: true
-  description: entity-button
-  type: string
-entity:
-  required: true
-  description: Home Assistant entity ID.
-  type: string
-name:
-  required: false
-  description: Overwrites friendly name.
-  type: string
-  default: Name of Entity
-icon:
-  required: false
-  description: Overwrites icon or entity picture.
-  type: string
-  default: Entity Domain Icon
-image:
-  required: false
-  description: The URL of an image.
-  type: string
-show_name:
-  required: false
-  description: Show name.
-  type: boolean
-  default: "true"
-show_icon:
-  required: false
-  description: Show icon.
-  type: boolean
-  default: "true"
-tap_action:
-  required: false
-  description: Action to take on tap
-  type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`toggle`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
-      type: [boolean, map]
-      default: "false"
-hold_action:
-  required: false
-  description: Action to take on tap-and-hold
-  type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
-      type: [boolean, map]
-      default: "false"
-double_tap_action:
-  required: false
-  description: Action to take on double tap
-  type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
-      type: [boolean, map]
-      default: "false"
-{% endconfiguration %}
-
-#### Options For Confirmation
-
-If you define confirmation as an object instead of boolean, you can add more customization and configurations:
-{% configuration confirmation %}
-text:
-  required: false
-  description: Text to present in the confirmation dialog.
-  type: string
-exemptions:
-  required: false
-  description: "List of `exemption` objects. See below"
-  type: list
-{% endconfiguration %}
-
-#### Options For Exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: User id that can see the view tab.
-  type: string
-{% endconfiguration %}
-
-### Entity Filter Badge
-
-This badge allows you to define a list of entities that you want to track only when in a certain state. Very useful for showing lights that you forgot to turn off or show a list of people only when they're at home.
-
-{% configuration filter_badge %}
-type:
-  required: true
-  description: entity-filter
-  type: string
-entities:
-  required: true
-  description: A list of entity IDs or `entity` objects, see below.
-  type: list
-state_filter:
-  required: true
-  description: List of strings representing states or `filter` objects, see below.
-  type: list
-{% endconfiguration %}
-
-#### Options For Entities
-
-If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configurations:
-
-{% configuration entities %}
-type:
-  required: false
-  description: "Sets a custom badge type: `custom:my-custom-badge`"
-  type: string
-entity:
-  required: true
-  description: Home Assistant entity ID.
-  type: string
-name:
-  required: false
-  description: Overwrites friendly name.
-  type: string
-icon:
-  required: false
-  description: Overwrites icon or entity picture.
-  type: string
-image:
-  required: false
-  description: The URL of an image.
-  type: string
-state_filter:
-  required: false
-  description: List of strings representing states or `filter` objects, see below.
-  type: list
-{% endconfiguration %}
-
-#### Options For state_filter
-
-If you define state_filter as objects instead of strings (by adding `value:` before your state value), you can add more customization to your filter:
-
-{% configuration state_filter %}
-value:
-  required: true
-  description: String representing the state.
-  type: string
-operator:
-  required: false
-  description: Operator to use in the comparison. Can be `==`, `<=`, `<`, `>=`, `>`, `!=` or `regex`.
-  type: string
-attribute:
-  required: false
-  description: Attribute of the entity to use instead of the state.
-  type: string
-{% endconfiguration %}
-
-#### Examples
-
-Show only active switches or lights in the house
-
-```yaml
-type: entity-filter
-entities:
-  - entity: light.bed_light
-    name: Bed
-  - light.kitchen_lights
-  - light.ceiling_lights
-state_filter:
-  - "on"
-```
-
-Specify filter for a single entity
-
-```yaml
-type: entity-filter
-state_filter:
-  - "on"
-  - operator: ">"
-    value: 90
-entities:
-  - sensor.water_leak
-  - sensor.outside_temp
-  - entity: sensor.humidity_and_temp
-    state_filter:
-      - operator: ">"
-        value: 50
-        attribute: humidity
 ```

@@ -9,20 +9,23 @@ ha_config_flow: true
 ha_codeowners:
   - '@bieniu'
 ha_domain: accuweather
+ha_quality_scale: platinum
+ha_platforms:
+  - sensor
+  - weather
 ---
 
-The `accuweather` integration uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location.
+The AccuWeather integration uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location.
 
 ## Setup
 
 To generate an AccuWeather API key, go to [AccuWeather APIs](https://developer.accuweather.com/) page, register and create application with product **Limited Trial**.
 
-## Configuration
-
-To add AccuWeather to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **AccuWeather**. By default, the values will be taken from the Home Assistant configuration. Weather forecast is not enabled by default. You can enable it in the integration options.
+{% include integrations/config_flow.md %}
 
 <div class="note warning">
 
 Due to limitations of the terms of use of AccuWeather free API key, it is possible to configure only one integration instance.
+The Limited Trial account only allows 50 API calls per day.
 
 </div>

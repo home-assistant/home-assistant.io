@@ -7,7 +7,9 @@ date_formatted: "August 28, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-08-0.98/components.png
 ---
 
@@ -287,7 +289,7 @@ anymore. - ([@abmantis] - [#25971])
   Example configuration entry:
   ```yaml
   - platform: statistics
-    name: 'MiAP2 PSI Stat'
+    name: "MiAP2 PSI Stat"
     entity_id: sensor.mi_ap2_aqi
   ```
 

@@ -5,7 +5,9 @@ date: 2019-06-26 04:11:03
 date_formatted: "June 26, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-06-release-95/social.png
 ---
 
@@ -217,7 +219,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Update pysonos to 0.0.14 ([@amelchio] - [#24185]) ([sonos docs])
 - upgrade broadlink library, Use cryptography instead of pycryptodome ([@Danielhiversen] - [#24186]) ([broadlink docs])
-- danielhiversen as codeowner for yr ([@Danielhiversen] - [#24189]) ([yr docs])
+- danielhiversen as codeowner for yr ([@Danielhiversen] - [#24189])
 - No longer allow invalid slugs or extra keys ([@balloob] - [#24176]) (breaking change)
 - Update azure-pipelines.yml for check version ([@pvizeli] - [#24194])
 - Update Tibber library ([@Danielhiversen] - [#24192]) ([tibber docs])
@@ -301,7 +303,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add websock command to query device for triggers ([@emontnemery] - [#24044]) ([automation docs]) ([light docs])
 - Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) (breaking change)
 - Use met.no instead of yr.no in default config ([@thomasloven] - [#24470])
-- Bump pyubee to 0.7 to support more models ([@mzdrale] - [#24477]) ([ubee docs])
+- Bump pyubee to 0.7 to support more models ([@mzdrale] - [#24477])
 - Somfy open api ([@tetienne] - [#19548]) ([somfy docs]) (new-platform)
 - Add APRS device tracker component ([@PhilRW] - [#22469]) ([aprs docs]) (new-platform)
 - Add Linky sensors : yesterday + months + years ([@Quentame] - [#23726]) (breaking change)
@@ -780,7 +782,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [totalconnect docs]: /integrations/totalconnect/
 [traccar docs]: /integrations/traccar/
 [tradfri docs]: /integrations/tradfri/
-[ubee docs]: /integrations/ubee/
 [unifi docs]: /integrations/unifi/
 [velbus docs]: /integrations/velbus/
 [velux docs]: /integrations/velux/
@@ -791,6 +792,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [websocket_api docs]: /integrations/websocket_api/
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [yeelight docs]: /integrations/yeelight/
-[yr docs]: /integrations/yr/
 [zha docs]: /integrations/zha/
 [zwave docs]: /integrations/zwave/

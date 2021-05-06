@@ -3,10 +3,13 @@ title: Gitter
 description: Instructions on how to integrate a Gitter room sensor with Home Assistant
 ha_category:
   - Sensor
+ha_iot_class: Cloud Polling
 ha_release: 0.47
 ha_codeowners:
   - '@fabaff'
 ha_domain: gitter
+ha_platforms:
+  - sensor
 ---
 
 This `gitter` sensor allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.

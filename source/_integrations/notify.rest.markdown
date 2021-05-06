@@ -1,5 +1,5 @@
 ---
-title: "REST"
+title: "RESTful Notifications"
 description: "Instructions on how to add RESTful notifications to Home Assistant."
 ha_category:
   - Notifications
@@ -73,7 +73,7 @@ data:
   description: Dictionary of extra parameters to send to the resource.
   required: false
   type: string
-data_template:
+data:
   description: Template dictionary of extra parameters to send to the resource.
   required: false
   type: template

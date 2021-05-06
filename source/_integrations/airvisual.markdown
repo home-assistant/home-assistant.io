@@ -9,13 +9,16 @@ ha_codeowners:
   - '@bachya'
 ha_domain: airvisual
 ha_config_flow: true
+ha_platforms:
+  - air_quality
+  - sensor
 ---
 
-The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or from an [AirVisual Node/Pro unit](https://www.airvisual.com/air-quality-monitor).
+The `airvisual` sensor platform queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro).
 
 ## Using the AirVisual Cloud API
 
-AirVisual API keys can be obtained [here](https://airvisual.com/api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
+AirVisual API keys can be obtained [here](https://www.iqair.com/air-pollution-data-api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
 
 The Community API key is valid for 12 months after which it will expire. You must then go back to the AirVisual website, delete your old key, create a new one following the same steps and update your configuration with the new key.
 
@@ -33,108 +36,19 @@ For example:
 
 ## Using an AirVisual Node/Pro Unit
 
-The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; instructions here: https://support.airvisual.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba).
+The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; instructions here: https://support.iqair.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba).
 
-## Configuration
-
-To enable the integration and gather data via latitude/longitude, add the following lines to your `configuration.yaml` file:
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-```
-
-Note that an API key-based entry can be mixed with one or more Node/Pro-based entries
-(examples below).
-
-{% configuration %}
-api_key:
-  description: Your AirVisual API key.
-  required: false
-  type: string
-geographies:
-  description: A list of geographical locations to monitor
-  required: false
-  type: [list, map]
-  keys:
-    latitude:
-      description: The latitude of the location to monitor.
-      required: inclusive
-      type: float
-    longitude:
-      description: The longitude of the location to monitor.
-      required: inclusive
-      type: float
-    city:
-      description: The city to monitor.
-      required: inclusive
-      type: string
-    state:
-      description: The state the city belongs to.
-      required: inclusive
-      type: string
-    country:
-      description: The country the state belongs to.
-      required: inclusive
-      type: string
-{% endconfiguration %}
-
-## Example Configurations
-
-No explicit configuration (using the cloud API and the `latitude` and `longitude` defined within `configuration.yaml`):
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-```
-
-Configuration using the cloud API and a single custom latitude and longitude:
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-    geographies:
-        latitude: 42.81212
-        longitude: 108.12422
-```
-
-Configuration using the cloud API and multiple custom latitude and longitude pairs:
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-    geographies:
-        - latitude: 42.81212
-          longitude: 108.12422
-        - latitude: 32.87336
-          longitude: -117.22743
-```
-
-Configuration using the cloud API and a single city, state, and country:
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-    geographies:
-        city: Los Angeles
-        state: California
-        country: USA
-```
+{% include integrations/config_flow.md %}
 
 ## Determining the City/State/Country
 
-To easily determine the proper values for a particular location, use the [AirVisual region directory](https://airvisual.com/world). Once you browse to the particular city you want, take note of the breadcrumb title, which is of the form `country > state/region > city`. Use this information to fill out `configuration.yaml`.
+In addition to using latitude and longitude, the AirVisual integration may be configured to use a city/state/country combination. To easily determine the proper values for a particular location, use the [AirVisual region directory](https://www.iqair.com/world-air-quality). Once you browse to the particular city you want, take note of the breadcrumb title, which is of the form `country > state/region > city`.
 
-For example, Sao Paulo, Brazil shows a breadcrumb title of `Brazil > Sao Paulo > Sao Paulo`. Thus, the proper configuration would look like this:
+For example, Sao Paulo, Brazil shows a breadcrumb title of `Brazil > Sao Paulo > Sao Paulo`. Thus, the values to use in the UI would be:
 
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-    geographies:
-        city: sao-paulo
-        state: sao-paulo
-        country: brazil
-```
+* City: `Sao Paulo`
+* State: `Sao Paulo`
+* Country: `Brazil`
 
 ## Sensor Types
 

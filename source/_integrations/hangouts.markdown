@@ -7,6 +7,9 @@ ha_category:
 ha_release: 0.77
 ha_config_flow: true
 ha_domain: hangouts
+ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
 ---
 
 This integration allows you to send messages to [Google Hangouts](https://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered. Home Assistant will impersonate a Smartisan YQ603 phone which will then show up in your Google devices.
@@ -15,14 +18,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Notifications](#notifications)
 
-## Setup the integration via the frontend
-
-Menu: *Configuration* -> *Integrations*
-
-Configure the integration:
-* Enter your **Google Mail Address** and **Password**
-* In the authentication form there is an Optional Field: **Authorization Code** which should only be used if you get an invalid login error with email and password (see note below for details).
-* If you secured your account with 2-factor authentication you will be asked for a 2-factor authentication token.
+{% include integrations/config_flow.md %}
 
 ## Manual Authentication
 
@@ -38,7 +34,9 @@ Once the code is obtained fill in the form with your email, password and the aut
 2. Log into your Google account normally.
 3. You should be redirected to a loading screen. Copy the `oauth_code` cookie value set by this page and paste it here.
 
-To obtain the `oauth_code` cookie value using Chrome or Firefox, follow the steps below:
+To obtain the `oauth_code` cookie value, follow the steps below:
+
+*Note:* If the `oauth_code` cookie is not showing in Chrome, try Firefox.
 
 * Press F12 to open developer tools.
 * Select the "Application" (Chrome) or "Storage" (Firefox) tab.
@@ -187,7 +185,7 @@ intent_script:
       text: Changed the lights to {{ color }}.
     action:
       service: light.turn_on
-      data_template:
+      data:
         rgb_color:
           - "{% if color == 'red' %}255{% else %}0{% endif %}"
           - "{% if color == 'green' %}255{% else %}0{% endif %}"
@@ -212,9 +210,9 @@ Sends a message to the given conversations.
 
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
-| target                 | List of targets with id or name. [Required] | [{"id": "UgxrXzVrARmjx_C6AZx4AaABAagBo-6UCw"}, {"name": "Test Conversation"}] |
-| message                | List of message segments, only the "text" field is required in every segment. [Required] | [{"text":"test", "is_bold": false, "is_italic": false, "is_strikethrough": false, "is_underline": false, "parse_str": false, "link_target": "http://google.com"}, ...] |
-| data                   | Extra options | {"image_file": "path"} / {"image_url": "url"} |
+| target                 | No | List of targets with id or name. |
+| message                | No | List of message segments, only the "text" field is required in every segment. |
+| data                   | Yes | Either a path to an image file or a URL to an image. |
 
 ### Service `hangouts.reconnect`
 
@@ -237,17 +235,17 @@ sensor:
   - platform: rest
     resource: https://api.ipify.org/?format=json
     name: External IP
-    value_template: '{{ value_json.ip }}'
+    value_template: "{{ value_json.ip }}"
     scan_interval: 10
 
 automation:
-  - alias: Reconnect Hangouts
+  - alias: "Reconnect Hangouts"
     trigger:
       - entity_id: sensor.external_ip
         platform: state
     condition:
       - condition: template
-        value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+        value_template: "{{ trigger.from_state.state != trigger.to_state.state }}"
       - condition: template
         value_template: '{{ not is_state("sensor.external_ip", "unavailable") }}'
     action:
@@ -290,7 +288,7 @@ default_conversations:
 
 ### Finding the conversation ID
 
-The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity, this can be found in with the states developer tool that is shown as this icon <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> in the side bar. Using your web browsers search tool to find the `hangouts.conversations` entity. You will find something like below.
+The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity, this can be found in **Developer Tools** -> **States**. Using your web browsers search tool to find the `hangouts.conversations` entity. You will find something like below.
 
 ```json
 0: {

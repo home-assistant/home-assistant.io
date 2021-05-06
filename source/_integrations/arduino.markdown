@@ -10,7 +10,16 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: arduino
+ha_platforms:
+  - sensor
+  - switch
 ---
+
+<div class='note warning'>
+
+This integration is deprecated. Please move to the [Firmata integration](/integrations/firmata).
+
+</div>
 
 The [Arduino](https://www.arduino.cc/) device family are microcontroller boards that are often based on the ATmega328 chip. They come with digital input/output pins (some can be used as PWM outputs), analog inputs, and a USB connection.
 The equipment depends on the [type](https://www.arduino.cc/en/Main/Products) of the board. The most common ones are the Arduino Uno and the Arduino Leonardo with 14 digital input/output pins and 6 analog input pins.

@@ -5,11 +5,13 @@ module Jekyll
       'device_class' => '/docs/configuration/customizing-devices/#device-class',
       'template'     => '/docs/configuration/templating/',
       'icon'         => '/docs/configuration/customizing-devices/#icon',
+      'selector'     => '/docs/blueprint/selectors/',
     }
 
     TYPES = [
       'action', 'boolean', 'string', 'integer', 'float', 'time', 'template',
-      'device_class', 'icon', 'map', 'list', 'date', 'datetime'
+      'device_class', 'icon', 'map', 'list', 'date', 'datetime', 'any',
+      'selector',
     ]
 
     MIN_DEFAULT_LENGTH = 30
@@ -61,7 +63,8 @@ module Jekyll
 
       result << vars.map do |key, attr|
         markup = Array.new
-        markup << "<div class='config-vars-item'><div class='config-vars-label'><a name='#{slug(key)}' class='title-link' href='\##{slug(key)}'></a> <span class='config-vars-label-name'>#{key}</span>"
+        # There are spaces around the "{key}", to improve double-click selection in Chrome.
+        markup << "<div class='config-vars-item'><div class='config-vars-label'><a name='#{slug(key)}' class='title-link' href='\##{slug(key)}'></a> <span class='config-vars-label-name'> #{key} </span>"
 
         if attr.key? 'type'
 
@@ -103,7 +106,7 @@ module Jekyll
             unless [true, false, 'inclusive', 'exclusive'].include? attr['required']
 
           isTrue = attr['required'].to_s == 'true'
-          startSymbol = isTrue ? '' : '('
+          startSymbol = isTrue ? ' ' : ' ('
           endSymbol = isTrue ? '' : ')'
           showDefault = isDefault && (defaultValue.length <= MIN_DEFAULT_LENGTH)
           shortDefaultValue = ""
@@ -115,7 +118,7 @@ module Jekyll
             shortDefaultValue = ", default: " + shortDefaultValue
           end
 
-          markup << "<span class='config-vars-required'>#{startSymbol}<span class='#{attr['required'].to_s}'>#{required_value(attr['required'])}</span>#{shortDefaultValue}#{endSymbol}</span>"
+          markup << "<span class='config-vars-required'>#{startSymbol}<span class='#{attr['required'].to_s}'>#{required_value(attr['required'])}</span><span class='default'>#{shortDefaultValue}</span>#{endSymbol}</span>"
         end
 
         markup << "</div><div class='config-vars-description-and-children'>"

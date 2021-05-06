@@ -1,5 +1,5 @@
 ---
-title: DOODS - Distributed Outside Object Detection Service
+title: DOODS - Dedicated Open Object Detection Service
 description: Detect and recognize objects with DOODS.
 ha_category:
   - Image Processing
@@ -12,7 +12,10 @@ The `doods` image processing integration allows you to detect and recognize obje
 
 ## Setup
 
-You need to have DOODS running somewhere. It's easiest to run as a [Docker](https://hub.docker.com/r/snowzach/doods) container.
+The DOODS software needs to be running before this integration can be used. Options to run the DOODS software:
+
+- Run as [Home Assistant add-on](https://github.com/snowzach/hassio-addons)
+- Run as a [Docker container](https://hub.docker.com/r/snowzach/doods)
 
 ## Configuration
 
@@ -45,6 +48,10 @@ source:
 url:
     description: The URL of the DOODS server.
     required: true
+    type: string
+auth_key:
+    description: The authentication key as set in the DOODS configuration file or as a Docker environment variable (DOODS_AUTH_KEY)
+    required: false
     type: string
 timeout:
     description: Timeout for requests (in seconds).
@@ -139,6 +146,10 @@ labels:
 
 {% endconfiguration %}
 
+## Supported labels
+
+Both detectors "default" and "tensorflow" use the labels in [this file](https://raw.githubusercontent.com/amikelive/coco-labels/master/coco-labels-2014_2017.txt).
+
 ## Sample configuration
 
 {% raw %}
@@ -151,6 +162,7 @@ image_processing:
     url: "http://<my doods server>:8080"
     timeout: 60
     detector: default
+    auth_key: 2up3rL0ng4uthK3y
     source:
       - entity_id: camera.front_yard
     file_out:
@@ -197,12 +209,13 @@ image_processing:
 
 ```yaml
 # Example advanced automations.yaml entry
-- alias: Doods scanning
+- alias: "Doods scanning"
   trigger:
      - platform: state
        entity_id:
          - binary_sensor.driveway
   action:
     - service: image_processing.scan
-      entity_id: image_processing.doods_camera_driveway
+      target:
+        entity_id: image_processing.doods_camera_driveway
 ```

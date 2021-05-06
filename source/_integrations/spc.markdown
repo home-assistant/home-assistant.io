@@ -8,6 +8,9 @@ ha_category:
 ha_release: 0.47
 ha_iot_class: Local Push
 ha_domain: spc
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
 ---
 
 Home Assistant has support to integrate your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) alarm panel and any connected motion, door, smoke and technical sensors.
@@ -46,20 +49,24 @@ The `spc` alarm control panel platform allows you to control your [Vanderbilt SP
 
 The `changed_by` attribute enables one to be able to take different actions depending on who armed/disarmed the alarm in [automation](/getting-started/automation/).
 
+{% raw %}
+
 ```yaml
 automation:
-  - alias: Alarm status changed
+  - alias: "Alarm status changed"
     trigger:
       - platform: state
         entity_id: alarm_control_panel.alarm_1
     action:
       - service: notify.notify
-        data_template:
+        data:
           message: >
-            {% raw %}Alarm changed from {{ trigger.from_state.state }}
+            Alarm changed from {{ trigger.from_state.state }}
             to {{ trigger.to_state.state }}
-            by {{ trigger.to_state.attributes.changed_by }}{% endraw %}
+            by {{ trigger.to_state.attributes.changed_by }}
 ```
+
+{% endraw %}
 
 ## Binary Sensor
 

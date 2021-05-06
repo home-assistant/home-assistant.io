@@ -12,6 +12,10 @@ ha_codeowners:
   - '@ziv1234'
 ha_config_flow: true
 ha_domain: dynalite
+ha_platforms:
+  - cover
+  - light
+  - switch
 ---
 
 Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light, switch, and cover platforms. 
@@ -98,7 +102,6 @@ area:
           description: "Type of template to use for the area. Supported values are: `room` and `time_cover`. They are described in detail below in the **template** section. If the template parameters are different than defaults, they can be overridden in this section as well."
           require: false
           type: string
-          default: No template
         TEMPLATE_PARAMS:
           description: "This can be any of the settings of the template. For example, for template `room`: `room_on` and `room_off` are possible options."
           required: false
@@ -129,6 +132,10 @@ area:
                   required: false
                   type: float
                   default: 2.0
+                level:
+                  description: Level of the channels when the preset is selected, between 0 and 1.
+                  required: false
+                  type: float
         nodefault:
           description: Do not use the default presets defined globally, but only the specific ones defined for this area.
           required: false
@@ -179,6 +186,10 @@ preset:
           required: false
           type: float
           default: 2.0
+        level:
+          description: Level of the channels when the preset is selected, between 0 and 1.
+          required: false
+          type: float
 template:
   description: Set the default parameters for the templates.
   required: false
@@ -223,7 +234,6 @@ template:
           description: Channel that monitors the cover.
           required: false
           type: integer
-          default: No channel
         duration:
           description: Time in seconds it takes to open or close the cover.
           required: false
@@ -278,9 +288,9 @@ dynalite:
           template: time_cover
       preset:
         '1':
-          name: 'On'
+          name: "On"
         '4':
-          name: 'Off'
+          name: "Off"
       template:
         room:
           room_on: 1
@@ -313,6 +323,22 @@ This does not return the area preset. It sends a network command asking the area
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `host` | yes | Which gateway to send the command to. If not specified, sends to all configured gateways.
+| `area` | no | Area for the requested channel.
+| `channel` | no | Which channel to request.
+
+### Service `dynalite.request_channel_level`
+
+Send a command on the Dynalite network asking a specific channel in an area to report its current level.
+
+<div class='note'>
+
+This does not return the channel level. It sends a network command asking the channel to report its level. Once it reports, that will be caught and handled by the system.
+
+</div>
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `host` | yes | Which gateway to send the command to. If not specified, sends to all configured gateways.
 | `area` | no | Which area to request the preset for.
 | `channel` | yes | Which channel to use. If not specified, uses the area configuration or system default.
 
@@ -336,4 +362,3 @@ Event `dynalite_packet` is fired whenever there is a packet on the Dynalite netw
 | ----------- | --------------------------------------------------------------------------------------------------- |
 | `host`      | Host IP of the Dynalite gateway                                                                     |
 | `packet`    | List of integers representing the 8-byte packet, including the checksum                             |
-

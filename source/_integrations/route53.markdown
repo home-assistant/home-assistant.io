@@ -3,6 +3,7 @@ title: AWS Route53
 description: Automatically update your AWS Route53 DNS records.
 ha_category:
   - Network
+ha_iot_class: Cloud Push
 ha_release: 0.81
 ha_domain: route53
 ---
@@ -92,7 +93,7 @@ domain:
   required: true
   type: string
 records:
-  description: A list of records you want to update.
+  description: A list of records you want to update. Use `.` to update the default record ie. *yourdomain.com*.
   required: true
   type: list
 ttl:

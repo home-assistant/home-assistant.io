@@ -3,57 +3,117 @@ title: Philips TV
 description: Instructions on how to add Philips TVs to Home Assistant.
 ha_category:
   - Media Player
+  - Remote
 ha_iot_class: Local Polling
 ha_release: 0.34
 ha_codeowners:
   - '@elupus'
 ha_domain: philips_js
+ha_config_flow: true
+ha_platforms:
+  - media_player
+  - remote
 ---
 
-The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API. Instructions on how to activate the API and if your model is supported can be found [here](http://jointspace.sourceforge.net/download.html). Note that not all listed, jointSPACE-enabled devices won't have JSON-interface running on port 1925. This is true at least for some models before year 2011.
+The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.
 
-To add your TV to your installation, add the following to your `configuration.yaml` file:
+If your TV responds to `http://IP_ADDRESS_OF_TV:1925/system` then this integration can be used. In the response, you should also be able to see the version of the API the TV uses (`"api_version":{"Major":6...`).
+For older TVs follow instructions on how to activate the API and if your model is supported [here](http://jointspace.sourceforge.net/download.html). Note that not all listed, jointSPACE-enabled devices will have JSON-interface running on port 1925. This is true at least for some models before year 2011.
 
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: philips_js
-    host: 192.168.1.99
-```
+Also, note that version 6 of the API needs to be authenticated by a PIN code displayed on your TV.
 
-{% configuration %}
-host:
-  description: IP address of TV.
-  required: true
-  default: 127.0.0.1 (localhost).
-  type: string
-name:
-  description: The name you would like to give to the Philips TV.
-  required: false
-  default: Philips TV
-  type: string
-turn_on_action:
-  description: A script that will be executed to turn on the TV (can be used with wol).
-  required: false
-  type: list
-api_version:
-  description: The JointSpace API version of your Philips TV. This is an experimental option and not all the functionalities are guaranteed to work with API versions different from `1` and `5`.
-  required: false
-  default: 1
-  type: integer
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
-<div class='note'>
-When using api_version: 5 changing sources switches tv channels. Additionally this allows setting the volume level.
-</div>
+### Features
 
-```yaml
-# Example configuration.yaml with turn_on_action
-media_player:
-  - platform: philips_js
-    host: 192.168.1.99
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: aa:bb:cc:dd:ee:ff
-```
+| Feature            | 1                | 5   | 6 (Android)        | 6 (Saphi)        |
+| ------------------ | ---------------- | --- | ------------------ | ---------------- |
+| Power On           | WOL / IR Blaster | ?   | Yes (if always on) | WOL / IR Blaster |
+| Volume Detect      | Yes              | ?   | Yes (not over CEC) | Yes              |
+| Volume Up/Down     | Yes              | ?   | Yes                | Yes              |
+| Volume Set         | Yes              | ?   | Yes                | Yes              |
+| Source Select      | Yes              | ?   | Yes                | No               |
+| Source Detect      | Yes              | ?   | No                 | No               |
+| Channel Select     | Yes              | ?   | Yes                | Yes              |
+| Channel Detect     | Yes              | ?   | Yes                | No               |
+| Channel Favorites  | No               | ?   | Yes                | Yes              |
+| Application Select | No               | ?   | Yes                | No               |
+| Application Detect | No               | ?   | Yes                | No               |
+| Browse URL         | No               | No  | No                 | No               |
+| Send Key           | No               | No  | No                 | Yes              |
+| Ambilight Control  | No               | No  | No                 | No               |
+
+### Turn on device
+
+The Philips TV does not always support turning on via the API. You can either turn it on via IR blaster or on som models WOL. To trigger this command from the entities, the integration exposes a `device trigger` that can be setup to execute when the `media_player` is asked to turn on.
+
+### Remote
+
+The integration provides a remote entity for sending remote key presses directly to the TV. The following list of commands are available for use with the `remote.send_command` service.
+
+| Command          | Comment                                   |
+| ---------------- | ----------------------------------------- |
+| Standby          |                                           |
+| CursorUp         |                                           |
+| CursorDown       |                                           |
+| CursorLeft       |                                           |
+| CursorRight      |                                           |
+| Confirm          |                                           |
+| Back             |                                           |
+| Exit             |                                           |
+| WatchTV          |                                           |
+| Home             |                                           |
+| Source           |                                           |
+| List             |                                           |
+| Find             |                                           |
+| Options          |                                           |
+| Adjust           |                                           |
+| RedColour        |                                           |
+| GreenColour      |                                           |
+| YellowColour     |                                           |
+| BlueColour       |                                           |
+| Play             |                                           |
+| PlayPause        | Mapped to same as Play on Android devices |
+| Pause            |                                           |
+| FastForward      |                                           |
+| Stop             |                                           |
+| Rewind           |                                           |
+| Record           |                                           |
+| ChannelStepUp    |                                           |
+| ChannelStepDown  |                                           |
+| Digit0           |                                           |
+| Digit1           |                                           |
+| Digit2           |                                           |
+| Digit3           |                                           |
+| Digit4           |                                           |
+| Digit5           |                                           |
+| Digit6           |                                           |
+| Digit7           |                                           |
+| Digit8           |                                           |
+| Digit9           |                                           |
+| Dot              |                                           |
+| VolumeUp         |                                           |
+| VolumeDown       |                                           |
+| Mute             |                                           |
+| Teletext         |                                           |
+| Subtitle         |                                           |
+| ClosedCaption    |                                           |
+| TvGuide          |                                           |
+| Info             |                                           |
+| AmbilightOnOff   |                                           |
+| Viewmode         |                                           |
+| 3dFormat         |                                           |
+| Multiview        |                                           |
+| PictureStyle     |                                           |
+| 3dDepth          |                                           |
+| SoundStyle       |                                           |
+| SurroundMode     |                                           |
+| HeadphonesVolume |                                           |
+| 2PlayerGaming    |                                           |
+| Setup            |                                           |
+| WhiteColour      |                                           |
+| PowerOn          |                                           |
+| PowerOff         | Mapped to same as Standby on Android      |
+| Online           |                                           |
+| SmartTV          |                                           |
+| PhilipsMenu      |                                           |
