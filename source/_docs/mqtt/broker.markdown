@@ -92,6 +92,31 @@ mqtt:
   certificate: /home/paulus/downloads/mosquitto.org.crt
 ```
 
+### HiveMQ Cloud
+
+HiveMQ Cloud is a fully managed MQTT broker that provides you a private broker. A free plan for up to 100 devices is available.
+
+Home Assistant is not affiliated with HiveMQ Cloud nor will receive any kickbacks.
+
+1. [Create an account](http://console.hivemq.cloud) <links to signup>
+2. With your signup you will receive automatically the free plan that allows you to connect up to 100 devices
+3. Create MQTT credentials in the Access Management tab of your Cluster Detail View you can use to connect Home Assistant and any MQTT device.
+   ![image2](../../images/mqtt/image2.png)
+4. Download the trusted certificate from let’s encrypt to ensure secure communication between Home Assistant and your HiveMQ Cloud cluster. <link: https://letsencrypt.org/certs/trustid-x3-root.pem >
+5. Copy the broker info to your configuration.yaml. You can find the Broker Hostname in the Cluster Overview. Use the credentials you just created as username and password and the path from the downloaded certificate:
+   ![image3](../../images/mqtt/image3.png)
+
+```yaml
+mqtt:
+  broker: HIVEMQ_BROKER_HOSTNAME
+  port: 8883
+  username: MQTT_USERNAME
+  password: MQTT_PASSWORD
+  certificate: PATH_TO_STORED_CERTIFICATE
+```
+6. Your HiveMQ Cloud will appear as MQTT Integration in Home Assistant
+   ![image1](../../images/mqtt/image1.png)
+
 ### CloudMQTT
 
 [CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance. Plans start at 5$ per month.
