@@ -15,7 +15,7 @@ ha_domain: syncthing
 ---
 
 [Syncthing](https://syncthing.net/) is a continuous file synchronization program. It synchronizes files between two or more computers 
-in real time, safely protected from prying eyes.
+in real-time, safely protected from prying eyes.
 
 The `syncthing` integration allows you to monitor states of your synced folders from within Home Assistant and setup automation based on the information.
 
