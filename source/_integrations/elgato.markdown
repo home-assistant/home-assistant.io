@@ -16,7 +16,7 @@ ha_platforms:
 ---
 
 The [Elgato](https://www.elgato.com/) Lights sets the bar for high-end studio
-lightning. The LED lights are created specifically, and designed for streamers
+lightning. The LED lights are created and designed specifically for streamers
 and content creators, many of whom operate on platforms like YouTube and Twitch.
 
 The following light productions from Elgato have been tested with this
