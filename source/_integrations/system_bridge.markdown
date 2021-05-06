@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: system_bridge
 ha_quality_scale: silver
 ha_platforms:
+  - binary_sensor
   - sensor
 ---
 
