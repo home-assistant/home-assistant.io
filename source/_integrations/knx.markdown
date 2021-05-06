@@ -716,6 +716,12 @@ create_temperature_sensors:
 
 The KNX cover platform is used as an interface to KNX covers.
 
+<div class='note'>
+
+Unlike most KNX devices, Home Assistant defines for covers 0% is closed and 100% is fully open.
+
+</div>
+
 To use your KNX covers in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
 ```yaml
