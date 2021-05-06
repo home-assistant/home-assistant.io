@@ -710,7 +710,7 @@ switches:
       type: integer
       default: 0
     verify:
-      description: read from modbus device to verify switch.
+      description: read from modbus device to verify switch. If used without attributes it used the toogle register configuration. If omitted no verify is done, but the state of the switch is set with each toogle.
       required: false
       type: map
       keys:
