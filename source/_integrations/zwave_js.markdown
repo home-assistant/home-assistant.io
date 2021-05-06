@@ -433,7 +433,15 @@ Controlling your Z-Wave network using the Z-Wave JS integration has the followin
 
 Z-Wave JS is know to be compatible with all known Z-Wave Series 500 (Gen5) and Z-Wave Series 700 (Gen7) adapters in USB stick/dongle and serial module formats.
 
-The following devices have been confirmed to work with Z-Wave JS:
+It is recommend that you purchase a [Z-Wave Plus](https://z-wavealliance.org/z-wave_plus_certification/) compatible controller, to take advantage of the improvements this provides. As Z-Wave JS does not support the S2 security specifications, as such there is no need today to buy one just for support of the S2 feature, however that support for the S2 security specifications could possible be added to Z-Wave JS in the future (more infomation [here](https://github.com/zwave-js/node-zwave-js/projects/4)).
+
+<div class='note'>
+  
+There are [known USB voltage compatability issues](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) with older hardware revision of Aeotec Z-Stick 5 / Gen5 not working on the Raspberry Pi 4. Aeotec has released a 2020 hardware revision Aeotec Z-Stick 5+ / Gen5+ (Model ZW090-A/B/C) which specifically fixes this USB voltage compatibility issue with Raspberry Pi 4. Both hardware revisions of Aeotec Z-Stick 5 / Gen5 are still being sold, an since then Aeotec has already released Aeotec Z-Stick 7 / Gen7 which aslo adds Z-Wave 700 Series support, so please make informed purchasing decisions if using paired with a Raspberry Pi 4.
+
+</div>
+
+##### The following devices have been confirmed to work with Z-Wave JS:
 
 - Aeotec Z-Stick 5 / Gen5
 - Aeotec Z-Stick 5+ / Gen5+ (Model ZW090-A/B/C)
@@ -449,13 +457,6 @@ The following devices have been confirmed to work with Z-Wave JS:
 - ZWave.me Razberry Board
 - ZWave.me UZB1 stick
 
-It is recommend that you purchase a [Z-Wave Plus](https://z-wavealliance.org/z-wave_plus_certification/) compatible controller, to take advantage of the improvements this provides. As Z-Wave JS does not support the S2 security specifications, as such there is no need today to buy one just for support of the S2 feature, however that support for the S2 security specifications could possible be added to Z-Wave JS in the future (more infomation [here](https://github.com/zwave-js/node-zwave-js/projects/4)).
-
-<div class='note'>
-  
-There are [known USB voltage compatability issues](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) with older hardware revision of Aeotec Z-Stick 5 / Gen5 not working on the Raspberry Pi 4. Aeotec has released a 2020 hardware revision Aeotec Z-Stick 5+ / Gen5+ (Model ZW090-A/B/C) which specifically fixes this USB voltage compatibility issue with Raspberry Pi 4. Both hardware revisions of Aeotec Z-Stick 5 / Gen5 are still being sold, an since then Aeotec has already released Aeotec Z-Stick 7 / Gen7 which aslo adds Z-Wave 700 Series support, so please make informed purchasing decisions if using paired with a Raspberry Pi 4.
-
-</div>
 
 ### Running the Z-Wave JS Server
 
