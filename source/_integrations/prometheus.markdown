@@ -19,6 +19,7 @@ To use the `prometheus` integration in your installation, add the following to y
 ```yaml
 # Example configuration.yaml entry
 prometheus:
+  namespace: hass
 ```
 
 {% configuration %}
