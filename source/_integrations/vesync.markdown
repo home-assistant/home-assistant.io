@@ -50,6 +50,7 @@ This integration supports devices controllable by the VeSync App.  The following
 ### Fans
 
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
+- LEVOIT Core 200S Smart True HEPA Air Purifier (Core200S)
 
 ## Prerequisite
 
@@ -80,17 +81,19 @@ VeSync outlets will expose the following details for only the smart outlets. Ene
 
 ## Fan Exposed Attributes
 
-VeSync air purifiers will expose the following details.
+VeSync air purifiers will expose the following details depending on the features supported by the model:
 
-| Attribute               | Description                                                             | Example         |
-| ----------------------- | ----------------------------------------------------------------------- | --------------- |
-| `mode`                  | The current mode the device is in.                                      | manual          |
-| `speed`                 | The current speed setting of the device.                                | high            |
-| `speed_list`            | The available list of speeds supported by the device.                   | high            |
-| `active_time`           | The number of seconds since the device has been in a non-off mode.      | 1598            |
-| `filter_life`           | Remaining percentage of the filter.                                     | 142             |
-| `air_quality`           | The current air quality reading.                                        | excellent       |
-| `screen_status`         | The current status of the screen.                                       | on              |
+| Attribute               | Description                                                                       | Example         |
+| ----------------------- | --------------------------------------------------------------------------------- | --------------- |
+| `mode`                  | The current mode the device is in. (LV-PUR131S, Core200S)                         | manual          |
+| `speed`                 | The current speed setting of the device. (LV-PUR131S, Core200S)                   | high            |
+| `speed_list`            | The available list of speeds supported by the device. (LV-PUR131S)                | high            |
+| `active_time`           | The number of seconds since the device has been in a non-off mode. (LV-PUR131S)   | 1598            |
+| `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S)                        | 142             |
+| `air_quality`           | The current air quality reading. (LV-PUR131S)                                     | excellent       |
+| `screen_status`         | The current status of the screen. (LV-PUR131S)                                    | on              |
+| `night_light`           | The current status of the night light (Core200S)                                  | off             |
+| `child_lock`            | The current status of the child lock (Core200S)                                   | off             |
 
 ## Extracting Attribute data
 
