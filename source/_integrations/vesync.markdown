@@ -2,6 +2,7 @@
 title: VeSync
 description: Instructions on how to set up VeSync switches, outlets, and fans within Home Assistant.
 ha_category:
+  - Light
   - Switch
   - Fan
 ha_release: 0.66
@@ -19,12 +20,17 @@ The devices must be added to the VeSync App before this integration can discover
 
 The following platforms are supported:
 
+- **light**
 - **switch**
 - **fan**
 
 ## Supported Devices
 
 This integration supports devices controllable by the VeSync App.  The following devices are supported by this integration:
+
+### Bulbs
+- Etekcity WiFi Dimmable LED Bulb (ESL100)
+- Etekcity WiFi Dimmable and Tunable White LED Bulb (ESL100CW)
 
 ### Plugs
 
