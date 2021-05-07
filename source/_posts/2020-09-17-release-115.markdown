@@ -7,7 +7,9 @@ date_formatted: "September 17, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-09-0.115/social.png
 ---
 
@@ -106,6 +108,10 @@ navigating you around this release.
 - [Farewell to the following](#farewell-to-the-following)
 - [Release 0.115.1 - September 18](#release-01151---september-18)
 - [Release 0.115.2 - September 19](#release-01152---september-19)
+- [Release 0.115.3 - September 25](#release-01153---september-25)
+- [Release 0.115.4 - September 28](#release-01154---september-28)
+- [Release 0.115.5 - September 29](#release-01155---september-29)
+- [Release 0.115.6 - September 30](#release-01156---september-30)
 - [All changes](#all-changes)
 
 ## Media Browser
@@ -126,10 +132,10 @@ Thanks to [@jjlawren] for the initial implementation and to [@cgtobi],
 integrations and backend refining.
 
 But a media browser isn't just backend, it also needs to look good. Thankfully,
-we had [@NKDZCK] on the case, with the help of [@bramkragten]. They came up with
+we had [@zsarnett] on the case, with the help of [@bramkragten]. They came up with
 a beautiful design so you can browse your media in style.
 
-[@nkdzck]: https://github.com/NKDZCK
+[@zsarnett]: https://github.com/zsarnett
 
 <div class="videoWrapper">
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/4tQvMezHJkQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -169,7 +175,7 @@ If you click its media browser button, you will be presented with the available
 local sources.
 
 Sometimes you just want to play your media without having to turn on the TV. To
-cover that case, [@NKDZCK] added a new media browser to the Home Assistant
+cover that case, [@zsarnett] added a new media browser to the Home Assistant
 interface, which can be used to play your media. That way, you can quickly see
 what that motion event that you just received was about.
 
@@ -226,7 +232,7 @@ this means that this setting is device-based and will be cleared when you logout
 You can now upload images for a person in the frontend!
 
 Select or drop an image in the input field and then crop it to a square. The
-image is stored on your Home Assistant server.
+image is stored on your Home Assistant instance.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rOlRnwaaT7Y" frameborder="0" allowfullscreen></iframe>
@@ -954,8 +960,9 @@ script:
   learn_tv_power:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: tv
           command: power
 ```
@@ -979,8 +986,9 @@ script:
   send_tv_power:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           command: b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
 ```
 
@@ -991,8 +999,9 @@ script:
   send_tv_power:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: tv
           command: power
 ```
@@ -1730,6 +1739,149 @@ discovery. Users currently using that should set up all devices through UI.
 [vera docs]: /integrations/vera/
 [zha docs]: /integrations/zha/
 
+## Release 0.115.3 - September 25
+
+- Use Cloud State as alternative state if condition unknown ([@thehaxxa] - [#37121])
+- Guard SolarEdge for inverters without batteries ([@mhaack] - [#40295]) ([solaredge docs])
+- Ignore packets with missing dts in peek_first_pts ([@uvjustin] - [#40299]) ([stream docs])
+- Axis - Fix list applications breaks if empty response ([@Kane610] - [#40360]) ([axis docs])
+- Fix Met.no missing conditions in API forecasts ([@thimic] - [#40373]) ([met docs])
+- Bump pyinsteon to 1.0.8 ([@teharris1] - [#40383]) ([insteon docs])
+- Fix OSError ([@bieniu] - [#40393]) ([shelly docs])
+- Fix handling of empty ws port ([@OnFreund] - [#40399]) ([kodi docs])
+- Validate Met.no forecast entries before passing them on to HA ([@thimic] - [#40400]) ([met docs])
+- Fix luci device_tracker incorrectly reporting devices status ([@cagnulein] - [#40409]) ([luci docs])
+- Make modbus switch read_coil failure resistent ([@janiversen] - [#40417]) ([modbus docs])
+- Fix webostv supported features for "external_speaker" sound output ([@PedroLamas] - [#40435]) ([webostv docs])
+- Fix regression in Nextcloud component ([@meichthys] - [#40438]) ([nextcloud docs])
+- Fix proxy camera conversion with PNG Alpha(RGBA) ([@square99] - [#40446]) ([proxy docs])
+- Bump accuweather library to version 0.0.11 ([@bieniu] - [#40458])
+- Increase gogogate2 request timeout ([@vangorra] - [#40461]) ([gogogate2 docs])
+- Fix handling of quoted time_pattern values ([@amelchio] - [#40470]) ([homeassistant docs])
+- Ensure group state is recalculated when re-adding on reload ([@bdraco] - [#40497]) ([group docs])
+- Disable audio in stream when audio stream profile is None ([@uvjustin] - [#40521]) ([stream docs])
+- Fix luci device_tracker when release is none ([@cagnulein] - [#40524]) ([luci docs])
+- Increase upnp timeout from 5 seconds to 10 seconds ([@StevenLooman] - [#40540]) ([upnp docs])
+- Fix connection validation during import for dsmr integration ([@RobBie1221] - [#40548]) ([dsmr docs])
+- Updated frontend to 20200918.2 ([@bramkragten] - [#40549]) ([frontend docs])
+- Fix bug in state trigger when using for: without to: ([@KevinCathcart] - [#40556]) ([homeassistant docs])
+
+[#37121]: https://github.com/home-assistant/core/pull/37121
+[#40295]: https://github.com/home-assistant/core/pull/40295
+[#40299]: https://github.com/home-assistant/core/pull/40299
+[#40360]: https://github.com/home-assistant/core/pull/40360
+[#40373]: https://github.com/home-assistant/core/pull/40373
+[#40383]: https://github.com/home-assistant/core/pull/40383
+[#40393]: https://github.com/home-assistant/core/pull/40393
+[#40399]: https://github.com/home-assistant/core/pull/40399
+[#40400]: https://github.com/home-assistant/core/pull/40400
+[#40409]: https://github.com/home-assistant/core/pull/40409
+[#40417]: https://github.com/home-assistant/core/pull/40417
+[#40435]: https://github.com/home-assistant/core/pull/40435
+[#40438]: https://github.com/home-assistant/core/pull/40438
+[#40446]: https://github.com/home-assistant/core/pull/40446
+[#40458]: https://github.com/home-assistant/core/pull/40458
+[#40461]: https://github.com/home-assistant/core/pull/40461
+[#40470]: https://github.com/home-assistant/core/pull/40470
+[#40497]: https://github.com/home-assistant/core/pull/40497
+[#40521]: https://github.com/home-assistant/core/pull/40521
+[#40524]: https://github.com/home-assistant/core/pull/40524
+[#40540]: https://github.com/home-assistant/core/pull/40540
+[#40548]: https://github.com/home-assistant/core/pull/40548
+[#40549]: https://github.com/home-assistant/core/pull/40549
+[#40556]: https://github.com/home-assistant/core/pull/40556
+[@Kane610]: https://github.com/Kane610
+[@KevinCathcart]: https://github.com/KevinCathcart
+[@OnFreund]: https://github.com/OnFreund
+[@PedroLamas]: https://github.com/PedroLamas
+[@RobBie1221]: https://github.com/RobBie1221
+[@StevenLooman]: https://github.com/StevenLooman
+[@amelchio]: https://github.com/amelchio
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@cagnulein]: https://github.com/cagnulein
+[@janiversen]: https://github.com/janiversen
+[@meichthys]: https://github.com/meichthys
+[@mhaack]: https://github.com/mhaack
+[@square99]: https://github.com/square99
+[@teharris1]: https://github.com/teharris1
+[@thehaxxa]: https://github.com/thehaxxa
+[@thimic]: https://github.com/thimic
+[@uvjustin]: https://github.com/uvjustin
+[@vangorra]: https://github.com/vangorra
+[axis docs]: /integrations/axis/
+[dsmr docs]: /integrations/dsmr/
+[frontend docs]: /integrations/frontend/
+[gogogate2 docs]: /integrations/gogogate2/
+[group docs]: /integrations/group/
+[homeassistant docs]: /integrations/homeassistant/
+[insteon docs]: /integrations/insteon/
+[kodi docs]: /integrations/kodi/
+[luci docs]: /integrations/luci/
+[met docs]: /integrations/met/
+[modbus docs]: /integrations/modbus/
+[nextcloud docs]: /integrations/nextcloud/
+[proxy docs]: /integrations/proxy/
+[shelly docs]: /integrations/shelly/
+[solaredge docs]: /integrations/solaredge/
+[stream docs]: /integrations/stream/
+[upnp docs]: /integrations/upnp/
+[webostv docs]: /integrations/webostv/
+
+## Release 0.115.4 - September 28
+
+- Bump aioshelly library to version 0.3.3 ([@bieniu] - [#40415]) ([shelly docs])
+- Create master playlist for cast ([@uvjustin] - [#40483]) ([stream docs])
+- Fix fitbit current URL not available while configuring ([@colinfrei] - [#40547]) ([fitbit docs])
+- Bump Plugwise-Smile to v1.5.1 ([@bouwew] - [#40572]) ([plugwise docs])
+- Fix camera play stream ([@hunterjm] - [#40641]) ([camera docs]) ([cast docs]) ([media_player docs]) ([stream docs])
+- set ID3 tags as TextFrame types ([@digitallyserviced] - [#40666]) ([tts docs])
+- Pin gRPC to 1.31.0 to workaround amrv7 issues ([@frenck] - [#40678])
+- Bump Airly package to 1.0.0 ([@ak-ambi] - [#40695]) ([airly docs])
+
+[#40415]: https://github.com/home-assistant/core/pull/40415
+[#40483]: https://github.com/home-assistant/core/pull/40483
+[#40547]: https://github.com/home-assistant/core/pull/40547
+[#40572]: https://github.com/home-assistant/core/pull/40572
+[#40641]: https://github.com/home-assistant/core/pull/40641
+[#40666]: https://github.com/home-assistant/core/pull/40666
+[#40678]: https://github.com/home-assistant/core/pull/40678
+[#40695]: https://github.com/home-assistant/core/pull/40695
+[@ak-ambi]: https://github.com/ak-ambi
+[@bieniu]: https://github.com/bieniu
+[@bouwew]: https://github.com/bouwew
+[@colinfrei]: https://github.com/colinfrei
+[@digitallyserviced]: https://github.com/digitallyserviced
+[@frenck]: https://github.com/frenck
+[@hunterjm]: https://github.com/hunterjm
+[@uvjustin]: https://github.com/uvjustin
+[airly docs]: /integrations/airly/
+[camera docs]: /integrations/camera/
+[cast docs]: /integrations/cast/
+[fitbit docs]: /integrations/fitbit/
+[media_player docs]: /integrations/media_player/
+[plugwise docs]: /integrations/plugwise/
+[shelly docs]: /integrations/shelly/
+[stream docs]: /integrations/stream/
+[tts docs]: /integrations/tts/
+
+## Release 0.115.5 - September 29
+
+- Fix ID3 tagging in TTS ([@frenck] - [#40740]) ([tts docs])
+
+[#40740]: https://github.com/home-assistant/core/pull/40740
+[@frenck]: https://github.com/frenck
+[tts docs]: /integrations/tts/
+
+## Release 0.115.6 - September 30
+
+- Use custom app to play camera stream using Google Assistant ([@bramkragten] - [#40750]) ([google_assistant docs])
+
+[#40750]: https://github.com/home-assistant/core/pull/40750
+[@bramkragten]: https://github.com/bramkragten
+[google_assistant docs]: /integrations/google_assistant/
+
 ## All changes
 
 <details>
@@ -1971,7 +2123,7 @@ discovery. Users currently using that should set up all devices through UI.
 - Upgrade pre-commit to 2.7.0 ([@frenck] - [#39180])
 - Upgrade discogs_client to 2.3.0 ([@fabaff] - [#39164]) ([discogs docs])
 - Upgrade py-cpuinfo to 7.0.0 ([@fabaff] - [#39155]) ([cpuspeed docs]) (breaking-change)
-- Support Rainbow radar site in BOM camera ([@maddenp] - [#39129]) ([bom docs])
+- Support Rainbow radar site in BOM camera ([@maddenp] - [#39129])
 - Update bug report template for new Logs location ([@lukashass] - [#39183])
 - Add pin code support to the Risco integration ([@OnFreund] - [#39177]) ([risco docs])
 - Report usage of extract_entities by custom components ([@bdraco] - [#39185])
@@ -2235,7 +2387,7 @@ discovery. Users currently using that should set up all devices through UI.
 - Remove vizio test assertions for integration details in test_init ([@raman325] - [#39579]) ([vizio docs])
 - Improve Yeelight code ([@shenxn] - [#39543]) ([yeelight docs])
 - Add get_migration_config to zwave websocket api ([@cgarwood] - [#39577]) ([zwave docs]) (new-integration)
-- Round sensor readings for bom ([@springstan] - [#39513]) ([bom docs])
+- Round sensor readings for bom ([@springstan] - [#39513])
 - Reintroduce custom met.no url ([@Danielhiversen] - [#39583]) ([met docs])
 - Add Plex service to refresh a library ([@jjlawren] - [#39094]) ([plex docs])
 - Add the ability to reload rpi_gpio platforms from yaml ([@Misiu] - [#39548]) ([rpi_gpio docs])
@@ -3440,7 +3592,6 @@ discovery. Users currently using that should set up all devices through UI.
 [awair docs]: /integrations/awair/
 [axis docs]: /integrations/axis/
 [bayesian docs]: /integrations/bayesian/
-[bom docs]: /integrations/bom/
 [bond docs]: /integrations/bond/
 [broadlink docs]: /integrations/broadlink/
 [brother docs]: /integrations/brother/

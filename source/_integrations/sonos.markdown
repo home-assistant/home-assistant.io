@@ -3,16 +3,28 @@ title: Sonos
 description: Instructions on how to integrate Sonos devices into Home Assistant.
 ha_category:
   - Media Player
+  - Sensor
 featured: true
 ha_release: 0.7.3
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: sonos
+ha_codeowners:
+  - '@cgtobi'
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - media_player
+  - sensor
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
 
-You can configure the Sonos integration by going to the integrations page inside the configuration panel.
+{% include integrations/config_flow.md %}
+
+## Battery support
+
+Battery sensors are currently supported for the `Sonos Roam` and `Sonos Move` devices. For each speaker with a battery, a `sensor` showing the current battery charge level and a `binary_sensor` showing the power state of the speaker are created. The `binary_sensor` reports if the speaker is currently powered by an external source and its `power_source` attribute shows which specific source is providing the current power. This source attribute can be one of `BATTERY`, `SONOS_CHARGING_RING` if using wireless charging, or `USB_POWER` if charging via USB cable. Note that the Roam will report `SONOS_CHARGING_RING` even when using a generic Qi charger.
 
 ## Services
 
@@ -20,7 +32,7 @@ The Sonos integration makes various custom services available.
 
 ### Service `sonos.snapshot`
 
-Take a snapshot of what is currently playing on one or more speakers. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards. If no `entity_id` is provided, all speakers are snapshotted.
+Take a snapshot of what is currently playing on one or more speakers. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
 
 <div class='note'>
 
@@ -35,7 +47,7 @@ The queue is not snapshotted and must be left untouched until the restore. Using
 
 ### Service `sonos.restore`
 
-Restore a previously taken snapshot of one or more speakers. If no `entity_id` is provided, all speakers are restored.
+Restore a previously taken snapshot of one or more speakers.
 
 <div class='note'>
 
@@ -63,7 +75,7 @@ Group players together under a single coordinator. This will make a new group or
 
 ### Service `sonos.unjoin`
 
-Remove one or more speakers from their group of speakers. If no `entity_id` is provided, all speakers are unjoined.
+Remove one or more speakers from their group of speakers.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -135,7 +147,7 @@ Removes an item from the queue.
 
 ```yaml
 # Example automation to remove just played song from queue
-alias: Remove last played song from queue
+alias: "Remove last played song from queue"
 id: Remove last played song from queue
 trigger:
   - platform: state
@@ -161,9 +173,10 @@ condition:
         {{ trigger.from_state.attributes.queue_position < trigger.to_state.attributes.queue_position }}
 action:
   - service: sonos.remove_from_queue
-    data:
+    target:
       entity_id: >
         {{ trigger.entity_id }}
+    data:
       queue_position: >
         {{ trigger.from_state.attributes.queue_position }}
 ```
@@ -186,7 +199,7 @@ sonos:
       - 192.0.2.27
 ```
 
-If your Home Assistant server has multiple IP addresses, you can provide the IP address that should be used for Sonos auto-discovery. This is rarely needed since all addresses should be tried by default.
+If your Home Assistant instance has multiple IP addresses, you can provide the IP address that should be used for Sonos auto-discovery. This is rarely needed since all addresses should be tried by default.
 
 ```yaml
 # Example configuration.yaml entry using Sonos discovery on a specific interface

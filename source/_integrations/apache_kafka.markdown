@@ -7,6 +7,7 @@ ha_release: 0.97
 ha_codeowners:
   - '@bachya'
 ha_domain: apache_kafka
+ha_iot_class: Local Push
 ---
 
 The `apache_kafka` integration sends all state changes to a
@@ -86,8 +87,6 @@ filter:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Apache Kafka`, you can use the `filter` parameter.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 apache_kafka:
@@ -103,8 +102,6 @@ apache_kafka:
     exclude_entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 

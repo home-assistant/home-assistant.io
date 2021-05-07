@@ -4,6 +4,7 @@ description: Setup for Google Pub/Sub integration
 ha_category:
   - History
 ha_release: 0.88
+ha_iot_class: Cloud Push
 ha_domain: google_pubsub
 ---
 
@@ -86,8 +87,6 @@ filter:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Google Pub/Sub`, you can use the `filter` parameter.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 google_pubsub:
@@ -103,8 +102,6 @@ google_pubsub:
     exclude_entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 

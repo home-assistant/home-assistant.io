@@ -10,6 +10,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: workday
+ha_platforms:
+  - binary_sensor
 ---
 
 The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week will count as workdays and also
@@ -63,6 +65,10 @@ add_holidays:
   description: "Add custom holidays (such as company, personal holidays or vacations). Needs to formatted as `YYYY-MM-DD`."
   required: false
   type: list
+remove_holidays:
+  description: "Remove holidays (treat holiday as workday). Needs to formatted as `YYYY-MM-DD`."
+  required: false
+  type: list
 {% endconfiguration %}
 
 Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
@@ -94,17 +100,31 @@ binary_sensor:
 ```
 
 This example excludes Saturdays, Sundays and holidays. Two custom holidays are added.
-The date February 24th, 2020 is a Monday but will be excluded because it was added to the `add_holiday` configuration.
+The date February 24th, 2020 is a Monday but will be excluded because it was added to the `add_holidays` configuration.
 
 ```yaml
 # Example 2 configuration.yaml entry
 binary_sensor:
   - platform: workday
     country: DE
-    workdays: [mon, wed, fri]
+    workdays: [mon, tue, wed, thu, fri]
     excludes: [sat, sun, holiday]
     add_holidays:
       - '2020-02-24'
+```
+
+This example excludes Saturdays, Sundays and holidays. Two holidays are removed: November 26, 2020 and December 25, 2020.
+
+```yaml
+# Example 3 configuration.yaml entry
+binary_sensor:
+  - platform: workday
+    country: US
+    workdays: [mon, tue, wed, thu, fri]
+    excludes: [sat, sun, holiday]
+    remove_holidays:
+      - '2020-11-26'
+      - '2020-12-25'
 ```
 
 ## Automation example
@@ -113,17 +133,18 @@ Example usage for automation:
 
 ```yaml
 automation:
-  alias: Turn on heater on workdays
+  alias: "Turn on heater on workdays"
   trigger:
     platform: time
-    at: '08:00:00'
+    at: "08:00:00"
   condition:
     condition: state
-    entity_id: 'binary_sensor.workday_sensor'
-    state: 'on'
+    entity_id: binary_sensor.workday_sensor
+    state: "on"
   action:
     service: switch.turn_on
-    entity_id: switch.heater
+    target:
+      entity_id: switch.heater
 ```
 
 <div class='note'>

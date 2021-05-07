@@ -3,8 +3,11 @@ title: International Space Station (ISS)
 description: Know if or when ISS will be above your home location
 ha_category:
   - Binary Sensor
+ha_iot_class: Cloud Polling
 ha_release: 0.36
 ha_domain: iss
+ha_platforms:
+  - binary_sensor
 ---
 
 The `iss` platform uses the
@@ -52,6 +55,7 @@ The [generic camera platform](/integrations/mjpeg) offers
 the possibility to show the location of the ISS on OpenStreetMap.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
   - platform: iss
@@ -63,4 +67,5 @@ camera:
     still_image_url: http://staticmap.openstreetmap.de/staticmap.php?center={{ state_attr('binary_sensor.iss', 'lat') }},{{ state_attr('binary_sensor.iss', 'long') }}&zoom=4&size=865x512&maptype=mapnik&markers={{ state_attr('binary_sensor.iss', 'lat') }},{{ state_attr('binary_sensor.iss', 'long') }},lightblue
     limit_refetch_to_url_change: true
 ```
+
 {% endraw %}

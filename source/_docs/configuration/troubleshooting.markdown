@@ -1,7 +1,6 @@
 ---
 title: "Troubleshooting your configuration"
 description: "Common problems with tweaking your configuration and their solutions."
-redirect_from: /getting-started/troubleshooting-configuration/
 ---
 
 It can happen that you run into trouble while configuring Home Assistant. Perhaps an integration is not showing up or is acting strangely. This page will discuss a few of the most common problems.
@@ -14,7 +13,7 @@ Whenever an integration or configuration option results in a warning, it will be
 
 When an integration does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your integration you are trying to set up.
 
-If you have incorrect entries in your configuration files you can use the configuration check command (below) to assist in identifying them. 
+If you have incorrect entries in your configuration files you can use the configuration check command (below) to assist in identifying them.
 
 ### Problems with the configuration
 

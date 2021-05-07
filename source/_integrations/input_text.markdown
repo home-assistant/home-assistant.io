@@ -14,6 +14,9 @@ The `input_text` integration allows the user to define values that can be contro
 
 The preferred way to configure an input text is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Text** option.
 
+To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+If you removed `default_config:` from you configuration, you must add `input_text:` to your `configuration.yaml` first, then you can use the UI.
+
 It can also be configured via `configuration.yaml`:
 
 ```yaml
@@ -28,7 +31,7 @@ input_text:
     max: 40
   text3:
     name: Text 3
-    pattern: '[a-fA-F0-9]*'
+    pattern: "[a-fA-F0-9]*"
   text4:
     name: Text 4
     mode: password
@@ -104,6 +107,7 @@ scene:
 Here's an example using `input_text` in an action in an automation.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry using 'input_text' in an action in an automation
 input_select:
@@ -116,20 +120,22 @@ input_select:
       - Reading
       - Relax
       - 'OFF'
-    initial: 'Select'
+    initial: "Select"
 input_text:
   bedroom:
     name: Brightness
     
 automation:
-  - alias: Bedroom Light - Custom
+  - alias: "Bedroom Light - Custom"
     trigger:
       platform: state
       entity_id: input_select.scene_bedroom
     action:
       - service: input_text.set_value
-        data:
+        target:
           entity_id: input_text.bedroom
+        data:
           value: "{{ states('input_select.scene_bedroom') }}"
 ```
+
 {% endraw %}

@@ -4,6 +4,7 @@ description: "Instructions on how to integrate RFLink switches into Home Assista
 logo: rflink.png
 ha_category:
   - Switch
+ha_iot_class: Assumed State
 ha_release: 0.38
 ha_domain: rflink
 ---

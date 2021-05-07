@@ -1,20 +1,13 @@
 ---
 title: "Authentication Providers"
 description: "Guide on configuring different auth providers."
-redirect_from: /integrations/auth/
 ---
 
-When you log in, an _auth provider_ checks your credentials to make sure you are an authorized user.
-
-<div class='note'>
-
-The authentication system has been changed recently. Previously there was a single "_API password_" to log in, but you can now choose from several auth providers.<br/> <br/>
-
-To make the transition from API passwords easier, we've added a _Legacy API Password_ auth provider. This is enabled by default if you have an API password configured so you will still be able to log in.
-
-However, this feature is deprecated and will be removed in a future release so you should set up one of the newer authentication techniques.
-
+<div class='note warning'>
+  This is an advanced feature.
 </div>
+
+When you log in, an _auth provider_ checks your credentials to make sure you are an authorized user.
 
 ## Configuring auth providers
 
@@ -22,7 +15,7 @@ However, this feature is deprecated and will be removed in a future release so y
 
 Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your `configuration.yaml` file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
 
-This means that if you decide to use `trusted_networks` as your `auth_provider` there won't be a way to authenticate for a device outside of your listed trusted network. To overcome this ensure you add the default `auth_provider``type: homeassistant` back in manually. This will then present you with the default auth login screen when trusted network authentication fails as expected from outside your LAN.
+If you decide to use `trusted_networks` as your `auth_provider` there won't be a way to authenticate for a device outside of your listed trusted network. To overcome this ensure you add the default `auth_provider``type: homeassistant` back in manually. This will then present you with the default auth login screen when trusted network authentication fails as expected from outside your LAN.
 
 </div>
 
@@ -44,7 +37,7 @@ This is the default auth provider. The first user created is designated as the _
 
 User details are stored in the `[your config]/.storage`  directory. All passwords are stored hashed and with a salt, making it almost impossible for an attacker to figure out the password even if they have access to the file.
 
-Users can be managed in Home Assistant by the owner. Go to the configuration panel and click on _Users_.
+Users can be managed in Home Assistant by the owner. Go to the configuration panel and click on _{% my users %}_.
 
 This is the entry in `configuration.yaml` for Home Assistant auth:
 
@@ -120,7 +113,7 @@ homeassistant:
           - group: system-users
 ```
 
-First note, for `trusted_users` configuration you need to use `user id`, which you can find through Configuration -> Users -> View User Detail. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id by yourself.
+First note, for `trusted_users` configuration you need to use `user id`, which you can find through {% my users title="Configuration -> Users" %} -> View User Detail. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id by yourself.
 
 Second note, a trusted user with an IPv6 address must put the IPv6 address in quotes as shown.
 

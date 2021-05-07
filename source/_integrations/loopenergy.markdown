@@ -8,7 +8,15 @@ ha_iot_class: Cloud Push
 ha_domain: loopenergy
 ha_codeowners:
   - '@pavoni'
+ha_platforms:
+  - sensor
 ---
+
+<div class='note warning'>
+
+Loop Energy has said that on November 13, 2020, they will [switch off the servers which this integration uses](https://email.loop.homes/action-required-how-to-claim-your-free-loop-upgrade-1). This integration will stop working then.
+
+</div>
 
 Integrate your [Loop Energy](https://www.your-loop.com/) meter information into Home Assistant. To use this sensor you need the client serial number and secret keys for your devices.
 
@@ -41,11 +49,11 @@ Now you have the keys, add the following lines to your `configuration.yaml`, rep
 sensor:
   - platform: loopenergy
     electricity:
-      electricity_serial: 'ELECTRICAL_SERIAL'
-      electricity_secret: 'ELECTRICAL_SECRET'
+      electricity_serial: "ELECTRICAL_SERIAL"
+      electricity_secret: "ELECTRICAL_SECRET"
     gas:
-      gas_serial: 'GAS_SERIAL'
-      gas_secret: 'GAS_SECRET'
+      gas_serial: "GAS_SERIAL"
+      gas_secret: "GAS_SECRET"
 ```
 
 {% configuration %}

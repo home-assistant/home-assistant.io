@@ -15,6 +15,13 @@ ha_domain: insteon
 ha_codeowners:
   - '@teharris1'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - switch
 ---
 
 This integration adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.
@@ -48,7 +55,7 @@ In order for a device to be discovered, it must be linked to the INSTEON Modem a
 
 ## Linking Devices to the INSTEON Modem
 
-In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. The Insteon Modem module supports All-Linking through [Development Tools] service calls. The following services are available:
+In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. The Insteon Modem module supports All-Linking through [Developer Tools] service calls. The following services are available:
 
 - **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
 - **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
@@ -59,7 +66,7 @@ In order for any two Insteon devices to talk with one another, they must be link
 If you are looking for more advanced options, you can use the [insteon_tools] command-line tool that is distributed with the [pyinsteon] Python module. Please see the documentation on the [pyinsteon] GitHub site. Alternatively, you can download [HouseLinc], which runs on any Windows PC, or you can use [Insteon Terminal] which is open source and runs on most platforms. SmartHome no longer supports HouseLinc, but it still works. Insteon Terminal is a very useful tool but please read the disclaimers carefully, they are important.
 
 [understanding linking]: https://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
-[Development Tools]: /docs/tools/dev-tools/
+[Developer Tools]: /docs/tools/dev-tools/
 [HouseLinc]: https://www.smarthome.com/houselinc.html
 [Insteon Terminal]: https://github.com/pfrommerd/insteon-terminal
 [insteon_tools]: https://github.com/pyinsteon/pyinsteon
@@ -96,7 +103,7 @@ Trigger an INSTEON scene on or off, is done via automations. Two services are pr
 automation:
   # Trigger an INSTEON scene 25
   - id: trigger_scene_25_on
-    alias: Turn on scene 25
+    alias: "Turn on scene 25"
     action:
       - service: insteon.scene_on
         group: 25
@@ -119,7 +126,7 @@ This allows the mini-remotes to be configured as triggers for automations. Here 
 automation:
   # 4 or 8 button remote with button c pressed
   - id: light_on
-    alias: Turn a light on
+    alias: "Turn a light on"
     trigger:
       - platform: event
         event_type: insteon.button_on
@@ -129,14 +136,15 @@ automation:
     condition:
       - condition: state
         entity_id: light.some_light
-        state: 'off'
+        state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 
   # single button remote
   - id: light_off
-    alias: Turn a light off
+    alias: "Turn a light off"
     trigger:
       - platform: event
         event_type: insteon.button_on
@@ -145,10 +153,11 @@ automation:
     condition:
       - condition: state
         entity_id: light.some_light
-        state: 'off'
+        state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 ```
 
 ## Manual configuration
@@ -234,7 +243,7 @@ device_override:
   type: list
   keys:
     address:
-      description: is found on the device itself in the form 1A.2B.3C or 1a2b3c.
+      description: "Is found on the device itself in the form `1A.2B.3C` or `1a2b3c`. If there's no letter in the address you need to use quotation marks, e.g., `\"123456\"`, to avoid it becoming a number in YAML."
       required: true
       type: string
     cat:
@@ -285,7 +294,7 @@ In order for a device to be discovered, it must be linked to the INSTEON Modem a
 
 ### Linking Devices to the INSTEON Modem
 
-In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. The Insteon Modem module supports All-Linking through [Development Tools] service calls. The following services are available:
+In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. The Insteon Modem module supports All-Linking through [Developer Tools] service calls. The following services are available:
 
 - **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
 - **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
@@ -296,7 +305,7 @@ In order for any two Insteon devices to talk with one another, they must be link
 If you are looking for more advanced options, you can use the [insteon_tools] command line tool that is distributed with the [pyinsteon] Python module. Please see the documentation on the [pyinsteon] GitHub site. Alternatively, you can download [HouseLinc] which runs on any Windows PC, or you can use [Insteon Terminal] which is open source and runs on most platforms. SmartHome no longer supports HouseLinc, but it still works. Insteon Terminal is a very useful tool but please read the disclaimers carefully, they are important.
 
 [understanding linking]: https://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
-[Development Tools]: /docs/tools/dev-tools/
+[Developer Tools]: /docs/tools/dev-tools/
 [HouseLinc]: https://www.smarthome.com/houselinc.html
 [Insteon Terminal]: https://github.com/pfrommerd/insteon-terminal
 [insteon_tools]: https://github.com/pyinsteon/pyinsteon
@@ -354,7 +363,7 @@ Trigger an INSTEON scene on or off is done via automations. Two services are pro
 automation:
   # Trigger an INSTEON scene 25
   - id: trigger_scene_25_on
-    alias: Turn on scene 25
+    alias: "Turn on scene 25"
     trigger:
       - ...
     action:
@@ -380,7 +389,7 @@ This allows the mini-remotes to be configured as triggers for automations. Here 
 automation:
   # 4 or 8 button remote with button c pressed
   - id: light_on
-    alias: Turn a light on
+    alias: "Turn a light on"
     trigger:
       - platform: event
         event_type: insteon.button_on
@@ -390,14 +399,15 @@ automation:
     condition:
       - condition: state
         entity_id: light.some_light
-        state: 'off'
+        state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 
   # single button remote
   - id: light_off
-    alias: Turn a light off
+    alias: "Turn a light off"
     trigger:
       - platform: event
         event_type: insteon.button_on
@@ -406,8 +416,9 @@ automation:
     condition:
       - condition: state
         entity_id: light.some_light
-        state: 'off'
+        state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 ```

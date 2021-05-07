@@ -5,7 +5,7 @@ description: "The Lovelace UI is a powerful and configurable interface for Home 
 
 You can define multiple dashboards in Lovelace. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
 
-You can manage your dashboards via the user interface. Go to configuration -> Lovelace Dashboards. Here you can see all defined dashboards and create new ones.
+You can manage your dashboards via the user interface. Go to **Configuration** -> **Lovelace Dashboards**. Here you can see all defined dashboards and create new ones.
 
 ### Using YAML for the default dashboard
 
@@ -18,9 +18,9 @@ lovelace:
 
 A good way to start this file is to copy and paste the "Raw configuration" from the UI so your manual configuration starts the same as your existing UI.
 
-- Go into the `Overview` tab.
-- Click the three dots menu (top-right) and click on `Configure UI`.
-- Click the three dots menu again and click on `Raw config editor`.
+- Click `Overview` in your sidebar.
+- Click the three dots menu (top-right) and click on `Edit Dashboard`.
+- Click the three dots menu again and click on `Raw configuration editor`.
 - There you see the configuration for your current Lovelace UI. Copy that into the `<config>/ui-lovelace.yaml` file.
 
 Once you take control of your UI via YAML, the Home Assistant interface for modifying it won't be available anymore and new entities will not automatically be added to your UI.
@@ -59,6 +59,7 @@ lovelace:
 ```
 
 You can also add YAML dashboards when your main dashboard is UI configured:
+
 ```yaml
 lovelace:
   mode: storage
@@ -109,16 +110,16 @@ dashboards:
       type: string
     icon:
       required: false
-      description: The icon to show in the sidebar.
+      description: The icon to show in the sidebar. You can use any icon from [MaterialDesignIcons.com](http://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
       type: string
     show_in_sidebar:
       required: false
-      description: Should this view be shown in the sidebar.
+      description: Should this dashboard be shown in the sidebar.
       type: boolean
       default: true
     require_admin:
       required: false
-      description: Should this view be only accessible for admin users.
+      description: Should this dashboard be only accessible for admin users.
       type: boolean
       default: false
 {% endconfiguration %}
@@ -226,7 +227,7 @@ views:
       default: view index
     icon:
       required: false
-      description: Icon-name from Material Design Icons.
+      description: Icon-name from Material Design Icons. You can use any icon from [MaterialDesignIcons.com](http://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
       type: string
     panel:
       required: false
@@ -329,7 +330,7 @@ If you define `visible` as objects instead of a boolean to specify conditions fo
 {% configuration badges %}
 user:
   required: true
-  description: User id that can see the view tab (unique hex value found on the Users configuration page).
+  description: User ID that can see the view tab (unique hex value found on the Users configuration page).
   type: string
 {% endconfiguration %}
 

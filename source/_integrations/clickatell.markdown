@@ -3,8 +3,11 @@ title: Clickatell
 description: Instructions on how to add Clickatell notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.56
 ha_domain: clickatell
+ha_platforms:
+  - notify
 ---
 
 The `clickatell` platform uses [Clickatell](https://clickatell.com) to deliver SMS notifications from Home Assistant.

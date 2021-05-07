@@ -40,7 +40,7 @@ vacuum:
         required: false
         type: string
       unique_id:
-        description: An ID that uniquely identifies this vacuum. Set this to an unique value to allow customisation trough the UI.
+        description: An ID that uniquely identifies this vacuum. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
       value_template:
@@ -103,10 +103,6 @@ vacuum:
         type: [string, list]
 {% endconfiguration %}
 
-### Working without entities
-
-If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/template/#working-without-entities) in the Template Sensor integration.
-
 ## Examples
 
 ### Control vacuum with Harmony Hub
@@ -120,20 +116,23 @@ vacuum:
       living_room_vacuum:
         start:
           - service: remote.send_command
-            data:
+            target:
               entity_id: remote.harmony_hub
+            data:
               command: Clean
               device: 52840686
         return_to_base:
           - service: remote.send_command
-            data:
+            target:
               entity_id: remote.harmony_hub
+            data:
               command: Home
               device: 52840686
         clean_spot:
           - service: remote.send_command
-            data:
+            target:
               entity_id: remote.harmony_hub
+            data:
               command: SpotCleaning
               device: 52840686
 ```
@@ -181,6 +180,7 @@ vacuum:
 This example shows how to add custom attributes.
 
 {% raw %}
+
 ```yaml
 vacuum:
   - platform: template
@@ -199,4 +199,5 @@ vacuum:
               Charging
             {% endif %}
 ```
+
 {% endraw %}

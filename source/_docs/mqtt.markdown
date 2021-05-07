@@ -23,5 +23,3 @@ For detailed setup instructions, please refer to the [MQTT broker](/docs/mqtt/br
 - [Birth and last will messages](/docs/mqtt/birth_will/)
 - [Testing your setup](/docs/mqtt/testing/)
 - [Logging](/docs/mqtt/logging/)
-
-See the [MQTT example component](/cookbook/python_component_mqtt_basic/) how to integrate your own component.

@@ -4,9 +4,10 @@ description: Instructions on how to setup Google Translate Text-to-Speech with H
 ha_category:
   - Text-to-speech
 ha_release: 0.35
-ha_codeowners:
-  - '@awarecan'
+ha_iot_class: Cloud Push
 ha_domain: google_translate
+ha_platforms:
+  - tts
 ---
 
 The `google_translate` text-to-speech platform uses the unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices.
@@ -40,5 +41,5 @@ A full configuration sample including optional variables:
 # Example configuration.yaml entry
 tts:
   - platform: google_translate
-    language: 'de'
+    language: "de"
 ```

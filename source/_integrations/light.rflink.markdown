@@ -4,8 +4,8 @@ description: "Instructions on how to integrate RFLink lights into Home Assistant
 logo: rflink.png
 ha_category:
   - Light
-ha_release: 0.38
 ha_iot_class: Assumed State
+ha_release: 0.38
 ha_domain: rflink
 ---
 

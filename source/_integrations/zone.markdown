@@ -3,6 +3,7 @@ title: Zone
 description: Instructions on how to set up zones within Home Assistant.
 ha_category:
   - Organization
+  - Presence Detection
 ha_release: 0.69
 ha_quality_scale: internal
 ha_codeowners:
@@ -12,7 +13,7 @@ ha_domain: zone
 
 Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/getting-started/automation-trigger/#zone-trigger) or [condition](/getting-started/automation-condition/#zone-condition) inside automation setups.
 
-Zones can be added and managed through the user interface at **Configuration -> Zones**. 
+Zones can be added and managed through the user interface at **{% my zones title="Configuration -> Zones" %}**.
 
 Zones can also be configured via `configuration.yaml`:
 

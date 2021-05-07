@@ -10,6 +10,10 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: mystrom
+ha_platforms:
+  - binary_sensor
+  - light
+  - switch
 ---
 
 The `mystrom` light platform allows you to control your [myStrom](https://mystrom.ch/en/) WiFi Bulbs.
@@ -160,7 +164,7 @@ The `mystrom` switch platform allows you to control the state of your [myStrom](
 Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
 
 <p class='img'>
-  <img src='{{site_root}}/images/integrations/mystrom/switch-advanced.png' />
+  <img src='/images/integrations/mystrom/switch-advanced.png' />
 </p>
 
 To use your myStrom switch in your installation, add the following to your `configuration.yaml` file:
@@ -174,7 +178,7 @@ switch:
 
 {% configuration %}
 host:
-  description: "The IP address of your myStrom switch, e.g., `http://192.168.1.32`."
+  description: "The IP address of your myStrom switch, e.g., `192.168.1.32`."
   required: true
   type: string
 name:

@@ -5,7 +5,9 @@ date: 2018-07-16 00:01:00
 date_formatted: "July 16, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Today we are releasing 0.73.2 to fix a security incident. We've discovered that 9 months ago, with the release of Home Assistant 0.56, we misconfigured the SSL context that aiohttp used ([PR](https://github.com/home-assistant/home-assistant/pull/9958)). By trying to do the right thing (use an up to date cert store instead of relying on the system certs), we ended up doing the complete opposite: SSL verification was disabled for **outgoing** requests that were done using the shared aiohttp session. This is our fault, and not aiohttp's faults. The impact of this is that certain integrations in Home Assistant have been susceptible to [man in the middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
@@ -42,7 +44,7 @@ Also impacted, but integrations are read only:
 - [sensor.foobot](/integrations/foobot)
 - sensor.hydroquebec
 - [sensor.startca](/integrations/startca)
-- [sensor.teksavvy](/integrations/teksavvy)
+- sensor.teksavvy
 - [sensor.thethingsnetwork](/integrations/thethingsnetwork#sensor)
 - [sensor.tibber](/integrations/tibber#sensor)
 - [sensor.waqi](/integrations/waqi)

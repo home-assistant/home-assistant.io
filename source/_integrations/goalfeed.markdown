@@ -4,6 +4,7 @@ description: Instructions on how to setup Goalfeed events within Home Assistant.
 logo: goalfeed.png
 ha_category:
   - Other
+ha_iot_class: Cloud Push
 ha_release: 0.63
 ha_domain: goalfeed
 ---

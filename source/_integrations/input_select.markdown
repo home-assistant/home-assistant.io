@@ -14,6 +14,9 @@ The `input_select` integration allows the user to define a list of values that c
 
 The preferred way to configure an input select is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Dropdown** option.
 
+To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+If you removed `default_config:` from you configuration, you must add `input_select:` to your `configuration.yaml` first, then you can use the UI.
+
 Input selects can also be configured via `configuration.yaml`:
 
 ```yaml
@@ -76,9 +79,25 @@ This integration provides three services to modify the state of the `input_selec
 | ------- | ---- | ----------- |
 | `select_option` | `option` | This can be used to select a specific option.
 | `set_options` | `options`<br>`entity_id(s)` | Set the options for specific `input_select` entities.
-| `select_previous` | | Select the previous option.
-| `select_next` | | Select the next option.
+| `select_first` | | Select the first option.
+| `select_last` | | Select the last option.
 | `reload` | | Reload `input_select` configuration |
+
+#### Service `input_select.select_next`
+
+Select the next option.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `cycle` | yes | Whether to cycle to the first value after the last. Default: `true`
+
+#### Service `input_select.select_previous`
+
+Select the previous option.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `cycle` | yes | Whether to cycle to the last value before the first. Default: `true`
 
 ### Scenes
 
@@ -115,14 +134,15 @@ The following example shows the usage of the `input_select.select_option` servic
 ```yaml
 # Example configuration.yaml entry
 automation:
-  - alias: example automation
+  - alias: "example automation"
     trigger:
       platform: event
       event_type: MY_CUSTOM_EVENT
     action:
       - service: input_select.select_option
-        data:
+        target:
           entity_id: input_select.who_cooks
+        data:
           option: Paulus
 ```
 
@@ -131,20 +151,22 @@ To dynamically set the `input_select` options you can call `input_select.set_opt
 ```yaml
 # Example configuration.yaml entry
 automation:
-  - alias: example automation
+  - alias: "example automation"
     trigger:
       platform: event
       event_type: MY_CUSTOM_EVENT
     action:
       - service: input_select.set_options
-        data:
+        target:
           entity_id: input_select.who_cooks
+        data:
           options: ["Item A", "Item B", "Item C"]
 ```
 
 Example of `input_select` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry using 'input_select' in an action in an automation
    
@@ -162,20 +184,21 @@ input_select:
 # Automation.     
  # This automation script runs when a value is received via MQTT on retained topic: thermostatMode
  # It sets the value selector on the GUI. This selector also had its own automation when the value is changed.
-- alias: Set Thermostat Mode Selector
+- alias: "Set Thermostat Mode Selector"
   trigger:
     platform: mqtt
     topic: "thermostatMode"
    # entity_id: input_select.thermostat_mode
   action:
-     service: input_select.select_option
-     data:
+    service: input_select.select_option
+    target:
       entity_id: input_select.thermostat_mode
+    data:
       option: "{{ trigger.payload }}"
 
  # This automation script runs when the thermostat mode selector is changed.
  # It publishes its value to the same MQTT topic it is also subscribed to.
-- alias: Set Thermostat Mode
+- alias: "Set Thermostat Mode"
   trigger:
     platform: state
     entity_id: input_select.thermostat_mode
@@ -186,4 +209,5 @@ input_select:
       retain: true
       payload: "{{ states('input_select.thermostat_mode') }}"
 ```
+
 {% endraw %}

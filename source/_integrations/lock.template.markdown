@@ -31,11 +31,11 @@ lock:
     value_template: "{{ is_state('sensor.door', 'on') }}"
     lock:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.door
     unlock:
       service: switch.turn_off
-      data:
+      target:
         entity_id: switch.door
 ```
 
@@ -48,7 +48,7 @@ lock:
     type: string
     default: Template Lock
   unique_id:
-    description: An ID that uniquely identifies this lock. Set this to an unique value to allow customisation trough the UI.
+    description: An ID that uniquely identifies this lock. Set this to a unique value to allow customization through the UI.
     required: false
     type: string
   value_template:
@@ -79,10 +79,6 @@ lock:
 
 If you are using the state of a platform that takes extra time to load, the Template Lock may get an `unknown` state during startup. This results in error messages in your log file until that platform has completed loading. If you use `is_state()` function in your template, you can avoid this situation. For example, you would replace {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an unknown result: {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-### Working without entities
-
-If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/binary_sensor.template/#working-without-entities) in the Template Binary Sensor integration.
-
 ## Examples
 
 In this section, you find some real-life examples of how to use this lock.
@@ -100,11 +96,11 @@ lock:
     value_template: "{{ is_state('switch.source', 'on') }}"
     lock:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.source
     unlock:
       service: switch.turn_off
-      data:
+      target:
         entity_id: switch.source
 ```
 
@@ -124,11 +120,11 @@ lock:
     optimistic: true
     lock:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.source
     unlock:
       service: switch.turn_off
-      data:
+      target:
         entity_id: switch.source
 ```
 
@@ -147,11 +143,11 @@ lock:
     value_template: "{{ is_state('sensor.skylight.state', 'on') }}"
     lock:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.skylight_open
     unlock:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.skylight_close
 ```
 

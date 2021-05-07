@@ -12,29 +12,31 @@ Supported by MQTT discovery:
 - [Binary sensors](/integrations/binary_sensor.mqtt/)
 - [Cameras](/integrations/camera.mqtt/)
 - [Covers](/integrations/cover.mqtt/)
+- [Device Trackers](/integrations/device_tracker.mqtt/)
 - [Device Triggers](/integrations/device_trigger.mqtt/)
 - [Fans](/integrations/fan.mqtt/)
 - [HVACs](/integrations/climate.mqtt/)
 - [Lights](/integrations/light.mqtt/)
 - [Locks](/integrations/lock.mqtt/)
+- [Scenes](/integrations/scene.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
 - [Switches](/integrations/switch.mqtt/)
+- [Tag Scanners](/integrations/tag.mqtt/)
 - [Vacuums](/integrations/vacuum.mqtt/)
 
-To enable MQTT discovery, add the following to your `configuration.yaml` file:
+MQTT discovery is enabled by default. To disable MQTT discovery, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  discovery: true
-  discovery_prefix: homeassistant
+  discovery: false
 ```
 
 {% configuration %}
 discovery:
   description: If the MQTT discovery should be enabled or not.
   required: false
-  default: false
+  default: true
   type: boolean
 discovery_prefix:
   description: The prefix for the discovery topic.
@@ -42,6 +44,8 @@ discovery_prefix:
   default: homeassistant
   type: string
 {% endconfiguration %}
+
+### Discovery topic
 
 The discovery topic need to follow a specific format:
 
@@ -53,9 +57,11 @@ The discovery topic need to follow a specific format:
 - `<node_id>` (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 - `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 
+Best practice for entities with a `unique_id` is to set `<object_id>` to `unique_id` and omit the `<node_id>`.
+
 The payload must be a JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
 
-An empty payload will cause a previously discovered device to be deleted.
+Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
 
 The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
@@ -74,6 +80,7 @@ Supported abbreviations:
     'aux_stat_tpl':        'aux_state_template',
     'aux_stat_t':          'aux_state_topic',
     'avty'                 'availability',
+    'avty_mode':           'availability_mode',
     'avty_t':              'availability_topic',
     'away_mode_cmd_t':     'away_mode_command_topic',
     'away_mode_stat_tpl':  'away_mode_state_template',
@@ -120,11 +127,13 @@ Supported abbreviations:
     'fx_tpl':              'effect_template',
     'fx_val_tpl':          'effect_value_template',
     'exp_aft':             'expire_after',
+    'fan_mode_cmd_tpl':    'fan_mode_command_template',
     'fan_mode_cmd_t':      'fan_mode_command_topic',
     'fan_mode_stat_tpl':   'fan_mode_state_template',
     'fan_mode_stat_t':     'fan_mode_state_topic',
     'frc_upd':             'force_update',
     'g_tpl':               'green_template',
+    'hold_cmd_tpl':        'hold_command_template',
     'hold_cmd_t':          'hold_command_topic',
     'hold_stat_tpl':       'hold_state_template',
     'hold_stat_t':         'hold_state_topic',
@@ -140,6 +149,7 @@ Supported abbreviations:
     'min_mirs':            'min_mireds',
     'max_temp':            'max_temp',
     'min_temp':            'min_temp',
+    'mode_cmd_tpl':        'mode_command_template',
     'mode_cmd_t':          'mode_command_topic',
     'mode_stat_tpl':       'mode_state_template',
     'mode_stat_t':         'mode_state_topic',
@@ -148,8 +158,13 @@ Supported abbreviations:
     'on_cmd_type':         'on_command_type',
     'opt':                 'optimistic',
     'osc_cmd_t':           'oscillation_command_topic',
+    'osc_cmd_tpl':         'oscillation_command_template',
     'osc_stat_t':          'oscillation_state_topic',
     'osc_val_tpl':         'oscillation_value_template',
+    'pct_cmd_t':           'percentage_command_topic',
+    'pct_cmd_tpl':         'percentage_command_template',
+    'pct_stat_t':          'percentage_state_topic',
+    'pct_val_tpl':         'percentage_value_template',
     'pl':                  'payload',
     'pl_arm_away':         'payload_arm_away',
     'pl_arm_home':         'payload_arm_home',
@@ -159,16 +174,12 @@ Supported abbreviations:
     'pl_cln_sp':           'payload_clean_spot',
     'pl_cls':              'payload_close',
     'pl_disarm':           'payload_disarm',
-    'pl_hi_spd':           'payload_high_speed',
     'pl_home':             'payload_home',
     'pl_lock':             'payload_lock',
     'pl_loc':              'payload_locate',
-    'pl_lo_spd':           'payload_low_speed',
-    'pl_med_spd':          'payload_medium_speed',
     'pl_not_avail':        'payload_not_available',
     'pl_not_home':         'payload_not_home',
     'pl_off':              'payload_off',
-    'pl_off_spd':          'payload_off_speed',
     'pl_on':               'payload_on',
     'pl_open':             'payload_open',
     'pl_osc_off':          'payload_oscillation_off',
@@ -186,6 +197,11 @@ Supported abbreviations:
     'pow_cmd_t':           'power_command_topic',
     'pow_stat_t':          'power_state_topic',
     'pow_stat_tpl':        'power_state_template',
+    'pr_mode_cmd_t':       'preset_mode_command_topic',
+    'pr_mode_cmd_tpl':     'preset_mode_command_template',
+    'pr_mode_stat_t':      'preset_mode_state_topic',
+    'pr_mode_val_tpl':     'preset_mode_value_template',
+    'pr_modes':            'preset_modes',
     'r_tpl':               'red_template',
     'ret':                 'retain',
     'rgb_cmd_tpl':         'rgb_command_template',
@@ -198,10 +214,9 @@ Supported abbreviations:
     'set_pos_tpl':         'set_position_template',
     'set_pos_t':           'set_position_topic',
     'pos_t':               'position_topic',
-    'spd_cmd_t':           'speed_command_topic',
-    'spd_stat_t':          'speed_state_topic',
-    'spd_val_tpl':         'speed_value_template',
-    'spds':                'speeds',
+    'pos_tpl':             'position_template',
+    'spd_rng_min':         'speed_range_min',
+    'spd_rng_max':         'speed_range_max',
     'src_type':            'source_type',
     'stat_clsd':           'state_closed',
     'stat_closing':        'state_closing',
@@ -209,6 +224,7 @@ Supported abbreviations:
     'stat_on':             'state_on',
     'stat_open':           'state_open',
     'stat_opening':        'state_opening',
+    'stat_stopped':        'state_stopped',
     'stat_locked':         'state_locked',
     'stat_unlocked':       'state_unlocked',
     'stat_t':              'state_topic',
@@ -216,13 +232,17 @@ Supported abbreviations:
     'stat_val_tpl':        'state_value_template',
     'stype':               'subtype',
     'sup_feat':            'supported_features',
+    'swing_mode_cmd_tpl':  'swing_mode_command_template',
     'swing_mode_cmd_t':    'swing_mode_command_topic',
     'swing_mode_stat_tpl': 'swing_mode_state_template',
     'swing_mode_stat_t':   'swing_mode_state_topic',
+    'temp_cmd_tpl':        'temperature_command_template',
     'temp_cmd_t':          'temperature_command_topic',
+    'temp_hi_cmd_tpl':     'temperature_high_command_template',
     'temp_hi_cmd_t':       'temperature_high_command_topic',
     'temp_hi_stat_tpl':    'temperature_high_state_template',
     'temp_hi_stat_t':      'temperature_high_state_topic',
+    'temp_lo_cmd_tpl':     'temperature_low_command_template',
     'temp_lo_cmd_t':       'temperature_low_command_topic',
     'temp_lo_stat_tpl':    'temperature_low_state_template',
     'temp_lo_stat_t':      'temperature_low_state_topic',
@@ -231,6 +251,7 @@ Supported abbreviations:
     'temp_unit':           'temperature_unit',
     'tilt_clsd_val':       'tilt_closed_value',
     'tilt_cmd_t':          'tilt_command_topic',
+    'tilt_cmd_tpl':        'tilt_command_template',
     'tilt_inv_stat':       'tilt_invert_state',
     'tilt_max':            'tilt_max',
     'tilt_min':            'tilt_min',
@@ -260,22 +281,26 @@ Supported abbreviations for device registry configuration:
     'mf':                  'manufacturer',
     'mdl':                 'model',
     'sw':                  'sw_version',
+    'sa':                  'suggested_area',
 ```
 
 ## Support by third-party tools
 
 The following software has built-in support for MQTT discovery:
 
-- [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e)
+- [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
-- [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
+- [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
+- [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
+- [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
+- [SmartHome](https://github.com/roncoa/SmartHome)
+- [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
+- [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
+- [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
 - [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
-- [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
-- [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
-- [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
 
 ## Examples
 
@@ -403,4 +428,37 @@ Setting up a climate integration (heat only):
   "target_temp":"21.50",
   "current_temp":"23.60",
 }
+```
+
+### Presence detection (device tracker)
+
+Setting up a device tracker:
+
+- Configuration topic: `homeassistant/device_tracker/paulus/config`
+- Example configuration payload:
+
+```json
+{
+  "name":"Paulus",
+  "state_topic": "homeassistant/device_tracker/paulus/state",
+  "payload_home": "home",
+  "payload_not_home": "not_home",
+  "source_type": "bluetooth"
+ }
+```
+
+- State topic: `homeassistant/device_tracker/paulus/state`
+- Example state payload: `home` or `not_home` or `location name`
+
+If the device supports gps co-ordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
+
+- Attributes topic: `homeassistant/device_tracker/paulus/attributes`
+- Example attributes payload:
+
+```json
+{
+  "latitude": 32.87336,
+  "longitude": -117.22743,
+  "gps_accuracy": 1.2
+ }
 ```

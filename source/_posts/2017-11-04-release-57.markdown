@@ -5,7 +5,9 @@ date: 2017-11-04 04:00:00
 date_formatted: "November 4, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-11-0.57/languages.png
 ---
 
@@ -72,7 +74,7 @@ Okay, one more highlight before we'll let you check out the changelog. Contribut
 - Support for NO-IP ([@fabaff] - [#10155]) ([no_ip docs]) (new-platform)
 - Linode ([@ryanm101] - [#9936]) ([linode docs]) ([binary_sensor.linode docs]) (new-platform)
 - Nederlandse spoorwegen ([@b10m] - [#10136]) ([sensor.nederlandse_spoorwegen docs]) (new-platform)
-- added Yesss SMS platform ([@flowolf] - [#10177]) ([notify.yessssms docs]) (new-platform)
+- added Yesss SMS platform ([@flowolf] - [#10177]) (new-platform)
 - Add Sytadin Traffic component ([@gautric] - [#9524]) (new-platform)
 - Added new Clickatell SMS messaging Notify Platform ([@davlloyd] - [#9775]) ([notify.clickatell docs]) (new-platform)
 - Add Random binary sensor ([@fabaff] - [#10164]) ([binary_sensor.random docs]) (new-platform)
@@ -209,7 +211,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Nederlandse spoorwegen ([@b10m] - [#10136]) ([sensor.nederlandse_spoorwegen docs]) (new-platform)
 - Added capability to pass a filename to the downloader component ([@tchellomello] - [#10059]) ([downloader docs])
 - Limits of the favorite level updated. Values between 0 and 16 will be accepted. ([@syssi] - [#10186]) ([fan.xiaomi_miio docs])
-- added Yesss SMS platform ([@flowolf] - [#10177]) ([notify.yessssms docs]) (new-platform)
+- added Yesss SMS platform ([@flowolf] - [#10177]) (new-platform)
 - Add Sytadin Traffic component ([@gautric] - [#9524]) (new-platform)
 - media_title property now returns current source ([@etsinko] - [#10120]) ([media_player.monoprice docs])
 - Added new Clickatell SMS messaging Notify Platform ([@davlloyd] - [#9775]) ([notify.clickatell docs]) (new-platform)
@@ -253,7 +255,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Avoid Sonos error during startup ([@amelchio] - [#10146]) ([media_player.sonos docs])
 - Update netdisco to 1.2.3 ([@balloob] - [#10266])
 - Extracted json saving and loading ([@molobrakos] - [#10216]) ([media_player.plex docs])
-- Change introduction card to use persistent notification ([@balloob] - [#10265]) ([introduction docs])
+- Change introduction card to use persistent notification ([@balloob] - [#10265])
 - Add unit test for wake on lan component. ([@cgtobi] - [#10262])
 - Add link to docs ([@fabaff] - [#10272])
 - Add xy support to Alexa HomeAPI v3 ([@pvizeli] - [#10268])
@@ -530,7 +532,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.gc100 docs]: /integrations/gc100#binary-sensor
 [binary_sensor.linode docs]: /integrations/linode#binary-sensor
 [binary_sensor.random docs]: /integrations/random#binary-sensor
-[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [binary_sensor.ring docs]: /integrations/ring#binary-sensor
 [binary_sensor.tellduslive docs]: /integrations/tellduslive
 [binary_sensor.trend docs]: /integrations/trend
@@ -564,7 +566,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [image_processing.openalpr_local docs]: /integrations/openalpr_local/
 [input_number docs]: /integrations/input_number/
 [input_text docs]: /integrations/input_text/
-[introduction docs]: /integrations/introduction/
 [light.hue docs]: /integrations/hue
 [light.hyperion docs]: /integrations/hyperion
 [light.mqtt docs]: /integrations/light.mqtt/
@@ -586,7 +587,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [no_ip docs]: /integrations/no_ip/
 [notify.clickatell docs]: /integrations/clickatell
 [notify.sendgrid docs]: /integrations/sendgrid
-[notify.yessssms docs]: /integrations/yessssms
 [panel_custom docs]: /integrations/panel_custom/
 [persistent_notification docs]: /integrations/persistent_notification/
 [plant docs]: /integrations/plant/

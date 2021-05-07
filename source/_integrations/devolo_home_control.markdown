@@ -16,15 +16,19 @@ ha_codeowners:
   - '@Shutgun'
 ha_domain: devolo_home_control
 ha_quality_scale: silver
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - sensor
+  - switch
+ha_zeroconf: true
 ---
 
 devolo Home Control is a Z-Wave ecosystem with a Z-Wave to IP gateway in the center. The integration allows you to control devices connected to the gateway.
 
-## Configuration
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **devolo Home Control**. You will be asked for your [mydevolo](https://www.mydevolo.com) credentials. After entering them, the devolo Home Control integration will be available.
+{% include integrations/config_flow.md %}
 
 ## Switches
 

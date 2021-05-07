@@ -6,11 +6,12 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: systemmonitor
+ha_platforms:
+  - sensor
 ---
 
 The `systemmonitor` sensor platform allows you to monitor disk usage,
-memory usage, CPU usage, and running processes. This platform has superseded the
-process integration which is now considered deprecated.
+memory usage, CPU usage, and running processes. 
 
 To add this platform to your installation,
 add the following to your `configuration.yaml` file:
@@ -21,7 +22,7 @@ sensor:
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
-        arg: /home
+        arg: /config
       - type: memory_free
 ```
 
@@ -112,7 +113,7 @@ sensor:
   - platform: systemmonitor
     resources:
       - type: network_in
-        arg: 'Local Area Connection'
+        arg: "Local Area Connection"
 ```
 
 If you need to use some other interface, open a command line prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ipconfig` might look like:

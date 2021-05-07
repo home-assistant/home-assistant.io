@@ -15,11 +15,17 @@ ha_quality_scale: gold
 ha_codeowners:
   - '@fredrike'
 ha_domain: tellduslive
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - sensor
+  - switch
 ---
 
 The `tellduslive` integration let you connect to [Telldus Live](https://live.telldus.com). It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.
 
-Home Assistant will automatically discover the presence of a Tellstick Net or Tellstick ZNet on your local network if the [discovery]({{site_root}}/integrations/discovery/) integration is enabled. When discovery and the key exchange with Telldus Live have been completed, you will be presented with an option to integrate with the cloud or local API for direct communication with your hardware in your LAN. Local API supports only one device at this stage. Local API is only supported with the Znet Lite products, the older hardware (such as Tellstick Net) does not support local API.
+Home Assistant will automatically discover the presence of a Tellstick Net or Tellstick ZNet on your local network if the [discovery](/integrations/discovery/) integration is enabled. When discovery and the key exchange with Telldus Live have been completed, you will be presented with an option to integrate with the cloud or local API for direct communication with your hardware in your LAN. Local API supports only one device at this stage. Local API is only supported with the Znet Lite products, the older hardware (such as Tellstick Net) does not support local API.
 
 ## Configuration
 

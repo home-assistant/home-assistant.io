@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.25
 ha_iot_class: Cloud Push
 ha_domain: imap
+ha_platforms:
+  - sensor
 ---
 
 The `imap` integration is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the amount of unread emails.
@@ -62,6 +64,17 @@ charset:
   type: string
 {% endconfiguration %}
 
+### Gmail with App Password
+
+If you’re going to use Gmail, it’s always good practice to create a [App Password](https://support.google.com/mail/answer/185833?hl=en).
+
+1. Go to your [Google Account](https://myaccount.google.com/)
+2. Select **Security**
+3. Under “Signing in to Google” select **App Passwords**
+4. Sign in to your Account, and create a new App Password for Gmail.
+
+You can now use this as your password for Gmail, in your configuration.
+
 ### Configuring IMAP Searches
 
 By default, this integration will count unread emails. By configuring the search string, you can count other results, for example:
@@ -81,6 +94,8 @@ sensor:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
     search: FROM <sender@email.com>, SUBJECT <subject here>
+    # Or use X-GM-RAW search-term like this, to find unread emails from the last 7 days in your inbox
+    # search: 'X-GM-RAW "in: inbox newer_than:7d is:unread"'
 
 # Example configuration.yaml entry for Office 365
 sensor:

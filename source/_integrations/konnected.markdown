@@ -6,12 +6,18 @@ ha_category:
   - Binary Sensor
   - Switch
   - Sensor
+ha_iot_class: Local Polling
 ha_release: '0.70'
 ha_codeowners:
   - '@heythisisnate'
   - '@kit-klein'
 ha_config_flow: true
 ha_domain: konnected
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `konnected` integration lets you connect wired sensors and switches to a Konnected Alarm Panel, or NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
@@ -244,7 +250,7 @@ devices:
 ### Configuration Notes
 
 - Either `pin` or `zone` is required for each actuator or sensor. Do not use both in the same definition.
-- `pin` represents the number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are `1`, `2`, `5`, `6`, `7`, `8`, and `9`. Pin based configuration is only allowed with ESP8266 based devices.
+- `pin` represents the number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/release/modules/gpio/) for more details. Valid values are `1`, `2`, `5`, `6`, `7`, `8`, and `9`. Pin based configuration is only allowed with ESP8266 based devices.
 - Pin `D8` or the `out` zone will only work when activation is set to high (the default).
 - `zone` represents the value corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) boards. Valid zone values are `1`, `2`, `3`, `4`, `5`, `6`, and `out` for the Konnected Alarm Panel (`out` represents the dedicated ALARM/OUT terminal) and `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `out1`, `alarm1`, and `alarm2_out2` for the Konnected Alarm Panel Pro.
 - **The Konnected Alarm Panel Pro does not support configuration via `pin`.**
@@ -260,19 +266,19 @@ konnected:
       binary_sensors:
         - zone: 1
           type: door
-          name: 'Front Door'
+          name: "Front Door"
         - zone: 2
           type: smoke
-          name: 'Bedroom Smoke Detector'
+          name: "Bedroom Smoke Detector"
           inverse: true
         - zone: 3
           type: motion
-          name: 'Test Motion'
+          name: "Test Motion"
       switches:
         - zone: out
           name: siren
         - zone: 5
-          name: 'Beep Beep'
+          name: "Beep Beep"
           momentary: 65
           pause: 55
           repeat: 4
@@ -304,7 +310,7 @@ konnected:
 
 ## Unique IDs and the Entity Registry
 
-Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI on the _Entity Registry_ page (under _Configuration_).
+Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI at **Configuration** -> **Entities**.
 
 Unique IDs are internally generated as follows:
 

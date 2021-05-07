@@ -11,6 +11,9 @@ ha_codeowners:
   - '@zewelor'
   - '@shenxn'
 ha_domain: yeelight
+ha_platforms:
+  - binary_sensor
+  - light
 ---
 
 The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
@@ -20,9 +23,7 @@ There is support for the following device types within Home Assistant:
 - **Light** - The Yeelight platform for supporting lights.
 - **Binary Sensor** - The Yeelight platform for supporting binary sensors. Currently, only nightlight mode sensor for ceiling lights.
 
-## Configuration
-
-To set up this integration, go to **Integrations** under **Configuration** and find Yeelight in the `+` menu. You can leave the host field empty to set up discovered devices. To configure the devices, use the "Options" button in the integration card.
+{% include integrations/config_flow.md %}
 
 ### Custom effects
 
@@ -131,6 +132,11 @@ custom_effects:
            required: false
            type: integer
            default: 0
+         action:
+            description: The action to take after the flow stops. Can be 'recover', 'stay', 'off'.
+            required: false
+            type: string
+            default: recover
          transitions:
            description: List of transitions, for that effect, check [example](#custom-effects).
            required: true
@@ -167,6 +173,8 @@ This integration is tested to work with the following models. If you have a diff
 | `color1`   | YLDP03YL     | LED Bulb (Color) - E26                           |
 | `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
 | `color4`   | YLDP13YL     | LED Bulb 1S (Color)                              |
+| `color6`   | YLDP13AYL    | LED Bulb 1S (Color)                              |
+| `colorc`   | YLDP004-A    | GU10 W1 (Color)                                  |
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
 | ?          | YLDD04YL     | Lightstrip (Color)                               |
@@ -176,6 +184,7 @@ This integration is tested to work with the following models. If you have a diff
 | `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
 | `ceiling1` | YLXD01YL     | Yeelight Ceiling Light                           |
 | `ceiling2` | YLXD03YL     | Yeelight Ceiling Light - Youth Version           |
+| ?          | YLXD62YI     | Yeelight Ceiling Light (Jiaoyue 260)             |
 | ?, may be `ceiling3` | YLXD04YL     | Yeelight Ceiling Light (Jiaoyue 450)   |
 | `ceiling3` | YLXD05YL     | Yeelight Ceiling Light (Jiaoyue 480)             |
 | `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |
@@ -192,7 +201,7 @@ Set an operation mode.
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
-| `entity_id`               |       no | Only act on specific lights.                                                              |
+| `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `mode`                    |       no | Operation mode. Valid values are 'last', 'normal', 'rgb', 'hsv', 'color_flow', 'moonlight'. |
 
 ### Service `yeelight.start_flow`
@@ -201,7 +210,7 @@ Start flow with specified transitions
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
-| `entity_id`               |       no | Only act on specific lights.                                                              |
+| `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `count`                   |      yes | The number of times to run this flow (0 to run forever).                                    |
 | `action`                  |      yes | The action to take after the flow stops. Can be 'recover', 'stay', 'off'. Default 'recover' |
 | `transitions`             |       no | Array of transitions. See [custom effects](#custom-effects).                                |
@@ -212,7 +221,7 @@ Changes the light to the specified RGB color and brightness. If the light is off
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
-| `entity_id`               |       no | Only act on specific lights.                                                              |
+| `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `rgb_color`               |       no | A list containing three integers between 0 and 255 representing the RGB color you want the light to be. Three comma-separated integers that represent the color in RGB, within square brackets.|
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
@@ -222,7 +231,7 @@ Changes the light to the specified HSV color and brightness. If the light is off
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
-| `entity_id`               |       no | Only act on specific lights.                                                              |
+| `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `hs_color`                |       no | A list containing two floats representing the hue and saturation of the color you want the light to be. Hue is scaled 0-360, and saturation is scaled 0-100.    |
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
@@ -232,7 +241,7 @@ Changes the light to the specified color temperature. If the light is off, it wi
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
-| `entity_id`               |       no | Only act on specific lights.                                                              |
+| `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `kelvin`                  |       no | Color temperature in Kelvin.                                                                |
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
@@ -242,7 +251,7 @@ Starts a color flow. Difference between this and [yeelight.start_flow](#service-
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
-| `entity_id`               |       no | Only act on specific lights.                                                              |
+| `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `count`                   |      yes | The number of times to run this flow (0 to run forever).                                    |
 | `action`                  |      yes | The action to take after the flow stops. Can be 'recover', 'stay', 'off'. Default 'recover' |
 | `transitions`             |       no | Array of transitions. See [custom effects](#custom-effects).                                |
@@ -253,6 +262,15 @@ Turns the light on to the specified brightness and sets a timer to turn it back 
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
-| `entity_id`               |       no | Only act on specific lights.                                                              |
+| `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `minutes`                 |       no | The minutes to wait before automatically turning the light off.                             |
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
+
+### Service `yeelight.set_music_mode`
+
+Enable or disable music_mode.
+
+| Service data attribute    | Optional | Description                                                                                 |
+|---------------------------|----------|---------------------------------------------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific lights.                                                                |
+| `music_mode`              |       no | Use 'true' or 'false' to enable / disable music_mode.                                       |

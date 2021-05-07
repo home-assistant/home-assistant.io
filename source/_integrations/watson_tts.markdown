@@ -4,9 +4,12 @@ description: Instructions on how to setup IBM Watson TTS with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.94
+ha_iot_class: Cloud Push
 ha_codeowners:
   - '@rutkai'
 ha_domain: watson_tts
+ha_platforms:
+  - tts
 ---
 
 The `watson_tts` text-to-speech platform that works with [IBM Watson Cloud](https://www.ibm.com/watson/services/text-to-speech/) to create the spoken output.
@@ -32,7 +35,7 @@ tts:
 You can get these tokens after you generated the credentials on the IBM Cloud console:
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/watson_tts_screen.png' />
+  <img src='/images/screenshots/watson_tts_screen.png' />
 </p>
 
 {% configuration %}
@@ -64,7 +67,7 @@ Say to all `media_player` device entities:
 ```yaml
 - service: tts.watson_tts_say
   data:
-    message: 'Hello from Watson'
+    message: "Hello from Watson"
 ```
 
 or
@@ -82,8 +85,9 @@ Say to the `media_player.living_room` device entity:
 
 ```yaml
 - service: tts.watson_tts_say
-  data:
+  target:
     entity_id: media_player.living_room
+  data:
     message: >
       <speak>
           Hello from Watson

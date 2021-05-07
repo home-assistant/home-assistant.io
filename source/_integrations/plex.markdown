@@ -11,21 +11,23 @@ ha_config_flow: true
 ha_codeowners:
   - '@jjlawren'
 ha_domain: plex
+ha_platforms:
+  - media_player
+  - sensor
 ---
 
-The `plex` integration allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
+The Plex integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [Media Players](/integrations/media_player/) and report playback status and library sizes via [Sensors](/integrations/sensor/) in Home Assistant. Media Players will allow you to control media playback and see the current playing item.
 
-Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is also available for users with an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription. More information [here](#sonos-playback).
+Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is available for users with an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription. More information [here](#sonos-playback).
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 - [Media Player](#media-player)
 
-If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
+If a Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
 
-The Plex integration is set up via **Configuration** -> **Integrations**. You will be redirected to the [Plex](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the server linked to the associated account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the Integrations page. Home Assistant will show as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
-
+{% include integrations/config_flow.md %}
 
 ### Integration Options
 
@@ -38,7 +40,6 @@ Several options are provided to adjust the behavior of `media_player` entities. 
 **Ignore new managed/shared users**: Enable to ignore new Plex accounts granted access to the server.
 
 **Ignore Plex Web clients**: Do not create `media_player` entities for Plex Web clients.
-
 
 ### Manual Configuration
 
@@ -54,23 +55,39 @@ Alternatively, you can manually configure a Plex server connection by selecting 
 
 **Token**: A valid authorization token for your Plex server. If provided without 'Host', a connection URL will be retreived from Plex.
 
-
 ## Sensor
 
-The `plex` sensor platform will monitor activity on a given Plex Media Server. It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details, it will show you who is watching what.
+The activity sensor provides a count of users currently watching media from the Plex server. Clicking the sensor shows details for the active users and media streams.
+
+The library sensors show a count of items in each library. Depending on the library contents, the sensor will show extra detail in its attributes. For example, a library sensor for TV shows will represent the total number of episodes in the library and its attributes will also report the number of shows and seasons it contains.
+
+<div class='note info'>
+  
+The library sensors are disabled by default, but can be enabled via the Plex integration page.
+  
+</div>
 
 
 ## Media Player
 
-The `plex` media_player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls if supported by the device.
+The Plex media player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls (if supported by the streaming device).
 
-By default the Plex integration will create Media Player entities for all local, managed, and shared users on the Plex server. To customize which users or client types to monitor, adjust the "*Monitored users*", "*Ignore new managed/shared users*", and "*Ignore Plex Web clients*" options described under [Integration Options](#integration-options).
+By default, the Plex integration will create Media Player entities for all local, managed, and shared users on the Plex server. To customize which users or client types to monitor, adjust the "*Monitored users*", "*Ignore new managed/shared users*", and "*Ignore Plex Web clients*" options described under [Integration Options](#integration-options).
 
-### Service `play_media`
+### Service `media_player.play_media`
 
 Plays a song, album, artist, playlist, TV show/season/episode, movie, or video on a connected client.
 
 Required fields within the `media_content_id` payloads are marked as such, others are optional.
+
+<div class='note info'>
+  
+Refer to these links if casting to non-Plex players:
+
+- [Chromecast](/integrations/cast/#plex)
+- [Sonos](/integrations/plex#sonos-playback)
+  
+</div>
 
 #### Music
 
@@ -81,6 +98,7 @@ Required fields within the `media_content_id` payloads are marked as such, other
 | `media_content_type`   | `MUSIC`                                                                                                                                                                                              |
 
 ##### Examples:
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: MUSIC
@@ -116,6 +134,7 @@ media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
 | `media_content_type`   | `EPISODE`                                                                                                                                                                          |
 
 ##### Examples:
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: EPISODE
@@ -149,6 +168,7 @@ For movies it's usually sufficient to provide the title. However, if the title y
 * `year`: Restrict search to a specific year
 
 ##### Examples:
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: movie
@@ -170,7 +190,6 @@ media_content_id: '{ "library_name": "Adult Movies", "title": "die hard", year=1
 # Would find the sequel, "Die Hard: With a Vengeance"
 ```
 
-
 ### Compatibility
 
 | Client                           | Limitations                                                                                                                                                     |
@@ -183,7 +202,6 @@ media_content_id: '{ "library_name": "Adult Movies", "title": "die hard", year=1
 | NVidia Shield                    | Controlling playback when the Shield is both a client and a server will work but with error logging                                                             |
 | Plex Web                         | None                                                                                                                                                            |
 
-
 ## Sonos Playback
 
 To play Plex music directly to Sonos speakers, the following requirements must be met:
@@ -193,25 +211,19 @@ To play Plex music directly to Sonos speakers, the following requirements must b
 3. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
 4. [Sonos](/integrations/sonos/) integration configured.
 
-### Service `plex.play_on_sonos`
-
-| Service data attribute | Description                                                                                                                                                                                          |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | `entity_id` of a Sonos integration device
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`artist_name` (Required)</li><li>`album_name`</li><li>`track_name`</li><li>`track_number`</li><li>`shuffle` (0 or 1)</li></ul> |
-| `media_content_type`   | `MUSIC`                                                                                                                                                                                              |
+Call the `media_player.play_media` service with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both [music](#music) and [playlist](#playlist) `media_content_type` values are supported.
 
 ##### Examples:
 
 ```yaml
 entity_id: media_player.sonos_speaker
-media_content_type: MUSIC
-media_content_id: '{ "library_name": "Music", "artist_name": "Adele", "album_name": "25", "track_name": "Hello" }'
+media_content_type: music
+media_content_id: 'plex://{ "library_name": "Music", "artist_name": "Adele", "album_name": "25", "track_name": "Hello" }'
 ```
 ```yaml
 entity_id: media_player.sonos_speaker
-media_content_type: MUSIC
-media_content_id: '{ "library_name": "Music", "artist_name": "Stevie Wonder", "shuffle": "1" }'
+media_content_type: playlist
+media_content_id: 'plex://{ "playlist_name": "Party Mix" }'
 ```
 
 ## Additional Services
@@ -225,34 +237,39 @@ Refresh a Plex library to scan for new and updated media.
 | `server_name` | No | Name of Plex server to use if multiple servers configured. | "My Plex Server" |
 | `library_name` | Yes | Name of Plex library to update. | "TV Shows" |
 
-### Service 'plex.scan_for_clients'
+### Service `plex.scan_for_clients`
 
 Scan for new controllable Plex clients. This may be necessary in scripts or automations which control a Plex `media_player` entity, but where the underlying device must be turned on first.
 
 Example script:
+
 {% raw %}
+
 ```yaml
 play_plex_on_tv:
   sequence:
     - service: media_player.select_source
-      entity_id: media_player.smart_tv
+      target:
+        entity_id: media_player.smart_tv
       data:
-        source: 'Plex'
+        source: "Plex"
     - wait_template: "{{ is_state('media_player.smart_tv', 'On') }}"
-      timeout: '00:00:10'
+      timeout: "00:00:10"
     - service: plex.scan_for_clients
     - wait_template: "{{ not is_state('media_player.plex_smart_tv', 'unavailable') }}"
-      timeout: '00:00:10'
+      timeout: "00:00:10"
       continue_on_timeout: false
     - service: media_player.play_media
-      data:
+      target:
         entity_id: media_player.plex_smart_tv
-        media_content_id: '{"library_name": "Movies", "title": "Zoolander"}'
+      data:
+        media_content_id: "{"library_name": "Movies", "title": "Zoolander"}"
         media_content_type: movie
 ```
+
 {% endraw %}
 
 ## Notes
 
-* The `plex` integration supports multiple Plex servers. Additional connections can be configured under **Configuration** > **Integrations**.
-* Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.
+- The Plex integration supports multiple Plex servers. Additional connections can be configured under **Configuration** > **Integrations**.
+- Movies must be located under the 'Movies' section in a Plex library to properly view the 'playing' state.

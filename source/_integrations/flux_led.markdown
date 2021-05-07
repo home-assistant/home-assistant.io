@@ -1,12 +1,13 @@
 ---
 title: Flux LED/MagicLight
-description: Instructions on how to setup Flux led/MagicLight within Home Assistant.
-logo: magic_light.png
+description: Instructions on how to setup Flux led/MagicHome/MagicLight within Home Assistant.
 ha_category:
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.25
 ha_domain: flux_led
+ha_platforms:
+  - light
 ---
 
 The `flux_led` support is integrated into Home Assistant as a light platform. Several brands of both bulbs and controllers use the same protocol and they have the HF-LPB100 chipset in common. The chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.
@@ -22,9 +23,7 @@ Examples of controllers:
 - [Ledenet WiFi RGBW Controller](https://amzn.to/2WZKXNa)
 - [SUPERNIGHT WiFi Wireless LED Smart Controller](https://amzn.to/2WURx7w)
 
-
-### Configuration Details
-
+## Configuration
 
 To enable those lights, add the following lines to your `configuration.yaml` file:
 
@@ -85,7 +84,6 @@ Depending on your controller or bulb type, there are two ways to configure brigh
 The integration defaults to rgbw. If your device has a separate white channel, you do not need to specify anything else; changing the white value will adjust the brightness of white channel keeping rgb color constant. However, if your device does not have a separate white channel, you will need to set the mode to rgb. In this mode, the device will keep the same color, and adjust the rgb values to dim or brighten the color.
 
 </div>
-
 
 ### Example configuration
 

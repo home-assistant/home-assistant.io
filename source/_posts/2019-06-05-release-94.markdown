@@ -5,9 +5,10 @@ date: 2019-06-05 04:11:03
 date_formatted: "June 5, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-06-release-94/google-ui.png
-redirect_from: /blog/2019/05/29/release-94/
 ---
 
 <a href='/integrations/#version/0.94'><img src='/images/blog/2019-06-release-94/components.png' style='border: 0;box-shadow: none;'></a>

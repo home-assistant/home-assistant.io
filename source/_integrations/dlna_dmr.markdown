@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.76
 ha_iot_class: Local Push
 ha_domain: dlna_dmr
+ha_platforms:
+  - media_player
 ---
 
 The `dlna_dmr` platform allows you to control a [DLNA Digital Media Renderer](https://www.dlna.org/), such as DLNA enabled TVs or radios.

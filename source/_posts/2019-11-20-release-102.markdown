@@ -7,7 +7,9 @@ date_formatted: "November 20, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-11-0.102/components.png
 ---
 
@@ -887,7 +889,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [geonetnz_quakes docs]: /integrations/geonetnz_quakes/
 [google_assistant docs]: /integrations/google_assistant/
 [greeneye_monitor docs]: /integrations/greeneye_monitor/
-[gtt docs]: /integrations/gtt/
 [hangouts docs]: /integrations/hangouts/
 [hassio docs]: /integrations/hassio/
 [here_travel_time docs]: /integrations/here_travel_time/

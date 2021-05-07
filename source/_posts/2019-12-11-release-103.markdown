@@ -7,7 +7,9 @@ date_formatted: "December 11, 2019"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-12-0.103/components.png
 ---
 
@@ -224,7 +226,7 @@ All services for use in Home Assistant are moved to their integration naming spa
 - **Z-Wave** - This changes the primary command class for z-wave thermostats in discovery schemas from `COMMAND_CLASS_THERMOSTAT_SETPOINT` to `COMMAND_CLASS_THERMOSTAT_MODE`. This will cause a typical dual setpoint thermostat to be correctly represented as a single entity. - ([@oandrew] - [#27040]) ([zwave docs])
 - **Transmission** - Added host field to `add_torrent` service in order to support multiple Transmission instances. ([@engrbm87] - [#28653]) ([transmission docs])
 - **Opentherm Gateway** - Adds device support. This change breaks enabled `sensor` and `binary_sensor` entities, which are now disabled by default and can be re-enabled through the Devices panel. It also breaks `entity_id` of the climate entity in some configurations. The `entity_id` is now based on the `gateway_id` rather than the configured `name` to guarantee uniqueness. - ([@mvn23] - [#28722]) ([opentherm_gw docs])
-- **Intent** - If you use the built-in intents for shopping list, cover or light, you need to add `intent:` to your `configuration.yaml`. - ([@balloob] - [#29280]) ([conversation docs]) ([cover docs]) ([intent docs]) ([light docs]) ([shopping_list docs])
+- **Intent** - If you use the built-in intents for shopping list, cover or light, you need to add `intent:` to your `configuration.yaml`. - ([@balloob] - [#29280]) ([conversation docs]) ([cover docs]) ([light docs]) ([shopping_list docs])
 - **Emulated Hue** - As previous `entityid` were not Hue compliant, `emulated_hue_ids.json` will need to be cleared out and devices re-discovered and configured in Alexa / Google Home. This is a necessary growing pain to move the integration forward in a Hue-compliant fashion. - ([@NobleKangaroo] - [#28317]) ([emulated_hue docs])
 - **Miflora** - Values for an unresponsive device aren't reported any more as if they were valid, so it's possible to send an alert. - ([@ferbar] - [#29276]) ([miflora docs])
 
@@ -232,7 +234,7 @@ All services for use in Home Assistant are moved to their integration naming spa
 
   ```yaml
   - id: plant_unreachable
-    alias: plant unreachable
+    alias: "plant unreachable"
     trigger:
       - entity_id: sensor.plant_moisture
         for: 01:00:00
@@ -516,7 +518,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move velux imports at top-level ([@Quentame] - [#29085]) ([velux docs])
 - Move upnp imports at top-level ([@Quentame] - [#29083]) ([upnp docs])
 - Move dlna_dmr imports at top-level ([@Quentame] - [#29082]) ([dlna_dmr docs])
-- Move imports to top for xfinity ([@springstan] - [#29077]) ([xfinity docs])
+- Move imports to top for xfinity ([@springstan] - [#29077])
 - Move imports to top for xeoma ([@springstan] - [#29076]) ([xeoma docs])
 - Move imports to top for version ([@springstan] - [#29075]) ([version docs])
 - Move imports to top for yale_smart_alarm ([@springstan] - [#29074]) ([yale_smart_alarm docs])
@@ -556,7 +558,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - move service constants to const.py, move custom services to monoprice domain ([@raman325] - [#29099]) ([monoprice docs]) (breaking change)
 - Move imports to top for uptimerobot ([@springstan] - [#29103]) ([uptimerobot docs])
 - Move imports to top for twilio_call ([@springstan] - [#29104]) ([twilio_call docs])
-- Move imports to top for ubee ([@springstan] - [#29105]) ([ubee docs])
+- Move imports to top for ubee ([@springstan] - [#29105])
 - Move flexit imports at top-level ([@Quentame] - [#29097]) ([flexit docs])
 - Move flunearyou imports at top-level ([@Quentame] - [#29096]) ([flunearyou docs])
 - Move folder_watcher imports at top-level ([@Quentame] - [#29095]) ([folder_watcher docs])
@@ -601,7 +603,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - move wink service definitions from lock to wink domain ([@raman325] - [#29137]) ([wink docs]) (breaking change)
 - Update service domain for lifx from 'light' to 'lifx' ([@raman325] - [#29136]) ([lifx docs]) (breaking change)
 - move service constants to const.py and move channels services to channels domain ([@raman325] - [#29139]) ([channels docs]) (breaking change)
-- Add intent integration to expose intent handle API ([@balloob] - [#29124]) ([conversation docs]) ([intent docs]) (new-integration)
+- Add intent integration to expose intent handle API ([@balloob] - [#29124]) ([conversation docs]) (new-integration)
 - Update service domain for todoist from 'calendar' to 'todoist' ([@raman325] - [#29131]) ([todoist docs]) (breaking change)
 - update envisalink service domain ([@raman325] - [#29126]) ([envisalink docs]) (breaking change)
 - Update service domain for mysensors from 'switch' to 'mysensor… ([@raman325] - [#29147]) ([mysensors docs])
@@ -705,7 +707,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for seventeentrack ([@springstan] - [#29264]) ([seventeentrack docs])
 - Improve naming and attrs of hostnameless Huawei LTE device tracker entities ([@scop] - [#29281]) ([huawei_lte docs])
 - Limit parallel requests to Philips Hue ([@bramkragten] - [#29189]) ([hue docs])
-- Move intent registration to own integration ([@balloob] - [#29280]) ([conversation docs]) ([cover docs]) ([intent docs]) ([light docs]) ([shopping_list docs]) (breaking change)
+- Move intent registration to own integration ([@balloob] - [#29280]) ([conversation docs]) ([cover docs]) ([light docs]) ([shopping_list docs]) (breaking change)
 - Overhaul Emulated Hue ([@NobleKangaroo] - [#28317]) ([emulated_hue docs]) (breaking change)
 - Add name option to season sensor ([@springstan] - [#29302]) ([season docs])
 - Add capability-attributes ([@balloob] - [#29306]) ([light docs])
@@ -758,7 +760,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for nmap_tracker ([@springstan] - [#29364]) ([nmap_tracker docs])
 - Move imports to top for nmbs ([@springstan] - [#29365]) ([nmbs docs])
 - Move imports to top for noaa_tides ([@springstan] - [#29366]) ([noaa_tides docs])
-- Move imports to top for nuimo_controller ([@springstan] - [#29367]) ([nuimo_controller docs])
+- Move imports to top for nuimo_controller ([@springstan] - [#29367])
 - Move imports to top for openhome ([@springstan] - [#29369]) ([openhome docs])
 - Allow negative altitude in location updates ([@balloob] - [#29381]) ([mobile_app docs])
 - Move imports to top for lametric ([@springstan] - [#29406]) ([lametric docs])
@@ -789,7 +791,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for gogogate2 ([@springstan] - [#29411]) ([gogogate2 docs])
 - Move imports to top for hydrawise ([@springstan] - [#29421]) ([hydrawise docs])
 - Move imports to top for ihc ([@springstan] - [#29425]) ([ihc docs])
-- Move imports to top for ialarm ([@springstan] - [#29422]) ([ialarm docs])
+- Move imports to top for ialarm ([@springstan] - [#29422])
 - Move imports to top for gitter ([@springstan] - [#29412]) ([gitter docs])
 - Move imports to top for homeworks ([@springstan] - [#29418]) ([homeworks docs])
 - Move imports to top for gpmdp ([@springstan] - [#29413]) ([gpmdp docs])
@@ -1574,14 +1576,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hue docs]: /integrations/hue/
 [hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
 [hydrawise docs]: /integrations/hydrawise/
-[ialarm docs]: /integrations/ialarm/
 [icloud docs]: /integrations/icloud/
 [idteck_prox docs]: /integrations/idteck_prox/
 [ifttt docs]: /integrations/ifttt/
 [iglo docs]: /integrations/iglo/
 [ihc docs]: /integrations/ihc/
 [input_datetime docs]: /integrations/input_datetime/
-[intent docs]: /integrations/intent/
 [intent_script docs]: /integrations/intent_script/
 [ios docs]: /integrations/ios/
 [iota docs]: /integrations/iota/
@@ -1648,7 +1648,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [notion docs]: /integrations/notion/
 [nsw_rural_fire_service_feed docs]: /integrations/nsw_rural_fire_service_feed/
 [nuheat docs]: /integrations/nuheat/
-[nuimo_controller docs]: /integrations/nuimo_controller/
 [nut docs]: /integrations/nut/
 [nzbget docs]: /integrations/nzbget/
 [ombi docs]: /integrations/ombi/
@@ -1773,7 +1772,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tts docs]: /integrations/tts/
 [tuya docs]: /integrations/tuya/
 [twilio_call docs]: /integrations/twilio_call/
-[ubee docs]: /integrations/ubee/
 [unifi docs]: /integrations/unifi/
 [unifi_direct docs]: /integrations/unifi_direct/
 [universal docs]: /integrations/universal/
@@ -1802,7 +1800,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wled docs]: /integrations/wled/
 [workday docs]: /integrations/workday/
 [xeoma docs]: /integrations/xeoma/
-[xfinity docs]: /integrations/xfinity/
 [xiaomi docs]: /integrations/xiaomi/
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/

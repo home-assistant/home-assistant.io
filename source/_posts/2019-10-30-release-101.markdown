@@ -7,7 +7,9 @@ date_formatted: "October 30, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-10-0.101/components.png
 ---
 
@@ -223,8 +225,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Removed__ - The following integrations have been removed:
   - __Direct authentication via trusted networks or API password__ - It is no longer possible to make authenticated requests using trusted networks or by appending ?api_password=X to the URL. You will now first need to get an authentication token and use that token to make requests. Auth providers for trusted networks and API passwords are still available. - ([@balloob] - [#27656]) ([auth docs]) ([http docs]) ([websocket_api docs])
 
-  - __Stride__ - The Stride notification integration was discontinued in February 2019 due to a take over by Slack. - ([@hmmbob] - [#27934]) ([stride docs])
-  - __Hipchat__ - The Hipchat notification integration was discontinued in February 2019, also due to a take over by Slack. - ([@fabaff] - [#27399]) ([hipchat docs])
+  - __Stride__ - The Stride notification integration was discontinued in February 2019 due to a take over by Slack. - ([@hmmbob] - [#27934])
+  - __Hipchat__ - The Hipchat notification integration was discontinued in February 2019, also due to a take over by Slack. - ([@fabaff] - [#27399])
 - __Deprecated__ - Python 3.6 support is deprecated (to be removed completely by December 2019), as version 3.8.0 is now out -  ([@scop] - [#27680])
 - __Scene__ - Scenes have to be configured more strictly from now on. Each entity must be configured with a valid state. Furthermore, the attributes that can be used must be `device state attributes`. This means that they should be listed under _developer-tools -> states_. - ([scene docs])
 - __Ecobee__ - Adds `turn_on` method to ecobee climate platform. Previously, calling `climate.turn_on` would cause the ecobee thermostat to turn on in heat mode, regardless of the mode when the thermostat was turned off. Now, the thermostat will turn on to the last "active" HVAC mode (i.e., "heat", "cool", or "auto") (or, if the thermostat was "off" when Home Assistant started, to "auto"). - ([@marthoc] - [#27103]) ([ecobee docs])
@@ -370,7 +372,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - move import to top-level ([@exxamalte] - [#27353]) ([onkyo docs])
 - move import to top-level ([@exxamalte] - [#27352]) ([systemmonitor docs])
 - Allow Google Assistant relative volume control ([@RyanEwen] - [#26585]) ([google_assistant docs])
-- Remove hipchat ([@fabaff] - [#27399]) ([hipchat docs]) (breaking change)
+- Remove hipchat ([@fabaff] - [#27399]) (breaking change)
 - Move imports in waze_travel_time component ([@eifinger] - [#27384]) ([waze_travel_time docs])
 - Move imports in wemo component ([@Quentame] - [#27393]) ([wemo docs])
 - Move imports in wink component ([@Quentame] - [#27392]) ([wink docs])
@@ -385,7 +387,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in github component ([@mnigbur] - [#27406]) ([github docs])
 - Move imports in eufy component ([@mnigbur] - [#27405]) ([eufy docs])
 - Move imports in apple_tv component ([@Quentame] - [#27356]) ([apple_tv docs])
-- Remove hydroquebec integration (ADR-0004) ([@frenck] - [#27407]) ([hydroquebec docs])
+- Remove hydroquebec integration (ADR-0004) ([@frenck] - [#27407])
 - Standardize times in time sensors Jewish calendar ([@tsvi] - [#26940]) ([jewish_calendar docs]) (breaking change)
 - Revert "Allow Google Assistant relative volume control (#26585)" ([@balloob] - [#27416]) ([google_assistant docs])
 - Bump aiohttp to 3.6.2 ([@frenck] - [#27409])
@@ -619,7 +621,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in blockchain component ([@Bouni] - [#27852]) ([blockchain docs])
 - Move blackbird imports ([@Bouni] - [#27849]) ([blackbird docs])
 - cryptography + numpy for python 3.8 ([@pvizeli] - [#27861]) ([iqvia docs]) ([opencv docs]) ([tensorflow docs]) ([trend docs])
-- Move imports in bom component ([@Bouni] - [#27854]) ([bom docs])
+- Move imports in bom component ([@Bouni] - [#27854])
 - Move imports in bmw_connected_drive component ([@Bouni] - [#27853]) ([bmw_connected_drive docs])
 - Move imports in blink component ([@Bouni] - [#27850]) ([blink docs])
 - Move imports in blinksticklight component ([@Bouni] - [#27851]) ([blinksticklight docs])
@@ -672,7 +674,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Bump abodepy version ([@shred86] - [#27931]) ([abode docs])
 - Add support for AdGuard Home v0.99.0 ([@frenck] - [#27926]) ([adguard docs]) (breaking change)
 - remove duplicate unique_id, add unique_id for issues ([@zxdavb] - [#27916]) ([geniushub docs]) (breaking change)
-- Remove stride ([@hmmbob] - [#27934]) ([stride docs]) (breaking change)
+- Remove stride ([@hmmbob] - [#27934]) (breaking change)
 - Import shuffle ([@balloob] - [#27935]) ([http docs]) ([persistent_notification docs]) ([stream docs])
 - Update pysonos to 0.0.24 ([@timmccor] - [#27937]) ([sonos docs])
 - Bump pybotvac ([@Santobert] - [#27933]) ([neato docs])
@@ -784,7 +786,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in lastfm component ([@djpremier] - [#28010]) ([lastfm docs])
 - Move imports in knx component ([@djpremier] - [#28008]) ([knx docs])
 - Move imports in gtfs component ([@djpremier] - [#27999]) ([gtfs docs])
-- Move imports in ptvsd component ([@djpremier] - [#28087]) ([ptvsd docs])
+- Move imports in ptvsd component ([@djpremier] - [#28087])
 - Move imports in isy994 component ([@djpremier] - [#28004]) ([isy994 docs])
 - Support to use Whatsapp numbers (fixes ##28065) ([@fabaff] - [#28078]) ([twilio docs]) ([twilio_call docs]) ([twilio_sms docs])
 - Add modelnumber for ecobee4 ([@marthoc] - [#28107]) ([ecobee docs])
@@ -793,7 +795,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Add support SQL VACUUM for PostgeSQL ([@bastshoes] - [#28106]) ([recorder docs])
 - Move imports in dsmr component ([@djpremier] - [#27974]) ([dsmr docs])
 - Minor tweaks for sensor device automations ([@emontnemery] - [#27829]) ([sensor docs])
-- Fix test coverage, reverting top level import ptvsd ([@frenck] - [#28118]) ([ptvsd docs])
+- Fix test coverage, reverting top level import ptvsd ([@frenck] - [#28118])
 - Implement ToggleController, RangeController, and ModeController in alexa ([@ochlocracy] - [#27302]) ([alexa docs])
 - Add option to specify mDNS advertised IP address for HomeKit Bridge ([@mback2k] - [#26791]) ([homekit docs])
 - Support custom source type for MQTT device tracker ([@raman325] - [#27838]) ([mqtt docs])
@@ -1568,7 +1570,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [bme280 docs]: /integrations/bme280/
 [bme680 docs]: /integrations/bme680/
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
-[bom docs]: /integrations/bom/
 [broadlink docs]: /integrations/broadlink/
 [brottsplatskartan docs]: /integrations/brottsplatskartan/
 [browser docs]: /integrations/browser/
@@ -1654,7 +1655,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [glances docs]: /integrations/glances/
 [gntp docs]: /integrations/gntp/
 [goalfeed docs]: /integrations/goalfeed/
-[google docs]: /integrations/google/
+[google docs]: /integrations/calendar.google/
 [google_assistant docs]: /integrations/google_assistant/
 [google_travel_time docs]: /integrations/google_travel_time/
 [gpsd docs]: /integrations/gpsd/
@@ -1666,7 +1667,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [hassio docs]: /integrations/hassio/
 [hikvision docs]: /integrations/hikvision/
 [hikvisioncam docs]: /integrations/hikvisioncam/
-[hipchat docs]: /integrations/hipchat/
 [hive docs]: /integrations/hive/
 [homeassistant docs]: /integrations/homeassistant/
 [homekit docs]: /integrations/homekit/
@@ -1677,7 +1677,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [http docs]: /integrations/http/
 [htu21d docs]: /integrations/htu21d/
 [hue docs]: /integrations/hue/
-[hydroquebec docs]: /integrations/hydroquebec/
 [ifttt docs]: /integrations/ifttt/
 [ign_sismologia docs]: /integrations/ign_sismologia/
 [image_processing docs]: /integrations/image_processing/
@@ -1777,7 +1776,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [prometheus docs]: /integrations/prometheus/
 [proxy docs]: /integrations/proxy/
 [ps4 docs]: /integrations/ps4/
-[ptvsd docs]: /integrations/ptvsd/
 [pushbullet docs]: /integrations/pushbullet/
 [pushover docs]: /integrations/pushover/
 [qrcode docs]: /integrations/qrcode/
@@ -1833,7 +1831,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [statsd docs]: /integrations/statsd/
 [steam_online docs]: /integrations/steam_online/
 [stream docs]: /integrations/stream/
-[stride docs]: /integrations/stride/
 [sun docs]: /integrations/sun/
 [supla docs]: /integrations/supla/
 [switch docs]: /integrations/switch/

@@ -9,15 +9,19 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@pnbruckner'
 ha_domain: life360
+ha_platforms:
+  - device_tracker
 ---
 
 The `life360` integration allows you to detect presence using the [unofficial API](#disclaimer) of [Life360](https://www.life360.com/).
 
-## Life360 Account
+## Prerequisites
 
 You must first [create a Life360 account](https://www.life360.com/websignup).
 
-Then in the Home Assistant user interface (UI), click on Configuration in the left pane, then on Integrations and then on the yellow circle in the lower-right corner to "Set up a new integration." Scroll through the list and click on Life360. Enter your Life360 username and password and click SUBMIT. You can add as many Life360 accounts as you like.
+{% include integrations/config_flow.md %}
+
+## Advanced configuration
 
 If you would like to set any advanced options, see the following section. You may want to do this before entering your Life360 account information in the UI, or you can change it at any time. Any of the advanced options you want to set from the section below will need to be set manually in your `configuration.yaml` file. They are not able to be set from the UI. You can also enter your account information in the configuration file (in addition to, or instead of, the UI) if you prefer.
 
@@ -163,8 +167,6 @@ Therefore, an optional filtering mechanism has been implemented to prevent incon
 
 ### Typical configuration
 
-{% raw %}
-
 ```yaml
 life360:
   # MPH, assuming imperial units.
@@ -184,11 +186,7 @@ life360:
   error_threshold: 3
 ```
 
-{% endraw %}
-
 ### Circle and Member Filtering Example
-
-{% raw %}
 
 ```yaml
 life360:
@@ -200,11 +198,7 @@ life360:
     exclude: John Doe
 ```
 
-{% endraw %}
-
 ### Entering accounts in configuration
-
-{% raw %}
 
 ```yaml
 life360:
@@ -213,15 +207,13 @@ life360:
       password: LIFE360_PASSWORD
 ```
 
-{% endraw %}
-
 ### Example overdue update automations
 
 {% raw %}
 
 ```yaml
 automation:
-  - alias: Life360 Overdue Update
+  - alias: "Life360 Overdue Update"
     trigger:
       platform: event
       event_type: life360_update_overdue
@@ -235,7 +227,7 @@ automation:
             trigger.event.data.entity_id
           }} is overdue.
 
-  - alias: Life360 Update Restored
+  - alias: "Life360 Update Restored"
     trigger:
       platform: event
       event_type: life360_update_restored

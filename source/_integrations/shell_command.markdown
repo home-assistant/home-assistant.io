@@ -3,6 +3,7 @@ title: Shell Command
 description: Instructions on how to integrate Shell commands into Home Assistant.
 ha_category:
   - Automation
+ha_iot_class: Local Push
 ha_release: 0.7.6
 ha_quality_scale: internal
 ha_codeowners:
@@ -15,6 +16,8 @@ Shell commands aren't allowed for a camel-case naming, please use lowercase nami
 
 [script]: /integrations/script/
 [automation]: /getting-started/automation/
+
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -36,11 +39,32 @@ Any service data passed into the service call to activate the shell command will
 
 `stdout` and `stderr` output from the command are both captured and will be logged by setting the [log level](/integrations/logger/) to debug.
 
-```yaml
+## Examples
 
+### Defining multiple shell commands
+
+You can also define multiple shell commands at once. This is an example
+that defines three different (unrelated) shell commands.
+
+```yaml
+# Example configuration.yaml entry
+shell_command:
+  restart_pow: touch ~/.pow/restart.txt
+  call_remote: curl http://example.com/ping
+  my_script: bash /config/shell/script.sh
+```
+
+### Automation example
+
+This is a an example of an shell command used in conjunction with an input
+helper and an automation.
+
+{% raw %}
+
+```yaml
 # Apply value of a GUI slider to the shell_command
 automation:
-  - alias: run_set_ac
+  - alias: "run_set_ac"
     trigger:
       platform: state
       entity_id: input_number.ac_temperature
@@ -55,8 +79,8 @@ input_number:
     max: 32
     step: 1
 
-{% raw %}
 shell_command:
   set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states("input_number.ac_temperature") }}_AUTO'
-{% endraw %}
 ```
+
+{% endraw %}

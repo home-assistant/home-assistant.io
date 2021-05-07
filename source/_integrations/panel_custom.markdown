@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: panel_custom
 ---
 
-The `panel_custom` support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar if wished and can be highly customized. See the developer documentation on [instructions how to build your own panels](https://developers.home-assistant.io/docs/frontend/custom-ui/creating-custom-panels/).
+The `panel_custom` integration allows you to write your own panels in JavaScript and add them to Home Assistant. See the developer documentation on [instructions how to build your own panels](https://developers.home-assistant.io/docs/frontend/custom-ui/creating-custom-panels/).
 
 To enable customized panels in your installation, add the following to your `configuration.yaml` file:
 

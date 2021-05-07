@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.23
 ha_iot_class: Local Push
 ha_domain: hdmi_cec
+ha_platforms:
+  - media_player
+  - switch
 ---
 
 The `hdmi_cec` integration provides services that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entities for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as sound-bars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.

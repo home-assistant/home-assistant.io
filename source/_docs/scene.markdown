@@ -55,7 +55,8 @@ automation:
     to: "home"
   action:
     service: scene.turn_on
-    entity_id: scene.romantic
+    target:
+      entity_id: scene.romantic
 ```
 
 ## Applying a scene without defining it
@@ -101,8 +102,9 @@ automation:
     to: "home"
   action:
     service: scene.turn_on
-    data:
+    target:
       entity_id: scene.romantic
+    data:
       transition: 2.5
 ```
 
