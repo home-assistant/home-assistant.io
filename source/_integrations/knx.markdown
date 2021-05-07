@@ -718,7 +718,7 @@ The KNX cover platform is used as an interface to KNX covers.
 
 <div class='note'>
 
-Unlike most KNX devices, Home Assistant defines for covers 0% is closed and 100% is fully open.
+Unlike most KNX devices, Home Assistant defines for covers 0% is closed and 100% is fully open. The conversion is done internally by the KNX integration.
 
 </div>
 
@@ -749,11 +749,11 @@ move_long_address:
   required: false
   type: [string, list]
 move_short_address:
-  description: KNX group address for moving the cover short time up or down. Used by some covers also as the means to stop the cover, if no dedicated `stop_address` exists on the actuator. *DPT 1*
+  description: KNX group address for moving the cover stepwise up or down. Used by some covers also as the means to stop the cover, if no dedicated `stop_address` exists on the actuator. *DPT 1*
   required: false
   type: [string, list]
 stop_address:
-  description: KNX group address for stopping the current movement from the cover. *DPT 1*
+  description: KNX group address for stopping the current movement of the cover. *DPT 1*
   required: false
   type: [string, list]
 position_address:
@@ -765,11 +765,11 @@ position_state_address:
   required: false
   type: [string, list]
 angle_address:
-  description: KNX group address for moving the cover to the dedicated angle. *DPT 5.001*
+  description: KNX group address for tilting the cover to the dedicated angle. *DPT 5.001*
   required: false
   type: [string, list]
 angle_state_address:
-  description: Separate KNX group address for requesting the current angle of cover. *DPT 5.001*
+  description: Separate KNX group address for requesting the current tilt angle of cover. *DPT 5.001*
   required: false
   type: [string, list]
 travelling_time_down:
@@ -783,12 +783,12 @@ travelling_time_up:
   default: 25
   type: integer
 invert_position:
-  description: Set this to `true` if your actuator reports fully closed as 0% in KNX.
+  description: Set this to `true` if your actuator reports fully closed position as 0% in KNX.
   required: false
   default: false
   type: boolean
 invert_angle:
-  description: Set this to `true` if your actuator reports tilt fully closed as 0% in KNX.
+  description: Set this to `true` if your actuator reports fully closed tilt as 0% in KNX.
   required: false
   default: false
   type: boolean
