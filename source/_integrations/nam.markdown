@@ -12,6 +12,7 @@ ha_domain: nam
 ha_platforms:
   - air_quality
   - sensor
+ha_quality_scale: platinum
 ---
 
 The Nettigo Air Monitor integration allows you to read temperature, humidity, pressure and air quality data from Nettigo Air Monitor devices. [Nettigo Air Monitor](https://air.nettigo.pl/?setlang=en) is a DIY air quality monitoring system with open source firmware, based on an open hardware project.
