@@ -1425,7 +1425,7 @@ logger:
     # For most debugging needs `xnx.log` and one of `xknx.knx` or `xknx.telegram` are a good choice.
     xknx: debug  # sets the level of all loggers
     xknx.log: debug  # provides general information (connection, etc.)
-    xknx.raw_socket: debug  # logs incoming CEMI frames in raw hex format
+    xknx.raw_socket: debug  # logs incoming UDP frames in raw hex format
     xknx.knx: debug  # logs incoming and outgoing KNX/IP frames at socket level
     xknx.telegram: debug  # logs telegrams before they are being processed at device level or sent to an interface
     xknx.state_updater: debug  # provides information about the state updater
