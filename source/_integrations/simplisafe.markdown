@@ -88,3 +88,23 @@ For any property denoting a volume, the following values should be used:
 | `exit_delay_home`      | yes      | The number of seconds to delay triggering when exiting with a "home" state   |
 | `light`                | yes      | Whether the light on the base station should display when armed              |
 | `voice_prompt_volume`  | yes      | The volume of the base station's voice prompts                               |
+<<<<<<< HEAD
+=======
+
+## Events
+
+### `SIMPLISAFE_NOTIFICATION`
+
+`SIMPLISAFE_NOTIFICATION` events represent system notifications that would appear in the
+messages section of the SimpliSafe web and mobile apps. When received, they come with
+event data that contains the following keys:
+
+* `category`: The notification category (e.g., `error`)
+* `code`: The SimpliSafe code for the notification
+* `message`: The actual text of the notification
+* `timestamp`: The UTC timestamp of the notification
+
+Note that when Home Assistant restarts, `SIMPLISAFE_NOTIFICATION` events will fire once
+again for any notifications still active in the SimpliSafe web and mobile apps. To
+prevent this, either (a) clear them in the web/mobile app or (b) utilize the 
+`simplisafe.clear_notifications` service described above.
