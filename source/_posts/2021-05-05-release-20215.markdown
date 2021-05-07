@@ -48,12 +48,13 @@ want to tell me who it is...)
 - [Why Home Assistant didn’t restart when I pressed the restart button?](#why-home-assistant-didnt-restart-when-i-pressed-the-restart-button)
 - [Updated look and feel for the integration dashboard](#updated-look-and-feel-for-the-integration-dashboard)
 - [Color modes!](#color-modes)
-- [Tigger-based binary template sensor](#tigger-based-binary-template-sensor)
+- [Trigger-based binary template sensor](#trigger-based-binary-template-sensor)
 - [Docker images now signed and available on the GitHub Container Registry](#docker-images-now-signed-and-available-on-the-github-container-registry)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.5.1 - May 7](#release-202151---may-7)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -311,6 +312,83 @@ The following integrations are now available via the Home Assistant UI:
 - [Waze Travel Time][waze_travel_time docs], done by [@raman325]
 - [Ezviz][ezviz docs], done by [@RenierM26]
 - [AVM FRITZ!Box Tools][fritz docs], done by [@chemelli74]
+
+## Release 2021.5.1 - May 7
+
+- Fix mysensors default persistence file on import ([@MartinHjelmare] - [#48410]) ([mysensors docs])
+- Only initialize Nuki configurations ([@darkson95] - [#49747]) ([nuki docs])
+- Denonavr bugfixes ([@scarface-4711] - [#49984]) ([denonavr docs])
+- Fix group selector ([@tkdrob] - [#50088]) ([group docs])
+- Fix RM pro temperature sensor ([@felipediel] - [#50098]) ([broadlink docs])
+- Ignore empty output from MQTT fan's value template ([@jbouwh] - [#50122]) ([mqtt docs])
+- Bump python-miio dependency ([@rytilahti] - [#50129]) ([xiaomi_miio docs])
+- Bump sqlalchemy to 1.4.13 ([@bdraco] - [#50138]) ([recorder docs])
+- Fix zwave_js websocket api KeyError on unloaded entry ([@MartinHjelmare] - [#50154]) ([zwave_js docs])
+- Fix unique_id issue on onewire config entries ([@epenet] - [#50161]) ([onewire docs])
+- Add color_mode support to group light ([@emontnemery] - [#50165]) ([group docs])
+- Move not loaded websocket constant to zwave_js ([@MartinHjelmare] - [#50188])
+- Add value map for Climacell V3 pollen sensors ([@raman325] - [#50200]) ([climacell docs])
+- Ensure tesla setup is retried on timeout ([@bdraco] - [#50202]) ([tesla docs])
+- Allow SimpliSafe startup to retry on failure ([@bachya] - [#50211]) ([simplisafe docs])
+- Bump aiohue to 2.3.0 ([@balloob] - [#50217]) ([hue docs])
+- support more alarm panels ([@dmulcahey] - [#50235]) ([zha docs])
+- Fix Netatmo climate ([@cgtobi] - [#50238]) ([netatmo docs])
+- Fix light turn_on color conversion ([@emontnemery] - [#50251]) ([light docs])
+- Add color_mode to demo light ([@emontnemery] - [#49694]) ([demo docs])
+
+[#48410]: https://github.com/home-assistant/core/pull/48410
+[#49694]: https://github.com/home-assistant/core/pull/49694
+[#49747]: https://github.com/home-assistant/core/pull/49747
+[#49984]: https://github.com/home-assistant/core/pull/49984
+[#50088]: https://github.com/home-assistant/core/pull/50088
+[#50098]: https://github.com/home-assistant/core/pull/50098
+[#50122]: https://github.com/home-assistant/core/pull/50122
+[#50129]: https://github.com/home-assistant/core/pull/50129
+[#50138]: https://github.com/home-assistant/core/pull/50138
+[#50154]: https://github.com/home-assistant/core/pull/50154
+[#50161]: https://github.com/home-assistant/core/pull/50161
+[#50165]: https://github.com/home-assistant/core/pull/50165
+[#50188]: https://github.com/home-assistant/core/pull/50188
+[#50200]: https://github.com/home-assistant/core/pull/50200
+[#50202]: https://github.com/home-assistant/core/pull/50202
+[#50211]: https://github.com/home-assistant/core/pull/50211
+[#50217]: https://github.com/home-assistant/core/pull/50217
+[#50235]: https://github.com/home-assistant/core/pull/50235
+[#50238]: https://github.com/home-assistant/core/pull/50238
+[#50251]: https://github.com/home-assistant/core/pull/50251
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@cgtobi]: https://github.com/cgtobi
+[@darkson95]: https://github.com/darkson95
+[@dmulcahey]: https://github.com/dmulcahey
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@felipediel]: https://github.com/felipediel
+[@jbouwh]: https://github.com/jbouwh
+[@raman325]: https://github.com/raman325
+[@rytilahti]: https://github.com/rytilahti
+[@scarface-4711]: https://github.com/scarface-4711
+[@tkdrob]: https://github.com/tkdrob
+[broadlink docs]: /integrations/broadlink/
+[climacell docs]: /integrations/climacell/
+[demo docs]: /integrations/demo/
+[denonavr docs]: /integrations/denonavr/
+[group docs]: /integrations/group/
+[hue docs]: /integrations/hue/
+[light docs]: /integrations/light/
+[mqtt docs]: /integrations/mqtt/
+[mysensors docs]: /integrations/mysensors/
+[netatmo docs]: /integrations/netatmo/
+[nuki docs]: /integrations/nuki/
+[onewire docs]: /integrations/onewire/
+[recorder docs]: /integrations/recorder/
+[simplisafe docs]: /integrations/simplisafe/
+[tesla docs]: /integrations/tesla/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
