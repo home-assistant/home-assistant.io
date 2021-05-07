@@ -769,7 +769,7 @@ angle_address:
   required: false
   type: [string, list]
 angle_state_address:
-  description: Separate KNX group address for requesting the current tilt angle of cover. *DPT 5.001*
+  description: Separate KNX group address for requesting the current tilt angle of the cover. *DPT 5.001*
   required: false
   type: [string, list]
 travelling_time_down:
