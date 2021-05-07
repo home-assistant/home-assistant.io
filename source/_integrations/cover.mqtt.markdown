@@ -432,8 +432,6 @@ Following variable might be used in `position_template`, `set_position_template`
  * `position_closed`
  * `tilt_min`
  * `tilt_max`
- * `tilt_position` - Only in `tilt_command_template`
-
 
 {% raw %}
 
