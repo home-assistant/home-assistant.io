@@ -181,3 +181,24 @@ $ curl -X POST -H "Authorization: Bearer <ACCESS TOKEN>" \
        -d '{"message": "I am speaking now", "platform": "amazon_polly"}' \
        http://localhost:8123/api/tts_get_url
 ```
+
+## Automations
+
+Automations can be triggered on TTS output event data using a template. The following automation will send a notification with the local path, URL PATH, URL and filename of the TTS output that was generated:
+
+{% raw %}
+
+```yaml
+#Send notification for new tts output
+automation:
+  alias: "New tts output alert"
+  trigger:
+    platform: event
+    event_type: tts
+  action:
+    service: notify.notify
+    data:
+      title: New tts output generated!
+      message: "Created {{ trigger.event.data.cache_filename }} in {{ trigger.event.data.cache_path }} which is accessible at <ha url> {{ trigger.event.data.url_path }} or by clicking {{ trigger.event.data.url }}"
+```
+{% endraw %}
