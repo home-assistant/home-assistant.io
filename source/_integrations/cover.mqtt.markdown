@@ -168,7 +168,7 @@ position_open:
   type: integer
   default: 100
 position_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `position_topic` topic. Within the template the following variables are available for the calculation of the position: `entity_id`, the ID of the entity itself. The `entity_id` can be used to reference the entity's attributes; `position_open`; `position_closed`; `tilt_min`; `tilt_max`; with help of the [states](/docs/configuration/templating/#states) template function."
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `position_topic` topic."
   required: false
   type: string
 position_topic:
@@ -186,7 +186,7 @@ retain:
   type: boolean
   default: false
 set_position_template:
-  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. Within the template the following variables are available for the calculation of the set-position: __position__, the set-position in percent; __entity_id__, The ID of the entity itself. It can be used to reverence its attribuetes; __position_open__; __position_closed__; __tilt_min__; __tilt_max__. If no template is defined, the position (0-100) will be calculated according to `position_open` and `position_closed` values."
+  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. If no template is defined, the position (0-100) will be calculated according to `position_open` and `position_closed` values."
   required: false
   type: string
 set_position_topic:
@@ -228,7 +228,7 @@ tilt_closed_value:
   type: integer
   default: 0
 tilt_command_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_command_topic` topic. Within the template the following variables are available for the calculation of the position: __tilt_position__, the target tilt position in percent; __entity_id__, The ID of the entity itself. It can be used to reverence its attribuetes; __position_open__; __position_closed__; __tilt_min__; __tilt_max__."
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_command_topic` topic."
   required: false
   type: string
 tilt_command_topic:
@@ -256,7 +256,7 @@ tilt_optimistic:
   type: boolean
   default: "`true` if `tilt_status_topic` is not defined, else `false`"
 tilt_status_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic. Within the template the following variables are available for the calculation of the position: __entity_id__, The ID of the entity itself. It can be used to reverence its attribuetes; __position_open__; __position_closed__; __tilt_min__; __tilt_max__."
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic."
   required: false
   type: string
 tilt_status_topic:
@@ -424,6 +424,16 @@ cover:
 ### Full configuration using advanced templating
 
 The example below shows a full example how to setup a venetian blind, a blind with moveable slats, that tilts with a position change, that does not have a topic for tilt. In the example it takes the blind 6% of the movement for a full rotation of the slats.
+
+Following variable might be used in `position_template`, `set_position_template`, `tilt_command_template` and `tilt_status_template`, `json_attributes_template` (only `entity_id`).
+
+ * `entity_id` - The ID of the entity itself. It can be used to reverence its attributes with the help of the [states](/docs/configuration/templating/#states) template function.
+ * `position_open`
+ * `position_closed`
+ * `tilt_min`
+ * `tilt_max`
+ * `tilt_position` - Only in `tilt_command_template`
+
 
 {% raw %}
 
