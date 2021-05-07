@@ -421,10 +421,9 @@ cover:
 ```
 
 {% endraw %}
+### Full configuration using advanced templating
 
-### Full configuration using tilt calculated from position
-
-The example below shows a full example how to setup a blind with moveable slats, that does not have a topic for tilt.
+The example below shows a full example how to setup a venetian blind, a blind with moveable slats, that tilts with a position change, that does not have a topic for tilt. In the example it takes the blind 6% of the movement for a full rotation of the slats.
 
 {% raw %}
 
@@ -437,6 +436,7 @@ cover:
     state_topic: "home-assistant/cover/state"
     position_topic: "home-assistant/cover/position"
     set_position_topic: "home-assistant/cover/position/set"
+    tilt_command_topic: "home-assistant/cover/position/set" # same as `set_position_topic`
     qos: 1
     retain: false
     payload_open:  "open"
@@ -449,10 +449,28 @@ cover:
     position_closed: 0
     tilt_min: 0
     tilt_max: 6
-    tilt_from_position: True
     tilt_opened_value: 3
     tilt_closed_value: 0
     optimistic: false
+    position_template: |-
+      {% if state_attr(entity_id, "current_position") == None %}
+        {% set my_json = { "position" : value, "tilt_value" : 0 } %}
+      {% else %}
+        {% set position = state_attr(entity_id, "current_position") %}
+        {% set movement = value | int - position %}
+        {% set tilt_percent = (state_attr(entity_id, "current_tilt_position")) %}
+        {% set tilt = (tilt_percent/100*(tilt_max-tilt_min)) %}
+        {% set tilt_new = tilt + movement %}
+        {% if tilt_new > tilt_max %} {% set tilt_new = tilt_max %} {% endif %}
+        {% if tilt_new < tilt_min %} {% set tilt_new = tilt_min %} {% endif %}
+        {% set my_json = { "position" : value, "tilt_value" : tilt_new, "pos" : position, "tilt" : tilt, "tilt_percent" : tilt_percent, "mov" : movement } %}
+      {% endif %}
+      {{ my_json }}
+    tilt_command_template: |-
+      {% set position = state_attr(entity_id, "current_position") %}
+      {% set tilt = state_attr(entity_id, "current_tilt_position") %}
+      {% set movement = (tilt_position - tilt) / 100 * tilt_max %}
+      {{ (position + movement) | int }
 ```
 
 {% endraw %}
