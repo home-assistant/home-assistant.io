@@ -718,7 +718,7 @@ The KNX cover platform is used as an interface to KNX covers.
 
 <div class='note'>
 
-Unlike most KNX devices, Home Assistant defines for covers 0% is closed and 100% is fully open. The conversion is done internally by the KNX integration.
+Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully open in regards to covers. The corresponding value inversion is done internally by the KNX integration.
 
 </div>
 
