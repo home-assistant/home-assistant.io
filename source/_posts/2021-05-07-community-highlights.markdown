@@ -33,13 +33,13 @@ Information on [how to share](#got-a-tip-for-the-next-edition).
 </div>
 
 Recently Home Assistant has received support for the use of alarm keypads
-with deCONZ, that work with an alarm control panel entity and the `deconz_alarm_event`.
+with deCONZ, which works with an alarm control panel entity and the `deconz_alarm_event`.
 
 Therefore this week's blueprint is that of [Robban](https://community.home-assistant.io/u/Robban),
 with which you can use a physical (Zigbee) keypad to switch your alarm on
 or off.
 
-Keep in mind: the support in deCONZ rest plugin is still in an **alpa** stage.
+Keep in mind: the support in deCONZ rest plugin is still in an **alpha** stage.
 
 Try it out! Read more about it on the [community forum][week_blueprint] or
 install this automation in your instance with a click on the My button!
@@ -107,7 +107,7 @@ switch a light, for example.
 
 A new version of [ESPHome][esphome] has also been released this week! 🥳
 
-In particular I would like to pay attention to the new [pulse_meter](https://esphome.io/components/sensor/pulse_meter.html)
+In particular, I would like to point out the new [pulse_meter](https://esphome.io/components/sensor/pulse_meter.html)
 component, which is ideal for if you want to measure all your energy via a
 pulse LED on your smart meter or when you want to read what your water
 consumption is.
