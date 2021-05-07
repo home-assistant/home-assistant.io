@@ -168,7 +168,7 @@ position_open:
   type: integer
   default: 100
 position_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `position_topic` topic. Within the template the following variables are available for the calculation of the position: __entity_id__, The ID of the entity itself. It can be used to reverence its attribuetes; __position_open__; __position_closed__; __tilt_min__; __tilt_max__"
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `position_topic` topic. Within the template the following variables are available for the calculation of the position: `entity_id`, the ID of the entity itself. The `entity_id` can be used to reference the entity's attributes; `position_open`; `position_closed`; `tilt_min`; `tilt_max`; with help of the [states](/docs/configuration/templating/#states) template function."
   required: false
   type: string
 position_topic:
