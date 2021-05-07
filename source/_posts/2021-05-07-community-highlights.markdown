@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights: 20th edition"
-description: ""
+description: "New inspiration for your own Lovelace dashboard, get started with a browser extension and try the pulse meter component in the latest ESPHome release"
 date: 2021-05-07 00:00:00
 date_formatted: "May 7, 2021"
 author: Klaas Schoute
@@ -32,14 +32,17 @@ Information on [how to share](#got-a-tip-for-the-next-edition).
     </a>
 </div>
 
-Recently Home Assistant has received support for the use of alarm keypads via
-the `deconz_alarm_event`. Therefore this week's blueprint is that of [Robban](https://community.home-assistant.io/u/Robban),
-with which you can use a physical (Zigbee) keypad to switch your alarm on
-or off in combination with deCONZ. (The support in deCONZ is still in an alpa stage)
+Recently Home Assistant has received support for the use of alarm keypads
+with deCONZ, that work with an alarm control panel entity and the `deconz_alarm_event`.
 
-Try it out! Read more about it on the
-[community forum][week_blueprint] or install this automation in your instance
-with a click on the My button!
+Therefore this week's blueprint is that of [Robban](https://community.home-assistant.io/u/Robban),
+with which you can use a physical (Zigbee) keypad to switch your alarm on
+or off.
+
+Keep in mind: the support in deCONZ rest plugin is still in an **alpa** stage.
+
+Try it out! Read more about it on the [community forum][week_blueprint] or
+install this automation in your instance with a click on the My button!
 
 {% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/deconz-simple-alarm-control-panel-blueprint/305397" %}
 
