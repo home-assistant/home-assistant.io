@@ -23,7 +23,7 @@
     and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io" target="_blank" rel="noopener">
     {{ 100.0 | times: site.data.analytics_data.integrations[page.ha_domain] | divided_by: site.data.analytics_data.reports_integrations | round: 1 | remove: ".0" }}%</a> of the active installations.
 
-    {%- if page.ha_iot_class -%}
+    {%- if page.ha_iot_class %}
       Its IoT class is <a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'>{{ page.ha_iot_class }}</a>
     {%- endif -%}
 
