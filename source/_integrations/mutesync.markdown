@@ -22,3 +22,5 @@ There is currently support for the following platforms within Home Assistant:
 - Binary sensor - mic muted/unmuted and meeting live/not-live
 
 {% include integrations/config_flow.md %}
+
+The `host` is the IP address or hostname that runs the MuteSync application you want to connect to (typically your computer).
