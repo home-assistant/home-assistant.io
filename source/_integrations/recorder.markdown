@@ -217,7 +217,7 @@ Call the service `recorder.enable` to start again saving events and states to th
 
 ## Recommended engines and minimum versions
 
-The following database engines are generally tested when major changes are made to the recorder. Other database engines do not have an active core maintainer at this time and may require additional work to maintain.
+The following database engines are tested when major changes are made to the recorder. Other database engines do not have an active core maintainer at this time and may require additional work to maintain.
 
 - SQLite 3.32.1+
 - MariaDB 10.3+
