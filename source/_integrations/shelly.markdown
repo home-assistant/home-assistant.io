@@ -121,7 +121,7 @@ Not all devices support all input events. You can check on [Shelly API Reference
 
 ## CoAP port
 
-In some cases it may be needed to customize the CoAP port (default:5683) your HA instance is listening to.
+In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
 
 In order to change it, add the following key to your configuration.yaml:
 
