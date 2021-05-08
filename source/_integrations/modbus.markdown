@@ -49,7 +49,7 @@ modbus:
 
 {% configuration %}
 delay:
-  description: Time to delay messagees in seconds after connecting. Some modbus devices need a delay typically 1-2 seconds after connection is established in order to prepare the communication. If a device accepts connecting with no response to the requests send or the device disconnects, this parameter might help.
+  description: Time to delay messages in seconds after connecting. Some modbus devices need a delay typically 1-2 seconds after connection is established in order to prepare the communication. If a device accepts connecting with no response to the requests sent or the device disconnects, this parameter might help.
   required: false
   default: 0
   type: integer
