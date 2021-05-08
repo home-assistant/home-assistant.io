@@ -1584,7 +1584,6 @@
 /components/mysensors /integrations/mysensors
 /components/mystrom /integrations/mystrom
 /components/mythicbeastsdns /integrations/mythicbeastsdns
-/components/n26 /integrations/n26
 /components/nad /integrations/nad
 /components/namecheapdns /integrations/namecheapdns
 /components/nanoleaf /integrations/nanoleaf
