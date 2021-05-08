@@ -5,7 +5,6 @@ ha_category:
   - Light
   - Switch
   - Fan
-  - Light
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -15,9 +14,9 @@ ha_codeowners:
   - '@thegardenmonkey'
 ha_domain: vesync
 ha_platforms:
-  - fan
   - light
   - switch
+  - fan
 ---
 
 The `vesync` integration enables you to control smart switches and outlets connected to the VeSync App.
@@ -29,7 +28,6 @@ The following platforms are supported:
 - **light**
 - **switch**
 - **fan**
-- **light**
 
 ## Supported Devices
 
@@ -39,19 +37,19 @@ This integration supports devices controllable by the VeSync App.  The following
 - Etekcity WiFi Dimmable LED Bulb (ESL100)
 - Etekcity WiFi Dimmable and Tunable White LED Bulb (ESL100CW)
 
-### Plugs
+### Wall Switches
+
+- Etekcity In Wall Smart Switch (EWSL01-USA)
+- Etekcity Wifi Dimmer Switch (ESD16)
+- Etekcity Wifi Dimmer Switch (ESWD16)
+
+### Outlet Plugs
 
 - Etekcity 7 Amp US outlet - ESW01-USA (Round)
 - Etekcity 10 Amp US outlet - ESW10-USA (Round)
 - Etekcity 10 Amp EU outlet - ESW10-EU (Round)
 - Etekcity 15 Amp US outlet - ESW15-USA (Rectangular)
 - Etekcity 2 Plug Outdoor Outlet - ESO15-TB
-
-### Switches
-
-- Etekcity In Wall Smart Switch (EWSL01-USA)
-- Etekcity Wifi Dimmer Switch (ESD16)
-- Etekcity Wifi Dimmer Switch (ESWD16)
 
 ### Fans
 
