@@ -30,10 +30,14 @@ This integration provides the following sensors:
 
 | Name             | Description                                         |
 | ---------------- | --------------------------------------------------- |
+| BIOS Version     | Version of your system's BIOS                       |
 | Battery          | Battery level of the device                         |
 | CPU Speed        | The current CPU speed                               |
 | CPU Temperature  | The current temperature of the device               |
 | Filesystem(s)    | Space used for each drive letter / filesystem mount |
+| Memory Free      | Memory (RAM) free in GB                             |
+| Memory Used      | Memory (RAM) used in GB                             |
+| Memory Used %    | Memory (RAM) % used                                 |
 | Operating System | Version information of the Operating System         |
 | Load             | System load percentage                              |
 
