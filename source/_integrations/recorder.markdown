@@ -215,6 +215,15 @@ Call the service `recorder.disable` to stop saving events and states to the data
 
 Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
 
+## Recommended engines and minimum versions
+
+The following database engines are tested when major changes are made to the recorder. Other database engines do not have an active core maintainer at this time and may require additional work to maintain.
+
+- SQLite 3.32.1+
+- MariaDB 10.3+
+- MySQL 5.7+
+- PostgresSQL 12+
+
 ## Custom database engines
 
 | Database engine                | `db_url`                                                                                                  |
