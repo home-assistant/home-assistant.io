@@ -32,10 +32,6 @@ Set up the integration through **Configuration** -> **Integrations** -> **Syncth
 
 The Syncthing integration adds one sensor per syncing folder:
 
-<p class='img'>
-  <img src='{{site_root}}/images/integrations/syncthing/sensors.png' />
-</p>
+![Syncthing Sensors](/images/integrations/syncthing/sensors.png)
 
-<p class='img'>
-  <img src='{{site_root}}/images/integrations/syncthing/sensor.png' />
-</p>
+![Syncthing Sensors](/images/integrations/syncthing/sensor.png)
