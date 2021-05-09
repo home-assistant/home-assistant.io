@@ -15,7 +15,7 @@ ha_platforms:
 ---
 
 The Geocaching integration can be used to monitor Geocaching account statistics.
-
+{% include integrations/config_flow.md %}
 ## Sensors
 
 The following sensors are available for each account:
