@@ -18,7 +18,7 @@ in real-time, safely protected from prying eyes.
 
 The Syncthing integration allows you to monitor states of your synced folders from within Home Assistant and set up automations based on the information.
 
-## Setup
+## Prerequisites
 
 To set up the monitoring you need to get an **API key**. Open the Syncthing web 
 interface(e.g., `http://127.0.0.1:8384`) in the browser and go to **Actions** -> **Settings**. You will find
