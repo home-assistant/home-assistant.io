@@ -31,3 +31,5 @@ The following sensors are available for each account:
 - Favorite points
 - Souvenir count
 - Awarded favorite points
+
+![Authorized Geocaching developer](/images/integrations/geocaching/geocaching_authorized_developer.png) Powered by Geocaching HQ
