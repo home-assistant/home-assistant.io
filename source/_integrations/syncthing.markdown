@@ -24,9 +24,7 @@ To set up the monitoring you need to get an **API key**. Open the Syncthing web
 interface(e.g., `http://127.0.0.1:8384`) in the browser and go to **Actions** -> **Settings**. You will find
 the key on the right of the settings dialog.
 
-## Configuration
-
-Set up the integration through **Configuration** -> **Integrations** -> **Syncthing**.
+{% include integrations/config_flow.md %}
   
 ## Integration Entities
 
