@@ -349,7 +349,13 @@ sudo apt-get install postgresql-server-dev-X.Y
 pip3 install psycopg2
 ```
 
-For using Unix Sockets, add the following line to your [`pg_hba.conf`](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html):
+For using Unix Sockets, first create your user from the `postgres` user account;
+```bash
+createuser USER_NAME
+```
+Where `USER_NAME` is the name of the user running the Home Assistant instance (see [securing your installation](/docs/configuration/securing/)).
+
+Then add the following line to your [`pg_hba.conf`](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html):
 
 `local  DB_NAME USER_NAME peer`
 
