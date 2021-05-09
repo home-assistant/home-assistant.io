@@ -1584,7 +1584,6 @@
 /components/mysensors /integrations/mysensors
 /components/mystrom /integrations/mystrom
 /components/mythicbeastsdns /integrations/mythicbeastsdns
-/components/n26 /integrations/n26
 /components/nad /integrations/nad
 /components/namecheapdns /integrations/namecheapdns
 /components/nanoleaf /integrations/nanoleaf
@@ -2303,3 +2302,5 @@
 /components/sensor.socialblade /more-info/removed-integration 301
 /components/socialblade /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
+/components/n26 /more-info/removed-integration 301
+/integrations/n26 /more-info/removed-integration 301
