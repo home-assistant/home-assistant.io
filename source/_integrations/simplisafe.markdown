@@ -88,8 +88,6 @@ For any property denoting a volume, the following values should be used:
 | `exit_delay_home`      | yes      | The number of seconds to delay triggering when exiting with a "home" state   |
 | `light`                | yes      | Whether the light on the base station should display when armed              |
 | `voice_prompt_volume`  | yes      | The volume of the base station's voice prompts                               |
-<<<<<<< HEAD
-=======
 
 ## Events
 
