@@ -15,7 +15,7 @@ ha_platforms:
 
 The `epson` platform allows you to control a Epson projector from Home Assistant.
 **Device has to be turned on during initial configuration.**
-When you want to add device turn it on for first time before following integration steps.
+When you want to add a device for the first time, turn it on before following the integration steps.
 
 {% include integrations/config_flow.md %}
 
