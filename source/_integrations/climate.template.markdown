@@ -63,11 +63,11 @@ climate:
     type: map
     keys:
       friendly_name:
-        description: Name to use in the frontend.
+        description: "Name to use in the frontend."
         required: false
         type: string
       unique_id:
-        description: An ID that uniquely identifies this climate entity. Set this to a unique value to allow customization through the UI.
+        description: "An ID that uniquely identifies this climate entity. Set this to a unique value to allow customization through the UI."
         required: false
         type: string
       value_template:
@@ -79,11 +79,11 @@ climate:
         required: false
         type: template
       temperature_template:
-        description: Defines a template to get the target temperature of the climate entity.
+        description: "Defines a template to get the target temperature of the climate entity."
         required: false
         type: template
       current_temperature_template:
-        description: Defines a template to get the current temperature of the climate entity.
+        description: "Defines a template to get the current temperature of the climate entity."
         required: false
         type: template
       hvac_action_template:
@@ -91,46 +91,46 @@ climate:
         required: false
         type: template
       availability_template:
-        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        description: "Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`."
         required: false
         type: template
         default: true
       set_hvac_mode:
-        description: Defines an action to run when the climate is given a hvac mode command.
+        description: "Defines an action to run when the climate is given a hvac mode command."
         required: true
         type: action
       set_fan_mode:
-        description: Defines an action to run when the climate is given a fan mode command.
+        description: "Defines an action to run when the climate is given a fan mode command."
         required: false
         type: action
       set_temperature:
-        description: Defines an action to run when the climate is given a target temperature command.
+        description: "Defines an action to run when the climate is given a target temperature command."
         required: false
         type: action
       temperature_step:
-        description: The minimum step between valid target temperatures.
+        description: "The minimum step between valid target temperatures."
         required: false
         type: float
       min_temp:
-        description: The minimum valid target temperature.
+        description: "The minimum valid target temperature."
         required: false
         type: float
       max_temp:
-        description: The maximum valid target temperature.
+        description: "The maximum valid target temperature."
         required: false
         type: float
       precision:
-        description: The precision of the current temperature.
+        description: "The precision of the current temperature."
         required: false
         type: float
       hvac_modes:
         description: "List of hvac modes the climate entity is capable of. This list must contain only a subset of `off`, `heat`, `cool`, `heat_cool`, `auto`, `dry`, `fan_only`."
         required: false
         type: [string, list]
-        default: [off, heat, cool, heat_cool, auto, dry, fan_only]
+        default: ['off', heat, cool, heat_cool, auto, dry, fan_only]
       fan_modes:
         description: List of arbitrary string fan modes the climate entity is capable of.
         required: false
         type: [string, list]
-        default: [on, off, auto, low, medium, high, middle, focus, diffuse]
+        default: ['on', 'off', auto, low, medium, high, middle, focus, diffuse]
 {% endconfiguration %}
