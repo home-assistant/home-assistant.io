@@ -86,7 +86,7 @@ Replacing existing notifications or threading certain notifications was another 
 ```yaml
 - service: notify.mobile_app_<your_device>
   data:
-    message: The front door is unlocked!
+    message: "The front door is unlocked!"
     data:
       # replace any existing front_door_lock notifications
       tag: front_door_lock
@@ -111,7 +111,7 @@ Attachments no longer require certain categories for [dynamic attachment](https:
 ```yaml
 - service: notify.mobile_app_<your_device>
   data:
-    message: Motion detected
+    message: "Motion detected"
     data:
       entity_id: camera.outside
 ```
@@ -121,14 +121,14 @@ Specifying a [non-dynamic attachment](https://companion.home-assistant.io/docs/n
 ```yaml
 - service: notify.mobile_app_<your_device>
   data:
-    message: 3D Print Complete
+    message: "3D Print Complete"
     data:
       image: /media/local/3dprinter/latest.jpg
 ```
 
 You can use `video`, `image` and `audio`. Only `image` is supported on Android.
 
-You may have noticed that iOS notifications have file limits; this release adds on-demand downloading of attachments which exceed the size limit or when requested using the `lazy` attachment option.
+You may have noticed that iOS notifications have file limits; this release adds on-demand downloading of attachments that exceed the size limit or when requested using the `lazy` attachment option.
 
 ## Future areas of improvement
 
