@@ -7,7 +7,7 @@ ha_release: 0.72
 ha_iot_class: Local Polling
 ha_domain: epson
 ha_codeowners:
-  - "@pszafer"
+  - '@pszafer'
 ha_config_flow: true
 ha_platforms:
   - media_player
