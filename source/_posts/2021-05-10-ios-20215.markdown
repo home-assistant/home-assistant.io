@@ -12,7 +12,7 @@ Notifications are a popular feature of the [Companion apps](https://companion.ho
 
 ## Actionable notifications
 
-Building [actionable notifications](https://companion.home-assistant.io/docs/notifications/actionable-notifications) for iOS and watchOS no longer requires defining categories in advance of using them; instead, you can include the actions right in the notification. Support for macOS will be included [in a future release](https://github.com/home-assistant/iOS/issues/1592).
+Building [actionable notifications](https://companion.home-assistant.io/docs/notifications/actionable-notifications) for iOS and watchOS no longer requires defining categories in advance of using them; instead, you can include the actions right in the notification. Support for macOS will be included [in a future release](https://github.com/home-assistant/iOS/issues/1592). Categories were one of the hurdles around multi-server support, so removing them entirely solves that part!
 
 Included in the documentation is how to migrate [from categories to dynamic actions](https://companion.home-assistant.io/docs/notifications/actionable-notifications#migrating-from-ios-20214-and-earlier). Both are still supported in the app at this time, but categories will be removed in the future.
 
