@@ -6,6 +6,7 @@ date_formatted: "May 10, 2021"
 author: Zac West
 author_twitter: zacwest
 categories: Release-Notes
+og_image: /images/blog/2021-05-10-ios-20215/social.png
 ---
 
 Notifications are a popular feature of the [Companion apps](https://companion.home-assistant.io), but the differences between Android and iOS made it painful to use them to their full potential. Starting with iOS 2021.5, the vast majority of functionality is now shared across both platforms. As part of this, the [notifications documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic/) has been extensively updated as well.
