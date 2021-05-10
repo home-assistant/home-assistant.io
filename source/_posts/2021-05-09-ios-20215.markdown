@@ -1,8 +1,8 @@
 ---
 title: "Easier notifications in iOS 2021.5"
 description: "The latest release of the iOS app allows writing easier notifications for both mobile apps."
-date: 2021-05-09 00:00:00
-date_formatted: "May 9, 2021"
+date: 2021-05-10 00:00:00
+date_formatted: "May 10, 2021"
 author: Zac West
 author_twitter: zacwest
 categories: Release-Notes
@@ -130,3 +130,5 @@ You can use `video`, `image` and `audio`. Only `image` is supported on Android.
 You may have noticed that iOS notifications have file limits; this release adds on-demand downloading of attachments which exceed the size limit or when requested using the `lazy` attachment option.
 
 ## Future areas of improvement
+
+We're still on the lookout for places of confusion or redundancy in notifications across the iOS and Android apps. What would you like to see improved?
