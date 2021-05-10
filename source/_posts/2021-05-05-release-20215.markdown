@@ -55,6 +55,7 @@ want to tell me who it is...)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.5.1 - May 7](#release-202151---may-7)
+- [Release 2021.5.2 - May 10](#release-202152---may-10)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -389,6 +390,72 @@ The following integrations are now available via the Home Assistant UI:
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [zha docs]: /integrations/zha/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.5.2 - May 10
+
+- Catch non payload modbus messages ([@janiversen] - [#49910]) ([modbus docs])
+- Fix incorrect attribute checks in Modbus hub ([@vzahradnik] - [#50241]) ([modbus docs])
+- Fix amcrest detection of sensor reset ([@FrnchFrgg] - [#50249]) ([amcrest docs])
+- Skip Huawei LTE device registry setup with no identifiers or connections ([@scop] - [#50261]) ([huawei_lte docs])
+- Fix Sonos polling bug ([@jjlawren] - [#50265]) ([sonos docs])
+- Update ovoenergy to 1.1.12 ([@timmo001] - [#50268]) ([ovo_energy docs])
+- Update denonavr to version 0.10.7 ([@scarface-4711] - [#50288]) ([denonavr docs])
+- Bump ha-philipsjs to 2.7.3 ([@elupus] - [#50293]) ([philips_js docs])
+- Fix tplink unloading when no switches are present ([@bdraco] - [#50301]) ([tplink docs])
+- Fix ESPHome timestamp sensor ([@frenck] - [#50305]) ([esphome docs])
+- Revert Rachio to seconds instead of total_seconds ([@brg468] - [#50307]) ([rachio docs])
+- Support multiple disks in systemmonitor ([@ColinRobbins] - [#50362]) ([systemmonitor docs])
+- Bump androidtv to 0.0.59 ([@JeffLIrion] - [#50367])
+- Bump hatasmota to 0.2.12 ([@emontnemery] - [#50372]) ([tasmota docs])
+- Increase httpx timeout for Tesla ([@alandtse] - [#50376]) ([tesla docs])
+- Fix location of current_play_mode ([@jjlawren] - [#50386]) ([sonos docs])
+- Bump pysonos to 0.0.45 ([@jjlawren] - [#50407]) ([sonos docs])
+
+[#49910]: https://github.com/home-assistant/core/pull/49910
+[#50241]: https://github.com/home-assistant/core/pull/50241
+[#50249]: https://github.com/home-assistant/core/pull/50249
+[#50261]: https://github.com/home-assistant/core/pull/50261
+[#50265]: https://github.com/home-assistant/core/pull/50265
+[#50268]: https://github.com/home-assistant/core/pull/50268
+[#50288]: https://github.com/home-assistant/core/pull/50288
+[#50293]: https://github.com/home-assistant/core/pull/50293
+[#50301]: https://github.com/home-assistant/core/pull/50301
+[#50305]: https://github.com/home-assistant/core/pull/50305
+[#50307]: https://github.com/home-assistant/core/pull/50307
+[#50362]: https://github.com/home-assistant/core/pull/50362
+[#50367]: https://github.com/home-assistant/core/pull/50367
+[#50372]: https://github.com/home-assistant/core/pull/50372
+[#50376]: https://github.com/home-assistant/core/pull/50376
+[#50386]: https://github.com/home-assistant/core/pull/50386
+[#50407]: https://github.com/home-assistant/core/pull/50407
+[@ColinRobbins]: https://github.com/ColinRobbins
+[@FrnchFrgg]: https://github.com/FrnchFrgg
+[@JeffLIrion]: https://github.com/JeffLIrion
+[@alandtse]: https://github.com/alandtse
+[@bdraco]: https://github.com/bdraco
+[@brg468]: https://github.com/brg468
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@jjlawren]: https://github.com/jjlawren
+[@scarface-4711]: https://github.com/scarface-4711
+[@scop]: https://github.com/scop
+[@timmo001]: https://github.com/timmo001
+[@vzahradnik]: https://github.com/vzahradnik
+[amcrest docs]: /integrations/amcrest/
+[denonavr docs]: /integrations/denonavr/
+[esphome docs]: /integrations/esphome/
+[huawei_lte docs]: /integrations/huawei_lte/
+[modbus docs]: /integrations/modbus/
+[ovo_energy docs]: /integrations/ovo_energy/
+[philips_js docs]: /integrations/philips_js/
+[rachio docs]: /integrations/rachio/
+[sonos docs]: /integrations/sonos/
+[systemmonitor docs]: /integrations/systemmonitor/
+[tasmota docs]: /integrations/tasmota/
+[tesla docs]: /integrations/tesla/
+[tplink docs]: /integrations/tplink/
 
 ## If you need help...
 
