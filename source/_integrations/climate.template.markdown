@@ -124,7 +124,7 @@ climate:
         required: false
         type: float
       hvac_modes:
-        description: List of hvac modes the climate entity is capable of. This list must contain only a subset of: `off`, `heat`, `cool`, `heat_cool`, `auto`, `dry`, `fan_only`."
+        description: "List of hvac modes the climate entity is capable of. This list must contain only a subset of `off`, `heat`, `cool`, `heat_cool`, `auto`, `dry`, `fan_only`."
         required: false
         type: [string, list]
         default: [`off`, `heat`, `cool`, `heat_cool`, `auto`, `dry`, `fan_only`]
