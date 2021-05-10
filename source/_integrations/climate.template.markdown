@@ -3,7 +3,7 @@ title: "Template Climate"
 description: "Instructions how to setup the Template climate entities within Home Assistant."
 ha_category:
   - Fan
-ha_release: FUTURE
+ha_release: 2021.6.0
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: template
