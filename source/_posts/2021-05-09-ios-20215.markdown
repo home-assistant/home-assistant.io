@@ -80,7 +80,7 @@ actions:
 
 ## Replacing, grouping, clearing
 
-Replace existing notifications or threading certain notifications was another difference between platforms, and the iOS-specific versions were a bit less ergonomic, so the Android versions now work for both. You can now use the simpler [`tag` and `group` keys](https://companion.home-assistant.io/docs/notifications/notifications-basic):
+Replacing existing notifications or threading certain notifications was another difference between platforms, and the iOS-specific versions were a bit less ergonomic, so the Android versions now work for both. You can now use the simpler [`tag` and `group` keys](https://companion.home-assistant.io/docs/notifications/notifications-basic):
 
 ```yaml
 - service: notify.mobile_app_<your_device>
@@ -130,4 +130,3 @@ You can use `video`, `image` and `audio`. Only `image` is supported on Android.
 You may have noticed that iOS notifications have file limits; this release adds on-demand downloading of attachments which exceed the size limit or when requested using the `lazy` attachment option.
 
 ## Future areas of improvement
-
