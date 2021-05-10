@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.116
 ha_config_flow: true
+ha_dhcp: true
 ha_domain: goalzero
 ha_platforms:
   - binary_sensor
