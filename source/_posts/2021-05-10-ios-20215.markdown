@@ -1,0 +1,135 @@
+---
+title: "Easier notifications in iOS 2021.5"
+description: "The latest release of the iOS app allows writing easier notifications for both mobile apps."
+date: 2021-05-10 00:00:00
+date_formatted: "May 10, 2021"
+author: Zac West
+author_twitter: zacwest
+categories: Release-Notes
+og_image: /images/blog/2021-05-10-ios-20215/social.png
+---
+
+Notifications are a popular feature of the [Companion apps](https://companion.home-assistant.io), but the differences between Android and iOS made it painful to use them to their full potential. Starting with today's release of iOS 2021.5, the vast majority of functionality is now shared across both platforms. As part of this, the [notifications documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic/) has been extensively updated as well.
+
+## Actionable notifications
+
+Building [actionable notifications](https://companion.home-assistant.io/docs/notifications/actionable-notifications) for iOS and watchOS no longer requires defining categories in advance of using them; instead, you can include the actions right in the notification. Support for macOS will be included [in a future release](https://github.com/home-assistant/iOS/issues/1592). Categories were one of the hurdles around multi-server support, so removing them entirely solves that part!
+
+Included in the documentation is how to migrate [from categories to dynamic actions](https://companion.home-assistant.io/docs/notifications/actionable-notifications#migrating-from-ios-20214-and-earlier). Both are still supported in the app at this time, but categories will be removed in the future.
+
+Below is an example script which sends an actionable notification and uses [script variables](/docs/scripts/#variables), [wait for trigger](/docs/scripts/#wait-for-trigger), and [choose](/docs/scripts/#choose-a-group-of-actions) to decide what to run.
+
+{% raw %}
+
+```yaml
+# In a script's `sequence` or an automation's `actions`
+- alias: "Set up action variables"
+  variables:
+    # Including 'id' in 'action' allows us to identify this script run
+    # and not accidentally trigger for other notification actions
+    action_very: "{{ 'VERY_' ~ context.id }}"
+    action_mod: "{{ 'MOD_' ~ context.id }}"
+- alias: "Send the notification"
+  service: notify.mobile_app_zac_iphone
+  data:
+    message: "Are you hungry?"
+    data:
+      actions:
+        - action: "{{ action_very }}"
+          title: "Very Hungry"
+        - action: "{{ action_mod }}"
+          title: "Moderately Hungry"
+- alias: "Wait for a response"
+  wait_for_trigger:
+    # We wait for specific actions because we don't want to run for 
+    # any action, only for a response to the one we just sent
+    - platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: "{{ action_very }}"
+    - platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: "{{ action_mod }}"
+- alias: "Handle the response"
+  choose:
+    - conditions: "{{ wait.trigger.event.data.action == action_very }}"
+      sequence:
+        - service: notify.notify
+          data:
+            message: "⚠️ Soylent Launch Incoming"
+        - service: homeassistant.turn_on
+          target:
+            entity_id: switch.soylent_dispenser
+    - conditions: "{{ wait.trigger.event.data.action == action_mod }}"
+      sequence:
+        - service: notify.notify
+          data:
+            message: "Anyone want to grab a croissant? -Zac"
+```
+
+{% endraw %}
+
+This works for both platforms without including any platform-specific logic! Other features around actionable notifications are also shared, including adding a URL to open when picking an action:
+
+```yaml
+actions:
+  - action: "URI"
+    title: "View More"
+    uri: "/lovelace/some-dashboard"
+```
+
+## Replacing, grouping, clearing
+
+Replacing existing notifications or threading certain notifications was another difference between platforms, and the iOS-specific versions were a bit less ergonomic, so the Android versions now work for both. You can now use the simpler [`tag` and `group` keys](https://companion.home-assistant.io/docs/notifications/notifications-basic):
+
+```yaml
+- service: notify.mobile_app_<your_device>
+  data:
+    message: "The front door is unlocked!"
+    data:
+      # replace any existing front_door_lock notifications
+      tag: front_door_lock
+      # thread with other doors notifications
+      group: doors
+```
+
+You can also remove an existing notification by its tag:
+
+```yaml
+- service: notify.mobile_app_<your_device>
+  data:
+    message: clear_notification
+    data:
+      tag: front_door_lock
+```
+
+## Attachments
+
+Attachments no longer require certain categories for [dynamic attachment](https://companion.home-assistant.io/docs/notifications/dynamic-content), so you can include streaming playback of a camera for any notification:
+
+```yaml
+- service: notify.mobile_app_<your_device>
+  data:
+    message: "Motion detected"
+    data:
+      entity_id: camera.outside
+```
+
+Specifying a [non-dynamic attachment](https://companion.home-assistant.io/docs/notifications/notification-attachments) is a little easier now, allowing you to short-hand the attachment part:
+
+```yaml
+- service: notify.mobile_app_<your_device>
+  data:
+    message: "3D Print Complete"
+    data:
+      image: /media/local/3dprinter/latest.jpg
+```
+
+You can use `video`, `image` and `audio`. Only `image` is supported on Android.
+
+You may have noticed that iOS notifications have file limits; this release adds on-demand downloading of attachments that exceed the size limit or when requested using the `lazy` attachment option.
+
+## Future areas of improvement
+
+We're still on the lookout for places of confusion or redundancy in notifications across the iOS and Android apps. What would you like to see improved?
