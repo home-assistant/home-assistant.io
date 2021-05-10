@@ -25,7 +25,35 @@ To add a Nuki bridge to your installation, you need to enable developer mode on 
 
 {% include integrations/config_flow.md %}
 
+## Binary Sensors
+
+The integration provides a binary sensor if the Nuki door sensor is available. 
+
 ## Services
+
+### Service `lock.unlock`
+
+If the lock is a Nuki Smart Lock, the service will unlock the door. If the lock is a Nuki Opener, the service will enable the ring-to-open feature. See the [Nuki Website](https://support.nuki.io/hc/en-us/articles/360019424298-Ring-To-Open) for more details about this feature.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | Entity of the relevant lock.
+
+### Service `lock.lock`
+
+If the lock is a Nuki Smart Lock, the service will lock the door. If the lock is a Nuki Opener, the service will disable the ring-to-open feature. See the [Nuki Website](https://support.nuki.io/hc/en-us/articles/360019424298-Ring-To-Open) for more details about this feature.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | Entity of the relevant lock.
+
+### Service `lock.open`
+
+If the lock is a Nuki Smart Lock, the service will unlatch the door. If the lock is a Nuki Opener, the service will buzz the door open.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | Entity of the relevant lock.
 
 ### Service `nuki.lock_n_go`
 
