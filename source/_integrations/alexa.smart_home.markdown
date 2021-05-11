@@ -40,9 +40,59 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 - [Configure the Smart Home Service Endpoint](#configure-the-smart-home-service-endpoint)
 - [Account Linking](#account-linking)
 - [Alexa Smart Home Component Configuration](#alexa-smart-home-component-configuration)
+  - [Alexa Locale](#alexa-locale)
+  - [Proactive Events](#proactive-events)
+  - [Configure Filter](#configure-filter)
+  - [Alexa Display Categories](#alexa-display-categories)
 - [Supported Platforms](#supported-platforms)
+  - [Alarm Control Panel](#alarm-control-panel)
+    - [Arming](#arming)
+    - [Disarming](#disarming)
+  - [Alert, Automation, Group, Input Boolean](#alert-automation-group-input-boolean)
+  - [Binary Sensor](#binary-sensor)
+    - [Routines](#routines)
+    - [Doorbell Announcement](#doorbell-announcement)
+    - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
+  - [Camera](#camera)
+  - [Climate](#climate)
+    - [Set Thermostat Temperature](#set-thermostat-temperature)
+    - [Thermostat Mode](#thermostat-mode)
+  - [Cover](#cover)
+    - [Open/Close/Raise/Lower](#opencloseraiselower)
+    - [Set Cover Position](#set-cover-position)
+    - [Set Cover Tilt](#set-cover-tilt)
+    - [Garage Doors](#garage-doors)
+  - [Fan](#fan)
+    - [Fan Speed](#fan-speed)
+    - [Fan Preset Mode](#fan-preset-mode)
+    - [Fan Direction](#fan-direction)
+    - [Fan Oscillation](#fan-oscillation)
+  - [Image Processing](#image-processing)
+    - [Presence Detection Notification](#presence-detection-notification)
+  - [Input Number](#input-number)
+  - [Light](#light)
+    - [Brightness](#brightness)
+    - [Color Temperature](#color-temperature)
+    - [Color](#color)
+  - [Lock](#lock)
+    - [Unlocking](#unlocking)
+  - [Media Player](#media-player)
+    - [Change Channel](#change-channel)
+    - [Speaker Volume](#speaker-volume)
+    - [Equalizer Mode](#equalizer-mode)
+    - [Inputs](#inputs)
+    - [Playback State](#playback-state)
+    - [Seek](#seek)
+  - [Scene](#scene)
+  - [Script](#script)
+  - [Sensor](#sensor)
+  - [Switch](#switch)
+  - [Timer](#timer)
+  - [Vacuum](#vacuum)
 - [Alexa Web-Based App](#alexa-web-based-app)
 - [Troubleshooting](#troubleshooting)
+  - [Binary Sensor not available in Routine Trigger](#binary-sensor-not-available-in-routine-trigger)
+  - [Token Invalid and no Refresh Token Available](#token-invalid-and-no-refresh-token-available)
 - [Debugging](#debugging)
 
 ## Requirements
@@ -426,41 +476,69 @@ Home Assistant supports the following integrations through Alexa using a Smart H
 
 The following integrations are currently supported:
 
-- [Alarm Control Panel](#alarm-control-panel)
-- [Alert](#alert-automation-group-input-boolean)
-- [Automation](#alert-automation-group-input-boolean)
-- [Binary Sensor](#binary-sensor)
-  - [Doorbell Announcement](#doorbell-announcement)
-  - [Presence Detection](#presence-detection-with-binary-sensor)
-- [Camera](#camera)
-- [Climate](#climate)
-- [Cover](#cover)
-  - [Garage Doors](#garage-doors)
-- [Fan](#fan)
-  - [Fan Speed](#fan-speed)
-  - [Fan Direction](#fan-direction)
-  - [Fan Oscillation](#fan-oscillation)
-- [Group](#alert-automation-group-input-boolean)
-- [Input Boolean](#alert-automation-group-input-boolean)
-- [Input Number](#input-number)
-- [Image Processing](#image-processing)
-- [Light](#light)
-  - [Brightness](#brightness)
-  - [Color Temperature](#color-temperature)
-  - [Color](#color)
-- [Lock](#lock)
-- [Media Player](#media-player)
-  - [Channels](#change-channel)
-  - [Speakers](#speaker-volume)
-  - [Sound Mode & Equalizers](#equalizer-mode)
-  - [Inputs](#inputs)
-  - [Payback Control](#seek)
-- [Scene](#scene)
-- [Script](#script)
-- [Sensor](#sensor)
-- [Switch](#switch)
-- [Timer](#timer)
-- [Vacuum](#vacuum)
+- [Requirements](#requirements)
+- [Create an Amazon Alexa Smart Home Skill](#create-an-amazon-alexa-smart-home-skill)
+- [Create an AWS Lambda Function](#create-an-aws-lambda-function)
+  - [Create an IAM Role for Lambda](#create-an-iam-role-for-lambda)
+  - [Add Code to the Lambda Function](#add-code-to-the-lambda-function)
+  - [Test the Lambda Function](#test-the-lambda-function)
+- [Configure the Smart Home Service Endpoint](#configure-the-smart-home-service-endpoint)
+- [Account Linking](#account-linking)
+- [Alexa Smart Home Component Configuration](#alexa-smart-home-component-configuration)
+  - [Alexa Locale](#alexa-locale)
+  - [Proactive Events](#proactive-events)
+  - [Configure Filter](#configure-filter)
+  - [Alexa Display Categories](#alexa-display-categories)
+- [Supported Platforms](#supported-platforms)
+  - [Alarm Control Panel](#alarm-control-panel)
+    - [Arming](#arming)
+    - [Disarming](#disarming)
+  - [Alert, Automation, Group, Input Boolean](#alert-automation-group-input-boolean)
+  - [Binary Sensor](#binary-sensor)
+    - [Routines](#routines)
+    - [Doorbell Announcement](#doorbell-announcement)
+    - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
+  - [Camera](#camera)
+  - [Climate](#climate)
+    - [Set Thermostat Temperature](#set-thermostat-temperature)
+    - [Thermostat Mode](#thermostat-mode)
+  - [Cover](#cover)
+    - [Open/Close/Raise/Lower](#opencloseraiselower)
+    - [Set Cover Position](#set-cover-position)
+    - [Set Cover Tilt](#set-cover-tilt)
+    - [Garage Doors](#garage-doors)
+  - [Fan](#fan)
+    - [Fan Speed](#fan-speed)
+    - [Fan Preset Mode](#fan-preset-mode)
+    - [Fan Direction](#fan-direction)
+    - [Fan Oscillation](#fan-oscillation)
+  - [Image Processing](#image-processing)
+    - [Presence Detection Notification](#presence-detection-notification)
+  - [Input Number](#input-number)
+  - [Light](#light)
+    - [Brightness](#brightness)
+    - [Color Temperature](#color-temperature)
+    - [Color](#color)
+  - [Lock](#lock)
+    - [Unlocking](#unlocking)
+  - [Media Player](#media-player)
+    - [Change Channel](#change-channel)
+    - [Speaker Volume](#speaker-volume)
+    - [Equalizer Mode](#equalizer-mode)
+    - [Inputs](#inputs)
+    - [Playback State](#playback-state)
+    - [Seek](#seek)
+  - [Scene](#scene)
+  - [Script](#script)
+  - [Sensor](#sensor)
+  - [Switch](#switch)
+  - [Timer](#timer)
+  - [Vacuum](#vacuum)
+- [Alexa Web-Based App](#alexa-web-based-app)
+- [Troubleshooting](#troubleshooting)
+  - [Binary Sensor not available in Routine Trigger](#binary-sensor-not-available-in-routine-trigger)
+  - [Token Invalid and no Refresh Token Available](#token-invalid-and-no-refresh-token-available)
+- [Debugging](#debugging)
 
 ### Alarm Control Panel
 
@@ -707,7 +785,7 @@ Control fan speed, direction, and oscillation.
 
 #### Fan Speed
 
-The fan device must support the `speed` attribute. `speed` can be set using a percentage or a range value determined from the `speed_list` attribute.
+The fan device must support percentage based speeds with the `percentage` attribute.
 
 - _"Alexa, set the fan speed to three."_
 - _"Alexa, set the fan speed to fifty percent."_
@@ -715,24 +793,15 @@ The fan device must support the `speed` attribute. `speed` can be set using a pe
 - _"Alexa, turn up the speed on the tower fan."_
 - _"Alexa, set the air speed on the tower fan to maximum."_
 
-The `speed_list` attribute is used to determine the range value. For example, using a `speed_list` consisting of `[off, low, medium, high]` the range values would be `0:off`, `1:low`, `2:medium`, `3:high`.
+#### Fan Preset Mode
 
-The following table lists the possible friendly name synonyms available for a fan with `speed_list: [off, low, medium, high]`.
+The fan device must support the `preset_mode` attribute.
 
-| Fan Range | Friendly Name Synonyms                                             |
-| --------- | ------------------------------------------------------------------ |
-| 0         | _"zero"_, _"off"_                                                  |
-| 1         | _"one"_, _"thirty-three percent"_, _"low"_, _"minimum"_, _"min"_   |
-| 2         | _"two"_, _"sixty-six percent"_, _"medium"_                         |
-| 3         | _"three"_, _"one hundred percent"_, _"high"_, _"maximum"_, _"max"_ |
+- _"Alexa, set the fan preset to eco."_
+- _"Alexa, set the fan preset to smart."_
+- _"Alexa, set the fan preset to auto."_
 
-The following synonyms can be used for _"fan speed"_
-
-| Locale  | Friendly Name Synonyms                                                                             |
-| ------- | -------------------------------------------------------------------------------------------------- |
-| `en-US` | _"fan speed"_, _"airflow speed"_, _"wind speed"_, _"air speed"_, _"air velocity"_, _"power level"_ |
-
-Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
+Currently, Alexa only supports `en-US` locale for preset modes.
 
 #### Fan Direction
 
