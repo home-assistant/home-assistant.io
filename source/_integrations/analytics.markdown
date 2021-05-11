@@ -57,7 +57,7 @@ If you are running Home Assistant Operating System, this will also contain:
   },
   "operating_system": {
     "board": "odroid-n2",
-    "version:": "{{site.data.version_data.hassos['odroid-n2']}}"
+    "version": "{{site.data.version_data.hassos['odroid-n2']}}"
   }
 }
 ```
@@ -94,7 +94,7 @@ If your system includes the Supervisor, this will also contain:
   },
   "operating_system": {
     "board": "odroid-n2",
-    "version:": "{{site.data.version_data.hassos['odroid-n2']}}"
+    "version": "{{site.data.version_data.hassos['odroid-n2']}}"
   },
   "integrations": ["awesome_integration"],
     "addons": [
@@ -138,7 +138,7 @@ If your system includes the Supervisor, this will also contain:
   },
   "operating_system": {
     "board": "odroid-n2",
-    "version:": "{{site.data.version_data.hassos['odroid-n2']}}"
+    "version": "{{site.data.version_data.hassos['odroid-n2']}}"
   },
   "state_count": 1,
   "automation_count": 2,
