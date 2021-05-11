@@ -98,7 +98,7 @@ delta:
   description: Time interval in seconds between camera image updates
 timeframe:
   description: Minutes to look ahead for precipitation forecast sensors (minimum 5, maximum 120).
-{% configuration_basic %}
+{% endconfiguration_basic %}
 
 _[Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)
 Buienradar makes free weather data available for use by individuals and businesses (website/intranet). The use of the weather data is allowed for **non-commercial purposes**. Please refer to the full usage statement linked above to confirm your use or to request permission._
