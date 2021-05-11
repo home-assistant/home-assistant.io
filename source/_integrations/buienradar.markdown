@@ -88,26 +88,17 @@ The following entities will be created:
 
 ## Setting options
 
-To configure options for `buienradar` integration go to **Configuration** >> **Integrations** and press **Options** on the Buienradar card.
+{% include integrations/option_flow.md %}
 
-{% configuration %}
+{% configuration_basic %}
 country_code:
   description: You can specify the country code (NL or BE) of the
     country to display on the camera.
-  required: false
-  default: NL
-  type: string
 delta:
   description: Time interval in seconds between camera image updates
-  required: false
-  default: 600
-  type: integer
 timeframe:
   description: Minutes to look ahead for precipitation forecast sensors (minimum 5, maximum 120).
-  required: false
-  default: 60
-  type: integer
-{% endconfiguration %}
+{% configuration_basic %}
 
 _[Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)
 Buienradar makes free weather data available for use by individuals and businesses (website/intranet). The use of the weather data is allowed for **non-commercial purposes**. Please refer to the full usage statement linked above to confirm your use or to request permission._
