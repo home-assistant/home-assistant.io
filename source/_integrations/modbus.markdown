@@ -558,7 +558,7 @@ sensors:
       default: int
       type: string
     register_size:
-      description: Register size, number of bytes.
+      description: Register size, number of bytes of 1 count.
       required: false
       default: 2
       type: integer
