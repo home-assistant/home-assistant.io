@@ -18,7 +18,7 @@ ha_platforms:
   - weather
 ---
 
-The `buienradar` integration uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
+The Buienradar integration uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
 
 The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the Buienradar weather/sensor component).  A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0).
 
@@ -40,7 +40,7 @@ The camera entity is added disabled by default and should first be enabled befor
 
 ## Sensor
 
-The `buienradar` sensor platform will setup separate sensor entities with more detailed weather data. The selected weather station will provide all weather data, with the exception of the forecasted precipitation. The forecasted precipitation data will be retrieved from buienradar using your actual gps-location (and not the location of the nearest weather station). The sensor entities are disabled by default and should be enabled before they will be updated with data.
+The Buienradar integration will set up separate sensor entities with more detailed weather data. The selected weather station will provide all-weather data, with the exception of the forecasted precipitation. The forecasted precipitation data will be retrieved from Buienradar using your actual GPS location (and not the location of the nearest weather station). The sensor entities are disabled by default and should be enabled before they will be updated with data.
 
 The following entities will be created:
 
