@@ -614,10 +614,10 @@ setpoint_shift_state_address:
   required: false
   type: [string, list]
 setpoint_shift_mode:
-  description: Defines the internal device DPT used. Either 'DPT6010' or 'DPT9002'.
+  description: Defines the internal device DPT used. Either 'DPT6010', 'DPT9002' or None. When `None` or omitted the DPT is auto-assigned from the first incoming telegram.
   required: false
   type: string
-  default: DPT6010
+  default: None
 setpoint_shift_min:
   description: Minimum value of setpoint shift.
   required: false
@@ -894,7 +894,7 @@ rgbw_state_address:
   required: false
   type: [string, list]
 individual_colors:
-  description: Used when the actuator only supports individual group addresses for colors. When `address` is specified for all 3 (or 4) individual colors the root `address` key can be omitted.
+  description: Used when the actuator only supports individual group addresses for colors. When `individual_colors` is used the root `address` key may be omitted.
   required: false
   type: map
   keys:
