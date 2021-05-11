@@ -73,13 +73,13 @@ The following entities will be created:
 - **Minimum temperature n days ahead**: "The forecasted minimum temperature n days ahead (in [C](https://en.wikipedia.org/wiki/Celsius))."
 - **Rain chance n days ahead**: The forecasted chance for rain n days ahead (%).
 - **Sun chance n days ahead**: The forecasted chance for sun n days ahead (%).
-- **Rain n days ahead**: "The forecasted amount of rain in [mm] n days ahead (https://en.wikipedia.org/wiki/Millimetre); the average of minrain_1d and maxrain_1d."
-- **Minimum rain n days ahead**: "The minimum forecasted amount of rain in [mm] n days ahead (https://en.wikipedia.org/wiki/Millimetre)."
-- **Maximum rain n days ahead**: "The maximum forecasted amount of rain in [mm] n days ahead (https://en.wikipedia.org/wiki/Millimetre)."
+- **Rain n days ahead**: "The forecasted amount of rain in [mm](https://en.wikipedia.org/wiki/Millimeter) n days ahead; the average of minrain_1d and maxrain_1d."
+- **Minimum rain n days ahead**: "The minimum forecasted amount of rain in [mm](https://en.wikipedia.org/wiki/Millimeter) n days ahead."
+- **Maximum rain n days ahead**: "The maximum forecasted amount of rain in [mm](https://en.wikipedia.org/wiki/Millimeter) n days ahead."
 - **Wind azimuth n days ahead**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise for n days ahead. (derived from winddirection_1d)
 - **Wind direction n days ahead**: "Where the wind will be coming from n days ahead: N (North), Z (south), NO (North-East), etc."
-- **Wind force n days ahead**: "The expected windforce in [Bft] n days ahead (https://en.wikipedia.org/wiki/Beaufort_scale)."
-- **Wind speed n days ahead**: "The expected windspeed in [m/s] n days ahead (https://en.wikipedia.org/wiki/M/s) (derived from windforce_1d)."
+- **Wind force n days ahead**: "The expected windforce in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale) n days ahead."
+- **Wind speed n days ahead**: "The expected windspeed in [m/s](https://en.wikipedia.org/wiki/M/s) n days ahead (derived from windforce_1d)."
 - **Condition code n days ahead**: Symbol and condition code of the expected condition n days ahead.
 - **Condition n days ahead**: Symbol and expected condition n days ahead.
 - **Detailed condition n days ahead**: Symbol and detailed expected condition n days ahead.
