@@ -71,7 +71,7 @@ climate:
         required: false
         type: string
       value_template:
-        description: "Defines a template to get the hvac mode of the climate entity. Valid values set by `hvac_modes`."
+        description: "Defines a template to get the HVAC mode of the climate entity. Valid values set by `hvac_modes`."
         required: true
         type: template
       fan_mode_template:
@@ -87,7 +87,7 @@ climate:
         required: false
         type: template
       hvac_action_template:
-        description: "Defines a template to get the hvac action of the climate entity. Valid values: `off`, `heating`, `cooling`, `drying`, `idle`, `fan`."
+        description: "Defines a template to get the HVAC action of the climate entity. Valid values: `off`, `heating`, `cooling`, `drying`, `idle`, `fan`."
         required: false
         type: template
       availability_template:
@@ -96,7 +96,7 @@ climate:
         type: template
         default: true
       set_hvac_mode:
-        description: "Defines an action to run when the climate is given a hvac mode command."
+        description: "Defines an action to run when the climate is given a HVAC mode command."
         required: true
         type: action
       set_fan_mode:
@@ -124,7 +124,7 @@ climate:
         required: false
         type: float
       hvac_modes:
-        description: "List of hvac modes the climate entity is capable of. This list must contain only a subset of `off`, `heat`, `cool`, `heat_cool`, `auto`, `dry`, `fan_only`."
+        description: "List of HVAC modes the climate entity is capable of. This list must contain only a subset of `off`, `heat`, `cool`, `heat_cool`, `auto`, `dry`, `fan_only`."
         required: false
         type: [string, list]
         default: ['off', heat, cool, heat_cool, auto, dry, fan_only]
