@@ -241,7 +241,7 @@ The following database engines are tested when major changes are made to the rec
 | PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                                            |
 | PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                                  |
 | PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                                |
-| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;`              |
+| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=DRIVER`                      |
 
 <div class='note'>
 
@@ -392,6 +392,6 @@ You will also need to install an ODBC Driver. Microsoft ODBC drivers are recomme
 
 <div class='note'>
 
-If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8mb4;DRIVER={FreeTDS};Port=1433;`.
+If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8mb4&driver=FreeTDS`.
 
 </div>
