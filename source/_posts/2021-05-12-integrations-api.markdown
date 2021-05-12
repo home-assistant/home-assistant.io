@@ -1,6 +1,6 @@
 ---
 title: "Why Home Assistant doesn't have an external API for integrations"
-description: ""
+description: "How our API design promotes an open IoT ecosystem."
 date: 2021-05-12 00:00:00
 date_formatted: "May 12, 2021"
 author: Paulus Schoutsen
