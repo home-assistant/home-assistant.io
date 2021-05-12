@@ -59,5 +59,6 @@ automation:
           - '+14151234567'
           - '+15105555555'
         data:
-          - media_url: 'https://www.home-assistant.io/images/supported_brands/home-assistant.png'
+          media_url: 
+            - 'https://www.home-assistant.io/images/supported_brands/home-assistant.png'
 ```
