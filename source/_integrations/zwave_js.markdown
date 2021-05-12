@@ -287,7 +287,7 @@ These are notification events fired by devices using the Entry Control command c
 }
 ```
 
-## Scene events (Value Notification)
+### Scene events (Value Notification)
 
 Value Notifications are used for stateless values, like `Central Scenes` and `Scene Activation`. These events fire with the `zwave_js_value_notification` event type.
 
@@ -310,6 +310,50 @@ Value Notification example:
     "value": "KeyPressed",
     "value_raw": 0
 }
+```
+
+### Value updated events
+
+Due to some devices not following the Z-Wave spec, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to to capture any value updates that are received by an affected entity. This event is **enabled on a per device and per entity domain basis**, and the entities will have `assumed_state` set to `true`. This change will affect how the UI for these entities look; if you'd like the UI to match other entities of the same type where `assumed_state` is not set to `true`, you can override the setting via [entity customization](/docs/configuration/customizing-devices/#assumed_state).
+
+The following devices currently support this event:
+
+| Make            	| Model                            	| Entity Domain 	|
+|-----------------	|----------------------------------	|---------------	|
+| Vision Security 	| ZL7432 In Wall Dual Relay Switch 	| `switch`      	|
+
+Value Updated example:
+
+```json
+{
+    "node_id": 4,
+    "home_id": "974823419",
+    "device_id": "ad8098fe80980974",
+    "entity_id": "switch.in_wall_dual_relay_switch",
+    "command_class": 37,
+    "command_class_name": "Switch Binary",
+    "endpoint": 0,
+    "property": "currentValue",
+    "property_name": "currentValue",
+    "property_key": null,
+    "property_key_name": null,
+    "value": 0,
+    "value_raw": 0
+}
+```
+
+This event can be used to trigger a refresh of values when the new state needs to be retrieved. Here's an example automation:
+
+```yaml
+trigger:
+  platform: event
+  event_type: zwave_js_value_updated
+  event_data:
+    entity_id: switch.in_wall_dual_relay_switch
+action:
+  - service: zwave_js.refresh_value
+    target:
+      entity_id: switch.in_wall_dual_relay_switch_2, switch.in_wall_dual_relay_switch_3
 ```
 
 ## Current Limitations

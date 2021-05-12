@@ -53,10 +53,10 @@ Examples:
 
 | Device Name | Channel Name   | Entity Name                     |
 | ----------- | -------------- | --------------------------------|
-| `Not set`   |	`Not Set`	     | shellyswitch25-ABC123 Channel 1 |
-| `Not set`	  | Kids Room Bulb | Kids Room Bulb                  |
-| Kitchen     |	`Not Set`	     | Kitchen Channel 1               |
-| Bedroom	    | Round Bulb     | Round Bulb                      |
+| `Not set`   | `Not Set`      | shellyswitch25-ABC123 Channel 1 |
+| `Not set`   | Kids Room Bulb | Kids Room Bulb                  |
+| Kitchen     | `Not Set`      | Kitchen Channel 1               |
+| Bedroom     | Round Bulb     | Round Bulb                      |
 
 Names are set from the device web page:
 
@@ -107,17 +107,29 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
 | Shelly input event | Click Type    |
 | ------------------ | --------------|
 | `S`                | `single`      |
-| `SS`	             | `double`      |
+| `SS`               | `double`      |
 | `SSS`              | `triple`      |
-| `L`	               | `long`        |
-| `SL`	             | `single_long` |
-| `LS`	             | `long_single` |
+| `L`                | `long`        |
+| `SL`               | `single_long` |
+| `LS`               | `long_single` |
 
 <div class="note">
 
 Not all devices support all input events. You can check on [Shelly API Reference](https://shelly-api-docs.shelly.cloud/) website what types of Shelly input events your device supports.
 
 </div>
+
+## CoAP port
+
+In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
+
+In order to change it, add the following key to your configuration.yaml:
+
+```yaml
+# Example configuration.yaml entry
+shelly:
+  coap_port: 12345
+```
 
 ## Known issues and limitations
 

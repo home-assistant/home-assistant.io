@@ -18,7 +18,7 @@ away.
 If there wasn't any discovered automatically, don't worry! You can set up a
 manual integration entry:
 {% else %}
-If the above My button doesn't work, you can also preform the following steps
+If the above My button doesn't work, you can also perform the following steps
 manually:
 {% endif %}
 

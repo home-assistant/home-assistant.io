@@ -460,6 +460,7 @@ source/_integrations/switchbot.markdown @danielhiversen
 source/_integrations/switcher_kis.markdown @tomerfi
 source/_integrations/switchmate.markdown @danielhiversen
 source/_integrations/syncthru.markdown @nielstron
+source/_integrations/syncthing.markdown @zhulik
 source/_integrations/synology_dsm.markdown @hacf-fr @Quentame @mib1185
 source/_integrations/synology_srm.markdown @aerialls
 source/_integrations/syslog.markdown @fabaff
