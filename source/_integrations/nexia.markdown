@@ -1,6 +1,6 @@
 ---
 title: Nexia/American Standard
-description: Instructions on how to integrate Trane and American Standard Thermostats into Home Assistant.
+description: Instructions on how to integrate Trane and American Standard thermostats into Home Assistant.
 ha_category:
   - Binary Sensor
   - Sensor
