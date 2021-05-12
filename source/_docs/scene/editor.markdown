@@ -18,6 +18,7 @@ The state of your devices will be saved, so it can be restored when you are fini
 Set the state of the devices to how you want them to be in your scene, this can be done by clicking on it and edit the state from the popup, or any other method that changes the state.
 On the moment you save the scene, all the states of your devices are stored in the scene.
 When you leave the editor the states of the devices are restored to the state from before you started editing.
+The menu on the top-right has options to **Duplicate scene** and **Delete scene**.
 
 ## Updating your configuration to use the editor
 
