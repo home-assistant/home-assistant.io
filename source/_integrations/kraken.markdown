@@ -1,40 +1,28 @@
 ---
 title: Kraken
 description: Instructions on how to integrate Kraken.com sensors into Home Assistant.
-logo: kraken.svg
 ha_category:
   - Finance
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: 0.113
+ha_release: 2021.7
 ha_config_flow: true
+ha_quality_scale: gold
 ha_codeowners:
   - '@eifinger'
+ha_domain: kraken
+ha_platforms:
+  - sensor
 ---
 
 The `kraken` integration allows you to monitor exchange rates on [kraken.com](https://www.kraken.com/).
 For a list of tradable asset pairs check this [this kraken support article](https://support.kraken.com/hc/en-us/articles/201893658-Currency-pairs-available-for-trading-on-Kraken).
 
-## Configuration
+### Extra configuration of the integration
 
-Set up the integration through **Configuration -> Integrations -> Kraken**.
+You can configure the update rate and tracked asset pairs options through the integration options flow by clicking the gear icon on the top right of the integration details page.
 
-{% configuration %}
-source_asset:
-  description: The Source Asset of your exchange pair.
-  required: true
-  type: string
-target_asset:
-  description: The Target Asset of your exchange pair.
-  required: true
-  type: string
-{% endconfiguration %}
-
-## Integration Entities
-
-Each added configuration entry for this integration will create the following sensors for the tracked asset pair:
-
-`ask`,`ask_volume`, `bid`, `bid_volume`, `volume_today`, `volume_last_24h`, `volume_weighted_average_today`, `volume_weighted_average_last_24h`,
-`number_of_trades_today`, `number_of_trades_last_24h`, `last_trade_closed`, `low_today`, `low_last_24h`, `high_today`, `high_last_24h`, `opening_price_today`
-
-For example the entity_id for  the ask price for the pair `ETH` and `EUR` will look like `sensor.eth_eur_ask`.
+| Option | Description |
+| -------| ----------- |
+| Update interval | Seconds between updates. |
+| Tracked Asset Pairs | Select the assets you want to track. This list is automatically updated with a list of tradable assets on kraken.com |
