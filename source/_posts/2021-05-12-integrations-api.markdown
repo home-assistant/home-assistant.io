@@ -6,6 +6,7 @@ date_formatted: "May 12, 2021"
 author: Paulus Schoutsen
 author_twitter: balloob
 categories: Public-Service-Announcement
+og_image: /images/blog/2021-05-integrations-api
 ---
 
 Home Assistant is the world’s largest home automation platform talking with [over 1700 different devices and services](/integrations/). Home Assistant works with these via “integrations”.
