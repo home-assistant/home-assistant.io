@@ -58,7 +58,7 @@ The following binary sensors are added for each thermostat zone:
 
 The `nexia` climate platform lets you control a thermostat.
 
-The following Trane thermostats are supported: `XL1050`, `XL850`, `XL824`, 
+The following Trane thermostats are supported: `XL1050`, `XL850`, `XL824`
 
 The following American Standard thermostats have been reported to work: `AZONE1050`, `AZONE850`, `ACONT824`
 
