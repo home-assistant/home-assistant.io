@@ -36,8 +36,9 @@ TR-064 needs to be enabled in the FRITZ!Box network settings for Home Assistant 
 
 
 <div class='note'>
-If "Add all devices as tracker" is selected during setup, option "automatically add new devices" will also be enabled and all devices will be selected to be tracked.
-The option "automatically add new devices" and selection of devices to be tracked, can be changed via UI under integrations configuration.
+If "Add all devices as tracker" is selected during setup, the option "automatically add new devices" will also be enabled and all devices will be selected to be tracked.
+
+The option "automatically add new devices" and the selection of devices to be tracked, can be changed via the UI under integrations configuration.
 </div>
 
 ## Username
