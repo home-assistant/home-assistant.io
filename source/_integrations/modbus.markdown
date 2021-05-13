@@ -48,6 +48,11 @@ modbus:
 ```
 
 {% configuration %}
+close_comm_on_error:
+  description: Determines if the modbus communication is closed when an error occurs, default is true. Some serial-rs485 adapters sends garble to HA when opened, this lead to a disconnect and a new connect, which can continue. If in a running communication the debug log contains a message from pymodbus, with the text "cleaning....", then try this parameter.
+  required: false
+  default: true
+  type: boolean
 delay:
   description: Time to delay messages in seconds after connecting. Some modbus devices need a delay typically 1-2 seconds after connection is established in order to prepare the communication. If a device accepts connecting with no response to the requests sent or the device disconnects, this parameter might help.
   required: false
