@@ -15,12 +15,12 @@ ha_platforms:
   - sensor
 ---
 
-The `kraken` integration allows you to monitor exchange rates on [kraken.com](https://www.kraken.com/).
+The Kraken integration allows you to monitor exchange rates on [kraken.com](https://www.kraken.com/).
 For a list of tradable asset pairs check this [this kraken support article](https://support.kraken.com/hc/en-us/articles/201893658-Currency-pairs-available-for-trading-on-Kraken).
 
-### Extra configuration of the integration
+{% include integrations/config_flow.md %}
 
-You can configure the update rate and tracked asset pairs options through the integration options flow by clicking the gear icon on the top right of the integration details page.
+{% include integrations/option_flow.md %}
 
 | Option | Description |
 | -------| ----------- |
