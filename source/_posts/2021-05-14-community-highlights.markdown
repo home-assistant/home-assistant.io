@@ -38,7 +38,7 @@ another action? More variants can be found on the [Blueprint Exchange][blueprint
 ## Car Telemetry
 ------
 
-A few editites earlier we had shown the dashboard of [Make_Itt_Work](https://www.reddit.com/user/Make_Itt_Work/)
+A few editions earlier we had shown the dashboard of [Make_Itt_Work](https://www.reddit.com/user/Make_Itt_Work/)
 and it contained telemetry data from his car. The question was of course how does
 he do that?! Well, that question now has an answer, a video has come online with
 all the details.
