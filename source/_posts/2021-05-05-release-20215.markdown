@@ -57,6 +57,7 @@ want to tell me who it is...)
 - [Release 2021.5.1 - May 7](#release-202151---may-7)
 - [Release 2021.5.2 - May 10](#release-202152---may-10)
 - [Release 2021.5.3 - May 11](#release-202153---may-11)
+- [Release 2021.5.4 - May 14](#release-202154---may-14)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -479,6 +480,38 @@ The following integrations are now available via the Home Assistant UI:
 [denonavr docs]: /integrations/denonavr/
 [hue docs]: /integrations/hue/
 [sonos docs]: /integrations/sonos/
+
+## Release 2021.5.4 - May 14
+
+- Fix Sonos favorites race condition v2 ([@jjlawren] - [#50575]) ([sonos docs])
+- Fix battery attribute ([@cgtobi] - [#50405]) ([netatmo docs])
+- Bumps aioasuswrt to 1.3.4 ([@kennedyshead] - [#50414]) ([asuswrt docs])
+- Skip adding battery on S1 Sonos devices ([@jjlawren] - [#50536]) ([sonos docs])
+- Bump pyhaversion from 21.3.0 to 21.5.0 ([@ludeeus] - [#50540]) ([version docs])
+- Update light device actions to check supported_color_modes ([@emontnemery] - [#50611]) ([light docs])
+- Fix IQVIA failing to start if any API call fails ([@bachya] - [#50615]) ([iqvia docs])
+- Update light intents to check supported_color_modes ([@emontnemery] - [#50625]) ([light docs])
+
+[#50405]: https://github.com/home-assistant/core/pull/50405
+[#50414]: https://github.com/home-assistant/core/pull/50414
+[#50536]: https://github.com/home-assistant/core/pull/50536
+[#50540]: https://github.com/home-assistant/core/pull/50540
+[#50575]: https://github.com/home-assistant/core/pull/50575
+[#50611]: https://github.com/home-assistant/core/pull/50611
+[#50615]: https://github.com/home-assistant/core/pull/50615
+[#50625]: https://github.com/home-assistant/core/pull/50625
+[@bachya]: https://github.com/bachya
+[@cgtobi]: https://github.com/cgtobi
+[@emontnemery]: https://github.com/emontnemery
+[@jjlawren]: https://github.com/jjlawren
+[@kennedyshead]: https://github.com/kennedyshead
+[@ludeeus]: https://github.com/ludeeus
+[asuswrt docs]: /integrations/asuswrt/
+[iqvia docs]: /integrations/iqvia/
+[light docs]: /integrations/light/
+[netatmo docs]: /integrations/netatmo/
+[sonos docs]: /integrations/sonos/
+[version docs]: /integrations/version/
 
 ## If you need help...
 
