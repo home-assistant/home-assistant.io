@@ -49,7 +49,7 @@ modbus:
 
 {% configuration %}
 close_comm_on_error:
-  description: Determines if the modbus communication is closed when an error occurs, default is true. Some serial-rs485 adapters sends garble to HA when opened, this leads to a disconnect and a new connect, which can continue. If in a running communication the debug log contains a message from pymodbus, with the text "cleaning....", then try this parameter.
+  description: Determines if the modbus communication is closed when an error occurs, default is true. Some serial-rs485 adapters send garble to HA when opened, this leads to a disconnect and a new connect, which can continue. If in a running communication the debug log contains a message from pymodbus, with the text "cleaning....", then try this parameter.
   required: false
   default: true
   type: boolean
