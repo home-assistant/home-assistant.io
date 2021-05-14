@@ -52,7 +52,7 @@ voice:
   description: Voice name to be used.
   required: false
   type: string
-  default: en-US_AllisonVoice
+  default: en-US_AllisonV3Voice
 output_format:
   description: "Override the default output format. Supported formats: `audio/flac`, `audio/mp3`, `audio/mpeg`, `audio/ogg`, `audio/ogg;codecs=opus`, `audio/ogg;codecs=vorbis`, `audio/wav`"
   required: false
