@@ -27,6 +27,12 @@ This integration requires an active Mazda Connected Services subscription and a 
 - CX-9: 2021+
 - CX-5: 2021+
 
+{% include integrations/config_flow.md %}
+
+<div class='note warning'>
+    The MyMazda API only allows one active session at a time. Therefore, if you use the same account with both Home Assistant and the MyMazda mobile app, you may experience issues ("Multiple devices detected" notifications, session expired warnings, etc.) To fix this, you can create a secondary MyMazda account, and share your vehicle with the secondary account. Log in to the mobile app using the primary account and select Menu > MyMazda > My Vehicle > Drivers > Manage Drivers > Invite Driver. When finished, log into the secondary account with Home Assistant.
+</div>
+
 ## Platforms
 
 ### Sensor
@@ -47,12 +53,6 @@ Displays the current door lock status of the vehicle, and locks/unlocks the door
 
 <div class='note info'>
     The "Automatic Re-Lock" feature will automatically re-lock the doors if they are not opened shortly after being unlocked. This applies regardless of whether you are using the key, or unlocking the doors remotely using Home Assistant or the MyMazda app.
-</div>
-
-{% include integrations/config_flow.md %}
-
-<div class='note warning'>
-    The MyMazda API only allows one active session at a time. Therefore, if you use the same account with both Home Assistant and the MyMazda mobile app, you may experience issues ("Multiple devices detected" notifications, session expired warnings, etc.) To fix this, you can create a secondary MyMazda account, and share your vehicle with the secondary account. Log in to the mobile app using the primary account and select Menu > MyMazda > My Vehicle > Drivers > Manage Drivers > Invite Driver. When finished, log into the secondary account with Home Assistant.
 </div>
 
 ## Disclaimer
