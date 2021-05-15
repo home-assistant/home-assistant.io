@@ -32,18 +32,23 @@ There is support for the following platform types within Home Assistant:
 
 <div class='note'>
 TR-064 needs to be enabled in the FRITZ!Box network settings for Home Assistant to login and read device info.
+
+Per default no devices will be tracked, but can be selected to be tracked under configuration options (see below).
 </div>
 
-
-<div class='note'>
-If "Add all devices as tracker" is selected during setup, the option "automatically add new devices" will also be enabled and all devices will be selected to be tracked.
-
-The option "automatically add new devices" and the selection of devices to be tracked, can be changed via the UI under integrations configuration.
-</div>
-
-## Username
+### Username
 
 The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24 the default username was `admin`.
+
+### Configuration options
+
+- Add all devices to be tracked<br>
+  If enabled, "Automatically add new devices to be tracked" will be enabled and all devices will be selected to be tracked, after configuration is saved
+- Automatically add new devices to be tracked<br>
+  If enabled, new detected devices will automatically be added to be tracked
+- Tracked devices<br>
+  Selectable list of devices to be tracked
+
 
 ## Services
 
