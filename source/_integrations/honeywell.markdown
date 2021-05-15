@@ -6,6 +6,7 @@ ha_category:
   - Sensor
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_codeowners:
   - '@rdfurman'
 ha_domain: honeywell
@@ -20,16 +21,9 @@ It uses the [somecomfort](https://github.com/kk7ds/somecomfort) client library. 
 
 If your system is compatible with this integration, then you will be able access it via [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/) (note the `/portal/`).
 
+{% include integrations/config_flow.md %}
+
 ## Configuration
-
-To set up this integration, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-honeywell:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
 
 {% configuration %}
 username:
