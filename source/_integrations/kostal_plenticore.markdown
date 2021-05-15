@@ -42,6 +42,7 @@ The following sensors are available in the library:
 | AC Power                | W    | Output power of the inverter. |
 | DC1 Power               | W    | Power of string 1. |
 | DC2 Power               | W    | Power of string 2. |
+| DC3 Power               | W    | Power of string 3. |
 | PV to Battery Power     | W    | Power used to charge the battery. |
 | Energy Manager State    |      | State of the energy manager. |
 | Battery Cycles          |      | Number of full charge/discharge cylces. |
@@ -79,6 +80,10 @@ The following sensors are available in the library:
 | Energy PV2 Month        | kWh  | Energy of PV string 2 of the current month. |
 | Energy PV2 Year         | kWh  | Energy of PV string 2 of the current year. |
 | Energy PV2 Total        | kWh  | Energy of PV string 2 total. |
+| Energy PV3 Day          | kWh  | Energy of PV string 3 of the current day. |
+| Energy PV3 Month        | kWh  | Energy of PV string 3 of the current month. |
+| Energy PV3 Year         | kWh  | Energy of PV string 3 of the current year. |
+| Energy PV3 Total        | kWh  | Energy of PV string 3 total. |
 | Energy Yield Day        | kWh  | Energy yield of the current day. |
 | Energy Yield Month      | kWh  | Energy yield of the current month. |
 | Energy Yield Year       | kWh  | Energy yield of the current year. |
