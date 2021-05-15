@@ -45,15 +45,24 @@ port:
   description: The port to connect to the host on.
   required: true
   type: integer
-payload:
-  description: What to send to the host in order to get the response we're interested in.
-  required: true
-  type: string
+ssl:
+  description: Use SSL when connecting to the host.
+  required: false
+  type: boolean
+  default: false
+verify_ssl: Verify SSL certs when connecting using SSL to the host.
+  required: false
+  type: boolean
+  default: true
 timeout:
   description: How long in seconds to wait for a response from the service before giving up and disconnecting.
   required: false
   default: 10
   type: integer
+payload:
+  description: What to send to the host in order to get the response we're interested in.
+  required: true
+  type: string
 value_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
   required: false
