@@ -4,7 +4,7 @@ description: Instructions on how to integrate Garages Amsterdam within Home Assi
 ha_category:
   - Sensor
   - Binary Sensor
-ha_release: 0.119
+ha_release: 2021.6
 ha_codeowners:
   - '@klaasnicolaas'
 ha_config_flow: true
@@ -12,11 +12,9 @@ ha_iot_class: Cloud Polling
 ha_domain: garages_amsterdam
 ---
 
-The `garages_amsterdam` integration uses an API provided by the municipality of Amsterdam, to measure the occupancy of Amsterdam parking garages in the Netherlands.
+The Garages Amsterdam integration uses an API provided by the municipality of Amsterdam, to measure the occupancy of Amsterdam parking garages in the Netherlands.
 
-## Configuration
-
-To add **Garages Amsterdam** to your installation, go to **Configuration** -> **Integrations** in the UI, click on the button with `+ Add Integration` sign and from the list of integrations search for **Garages Amsterdam**. After this you will get a list of parking garages in Amsterdam that you can monitor. If you want to include multiple garages in your config, you repeat this process.
+{% include integrations/config_flow.md %}
 
 ### Sensor
 
