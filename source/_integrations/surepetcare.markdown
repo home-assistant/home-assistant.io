@@ -9,6 +9,9 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@benleb'
 ha_domain: surepetcare
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `surepetcare` component allows you to get information on your Sure Petcare Connect Pet or Cat Flap.
@@ -22,9 +25,6 @@ To add a flap, feeder or pet, add the following to your `configuration.yaml` fil
 surepetcare:
   username: YOUR_SURE_PETCARE_LOGIN
   password: YOUR_SURE_PETCARE_PASSWORD
-  feeders: [12345, 67890]
-  flaps: [13579]
-  pets: [24680]
 ```
 
 {% configuration %}
@@ -36,34 +36,22 @@ surepetcare:
     description: The Sure Petcare Password
     required: true
     type: string
-  flaps:
-    description: The IDs of the Sure Petcare flaps
-    required: false
-    type: list
-  feeders:
-    description: The IDs of the Sure Petcare feeders
-    required: false
-    type: list
-  pets:
-    description: The Sure Petcare IDs of the Pets to show
-    required: false
-    type: list
-  scan_interval:
-    description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
-    required: false
-    default: 3 minutes
-    type: time
 {% endconfiguration %}
 
-## Getting the IDs of your flaps, feeders and pets
+## Services
 
-There are (at least) three ways, sorted in "descending convenience order":
+### Service `surepetcare.set_lock_state`
 
-- Use the [surepy](https://github.com/benleb/surepy) tool (uses the same library as this integration) from [@benleb](https://github.com/benleb). A Python tool to get your token simply by running a single command (check `surepy --help` for the exact command).
-- Use the [sp_cli.py](https://github.com/rcastberg/sure_petcare/blob/master/sp_cli.py) from [@rcastberg](https://github.com/rcastberg) to fetch the IDs from the Sure Petcare API. With the default setting, the IDs will be written as JSON to `~/.surepet.cache`.
-- Visit [surepetcare.io](https://surepetcare.io) and log in with your Sure Petcare credentials. Open the developer tools in Chrome/Firefox, switch to the "Network" tab and refresh the page. Now look for calls to `start` (`pets`, `<household id>` and others are also possible, but `start` shows you all information at once). Click on this call and in the JSON displayed you will find all the needed IDs.
+This service lets you change the locking state of a flap.
 
-<p class='img'>
-<a href='/images/integrations/surepetcare/spc_ids.png' target='_blank'>
-  <img src='/images/integrations/surepetcare/spc_ids.png' alt='Where to find the IDs vie Browser developer console' /></a>
-</p>
+| Service data attribute | Required | Type | Description |
+| ---------------------- | -------- | -------- | ----------- |
+| `flap_id` | `True` | integer | Flap ID to change - see below for instructions on finding device IDs
+| `lock_state` | `True` | string | New state to change the flap to
+
+`lock_state` should be one of:
+
+- `unlocked` - flap is unlocked, pets are allowed both in and out.
+- `locked_in` - flap is 'in only' - pets can come in but not go back out.
+- `locked_out` - flap is 'out only' - pets can go out, but not back in.
+- `locked_all` - flap is locked both ways.

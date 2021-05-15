@@ -10,17 +10,19 @@ ha_codeowners:
   - '@etsinko'
   - '@OnFreund'
 ha_domain: monoprice
+ha_platforms:
+  - media_player
 ---
 
 The `monoprice` platform allows you to control [Monoprice 6-Zone Amplifier](https://www.monoprice.com/product?p_id=10761) using a serial connection.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-Menu: **Configuration** -> **Integrations**.
 
-Click on the `+` sign to add an integration and click on **Monoprice**.
-Select the serial port to which Monoprice amplifier is connected, and name the six sources (leave sources you're not using empty).
+## Configuration notes
 
+If you are using an IP232 module instead of a direct serial connection, then use `socket://<host>:<port>` in the port setting.
+  
 Sources can also be later edited from the integration options (gear icon in the top right when selecting the integration). Note that editing sources will remove the snapshot you may have saved.
 
 ## Zone Management

@@ -5,7 +5,9 @@ date: 2015-10-11 10:10:00 -0700
 date_formatted: "October 11, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 We discovered two issues annoying enough to warrant the release of 0.7.5:

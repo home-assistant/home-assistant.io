@@ -7,23 +7,70 @@
  Functional Styles (Required)
 ---------------------------------*/
 /* Tim Pietrusky advanced checkbox hack (Android <= 4.1.2) */
-body{ -webkit-animation: bugfix infinite 1s; }
-@-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }
+body {
+  -webkit-animation: bugfix infinite 1s;
+}
+@-webkit-keyframes bugfix {
+  from {
+    padding: 0;
+  }
+  to {
+    padding: 0;
+  }
+}
 
-.header { position: relative; }
-#toggle, .toggle { display: none; }
-.menu li { list-style: none; float:left;  }
+.header {
+  position: relative;
+}
+#toggle,
+.toggle {
+  display: none;
+}
+.menu li {
+  list-style: none;
+  float: left;
+}
 
-$menu-collapse: 944px;
+$menu-collapse: 1024px;
 
 // @media only screen and (max-width: $lap-end){
-@media only screen and (max-width: $menu-collapse){
-  .menu { display: none; opacity: 0; width: 100%; position: absolute; right: 0; }
-  .menu li { display: block; width: 100%; margin: 0; }
-  .menu li a { display: block; width: 100%; text-decoration: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-  .menu li a .icon { display: none; }
-  .toggle { display: block; position: relative; cursor: pointer; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
-  #toggle:checked ~ .menu { display: block; opacity: 1; z-index: 999; }
+@media only screen and (max-width: $menu-collapse) {
+  .menu {
+    display: none;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    right: 0;
+  }
+  .menu li {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+  .menu li a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .menu li a .icon {
+    display: none;
+  }
+  .toggle {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  #toggle:checked ~ .menu {
+    display: block;
+    opacity: 1;
+    z-index: 999;
+  }
 }
 
 /* support for submenus */
@@ -51,8 +98,10 @@ ul.menu li {
       a {
         display: block;
         padding: 20px 10px;
+        min-width: 150px;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
           background: $grayLighter;
         }
       }
@@ -72,7 +121,7 @@ header .grid {
   top: 68px;
 }
 
-.menu li a{
+.menu li a {
   @include box-sizing(border-box);
   @include transition(all 0.25s linear);
   display: block;
@@ -83,7 +132,8 @@ header .grid {
   line-height: 1;
 }
 
-.menu > li > a:hover, .menu > li > a:focus{
+.menu > li > a:hover,
+.menu > li > a:focus {
   background: $site-background;
   box-shadow: inset 0px 5px $navigation-color;
   color: $navigation-color;
@@ -91,26 +141,29 @@ header .grid {
   padding-bottom: 24px;
 }
 
-.toggle{
+.toggle {
   z-index: 20;
 }
 
-@media only screen and (max-width: $menu-collapse){
-  .menu{
+@media only screen and (max-width: $menu-collapse) {
+  .menu {
     background: $white;
-    border-top:    1px solid $navigation-color;
+    border-top: 1px solid $navigation-color;
     border-bottom: 4px solid $navigation-color;
   }
 
-  .menu, .menu li, .menu li a{
+  .menu,
+  .menu li,
+  .menu li a {
     height: auto;
   }
 
-  .menu li a{
+  .menu li a {
     padding: 15px 15px !important;
   }
 
-  .menu li a:hover, .menu li a:focus{
+  .menu li a:hover,
+  .menu li a:focus {
     background: $grayLighter;
     box-shadow: inset 5px 0px $navigation-color;
     padding: 15px 15px 15px 25px;
@@ -138,11 +191,11 @@ header .grid {
     white-space: nowrap;
   }
 
-  .toggle:hover::after{
+  .toggle:hover::after {
     background: darken($navigation-color, 7%);
   }
 
-  #toggle:checked + .toggle::after{
+  #toggle:checked + .toggle::after {
     content: attr(data-close);
   }
 

@@ -6,13 +6,22 @@ ha_category:
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: switch
-ha_iot_class:
+ha_platforms:
+  - light
 ---
 
 Keeps track which switches are in your environment, their state and allows you to control them.
 
 - Maintains a state per switch and a combined state `all_switches`.
 - Registers services `switch.turn_on`, `switch.turn_off`, and `switch.toggle` to control switches.
+
+## Device Class
+
+The way these switches are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for switches:
+
+- **None**: Generic switch. This is the default and doesn't need to be set.
+- **outlet**: This switch, switches a power outlet.
+- **switch**: A generic switch.
 
 ## Use the services
 

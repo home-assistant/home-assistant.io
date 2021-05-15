@@ -7,11 +7,15 @@ ha_category:
   - Fan
   - Sensor
   - Vacuum
-ha_iot_class: Cloud Polling
+ha_iot_class: Local Push
 ha_release: 0.47
-ha_codeowners:
-  - '@etheralm'
 ha_domain: dyson
+ha_platforms:
+  - air_quality
+  - climate
+  - fan
+  - sensor
+  - vacuum
 ---
 
 The `dyson` integration is the main integration to integrate all [Dyson](https://www.dyson.com) related platforms.
@@ -143,6 +147,7 @@ There are several attributes which can be used for automations and templates.
 
 | Attribute | Description |
 | --------- | ----------- |
+| `dyson_speed` | The exact speed (1-10 or "AUTO") of the fan device.|
 | `night_mode` | A boolean that indicates if the night mode of the fan device is on.|
 | `auto_mode` | A boolean that indicates if the auto mode of the fan device is on.|
 | `angle_low` | Int (between 5 and 355) that indicates the low angle of oscillation (only for DP04 and TP04).|
@@ -151,6 +156,64 @@ There are several attributes which can be used for automations and templates.
 | `timer` | Attribute that indicates the status of the auto power off timer, can be either 'OFF' or an integer representing the time remaining until shutdown in minutes (only for DP04 and TP04).|
 | `hepa filter` | Remaining life of the fan's HEPA filter in % (only for DP04 and TP04 — Combi filter for PH01).|
 | `carbon filter` | Remaining life of the fan's carbon filter in % (only for DP04 and TP04).|
+
+
+### Additional Services
+
+#### Service `dyson.set_speed`
+
+Set the exact speed (1-10) of the fan.
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `entity_id` | No | Name(s) of the entities to set the speed for | "fan.pure_cool" |
+| `dyson_speed` | Yes | The exact speed to be set | 5 |
+
+#### Service `dyson.set_auto_mode`
+
+Set the fan in auto mode.
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `entity_id` | No | Name(s) of the entities to enable/disable auto mode | "fan.pure_cool" |
+| `auto_mode` | Yes | Auto mode status | true |
+
+#### Service `dyson.set_night_mode`
+
+Set the fan in night mode.
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `entity_id` | No | Name(s) of the entities to enable/disable night mode | "fan.pure_cool" |
+| `night_mode` | Yes | Night mode status | true |
+
+#### Service `dyson.set_angle` (only for DP04 and TP04)
+
+Set the oscillation angle of the selected fan(s).
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `entity_id` | No | Name(s) of the entities for which to set the angle | "fan.pure_cool" |
+| `angle_low` | Yes | The angle at which the oscillation should start | 1 |
+| `angle_high` | Yes | The angle at which the oscillation should end | 255 |
+
+#### Service `dyson.set_flow_direction_front` (only for DP04 and TP04)
+
+Set the fan flow direction.
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `entity_id` | No | Name(s) of the entities to set frontal flow direction for | "fan.pure_cool" |
+| `flow_direction_front` | Yes | Frontal flow direction | true |
+
+#### Service `dyson.set_timer` (only for DP04 and TP04)
+
+Set the sleep timer.
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `entity_id` | No | Name(s) of the entities to set the sleep timer for | "fan.pure_cool" |
+| `timer` | Yes | The value in minutes to set the timer to, 0 to disable it | 30 |
 
 ## Sensor
 

@@ -12,6 +12,11 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@frenck'
 ha_domain: wled
+ha_zeroconf: true
+ha_platforms:
+  - light
+  - sensor
+  - switch
 ---
 
 [WLED](https://github.com/Aircoookie/WLED) is a fast and feature-rich
@@ -21,24 +26,7 @@ NeoPixel (WS2812B, WS2811, SK6812, APA102, and similar) LED's.
 While Home Assistant supports WLED 0.8.4 and higher, the use of WLED 0.10 and
 newer is recommended to get the optimal experience.
 
-## Configuration
-
-This integration can be configured using the integrations in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-In most cases, the WLED devices will be automatically discovered by
-Home Assistant. Those automatically discovered WLED devices are listed
-on the integrations page.
-
-If for some reason (e.g., due to lack of mDNS support on your network),
-the WLED device isn't discovered, it can be added manually.
-
-Click on the `+` sign to add an integration and click on **WLED**.
-After completing the configuration flow, the WLED
-integration will be available.
-
+{% include integrations/config_flow.md %}
 ## Lights
 
 This integration adds the WLED device as a light in Home Assistant.
@@ -123,3 +111,48 @@ This service allows for loading a preset saved on the WLED device.
 
 More information on presets [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/Presets)
 
+## Example Automations
+
+### Activating Random Effect
+
+You can automate changing the effect using a service call like this:
+
+{% raw %}
+
+```yaml
+service: wled.effect
+target:
+  entity_id: light.wled
+data:
+  effect: "{{ state_attr('light.wled', 'effect_list') | random }}"
+```
+
+{% endraw %}
+
+### Activating Random Palette
+
+Activating a random palette is a bit more complicated as there is currently no way to obtain a list of available palettes.
+To go around this issue, one solution is to leverage the fact that palettes can be activated by their IDs.
+As the IDs are based on an incrementing counter, picking a random number between zero and the number of palettes minus one works.
+
+To do this, the first step is to use [WLED's JSON API](https://github.com/Aircoookie/WLED/wiki/JSON-API) find out how many palettes the device supports:
+
+```bash
+$ curl --silent http://<ip address of the wled device>/json | jq ".palettes | length"
+
+54
+```
+
+In this case (using WLED v0.11.0) there are 54 palettes, so the following service call will activate a random palette by its ID between 0 and 53:
+
+{% raw %}
+
+```yaml
+service: wled.effect
+target:
+  entity_id: light.wled
+data:
+  palette: "{{ range(0,53) | random }}"
+```
+
+{% endraw %}

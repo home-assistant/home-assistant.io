@@ -58,6 +58,7 @@ Errors and warnings are posted as the event `system_log_event`, so it is possibl
 | `source`    | File that triggered the error, e.g., `core.py` or `media_player/yamaha.py`. |
 | `exception` | Full stack trace if available, an empty string otherwise.                   |
 | `message`   | Descriptive message of the error, e.g., "Error handling request".           |
+| `name`      | Name of the component, e.g., `homeassistant.components.device_tracker`      |
 | `timestamp` | Unix timestamp with as a double, e.g., 1517241010.237416.                   |
 
 Live examples of these events can be found in the Home Assistant log file (`home-assistant.log`) or by just looking in the system log. An example could, for instance, look like this:
@@ -70,7 +71,7 @@ Traceback (most recent call last):
 [...]
 ```
 
-The message ("Unable to find integration system_healt"), source (`homeassistant.loader`) and level (`ERROR`) can easily be extracted from the log. The exact timestamp and if there is a stack trace that's shown as well. Here is another error caused by the `google_map` integration with additional output present.
+The message ("Unable to find integration system_healt"), name (`homeassistant.loader`) and level (`ERROR`) can easily be extracted from the log. The exact timestamp and if there is a stack trace that's shown as well. Here is another error caused by the `google_map` integration with additional output present.
 
 ## Examples 
 
@@ -87,7 +88,7 @@ counter:
     icon: mdi:alert
 
 automation:
-  - alias: Count warnings
+  - alias: "Count warnings"
     trigger:
       platform: event
       event_type: system_log_event
@@ -95,7 +96,8 @@ automation:
         level: WARNING
     action:
       service: counter.increment
-      entity_id: counter.warning_counter
+      target:
+        entity_id: counter.warning_counter
 ```
 
 ### Conditional Messages
@@ -103,9 +105,10 @@ automation:
 This automation will create a persistent notification whenever an error or warning is logged that has the word "service" in the message:
 
 {% raw %}
+
 ```yaml
 automation:
-  - alias: Create notifications for "service" errors
+  - alias: "Create notifications for "service" errors"
     trigger:
       platform: event
       event_type: system_log_event
@@ -116,27 +119,26 @@ automation:
       service: persistent_notification.create
       data:
         title: Something bad happened
-        message: '{{ trigger.event.data.message }}'
+        message: "{{ trigger.event.data.message }}"
 ```
+
 {% endraw %}
 
 ### Writing to log
 
 This automation will create a new log entry when the door is opened:
 
-{% raw %}
 ```yaml
 automation:
-  - alias: Log door opened
+  - alias: "Log door opened"
     trigger:
       platform: state
       entity_id: binary_sensor.door
-      from: 'off'
-      to: 'on'
+      from: "off"
+      to: "on"
     action:
       service: system_log.write
       data:
-        message: 'Door opened!'
+        message: "Door opened!"
         level: info
 ```
-{% endraw %}

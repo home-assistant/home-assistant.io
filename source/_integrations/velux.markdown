@@ -9,6 +9,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@Julius2342'
 ha_domain: velux
+ha_platforms:
+  - cover
+  - scene
 ---
 
 [Velux](https://www.velux.com/) integration for Home Assistant allows you to connect to a Velux KLF 200 interface, to control [io-homecontrol](http://www.io-homecontrol.com) devices like windows and blinds. The module allows you to start scenes configured within KLF 200.
@@ -41,3 +44,29 @@ password:
   required: true
   type: string
 {% endconfiguration %}
+
+## Services
+
+### Service `velux.reboot_gateway`
+
+Reboots the configured KLF 200 Gateway.
+
+There is a problem with the KLF 200 gateway where the connection cannot be established after a restart of Home Assistant, only a manual power off and on fixes this.
+As a workaround, you can use an automation to force a restart of the KLF 200 before exiting Home Assistant, like this:
+
+```yaml
+automation:
+  alias: KLF reboot on hass stop event
+  description: Reboots the KLF200 in order to avoid SSL Handshake issue
+  trigger:
+    - platform: homeassistant
+      event: shutdown
+  action:
+    - service: velux.reboot_gateway
+```
+
+## Velux Active (KIX 300)
+
+The Velux Active (KIX 300) set is not supported by this integration. To integrate Velux Active (KIX 300) with Home Assistant, you can use the [HomeKit Controller](/integrations/homekit_controller) integration and get full control over your windows, curtains, covers, the air quality sensor KLA 300, etc.
+
+Add the Velux Active gateway using HomeKit pairing (with the pairing code on the sticker at the bottom of the Velux Active gateway) and the devices connected to the gateway - including sensors - will be automatically discovered and added to Home Assistant.

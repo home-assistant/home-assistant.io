@@ -57,7 +57,7 @@ Along with the event the following payload parameters are available:
 #### Example Automation:
 
 ```yaml
-- alias: Download Failed Notification
+- alias: "Download Failed Notification"
   trigger:
     platform: event
     event_type: downloader_download_failed

@@ -6,6 +6,8 @@ ha_category:
 ha_release: '0.20'
 ha_domain: twilio_sms
 ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
 ---
 
 The `twilio` notification platform enables sending notifications via SMS, powered by [Twilio](https://twilio.com).
@@ -45,14 +47,14 @@ Media can be included with messages by setting the optional `media_url` variable
 ```yaml
 # Example automation notification entry
 automation:
-  - alias: The sun has set
+  - alias: "The sun has set"
     trigger:
       platform: sun
       event: sunset
     action:
       service: notify.twilio_sms
       data:
-        message: 'The sun has set'
+        message: "The sun has set"
         target:
           - '+14151234567'
           - '+15105555555'

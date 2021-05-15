@@ -7,6 +7,9 @@ ha_category:
 ha_release: '0.95'
 ha_iot_class: Cloud Polling
 ha_domain: streamlabswater
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `Streamlabs Water` integration platform is used to interact with [StreamLabs water monitoring devices](https://www.streamlabswater.com/) in order to retrieve usage information and manage the away mode of the device. The [StreamLabs Water API](https://developer.streamlabswater.com) is used to retrieve daily, monthly, and yearly water usage along with the current away mode.

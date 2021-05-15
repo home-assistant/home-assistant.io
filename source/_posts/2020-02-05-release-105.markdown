@@ -7,7 +7,9 @@ date_formatted: "February 5, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-02-0.105/components.png
 ---
 
@@ -221,7 +223,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
         entity_id: all
       action:
         service: light.turn_off
-        entity_id: all
+        target:
+          entity_id: all
   ```
 
 - __Group__ *Deprecated* - Group configurations options, services and service options related to the old states UI are now deprecated and pending for removal in Home Assistant 0.107.0.
@@ -436,11 +439,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
   ```yaml
   tts:
     - platform: marytts
-      host: 'localhost'
+      host: "localhost"
       port: 59125
-      codec: 'WAVE_FILE'
-      voice: 'cmu-slt-hsmm'
-      language: 'en_US'
+      codec: "WAVE_FILE"
+      voice: "cmu-slt-hsmm"
+      language: "en_US"
       effect:
         Volume: "amount:2.0;",
         TractScaler: "amount:1.5;",
@@ -765,7 +768,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Search: Add search to default config and don't resolve area ([@bramkragten] - [#30762]) ([default_config docs]) ([search docs])
 - Allow input_* and timer component setup without config ([@Adminiuga] - [#30772]) ([input_boolean docs]) ([input_number docs]) ([input_select docs]) ([input_text docs]) ([timer docs])
 - Add Config Flow support, Device Registry support, available property to vizio component ([@raman325] - [#30653]) ([vizio docs]) (breaking change)
-- Update pyubee to 0.8 ([@mzdrale] - [#30785]) ([ubee docs])
+- Update pyubee to 0.8 ([@mzdrale] - [#30785])
 - Add support for vacuums to Alexa. ([@ochlocracy] - [#30764]) ([alexa docs])
 - Mark hide_entity deprecated in automation integration ([@frenck] - [#30799]) ([automation docs]) (breaking change)
 - Bump librouteros to 3.0.0 ([@springstan] - [#30800]) ([mikrotik docs])
@@ -1544,7 +1547,6 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [tod docs]: /integrations/tod/
 [tplink docs]: /integrations/tplink/
 [tuya docs]: /integrations/tuya/
-[ubee docs]: /integrations/ubee/
 [velbus docs]: /integrations/velbus/
 [versasense docs]: /integrations/versasense/
 [vicare docs]: /integrations/vicare/

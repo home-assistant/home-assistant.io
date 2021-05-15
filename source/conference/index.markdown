@@ -1,8 +1,7 @@
 ---
 title: Home Assistant Conference 2020
 show_title: false
-# is_homepage: true
-hide_github_edit: true
+feedback: false
 description: December 13, 2020 we will host the first online Home Assistant Conference.
 og_image: /images/conference/social.png
 ---
@@ -18,6 +17,29 @@ Paulus Schoutsen, the founder of Home Assistant, will give the opening and closi
 
 After the talks, attendees will be able to join various sessions about different topics like automations, Lovelace and Q&A with Home Assistant developers.
 
+## Watch it back
+
+The conference is over! All talks have been [published online on YouTube](https://www.youtube.com/playlist?list=PLKsVm4cWHDQDGRXnybFUOLlcDWPsroGGB) and are also embedded below:
+
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLKsVm4cWHDQDGRXnybFUOLlcDWPsroGGB" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+## Keynotes & Talks schedule
+
+The line-up consists of 16 talks in between 2 keynotes: an opening and a closing
+keynote.
+
+The opening keynote will mainly focus on what has been done the last year. The
+closing keynote will be spoiling all kinds of new goodness that is coming.
+
+<img src='/images/conference/schedule.png' alt='Home Assistant Conference schedule' class='no-shadow'>
+
+The schedule is also available on our Hopin page. Which has more information
+available about our speakers.
+
+[View the Home Assistant Conference schedule on Hopin](https://hopin.to/events/home-assistant-conference#schedule)
+
 ## Attending
 
 The Home Assistant Conference will be hosted on [Hopin](https://hopin.to/events/home-assistant-conference), an online conference platform. Tickets to attend will cost $1, which will cover the cost of the platform.
@@ -29,7 +51,3 @@ The conference will also be available as a free YouTube live stream. The live st
 To be notified when the live stream is online, [visit YouTube](https://www.youtube.com/watch?v=xSB_MuKkgxE) and click "Set Reminder".
 
 Recordings of the keynote and all tracks and sessions will be made available on YouTube after the conference.
-
-## Speakers & Schedule
-
-_To be announced._

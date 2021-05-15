@@ -19,7 +19,7 @@ To use this component, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 rest_command:
   example_request:
-    url: 'http://example.com/'
+    url: "http://example.com/"
 ```
 
 {% configuration %}
@@ -96,6 +96,7 @@ The commands can be dynamic, using templates to insert values of other entities.
 In this example, uses [templates](/docs/configuration/templating/) for dynamic parameters.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 rest_command:
@@ -104,12 +105,13 @@ rest_command:
     method: POST
     headers:
       authorization: !secret rest_headers_secret
-      accept: 'application/json, text/html'
+      accept: "application/json, text/html"
       user-agent: 'Mozilla/5.0 {{ useragent }}'
     payload: '{"profile":{"status_text": "{{ status }}","status_emoji": "{{ emoji }}"}}'
     content_type:  'application/json; charset=utf-8'
     verify_ssl: true
 ```
+
 {% endraw %}
 
 ### How to test your new REST command
@@ -122,11 +124,12 @@ Call the new service from [developer tools](/docs/tools/dev-tools/) in the sideb
   "emoji":":plex:"
 }
 ```
+
 ### Using a REST command as an action in an automation
 
 ```yaml
 automation:
-- alias: 'Arrive at Work'
+- alias: "Arrive at Work"
   trigger:
     platform: zone
     entity_id: device_tracker.my_device

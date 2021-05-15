@@ -16,13 +16,13 @@ Widget to show a picture as a header or a footer. A picture can have touch actio
 ```yaml
 header:
   type: picture
-  image: 'https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png'
+  image: "https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png"
 ```
 
 {% configuration header-footer %}
 type:
   required: true
-  description: picture
+  description: "`picture`"
   type: string
 image:
   required: true
@@ -52,9 +52,9 @@ footer:
   entities:
     - script.launch_confetti
     - entity: script.swirl_lights
-      icon: 'mdi:track-light'
+      icon: "mdi:track-light"
     - entity: script.run_siren
-      icon: 'mdi:alarm-light'
+      icon: "mdi:alarm-light"
 ```
 
 {% configuration header-footer %}
@@ -65,11 +65,11 @@ entities:
   keys:
     entity:
       required: true
-      description: The entity to render.
+      description: The entity ID to render.
       type: string
     icon:
       required: false
-      description: Override the entity icon.
+      description: Override the entity icon. You can use any icon from [MaterialDesignIcons.com](http://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
       type: string
     image:
       required: false
@@ -77,7 +77,7 @@ entities:
       type: string
     name:
       required: false
-      description: Label for the button
+      description: Label for the button.
       type: string
 {% endconfiguration %}
 
@@ -100,11 +100,11 @@ footer:
 {% configuration header-footer %}
 entity:
   required: true
-  description: Entity id of `sensor` domain
+  description: Entity ID of `sensor` domain.
   type: string
 detail:
   required: false
-  description: Detail of the graph `1` or `2`, `1` equals one point/hour, `2` equals six points/hour
+  description: "Detail level of the graph: `1` or `2` (`1` = one point/hour, `2` = six points/hour)"
   type: integer
   default: 1
 hours_to_show:

@@ -7,6 +7,12 @@ ha_category:
 ha_release: 0.12
 ha_iot_class: Local Polling
 ha_domain: command_line
+ha_platforms:
+  - binary_sensor
+  - cover
+  - notify
+  - sensor
+  - switch
 ---
 
 The `command_line` binary sensor platform issues specific commands to get data.
@@ -19,7 +25,7 @@ To use your Command binary sensor in your installation, add the following to you
 # Example configuration.yaml entry
 binary_sensor:
   - platform: command_line
-    command: 'cat /proc/sys/net/ipv4/ip_forward'
+    command: "cat /proc/sys/net/ipv4/ip_forward"
 ```
 
 <div class='note'>
@@ -81,7 +87,7 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 binary_sensor:
   - platform: command_line
     command: 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")'
-    name: 'sickragerunning'
+    name: "sickragerunning"
     device_class: moving
     payload_on: "Running"
     payload_off: "Not running"
@@ -95,7 +101,7 @@ Check if [RasPlex](https://github.com/RasPlex/RasPlex) is `online`.
 binary_sensor:
   - platform: command_line
     command: 'ping -c 1 rasplex.local | grep "1 received" | wc -l'
-    name: 'is_rasplex_online'
+    name: "is_rasplex_online"
     device_class: connectivity
     payload_on: 1
     payload_off: 0
@@ -133,8 +139,8 @@ A binary command line sensor can check this:
 binary_sensor:
   - platform: command_line
     command: '/bin/systemctl is-active home-assistant@rock64.service'
-    payload_on: 'active'
-    payload_off: 'inactive'
+    payload_on: "active"
+    payload_off: "inactive"
 ```
 
 ## Services

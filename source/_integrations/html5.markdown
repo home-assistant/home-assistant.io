@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.27
 ha_iot_class: Cloud Push
 ha_domain: html5
+ha_platforms:
+  - notify
 ---
 
 The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
@@ -167,8 +169,9 @@ data:
 Example of adding a tag to your notification. This won't create new notification if there already exists one with the same tag.
 
 {% raw %}
+
 ```yaml
-  - alias: Push/update notification of sensor state with tag
+  - alias: "Push/update notification of sensor state with tag"
     trigger:
       - platform: state
         entity_id: sensor.sensor
@@ -178,8 +181,9 @@ Example of adding a tag to your notification. This won't create new notification
         message: "Last known sensor state is {{ states('sensor.sensor') }}."
       data:
         data:
-          tag: 'notification-about-sensor'
+          tag: "notification-about-sensor"
 ```
+
 {% endraw %}
 
 #### Targets
@@ -238,12 +242,9 @@ data:
 You can dismiss notifications by using service html5.dismiss like so:
 
 ```json
-{
-  "target": ["my phone"],
-  "data": {
-    "tag": "notification_tag"
-  }
-}
+target: ['my phone']
+data:
+  tag: notification_tag
 ```
 
 If no target is provided, it dismisses for all.
@@ -271,7 +272,7 @@ You will receive an event named `html5_notification.received` when the
 notification is received on the device.
 
 ```yaml
-- alias: HTML5 push notification received and displayed on device
+- alias: "HTML5 push notification received and displayed on device"
   trigger:
     platform: event
     event_type: html5_notification.received
@@ -282,7 +283,7 @@ notification is received on the device.
 You will receive an event named `html5_notification.clicked` when the notification or a notification action button is clicked. The action button clicked is available as `action` in the `event_data`.
 
 ```yaml
-- alias: HTML5 push notification clicked
+- alias: "HTML5 push notification clicked"
   trigger:
     platform: event
     event_type: html5_notification.clicked
@@ -291,7 +292,7 @@ You will receive an event named `html5_notification.clicked` when the notificati
 or
 
 ```yaml
-- alias: HTML5 push notification action button clicked
+- alias: "HTML5 push notification action button clicked"
   trigger:
     platform: event
     event_type: html5_notification.clicked
@@ -304,7 +305,7 @@ or
 You will receive an event named `html5_notification.closed` when the notification is closed.
 
 ```yaml
-- alias: HTML5 push notification clicked
+- alias: "HTML5 push notification clicked"
   trigger:
     platform: event
     event_type: html5_notification.closed
@@ -339,10 +340,23 @@ If you still have the problem, even with mentioned rule, try to add this code:
 
 If you need to verify domain ownership with Google Webmaster Central/Search Console while configuring this component, follow these steps:
 
+##### HTML file verification (only works for `/local` URLs)
+
 1. Enter your domain and add `/local` at the end, e.g., `https://example.com:8123/local`
 2. Select HTML file verification and download the google*.html file.
-2. Create a directory named `www` in your Home Assistant configuration directory (`/config/` share from Samba add-on).
-3. Place the downloaded `google*.html` file in the `www` directory.
-4. RESTART Home Assistant. **This is important!**
-5. Verify the file can be accessed in the browser, e.g., `https://example.com:8123/local/google123456789.html` (change filename). You should see a plain text message saying "google-site-verification: ...". If you see "404: Not Found" or something else, retry the above steps.
-6. Go back to Google Webmaster Central/Search Console and proceed with the verification.
+3. Create a directory named `www` in your Home Assistant configuration directory (`/config/` share from Samba add-on).
+4. Place the downloaded `google*.html` file in the `www` directory.
+5. RESTART Home Assistant. **This is important!**
+6. Verify the file can be accessed in the browser, e.g., `https://example.com:8123/local/google123456789.html` (change filename). You should see a plain text message saying "google-site-verification: ...". If you see "404: Not Found" or something else, retry the above steps.
+7. Go back to Google Webmaster Central/Search Console and proceed with the verification.
+
+##### DNS verification (only if you control your DNS record or use DuckDNS)
+
+1. Enter your domain's base URL, like `https://example.com:8123/`
+2. Select DNS verification. If you're asked to choose your DNS provider, choose "Any DNS provider" or "Other".
+3. Add the TXT record to your DNS. If you use DuckDNS, use the format:
+   ```text
+   https://www.duckdns.org/update?domains={your Duck DNS subdomain (the part before .duckdns.org)}&token={your Duck DNS token}&txt={google-site-verification record}
+   ```
+4. Wait until the changes take effect. This can be anywhere from seconds to hours, so be patient. You can use [this site to test it](https://www.digwebinterface.com/).
+5. Go back to Google Webmaster Central/Search Console and proceed with the verification.

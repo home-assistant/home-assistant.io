@@ -8,6 +8,8 @@ ha_release: pre 0.7
 ha_codeowners:
   - '@mzdrale'
 ha_domain: luci
+ha_platforms:
+  - device_tracker
 ---
 
 This is a presence detection scanner for OpenWrt using [luci](https://openwrt.org/docs/techref/luci).

@@ -4,7 +4,7 @@ sidebar: false
 hero_unit: true
 is_homepage: true
 regenerate: true
-hide_github_edit: true
+feedback: false
 description:
   Open source home automation that puts local control and privacy first.
 ---
@@ -26,6 +26,18 @@ description:
           <a href="/latest-release-notes/">Release notes</a>
         </div>
       </div>
+
+      <div class="recent-posts material-card text">
+        <h1>Recent Blog Posts</h1>
+
+        {% for post in site.posts limit: 4 %}
+        <li class="post" style="display: grid; font-size: 16px;">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+          <small class="blog-date">{{ post.date_formatted }}</small>
+        </li>
+        {% endfor %}
+      </div>
+
       <div class="join-community material-card text">
         <h1>Join The Community</h1>
         We love to help with &amp; talk about home automation.
@@ -37,22 +49,12 @@ description:
       </div>
 
       <a
-        class="material-card picture-promo"
-        href="/conference/"
-        style="
-          background-image: url(/images/conference/frontpage-card.png);
-          padding-top: 43%;
-        "
-      ></a>
-
-      <a
-        class="material-card picture-promo"
-        href="/blog/2020/10/01/hacktoberfest-2020/"
-        style="
-          background-image: url(/images/frontpage/hacktoberfest.png);
-          padding-top: 57%;
-        "
-      ></a>
+        class="material-card highlight-blog-post"
+        href="/blog/2016/01/19/perfect-home-automation/"
+      >
+        Read our founder's vision for the perfect home automation
+        <i class="icon-arrow-right"></i>
+      </a>
 
       <div class="material-card text">
         <h1>Alexa, turn on the lights</h1>
@@ -72,62 +74,62 @@ description:
       </div>
 
       <a
-        class="material-card highlight-blog-post"
-        href="/blog/2016/01/19/perfect-home-automation/"
-      >
-        Read our founder's vision for the perfect home automation
-        <i class="icon-arrow-right"></i>
-      </a>
-
-      <a
         class="material-card picture-promo"
         href="/blog/2019/08/06/home-assistant-cast/"
         style="background-image: url(/images/frontpage/cast-frontpage.png)"
       >
         <div class="caption">
-          <div class="title">Take over all the screens</div>
-          <div class="subtitle">
-            Home Assistant Cast makes each TV a display.
+          <div class="title">
+            Take over all the screens
+            <div class="subtitle">
+              Home Assistant Cast makes each TV a display.
+            </div>
           </div>
+          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
         </div>
       </a>
     </div>
     <div class="grid__item two-thirds lap-two-thirds palm-one-whole">
-      <div class="recent-posts material-card text">
-        <h1>Recent Blog Posts</h1>
-
-        {% for post in site.posts limit: 4 %}
-        <li class="post">
-          <a href="{{ post.url }}">{{ post.title }}</a>
-          <small class="blog-date">{{ post.date_formatted }}</small>
-        </li>
-        {% endfor %}
-      </div>
 
       <a
         class="material-card picture-promo"
-        href="/blog/2019/11/22/state-of-the-union/"
+        href="/blue"
         style="
-          background-image: url(/images/frontpage/sotu2019-paulus.jpeg);
+          background-image: url(/images/blue/blue_narrow.jpg);
           background-size: cover;
           background-color: #41bdf5;
         "
       >
         <div class="caption">
-          <div class="title">State of the Union 2019</div>
-          <div class="subtitle">
-            Learn why we do what we do and what is next.
+          <div class="title">
+            Home Assistant Blue!
+            <div class="subtitle">
+              Where style and performance meet privacy
+            </div>
           </div>
+          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
         </div>
       </a>
 
       <a
-        class="material-card highlight-blog-post large"
-        href="/blog/2017/07/25/introducing-hassio/"
+        class="material-card picture-promo"
+        href="/conference/"
+        style="
+          background-image: url(/images/conference/frontpage-card.png);
+          background-size: cover;
+          background-color: #41bdf5;
+          background-position: top;
+        "
       >
-        Learn how our OS can turn your Raspberry Pi into the ultimate home
-        automation hub
-        <i class="icon-arrow-right"></i>
+        <div class="caption">
+          <div class="title">
+            December 13, 2020
+            <div class="subtitle">
+              It's all about Home Assistant!
+            </div>
+          </div>
+          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+        </div>
       </a>
 
       <a
@@ -138,10 +140,13 @@ description:
         "
       >
         <div class="caption">
-          <div class="title">Home Assistant Tags</div>
-          <div class="subtitle">
-            Use NFC to bring music to your life or automate the mundane.
+          <div class="title">
+            Home Assistant Tags
+            <div class="subtitle">
+              Use NFC to bring music to your life or automate the mundane.
+            </div>
           </div>
+          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
         </div>
       </a>
 
@@ -151,10 +156,13 @@ description:
         style="background-image: url(/images/merchandise/shirt-frontpage.png)"
       >
         <div class="caption">
-          <div class="title">Join the Home Assistant t-shirt revolution!</div>
-          <div class="subtitle">
-            Look sharp in blue, black or gray. Wearing a HA t-shirt is okay.
+          <div class="title">
+            Join the Home Assistant t-shirt revolution!
+            <div class="subtitle">
+              Look sharp in blue, black or gray. Wearing a HA t-shirt is okay.
+            </div>
           </div>
+          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
         </div>
       </a>
     </div>
@@ -215,7 +223,38 @@ description:
       <div class="material-card">
         <h1>Home Assistant in the press</h1>
 
+        <a href="https://www.youtube.com/watch?v=x7pSkVarixU"
+           target="_blank" rel="noopener"
+          ><img
+            alt="Linus Tech Tips logo"
+            class='square'
+            src="/images/press/ltt.svg"
+        /></a>
+
+        <a href="https://www.troyhunt.com/iot-unravelled-part-1-its-a-mess-but-then-theres-home-assistant/"
+           target="_blank" rel="noopener"
+          ><img
+            class='square round'
+            alt="Troy Hunt logo"
+            src="/images/press/troyhunt.jpg"
+        /></a>
+
+        <a href="https://arstechnica.com/information-technology/2021/03/how-to-achieve-smart-home-nirvana-or-home-automation-without-subscription/"
+           target="_blank" rel="noopener"
+          ><img
+            alt="ArsTechnica.com logo"
+            src="/images/press/arstechnica.svg"
+        /></a>
+
+        <a href="https://tweakers.net/reviews/8704/paulus-schoutsen-home-assistant-concurreert-met-alles-wat-via-de-cloud-gaat.html"
+           target="_blank" rel="noopener"
+          ><img
+            alt="Tweakers.net logo"
+            src="/images/press/tweakers.png"
+        /></a>
+
         <a href="https://www.producthunt.com/posts/home-assistant"
+           target="_blank" rel="noopener"
           ><img
             alt="ProductHunt.com logo"
             src="/images/press/producthunt.com.png"
@@ -223,25 +262,25 @@ description:
 
         <a
           href="https://www.linux.com/news/home-assistant-python-approach-home-automation-video"
+          target="_blank" rel="noopener"
           ><img alt="Linux.com logo" src="/images/press/linux.com.png"
         /></a>
 
-        <a href="https://www.wired.com/2016/07/now-can-hide-smart-home-darknet/"
-          ><img alt="Wired.com logo" src="/images/press/wired.com.svg"
-        /></a>
-
         <a href="https://opensource.com/article/17/7/home-automation-primer"
+           target="_blank" rel="noopener"
           ><img
             alt="OpenSource.com logo"
             src="/images/press/opensource.com.svg"
         /></a>
 
         <a href="http://www.linux-magazine.com/Issues/2017/203/Home-Assistant"
+           target="_blank" rel="noopener"
           ><img alt="Linux Magazine logo" src="/images/press/LinuxMagazine.png"
         /></a>
 
         <a
           href="https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html"
+          target="_blank" rel="noopener"
           ><img alt="Ct logo" src="/images/press/ct.png"
         /></a>
       </div>

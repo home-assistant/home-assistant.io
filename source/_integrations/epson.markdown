@@ -6,39 +6,18 @@ ha_category:
 ha_release: 0.72
 ha_iot_class: Local Polling
 ha_domain: epson
+ha_codeowners:
+  - '@pszafer'
+ha_config_flow: true
+ha_platforms:
+  - media_player
 ---
 
 The `epson` platform allows you to control a Epson projector from Home Assistant.
+**Device has to be turned on during initial configuration.**
+When you want to add a device for the first time, turn it on before following the integration steps.
 
-To add Epson to your installation go to Integration page and add Epson Projector or configure via `configuration.yaml`.
-
-### Configuration
-
-Add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: epson
-    host: 192.168.0.123
-```
-
-{% configuration %}
-host:
-  description: The host name or address of the Epson projector
-  required: true
-  type: string
-port:
-  description: The HTTP port number.
-  required: false
-  type: integer
-  default: 80
-name:
-  description: The name of the device used in the frontend.
-  required: false
-  type: string
-  default: 'EPSON Projector'
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ### Supported features
 

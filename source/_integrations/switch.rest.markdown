@@ -31,7 +31,7 @@ state_resource:
   required: false
   type: string
 method:
-  description: "The method of the request. Supported `post` or `put`."
+  description: "The method of the request. Supported `post`, `put` or `patch`."
   required: false
   type: string
   default: post
@@ -99,7 +99,7 @@ switch:
     resource: http://IP_ADDRESS/led_endpoint
     body_on: '{"active": "true"}'
     body_off: '{"active": "false"}'
-    is_on_template: '{{ value_json.is_active }}'
+    is_on_template: "{{ value_json.is_active }}"
     headers:
       Content-Type: application/json
     verify_ssl: true

@@ -14,6 +14,15 @@ ha_category:
 ha_release: 0.83
 ha_iot_class: Local Push
 ha_domain: fibaro
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - lock
+  - scene
+  - sensor
+  - switch
 ---
 
 The [Fibaro](https://fibaro.com/) hub is a controller mainly connecting to Z-Wave devices.

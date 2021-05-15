@@ -1,22 +1,32 @@
 ---
 title: Input Boolean
-description: Instructions on how to integrate the Input Boolean integration into Home Assistant.
+description: Instructions on how to use the Input Boolean helper with Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.11
-ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: input_boolean
 ---
 
-The `input_boolean` integration allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.
+The Input Boolean helper integration allows you to define boolean values that
+can be controlled via the user interface and can be used within conditions of
+automation. This can for example be used to disable or enable certain
+automations by using them in their conditions.
 
-The preferred way to configure input booleans is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the "**Toggle**" option.
+## Configuration
 
-To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
-If you removed `default_config:` from you configuration, you must add `input_boolean:` to your `configuration.yaml` first, then you can use the UI.
+The preferred way to configure input boolean helpers is via the user interface,
+in which they are known as Toggle Helpers. To add one, go to
+**{% my helpers title="Configuration -> Helpers" %}** and click the add button;
+next choose the "**Toggle**" option.
+
+To be able to add **Helpers** via the user interface you should have
+`default_config:` in your `configuration.yaml`, it should already be there by
+default unless you removed it. If you removed `default_config:` from your
+configuration, you must add `input_boolean:` to your `configuration.yaml` first,
+then you can use the UI.
 
 Input booleans can also be configured via `configuration.yaml`:
 
@@ -49,10 +59,11 @@ input_boolean:
         type: icon
 {% endconfiguration %}
 
-### Services
+## Services
 
-This integration provides the following services to modify the state of the `input_boolean` and a service to reload the
-configuration without restarting Home Assistant itself.
+This integration provides the following services to modify the state of the
+`input_boolean` and a service to reload the configuration without restarting
+Home Assistant itself.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
@@ -63,34 +74,39 @@ configuration without restarting Home Assistant itself.
 
 ### Restore State
 
-If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
+If you set a valid value for `initial` this integration will start with state
+set to that value. Otherwise, it will restore the state it had prior to
+Home Assistant stopping.
 
 ## Automation Examples
 
-Here's an example of an automation using the above `input_boolean`. This action will only occur if the switch is on.
+Here's an example of an automation using the above `input_boolean`. This action
+will only occur if the switch is on.
 
 ```yaml
 automation:
-  alias: Arriving home
+  alias: "Arriving home"
   trigger:
-    platform: state
-    entity_id: binary_sensor.motion_garage
-    to: 'on'
+    - platform: state
+      entity_id: binary_sensor.motion_garage
+      to: "on"
   condition:
-    condition: state
-    entity_id: input_boolean.notify_home
-    state: 'on'
+    - condition: state
+      entity_id: input_boolean.notify_home
+      state: "on"
   action:
-    service: notify.pushbullet
-    data:
-      title: ""
-      message: "Honey, I'm home!"
+    - service: notify.pushbullet
+      data:
+        title: ""
+        message: "Honey, I'm home!"
 ```
 
-You can also set or change the status of an `input_boolean` by using `input_boolean.turn_on`, `input_boolean.turn_off` or `input_boolean.toggle` in your automations.
+You can also set or change the status of an `input_boolean` by using
+`input_boolean.turn_on`, `input_boolean.turn_off` or `input_boolean.toggle` in
+your automations.
 
 ```yaml
-    - service: input_boolean.turn_on
-      data:
-        entity_id: input_boolean.notify_home
+service: input_boolean.turn_on
+target:
+  entity_id: input_boolean.notify_home
 ```

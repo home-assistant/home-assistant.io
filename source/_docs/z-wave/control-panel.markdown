@@ -10,7 +10,7 @@ The Z-Wave control panel is available via **Configuration** &rarr; **Integration
 
 <div class='note'>
 
-The current Z-Wave integration will eventually be deprecated and replaced with a [new implementation based on OpenZWave Daemon](https://developers.home-assistant.io/blog/2020/02/04/new-zwave/); it's currently in beta, and you can [try it now](/integrations/ozw/).
+This Z-Wave integration is deprecated and has been replaced with a [new implementation based on Z-Wave JS](/integrations/zwave_js); You can [try it now](/integrations/zwave_js/).
 
 </div>
 

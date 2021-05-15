@@ -39,7 +39,9 @@ You can use V_TEMP to send the current temperature from the node to Home Assista
 For more information, visit the [serial API](https://www.mysensors.org/download) of MySensors.
 
 ## Example sketch for MySensors 2.x
+
 {% raw %}
+
 ```cpp
 /**
  * The MySensors Arduino library handles the wireless radio link and protocol
@@ -266,6 +268,7 @@ void sendHeatpumpCommand() {
   heatpumpIR->send(irSender, POWER_STATE, MODE_STATE, FAN_STATE, TEMP_STATE, VDIR_AUTO, HDIR_AUTO);
 }
 ```
+
 {% endraw %}
 
 ## Example sketch for MySensors 1.x

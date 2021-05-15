@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@gabe565'
 ha_domain: ruckus_unleashed
+ha_platforms:
+  - device_tracker
 ---
 
 This platform allows you to connect to a [Ruckus Unleashed](https://support.ruckuswireless.com/product_families/19-ruckus-unleashed) access point.

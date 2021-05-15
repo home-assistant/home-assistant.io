@@ -1,5 +1,4 @@
 <section class="aside-module grid__item one-whole lap-one-half">
-  <!-- {% include edit_github.html %} -->
   {% assign cards = site.lovelace | sort_natural: 'title' %}
 
   <div class="section">
@@ -19,7 +18,9 @@
       <li>{% active_link /lovelace/badges/ Badges %}</li>
       <li>{% active_link /lovelace/actions/ Actions %}</li>
       <li>
-        <a href="https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card.html">Developing Custom Cards
+        <a
+          href="https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card.html"
+          >Developing Custom Cards
           <i class="icon-external-link"></i>
         </a>
       </li>
@@ -30,7 +31,7 @@
     <h1 class="title delta">Cards</h1>
     <ul class="divided sidebar-menu">
       {% for card in cards %}
-        <li>{% active_link {{card.url}} {{card.sidebar_label}} %}</li>
+      <li>{% active_link {{card.url}} {{card.sidebar_label}} %}</li>
       {% endfor %}
     </ul>
   </div>

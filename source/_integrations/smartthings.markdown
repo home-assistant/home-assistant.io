@@ -19,6 +19,16 @@ ha_config_flow: true
 ha_codeowners:
   - '@andrewsayre'
 ha_domain: smartthings
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - scene
+  - sensor
+  - switch
 ---
 
 SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:
@@ -228,6 +238,7 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`energyMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Energy-Meter)                                                 | `energy`                                                  |
 | [`equivalentCarbonDioxideMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Equivalent-Carbon-Dioxide-Measurement) | `equivalentCarbonDioxideMeasurement`                      |
 | [`formaldehydeMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Formaldehyde-Measurement)                         | `formaldehydeLevel`                                       |
+| `gasMeter`                                                                                                                                                | `gasMeter`, `meterCalorific`, `meterTime`, and `meterVolume` |
 | [`illuminanceMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Illuminance-Measurement)                           | `illuminance`                                             |
 | [`infraredLevel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Infrared-Level)                                             | `infraredLevel`                                           |
 | [`lock`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Lock)                                                                | `lock`                                                    |
@@ -256,7 +267,7 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`thermostatOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Operating-State)                      | `thermostatOperatingState`                                |
 | [`thermostatSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Setpoint)                                   | `thermostatSetpoint`                                      |
 | [`threeAxis`](https://docs.smartthings.com/en/latest/capabilities-reference.html#three-axis)                                                              | `threeAxis` (as discrete sensors `X`, `Y` and `Z`)        |
-| [`tvChannel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tv-Channel)                                                     | `tvChannel`                                               |
+| [`tvChannel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tv-Channel)                                                     | `tvChannel` and `tvChannelName`                           |
 | [`tvocMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tvoc-Measurement)                                         | `tvocLevel`                                               |
 | [`ultravioletIndex`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Ultraviolet-Index)                                       | `ultravioletIndex`                                        |
 | [`voltageMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Voltage-Measurement)                                   | `voltage`                                                 |

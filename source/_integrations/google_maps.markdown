@@ -6,6 +6,8 @@ ha_category:
   - Presence Detection
 ha_iot_class: Cloud Polling
 ha_domain: google_maps
+ha_platforms:
+  - device_tracker
 ---
 
 The `google_maps` platform allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
@@ -15,9 +17,14 @@ The `google_maps` platform allows you to detect presence using the unofficial AP
 You need two Google accounts. Account A is the account that has to be set up to share its location with account B. Account B is used to fetch the location of your device(s) and will be connected to this integration. 
 
 1. You first have to setup sharing of the location of account A through the Google Maps app on your mobile phone. Share your location with account B. You can find more information [here](https://support.google.com/accounts?p=location_sharing).
-2. Next, you have to retrieve a valid cookie from Google, while being logged in with account B. Log in with your credentials of account B on [Google Maps](https://www.google.com/maps) with a PC with Firefox or Chrome. Make sure to use the `.com` TLD (e.g., maps.google.com), otherwise the cookie won't be able to provide a valid session. After you have properly authenticated, you can retrieve the cookie with either [Export cookies](https://addons.mozilla.org/en-US/firefox/addon/export-cookies-txt/?src=search) for Firefox (make sure that "Prefix HttpOnly cookies" is unchecked) or [cookies.txt](https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg?hl=en-US) for Chrome/Chromium.
+2. Next, you have to retrieve a valid cookie from Google, while being logged in with account B. Log in with your credentials of account B on [Google Maps](https://www.google.com/maps) with a PC with Firefox or Chrome. Make sure to use the `.com` TLD (e.g., maps.google.com), otherwise the cookie won't be able to provide a valid session. After you have properly authenticated, you can retrieve the cookie with either [Export cookies](https://addons.mozilla.org/en-US/firefox/addon/export-cookies-txt/?src=search) for Firefox (make sure that "Prefix HttpOnly cookies" is unchecked) or [get_cookies.txt](https://chrome.google.com/webstore/detail/get-cookiestxt/bgaddhkoddajcdgocldbbfleckgcbcid?hl=en) for Chrome/Chromium.
 3. Save the cookie file to your Home Assistant configuration directory with the following name: `.google_maps_location_sharing.cookies.` followed by the slugified username of the NEW Google account (account B). 
    - For example: If your email address was `location.tracker@gmail.com`, the filename would be: `.google_maps_location_sharing.cookies.location_tracker_gmail_com`.
+
+### Note for existing location sharing users
+
+If you already have other people sharing their location to your existing Account A and do not wish to ask them to also share their location with a new Account B. Create the new Google account (account B) and share the location of Account B back to Account A. Follow the steps listed, substituting the instructions stating “Account B” for “Account A” (i.e., a cookie file is from Account A, slugified username of Account A), then ensure both Account A and Account B are logged in on your mobile device.
+
 
 ## Configuration
 
@@ -27,7 +34,7 @@ To integrate Google Maps Location Sharing in Home Assistant, add the following s
 # Example configuration.yaml entry
 device_tracker:
   - platform: google_maps
-    username: YOUR_USERNAME
+    username: "YOUR_EMAIL"
 ```
 
 Once enabled and you have rebooted devices discovered through this integration will be listed in the `known_devices.yaml` file within your configuration directory.

@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.37
 ha_domain: anthemav
+ha_platforms:
+  - media_player
 ---
 
 Both [Anthem]'s current and last generation of A/V Receivers and Processors support IP-based, network control. This Home Assistant platform adds proper "local push" support for any of these receivers on your network.

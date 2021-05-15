@@ -12,6 +12,11 @@ ha_codeowners:
   - '@felipediel'
 ha_domain: broadlink
 ha_config_flow: true
+ha_platforms:
+  - remote
+  - sensor
+  - switch
+ha_dhcp: true
 ---
 
 The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
@@ -20,11 +25,9 @@ The Broadlink integration allows you to control and monitor Broadlink universal 
 - Sensors: `e-Sensor`
 - Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
 - Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro` and `RM4C mini`
-- Wi-Fi Controlled Switches: `SC1`
+- Wi-Fi Controlled Switches: `BG1`, `SC1`
 
-## Configuration
-
-To set up a Broadlink device, click _Configuration_ in the sidebar and click _Integrations_. If you see your device there, click _Configure_. If not, click the + icon in the lower right, enter the hostname or IP address of the device and follow the instructions to complete the setup.
+{% include integrations/config_flow.md %}
 
 ### Entities and subdomains
 
@@ -40,34 +43,69 @@ The entities are divided into three subdomains:
 
 ## Remote
 
-The `remote` entities allow you to control Broadlink universal remotes. You can learn IR codes, send the codes you have learned and send RF codes (use the base64 functionality). These entities are created automatically when you configure a device that has IR/RF capabilities.
+The `remote` entities allow you to learn and send codes with universal remotes. They are created automatically when you configure devices with IR/RF capabilities.
 
-### Learning IR codes
+### Learning commands
 
-Use the `remote.learn_command` service to learn IR codes.
+Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#Learned%20codes%20storage%20location). They can be sent with the `remote.send_command` service later.
 
-| Service data attribute | Optional | Description                          |
-| ---------------------- | -------- | ------------------------------------ |
-| `entity_id`            | no       | ID of the remote.                    |
-| `device`               | no       | Name of the device to be controlled. |
-| `command`              | no       | Names of the commands to be learned. |
-| `alternative`          | yes      | Are they toggle commands?            |
 
-Example 1: Learn a single command
+| Service data attribute | Optional | Description                           |
+| ---------------------- | -------- | ------------------------------------- |
+| `entity_id`            | no       | ID of the remote.                     |
+| `device`               | no       | Name of the device to be controlled.  |
+| `command`              | no       | Names of the commands to be learned.  |
+| `command_type`         | yes      | Command type. `ir` (default) or `rf`. |
+| `alternative`          | yes      | Toggle command indicator.             |
+
+#### Learning IR codes
+
+To learn IR codes, call `remote.learn_command` with the device name and command to be learned:
 
 ```yaml
 # Example configuration.yaml entry
 script:
-  learn_mute_tv:
+  learn_tv_power:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
-          command: ok
+          command: power
 ```
 
-Example 2: Learn a sequence of commands
+When the LED blinks, point the remote at the Broadlink device and press the button you want to learn.
+
+After this, you can call `remote.send_command` with the same data to send the code. You can also access the code in the storage folder to build a custom IR/RF switch or send it with the prefix `b64:`.
+
+#### Learning RF codes
+
+Learning RF codes takes place in two steps. First call `remote.learn_command` with the `command_type: rf` option:
+
+```yaml
+# Example configuration.yaml entry
+script:
+  learn_car_unlock:
+    sequence:
+      - service: remote.learn_command
+        target:
+          entity_id: remote.garage
+        data:
+          device: car
+          command: unlock
+          command_type: rf
+```
+
+When the LED blinks for the first time, press and hold the button to sweep the frequency. Then wait for the LED to blink again and press the button a second time to capture the code.
+
+The codes will be stored in the same way as the IR codes. You don't need to specify `command_type` to send them because this information is stored in the first byte of the code.
+
+_Tip:_ Click Notifications in the sidebar after calling the service and follow the instructions to make sure you are pressing the button at the right time.
+
+#### Learning a sequence of commands
+
+In order to streamline the learning process, you may want to provide a list of commands to be learned sequentially:
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,8 +113,9 @@ script:
   learn_tv_commands:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command:
             - turn on
@@ -85,9 +124,15 @@ script:
             - volume down
 ```
 
-Example 3: Learn a toggle command
+After calling this service, you will be prompted to press the buttons in the same order as provided. Check the notifications to stay on track and make sure you are pressing the right button at the right time.
 
-The `alternative` flag is useful for capturing commands in which the same button is used for more than one purpose, such as the power button, which can turn the television on and off.
+#### Learning an alternative code
+
+Some protocols require a toggle bit to distinguish one button press from another. In such cases, learning an alternative code will significantly increase the response rate of the device.
+
+The toggle bit is common when a button is used for multiple purposes, such as the power button, which can turn the television on and off, and the volume button, which can be used with a short press or a long press.
+
+If the code works sometimes, and sometimes it doesn't, you can try to relearn it with the `alternative: true` option:
 
 ```yaml
 # Example configuration.yaml entry
@@ -95,22 +140,23 @@ script:
   learn_tv_power_button:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: power
           alternative: true
 ```
 
-In the above example, two codes will be captured for the power command, and they will be sent alternately each time this command is called.
+When the LED blinks for the first time, press the button you want to learn. Then wait for the LED to blink again and press the same button. By doing so, two different codes will be learned for the same command, and they will be sent alternately at each call.
 
 #### Learned codes storage location
 
-The learned codes are stored in the `/configuration/.storage` folder in a file called `broadlink_remote_xxxxxxxxxxx_codes.json`. You can open this file with a text editor and copy the codes to set up a custom switch, but beware: the files in the .storage folder _should never be edited manually_.
+The learned codes are stored in `/configuration/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#Setting%20up%20custom%20IR/RF%20switches) or to send them as [base64 codes](#Sending%20a%20base64%20code), but beware: the files in the .storage folder _should never be edited manually_.
 
-### Sending IR/RF codes
+### Sending commands
 
-Use the `remote.send_command` service to send IR/RF codes.
+After learning IR and RF codes with the `remote.learn_command` service, you can use `remote.send_command` to send them. You can also use this service to send base64 codes taken from elsewhere.
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
@@ -120,21 +166,26 @@ Use the `remote.send_command` service to send IR/RF codes.
 | `num_repeats`          | yes      | Number of times to repeat the commands.                                |
 | `delay_secs`           | yes      | Interval in seconds between one send and another.                      |
 
-Example 1: Send a single command
+#### Sending a command
+
+To send a command that you've learned, call `remote.send_command` with the device name and the command to be sent:
 
 ```yaml
 # Example configuration.yaml entry
 script:
-  mute_tv:
+  tv_power:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
-          command: mute
+          command: power
 ```
 
-Example 2: Send a command repeatedly
+#### Sending a command repeatedly
+
+Use `num_repeats:` to send the same command multiple times:
 
 ```yaml
 # Example configuration.yaml entry
@@ -142,14 +193,17 @@ script:
   turn_up_tv_volume_20:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: volume up
           num_repeats: 20
 ```
 
-Example 3: Send a sequence of commands
+#### Sending a sequence of commands
+
+You can provide a list of commands to be sent sequentially:
 
 ```yaml
 # Example configuration.yaml entry
@@ -157,15 +211,18 @@ script:
   turn_on_ac:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: air conditioner
           command:
             - turn on
             - turn off display
 ```
 
-Example 4: Send a single base64 code
+#### Sending a base64 code
+
+Sometimes you may want to send a base64 code obtained elsewhere. Use the `b64:` prefix for this:
 
 ```yaml
 # Example configuration.yaml entry
@@ -173,12 +230,15 @@ script:
   turn_on_tv:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           command: b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
 ```
 
-Example 5: Send a sequence of base64 codes
+#### Sending a sequence of base64 codes
+
+You can send a sequence of base64 codes just like normal commands:
 
 ```yaml
 # Example configuration.yaml entry
@@ -186,14 +246,17 @@ script:
   turn_on_ac:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           command:
             - b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
             - b64:JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
 ```
 
-Example 6: Mix commands and base64 codes
+#### Mixing commands and base64 codes
+
+You can mix commands and base64 codes:
 
 ```yaml
 # Example configuration.yaml entry
@@ -201,12 +264,60 @@ script:
   turn_on_ac:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command:
             - turn on
             - b64:JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
+```
+
+### Deleting commands
+
+You can use `remote.delete_command` to remove commands that you've learned with the `remote.learn_command` service.
+
+| Service data attribute | Optional | Description                           |
+| ---------------------- | -------- | ------------------------------------- |
+| `entity_id`            | no       | ID of the remote.                     |
+| `device`               | no       | Name of the device.                   |
+| `command`              | no       | Names of the commands to be deleted.  |
+
+#### Deleting a command
+
+To delete a command, call `remote.delete_command` with the device name and the command to be deleted:
+
+```yaml
+# Example configuration.yaml entry
+script:
+  delete_tv_power:
+    sequence:
+      - service: remote.delete_command
+        target:
+          entity_id: remote.bedroom
+        data:
+          device: television
+          command: power
+```
+
+#### Deleting multiple commands
+
+You can provide a list of commands to be deleted:
+
+```yaml
+# Example configuration.yaml entry
+script:
+  delete_tv_commands:
+    sequence:
+      - service: remote.delete_command
+        target:
+          entity_id: remote.bedroom
+        data:
+          device: television
+          command:
+            - power
+            - source
+            - menu
 ```
 
 ## Sensor
@@ -403,12 +514,16 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 7. Drag a Template node on the Flow to the right of the RM node and link it to the RM node.
 8. Double click the Template node to edit it, select:
 
+   {% raw %}
+
    ```bash
    Property: msg.payload
    Format: Mustache template
-   Template field: enter '{% raw %}{{payload.data}}{% endraw %}'.
+   Template field: enter '{{payload.data}}'.
    Output as: Plain text
    ```
+
+   {% endraw %}
 
 9. Drag a Debug node to the right of the Template node and link them.
 10. Show the debug messages, deploy the flow and click on the inject button.

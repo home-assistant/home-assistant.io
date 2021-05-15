@@ -11,26 +11,25 @@ ha_codeowners:
   - '@OnFreund'
 ha_domain: risco
 ha_quality_scale: platinum
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - sensor
 ---
 
 This integration connects with Risco Alarms over [Risco Cloud](https://riscocloud.com/).
+
+<div class='note'>
+As from January 2021, Risco have implemented charges for use of their Cloud Features.
+</div>
+
+{% include integrations/config_flow.md %}
 
 <div class='note warning'>
 It is recommended to use a regular (non-owner) account with the Risco app/website, and use a different regular account with the integration. Risco has restrictions on concurrent uses by different users, especially if they have different permission levels.
 </div>
 
-## Configuration
-
-This integration can be configured using the integrations panel in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Risco**.
-You will be prompted for your username, password, and pin code (you can create a specific user for this purpose).
-An Alarm Control Panel entity will be created for each partition in your site, and binary sensors for each of your zones.
-
-Additionally, 4 sensors will be created to store events, depending on the category (Status, Alarm, Trouble and Other). Each sensor
+4 sensors will be created to store events, depending on the category (Status, Alarm, Trouble and Other). Each sensor
 has the event timestamp as the state, and other event information in attributes.
 
 If you have multiple sites, only the first site will be used.

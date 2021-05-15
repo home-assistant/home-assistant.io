@@ -10,6 +10,11 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: simplisafe
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - lock
+  - sensor
 ---
 
 The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
@@ -22,17 +27,14 @@ There is currently support for the following device types within Home Assistant:
 - **Freeze Sensor**: reports on the freeze sensor temperature*.
 - **Glass Break Sensor**: reports on the glass breakage sensor status*.
 - **Lock**: reports on `Door Locks` and can be used to lock and unlock a lock.
-- **Motion Sensor**: triggers [events](#events) if the alarm is armed or if secret alerts are enabled in SimpliSafe.
+- **Motion Sensor**: reports on motion detected.
 - **Siren**: reports on the siren status*.
 - **Smoke Detector**: reports on the smoke sensor status*.
 - **Water Sensor**: reports on water sensor status*.
 
 * Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
 
-## Configuration
-
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}
 
 ## Services
 
@@ -43,8 +45,7 @@ entity.
 ### `simplisafe.clear_notifications`
 
 Clear any existing notifications within the SimpliSafe cloud; this will mark existing
-notifications as "read" in the SimpliSafe web and mobile apps, as well as prevent them
-from triggering future `SIMPLISAFE_NOTIFICATION` events.
+notifications as "read" in the SimpliSafe web and mobile apps.
 
 ### `simplisafe.remove_pin`
 
@@ -87,60 +88,3 @@ For any property denoting a volume, the following values should be used:
 | `exit_delay_home`      | yes      | The number of seconds to delay triggering when exiting with a "home" state   |
 | `light`                | yes      | Whether the light on the base station should display when armed              |
 | `voice_prompt_volume`  | yes      | The volume of the base station's voice prompts                               |
-
-## Events
-
-### `SIMPLISAFE_EVENT`
-
-`SIMPLISAFE_EVENT` events represent events that appear on the timeline of the SimpliSafe
-web and mobile apps. When received, they come with event data that contains the
-following keys:
-
-* `changed_by`: the PIN that triggered the event (if appropriate)
-* `event_type`: the type of event
-* `info`: a human-friendly string describing the event in more detail
-* `sensor_name`: the sensor that triggered the event (if appropriate)
-* `sensor_serial`: the serial number of the sensor that triggered the event (if appropriate)
-* `sensor_type`: the type of sensor that triggered the event (if appropriate)
-* `system_id`: the system ID to which the event belongs
-* `timestamp`: the UTC datetime at which the event was received
-
-For example, when the system is armed by "remote" means (via the web app, etc.), a
-`SIMPLISAFE_EVENT` event will fire with the following event data:
-
-```python
-{
-    "changed_by": "",
-    "event_type": "armed_home",
-    "info": "System Armed (Home) by Remote Management",
-    "sensor_name": "",
-    "sensor_serial": "",
-    "sensor_type": "remote",
-    "system_id": 123456,
-    "timestamp": datetime.datetime(2020, 2, 13, 23, 1, 13, tzinfo=<UTC>),
-}
-```
-
-`event_type`, being one of the key fields automations might be built from, can have the
-following values:
-
-* `camera_motion_detected`
-* `doorbell_detected`
-* `entry_detected`
-* `motion_detected`
-
-### `SIMPLISAFE_NOTIFICATION`
-
-`SIMPLISAFE_NOTIFICATION` events represent system notifications that would appear in the
-messages section of the SimpliSafe web and mobile apps. When received, they come with
-event data that contains the following keys:
-
-* `category`: The notification category (e.g., `error`)
-* `code`: The SimpliSafe code for the notification
-* `message`: The actual text of the notification
-* `timestamp`: The UTC timestamp of the notification
-
-Note that when Home Assistant restarts, `SIMPLISAFE_NOTIFICATION` events will fire once
-again for any notifications still active in the SimpliSafe web and mobile apps. To
-prevent this, either (a) clear them in the web/mobile app or (b) utilize the 
-`simplisafe.clear_notifications` service described above.

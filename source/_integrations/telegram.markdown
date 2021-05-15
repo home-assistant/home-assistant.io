@@ -4,8 +4,10 @@ description: Instructions on how to add Telegram notifications to Home Assistant
 ha_category:
   - Notifications
 ha_release: 0.7.5
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Polling
 ha_domain: telegram
+ha_platforms:
+  - notify
 ---
 
 The `telegram` platform uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
@@ -118,7 +120,7 @@ To use notifications, please see the [getting started with automation page](/get
 action:
   service: notify.NOTIFIER_NAME
   data:
-    title: '*Send a message*'
+    title: "*Send a message*"
     message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
     data:
       inline_keyboard:

@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.57
 ha_domain: fail2ban
+ha_platforms:
+  - sensor
 ---
 
 The `fail2ban` sensor allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
@@ -126,7 +128,7 @@ proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 ```
 
-This snippet should be added within your Home Assistant server configuration, so you have something like the following:
+This snippet should be added within your Home Assistant configuration, so you have something like the following:
 
 ```bash
 server {

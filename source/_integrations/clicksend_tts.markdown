@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.55
 ha_domain: clicksend_tts
+ha_platforms:
+  - notify
 ---
 
 The `clicksend_tts` platform uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.

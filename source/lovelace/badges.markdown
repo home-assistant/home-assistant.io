@@ -5,7 +5,7 @@ description: "Description of the various badges that are available."
 
 Badges are widgets that sit at the top of a Lovelace panel, above all the cards.
 
-### State Label Badge
+## State Label Badge
 
 The State Label badge allows you to display a state badge. This badge supports [actions](/lovelace/actions/).
 
@@ -17,22 +17,22 @@ entity: light.living_room
 {% configuration state_label %}
 type:
   required: true
-  description: entity-button
+  description: "`state-label`"
   type: string
 entity:
   required: true
-  description: Home Assistant entity ID.
+  description: Entity ID.
   type: string
 name:
   required: false
   description: Overwrites friendly name.
   type: string
-  default: Name of Entity
+  default: Name of entity
 icon:
   required: false
-  description: Overwrites icon or entity picture.
+  description: Overwrites icon or entity picture. You can use any icon from [MaterialDesignIcons.com](http://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
   type: string
-  default: Entity Domain Icon
+  default: Entity domain icon
 image:
   required: false
   description: The URL of an image.
@@ -49,14 +49,14 @@ show_icon:
   default: "true"
 {% endconfiguration %}
 
-### Entity Filter Badge
+## Entity Filter Badge
 
 This badge allows you to define a list of entities that you want to track only when in a certain state. Very useful for showing lights that you forgot to turn off or show a list of people only when they're at home.
 
 {% configuration filter_badge %}
 type:
   required: true
-  description: entity-filter
+  description: "`entity-filter`"
   type: string
 entities:
   required: true
@@ -68,7 +68,7 @@ state_filter:
   type: list
 {% endconfiguration %}
 
-#### Options For Entities
+### Options For Entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configurations:
 
@@ -79,7 +79,7 @@ type:
   type: string
 entity:
   required: true
-  description: Home Assistant entity ID.
+  description: Entity ID.
   type: string
 name:
   required: false
@@ -87,7 +87,7 @@ name:
   type: string
 icon:
   required: false
-  description: Overwrites icon or entity picture.
+  description: Overwrites icon or entity picture. You can use any icon from [MaterialDesignIcons.com](http://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
   type: string
 image:
   required: false
@@ -99,7 +99,7 @@ state_filter:
   type: list
 {% endconfiguration %}
 
-#### Options For state_filter
+### Options For state_filter
 
 If you define state_filter as objects instead of strings (by adding `value:` before your state value), you can add more customization to your filter:
 
@@ -118,7 +118,7 @@ attribute:
   type: string
 {% endconfiguration %}
 
-#### Examples
+### Examples
 
 Show only active switches or lights in the house
 

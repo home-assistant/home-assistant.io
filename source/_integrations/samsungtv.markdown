@@ -9,6 +9,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@escoand'
 ha_domain: samsungtv
+ha_ssdp: true
+ha_platforms:
+  - media_player
 ---
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
@@ -60,7 +63,7 @@ samsungtv:
     turn_on_action:
       - service: wake_on_lan.send_magic_packet
         data:
-          mac: "11:22:33:44:55:66"
+          mac: MAC_ADDRESS
 ```
 
 ### Usage

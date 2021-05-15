@@ -98,8 +98,6 @@ component_config_glob:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Prometheus`, you can use the `filter` parameter.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 prometheus:
@@ -112,8 +110,6 @@ prometheus:
     exclude_entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 
@@ -161,7 +157,7 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
 
 ```yaml
 # Example Prometheus scrape_configs entry
-  - job_name: 'hass'
+  - job_name: "hass"
     scrape_interval: 60s
     metrics_path: /api/prometheus
 
@@ -170,7 +166,7 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
       api_password: ['PASSWORD']
 
     # Long-Lived Access Token
-    bearer_token: 'your.longlived.token'
+    bearer_token: "your.longlived.token"
 
     scheme: https
     static_configs:
@@ -183,3 +179,16 @@ When looking into the metrics on the Prometheus side, there will be:
 - The [client library](https://github.com/prometheus/client_python) provided metrics, which are a bunch of **process_\*** and also a single pseudo-metric **python_info** which contains (not as value but as labels) information about the Python version of the client, i.e., the Home Assistant Python interpreter.
   
 Typically, you will only be interested in the first set of metrics.
+
+## Metrics in unavailable or unknown states
+
+When the Prometheus exporter starts (typically when Home Assistant starts), all non-excluded entities in an unavailable or unknown state are not be exported until they are available again. If the entity goes into state unavailable or unknown again, the value exported will always be the latest known one.
+
+While an entity is in those states, the `entity_available` corresponding metric is set to 0. This metric can be used to filter out values while the entity is unavailable or in an unknown state thanks to a [recording rule](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/).
+
+For example:
+
+```yaml
+- record: "known_temperature_c"
+  expr: "temperature_c unless entity_available == 0"
+```

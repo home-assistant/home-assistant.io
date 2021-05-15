@@ -4,7 +4,7 @@ description: Instructions on how to setup MQTT eventstream within Home Assistant
 ha_category:
   - Other
 ha_release: 0.11
-ha_iot_class: Configurable
+ha_iot_class: Local Polling
 ha_domain: mqtt_eventstream
 ---
 
@@ -31,7 +31,7 @@ subscribe_topic:
   required: false
   type: string
 ignore_event:
-  description: Ignore sending these [events](/docs/configuration/events/) over mqtt.
+  description: List of [events](/docs/configuration/events/) which will not be sent over mqtt.
   required: false
   type: list
 {% endconfiguration %}
