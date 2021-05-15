@@ -12,7 +12,7 @@ ha_iot_class: Cloud Polling
 ha_domain: garages_amsterdam
 ---
 
-The Garages Amsterdam integration uses an API provided by the municipality of Amsterdam, to measure the occupancy of Amsterdam parking garages in the Netherlands.
+The Garages Amsterdam integration uses an API provided by the municipality of Amsterdam, to measure the occupancy of Amsterdam parking garages in the Netherlands. You can track multiple garages by adding the integration multiple times.
 
 {% include integrations/config_flow.md %}
 
@@ -27,10 +27,10 @@ When you add a parking garage, 4 sensors are created in your configuration by de
 
 <div class='note warning'>
 
-  Some parking garages don't keep long-term parking data, in which case the 2 specific **Long** sensors will be disabled by default.
+  Some parking garages don't have long-term parking spaces, in which case the 2 specific **Long** sensors will not be created.
 
 </div>
 
 ### Binary Sensor
 
-Each parking garage also has a binary sensor, which indicates whether there are problems in the data provision from the API. When it indicates `ok` everything is fine. If the state changes to `problem`, the data is no longer up to date and the sensors will not be updated anymore.
+Each parking garage also has a binary sensor, which indicates whether there are problems in the data provision from the API. When it indicates `ok` everything is fine. If the state changes to `problem`, the upstream data might not be up to date or reliable and will remain in this state until new data is coming in.
