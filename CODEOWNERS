@@ -300,6 +300,7 @@ source/_integrations/netdata.markdown @fabaff
 source/_integrations/nexia.markdown @bdraco
 source/_integrations/nextbus.markdown @vividboarder
 source/_integrations/nextcloud.markdown @meichthys
+source/_integrations/nobo_hub.markdown @echoromeo @oyvindwe
 source/_integrations/nightscout.markdown @marciogranzotto
 source/_integrations/nilu.markdown @hfurubotten
 source/_integrations/nissan_leaf.markdown @filcole
