@@ -119,7 +119,7 @@ name:
   type: string
   default: MQTT Fan
 optimistic:
-  description: Flag that defines if lock works in optimistic mode
+  description: Flag that defines if fan works in optimistic mode
   required: false
   type: boolean
   default: "`true` if no state topic defined, else `false`."
