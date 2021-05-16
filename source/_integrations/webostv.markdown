@@ -40,14 +40,22 @@ Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this f
 
 On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
-<div class='note'>
+**Notes** :
 This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
-</div>
 
-#### Example configuration
-```
-Service : wake_on_lan.send_magic_packet
-JSON Data: {"mac": "AA-BB-CC-DD-EE-FF", "broadcast_address": "11.22.33.44"}
+To turn on the TV, create a script in the HA Scripts section and specify its `script name` in the option.
+
+example: `script.wake_on_lan`
+
+#### Sample script 
+```yaml
+alias: wake_on_lan
+sequence:
+  - service: wake_on_lan.send_magic_packet
+    data:
+      broadcast_address: 192.168.1.255
+      mac: '01:02:03:04:05:06'
+mode: single
 ```
 
 Any other [actions](/docs/automation/action/) to power on the device can be configured.
