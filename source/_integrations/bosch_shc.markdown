@@ -17,9 +17,7 @@ The Bosch SHC integration allows you to integrate your [Bosch Smart Home Control
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
-- [Cover](#cover)
 - [Sensor](#sensor)
-- [Switch](#switch)
 
 {% include integrations/config_flow.md %}
 
@@ -33,10 +31,6 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 - Smoke Detector System
 - Water Leakage Detector
 
-### Cover
-
-The cover platform allows you to control the states of your covers. Cover devices are added for each Shutter Control device.
-
 ### Sensor
 
 The sensor platform allows you to monitor the states of your temperature, humidity, purity, air quality, power, energy, valve tappet and battery sensors. Sensor devices are added for each of the following devices:
@@ -49,15 +43,6 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Smoke Detector
 - Shutter Contact
 - Universal Switch
-
-### Switch
-
-The switch platform allows you to control the states of your cameras and smart plugs. Switch controls are added for each of the following devices:
-
-- Camera 360
-- Camera Eyes
-- Smart Plug
-- Smart Plug Compact
 
 ## Client registration
 
