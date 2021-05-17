@@ -119,7 +119,7 @@ Assuming you have already configured the platform:
 
 Assuming the previous test completed successfully and your browser was registered, you can test the notification as follows:
 
-[![Open your Home Assistant instance and show your service developer tools.](https://my.home-assistant.io/badges/developer_services.svg)](https://my.home-assistant.io/redirect/developer_services/)
+{% my developer_services badge %}
 
 1. Click on the My button above, or open Home Assistant in Chrome or Firefox, open the sidebar and click the Services button at the bottom (shaped like a remote control), located below the Developer Tools.
 2. From the Services dropdown, search for your HTML5 notify service (e.g., notify.NOTIFIER_NAME) and select it.
