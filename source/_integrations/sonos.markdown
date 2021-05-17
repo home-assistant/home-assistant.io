@@ -120,6 +120,7 @@ Night Sound and Speech Enhancement modes are only supported when playing from th
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that will have their options set.
+| `buttons_enabled` | yes | Boolean to control the functioning of hardware buttons on the device.
 | `night_sound` | yes | Boolean to control Night Sound mode.
 | `speech_enhance` | yes | Boolean to control Speech Enhancement mode.
 | `status_light` | yes | Boolean to control the Status (LED) Light.
