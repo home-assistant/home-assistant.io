@@ -170,12 +170,12 @@ payload_oscillation_on:
   type: string
   default: oscillate_on
 payload_reset_percentage:
-  description: A special payload that resets the `percentage` speed attribute state when received at the `percentage_state_topic`.
+  description: A special payload that resets the `percentage` state attribute to `None` when received at the `percentage_state_topic`.
   required: false
   type: string
   default: 'None'
 payload_reset_preset_mode:
-  description: A special payload that resets the `preset_mode` attribute state state when received at the `preset_mode_state_topic`.
+  description: A special payload that resets the `preset_mode` state attribute to `None` when received at the `preset_mode_state_topic`.
   required: false
   type: string
   default: 'None'
