@@ -427,7 +427,7 @@ The example below shows a full example of how to setup a venetian blind which ha
 
 Following variable might be used in `position_template`, `set_position_template`, `tilt_command_template` and `tilt_status_template`, `json_attributes_template` (only `entity_id`).
 
- * `entity_id` - The ID of the entity itself. It can be used to reverence its attributes with the help of the [states](/docs/configuration/templating/#states) template function.
+ * `entity_id` - The ID of the entity itself. It can be used to reference its attributes with the help of the [states](/docs/configuration/templating/#states) template function.
  * `position_open`
  * `position_closed`
  * `tilt_min`
