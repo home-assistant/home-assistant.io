@@ -185,7 +185,8 @@ For example, you would replace
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
-Passing `transition` and `brightness` parameters along with `*_color`, `color_temp`, `white_value` or `effect` is supported.
+Transition doesn't have its own script, it will instead be passed as a parameter to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color` or `white_value` scripts.
+Brightness in a `turn_on` call will be passed as a parameter to either of `color_temp`, `effect`, `hs_color` or `white_value` scripts if the corresponding parameter is also in the turn_on call. In this case the brightness script (`set_level`) will not be called.
 
 
 ## Examples
