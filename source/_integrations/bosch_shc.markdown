@@ -23,13 +23,9 @@ There is currently support for the following device types within Home Assistant:
 
 ### Binary Sensor
 
-The binary sensor platform allows you to monitor the states of your shutter contacts, motion, smoke, and water leakage sensors. Binary sensor devices are added for each of the following devices:
+The binary sensor platform allows you to monitor the states of your shutter contact sensors. Binary sensor devices are added for each of the following devices:
 
 - Shutter Contact
-- Motion Detector
-- Smoke Detector
-- Smoke Detector System
-- Water Leakage Detector
 
 ### Sensor
 
