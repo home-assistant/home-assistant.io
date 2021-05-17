@@ -1432,7 +1432,7 @@ logger:
 ```
 
 You can use the service `logger.set_level` to change the log level of a handler on a running instance.
-{% my developer_services badge %}
+{% my developer_call_service badge service="logger.set_level" %}
 
 ### Group address can not be read
 
