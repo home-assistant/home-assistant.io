@@ -105,12 +105,13 @@ The `html5` platform can only function if all of the following requirements are 
 
 Assuming you have already configured the platform:
 
-1. Open Home Assistant in Chrome or Firefox.
-2. Load profile page by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address (and that you have configured the `notify` HTML5 integration in Home Assistant). If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
-3. Slide it to the on position.
-4. Name the device you're using in the alert that appears.
-5. Within a few seconds you should be prompted to allow notifications from Home Assistant.
-6. Assuming you accept, that's all there is to it!
+{% my profile badge %}
+
+1. Open Home Assistant in Chrome or Firefox and load profile page by clicking the My button above or by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address (and that you have configured the `notify` HTML5 integration in Home Assistant). If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
+2. Slide it to the on position.
+3. Name the device you're using in the alert that appears.
+4. Within a few seconds you should be prompted to allow notifications from Home Assistant.
+5. Assuming you accept, that's all there is to it!
 
 **Note:** If you aren't prompted for a device name when enabling notifications, open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
 
@@ -118,11 +119,12 @@ Assuming you have already configured the platform:
 
 Assuming the previous test completed successfully and your browser was registered, you can test the notification as follows:
 
-1. Open Home Assistant in Chrome or Firefox.
-2. Open the sidebar and click the Services button at the bottom (shaped like a remote control), located below the Developer Tools.
-3. From the Services dropdown, search for your HTML5 notify service (e.g., notify.NOTIFIER_NAME) and select it.
-4. In the Service Data text box enter: `{"message":"hello world"}`, then press the CALL SERVICE button.
-5. If everything worked you should see a popup notification.
+{% my developer_services badge %}
+
+1. Click on the My button above, or open Home Assistant in Chrome or Firefox, open the sidebar and click the Services button at the bottom (shaped like a remote control), located below the Developer Tools.
+2. From the Services dropdown, search for your HTML5 notify service (e.g., notify.NOTIFIER_NAME) and select it.
+3. In the Service Data text box enter: `{"message":"hello world"}`, then press the CALL SERVICE button.
+4. If everything worked you should see a popup notification.
 
 ### Usage
 
