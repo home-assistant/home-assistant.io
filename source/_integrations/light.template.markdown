@@ -71,6 +71,7 @@ light:
               entity_id:
                 - light.led_strip
               effect: "{{ effect }}"
+        supports_transition_template: "{{ true }}"
 ```
 
 {% endraw %}
@@ -114,6 +115,11 @@ light:
         required: false
         type: template
         default: optimistic
+      supports_transition_template:
+        description: Defines a template to get if light supports transition.
+        required: false
+        type: template
+        default: false
       effect_list_template:
         description: Defines a template to get the list of supported effects. Must render a list
         required: false
