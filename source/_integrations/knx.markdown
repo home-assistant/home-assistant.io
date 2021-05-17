@@ -716,6 +716,12 @@ create_temperature_sensors:
 
 The KNX cover platform is used as an interface to KNX covers.
 
+<div class='note'>
+
+Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully open in regards to covers. The corresponding value inversion is done internally by the KNX integration.
+
+</div>
+
 To use your KNX covers in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
 ```yaml
@@ -743,11 +749,11 @@ move_long_address:
   required: false
   type: [string, list]
 move_short_address:
-  description: KNX group address for moving the cover short time up or down. Used by some covers also as the means to stop the cover, if no dedicated `stop_address` exists on the actuator. *DPT 1*
+  description: KNX group address for moving the cover stepwise up or down. Used by some covers also as the means to stop the cover, if no dedicated `stop_address` exists on the actuator. *DPT 1*
   required: false
   type: [string, list]
 stop_address:
-  description: KNX group address for stopping the current movement from the cover. *DPT 1*
+  description: KNX group address for stopping the current movement of the cover. *DPT 1*
   required: false
   type: [string, list]
 position_address:
@@ -759,11 +765,11 @@ position_state_address:
   required: false
   type: [string, list]
 angle_address:
-  description: KNX group address for moving the cover to the dedicated angle. *DPT 5.001*
+  description: KNX group address for tilting the cover to the dedicated angle. *DPT 5.001*
   required: false
   type: [string, list]
 angle_state_address:
-  description: Separate KNX group address for requesting the current angle of cover. *DPT 5.001*
+  description: Separate KNX group address for requesting the current tilt angle of the cover. *DPT 5.001*
   required: false
   type: [string, list]
 travelling_time_down:
@@ -777,12 +783,12 @@ travelling_time_up:
   default: 25
   type: integer
 invert_position:
-  description: Set this to `true` if your actuator reports fully closed as 0% in KNX.
+  description: Set this to `true` if your actuator reports fully closed position as 0% in KNX.
   required: false
   default: false
   type: boolean
 invert_angle:
-  description: Set this to `true` if your actuator reports tilt fully closed as 0% in KNX.
+  description: Set this to `true` if your actuator reports fully closed tilt as 0% in KNX.
   required: false
   default: false
   type: boolean
@@ -1105,157 +1111,157 @@ always_callback:
 
 ### Value Types
 
-| KNX DPT | type                          | size in byte | range                      | unit           |
-|--------:|-------------------------------|-------------:|:--------------------------:|----------------|
-| 5       | 1byte_unsigned                | 1            | 0 ... 255                  |                |
-| 5.001   | percent                       | 1            | 0 ... 100                  | %              |
-| 5.003   | angle                         | 1            | 0 ... 360                  | °              |
-| 5.004   | percentU8                     | 1            | 0 ... 255                  | %              |
-| 5.005   | decimal_factor                | 1            | 0 ... 255                  |                |
-| 5.006   | tariff                        | 1            | 0 ... 254                  |                |
-| 5.010   | pulse                         | 1            | 0 ... 255                  | counter pulses |
-| 6       | 1byte_signed                  | 1            | -128 ... 127               |                |
-| 6.001   | percentV8                     | 1            | -128 ... 127               | %              |
-| 6.010   | counter_pulses                | 1            | -128 ... 127               | counter pulses |
-| 7       | 2byte_unsigned                | 2            | 0 ... 65535                |                |
-| 7.001   | pulse_2byte                   | 2            | 0 ... 65535                | pulses         |
-| 7.002   | time_period_msec              | 2            | 0 ... 65535                | ms             |
-| 7.003   | time_period_10msec            | 2            | 0 ... 65535                | ms             |
-| 7.004   | time_period_100msec           | 2            | 0 ... 65535                | ms             |
-| 7.005   | time_period_sec               | 2            | 0 ... 65535                | s              |
-| 7.006   | time_period_min               | 2            | 0 ... 65535                | min            |
-| 7.007   | time_period_hrs               | 2            | 0 ... 65535                | h              |
-| 7.011   | length_mm                     | 2            | 0 ... 65535                | mm             |
-| 7.012   | current                       | 2            | 0 ... 65535                | mA             |
-| 7.013   | brightness                    | 2            | 0 ... 65535                | lx             |
-| 7.600   | color_temperature             | 2            | 0 ... 65535                | K              |
-| 8       | 2byte_signed                  | 2            | -32768 ... 32767           |                |
-| 8.001   | pulse_2byte_signed            | 2            | -32768 ... 32767           | pulses         |
-| 8.002   | delta_time_ms                 | 2            | -32768 ... 32767           | ms             |
-| 8.003   | delta_time_10ms               | 2            | -32768 ... 32767           | ms             |
-| 8.004   | delta_time_100ms              | 2            | -32768 ... 32767           | ms             |
-| 8.005   | delta_time_sec                | 2            | -32768 ... 32767           | s              |
-| 8.006   | delta_time_min                | 2            | -32768 ... 32767           | min            |
-| 8.007   | delta_time_hrs                | 2            | -32768 ... 32767           | h              |
-| 8.010   | percentV16                    | 2            | -32768 ... 32767           | %              |
-| 8.011   | rotation_angle                | 2            | -32768 ... 32767           | °              |
-| 9       | 2byte_float                   | 2            | -671088.64 ... 670760.96   |                |
-| 9.001   | temperature                   | 2            | -273 ... 670760            | °C             |
-| 9.002   | temperature_difference_2byte  | 2            | -670760 ... 670760         | K              |
-| 9.003   | temperature_a                 | 2            | -670760 ... 670760         | K/h            |
-| 9.004   | illuminance                   | 2            | 0 ... 670760               | lx             |
-| 9.005   | wind_speed_ms                 | 2            | 0 ... 670760               | m/s            |
-| 9.006   | pressure_2byte                | 2            | 0 ... 670760               | Pa             |
-| 9.007   | humidity                      | 2            | 0 ... 670760               | %              |
-| 9.008   | ppm                           | 2            | -671088.64 ... 670760.96   | ppm            |
-| 9.010   | time_1                        | 2            | -670760 ... 670760         | s              |
-| 9.011   | time_2                        | 2            | -670760 ... 670760         | ms             |
-| 9.020   | voltage                       | 2            | -671088.64 ... 670760.96   | mV             |
-| 9.021   | curr                          | 2            | -671088.64 ... 670760.96   | mA             |
-| 9.022   | power_density                 | 2            | -671088.64 ... 670760.96   | W/m²           |
-| 9.023   | kelvin_per_percent            | 2            | -671088.64 ... 670760.96   | K/%            |
-| 9.024   | power_2byte                   | 2            | -671088.64 ... 670760.96   | kW             |
-| 9.025   | volume_flow                   | 2            | -671088.64 ... 670760.96   | l/h            |
-| 9.026   | rain_amount                   | 2            | -671088.64 ... 670760.96   | l/m²           |
-| 9.027   | temperature_f                 | 2            | -459.6 ... 670760          | °F             |
-| 9.028   | wind_speed_kmh                | 2            | 0 ... 670760               | km/h           |
-| 9.?     | enthalpy                      | 2            | -671088.64 ... 670760.96   | H              |
-| 12      | 4byte_unsigned                | 4            | 0 ... 4294967295           |                |
-| 12.1200 | volume_liquid_litre           | 4            | 0 ... 4294967295           | l              |
-| 12.1201 | volume_m3                     | 4            | 0 ... 4294967295           | m³             |
-| 13      | 4byte_signed                  | 4            | -2147483648 ... 2147483647 |                |
-| 13.001  | pulse_4byte                   | 4            | -2147483648 ... 2147483647 | pulses         |
-| 13.002  | flow_rate_m3h                 | 4            | -2147483648 ... 2147483647 | m³/h           |
-| 13.010  | active_energy                 | 4            | -2147483648 ... 2147483647 | Wh             |
-| 13.011  | apparant_energy               | 4            | -2147483648 ... 2147483647 | VAh            |
-| 13.012  | reactive_energy               | 4            | -2147483648 ... 2147483647 | VARh           |
-| 13.013  | active_energy_kwh             | 4            | -2147483648 ... 2147483647 | kWh            |
-| 13.014  | apparant_energy_kvah          | 4            | -2147483648 ... 2147483647 | kVAh           |
-| 13.015  | reactive_energy_kvarh         | 4            | -2147483648 ... 2147483647 | kVARh          |
-| 13.100  | long_delta_timesec            | 4            | -2147483648 ... 2147483647 | s              |
-| 14      | 4byte_float                   | 4            |                            |                |
-| 14.000  | acceleration                  | 4            |                            | m/s²           |
-| 14.001  | acceleration_angular          | 4            |                            | rad/s²         |
-| 14.002  | activation_energy             | 4            |                            | J/mol          |
-| 14.003  | activity                      | 4            |                            | s⁻¹            |
-| 14.004  | mol                           | 4            |                            | mol            |
-| 14.005  | amplitude                     | 4            |                            |                |
-| 14.006  | angle_rad                     | 4            |                            | rad            |
-| 14.007  | angle_deg                     | 4            |                            | °              |
-| 14.008  | angular_momentum              | 4            |                            | J s            |
-| 14.009  | angular_velocity              | 4            |                            | rad/s          |
-| 14.010  | area                          | 4            |                            | m²             |
-| 14.011  | capacitance                   | 4            |                            | F              |
-| 14.012  | charge_density_surface        | 4            |                            | C/m²           |
-| 14.013  | charge_density_volume         | 4            |                            | C/m³           |
-| 14.014  | compressibility               | 4            |                            | m²/N           |
-| 14.015  | conductance                   | 4            |                            | S              |
-| 14.016  | electrical_conductivity       | 4            |                            | S/m            |
-| 14.017  | density                       | 4            |                            | kg/m³          |
-| 14.018  | electric_charge               | 4            |                            | C              |
-| 14.019  | electric_current              | 4            |                            | A              |
-| 14.020  | electric_current_density      | 4            |                            | A/m²           |
-| 14.021  | electric_dipole_moment        | 4            |                            | C m            |
-| 14.022  | electric_displacement         | 4            |                            | C/m²           |
-| 14.023  | electric_field_strength       | 4            |                            | V/m            |
-| 14.024  | electric_flux                 | 4            |                            | c              |
-| 14.025  | electric_flux_density         | 4            |                            | C/m²           |
-| 14.026  | electric_polarization         | 4            |                            | C/m²           |
-| 14.027  | electric_potential            | 4            |                            | V              |
-| 14.028  | electric_potential_difference | 4            |                            | V              |
-| 14.029  | electromagnetic_moment        | 4            |                            | A m²           |
-| 14.030  | electromotive_force           | 4            |                            | V              |
-| 14.031  | energy                        | 4            |                            | J              |
-| 14.032  | force                         | 4            |                            | N              |
-| 14.033  | frequency                     | 4            |                            | Hz             |
-| 14.034  | angular_frequency             | 4            |                            | rad/s          |
-| 14.035  | heatcapacity                  | 4            |                            | J/K            |
-| 14.036  | heatflowrate                  | 4            |                            | W              |
-| 14.037  | heat_quantity                 | 4            |                            | J              |
-| 14.038  | impedance                     | 4            |                            | Ω              |
-| 14.039  | length                        | 4            |                            | m              |
-| 14.040  | light_quantity                | 4            |                            | lm s           |
-| 14.041  | luminance                     | 4            |                            | cd/m²          |
-| 14.042  | luminous_flux                 | 4            |                            | lm             |
-| 14.043  | luminous_intensity            | 4            |                            | cd             |
-| 14.044  | magnetic_field_strength       | 4            |                            | A/m            |
-| 14.045  | magnetic_flux                 | 4            |                            | Wb             |
-| 14.046  | magnetic_flux_density         | 4            |                            | T              |
-| 14.047  | magnetic_moment               | 4            |                            | A m²           |
-| 14.048  | magnetic_polarization         | 4            |                            | T              |
-| 14.049  | magnetization                 | 4            |                            | A/m            |
-| 14.050  | magnetomotive_force           | 4            |                            | A              |
-| 14.051  | mass                          | 4            |                            | kg             |
-| 14.052  | mass_flux                     | 4            |                            | kg/s           |
-| 14.053  | momentum                      | 4            |                            | N/s            |
-| 14.054  | phaseanglerad                 | 4            |                            | rad            |
-| 14.055  | phaseangledeg                 | 4            |                            | °              |
-| 14.056  | power                         | 4            |                            | W              |
-| 14.057  | powerfactor                   | 4            |                            | cosΦ           |
-| 14.058  | pressure                      | 4            |                            | Pa             |
-| 14.059  | reactance                     | 4            |                            | Ω              |
-| 14.060  | resistance                    | 4            |                            | Ω              |
-| 14.061  | resistivity                   | 4            |                            | Ω m            |
-| 14.062  | self_inductance               | 4            |                            | H              |
-| 14.063  | solid_angle                   | 4            |                            | sr             |
-| 14.064  | sound_intensity               | 4            |                            | W/m²           |
-| 14.065  | speed                         | 4            |                            | m/s            |
-| 14.066  | stress                        | 4            |                            | Pa             |
-| 14.067  | surface_tension               | 4            |                            | N/m            |
-| 14.068  | common_temperature            | 4            |                            | °C             |
-| 14.069  | absolute_temperature          | 4            |                            | K              |
-| 14.070  | temperature_difference        | 4            |                            | K              |
-| 14.071  | thermal_capacity              | 4            |                            | J/K            |
-| 14.072  | thermal_conductivity          | 4            |                            | W/mK           |
-| 14.073  | thermoelectric_power          | 4            |                            | V/K            |
-| 14.074  | time_seconds                  | 4            |                            | s              |
-| 14.075  | torque                        | 4            |                            | N m            |
-| 14.076  | volume                        | 4            |                            | m³             |
-| 14.077  | volume_flux                   | 4            |                            | m³/s           |
-| 14.078  | weight                        | 4            |                            | N              |
-| 14.079  | work                          | 4            |                            | J              |
-| 16.000  | string                        | 14           |                            |                |
-| 17.001  | scene_number                  | 1            | 1 ... 64                   |                |
+| KNX DPT | type                          | size in byte |           range            | unit           |
+| ------: | ----------------------------- | -----------: | :------------------------: | -------------- |
+|       5 | 1byte_unsigned                |            1 |         0 ... 255          |                |
+|   5.001 | percent                       |            1 |         0 ... 100          | %              |
+|   5.003 | angle                         |            1 |         0 ... 360          | °              |
+|   5.004 | percentU8                     |            1 |         0 ... 255          | %              |
+|   5.005 | decimal_factor                |            1 |         0 ... 255          |                |
+|   5.006 | tariff                        |            1 |         0 ... 254          |                |
+|   5.010 | pulse                         |            1 |         0 ... 255          | counter pulses |
+|       6 | 1byte_signed                  |            1 |        -128 ... 127        |                |
+|   6.001 | percentV8                     |            1 |        -128 ... 127        | %              |
+|   6.010 | counter_pulses                |            1 |        -128 ... 127        | counter pulses |
+|       7 | 2byte_unsigned                |            2 |        0 ... 65535         |                |
+|   7.001 | pulse_2byte                   |            2 |        0 ... 65535         | pulses         |
+|   7.002 | time_period_msec              |            2 |        0 ... 65535         | ms             |
+|   7.003 | time_period_10msec            |            2 |        0 ... 65535         | ms             |
+|   7.004 | time_period_100msec           |            2 |        0 ... 65535         | ms             |
+|   7.005 | time_period_sec               |            2 |        0 ... 65535         | s              |
+|   7.006 | time_period_min               |            2 |        0 ... 65535         | min            |
+|   7.007 | time_period_hrs               |            2 |        0 ... 65535         | h              |
+|   7.011 | length_mm                     |            2 |        0 ... 65535         | mm             |
+|   7.012 | current                       |            2 |        0 ... 65535         | mA             |
+|   7.013 | brightness                    |            2 |        0 ... 65535         | lx             |
+|   7.600 | color_temperature             |            2 |        0 ... 65535         | K              |
+|       8 | 2byte_signed                  |            2 |      -32768 ... 32767      |                |
+|   8.001 | pulse_2byte_signed            |            2 |      -32768 ... 32767      | pulses         |
+|   8.002 | delta_time_ms                 |            2 |      -32768 ... 32767      | ms             |
+|   8.003 | delta_time_10ms               |            2 |      -32768 ... 32767      | ms             |
+|   8.004 | delta_time_100ms              |            2 |      -32768 ... 32767      | ms             |
+|   8.005 | delta_time_sec                |            2 |      -32768 ... 32767      | s              |
+|   8.006 | delta_time_min                |            2 |      -32768 ... 32767      | min            |
+|   8.007 | delta_time_hrs                |            2 |      -32768 ... 32767      | h              |
+|   8.010 | percentV16                    |            2 |      -32768 ... 32767      | %              |
+|   8.011 | rotation_angle                |            2 |      -32768 ... 32767      | °              |
+|       9 | 2byte_float                   |            2 |  -671088.64 ... 670760.96  |                |
+|   9.001 | temperature                   |            2 |      -273 ... 670760       | °C             |
+|   9.002 | temperature_difference_2byte  |            2 |     -670760 ... 670760     | K              |
+|   9.003 | temperature_a                 |            2 |     -670760 ... 670760     | K/h            |
+|   9.004 | illuminance                   |            2 |        0 ... 670760        | lx             |
+|   9.005 | wind_speed_ms                 |            2 |        0 ... 670760        | m/s            |
+|   9.006 | pressure_2byte                |            2 |        0 ... 670760        | Pa             |
+|   9.007 | humidity                      |            2 |        0 ... 670760        | %              |
+|   9.008 | ppm                           |            2 |  -671088.64 ... 670760.96  | ppm            |
+|   9.010 | time_1                        |            2 |     -670760 ... 670760     | s              |
+|   9.011 | time_2                        |            2 |     -670760 ... 670760     | ms             |
+|   9.020 | voltage                       |            2 |  -671088.64 ... 670760.96  | mV             |
+|   9.021 | curr                          |            2 |  -671088.64 ... 670760.96  | mA             |
+|   9.022 | power_density                 |            2 |  -671088.64 ... 670760.96  | W/m²           |
+|   9.023 | kelvin_per_percent            |            2 |  -671088.64 ... 670760.96  | K/%            |
+|   9.024 | power_2byte                   |            2 |  -671088.64 ... 670760.96  | kW             |
+|   9.025 | volume_flow                   |            2 |  -671088.64 ... 670760.96  | l/h            |
+|   9.026 | rain_amount                   |            2 |  -671088.64 ... 670760.96  | l/m²           |
+|   9.027 | temperature_f                 |            2 |     -459.6 ... 670760      | °F             |
+|   9.028 | wind_speed_kmh                |            2 |        0 ... 670760        | km/h           |
+|     9.? | enthalpy                      |            2 |  -671088.64 ... 670760.96  | H              |
+|      12 | 4byte_unsigned                |            4 |      0 ... 4294967295      |                |
+| 12.1200 | volume_liquid_litre           |            4 |      0 ... 4294967295      | l              |
+| 12.1201 | volume_m3                     |            4 |      0 ... 4294967295      | m³             |
+|      13 | 4byte_signed                  |            4 | -2147483648 ... 2147483647 |                |
+|  13.001 | pulse_4byte                   |            4 | -2147483648 ... 2147483647 | pulses         |
+|  13.002 | flow_rate_m3h                 |            4 | -2147483648 ... 2147483647 | m³/h           |
+|  13.010 | active_energy                 |            4 | -2147483648 ... 2147483647 | Wh             |
+|  13.011 | apparant_energy               |            4 | -2147483648 ... 2147483647 | VAh            |
+|  13.012 | reactive_energy               |            4 | -2147483648 ... 2147483647 | VARh           |
+|  13.013 | active_energy_kwh             |            4 | -2147483648 ... 2147483647 | kWh            |
+|  13.014 | apparant_energy_kvah          |            4 | -2147483648 ... 2147483647 | kVAh           |
+|  13.015 | reactive_energy_kvarh         |            4 | -2147483648 ... 2147483647 | kVARh          |
+|  13.100 | long_delta_timesec            |            4 | -2147483648 ... 2147483647 | s              |
+|      14 | 4byte_float                   |            4 |                            |                |
+|  14.000 | acceleration                  |            4 |                            | m/s²           |
+|  14.001 | acceleration_angular          |            4 |                            | rad/s²         |
+|  14.002 | activation_energy             |            4 |                            | J/mol          |
+|  14.003 | activity                      |            4 |                            | s⁻¹            |
+|  14.004 | mol                           |            4 |                            | mol            |
+|  14.005 | amplitude                     |            4 |                            |                |
+|  14.006 | angle_rad                     |            4 |                            | rad            |
+|  14.007 | angle_deg                     |            4 |                            | °              |
+|  14.008 | angular_momentum              |            4 |                            | J s            |
+|  14.009 | angular_velocity              |            4 |                            | rad/s          |
+|  14.010 | area                          |            4 |                            | m²             |
+|  14.011 | capacitance                   |            4 |                            | F              |
+|  14.012 | charge_density_surface        |            4 |                            | C/m²           |
+|  14.013 | charge_density_volume         |            4 |                            | C/m³           |
+|  14.014 | compressibility               |            4 |                            | m²/N           |
+|  14.015 | conductance                   |            4 |                            | S              |
+|  14.016 | electrical_conductivity       |            4 |                            | S/m            |
+|  14.017 | density                       |            4 |                            | kg/m³          |
+|  14.018 | electric_charge               |            4 |                            | C              |
+|  14.019 | electric_current              |            4 |                            | A              |
+|  14.020 | electric_current_density      |            4 |                            | A/m²           |
+|  14.021 | electric_dipole_moment        |            4 |                            | C m            |
+|  14.022 | electric_displacement         |            4 |                            | C/m²           |
+|  14.023 | electric_field_strength       |            4 |                            | V/m            |
+|  14.024 | electric_flux                 |            4 |                            | c              |
+|  14.025 | electric_flux_density         |            4 |                            | C/m²           |
+|  14.026 | electric_polarization         |            4 |                            | C/m²           |
+|  14.027 | electric_potential            |            4 |                            | V              |
+|  14.028 | electric_potential_difference |            4 |                            | V              |
+|  14.029 | electromagnetic_moment        |            4 |                            | A m²           |
+|  14.030 | electromotive_force           |            4 |                            | V              |
+|  14.031 | energy                        |            4 |                            | J              |
+|  14.032 | force                         |            4 |                            | N              |
+|  14.033 | frequency                     |            4 |                            | Hz             |
+|  14.034 | angular_frequency             |            4 |                            | rad/s          |
+|  14.035 | heatcapacity                  |            4 |                            | J/K            |
+|  14.036 | heatflowrate                  |            4 |                            | W              |
+|  14.037 | heat_quantity                 |            4 |                            | J              |
+|  14.038 | impedance                     |            4 |                            | Ω              |
+|  14.039 | length                        |            4 |                            | m              |
+|  14.040 | light_quantity                |            4 |                            | lm s           |
+|  14.041 | luminance                     |            4 |                            | cd/m²          |
+|  14.042 | luminous_flux                 |            4 |                            | lm             |
+|  14.043 | luminous_intensity            |            4 |                            | cd             |
+|  14.044 | magnetic_field_strength       |            4 |                            | A/m            |
+|  14.045 | magnetic_flux                 |            4 |                            | Wb             |
+|  14.046 | magnetic_flux_density         |            4 |                            | T              |
+|  14.047 | magnetic_moment               |            4 |                            | A m²           |
+|  14.048 | magnetic_polarization         |            4 |                            | T              |
+|  14.049 | magnetization                 |            4 |                            | A/m            |
+|  14.050 | magnetomotive_force           |            4 |                            | A              |
+|  14.051 | mass                          |            4 |                            | kg             |
+|  14.052 | mass_flux                     |            4 |                            | kg/s           |
+|  14.053 | momentum                      |            4 |                            | N/s            |
+|  14.054 | phaseanglerad                 |            4 |                            | rad            |
+|  14.055 | phaseangledeg                 |            4 |                            | °              |
+|  14.056 | power                         |            4 |                            | W              |
+|  14.057 | powerfactor                   |            4 |                            | cosΦ           |
+|  14.058 | pressure                      |            4 |                            | Pa             |
+|  14.059 | reactance                     |            4 |                            | Ω              |
+|  14.060 | resistance                    |            4 |                            | Ω              |
+|  14.061 | resistivity                   |            4 |                            | Ω m            |
+|  14.062 | self_inductance               |            4 |                            | H              |
+|  14.063 | solid_angle                   |            4 |                            | sr             |
+|  14.064 | sound_intensity               |            4 |                            | W/m²           |
+|  14.065 | speed                         |            4 |                            | m/s            |
+|  14.066 | stress                        |            4 |                            | Pa             |
+|  14.067 | surface_tension               |            4 |                            | N/m            |
+|  14.068 | common_temperature            |            4 |                            | °C             |
+|  14.069 | absolute_temperature          |            4 |                            | K              |
+|  14.070 | temperature_difference        |            4 |                            | K              |
+|  14.071 | thermal_capacity              |            4 |                            | J/K            |
+|  14.072 | thermal_conductivity          |            4 |                            | W/mK           |
+|  14.073 | thermoelectric_power          |            4 |                            | V/K            |
+|  14.074 | time_seconds                  |            4 |                            | s              |
+|  14.075 | torque                        |            4 |                            | N m            |
+|  14.076 | volume                        |            4 |                            | m³             |
+|  14.077 | volume_flux                   |            4 |                            | m³/s           |
+|  14.078 | weight                        |            4 |                            | N              |
+|  14.079 | work                          |            4 |                            | J              |
+|  16.000 | string                        |           14 |                            |                |
+|  17.001 | scene_number                  |            1 |          1 ... 64          |                |
 
 ### More examples
 
@@ -1404,3 +1410,80 @@ sync_state:
   type: boolean
   default: true
 {% endconfiguration %}
+
+## Troubleshooting / Common issues
+
+### Logs for the KNX integration
+
+`xknx`, the library used for KNX communication, provides various logging handlers for monitoring and debug purposes.
+Add the following lines to your Home Assistant `configuration.yaml` to activate them:
+
+```yaml
+logger:
+  default: warning
+  logs:
+    # For most debugging needs `xnx.log` and one of `xknx.knx` or `xknx.telegram` are a good choice.
+    xknx: debug  # sets the level of all loggers
+    xknx.log: debug  # provides general information (connection, etc.)
+    xknx.raw_socket: debug  # logs incoming UDP frames in raw hex format
+    xknx.knx: debug  # logs incoming and outgoing KNX/IP frames at socket level
+    xknx.telegram: debug  # logs telegrams before they are being processed at device level or sent to an interface
+    xknx.state_updater: debug  # provides information about the state updater
+```
+
+You can use the service `logger.set_level` to change the log level of a handler on a running instance.
+{% my developer_call_service badge service="logger.set_level" %}
+
+### Group address can not be read
+
+Every `*_state_address` is read on startup sequentially if not configured differently. If you see the following errors in your log, a group address could not be read by a GroupValueRead request from Home Assistant in time.
+
+```log
+> Could not sync group address '1/2/3' (Entity name - Feature)
+> Error: KNX bus did not respond in time (2.0 secs) to GroupValueRead request for: '1/2/3'
+```
+
+#### No communication object (CO) assigned to the group address (GA) has the Read-Flag set in ETS
+
+- Enable the read flag for *one* CO assigned to the GA. Use the one most likely to hold the current state (e.g., for a light entity's `brightness_state_address` the according CO of the dimming actuator).
+
+#### Response telegrams are not passing a line coupler, router or other filter in the installation
+
+- Use a dummy device in ETS for Home Assistant. These can be found in the ETS online catalog. Assign it to the line your interface connects Home Assistant to and link its communication objects to the group addresses you are using in Home Assistant. ETS will generate filter tables that are applied to your line couplers after updating their application.
+
+#### Unresponsive system
+
+- The timeout for logging the errors (2 seconds) is started when the GroupValueRead request is scheduled to be sent. On systems experiencing high loads sending can be delayed (e.g., Raspberry Pi running lots of integrations at startup).
+Incoming response telegrams are always processed, so no information gets lost.
+
+### Duplicate entities
+
+If you find following error in your log you seem to have a duplicated entity in your configuration.
+
+```log
+Platform knx does not generate unique IDs. ID 1/2/3 already exists - ignoring platform.name
+```
+
+The `unique_id` for KNX entities is generated based on required configuration values.
+
+- binary_sensor: `state_address`
+- climate: `temperature_address` `target_temperature_state_address` `target_temperature_address` `setpoint_shift_address`
+- cover: `move_long_address` `position_address`
+- fan: `address`
+- light: `address` or all combined `brightness_address` if only `individual_colors` is used
+- notify: `address`
+- scene: `address` and `scene_number`
+- sensor: `state_address`
+- switch: `address`
+- weather: `address_temperature`
+
+There can not be multiple entities on the same platform sharing these exact group addresses, even if they differ in other configuration.
+
+### xknx.yaml configuration
+
+```log
+> The 'config_file' option near /homeassistant/configuration.yaml:42 is deprecated, please remove it from your configuration
+> Invalid config for [knx]: [config_file] is an invalid option for [knx]. Check: knx->knx->config_file.
+```
+
+The feature to specify a xknx configuration schema file in the Home Assistant configuration YAML file (via `config_file:`) is deprecated since Home Assistant 2021.4. You can use the [xknx.yaml config converter](https://xknx.io/config-converter/) to convert it to a Home Assistant compatible `configuration.yaml` schema.
