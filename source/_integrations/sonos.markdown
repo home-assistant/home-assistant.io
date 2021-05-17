@@ -30,7 +30,6 @@ Battery sensors are currently supported for the `Sonos Roam` and `Sonos Move` de
 
 The Sonos integration adds one `switch` for each alarm set in the Sonos app. The alarm switches are detected, deleted and assigned automatically and come with several attributes that help to monitor Sonos alarms.
 
-
 ## Services
 
 The Sonos integration makes various custom services available.
