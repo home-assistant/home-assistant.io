@@ -1432,7 +1432,7 @@ logger:
 ```
 
 You can use the service `logger.set_level` to change the log level of a handler on a running instance.
-[![Open your Home Assistant instance and show your service developer tools.](https://my.home-assistant.io/badges/developer_services.svg)](https://my.home-assistant.io/redirect/developer_services/)
+{% my developer_services badge %}
 
 ### Group address can not be read
 
@@ -1453,7 +1453,7 @@ Every `*_state_address` is read on startup sequentially if not configured differ
 
 #### Unresponsive system
 
-- The timeout for logging the errors (2 seconds) is started when the GroupValueRead request is scheduled to be sent. On systems experiencing high loads sending can be delayed (e.g. Raspberry Pi running lots of integrations at startup).
+- The timeout for logging the errors (2 seconds) is started when the GroupValueRead request is scheduled to be sent. On systems experiencing high loads sending can be delayed (e.g., Raspberry Pi running lots of integrations at startup).
 Incoming response telegrams are always processed, so no information gets lost.
 
 ### Duplicate entities
