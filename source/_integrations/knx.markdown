@@ -1436,7 +1436,7 @@ You can use the service `logger.set_level` to change the log level of a handler 
 
 ### Group address can not be read
 
-Every `*_state_address` is read on startup and sequentially if not configured differently. If you see the following errors in your logs a group address could not be read by a GroupValueRead request from Home Assistant in time.
+Every `*_state_address` is read on startup sequentially if not configured differently. If you see the following errors in your log, a group address could not be read by a GroupValueRead request from Home Assistant in time.
 
 ```log
 > Could not sync group address '1/2/3' (Entity name - Feature)
