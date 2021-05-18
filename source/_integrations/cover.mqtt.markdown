@@ -228,7 +228,7 @@ tilt_closed_value:
   type: integer
   default: 0
 tilt_command_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_command_topic` topic. Within the template the following variables are available for the calculation of the position: __tilt_position__, the target tilt position in percent; __entity_id__, The ID of the entity itself. It can be used to reverence its attribuetes; __position_open__; __position_closed__; __tilt_min__; __tilt_max__."
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_command_topic` topic. Within the template the following variables are available: `entity_id`, `tilt_position`, the target tilt position in percent; `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
   required: false
   type: string
 tilt_command_topic:
