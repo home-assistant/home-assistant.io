@@ -186,7 +186,7 @@ retain:
   type: boolean
   default: false
 set_position_template:
-  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. Within the template the following variables are available for the calculation of the set-position: __position__, the set-position in percent; __entity_id__, The ID of the entity itself. It can be used to reverence its attribuetes; __position_open__; __position_closed__; __tilt_min__; __tilt_max__. If no template is defined, the position (0-100) will be calculated according to `position_open` and `position_closed` values."
+  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. Within the template the following variables are available: `entity_id`, `position`, the target position in percent; `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
   required: false
   type: string
 set_position_topic:
