@@ -483,6 +483,7 @@ cover:
 ```
 
 {% endraw %}
+
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages. This allows you to operate your cover manually:
 
 ```bash
