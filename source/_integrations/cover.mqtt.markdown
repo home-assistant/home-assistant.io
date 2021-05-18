@@ -421,6 +421,7 @@ cover:
 ```
 
 {% endraw %}
+
 ### Full configuration using advanced templating
 
 The example below shows a full example of how to setup a venetian blind which has a combined position and tilt topic. The blind in the example has moveable slats which tilt with a position change. In the example it takes the blind 6% of the movement for a full rotation of the slats.
