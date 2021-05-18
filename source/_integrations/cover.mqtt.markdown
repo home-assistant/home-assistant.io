@@ -422,6 +422,46 @@ cover:
 
 {% endraw %}
 
+### Full configuration using `entity_id`- variable in the template
+
+The example below shows an example of how to correct the state of the bline depending if it moved up, or down. 
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: mqtt
+    name: "MQTT Cover"
+    command_topic: "home-assistant/cover/set"
+    state_topic: "home-assistant/cover/state"
+    position_topic: "home-assistant/cover/position"
+    set_position_topic: "home-assistant/cover/position/set"
+    payload_open:  "open"
+    payload_close: "close"
+    payload_stop:  "stop"
+    state_opening: "open"
+    state_closing: "close"
+    state_stopped: "stop"
+    optimistic: false
+    position_template: |-
+      {% if state_attr(entity_id, "current_position") == None %}
+        {{ value }}
+      {% else %}
+        {% if state_attr(entity_id, "current_position") < (value | int) %}
+          {{ (value | int + 1) }}
+        {% else %}
+          {% if state_attr(entity_id, "current_position") > (value | int) %}
+            {{ (value | int - 1) }}
+          {% else %}
+            {{ value }}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+```
+
+{% endraw %}
+
 ### Full configuration using advanced templating
 
 The example below shows a full example of how to set up a venetian blind which has a combined position and tilt topic. The blind in the example has moveable slats which tilt with a position change. In the example, it takes the blind 6% of the movement for a full rotation of the slats.
