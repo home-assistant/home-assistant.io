@@ -196,7 +196,7 @@ unique_id:
    required: false
    type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. Available variables: `entity_id`."
   required: false
   type: template
 {% endconfiguration %}
