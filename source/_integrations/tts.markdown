@@ -110,26 +110,26 @@ Say to all `media_player` device entities:
 ```yaml
 # Replace google_translate_say with <platform>_say when you use a different platform.
 service: tts.google_translate_say
-entity_id: "all"
 data:
-  message: "May the Force be with you."
+  entity_id: all
+  message: "May the force be with you."
 ```
 
 Say to the `media_player.floor` device entity:
 
 ```yaml
 service: tts.google_translate_say
-entity_id: media_player.floor
 data:
-  message: "May the Force be with you."
+  entity_id: media_player.floor
+  message: "May the force be with you."
 ```
 
 Say to the `media_player.floor` device entity in French:
 
 ```yaml
 service: tts.google_translate_say
-entity_id: media_player.floor
 data:
+  entity_id: media_player.floor
   message: "Que la force soit avec toi."
   language: "fr"
 ```
