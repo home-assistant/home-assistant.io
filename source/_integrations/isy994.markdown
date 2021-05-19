@@ -166,7 +166,7 @@ Send a command to an ISY Device using its Home Assistant entity ID. Valid comman
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `entity_id`            |     no  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
 | `command` | no | The command to be sent to the device, e.g., `"fast_on"` |
 
 #### Service `isy994.send_raw_node_command`
@@ -175,7 +175,7 @@ Send a "raw" (e.g., `DON`, `DOF`) ISY REST Device Command to a Node using its Ho
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `entity_id`            |     no  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
 | `command` | no | The ISY REST Command to be sent to the device, e.g., `"DON"` |
 | `value` | yes | The integer value to be sent with the command, if required by the command, e.g., `255` |
 | `parameters` | yes | A `dict` of parameters to be sent in the query string for controlling colored bulbs or advanced parameters, e.g., `{ GV2: 0, GV3: 0, GV4: 255 }` |
@@ -216,7 +216,7 @@ Send an ISY set_on_level command to a `light` Node to set the devices' local On 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `entity_id`            |     no  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
 | `value` | no | The integer value to set the On Level to in a range of 0-255, e.g., `255` |
 
 #### Service `isy994.set_ramp_rate`
