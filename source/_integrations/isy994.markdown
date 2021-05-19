@@ -16,8 +16,8 @@ ha_iot_class: Local Push
 ha_domain: isy994
 ha_config_flow: true
 ha_codeowners:
-  - "@bdraco"
-  - "@shbatm"
+  - '@bdraco'
+  - '@shbatm'
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
@@ -62,41 +62,41 @@ isy994:
 
 {% configuration %}
 host:
-description: The host entry should be in full URL format, e.g., `http://192.168.10.100:80`
-required: true
-type: string
+  description: The host entry should be in full URL format, e.g., `http://192.168.10.100:80`
+  required: true
+  type: string
 username:
-description: The username that used to access the ISY interface.
-required: true
-type: string
+  description: The username that used to access the ISY interface.
+  required: true
+  type: string
 password:
-description: The password that used to access the ISY interface.
-required: true
-type: string
+  description: The password that used to access the ISY interface.
+  required: true
+  type: string
 sensor_string:
-description: This is the string that is used to identify which devices are to be assumed to be sensors instead of lights of switches. If this string is found in the device name or folder, Home Assistant will assume it is as a sensor or binary sensor (if the device has on/off or true/false states). This is only necessary for nodes that are not automatically detected as sensors by Home Assistant. Insteon door, window, motion and leak sensors should all be detected automatically.
-required: false
-type: string
-default: sensor
+  description: This is the string that is used to identify which devices are to be assumed to be sensors instead of lights of switches. If this string is found in the device name or folder, Home Assistant will assume it is as a sensor or binary sensor (if the device has on/off or true/false states). This is only necessary for nodes that are not automatically detected as sensors by Home Assistant. Insteon door, window, motion and leak sensors should all be detected automatically.
+  required: false
+  type: string
+  default: sensor
 variable_sensor_string:
-description: This is the string that is used to identify which Integer or State Variables are to be added as sensors. If this string is found in the device name, Home Assistant will assume it is as a sensor.
-required: false
-type: string
-default: sensor
+  description: This is the string that is used to identify which Integer or State Variables are to be added as sensors. If this string is found in the device name, Home Assistant will assume it is as a sensor.
+  required: false
+  type: string
+  default: sensor
 ignore_string:
-description: Any devices that contain this string in their name (or folder path) will be ignored by Home Assistant. They will not become entities at all and will not fire `control_events`.
-required: false
-type: string
-default: {IGNORE ME}
+  description: Any devices that contain this string in their name (or folder path) will be ignored by Home Assistant. They will not become entities at all and will not fire `control_events`.
+  required: false
+  type: string
+  default: {IGNORE ME}
 tls:
-description: This entry should reflect the version of TLS that the ISY controller is using for HTTPS encryption. This value can be either 1.1 or 1.2. If this value is not set, it is assumed to be version 1.1. This is the default for most users. ISY994 Pro users may likely be using 1.2. When using HTTPS in the host entry, it is best practice to set this value.
-required: false
-type: string
+  description: This entry should reflect the version of TLS that the ISY controller is using for HTTPS encryption. This value can be either 1.1 or 1.2. If this value is not set, it is assumed to be version 1.1. This is the default for most users. ISY994 Pro users may likely be using 1.2. When using HTTPS in the host entry, it is best practice to set this value.
+  required: false
+  type: string
 restore_light_state:
-description: If disabled (default behavior), lights turned ON from Home Assistant without a `brightness` parameter set, will turn on to the `on_level` set within the physical device. For example, on Insteon devices this would be the same brightness as if the switch/device was turned ON. If this setting is enabled, lights that are turned on from Home Assistant will go to the last known brightness value. Both the `on_level` and `last_brightness` values are available as attributes if needed for device-specific customization.
-required: false
-type: boolean
-default: false
+  description: If disabled (default behavior), lights turned ON from Home Assistant without a `brightness` parameter set, will turn on to the `on_level` set within the physical device. For example, on Insteon devices this would be the same brightness as if the switch/device was turned ON. If this setting is enabled, lights that are turned on from Home Assistant will go to the last known brightness value. Both the `on_level` and `last_brightness` values are available as attributes if needed for device-specific customization.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 Once the ISY controller is configured, it will automatically import any binary sensors, covers, fans, lights, locks, sensors and switches it can locate.
@@ -150,40 +150,40 @@ All `isy994_control` events will have an `entity_id` and `control` parameter in 
 
 All Insteon scenes configured in the ISY994 will show up as a `switch` in Home Assistant, as they do not support dimming or setting specific brightness settings as Home Assisstant's `light` component.
 
-Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant to allow support for using Control Events in Automations. These devices are added as `sensors` since they cannot be directly controlled (turned on/off); their state is the last ON level command they sent, in a range from `0` (Off) to `255` (On 100%). Note: these devices may report incorrect states before being used after a reboot of the ISY. Secondary Keypad buttons may be turned on or off using ISY Scenes (refer to ISY Documentation for more details).
+Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant to allow support for using Control Events in Automations. These devices are added as `sensors` since they cannot be directly controlled (turned on/off); their state is the last ON level command they sent, in a range from `0` (Off) to `255` (On 100%).  Note: these devices may report incorrect states before being used after a reboot of the ISY. Secondary Keypad buttons may be turned on or off using ISY Scenes (refer to ISY Documentation for more details).
 
 ### Services
 
 Once loaded, the following services will be exposed with the `isy994.` prefix, to allow advanced control over the ISY and its connected devices:
 
-- Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, `set_on_level`, and `set_ramp_rate`.
-- Generic ISY services: `system_query`, `set_variable`, `send_program_command`, and `run_network_resource`.
-- Management services for the ISY994 Home Assistant integration: `reload` and `cleanup_entities`.
+ - Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, `set_on_level`, and `set_ramp_rate`.
+ - Generic ISY services: `system_query`, `set_variable`, `send_program_command`, and `run_network_resource`.
+ - Management services for the ISY994 Home Assistant integration: `reload` and `cleanup_entities`.
 
 #### Service `isy994.send_node_command`
 
 Send a command to an ISY Device using its Home Assistant entity ID. Valid commands are: `beep`, `brighten`, `dim`, `disable`, `enable`, `fade_down`, `fade_stop`, `fade_up`, `fast_off`, `fast_on`, and `query`.
 
-| Service data attribute | Optional | Description                                                         |
-| ---------------------- | -------- | ------------------------------------------------------------------- |
-| `entity_id`            | no       | Name(s) of entities to send the command, e.g., `light.front_porch`. |
-| `command`              | no       | The command to be sent to the device, e.g., `"fast_on"`             |
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `command` | no | The command to be sent to the device, e.g., `"fast_on"` |
 
 #### Service `isy994.send_raw_node_command`
 
 Send a "raw" (e.g., `DON`, `DOF`) ISY REST Device Command to a Node using its Home Assistant Entity ID. This is useful for devices that aren't fully supported in Home Assistant yet, such as controls for many NodeServer nodes. Refer to the ISY (or PyISY Python Module) Documentation for details of valid commands.
 
-| Service data attribute | Optional | Description                                                                                                                                      |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | no       | Name(s) of entities to send the command, e.g., `light.front_porch`.                                                                              |
-| `command`              | no       | The ISY REST Command to be sent to the device, e.g., `"DON"`                                                                                     |
-| `value`                | yes      | The integer value to be sent with the command, if required by the command, e.g., `255`                                                           |
-| `parameters`           | yes      | A `dict` of parameters to be sent in the query string for controlling colored bulbs or advanced parameters, e.g., `{ GV2: 0, GV3: 0, GV4: 255 }` |
-| `unit_of_measurement`  | yes      | The ISY Unit of Measurement (UOM) to send with the command, if required, e.g., `67`                                                              |
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `command` | no | The ISY REST Command to be sent to the device, e.g., `"DON"` |
+| `value` | yes | The integer value to be sent with the command, if required by the command, e.g., `255` |
+| `parameters` | yes | A `dict` of parameters to be sent in the query string for controlling colored bulbs or advanced parameters, e.g., `{ GV2: 0, GV3: 0, GV4: 255 }` |
+| `unit_of_measurement` | yes | The ISY Unit of Measurement (UOM) to send with the command, if required, e.g., `67` |
 
 #### Service `isy994.get_zwave_parameter`
 
-Request a Z-Wave Device parameter via the ISY. The parameter value will be returned as a entity extra state attribute with the name "ZW\_#" where "#" is the parameter number.
+Request a Z-Wave Device parameter via the ISY. The parameter value will be returned as a entity extra state attribute with the name "ZW#" where "#" is the parameter number.
 
 | Service data attribute | Optional | Description                                                                                     |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
@@ -192,7 +192,7 @@ Request a Z-Wave Device parameter via the ISY. The parameter value will be retur
 
 #### Service `isy994.set_zwave_parameter`
 
-Update a Z-Wave Device parameter via the ISY. The parameter value will also be returned as a entity extra state attribute with the name "ZW\_#" where "#" is the parameter number.
+Update a Z-Wave Device parameter via the ISY. The parameter value will also be returned as a entity extra state attribute with the name "ZW#" where "#" is the parameter number.
 
 | Service data attribute | Optional | Description                                                                                     |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
@@ -214,62 +214,62 @@ Rename a node or group (scene) on the ISY994. Note: this will not automatically 
 
 Send an ISY set_on_level command to a `light` Node to set the devices' local On Level.
 
-| Service data attribute | Optional | Description                                                               |
-| ---------------------- | -------- | ------------------------------------------------------------------------- |
-| `entity_id`            | no       | Name(s) of entities to send the command, e.g., `light.front_porch`.       |
-| `value`                | no       | The integer value to set the On Level to in a range of 0-255, e.g., `255` |
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `value` | no | The integer value to set the On Level to in a range of 0-255, e.g., `255` |
 
 #### Service `isy994.set_ramp_rate`
 
 Send an ISY set_ramp_rate command to a `light` Node to set the devices' ramp rate. Refer to the PyISY documentation for the [available values](https://github.com/automicus/PyISY/blob/d053369f7531370a907136bf25a177632adccd1e/pyisy/constants.py#L630).
 
-| Service data attribute | Optional | Description                                                                                                       |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Name(s) of entities to send the command, e.g., `light.front_porch`.                                               |
-| `value`                | no       | The integer index value to set the Ramp Rate to in a range of `0` (9.5 minutes) to `31` (0.1 Seconds), e.g., `28` |
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     no   | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `value` | no | The integer index value to set the Ramp Rate to in a range of `0` (9.5 minutes) to `31` (0.1 Seconds), e.g., `28` |
 
 #### Service `isy994.system_query`
 
 Request the ISY Query the connected devices.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                       |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `address`              | yes      | ISY Address to Query. Omitting this requests a system-wide scan (typically recommended by UDI to be scheduled once per day), e.g., `"1A 2B 3C 1"`                                                                                 |
-| `isy`                  | yes      | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console). Omitting this will cause all ISYs to be queried, e.g., `"ISY"` |
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `address` | yes | ISY Address to Query. Omitting this requests a system-wide scan (typically recommended by UDI to be scheduled once per day), e.g., `"1A 2B 3C 1"` |
+| `isy` | yes | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console). Omitting this will cause all ISYs to be queried, e.g., `"ISY"` |
 
 #### Service `isy994.set_variable`
 
 Set an ISY variable's current or initial value. Variables can be set by either type/address or by name.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                      |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `value`                | no       | The integer value to be sent, e.g., `255`                                                                                                                                                                                                                                                        |
-| `address`              | no       | The address of the variable for which to set the value, e.g., `5`                                                                                                                                                                                                                                |
-| `type`                 | no       | The variable type, 1 = Integer, 2 = State, e.g., `2`                                                                                                                                                                                                                                             |
-| `name`                 | yes      | The name of the variable to set (Optional, use `name` instead of `type` and `address`), e.g., `"my_variable_name"`                                                                                                                                                                               |
-| `init`                 | yes      | If True, the initial (init) value will be updated instead of the current value, e.g., `false`                                                                                                                                                                                                    |
-| `isy`                  | yes      | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console). If you have the same variable name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `value` | no | The integer value to be sent, e.g., `255` |
+| `address` | no | The address of the variable for which to set the value, e.g., `5` |
+| `type` | no | The variable type, 1 = Integer, 2 = State, e.g., `2` |
+| `name` | yes | The name of the variable to set (Optional, use `name` instead of `type` and `address`), e.g., `"my_variable_name"` |
+| `init` | yes | If True, the initial (init) value will be updated instead of the current value, e.g., `false` |
+| `isy` | yes | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same variable name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
 
 #### Service `isy994.send_program_command`
 
 Send a command to control an ISY program or folder. Valid commands are `run`, `run_then`, `run_else`, `stop`, `enable`, `disable`, `enable_run_at_startup`, and `disable_run_at_startup`.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                                |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `command`              | no       | The ISY Program Command to be sent, e.g., `"run"`                                                                                                                                                                                                                                                          |
-| `address`              | yes      | The address of the program to control (optional, use either `address` or `name`), e.g., `"04B1"`                                                                                                                                                                                                           |
-| `name`                 | yes      | The name of the program to control (optional, use either `address` or `name`), e.g., `"My Program"`                                                                                                                                                                                                        |
-| `isy`                  | yes      | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console). If you have the same program name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `command` | no | The ISY Program Command to be sent, e.g., `"run"` |
+| `address` | yes | The address of the program to control (optional, use either `address` or `name`), e.g., `"04B1"` |
+| `name` | yes | The name of the program to control (optional, use either `address` or `name`), e.g., `"My Program"` |
+| `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same program name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
 
 #### Service `isy994.run_network_resource`
 
 Run a network resource on the ISY.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `address`              | yes      | The address of the network resource to execute (optional, use either `address` or `name`), e.g., `121`                                                                                                                                                                                                      |
-| `name`                 | yes      | The name of the network resource to execute (optional, use either `address` or `name`), e.g., `"Network Resource 1"`                                                                                                                                                                                        |
-| `isy`                  | yes      | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console). If you have the same resource name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `address` | yes | The address of the network resource to execute (optional, use either `address` or `name`), e.g., `121` |
+| `name` | yes | The name of the network resource to execute (optional, use either `address` or `name`), e.g., `"Network Resource 1"` |
+| `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same resource name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
 
 #### Service `isy994.reload`
 
@@ -323,36 +323,36 @@ My Programs
 
 A device is created by creating a directory, with the name for the device, under any of the following root directories:
 
-- _HA.binary_sensor_ will create a binary sensor (see [Customizing Devices](/getting-started/customizing-devices/) to set the sensor class).
-- _HA.cover_ will create a cover.
-- _HA.fan_ will create a fan.
-- _HA.lock_ will create a lock.
-- _HA.switch_ will create a switch.
+- *HA.binary_sensor* will create a binary sensor (see [Customizing Devices](/getting-started/customizing-devices/) to set the sensor class).
+- *HA.cover* will create a cover.
+- *HA.fan* will create a fan.
+- *HA.lock* will create a lock.
+- *HA.switch* will create a switch.
 
-A program, named _status_, is required under the program device directory. A program, named _actions_, is required for all program devices except for binary*sensor. Any other programs in these device directories will be ignored. The \_status* program requires that you create a variable with the name of your choice. This variable will store the actual status of the new device and will be updated by the _action_ program.
+A program, named *status*, is required under the program device directory. A program, named *actions*, is required for all program devices except for binary_sensor. Any other programs in these device directories will be ignored. The *status* program requires that you create a variable with the name of your choice. This variable will store the actual status of the new device and will be updated by the *action* program.
 
 <p class='img'>
   <img src='/images/isy994/isy994_CoverExample.png' />
 </p>
 
-The _status_ program in this directory is what indicates the state of the device:
+The *status* program in this directory is what indicates the state of the device:
 
-- _binary_sensor_ on if the clause returns true, otherwise off.
-- _cover_ closed if the clause returns true, otherwise open.
-- _fan_ on if the clause returns true, otherwise off.
-- _lock_ locked if the clause returns true, otherwise unlocked.
-- _switch_ on if the clause returns true, otherwise off.
+- *binary_sensor* on if the clause returns true, otherwise off.
+- *cover* closed if the clause returns true, otherwise open.
+- *fan* on if the clause returns true, otherwise off.
+- *lock* locked if the clause returns true, otherwise unlocked.
+- *switch* on if the clause returns true, otherwise off.
 
 <p class='img'>
   <img src='/images/isy994/isy994_SwitchStatusExample.png' />
 </p>
 
-The _actions_ program indicates what should be performed for the following device services:
+The *actions* program indicates what should be performed for the following device services:
 
-- _cover_ the THEN clause is evaluated for the open_cover service, the ELSE clause is evaluated for the close_cover service.
-- _fan_ the THEN clause is evaluated for the turn_on service, the ELSE clause is evaluated for the turn_off service.
-- _lock_ the THEN clause is evaluated for the lock service, the ELSE clause is evaluated for the unlock service.
-- _switch_ the THEN clause is evaluated for the turn_on service, the ELSE clause is evaluated for the turn_off service.
+- *cover* the THEN clause is evaluated for the open_cover service, the ELSE clause is evaluated for the close_cover service.
+- *fan* the THEN clause is evaluated for the turn_on service, the ELSE clause is evaluated for the turn_off service.
+- *lock* the THEN clause is evaluated for the lock service, the ELSE clause is evaluated for the unlock service.
+- *switch* the THEN clause is evaluated for the turn_on service, the ELSE clause is evaluated for the turn_off service.
 
 <p class='img'>
   <img src='/images/isy994/isy994_SwitchActionsExample.png' />
