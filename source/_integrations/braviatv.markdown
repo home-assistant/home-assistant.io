@@ -3,6 +3,7 @@ title: Sony Bravia TV
 description: Instructions on how to integrate a Sony Bravia TV into Home Assistant.
 ha_category:
   - Media Player
+  - Remote
 ha_release: 0.23
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -11,6 +12,7 @@ ha_domain: braviatv
 ha_config_flow: true
 ha_platforms:
   - media_player
+  - remote
 ---
 
 The `braviatv` platform allows you to control a [Sony Bravia TV](https://www.sony.com/).
@@ -67,6 +69,131 @@ name:
   type: string
 {% endconfiguration %}
 
+## Remote
+
+When the integration is configured, two entities will be created: a `media_player` and a `remote`. The remote allows you to send key commands to your TV with the `remote.send_command` service.
+
+Some of the known valid key values are (may depend on your TV model):
+
+```
+Num1
+Num2
+Num3
+Num4
+Num5
+Num6
+Num7
+Num8
+Num9
+Num0
+Num11
+Num12
+Enter
+GGuide
+ChannelUp
+ChannelDown
+VolumeUp
+VolumeDown
+Mute
+TvPower
+Audio
+MediaAudioTrack
+Tv
+Input
+TvInput
+TvAntennaCable
+WakeUp
+PowerOff
+Sleep
+Right
+Left
+SleepTimer
+Analog2
+TvAnalog
+Display
+Jump
+PicOff
+PictureOff
+Teletext
+Video1
+Video2
+AnalogRgb1
+Home
+Exit
+PictureMode
+Confirm
+Up
+Down
+ClosedCaption
+Component1
+Component2
+Wide
+EPG
+PAP
+TenKey
+BSCS
+Ddata
+Stop
+Pause
+Play
+Rewind
+Forward
+DOT
+Rec
+Return
+Blue
+Red
+Green
+Yellow
+SubTitle
+CS
+BS
+Digital
+Options
+Media
+Prev
+Next
+DpadCenter
+CursorUp
+CursorDown
+CursorLeft
+CursorRight
+ShopRemoteControlForcedDynamic
+FlashPlus
+FlashMinus
+DemoMode
+Analog
+Mode3D
+DigitalToggle
+DemoSurround
+AD
+AudioMixUp
+AudioMixDown
+PhotoFrame
+Tv_Radio
+SyncMenu
+Hdmi1
+Hdmi2
+Hdmi3
+Hdmi4
+TopMenu
+PopUpMenu
+OneTouchTimeRec
+OneTouchView
+DUX
+FootballMode
+iManual
+Netflix
+Assists
+FeaturedApp
+FeaturedAppVOD
+GooglePlay
+ActionMenu
+Help
+TvSatellite
+WirelessSubwoofer
+AndroidMenu
+```
 
 ## Extra configuration for the integration
 
