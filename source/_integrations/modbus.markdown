@@ -59,7 +59,10 @@ timeout:
   default: 5
   type: integer
 type:
-  description: Type of communication. Possible values are `tcp`(Modbus TCP protocol according to "MODBUS Messaging Implementation Guide version 1.0b" provided by Schneider Automation.), `udp`(Modbus TCP form, but using UDP for transport. It removes the overheads required for TCP.), `rtuovertcp` (Modbus RTU message transmitted with a TCP/IP wrapper and sent over a network instead of serial lines.).
+  description: Type of communication. Possible values are\
+`tcp` Modbus messages with modbus TCP frame on TCP/IP,\
+`udp` Modbus messages with modbus TCP frame on UDP,\
+`rtuovertcp` Modbus messages with a wrapper TCP/IP simulating a serial lines.
   required: true
   type: string
 {% endconfiguration %}
@@ -67,7 +70,7 @@ type:
 
 ## Configuring network connection
 
-For a network (type: tcp/udp/rtuovertcp) connection, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-modbus-common-parameters):
+For a network (type: `tcp`/`udp`/`rtuovertcp`) connection, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-modbus-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry for a TCP connection
@@ -163,12 +166,12 @@ Remark `name:`is required for multiple connection, because it needs to be unique
 
 ## Modbus services
 
-The modbus integration provides two generic services in addition to the platform specific services (e.g. turn_on/turn_off in a `switch`).
+The modbus integration provides two generic services in addition to the platform specific services.
 
 | Service | Description |
 | ------- | ----------- |
-| modbus.write_register | Write register. |
-| modbus.write_coil | Write coil. |
+| modbus.write_register | Write register or registers |
+| modbus.write_coil | Write coil or coils |
 
 Description:
 
