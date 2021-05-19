@@ -215,6 +215,15 @@ Call the service `recorder.disable` to stop saving events and states to the data
 
 Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
 
+## Recommended engines and minimum versions
+
+The following database engines are tested when major changes are made to the recorder. Other database engines do not have an active core maintainer at this time and may require additional work to maintain.
+
+- SQLite 3.32.1+
+- MariaDB 10.3+
+- MySQL 5.7+
+- PostgresSQL 12+
+
 ## Custom database engines
 
 | Database engine                | `db_url`                                                                                                  |
@@ -232,7 +241,7 @@ Call the service `recorder.enable` to start again saving events and states to th
 | PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                                            |
 | PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                                  |
 | PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                                |
-| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;`              |
+| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=DRIVER`                      |
 
 <div class='note'>
 
@@ -340,7 +349,13 @@ sudo apt-get install postgresql-server-dev-X.Y
 pip3 install psycopg2
 ```
 
-For using Unix Sockets, add the following line to your [`pg_hba.conf`](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html):
+For using Unix Sockets, first create your user from the `postgres` user account;
+```bash
+createuser USER_NAME
+```
+Where `USER_NAME` is the name of the user running the Home Assistant instance (see [securing your installation](/docs/configuration/securing/)).
+
+Then add the following line to your [`pg_hba.conf`](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html):
 
 `local  DB_NAME USER_NAME peer`
 
@@ -377,6 +392,6 @@ You will also need to install an ODBC Driver. Microsoft ODBC drivers are recomme
 
 <div class='note'>
 
-If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8mb4;DRIVER={FreeTDS};Port=1433;`.
+If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8mb4&driver=FreeTDS`.
 
 </div>

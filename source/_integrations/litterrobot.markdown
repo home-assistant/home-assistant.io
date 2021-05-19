@@ -51,60 +51,55 @@ Some entities have attributes in addition to the default ones that are available
 | status_code                   | string  | The [status code](https://github.com/natekspencer/pylitterbot/blob/884944b011f5fea9639b7d21d19fa3f7708e25a7/pylitterbot/enums.py#L44) associated with the current status of the vacuum. |
 | last_seen                     | string  | UTC datetime the unit last reported its status.                                                                                                                                         |
 
-## Commands
+## Services
 
-Commands are utilized for additional functionality that is available in the Litter-Robot companion app. The following are currently available:
+Services are utilized for additional functionality that is available in the Litter-Robot companion app. The following are currently available:
 
 ### reset_waste_drawer
 
 Resets the waste drawer level on the Litter-Robot. This will reset the cycle count returned by the Litter-Robot API to `0` such that the waste drawer entity will report as `0.0 %`.
 
 ```yaml
-service: vacuum.send_command
+service: litterrobot.reset_waste_drawer
 target:
   entity_id: vacuum.litter_robot_litter_box
-data:
-  command: reset_waste_drawer
 ```
 
 ### set_sleep_mode
 
-Enables (with `sleep_time` param) or disables sleep mode on the Litter-Robot.
+Enables (with `start_time` parameter) or disables sleep mode on the Litter-Robot.
 
-| Param      | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                              |
+| Parameter  | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | enabled    | bool   | yes      | Set to true to enable and false to disable.                                                                                                                                                                                                                                                                                                              |
-| sleep_time | string | no       | Time at which the unit will enter sleep mode and prevent an automatic clean cycle for 8 hours. This param uses the 24-hour format string `%H:%M:%S`, with seconds being optional, and is based on the timezone configured for your Home Assistant installation. As such, `10:30:00` would indicate 10:30 AM, whereas `22:30:00` would indicate 10:30 PM. |
+| start_time | string | no       | Time at which the unit will enter sleep mode and prevent an automatic clean cycle for 8 hours. This param uses the 24-hour format string `%H:%M:%S`, with seconds being optional, and is based on the timezone configured for your Home Assistant installation. As such, `10:30:00` would indicate 10:30 AM, whereas `22:30:00` would indicate 10:30 PM. |
 
 Example of setting the sleep mode to begin at 10:30 PM.
 
 ```yaml
-service: vacuum.send_command
+service: litterrobot.set_sleep_mode
 target:
   entity_id: vacuum.litter_robot_litter_box
 data:
-  command: set_sleep_mode
-  params:
-    enabled: true
-    sleep_time: "22:30:00"
+  enabled: true
+  start_time: '23:30:00'
+
 ```
 
 ### set_wait_time
 
 Sets the wait time, in minutes, between when your cat uses the Litter-Robot and when the unit cycles automatically.
 
-| Param     | Type | Required | Description                 |
+| Parameter | Type | Required | Description                 |
 | --------- | ---- | -------- | --------------------------- |
-| wait_time | int  | yes      | Must be one of: 3, 7 or 15. |
+| minutes   | int  | yes      | Must be one of: 3, 7 or 15. |
 
 Example of setting the wait time to 3 minutes.
 
 ```yaml
-service: vacuum.send_command
+service: litterrobot.set_wait_time
 target:
   entity_id: vacuum.litter_robot_litter_box
 data:
-  command: set_wait_time
-  params:
-    wait_time: 3
+  minutes: 3
 ```

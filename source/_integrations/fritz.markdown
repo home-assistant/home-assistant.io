@@ -68,4 +68,6 @@ If you have a dynamic IP address, most likely it will change.
 
 ## Additional info
 
+The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24 the default username was `admin`.
+
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.

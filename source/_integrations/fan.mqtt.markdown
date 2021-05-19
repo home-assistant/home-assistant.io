@@ -119,7 +119,7 @@ name:
   type: string
   default: MQTT Fan
 optimistic:
-  description: Flag that defines if lock works in optimistic mode
+  description: Flag that defines if fan works in optimistic mode
   required: false
   type: boolean
   default: "`true` if no state topic defined, else `false`."
@@ -266,8 +266,8 @@ fan:
     oscillation_command_topic: "bedroom_fan/oscillation/set"
     percentage_state_topic: "bedroom_fan/speed/percentage_state"
     percentage_command_topic: "bedroom_fan/speed/percentage"
-    preset_mode_state_topic: "bedroom_fan/speed/preset_mode_state"
-    preset_mode_command_topic: "bedroom_fan/speed/preset_mode"
+    preset_mode_state_topic: "bedroom_fan/preset/preset_mode_state"
+    preset_mode_command_topic: "bedroom_fan/preset/preset_mode"
     preset_modes:
        -  "auto"
        -  "smart"
@@ -299,7 +299,7 @@ fan:
     oscillation_command_template: "{ oscillation: '{{ value }}'}"
     percentage_command_topic: "bedroom_fan/speed/percentage"
     percentage_command_template: "{ percentage: '{{ value }}'}"
-    preset_mode_command_topic: "bedroom_fan/speed/preset_mode"
+    preset_mode_command_topic: "bedroom_fan/preset/preset_mode"
     preset_mode_command_template: "{ preset_mode: '{{ value }}'}"
     preset_modes:
        -  "auto"
