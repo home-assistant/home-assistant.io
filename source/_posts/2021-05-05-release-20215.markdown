@@ -58,6 +58,7 @@ want to tell me who it is...)
 - [Release 2021.5.2 - May 10](#release-202152---may-10)
 - [Release 2021.5.3 - May 11](#release-202153---may-11)
 - [Release 2021.5.4 - May 14](#release-202154---may-14)
+- [Release 2021.5.5 - May 19](#release-202155---may-19)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -512,6 +513,28 @@ The following integrations are now available via the Home Assistant UI:
 [netatmo docs]: /integrations/netatmo/
 [sonos docs]: /integrations/sonos/
 [version docs]: /integrations/version/
+
+## Release 2021.5.5 - May 19
+
+- Upgrade freesms to 0.2.0 ([@frenck] - [#50853]) ([free_mobile docs])
+- Backport Sonos handle subscription failures ([@jjlawren] - [#50796]) ([sonos docs])
+- Bump hatasmota to 0.2.13 ([@emontnemery] - [#50662]) ([tasmota docs])
+- Bump pysonos to 0.0.47 ([@jjlawren] - [#50792]) ([sonos docs])
+- Bump pyatmo to 4.2.3 ([@cgtobi] - [#50801]) ([netatmo docs])
+
+[#50662]: https://github.com/home-assistant/core/pull/50662
+[#50792]: https://github.com/home-assistant/core/pull/50792
+[#50796]: https://github.com/home-assistant/core/pull/50796
+[#50801]: https://github.com/home-assistant/core/pull/50801
+[#50853]: https://github.com/home-assistant/core/pull/50853
+[@cgtobi]: https://github.com/cgtobi
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jjlawren]: https://github.com/jjlawren
+[free_mobile docs]: /integrations/free_mobile/
+[netatmo docs]: /integrations/netatmo/
+[sonos docs]: /integrations/sonos/
+[tasmota docs]: /integrations/tasmota/
 
 ## If you need help...
 
