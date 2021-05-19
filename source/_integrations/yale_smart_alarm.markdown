@@ -16,8 +16,6 @@ The `yale_smart_alarm` platform provides connectivity with the Yale Smart Alarm 
 This platform supports the following services: `alarm_arm_away`, `alarm_arm_home`, and `alarm_disarm`.
 Currently only one alarm is supported.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
 ## Automation example
