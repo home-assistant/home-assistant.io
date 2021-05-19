@@ -51,15 +51,18 @@ Just add the token to your configuration and restart Home Assistant and the medi
 
 ## Advanced configuration
 
-The example below shows how you can use the `turn_on_action`
+The example below shows how you can use the `turn_on_action` the [`wake_on_lan` integration](/integrations/wake_on_lan/).
 
 ```yaml
-# Example configuration.yaml entry
+wake_on_lan: # enables `wake_on_lan` integration
+
+# Enables the `lg_netcast` media player
 media_player:
   - platform: lg_netcast
     host: 192.168.0.20
     turn_on_action:
-      service: switch.turn_on
-      target:
-        entity_id: switch.tv_switch
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: AA-BB-CC-DD-EE-FF
+        broadcast_address: 11.22.33.44
 ```

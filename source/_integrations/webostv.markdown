@@ -117,7 +117,7 @@ This usually only works if the TV is connected to the same network. Routing the 
 
 ```yaml
 # Example configuration.yaml entry
-wake_on_lan: # enables `wake_on_lan` domain
+wake_on_lan: # enables `wake_on_lan` integration
 
 webostv:
   host: 192.168.0.10
