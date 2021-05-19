@@ -44,7 +44,7 @@ close_comm_on_error:
   default: true
   type: boolean
 delay:
-  description: Time to delay sending messages in seconds after connecting. Some modbus devices need a delay of typically 1-2 seconds after established connection to prepare the communication. If a device does not response to messagees after connect, this parameter might help. Remark: the delay is solely between connect and the first message.
+  description: "Time to delay sending messages in seconds after connecting. Some modbus devices need a delay of typically 1-2 seconds after established connection to prepare the communication. If a device does not response to messagees after connect, this parameter might help. Remark: the delay is solely between connect and the first message."
   required: false
   default: 0
   type: integer
