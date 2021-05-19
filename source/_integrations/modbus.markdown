@@ -59,10 +59,7 @@ timeout:
   default: 5
   type: integer
 type:
-  description: Type of communication. Possible values are\
-`tcp` Modbus messages with modbus TCP frame on TCP/IP,\
-`udp` Modbus messages with modbus TCP frame on UDP,\
-`rtuovertcp` Modbus messages with a wrapper TCP/IP simulating a serial lines.
+  description: Type of communication. Possible values are `tcp` Modbus messages with modbus TCP frame on TCP/IP, `udp` Modbus messages with modbus TCP frame on UDP, `rtuovertcp` Modbus messages with a wrapper TCP/IP simulating a serial lines.
   required: true
   type: string
 {% endconfiguration %}
