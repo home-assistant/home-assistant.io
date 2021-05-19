@@ -25,10 +25,10 @@ Modbus supports all devices adhering to the modbus standard. The communication b
 
 First you define how to communicate with your modbus devices and after that you define the information being exchanged. The modbus integration allows you to use multiple connections.
 
-
 ## Configuring modbus common parameters
 
 Part of the configuration is common for all types of communication. Add the following to your `configuration.yaml` file:
+
 ```yaml
 modbus:
   - name: hub1
@@ -37,6 +37,7 @@ modbus:
     timeout: 5
     type: tcp
 ```
+
 {% configuration %}
 close_comm_on_error:
   description: Determines if the device connection is closed when an error occurs, default is true. Some serial-rs485 adapters delivers garble when opened, this leads to a disconnect and a new connect, which can continue. If in a running communication the debug log contains a message from pymodbus, with the text "cleaning....", then try this parameter.
@@ -64,7 +65,6 @@ type:
   type: string
 {% endconfiguration %}
 
-
 ## Configuring network connection
 
 For a network (type: `tcp`/`udp`/`rtuovertcp`) connection, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-modbus-common-parameters):
@@ -77,6 +77,7 @@ modbus:
     host: IP_ADDRESS
     port: 502
 ```
+
 {% configuration %}
 host:
   description: The IP address of your Modbus device, e.g., 192.168.1.1.
@@ -91,7 +92,6 @@ type:
   required: true
   type: string
 {% endconfiguration %}
-
 
 ## Configuring serial connection
 
@@ -109,6 +109,7 @@ modbus:
     port: /dev/ttyUSB0
     stopbits: 1
 ```
+
 {% configuration %}
 baudrate:
   description: The speed for the serial connection.
@@ -140,7 +141,6 @@ type:
   type: string
 {% endconfiguration %}
 
-
 ## Configuring multiple connections
 
 Multiple connections are possible with identical/different `type:`.
@@ -158,8 +158,8 @@ modbus:
     port: 501
     name: hub2
 ```
-Remark `name:`is required for multiple connection, because it needs to be unique.
 
+Remark `name:`is required for multiple connection, because it needs to be unique.
 
 ## Modbus services
 
@@ -180,11 +180,9 @@ Description:
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F |
 
-
 # configure modbus platforms
 
 Modbus platform entities are configured within the modbus configuration.
-
 
 ## Configuring platform common parameters
 
@@ -202,6 +200,7 @@ modbus:
         scan_interval: 999
         slave: 0
 ```
+
 {% configuration %}
 name:
   description: Name for the platform entity which must be unique within the platform.
@@ -212,19 +211,19 @@ scan_interval:
   required: false
   type: integer
   default: 10
- slave:
+slave:
   description: The number of the slave.
   required: false
   type: integer
   default: 0
 {% endconfiguration %}
 
-
 ### Configuring platform binary sensor
 
 The modbus binary sensor allows you to gather data from coils which as per standard have state ON/OFF.
 
 To use your modbus binary sensors in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+
 ```yaml
 # Example configuration.yaml entry for binary_sensor configuration
 modbus:
@@ -263,7 +262,6 @@ binary_sensors:
       type: string
 {% endconfiguration %}
 
-
 ### Configuring platform climate
 
 The modbus climate platform allows to monitor your termostat as well as set a target temperature.
@@ -294,6 +292,7 @@ modbus:
         temp_step: 1
         temperature_unit: C
 ```
+
 {% configuration %}
 climates:
   description: A list of all climates available in this modbus instance.
@@ -404,6 +403,7 @@ modbus:
       - name: Door2
         register: 117
 ```
+
 {% configuration %}
 covers:
   description: The array contains a list of all your modbus covers.
@@ -796,7 +796,6 @@ modbus:
         slave: 2
         address: 14
 ```
-
 
 ## Log warning (v1.0.8 and onwards)
 
