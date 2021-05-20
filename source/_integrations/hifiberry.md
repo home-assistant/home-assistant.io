@@ -3,8 +3,16 @@ title: HifiBerry
 description: How to set up the HifiBerry media player platform
 ha_category:
   - Media Player
-ha_release: 0.107.7
+ha_release: 2021.5.5
+ha_iot_class: Local Polling
+ha_config_flow: true
+ha_zeroconf: true
+ha_codeowners:
+  - '@willholdoway'
+  - '@dgomes'
 ha_domain: hifiberry
+ha_platforms:
+  - media_player
 ---
 
 The `HifiBerry` platform allows you to control a [HifiBerry OS](https://www.hifiberry.com/hifiberryos/) media player from Home Assistant. This is an end-to-end streaming lightweight OS built by HifiBerry for their Amp+, DAC+ or Digi+ HAT Raspberry Pi boards compatible with Airplay, Bluetooth, DLNA, LMS/Squeezebox, MPD, Snapcast, Spotify and Roon music services.
@@ -12,7 +20,7 @@ The `HifiBerry` platform allows you to control a [HifiBerry OS](https://www.hifi
 
 ## Configuration
 
-To configure, you can add the following to your `configuration.yaml` file:
+If you want to automatically discover new devices, just make sure you have discovery enabled. To manually add a HifiBerry device to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
