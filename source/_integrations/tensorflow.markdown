@@ -29,8 +29,6 @@ See [the official install guide](https://www.tensorflow.org/install/) for other 
 Furthermore, the official Python TensorFlow wheels by Google, require your CPU to support the `avx` extension.
 If your CPU lacks those capabilities, Home Assistant will crash when using TensorFlow, without any message.
 
-{% enddetails %}
-
 ## Preparation
 
 This integration requires files to be downloaded, compiled on your computer, and added to the Home Assistant configuration directory. These steps can be performed by cloning [this repository](https://github.com/hunterjm/hass-tensorflow) into your configuration directory. Alternatively, if you wish to perform the process manually, the process is as follows:
