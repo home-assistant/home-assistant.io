@@ -57,7 +57,7 @@ port:
   default: 7094
   type: integer
 code:
-  description: The INTEGRA ID (found in DLOADX under "Communication configuration" or in polish "Komunikacja Konfiguracji" section), it's needed for making use of the switchable_outputs.
+  description: User password, it's needed for making use of the switchable_outputs. It's recommended not to use admin password.
   required: false
   type: string
 partitions:
