@@ -99,13 +99,16 @@ Event 0 fired 9:53 AM:
 ```
 
 ### Automations
+
 The simplest way to create automations is to use the Home Assistant automation editor. For example, to set an automation triggered by a double press of a particular Shelly Button1:
+
 1. In the Triggers section of the automation, set Trigger Type to `Device`.
 2. In the Device dropdown menu. find the Shelly Button1.
-3. In the Trigger dropdown menu, select `Button double clicked."
+3. In the Trigger dropdown menu, select `Button double clicked`.
 4. Set any conditions and actions to complete your automation.
 
 You can also create automations using YAML, for example:
+
 ```yaml
 - alias: "Toggle living room light"
   trigger:
