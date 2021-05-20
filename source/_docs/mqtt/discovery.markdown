@@ -189,6 +189,8 @@ Supported abbreviations:
     'pl_strt':             'payload_start',
     'pl_stpa':             'payload_start_pause',
     'pl_ret':              'payload_return_to_base',
+    'pl_rst_pct':          'payload_reset_percentage',
+    'pl_rst_pr_mode':      'payload_reset_preset_mode',
     'pl_toff':             'payload_turn_off',
     'pl_ton':              'payload_turn_on',
     'pl_unlk':             'payload_unlock',

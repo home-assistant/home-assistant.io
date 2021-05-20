@@ -169,6 +169,16 @@ payload_oscillation_on:
   required: false
   type: string
   default: oscillate_on
+payload_reset_percentage:
+  description: A special payload that resets the `percentage` state attribute to `None` when received at the `percentage_state_topic`.
+  required: false
+  type: string
+  default: 'None'
+payload_reset_preset_mode:
+  description: A special payload that resets the `preset_mode` state attribute to `None` when received at the `preset_mode_state_topic`.
+  required: false
+  type: string
+  default: 'None'
 percentage_command_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `percentage_command_topic`.
   required: false
