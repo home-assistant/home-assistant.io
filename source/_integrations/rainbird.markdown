@@ -1,7 +1,6 @@
 ---
 title: Rain Bird
 description: Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant.
-logo: rainbird.png
 ha_category:
   - Irrigation
   - Sensor
@@ -11,6 +10,10 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@konikvranik'
 ha_domain: rainbird
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 This `rainbird` integration allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
@@ -121,13 +124,14 @@ The service can be used as part of an automation script. For example:
 ```yaml
 # Example configuration.yaml automation entry
 automation:
-  - alias: Turn irrigation on
+  - alias: "Turn irrigation on"
     trigger:
       platform: time
-      at: '5:30:00'
+      at: "5:30:00"
     action:
       service: rainbird.start_irrigation
-      entity_id: switch.sprinkler_1
+      target:
+        entity_id: switch.sprinkler_1
       data:
         duration: 5
 ```

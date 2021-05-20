@@ -3,20 +3,23 @@ title: Filter
 description: Instructions on how to integrate Data Filter Sensors into Home Assistant.
 ha_category:
   - Utility
+  - Sensor
 ha_release: 0.65
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
 ha_domain: filter
+ha_platforms:
+  - sensor
 ---
 
 The `filter` platform enables sensors that process the states of other entities.
 
-`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph]({{site_roor}}/integrations/history_graph/) component.
+`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/lovelace/history-graph/) component.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/filter-sensor.png' />
+  <img src='/images/screenshots/filter-sensor.png' />
 </p>
 
 ## Configuration
@@ -127,7 +130,7 @@ The returned value is rounded to the number of decimals defined in (`precision`)
 
 The Outlier filter (`outlier`) is a basic Band-pass filter, as it cuts out any value outside a specific range.
 
-The included Outlier filter will discard any value beyond a band centered on the median of the previous values, replacing it with the median value of the previous values. If inside the band, the
+The included Outlier filter will discard any value beyond a band centered on the median of the previous values, replacing it with the median value of the previous values. If inside the band, the current state is returned.
 
 ```python
 distance = abs(state - median(previous_states))

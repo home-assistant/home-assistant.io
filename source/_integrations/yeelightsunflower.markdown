@@ -1,7 +1,6 @@
 ---
 title: Yeelight Sunflower
 description: Instructions on how to setup Yeelight Sunflower hub and bulbs within Home Assistant.
-logo: yeelight.png
 ha_category:
   - Light
 ha_release: 0.39
@@ -9,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@lindsaymarkward'
 ha_domain: yeelightsunflower
+ha_platforms:
+  - light
 ---
 
 The `yeelightsunflower` light platform allows you to control your Yeelight Sunflower light bulbs with Home Assistant.

@@ -1,13 +1,14 @@
 ---
 title: WGL Designs W800RF32
 description: Instructions on how to integrate a W800rf32(a) into Home Assistant.
-logo: w800rf32.png
 ha_category:
   - Hub
   - Binary Sensor
 ha_release: 0.83
 ha_iot_class: Local Push
 ha_domain: w800rf32
+ha_platforms:
+  - binary_sensor
 ---
 
 The `w800rf32` integration supports W800RF32 devices by [WGL Designs](http://www.wgldesigns.com/w800.html) which

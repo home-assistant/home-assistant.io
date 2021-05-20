@@ -8,13 +8,21 @@ ha_category:
   - Light
   - Switch
 ha_release: pre 0.7
+ha_iot_class: Local Push
 ha_config_flow: true
-ha_codeowners:
-  - '@sqldiablo'
 ha_domain: wemo
+ha_ssdp: true
+ha_homekit: true
+ha_platforms:
+  - binary_sensor
+  - fan
+  - light
+  - switch
+ha_codeowners:
+  - '@esev'
 ---
 
-The `wemo` integration is the main integration to integrate various [Belkin WeMo](https://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) devices with Home Assistant.
+The `wemo` integration is the main integration to integrate various [Belkin WeMo](https://www.belkin.com/us/c/wemo/) devices with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

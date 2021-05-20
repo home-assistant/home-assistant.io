@@ -1,5 +1,5 @@
 ---
-title: Somfy Open API
+title: Somfy
 description: Instructions on how to set up the Somfy hub within Home Assistant.
 ha_category:
   - Hub
@@ -9,6 +9,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@tetienne'
 ha_domain: somfy
+ha_zeroconf: true
+ha_platforms:
+  - climate
+  - cover
+  - sensor
+  - switch
 ---
 
 The Somfy integration will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis), unlike the [Tahoma](/integrations/tahoma/) integration.
@@ -37,10 +43,7 @@ It is possible to create your own developer account and configure Somfy via that
 - Description: Home Assistant instance
 - Product: Somfy Open API
 
-5. Once Home Assistant restarted, go to Configuration>Integrations.
-6. Select the Somfy integration.
-
-### Configuration
+### Pre-configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -66,6 +69,8 @@ optimistic:
 {% endconfiguration %}
 
 **optimistic** mode should only be used when the integration is not able to gain information on whether a cover is open or closed (e.g., [RTS](https://www.somfysystems.com/en-us/discover-somfy/technology/radio-technology-somfy) devices). It will attempt to track the status within Home Assistant. This mode should only be used if Home Assistant is the only way you operate the blind. If you also use the physical remote control or the Somfy app, Home Assistant will become out of sync.
+
+{% include integrations/config_flow.md %}
 
 ### Potential duplicate with the Tahoma integration
 

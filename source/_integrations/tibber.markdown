@@ -1,7 +1,6 @@
 ---
 title: Tibber
 description: Instructions on how to integrate Tibber within Home Assistant.
-logo: tibber.png
 ha_category:
   - Energy
   - Sensor
@@ -12,10 +11,14 @@ ha_quality_scale: silver
 ha_codeowners:
   - '@danielhiversen'
 ha_domain: tibber
+ha_config_flow: true
+ha_platforms:
+  - notify
+  - sensor
 ---
 
 The `tibber` integration provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
-If you have a [Tibber Pulse](https://norge.tibber.com/products/pulse/) or [Watty](https://watty.io/) it will also show the electricity consumption in real time.
+If you have a [Tibber Pulse](https://norge.tibber.com/products/pulse/) or [Watty](https://tibber.com/se/store/produkt/watty-smart-energimatare) it will also show the electricity consumption in real time.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -26,21 +29,7 @@ There is currently support for the following device types within Home Assistant:
 
 Go to [developer.tibber.com/settings/accesstoken](https://developer.tibber.com/settings/accesstoken) to get your API token.
 
-## Configuration
-
-To add Tibber to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-tibber:
-  access_token: YOUR_ACCESS_TOKEN
-```
-
-{% configuration %}
-access_token:
-  description: Your Tibber API token.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Notifications
 

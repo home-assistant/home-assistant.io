@@ -3,13 +3,16 @@ title: Uptime
 description: Instructions on how to integrate an uptime sensor into Home Assistant.
 ha_category:
   - Utility
+  - Sensor
 ha_iot_class: Local Push
 ha_release: 0.56
 ha_quality_scale: internal
 ha_domain: uptime
+ha_platforms:
+  - sensor
 ---
 
-The `uptime` sensor platform displays the time since the last Home Assistant restart.
+The `uptime` sensor stores the timestamp (date and time) when Home Assistant was last started.
 
 ## Configuration
 
@@ -27,11 +30,6 @@ name:
   required: false
   type: string
   default: Uptime
-unit_of_measurement:
-  description: "Units for uptime measurement in either `days`, `hours` or `minutes`."
-  required: false
-  type: string
-  default: days
 {% endconfiguration %}
 
 ## Example
@@ -41,5 +39,4 @@ unit_of_measurement:
 sensor:
   - platform: uptime
     name: Time Online
-    unit_of_measurement: hours
 ````

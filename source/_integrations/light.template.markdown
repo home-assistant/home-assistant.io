@@ -35,20 +35,25 @@ light:
           service: script.theater_lights_off
         set_level:
           service: script.theater_lights_level
-          data_template:
+          data:
             brightness: "{{ brightness }}"
         set_temperature:
           service: input_number.set_value
-          data_template:
+          data:
             value: "{{ color_temp }}"
             entity_id: input_number.temperature_input
+        set_white_value:
+          service: input_number.set_value
+          data:
+            value: "{{ white_value }}"
+            entity_id: input_number.white_value_input
         set_color:
           - service: input_number.set_value
-            data_template:
+            data:
               value: "{{ h }}"
               entity_id: input_number.h_input
           - service: input_number.set_value
-            data_template:
+            data:
               value: "{{ s }}"
               entity_id: input_number.s_input
 ```
@@ -65,10 +70,10 @@ light:
         description: Name to use in the frontend.
         required: false
         type: string
-      entity_id:
-        description: A list of entity IDs so the light only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+      unique_id:
+        description: An ID that uniquely identifies this light. Set this to a unique value to allow customization through the UI.
         required: false
-        type: [string, list]
+        type: string
       value_template:
         description: Defines a template to get the state of the light.
         required: false
@@ -81,6 +86,11 @@ light:
         default: optimistic
       temperature_template:
         description: Defines a template to get the color temperature of the light.
+        required: false
+        type: template
+        default: optimistic
+      white_value_template:
+        description: Defines a template to get the white value of the light.
         required: false
         type: template
         default: optimistic
@@ -112,6 +122,10 @@ light:
         type: action
       set_temperature:
         description: Defines an action to run when the light is given a color temperature command.
+        required: false
+        type: action
+      set_white_value:
+        description: Defines an action to run when the light is given a white value command.
         required: false
         type: action
       set_color:
@@ -164,18 +178,21 @@ light:
           {% endif %}
         turn_on:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: false
         turn_off:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: true
         set_level:
           service: media_player.volume_set
-          data_template:
+          target:
             entity_id: media_player.receiver
+          data:
             volume_level: "{{ (brightness / 255 * 100)|int / 100 }}"
         level_template: >-
           {% if is_state('media_player.receiver', 'on') %}
@@ -221,13 +238,15 @@ light:
           {% endif %}
         turn_on:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: false
         turn_off:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: true
 ```
 
@@ -267,13 +286,15 @@ light:
           {% endif %}
         turn_on:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: false
         turn_off:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: true
 ```
 

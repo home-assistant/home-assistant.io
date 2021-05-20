@@ -5,7 +5,9 @@ date: 2017-06-17 01:04:05 +0000
 date_formatted: "June 17, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-06-0.47/components.png
 ---
 
@@ -134,7 +136,7 @@ notify:
 - Z-Wave node and scene activated trigger events now use the full entity ID ([@armills] - [#7786]) ([zwave docs]) (breaking change)
 ```yaml
 automation:
-  - alias: Button 1
+  - alias: "Button 1"
     trigger:
       platform: event
       event_type: zwave.scene_activated
@@ -144,7 +146,7 @@ automation:
 ```
 ```yaml
 automation:
-  - alias: Event 1
+  - alias: "Event 1"
     trigger:
       platform: event
       event_type: zwave.node_event
@@ -197,7 +199,7 @@ automation:
 - update to pywebpush 1.0.4 which allows install on system with openssl-1.1.0 (cryptography dep) ([@perosb] - [#7915]) ([notify.html5 docs])
 - Do not call update() in constructor ([@fabaff] - [#7917]) ([sensor.dte_energy_bridge docs]) ([sensor.dublin_bus_transport docs]) ([sensor.dweet docs]) ([sensor.ebox docs]) ([sensor.ecobee docs]) ([sensor.hddtemp docs]) ([sensor.mold_indicator docs]) ([sensor.pi_hole docs]) (sensor.yahoo_finance docs)
 - Fix changes introduced with #7917 ([@fabaff] - [#7930]) ([sensor.waqi docs])
-- Do not call update() in constructor ([@fabaff] - [#7931]) ([sensor.yweather docs])
+- Do not call update() in constructor ([@fabaff] - [#7931])
 - Add service_url config option to volvooncall ([@palp] - [#7919]) ([volvooncall docs])
 - Added 'change' field to statistics sensor ([@jminn] - [#7820]) ([sensor.statistics docs])
 - add ripple sensor ([@nkgilley] - [#7935]) ([sensor.ripple docs]) (new-platform)
@@ -216,7 +218,7 @@ automation:
 - Add configuration check and use default var names ([@fabaff] - [#7963]) ([lutron docs]) ([light.lutron docs]) (breaking change)
 - lock.sesame: Update pysesame, add state attributes ([@trisk] - [#7953]) ([lock.sesame docs])
 - Fixed metadata issue ([@bazwilliams] - [#7932]) ([media_player.openhome docs])
-- Create metoffice.py ([@cyberjacob] - [#7965]) ([sensor.metoffice docs])
+- Create metoffice.py ([@cyberjacob] - [#7965]) ([metoffice docs])
 - Prevent Roku doing I/O in event loop ([@balloob] - [#7969]) ([media_player.roku docs])
 - Fix platforms being able to block startup ([@balloob] - [#7970])
 - New component: Python Script ([@balloob] - [#7950]) ([python_script docs]) (new-platform)
@@ -495,6 +497,7 @@ automation:
 [media_player.sonos docs]: /integrations/sonos
 [media_player.spotify docs]: /integrations/spotify
 [media_player.squeezebox docs]: /integrations/squeezebox
+[metoffice docs]: /integrations/metoffice/
 [mqtt.__init__ docs]: /integrations/mqtt.__init__/
 [nest docs]: /integrations/nest/
 [netatmo docs]: /integrations/netatmo/
@@ -527,7 +530,6 @@ automation:
 [sensor.homematic docs]: /integrations/homematic
 [sensor.imap_email_content docs]: /integrations/imap_email_content/
 [sensor.juicenet docs]: /integrations/juicenet#sensor
-[sensor.metoffice docs]: /integrations/sensor.metoffice/
 [sensor.mold_indicator docs]: /integrations/mold_indicator
 [sensor.netatmo docs]: /integrations/netatmo#sensor
 [sensor.openevse docs]: /integrations/openevse
@@ -540,7 +542,6 @@ automation:
 [sensor.template docs]: /integrations/template
 [sensor.waqi docs]: /integrations/waqi
 [sensor.wunderground docs]: /integrations/wunderground
-[sensor.yweather docs]: /integrations/yweather
 [spc docs]: /integrations/spc/
 [splunk docs]: /integrations/splunk/
 [switch.homematic docs]: /integrations/homematic

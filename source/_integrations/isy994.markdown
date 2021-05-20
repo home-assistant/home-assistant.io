@@ -4,6 +4,7 @@ description: Instructions on how to setup the ISY994 controller within Home Assi
 ha_category:
   - Hub
   - Binary Sensor
+  - Climate
   - Cover
   - Fan
   - Light
@@ -13,6 +14,20 @@ ha_category:
 ha_release: 0.28
 ha_iot_class: Local Push
 ha_domain: isy994
+ha_config_flow: true
+ha_codeowners:
+  - '@bdraco'
+  - '@shbatm'
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. Some models of the ISY994 can even control Z-Wave devices.
@@ -21,6 +36,7 @@ The ISY994 controller is manufactured by [Universal Devices](https://www.univers
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
+- Climate
 - Cover
 - Light
 - Fan
@@ -28,11 +44,12 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-### Basic Configuration
-
 Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, cover, fan, lock, and switches can also be created.
 
-To integrate your ISY994 controller with Home Assistant, add the following section to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
+## Manual configuration
+
+You may also configure the integration manually by adding the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -60,20 +77,25 @@ sensor_string:
   required: false
   type: string
   default: sensor
+variable_sensor_string:
+  description: This is the string that is used to identify which Integer or State Variables are to be added as sensors. If this string is found in the device name, Home Assistant will assume it is as a sensor.
+  required: false
+  type: string
+  default: sensor
 ignore_string:
-  description: Any devices that contain this string in their name (or folder path) will be ignored by Home Assistant. They will not become entities at all.
+  description: Any devices that contain this string in their name (or folder path) will be ignored by Home Assistant. They will not become entities at all and will not fire `control_events`.
   required: false
   type: string
   default: {IGNORE ME}
-enable_climate:
-  description: When enabled, climate measurements from the optional climate module in the ISY994 will show up in Home Assistant as sensors.
-  required: false
-  type: string
-  default: true
 tls:
   description: This entry should reflect the version of TLS that the ISY controller is using for HTTPS encryption. This value can be either 1.1 or 1.2. If this value is not set, it is assumed to be version 1.1. This is the default for most users. ISY994 Pro users may likely be using 1.2. When using HTTPS in the host entry, it is best practice to set this value.
   required: false
   type: string
+restore_light_state:
+  description: If disabled (default behavior), lights turned ON from Home Assistant without a `brightness` parameter set, will turn on to the `on_level` set within the physical device. For example, on Insteon devices this would be the same brightness as if the switch/device was turned ON. If this setting is enabled, lights that are turned on from Home Assistant will go to the last known brightness value. Both the `on_level` and `last_brightness` values are available as attributes if needed for device-specific customization.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 Once the ISY controller is configured, it will automatically import any binary sensors, covers, fans, lights, locks, sensors and switches it can locate.
@@ -82,26 +104,33 @@ Once the ISY controller is configured, it will automatically import any binary s
 
 An Insteon door/window sensor will show up as a single Binary Sensor rather than two discrete devices like it does in the ISY994 admin panel. Note that when in "Two Nodes" mode, the sensor will have an UNKNOWN state until the sensor changes for the first time since the last Home Assistant reboot. If you do not use Insteon scenes that are controlled directly from the door sensor, you may prefer to set the sensor to "One Node" mode using the ISY Admin Panel.
 
-Each Insteon leak sensor will also show up as a single Binary Sensor as opposed to the two nodes seen in the ISY994. The name of the device will be based on what the parent node is named in the ISY994, which is typically the one with "-Dry" at the end of the name. This may be confusing, because "On" means wet in Home Assistant. You can rename this node either in the ISY994 Admin Panel (which will change the entity_id in Home Assistant) or assign a `friendly_name` in the [Customization section](/docs/configuration/customizing-devices/) of your configuration.
+Each Insteon leak sensor will also show up as a single Binary Sensor as opposed to the two nodes seen in the ISY994. The name of the device will be based on what the parent node is named in the ISY994, which is typically the one with "-Dry" at the end of the name. This may be confusing, because "On" means wet in Home Assistant. You can rename this node in Home Assistant to be more clear, see the [Customization section](/docs/configuration/customizing-devices/) of your configuration.
 
 If your leak or door/window sensor supports heartbeats, a new binary_sensor device will be added to Home Assistant to represent the battery state. The sensor will stay "Off" so long as the daily heartbeats occur. If a heartbeat is missed, the sensor will flip to "On". The name of this device will be based on the heartbeat node in the ISY.
 
-### Handling Insteon Control Events
+Integer and State Variables from the ISY can be used as sensors by setting the `variable_sensor_string` and adding it as part of the variable name in the ISY. For example, if you have a variable named `HA.my_variable` and a `variable_sensor_string` of `"HA."`, it will be automatically added as a `sensor` in Home Assistant.
 
-A Home Assistant `isy994_control` event is emitted for every "control" event in the Insteon network. This allows you to write automations that trigger based on Insteon button presses. You can also trigger off of the unique Insteon events, such as double-presses, long-holds etc.
+### Handling Insteon or Other ISY Control Events
+
+A Home Assistant `isy994_control` event is emitted for every "control" event in the ISY's device network (as long as the device has not been ignored or disabled in Home Assistant). This allows you to write automations that trigger based on events such as Insteon button presses. You can also trigger off of the unique Insteon/Zigbee/Z-Wave events, such as double-presses, long-holds etc.
 
 ```yaml
 automation:
-  - alias: turn off living room on double tap lightswitch
+  - alias: "turn off living room on double tap lightswitch"
     trigger:
       platform: event
       event_type: isy994_control
       event_data:
         entity_id: light.lr_track_lights_front
-        control: 'DFOF'
+        control: "DFON"
+        value: 255
+        formatted: "On"
+        uom: "100"
+        prec: "0"
     action:
       service: light.turn_off
-      entity_id: light.lr_track_lights_rear
+      target:
+        entity_id: light.lr_track_lights_rear
 ```
 
 All `isy994_control` events will have an `entity_id` and `control` parameter in its `event_data`. You'll need to refer to ISY994 documentation for the list of every possible control type, but the common ones are:
@@ -116,11 +145,112 @@ All `isy994_control` events will have an `entity_id` and `control` parameter in 
 - `BRT`: "Brighten", from controllers that issue a single command to slightly brighten a light.
 - `DIM`: "Dim", from controllers that issue a single command to slightly dim a light.
 
-### Insteon Scenes
+### Insteon Scenes & Keypad/Remote Buttons
 
-All Insteon scenes configured in the ISY994 will show up as switches in Home Assistant.
+All Insteon scenes configured in the ISY994 will show up as a `switch` in Home Assistant, as they do not support dimming or setting specific brightness settings as Home Assisstant's `light` component.
 
-### Creating Custom Devices
+Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant to allow support for using Control Events in Automations. These devices are added as `sensors` since they cannot be directly controlled (turned on/off); their state is the last ON level command they sent, in a range from `0` (Off) to `255` (On 100%).  Note: these devices may report incorrect states before being used after a reboot of the ISY. Secondary Keypad buttons may be turned on or off using ISY Scenes (refer to ISY Documentation for more details).
+
+### Services
+
+Once loaded, the following services will be exposed with the `isy994.` prefix, to allow advanced control over the ISY and its connected devices:
+
+ - Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, `set_on_level`, and `set_ramp_rate`.
+ - Generic ISY services: `system_query`, `set_variable`, `send_program_command`, and `run_network_resource`.
+ - Management services for the ISY994 Home Assistant integration: `reload` and `cleanup_entities`.
+
+#### Service `isy994.send_node_command`
+
+Send a command to an ISY Device using its Home Assistant entity ID. Valid commands are: `beep`, `brighten`, `dim`, `disable`, `enable`, `fade_down`, `fade_stop`, `fade_up`, `fast_off`, `fast_on`, and `query`.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `command` | no | The command to be sent to the device, e.g., `"fast_on"` |
+
+#### Service `isy994.send_raw_node_command`
+
+Send a "raw" (e.g., `DON`, `DOF`) ISY REST Device Command to a Node using its Home Assistant Entity ID. This is useful for devices that aren't fully supported in Home Assistant yet, such as controls for many NodeServer nodes. Refer to the ISY (or PyISY Python Module) Documentation for details of valid commands.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `command` | no | The ISY REST Command to be sent to the device, e.g., `"DON"` |
+| `value` | yes | The integer value to be sent with the command, if required by the command, e.g., `255` |
+| `parameters` | yes | A `dict` of parameters to be sent in the query string for controlling colored bulbs or advanced parameters, e.g., `{ GV2: 0, GV3: 0, GV4: 255 }` |
+| `unit_of_measurement` | yes | The ISY Unit of Measurement (UOM) to send with the command, if required, e.g., `67` |
+
+#### Service `isy994.set_on_level`
+
+Send an ISY set_on_level command to a `light` Node to set the devices' local On Level.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     yes  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `value` | no | The integer value to set the On Level to in a range of 0-255, e.g., `255` |
+
+#### Service `isy994.set_ramp_rate`
+
+Send an ISY set_ramp_rate command to a `light` Node to set the devices' ramp rate. Refer to the PyISY documentation for the [available values](https://github.com/automicus/PyISY/blob/d053369f7531370a907136bf25a177632adccd1e/pyisy/constants.py#L630).
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     no   | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `value` | no | The integer index value to set the Ramp Rate to in a range of `0` (9.5 minutes) to `31` (0.1 Seconds), e.g., `28` |
+
+#### Service `isy994.system_query`
+
+Request the ISY Query the connected devices.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `address` | yes | ISY Address to Query. Omitting this requests a system-wide scan (typically recommended by UDI to be scheduled once per day), e.g., `"1A 2B 3C 1"` |
+| `isy` | yes | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console). Omitting this will cause all ISYs to be queried, e.g., `"ISY"` |
+
+#### Service `isy994.set_variable`
+
+Set an ISY variable's current or initial value. Variables can be set by either type/address or by name.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `value` | no | The integer value to be sent, e.g., `255` |
+| `address` | no | The address of the variable for which to set the value, e.g., `5` |
+| `type` | no | The variable type, 1 = Integer, 2 = State, e.g., `2` |
+| `name` | yes | The name of the variable to set (Optional, use `name` instead of `type` and `address`), e.g., `"my_variable_name"` |
+| `init` | yes | If True, the initial (init) value will be updated instead of the current value, e.g., `false` |
+| `isy` | yes | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same variable name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
+
+#### Service `isy994.send_program_command`
+
+Send a command to control an ISY program or folder. Valid commands are `run`, `run_then`, `run_else`, `stop`, `enable`, `disable`, `enable_run_at_startup`, and `disable_run_at_startup`.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `command` | no | The ISY Program Command to be sent, e.g., `"run"` |
+| `address` | yes | The address of the program to control (optional, use either `address` or `name`), e.g., `"04B1"` |
+| `name` | yes | The name of the program to control (optional, use either `address` or `name`), e.g., `"My Program"` |
+| `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same program name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
+
+#### Service `isy994.run_network_resource`
+
+Run a network resource on the ISY.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `address` | yes | The address of the network resource to execute (optional, use either `address` or `name`), e.g., `121` |
+| `name` | yes | The name of the network resource to execute (optional, use either `address` or `name`), e.g., `"Network Resource 1"` |
+| `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same resource name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
+
+#### Service `isy994.reload`
+
+Reload the ISY994 connection(s) without restarting Home Assistant. Use this service to pick up new devices that have been added or changed on the ISY since the last restart of Home Assistant.
+
+#### Service `isy994.cleanup_entities`
+
+Cleanup old entities no longer used by the ISY994 integrations. Useful if you've removed devices from the ISY or changed the filter string options in the configuration to exclude additional items and they were not properly removed
+by Home Assistant.
+
+### Creating Custom Devices using ISY Programs
 
 Using the Programs tab in the controller's Administrative Console, custom devices can be created that will appear natively inside of Home Assistant. Home Assistant will scan the following folders and build the device to the associated domains:
 
@@ -172,7 +302,7 @@ A device is created by creating a directory, with the name for the device, under
 A program, named *status*, is required under the program device directory. A program, named *actions*, is required for all program devices except for binary_sensor. Any other programs in these device directories will be ignored. The *status* program requires that you create a variable with the name of your choice. This variable will store the actual status of the new device and will be updated by the *action* program.
 
 <p class='img'>
-  <img src='{{site_root}}/images/isy994/isy994_CoverExample.png' />
+  <img src='/images/isy994/isy994_CoverExample.png' />
 </p>
 
 The *status* program in this directory is what indicates the state of the device:
@@ -184,7 +314,7 @@ The *status* program in this directory is what indicates the state of the device
 - *switch* on if the clause returns true, otherwise off.
 
 <p class='img'>
-  <img src='{{site_root}}/images/isy994/isy994_SwitchStatusExample.png' />
+  <img src='/images/isy994/isy994_SwitchStatusExample.png' />
 </p>
 
 The *actions* program indicates what should be performed for the following device services:
@@ -195,7 +325,7 @@ The *actions* program indicates what should be performed for the following devic
 - *switch* the THEN clause is evaluated for the turn_on service, the ELSE clause is evaluated for the turn_off service.
 
 <p class='img'>
-  <img src='{{site_root}}/images/isy994/isy994_SwitchActionsExample.png' />
+  <img src='/images/isy994/isy994_SwitchActionsExample.png' />
 </p>
 
 The example program above shows how to control a legacy X10 device from Home Assistant using an ISY controller.

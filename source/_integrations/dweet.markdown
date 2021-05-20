@@ -1,7 +1,6 @@
 ---
 title: dweet.io
 description: Transfer events to Dweet.io.
-logo: dweet.png
 ha_category:
   - History
   - Sensor
@@ -10,12 +9,14 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: dweet
+ha_platforms:
+  - sensor
 ---
 
 The `dweet` integration makes it possible to transfer details collected with Home Assistant to [Dweet.io](https://dweet.io/) and visualize them with [freeboard.io](https://freeboard.io). Keep in mind that your information will be public!
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/dweet-freeboard.png' />
+  <img src='/images/screenshots/dweet-freeboard.png' />
 </p>
 
 <div class='note warning'>
@@ -61,13 +62,15 @@ The `dweet` sensor platform allows you to get details from your devices which ar
 To use Dweet.io sensors in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: dweet
     device: THING_NAME
-    value_template: '{{ value_json.VARIABLE }}'
+    value_template: "{{ value_json.VARIABLE }}"
 ```
+
 {% endraw %}
 
 {% configuration %}
@@ -95,15 +98,17 @@ unit_of_measurement:
 A full configuration entry could look like the sample below.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: dweet
     name: Temperature
     device: THING_NAME
-    value_template: '{{ value_json.VARIABLE }}'
+    value_template: "{{ value_json.VARIABLE }}"
     unit_of_measurement: "°C"
 ```
+
 {% endraw %}
 
 ### Interacting with Dweet.io
@@ -111,7 +116,7 @@ sensor:
 You can easily send dweets from the command-line to test your sensor with `curl`.
 
 ```bash
-$ curl -H 'Content-Type: application/json' -d '{"temperature": 40, "humidity": 65}' https://dweet.io/dweet/for/ha-sensor
+curl -H 'Content-Type: application/json' -d '{"temperature": 40, "humidity": 65}' https://dweet.io/dweet/for/ha-sensor
 ```
 
 will give you a response like the one below:

@@ -5,7 +5,9 @@ date: 2018-02-26 00:01:00
 date_formatted: "February 26, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-02-0.64/components.png
 ---
 
@@ -202,7 +204,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update voluputous ([@balloob] - [#12463]) (breaking change)
 - Map Alexa StepVolume responses to volume_up/down ([@lucasweb78] - [#12467]) ([alexa docs])
 - ONVIF Camera added Error handling and rtsp authentication. ([@matt2005] - [#11129]) ([camera.onvif docs])
-- Bump aioautomatic to 0.6.5 for voluptuous 0.11 ([@armills] - [#12480]) ([device_tracker.automatic docs])
+- Bump aioautomatic to 0.6.5 for voluptuous 0.11 ([@armills] - [#12480])
 - Add example in test how to create list or object in template ([@balloob] - [#12469])
 - KNX/Climate: Fixed platform schema min/max values. ([@Julius2342] - [#12477]) ([climate.knx docs])
 - Prevent error when no internet or DNS is available ([@mjj4791] - [#12486]) ([sensor.buienradar docs]) ([weather.buienradar docs])
@@ -503,7 +505,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [cover.opengarage docs]: /integrations/opengarage
 [deconz docs]: /integrations/deconz/
 [device_tracker.asuswrt docs]: /integrations/asuswrt
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.bmw_connected_drive docs]: /integrations/bmw_connected_drive
 [device_tracker.nmap_tracker docs]: /integrations/nmap_tracker
 [device_tracker.unifi docs]: /integrations/unifi
@@ -558,7 +559,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.folder docs]: /integrations/folder
 [sensor.knx docs]: /integrations/sensor.knx/
 [sensor.pollen docs]: /integrations/iqvia
-[sensor.rfxtrx docs]: /integrations/sensor.rfxtrx/
+[sensor.rfxtrx docs]: /integrations/rfxtrx#sensors
 [sensor.sabnzbd docs]: /integrations/sabnzbd
 [sensor.sma docs]: /integrations/sma#sensors
 [sensor.smappee docs]: /integrations/sma#sensorsppee/
@@ -635,7 +636,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@happyleavesaoc]: https://github.com/happyleavesaoc
 [@ryanm101]: https://github.com/ryanm101
 [@uchagani]: https://github.com/uchagani
-[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [logbook docs]: /integrations/logbook/
 [media_player.plex docs]: /integrations/plex#media-player

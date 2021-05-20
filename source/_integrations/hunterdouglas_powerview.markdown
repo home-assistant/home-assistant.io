@@ -1,30 +1,32 @@
 ---
 title: Hunter Douglas PowerView
 description: Instructions on how to setup Hunter Douglas PowerView scenes within Home Assistant.
-logo: hunter-douglas-powerview.png
 ha_category:
+  - Cover
   - Scene
+  - Sensor
 ha_release: 0.15
 ha_domain: hunterdouglas_powerview
+ha_iot_class: Local Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@bdraco'
+ha_homekit: true
+ha_platforms:
+  - cover
+  - scene
+  - sensor
 ---
 
-Implements the [Hunter Douglas PowerView](https://www.hunterdouglas.com/operating-systems/powerview-motorization/support) platform scene control. It queries the PowerView Hub and Home Assistant displays them as scenes.
+The `hunterdouglas_powerview` integration allows you to integrate your [Hunter Douglas PowerView](https://www.hunterdouglas.com/operating-systems/powerview-motorization/support) devices in Home Assistant.
 
-Scenes can be activated using the service `scene.turn_on`.
+There is currently support for the following device types within Home Assistant:
 
-```yaml
-# Example configuration.yaml entry
-scene:
-  platform: hunterdouglas_powerview
-  address: IP_ADDRESS
-```
+- Cover
+- Scene
+- Sensor
 
-{% configuration %}
-address:
-  description: IP address of the PowerView Hub, e.g., 192.168.1.10.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Example Automations
 
@@ -35,5 +37,6 @@ address:
     at: "18:00:00"
   action:
     - service: scene.turn_on
-      entity_id: scene.10877
+      target:
+        entity_id: scene.10877
 ```

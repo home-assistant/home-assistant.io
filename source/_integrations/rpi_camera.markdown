@@ -6,9 +6,15 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.17
 ha_domain: rpi_camera
+ha_platforms:
+  - camera
 ---
 
-The `rpi_camera` platform allows you to integrate the Raspberry Pi camera into Home Assistant. This integration uses the application [`raspistill`](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md) to store the image from camera.
+The `rpi_camera` integration allows you to integrate the Raspberry Pi camera into Home Assistant. This integration uses the application [`raspistill`](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md) to store the image from camera.
+
+<div class='note'>
+This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
+</div>
 
 ## Configuration
 
@@ -16,9 +22,11 @@ To enable this camera in your installation, add the following to your `configura
 
 ```yaml
 # Example configuration.yaml entry
-camera:
-  - platform: rpi_camera
+rpi_camera:
 ```
+
+The whole set of configuration variables is documented here [`Raspberry Pi Camera Module - Raspberry Pi Documentation`](https://www.raspberrypi.org/documentation/raspbian/applications/camera.md).
+They are not all wrapped by this `rpi_camera` platform.
 
 {% configuration %}
 image_width:
@@ -61,6 +69,16 @@ timelapse:
   required: false
   type: integer
   default: 1000
+overlay_metadata:
+  description: Adds some text and/or metadata onto the picture. Check the [`--annotate`](https://www.raspberrypi.org/documentation/raspbian/applications/camera.md) section.
+  required: false
+  type: integer
+  default: none
+overlay_timestamp:
+  description: Helper to add date/time onto the picture. Format as used by [`strftime`](http://man7.org/linux/man-pages/man3/strftime.3.html).
+  required: false
+  type: string
+  default: none
 file_path:
   description: Save the picture in a custom file path.
   required: false

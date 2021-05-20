@@ -7,6 +7,8 @@ ha_category:
 ha_release: '0.90'
 ha_iot_class: Local Polling
 ha_domain: tof
+ha_platforms:
+  - sensor
 ---
 
 The Time of Flight sensor uses an invisible laser to measure distance with millimeter resolution.
@@ -71,7 +73,7 @@ Enable the I2c interface with the Raspberry Pi configuration utility:
 
 ```bash
 # pi user environment: Enable i2c interface
-$ sudo raspi-config
+sudo raspi-config
 ```
 
 Select `Interfacing options->I2C` choose `<Yes>` and hit `Enter`, then go to `Finish` and you'll be prompted to reboot.
@@ -80,13 +82,13 @@ Install dependencies for use the `smbus-cffi` module and enable your `homeassist
 
 ```bash
 # pi user environment: Install i2c dependencies and utilities
-$ sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
+sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
 
 # pi user environment: Add homeassistant user to the i2c group
-$ sudo addgroup homeassistant i2c
+sudo addgroup homeassistant i2c
 
 # pi user environment: Reboot Raspberry Pi to apply changes
-$ sudo reboot
+sudo reboot
 ```
 
 ### Check the i2c address of the sensor
@@ -94,7 +96,7 @@ $ sudo reboot
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 
 ```bash
-$ /usr/sbin/i2cdetect -y 1
+/usr/sbin/i2cdetect -y 1
 ```
 
 It will output a table like this:

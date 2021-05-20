@@ -7,6 +7,10 @@ ha_category:
 ha_release: 0.49
 ha_iot_class: Local Push
 ha_domain: wake_on_lan
+ha_platforms:
+  - switch
+ha_codeowners:
+  - '@ntilley905'
 ---
 
 The `wake_on_lan` integration enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices to turn them on.
@@ -32,10 +36,11 @@ Available services: `send_magic_packet`.
 
 Send a _magic packet_ to wake up a device with 'Wake-On-LAN' capabilities.
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `mac`                     |       no | MAC address of the device to wake up.                 |
-| `broadcast_address`       |      yes | Optional broadcast IP where to send the magic packet. |
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `mac`                     |       no | MAC address of the device to wake up.                   |
+| `broadcast_address`       |      yes | Optional broadcast IP where to send the magic packet.   |
+| `broadcast_port`          |      yes | Optional port where to send the magic packet.           |
 
 Sample service data:
 
@@ -44,6 +49,11 @@ Sample service data:
    "mac":"00:40:13:ed:f1:32"
 }
 ```
+
+<div class='note'>
+This usually only works if the Target Device is connected to the same network. Routing the WakeOnLan packet to a different subnet requires a special configuration on your router or may not be possible.
+The Service to Route the packet is most likely named "IP Helper" which may support WakeOnLan, but not all Routers support this.
+</div>
 
 ## Switch
 
@@ -75,7 +85,7 @@ name:
   default: Wake on LAN
   type: string
 host:
-  description: The IP address or hostname to check the state of the device (on/off).
+  description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
   required: false
   type: string
 turn_off:
@@ -87,6 +97,10 @@ broadcast_address:
   required: false
   default: 255.255.255.255
   type: string
+broadcast_port:
+  description: The port to send the magic packet to.
+  required: false
+  type: integer
 {% endconfiguration %}
 
 ### Examples
@@ -116,5 +130,5 @@ switch:
       service: shell_command.turn_off_TARGET
 
 shell_command:
-  turn_off_TARGET: 'ssh hass@TARGET sudo pm-suspend'
+  turn_off_TARGET: "ssh hass@TARGET sudo pm-suspend"
 ```

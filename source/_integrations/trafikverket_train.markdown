@@ -1,7 +1,6 @@
 ---
 title: Trafikverket Train
 description: Instructions how to integrate Trafikverket Train within Home Assistant.
-logo: trafikverket.png
 ha_category:
   - Transport
   - Sensor
@@ -10,6 +9,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@endor-force'
 ha_domain: trafikverket_train
+ha_platforms:
+  - sensor
 ---
 
 Retrieve train departure information from [Trafikverket](https://www.trafikverket.se/).

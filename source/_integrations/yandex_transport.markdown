@@ -1,14 +1,17 @@
 ---
 title: Yandex Transport
 description: Instructions on how to set up Yandex transport with Home Assistant.
-logo: yandex.png
 ha_category:
   - Sensor
   - Transport
+ha_iot_class: Cloud Polling
 ha_release: '0.100'
 ha_codeowners:
   - '@rishatik92'
+  - '@devbis'
 ha_domain: yandex_transport
+ha_platforms:
+  - sensor
 ---
 
 The `yandex_tranport` sensor platform uses [Yandex Maps](https://maps.yandex.ru/) it will give you the time until the next departure time from a bus/tramway/etc stop.
@@ -17,7 +20,7 @@ The [Yandex Maps](https://maps.yandex.ru/) website can help to determine the id 
 
 `https://yandex.ru/maps/213/moscow/?ll=37.722565%2C55.806662&masstransit%5BstopId%5D=stop__9642962&mode=masstransit&z=16.52`
 
-Where stop id is: **9642962**
+Where stop id is: **stop__9642962**
 
 If you want to track only specific routes, you can add them in the routes section.
 
@@ -57,7 +60,7 @@ The configuration sample below shows how an entry can look like:
 sensor:
   - platform: yandex_transport
     name: Bus_to_subway
-    stop_id: 9639579
+    stop_id: stop__9639579
     routes:
       - 63
       - 179
@@ -70,7 +73,7 @@ sensor:
 ## Options For Entities
 
 You can configure view information about the next bus using Lovelace card.
-To enable displaying the relative time in your `default_vew` add the following lines:
+To enable displaying the relative time in your `default_view` add the following lines:
 
 ```yaml
 # Example default_view entry

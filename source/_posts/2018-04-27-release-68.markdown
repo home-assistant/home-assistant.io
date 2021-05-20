@@ -5,7 +5,9 @@ date: 2018-04-27 00:01:00
 date_formatted: "April 27, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-04-0.68/components.png
 ---
 
@@ -114,7 +116,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix bad metrics format for short metrics. ([@michaelkuty] - [#13778]) ([prometheus docs])
 - Update bellows to 0.5.2 ([@rcloran] - [#13800]) ([zha docs])
 - device_tracker.ubus: Handle devices not running DHCP ([@tobygray] - [#13579]) ([device_tracker docs])
-- Update yweather.py ([@wiuwiu] - [#13802]) ([weather.yweather docs])
+- Update yweather.py ([@wiuwiu] - [#13802])
 - Tibber lib update ([@Danielhiversen] - [#13811]) ([sensor.tibber docs])
 - Update pyhomematic to 0.1.41 ([@danielperna84] - [#13814]) ([homematic docs])
 - Add support for Eufy bulbs and switches ([@mjg59] - [#13773]) ([eufy docs]) ([light.eufy docs]) ([switch.eufy docs]) (new-platform)
@@ -135,14 +137,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Adding USCIS component ([@meauxt] - [#13764]) ([sensor.uscis docs]) (new-platform)
 - Avoid unnecessary cast state updates ([@dersger] - [#13770]) ([media_player.cast docs])
 - Prevent vesync doing I/O in event loop ([@balloob] - [#13862]) ([switch.vesync docs]) (beta fix)
-- Update yweather.py ([@TheCellMC] - [#13851]) ([weather.yweather docs])
+- Update yweather.py ([@TheCellMC] - [#13851])
 - add support for Kodi discovery ([@escoand] - [#13790]) ([media_player.kodi docs])
 - Further untangle data entry flow ([@balloob] - [#13855])
 - Missing property decorator added ([@syssi] - [#13889]) ([fan.xiaomi_miio docs]) (beta fix)
 - Fix race condition for component loaded before listening ([@balloob] - [#13887]) ([config docs]) (beta fix)
 - Added snips service descriptions ([@tschmidty69] - [#13883])
 - Add unique_id for BMW ConnectedDrive ([@gerard33] - [#13888]) ([binary_sensor.bmw_connected_drive docs]) ([lock.bmw_connected_drive docs]) ([sensor.bmw_connected_drive docs])
-- Revert "Update yweather.py" ([@pvizeli] - [#13900]) ([weather.yweather docs])
+- Revert "Update yweather.py" ([@pvizeli] - [#13900])
 - Eufy colour bulb updates ([@mjg59] - [#13895]) ([eufy docs]) ([light.eufy docs])
 - Fix #13846 Double underscore in bluetooth address ([@aav7fl] - [#13884]) ([device_tracker docs]) (beta fix)
 - Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs]) (beta fix)
@@ -506,7 +508,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vacuum.neato docs]: /integrations/neato#vacuum
 [vacuum.roomba docs]: /integrations/roomba
 [vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
-[weather.yweather docs]: /integrations/yweather
 [zha docs]: /integrations/zha/
 [#14108]: https://github.com/home-assistant/home-assistant/pull/14108
 [#14113]: https://github.com/home-assistant/home-assistant/pull/14113

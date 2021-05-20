@@ -3,9 +3,12 @@ title: deCONZ
 description: Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
 ha_category:
   - Hub
+  - Alarm
   - Binary Sensor
   - Cover
+  - Fan
   - Light
+  - Lock
   - Scene
   - Sensor
   - Switch
@@ -14,8 +17,20 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - '@kane610'
+  - '@Kane610'
 ha_domain: deconz
+ha_ssdp: true
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - scene
+  - sensor
+  - switch
 ---
 
 [deCONZ](https://www.dresden-elektronik.de/funk/software/deconz.html) by [dresden elektronik](https://www.dresden-elektronik.de) is a software that communicates with ConBee/RaspBee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
@@ -24,10 +39,12 @@ ha_domain: deconz
 
 There is currently support for the following device types within Home Assistant:
 
+- [Alarm Control Panel](#alarm-control-panel)
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)
+- [Lock](#lock)
 - [Scene](#scene)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -41,13 +58,7 @@ Otherwise, use [community container](https://hub.docker.com/r/marthoc/deconz/) b
 
 See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Supported-Devices) for a list of supported devices.
 
-## Configuration
-
-Home Assistant will automatically discover deCONZ presence on your network, if `discovery:` is present in your `configuration.yaml` file.
-
-If you don't have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to **Settings** → **Gateway** → **Advanced** → **Authenticate app** in the Phoscon App and then use the deCONZ configurator in Home Assistant frontend to create an API key. When you're done setting up deCONZ it will be stored as a configuration entry.
-
-You can manually add deCONZ by going to the integrations page.
+{% include integrations/config_flow.md %}
 
 ## Debugging integration
 
@@ -67,7 +78,7 @@ If you are having issues and want to report a problem, always start with making 
 
 ## Device services
 
-Available services: `configure` and `deconz.device_refresh`.
+Available services: `configure`, `deconz.device_refresh` and `deconz.remove_orphaned_entries`.
 
 ### Service `deconz.configure`
 
@@ -103,9 +114,17 @@ Refresh with devices added to deCONZ after Home Assistants latest restart.
 
 Note: deCONZ automatically signals Home Assistant when new sensors are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this service or a restart of Home Assistant.
 
+#### Service `deconz.remove_orphaned_entries`
+
+Remove entries from entity and device registry which are no longer provided by deCONZ.
+
+Note: it is recommended to use this service after a restart of Home Assistant Core in order to have deCONZ integration properly mirrored to deCONZ.
+
 ## Remote control devices
 
-Remote controls (ZHASwitch category) will not be exposed as regular entities, but as events named `deconz_event` with a payload of `id` and `event` and in case of the Aqara Magic Cube also `gesture`. Id will be the device name from deCONZ and Event will be the momentary state of the switch. Gesture is used for some Aqara Magic Cube specific events like: flip 90 degrees, flip 180 degrees, clockwise and counter clockwise rotation. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
+Remote controls (ZHASwitch category) will not be exposed as regular entities, but as events named `deconz_event` with a payload of `id` and `event`. Id will be the device name from deCONZ and Event will be the momentary state of the switch.
+
+Depending on the device some device-specific attributes may also be included in the payload. In case of the Aqara Magic Cube, an additional `gesture` attribute will be exposed. For the tint remote, the `angle` and `xy` attributes will be included in the payload. Gesture is used for some Aqara Magic Cube specific events like: flip 90 degrees, flip 180 degrees, clockwise and counterclockwise rotation. However, a sensor entity will be created that shows the battery level of the switch, as reported by deCONZ, named sensor.device_name_battery_level.
 
 Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
 
@@ -144,8 +163,10 @@ To simplify using remote control devices in automations deCONZ integration expos
 
 Currently supported devices as device triggers:
 
-- Hue Dimmer Remote
-- Hue Tap
+- Hue Dimmer Switch
+- Hue Smart Button
+- Hue Tap Switch
+- Friends of Hue Switch
 - Symfonisk Sound Controller
 - Trådfri On/Off Switch
 - Trådfri Open/Close Remote
@@ -156,6 +177,7 @@ Currently supported devices as device triggers:
 - Aqara Round Switch
 - Aqara Square Switch
 - Aqara Magic Cube
+- Aqara Opple 2/4/6 button Switches
 
 #### Requesting support for new device trigger
 
@@ -171,203 +193,132 @@ Requesting support for additional devices requires the device model (can be acqu
 
 ```yaml
 automation:
-  - alias: 'Toggle lamp from dimmer'
-    initial_state: 'on'
+  - alias: "'Toggle lamp from dimmer'"
+    initial_state: "on"
     trigger:
-      platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_control_1
-        event: 1002
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: remote_control_1
+          event: 1002
     action:
-      service: light.toggle
-      entity_id: light.lamp
+      - service: light.toggle
+        target:
+          entity_id: light.lamp
 
-  - alias: 'Increase brightness of lamp from dimmer'
-    initial_state: 'on'
+  - alias: "Increase brightness of lamp from dimmer"
+    initial_state: "on"
     trigger:
-      platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_control_1
-        event: 2002
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: remote_control_1
+          event: 2002
     action:
       - service: light.turn_on
-        data_template:
+        target:
           entity_id: light.lamp
+        data:
           brightness: >
             {% set bri = state_attr('light.lamp', 'brightness') | int %}
             {{ [bri+30, 249] | min }}
 
-  - alias: 'Decrease brightness of lamp from dimmer'
-    initial_state: 'on'
+  - alias: "Decrease brightness of lamp from dimmer"
+    initial_state: "on"
     trigger:
-      platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_control_1
-        event: 3002
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: remote_control_1
+          event: 3002
     action:
       - service: light.turn_on
-        data_template:
+        target:
           entity_id: light.lamp
+        data:
           brightness: >
             {% set bri = state_attr('light.lamp', 'brightness') | int %}
             {{ [bri-30, 0] | max }}
 
   - alias: 'Turn lamp on when turning cube clockwise'
-    initial_state: 'on'
+    initial_state: "on"
     trigger:
-      platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_control_1
-        gesture: 7
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: remote_control_1
+          gesture: 7
     action:
-      service: light.turn_on
-      entity_id: light.lamp
+      - service: light.turn_on
+        target:
+          entity_id: light.lamp
 ```
 
 {% endraw %}
 
-### AppDaemon
-
-#### AppDaemon event helper
-
-Helper app that creates a sensor `sensor.deconz_event` with a state that represents the id from the last event and an attribute to show the event data.
-
-Put this in `apps.yaml`:
-{% raw %}
-
-```yaml
-deconz_helper:
-  module: deconz_helper
-  class: DeconzHelper
-```
-
-Put this in `deconz_helper.py`:
-
-```python
-import appdaemon.plugins.hass.hassapi as hass
-import datetime
-from datetime import datetime
-
-
-class DeconzHelper(hass.Hass):
-    def initialize(self) -> None:
-        self.listen_event(self.event_received, "deconz_event")
-
-    def event_received(self, event_name, data, kwargs):
-        event_data = data["event"]
-        event_id = data["id"]
-        event_received = datetime.now()
-
-        self.log(f"Deconz event received from {event_id}. Event was: {event_data}")
-        self.set_state(
-            "sensor.deconz_event",
-            state=event_id,
-            attributes={
-                "event_data": event_data,
-                "event_received": str(event_received),
-            },
-        )
-```
-
-{% endraw %}
-
-Note: the event will not be visible before one event gets sent.
-
-#### AppDaemon remote template
+#### Changing color through the Müller Licht tint remote control
 
 {% raw %}
 
 ```yaml
-remote_control:
-  module: remote_control
-  class: RemoteControl
-  event: deconz_event
-  id: dimmer_switch_1
-```
-
-```python
-import appdaemon.plugins.hass.hassapi as hass
-
-
-class RemoteControl(hass.Hass):
-    def initialize(self):
-        if "event" in self.args:
-            self.listen_event(self.handle_event, self.args["event"])
-
-    def handle_event(self, event_name, data, kwargs):
-        if data["id"] == self.args["id"]:
-            self.log(data["event"])
-            if data["event"] == 1002:
-                self.log("Button on")
-            elif data["event"] == 2002:
-                self.log("Button dim up")
-            elif data["event"] == 3002:
-                self.log("Button dim down")
-            elif data["event"] == 4002:
-                self.log("Button off")
+automation:
+  - alias: "React to color wheel changes"
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: tint_remote_1
+          event: 6002
+    action:
+      - service: light.turn_on
+        data:
+          xy_color:
+            - '{{ trigger.event.data.xy.0 }}'
+            - '{{ trigger.event.data.xy.1 }}'
+          entity_id: light.example_color_light_1
+    mode: restart
 ```
 
 {% endraw %}
 
-#### AppDaemon IKEA Tradfri remote template
+#### Colored Flashing - RGB Philips Hue bulb using deconz.configure
 
-Community app from [Teachingbirds](https://community.home-assistant.io/u/teachingbirds/summary). This app uses an IKEA Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
-
-{% raw %}
+Note: Requires `on: true` to change color while the Philips Hue bulb is off. If `on: true` is specified, the bulb remains on after flashing is complete. The previous color is not saved or restored. To color flash light groups, replace `/state` with `/action` and specify the light group as the entity.
 
 ```yaml
-sonos_remote_control:
-  module: sonos_remote
-  class: SonosRemote
-  event: deconz_event
-  id: sonos_remote
-  sonos: media_player.sonos
+automation:
+  - alias: "Flash Hue Bulb with Doorbell Motion"
+    mode: single
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.doorbell_motion
+        to: "on"
+    action:
+      - service: deconz.configure
+        data:
+          entity: light.hue_lamp
+          field: /state
+          data:
+            'on': true
+            hue: 65535
+            sat: 255
+            bri: 255
+            alert: "breathe"
+      - delay: 00:00:15
+      - service: deconz.configure
+        data:
+          entity: light.hue_lamp
+          field: "/state"
+          data:
+            'on': false
 ```
 
-{% endraw %}
+## Alarm Control Panel
 
-{% raw %}
+The entity of a physical keypad. Can be in 4 different modes (`arm_away`, `arm_home`, `arm_night` or `disarmed`). Changing the state will do an audible notification from the keypad.
 
-```python
-import appdaemon.plugins.hass.hassapi as hass
-
-
-class SonosRemote(hass.Hass):
-    def initialize(self):
-        self.sonos = self.args["sonos"]
-        if "event" in self.args:
-            self.listen_event(self.handle_event, self.args["event"])
-
-    def handle_event(self, event_name, data, kwargs):
-        if data["id"] == self.args["id"]:
-            if data["event"] == 1002:
-                self.log("Button toggle")
-                self.call_service("media_player/media_play_pause", entity_id=self.sonos)
-
-            elif data["event"] == 2002:
-                self.log("Button volume up")
-                self.call_service("media_player/volume_up", entity_id=self.sonos)
-
-            elif data["event"] == 3002:
-                self.log("Button volume down")
-                self.call_service("media_player/volume_down", entity_id=self.sonos)
-
-            elif data["event"] == 4002:
-                self.log("Button previous")
-                self.call_service(
-                    "media_player/media_previous_track", entity_id=self.sonos
-                )
-
-            elif data["event"] == 5002:
-                self.log("Button next")
-                self.call_service("media_player/media_next_track", entity_id=self.sonos)
-```
-
-{% endraw %}
+The Device also exposes a new event type `deconz_alarm_event` which signals a user action with the keypad.
+The Payload consists of an event (`arm_away`, `arm_home`, `arm_night` or `disarmed`) and a four-digit code.
 
 ## Binary Sensor
 
@@ -422,6 +373,12 @@ The `entity_id` name will be `cover.device_name`, where `device_name` is defined
 - Keen vents
 - Xiaomi Aqara Curtain controller
 
+## Fan
+
+Fans from deCONZ are currently a combination of a light and fan fixture.
+
+Note that devices in the fan platform identify as lights, so there is a manually curated list that defines which "lights" are fans. You, therefore, add a fan device as a light device in deCONZ (Phoscon App).
+
 ## Light
 
 The `entity_id` names will be `light.device_name`, where `device_name` is defined in deCONZ. Light groups created in deCONZ will be created in Home Assistant as lights named `light.group_name_in_deconz`, allowing the user to control groups of lights with only a single API call to deCONZ.
@@ -437,7 +394,7 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - IKEA Trådfri bulb E27 WS & RGB Opal 600lm
 - IKEA Trådfri bulb GU10 W 400lm
 - IKEA Trådfri FLOALT LED light panel
-- Innr BY-265, BY-245
+- Innr BY-265, BY-245, RB-265
 - OSRAM Classic A60 W clear - LIGHTIFY
 - OSRAM Flex RGBW
 - OSRAM Gardenpole RGBW
@@ -447,6 +404,14 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - Philips Hue LightStrip Plus
 - Busch Jaeger Zigbee Light Link univ. relai (6711 U) with Zigbee Light Link control element 6735-84
 - Xiaomi Aqara Smart LED Bulb (white) E27 ZNLDP12LM
+
+## Lock
+
+Locks are devices such as the Danalock Zigbee lock.
+
+Note that devices in the `lock` platform identify as lights, so there is a manually curated list that defines which "lights" are locks. You therefore add a lock device as a light device in deCONZ (Phoscon App).
+
+The `entity_id` name will be `lock.device_name`, where `device_name` is defined in deCONZ.
 
 ## Scene
 
@@ -508,6 +473,8 @@ The deCONZ Daylight sensor is a special sensor built into the deCONZ software si
 The sensor also has an attribute called "daylight" that has the value `true` when the sensor's state is `golden_hour_1`, `solar_noon`, or `golden_hour_2`, and `false` otherwise.
 
 These states can be used in automations as a trigger (e.g., trigger when a certain phase of daylight starts or ends) or condition (e.g., trigger only if in a certain phase of daylight).
+
+Please note that the deCONZ daylight sensor is disabled by default in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
 
 ## Switch
 

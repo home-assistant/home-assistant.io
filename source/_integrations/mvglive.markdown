@@ -1,12 +1,13 @@
 ---
 title: MVG
 description: Instructions on how to integrate Munich public transport departure times into Home Assistant.
-logo: mvg.png
 ha_category:
   - Transport
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_domain: mvglive
+ha_platforms:
+  - sensor
 ---
 
 The `mvglive` sensor will give you the departure time of the next bus, tram, subway, or train at the next station or stop in the Munich public transport network. Additional details such as the line number and destination are present in the attributes.
@@ -33,7 +34,7 @@ destinations:
   required: false
   type: list
 directions:
-  description: "Filter by direction of the departure. For Tram, Bus, SEV, and S-Bahn, direction = direction. For U-Bahn trains, directions are more general. For U1, U2, U3 and U6, direction='1' indicates south-bound trains, direction='2' indicates northbound trains. For U4 and U5, direction='1' indicates east-bound trains, direction='2' indicates west-bound trains. For example, setting directions: '1' can be used to get all south-bound trains at Scheidplatz."
+  description: "Filter by direction of the departure. For Tram, Bus, SEV, and S-Bahn, direction = destination. For U-Bahn trains, directions are more general. For U1, U2, U3 and U6, direction='1' indicates south-bound trains, direction='2' indicates northbound trains. For U4 and U5, direction='1' indicates east-bound trains, direction='2' indicates west-bound trains. For example, setting directions: '1' can be used to get all south-bound trains at Scheidplatz."
   required: false
   type: list
 lines:
@@ -75,14 +76,14 @@ sensor:
      - station: Hauptbahnhof
        name: Hbf
        destinations: ['München Flughafen Terminal','Markt Schwaben']
-       products: 'S-Bahn'
+       products: "S-Bahn"
        timeoffset: 2
      - station: Sendlinger Tor
        lines: ['U2','U8']
        number: 5
      - station: Scheidplatz
        products: ['U-Bahn']
-       directions: '1'
+       directions: "1"
 ```
 
 The first sensor will return S-Bahn departures to Munich Airport or Markt Schwaben that are at least 2 minutes away.

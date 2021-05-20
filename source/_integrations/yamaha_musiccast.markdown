@@ -1,18 +1,20 @@
 ---
 title: Yamaha MusicCast
 description: Instructions on how to integrate Yamaha MusicCast Receivers into Home Assistant.
-logo: yamaha.png
 ha_category:
   - Media Player
 ha_release: 0.53
 ha_codeowners:
   - '@jalmeroth'
+ha_iot_class: Local Polling
 ha_domain: yamaha_musiccast
+ha_platforms:
+  - media_player
 ---
 
-The `yamaha_musiccast` platform allows you to control [Yamaha MusicCast Receivers](https://usa.yamaha.com/products/audio_visual/hifi_components/index.html) from Home Assistant.
+The `yamaha_musiccast` platform allows you to control [Yamaha MusicCast Receivers](https://usa.yamaha.com/products/audio_visual/musiccast/index.html) from Home Assistant.
 
-Supported devices are listed on their [German site](https://de.yamaha.com/de/products/contents/audio_visual/musiccast/products.html).
+Supported devices are listed on their [site](https://usa.yamaha.com/products/contents/audio_visual/musiccast/musiccast-compatiblity.html).
 
 To add a Yamaha MusicCast Receiver to your installation, add the following to your `configuration.yaml` file:
 

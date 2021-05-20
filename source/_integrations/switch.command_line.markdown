@@ -56,6 +56,11 @@ switches:
           description: The name used to display the switch in the frontend.
           required: false
           type: string
+        command_timeout:
+          description: Defines number of seconds for command timeout.
+          required: false
+          type: integer
+          default: 15
 {% endconfiguration %}
 
 A note on `friendly_name`:
@@ -83,18 +88,22 @@ The example below is doing the same as the
 The command line tool [`curl`](https://curl.haxx.se/) is used to toggle a pin
 which is controllable through REST.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_line
-  switches:
-    arest_pin_four:
-      command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
-      command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
-      command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
-      value_template: '{% raw %}{{ value == "1" }}{% endraw %}'
-      friendly_name: Kitchen Lightswitch
+  - platform: command_line
+    switches:
+      arest_pin_four:
+        command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
+        command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
+        command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
+        value_template: '{{ value == "1" }}'
+        friendly_name: Kitchen Lightswitch
 ```
+
+{% endraw %}
 
 Given this example, in the UI one would see the `friendly_name` of
 "Kitchen Light". However, the `identifier` is `arest_pin_four`, making the
@@ -112,10 +121,10 @@ This switch will shutdown your host immediately, there will be no confirmation.
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_line
-  switches:
-    home_assistant_system_shutdown:
-      command_off: "/usr/sbin/poweroff"
+  - platform: command_line
+    switches:
+      home_assistant_system_shutdown:
+        command_off: "/usr/sbin/poweroff"
 ```
 
 ### Control your VLC player
@@ -126,31 +135,35 @@ This switch will control a local VLC media player
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_line
-  switches:
-    vlc:
-      command_on: "cvlc 1.mp3 vlc://quit &"
-      command_off: "pkill vlc"
+  - platform: command_line
+    switches:
+      vlc:
+        command_on: "cvlc 1.mp3 vlc://quit &"
+        command_off: "pkill vlc"
 ```
 
 ### Control Foscam Motion Sensor
 
 This switch will control the motion sensor of Foscam Webcams which Support CGI
-Commands ([Source](http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf)).
+Commands ([Source](https://www.iltucci.com/blog/wp-content/uploads/2018/12/Foscam-IPCamera-CGI-User-Guide-V1.0.4.pdf)).
 This switch supports statecmd,
 which checks the current state of motion detection.
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_line
-  switches:
-    foscam_motion:
-      command_on: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
-      command_off: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
-      command_state: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
-      value_template: {% raw %}'{{ value == "1" }}'{% endraw %}
+  - platform: command_line
+    switches:
+      foscam_motion:
+        command_on: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
+        command_off: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
+        command_state: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
+        value_template: '{{ value == "1" }}'
 ```
+
+{% endraw %}
 
 - Replace admin and password with an "Admin" privileged Foscam user
 - Replace ipaddress with the local IP address of your Foscam

@@ -1,21 +1,26 @@
 ---
 title: Bluetooth Tracker
 description: Instructions for integrating Bluetooth tracking within Home Assistant.
-logo: bluetooth.png
 ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
 ha_release: 0.18
 ha_domain: bluetooth_tracker
+ha_platforms:
+  - device_tracker
 ---
 
 This tracker discovers new devices on boot and tracks Bluetooth devices periodically based on `interval_seconds` value. It is not required to pair the devices with each other! Devices discovered are stored with 'bt_' as the prefix for device MAC addresses in `known_devices.yaml`.
 
-This platform requires pybluez to be installed. On Debian based installs, run
+{% details "Notes for Home Assistant Core Installations" %}
+
+This platform requires `pybluez` to be installed. On Debian based installs, run
 
 ```bash
 sudo apt install bluetooth libbluetooth-dev
 ```
+
+{% enddetails %}
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -41,3 +46,7 @@ device_id:
 In some cases it can be that your device is not discovered. In that case let your phone scan for Bluetooth devices while you restart Home Assistant. Just hit `Scan` on your phone all the time until Home Assistant is fully restarted and the device should appear in `known_devices.yaml`.
 
 For additional configuration variables check the [Device tracker page](/integrations/device_tracker/).
+
+## `bluetooth_tracker.update` service
+
+The `bluetooth_tracker.update` service can be used to manually trigger a Bluetooth scan. An example of when this service can be useful is to trigger scans based on other events like doors being opened, beacons are in range or buttons are pressed.

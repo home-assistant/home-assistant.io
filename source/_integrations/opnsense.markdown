@@ -8,6 +8,9 @@ ha_release: 0.105
 ha_codeowners:
   - '@mtreinish'
 ha_domain: opnsense
+ha_iot_class: Local Polling
+ha_platforms:
+  - device_tracker
 ---
 
 [OPNsense](https://opnsense.org/) is an open source HardenedBSD based firewall
@@ -23,7 +26,7 @@ to your configuration.yaml:
 
 ```yaml
 opnsense:
-  url: http://router/api
+  url: https://router/api
   api_secret: API_SECRET
   api_key: API_KEY
 ```

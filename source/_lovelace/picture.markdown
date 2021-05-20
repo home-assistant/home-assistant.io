@@ -14,15 +14,15 @@ Screenshot of the picture card.
 {% configuration %}
 type:
   required: true
-  description: picture
+  description: "`picture`"
   type: string
 image:
   required: true
-  description: The URL of an image.
+  description: "The URL of an image. When you want to store images in your Home Assistant installation use the [hosting files documentation](/integrations/http/#hosting-files). After storing your files, use the `/local` path, for example, `/local/filename.jpg`."
   type: string
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 tap_action:
   required: false
@@ -43,7 +43,7 @@ double_tap_action:
 {% configuration badges %}
 user:
   required: true
-  description: User id that can see the view tab.
+  description: User ID that can see the view tab.
   type: string
 {% endconfiguration %}
 
@@ -66,7 +66,9 @@ Toggle entity using a service:
 ```yaml
 type: picture
 image: /local/light.png
-service: light.toggle
-service_data:
-  entity_id: light.ceiling_lights
+tap_action:
+  action: call-service
+  service: light.toggle
+  service_data:
+    entity_id: light.ceiling_lights
 ```

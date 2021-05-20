@@ -1,12 +1,13 @@
 ---
 title: EBox
 description: Instructions on how to integrate EBox data usage within Home Assistant.
-logo: ebox.png
 ha_category:
   - Network
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 ha_domain: ebox
+ha_platforms:
+  - sensor
 ---
 
 Integrate your [EBox](https://client.ebox.ca/) account information into Home Assistant.

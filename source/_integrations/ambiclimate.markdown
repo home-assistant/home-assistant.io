@@ -1,7 +1,6 @@
 ---
 title: Ambiclimate
 description: Instructions on how to integrate Ambiclimate A/C controller into Home Assistant.
-logo: ambiclimate.png
 ha_category: Climate
 ha_release: 0.93
 ha_iot_class: Cloud Polling
@@ -9,12 +8,14 @@ ha_config_flow: true
 ha_codeowners:
   - '@danielhiversen'
 ha_domain: ambiclimate
+ha_platforms:
+  - climate
 ---
 
 Integrates [Ambiclimate](https://ambiclimate.com/) Air Conditioning controller into Home Assistant.
 
 You must create an application [here](https://api.ambiclimate.com/clients) to obtain a `client_id` and `client_secret`.
-The `callback url` should be configured as your Home Assistant `base_url` + `/api/ambiclimate`, e.g.,  `https://example.com/api/ambiclimate`.
+The `callback url` should be configured as your Home Assistant external URL + `/api/ambiclimate`, e.g.,  `https://example.com/api/ambiclimate`.
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 
@@ -39,6 +40,8 @@ client_secret:
 {% endconfiguration %}
 
 Note that you have to select manual mode from the Ambiclimate app to be able to control the A/C from Home Assistant.
+
+{% include integrations/config_flow.md %}
 
 ## Component services
 

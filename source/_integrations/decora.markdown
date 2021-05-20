@@ -4,9 +4,10 @@ description: Instructions on how to setup Leviton Decora Bluetooth dimmers withi
 ha_category:
   - Light
 ha_iot_class: Local Polling
-logo: leviton.png
 ha_release: 0.37
 ha_domain: decora
+ha_platforms:
+  - light
 ---
 
 Support for the Decora Bluetooth dimmer switch [Leviton](https://www.leviton.com/en/products/residential/dimmers/automation-smart-home/decora-digital-with-bluetooth-dimmers#t=Products&sort=%40wcs_site_tree_rank%20ascending&layout=card).

@@ -8,6 +8,8 @@ ha_release: 0.63
 ha_codeowners:
   - '@dgomes'
 ha_domain: mediaroom
+ha_platforms:
+  - media_player
 ---
 
 The `mediaroom` integration allows you to control a [Mediaroom](https://en.wikipedia.org/wiki/Ericsson_Mediaroom) Set-Top Box (STB) from Home Assistant.
@@ -50,23 +52,48 @@ If the STB is on the same network segment as Home Assistant, it can determine wh
 
 ## Examples
 
-### Example `press_button` script
 
-The `play_media` function can be used in scripts to change channels and emulate button pressing from a remote control.
+### Example scripts
+
+The `play_media` function can be used in scripts to change channels:
 
 {% raw %}
+
 ```yaml
-# Example play_media script
+# Example play_media script to change channel
+#
+change_channel:
+  sequence:
+    service: media_player.play_media
+    target:
+      entity_id: media_player.mediaroom_stb
+    data:
+      media_content_id: "{{ channel_number }}"
+      media_content_type: "channel"
+```
+
+{% endraw %}
+
+The `play_media` function can also be used to trigger actions on the set-up-box such opening the videoclub:
+
+{% raw %}
+
+```yaml
+# Example play_media script to trigger an action
 #
 press_button:
   sequence:
     service: media_player.play_media
-    data_template:
+    target:
       entity_id: media_player.mediaroom_stb
-      media_content_id: "{{ value }}"
-      media_content_type: "channel"
+    data:
+      media_content_id: "{{ action }}"
+      media_content_type: "mediaroom"
 ```
+
 {% endraw %}
+
+Check [here](https://github.com/dgomes/pymediaroom) for the list of possible media_content_id's
 
 ### Example configuration with 2 STB
 

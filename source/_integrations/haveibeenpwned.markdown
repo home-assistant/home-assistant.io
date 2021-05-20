@@ -1,12 +1,13 @@
 ---
 title: HaveIBeenPwned
 description: Instructions on how to integrate HaveIBeenPwned sensor into Home Assistant.
-logo: haveibeenpwned.png
 ha_category:
   - Sensor
 ha_release: 0.31
 ha_iot_class: Cloud Polling
 ha_domain: haveibeenpwned
+ha_platforms:
+  - sensor
 ---
 
 The `haveibeenpwned` sensor platform creates sensors that check for breached email accounts on [haveibeenpwned](https://haveibeenpwned.com).

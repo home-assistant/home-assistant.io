@@ -1,10 +1,15 @@
 ---
 title: Text-to-Speech (TTS)
 description: Instructions on how to set up Text-to-Speech (TTS) with Home Assistant.
+ha_category:
+  - Text-to-speech
 ha_release: 0.35
 ha_codeowners:
   - '@pvizeli'
 ha_domain: tts
+ha_quality_scale: internal
+ha_platforms:
+  - notify
 ---
 
 Text-to-Speech (TTS) enables Home Assistant to speak to you.
@@ -21,7 +26,7 @@ tts:
 
 <div class='note'>
 
-Depending on your setup, you might need to set a base URL (`base_url`) inside the [HTTP component](/integrations/http/) or in the parameters of this component.
+Depending on your setup, you might need to set a external URL (`external_url`) inside the [configuration](/docs/configuration/basic/) or in the parameters of this component.
 
 </div>
 
@@ -44,10 +49,10 @@ time_memory:
   type: integer
   default: 300
 base_url:
-  description: A base URL to use *instead* of the one set in the [HTTP component](/integrations/http/). It is used as-is by the `tts` component. In particular, you need to include the protocol scheme `http://` or `https://` and the correct port number. They will not be automatically added for you.
+  description: A base URL to use *instead* of the one set in the Home Assistant [configuration](/docs/configuration/basic). It is used as-is by the `tts` component. In particular, you need to include the protocol scheme `http://` or `https://` and the correct port number. They will not be automatically added for you.
   required: false
   type: string
-  default: value of ``http.base_url``
+  default: value of internal URL
 service_name:
   description: Define the service name.
   required: false
@@ -70,21 +75,21 @@ tts:
 
 <div class='note'>
 
-In the above example, `base_url` is custom to this particular TTS platform configuration. It is not suggesting that you use the `base_url` that you have set for your core Home Assistant configuration. The reason you might need to do this is outlined in the next section.
+In the above example, `base_url` is custom to this particular TTS platform configuration. It is not suggesting that you use the internal URL that you have set for your core Home Assistant configuration. The reason you might need to do this is outlined in the next section.
 
 </div>
 
 ## When do you need to set `base_url` here?
 
-The general answer is "whenever the global `base_url` set in [HTTP component](/integrations/http/) is not adequate to allow the `say` service to run". The `say` service operates by generating a media file that contains the speech corresponding to the text passed to the service. Then the `say` service sends a message to the media device with a URL pointing to the file. The device fetches the media file at the URL and plays the media. Some combinations of a media device, network configuration and Home Assistant configuration can make it so that the device cannot fetch the media file.
+The general answer is "whenever the global internal URL set in the [configuration](/docs/configuration/basic/) of Home Assistant is not adequate to allow the `say` service to run". The `say` service operates by generating a media file that contains the speech corresponding to the text passed to the service. Then the `say` service sends a message to the media device with a URL pointing to the file. The device fetches the media file at the URL and plays the media. Some combinations of a media device, network configuration and Home Assistant configuration can make it so that the device cannot fetch the media file.
 
 The following sections describe some of the problems encountered with media devices.
 
 ### Self-signed certificates
 
-This problem occurs when your Home Assistant instance is configured to be accessed through SSL, and you are using a self-signed certificate.
+This problem occurs when your Home Assistant instance is configured to be accessed through SSL, and you are using a self-signed certificate on your internal URL.
 
-The `tts` service will send an `https://` URL to the media device, which will check the certificate, and reject it. So it won't play your file. If you could make the device accept your certificate, it would play the file. However, many media devices do not allow changing settings to accept self-signed certificates. Ultimately, your option may be to serve files to the device as `http://` rather than `https://`. To do this, you *could* change the `base_url` setting in [HTTP component](/integrations/http/), but that would turn off SSL for all services that use `base_url`. Instead, setting a `base_url` for the `tts` service allows turning off SSL only for this component.
+The `tts` service will send an `https://` URL to the media device, which will check the certificate, and reject it. So it won't play your file. If you could make the device accept your certificate, it would play the file. However, many media devices do not allow changing settings to accept self-signed certificates. Ultimately, your option may be to serve files to local devices as `http://` rather than `https://`.
 
 ### Google cast devices
 
@@ -92,9 +97,9 @@ The Google cast devices (Google Home, Chromecast, etc.) present the following pr
 
 * They [reject self-signed certificates](#self-signed-certificates).
 
-* They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). Setting a `base_url` that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
+* They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). If you are _not_ using SSL then setting a internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
 
-* An alternative way to force Google cast devices to use internal DNS is to block them from accessing Google DNS at the firewall/router level. This would be useful in the case, for example, where your internal IP of Home Assistant is a private IP and you have your internal DNS server (quite often a split-brain DNS scenario). This method works on both Google Home Mini and Google Chromecasts.
+* If you are using an SSL (e.g., `https://yourhost.example.org/...`) then you _must_ use the hostname in the certificate (e.g., `base_url: https://yourhost.example.org`). You cannot use an IP address since the certificate won't be valid for the IP address, and the cast device will refuse the connection.
 
 ## Service say
 
@@ -105,38 +110,42 @@ Say to all `media_player` device entities:
 ```yaml
 # Replace google_translate_say with <platform>_say when you use a different platform.
 service: tts.google_translate_say
-entity_id: "all"
 data:
-  message: 'May the Force be with you.'
+  entity_id: all
+  message: "May the force be with you."
 ```
 
 Say to the `media_player.floor` device entity:
 
 ```yaml
 service: tts.google_translate_say
-entity_id: media_player.floor
 data:
-  message: 'May the Force be with you.'
+  entity_id: media_player.floor
+  message: "May the force be with you."
 ```
 
 Say to the `media_player.floor` device entity in French:
 
 ```yaml
 service: tts.google_translate_say
-entity_id: media_player.floor
 data:
-  message: 'Que la force soit avec toi.'
-  language: 'fr'
+  entity_id: media_player.floor
+  message: "Que la force soit avec toi."
+  language: "fr"
 ```
 
 With a template:
 
+{% raw %}
+
 ```yaml
 service: tts.google_translate_say
-data_template:
-  message: "Temperature is {% raw %}{{states('sensor.temperature')}}{% endraw %}."
+data:
+  message: "Temperature is {{states('sensor.temperature')}}."
   cache: false
 ```
+
+{% endraw %}
 
 ## Cache
 
@@ -159,6 +168,7 @@ The return code is 200 if the file is generated. The message body will contain a
 
 ```json
 {
+    "path": "/api/tts_proxy/265944c108cbb00b2a621be5930513e03a0bb2cd_en_-_demo.mp3",
     "url": "http://127.0.0.1:8123/api/tts_proxy/265944c108cbb00b2a621be5930513e03a0bb2cd_en_-_demo.mp3"
 }
 ```
@@ -166,7 +176,7 @@ The return code is 200 if the file is generated. The message body will contain a
 Sample `curl` command:
 
 ```bash
-$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+$ curl -X POST -H "Authorization: Bearer <ACCESS TOKEN>" \
        -H "Content-Type: application/json" \
        -d '{"message": "I am speaking now", "platform": "amazon_polly"}' \
        http://localhost:8123/api/tts_get_url

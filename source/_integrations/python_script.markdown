@@ -21,15 +21,15 @@ This integration allows you to write Python scripts that are exposed as services
 
 <div class='note'>
 
-It is not possible to use Python imports with this integration. If you want to do more advanced scripts, you can take a look at [AppDaemon](/docs/ecosystem/appdaemon/)
+It is not possible to use Python imports with this integration. If you want to do more advanced scripts, you can take a look at [AppDaemon](https://appdaemon.readthedocs.io/en/latest/) or [pyscript](https://github.com/custom-components/pyscript)
 
 </div>
 
 ## Writing your first script
 
- - Add to `configuration.yaml`: `python_script:`
- - Create folder `<config>/python_scripts`
- - Create a file `hello_world.py` in the folder and give it this content:
+- Add to `configuration.yaml`: `python_script:`
+- Create folder `<config>/python_scripts`
+- Create a file `hello_world.py` in the folder and give it this content:
 
 ```python
 name = data.get("name", "world")
@@ -37,8 +37,8 @@ logger.info("Hello %s", name)
 hass.bus.fire(name, {"wow": "from a Python script!"})
 ```
 
- - Start Home Assistant
- - Call service `python_script.hello_world` with parameters
+- Start Home Assistant
+- Call your new {% my developer_call_service service="python_script.hello_world" %} service (with parameters) from the {% my developer_services %}. 
 
 ```yaml
 name: you
@@ -62,23 +62,26 @@ if entity_id is not None:
     service_data = {"entity_id": entity_id, "rgb_color": rgb_color, "brightness": 255}
     hass.services.call("light", "turn_on", service_data, False)
 ```
+
 The above `python_script` can be called using the following YAML as an input.
 
 ```yaml
-service: python_script.turn_on_light
-  data:
+- service: python_script.turn_on_light
+  target:
     entity_id: light.bedroom
+  data:
     rgb_color: [255, 0, 0]
 ```
 
 ## Documenting your Python scripts
 
-You can add descriptions for your Python scripts that will be shown in the Call Services tab of the Developer Options page. To do so, simply create a `services.yaml` file in your `<config>/python_scripts` folder. Using the above Python script as an example, the `services.yaml` file would look like:
+You can add names and descriptions for your Python scripts that will be shown in the frontend. To do so, simply create a `services.yaml` file in your `<config>/python_scripts` folder. Using the above Python script as an example, the `services.yaml` file would look like:
 
 ```yaml
 # services.yaml
 turn_on_light:
-  description: Turn on a light and set its color. 
+  name: Turn on light
+  description: Turn on a specific light and set its color.
   fields:
     entity_id:
       description: The light that will be turned on.
@@ -89,3 +92,13 @@ turn_on_light:
 ```
 
 For more examples, visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
+
+## Services
+
+Available services: `reload`.
+
+### Service `python_script.reload`
+
+Reload all available python_scripts from the `<config>/python_scripts` folder. Use this when creating a new Python script and you're not restarting Home Assistant.
+
+This service takes no service data attributes.

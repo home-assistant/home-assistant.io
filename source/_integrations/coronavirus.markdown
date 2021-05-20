@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@home_assistant/core'
 ha_domain: coronavirus
+ha_platforms:
+  - sensor
 ---
 
 In December 2019, an outbreak of a novel Coronavirus, also called severe acute
@@ -25,24 +27,4 @@ recovered from, and deceased caused by the virus in your country, or worldwide.
 
 The data is sourced from the [Johns Hopkins University](https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6).
 
-## Configuration
-
-This integration can be configured via the Home Assistant frontend.
-
-- Go to **Configuration** -> **Integrations**.
-- Click on the `+` in the bottom right corner to add a new integration.
-- Search and select the **Coronavirus** integration form the list.
-- Follow the instruction on screen to add the sensors. Either choose for adding
-  world-wide sensors, or a specific set of sensors for your country.
-
-If you want to track both world-wide and one or more countries at the same time,
-you can repeat the configuration process described above to add multiple
-instances of the integration.
-
-<div class='note'>
-This integration is released in a special release of Home Assistant Core:
-0.106.3.
-
-While this integration is marked as released in 0.106, it is only available
-on Home Assistant Core 0.106.3 or newer.
-</div>
+{% include integrations/config_flow.md %}

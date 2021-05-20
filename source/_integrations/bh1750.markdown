@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.48
 ha_iot_class: Local Push
 ha_domain: bh1750
+ha_platforms:
+  - sensor
 ---
 
 The `bh1750` sensor platform allows you to read the ambient light level in Lux from a [BH1750FVI sensor](https://www.mouser.com/ds/2/348/bh1750fvi-e-186247.pdf) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins). It allows you to use all the resolution modes of the sensor described in its datasheet.
@@ -86,7 +88,7 @@ Enable I2c interface with the Raspberry Pi configuration utility:
 
 ```bash
 # pi user environment: Enable i2c interface
-$ sudo raspi-config
+sudo raspi-config
 ```
 
 Select `Interfacing options->I2C` choose `<Yes>` and hit `Enter`, then go to `Finish` and you'll be prompted to reboot.
@@ -95,13 +97,13 @@ Install dependencies for use the `smbus-cffi` module and enable your `homeassist
 
 ```bash
 # pi user environment: Install i2c dependencies and utilities
-$ sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
+sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
 
 # pi user environment: Add homeassistant user to the i2c group
-$ sudo addgroup homeassistant i2c
+sudo addgroup homeassistant i2c
 
 # pi user environment: Reboot Raspberry Pi to apply changes
-$ sudo reboot
+sudo reboot
 ```
 
 ### Check the i2c address of the sensor
@@ -109,7 +111,7 @@ $ sudo reboot
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 
 ```bash
-$ /usr/sbin/i2cdetect -y 1
+/usr/sbin/i2cdetect -y 1
 ```
 
 It will output a table like this:

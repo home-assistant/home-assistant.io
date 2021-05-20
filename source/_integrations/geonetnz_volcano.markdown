@@ -1,7 +1,6 @@
 ---
 title: GeoNet NZ Volcano
 description: Instructions on how to integrate the GeoNet New Zealand Volcanic Alert Level feed into Home Assistant.
-logo: geonet-nz.png
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
@@ -10,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@exxamalte'
 ha_domain: geonetnz_volcano
+ha_platforms:
+  - sensor
 ---
 
 The `geonetnz_volcano` integration lets you use a GeoJSON feed provided by 
@@ -26,11 +27,11 @@ to show on the default map automatically.
 The data is updated every 5 minutes.
 
 <p class='img'>
-  <img src='{{site_root}}/images/integrations/geonetnz_volcano/map.png' />
+  <img src='/images/integrations/geonetnz_volcano/map.png' />
 </p>
 
 <p class='img'>
-  <img src='{{site_root}}/images/integrations/geonetnz_volcano/sensor.png' />
+  <img src='/images/integrations/geonetnz_volcano/sensor.png' />
 </p>
 
 <div class='note'>
@@ -43,34 +44,7 @@ We acknowledge the New Zealand GeoNet project and its sponsors EQC, GNS Science 
 
 </div>
 
-## Configuration
-
-To integrate the GeoNet New Zealand Volcanic Alert Level feed use the **Integrations** feature 
-in the GUI, you find it under **Configurations** -> **Integrations**, or add the 
-following line to your `configuration.yaml`.
-
-```yaml
-# Example configuration.yaml entry
-geonetnz_volcano:
-```
-
-{% configuration %}
-radius:
-  description: The radius around your location to monitor; defaults to 50 km or mi (depending on the unit system defined in your configuration).
-  required: false
-  type: float
-  default: 50.0
-latitude:
-  description: Latitude of the coordinates around which volcanoes are considered.
-  required: false
-  type: float
-  default: Latitude defined in your configuration.
-longitude:
-  description: Longitude of the coordinates around which volcanoes are considered.
-  required: false
-  type: float
-  default: Longitude defined in your configuration.
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## State Attributes
 

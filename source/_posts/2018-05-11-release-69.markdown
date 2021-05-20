@@ -5,7 +5,9 @@ date: 2018-05-11 00:01:00
 date_formatted: "May 11, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-05-0.69/components.png
 ---
 
@@ -69,7 +71,7 @@ rainmachine:
 ## All changes
 
 - Pollen.com: Added attributes on top 3 allergens ([@bachya] - [#14018]) ([sensor.pollen docs]) (breaking change)
-- Expose the condition code on condition sensors ([@maddox] - [#14011]) ([sensor.yweather docs])
+- Expose the condition code on condition sensors ([@maddox] - [#14011])
 - upgrade rfxtrx lib, dimming support for Lighting3 ([@Danielhiversen] - [#14026]) ([rfxtrx docs])
 - Add Accuracy to Google Location Sharing ([@rdbahm] - [#14039]) ([device_tracker docs])
 - bump gogogate2 version ([@dlbroadfoot] - [#14044]) ([cover.gogogate2 docs])
@@ -167,7 +169,7 @@ rainmachine:
 - HomeKit: Support triggered state for alarm_control_panel ([@schmittx] - [#14285]) ([homekit docs])
 - Fix filter sensor missing window_size argument ([@dgomes] - [#14252]) ([sensor.filter docs])
 - Upgrade astral to 1.6.1 ([@fabaff] - [#14297])
-- BOM Weather throttle fix ([@nickw444] - [#14234]) ([sensor.bom docs])
+- BOM Weather throttle fix ([@nickw444] - [#14234])
 - Publish attributes unconditionally ([@blackwind] - [#14179]) ([mqtt_statestream docs])
 - Sensor device classes ([@cdce8p] - [#14282]) ([sensor docs]) (breaking change)
 - Matrix Chatbot ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
@@ -436,7 +438,6 @@ rainmachine:
 [scene docs]: /integrations/scene/
 [scene.deconz docs]: /integrations/deconz#scene
 [sensor docs]: /integrations/sensor/
-[sensor.bom docs]: /integrations/bom#sensor
 [sensor.buienradar docs]: /integrations/sensor.buienradar/
 [sensor.darksky docs]: /integrations/darksky
 [sensor.deconz docs]: /integrations/deconz#sensor
@@ -461,7 +462,6 @@ rainmachine:
 [sensor.uscis docs]: /integrations/uscis
 [sensor.wunderground docs]: /integrations/wunderground
 [sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
-[sensor.yweather docs]: /integrations/yweather
 [switch.deluge docs]: /integrations/deluge#switch
 [switch.fritzbox docs]: /integrations/fritzbox
 [switch.insteon_plm docs]: /integrations/insteon/

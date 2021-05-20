@@ -1,18 +1,21 @@
 ---
 title: Dyson
 description: Instructions on how to integrate Dyson into Home Assistant.
-logo: dyson.png
 ha_category:
   - Hub
   - Climate
   - Fan
   - Sensor
   - Vacuum
-ha_iot_class: Cloud Polling
+ha_iot_class: Local Push
 ha_release: 0.47
-ha_codeowners:
-  - '@etheralm'
 ha_domain: dyson
+ha_platforms:
+  - air_quality
+  - climate
+  - fan
+  - sensor
+  - vacuum
 ---
 
 The `dyson` integration is the main integration to integrate all [Dyson](https://www.dyson.com) related platforms.
@@ -52,7 +55,7 @@ password:
   required: true
   type: string
 language:
-  description: "Dyson account language country code. Known working codes: `FR`, `NL`, `GB`, `AU`. Other codes should be supported."
+  description: "Dyson account language country code. Known working codes: `US`, `FR`, `NL`, `GB`, `AU`. Other codes should be supported."
   required: true
   type: string
 devices:
@@ -81,7 +84,7 @@ Discovery is not yet supported for any robot vacuum models (Dyson 360 Eye). For 
 To find a devices IP address, you can use your router or `nmap`:
 
 ```bash
-$ nmap -p 1883 XXX.XXX.XXX.XXX/YY --open
+nmap -p 1883 XXX.XXX.XXX.XXX/YY --open
 ```
 
 Where:
@@ -92,7 +95,7 @@ Where:
 For example:
 
 ```bash
-$ nmap -p 1883 192.168.0.0/24 --open
+nmap -p 1883 192.168.0.0/24 --open
 ```
 
 ## Vacuum
@@ -135,6 +138,8 @@ The `dyson` fan platform allows you to control your Dyson Purifier fans.
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (see climate part) for thermal control
 - Pure Cool 2018 (DP04 and TP04)
+- Pure Cool Cryptomic (TP06)
+- Pure Humidify+Cool (PH01)
 
 ### Attributes
 
@@ -142,34 +147,86 @@ There are several attributes which can be used for automations and templates.
 
 | Attribute | Description |
 | --------- | ----------- |
+| `dyson_speed` | The exact speed (1-10 or "AUTO") of the fan device.|
 | `night_mode` | A boolean that indicates if the night mode of the fan device is on.|
 | `auto_mode` | A boolean that indicates if the auto mode of the fan device is on.|
 | `angle_low` | Int (between 5 and 355) that indicates the low angle of oscillation (only for DP04 and TP04).|
 | `angle_high` | Int (between 5 and 355) that indicates the high angle of oscillation (only for DP04 and TP04).|
-| `flow_direction_front` | Boolean that indicates if the frontal flow direction is enabled (only for DP04 and TP04).|
+| `flow_direction_front` | Boolean that indicates if the frontal flow direction is enabled (only for DP04, TP04 and PH01).|
 | `timer` | Attribute that indicates the status of the auto power off timer, can be either 'OFF' or an integer representing the time remaining until shutdown in minutes (only for DP04 and TP04).|
-| `hepa filter` |  State of the fan's HEPA filter in % (only for DP04 and TP04).|
-| `carbon filter` | State of the fan's carbon filter in % (only for DP04 and TP04).|
+| `hepa filter` | Remaining life of the fan's HEPA filter in % (only for DP04 and TP04 — Combi filter for PH01).|
+| `carbon filter` | Remaining life of the fan's carbon filter in % (only for DP04 and TP04).|
+
+
+### Additional Services
+
+#### Service `dyson.set_speed`
+
+Set the exact speed (1-10) of the fan.
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `entity_id` | No | Name(s) of the entities to set the speed for | "fan.pure_cool" |
+| `dyson_speed` | Yes | The exact speed to be set | 5 |
+
+#### Service `dyson.set_auto_mode`
+
+Set the fan in auto mode.
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `entity_id` | No | Name(s) of the entities to enable/disable auto mode | "fan.pure_cool" |
+| `auto_mode` | Yes | Auto mode status | true |
+
+#### Service `dyson.set_night_mode`
+
+Set the fan in night mode.
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `entity_id` | No | Name(s) of the entities to enable/disable night mode | "fan.pure_cool" |
+| `night_mode` | Yes | Night mode status | true |
+
+#### Service `dyson.set_angle` (only for DP04 and TP04)
+
+Set the oscillation angle of the selected fan(s).
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `entity_id` | No | Name(s) of the entities for which to set the angle | "fan.pure_cool" |
+| `angle_low` | Yes | The angle at which the oscillation should start | 1 |
+| `angle_high` | Yes | The angle at which the oscillation should end | 255 |
+
+#### Service `dyson.set_flow_direction_front` (only for DP04 and TP04)
+
+Set the fan flow direction.
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `entity_id` | No | Name(s) of the entities to set frontal flow direction for | "fan.pure_cool" |
+| `flow_direction_front` | Yes | Frontal flow direction | true |
+
+#### Service `dyson.set_timer` (only for DP04 and TP04)
+
+Set the sleep timer.
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `entity_id` | No | Name(s) of the entities to set the sleep timer for | "fan.pure_cool" |
+| `timer` | Yes | The value in minutes to set the timer to, 0 to disable it | 30 |
 
 ## Sensor
 
 The `dyson` sensor platform provides temperature and humidity sensors.
 
+For compatible models (i.e. DP04, TP04, PH01), remaining life percentage for the filters (HEPA and Carbon, or Combi) is provided as sensors.
+
 ## Air Quality
 
-The `dyson` air quality platform provides the following levels:
+The `dyson` air quality platform provides the following levels (only for DP04, TP04, PH01):
 
 - Particulate matter 2.5 (<= 2.5 μm) level.
 - Particulate matter 10 (<= 10 μm) level.
 - Air Quality Index (AQI).
 - NO2 (nitrogen dioxide) level.
 - VOC (Volatile organic compounds) level.
-
-Note: currently only the 2018 dyson fans are supported(TP04 and DP04).
-
-### Supported fan devices
-
-- Pure Cool link (desk and tower)
-- Pure Hot+cool link (see climate part) for thermal control
-- Pure Cool 2018 Models (TP04 and DP04)
-- Pure Cool Cryptomic (TP06)

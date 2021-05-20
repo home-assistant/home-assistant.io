@@ -1,12 +1,13 @@
 ---
 title: Eddystone
 description: Instructions on how to integrate Eddystone beacons with Home Assistant in order to receive temperature data.
-logo: eddystone.png
 ha_category:
   - DIY
 ha_release: 0.42
 ha_iot_class: Local Polling
 ha_domain: eddystone_temperature
+ha_platforms:
+  - sensor
 ---
 
 The `eddystone_temperature` sensor platform reads temperature information from Bluetooth LE advertisements transmitted by [Eddystone](https://en.wikipedia.org/wiki/Eddystone_(Google)) beacons. Your beacons must be configured to transmit UID frames (for identification) and TLM frames (for temperature).

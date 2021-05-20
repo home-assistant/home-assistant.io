@@ -5,7 +5,9 @@ date: 2017-07-15 00:02:05 +0000
 date_formatted: "July 15, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-07-0.49/components.png
 ---
 
@@ -127,7 +129,7 @@ amcrest:
 - Fix pylint issue ([@fabaff] - [#8325]) ([snips docs])
 - vsure 1.3.7 ([@persandstrom] - [#8321]) ([verisure docs])
 - Update pyEmby to fix media images ([@mezz64] - [#8331]) ([media_player.emby docs])
-- Partially revert #7931 ([@fabaff] - [#8326]) ([sensor.yweather docs])
+- Partially revert #7931 ([@fabaff] - [#8326])
 - Only allow 'tls_insecure_set()' if cert is present (fixes #8329) ([@fabaff] - [#8337]) ([mqtt docs])
 - Fix issue #8285 ([@Sabesto] - [#8340]) ([modbus docs]) ([binary_sensor.modbus docs]) ([climate.flexit docs]) ([sensor.modbus docs]) ([switch.modbus docs])
 - Bump dlib face_recognition to 0.2.0 ([@pvizeli] - [#8345]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs])
@@ -449,7 +451,6 @@ amcrest:
 [sensor.otp docs]: /integrations/otp
 [sensor.rflink docs]: /integrations/sensor.rflink/
 [sensor.waqi docs]: /integrations/waqi
-[sensor.yweather docs]: /integrations/yweather
 [sensor.zha docs]: /integrations/zha
 [snips docs]: /integrations/snips/
 [switch.broadlink docs]: /integrations/broadlink#switch
@@ -487,7 +488,7 @@ amcrest:
 [@clkao]: https://github.com/clkao
 [@maikelwever]: https://github.com/maikelwever
 [@ypollart]: https://github.com/ypollart
-[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [telegram_bot docs]: /integrations/telegram_bot/
 [#8545]: https://github.com/home-assistant/home-assistant/pull/8545
 [#8571]: https://github.com/home-assistant/home-assistant/pull/8571

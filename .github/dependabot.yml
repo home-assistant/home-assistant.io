@@ -1,0 +1,26 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "06:00"
+  open-pull-requests-limit: 10
+  target-branch: current
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "06:00"
+  open-pull-requests-limit: 10
+  target-branch: current
+  allow:
+    - dependency-type: direct
+    - dependency-type: indirect
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "06:00"
+  open-pull-requests-limit: 10
+  target-branch: current

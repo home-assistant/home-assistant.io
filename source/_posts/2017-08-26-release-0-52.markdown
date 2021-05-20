@@ -5,7 +5,9 @@ date: 2017-08-26 00:11:05
 date_formatted: "August 26, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-08-0.52/components.png
 ---
 
@@ -18,7 +20,7 @@ To use the scripts editor, create a new file in your config directory named `scr
 ```yaml
 # scripts.yaml
 turn_on_some_lights:
-  alias: Turn on the lights
+  alias: "Turn on the lights"
   sequence:
   - data: {}
     service: light.turn_on
@@ -39,7 +41,7 @@ script: !include scripts.yaml
 
 - Add version sensor ([@fabaff] - [#8912]) ([sensor.version docs]) (new-platform)
 - Nello.io lock support ([@pschmitt] - [#8957]) ([lock.nello docs]) (new-platform)
-- Add HipChat notify service. ([@BioSehnsucht] - [#8918]) ([notify.hipchat docs]) (new-platform)
+- Add HipChat notify service. ([@BioSehnsucht] - [#8918]) (new-platform)
 - Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) (breaking change) (new-platform)
 - Adds London_air component ([@robmarkcole] - [#9020]) ([sensor.london_air docs]) (new-platform)
 - Add Abode home security component ([@arsaboo] - [#9030]) ([abode docs]) ([alarm_control_panel.abode docs]) ([binary_sensor.abode docs]) (new-platform)
@@ -52,7 +54,7 @@ script: !include scripts.yaml
 - Fix issue #9116 in pushbullet ([@danielhiversen] - [#9128]) ([notify.pushbullet docs])
 - bug fix pushbullet ([@danielhiversen] - [#9139]) ([notify.pushbullet docs])
 - Fix import for foscam ([@sdague] - [#9140]) ([camera.foscam docs])
-- Bump aioautomatic to prevent leaking exceptions ([@armills] - [#9148]) ([device_tracker.automatic docs])
+- Bump aioautomatic to prevent leaking exceptions ([@armills] - [#9148])
 - Wrap state when iterating a domain in templates ([@balloob] - [#9157])
 - Prevent iCloud exceptions in logfile ([@mjj4791] - [#9179]) ([device_tracker.icloud docs])
 - bump ecobee version to fix issue 9190 ([@nkgilley] - [#9191]) ([ecobee docs]) ([climate.ecobee docs])
@@ -95,7 +97,7 @@ usps:
   1) Log in to your Automatic developer account. In the Automatic Developer Apps Manager, specify the OAuth Redirect URL in the developer page. This should be configured to `<home-assistant-url>/api/automatic/callback`. (Example: `http://homeassistant.local:8123/api/automatic/callback`) Note that this URL only needs to be accessible from the browser you use to perform the authentication.
   2) Remove username/password from your automatic device tracker configuration in configuration.yaml.
   3) If you have authorized your account for `scope:current_location`, add `current_location: true` to your automatic device tracker configuration in configuration.yaml.
-  4) When you restart Home Assistant, click on the Automatic Configure link in the Configurator card, and follow the instructions to authorize Home Assistant.<br><br>NOTE: Automatic's API is currently not correctly authorizing with refresh tokens, so Step 4 currently needs to be performed after every restart. ([@armills] - [#8962] [#9002]) ([configurator docs]) ([device_tracker.automatic docs]) (breaking change)
+  4) When you restart Home Assistant, click on the Automatic Configure link in the Configurator card, and follow the instructions to authorize Home Assistant.<br><br>NOTE: Automatic's API is currently not correctly authorizing with refresh tokens, so Step 4 currently needs to be performed after every restart. ([@armills] - [#8962] [#9002]) ([configurator docs]) (breaking change)
 
 ## All changes
 
@@ -104,20 +106,20 @@ usps:
 - Fixed cert_expiry sensor to delay firing on HA startup ([@arsaboo] - [#8920]) ([sensor.cert_expiry docs])
 - Remove spaces from Xiami switch attributes ([@syssi] - [#8952]) ([switch.xiaomi docs]) (breaking change)
 - Add service to alarm control panel for night mode arming ([@schmittx] - [#8614]) ([alarm_control_panel docs]) ([alarm_control_panel.totalconnect docs])
-- Add support for Automatic OAuth2 authentication ([@armills] - [#8962]) ([configurator docs]) ([device_tracker.automatic docs]) (breaking change)
+- Add support for Automatic OAuth2 authentication ([@armills] - [#8962]) ([configurator docs]) (breaking change)
 - Nello.io lock support ([@pschmitt] - [#8957]) ([lock.nello docs]) (new-platform)
 - Added continue-on-errors, added value template ([@iamjackg] - [#8971]) ([sensor.snmp docs])
 - Is_allowed_path raise for None path ([@danielhiversen] - [#8953])
 - Fix #8960 - Decora Wi-Fi Switch unable to set brightness ([@tlyakhov] - [#8989]) ([light.decora_wifi docs])
 - Adds port/SSL config options for RainMachine ([@bachya] - [#8986]) ([switch.rainmachine docs])
-- Automatic device tracker remove password ([@armills] - [#9002]) ([device_tracker.automatic docs]) (breaking change)
+- Automatic device tracker remove password ([@armills] - [#9002]) (breaking change)
 - Add scripts editor backend ([@balloob] - [#8993]) ([config docs]) ([script docs]) (new-platform)
 - MQTT Switch - Add configurable availability payload ([@timstanley1985] - [#8934]) ([switch.mqtt docs]) (breaking change)
 - Buienradar newconditions ([@mjj4791] - [#8897]) ([sensor.buienradar docs]) ([weather.buienradar docs])
 - Pushbullet, fix multiple messages sent when url param is set ([@karlkar] - [#9006]) ([notify.pushbullet docs])
 - Update to pyenvisalink 2.2, and remove range validation on zonedump i… ([@Cinntax] - [#8981]) ([envisalink docs])
 - Fix #9010 - Swiss Public Transportation shows departure time in the past ([@hertg] - [#9011]) ([sensor.swiss_public_transport docs])
-- Add HipChat notify service. ([@BioSehnsucht] - [#8918]) ([notify.hipchat docs]) (new-platform)
+- Add HipChat notify service. ([@BioSehnsucht] - [#8918]) (new-platform)
 - Update onkyo-eiscp to 1.2.3 ([@danieljkemp] - [#9019]) ([media_player.onkyo docs])
 - Check if album image(s) exist in spotify ([@Tommatheussen] - [#9024]) ([media_player.spotify docs])
 - Update ffmpeg to 1.7 to fix severals problems ([@pvizeli] - [#9029])
@@ -156,7 +158,7 @@ usps:
 - Remove dash ([@fabaff] - [#9089])
 - Upgrade credstash to 1.13.3 ([@fabaff] - [#9088])
 - 9043 Fixed error while running dev docker ([@MungoRae] - [#9044])
-- Don't redefine consts ([@fabaff] - [#9086]) ([notify.hipchat docs])
+- Don't redefine consts ([@fabaff] - [#9086])
 - Fix octoprint errors when printer is off/disconnected ([@w1ll1am23] - [#8988]) ([octoprint docs]) ([sensor.octoprint docs])
 - Pilight switch: restore last state after restart ([@janLo] - [#8580]) ([switch.pilight docs])
 - Fix netdata system_load and add disk_free. ([@michaelarnauts] - [#9091]) ([sensor.netdata docs])
@@ -315,7 +317,6 @@ usps:
 [configurator docs]: /integrations/configurator/
 [cover.mysensors docs]: /integrations/cover.mysensors/
 [cover.template docs]: /integrations/cover.template/
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.mysensors docs]: /integrations/device_tracker.mysensors/
 [ecobee docs]: /integrations/ecobee/
 [emulated_hue.upnp docs]: /integrations/emulated_hue.upnp/
@@ -342,7 +343,6 @@ usps:
 [media_player.webostv docs]: /integrations/webostv#media-player
 [mysensors docs]: /integrations/mysensors/
 [notify.discord docs]: /integrations/discord
-[notify.hipchat docs]: /integrations/hipchat
 [notify.mysensors docs]: /integrations/notify.mysensors/
 [notify.prowl docs]: /integrations/prowl
 [notify.pushbullet docs]: /integrations/pushbullet

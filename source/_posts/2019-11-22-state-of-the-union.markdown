@@ -8,8 +8,6 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Announcements
-redirect_from:
-  - /state-of-the-union/
 og_image: /images/blog/2019-11-state-of-the-union/social.jpeg
 ---
 

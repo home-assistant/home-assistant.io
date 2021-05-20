@@ -5,7 +5,9 @@ date: 2018-12-12 00:01:00
 date_formatted: "December 12, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-12-release-84/components.png
 ---
 
@@ -215,7 +217,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Add /sbin to launchd PATH ([@andersonshatch] - [#18601])
 - Minor change to still image on mjpeg ([@nragon] - [#18602]) ([camera.mjpeg docs])
-- Cleanup BOM dependencies + add basic test + IDEA autoformat ([@nickw444] - [#18462]) ([sensor.bom docs]) ([weather.bom docs])
+- Cleanup BOM dependencies + add basic test + IDEA autoformat ([@nickw444] - [#18462])
 - Add support for multiple IHC controllers ([@mopolus] - [#18058]) ([ihc docs]) ([binary_sensor.ihc docs]) ([light.ihc docs]) ([switch.ihc docs]) (breaking change)
 - Add support for cropping pictures in proxy camera ([@glpatcern] - [#18431]) ([camera.proxy docs])
 - Refactor ZHA ([@dmulcahey] - [#18629]) ([zha docs]) ([binary_sensor.zha docs]) ([fan.zha docs]) ([light.zha docs]) ([sensor.zha docs]) ([switch.zha docs]) (new-platform)
@@ -263,7 +265,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Updated codeowners ([@fredrike] - [#18746])
 - Add unique_id for tellduslive ([@fredrike] - [#18744]) ([tellduslive docs]) ([sensor.tellduslive docs])
 - Add unique_id for Daikin entities ([@fredrike] - [#18747]) ([daikin docs]) ([climate.daikin docs]) ([sensor.daikin docs])
-- Wunderlist component ([@lasote] - [#18339]) ([wunderlist docs])
+- Wunderlist component ([@lasote] - [#18339])
 - Fix decora_wifi residences ([@trainman419] - [#17228]) ([light.decora_wifi docs])
 - Enable Google Assistant OnOffTrait for climate devices that support them ([@bryanyork] - [#18544]) ([google_assistant docs])
 - Fix typo in log ([@anton-johansson] - [#18751])
@@ -727,7 +729,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sense docs]: /integrations/sense/
 [sensor.awair docs]: /integrations/awair
 [sensor.blink docs]: /integrations/blink
-[sensor.bom docs]: /integrations/bom#sensor
 [sensor.daikin docs]: /integrations/daikin#sensor
 [sensor.dht docs]: /integrations/dht
 [sensor.entur_public_transport docs]: /integrations/entur_public_transport
@@ -770,8 +771,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [verisure docs]: /integrations/verisure/
 [volvooncall docs]: /integrations/volvooncall/
 [waterfurnace docs]: /integrations/waterfurnace/
-[weather.bom docs]: /integrations/bom
 [weather.ipma docs]: /integrations/ipma
 [websocket_api docs]: /integrations/websocket_api/
-[wunderlist docs]: /integrations/wunderlist/
 [zha docs]: /integrations/zha/

@@ -8,9 +8,12 @@ ha_category:
 ha_release: '0.40'
 ha_iot_class: Local Polling
 ha_domain: maxcube
+ha_platforms:
+  - binary_sensor
+  - climate
 ---
 
-[eQ-3 MAX!](https://www.eq-3.com/products/max.html) integration for Home Assistant allows you to connect eQ-3 MAX! components via the eQ-3 MAX! Cube. The components connects to the eQ-3 MAX! Cube via TCP and automatically makes all supported integrations available in Home Assistant. The name for each device is created by concatenating the MAX! room and device names.
+[eQ-3 MAX!](https://www.eq-3.com/products/homematic/detail/max-cube-lan-gateway.html) integration for Home Assistant allows you to connect eQ-3 MAX! components via the eQ-3 MAX! Cube. The components connects to the eQ-3 MAX! Cube via TCP and automatically makes all supported integrations available in Home Assistant. The name for each device is created by concatenating the MAX! room and device names.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -68,3 +71,9 @@ maxcube:
     type: integer
     default: 300
 {% endconfiguration %}
+
+### Problems connecting or setting up 
+
+Due to the connection limits of the eQ-3 MAX! Cube, Home Assistant will not be able to connect to the gateway if another application is still connected. It may result in timeout errors like _Error: timed out You will need to restart Home Assistant after fixing._ and  _The following integrations and platforms could not be set up: maxcube Please check your configuration._
+
+To prevent these issues, ensure all other applications connecting to the gateway are closed, e.g., the mobile app or the MAX! desktop app (On Windows machines, close from the status bar, it keeps running when you close the browser window).

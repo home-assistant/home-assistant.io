@@ -67,7 +67,7 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 
 ### Restore State
 
-This integration will automatically restore the state it had prior to Home Assistant stopping as long as you your entity has `restore` set to `true` which is the default. To disable this feature, set `restore` to `false`.
+This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity has `restore` set to `true`, which is the default. To disable this feature, set `restore` to `false`.
 
 If `restore` is set to `false`, the `initial` value will only be used when no previous state is found or when the counter is reset.
 
@@ -75,7 +75,7 @@ If `restore` is set to `false`, the `initial` value will only be used when no pr
 
 Available services: `increment`, `decrement`, `reset` and `configure`.
 
-#### Service `counter.increment`
+### Service `counter.increment`
 
 Increments the counter with 1 or the given value for the steps.
 
@@ -83,7 +83,7 @@ Increments the counter with 1 or the given value for the steps.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
-#### Service `counter.decrement`
+### Service `counter.decrement`
 
 Decrements the counter with 1 or the given value for the steps.
 
@@ -91,7 +91,7 @@ Decrements the counter with 1 or the given value for the steps.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
-#### Service `counter.reset`
+### Service `counter.reset`
 
 With this service the counter is reset to its initial value.
 
@@ -99,7 +99,7 @@ With this service the counter is reset to its initial value.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
-#### Service `counter.configure`
+### Service `counter.configure`
 
 With this service the properties of the counter can be changed while running.
 
@@ -142,7 +142,7 @@ system_log:
 # Example configuration.yaml entry
 automation:
 - id: 'errorcounterautomation'
-  alias: Error Counting Automation
+  alias: "Error Counting Automation"
   trigger:
     platform: event
     event_type: system_log_event
@@ -150,7 +150,8 @@ automation:
       level: ERROR
   action:
     service: counter.increment
-    entity_id: counter.error_counter
+    target:
+      entity_id: counter.error_counter
     
 counter:
   error_counter:

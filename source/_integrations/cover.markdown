@@ -23,6 +23,7 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **damper**: Control of a mechanical damper that reduces airflow, sound, or light.
 - **door**: Control of a door or gate that provides access to an area.
 - **garage**: Control of a garage door that provides access to a garage.
+- **gate**: Control of a gate. Gates are found outside of a structure and are typically part of a fence.
 - **shade**: Control of shades, which are a continuous plane of material or connected cells that expanded or collapsed over an opening, such as window shades.
 - **shutter**: Control of shutters, which are linked slats that swing out/in to covering an opening or may be tilted to partially cover an opening, such as indoor or exterior window shutters.
 - **window**: Control of a physical window that opens and closes or may tilt.
@@ -55,8 +56,9 @@ automation:
     at: "07:15:00"
   action:
     - service: cover.set_cover_position
-      data:
+      target:
         entity_id: cover.demo
+      data:
         position: 50
 ```
 
@@ -78,7 +80,8 @@ automation:
     at: "07:15:00"
   action:
     - service: cover.set_cover_tilt_position
-      data:
+      target:
         entity_id: cover.demo
+      data:
         tilt_position: 50
 ```

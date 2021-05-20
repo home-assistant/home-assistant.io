@@ -1,12 +1,13 @@
 ---
 title: Transport NSW
 description: Instructions on how to integrate timetable data for Transport NSW (Australia) within Home Assistant.
-logo: transport_nsw.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.81
 ha_domain: transport_nsw
+ha_platforms:
+  - sensor
 ---
 
 The `transport_nsw` sensor will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.
@@ -17,7 +18,7 @@ Prerequisite is a free API key from [Transport NSW](https://opendata.transport.n
 
 In order to find your stop id, use the [Transport NSW stop finder](https://transportnsw.info/stop#/) and search for your stop. The URL will contain the stop id as a number.
 
-You may also try going to Google maps and clicking on any bus/train/ferry stop. The pop up window shows the stop ID underneath the station name. For train stations the easist way to get a stop id for a platform is through [Transport NSW Info](https://transportnsw.info/).
+You may also try going to Google maps and clicking on any bus/train/ferry stop. The pop up window shows the stop ID underneath the station name. For train stations the easiest way to get a stop id for a platform is through [Transport NSW Info](https://transportnsw.info/).
 
 As a default the sensor picks up the next mode of transport leaving from a stop id.
 
@@ -29,8 +30,8 @@ To enable the sensor, add the following lines to your `configuration.yaml` file:
 # Example configuration.yaml entry
 sensor:
   - platform: transport_nsw
-    stop_id: '200024'
-    api_key: 'YOUR API KEY'
+    stop_id: "200024"
+    api_key: "YOUR API KEY"
 ```
 
 {% configuration %}
@@ -66,25 +67,26 @@ More example configurations for bus or ferry.
 # Example bus route configuration.yaml entry
 sensor:
   - platform: transport_nsw
-    name: 'Bus'
-    stop_id: '209516'
+    name: "Bus"
+    stop_id: "209516"
     route:  '199'
-    api_key: 'YOUR API KEY'
+    api_key: "YOUR API KEY"
 ```
 
 ```yaml
 # Example ferry configuration.yaml entry
 sensor:
   - platform: transport_nsw
-    name: 'Ferry'
-    stop_id: '10102008'
-    destination: 'Circular Quay'
-    api_key: 'YOUR API KEY'
+    name: "Ferry"
+    stop_id: "10102008"
+    destination: "Circular Quay"
+    api_key: "YOUR API KEY"
 ```
 
-The sensor returns n/a if no stop event is found within the next 24h. A `template` sensor can help building a more meaninful string.
+The sensor returns n/a if no stop event is found within the next 24h. A `template` sensor can help building a more meaningful string.
 
 {% raw %}
+
 ```yaml
 # Sample template sensor
 - platform: template
@@ -98,4 +100,5 @@ The sensor returns n/a if no stop event is found within the next 24h. A `templat
           {{ state_attr('sensor.bus', 'route') }} in {{ state_attr('sensor.bus', 'due') }}m ({{ state_attr('sensor.bus', 'delay') }})
         {% endif %}
 ```
+
 {% endraw %}

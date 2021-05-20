@@ -1,7 +1,6 @@
 ---
 title: Satel Integra
 description: Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel.
-logo: satel.jpg
 ha_category:
   - Hub
   - Alarm
@@ -10,6 +9,10 @@ ha_category:
 ha_release: 0.54
 ha_iot_class: Local Push
 ha_domain: satel_integra
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - switch
 ---
 
 The `satel_integra` integration will allow Home Assistant users who own a Satel Integra alarm panel to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a ETHM extension module that must be installed in the alarm. Compatible with ETHM-1 Plus module with firmware version > 2.00 (version 2.04 confirmed).
@@ -54,7 +57,7 @@ port:
   default: 7094
   type: integer
 code:
-  description: The INTEGRA ID (found in DLOADX under "Communication configuration" or in polish "Komunikacja Konfiguracji" section), it's needed for making use of the switchable_outputs.
+  description: User password, it's needed for making use of the switchable_outputs. It's recommended not to use admin password.
   required: false
   type: string
 partitions:
@@ -119,43 +122,43 @@ satel_integra:
   port: 7094
   partitions:
     01:
-      name: 'House'
+      name: "House"
       arm_home_mode: 2
     02:
-      name: 'Garage'
+      name: "Garage"
   zones:
     01:
-      name: 'Bedroom'
-      type: 'motion'
+      name: "Bedroom"
+      type: "motion"
     02:
-      name: 'Hall'
-      type: 'motion'
+      name: "Hall"
+      type: "motion"
     30:
-      name: 'Kitchen - smoke'
-      type: 'smoke'
+      name: "Kitchen - smoke"
+      type: "smoke"
     113:
-      name: 'Entry door'
-      type: 'opening'
+      name: "Entry door"
+      type: "opening"
   outputs:
     05:
-      name: 'Garden lights trigger'
-      type: 'light'
+      name: "Garden lights trigger"
+      type: "light"
     09:
-      name: 'Gate opening trigger'
-      type: 'opening'
+      name: "Gate opening trigger"
+      type: "opening"
     30:
-      name: 'Alarm triggered'
-      type: 'safety'
+      name: "Alarm triggered"
+      type: "safety"
     32:
-      name: 'Alarm power problem'
-      type: 'safety'
+      name: "Alarm power problem"
+      type: "safety"
   switchable_outputs:
     05:
-      name: 'Gate open'
+      name: "Gate open"
     06:
-      name: 'Gate close'    
+      name: "Gate close"    
     14:
-      name: 'Garden light'
+      name: "Garden light"
       
 ```
 
@@ -163,13 +166,13 @@ Having configured the zones and the outputs, you can use them for automation, su
 For example:
 
 ```yaml
-  alias: Flick the input switch when movement in bedroom detected
+  alias: "Flick the input switch when movement in bedroom detected"
   trigger:
       platform: state
-      entity_id: 'binary_sensor.bedroom'
-      to: 'on'
+      entity_id: "binary_sensor.bedroom"
+      to: "on"
   action:
       service: input_boolean.turn_on
-      data:
+      target:
         entity_id: input_boolean.movement_detected
 ```

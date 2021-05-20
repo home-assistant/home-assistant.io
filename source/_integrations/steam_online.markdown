@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.14
 ha_domain: steam_online
+ha_platforms:
+  - sensor
 ---
 
 The `steam` sensor platform will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.
@@ -37,13 +39,8 @@ api_key:
   type: string
 accounts:
   required: true
-  description: List of accounts.
-  type: map
-  keys:
-    account_id:
-      required: true
-      description: The 64-bit SteamID.
-      type: string
+  description: List of 64-bit SteamIDs.
+  type: list
 {% endconfiguration %}
 
 ## Examples

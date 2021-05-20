@@ -5,7 +5,7 @@ description: "If you need help or have a question..."
 
 There are various ways to get in touch with the Home Assistant community. It doesn't matter if you have a question, need help, want to request a feature, or just say 'Hi'.
 
-### Communication channels
+## Communication channels
 
 - [Forum][forum]
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
@@ -13,21 +13,25 @@ There are various ways to get in touch with the Home Assistant community. It doe
 - Join the [Facebook community][facebook]
 - Join the Reddit in [/r/homeassistant][reddit]
 
-### Bugs, Feature requests, and alike
+## Bugs, Feature requests, and alike
 
 Have you found an issue in your Home Assistant installation? Please report it. Reporting it makes it easy to track and ensures that it gets fixed. For more details please refer to [Reporting issues](/help/reporting_issues/) page.
 
-- [Issue tracker Home Assistant](https://github.com/home-assistant/home-assistant/issues)
-- [Issue tracker home-assistant.io](https://github.com/home-assistant/home-assistant.io/issues) (Website and documentation)
-- [Issue tracker Frontend](https://github.com/home-assistant/home-assistant-polymer/issues) (Frontend)
-- [Issue tracker Hass.io](https://github.com/home-assistant/hassio/issues)
-- [Feature requests Home Assistant](https://community.home-assistant.io/c/feature-requests) (Don't post feature requests in the issue trackers. Thanks.)
+- [Feature requests](https://community.home-assistant.io/c/feature-requests) (Don't post feature requests in the issue trackers. Thanks!)
+- [Issue tracker Home Assistant Core](https://github.com/home-assistant/core/issues)
+- [Issue tracker Home Assistant Frontend](https://github.com/home-assistant/frontend/issues)
+- [Issue tracker Home Assistant Supervisor](https://github.com/home-assistant/supervisor/issues)
+- [Issue tracker Home Assistant Operating System](https://github.com/home-assistant/operating-system/issues)
+- [Issue tracker Home Assistant Android App](https://github.com/home-assistant/android/issues)
+- [Issue tracker Home Assistant iOS App](https://github.com/home-assistant/ios/issues)
+- [Issue tracker website & documentation](https://github.com/home-assistant/home-assistant.io/issues)
 
-### Videos, talks, workshops and alike
+## Videos, talks, workshops and alike
 
 - [PyconFR 2018 - Faire de la domotique libriste avec Python](https://www.youtube.com/watch?v=Eu6umBJ51I4) (French) ([Slides](https://hackmd.io/p/BJTSyDkqm)) - October 2018
 - [Build your own smart home with Home Assistant](https://zmonkey.org/blog/files/Home%20Assistant%202018%20v1.0.pdf) at [OpenWest](https://openwest.org) - June 2018
 - [Automate your home with Home Assistant](https://www.youtube.com/watch?v=SSrgi4iHGbs) at [foss-north 2018](https://foss-north.se/2018/speakers-and-talks.html#jparadies) - March 2018
+- [Home Assistant - Smart Home für Jedermann](https://www.youtube.com/watch?v=74oPCh0NS4Y) (German) at [Pi and More 2018](https://piandmore.de/de/conference/pam10-5/schedule/event/305) ([Slides](https://benleb.de/talks/pam105_homeassistant.pdf)) - February 2018
 - [Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/english/2017-qecampX) at QECampX 2017 - October 2017
 - [Open Source Heimautomation mit Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-maker-faire-zurich) at [Mini Maker Faire Zurich 2017](https://www.makerfairezurich.ch/en/) - September 2017
 - [Why we can't have the Internet of Nice Things: A home automation primer](https://www.openwest.org/custom/description.php?id=92) at [OpenWest 2017](https://www.openwest.org) - July 2017
@@ -39,7 +43,6 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Building Online Communities: Home Assistant](https://medium.com/@gitter/building-online-communities-home-assistant-8818dff671ad#.och4x4rhx) - July 2016
 - [Home Assistant Support 101 - Getting around in Home Assistant](https://www.youtube.com/watch?v=dRfk9JAlPJk) (Slides) - June 2016
 - [Awaken your home: Python and the Internet of Things](https://www.youtube.com/watch?v=Cfasc9EgbMU&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=1) at PyCon 2016 - June 2016
-- [Automating your Home with Home Assistant](https://www.youtube.com/watch?v=4-6rTwKl6ww&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=2) at OpenIoT 2016 - March 2016
 
 Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
@@ -47,6 +50,9 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [Why I use Home Assistant for open source home automation](https://opensource.com/article/20/11/home-assistant) - November 2020
+- [Home Assistant, the Python IoT hub](https://lwn.net/Articles/822350/) - June 2020
+- [Thomas-Krenn-Award 2020: Dino, Teckids und Home Assistant](https://www.thomas-krenn.com/de/tkmag/allgemein/gewinner-thomas-krenn-award-2020/) - June 2020
 - [Magical Smart Home Upgrade Lets Muggles Control Their Homes With a Wand Too](https://gizmodo.com/magical-smart-home-upgrade-lets-muggles-control-their-h-1833941228) - April 2019
 - [Thomas-Krenn-Award 2019 – The winners](https://www.thomas-krenn.com/de/tkmag/tk-insights/thomas-krenn-award-2019-gewinner/) - March 2019
 - [How to set up and use Home Assistant: For Dummies edition](https://www.the-ambient.com/how-to/set-up-use-home-assistant-644) - October 2018
@@ -61,7 +67,7 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [The winners of the Thomas-Krenn-Awards 2018](https://www.thomas-krenn.com/de/tkmag/allgemein/die-gewinner-des-thomas-krenn-awards-2018-stehen-fest/) - March 2018
 - [Best of Open Source Smart Home: Home Assistant vs OpenHAB](https://smarthome.university/your-smart-home-platform-home-assistant-vs-openhab/) - February 2018
 - [Hausautomations-Schaltzentrale Home Assistant auf Python-Basis](https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html) - December 2017
-- [Using Home Assistant the ARTIK Cloud](https://developer.artik.io/documentation/developer-guide/wireless-iot/hass.html) - September 2017
+- [Using Home Assistant the ARTIK Cloud](http://web.archive.org/web/20191028191303/https://developer.artik.io/documentation/developer-guide/wireless-iot/hass.html) - September 2017
 - [Control home automation hardware with Home Assistant](http://www.linux-magazine.com/Issues/2017/203/Home-Assistant) - August 2017
 - [Smart Home Home Assistant KNX Alexa Sprachsteuerung](https://onesmarthome.de/smart-home-home-assistant-knx-alexa-sprachsteuerung/) - August 2017
 - [Episode #122: Home Assistant: Pythonic Home Automation](https://talkpython.fm/episodes/show/122/home-assistant-pythonic-home-automation) - July 2017

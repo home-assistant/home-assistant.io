@@ -2,13 +2,17 @@
 title: Bosch BMP280 Environmental Sensor
 description: Instructions on how to integrate a BMP280 sensor into Home Assistant.
 ha_release: 0.108
-logo: raspberry-pi.png
 ha_category:
   - DIY
 ha_iot_class: Local Polling
 ha_quality_scale: silver
 ha_code_owners:
   - '@belidzs'
+ha_domain: bmp280
+ha_codeowners:
+  - '@belidzs'
+ha_platforms:
+  - sensor
 ---
 
 The `bmp280` sensor platform allows you to read temperature and pressure values of a [Bosch BMP280 Environmental sensor](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/pressure-sensors-bmp280-1.html) connected via [I2C](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins).
@@ -22,7 +26,7 @@ To use a BMP280 sensor in your installation, you have to enable I2C on your host
 ```yaml
 sensor:
   - platform: bmp280
-  - i2c_address: 0x77
+    i2c_address: 0x77
 ```
 
 {% configuration %}

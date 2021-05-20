@@ -1,5 +1,5 @@
 ---
-title: Vizio SmartCast
+title: VIZIO SmartCast
 description: Instructions on how to integrate Vizio SmartCast TVs and sound bars into Home Assistant.
 ha_category:
   - Media Player
@@ -10,6 +10,9 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@raman325'
 ha_domain: vizio
+ha_zeroconf: true
+ha_platforms:
+  - media_player
 ---
 
 The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/smartcast-app)-compatible TVs and sound bars (2016+ models).
@@ -175,6 +178,29 @@ apps:
               default: null
 {% endconfiguration %}
 
+```yaml
+# Complete configuration.yaml entry
+vizio:
+  - host: "DEVICE_IP:DEVICE_PORT"
+    access_token: AUTH_TOKEN
+    name: MY_VIZIO_DEVICE
+    device_class: tv
+    volume_step: 1
+    apps:
+      include:
+        - APP_1
+        - APP_2
+      exclude:
+        - APP_1
+        - APP_2
+      additional_configs:
+        - name: MY_CUSTOM_APP
+          config:
+            APP_ID: 9
+            NAME_SPACE: 9
+            MESSAGE: MY_MESSAGE
+```
+
 ### Obtaining an app configuration
 
 If there is an app you want to be able to launch from Home Assistant that isn't detected by default, you will need to specify the app configuration in `configuration.yaml`. This configuration can be obtained from the `app_id` state attribute when an unknown app is running on your device.
@@ -185,6 +211,17 @@ The list of apps that are provided by default is statically defined [here](https
 ```bash
 pyvizio --ip=0 get-apps-list
 ```
+
+## Service `vizio.update_setting`
+
+This service allows you to update a setting on a given Vizio device. You will need to know the type of setting and the name of the setting to call this service. You can determine this by using the SmartCast app and going to device settings for your target device. The setting type is the lowercase version of the first menu item you'd select (e.g., display, audio, system), and the setting name is what you see in the app, but spaces are replaced with underscores and it is also all lowercase (e.g., AV delay would be called `av_delay`).
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | yes | The devices to update a setting for. | `media_player.vizio_smartcast`
+| `setting_type` | no | The type of setting. | `audio`
+| `setting_name` | no | The name of the setting. | `eq`
+| `new_value` | no | The new value to set the setting to. | `Music`
 
 ## Notes and limitations
 

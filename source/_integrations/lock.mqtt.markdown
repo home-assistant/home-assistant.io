@@ -28,8 +28,32 @@ lock:
 ```
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 command_topic:
@@ -61,10 +85,22 @@ device:
       description: 'The name of the device.'
       required: false
       type: string
+    suggested_area:
+      description: 'Suggest an area if the device isn’t in one yet.'
+      required: false
+      type: string
     sw_version:
       description: 'The firmware version of the device.'
       required: false
       type: string
+    via_device:
+      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
+      required: false
+      type: string
+icon:
+  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
+  required: false
+  type: icon
 json_attributes_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
@@ -152,6 +188,7 @@ In this section you will find some real-life examples of how to use this lock.
 The example below shows a full configuration for a MQTT lock.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 lock:
@@ -161,11 +198,14 @@ lock:
     command_topic: "home-assistant/frontdoor/set"
     payload_lock: "LOCK"
     payload_unlock: "UNLOCK"
+    state_locked: "LOCK"
+    state_unlocked: "UNLOCK"
     optimistic: false
     qos: 1
     retain: true
-    value_template: '{{ value.x }}'
+    value_template: "{{ value.x }}"
 ```
+
 {% endraw %}
 
 Keep an eye on retaining messages to keep the state as you don't want to unlock your door by accident when you restart something.
@@ -173,6 +213,5 @@ Keep an eye on retaining messages to keep the state as you don't want to unlock 
 For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your lock manually:
 
 ```bash
-$  mosquitto_pub -h 127.0.0.1 -t home-assistant/frontdoor/set -m "LOCK"
+mosquitto_pub -h 127.0.0.1 -t home-assistant/frontdoor/set -m "LOCK"
 ```
-

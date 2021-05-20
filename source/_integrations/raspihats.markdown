@@ -1,7 +1,6 @@
 ---
 title: Raspihats
 description: Instructions on how to integrate Raspihats add-on boards for Raspberry Pi into Home Assistant.
-logo: raspihats.png
 ha_category:
   - DIY
   - Binary Sensor
@@ -9,6 +8,9 @@ ha_category:
 ha_release: 0.45
 ha_iot_class: Local Push
 ha_domain: raspihats
+ha_platforms:
+  - binary_sensor
+  - switch
 ---
 
 The `raspihats` integration is the base for all related Raspihats platforms in Home Assistant. There is no setup needed for the integration itself.
@@ -17,7 +19,7 @@ The `raspihats` integration is the base for all related Raspihats platforms in H
 
 The `raspihats` binary sensor platform allows you to read sensor values ​​using the digital inputs of the [raspihats](https://www.raspihats.com/) boards.
 
-## Configuration
+### Configuration
 
 To use your `raspihats` boards in your installation, add the following to your `configuration.yaml` file:
 
@@ -76,7 +78,7 @@ i2c_hats:
           type: string
 {% endconfiguration %}
 
-## Directions for installing smbus support on Raspberry Pi
+### Directions for installing smbus support on Raspberry Pi
 
 Enable I2c interface with the Raspberry Pi configuration utility:
 
@@ -102,7 +104,7 @@ $ sudo usermod -a -G i2c homeassistant
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors, so you can see the sensor address:
 
 ```bash
-$ /usr/sbin/i2cdetect -y 1
+/usr/sbin/i2cdetect -y 1
 ```
 
 It will output a table like this:
@@ -125,7 +127,7 @@ For more details about the `raspihats` add-on boards for Raspberry Pi, visit [ra
 
 The `raspihats` switch platform allows you to control the digital outputs of your [Raspihats](https://www.raspihats.com/) boards.
 
-## Configuration
+### Configuration
 
 To use your Raspihats boards in your installation, add the following to your `configuration.yaml` file:
 
@@ -184,13 +186,13 @@ i2c_hats:
           type: boolean
 {% endconfiguration %}
 
-## Directions for installing smbus support on Raspberry Pi
+### Directions for installing smbus support on Raspberry Pi
 
 Enable I2c interface with the Raspberry Pi configuration utility:
 
 ```bash
 # pi user environment: Enable i2c interface
-$ sudo raspi-config
+sudo raspi-config
 ```
 
 Select `Interfacing options->I2C` choose `<Yes>` and hit `Enter`, then go to `Finish`.
@@ -199,10 +201,10 @@ Install dependencies for use the `smbus-cffi` module and enable your `homeassist
 
 ```bash
 # pi user environment: Install i2c dependencies and utilities
-$ sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
+sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
 
 # pi user environment: Add homeassistant user to the i2c group
-$ sudo usermod -a -G i2c homeassistant
+sudo usermod -a -G i2c homeassistant
 ```
 
 ## Check the i2c address of the sensor

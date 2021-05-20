@@ -1,12 +1,13 @@
 ---
 title: Harman Kardon AVR
 description: Instructions on how to integrate Harman Kardon AVR Network Receivers into Home Assistant.
-logo: harman_kardon.png
 ha_category:
   - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.85
 ha_domain: harman_kardon_avr
+ha_platforms:
+  - media_player
 ---
 
 The `harman_kardon_avr` platform allows you to control Harman Kardon Network Receivers from Home Assistant.

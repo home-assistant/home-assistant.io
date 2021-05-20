@@ -7,7 +7,9 @@ date_formatted: "November 20, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-11-0.102/components.png
 ---
 
@@ -472,7 +474,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Set up Almond Web to connect to HA ([@balloob] - [#28603]) ([almond docs])
 - version bump pypoint ([@fredrike] - [#28737]) ([point docs])
 - Upgrade async_upnp_client==0.14.12 ([@StevenLooman] - [#28733]) ([dlna_dmr docs]) ([upnp docs])
-- Add device classes to weather sensors. ([@davet2001] - [#28512]) ([yr docs])
+- Add device classes to weather sensors. ([@davet2001] - [#28512])
 - Upgrade psutil to 5.6.5 ([@fabaff] - [#28717]) ([systemmonitor docs])
 - Travis and tox config improvements ([@scop] - [#28667])
 - Correct openalpr_local config option name ([@HexF] - [#28746]) ([openalpr_local docs]) (breaking change)
@@ -887,7 +889,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [geonetnz_quakes docs]: /integrations/geonetnz_quakes/
 [google_assistant docs]: /integrations/google_assistant/
 [greeneye_monitor docs]: /integrations/greeneye_monitor/
-[gtt docs]: /integrations/gtt/
 [hangouts docs]: /integrations/hangouts/
 [hassio docs]: /integrations/hassio/
 [here_travel_time docs]: /integrations/here_travel_time/
@@ -963,7 +964,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [withings docs]: /integrations/withings/
 [wled docs]: /integrations/wled/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
-[yr docs]: /integrations/yr/
 [zha docs]: /integrations/zha/
 [zoneminder docs]: /integrations/zoneminder/
 [zwave docs]: /integrations/zwave/

@@ -13,11 +13,17 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@bdurrer'
 ha_domain: enocean
+ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
+  - switch
 ---
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.
 
-The `enocean` integration adds support for some of these devices. You will need a controller like the [USB300](https://www.enocean.com/en/enocean_modules/usb-300-oem/) in order for it to work.
+The EnOcean integration adds support for some of these devices. You will need a controller like the [USB300](https://www.enocean.com/en/enocean_modules/usb-300-oem/) in order for it to work.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -37,28 +43,13 @@ The following devices have been confirmed to work out of the box:
 - EnOcean STM-330 temperature sensor
 - Hoppe SecuSignal window handle from Somfy
 
-If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). 
-If it does, it will most likely work. 
-The available profiles are usually listed somewhere in the device manual. 
+If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). If it does, it will most likely work. The available profiles are usually listed somewhere in the device manual.
 
 Support for tech-in messages is not implemented.
 
-## Hub
+{% include integrations/config_flow.md %}
 
-To integrate an EnOcean controller with Home Assistant, add the following section to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-enocean:
-  device: /dev/ttyUSB0
-```
-
-{% configuration %}
-device:
-  description: The port where your device is connected to your Home Assistant host.
-  required: true
-  type: string
-{% endconfiguration %}
+Despite the UI-based configuration of the hub, the entities are still configured using YAML see next chapters).
 
 ## Binary Sensor
 
@@ -110,10 +101,12 @@ EnOcean binary sensors have no state, they only generate 'button_pressed' events
 
 Sample automation to switch lights on and off:
 
+{% raw %}
+
 ```yaml
 # Example automation to turn lights on/off on button release
 automation:
-  - alias: hall light switches
+  - alias: "hall light switches"
     trigger:
       platform: event
       event_type: button_pressed
@@ -121,10 +114,12 @@ automation:
         id: [0xYY, 0xYY, 0xYY, 0xYY]
         pushed: 0
     action:
-      service_template: "{% raw %}{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}{% endraw %}"
-      data_template:
-        entity_id: "{% raw %}{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}{% endraw %}"
+      service: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
+      target:
+        entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
 ```
+
+{% endraw %}
 
 ## Light
 

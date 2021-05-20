@@ -5,7 +5,9 @@ date: 2015-11-16 21:27:00 0000
 date_formatted: "November 16, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 <img src='/images/screenshots/custom-icons.png' style='float: right;' />We have all been hard at work to get this latest release ready. One of the big highlights in this release is the introduction of an extended iconset to be used in the frontend (credits to [@happyleavesaoc] for idea and prototype). To get started with customizing, pick any icon from [MaterialDesignIcons.com], prefix the name with `mdi:` and stick it into your `customize` section in `configuration.yaml`:
@@ -14,7 +16,7 @@ categories: Release-Notes
 homeassistant:
   customize:
     switch.ac:
-      icon: 'mdi:air-conditioner'
+      icon: "mdi:air-conditioner"
 ```
 
 #### Breaking changes
@@ -24,12 +26,12 @@ homeassistant:
 
 #### Changes
 
-<img src='/images/supported_brands/honeywell.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/orvibo.png' style='clear: right;  border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/pushetta.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' />
+<img src='/images/supported_brands/honeywell.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/orvibo.png' style='clear: right;  border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' />
 
  * Thermostat: [Honeywell](/integrations/honeywell/) now supported ([@sander76])
  * Switch: [Orvibo](/integrations/orvibo) now supported ([@happyleavesaoc])
  * Camera: [mjpeg camera's](/integrations/mjpeg) now supported ([@ryanturner])
- * Notify: [Pushetta](/integrations/pushetta) now supported ([@fabaff])
+ * Notify: Pushetta now supported ([@fabaff])
  * Light: [MQTT](/integrations/light.mqtt/) now supported ([@hexxter])
  * Light: [Z-Wave](/integrations/zwave/) now supported ([@leoc])
  * Switch: [Z-Wave](/integrations/zwave/) now supported ([@leoc])

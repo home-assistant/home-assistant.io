@@ -1,7 +1,6 @@
 ---
 title: Eight Sleep
 description: Interface an Eight Sleep smart cover or mattress to Home Assistant
-logo: eight_sleep.png
 ha_category:
   - Health
   - Binary Sensor
@@ -11,6 +10,9 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@mezz64'
 ha_domain: eight_sleep
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `eight_sleep` integration allows Home Assistant to fetch data from your [Eight Sleep](https://eightsleep.com/) smart cover or mattress.
@@ -84,8 +86,9 @@ script:
   bed_set_heat:
     sequence:
       - service: eight_sleep.heat_set
-        data:
+        target:
           entity_id: "sensor.eight_left_bed_state"
+        data:
           target: 35
           duration: 3600
 ```

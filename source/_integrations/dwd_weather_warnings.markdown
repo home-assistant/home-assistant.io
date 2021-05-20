@@ -1,11 +1,17 @@
 ---
-title: Deutsche Wetter Dienst (DWD) Weather Warnings
+title: Deutscher Wetterdienst (DWD) Weather Warnings
 description: Instructions on how to integrate Deutsche Wetter Dienst weather warnings into Home Assistant.
 ha_category:
   - Weather
 ha_release: 0.51
 ha_iot_class: Cloud Polling
 ha_domain: dwd_weather_warnings
+ha_codeowners:
+  - '@runningman84'
+  - '@stephan192'
+  - '@Hummel95'
+ha_platforms:
+  - sensor
 ---
 
 The `dwd_weather_warnings` sensor platform uses the [Deutsche Wetter Dienst (DWD)](https://www.dwd.de) as a source for current and advance warnings.
@@ -26,45 +32,54 @@ sensor:
 
 <div class="note">
 
-As it suggests the region name is not the city or nearest city you want to get the warnings for but the next higher level of the governmental district called "Kreis" in German.
-
-Be aware, to get the region name you need to use the following link by replacing `Hamburg` with your city:
-- Find your region here: `https://www.dwd.de/DE/wetter/warnungen_landkreise/warnWetter_node.html?ort=Hamburg`
-- On the page that is loaded in your browser you will find the correct region ("Kreis") below the map as a heading.
-- Verify if you find any warning for your region here. Your region ("Kreis") will appear only if warnings exist: `https://www.dwd.de/DWD/warnungen/warnapp_landkreise/json/warnings.json?jsonp=loadWarnings`
+- The `region_name` can either be a so called `warncell id` (integer) or a `warncell name` (string). It is heavily advised to use `warncell id` because `warncell name` is not unique in some cases.  
+A list of valid warncell ids and names can be found at https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html.
+- Some of the warncells are outdated but still listed. If setup fails search the list for a similar sounding warncell.
+- If you selected a `warncell name` and the name is not unique `" (not unique used ID)!"` will be added to the reported `region_name`.
 
 </div>
 
 {% configuration %}
 region_name:
-  required: false
-  description: The region name string as identified from the DWD website.
-  default: Hansestadt Hamburg
-  type: string
+  required: true
+  description: The region name = warncell name (string) or region id = warncell id (integer) taken from DWD homepage.
+  type: [string, integer]
 name:
   required: false
   description: The name you would like to give to the warnapp sensor.
   type: string
   default: DWD-Weather-Warnings
+monitored_conditions:
+  description: List of warnings you want to be informed about.
+  required: false
+  default: all
+  type: list
+  keys:
+    current_warning_level:
+      description: The current warning level.
+    advance_warning_level:
+      description: The expected warning level.
 {% endconfiguration %}
 
 ### Attributes
 
 | Attribute    | Description                            |
 | ------------ | -------------------------------------- |
-| `last_updated` | Information last update from DWD service. |
-| `region_name` | Requested region name. This should be the same as the region name in the configuration. |
-| `region_state` | State (Bundesland) in abriviated form the requested region is located, e.g., "HE" for "Hessen". |
-| `region_id` | Region ID assigned by DWD. |
+| `last_update` | *(time)* Time and date (UTC) of last update from DWD. |
+| `region_name` | *(str)* Requested region name. This should be the same as the region name in the configuration if a name was given. |
+| `region_id` | *(int)* Region ID assigned by DWD. This should be the same as the region name in the configuration if an id was given. |
 | `warning_count` | *(int)* Number of issued warnings. There can be more than one warning issued at once. |
-| `warning_<x>_level` | *(int)* Issued warning level between 0 and 4. <br/>0: Keine Warnungen <br/>1: Wetterwarnungen <br/>2: Warnungen vor markantem Wetter<br/>3: Unwetterwarnungen<br/>4: Warnungen vor extremem Unwetter |
-| `warning_<x>_type` | *(int)* Issued warning type. <br/>0: Gewitter, Starkes Gewitter<br/>1: Windböen, Sturmböen<br/>2: ?<br/>3: Schneefall<br/>4: Nebel<br/>5: Frost <br/>6: Glätte, Glatteis<br/>8: Hitze (always level 10)<br/>9: UV-Index (always level 20)<br/>Please be aware that the type numbers represent more like a category than an exact number-to-string match. For example Type `6` can mean `GLÄTTE` or `GLATTEIS` or similar. |
-| `warning_<x>_name` | This name correlates with the warning type and indicates it in short as a string. |
-| `warning_<x>_headline` | Official headline the weather warning. |
-| `warning_<x>_start` | Starting time and date of the issued warning. |
-| `warning_<x>_end` | Ending time and date of the issued warning. |
-| `warning_<x>_description` | Details for the issued warning. |
-| `warning_<x>_instruction` | The DWD is sometimes providing helpful information about precautions to take for the issued warning. |
+| `warning_<x>` | *(list)* The warning as a whole object containing the following attributes as nested attributes. |
+| `warning_<x>_level` | *(int)* Issued warning level (0 - 4).<br/>0: Keine Warnungen <br/>1: Wetterwarnungen <br/>2: Warnungen vor markantem Wetter<br/>3: Unwetterwarnungen<br/>4: Warnungen vor extremem Unwetter |
+| `warning_<x>_type` | *(int)* Issued warning type. <br/>More information can be found at https://www.dwd.de/DE/leistungen/opendata/help/warnungen/neu_cap_dwd_profile_changes_de_pdf.pdf |
+| `warning_<x>_name` | *(str)* Warning name correlates with the warning type and represents it as a short string. |
+| `warning_<x>_headline` | *(str)* Official headline of the weather warning. |
+| `warning_<x>_start` | *(time)* Starting time and date (UTC) of the issued warning. |
+| `warning_<x>_end` | *(time)* Ending time and date (UTC) of the issued warning. |
+| `warning_<x>_description` | *(str)* Details for the issued warning. |
+| `warning_<x>_instruction` | *(str)* The DWD sometimes provides helpful information about precautions to take for the issued warning. |
+| `warning_<x>_parameters` | *(list)* A list of additional warning parameters. <br/>More information can be found at https://www.dwd.de/DE/leistungen/opendata/help/warnungen/neu_cap_dwd_profile_changes_de_pdf.pdf |
+| `warning_<x>_color` | *(str)* The DWD color of the warning encoded as `#rrggbb`. |
 
 <div class="note">
 

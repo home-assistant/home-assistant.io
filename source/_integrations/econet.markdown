@@ -1,64 +1,50 @@
 ---
-title: Rheem EcoNET Water Products
+title: Rheem EcoNet Products
 description: Instructions on how to integrate Rheem EcoNet water heaters into Home Assistant.
 ha_category:
+  - Binary Sensor
+  - Climate
+  - Sensor
   - Water Heater
 ha_release: 0.61
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_domain: econet
+ha_codeowners:
+  - '@vangorra'
+  - '@w1ll1am23'
+ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - water_heater
 ---
 
-The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](https://www.rheem.com/EcoNet/Home). This platform allows you to set the temperature, the operation mode, and enable vacation mode.
+The EcoNet integration is consuming the information provided by a [EcoNet enabled Rheem water heater or thermostat](https://www.rheem.com/EcoNet/Home).
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable the `econet` water heater platform, add the following information to your `configuration.yaml` file:
+## Platforms
 
-```yaml
-# Example configuration.yaml entry
-water_heater:
-  - platform: econet
-    username: YOUR_ECONET_EMAIL
-    password: YOUR_ECONET_PASSWORD
-```
+EcoNet devices may be represented by one or more platforms.
 
-{% configuration %}
-username:
-  description: The username used to connect to your EcoNet account.
-  required: true
-  type: string
-password:
-  description: The password used to connect to your EcoNet account.
-  required: true
-  type: string
-{% endconfiguration %}
+- [Binary Sensor](#binary-sensor)
+- [Climate](#climate)
+- [Sensor](#sensor)
+- [Water Heater](#water-heater)
 
-### Service `econet.add_vacation`
+### Binary Sensor
 
-You can use the service `econet.add_vacation` to create a new vacation for your EcoNet water heaters.
+The EcoNet Binary Sensor platform lets you view binary states of sensors associated with your EcoNet thermostat or water heater. For example, if the device is currently running.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | The entity id of the water heater to add the vacation to.
-| `start_date` | yes | This is a Unix timestamp for when the vacation should start.
-| `end_date` | yes | this is a Unix timestamp for when the vacation should end.
+### Climate
 
-<div class='note'>
+The EcoNet Climate platform lets you control your EcoNet thermostat. Multi-zone HVAC systems will have 1 Climate entity per zone.
 
-The Unix timestamps can be obtained from the `input_datetime` component. This will allow you to graphically set the start and end date.
+### Sensor
 
-</div>
+The EcoNet Sensor platform lets you view sensors associated with your EcoNet thermostat or water heater. For example, alert count or available hot water.
 
-### Service `econet.delete_vacation`
+### Water Heater
 
-You can use the service `econet.delete_vacation` to remove all vacations from an EcoNet water heater.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | The entity id of the water heater to remove the vacation from.
-
-<div class='note'>
-
-Econet water heaters use to live under the `climate` platform prior to release 0.81.
-
-</div>
+The EcoNet Water Heater platform lets you control your EcoNet water heater. Water Heaters do not report the current water temperature.

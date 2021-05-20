@@ -1,16 +1,17 @@
 ---
 title: Onkyo
 description: Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant.
-logo: onkyo.png
 ha_category:
   - Media Player
 ha_release: 0.17
 ha_iot_class: Local Polling
 ha_domain: onkyo
+ha_platforms:
+  - media_player
 ---
 
-The `onkyo` platform allows you to control a [Onkyo](http://www.onkyo.com/), [Integra](http://www.integrahometheater.com/)
-and some recent [Pioneer](http://www.pioneerelectronics.com) receivers from Home Assistant.
+The `onkyo` platform allows you to control a [Onkyo](https://www.onkyo.com), [Integra](http://www.integrahometheater.com)
+and some recent [Pioneer](https://www.pioneerelectronics.com) receivers from Home Assistant.
 Please be aware that you need to enable "Network Standby" for this integration to work in your Hardware.
 
 ## Configuration
@@ -24,7 +25,7 @@ media_player:
     host: 192.168.1.2
     name: receiver
     sources:
-      pc: 'HTPC'
+      pc: "HTPC"
 ```
 
  If your receiver has second or third zone’s available, they are displayed as additional media players with the same functionality as the main zone.
@@ -39,7 +40,7 @@ name:
   required: false
   type: string
 max_volume:
-  description: Maximum volume as a percentage. Often the maximum volume of the receiver is far too loud. Setting this wil set Home Assistant's 100% volume to be this setting on the amp. i.e., if you set this to 50% when you set Home Assistant to be 100% then your receiver will be set to 50% of it's maximum volume.
+  description: Maximum volume as a percentage. Often the maximum volume of the receiver is far too loud. Setting this will set Home Assistant's 100% volume to be this setting on the amp. i.e., if you set this to 50% when you set Home Assistant to be 100% then your receiver will be set to 50% of it's maximum volume.
   required: false
   default: 100
   type: integer
@@ -124,11 +125,12 @@ script:
     alias: "Radio 1"
     sequence:
       - service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.onkyo
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.onkyo
+        data:
           media_content_type: "radio"
           media_content_id: "1"
 ```

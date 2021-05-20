@@ -1,12 +1,13 @@
 ---
 title: HP Integrated Lights-Out (ILO)
 description: How to integrate HP ILO (Integrated Lights-Out) sensors within Home Assistant.
-logo: hewlett_packard_enterprise.png
 ha_category:
   - System Monitor
 ha_release: 0.27
 ha_iot_class: Local Polling
 ha_domain: hp_ilo
+ha_platforms:
+  - sensor
 ---
 
 The `hp_ilo` platform allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors.
@@ -16,7 +17,7 @@ If the ILO or specified jsonpath query returns only a single value (e.g., a temp
 Some more details about what can be retrieved from these sensors is available in the [python-hpilo documentation](https://seveas.github.io/python-hpilo/).
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/hp_ilo.png' />
+  <img src='/images/screenshots/hp_ilo.png' />
 </p>
 
 ## Configuration
@@ -94,6 +95,8 @@ Valid sensor_types:
 
 In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of `server_health` on a HP Microserver Gen8, you could use the following in your `configuration.yaml` file
 
+{% raw %}
+
 ```yaml
 sensor:
   - platform: hp_ilo
@@ -103,19 +106,20 @@ sensor:
     monitored_variables:
       - name: CPU fanspeed
         sensor_type: server_health
-        unit_of_measurement: '%'
-        value_template: '{% raw %}{{ ilo_data.fans["Fan 1"].speed[0] }}{% endraw %}'
+        unit_of_measurement: "%"
+        value_template: '{{ ilo_data.fans["Fan 1"].speed[0] }}'
       - name: Inlet temperature
         sensor_type: server_health
-        unit_of_measurement: '°C'
-        value_template: '{% raw %}{{ ilo_data.temperature["01-Inlet Ambient"].currentreading[0] }}{% endraw %}'
+        unit_of_measurement: "°C"
+        value_template: '{{ ilo_data.temperature["01-Inlet Ambient"].currentreading[0] }}'
       - name: Server Health
         sensor_type: server_health
-
 ```
 
+{% endraw %}
+
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/hp_ilo_sensors.png' />
+  <img src='/images/screenshots/hp_ilo_sensors.png' />
 </p>
 
 ## Hardware specifics

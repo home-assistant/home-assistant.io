@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: panel_custom
 ---
 
-The `panel_custom` support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar if wished and can be highly customized. See the developer documentation on [instructions how to build your own panels](https://developers.home-assistant.io/docs/en/frontend_creating_custom_panels.html).
+The `panel_custom` integration allows you to write your own panels in JavaScript and add them to Home Assistant. See the developer documentation on [instructions how to build your own panels](https://developers.home-assistant.io/docs/frontend/custom-ui/creating-custom-panels/).
 
 To enable customized panels in your installation, add the following to your `configuration.yaml` file:
 
@@ -21,7 +21,7 @@ panel_custom:
     sidebar_title: TodoMVC
     sidebar_icon: mdi:work
     url_path: my-todomvc
-    js_url: /local/my-panel.js
+    module_url: /local/my-panel.js
     config:
       who: world
 ```
@@ -51,12 +51,12 @@ url_path:
   required: false
   type: string
 js_url:
-  description: The URL that contains the JavaScript of your panel. This is exclusive to `module_url` and `webcomponent_path`.
-  required: exclusive
+  description: The URL that contains the JavaScript of your panel. If used together with `module_url`, will only be served to users that use the ES5 build of the frontend.
+  required: false
   type: string
 module_url:
-  description: The URL that contains the JavaScript module of your panel. Loaded as a JavaScript module instead of a script. This is exclusive to `js_url` and `webcomponent_path`.
-  required: exclusive
+  description: The URL that contains the JavaScript module of your panel. Loaded as a JavaScript module instead of a script. If used together with `module_url`, will only be served to users that use the "latest" build of the frontend.
+  required: false
   type: string
 config:
   description: Configuration to be passed into your web component when being instantiated.
@@ -77,8 +77,4 @@ trust_external_script:
   required: false
   default: false
   type: boolean
-webcomponent_path:
-  description: "*DEPRECATED* The HTML path to your component. If omitted will default to `<config dir>/panels/<component name>.html` This is exclusive to `js_url` and `module_url`."
-  required: exclusive
-  type: string
 {% endconfiguration %}

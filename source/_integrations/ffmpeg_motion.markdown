@@ -3,8 +3,11 @@ title: FFmpeg Motion
 description: Instructions on how to integrate an FFmpeg-based motion binary sensor
 ha_category:
   - Image Processing
+ha_iot_class: Calculated
 ha_release: 0.27
 ha_domain: ffmpeg_motion
+ha_platforms:
+  - binary_sensor
 ---
 
 The `ffmpeg` platform allows you to use any video feed with [FFmpeg](https://www.ffmpeg.org/) for motion sensors in Home Assistant.
@@ -73,12 +76,12 @@ extra_arguments:
 To experiment with values (changes/100 is the scene value in `ffmpeg`):
 
 ```bash
-$ ffmpeg -i YOUR_INPUT -an -filter:v select=gt(scene\,0.1) -f framemd5 -
+ffmpeg -i YOUR_INPUT -an -filter:v select=gt(scene\,0.1) -f framemd5 -
 ```
 
 If you are running into trouble with this sensor, please refer to the [troubleshooting section](/integrations/ffmpeg/#troubleshooting).
 
-#### Tips
+### Tips
 
 - Use motion only in a custom area with [crop filter](https://ffmpeg.org/ffmpeg-filters.html#crop):
 

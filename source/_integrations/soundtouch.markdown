@@ -1,12 +1,13 @@
 ---
 title: Bose Soundtouch
 description: Instructions on how to integrate Bose Soundtouch devices into Home Assistant.
-logo: soundtouch.png
 ha_category:
   - Media Player
 ha_release: 0.34
 ha_iot_class: Local Polling
 ha_domain: soundtouch
+ha_platforms:
+  - media_player
 ---
 
 The `soundtouch` platform allows you to control your [Bose Soundtouch](https://www.soundtouch.com/) speakers from Home Assistant.
@@ -61,8 +62,9 @@ You can switch between one of your 6 pre-configured presets using ```media_playe
 ```yaml
 # Play media preset
 - service: media_player.play_media
-  data:
+  target:
     entity_id: media_player.soundtouch_living_room
+  data:
     media_content_id: 1..6
     media_content_type: PLAYLIST
 ```
@@ -72,8 +74,9 @@ You can also play HTTP (not HTTPS) URLs:
 ```yaml
 # Play media URL
 - service: media_player.play_media
-  data:
+  target:
     entity_id: media_player.soundtouch_living_room
+  data:
     media_content_id: http://example.com/music.mp3
     media_content_type: MUSIC
 ```

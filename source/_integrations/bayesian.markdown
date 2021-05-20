@@ -3,10 +3,13 @@ title: Bayesian
 description: Instructions on how to integrate threshold Bayesian sensors into Home Assistant.
 ha_category:
   - Utility
+  - Binary Sensor
 ha_iot_class: Local Polling
 ha_release: 0.53
 ha_quality_scale: internal
 ha_domain: bayesian
+ha_platforms:
+  - binary_sensor
 ---
 
 The `bayesian` binary sensor platform observes the state from multiple sensors and uses [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem) to estimate the probability that an event has occurred given the state of the observed sensors. If the estimated posterior probability is above the `probability_threshold`, the sensor is `on` otherwise it is `off`.
@@ -23,11 +26,11 @@ binary_sensor:
   - platform: bayesian
     prior: 0.1
     observations:
-      - entity_id: 'switch.kitchen_lights'
+      - entity_id: "switch.kitchen_lights"
         prob_given_true: 0.6
         prob_given_false: 0.2
-        platform: 'state'
-        to_state: 'on'
+        platform: "state"
+        to_state: "on"
 ```
 
 {% configuration %}
@@ -89,29 +92,29 @@ The following is an example for the `state` observation platform.
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  name: 'in_bed'
-  platform: 'bayesian'
+  name: "in_bed"
+  platform: "bayesian"
   prior: 0.25
   probability_threshold: 0.95
   observations:
-    - platform: 'state'
-      entity_id: 'sensor.living_room_motion'
+    - platform: "state"
+      entity_id: "sensor.living_room_motion"
       prob_given_true: 0.4
       prob_given_false: 0.2
-      to_state: 'off'
-    - platform: 'state'
-      entity_id: 'sensor.basement_motion'
+      to_state: "off"
+    - platform: "state"
+      entity_id: "sensor.basement_motion"
       prob_given_true: 0.5
       prob_given_false: 0.4
-      to_state: 'off'
-    - platform: 'state'
-      entity_id: 'sensor.bedroom_motion'
+      to_state: "off"
+    - platform: "state"
+      entity_id: "sensor.bedroom_motion"
       prob_given_true: 0.5
-      to_state: 'on'
-    - platform: 'state'
-      entity_id: 'sun.sun'
+      to_state: "on"
+    - platform: "state"
+      entity_id: "sun.sun"
       prob_given_true: 0.7
-      to_state: 'below_horizon'
+      to_state: "below_horizon"
 ```
 
 Next up an example which targets the `numeric_state` observation platform,
@@ -120,26 +123,26 @@ as seen in the configuration it requires `below` and/or `above` instead of `to_s
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  name: 'Heat On'
-  platform: 'bayesian'
+  name: "Heat On"
+  platform: "bayesian"
   prior: 0.2
   probability_threshold: 0.9
   observations:
-    - platform: 'numeric_state'
-      entity_id: 'sensor.outside_air_temperature_fahrenheit'
+    - platform: "numeric_state"
+      entity_id: "sensor.outside_air_temperature_fahrenheit"
       prob_given_true: 0.95
       below: 50
 ```
 
-Finally, here's an example for `template` observation platform,
-as seen in the configuration it requires `value_template` and does not use `entity_id`.
+Finally, here's an example for `template` observation platform, as seen in the configuration it requires `value_template`.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  name: 'Paulus Home'
-  platform: 'bayesian'
+  name: "Paulus Home"
+  platform: "bayesian"
   prior: 0.5
   probability_threshold: 0.9
   observations:
@@ -148,4 +151,5 @@ binary_sensor:
         {{is_state('device_tracker.paulus','not_home') and ((as_timestamp(now()) - as_timestamp(states.device_tracker.paulus.last_changed)) > 300)}}
       prob_given_true: 0.95
 ```
+
 {% endraw %}

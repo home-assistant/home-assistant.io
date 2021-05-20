@@ -9,14 +9,14 @@ The Entity Filter card allows you to define a list of entities that you want to 
 This type of card can also be used together with rest of cards that allow multiple entities, allowing you to use [glance](/lovelace/glance/) or [picture-glance](/lovelace/picture-glance/). By default it uses [entities](/lovelace/entities/) card model.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_filter.png' alt='Screenshot of the entity filter card'>
-Screenshot of the entity filter card.
+<img src='/images/lovelace/lovelace_entity_filter.png' alt='Screenshot of the Entity Filter card'>
+Screenshot of the Entity Filter card.
 </p>
 
 {% configuration %}
 type:
   required: true
-  description: entity-filter
+  description: "`entity-filter`"
   type: string
 entities:
   required: true
@@ -38,18 +38,18 @@ show_empty:
   default: true
 {% endconfiguration %}
 
-## Options For Entities
+## Options for Entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configurations:
 
 {% configuration %}
 entity:
   required: true
-  description: Home Assistant entity ID.
+  description: Entity ID.
   type: string
 type:
   required: false
-  description: "Sets a custom card type: `custom:my-custom-card`"
+  description: "Sets a custom card type: `custom:my-custom-card`."
   type: string
 name:
   required: false
@@ -73,9 +73,9 @@ state_filter:
   type: list
 {% endconfiguration %}
 
-## Options For state_filter
+## Options for state_filter
 
-If you define state_filter as objects instead of strings (by adding `value:` before your state value), you can add more customization to your filter:
+If you define `state_filter` as objects instead of strings (by adding `value:` before your state value), you can add more customization to your filter:
 
 {% configuration %}
 value:
@@ -84,7 +84,7 @@ value:
   type: string
 operator:
   required: false
-  description: Operator to use in the comparison. Can be `==`, `<=`, `<`, `>=`, `>`, `!=` or `regex`.
+  description: Operator to use in the comparison. Can be `==`, `<=`, `<`, `>=`, `>`, `!=`, `in`, `not in`, or `regex`.
   type: string
 attribute:
   required: false
@@ -92,9 +92,10 @@ attribute:
   type: string
 {% endconfiguration %}
 
-### Examples
+## Examples
 
-Show only active switches or lights in the house
+Show only active switches or lights in the house.
+
 ```yaml
 type: entity-filter
 entities:
@@ -121,7 +122,30 @@ card:
   title: People at home
 ```
 
-Specify filter for a single entity
+<p class='img'>
+  <img src='/images/lovelace/lovelace_entity_filter_glance.png' alt='Entity filter combined with glance card'>
+  Entity filter combined with glance card.
+</p>
+
+You can also specify multiple `state_filter` conditions, in which case the entity will be displayed if it matches any condition. This example will display everyone who isn't at home or at work.
+
+```yaml
+type: entity-filter
+entities:
+  - device_tracker.demo_paulus
+  - device_tracker.demo_anne_therese
+  - device_tracker.demo_home_boy
+state_filter:
+  - operator: "!="
+    value: home
+  - operator: "!="
+    value: work    
+card:
+  type: glance
+  title: Who's Running Errands
+```
+
+Specify filter for a single entity.
 
 ```yaml
 type: entity-filter
@@ -139,7 +163,22 @@ entities:
         attribute: humidity
 ```
 
-<p class='img'>
-  <img src='/images/lovelace/lovelace_entity_filter_glance.png' alt='Entity filter combined with glance card'>
-  Entity filter combined with glance card.
-</p>
+Use a regex filter against entity attributes. This regex filter below looks for expressions that are 1 digit in length and where the number is between 0-7 (so show holidays today or in the next 7 days) and displays those holidays as entities in the Entity Filter card.
+
+```yaml
+  - type: entity-filter
+    card:
+      title: "Upcoming Holidays In Next 7 Days"
+      show_header_toggle: false
+    state_filter:
+      - operator: regex
+        value: "^([0-7]{1})$"
+        attribute: eta
+    entities:
+      - entity: sensor.upcoming_ical_holidays_0
+      - entity: sensor.upcoming_ical_holidays_1
+      - entity: sensor.upcoming_ical_holidays_2
+      - entity: sensor.upcoming_ical_holidays_3
+      - entity: sensor.upcoming_ical_holidays_4
+    show_empty: false
+```

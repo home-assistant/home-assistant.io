@@ -27,8 +27,8 @@ That's where we came in. We wanted a solution that can bridge the awesomeness of
 
 This is going to be a pretty detailed tutorial on setting up our SmartThings bridge. However, there are a couple key terms that _might_ be new to you:
 
- - [MQTT][mqtt]: A lightweight message protocol for listening and publishing events that happen. Many home automation platforms have built in support for this [(especially Home Assistant)][mqtt-ha].
- - [Docker][docker]: A tool for running applications that are self-contained. No need for installing any dependencies or worrying about conflicts. Installs easily on Linux and OSX.
+- [MQTT][mqtt]: A lightweight message protocol for listening and publishing events that happen. Many home automation platforms have built in support for this [(especially Home Assistant)][mqtt-ha].
+- [Docker][docker]: A tool for running applications that are self-contained. No need for installing any dependencies or worrying about conflicts. Installs easily on Linux and macOS.
 
 ## Setting up the Bridge
 
@@ -47,7 +47,7 @@ $ docker run \
     matteocollina/mosca
 ```
 
-This will start Mosca up inside of a docker container, while keeping persistent storage for Mosca in `/opt/mosca`. The default configuration is the only thing we need to get things up and running.
+This will start Mosca up inside of a Docker container, while keeping persistent storage for Mosca in `/opt/mosca`. The default configuration is the only thing we need to get things up and running.
 
 If you don't want to mess with Docker and can get node.js installed without trouble, the [standalone][mosca-standalone] instructions are all you need.
 
@@ -66,7 +66,7 @@ $ docker run \
 
 The code for this bridge is [on Github][mqtt-bridge] if you want to start it up independently.
 
-The MQTT Bridge only needs to know where your MQTT broker lives. If you are using these docker commands as-is, edit `/opt/mqtt-bridge/config.yml` to look like this:
+The MQTT Bridge only needs to know where your MQTT broker lives. If you are using these Docker commands as-is, edit `/opt/mqtt-bridge/config.yml` to look like this:
 
 ```yaml
 ---
@@ -77,7 +77,7 @@ mqtt:
 Restart the bridge, and you are ready to go:
 
 ```bash
-$ docker restart mqtt-bridge
+docker restart mqtt-bridge
 ```
 
 ### SmartThings Device
@@ -88,9 +88,9 @@ Now to install your new Device Handler. Go back to `My Devices` in the IDE, and 
 
 Go back to `My Devices`, and click on your new device in the list. This will bring up a page that allows you to edit your device's Preferences. Click `edit` and fill in the 3 pieces of information it asks for.
 
- - MQTT Bridge IP Address: \<IP address of the MQTT Bridge from the previous step>
- - MQTT Bridge Port: \<8080 if you have changed nothing in the previous commands>
- - MQTT Bridge MAC Address: \<Mac address of machine running the Bridge code>
+- MQTT Bridge IP Address: \<IP address of the MQTT Bridge from the previous step>
+- MQTT Bridge Port: \<8080 if you have changed nothing in the previous commands>
+- MQTT Bridge MAC Address: \<Mac address of machine running the Bridge code>
 
 This will create the link between SmartThings and the MQTT Bridge.
 
@@ -167,7 +167,7 @@ homeassistant:
         - mqtt
 ```
 
-This will start home-assistant, MQTT, and the Bridge, in dependency order. All config can reference the name of the docker container instead of using IP addresses (e.g., mqtt for the broker host in Home Assistant).
+This will start home-assistant, MQTT, and the Bridge, in dependency order. All configuration can reference the name of the Docker container instead of using IP addresses (e.g., MQTT for the broker host in Home Assistant).
 
 ### How it works
 
@@ -192,14 +192,13 @@ Here is the final sequence of events:
   SmartThings Bridge Sequence
 </p>
 
-
 There are a lot of stops along the way for these events, but each piece is a simple translation layer to shuttle the events between systems.
 
 ### Future Improvements
+
 - **Raspberry Pi**: There is a lot of interest in getting this running on the Raspberry Pi. It only requires binaries compiled for ARM, so we plan to get ARM-compatible versions of the containers going at some point.
 - **Authentication for MQTT**: At the moment, the MQTT bridge doesn't understand how to authenticate to MQTT, so only unauthenticated MQTT is supported. This is mitigated to some degree if you use our Docker Compose config, because MQTT's port is not actually shared publicly.
 - **Authentication for MQTT Bridge**: Right now the bridge expects that anyone subscribing is the SmartThings hub. This could use proper authentication.
-
 
 [mosquitto]: http://mosquitto.org/
 [emqttd]: https://github.com/emqtt/emqttd

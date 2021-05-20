@@ -1,7 +1,6 @@
 ---
 title: Arlo
 description: Instructions on how to integrate your Netgear Arlo cameras within Home Assistant.
-logo: arlo.png
 ha_category:
   - Hub
   - Alarm
@@ -10,6 +9,10 @@ ha_category:
 ha_release: 0.46
 ha_iot_class: Cloud Polling
 ha_domain: arlo
+ha_platforms:
+  - alarm_control_panel
+  - camera
+  - sensor
 ---
 
 The `arlo` implementation allows you to integrate your [Arlo](https://arlo.netgear.com/) devices in Home Assistant.
@@ -54,14 +57,15 @@ The Arlo integration also provides a camera service to enable/disable the motion
 
 ```yaml
 #automation.yaml
-- alias: Enable Arlo upon HA start'
-  initial_state: 'on'
+- alias: "Enable Arlo upon HA start'"
+  initial_state: "on"
   trigger:
     platform: homeassistant
     event: start
   action:
     service: camera.enable_motion_detection
-    entity_id: camera.arlo_frontdoor
+    target:
+      entity_id: camera.arlo_frontdoor
 ```
 
 ## Alarm
@@ -101,7 +105,7 @@ Arming the Arlo Base Station when leaving.
 
 ```yaml
 - id: arm_arlo_when_leaving
-  alias: Arm Arlo cameras when leaving
+  alias: "Arm Arlo cameras when leaving"
   trigger:
     platform: state
     entity_id: group.family
@@ -109,14 +113,15 @@ Arming the Arlo Base Station when leaving.
     to: not_home
   action:
     service: alarm_control_panel.alarm_arm_away
-    entity_id: alarm_control_panel.my_arlo_base_station
+    target:
+      entity_id: alarm_control_panel.my_arlo_base_station
 ```
 
 Setting Arlo to a custom mode (mapped to `home_mode_name` in `configuration.yaml`) when arriving.
 
 ```yaml
 - id: disarm_arlo_when_arriving
-  alias: Set Arlo cameras to Home mode when arriving
+  alias: "Set Arlo cameras to Home mode when arriving"
   trigger:
     platform: state
     entity_id: group.family
@@ -124,7 +129,8 @@ Setting Arlo to a custom mode (mapped to `home_mode_name` in `configuration.yaml
     to: home
   action:
     service: alarm_control_panel.alarm_arm_home
-    entity_id: alarm_control_panel.my_arlo_base_station
+    target:
+      entity_id: alarm_control_panel.my_arlo_base_station
 ```
 
 You can also completely disarm the Arlo base station by calling the `alarm_control_panel.alarm_disarm` service, and trigger the alarm by calling the `alarm_control_panel.alarm_trigger` service.
@@ -143,7 +149,7 @@ Once you have enabled the [Arlo component](/integrations/arlo), add the followin
 # Example configuration.yaml entry
 camera:
   - platform: arlo
-    ffmpeg_arguments: '-pred 1 -q:v 2'
+    ffmpeg_arguments: "-pred 1 -q:v 2"
 ```
 
 {% configuration %}

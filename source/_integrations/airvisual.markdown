@@ -9,117 +9,46 @@ ha_codeowners:
   - '@bachya'
 ha_domain: airvisual
 ha_config_flow: true
+ha_platforms:
+  - air_quality
+  - sensor
 ---
 
-The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) API for air quality data. Data can be collected via latitude/longitude or by city/state/country. The resulting information creates sensors for the Air Quality Index (AQI), the human-friendly air quality level, and the main pollutant of that area. Sensors that conform to either/both the [U.S. and Chinese air quality standards](https://www.clm.com/publication.cfm?ID=366) are created.
+The `airvisual` sensor platform queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro).
 
-This platform requires an AirVisual API key, which can be obtained [here](https://airvisual.com/api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
+## Using the AirVisual Cloud API
+
+AirVisual API keys can be obtained [here](https://www.iqair.com/air-pollution-data-api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
 
 The Community API key is valid for 12 months after which it will expire. You must then go back to the AirVisual website, delete your old key, create a new one following the same steps and update your configuration with the new key.
 
 <div class='note warning'>
 
-The "Community" API key is limited to 10,000 calls per month. In order to leave a buffer, the `airvisual` platform queries the API every 10 minutes (600 seconds) by default. Note that each item in the `geographies` list will consume an API call with each update.
+The "Community" API key is limited to 10,000 calls per month. In order to accommodate using the same API key for multiple geographies, the `airvisual` integration will automatically "re-level" the time between API calls so as to not overrun the call limit.
+
+For example:
+
+- One instance of the integration: API calls every 5 minutes
+- Two instances of the integration: API calls every 10 minutes
+- etc.
 
 </div>
 
-## Configuration
+## Using an AirVisual Node/Pro Unit
 
-To enable the platform and gather data via latitude/longitude, add the following lines to your `configuration.yaml` file:
+The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; instructions here: https://support.iqair.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba).
 
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-```
-
-{% configuration %}
-api_key:
-  description: Your AirVisual API key.
-  required: true
-  type: string
-geographies:
-  description: A list of geographical locations to monitor
-  required: false
-  type: [list, map]
-  keys:
-    latitude:
-      description: The latitude of the location to monitor.
-      required: inclusive
-      type: float
-    longitude:
-      description: The longitude of the location to monitor.
-      required: inclusive
-      type: float
-    city:
-      description: The city to monitor.
-      required: inclusive
-      type: string
-    state:
-      description: The state the city belongs to.
-      required: inclusive
-      type: string
-    country:
-      description: The country the state belongs to.
-      required: inclusive
-      type: string
-{% endconfiguration %}
-
-## Example Configurations
-
-No explicit configuration (uses the `latitude` and `longitude` defined within `configuration.yaml`):
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-```
-
-Configuration using a single custom latitude and longitude:
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-    geographies:
-        latitude: 42.81212
-        longitude: 108.12422
-```
-
-Configuration using multiple custom latitude and longitude pairs:
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-    geographies:
-        - latitude: 42.81212
-          longitude: 108.12422
-        - latitude: 32.87336
-          longitude: -117.22743
-```
-
-Configuration using a single city, state, and country:
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-    geographies:
-        city: Los Angeles
-        state: California
-        country: USA
-```
+{% include integrations/config_flow.md %}
 
 ## Determining the City/State/Country
 
-To easily determine the proper values for a particular location, use the [AirVisual region directory](https://airvisual.com/world). Once you browse to the particular city you want, take note of the breadcrumb title, which is of the form `country > state/region > city`. Use this information to fill out `configuration.yaml`.
+In addition to using latitude and longitude, the AirVisual integration may be configured to use a city/state/country combination. To easily determine the proper values for a particular location, use the [AirVisual region directory](https://www.iqair.com/world-air-quality). Once you browse to the particular city you want, take note of the breadcrumb title, which is of the form `country > state/region > city`.
 
-For example, Sao Paulo, Brazil shows a breadcrumb title of `Brazil > Sao Paulo > Sao Paulo`. Thus, the proper configuration would look like this:
+For example, Sao Paulo, Brazil shows a breadcrumb title of `Brazil > Sao Paulo > Sao Paulo`. Thus, the values to use in the UI would be:
 
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-    geographies:
-        city: sao-paulo
-        state: sao-paulo
-        country: brazil
-```
+* City: `Sao Paulo`
+* State: `Sao Paulo`
+* Country: `Brazil`
 
 ## Sensor Types
 

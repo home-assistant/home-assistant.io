@@ -9,6 +9,8 @@ ha_release: '0.100'
 ha_codeowners:
   - '@eifinger'
 ha_domain: here_travel_time
+ha_platforms:
+  - sensor
 ---
 
 The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing/topics/introduction.html).
@@ -94,10 +96,9 @@ arrival:
   required: false
   type: time
 departure:
-  description: "Time when travel is expected to end. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. Cannot be used in combination with `arrival`. The default is now (the current date and time)" 
+  description: "Time when travel is expected to start. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. Cannot be used in combination with `arrival`. If departure is not provided each update of the sensor uses the current date and time." 
   required: false
   type: time
-  default: "now"
 unit_system:
   description: "You can choose between `metric` or `imperial`."
   required: false
@@ -158,14 +159,14 @@ You can also use the `homeassistant.update_entity` service to update the sensor 
 automation:
 - id: update_morning_commute_sensor
   alias: "Commute - Update morning commute sensor"
-  initial_state: 'on'
+  initial_state: "on"
   trigger:
     - platform: time_pattern
-      minutes: '/2'
+      minutes: "/2"
   condition:
     - condition: time
-      after: '08:00:00'
-      before: '11:00:00'
+      after: "08:00:00"
+      before: "11:00:00"
     - condition: time
       weekday:
         - mon
@@ -175,5 +176,6 @@ automation:
         - fri
   action:
     - service: homeassistant.update_entity
-      entity_id: sensor.morning_commute
+      target:
+        entity_id: sensor.morning_commute
 ```

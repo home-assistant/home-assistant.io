@@ -1,12 +1,15 @@
 ---
 title: Trafikverket Weather Station
 description: Instructions how to integrate Trafikverket WeatherStation within Home Assistant.
-logo: trafikverket.png
 ha_category:
   - Weather
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_domain: trafikverket_weatherstation
+ha_codeowners:
+  - '@endor-force'
+ha_platforms:
+  - sensor
 ---
 
 Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden.
@@ -35,6 +38,7 @@ sensor:
         - wind_direction
         - wind_direction_text
         - wind_speed
+        - wind_speed_max
         - precipitation_amount
         - precipitation_amountname
 ```
@@ -71,6 +75,8 @@ monitored_conditions:
       description: Rough wind direction in twelve variants (Swedish text).
     wind_speed:
       description: Average wind speed during the last 10 minutes.
+    wind_speed_max:
+      description: Maximum wind speed measured during the last 30 minutes.
     precipitation_amount:
       description: Amount of precipitation.
     precipitation_amountname:
@@ -87,7 +93,7 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 Click [here](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/606442.17/6886316.22/&Layers=RoadWeather%2b) to get a map of valid weather stations. Once a station is found, copy the name according to the below picture and paste it in your `configuration.yaml` file as the `station` variable.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/get_trafikverket_weather_station_example.png' />
+  <img src='/images/screenshots/get_trafikverket_weather_station_example.png' />
 </p>
 
 ## Examples
@@ -106,6 +112,7 @@ sensor:
         - wind_direction
         - wind_direction_text
         - wind_speed
+        - wind_speed_max
   - platform: trafikverket_weatherstation
     name: Trafikverket Lanna
     api_key: YOUR_API_KEY

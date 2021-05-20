@@ -1,12 +1,13 @@
 ---
 title: The Energy Detective TED5000
 description: How to add a TED5000 to Home Assistant.
-logo: ted.png
 ha_category:
   - Energy
 ha_release: '0.30'
 ha_iot_class: Local Polling
 ha_domain: ted5000
+ha_platforms:
+  - sensor
 ---
 
 The `ted 5000` monitors electricity consumption/production by connecting to the [TED](https://www.theenergydetective.com/home) gateway, itself connected to one or several Measuring Transmitting Units (MTU). The platform creates up to two sensors per MTU, one for Wattage the other for Voltage.

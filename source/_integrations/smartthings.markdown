@@ -1,6 +1,6 @@
 ---
-title: Smartthings
-description: Instructions on setting up Samsung SmartThings within Home Assistant.
+title: SmartThings
+description: Instructions on setting up SmartThings within Home Assistant.
 featured: true
 ha_category:
   - Hub
@@ -19,76 +19,75 @@ ha_config_flow: true
 ha_codeowners:
   - '@andrewsayre'
 ha_domain: smartthings
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - scene
+  - sensor
+  - switch
 ---
 
-Samsung SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The SmartThings integration is the main integration to integrate all SmartThings related platforms. The basic features of this integration include:
+SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:
 
-1. Controlling SmartThings devices with pushed state updates from SmartThings.
-2. Entities automatically added, removed, or updated when changed in SmartThings (upon Home Assistant restart).
-3. Support for multiple SmartThings accounts and locations, each represented as a unique integration in the front-end configuration.
-4. No brokers, bridges, or additional dependencies.
+1. Controlling SmartThings devices as Home Assistant entities ([see platforms for supported devices and capabilities](#platforms)).
+1. Entities automatically synchronized upon restart of Home Assistant when changed in SmartThings.
+1. Support for multiple SmartThings accounts and locations with each represented as an integration instance in Home Assistant.
+1. No brokers, bridges, or additional dependencies.
 
-See it in action, with a step-by-step setup guide, thanks to a fan! (v0.87 featured):
+## Prerequisites
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QZHlhQ7fqrA" frameborder="0" allowfullscreen></iframe>
-</div>
+1. A SmartThings [personal access token](https://account.smartthings.com/tokens).
+1. An internet accessible incoming webhook or active Home Assistant Cloud subscription.
 
-## Basic requirements
+### Personal Access Token (PAT)
 
-The SmartThings integration utilizes a webhook to receive push updates from the SmartThings cloud through either a cloudhook or an internet accessible webhook based on whether Home Assistant Cloud is configured and logged in with a non-expired subscription (this is not configurable at this time).
+The PAT is used to create a Home Assistant SmartApp in your SmartThings account during setup of the integration.
 
-### Cloudhook via Nabu Casa
-
-If you are using Home Assistant Cloud (Nabu Casa) the integration will create a cloudhook automatically. This greatly simplifies the basic requirements and does not require Home Assistant to be exposed to the internet. **If you have previously setup the integration prior to meeting the requirements for a cloudhook or prior to v0.90.0, you must remove all prior integrations and run through the configuration again.**
-
-1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
-2. Home Assistant Cloud is configured and logged-in with a non-expired subscription.
+1. Log into the [personal access tokens page](https://account.smartthings.com/tokens) and click '[Generate new token](https://account.smartthings.com/tokens/new)'
+1. Enter a token name (can be whatever you want), for example, 'Home Assistant' and select the following authorized scopes:
+    - Devices (all)
+    - Installed Applications (all)
+    - Apps (all)
+    - Locations (all)
+    - Scenes (all)
+    - Schedules (all)
+1. Click 'Generate token'. When the token is displayed copy and save it somewhere safe (such as your keystore) as you will not be able to retrieve it again.
 
 ### Webhook
 
-1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
-2. Home Assistant setup for [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
-3. [`base_url` of the HTTP integration](/integrations/http#base_url) set the URL that Home Assistant is available on the internet. SmartThings requires the `base_url` and Home Assistant to use the standard HTTPS port (443).
+This integration requires an internet accessible incoming webhook to receive push updates from SmartThings. The preferred approach is to subscribe to [Home Assistant Cloud (Nabu Casa)](https://www.nabucasa.com/) and the integration will configure and use a cloudhook automatically. Alternatively, you will have to configure and setup a internet accessible webhook in Home Assistant as described below:
+
+1. Setup [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
+1. Set the external URL in the Home Assistant [configuration](/docs/configuration/basic) to the URL that Home Assistant is available on the internet (this must start with `https://`).
 
 ## Setup instructions
 
-### Create personal access token
+After completing the prerequisite steps above you are ready to setup the integration! See [troubleshooting](#troubleshooting) if you are having issues setting up the integration.
 
-1. Log into the [personal access tokens page](https://account.smartthings.com/tokens) and click '[Generate new token](https://account.smartthings.com/tokens/new)'
-2. Enter a token name (can be whatever you want), for example, 'Home Assistant' and select the following authorized scopes:
-    - Devices (all)
-    - Installed Apps (all)
-    - Locations (all)
-    - Apps (all)
-    - Schedules (all)
-    - Scenes (all)
-3. Click 'Generate token'. When the token is displayed, copy and save it somewhere safe (such as your keystore) as you will not be able to retrieve it again.
-
-### Configure Home Assistant
-
-<div class='note info'>
-
-The SmartThings integration is configured exclusively through the front-end. Manual setup through `configuration.yaml` is not available at this time.
-
-</div>
-
-1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'SmartThings' and click 'Configure'.
-2. Enter the personal access token created above and click 'Submit'
-3. When prompted, install the SmartApp:
-    1. Open the SmartThings Classic mobile app. Navigate to 'Automation' and select the 'SmartApps' tab.
-    2. Click 'Add a SmartApp', scroll to the bottom, and select 'My Apps', then choose 'Home Assistant'.
-    3. Optionally change the display name and press 'Done'
-    4. Authorize the app by pressing 'Allow'
-4. Return to Home Assistant and click 'Submit'.
+1. From Home Assistant, navigate to 'Configuration' then 'Integrations'. Click the plus icon and type/select 'SmartThings'.
+1. Confirm the callback URL is correct. If using Home Assistant Cloud it will start with `https://hooks.nabuca.casa`. If the URL is not correct, update your Home Assistant configuration, restart, and try again.
+1. Enter your Personal Access Token.
+1. Select the SmartThings Location to add to Home Assistant.
+1. On the window that opens:
+   1. Login with your SmartThings account (if not already logged in).
+   1. Optionally change the display name and click 'Done' at the bottom of the screen.
+   1. Authorize the integration by clicking 'Allow' on the bottom right of the screen.
+   1. Click 'Close Window' or close it manually.
+1. Back in Home Assistant click 'Finish'.
 
 <div class='note info'>
 
-Advanced: If you have multiple locations in SmartThings, each can be integrated into Home Assistant. Follow the steps above, then for each subsequent location, install the SmartApp and it will automatically add to Home Assistant. This can be completed during step 3 (install SmartApp) above or at any time after that.
+If you want to integrate additional SmartThings accounts or locations, repeat the steps above.
 
 </div>
 
-See the [troubleshooting](#troubleshooting) if you are having issues setting up the integration.
+## Removal instructions
+
+To remove the integration from Home Assistant, select the instance from the Home Assistant Integrations page and click the trash icon on the upper right corner. Alternatively, you can remove the SmartApp from the location within the SmartThings application. If the Home Assistant instance that setup the integration is no longer running or functioning, you will need to use this [utility to remove the orphaned SmartApps in your SmartThings account](https://pypi.org/project/hass-smartthings-remove/).
 
 ## Events
 
@@ -239,6 +238,7 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`energyMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Energy-Meter)                                                 | `energy`                                                  |
 | [`equivalentCarbonDioxideMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Equivalent-Carbon-Dioxide-Measurement) | `equivalentCarbonDioxideMeasurement`                      |
 | [`formaldehydeMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Formaldehyde-Measurement)                         | `formaldehydeLevel`                                       |
+| `gasMeter`                                                                                                                                                | `gasMeter`, `meterCalorific`, `meterTime`, and `meterVolume` |
 | [`illuminanceMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Illuminance-Measurement)                           | `illuminance`                                             |
 | [`infraredLevel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Infrared-Level)                                             | `infraredLevel`                                           |
 | [`lock`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Lock)                                                                | `lock`                                                    |
@@ -267,7 +267,7 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`thermostatOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Operating-State)                      | `thermostatOperatingState`                                |
 | [`thermostatSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Setpoint)                                   | `thermostatSetpoint`                                      |
 | [`threeAxis`](https://docs.smartthings.com/en/latest/capabilities-reference.html#three-axis)                                                              | `threeAxis` (as discrete sensors `X`, `Y` and `Z`)        |
-| [`tvChannel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tv-Channel)                                                     | `tvChannel`                                               |
+| [`tvChannel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tv-Channel)                                                     | `tvChannel` and `tvChannelName`                           |
 | [`tvocMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tvoc-Measurement)                                         | `tvocLevel`                                               |
 | [`ultravioletIndex`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Ultraviolet-Index)                                       | `ultravioletIndex`                                        |
 | [`voltageMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Voltage-Measurement)                                   | `voltage`                                                 |
@@ -291,14 +291,33 @@ The SmartThings Switch platform lets you control devices that have the [`switch`
 
 ### Setup
 
-Perform the following steps if you receive one of the following error messages while attempting to setup the integration (this does not apply when integrated through Home Assistant Cloud):
+#### Aborted: Home Assistant is not configured correctly to receive updates from SmartThings
 
-- "SmartThings could not validate the endpoint configured in base_url. Please review the integration requirements."
-- "Unable to setup the SmartApp. Please try again."
+This error message occurs when you do not have an active Home Assistant Cloud (Nabu Casa) subscription and the external URL is not configured correctly (it must start with `https`). Update your Home Assistant configuration per the prerequisites above, and try again.
 
-#### Checklist
+#### Error: The token must be in the UID/GUID format
 
-1. Ensure `base_url` is properly set to the _external address_ that Home Assistant is available to the internet. SmartThings must be able to reach this address.
+The personal access token does not match the expected format. Make sure you are copying the entire token and that there are no extraneous characters (such as trailing whitespace) and try again.
+
+#### Error: The token is invalid or no longer authorized
+
+The personal access token entered is not valid or has been deleted. Create a new token per the instructions in the prerequisites and try again.
+
+#### Error: The token does not have the required OAuth scopes
+
+The personal access token entered is valid but does not have the required scopes as outlined in the prerequisites. Create a new token per the instructions in the prerequisites and try again.
+
+#### Error: SmartThings could not validate the webhook URL
+
+SmartThings was unable to reach your Home Assistant instance using the webhook URL. Enable debug logging to see the specific issue and follow the webhook troubleshooting checklist below.
+
+#### Aborted: There are no available SmartThings Locations
+
+This error message occurs when all of the SmartThings locations under the account linked to the personal access token are already setup in Home Assistant. Ensure you are using the correct personal access token or create an additional location in SmartThings to integrate and try again.
+
+#### Webhook Troubleshooting Checklist
+
+1. Ensure external URL is properly set to the _external address_ that Home Assistant is available to the internet. SmartThings must be able to reach this address.
 1. Validate there are no problems with your certificate or SSL configuration by using an online checker, such as [https://www.digicert.com/help/](https://www.digicert.com/help/).
 1. Some reverse proxy configuration settings can interfere with communication from SmartThings.  For example, TLSv1.3 is not supported.  Setting the supported cipher suite too restrictly will prevent handshaking. The following NGINX SSL configuration is known to work:
    ```nginx
@@ -316,9 +335,9 @@ Perform the following steps if you receive one of the following error messages w
    ```
 1. While the error message (above) is being displayed, run the following command from outside your local network to confirm it is responding to the ping lifecycle event:
     ```bash
-    curl -X POST https://{BASE_URL}/api/webhook/{WEBHOOK_ID} -H "Content-Type: application/json; charset=utf-8" -d $'{"lifecycle": "PING", "executionId": "00000000-0000-0000-0000-000000000000", "locale": "en", "version": "1.0.0", "pingData": { "challenge": "00000000-0000-0000-0000-000000000000"}}'
+    curl -X POST https://{EXTERNAL_URL}/api/webhook/{WEBHOOK_ID} -H "Content-Type: application/json; charset=utf-8" -d $'{"lifecycle": "PING", "executionId": "00000000-0000-0000-0000-000000000000", "locale": "en", "version": "1.0.0", "pingData": { "challenge": "00000000-0000-0000-0000-000000000000"}}'
     ```
-    Where `{BASE_URL}` is your external address and `{WEBHOOK_ID}` is the value of `webhook_id` from `.storage/smartthings` in your Home Assistant configuration directory.
+    Where `{EXTERNAL_URL}` is your external address and `{WEBHOOK_ID}` is the value of `webhook_id` from `.storage/smartthings` in your Home Assistant configuration directory.
 
     The expected response is:
     ```bash

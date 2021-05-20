@@ -5,7 +5,9 @@ date: 2019-07-17 00:11:03
 date_formatted: "July 17, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-07-release-96/demo-sidebar.png
 ---
 
@@ -99,7 +101,7 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 - Add support for aurora ABB Powerone solar photovoltaic inverter ([@davet2001] - [#24809]) ([aurora_abb_powerone docs]) (new-integration)
 - Add support for arcam fmj receivers ([@elupus] - [#24621]) ([arcam_fmj docs]) (new-integration)
 - Add support for Notion Home Monitoring ([@bachya] - [#24634]) ([notion docs]) (new-integration)
-- Add support for World Wide Lightning Location Network ([@bachya] - [#25001]) ([wwlln docs]) (new-integration)
+- Add support for World Wide Lightning Location Network ([@bachya] - [#25001]) (new-integration)
 
 ## New Platforms
 
@@ -318,7 +320,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - [climate] Add water_heater to evohome ([@zxdavb] - [#25035]) ([evohome docs]) (beta fix) (new-platform)
 - Fix Netatmo climate issue when device out of reach ([@cgtobi] - [#25096]) ([netatmo docs]) (beta fix)
 - Add turn on/off to coolmaster ([@OnFreund] - [#25097]) ([coolmaster docs]) (beta fix)
-- Fix window exception in WWLLN ([@bachya] - [#25100]) ([wwlln docs]) (beta fix)
+- Fix window exception in WWLLN ([@bachya] - [#25100]) (beta fix)
 - Fix missing sensor unit in RainMachine ([@bachya] - [#25101]) ([rainmachine docs]) (beta fix)
 - Add climate related services to Homematic IP Cloud ([@SukramJ] - [#25079]) ([homematicip_cloud docs]) (beta fix)
 - Simplify Alexa/Google for new climate turn_on/off ([@balloob] - [#25115]) ([alexa docs]) ([google_assistant docs]) (beta fix)
@@ -488,7 +490,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix broken test in Python 3.7 ([@balloob] - [#25067])
 - Fix for Sonos debug logging ([@amelchio] - [#25064]) ([sonos docs])
 - Bump up ZHA dependencies. ([@Adminiuga] - [#25062]) ([zha docs])
-- Add support for World Wide Lightning Location Network ([@bachya] - [#25001]) ([wwlln docs]) (new-integration)
+- Add support for World Wide Lightning Location Network ([@bachya] - [#25001]) (new-integration)
 - SMA catch error ([@kellerza] - [#25045]) ([sma docs])
 - Change phrases in the logbook component for persons and binary_sensors ([@Martijn02] - [#25053]) ([logbook docs])
 - Make sure volume level is valid when incrementing/decrementing ([@JeffLIrion] - [#25061]) ([vizio docs])
@@ -506,7 +508,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - [climate] Add water_heater to evohome ([@zxdavb] - [#25035]) ([evohome docs]) (beta fix) (new-platform)
 - Fix Netatmo climate issue when device out of reach ([@cgtobi] - [#25096]) ([netatmo docs]) (beta fix)
 - Add turn on/off to coolmaster ([@OnFreund] - [#25097]) ([coolmaster docs]) (beta fix)
-- Fix window exception in WWLLN ([@bachya] - [#25100]) ([wwlln docs]) (beta fix)
+- Fix window exception in WWLLN ([@bachya] - [#25100]) (beta fix)
 - Fix missing sensor unit in RainMachine ([@bachya] - [#25101]) ([rainmachine docs]) (beta fix)
 - Add climate related services to Homematic IP Cloud ([@SukramJ] - [#25079]) ([homematicip_cloud docs]) (beta fix)
 - Simplify Alexa/Google for new climate turn_on/off ([@balloob] - [#25115]) ([alexa docs]) ([google_assistant docs]) (beta fix)
@@ -887,7 +889,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vizio docs]: /integrations/vizio/
 [watson_tts docs]: /integrations/watson_tts/
 [waze_travel_time docs]: /integrations/waze_travel_time/
-[wwlln docs]: /integrations/wwlln/
 [yeelight docs]: /integrations/yeelight/
 [zestimate docs]: /integrations/zestimate/
 [zha docs]: /integrations/zha/

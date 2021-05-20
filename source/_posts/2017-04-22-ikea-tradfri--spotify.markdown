@@ -5,7 +5,9 @@ date: 2017-04-22 01:04:05 +0000
 date_formatted: "April 22, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-04-0.43/components.png
 ---
 
@@ -72,13 +74,13 @@ sensor:
      - station: Hauptbahnhof
        name: Hbf
        destinations: ['München Flughafen Terminal','Markt Schwaben']
-       products: 'S-Bahn'
+       products: "S-Bahn"
        timeoffset: 2
      - station: Sendlinger Tor
        lines: ['U2','U8']
      - station: Scheidplatz
        products: ['U-Bahn']
-       directions: '1'
+       directions: "1"
 ```
 
 ## If you need help...
@@ -102,8 +104,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Frontend: Fix logbook ui (@balloob)
 - Upgrade pytradfri to 1.1 ([@balloob] - [#7290])
 - Upgrade python-telegram-bot to 5.3.1 ([@fabaff] - [#7311]) ([notify.telegram docs]) ([telegram_bot.polling docs]) ([telegram_bot.webhooks docs])
-- Version bump of aioautomatic ([@armills] - [#7300]) ([device_tracker.automatic docs])
-- Version bump for automatic ([@armills] - [#7329]) ([device_tracker.automatic docs])
+- Version bump of aioautomatic ([@armills] - [#7300])
+- Version bump for automatic ([@armills] - [#7329])
 - Fix breaking SSL in test HTML5 ([@balloob] - [#7310]) ([notify.html5 docs])
 - Fix for building Python Open Z-Wave in Docker ([@balloob] - [#7337])
 
@@ -177,7 +179,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update file header, add const for defaults, and update log messages ([@fabaff] - [#7110])
 - Upgrade speedtest-cli to 1.0.4 ([@fabaff] - [#7105]) ([sensor.speedtest docs])
 - Remove globally disabled pylint issue and update docstrings ([@fabaff] - [#7111])
-- Use third-party lib aioautomatic for automatic ([@armills] - [#7126]) ([device_tracker.automatic docs])
+- Use third-party lib aioautomatic for automatic ([@armills] - [#7126])
 - Upgrade chardet to 3.0.2 ([@fabaff] - [#7112])
 - Send stderr of ping tracker to devnull ([@amelchio] - [#7096]) ([device_tracker.ping docs])
 - Upgraded Amcrest module to 1.1.9 to support new firmware versions: ([@tchellomello] - [#7130])
@@ -426,7 +428,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [camera.neato docs]: /integrations/neato#camera
 [camera.synology docs]: /integrations/synology
 [climate docs]: /integrations/climate/
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.mysensors docs]: /integrations/device_tracker.mysensors/
 [device_tracker.ping docs]: /integrations/ping
 [hassio docs]: /integrations/hassio/
@@ -505,7 +506,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7324]: https://github.com/home-assistant/home-assistant/pull/7324
 [#7329]: https://github.com/home-assistant/home-assistant/pull/7329
 [#7337]: https://github.com/home-assistant/home-assistant/pull/7337
-[device_tracker.automatic docs]: /integrations/automatic
 [hassio docs]: /integrations/hassio/
 [notify.html5 docs]: /integrations/html5
 [notify.telegram docs]: /integrations/telegram

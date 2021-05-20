@@ -1,82 +1,104 @@
 ---
 title: Smappee
 description: Instructions on how to setup Smappee within Home Assistant.
-logo: smappee.png
-ha_release: 0.64
 ha_category:
   - Hub
   - Energy
+  - Binary Sensor
   - Sensor
   - Switch
-ha_iot_class: Local Push
+ha_iot_class: Cloud Polling
+ha_release: 0.64
+ha_config_flow: true
+ha_codeowners:
+  - '@bsmappee'
 ha_domain: smappee
+ha_zeroconf: true
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
-The `smappee` integration adds support for the [Smappee](https://www.smappee.com/) controller for energy monitoring and Comport plug switches.
+The Smappee integration will allow users to integrate their Smappee monitors, Smappee Comfort Plugs and Smappee Switches into Home Assistant using the [official cloud API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview) or the limited local option.
 
-There is currently support for the following device types within Home Assistant:
+## Smappee monitors
 
-- Sensor
-- Switch
+The table below summarizes the available options to initiate the Smappee integration in Home Assistant per Smappee monitor type.
 
-Will be automatically added when you connect to the Smappee controller.
+|Monitor type|Local discovery|Cloud API|
+|---|---|---|
+|Smappee Energy|Yes|Yes|
+|Smappee Solar|Yes|Yes|
+|Smappee Plus|Yes|Yes|
+|Smappee Pro|Yes|Yes|
+|Smappee Genius|Yes|Yes|
+|Smappee Connect|No|Yes|
+|Smappee Wi-Fi Connect|No|Yes|
+|Smappee P1/S1 module|No|Yes|
 
-The smappee integration gets information from [Smappee API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview). Note: their cloud API now requires a subscription fee of €2.50 per month for Smappee Energy/Solar or €3 per month for Smappee Plus.
+## Local discovery
 
-## Configuration
+In most cases, the Smappee Energy, Solar, Plus, Pro and Genius monitors will be automatically discovered by Home Assistant through network scanning.
+Those automatically discovered Smappee devices are listed on the integrations page and can be configured without any additional details.
+This will provide you a limited number of entities only.
+If your home network doesn't support mDNS you can still manually initiate the Smappee integration by choosing the LOCAL option and entering the IP address of the Smappee monitor through the configuration flow.
 
-Info on how to get API access is described in the [smappy wiki](https://github.com/EnergieID/smappy/wiki).
+### Sensor
+A sensor entity is being added for the current active power usage. In case of solar production, an entity for active power production is added as well.
 
-To use the `smappee` integration in your installation, add the following to your `configuration.yaml` file:
+Smappee Genius devices will also provide entities for the current reactive, voltages for each phase and current active powers for each configured load (submeter).
+
+### Switch
+
+Switch entities are created for each Smappee Switch and Smappee Comfort Plug.
+
+
+## Cloud API configuration
+
+To use the Smappee cloud integration you need a personal `client_id` and `client_secret` and add these to your `configuration.yaml` file. The `client_id` and `client_secret` can be obtained by contacting [info@smappee.com](mailto:info@smappee.com) and require a recurring monthly fee.
+For any information about the use of the API please refer to the [Smappee API space](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview).
 
 ```yaml
 # Example configuration.yaml entry
 smappee:
-  host: 10.0.0.5
   client_id: YOUR_CLIENT_ID
   client_secret: YOUR_CLIENT_SECRET
-  username: YOUR_MYSMAPPEE_USERNAME
-  password: YOUR_MYSMAPPEE_PASSWORD
 ```
 
-```yaml
-# Minimal example configuration.yaml entry
-smappee:
-  host: 10.0.0.5
-```
+Once Home Assistant restarted, go to Configuration > Integrations and select the Smappee integration. You will be redirected to a login page and be able to select the locations you would like to use within Home Assistant.
 
-```yaml
-# Cloud only example configuration.yaml entry
-smappee:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
-  username: YOUR_MYSMAPPEE_USERNAME
-  password: YOUR_MYSMAPPEE_PASSWORD
-```
+Using the Smappee cloud integration allows you to access your Smappee monitor and other shared devices from outside your local network. Additionally a number of (binary) sensor entities become available as well.
+
+### Sensor
+
+Sensor entities are being added for the current active power usage,
+the always-on active power, today's total consumption,
+total consumption during the current hour, total consumption during the last 5 minutes
+and the always-on (slumber) consumption from today. In case of solar production, entities for the active power production, today's total solar production
+and the solar production during the current hour are added as well.
+
+Smappee Pro, Plus and Genius devices will create current active powers for each configured load (submeter).
+
+In case a Smappee Gas and/or Water meter is installed as well, an entity showing today's consumption is provided.
+
+Additionally, Smappee Genius devices will also provide entities for the line voltages and phase voltages (for each phase).
+
+### Switch
+
+Switch entities are created for each Smappee Switch, Smappee Comfort Plug and Smappee Output module.
+
+### Binary sensor
+
+For each discovered NILM appliance a binary sensor is being added showing the current state of the appliance.
 
 {% configuration %}
-host:
-  description: Your Local Smappee unit IP.
-  required: false
-  type: string
-host_password:
-  description: Your Local Smappee password.
-  required: false
-  type: string
 client_id:
   description: Your Smappee API client ID.
-  required: false
+  required: true
   type: string
 client_secret:
   description: Your Smappee API client secret.
-  required: false
-  type: string
-username:
-  description: Your My Smappee username.
-  required: false
-  type: string
-password:
-  description: Your My Smappee password.
-  required: false
+  required: true
   type: string
 {% endconfiguration %}

@@ -1,7 +1,6 @@
 ---
 title: Tahoma
 description: Instructions on how to integrate Somfy Tahoma devices with Home Assistant.
-logo: tahoma.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -15,9 +14,16 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@philklei'
 ha_domain: tahoma
+ha_platforms:
+  - binary_sensor
+  - cover
+  - lock
+  - scene
+  - sensor
+  - switch
 ---
 
-The `Tahoma` integration platform is used as an interface to the [tahomalink.com](https://www.tahomalink.com) website. It adds covers, scenes and a sun sensor from the Tahoma platform.
+The Tahoma integration is used as an interface to the [tahomalink.com](https://www.tahomalink.com) website. It adds covers, scenes and a sun sensor from the Tahoma platform.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -35,9 +41,12 @@ To use your Tahoma devices in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 tahoma:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  exclude: [BridgeHUEComponent, HueLampHUEComponent, PodComponent]
+  username: "YOUR_USERNAME"
+  password: "YOUR_PASSWORD"
+  exclude: 
+    - "BridgeHUEComponent"
+    - "HueLampHUEComponent"
+    - "PodComponent"
 ```
 
 {% configuration %}
@@ -55,4 +64,4 @@ exclude:
   type: list
 {% endconfiguration %}
 
-This also works with the Somfy Connexoon. Check [here](https://somfyhouse.freshdesk.com/nl/support/solutions/articles/14000058145-wat-is-het-verschil-tussen-de-tahoma-en-de-connexoon-) for the differences between the bridges.
+This also works with the Somfy Connexoon. Check [here](https://www.somfy.nl/keuzehulp/verschillen-tahoma-en-connexoon) for the differences between the bridges.

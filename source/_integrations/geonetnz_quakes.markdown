@@ -1,7 +1,6 @@
 ---
 title: GeoNet NZ Quakes
 description: Instructions on how to integrate the GeoNet New Zealand Quakes feed into Home Assistant.
-logo: geonet-nz.png
 ha_category:
   - Geolocation
 ha_iot_class: Cloud Polling
@@ -11,6 +10,8 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@exxamalte'
 ha_domain: geonetnz_quakes
+ha_platforms:
+  - sensor
 ---
 
 The `geonetnz_quakes` integration lets you use a GeoJSON feed provided by 
@@ -42,44 +43,7 @@ We acknowledge the New Zealand GeoNet project and its sponsors EQC, GNS Science 
 
 </div>
 
-## Configuration
-
-To integrate the GeoNet New Zealand Quakes feed use the "Integrations" feature 
-in the GUI, you find it under Configurations - Integrations, or add the 
-following line to your `configuration.yaml`.
-
-```yaml
-# Example configuration.yaml entry
-geonetnz_quakes:
-```
-
-{% configuration %}
-mmi:
-  description: Request quakes that may have caused shaking greater than or equal to the [MMI](https://www.geonet.org.nz/earthquake/mmi) value. Allowable values are -1..8 inclusive. Value -1 is used for quakes that are too small to calculate a stable MMI value for.
-  required: false
-  type: integer
-  default: 2
-minimum_magnitude:
-  description: The minimum magnitude of an earthquake to be included.
-  required: false
-  type: float
-  default: 0.0
-radius:
-  description: The radius around your location to monitor; defaults to 50 km or mi (depending on the unit system defined in your `configuration.yaml`).
-  required: false
-  type: float
-  default: 50.0
-latitude:
-  description: Latitude of the coordinates around which quakes are considered.
-  required: false
-  type: float
-  default: Latitude defined in your configuration.
-longitude:
-  description: Longitude of the coordinates around which quakes are considered.
-  required: false
-  type: float
-  default: Longitude defined in your configuration.
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## State Attributes
 

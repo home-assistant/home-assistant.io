@@ -1,30 +1,37 @@
 ---
 title: Kira
 description: Instructions on how to integrate Keene Electronics IR over IP modules (Kira) into Home Assistant.
-logo: keene.png
 ha_category:
   - Hub
   - Remote
   - Sensor
 ha_release: 0.45
+ha_iot_class: Local Push
 ha_domain: kira
+ha_platforms:
+  - remote
+  - sensor
 ---
 
-The `kira` integration is the main integration to integrate Keene Electronics IR over IP [Kira](https://www.keene.co.uk/keene-ir-anywhere-single-worldwide.html) modules with Home Assistant.
+The `kira` integration is the main integration to integrate Keene Electronics IR over IP [Kira](https://k2audio.co.uk/collections/ip-and-internet-control) modules with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- Remote
-- Sensor
+- Remote (emit an IR code when instructed by Home Assistant)
+- Sensor (trigger Home Assistant to do something when a particular IR signal is received)
 
-### Example Configuration
+Some models (original Kira and Kira128) can be configured to act as either a sensor or as a remote. They are also able act as both when set to Standalone mode. The wireless models are hardware specific so the receiver can only be integrated as a sensor and the transmitter can only be integrated as a remote.
+
+If you are using two or more Kira devices for point to point IR transfer across your network they can continue to perform this function whilst also acting as a sensor or remote for Home Assistant.
+
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
 kira:
 ```
 
-Kira modules have no built-in mechanism for auto-discovery, so will need to be configured to send packets to Home Assistant. Documentation for this can be found on the manufacturer's website [Here](https://www.keene.co.uk/pages/iranywhere/index.html).
+Kira modules have no built-in mechanism for auto-discovery, so will need to be configured to send packets to Home Assistant. The process varies according to the module type. The documentation for each can be found on the [manufacturer's website](https://www.info.keene-electronics.co.uk).
 
 ### Configuration Options
 
@@ -83,7 +90,15 @@ remotes:
 
 If no sensors or remotes are specified, a sensor with default values will be added.
 
-### Code Configuration
+### Entities
+
+Restart Home Assistant and you should now have an entity called `kira_remote` (or whatever you called it). To check go to Developer Tools > States and start to type “kira” within the entity list.
+
+<p class='img'>
+  <img src='/images/integrations/kira/kira_states.png' />
+</p>
+
+### IR Codes
 
 The first time the Kira integration is loaded, `kira_codes.yaml` will be created in the Home Assistant configuration directory.
 
@@ -129,11 +144,102 @@ repeat:
 
 Some manufacturers (e.g., Samsung) require an IR code to be sent a number of times in a row in rapid succession (usually 3). This doesn't apply to the vast majority of devices, but it can be helpful if needed.
 
+You now need to edit `kira_codes.yaml` to make sure it contains the codes you want the Kira to blast out as a remote or respond to as a sensor. Note that each time you edit and save the `kira_codes.yaml` file you need to restart Home Assistant for the changes to take effect, reloading the automations alone is not sufficient.
+
+### Example remote
+
+Using the number 1 button from a Panasonic DVD player:
+
+```yaml
+# Example kira_codes.yaml entry
+- name: PanaOne
+code: "K 2432 0D31 06EB 0196 01F3 0194 0538 01B4 01D3 01B4 01D1 01B4 01D3 01B4 01D3 01B3 01D3 01B3 01D3 01B4 01D3 01B3 01D3 01B3 01D3 01B4 01D3 01B3 01D3 01B4 0518 01B4 01D3 01B3 01D3 01B4 01D1 01B7 01D1 01B7 01D1 01B4 01D3 01B4 0518 01B4 01D3 01B4 01D1 01B7 0518 01B4 01D3 01B3 01D3 01B4 01D1 01B7 01D1 01B4 01D3 01B4 01D1 01B7 01D1 01B7 01D1 01B4 01D3 01B4 01D1 01B7 01D1 01B4 01D3 01B4 0518 01B4 01D3 01B4 01D1 01B7 01D1 01B7 01D1 01B4 01D3 01B4 01D1 01B7 01D1 01B4 01D3 01B4 01D1 01B7 01D1 01B4 0518 01B7 2000"
+device: DVD
+type: kira
+```
+
+Go to "Configuration" and select "Scripts" and click to add a new script. This is an example using the Panasonic code above.
+
+<p class='img'>
+  <img src='/images/integrations/kira/kira_remote_script.png' />
+</p>
+
+When you have filled in the data to match your YAML entry save the script and test it by clicking the play button next to the name you assigned. If all has gone well your Kira module should now blast this IR code and operate your equipment.
+
+<p class='img'>
+  <img src='/images/integrations/kira/kira_test_script.png' />
+</p>
+
+Once you know the code is working and procedure is correct you can use the facility in any number of ways, perhaps triggering the output based on sensor readings or by adding a number of buttons as a virtual remote in the Home Assistant front end.
+
+### Example sensor
+
+Using the number 1 and 2 buttons from a Panasonic DVD player:
+
+```yaml
+# Example kira_codes.yaml entry
+- name: PanaOne
+  code: "K 2432 0D31 06EB 0196 01F3 0194 0538 01B4 01D3 01B4 01D1 01B4 01D3 01B4 01D3 01B3 01D3 01B3 01D3 01B4 01D3 01B3 01D3 01B3 01D3 01B4 01D3 01B3 01D3 01B4 0518 01B4 01D3 01B3 01D3 01B4 01D1 01B7 01D1 01B7 01D1 01B4 01D3 01B4 0518 01B4 01D3 01B4 01D1 01B7 0518 01B4 01D3 01B3 01D3 01B4 01D1 01B7 01D1 01B4 01D3 01B4 01D1 01B7 01D1 01B7 01D1 01B4 01D3 01B4 01D1 01B7 01D1 01B4 01D3 01B4 0518 01B4 01D3 01B4 01D1 01B7 01D1 01B7 01D1 01B4 01D3 01B4 01D1 01B7 01D1 01B4 01D3 01B4 01D1 01B7 01D1 01B4 0518 01B7 2000"
+  device: DVD
+  type: kira
+
+- name: PanaTwo
+  code: "K 2432 0D30 06EE 0192 01F6 0192 053A 0192 01F3 0194 01F3 0194 01F3 0192 01F6 0192 01F3 0194 01F3 0192 01F6 0192 01F3 0194 01F3 0192 01F6 0192 01F3 0194 053A 0192 01F3 0194 01F3 0194 01F3 0194 01F3 0192 01F3 0194 01F3 0194 053A 0192 01F6 0192 01F3 0194 053A 0192 01F3 0194 01F3 0194 01F3 0194 01F3 0192 01F6 0192 01F3 0194 01F3 0192 01F3 0194 053A 0194 01F3 0194 01F3 0192 01F6 0192 053A 0192 01F3 0194 01F3 0194 01F3 0194 053A 0192 01F3 0194 01F3 0194 01F3 0194 01F3 0192 01F6 0192 01F3 0194 053A 0192 2000"
+  device: DVD
+  type: kira
+```
+
+Visit the Kira module configuration page and be sure to make the following changes according to your module use:
+
+If this is to be the only use of the Kira module then set the TARGET IP address to be that of your Home Assistant installation. Uncheck the “auto find” option box if present. Click on save and reboot the module.
+
+If the Kira module is to used in conjunction with another module be for IR over IP then leave (or set) the TARGET IP address to that of the other Kira module and in this instance set the COMPUTER IP address to the IP address of your Home Assistant installation. Check the option box to "send to alternative device" if present. Click on save and reboot to make the changes effective.
+
+Note that once you changed the COMPUTER IP you will longer be able to use the Kira utiltiy on your PC to capture IR codes.
+
+Next within Home Assistant go to Developer tools -> States and scroll down the list until you see `sensor.kira_(whatever you called it)`. Aim your remote at the Kira device and press the buttons you stored the code for. If all is well you should see the state change to match the name you gave to the code.
+
+<p class='img'>
+  <img src='/images/integrations/kira/kira_sensor_states.png' />
+</p>
+
+Example automation using these IR codes to toggle a Sonoff plug.
+
+```yaml
+# Example kira_sensor
+- id: "1583339338363"
+  alias: "Panasonic On"
+  description: Turn on sonoff s20 relay
+  trigger:
+  - entity_id: sensor.kira_wireless
+    platform: state
+    to: PanaOne
+  condition: []
+  action:
+  - device_id: 3628b4f34df943b3b721ead954cf3ca7
+    domain: switch
+    entity_id: switch.plug2_relay
+    type: turn_on
+- id: "1584035716024"
+  alias: "Panaxonic Off "
+  description: Turn off sonoff s20 relay
+  trigger:
+  - entity_id: sensor.kira_wireless
+    platform: state
+    to: PanaTwo
+  condition: []
+  action:
+  - device_id: 3628b4f34df943b3b721ead954cf3ca7
+    domain: switch
+    entity_id: switch.plug2_relay
+    type: turn_off
+```
+
 ### Code Types
 
 When creating an entry in `kira_codes.yaml`, a few different kinds of codes can be used.
 
-- **kira**: This is the native wire protocol used by Kira modules. These can be captured using netcat.
+- **kira**: This is the native wire protocol used by Kira modules. These can be captured using the free Kira utility available from the manufacturers website.
 - **pronto**: Pronto codes are supported.
 - **nec**: If the device uses NEC IR codes and the manufacturer has published them, they can be used here.
 

@@ -1,19 +1,20 @@
 ---
 title: Twitch
 description: Instructions on how to integrate Twitch sensors into Home Assistant.
-logo: twitch.png
 ha_category:
   - Social
 ha_release: '0.10'
 ha_iot_class: Cloud Polling
 ha_domain: twitch
+ha_platforms:
+  - sensor
 ---
 
 The `twitch` platform will allow you to monitor [Twitch](https://www.twitch.tv/) channel status from within Home Assistant and setup automation based on the information.
 
 ## Setup Client ID
 
-Create a new app at "Register Your Application" in the [Twitch developer portal](https://glass.twitch.tv/console/apps). Then get the __Client ID__ for the new application.
+Create a new app at "Register Your Application" in the [Twitch developer portal](https://dev.twitch.tv/console/apps). Then get the __Client ID__ for the new application.
 
 ## Setup OAuth Token
 

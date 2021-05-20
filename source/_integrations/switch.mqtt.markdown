@@ -28,8 +28,32 @@ switch:
 ```
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 command_topic:
@@ -61,12 +85,20 @@ device:
       description: The name of the device.
       required: false
       type: string
+    suggested_area:
+      description: 'Suggest an area if the device isn’t in one yet.'
+      required: false
+      type: string
     sw_version:
       description: The firmware version of the device.
       required: false
       type: string
+    via_device:
+      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
+      required: false
+      type: string
 icon:
-  description: Icon for the switch.
+  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
@@ -131,6 +163,10 @@ state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
   type: string
+unique_id:
+  description: An ID that uniquely identifies this switch device. If two switches have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's state from the `state_topic`. To determine the switches's state result of this template will be compared to `state_on` and `state_off`."
   required: false
@@ -155,10 +191,12 @@ The example below shows a full configuration for a switch.
 # Example configuration.yaml entry
 switch:
   - platform: mqtt
+    unique_id: bedroom_switch
     name: "Bedroom Switch"
     state_topic: "home/bedroom/switch1"
     command_topic: "home/bedroom/switch1/set"
-    availability_topic: "home/bedroom/switch1/available"
+    availability:
+      - topic: "home/bedroom/switch1/available"
     payload_on: "ON"
     payload_off: "OFF"
     state_on: "ON"
@@ -186,7 +224,6 @@ mosquitto_pub -h 127.0.0.1 -t home/bathroom/gpio/13 -m "1"
 
 The configuration will look like the example below:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 switch:
@@ -197,4 +234,3 @@ switch:
     payload_on: "1"
     payload_off: "0"
 ```
-{% endraw %}

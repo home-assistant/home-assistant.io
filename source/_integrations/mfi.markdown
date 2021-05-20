@@ -1,7 +1,6 @@
 ---
 title: Ubiquiti mFi mPort
 description: Instructions on how to integrate mFi within Home Assistant.
-logo: ubiquiti.png
 ha_category:
   - Network
   - Sensor
@@ -9,6 +8,9 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.13
 ha_domain: mfi
+ha_platforms:
+  - sensor
+  - switch
 ---
 
 There is currently support for the following device types within Home Assistant:

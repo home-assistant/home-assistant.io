@@ -22,14 +22,14 @@ To check what your devices are sending, subscribe to the topic `+/devices/+/up` 
 ```bash
 $ mosquitto_sub -v -h <Region>.thethings.network -t '+/devices/+/up' -u '<AppID>' -P '<AppKey>'
 {
-	"app_id": "ha-demo",
-	"dev_id": "device01",
-	"hardware_serial": "AJDJENDNHRBFBBT",
-	"port": 1,
+    "app_id": "ha-demo",
+    "dev_id": "device01",
+    "hardware_serial": "AJDJENDNHRBFBBT",
+    "port": 1,
     [...]
 ```
 
-The payload contains details about the device itself and the sensor data. The sensor data is stored in `payload_fields`. Depending on the device configuration it may contain a single value or multiple values. 
+The payload contains details about the device itself and the sensor data. The sensor data is stored in `payload_fields`. Depending on the device configuration it may contain a single value or multiple values.
 
 ## The relay
 
@@ -77,7 +77,7 @@ client.loop_forever()
 Save it and run it. As soon as a MQTT message is received from your device you should see it on your local broker (here 192.168.0.2) if you subscribe to `#` or the topic given in the script above `home/ttn/garden_temp`.
 
 ```bash
-$ mosquitto_sub -h 192.168.0.2 -t "#" -d
+mosquitto_sub -h 192.168.0.2 -t "#" -d
 ```
 
 ## The sensor

@@ -10,7 +10,7 @@ og_image: /images/blog/2016-08-data-exploration/heatmap.png
 ---
 
 
-Thanks to [Anton Kireyeu](https://github.com/kireyeu) we are able to present another awesome [Jupyter notebook]. I guess that you all know the graph which Github is using to visualize your commits per day over a time-line. It's a so-called [heatmap]. If there are more commits, it's getting hotter. The latest [notebook][nb-prev] is capable to do the same thing for your devices. To be more precise, for the hours your devices are home. 
+Thanks to [Anton Kireyeu](https://github.com/kireyeu) we are able to present another awesome [Jupyter notebook]. I guess that you all know the graph which Github is using to visualize your commits per day over a time-line. It's a so-called [heatmap]. If there are more commits, it's getting hotter. The latest [notebook][nb-prev] is capable to do the same thing for your devices. To be more precise, for the hours your devices are home.
 
 <p class='img'>
 <img src='/images/blog/2016-08-data-exploration/heatmap.png'>
@@ -19,5 +19,4 @@ Heatmap
 
 [heatmap]: https://en.wikipedia.org/wiki/Heat_map
 [Jupyter notebook]: https://jupyter.org/
-[nb-prev]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-2/DataExploration-2.ipynb
-
+[nb-prev]: https://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/other/DataExploration-2/DataExploration-2.ipynb

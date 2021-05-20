@@ -10,34 +10,38 @@
   description: "Integrations (see below) used to be known as components."
 - topic: Condition
   description: "[Conditions](/docs/scripts/conditions/) are an optional part of an automation that will prevent an action from firing if they are not met."
-- topic: Cookbook
-  description: "The [Cookbook](/cookbook/) contains a set of configuration examples of Home Assistant from the community."
 - topic: Cover
-  description: "[Covers](/integrations/cover) are devices such as blinds, garage doors, etc than can be opened and closed and optionally set to a specific position."
+  description: "[Covers](/integrations/cover) are devices such as blinds, garage doors, etc that can be opened and closed and optionally set to a specific position."
 - topic: Customize
-  description: "[Customization](/docs/configuration/customizing-devices/) allows you to overwrite the default parameter of your devices in the configuration."
+  description: "[Customization](/docs/configuration/customizing-devices/) allows you to overwrite the default parameters of your devices in the configuration."
 - topic: Device
   description: "A device is usually a physical unit which can do or observe something."
 - topic: Device tracker
   description: "[Device trackers](/integrations/device_tracker) are used to track the presence, or location, of a device."
 - topic: Discovery
   description: "[Discovery](/integrations/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
+- topic: Domain
+  description: "Entities and services belong to a domain, which is the first part of the entity or service, before the `.`. For example `light.kitchen` is an entity in the `light` domain, while `homeassistant.turn_on` is the `turn_on` service for the `homeassistant` domain."
 - topic: Entity
-  description: "An [entity](/docs/configuration/platform_options/) is the representation of function a single device, unit, or web service. There may be multiple entities for a single device, unit, or web service, or there may be only one."
+  description: "An [entity](/docs/configuration/platform_options/) is the representation of a function of a single device, unit, or web service. There may be multiple entities for a single device, unit, or web service, or there may be only one."
 - topic: Event
   description: "An [event](/docs/configuration/events/) is when something happens."
 - topic: Frontend
   description: "The [frontend](/integrations/frontend/) is a necessary component for the UI, it is also where you can define your themes."
 - topic: Group
   description: "[Groups](/integrations/group/) are a way to organize your entities into a single unit."
-- topic: hass
+- topic: HASS
   description: "HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home Assistant. It is also the command-line tool."
-- topic: Hass.io
-  description: "[Hass.io](/hassio/) is a full UI managed home automation ecosystem that runs Home Assistant, the Hass.io Supervisor and add-ons. It comes pre-installed on HassOS, but can be installed on any Linux system. It leverages Docker, which is managed by the Hass.io Supervisor."
-- topic: Hass.io Supervisor
-  description: "The Hass.io Supervisor is a program that manages a Hass.io installation, taking care of installing and updating Home Assistant, add-ons, itself and, if used, updating the HassOS operating system."
 - topic: HassOS
-  description: "HassOS, the Home Assistant Operating System, is an embedded, minimalistic, operating system designed to run the Hass.io ecosystem on single board computers (like the Raspberry Pi) or Virtual Machines. The Hass.io Supervisor can keep it up to date, removing the need for you to manage an operating system."
+  description: "Another name for Home Assistant Operating System"  
+- topic: Home Assistant Core
+  description: Home Assistant Core is a Python program. It can be run on various operating systems and is the basis for Home Assistant. When people are talking about Home Assistant Core they usually refer to a standalone installation method that can be installed using a Virtual Environment or Docker. Home Assistant Core does not use the Home Assistant Supervisor.
+- topic: Home Assistant Supervised (Previously Hass.io)
+  description: "[Home Assistant](/hassio/) is a full UI managed home automation ecosystem that runs Home Assistant, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor."
+- topic: Home Assistant Supervisor
+  description: "The Home Assistant Supervisor is a program that manages a Home Assistant installation, taking care of installing and updating Home Assistant, add-ons, itself and, if used, updating the Home Assistant Operating System."
+- topic: Home Assistant Operating System
+  description: "Home Assistant OS, the Home Assistant Operating System, is an embedded, minimalistic, operating system designed to run the Home Assistant ecosystem on single board computers (like the Raspberry Pi) or Virtual Machines. The Home Assistant Supervisor can keep it up to date, removing the need for you to manage an operating system."
 - topic: Integration
   description: "[Integrations](/integrations/) provide the core logic for the functionality in Home Assistant. Like `notify` provides sending notifications."
 - topic: Lovelace
@@ -65,6 +69,6 @@
 - topic: Trigger
   description: "A [trigger](/docs/automation/trigger/) is a set of values or conditions of a platform that are defined to cause an automation to run."
 - topic: TTS
-  description: "TTS ([text to speech](/integrations/tts) allows Home Assistant to talk to you."
+  description: "TTS ([text to speech](/integrations/tts)) allows Home Assistant to talk to you."
 - topic: Zone
   description: "[Zones](/integrations/zone/) are areas that can be used for presence detection."

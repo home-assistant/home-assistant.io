@@ -1,18 +1,23 @@
 ---
-title: Konnected
+title: Konnected.io
 description: Connect wired alarm sensors and siren using the NodeMCU based Konnected Alarm Panel
-logo: konnected.png
 ha_category:
   - Alarm
   - Binary Sensor
   - Switch
   - Sensor
+ha_iot_class: Local Polling
 ha_release: '0.70'
 ha_codeowners:
   - '@heythisisnate'
   - '@kit-klein'
 ha_config_flow: true
 ha_domain: konnected
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `konnected` integration lets you connect wired sensors and switches to a Konnected Alarm Panel, or NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
@@ -62,6 +67,7 @@ Once configuration is completed you'll see a Konnected.io entry in **Configurati
 The settings for each panel can be accessed by selecting the entry in **Configuration** -> **Integrations** => **Configured** and then clicking on the gear icon in the upper right corner. You can reconfigure these settings at any time and once completed the settings will be immediately applied.
 
 The settings UI starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary Sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that, you'll be prompted, for each zone that is not disabled, to configure details of the zones' behavior. All zones will allow entry of a Name. Additional fields depend on how you configured the general behavior of the zone.  
+**Note some zones do not support all behaviors. The UI will reflect specific options available to each zone.**
 
 ##### Binary Sensor:
 
@@ -99,7 +105,7 @@ Once all zones are configured you'll be presented with the configuration for add
 
 **Blink panel LED on when sending state change:** The desired LED behavior for the panel.
 
-**Override default Home Assistant API host panel URL:** The Konnected Alarm Panel post sensor states back to the Home Assistant API.  If this value is unchecked the panel will default postbacks using `base_url` in the `http` component. If you've set `base_url` to an external hostname, then you'll want to check this field and set the **Override API host URL** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`).
+**Override default Home Assistant API host panel URL:** The Konnected Alarm Panel post sensor states back to the Home Assistant API. If this value is unchecked the panel will default postbacks using the URL [configured](/docs/configuration/basic) in Home Assistant. By default, the integration will use the internal URL. However, if you check this field and set the **Override API host URL** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`), it will be used instead of the internal URL.
 
 **Override API host URL (optional):** The host info to use if you checked **Override default Home Assistant API host panel URL** in the step above. This is ignored if **Override default Home Assistant API host panel URL** is unchecked.
 
@@ -133,17 +139,17 @@ access_token:
   required: true
   type: string
 api_host:
-  description: Override the IP address/host (and port number) of Home Assistant that the Konnected device(s) will use to communicate sensor state updates. If omitted, this is defaulted to the value of `base_url` in the `http` component. If you've set `base_url` to an external hostname, then you'll want to set this value back to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`).
+  description: Override the IP address/host (and port number) of Home Assistant that the Konnected device(s) will use to communicate sensor state updates. If omitted, this is defaulted to the value of internal URL from the Home Assistant configuration is used.
   required: false
   type: string
-  default: value of `base_url`
+  default: value of internal URL
 devices:
   description: A list of Konnected devices that you have on your network.
   required: true
   type: list
   keys:
     id:
-      description: The MAC address of the Konnected device with colons/punctuation removed, for example, `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check the `home-assistant.log` for log messages from automatically discovered devices.
+      description: The MAC address (Konnected Alarm Panel) or Device ID (Konnected Alarm Panel Pro) of the Konnected device. MAC addresses must be formatted with colons/punctuation removed, for example, `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check the `home-assistant.log` for log messages from automatically discovered devices. Device ID can be found on the device Status Page which is accessible via the Konnected Mobile App.
       required: true
       type: string
     binary_sensors:
@@ -244,7 +250,7 @@ devices:
 ### Configuration Notes
 
 - Either `pin` or `zone` is required for each actuator or sensor. Do not use both in the same definition.
-- `pin` represents the number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are `1`, `2`, `5`, `6`, `7`, `8`, and `9`. Pin based configuration is only allowed with ESP8266 based devices.
+- `pin` represents the number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/release/modules/gpio/) for more details. Valid values are `1`, `2`, `5`, `6`, `7`, `8`, and `9`. Pin based configuration is only allowed with ESP8266 based devices.
 - Pin `D8` or the `out` zone will only work when activation is set to high (the default).
 - `zone` represents the value corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) boards. Valid zone values are `1`, `2`, `3`, `4`, `5`, `6`, and `out` for the Konnected Alarm Panel (`out` represents the dedicated ALARM/OUT terminal) and `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `out1`, `alarm1`, and `alarm2_out2` for the Konnected Alarm Panel Pro.
 - **The Konnected Alarm Panel Pro does not support configuration via `pin`.**
@@ -260,19 +266,19 @@ konnected:
       binary_sensors:
         - zone: 1
           type: door
-          name: 'Front Door'
+          name: "Front Door"
         - zone: 2
           type: smoke
-          name: 'Bedroom Smoke Detector'
+          name: "Bedroom Smoke Detector"
           inverse: true
         - zone: 3
           type: motion
-          name: 'Test Motion'
+          name: "Test Motion"
       switches:
         - zone: out
           name: siren
         - zone: 5
-          name: 'Beep Beep'
+          name: "Beep Beep"
           momentary: 65
           pause: 55
           repeat: 4
@@ -304,7 +310,7 @@ konnected:
 
 ## Unique IDs and the Entity Registry
 
-Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI on the _Entity Registry_ page (under _Configuration_).
+Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI at **Configuration** -> **Entities**.
 
 Unique IDs are internally generated as follows:
 
@@ -333,6 +339,9 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 | ALARM or OUT               | D8          | 8        | GPIO15       |
 
 ## Revision History
+
+### 0.112
+- Note that Device ID is used for Konnected Alarm Panel Pro and note that it is available on the status page.
 
 ### 0.108
 

@@ -9,6 +9,10 @@ ha_config_flow: true
 ha_codeowners:
   - '@vilppuvuorinen'
 ha_domain: melcloud
+ha_platforms:
+  - climate
+  - sensor
+  - water_heater
 ---
 
 The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.
@@ -20,30 +24,7 @@ The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://w
 - Energy recovery ventilators - **Not supported**
 - Other - **Not supported**
 
-## Configuration
-
-The integration should be configured through the user interface ("Configurations -> Integrations") using the MELCloud login details. While not optimal, **the provided password is not stored**.
-
-An expired token needs to be updated manually by adding the MELCloud integration again with the same email address.
-
-Configuration is also possible through `configuration.yaml`. The required authentication token can be found in `X-MitsContextKey` header when logged into the MELCloud. The language needs to be set to English and the "Remember me" option needs to be selected.
-
-```yaml
-melcloud:
-  username: xxxx@xxxxxxx
-  token: xxxxxxxxxxxxxxxxxxx
-```
-
-{% configuration %}
-username:
-  description: Email address used to login to MELCloud
-  required: true
-  type: string
-token:
-  description: X-MitsContextKey access token
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Air-to-Air device
 
@@ -57,6 +38,7 @@ The following parameters can be controlled for the `climate` platform entities:
 - Target temperature
 - Operation mode (HVAC mode)
 - Fan speed
+- Horizontal and vertical vane positions
 
 #### State attributes
 
@@ -69,7 +51,9 @@ The following parameters can be controlled for the `climate` platform entities:
 
 #### Controlling vanes
 
-The horizontal and vertical vanes can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` services.
+The horizontal and vertical vane positions can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` services.
+
+Swing mode can also be used to control vertical vane position.
 
 ### Sensor
 
@@ -107,6 +91,8 @@ The following attributes are available for `sensor` platform entities:
 - Room temperature for each zone
 - Tank water temperature
 - Outside temperature - 1°C precision, polled every 1-2 hours.
+- Zone flow temperature, polled every 1-2 hours
+- Zone flow return temperature, polled every 1-2 hours
 
 Unlike air-to-air devices, air-to-water devices do not report energy consumption in an easily accessible manner.
 

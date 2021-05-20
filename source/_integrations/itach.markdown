@@ -1,12 +1,13 @@
 ---
 title: Global Caché iTach TCP/IP to IR
 description: Instructions on how to integrate a Global Caché iTach IP2IR gateway into Home Assistant.
-logo: globalcache.png
 ha_category:
   - Remote
 ha_iot_class: Assumed State
 ha_release: 0.39
 ha_domain: itach
+ha_platforms:
+  - remote
 ---
 
 The `itach` remote platform allows you to control IR devices with a [Global Caché iTach Device](https://www.globalcache.com/products/itach/ip2irspecs) and GC-100 devices. The Global Cache IR API are similar across their product line. See API documentation links at the end of this page.
@@ -23,6 +24,7 @@ remote:
     devices:
       - name: TV
         connaddr: 2
+        ir_count: 3
         commands:
           - name: "ON"
             data: "0000 006D 0000 0022 00AC 00AC 0015 0040 0015 0040 0015 0040 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0040 0015 0040 0015 0040 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0040 0015 0015 0015 0015 0015 0040 0015 0040 0015 0015 0015 0015 0015 0040 0015 0015 0015 0040 0015 0040 0015 0015 0015 0015 0015 0040 0015 0040 0015 0015 0015 0689"
@@ -57,6 +59,11 @@ devices:
     connaddr:
       description: iTach connection location for the IR emitter. (Note connaddr is a misleading label. Do not put the connection address here. Technically the connection address is the combination of the module address plus the connection location).
       required: true
+      type: integer
+    ir_count:
+      description: Number of times the command payload will be repeated for a single command send.
+      required: false
+      default: 1
       type: integer
     commands:
       description: Commands available to send to the device.

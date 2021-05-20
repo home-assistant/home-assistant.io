@@ -1,7 +1,6 @@
 ---
 title: Nederlandse Spoorwegen (NS)
 description: Instructions on how to integrate timetable data for traveling by train in the Netherlands within Home Assistant.
-logo: nederlandse_spoorwegen.png
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
@@ -9,6 +8,8 @@ ha_release: 0.57
 ha_codeowners:
   - '@YarmoM'
 ha_domain: nederlandse_spoorwegen
+ha_platforms:
+  - sensor
 ---
 
 This sensor will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.
@@ -30,10 +31,10 @@ sensor:
       from: Gn
       to: Mt
       via: Zl
-    - name: 'AlmereBuiten-Duivendrecht-the-08h06m-train'
+    - name: "AlmereBuiten-Duivendrecht-the-08h06m-train"
       from: Almb
       to: Dvd
-      time: '08:06:00'
+      time: "08:06:00"
 ```
 
 {% configuration %}

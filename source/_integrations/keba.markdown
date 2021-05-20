@@ -1,15 +1,21 @@
 ---
 title: Keba Charging Station
 description: Instructions on how to setup your Keba charging station with Home Assistant.
-logo: keba.png
 ha_category:
   - Binary Sensor
   - Lock
   - Sensor
+  - Notifications
+ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:
   - '@dannerph'
 ha_domain: keba
+ha_platforms:
+  - binary_sensor
+  - lock
+  - notify
+  - sensor
 ---
 
 The `keba` integrates your Keba charging station (wallbox) into your Home Assistant instance. It was tested with a BMW Wallbox but should also work with a Keba P20/P30 according to the developers [manual](https://www.keba.com/web/downloads/e-mobility/KeContact_P20_P30_UDP_ProgrGuide_en.pdf). The fetching interval to the charging station is set to 5 seconds, same as in the official mobile app.
@@ -19,7 +25,8 @@ This component provides the following platforms:
 - Binary Sensors: Online state, plug state, Charging state and failsafe mode state.
 - Lock: Authorization (like with the RFID card).
 - Sensors: current set by the user, target energy set by the user, charging power, charged energy of the current session and total energy charged.
-- Services: authorize, deauthorize, set energy target, set maximum allowed current and manually update the states. More details can be found [here](/integrations/keba/#services).
+- Services: authorize, deauthorize, set energy target, set the maximum allowed current and manually update the states. More details can be found [here](/integrations/keba/#services).
+- Notify: Show a text on chargers with a built-in LED display.
 
 ## Configuration
 
@@ -119,6 +126,42 @@ The service `keba.set_failsafe` sets the failsafe mode of the charging station. 
   "failsafe_fallback": 6,
   "failsafe_persist": 0
 }
+```
+
+## Notifications
+
+Some Keba chargers are equipped with a LED text display. The notification platform may be used to display text on this display. To enable this, add the following to your `configuration.yaml` file:
+
+### Configuration
+
+```yaml
+# Example configuration.yaml entry
+notify:
+  - name: NOTIFIER_NAME
+    platform: keba
+```
+
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: "`notify`"
+  type: string
+{% endconfiguration %}
+
+### Usage
+
+The use of the notify service is [described here](/integrations/notify/).
+
+The `message` part of the event payload is shown on the display. Scrolling is performed if needed. A maximum of 23 characters can be shown.
+
+The optional `data` part may contain specifications of the message duration. `min_time` is the minimum time in seconds the text will be shown if another message is requested. `max_time` is the maximum time to display the message when nothing else is requested. By default, the message is shown a minimum of 2 seconds and a maximum of 10 seconds.
+
+```yaml
+message: "Welcome home"
+data:
+  min_time: 4
+  max_time: 10
 ```
 
 ## Disclaimer

@@ -5,7 +5,9 @@ date: 2017-05-20 13:00:00 +0000
 date_formatted: "May 20, 2017"
 author: Paulus Schoutsen & Fabian Affolter
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-05-0.45/components.png
 ---
 
@@ -16,7 +18,7 @@ Welcome to another great release of Home Assistant! While some of contributors a
 First thing for this release is a feature that has been requested a lot: an automation editor! It's still experimental - and many things are still in progress - but it works! You can create new automations and edit existing ones. If you start a new config, you're all good to go. Otherwise check [these instructions](/docs/automation/editor/) to get your automations ready for editing in the UI.
 
 <p class='img'>
-  <img src='{{site_root}}/images/blog/2017-05-0.45/trigger.png' />
+  <img src='/images/blog/2017-05-0.45/trigger.png' />
 </p>
 
 Check this [video](https://youtu.be/0j_hWdCTip4) by [Ben](https://twitter.com/BRUHautomation) from [BRUHautomation](http://www.bruhautomation.com/) to see the new release in action.
@@ -30,7 +32,7 @@ As the editor is experimental, there are some limitations. These include that Ch
 On the Z-Wave front a lot has happened. The biggest one is that we have a major extension of the Z-Wave panel thanks to [@turbokongen]! You will now be able to change config parameters and manage your devices.
 
 <p class='img'>
-  <img src='{{site_root}}/images/blog/2017-05-0.45/zwave.png' />
+  <img src='/images/blog/2017-05-0.45/zwave.png' />
 </p>
 Thanks to the work by the Python Open Z-Wave team we are now able to install it on demand from PyPi! There is no longer a need to pre-compile it yourself. This should give us the guarantee that we work with the Python Open Z-Wave version that the code expects.
 
@@ -45,7 +47,7 @@ Next to that [@armills] has lead the charge and managed to get full test coverag
 This release also contains two integrations which could help you to make non-smart devices a little smarter. The [`file` sensor][sensor.file docs] and the [`seven_segments` OCR image processing platform][image_processing.seven_segments docs]. The first simply reads a plain-text file which was created by a logger or alike. The latter one extracts the value from a captured image that shows a seven-segments display.
 
 <p class='img'>
-  <img src='{{site_root}}/images/blog/2017-05-0.45/power-meter.png' />
+  <img src='/images/blog/2017-05-0.45/power-meter.png' />
 </p>
 
 And last, but not least, our Docker image is now based off Python 3.6. This version is faster and uses less memory than Python 3.5. Win!
@@ -72,7 +74,7 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 
 ## Release 0.45.1 - May 22
 
-- Fix telegram chats ([@azogue] - [#7689]) ([notify.telegram docs]) ([telegram_bot.__init__ docs])
+- Fix telegram chats ([@azogue] - [#7689]) ([notify.telegram docs]) ([telegram_bot docs])
 - Fix playback control of web streams ([@cgtobi] - [#7683]) ([media_player.volumio docs])
 - device_tracker.ubus: Handle empty results ([@tobygray] - [#7673]) ([device_tracker.ubus docs])
 - Allow fetching hass.io panel without auth ([@balloob] - [#7714]) ([hassio docs])
@@ -122,7 +124,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - new source only forces "play" if the current state is "playing" ([@abmantis] - [#7506]) ([media_player.spotify docs])
 - Correct retrieval of spotify shuffle state ([@andersonshatch] - [#7505]) ([media_player.spotify docs])
 - Fix sonos sleep timer ([@frog32] - [#7503]) ([media_player.sonos docs])
-- Add support for automation config panel ([@balloob] - [#7509]) ([automation.__init__ docs]) ([config.automation docs]) ([config.__init__ docs]) (new-platform)
+- Add support for automation config panel ([@balloob] - [#7509]) ([automation docs]) ([config.automation docs]) ([config docs]) (new-platform)
 - Zwave panel api ([@turbokongen] - [#7456]) ([zwave docs]) ([zwave.api docs]) (new-platform)
 - Update docker dev environment to python3.6 ([@frog32] - [#7520])
 - Switch basicmodem and python-roku to pypi ([@andrey-git] - [#7514]) ([media_player.roku docs]) ([sensor.modem_callerid docs])
@@ -133,13 +135,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Support for the PiFace Digital I/O module ([@basschipper] - [#7494]) ([rpi_pfio docs]) ([binary_sensor.rpi_pfio docs]) ([switch.rpi_pfio docs]) (new-platform)
 - Upgrade limitlessled to 1.0.7 ([@corneyl] - [#7525]) ([light.limitlessled docs])
 - Update docstrings and log messages ([@fabaff] - [#7526]) ([light.blinksticklight docs]) ([light.enocean docs]) ([light.flux_led docs]) ([light.insteon_local docs]) ([light.insteon_plm docs]) ([light.isy994 docs]) ([light.limitlessled docs]) ([light.mystrom docs])
-- Try to request current_location Automatic scope ([@armills] - [#7447]) ([device_tracker.automatic docs])
+- Try to request current_location Automatic scope ([@armills] - [#7447])
 - Add myStrom binary sensor ([@fabaff] - [#7530])
 - Add not-context-manager ([@fabaff] - [#7523])
 - Threadsafe configurator ([@Kane610] - [#7536]) ([configurator docs])
 - Fix for #7459 ([@deftdawg] - [#7544]) ([alexa docs])
 - Upgrade sendgrid to 4.1.0 ([@fabaff] - [#7538]) ([notify.sendgrid docs])
-- Automatic version bump ([@armills] - [#7555]) ([device_tracker.automatic docs])
+- Automatic version bump ([@armills] - [#7555])
 - Upgrade dweepy to 0.3.0 ([@fabaff] - [#7550]) ([dweet docs]) ([sensor.dweet docs])
 - Add SSL support to NZBGet sensor ([@tboyce021] - [#7553]) ([sensor.nzbget docs])
 - Do not install all dependencies in dev mode ([@balloob] - [#7548])
@@ -174,24 +176,24 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix handling of single user ([@mezz64] - [#7587]) ([eight_sleep docs])
 - File sensor ([@fabaff] - [#7569]) ([sensor.file docs]) (new-platform)
 - Make miflora monitored_conditions parameter optional ([@frog32] - [#7598]) ([sensor.miflora docs])
-- Force automation ids to always be a string ([@balloob] - [#7612]) ([automation.__init__ docs])
+- Force automation ids to always be a string ([@balloob] - [#7612]) ([automation docs])
 - Update Docker base image to python 3.6 ([@pschmitt] - [#7613])
-- Add Content-type: image/jpeg for camera proxy ([@olekenneth] - [#7581]) ([camera.__init__ docs])
+- Add Content-type: image/jpeg for camera proxy ([@olekenneth] - [#7581]) ([camera docs])
 - Fix typo and update style to match the other platforms ([@fabaff] - [#7621]) ([image_processing.opencv docs])
 - Bump pyvera - fixes issue with % in brightness levels. ([@pavoni] - [#7622]) ([vera docs])
-- Add kelvin/brightness_pct alternatives to light.turn_on ([@amelchio] - [#7596]) ([light.lifx docs]) ([light.__init__ docs])
+- Add kelvin/brightness_pct alternatives to light.turn_on ([@amelchio] - [#7596]) ([light.lifx docs]) ([light docs])
 - Add support for disabling tradfri groups ([@cnrd] - [#7593]) ([tradfri docs]) ([light.tradfri docs])
 - Update docstrings and comments ([@fabaff] - [#7626]) ([image_processing.openalpr_cloud docs]) ([image_processing.openalpr_local docs])
 - Upgrade Sphinx to 1.6.1 ([@fabaff] - [#7624])
-- Update docstrings ([@fabaff] - [#7630]) ([image_processing.demo docs]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs]) ([image_processing.microsoft_face_detect docs]) ([image_processing.microsoft_face_identify docs]) ([image_processing.opencv docs])
+- Update docstrings ([@fabaff] - [#7630]) ([image_processing docs]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs]) ([image_processing.microsoft_face_detect docs]) ([image_processing.microsoft_face_identify docs]) ([image_processing.opencv docs])
 - Kodi specific service to call Kodi API methods ([@azogue] - [#7603]) ([media_player.kodi docs])
 - Updated limitlessled requirement to v1.0.8 ([@corneyl] - [#7629])
 - Osram lightify Removed wrong assignment ([@commento] - [#7615]) ([light.osramlightify docs])
 - Updated dependency ([@danielperna84] - [#7638]) ([homematic docs])
-- Seven segments OCR image processing ([@fabaff] - [#7632]) ([image_processing.seven_segments docs]) ([image_processing.__init__ docs]) (new-platform)
+- Seven segments OCR image processing ([@fabaff] - [#7632]) ([image_processing.seven_segments docs]) ([image_processing docs]) (new-platform)
 - Abort tests when instances leaked ([@balloob] - [#7623])
-- Coerce color_temp to int even when passed in as kelvin ([@amelchio] - [#7640]) ([light.__init__ docs])
-- Fix automation failing to setup if no automations specified ([@balloob] - [#7647]) ([automation.__init__ docs])
+- Coerce color_temp to int even when passed in as kelvin ([@amelchio] - [#7640]) ([light docs])
+- Fix automation failing to setup if no automations specified ([@balloob] - [#7647]) ([automation docs])
 
 [#6844]: https://github.com/home-assistant/home-assistant/pull/6844
 [#7062]: https://github.com/home-assistant/home-assistant/pull/7062
@@ -345,21 +347,19 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.raspihats docs]: /integrations/raspihats#binary-sensor
 [binary_sensor.rpi_pfio docs]: /integrations/rpi_pfio#binary-sensor
 [blink docs]: /integrations/blink/
-[camera.__init__ docs]: /integrations/camera.__init__/
+[camera docs]: /integrations/camera
 [camera.uvc docs]: /integrations/uvc
 [camera.zoneminder docs]: /integrations/zoneminder#camera
 [climate.sensibo docs]: /integrations/sensibo
-[config.__init__ docs]: /integrations/config.__init__/
+[config docs]: /integrations/config
 [configurator docs]: /integrations/configurator/
 [cover.lutron_caseta docs]: /integrations/lutron_caseta/
 [datadog docs]: /integrations/datadog/
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.unifi docs]: /integrations/unifi
 [dweet docs]: /integrations/dweet/
 [eight_sleep docs]: /integrations/eight_sleep/
 [homematic docs]: /integrations/homematic/
-[image_processing.__init__ docs]: /integrations/image_processing.__init__/
-[image_processing.demo docs]: /integrations/image_processing.demo/
+[image_processing docs]: /integrations/image_processing
 [image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
 [image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
 [image_processing.microsoft_face_detect docs]: /integrations/microsoft_face_detect
@@ -369,7 +369,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [image_processing.opencv docs]: /integrations/opencv
 [image_processing.seven_segments docs]: /integrations/seven_segments
 [kira docs]: /integrations/kira/
-[light.__init__ docs]: /integrations/light.__init__/
+[light docs]: /integrations/light
 [light.blinksticklight docs]: /integrations/blinksticklight
 [light.enocean docs]: /integrations/enocean#light
 [light.flux_led docs]: /integrations/flux_led
@@ -434,5 +434,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [device_tracker.ubus docs]: /integrations/ubus
 [hassio docs]: /integrations/hassio/
 [media_player.volumio docs]: /integrations/volumio
-[telegram_bot.__init__ docs]: /integrations/telegram_bot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [discord]: https://discord.gg/c5DvZ4e

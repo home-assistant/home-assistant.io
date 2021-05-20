@@ -1,11 +1,13 @@
 ---
 title: Aruba
 description: Instructions on how to integrate Aruba routers into Home Assistant.
-logo: aruba.png
 ha_category:
   - Presence Detection
 ha_release: 0.7
+ha_iot_class: Local Polling
 ha_domain: aruba
+ha_platforms:
+  - device_tracker
 ---
 
 This platform allows you to detect presence by looking at connected devices to an [Aruba Instant](https://www.arubanetworks.com/products/networking/aruba-instant/) device.

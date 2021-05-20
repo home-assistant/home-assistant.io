@@ -1,12 +1,13 @@
 ---
 title: Anthem A/V Receivers
 description: Instructions on how to integrate Anthem A/V Receivers into Home Assistant.
-logo: anthemav.png
 ha_category:
   - Media Player
 ha_iot_class: Local Push
 ha_release: 0.37
 ha_domain: anthemav
+ha_platforms:
+  - media_player
 ---
 
 Both [Anthem]'s current and last generation of A/V Receivers and Processors support IP-based, network control. This Home Assistant platform adds proper "local push" support for any of these receivers on your network.
@@ -16,7 +17,7 @@ Both [Anthem]'s current and last generation of A/V Receivers and Processors supp
 * [MRX 520](https://www.anthemav.com/products-current/series=mrx-series-gen3/model=mrx-520/page=overview), [MRX 720](https://www.anthemav.com/products-current/collection=performance/model=mrx-720/page=overview), [MRX 1120](https://www.anthemav.com/products-current/collection=performance/model=mrx-1120/page=overview), and [AVM 60](https://www.anthemav.com/products-current/model=avm-60/page=overview)
 * [MRX 310](https://www.anthemav.com/products-archived/type=av-receiver/model=mrx-310/page=overview), [MRX 510](https://www.anthemav.com/products-archived/series=mrx-series/model=mrx-510/page=overview), [MRX 710](https://www.anthemav.com/products-archived/type=av-receiver/model=mrx-710/page=overview)
 
-Support is provided through the Python [anthemav] module. Older, RS-232 serial-based units like the [D2v](https://www.anthemav.com/products-current/type=av-processor/model=d2v-3d/page=overview) use a different protocol entirely and are not currently supported.
+Support is provided through the Python [anthemav] module. Older, RS-232 serial-based units like the [D2v series](https://www.anthemav.com/products-archived/model=d2v/page=overview) use a different protocol entirely and are not currently supported.
 
 [Anthem]:	https://www.anthemav.com/
 [anthemav]: https://github.com/nugget/python-anthemav

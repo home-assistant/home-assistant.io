@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: iqvia
+ha_platforms:
+  - sensor
 ---
 
 The `iqvia` sensor platform collects and displays allergy, asthma and disease
@@ -20,27 +22,7 @@ Data measured includes:
 * Current outlook
 * more!
 
-## Configuring the Platform
-
-To integrate `iqvia` into Home Assistant, add the following section to your
-`configuration.yaml` file:
-
-```yaml
-iqvia:
-  zip_code: "00544"
-```
-
-{% configuration %}
-zip_code:
-  description: The U.S. ZIP code to gather data for (as a quoted string).
-  required: true
-  type: string
-{% endconfiguration %}
-
-<div class='note warning'>
-It is important to ensure the ZIP code is quoted if it starts with a 0. Unquoted
-ZIP codes that start with 0 will cause errors.
-</div>
+{% include integrations/config_flow.md %}
 
 ## Understanding the Indices
 

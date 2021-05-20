@@ -41,6 +41,12 @@ If you added or upgraded to a newer Alexa device and devices are not found, you 
 
 </div>
 
+<div class='note'>
+  
+Logitech Harmony remotes cannot connect to this emulator via Android and iOS mobile applications because they require the physical button on the hub to be pressed. The [MyHarmony desktop software](https://support.myharmony.com/en-us/download) must be used with the original cable to connect it, then "Scan for Devices". 
+  
+</div>
+
 ### Configuration
 
 To enable the emulated Hue bridge, add one of the following configs to your `configuration.yaml` file:
@@ -101,7 +107,7 @@ exposed_domains:
   description: The domains that are exposed by default if `expose_by_default` is set to true.
   required: false
   type: list
-  default: [switch, light, group, input_boolean, media_player, fan]
+  default: [switch, light, group, input_boolean, media_player, fan, humidifier]
 entities:
   description: Customization for entities.
   required: false
@@ -152,13 +158,9 @@ Verify that the URLs above are using port 80, rather than port 8300 (i.e., `http
 
 ### Platform specific instructions
 
-#### Home Assistant and Home Assistant Core on Docker
+#### Home Assistant Core
 
-No further actions are required
-
-#### Home Assistant Core in a Python venv
-
-An additional step is required to run Home Assistant as a non-root user and use port 80. 
+An additional step is required to run Home Assistant as a non-root user and use port 80.
 
 ##### Linux
 
@@ -169,20 +171,6 @@ sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin
 ```
 
 Please note that your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/docs/installation/virtualenv/), your path will be `/srv/homeassistant/bin/python3`.
-
-##### FreeBSD and FreeNAS
-
-On FreeBSD based systems, including FreeNAS, execute the following to allow `emulated_hue` to use port 80 as a non-root user:
-
-```bash
-sysctl net.inet.ip.portrange.reservedhigh=0
-```
-
-You can make this persist by adding the following to `/etc/sysctl.conf`:
-
-```bash
-net.inet.ip.portrange.reservedhigh=0
-```
 
 ### License
 

@@ -1,12 +1,13 @@
 ---
 title: Ankuoo REC Switch
 description: Instructions on how to integrate Ankuoo REC Switch into Home Assistant.
-logo: ankuoo_recswitch.png
 ha_release: 0.81
 ha_category:
   - Switch
 ha_iot_class: Local Polling
 ha_domain: recswitch
+ha_platforms:
+  - switch
 ---
 
 The `recswitch` switch platform allows you to control the Ankuoo REC Switch devices.
@@ -25,8 +26,8 @@ To enable this switch, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 switch:
   - platform: recswitch
-    host: 'IP_ADDRESS'
-    mac: 'MAC_ADDRESS'
+    host: "IP_ADDRESS"
+    mac: "MAC_ADDRESS"
 ```
 
 {% configuration %}

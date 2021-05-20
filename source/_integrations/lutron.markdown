@@ -12,6 +12,12 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@JonGilmore'
 ha_domain: lutron
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - scene
+  - switch
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron` integration in Home Assistant is responsible for communicating with the main hub for these systems.
@@ -64,6 +70,14 @@ The `action` attribute varies depending on the button type.
 For raise/lower buttons (dimmer buttons, shade controls, etc.) there will be two values, `pressed` and `released`, fired when the button is pressed and when it's released, respectively.
 
 For single-action buttons (scene selection, etc.), `action` will be `single`, and there will only be one event fired. This is a limitation of the Lutron controller which doesn't give Home Assistant any way of knowing when a single-action button is released.
+
+## Keypad LEDs
+
+Each full-width button on a Lutron SeeTouch, Hybrid SeeTouch, and Tabletop SeeTouch Keypad has an LED that can be controlled by Home Assistant. A service call of switch.turn_off or switch.turn_on against the appropriate LED entity will control the keypad LED.
+
+Keep in mind that the Lutron system will also control the LED state independent of Home Assistant, according to the programming of the RadioRA2 system. This also means you can query LED states to determine if a certain scene is active, since the LED will have been illuminated by the RadioRA2 repeaters. This includes the "phantom" LEDs of Main Repeater Keypad buttons; even though there is no physical button or LED, the RadioRA2 system tracks the scenes and will "light" the LED that can be queried.
+
+If a button is not programmed to control any lights or other devices in the RadioRA2 system but is given a name in the programming software, it will be available to fire events in Home Assistant. However, since there is no way to have a scene "active" on a button with no devices associated, the Main Repeater will automatically extinguish the keypad LED a few seconds after the button press. If you wish to have Home Assistant light the keypad LED after a button press, you will need to delay your service call to light the LED for several seconds, so it arrives after the Main Repeater has sent the command to turn it off.
 
 ## Scene
 

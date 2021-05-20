@@ -3,18 +3,25 @@ title: "Z-Wave Controllers"
 description: "Extended instructions how to setup Z-Wave."
 ---
 
+<div class='note'>
+
+This Z-Wave integration is deprecated and replaced with a [new implementation based on Z-Wave JS](/integrations/zwave_js); it's currently in beta, and you can [try it now](/integrations/zwave_js/).
+
+</div>
+
 ## Supported Z-Wave USB Sticks & Hardware Modules
 
 You need to have a compatible Z-Wave stick or module installed. This needs to be a *static controller*, which most Z-Wave sticks and modules will be. If yours is a *bridge* device then it won't work with [OpenZWave](http://openzwave.com/), which is what provides Home Assistant's Z-Wave capabilities. USB sticks using the new 700 series Z-Wave platform are not compatible. The following devices have been confirmed to work:
 
 <div class='note'>
   
-There have [been reports](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) of the Aeotec stick not working on the Raspberry Pi 4.
+There are [known compatability issues](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) with older hardware versions of the Aeotec stick not working on the Raspberry Pi 4. Aeotec has released a 2020 hardware revision ZW090-A/B/C Gen5+ with Pi 4 compatibility. Both hardware revisions are still being sold, make informed purchasing decisions if using paired with a Pi 4.
 
 </div>
 
 - Aeotec Z-Stick Series 5
 - Everspring USB stick - Gen 5
+- GoControl HUSBZB-1 stick
 - Sigma Designs UZB stick
 - Vision USB stick - Gen5
 - Zooz Z-Wave Plus S2 stick ZST10

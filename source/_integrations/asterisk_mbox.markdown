@@ -1,7 +1,6 @@
 ---
 title: Asterisk Voicemail
 description: Instructions on how to integrate your existing Asterisk voicemail within Home Assistant.
-logo: asterisk.png
 ha_category:
   - Mailbox
 ha_iot_class: Local Push
@@ -45,5 +44,5 @@ port:
 {% endconfiguration %}
 
 <div class='note warning'>
-Communication between the Asterisk PBX server and the Home Assistant server is password-protected, but the data transmission is not encrypted. It is recommended to only use this integration when communication is contained within a local area network.
+Communication between the Asterisk PBX server and Home Assistant is password-protected, but the data transmission is not encrypted. It is recommended to only use this integration when communication is contained within a local area network.
 </div>

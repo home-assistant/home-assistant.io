@@ -5,7 +5,9 @@ date: 2017-11-18 04:00:00
 date_formatted: "November 18, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-11-0.58/components.png
 ---
 
@@ -62,7 +64,7 @@ Our about screen that shows the error logs has gained a nice upgrade by [@postlu
 
 ## Release 0.58.1 - November 21
 
-- Fix yweather ([@tinloaf] - [#10661]) ([weather.yweather docs])
+- Fix yweather ([@tinloaf] - [#10661])
 - Properly initialize Harmony remote ([@amelchio] - [#10665]) ([remote.harmony docs])
 - Handle the new version of HydroQuebec website ([@titilambert] - [#10682])
 - Fix for time_date sensor ([@etsinko] - [#10694]) ([sensor.time_date docs])
@@ -168,7 +170,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add panel build type ([@balloob] - [#10589])
 - Cloud updates ([@balloob] - [#10567])
 - Upgrade youtube_dl to 2017.11.15 ([@fabaff] - [#10592]) ([media_extractor docs])
-- Fix Yahoo Weather icons over SSL ([@OnFreund] - [#10602]) ([sensor.yweather docs])
+- Fix Yahoo Weather icons over SSL ([@OnFreund] - [#10602])
 - Arlo - Fixes for updated library ([@jwillaz] - [#9892]) ([arlo docs]) ([camera.arlo docs]) ([sensor.arlo docs])
 - Do not add panel from system_log ([@postlund] - [#10600]) ([system_log docs])
 - Fix ValueError exception ([@ziotibia81] - [#10596]) ([sensor.modbus docs])
@@ -459,7 +461,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.viaggiatreno docs]: /integrations/viaggiatreno
 [sensor.vultr docs]: /integrations/vultr#sensor
 [sensor.wunderground docs]: /integrations/wunderground
-[sensor.yweather docs]: /integrations/yweather
 [sensor.zamg docs]: /integrations/zamg#sensor
 [spc docs]: /integrations/spc/
 [switch.broadlink docs]: /integrations/broadlink#switch
@@ -493,4 +494,3 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@titilambert]: https://github.com/titilambert
 [remote.harmony docs]: /integrations/harmony
 [sensor.time_date docs]: /integrations/time_date
-[weather.yweather docs]: /integrations/yweather

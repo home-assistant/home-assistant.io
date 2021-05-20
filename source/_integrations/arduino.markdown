@@ -10,7 +10,16 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: arduino
+ha_platforms:
+  - sensor
+  - switch
 ---
+
+<div class='note warning'>
+
+This integration is deprecated. Please move to the [Firmata integration](/integrations/firmata).
+
+</div>
 
 The [Arduino](https://www.arduino.cc/) device family are microcontroller boards that are often based on the ATmega328 chip. They come with digital input/output pins (some can be used as PWM outputs), analog inputs, and a USB connection.
 The equipment depends on the [type](https://www.arduino.cc/en/Main/Products) of the board. The most common ones are the Arduino Uno and the Arduino Leonardo with 14 digital input/output pins and 6 analog input pins.
@@ -46,7 +55,7 @@ port:
 The exact number can be determined with the command shown below.
 
 ```bash
-$ ls /dev/ttyACM*
+ls /dev/ttyACM*
 ```
 
 If that's not working, check your `dmesg` or `journalctl -f` output. Keep in mind that Arduino clones are often using a different name for the port (e.g., `/dev/ttyUSB*`).
@@ -58,7 +67,7 @@ A word of caution: The Arduino boards are not storing states. This means that wi
 Add the user who is used to run Home Assistant to the groups to allow access to the serial port.
 
 ```bash
-$ sudo usermod -a -G dialout,lock $USER
+sudo usermod -a -G dialout,lock $USER
 ```
 
 ## Sensor

@@ -4,18 +4,13 @@ description: Instructions on how to setup Google Translate Text-to-Speech with H
 ha_category:
   - Text-to-speech
 ha_release: 0.35
-ha_codeowners:
-  - '@awarecan'
+ha_iot_class: Cloud Push
 ha_domain: google_translate
+ha_platforms:
+  - tts
 ---
 
 The `google_translate` text-to-speech platform uses the unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices.
-
-<div class='note'>
-
-This platform renamed to `google_translate` from `google` since release 0.92.
-
-</div>
 
 ## Configuration
 
@@ -46,13 +41,5 @@ A full configuration sample including optional variables:
 # Example configuration.yaml entry
 tts:
   - platform: google_translate
-    language: 'de'
-```
-
-If you are using SSL certificate or Docker, you may need to add the `base_url` configuration variable to your `http` integration as follows:
-
-```yaml
-#Example configuration.yaml entry
-http:
-  base_url: https://example.duckdns.org
+    language: "de"
 ```

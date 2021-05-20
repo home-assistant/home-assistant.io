@@ -36,7 +36,7 @@ crw-rw----+ 1 root video 81, 1 Jun 23 08:36 /dev/video1
 We need an additional software part to handle the cameras. [motion](http://lavrsen.dk/foswiki/bin/view/Motion/WebHome) is capable of monitoring the video signal from USB and network cameras, do motion detection, and other nifty stuff like saving images, add text, or basic image manipulations. Make sure that you have the [RPM Fusion repository](http://rpmfusion.org/) enabled.
 
 ```bash
-$ sudo dnf -y install motion
+sudo dnf -y install motion
 ```
 
 For our setup we need to modify the file `/etc/motion/motion.conf`. For now the most important parameters are `videodevice`, `snapshot_interval`, and `target_dir`. The other settings can be left to their defaults. We are going to use the device `/dev/video1`, use a 30 seconds interval, and set the path to `/tmp`.
@@ -105,9 +105,9 @@ camera:
   The "Cranberry cam" in action
 </p>
 
-The machine with the attached USB camera will become a webcam server as well because `motion`'s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run `motion` there, adjust your firewall rules, and use Home Assistant to display the videos. Just check http://[IP of your webcam host]:8081/ to see the stream. This required more powerful hardware than using snapshots, of course.
+The machine with the attached USB camera will become a webcam server as well because `motion`'s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run `motion` there, adjust your firewall rules, and use Home Assistant to display the videos. Just check `http://[IP of your webcam host]:8081/` to see the stream. This required more powerful hardware than using snapshots, of course.
 
-In a scenario like this needs a [Generic MJPEG IP Camera ](/integrations/mjpeg) in your `configuration.yaml` file.
+In a scenario like this needs a [Generic MJPEG IP Camera](/integrations/mjpeg) in your `configuration.yaml` file.
 
 ```yaml
 camera:
@@ -117,4 +117,3 @@ camera:
 ```
 
 [motion](http://lavrsen.dk/foswiki/bin/view/Motion/WebHome) is a powerful tool and this blog post only showed two very simple use cases. Take a look at the [documentation](http://www.lavrsen.dk/foswiki/bin/view/Motion/MotionGuide) of `motion` to unleash its potential.
-

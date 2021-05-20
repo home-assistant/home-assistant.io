@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@bachya'
 ha_domain: yi
+ha_platforms:
+  - camera
 ---
 
 The `yi` camera platform allows you to utilize [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:
@@ -23,7 +25,8 @@ To successfully implement this platform, the Home Assistant host should be capab
 
 ### Installing Alternative Firmware
 
-In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3) or if you have a 2019 version camera [yi-hack-6FUS_4.5.0 GitHub project](https://github.com/roleoroleo/yi-hack-6FUS_4.5.0).
+In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3).
+If you have a 2019/2020 version camera use [yi-hack-MStar GitHub project](https://github.com/roleoroleo/yi-hack-MStar) or [yi-hack-Allwinner GitHub project](https://github.com/roleoroleo/yi-hack-Allwinner). In this case configure the cam as ONVIF and read the wiki for further details.
 
 Once installed, please ensure that you have enabled FTP and Telnet on your device.
 
@@ -68,7 +71,7 @@ To enable the platform, add the following lines to your`configuration.yaml` file
 camera:
   - platform: yi
     name: Camera
-    host: '192.168.1.100'
+    host: "192.168.1.100"
     password: my_password_123
 ```
 
@@ -111,8 +114,8 @@ One particularly useful adjustment deals with video size. Since Yi videos are fa
 camera:
   - platform: yi
     name: My Camera
-    host: '192.168.1.100'
+    host: "192.168.1.100"
     password: my_password_123
     path: /home/camera/feed
-    ffmpeg_arguments: '-vf scale=800:450'
+    ffmpeg_arguments: "-vf scale=800:450"
 ```

@@ -15,6 +15,7 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 | Function          | [`default`](#default-schema) | [`json`](#json-schema) | [`template`](#template-schema) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
 | Brightness        | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Color mode        |                                                            | ✔                                                                    |                                                                                |
 | Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Effects           | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Flashing          | ✘                                                          | ✔                                                                    | ✔                                                                            |
@@ -27,7 +28,7 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 
 ## Default schema
 
-The `mqtt` light platform with default schema lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
+The `mqtt` light platform with default schema lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, on/off, RGB colors, XY colors and white values.
 
 ## Default schema - Configuration
 
@@ -37,6 +38,9 @@ When a state topic is not available, the light will work in optimistic mode. In 
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect light operation.
 
+Home Assistant internally assumes that a light either has a color or a color temperature.
+The state of MQTT lights with default schema and support for both color and color temperature will include a color if `white_value` is 0 or None and a `color_temp` is white_value > 0.
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -45,8 +49,32 @@ light:
 ```
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 brightness_command_topic:
@@ -75,7 +103,7 @@ color_temp_command_topic:
   required: false
   type: string
 color_temp_state_topic:
-  description: The MQTT topic subscribed to receive color temperature state updates.
+  description: "The MQTT topic subscribed to receive color temperature state updates. If the light also supports setting colors, also define a `white_value_state_topic`. "
   required: false
   type: string
 color_temp_value_template:
@@ -111,8 +139,16 @@ device:
       description: 'The name of the device.'
       required: false
       type: string
+    suggested_area:
+      description: 'Suggest an area if the device isn’t in one yet.'
+      required: false
+      type: string
     sw_version:
       description: 'The firmware version of the device.'
+      required: false
+      type: string
+    via_device:
+      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
 effect_command_topic:
@@ -146,6 +182,10 @@ hs_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the HS value."
   required: false
   type: string
+icon:
+  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
+  required: false
+  type: icon
 json_attributes_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
@@ -154,6 +194,14 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+max_mireds:
+  description: The maximum color temperature in mireds.
+  required: false
+  type: integer
+min_mireds:
+  description: The minimum color temperature in mireds.
+  required: false
+  type: integer
 name:
   description: The name of the light.
   required: false
@@ -281,6 +329,7 @@ In this section you will find some real-life examples of how to use this sensor.
 To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -300,6 +349,7 @@ light:
     payload_off: "OFF"
     optimistic: false
 ```
+
 {% endraw %}
 
 ### Brightness and no RGB support
@@ -348,16 +398,19 @@ light:
 
 The `mqtt` light platform with JSON schema lets you control a MQTT-enabled light that can receive [JSON](https://en.wikipedia.org/wiki/JSON) messages.
 
-This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and white values. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed:
+This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and white values. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed. The `color_mode` will not be present in messages sent to the light. It is optional in messages received from the light, but can be used to disambiguate the current mode in the light. In the example below, `color_mode` is set to `rgb` and `color_temp`, `color.c`, `color.w`, color.x`, `color.y`, `color.h`, `color.s` will all be ignored:
 
 ```json
 {
   "brightness": 255,
+  "color_mode": "rgb",
   "color_temp": 155,
   "color": {
     "r": 255,
     "g": 180,
     "b": 200,
+    "c": 100,
+    "w": 50,
     "x": 0.406,
     "y": 0.301,
     "h": 344.0,
@@ -387,8 +440,32 @@ light:
 ```
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 brightness:
@@ -401,8 +478,8 @@ brightness_scale:
   required: false
   type: integer
   default: 255
-color_temp:
-  description: Flag that defines if the light supports color temperature.
+color_mode:
+  description: Flag that defines if the light supports color modes.
   required: false
   type: boolean
   default: false
@@ -458,11 +535,10 @@ flash_time_short:
   required: false
   type: integer
   default: 2
-hs:
-  description: Flag that defines if the light supports HS colors.
+icon:
+  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
-  type: boolean
-  default: false
+  type: icon
 json_attributes_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
@@ -471,6 +547,14 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+max_mireds:
+  description: The maximum color temperature in mireds.
+  required: false
+  type: integer
+min_mireds:
+  description: The minimum color temperature in mireds.
+  required: false
+  type: integer
 name:
   description: The name of the light.
   required: false
@@ -501,11 +585,6 @@ retain:
   required: false
   type: boolean
   default: false
-rgb:
-  description: Flag that defines if the light supports RGB colors.
-  required: false
-  type: boolean
-  default: false
 schema:
   description: The schema to use. Must be `json` to select the JSON schema".
   required: false
@@ -515,20 +594,14 @@ state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
   type: string
+supported_color_modes:
+  description: A list of color modes supported by the list. This is required if `color_mode` is `True`. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`.
+  required: false
+  type: list
 unique_id:
    description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
    required: false
    type: string
-white_value:
-  description: Flag that defines if the light supports white values.
-  required: false
-  type: boolean
-  default: false
-xy:
-  description: Flag that defines if the light supports XY colors.
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration %}
 
 <div class='note warning'>
@@ -560,7 +633,8 @@ light:
     state_topic: "home/rgb1"
     command_topic: "home/rgb1/set"
     brightness: true
-    rgb: true
+    color_mode: true
+    supported_color_modes: ["rgb"]
 ```
 
 ### Brightness and no RGB support
@@ -576,6 +650,8 @@ light:
     state_topic: "home/rgb1"
     command_topic: "home/rgb1/set"
     brightness: true
+    color_mode: true
+    supported_color_modes: ["brightness"]
 ```
 
 ### Brightness Scaled
@@ -591,6 +667,8 @@ light:
     command_topic: "home/light/set"
     brightness: true
     brightness_scale: 4095
+    color_mode: true
+    supported_color_modes: ["brightness"]
 ```
 
 Home Assistant will then convert its 8bit value in the message to and from the device:
@@ -604,7 +682,7 @@ Home Assistant will then convert its 8bit value in the message to and from the d
 
 ### HS Color
 
-To use a light with hue+saturation as the color model, set `hs` to `true` in the platform configuration:
+To use a light with hue+saturation as the color model, set `supported_color_modes` to `["hs"]` in the platform configuration:
 
 ```yaml
 light:
@@ -613,7 +691,8 @@ light:
     name: mqtt_json_hs_light
     state_topic: "home/light"
     command_topic: "home/light/set"
-    hs: true
+    color_mode: true
+    supported_color_modes: ["hs"]
 ```
 
 Home Assistant expects the hue values to be in the range 0 to 360 and the saturation values to be scaled from 0 to 100. For example, the following is a blue color shade:
@@ -621,6 +700,7 @@ Home Assistant expects the hue values to be in the range 0 to 360 and the satura
 ```json
 {
   "state": "ON",
+  "color_mode": "hs",
   "color": {
     "h": 24.0,
     "s": 100.0
@@ -641,8 +721,8 @@ light:
     state_topic: "home/rgbw1"
     command_topic: "home/rgbw1/set"
     brightness: true
-    rgb: true
-    white_value: true
+    color_mode: true
+    supported_color_modes: ["rgbw"]
 ```
 
 
@@ -688,8 +768,32 @@ light:
 ```
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 blue_template:
@@ -757,6 +861,10 @@ green_template:
   description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract green color from the state payload value."
   required: false
   type: string
+icon:
+  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
+  required: false
+  type: icon
 json_attributes_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
@@ -765,6 +873,14 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+max_mireds:
+  description: The maximum color temperature in mireds.
+  required: false
+  type: integer
+min_mireds:
+  description: The minimum color temperature in mireds.
+  required: false
+  type: integer
 name:
   description: The name of the light.
   required: false
@@ -831,6 +947,8 @@ In this section you find some real-life examples of how to use this light.
 
 For a simple string payload with the format `state,brightness,r-g-b` (e.g., `on,255,255-255-255`), add the following to your `configuration.yaml` file:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -838,18 +956,22 @@ light:
     schema: template
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: "{% raw %}on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}{% endraw %}"
+    command_on_template: "on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}"
     command_off_template: "off"
-    state_template: "{% raw %}{{ value.split(',')[0] }}{% endraw %}"  # must return `on` or `off`
-    brightness_template: "{% raw %}{{ value.split(',')[1] }}{% endraw %}"
-    red_template: "{% raw %}{{ value.split(',')[2].split('-')[0] }}{% endraw %}"
-    green_template: "{% raw %}{{ value.split(',')[2].split('-')[1] }}{% endraw %}"
-    blue_template: "{% raw %}{{ value.split(',')[2].split('-')[2] }}{% endraw %}"
+    state_template: "{{ value.split(',')[0] }}"  # must return `on` or `off`
+    brightness_template: "{{ value.split(',')[1] }}"
+    red_template: "{{ value.split(',')[2].split('-')[0] }}"
+    green_template: "{{ value.split(',')[2].split('-')[1] }}"
+    blue_template: "{{ value.split(',')[2].split('-')[2] }}"
 ```
+
+{% endraw %}
 
 ### JSON payload
 
 For a JSON payload with the format `{"state": "on", "brightness": 255, "color": [255, 255, 255], "effect": "rainbow"}`, add the following to your `configuration.yaml` file:
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -861,7 +983,7 @@ light:
       - colorloop
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: >{% raw %}
+    command_on_template: >
       {"state": "on"
       {%- if brightness is defined -%}
       , "brightness": {{ brightness }}
@@ -872,15 +994,17 @@ light:
       {%- if effect is defined -%}
       , "effect": "{{ effect }}"
       {%- endif -%}
-      }{% endraw %}
+      }
     command_off_template: '{"state": "off"}'
-    state_template: '{% raw %}{{ value_json.state }}{% endraw %}'
-    brightness_template: '{% raw %}{{ value_json.brightness }}{% endraw %}'
-    red_template: '{% raw %}{{ value_json.color[0] }}{% endraw %}'
-    green_template: '{% raw %}{{ value_json.color[1] }}{% endraw %}'
-    blue_template: '{% raw %}{{ value_json.color[2] }}{% endraw %}'
-    effect_template: '{% raw %}{{ value_json.effect }}{% endraw %}'
+    state_template: '{{ value_json.state }}'
+    brightness_template: '{{ value_json.brightness }}'
+    red_template: '{{ value_json.color[0] }}'
+    green_template: '{{ value_json.color[1] }}'
+    blue_template: '{{ value_json.color[2] }}'
+    effect_template: '{{ value_json.effect }}'
 ```
+
+{% endraw %}
 
 ### Template schema - No brightness or color support
 

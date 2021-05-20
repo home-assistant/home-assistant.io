@@ -4,19 +4,22 @@
   "version": "1.0.0",
   "dependencies": {},
   "devDependencies": {
-    "remark-cli": "^8.0.0",
-    "remark-frontmatter": "^1.3.3",
-    "remark-lint": "^7.0.0",
-    "remark-lint-fenced-code-flag": "^2.0.0",
-    "remark-lint-no-shell-dollars": "^2.0.0",
-    "remark-stringify": "^8.0.0",
-    "textlint": "^11.6.3",
+    "remark-cli": "^9.0.0",
+    "remark-frontmatter": "^3.0.0",
+    "remark-lint": "^8.0.0",
+    "remark-lint-fenced-code-flag": "^2.0.1",
+    "remark-lint-no-shell-dollars": "^2.0.2",
+    "remark-stringify": "^9.0.1",
+    "textlint": "^11.9.1",
     "textlint-rule-common-misspellings": "^1.0.1",
-    "textlint-rule-terminology": "^2.1.4"
+    "textlint-rule-terminology": "^2.1.5"
+  },
+  "resolutions": {
+    "minimist": ">=1.2.5"
   },
   "scripts": {
     "markdown:lint": "remark --quiet --frail .",
     "textlint:all": "textlint source",
-    "textlint": "textlint source/_cookbook source/_docs source/_faq source/_integrations source/_lovelace source/cloud source/getting-started source/hassio source/lovelace"
+    "textlint": "textlint source/_examples source/_docs source/_faq source/_integrations source/_lovelace source/cloud source/getting-started source/hassio source/lovelace"
   }
 }

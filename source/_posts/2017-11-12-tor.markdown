@@ -25,7 +25,7 @@ The most amazing part? It is super easy to set up!
 
 ## Setting up Tor
 
-Our [documentation](/docs/ecosystem/tor/) provides a detailed guide about setting up a [Tor's Hidden Service](https://www.torproject.org/docs/hidden-services.html.en). The setup is straight-forward:
+The setup is straight-forward:
 
 1. Install Tor. On a Debian-based system: `$ sudo apt-get install tor`. On Fedora: `$ sudo dnf install tor`
 2. Modify Tor's main configuration file `/etc/tor/torrc` to include the following lines:
@@ -88,7 +88,7 @@ Simply download and install the [Tor Browser](https://www.torproject.org/project
 Some other clients:
 
 - [Orbot](https://guardianproject.info/apps/orbot/) for Android
-- ~~[Orfox](https://play.google.com/store/apps/details?id=info.guardianproject.orfox&hl=nl) for Android~~ Orfox for Android has been deprecated. Please use [Tor Browser for Android](https://www.torproject.org/download/#android). More information about the deprecation [here](https://trac.torproject.org/projects/tor/ticket/29955).
+- Orfox for Android has been deprecated. Please use [Tor Browser for Android](https://www.torproject.org/download/#android). More information about the deprecation [here](https://trac.torproject.org/projects/tor/ticket/29955).
 - [Onion Browser](https://mike.tig.as/onionbrowser/) for iOS
 
 ## Cranking up security
@@ -97,4 +97,4 @@ The setup described in this blog post is easy and relatively secure, but anyone 
 
 This "Stealth"-mode adds an extra layer of security to your Hidden Service by only responding to a client that passes a unique secret cookie as it connects. Obviously, this requires additional configuration on the Tor client applications.
 
-Additional information can be found in the [Tor documentation](/docs/ecosystem/tor/) and the [Tor add-on repository](https://github.com/hassio-addons/addon-tor), including how to setup the "Stealth"-mode. The Tor Project itself provides details about a variety of topics in their  [documentation](https://www.torproject.org/docs/documentation.html.en).
+The Tor Project itself provides details about a variety of topics in their [documentation](https://www.torproject.org/docs/documentation.html.en).

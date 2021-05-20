@@ -1,55 +1,30 @@
 ---
 title: ReCollect Waste
-description: Instructions on how to set up Recollect Waste sensor within Home Assistant.
-logo: recollect-waste.png
+description: Instructions on how to set up ReCollect Waste sensor within Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.87
 ha_iot_class: Cloud Polling
 ha_domain: recollect_waste
+ha_codeowners:
+  - '@bachya'
+ha_config_flow: true
+ha_platforms:
+  - sensor
 ---
 
-The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [Recollect](https://recollect.net/private-waste-haulers/). To use this sensor your city's waste company must be Recollect and you will need to find your place_id and service_id.
+The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [ReCollect](https://recollect.net/private-waste-haulers/).
 
-1. In Chrome open developer tools and go to the network tab.
-2. Go to your city's Recollect collection calendar.
-3. Search for and select your address in the UI.
-4. Watch for a request that looks like
+To use this integration, you must know both your ReCollect Place and Service IDs. In general, cities/municipalities that utilize ReCollect will give you a way to subscribe to a calendar with pickup dates. If you examine the iCal URL for this calendar, the Place and Service IDs are embedded in it:
 
-   ht<span>tps://api.recollect.net/api/places/**(place_id)**/services/**(service_id)**/events?nomerge ...
-
-5. Use the place_id and service_id when configuring the sensor.
-
-## Configuration
-
-To enable this sensor, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: recollect_waste
-    place_id: YOUR_PLACE_ID
-    service_id: YOUR_SERVICE_ID
+```text
+webcal://recollect.a.ssl.fastly.net/api/places/PLACE_ID/services/SERVICE_ID/events.en-US.ics
 ```
 
-{% configuration %}
-place_id:
-  description: The place_id used for your neighbourhood.
-  required: true
-  type: string
-service_id:
-  description: The service_id used for your city.
-  required: true
-  type: string
-name:
-  description: Name the sensor.
-  required: false
-  type: string
-  default: recollect_waste
-{% endconfiguration %}
-
-The default frequency for pulling data from Recollect Waste is once a day (86400 seconds).
+The default frequency for pulling data from ReCollect Waste is once a day (86400 seconds).
 
 <div class='note warning'>
-The Recollect Waste sensor uses the Recollect API <strong>URL</strong> to obtain data not an official API from Recollect. Use at your own risk.
+The ReCollect Waste sensor uses the ReCollect API <strong>URL</strong> to obtain data and not an official API from ReCollect. Use at your own risk.
 </div>
+
+{% include integrations/config_flow.md %}

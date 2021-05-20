@@ -1,7 +1,6 @@
 ---
 title: Notion
 description: How to integrate Notion kits within Home Assistant.
-logo: notion.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -12,30 +11,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: notion
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `Notion` component retrieves data from [Notion](https://getnotion.com) wireless
 home monitoring sensor kits.
 
-## Configuration
-
-To add your Notion kits to your Home Assistant installation, add the following to your
-`configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-notion:
-  username: YOUR_EMAIL_ADDRESS
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: An email address for an active Notion account.
-  required: true
-  type: string
-password:
-  description: The password for the account.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}

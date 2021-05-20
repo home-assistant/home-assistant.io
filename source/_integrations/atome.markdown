@@ -1,7 +1,6 @@
 ---
 title: Atome Linky
 description: Integrate Atome Linky consumption data within Home Assistant.
-logo: total_direct_energie.png
 ha_release: 0.99
 ha_category:
   - Energy
@@ -10,6 +9,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@baqs'
 ha_domain: atome
+ha_platforms:
+  - sensor
 ---
 
 The `atome` sensor platform is retrieving the consumption of your home from the [Direct Energy Atome electric meter](https://total.direct-energie.com/particuliers/electricite/compteur-linky/atome).

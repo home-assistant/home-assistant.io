@@ -4,6 +4,7 @@ description: Instructions on how to setup the browser integration with Home Assi
 ha_category:
   - Utility
 ha_release: pre 0.7
+ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: browser
 ---

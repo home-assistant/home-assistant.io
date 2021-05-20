@@ -7,18 +7,21 @@ ha_category:
   - Cover
   - Light
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_codeowners:
   - '@outadoc'
 ha_domain: smarthab
+ha_platforms:
+  - cover
+  - light
 ---
 
-If your home is fitted with [SmartHab](https://www.smarthab.fr/en/home/)'s 
+If your home is fitted with [SmartHab](https://smarthab.fr/index.php/home-en)'s 
 devices and you have access to their app-based services, you will be able 
 to control your lights and shutters with the SmartHab integration for Home 
 Assistant.
 
-Once you have added a `smarthab` entry to your configuration, your supported 
-devices will automatically be discovered and made available on your dashboard.
+{% include integrations/config_flow.md %}
 
 <div class='note warning'>
   To prevent being automatically logged out of your SmartHab mobile app, you
@@ -26,21 +29,3 @@ devices will automatically be discovered and made available on your dashboard.
   access to your home. You can then configure the integration using this account's
   credentials. This is also more secure, as this user should be less priviledged.
 </div>
-
-```yaml
-# Example configuration.yaml entry
-smarthab:
-  email: EMAIL_ADDRESS
-  password: PASSWORD
-```
-
-{% configuration %}
-email:
-  description: The email address of your SmartHab account.
-  required: true
-  type: string
-password:
-  description: The SmartHab account's password.
-  required: true
-  type: string
-{% endconfiguration %}

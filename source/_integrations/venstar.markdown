@@ -1,12 +1,13 @@
 ---
 title: Venstar
 description: Instructions for how to integrate Venstar WiFi thermostats within Home Assistant.
-logo: venstar.png
 ha_category:
   - Climate
 ha_release: 0.62
 ha_iot_class: Local Polling
 ha_domain: venstar
+ha_platforms:
+  - climate
 ---
 
 The `venstar` climate platform allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.
@@ -16,6 +17,7 @@ Currently supported and tested thermostats:
 
 - ColorTouch T7900  
 - ColorTouch T7850  (No Humidity control)
+- Explorer Mini T2000
 
 Currently supported functionality:
 - Setting heat/cool temperature when the thermostat is in the appropriate mode.

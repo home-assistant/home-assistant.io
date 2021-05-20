@@ -1,12 +1,13 @@
 ---
 title: PulseAudio Loopback
 description: Instructions on how to use Pulseaudio loopback modules to build a flexible whole-home audio system.
-logo: pulseaudio.png
 ha_category:
   - Switch
 ha_release: 0.16
 ha_iot_class: Local Polling
 ha_domain: pulseaudio_loopback
+ha_platforms:
+  - switch
 ---
 
 The goal behind this switch is to allow a very flexible whole home audio system based upon [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/).
@@ -42,27 +43,17 @@ name:
 host:
   description: The IP address or host name of the PulseAudio server.
   required: false
-  default: localhost
+  default: Use client configuration in /etc/pulse
   type: string
 port:
   description: The port that Pulseaudio is listening on.
   required: false
-  default: 4712
-  type: integer
-buffer_size:
-  description: How much data to load from Pulseaudio at once.
-  required: false
-  default: 1024
-  type: integer
-tcp_timeout:
-  description: How long to wait for a response from Pulseaudio before giving up.
-  required: false
-  default: 3
+  default: 4713
   type: integer
 {% endconfiguration %}
 
 <div class='note warning'>
 
-This integration relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with this component, `module-cli-protocol` must be loaded on the PulseAudio server.
+This integration relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with this component, `module-native-protocol` must be loaded on the PulseAudio server.
 
 </div>

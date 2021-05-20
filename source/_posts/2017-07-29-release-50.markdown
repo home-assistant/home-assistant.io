@@ -5,7 +5,9 @@ date: 2017-07-29 00:11:05
 date_formatted: "July 29, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-07-0.50/components.png
 ---
 
@@ -110,7 +112,7 @@ intent_script:
       content: I have turned on the lights.
     action:
       service: light.turn_on
-      data:
+      target:
         entity_id: light.kitchen
 
 conversation:
@@ -120,7 +122,7 @@ conversation:
 ```
 
 - Switch fritzdect: attributes have been renamed to use underscores and no capital letters ([@thomasklingbeil] - [#8436]) (breaking change)
-- Yahoo Weather: no longer allow configuring forecasts but include all instead. ([@fanthos] - [#8626]) ([weather.yweather docs]) (breaking change)
+- Yahoo Weather: no longer allow configuring forecasts but include all instead. ([@fanthos] - [#8626]) (breaking change)
 - The Home Assistant Z-Wave Cover implementation has been updated to support the latest development version of OpenZWave. If you are currently applying a workaround to your OpenZWave installation to support the barrier command class, you'll need to make sure you update your workaround to the latest development version of OpenZWave. ([@firstof9] - [#8574]) ([cover docs]) ([cover.zwave docs]) (breaking change)
 
 ## All changes
@@ -188,7 +190,7 @@ conversation:
 - Fixes Fitbit sensor to report battery level with the expected device ([@tchellomello] - [#8647]) ([sensor.fitbit docs])
 - Upgrade aiolifx ([@amelchio] - [#8648]) ([light.lifx docs])
 - Velbus ([@thomasdelaet] - [#8076]) ([velbus docs]) ([binary_sensor.velbus docs]) ([light.velbus docs]) (new-platform)
-- Yahoo Weather update, supports forecast for more days ([@fanthos] - [#8626]) ([weather.yweather docs]) (breaking change)
+- Yahoo Weather update, supports forecast for more days ([@fanthos] - [#8626]) (breaking change)
 - History performance improvements for single-entity requests ([@OverloadUT] - [#8632]) ([history docs])
 - Add transition support to light.zha ([@jawilson] - [#8548]) ([light.zha docs])
 - Add uk_transport component. ([@robmarkcole] - [#8600]) ([sensor.uk_transport docs]) (new-platform)
@@ -396,7 +398,6 @@ conversation:
 [switch.xiaomi docs]: /integrations/switch.xiaomi_aqara/
 [switch.xiaomi_vacuum docs]: /integrations/vacuum.xiaomi_miio/
 [velbus docs]: /integrations/velbus/
-[weather.yweather docs]: /integrations/yweather
 [wink docs]: /integrations/wink/
 [xiaomi docs]: /integrations/xiaomi_aqara
 [forum]: https://community.home-assistant.io/

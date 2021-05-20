@@ -5,7 +5,9 @@ date: 2017-05-06 01:04:05 +0000
 date_formatted: "May 6, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-05-0.44/components.png
 ---
 
@@ -78,7 +80,7 @@ influxdb:
        - entity.id4
 ```
 
-- The Automatic device tracker has been converted from polling to websocket push. This requires you to make a change in your Automatic account, see [our documentation for instructions][device_tracker.automatic docs]. ([@armills] - [#7404]) ([device_tracker.automatic docs]) (breaking change)
+- The Automatic device tracker has been converted from polling to websocket push. This requires you to make a change in your Automatic account, see our documentation for instructions. ([@armills] - [#7404]) (breaking change)
 - The LimitlessLED color temperatures have been turned around to work like other lights. To maintain previous colors you must adjust the color_temp value in your light.turn_on calls to 654 minus your old value (for example, 280 becomes 374). ([@amelchio] - [#7359]) (breaking change)
 - Joao apps will now require an API key to be set for all commands. ([@nkgilley] - [#7443]) ([joaoapps_join docs]) ([notify.joaoapps_join docs]) (breaking change)
 
@@ -136,7 +138,7 @@ influxdb:
 - Fix breaking SSL in test HTML5 ([@balloob] - [#7310]) ([notify.html5 docs])
 - Upgrade pyhomematic, extend device support ([@danielperna84] - [#7303])
 - Issue 7218 update pylgtv to 0.1.7 ([@hmn] - [#7302]) ([media_player.webostv docs]) ([notify.webostv docs])
-- Version bump of aioautomatic ([@armills] - [#7300]) ([device_tracker.automatic docs])
+- Version bump of aioautomatic ([@armills] - [#7300])
 - Upgrade python-telegram-bot to 5.3.1 ([@fabaff] - [#7311]) ([notify.telegram docs]) ([telegram_bot.polling docs]) ([telegram_bot.webhooks docs])
 - Disable Open Z-Wave in Docker ([@balloob] - [#7315])
 - LIFX: use white light when setting a specific temperature ([@amelchio] - [#7256]) ([light.lifx docs])
@@ -146,7 +148,7 @@ influxdb:
 - Reduce color_xy_brightness_to_hsv to color_xy_to_hs ([@amelchio] - [#7320]) ([light.hue docs]) ([light.lifx docs])
 - Fix broken docker build ([@turbokongen] - [#7316])
 - Re-enable Open Z-Wave in Dockerfile ([@balloob] - [#7325])
-- Version bump for automatic ([@armills] - [#7329]) ([device_tracker.automatic docs])
+- Version bump for automatic ([@armills] - [#7329])
 - Right fix for Python Open Z-Wave in Docker ([@balloob] - [#7337])
 - Use four-digits year ([@fabaff] - [#7336])
 - Allow multiple recipients for SMTP notify ([@amelchio] - [#7319]) ([notify.smtp docs])
@@ -183,7 +185,7 @@ influxdb:
 - Remove path whitelisting for hassio ([@balloob] - [#7399])
 - Add Eight sleep component ([@mezz64] - [#7275]) ([eight_sleep docs]) ([binary_sensor.eight_sleep docs]) ([sensor.eight_sleep docs]) (new-platform)
 - OpenGarage support ([@swbradshaw] - [#7338]) ([cover.opengarage docs]) (new-platform)
-- Clean up requirements ([@andrey-git] - [#7391]) ([nuimo_controller docs]) ([sensor.dht docs]) ([sensor.thinkingcleaner docs]) ([switch.thinkingcleaner docs])
+- Clean up requirements ([@andrey-git] - [#7391]) ([sensor.dht docs]) ([sensor.thinkingcleaner docs]) ([switch.thinkingcleaner docs])
 - correct MQTT subscription filter ([@amigian74] - [#7269]) ([mqtt docs])
 - Update docstrings ([@fabaff] - [#7374])
 - light.blinkt: update brightness control logic ([@imrehg] - [#7389])
@@ -195,7 +197,7 @@ influxdb:
 - Pilight binary sensor components ([@zeltom] - [#6774]) ([binary_sensor.pilight docs]) (new-platform)
 - applx suggested fix from issue #6573 ([@wokar] - [#7390]) ([sensor.zamg docs])
 - remove charset if set in content type header ([@hmn] - [#7411]) ([media_player docs])
-- Convert automatic device tracker to push updates ([@armills] - [#7404]) ([device_tracker.automatic docs]) (breaking change)
+- Convert automatic device tracker to push updates ([@armills] - [#7404]) (breaking change)
 - light.piglow update ([@imrehg] - [#7408]) ([light.piglow docs])
 - Opencv ([@Teagan42] - [#7261]) ([opencv docs]) ([image_processing.opencv docs]) (new-platform)
 - Fixed extra R in variable name. ([@cyberplant] - [#7418])
@@ -427,7 +429,6 @@ influxdb:
 [cover.garadget docs]: /integrations/garadget
 [cover.opengarage docs]: /integrations/opengarage
 [cover.zwave docs]: /integrations/zwave#cover
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.zha docs]: /integrations/device_tracker.zha/
 [ecobee docs]: /integrations/ecobee/
 [eight_sleep docs]: /integrations/eight_sleep/
@@ -463,7 +464,6 @@ influxdb:
 [notify.smtp docs]: /integrations/smtp
 [notify.telegram docs]: /integrations/telegram
 [notify.webostv docs]: /integrations/webostv
-[nuimo_controller docs]: /integrations/nuimo_controller/
 [octoprint docs]: /integrations/octoprint/
 [opencv docs]: /integrations/opencv/
 [plant docs]: /integrations/plant/

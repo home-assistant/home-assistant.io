@@ -3,16 +3,17 @@
     <h1 class="title delta">Topics</h1>
     <ul class="divided sidebar-menu">
       <li>
-        <b>{% active_link /faq/ FAQ %}</b> |
+        <b>{% active_link /faq/ FAQ %}</b>
+        |
         <b>{% active_link /docs/glossary/ Glossary %}</b>
       </li>
       <li>
-        <b>{% active_link /docs/installation/ Installation %}</b>
+        <b>{% active_link /getting-started Getting Started %}</b>
         <ul>
-          <li>{% active_link /hassio/ Home Assistant %}</li>
-          <li>{% active_link /docs/installation/updating/ Updating %}</li>
+          <li>{% active_link /installation Installation %}</li>
+          <li>{% active_link /common-tasks/os/ Common Tasks %}</li>
           <li>
-            {% active_link /docs/installation/troubleshooting/ Troubleshooting
+            {% active_link /docs/troubleshooting/ Troubleshooting
             %}
           </li>
         </ul>
@@ -84,15 +85,27 @@
       <li>
         <b>{% active_link /docs/automation/ Automation %}</b>
         <ul>
-          <li>{% active_link /docs/automation/examples/ Examples %}</li>
+          <li>{% active_link /docs/automation/using_blueprints/ Using Automation Blueprints %}</li>
+          <li>{% active_link /docs/automation/basics/ Automation Basics %}</li>
           <li>{% active_link /docs/automation/editor/ Editor %}</li>
           <li>{% active_link /docs/automation/trigger/ Triggers %}</li>
           <li>{% active_link /docs/automation/condition/ Conditions %}</li>
           <li>{% active_link /docs/automation/action/ Actions %}</li>
+          <li>{% active_link /docs/automation/modes/ Run Modes %}</li>
+          <li>{% active_link /docs/automation/services/ Services %}</li>
           <li>{% active_link /docs/automation/templating/ Templates %}</li>
+          <li>{% active_link /docs/automation/yaml/ YAML %}</li>
           <li>
             {% active_link /docs/automation/troubleshooting/ Troubleshooting %}
           </li>
+        </ul>
+      </li>
+      <li>
+        <b>{% active_link /docs/blueprint/ Blueprints %}</b>
+        <ul>
+          <li>{% active_link /docs/blueprint/tutorial/ Tutorial %}</li>
+          <li>{% active_link /docs/blueprint/schema/ Schema %}</li>
+          <li>{% active_link /docs/blueprint/selectors/ Selectors %}</li>
         </ul>
       </li>
       <li>
@@ -109,8 +122,6 @@
         <b>{% active_link /docs/backend/ Backend %}</b>
         <ul>
           <li>{% active_link /docs/backend/database/ Database %}</li>
-          <li>{% active_link /docs/backend/updater/ Updater %}</li>
-          <li>{% active_link /developers/api/ API %}</li>
         </ul>
       </li>
       <li>
@@ -131,20 +142,9 @@
         <b>{% active_link /docs/tools/ Tools and Helpers %}</b>
         <ul>
           <li>{% active_link /docs/tools/dev-tools/ Developer Tools %}</li>
+          <li>{% active_link /docs/tools/quick-bar/ Quick Bar %}</li>
           <li>{% active_link /docs/tools/hass/ hass %}</li>
-          <li>{% active_link /docs/tools/benchmark/ benchmark %}</li>
           <li>{% active_link /docs/tools/check_config/ check_config %}</li>
-          <li>{% active_link /docs/tools/credstash/ credstash %}</li>
-          <li>{% active_link /docs/tools/ensure_config/ ensure_config %}</li>
-          <li>{% active_link /docs/tools/keyring/ keyring %}</li>
-        </ul>
-      </li>
-      <li>
-        <b>{% active_link /docs/security/ Security %}</b>
-        <ul>
-          <li>
-            {% active_link /docs/security/webserver/ Web server fingerprint %}
-          </li>
         </ul>
       </li>
       <li>
@@ -161,18 +161,23 @@
           </li>
           <li>{% active_link /docs/z-wave/controllers/ Controllers %}</li>
           <li>
-            {% active_link /docs/z-wave/devices/ Devices %} and {% active_link
+            {% active_link /docs/z-wave/devices/ Devices %}
+            and
+            {% active_link
             /docs/z-wave/entities/ Entities %}
           </li>
           <li>
-            {% active_link /docs/z-wave/query-stage/ Query Stages %} for devices
+            {% active_link /docs/z-wave/query-stage/ Query Stages %}
+            for devices
           </li>
           <li>
             {% active_link /docs/z-wave/device-specific/ Device Specific %}
             configuration
           </li>
           <li>
-            {% active_link /docs/z-wave/events/ Events %} and {% active_link
+            {% active_link /docs/z-wave/events/ Events %}
+            and
+            {% active_link
             /docs/z-wave/services/ Services %}
           </li>
         </ul>
@@ -190,134 +195,6 @@
           </li>
           <li>{% active_link /docs/mqtt/testing/ Testing your setup %}</li>
           <li>{% active_link /docs/mqtt/logging/ Logging %}</li>
-          <li>{% active_link /docs/mqtt/processing_json/ Processing JSON %}</li>
-        </ul>
-      </li>
-      <li>
-        <b>{% active_link /docs/ecosystem/ios/ iOS %}</b>
-        <ul>
-          <li>
-            {% active_link /docs/ecosystem/ios/notifications/basic/ Basic
-            notifications %}
-          </li>
-          <ul>
-            <li>
-              {% active_link /docs/ecosystem/ios/notifications/sounds/ Sounds %}
-            </li>
-            <li>
-              {% active_link /docs/ecosystem/ios/notifications/architecture/
-              Architecture %}
-            </li>
-            <li>
-              {% active_link
-              /docs/ecosystem/ios/notifications/privacy_security_rate_limits/
-              Privacy, rate limiting and security %}
-            </li>
-          </ul>
-          <li>Advanced notifications</li>
-          <ul>
-            <li>
-              {% active_link /docs/ecosystem/ios/notifications/attachments/
-              Attachments %}
-            </li>
-            <li>
-              {% active_link
-              /docs/ecosystem/ios/notifications/content_extensions/ Dynamic
-              content %}
-            </li>
-            <li>
-              {% active_link /docs/ecosystem/ios/notifications/actions/
-              Actionable notifications %}
-            </li>
-            <li>
-              {% active_link
-              /docs/ecosystem/ios/notifications/requesting_location_updates/
-              Requesting location updates %}
-            </li>
-          </ul>
-          <li>
-            {% active_link /docs/ecosystem/ios/location/ Location Tracking %}
-          </li>
-          <li>
-            {% active_link /docs/ecosystem/ios/integration/ Integration with
-            other apps %}
-          </li>
-        </ul>
-      </li>
-      <li>
-        {% active_link /docs/ecosystem/ Ecosystem %}
-        <ul>
-          <li>
-            {% active_link /docs/autostart/ Autostart %}
-            <ul>
-              <li>
-                {% active_link /docs/autostart/systemd/ systemd (Linux) %}
-              </li>
-              <li>
-                {% active_link /docs/autostart/upstart/ Upstart (Linux) %}
-              </li>
-              <li>{% active_link /docs/autostart/init.d/ init.d (Linux) %}</li>
-              <li>{% active_link /docs/autostart/macos/ macOS %}</li>
-              <li>{% active_link /docs/autostart/synology/ Synology NAS %}</li>
-            </ul>
-          </li>
-          <li>
-            {% active_link /docs/ecosystem/appdaemon/ AppDaemon %}
-          </li>
-          <li>
-            {% active_link /docs/ecosystem/hadashboard/ HADashboard %}
-          </li>
-          <li>
-            Remote access
-            <ul>
-              <li>{% active_link /docs/ecosystem/apache/ Apache %}</li>
-              <li>{% active_link /docs/ecosystem/caddy/ Caddy Server %}</li>
-              <li>{% active_link /docs/ecosystem/haproxy/ HAProxy %}</li>
-              <li>{% active_link /docs/ecosystem/nginx/ NGINX %}</li>
-              <li>
-                {% active_link /docs/ecosystem/nginx_subdomain/ NGINX with
-                subdomain%}
-              </li>
-              <li>{% active_link /docs/ecosystem/tor/ Tor Onion Service %}</li>
-            </ul>
-          </li>
-          <li>
-            {% active_link /docs/ecosystem/certificates/ Certificates %}
-            <ul>
-              <li>
-                {% active_link
-                /docs/ecosystem/certificates/tls_self_signed_certificate/
-                Self-signed certificate %}
-              </li>
-              <li>
-                {% active_link
-                /docs/ecosystem/certificates/tls_domain_certificate/ Certificate
-                domain owners %}
-              </li>
-              <li>
-                {% active_link /docs/ecosystem/certificates/lets_encrypt/ Let's
-                Encrypt (detailed) %}
-              </li>
-            </ul>
-          </li>
-          <li>
-            Backup
-            <ul>
-              <li>
-                {% active_link /docs/ecosystem/backup/backup_github/ Backup to
-                GitHub %}
-              </li>
-              <li>
-                {% active_link /docs/ecosystem/backup/backup_dropbox/ Backup to
-                Dropbox %}
-              </li>
-              <li>
-                {% active_link /docs/ecosystem/backup/backup_usb/ Backup to USB
-                device %}
-              </li>
-            </ul>
-          </li>
-          <li>{% active_link /docs/ecosystem/synology/ Synology %}</li>
         </ul>
       </li>
     </ul>

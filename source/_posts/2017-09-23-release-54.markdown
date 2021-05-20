@@ -5,7 +5,9 @@ date: 2017-09-23 00:11:05
 date_formatted: "September 23, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-09-0.54/components.png
 ---
 
@@ -79,7 +81,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Improve Python script ([@doudz] - [#9417]) ([python_script docs])
 - Add manual alarm_control_panel pending time per state ([@snjoetw] - [#9264]) ([alarm_control_panel.manual docs])
 - Rename xiaomi #9425 ([@danielhiversen] - [#9426]) (breaking change)
-- Bump version of aioautomatic ([@armills] - [#9435]) ([device_tracker.automatic docs])
+- Bump version of aioautomatic ([@armills] - [#9435])
 - Fix russound_rio for python 3.4 ([@wickerwaka] - [#9428]) ([media_player.russound_rio docs])
 - Basic MQTT vacuum support ([@johnboiles] - [#9386]) ([vacuum docs]) ([vacuum.mqtt docs]) (new-platform)
 - Optimaze vacuum mqtt platform ([@pvizeli] - [#9439]) ([vacuum.mqtt docs])
@@ -299,7 +301,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [cover.abode docs]: /integrations/abode
 [cover.knx docs]: /integrations/cover.knx/
 [device_tracker.aruba docs]: /integrations/aruba
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.keenetic_ndms2 docs]: /integrations/keenetic_ndms2
 [device_tracker.owntracks docs]: /integrations/owntracks
 [doorbird docs]: /integrations/doorbird/

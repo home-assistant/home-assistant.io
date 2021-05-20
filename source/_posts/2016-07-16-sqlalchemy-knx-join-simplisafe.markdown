@@ -5,7 +5,9 @@ date: 2016-07-16 12:00:00 +0000
 date_formatted: "July 16, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's time for Home Assistant 0.24 and it's full of new integration for your Home. It contains some structural changes to our history which requires action from your end, so please keep reading.
@@ -21,10 +23,10 @@ hass --script db_migrator --config /path/to/config
 
 You can omit the `--config` option if you use the default configuration directory. Run the script with `--help` to get more options.
 
-<img src='/images/supported_brands/yahooweather.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/joaoapps_join.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://brands.home-assistant.io/knx/logo.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/tp-link.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='/images/supported_brands/joaoapps_join.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://brands.home-assistant.io/knx/logo.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/tp-link.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 - Config: Improved support for storing [secrets][secrets] ([@kellerza])
-- Sensor: Support for [Yahoo! Weather][yahoo-weather] ([@pvizeli])
+- Sensor: Support for Yahoo! Weather ([@pvizeli])
 - Add scripts to command line to expose advanced options ([@balloob])
 - Alarm: [SimpliSafe][simplisafe] is now supported ([@w1ll1am23]) 
 - Core: Switch to SQLAlchemy for the Recorder component ([@rhooper])
@@ -92,6 +94,5 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [Telegram]: /integrations/telegram
 [TPLink]: /integrations/tplink
 [Verisure]: /integrations/verisure
-[yahoo-weather]: /integrations/yweather
 [Z-Wave]: /integrations/zwave/
 [RFXtrx]: /integrations/rfxtrx/

@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: frontend
 ---
 
-This offers the official frontend to control Home Assistant. This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This offers the official frontend to control Home Assistant. This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -18,11 +18,6 @@ frontend:
 ```
 
 {% configuration %}
-  javascript_version:
-    description: "DEPRECATED, it is now done using feature detection in the browser. Version of the JavaScript to serve to clients. Options: `es5` - transpiled so old browsers understand it.  `latest` - not transpiled, so will work on recent browsers only. `auto` - select a version according to the browser user-agent. The value in the configuration can be overiden by putting `es5` or `latest` in the URL. For example `http://localhost:8123/states?es5` "
-    required: false
-    type: string
-    default: auto
   themes:
     description: Allow to define different themes. See below for further details.
     required: false
@@ -37,12 +32,8 @@ frontend:
             description: The CSS identifier.
             required: true
             type: [list, string]
-  extra_html_url:
-    description: "List of additional [resources](/developers/frontend_creating_custom_ui/) to load in `latest` javascript mode."
-    required: false
-    type: list
   extra_module_url:
-    description: "List of additional javascript modules to load."
+    description: "List of additional javascript modules to load in `latest` javascript mode."
     required: false
     type: list
   extra_js_url_es5:
@@ -66,77 +57,70 @@ frontend:
   themes:
     happy:
       primary-color: pink
+      text-primary-color: purple
+      mdc-theme-primary: plum
     sad:
       primary-color: blue
 ```
 
-The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
+The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. If you want to provide hex color values, wrap those in apostrophes, since otherwise YAML would consider them to be comments (`primary-color: '#123456'`). For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
+
+As with all configuration, you can either:
+
+- Directly specify the themes inside your `configuration.yaml` file 
+- Put them into a separate file (e.g. `themes.yaml`) and include that in your configuration (`themes: !include themes.yaml`) 
+- Create a dedicated folder (e.g. `my_themes`) and include all files from within this folder (`themes: !include_dir_merge_named my_themes`)
+
+For more details about splitting up the configuration into multiple files, see [this page](/docs/configuration/splitting_configuration/).
 
 Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
 
-### Theme automation
+## Setting themes
 
 There are 2 themes-related services:
 
- - `frontend.reload_themes`: reloads theme configuration from your `configuration.yaml` file.
- - `frontend.set_theme(name)`: sets backend-preferred theme name.
+ - `frontend.reload_themes`: Reloads theme configuration from your `configuration.yaml` file.
+ - `frontend.set_theme`: Sets backend-preferred theme name.
 
-Example in automation:
+ ### Service `set_theme`
 
-Set a theme at the startup of Home Assistant:
+| Service data attribute | Description                                                                                         |
+| ---------------------- | --------------------------------------------------------------------------------------------------- |
+| `name`                 | Name of the theme to set, `default` for the default theme or `none` to restore to the default.      |
+| `mode`                 | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`)  |
 
-```yaml
-automation:
-  - alias: 'Set theme at startup'
-    trigger:
-     - platform: homeassistant
-       event: start
-    action:
-      service: frontend.set_theme
-      data:
-        name: happy
-```
-
-To enable "night mode":
-
-```yaml
-automation:
-  - alias: 'Set dark theme for the night'
-    trigger:
-      - platform: time
-        at: '21:00:00'
-    action:
-      - service: frontend.set_theme
-        data:
-          name: darkred
-```
+If no dark mode backend theme is set, the light mode theme will also be used in dark mode.
+The backend theme settings will be saved and restored on a restart of Home Assistant.
 
 ### Manual Theme Selection
 
 When themes are enabled in the `configuration.yaml` file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
+This will overrule the theme settings set by the above service calls, and will only be applied to the current device.
 
 <p class='img'>
   <img src='/images/frontend/user-theme.png' />
   Set a theme
 </p>
 
-## Loading extra HTML
+## Loading extra JavaScript
 
-Starting with version 0.53 you can specify extra HTML files to load, and starting with version 0.95 extra JS modules.
+Starting with version 0.95 you can load extra custom JavaScript.
 
 Example:
 
 ```yaml
 # Example configuration.yaml entry
 frontend:
-  extra_html_url:
-    - https://example.com/file1.html
-    - /local/file2.html
   extra_module_url:
     - /local/my_module.js
+  extra_js_url_es5:
+    - /local/my_es5.js
 ```
 
-HTML will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels), and modules via `<script type='module' scr='{{ extra_module }}'></script>`.
+Modules will be loaded with `import({{ extra_module }})`, on devices that support it (`latest` mode).
+For other devices (`es5` mode) you can use `extra_js_url_es5`, this will be loaded with `<script defer src='{{ extra_module }}'></script>`
+
+The ES5 and module version will never both be loaded, depending on if the device supports `import` the module of ES5 version will be loaded.
 
 ### Manual Language Selection
 

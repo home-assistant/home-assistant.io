@@ -1,12 +1,13 @@
 ---
 title: Aladdin Connect
 description: Instructions how to integrate Genie Aladdin Connect garage door covers into Home Assistant.
-logo: aladdin_connect.png
 ha_category:
   - Cover
 ha_release: 0.75
 ha_iot_class: Cloud Polling
 ha_domain: aladdin_connect
+ha_platforms:
+  - cover
 ---
 
 The `aladdin_connect` cover platform lets you control Genie Aladdin Connect garage doors through Home Assistant.

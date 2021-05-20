@@ -1,11 +1,13 @@
 ---
 title: Rogers Hitron CODA
 description: Instructions on how to integrate Hitron CODA Routers into Home Assistant.
-logo: hitron.png
 ha_category:
   - Presence Detection
 ha_release: 0.58
 ha_domain: hitron_coda
+ha_iot_class: Local Polling
+ha_platforms:
+  - device_tracker
 ---
 
 This integration offers presence detection by examining devices connected to a [Rogers Hitron CODA](https://www.rogers.com/customer/support/article/wi-fi-password-hitron-coda4582-cgn3amr-cgnm3552-cgn3acr-cgn3)

@@ -1,29 +1,37 @@
 ---
-title: Nextcloud Sensor
+title: Nextcloud
 description: Instructions on how to integrate Nextcloud monitor api data into Home Assistant.
 ha_category:
   - Sensor
+  - Binary Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.108
 ha_domain: nextcloud
+ha_codeowners:
+  - '@meichthys'
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) information into Home Assistant.
 
-![Nextcloud Example Sensor]('/images/screenshots/nextcloud-sample-sensor.png')
+![Nextcloud Example Sensor](/images/screenshots/nextcloud-sample-sensor.png)
 
 ## Configuration
 
-This integration requires access to the monitor API of a Nextcloud instance (This is generally an admin user).
+This integration has the following Nextcloud Server prerequisites:
 
-You should also generate an App password from the Nextcloud web UI: **Settings** > **Security** > **Devices & sessions** > **Create new app password**.
+- The user must be in the Nextcloud `admin` group (__*Nextcloud*__ > __*Users*__)
+- The Nextcloud 'Monitoring' app must be installed (__*Nextcloud*__ > __*Apps*__ > 🔍(Search Icon) > __*Monitoring*__ > __*Enable*__)
+- (Recommended) A Nextcloud App password should be generated for use in Home Assistant (__*Nextcloud*__ > __*Settings*__ > __*Personal*__ > __*Security*__ > __*Devices & sessions*__ > __*Create new app password*__)
 
-Once you have generated the App password, add the following to your `configuration.yaml` file:
+To enable the Nextcloud integration, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 nextcloud:
-  url: Https://YOUR_NEXTCLOUD_URL
+  url: https://YOUR_NEXTCLOUD_URL
   username: YOUR_USERNAME
   password: YOUR_APP_PASSWORD
 

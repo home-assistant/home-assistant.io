@@ -5,7 +5,9 @@ date: 2017-09-09 00:11:05
 date_formatted: "September 9, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-09-0.53/components.png
 ---
 
@@ -149,7 +151,7 @@ frontend:
 - A bugfix for pushbullet ([@danielhiversen] - [#9237]) ([notify.pushbullet docs])
 - mopar sensor ([@happyleavesaoc] - [#9136]) (new-platform)
 - Upgrade discord.py to 0.16.11 ([@fabaff] - [#9239]) ([notify.discord docs])
-- Skip automatic events older than latest data ([@armills] - [#9230]) ([device_tracker.automatic docs])
+- Skip automatic events older than latest data ([@armills] - [#9230])
 - title and message was swapped in pushbullet ([@danielhiversen] - [#9241]) ([notify.pushbullet docs])
 - Fix possible KeyError ([@MartinHjelmare] - [#9242]) ([mysensors docs])
 - WIP: Homematic improvements with new hass interfaces ([@pvizeli] - [#9058]) ([homematic docs]) ([binary_sensor.homematic docs]) ([climate.homematic docs]) ([cover.homematic docs]) ([light.homematic docs]) ([sensor.homematic docs]) ([switch.homematic docs]) (breaking change)
@@ -372,10 +374,9 @@ frontend:
 [cover.abode docs]: /integrations/abode
 [cover.homematic docs]: /integrations/homematic
 [cover.lutron_caseta docs]: /integrations/lutron_caseta/
-[cover.rfxtrx docs]: /integrations/cover.rfxtrx/
+[cover.rfxtrx docs]: /integrations/rfxtrx#covers
 [cover.xiaomi docs]: /integrations/cover.xiaomi_aqara/
 [cover.knx docs]: /integrations/cover.knx/
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.geofency docs]: /integrations/geofency
 [device_tracker.tesla docs]: /integrations/tesla
 [device_tracker.volvooncall docs]: /integrations/volvooncall
@@ -390,7 +391,7 @@ frontend:
 [light.lutron_caseta docs]: /integrations/lutron_caseta/
 [light.mqtt docs]: /integrations/light.mqtt/
 [light.xiaomi_philipslight docs]: /integrations/light.xiaomi_miio/
-[light.rfxtrx docs]: /integrations/light.rfxtrx/
+[light.rfxtrx docs]: /integrations/rfxtrx#lights
 [light.tradfri docs]: /integrations/tradfri
 [light.knx docs]: /integrations/light.knx/
 [light.zha docs]: /integrations/zha
@@ -436,7 +437,7 @@ frontend:
 [switch.homematic docs]: /integrations/homematic
 [switch.lutron_caseta docs]: /integrations/lutron_caseta/
 [switch.rest docs]: /integrations/switch.rest/
-[switch.rfxtrx docs]: /integrations/switch.rfxtrx/
+[switch.rfxtrx docs]: /integrations/rfxtrx#switches
 [switch.knx docs]: /integrations/switch.knx/
 [telegram_bot docs]: /integrations/telegram_bot/
 [tesla docs]: /integrations/tesla/

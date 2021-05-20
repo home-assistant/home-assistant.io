@@ -4,14 +4,16 @@ description: "Telegram webhooks support"
 ha_category:
   - Notifications
 ha_release: 0.42
+ha_iot_class: Cloud Push
 ha_domain: telegram_bot
 ---
 
 Telegram chatbot webhooks implementation as described in the Telegram [documentation](https://core.telegram.org/bots/webhooks).
 
-Using Telegrams `setWebhook` method your bot's webhook URL should be set to `https://<public_url>:<port>/api/telegram_webhooks`.
+By default this integration sets your bot's webhook URL automatically to `https://<external_url>/api/telegram_webhooks` with the external_url of your Home Assistant [configuration](/docs/configuration/basic/) using Telegrams `setWebhook` method.
 
 This is one of two bot implementations supported by Telegram. Described by Telegram as the preferred implementation but requires your Home Assistant instance to be exposed to the internet.
+The other implementation method is [Telegram polling](/integrations/telegram_polling/), for which your Home Assistant instance does not have to be exposed to the internet.
 
 ## Configuration
 
@@ -19,21 +21,17 @@ To integrate this into Home Assistant, add the following section to your `config
 
 ```yaml
 # Example configuration.yaml entry
-http:
-  base_url: <public_url> # the Home Assistant https url which is exposed to the internet.
-
 telegram_bot:
   - platform: webhooks
     api_key: YOUR_API_KEY
-    parse_mode: html
     allowed_chat_ids:
-      - 12345
-      - 67890
+      - 123456789 # example id of a user
+      - -987654321  # example id of a group, starts with a -
 ```
 
 {% configuration %}
 allowed_chat_ids:
-  description: A list of ids representing the users and group chats that are authorized to interact with the webhook.
+  description: A list of ids representing the users and group chats that are authorized to interact with the bot.
   required: true
   type: list
 api_key:
@@ -54,7 +52,7 @@ proxy_params:
   required: false
   type: string
 url:
-  description: Allow to overwrite the `base_url` from the [`http`](/integrations/http/) integration for different configurations (`https://<public_url>:<port>`).
+  description: Allow to overwrite the external URL from the Home Assistant [configuration](/docs/configuration/basic/) for different setups (`https://<public_url>:<port>`).
   required: false
   type: string
 trusted_networks:
@@ -72,16 +70,14 @@ The configuration sample below shows how an entry can look like:
 
 ```yaml
 # Example configuration.yaml entry
-http:
-  base_url: <public_url>
-
 telegram_bot:
   - platform: webhooks
     api_key: YOUR_API_KEY
+    parse_mode: html
     trusted_networks:
       - 149.154.160.0/20
       - 91.108.4.0/22
     allowed_chat_ids:
-      - 12345
-      - 67890
+      - 123456789 # example id of a user
+      - -987654321  # example id of a group, starts with a -
 ```

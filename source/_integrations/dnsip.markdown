@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: '0.40'
 ha_domain: dnsip
+ha_platforms:
+  - sensor
 ---
 
 The `dnsip` sensor will expose an IP address, fetched via DNS resolution, as its value. There are two operational modes:

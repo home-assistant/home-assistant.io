@@ -4,11 +4,12 @@ description: Instructions on how to set up Discogs sensors within Home Assistant
 ha_category:
   - Multimedia
 ha_release: 0.61
-logo: discogs.png
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@thibmaek'
 ha_domain: discogs
+ha_platforms:
+  - sensor
 ---
 
 The `discogs` platform allows you to see the current amount of records in your [Discogs](https://www.discogs.com) collection.

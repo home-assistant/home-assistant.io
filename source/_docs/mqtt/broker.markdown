@@ -8,9 +8,19 @@ The MQTT integration needs you to run an MQTT broker for Home Assistant to conne
 
 ### Run your own
 
-This is the most private option, is running your own MQTT broker.
+The most private option is running your own MQTT broker.
 
-The recommended setup method is to use the [Mosquitto MQTT broker add-on](/addons/mosquitto).
+The recommended setup method is to use the [Mosquitto MQTT broker add-on](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/DOCS.md).
+
+</div>
+
+<div class='note warning'>
+
+Neither ActiveMQ MQTT broker nor the RabbitMQ MQTT Plugin are supported, use a known working broker like Mosquitto instead.
+There are [at least two](https://issues.apache.org/jira/browse/AMQ-6360) [issues](https://issues.apache.org/jira/browse/AMQ-6575) with the ActiveMQ MQTT broker which break MQTT message retention.
+There is [an issue](https://github.com/rabbitmq/rabbitmq-mqtt/issues/154) with the RabbitMQ MQTT Plugin which breaks MQTT message retention.
+
+</div>
 
 ## Configuration
 
@@ -58,10 +68,6 @@ tls_insecure:
   description: Set the verification of the server hostname in the server certificate.
   type: boolean
   default: false
-tls_version:
-  required: false
-  description: "TLS/SSL protocol version to use. Available options are: `'auto'`, `'1.0'`, `'1.1'`, `'1.2'`. Make sure to put quotes around the value. Defaults to `'auto'`."
-  type: string
 {% endconfiguration %}
 
 <div class='note'>
@@ -86,17 +92,50 @@ mqtt:
   certificate: /home/paulus/downloads/mosquitto.org.crt
 ```
 
+### HiveMQ Cloud
+
+HiveMQ Cloud is a fully managed MQTT broker that provides you a private broker.
+A free plan for up to 100 devices is available. You can see all of HiveMQ's
+different plan options here: <https://www.hivemq.com/mqtt-cloud-broker/>
+
+Home Assistant is not affiliated with HiveMQ Cloud and does not receive any kickbacks.
+
+1. [Create an account](http://console.hivemq.cloud) (links to sign up).
+2. When sign up you will receive automatically the free plan that allows you to
+   connect up to 100 devices.
+3. Create MQTT credentials in the "Access Management" tab of your
+   "Cluster Detail View" you can use to connect Home Assistant
+   and any MQTT device.
+4. [Download](https://letsencrypt.org/certs/trustid-x3-root.pem) the trusted
+   certificate from let’s encrypt to ensure secure communication between
+   Home Assistant and your HiveMQ Cloud cluster.
+5. Copy the broker info to your `configuration.yaml`. You can find the
+   "Broker Hostname" in the "Cluster Overview". Use the credentials you just
+   created as username and password and the path from the downloaded certificate:
+   ![Cluster Details on the tab Overview](/images/integrations/mqtt/hivemq-details.png)
+
+```yaml
+mqtt:
+  broker: "HIVEMQ_BROKER_HOSTNAME"
+  port: 8883
+  username: "MQTT_USERNAME"
+  password: "MQTT_PASSWORD"
+  certificate: PATH_TO_STORED_CERTIFICATE
+```
+
+After restarting Home Assistant, your MQTT integration connected to HiveMQ Cloud
+will appear.
+
 ### CloudMQTT
 
-[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example [OwnTracks](/integrations/owntracks/) and give you a taste of what is possible.
+[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance. Plans start at 5$ per month.
 
 <div class='note'>
 Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
 </div>
 
- 1. [Create an account](https://customer.cloudmqtt.com/login) (no payment details needed)
+ 1. [Create an account](https://customer.cloudmqtt.com/login)
  2. [Create a new CloudMQTT instance](https://customer.cloudmqtt.com/subscription/create)
-    (Cute Cat is the free plan)
  3. From the control panel, click on the _Details_ button.
  4. Create unique users for Home Assistant and each phone to connect<br>(CloudMQTT does not allow two connections from the same user)
       1. Under manage users, fill in username, password and click add
@@ -120,50 +159,3 @@ Home Assistant will automatically load the correct certificate if you connect to
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then add `certificate: auto` to your broker configuration and restart Home Assistant.
 
 </div>
-
-### Embedded broker (Deprecated)
-
-Home Assistant contains an embedded MQTT broker called [HBMQTT](https://pypi.python.org/pypi/hbmqtt). If you don't have an MQTT broker, you can configure this one to be used. If configured, Home Assistant will automatically connect to it.
-
-| Setting        | Value                              |
-| -------------- | ---------------------------------- |
-| Host           | localhost                          |
-| Port           | 1883                               |
-| Protocol       | 3.1.1                              |
-| User           | `homeassistant`                    |
-| Password       | _password set under MQTT settings_ |
-| Websocket port | 8080                               |
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  password: hello
-```
-
-<div class='note warning'>
-As of release 0.92, the embedded broker has been marked as deprecated. This means bugs may not be fixed, and the functionality may be removed in a future release.
-</div>
-
-<div class='note warning'>
-
-There is [an issue](https://github.com/beerfactory/hbmqtt/issues/62) with the HBMQTT broker and the WebSocket connection that is causing a memory leak. If you experience this issue, consider using another broker like Mosquitto.
-
-</div>
-
-#### Owntracks
-
-To use Owntracks with the internal broker a small configuration change must be made in order for the app to use MQTT protocol 3.1.1 (Protocol Level 4).
-
-In the Owntracks preferences (Android: v1.2.3+, iOS: v9.5.1+) open **Configuration Management**; Find the value named `mqttProtocolLevel` and set the value to `4`. The application will now use MQTT 3.1.1 to connect, which is compatible with the embedded broker.
-
-#### Settings
-
-If you want to customize the settings of the embedded broker, use `embedded:` and the values shown in the [HBMQTT Broker configuration](http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration). This will replace the default configuration.
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  embedded:
-    # Your HBMQTT config here. Example at:
-    # http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration
-```

@@ -5,15 +5,26 @@ ha_category:
   - Presence Detection
 ha_release: pre 0.7
 ha_domain: tomato
+ha_iot_class: Local Polling
+ha_platforms:
+  - device_tracker
 ---
 
-The `tomato` platform requires an extra configuration variable called `http_id`. The
-value can be obtained by logging in to the Tomato admin interface and search for
-`http_id` in the page source code.
+The `tomato` device tracker integration allows one to tracker devices which are
+connected to a wireless router that is running [Tomato](https://tomato.groov.pl/)
+as firmware.
 
-Because of a limitation in Tomato's API, this platform will only track wireless devices.
-If tracking wired devices like a Philips Hue Hub is necessary,
-it is possible to use another platform like [Nmap](/integrations/nmap_tracker).
+Because of a limitation in Tomato's API, this integration will only track wireless devices.
+
+This integration is confirmed to be working with [FreshTomato](https://freshtomato.org) 2020.8 and may also be working with [AdvancedTomato](https://advancedtomato.com/). 
+
+## Setup
+
+The integration requires an extra configuration variable called `http_id`. The
+value can be obtained by logging in to the Tomato admin interface and search for
+`http_id` in the page's source code.
+
+## Configuration
 
 To use this device tracker in your installation,
 add the following to your `configuration.yaml` file:
@@ -57,7 +68,7 @@ password:
   required: true
   type: string
 http_id:
-  description: "The value can be obtained by logging in to the Tomato admin interface and search for `http_id` in the page source code."
+  description: "The value of `http_id`."
   required: true
   type: string
 {% endconfiguration %}
@@ -65,14 +76,11 @@ http_id:
 See the [device tracker integration page](/integrations/device_tracker/) for
 instructions how to configure the people to be tracked.
 
-A description of the API s available in this
-[Tomato API](https://paulusschoutsen.nl/blog/2013/10/tomato-api-documentation/)
-blog post.
-
-SSL Certificate:
+## SSL Certificate
 
 Gathering the SSL Certificate of your router can be accomplished with this (or
 a similar) command:
+
 ```bash
 openssl s_client -showcerts -connect 172.10.10.1:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > router_cert.pem
 ```

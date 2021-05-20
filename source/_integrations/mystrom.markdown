@@ -10,6 +10,10 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: mystrom
+ha_platforms:
+  - binary_sensor
+  - light
+  - switch
 ---
 
 The `mystrom` light platform allows you to control your [myStrom](https://mystrom.ch/en/) WiFi Bulbs.
@@ -109,7 +113,7 @@ The endpoint that is receiving the data is `http://[IP address Home Assistant]:8
 With `api_password:`
 
 ```bash
-$ curl -d "[action]=get://[IP address Home Assistant]:8123/api/mystrom?api_password%3D[api_password]%26[action]%3D[ID of the button]" \
+curl -d "[action]=get://[IP address Home Assistant]:8123/api/mystrom?api_password%3D[api_password]%26[action]%3D[ID of the button]" \
     http://[IP address of the button]/api/v1/device/[MAC address of the button]
 ```
 
@@ -138,7 +142,7 @@ $ curl -d "[action]=get://[IP address Home Assistant]:8123/api/mystrom?[action]%
 A complete command to set the URL for a double click could look like the example below:
 
 ```bash
-$ curl -d "double=get://192.168.1.3:8123/api/mystrom?double%3DButton1" http://192.168.1.12/api/v1/device/4D5F5D5CD553
+curl -d "double=get://192.168.1.3:8123/api/mystrom?double%3DButton1" http://192.168.1.12/api/v1/device/4D5F5D5CD553
 ```
 
 With an `api_password`:
@@ -160,7 +164,7 @@ The `mystrom` switch platform allows you to control the state of your [myStrom](
 Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
 
 <p class='img'>
-  <img src='{{site_root}}/images/integrations/mystrom/switch-advanced.png' />
+  <img src='/images/integrations/mystrom/switch-advanced.png' />
 </p>
 
 To use your myStrom switch in your installation, add the following to your `configuration.yaml` file:
@@ -174,7 +178,7 @@ switch:
 
 {% configuration %}
 host:
-  description: "The IP address of your myStrom switch, e.g., `http://192.168.1.32`."
+  description: "The IP address of your myStrom switch, e.g., `192.168.1.32`."
   required: true
   type: string
 name:
@@ -205,6 +209,7 @@ curl -G -X GET http://IP_ADDRESS/relay -d 'state=1'
 The switch is measuring the current power consumption. To expose this as a sensor use a [`template` sensor](/integrations/template).
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -215,4 +220,5 @@ sensor:
         unit_of_measurement: "W"
         value_template: "{{ state_attr('switch.office', 'current_power_w') }}"
 ```
+
 {% endraw %}
