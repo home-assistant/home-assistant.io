@@ -1,5 +1,5 @@
 ---
-title: "Community Highlights: 22th edition"
+title: "Community Highlights: 22nd edition"
 description: "A new highlight with 2 new cards that you can use, blueprint for those who always leave the door open and give your TV an upgrade with Hyperion project."
 date: 2021-05-21 00:00:00
 date_formatted: "May 21, 2021"
@@ -9,7 +9,7 @@ categories: Community
 og_image: /images/blog/2021-05-21-community-highlights/social.png
 ---
 
-The 22th edition of the Home Assistant Community Highlights! Some interesting
+The 22nd edition of the Home Assistant Community Highlights! Some interesting
 things popped up around our community, we thought was worth sharing.
 
 Do you want to share something for the next edition?
