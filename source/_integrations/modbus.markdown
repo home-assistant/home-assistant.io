@@ -545,6 +545,180 @@ modbus:
         state_closed: 0
 ```
 
+
+
+### Configuring platform fan
+
+The `modbus` fan platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
+
+To use your Modbus fans in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+
+```yaml
+# Example configuration.yaml entry
+modbus:
+  - type: tcp
+    host: IP_ADDRESS
+    port: 502
+    fans:
+      - name: Fan1
+        address: 13
+        write_type: coil
+      - name: Fan2
+        slave: 2
+        address: 14
+        write_type: coil
+        verify:
+      - name: Register1
+        address: 11
+        command_on: 1
+        command_off: 0
+        verify:
+            input_type: holding
+            address: 127
+            state_on: 25
+            state_off: 1
+```
+
+{% configuration %}
+fans:
+  description: The array contains a list of all your Modbus fans.
+  required: true
+  type: map
+  keys:
+    address:
+      description: Coil number or register
+      required: true
+      type: integer
+    command_on:
+      description: Value to write to turn on the fan.
+      required: false
+      default: 0x01
+      type: integer
+    command_off:
+      description: Value to write to turn off the fan.
+      required: false
+      default: 0x00
+      type: integer
+    write_type:
+      description: type of adddress (holding/coil)
+      required: false
+      default: holding
+      type: string
+    name:
+      description: Name of the fan.
+      required: true
+      type: string
+    verify:
+      description: Read from modbus device to verify fan. If used without attributes it uses the toggle register configuration. If omitted no verification is done, but the state of the fan is set with each toggle.
+      required: false
+      type: map
+      keys:
+        address:
+          description: address to read from. 
+          required: false
+          default: write address
+          type: integer
+        input_type:
+          description: type of adddress (holding/coil/discrete/input)
+          required: false
+          default: write_type
+          type: integer
+        state_on:
+          description: value when fan is on.
+          required: false
+          default: same as command_on
+          type: integer
+        state_off:
+          description: value when fan is off.
+          required: false
+          default: same as command_off
+          type: integer
+{% endconfiguration %}
+
+### Configuring platform light
+
+The `modbus` light platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
+
+To use your Modbus lights in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+
+```yaml
+# Example configuration.yaml entry
+modbus:
+  - type: tcp
+    host: IP_ADDRESS
+    port: 502
+    lights:
+      - name: light1
+        address: 13
+        write_type: coil
+      - name: light2
+        slave: 2
+        address: 14
+        write_type: coil
+        verify:
+      - name: Register1
+        address: 11
+        command_on: 1
+        command_off: 0
+        verify:
+            input_type: holding
+            address: 127
+            state_on: 25
+            state_off: 1
+```
+
+{% configuration %}
+lights:
+  description: The array contains a list of all your Modbus lights.
+  required: true
+  type: map
+  keys:
+    address:
+      description: Coil number or register
+      required: true
+      type: integer
+    command_on:
+      description: Value to write to turn on the fan.
+      required: false
+      default: 0x01
+      type: integer
+    command_off:
+      description: Value to write to turn off the fan.
+      required: false
+      default: 0x00
+      type: integer
+    write_type:
+      description: type of adddress (holding/coil)
+      required: false
+      default: holding
+      type: string
+    verify:
+      description: Read from modbus device to verify fan. If used without attributes it uses the toggle register configuration. If omitted no verification is done, but the state of the fan is set with each toggle.
+      required: false
+      type: map
+      keys:
+        address:
+          description: address to read from. 
+          required: false
+          default: write address
+          type: integer
+        input_type:
+          description: type of adddress (holding/coil/discrete/input)
+          required: false
+          default: write_type
+          type: integer
+        state_on:
+          description: value when fan is on.
+          required: false
+          default: same as command_on
+          type: integer
+        state_off:
+          description: value when fan is off.
+          required: false
+          default: same as command_off
+          type: integer
+{% endconfiguration %}
+
 ### Configuring platform sensor
 
 The `modbus` sensor allows you to gather data from [Modbus](http://www.modbus.org/) registers.
@@ -736,20 +910,6 @@ switches:
       required: false
       default: holding
       type: string
-    name:
-      description: Name of the switch.
-      required: true
-      type: string
-    scan_interval:
-      description: Defines the update interval of the sensor in seconds.
-      required: false
-      type: integer
-      default: 15
-    slave:
-      description: The number of the slave (can be omitted for tcp and udp Modbus).
-      required: false
-      type: integer
-      default: 0
     verify:
       description: Read from modbus device to verify switch. If used without attributes it uses the toggle register configuration. If omitted no verification is done, but the state of the switch is set with each toggle.
       required: false
@@ -776,35 +936,6 @@ switches:
           default: same as command_off
           type: integer
 {% endconfiguration %}
-
-#### Full example
-
-Example switches, for which the state is not polled.
-
-```yaml
-modbus:
-  - name: hub1
-    type: tcp
-    host: IP_ADDRESS
-    port: 502
-    switches:
-      - name: Switch1
-        slave: 1
-        address: 13
-        input_type: coil
-      - name: Switch2
-        slave: 2
-        address: 14
-```
-
-## Log warning (v1.0.8 and onwards)
-
-Pymodbus (which is the implementation library) was updated and issues a warning:
-
- - "Not Importing deprecated clients. Dependency Twisted is not Installed"
-
-This warning can be safely ignored, and have no influence on how the integration
-works!
 
 ## Opening an issue
 
