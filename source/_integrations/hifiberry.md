@@ -20,14 +20,7 @@ The `HifiBerry` platform allows you to control a [HifiBerry OS](https://www.hifi
 
 ## Configuration
 
-If you want to automatically discover new devices, just make sure you have discovery enabled. To manually add a HifiBerry device to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: hifiberry
-    host: 192.168.1.100
-```
+If you want to automatically discover new devices, just make sure you have discovery enabled. To manually add a HifiBerry device to your installation, you can use the config flow in the integrations panel. 
 
 {% configuration %}
 name:
