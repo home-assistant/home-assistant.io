@@ -53,7 +53,7 @@ After saving the YAML configuration, the TV must be turned on _before_ launching
 
 #### Wake up TV / TV does not turn on
 
-If the integration knows the MAC address of the TV from discovery, it will attempt to wake it using wake on lan when calling turn on. Wake on lan must be enabled on the TV for this to work. If the TV is connected to a smart strip or requires a more complex turn on process, a `turn_on_action` can be provided that will take precedence over the built-in wake on lan functionality.
+If the integration knows the MAC address of the TV from discovery, it will attempt to wake it using wake on LAN when calling turn on. Wake on LAN must be enabled on the TV for this to work. If the TV is connected to a smart strip or requires a more complex turn-on process, a `turn_on_action` can be provided that will take precedence over the built-in wake on LAN functionality.
 
 To wake up the TV when switched off you can use the [wake-on-lan](/integrations/wake_on_lan/) integration and call a service.
 
