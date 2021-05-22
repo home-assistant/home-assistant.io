@@ -5,17 +5,20 @@ ha_category:
   - Remote
   - Switch
   - Sensor
+  - Light
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
   - '@felipediel'
+  - '@L-I-Am'
 ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
   - remote
   - sensor
   - switch
+  - light
 ha_dhcp: true
 ---
 
@@ -26,6 +29,7 @@ The Broadlink integration allows you to control and monitor Broadlink universal 
 - Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
 - Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro` and `RM4C mini`
 - Wi-Fi Controlled Switches: `BG1`, `SC1`
+- Smart Light Bulbs: `LB1`
 
 {% include integrations/config_flow.md %}
 
@@ -40,6 +44,7 @@ The entities are divided into three subdomains:
 - [Remote](#remote)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Light](#light)
 
 ## Remote
 
@@ -323,6 +328,10 @@ script:
 ## Sensor
 
 The `sensor` entities allow you to monitor Broadlink sensors. These entities are created automatically when you configure a device that has sensors.
+
+## Light
+
+The `light` entities allow you to control Broadlink lights. You can turn them on and off, change brightness, adjust the color or set a color-temperature.These entities are created automatically when you configure a device that has lights.
 
 ## Switch
 
