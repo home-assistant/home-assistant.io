@@ -13,7 +13,7 @@ ha_platforms:
   - alarm_control_panel
 ---
 
-The `yale_smart_alarm` platform provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.
+The Yale Smart Living integration provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.
 
 This platform supports the following services: `alarm_arm_away`, `alarm_arm_home` and `alarm_disarm`.
 Currently only one alarm is supported.
