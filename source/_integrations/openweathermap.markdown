@@ -90,6 +90,7 @@ The time period these sensors use depends on the forecast mode selected when con
 
 | Condition                            | Description                                                                                                                                                    |
 | :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
+| `forecast_cloud_coverage`         | Cloudiness, %.                                                                                                                    |
 | `forecast_condition`                 | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition) for the forecast's time period. |
 | `forecast_precipitation`             | Combined Rain and Snow volume for the forecast's time period, mm.                                                                                              |
 | `forecast_precipitation_probability` | Probability of precipitation for the forecast's time period.                                                                                                   |
