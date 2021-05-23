@@ -16,7 +16,7 @@ This integration adds an image processing entity where the state of the entity i
 
 If `save_file_folder` is configured, on each new detection of a person, an annotated image with the name `sighthound_{camera_name}_latest.jpg` is saved in the configured folder if it doesn't already exist, and overwritten if it does exist. The saved image shows the bounding box around detected people and can be displayed on the Home Assistant front end using a [Local File](/integrations/local_file/) camera, and used in notifications. If `save_timestamped_file` is configured as `true`, then the annotated image is saved with a file name that includes the time of detection.
 
-**Note** that by default the component will not automatically scan images, but requires you to call the `image_processing.scan` service, e.g.,  using an automation triggered by motion.
+**Note** that by default the component will not automatically scan images, but requires you to call the `image_processing.scan` service, e.g. using an automation triggered by motion.
 
 ## Configuration
 
@@ -63,3 +63,47 @@ source:
       required: false
       type: string
 {% endconfiguration %}
+
+To verify the integration, check if new entities appear as `camera.sighthound` and `image_processing.sighthound_camera_my_cam`
+
+## Process an Image
+
+When you want to process an image, you have to call `image_processing.scan` service and listen to the sighthound.person_detected and/or sighthound.vehicle_detected events.
+
+A simple example is via 2 two automations:
+
+- The first automation is triggered, when a Unify G4 doorbell detects a motion. It calls `image_processing.scan` service to send the camera image to the sighthound server for processing.
+
+- The second automation is triggered by a `sighthound.vehicle_detected` event. It sends a notification to a phone.
+
+```yaml
+# Example automations.yaml entry
+- id: '...'
+  alias: Entrance Motion Image Processing
+  description: 'Send a camera image to sighthound when motion is detected at the entrance.'
+  trigger:
+  - type: motion
+    platform: device
+    device_id: ...
+    entity_id: binary_sensor.motion_g4_doorbell
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: image_processing.scan
+    target:
+      entity_id: camera.sighthound
+  mode: single
+
+- id: '...'
+  alias: Arriving Person Notification
+  description: 'Send a notifocation to a phone, when a vehicle is detected at the entrance.'
+  trigger:
+  - platform: event
+    event_type: sighthound.vehicle_detected
+  condition: []
+  action:
+  - service: notify.mobile_app_my_iphone
+    data:
+      message: Somebody has just arrived by car.
+  mode: single
+```
