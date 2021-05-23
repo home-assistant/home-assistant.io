@@ -252,6 +252,7 @@ The following database engines are tested when major changes are made to the rec
 | PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                                  |
 | PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                                |
 | MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=DRIVER`                      |
+| Oracle                         | `oracle+cx_oracle://username:password@SERVER_IP:1521/DB_NAME?encoding=UTF-8&nencoding=UTF-8`              |
 
 <div class='note'>
 
