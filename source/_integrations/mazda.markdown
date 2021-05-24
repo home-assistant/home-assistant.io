@@ -55,6 +55,36 @@ Displays the current door lock status of the vehicle, and locks/unlocks the door
     The "Automatic Re-Lock" feature will automatically re-lock the doors if they are not opened shortly after being unlocked. This applies regardless of whether you are using the key, or unlocking the doors remotely using Home Assistant or the MyMazda app.
 </div>
 
+## Services
+
+### Start engine
+
+Starts the vehicle engine. The vehicle engine can only be remotely started 2 consecutive times. To reset this counter, the vehicle must be driven.
+
+### Stop engine
+
+Stops the vehicle engine. This only works if the vehicle was remotely started.
+
+### Start charging
+
+Starts charging the vehicle battery. This only works with electric vehicles.
+
+### Stop charging
+
+Stops charging the vehicle battery. This only works with electric vehicles.
+
+### Send POI
+
+Send a GPS location to the vehicle's navigation system as a POI (Point of Interest). Requires a navigation SD card installed in the vehicle.
+
+### Turn on hazard lights
+
+Turn on the vehicle hazard lights. The lights will flash briefly and then turn off.
+
+### Turn off hazard lights
+
+Temporarily turn off the vehicle hazard lights if they have been manually turned on from inside the vehicle. If a door is opened, the hazard lights will turn back on.
+
 ## Disclaimer
 
 This integration is not affiliated with or endorsed by Mazda.
