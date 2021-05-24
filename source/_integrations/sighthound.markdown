@@ -64,7 +64,7 @@ source:
       type: string
 {% endconfiguration %}
 
-To verify the integration, check if new entities appear as `camera.sighthound` and `image_processing.sighthound_camera_my_cam`
+To verify the integration, check if a new entity is appeared as `image_processing.sighthound_my_cam`
 
 ## Process an Image
 
@@ -72,7 +72,7 @@ When you want to process an image, you have to call `image_processing.scan` serv
 
 A simple example is via 2 two automations:
 
-- The first automation is triggered, when a Unify G4 doorbell detects a motion. It calls `image_processing.scan` service to send the camera image to the sighthound server for processing.
+- The first automation is triggered, when a motion is detected. It calls the `image_processing.scan` service to send the camera image to the sighthound server for processing.
 
 - The second automation is triggered by a `sighthound.vehicle_detected` event. It sends a notification to a phone.
 
@@ -85,17 +85,17 @@ A simple example is via 2 two automations:
   - type: motion
     platform: device
     device_id: ...
-    entity_id: binary_sensor.motion_g4_doorbell
+    entity_id: binary_sensor.my_motion_sensor
     domain: binary_sensor
   condition: []
   action:
   - service: image_processing.scan
     target:
-      entity_id: camera.sighthound
+      entity_id: image_processing.sighthound_my_cam
   mode: single
 
 - id: '...'
-  alias: Arriving Person Notification
+  alias: Arriving Vehicle Notification
   description: 'Send a notifocation to a phone, when a vehicle is detected at the entrance.'
   trigger:
   - platform: event
