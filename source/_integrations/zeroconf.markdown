@@ -36,6 +36,6 @@ zeroconf:
      default: true
 {% endconfiguration %}
 
-## Network interfacesa and auto detection
+## Network interfaces and auto detection
 
 Zeroconf chooses which interfaces to broadcast on based on the [Network](/integrations/network/) integration.
