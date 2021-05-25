@@ -50,6 +50,7 @@ frontend:
 ## Defining Themes
 
 ### Theme format
+
 The frontend integration allows you to create custom themes to influence the look and feel of the user interface.
 
 ```yaml
@@ -64,12 +65,13 @@ frontend:
       primary-color: steelblue
 ```
 
-The example above defines two themes named `happy` and `sad`. For each theme you can set values for CSS variables. If you want to provide hex color values, wrap those in apostrophes, since otherwise YAML would consider them to be comments (`primary-color: '#123456'`). For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
+The example above defines two themes named `happy` and `sad`. For each theme, you can set values for CSS variables. If you want to provide hex color values, wrap those in apostrophes, since otherwise, YAML would consider them a comment (`primary-color: '#123456'`). For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
 
 ### Dark mode support
-Starting with version 2021.6 it is also possible to create themes that are based on the default dark mode theme. New themes can also support both light and dark mode and allow the user to switch between those on the user profile page:
 
-[![Open your Home Assistant instance and show your Home Assistant user's profile.](https://my.home-assistant.io/badges/profile.svg)](https://my.home-assistant.io/redirect/profile/)
+It is also possible to create themes that are based on the default dark mode theme. New themes can also support both light and dark mode and allow the user to switch between those on the user profile page:
+
+{% my profile badge %}
 
 Extended example to show the mode definitions.
 
@@ -97,7 +99,7 @@ frontend:
 
 Theme `happy`: Same as in the previous example. This legacy format is still supported and will behave as before and automatically use the default light theme as the base.
 
-Theme `sad`: By using the new `mode` key plus the sub key `dark` this theme will now be based on the default dark theme. The final theme rules are determined in three steps: First the default dark theme CSS variables will be applied, then second the CSS variables from the top level of the theme that are mode-independent (`primary-color: steelblue` in this example) and lastly the mode specific CSS variables will be layered on top (`secondary-text-color: slategray`).
+Theme `sad`: By using the new `mode` key plus the subkey `dark` this theme will now be based on the default dark theme. The final theme rules are determined in three steps: First, the default dark theme CSS variables will be applied, then second the CSS variables from the top level of the theme that are mode-independent (`primary-color: steelblue` in this example) and lastly the mode-specific CSS variables will be layered on top (`secondary-text-color: slategray`).
 
 Note: Since this example theme only has a `dark` mode defined, this mode will automatically be used.
 
