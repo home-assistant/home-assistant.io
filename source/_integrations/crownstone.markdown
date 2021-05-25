@@ -14,7 +14,7 @@ ha_codeowners:
 ha_domain: crownstone
 ---
 
-The **Crownstone** integration allows you to control your Crownstones either via the cloud or using a [Crownstone USB](#crownstone-usb) dongle.
+The Crownstone integration allows you to control your Crownstones either via the cloud or using a [Crownstone USB](#crownstone-usb) dongle.
 
 The Crownstone integration supports the following Crownstone devices:
 
@@ -23,9 +23,7 @@ The Crownstone integration supports the following Crownstone devices:
 
 {% include integrations/config_flow.md %}
 
-## Options
-
-Options for the Crownstone integration can be set going to **Configuration** -> **Integrations** -> **Crownstone** -> **Configure**.
+{% include integrations/options_flow.md %}
 
 {% configuration_basic %}
 Use a Crownstone USB dongle to enable local data transmission:
@@ -47,7 +45,7 @@ Enabling dimming is at own risk. It is recommended to only use dimming on lights
 
 ## Crownstone USB
 
-The default connection method of the Crownstone integration is Cloud Polling. However a [Crownstone USB](https://shop.crownstone.rocks/products/crownstone-usb-dongle) is available. Instead of switching and dimming Crownstones using the Cloud, this dongle hooks directly into the Crownstone mesh to switch Crownstones, which means the latencies are really low.
+The default connection method of the Crownstone integration is Cloud Polling. However, a [Crownstone USB](https://shop.crownstone.rocks/products/crownstone-usb-dongle) is available. Instead of switching and dimming Crownstones using the Cloud, this dongle hooks directly into the Crownstone mesh to switch Crownstones, which means the latencies are really low.
 
 Furthermore, the Crownstone USB dongle allows for independent switching of Crownstones. When using the Cloud, a smartphone must be in
 the Sphere to switch the Crownstone.
