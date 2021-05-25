@@ -25,7 +25,7 @@ Modbus supports all devices adhering to the Modbus standard. The communication b
 
 First, you define how to communicate with your Modbus devices and after that you define the information being exchanged. The Modbus integration allows you to use multiple connections.
 
-## Configuring modbus common parameters
+## Configuring Modbus common parameters
 
 Part of the configuration is common for all types of communication. Add the following to your `configuration.yaml` file:
 
