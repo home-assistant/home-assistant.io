@@ -5,7 +5,7 @@ ha_category:
   - Finance
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: 2021.7
+ha_release: 2021.6
 ha_config_flow: true
 ha_quality_scale: gold
 ha_codeowners:
