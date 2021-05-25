@@ -708,7 +708,7 @@ lights:
           default: write_type
           type: integer
         state_on:
-          description: value when fan is on.
+          description: Value when the light is on.
           required: false
           default: same as command_on
           type: integer
