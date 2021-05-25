@@ -34,7 +34,7 @@ on a hot tub.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | no | The entity to update. | sensor.jacuzzi_j_335_primary_filtration_cycle
+| `entity_id` | yes | The entity to update. | sensor.jacuzzi_j_335_primary_filtration_cycle
 | `duration` | no | The desired duration of the primary filtration cycle, in hours. | 4
 | `start_hour` | no | The desired starting hour of the day for the primary filtration cycle. | 2 (i.e. 02:00 or 2:00am)
 
@@ -46,6 +46,5 @@ cycle on a hot tub.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | no | The entity to update. | sensor.jacuzzi_j_335_secondary_filtration_cycle
+| `entity_id` | yes | The entity to update. | sensor.jacuzzi_j_335_secondary_filtration_cycle
 | `mode` | no | The desired secondary filtration mode. Can be frequent, infrequent or away. | away
-
