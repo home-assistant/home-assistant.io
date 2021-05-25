@@ -18,11 +18,11 @@ Templating is a powerful feature that allows you to control information going in
 
 Templating in Home Assistant is powered by the [Jinja2](https://palletsprojects.com/p/jinja) templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. Jinja2 supports a wide variety of operations:
 
-- [Mathematical operation](https://jinja.palletsprojects.com/en/2.11.x/templates/#math)
-- [Comparisons](https://jinja.palletsprojects.com/en/2.11.x/templates/#comparisons)
-- [Logic](https://jinja.palletsprojects.com/en/2.11.x/templates/#logic)
+- [Mathematical operation](https://jinja.palletsprojects.com/en/latest/templates/#math)
+- [Comparisons](https://jinja.palletsprojects.com/en/latest/templates/#comparisons)
+- [Logic](https://jinja.palletsprojects.com/en/latest/templates/#logic)
 
-We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/2.11.x/templates/).
+We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/latest/templates/).
 
 The frontend has a {% my developer_templates title="template editor tool" %} to help develop and debug templates. Navigate to {% my developer_templates title="Developer Tools > Template" %}, create your template in the _Template editor_ and check the results on the right.
 
@@ -51,9 +51,9 @@ script:
 There are a few very important rules to remember when adding templates to YAML:
 
 1. You **must** surround single-line templates with double quotes (`"`) or single quotes (`'`).
-1. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](https://jinja.palletsprojects.com/en/2.11.x/templates/#default), or both.
-1. It is advised that when comparing numbers, you convert the number(s) to a [`float`](https://jinja.palletsprojects.com/en/2.11.x/templates/#float) or an [`int`](https://jinja.palletsprojects.com/en/2.11.x/templates/#int) by using the respective [filter](https://jinja.palletsprojects.com/en/2.11.x/templates/#list-of-builtin-filters).
-1. While the [`float`](https://jinja.palletsprojects.com/en/2.11.x/templates/#float) and [`int`](https://jinja.palletsprojects.com/en/2.11.x/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
+1. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](https://jinja.palletsprojects.com/en/latest/templates/#default), or both.
+1. It is advised that when comparing numbers, you convert the number(s) to a [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) or an [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) by using the respective [filter](https://jinja.palletsprojects.com/en/latest/templates/#list-of-builtin-filters).
+1. While the [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) and [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
@@ -422,7 +422,7 @@ Closest to some entity:
 
 ### Numeric functions and filters
 
-Some of these functions can also be used in a [filter](https://jinja.palletsprojects.com/en/2.11.x/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
+Some of these functions can also be used in a [filter](https://jinja.palletsprojects.com/en/latest/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
 
 - `log(value, base)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.
 - `sin(value)` will return the sine of the input. Can be used as a filter.
