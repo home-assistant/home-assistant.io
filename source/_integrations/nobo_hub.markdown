@@ -23,7 +23,8 @@ IP address of the hub.
 As for now you can see and change operation and preset for zones and set eco/comfort temperatures if you have
 a supported thermostat.
 
-The possible operation modes are as following:
+The possible operation modes are as follows:
+
 * "Auto" - In this mode the zone is in the normal setting and preset shows which state the zone is in right now
   (according to calendar setup)
 * "Heat" - In this mode the zone in in the override setting and in the state selected by preset ("Away", "Eco"
