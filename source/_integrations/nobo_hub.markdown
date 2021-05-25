@@ -29,8 +29,8 @@ The possible operation modes are as follows:
   (according to calendar setup).
 - "Heat" - In this mode the zone in the override setting and in the state selected by preset ("Away", "Eco"
   or "Comfort").
-* "Off" - In this optional mode the zone is in the normal setting and will configure it to use a week profile that
-  turns the heater(s) in the zone completely off (more info below)
+- "Off" - In this optional mode the zone is in the normal setting and will configure it to use a week profile that
+  turns the heater(s) in the zone completely off (more info below).
 
 This can be utilized the following ways:
 * Changing preset to "Away", "Eco", or "Comfort" will automatically change operation to "Heat"
