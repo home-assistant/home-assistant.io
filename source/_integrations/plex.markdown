@@ -29,6 +29,10 @@ If a Plex server has been claimed by a Plex account via the [claim interface](ht
 
 {% include integrations/config_flow.md %}
 
+During setup, the integration will check all possible ways to connect to your Plex server(s) - i.e., local or public addresses, HTTP or HTTPS, by IP or using a subdomain of `plex.direct`, or by using a Plex relay if all other methods fail. The integration will prefer local over public and secure over insecure, in that order. The selected address is shown on the Plex card on the Integrations page.
+
+If your router enforces DNS rebind protection, connections to the local `plex.direct` hostname may fail (see [Plex documentation](https://support.plex.tv/articles/206225077-how-to-use-secure-server-connections/#dnsrebinding)). To avoid this, configure your router to allow DNS rebinding for `plex.direct` by following the instructions in the documentation link.
+
 ### Integration Options
 
 Several options are provided to adjust the behavior of `media_player` entities. These can be changed at **Plex** -> **Options** on the Integrations page.
