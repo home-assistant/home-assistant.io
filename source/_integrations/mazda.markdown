@@ -57,6 +57,12 @@ Displays the current door lock status of the vehicle, and locks/unlocks the door
 
 ## Services
 
+This integration offers several services for interacting with Mazda vehicles. All of the services require the following input parameter:
+
+| Parameter | YAML ID | Description |
+| --------- | ------- | ----------- |
+| Vehicle | `device_id` | The vehicle to execute the service for. In YAML mode, this is the device ID of the vehicle. |
+
 ### Start engine
 
 Starts the vehicle engine. The vehicle engine can only be remotely started 2 consecutive times. To reset this counter, the vehicle must be driven.
@@ -76,6 +82,14 @@ Stops charging the vehicle battery. This only works with electric vehicles.
 ### Send POI
 
 Send a GPS location to the vehicle's navigation system as a POI (Point of Interest). Requires a navigation SD card installed in the vehicle.
+
+This service requires the following input parameters in addition to the vehicle:
+
+| Parameter | YAML ID | Description |
+| --------- | ------- | ----------- |
+| Latitude | `latitude` | The latitude of the location to send. |
+| Longitude | `longitude` | The longitude of the location to send. |
+| POI name | `poi_name` | A friendly name for the location. |
 
 ### Turn on hazard lights
 
