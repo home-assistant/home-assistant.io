@@ -73,4 +73,8 @@ These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrat
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home"
 
-**Note**: if you want to automatically track new detected device, enable the integration system option `Enable new added entities`
+## Additional info
+
+**Note 1**: All device to be tracked, even the new detected, are disabled by default. User needs to enable the wanted entities manually
+
+**Note 2**: if you don't want to automatically track new detected device, disable the integration system option `Enable new added entities`
