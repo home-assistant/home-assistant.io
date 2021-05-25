@@ -18,7 +18,7 @@ ha_platforms:
   - switch
 ---
 
-[Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit). The integration adhere strictly to the [protocol specification](https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf).
+[Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit). The integration adheres strictly to the [protocol specification](https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf).
 Modbus supports all devices adhering to the modbus standard. The communication between the device(s) can be serial (rs-485), TCP, or UDP connections. The modbus integration allows multiple communications e.g. serial combined with TCP or different TCP connected devices.
 
 # Configuring modbus
