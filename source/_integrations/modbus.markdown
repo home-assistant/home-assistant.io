@@ -23,7 +23,7 @@ Modbus supports all devices adhering to the Modbus standard. The communication b
 
 # Configuring Modbus
 
-First you define how to communicate with your modbus devices and after that you define the information being exchanged. The modbus integration allows you to use multiple connections.
+First, you define how to communicate with your Modbus devices and after that you define the information being exchanged. The Modbus integration allows you to use multiple connections.
 
 ## Configuring modbus common parameters
 
