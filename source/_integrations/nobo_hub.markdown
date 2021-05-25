@@ -44,8 +44,6 @@ This can be utilized the following ways:
 - Changing operation to "Heat" will set preset to "Comfort".
 - Changing operation to "Off" will change operation to "Auto" and change the week profile to the predefined
   "completely off" profile.
-
-
 ## There is no override in Nobø Ecohub for "completely off", but there is a workaround
 
 Nobø heaters can normally not be set to override "off". This is not a limitation in the integration, but a
