@@ -25,8 +25,8 @@ a supported thermostat.
 
 The possible operation modes are as follows:
 
-* "Auto" - In this mode the zone is in the normal setting and preset shows which state the zone is in right now
-  (according to calendar setup)
+- "Auto" - In this mode, the zone is in the normal setting and preset shows which state the zone is in right now
+  (according to calendar setup).
 * "Heat" - In this mode the zone in in the override setting and in the state selected by preset ("Away", "Eco"
   or "Comfort")
 * "Off" - In this optional mode the zone is in the normal setting and will configure it to use a week profile that
