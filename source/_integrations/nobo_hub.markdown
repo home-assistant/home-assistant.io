@@ -54,7 +54,7 @@ frozen pipes). However, it is possible to create a week profile that makes the h
 you can configure the system to switch a zone to this week's profile to be able to turn the heater(s) off.
 
 If you configure the integration with the name of the "off" week profile and the name for the normal ("on") week
-profile for your each of your zones, you can use this module to turn off (and on) your heaters. The week profiles
+profile for each of your zones, you can use this module to turn off (and on) your heaters. The week profiles
 must already exist in your Nobø system, and you need to list the "on" week profile for each zone in the Nobø Ecohub
 configuration. Use the Nobø app to create them and configure them correctly.
 
