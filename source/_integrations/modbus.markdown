@@ -31,7 +31,7 @@ Part of the configuration is common for all types of communication. Add the foll
 
 ```yaml
 modbus:
-  - name: hub1
+  - name: "hub1"
     close_comm_on_error: true
     delay: 5
     timeout: 5
@@ -40,12 +40,12 @@ modbus:
 
 {% configuration %}
 close_comm_on_error:
-  description: Determines if the device connection is closed when an error occurs, default is true. Some serial-rs485 adapters delivers garble when opened, this leads to a disconnect and a new connect, which can continue. If in a running communication the debug log contains a message from pymodbus, with the text "cleaning....", then try this parameter.
+  description: Determines if the device connection is closed when an error occurs, default is true. Some serial-rs485 adapters deliver garble when opened, this leads to a disconnect and a new connect, which can continue. If in a running communication the debug log contains a message from pymodbus, with the text "cleaning....", then try this parameter.
   required: false
   default: true
   type: boolean
 delay:
-  description: "Time to delay sending messages in seconds after connecting. Some modbus devices need a delay of typically 1-2 seconds after established connection to prepare the communication. If a device does not response to messagees after connect, this parameter might help. Remark: the delay is solely between connect and the first message."
+  description: "Time to delay sending messages in seconds after connecting. Some Modbus devices need a delay of typically 1-2 seconds after established connection to prepare the communication. If a device does not respond to messages after connecting, this parameter might help. Remark: the delay is solely between connect and the first message."
   required: false
   default: 0
   type: integer
@@ -55,12 +55,12 @@ name:
   default: "modbus_hub"
   type: string
 timeout:
-  description: Timeout while wating for response in seconds. Remark timout less than 5 seconds will be automatically adjusted to 5 seconds.
+  description: Timeout while waiting for a response in seconds. Remark: a timeout of fewer than 5 seconds will be automatically adjusted to 5 seconds.
   required: false
   default: 5
   type: integer
 type:
-  description: Type of communication. Possible values are `tcp` Modbus messages with modbus TCP frame on TCP/IP, `udp` Modbus messages with modbus TCP frame on UDP, `rtuovertcp` Modbus messages with a wrapper TCP/IP simulating a serial lines.
+  description: Type of communication. Possible values are `tcp` Modbus messages with Modbus TCP frame on TCP/IP, `udp` Modbus messages with Modbus TCP frame on UDP, `rtuovertcp` Modbus messages with a wrapper TCP/IP simulating a serial line.
   required: true
   type: string
 {% endconfiguration %}
@@ -72,7 +72,7 @@ For a network (type: `tcp`/`udp`/`rtuovertcp`) connection, add the following to 
 ```yaml
 # Example configuration.yaml entry for a TCP connection
 modbus:
-  - name: hub1
+  - name: "hub1"
     type: tcp
     host: IP_ADDRESS
     port: 502
@@ -80,7 +80,7 @@ modbus:
 
 {% configuration %}
 host:
-  description: The IP address of your Modbus device, e.g., 192.168.1.1.
+  description: The IP address of your Modbus device, e.g., `192.168.1.1`.
   required: true
   type: string
 port:
@@ -151,7 +151,7 @@ modbus:
   - type: tcp
     host: IP_ADDRESS_1
     port: 2020
-    name: hub1
+    name: "hub1"
 
   - type: udp
     host: IP_ADDRESS_2
@@ -159,11 +159,11 @@ modbus:
     name: hub2
 ```
 
-Remark `name:`is required for multiple connection, because it needs to be unique.
+Remark: `name:`is required for multiple connections, because it needs to be unique.
 
 ## Modbus services
 
-The modbus integration provides two generic services in addition to the platform specific services.
+The Modbus integration provides two generic services in addition to the platform-specific services.
 
 | Service | Description |
 | ------- | ----------- |
@@ -180,9 +180,9 @@ Description:
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F |
 
-# configure modbus platforms
+# configure Modbus platforms
 
-Modbus platform entities are configured within the modbus configuration.
+Modbus platform entities are configured within the Modbus configuration.
 
 ## Configuring platform common parameters
 
@@ -194,7 +194,7 @@ modbus:
   - type: tcp
     host: IP_ADDRESS_1
     port: 2020
-    name: hub1
+    name: "hub1"
     sensors:
       - name: sensor1
         scan_interval: 999
@@ -220,9 +220,9 @@ slave:
 
 ### Configuring platform binary sensor
 
-The modbus binary sensor allows you to gather data from coils which as per standard have state ON/OFF.
+The Modbus binary sensor allows you to gather data from coils which as per standard have state ON/OFF.
 
-To use your modbus binary sensors in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus binary sensors in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry for binary_sensor configuration
@@ -232,13 +232,13 @@ modbus:
     host: IP_ADDRESS
     port: 502
     binary_sensors:
-      - name: binary_sensor1
+      - name: "binary_sensor1"
         address: 100
         scan_interval: 20
         slave: 1
-      - name: binary_ensor2
+      - name: "binary_ensor2"
         address: 110
-        device_class: "door"
+        device_class: door
         input_type: discrete_input
 ```
 {% configuration %}
@@ -264,7 +264,7 @@ binary_sensors:
 
 ### Configuring platform climate
 
-The modbus climate platform allows to monitor your termostat as well as set a target temperature.
+The Modbus climate platform allows you to monitor your thermostat as well as set a target temperature.
 
 To use your Modbus thermostat in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
 
@@ -276,7 +276,7 @@ modbus:
     host: IP_ADDRESS
     port: 502
     climates:
-      - name: Watlow F4T
+      - name: "Watlow F4T"
         current_temp_register: 27586
         current_temp_register_type: holding
         data_count: 1
@@ -380,7 +380,7 @@ Cover that uses the `coil` attribute is not able to determine intermediary state
 
 If your cover uses holding register to send commands (defined by the `register` attribute), it can also read the intermediary states. To adjust which value represents what state, you can fine-tune the optional state attributes, like `state_open`. These optional state values are also used for specifying values written into the register. If you specify an optional status_register attribute, cover states will be read from status_register instead of the register used for sending commands.
 
-To use modbus covers in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use Modbus covers in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry
@@ -393,20 +393,20 @@ modbus:
       - name: Door1
         device_class: door
         coil: 117
-        device_class: "door"
+        device_class: door
         state_open: 1
         state_opening: 2
         state_closed: 0
         state_closing: 3
         status_register: 119
         status_register_type: holding
-      - name: Door2
+      - name: "Door2"
         register: 117
 ```
 
 {% configuration %}
 covers:
-  description: The array contains a list of all your modbus covers.
+  description: The array contains a list of all your Modbus covers.
   required: true
   type: map
   keys:
@@ -560,15 +560,15 @@ modbus:
     host: IP_ADDRESS
     port: 502
     fans:
-      - name: Fan1
+      - name: "Fan1"
         address: 13
         write_type: coil
-      - name: Fan2
+      - name: "Fan2"
         slave: 2
         address: 14
         write_type: coil
         verify:
-      - name: Register1
+      - name: "Register1"
         address: 11
         command_on: 1
         command_off: 0
@@ -586,7 +586,7 @@ fans:
   type: map
   keys:
     address:
-      description: Coil number or register
+      description: Coil number or register.
       required: true
       type: integer
     command_on:
@@ -600,7 +600,7 @@ fans:
       default: 0x00
       type: integer
     write_type:
-      description: type of adddress (holding/coil)
+      description: Type of address (holding/coil).
       required: false
       default: holding
       type: string
@@ -609,27 +609,27 @@ fans:
       required: true
       type: string
     verify:
-      description: Read from modbus device to verify fan. If used without attributes it uses the toggle register configuration. If omitted no verification is done, but the state of the fan is set with each toggle.
+      description: Read from Modbus device to verify fan. If used without attributes it uses the toggle register configuration. If omitted no verification is done, but the state of the fan is set with each toggle.
       required: false
       type: map
       keys:
         address:
-          description: address to read from. 
+          description: Address to read from. 
           required: false
           default: write address
           type: integer
         input_type:
-          description: type of adddress (holding/coil/discrete/input)
+          description: Type of adddress (holding/coil/discrete/input).
           required: false
           default: write_type
           type: integer
         state_on:
-          description: value when fan is on.
+          description: Value when the fan is on.
           required: false
           default: same as command_on
           type: integer
         state_off:
-          description: value when fan is off.
+          description: Value when the fan is off.
           required: false
           default: same as command_off
           type: integer
@@ -648,15 +648,15 @@ modbus:
     host: IP_ADDRESS
     port: 502
     lights:
-      - name: light1
+      - name: "light1"
         address: 13
         write_type: coil
-      - name: light2
+      - name: "light2"
         slave: 2
         address: 14
         write_type: coil
         verify:
-      - name: Register1
+      - name: "Register1"
         address: 11
         command_on: 1
         command_off: 0
@@ -674,7 +674,7 @@ lights:
   type: map
   keys:
     address:
-      description: Coil number or register
+      description: Coil number or register.
       required: true
       type: integer
     command_on:
@@ -688,7 +688,7 @@ lights:
       default: 0x00
       type: integer
     write_type:
-      description: type of adddress (holding/coil)
+      description: Type of address (holding/coil).
       required: false
       default: holding
       type: string
@@ -698,12 +698,12 @@ lights:
       type: map
       keys:
         address:
-          description: address to read from. 
+          description: Address to read from. 
           required: false
           default: write address
           type: integer
         input_type:
-          description: type of adddress (holding/coil/discrete/input)
+          description: Type of address (holding/coil/discrete/input).
           required: false
           default: write_type
           type: integer
