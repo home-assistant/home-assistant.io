@@ -28,10 +28,6 @@ It does require that your devices are registered with the [Find My](https://www.
 {% include integrations/config_flow.md %}
 
 <div class='note warning'>
-Low `max_interval` may cause battery drainage as it wakes up your device to get the current location.
-</div>
-
-<div class='note warning'>
 You may receive an email and a notification from Apple saying that someone has logged into your account.
 
 For the notification, press "Allow", then "OK".
