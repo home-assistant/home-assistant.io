@@ -33,12 +33,13 @@ The possible operation modes are as follows:
   turns the heater(s) in the zone completely off (more info below).
 
 This can be utilized the following ways:
-* Changing preset to "Away", "Eco", or "Comfort" will automatically change operation to "Heat"
-* Changing preset to none will automatically change operation to "Auto" and update preset
-* Changing operation to "Auto" will automatically update preset
-* Changing operation to "Heat" will set preset to "Comfort"
-* Changing operation to "Off" will change operation to "Auto" and change the week profile to the predefined
-  "completely off" profile
+
+- Changing preset to "Away", "Eco", or "Comfort" will automatically change operation to "Heat".
+- Changing preset to none will automatically change operation to "Auto" and update preset.
+- Changing operation to "Auto" will automatically update preset.
+- Changing operation to "Heat" will set preset to "Comfort".
+- Changing operation to "Off" will change operation to "Auto" and change the week profile to the predefined
+  "completely off" profile.
 
 
 ## There is no override in Nobø Ecohub for "completely off", but there is a workaround
