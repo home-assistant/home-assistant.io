@@ -29,8 +29,7 @@ As "Service Data" we want a simple text that is shown as part of the notificatio
 message: Sensor value greater than 10
 ```
 
-Automation created or edited via the user interface, are activated immediately
-after save the automation.
+Automations created or edited via the user interface are activated immediately after saving the automation.
 
 ## Troubleshooting missing automations
 

@@ -134,6 +134,11 @@ qos:
   required: false
   type: integer
   default: 0
+state_class:
+  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  required: false
+  type: string
+  default: None
 state_topic:
   description: The MQTT topic subscribed to receive sensor values.
   required: true

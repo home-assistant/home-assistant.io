@@ -34,6 +34,10 @@ The battery sensors rely on working change events or updates will be delayed. S1
 
 </div>
 
+## Alarm support
+
+The Sonos integration adds one `switch` for each alarm set in the Sonos app. The alarm switches are detected, deleted and assigned automatically and come with several attributes that help to monitor Sonos alarms.
+
 ## Services
 
 The Sonos integration makes various custom services available.

@@ -269,6 +269,7 @@ source/_integrations/met.markdown @danielhiversen @thimic
 source/_integrations/met_eireann.markdown @DylanGore
 source/_integrations/meteo_france.markdown @hacf-fr @oncleben31 @Quentame
 source/_integrations/meteoalarm.markdown @rolfberkenbosch
+source/_integrations/meteoclimatic.markdown @adrianmo
 source/_integrations/metoffice.markdown @MrHarcombe
 source/_integrations/miflora.markdown @danielhiversen @basnijholt
 source/_integrations/mikrotik.markdown @engrbm87

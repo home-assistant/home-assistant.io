@@ -30,3 +30,27 @@ The `smarttub` integration allows you to view and control hot tubs which use the
 - A SmartTub account (registration is not supported, you can use the SmartTub mobile app)
 
 {% include integrations/config_flow.md %}
+
+## Services
+
+### Service `smarttub.set_primary_filtration`
+
+This service allows you to update the settings for the primary filtration cycle
+on a hot tub.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | yes | The entity to update. | sensor.jacuzzi_j_335_primary_filtration_cycle
+| `duration` | no | The desired duration of the primary filtration cycle, in hours. | 4
+| `start_hour` | no | The desired starting hour of the day for the primary filtration cycle. | 2 (i.e. 02:00 or 2:00am)
+
+
+### Service `smarttub.set_secondary_filtration`
+
+This service allows you to update the settings for the secondary filtration
+cycle on a hot tub.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | yes | The entity to update. | sensor.jacuzzi_j_335_secondary_filtration_cycle
+| `mode` | no | The desired secondary filtration mode. Can be frequent, infrequent or away. | away
