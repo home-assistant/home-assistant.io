@@ -713,7 +713,7 @@ lights:
           default: same as command_on
           type: integer
         state_off:
-          description: value when fan is off.
+          description: Value when the light is off.
           required: false
           default: same as command_off
           type: integer
