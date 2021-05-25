@@ -101,7 +101,7 @@ Theme `sad`: By using the new `mode` key plus the sub key `dark` this theme will
 
 Note: Since this example theme only has a `dark` mode defined, this mode will automatically be used.
 
-Theme `good_and_bad_days`: This theme has both a `light` and a `dark` mode section. That tells the frontend to allow the user to choose which mode to use from the user profile (default selection is based on the system settings). Independent of the selection, the primary color will be set to green, but based on the chosen mode either the default light or dark theme will be used as the basis for rendering, plus the secondary text color will be either olive or slategray.
+Theme `day_and_night`: This theme has both a `light` and a `dark` mode section. That tells the frontend to allow the user to choose which mode to use from the user profile (default selection is based on the system settings). Independent of the selection, the primary color will be set to green, but based on the chosen mode either the default light or dark theme will be used as the basis for rendering, plus the secondary text color will be either olive or slategray.
 
 ### Theme configuration splitting
 As with all configuration, you can either:
