@@ -683,7 +683,7 @@ lights:
       default: 0x01
       type: integer
     command_off:
-      description: Value to write to turn off the fan.
+      description: Value to write to turn off the light.
       required: false
       default: 0x00
       type: integer
