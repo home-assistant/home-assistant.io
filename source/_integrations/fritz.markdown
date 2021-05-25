@@ -77,4 +77,4 @@ These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrat
 
 **Note 1**: All device to be tracked, even the new detected, are disabled by default. User needs to enable the wanted entities manually
 
-**Note 2**: if you don't want to automatically track new detected device, disable the integration system option `Enable new added entities`
+**Note 2**: If you don't want to automatically track new detected device, disable the integration system option `Enable new added entities`
