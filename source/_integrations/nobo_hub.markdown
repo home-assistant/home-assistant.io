@@ -49,9 +49,9 @@ This can be utilized the following ways:
 ## There is no override in Nobø Ecohub for "completely off", but there is a workaround
 
 Nobø heaters can normally not be set to override "off". This is not a limitation in the integration, but a
-safety-mechanism in the Nobø system (maybe they don't want you to accidentally turn off all your heaters and get
+safety mechanism in the Nobø system (maybe they don't want you to accidentally turn off all your heaters and get
 frozen pipes). However, it is possible to create a week profile that makes the heaters stay off all the time. And then
-you can configure the system to switch a zone to this week profile to be able to turn the heater(s) off.
+you can configure the system to switch a zone to this week's profile to be able to turn the heater(s) off.
 
 If you configure the integration with the name of the "off" week profile and the name for the normal ("on") week
 profile for your each of your zones, you can use this module to turn off (and on) your heaters. The week profiles
