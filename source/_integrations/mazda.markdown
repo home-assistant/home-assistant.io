@@ -57,47 +57,66 @@ Displays the current door lock status of the vehicle, and locks/unlocks the door
 
 ## Services
 
-This integration offers several services for interacting with Mazda vehicles. All of the services require the following input parameter:
+This integration offers several services for interacting with Mazda vehicles.
 
-| Parameter | YAML ID | Description |
-| --------- | ------- | ----------- |
-| Vehicle | `device_id` | The vehicle to execute the service for. In YAML mode, this is the device ID of the vehicle. |
-
-### Start engine
+### Service `start_engine`
 
 Starts the vehicle engine. The vehicle engine can only be remotely started 2 consecutive times. To reset this counter, the vehicle must be driven.
 
-### Stop engine
+| Service Data Attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | yes | The device ID of the vehicle to start |
+
+### Service `stop_engine`
 
 Stops the vehicle engine. This only works if the vehicle was remotely started.
 
-### Start charging
+| Service Data Attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | yes | The device ID of the vehicle to stop |
+
+### Service `start_charging`
 
 Starts charging the vehicle battery. This only works with electric vehicles.
 
-### Stop charging
+| Service Data Attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | yes | The device ID of the vehicle to start charging |
+
+### Service `stop_charging`
 
 Stops charging the vehicle battery. This only works with electric vehicles.
 
-### Send POI
+| Service Data Attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | yes | The device ID of the vehicle to stop charging |
+
+### Service `send_poi`
 
 Send a GPS location to the vehicle's navigation system as a POI (Point of Interest). Requires a navigation SD card installed in the vehicle.
 
-This service requires the following input parameters in addition to the vehicle:
+| Service Data Attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | yes | The device ID of the vehicle to send the GPS location to |
+| `latitude` | yes | The latitude of the location to send. |
+| `longitude` | yes | The longitude of the location to send. |
+| `poi_name` | yes | A friendly name for the location. |
 
-| Parameter | YAML ID | Description |
-| --------- | ------- | ----------- |
-| Latitude | `latitude` | The latitude of the location to send. |
-| Longitude | `longitude` | The longitude of the location to send. |
-| POI name | `poi_name` | A friendly name for the location. |
-
-### Turn on hazard lights
+### Service `turn_on_hazard_lights`
 
 Turn on the vehicle hazard lights. The lights will flash briefly and then turn off.
 
-### Turn off hazard lights
+| Service Data Attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | yes | The device ID of the vehicle to turn hazard lights on |
+
+### Service `turn_off_hazard_lights`
 
 Temporarily turn off the vehicle hazard lights if they have been manually turned on from inside the vehicle. If a door is opened, the hazard lights will turn back on.
+
+| Service Data Attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | yes | The device ID of the vehicle to turn hazard lights off |
 
 ## Disclaimer
 
