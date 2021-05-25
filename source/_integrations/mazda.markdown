@@ -59,7 +59,7 @@ Displays the current door lock status of the vehicle, and locks/unlocks the door
 
 This integration offers several services for interacting with Mazda vehicles.
 
-### Service `start_engine`
+### Service `mazda.start_engine`
 
 Starts the vehicle engine. The vehicle engine can only be remotely started 2 consecutive times. To reset this counter, the vehicle must be driven.
 
@@ -67,7 +67,7 @@ Starts the vehicle engine. The vehicle engine can only be remotely started 2 con
 | ---------------------- | -------- | ----------- |
 | `device_id` | yes | The device ID of the vehicle to start |
 
-### Service `stop_engine`
+### Service `mazda.stop_engine`
 
 Stops the vehicle engine. This only works if the vehicle was remotely started.
 
@@ -75,7 +75,7 @@ Stops the vehicle engine. This only works if the vehicle was remotely started.
 | ---------------------- | -------- | ----------- |
 | `device_id` | yes | The device ID of the vehicle to stop |
 
-### Service `start_charging`
+### Service `mazda.start_charging`
 
 Starts charging the vehicle battery. This only works with electric vehicles.
 
@@ -83,7 +83,7 @@ Starts charging the vehicle battery. This only works with electric vehicles.
 | ---------------------- | -------- | ----------- |
 | `device_id` | yes | The device ID of the vehicle to start charging |
 
-### Service `stop_charging`
+### Service `mazda.stop_charging`
 
 Stops charging the vehicle battery. This only works with electric vehicles.
 
@@ -91,7 +91,7 @@ Stops charging the vehicle battery. This only works with electric vehicles.
 | ---------------------- | -------- | ----------- |
 | `device_id` | yes | The device ID of the vehicle to stop charging |
 
-### Service `send_poi`
+### Service `mazda.send_poi`
 
 Send a GPS location to the vehicle's navigation system as a POI (Point of Interest). Requires a navigation SD card installed in the vehicle.
 
@@ -102,7 +102,7 @@ Send a GPS location to the vehicle's navigation system as a POI (Point of Intere
 | `longitude` | yes | The longitude of the location to send. |
 | `poi_name` | yes | A friendly name for the location. |
 
-### Service `turn_on_hazard_lights`
+### Service `mazda.turn_on_hazard_lights`
 
 Turn on the vehicle hazard lights. The lights will flash briefly and then turn off.
 
@@ -110,7 +110,7 @@ Turn on the vehicle hazard lights. The lights will flash briefly and then turn o
 | ---------------------- | -------- | ----------- |
 | `device_id` | yes | The device ID of the vehicle to turn hazard lights on |
 
-### Service `turn_off_hazard_lights`
+### Service `mazda.turn_off_hazard_lights`
 
 Temporarily turn off the vehicle hazard lights if they have been manually turned on from inside the vehicle. If a door is opened, the hazard lights will turn back on.
 
