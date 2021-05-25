@@ -331,7 +331,7 @@ The `sensor` entities allow you to monitor Broadlink sensors. These entities are
 
 ## Light
 
-The `light` entities allow you to control Broadlink lights. You can turn them on and off, change brightness, adjust the color or set a color-temperature.These entities are created automatically when you configure a device that has lights.
+The `light` entities allow you to control Broadlink lights. You can turn them on and off, change brightness, adjust the color or set a color temperature. These entities are created automatically when you configure a device that has lights.
 
 ## Switch
 
