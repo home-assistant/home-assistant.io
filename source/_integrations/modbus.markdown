@@ -693,7 +693,7 @@ lights:
       default: holding
       type: string
     verify:
-      description: Read from modbus device to verify fan. If used without attributes it uses the toggle register configuration. If omitted no verification is done, but the state of the fan is set with each toggle.
+      description: Read from Modbus device to verify the light. If used without attributes it uses the toggle register configuration. If omitted no verification is done, but the state of the light is set with each toggle.
       required: false
       type: map
       keys:
