@@ -71,7 +71,7 @@ If you have a dynamic IP address, most likely it will change.
 It is possible to change some behaviors through the integration options.
 These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrations page.
 
-- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home"
+- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
 
 ## Additional info
 
