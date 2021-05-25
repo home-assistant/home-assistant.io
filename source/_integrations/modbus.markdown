@@ -55,7 +55,7 @@ name:
   default: "modbus_hub"
   type: string
 timeout:
-  description: Timeout while waiting for a response in seconds. Remark: a timeout of fewer than 5 seconds will be automatically adjusted to 5 seconds.
+  description: "Timeout while waiting for a response in seconds. Remark: a timeout of fewer than 5 seconds will be automatically adjusted to 5 seconds."
   required: false
   default: 5
   type: integer
