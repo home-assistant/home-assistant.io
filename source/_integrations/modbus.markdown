@@ -916,9 +916,14 @@ switches:
       type: map
       keys:
         address:
-          description: address to read from. 
+          description: Address to read from.
           required: false
           default: write address
+          type: integer
+        delay:
+          description: delay between write and verify.
+          required: false
+          default: 0
           type: integer
         input_type:
           description: type of adddress (holding/coil/discrete/input)
