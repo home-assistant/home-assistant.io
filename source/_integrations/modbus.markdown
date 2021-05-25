@@ -723,7 +723,7 @@ lights:
 
 The `modbus` sensor allows you to gather data from [Modbus](http://www.modbus.org/) registers.
 
-To use your modbus sensors in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus sensors in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry
