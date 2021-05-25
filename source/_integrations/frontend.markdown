@@ -49,7 +49,7 @@ frontend:
 
 ## Defining Themes
 
-### Legacy format
+### Theme format
 The frontend integration allows you to create custom themes to influence the look and feel of the user interface.
 
 ```yaml
@@ -66,7 +66,7 @@ frontend:
 
 The example above defines two themes named `happy` and `sad`. For each theme you can set values for CSS variables. If you want to provide hex color values, wrap those in apostrophes, since otherwise YAML would consider them to be comments (`primary-color: '#123456'`). For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
 
-### New mode aware format
+### Dark mode support
 Starting with version 2021.6 it is also possible to create themes that are based on the default dark mode theme. New themes can also support both light and dark mode and allow the user to switch between those on the user profile page:
 
 [![Open your Home Assistant instance and show your Home Assistant user's profile.](https://my.home-assistant.io/badges/profile.svg)](https://my.home-assistant.io/redirect/profile/)
