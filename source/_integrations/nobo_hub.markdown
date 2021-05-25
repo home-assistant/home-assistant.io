@@ -20,7 +20,7 @@ To configure the integration, you need the 3 last digits of the serial number of
 on the back of the hub. If the hub is on a different local network than Home Assistant, you also need the
 IP address of the hub.
 
-{% include integration/config_flow.md %}
+{% include integrations/config_flow.md %}
 
 ## Operation modes
 
