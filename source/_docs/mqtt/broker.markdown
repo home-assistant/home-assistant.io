@@ -100,7 +100,7 @@ different plan options here: <https://www.hivemq.com/mqtt-cloud-broker/>
 
 Home Assistant is not affiliated with HiveMQ Cloud and does not receive any kickbacks.
 
-1. [Create an account](http://console.hivemq.cloud) (links to sign up).
+1. [Create an account](https://console.hivemq.cloud/?utm_source=home-assistant-io&utm_medium=documentation&utm_campaign=cloud) (links to sign up).
 2. When sign up you will receive automatically the free plan that allows you to
    connect up to 100 devices.
 3. Create MQTT credentials in the "Access Management" tab of your
