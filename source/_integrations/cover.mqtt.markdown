@@ -445,18 +445,14 @@ cover:
     state_stopped: "stop"
     optimistic: false
     position_template: |-
-      {% if state_attr(entity_id, "current_position") == None %}
+      {% if not state_attr(entity_id, "current_position") %}
         {{ value }}
+      {% elif state_attr(entity_id, "current_position") < (value | int) %}
+        {{ (value | int + 1) }}
+      {% elif state_attr(entity_id, "current_position") > (value | int) %}
+        {{ (value | int - 1) }}
       {% else %}
-        {% if state_attr(entity_id, "current_position") < (value | int) %}
-          {{ (value | int + 1) }}
-        {% else %}
-          {% if state_attr(entity_id, "current_position") > (value | int) %}
-            {{ (value | int - 1) }}
-          {% else %}
-            {{ value }}
-          {% endif %}
-        {% endif %}
+        {{ value }}
       {% endif %}
 ```
 
