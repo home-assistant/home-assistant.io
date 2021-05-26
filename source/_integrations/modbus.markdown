@@ -256,7 +256,7 @@ binary_sensors:
       required: false
       type: string
     input_type:
-      description: type of adddress (discrete_input/coil)
+      description: type of address (discrete_input/coil)
       required: false
       default: coil
       type: string
@@ -619,7 +619,7 @@ fans:
           default: write address
           type: integer
         input_type:
-          description: Type of adddress (holding/coil/discrete/input).
+          description: Type of address (holding/coil/discrete/input).
           required: false
           default: write_type
           type: integer
@@ -906,7 +906,7 @@ switches:
       default: 0x00
       type: integer
     write_type:
-      description: type of adddress (holding/coil)
+      description: type of address (holding/coil)
       required: false
       default: holding
       type: string
@@ -926,7 +926,7 @@ switches:
           default: 0
           type: integer
         input_type:
-          description: type of adddress (holding/coil/discrete/input)
+          description: type of address (holding/coil/discrete/input)
           required: false
           default: write_type
           type: integer
