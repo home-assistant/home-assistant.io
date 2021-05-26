@@ -435,7 +435,7 @@ cover:
   - platform: mqtt
     payload_open: "on"
     payload_close: 
-    payload_stop: "on
+    payload_stop: "on"
 ```
 
 {% endraw %}
