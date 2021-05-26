@@ -498,24 +498,33 @@ cover:
     tilt_closed_value: 0
     optimistic: false
     position_template: |-
-      {% if state_attr(entity_id, "current_position") == None %}
-        {% set my_json = { "position" : value, "tilt_value" : 0 } %}
+      {% if not state_attr(entity_id, "current_position") %}
+        {
+          "position" : value,
+          "tilt_value" : 0
+        }
       {% else %}
         {% set position = state_attr(entity_id, "current_position") %}
-        {% set movement = value | int - position %}
         {% set tilt_percent = (state_attr(entity_id, "current_tilt_position")) %}
-        {% set tilt = (tilt_percent/100*(tilt_max-tilt_min)) %}
-        {% set tilt_new = tilt + movement %}
-        {% if tilt_new > tilt_max %} {% set tilt_new = tilt_max %} {% endif %}
-        {% if tilt_new < tilt_min %} {% set tilt_new = tilt_min %} {% endif %}
-        {% set my_json = { "position" : value, "tilt_value" : tilt_new, "pos" : position, "tilt" : tilt, "tilt_percent" : tilt_percent, "mov" : movement } %}
+
+        {% set movement = value | int - position %}
+        {% set tilt = (tilt_percent / 100 * (tilt_max - tilt_min)) %}
+        {% set tilt_value = min(max((tilt + movement), tilt_min), max) %}
+ 
+        {
+           "postition": value,
+           "pos": position,
+           "tilt": tilt,
+           "tilt_value": tilt_value,
+           "tilt_percent" : tilt_percent,
+           "mov" : movement
+        }
       {% endif %}
-      {{ my_json }}
-    tilt_command_template: |-
+   tilt_command_template: >-
       {% set position = state_attr(entity_id, "current_position") %}
       {% set tilt = state_attr(entity_id, "current_tilt_position") %}
       {% set movement = (tilt_position - tilt) / 100 * tilt_max %}
-      {{ (position + movement) | int }
+      {{ position + movement }}
 ```
 
 {% endraw %}
