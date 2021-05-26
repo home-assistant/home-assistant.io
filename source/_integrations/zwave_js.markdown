@@ -220,6 +220,21 @@ This service will set a value on a Z-Wave device. It is for advanced use cases w
 | `value`   	            | yes        	| The new value that you want to set. 	                                                                                                                |
 | `wait_for_result`   	  | no        	| Boolean that indicates whether or not to wait for a response from the node. If not included in the payload, the integration will decide whether to wait or not. If set to `true`, note that the service call can take a while if setting a value on an asleep battery device. |
 
+### Service `zwave_js.multicast_set_value`
+
+This service will set a value on multiple Z-Wave devices using multicast. It is for advanced use cases where you need to set the same value on multiple nodes simultaneously. Be warned that correctly using this service requires advanced knowledge of Z-Wave. The service provides minimal validation beyond what is necessary to properly call the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere.
+
+| Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
+|------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least two `entity_id` or `device_id` must be provided if not broadcasting the command.                       	|
+| `device_id`            	| no        	| ID of device (or list of device IDs) to set the configuration parameter on. At least two `entity_id` or `device_id` must be provided if not broadcasting the command.                                         |
+| `broadcast`             | no          | Boolean that indicates whether you want the message to be broadcast to all nodes on the network. If you have only one Z-Wave JS network configured, you do not need to provide a `device_id` or `entity_id` when this is set to true. When you have multiple Z-Wave JS networks configured, you MUST providee at least one `device_id` or `entity_id` so the service knows which network to target.                                         |
+| `command_class`       	| yes       	| ID of Command Class that you want to set the value for. 	                                                                                            |
+| `property`            	| yes       	| ID of Property that you want to set the value for. 	                                                                                                  |
+| `property_key`        	| no        	| ID of Property Key that you want to set the value for. 	                                                                                              |
+| `endpoint`   	          | no        	| ID of Endpoint that you want to set the value for. 	                                                                                                  |
+| `value`   	            | yes        	| The new value that you want to set. 	                                                                                                                |
+
 ### Service `zwave_js.set_lock_usercode`
 
 This service will set the usercode of a lock to X at code slot Y.
