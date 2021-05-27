@@ -16,7 +16,7 @@ This integration adds an image processing entity where the state of the entity i
 
 If `save_file_folder` is configured, on each new detection of a person, an annotated image with the name `sighthound_{camera_name}_latest.jpg` is saved in the configured folder if it doesn't already exist, and overwritten if it does exist. The saved image shows the bounding box around detected people and can be displayed on the Home Assistant front end using a [Local File](/integrations/local_file/) camera, and used in notifications. If `save_timestamped_file` is configured as `true`, then the annotated image is saved with a file name that includes the time of detection.
 
-**Note** that by default the component will not automatically scan images, but requires you to call the `image_processing.scan` service, e.g. using an automation triggered by motion.
+**Note** that by default the component will not automatically scan images, but requires you to call the `image_processing.scan` service, e.g., using an automation triggered by motion.
 
 ## Configuration
 
