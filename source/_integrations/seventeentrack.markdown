@@ -1,18 +1,21 @@
 ---
 title: 17TRACK
-description: Instructions on how to use 17track.net data within Home Assistant
+description: How to integrate 17track.net data within Home Assistant
 ha_category:
   - Postal Service
 ha_release: 0.83
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@bachya'
+  - '@engrbm87'
 ha_domain: seventeentrack
 ha_platforms:
   - sensor
 ---
 
-The `seventeentrack` sensor platform allows users to get package data tied to their [17track.net](https://www.17track.net/en) account. The platform creates both summary sensors, which show the number of packages in a current state (e.g., "In Transit"), as well as individual sensors for each package within the account.
+The Seventeentrack integration allows users to get package data tied to their [17track.net](https://www.17track.net/en) account. A sesnor is created for each status type received from the Summary data retruned by the api. Each sensor will include the list of packages with their details in the attribute `Packages`. 
+
+An `all_packages` sensor is created that holds all packages in its `Packages` attribute. Below you will find an example showing how to create template sensor for individual package to monitor its status and other attributes.
 
 <div class='note warning'>
 
@@ -22,38 +25,51 @@ Although the 17track.net website states that account passwords cannot be longer 
 
 ## Configuration
 
-To enable the platform, add the following lines to your `configuration.yaml`
-file:
+{% include integrations/config_flow.md %}
 
-```yaml
-sensor:
-  - platform: seventeentrack
-    username: EMAIL_ADDRESS
-    password: YOUR_PASSWORD
-```
+## Integration Sensors
 
-{% configuration %}
-username:
-  description: The email address associated with your 17track.net account.
-  required: true
-  type: string
-password:
-  description: The password associated with your 17track.net account.
-  required: true
-  type: string
-show_archived:
-  description: Whether sensors should be created for archived packages.
-  required: false
-  type: boolean
-  default: false
-show_delivered:
-  description: Whether sensors should be created for delivered packages.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
+ Currently the summary data returns the following package types:
+
+- Delivered: Number of packages delievered
+- Expired: Number of packages expired
+- In Transit: Number of packages in transit
+- Not Found: Number of packages not found
+- Ready to be picked up: Number of packages ready to be picked up
+- Returned: Number of packages returned
+- Undelivered: Number of packages undelievered
+
+## Services
+
+### Service `add_package`
+
+Adds a new package to your 17Track account. 
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `tracking_number`    | no | The trakcing number of the package
+| `friendly_name` | yes | set friendly name for the added package
 
 ## Examples
+
+### Individual package template sensor
+
+Use the following configuration to create a template sensor for an individual package. The below assumes you are using the default name for the integration.
+
+{% raw %}
+
+```yaml
+template:
+  - sensor:
+      - name: "My package"
+        state: "{{ state_attr('sensor.seventeentrack_all_packages', 'packages')['<tracking_number>'].status }}"
+        attributes:
+          info_text: "{{ state_attr('sensor.seventeentrack_all_packages', 'packages')['<tracking_number>'].info_text }}"
+          origin_country: "{{ state_attr('sensor.seventeentrack_all_packages', 'packages')['<tracking_number>'].origin_country }}"
+
+```
+
+{% endraw %}
 
 ### Lovelace summary card
 
