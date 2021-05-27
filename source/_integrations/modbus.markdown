@@ -376,9 +376,9 @@ The `modbus` cover platform allows you to control covers (such as blinds, a roll
 
 At the moment, platform cover support the opening and closing of a cover. You can control your covers either using coils or holding registers.
 
-Cover that uses the `coil` attribute is not able to determine intermediary states such as opening and closing. Coil stores only two states — "0" means cover closed, and "1" implies cover open. To allow detecting intermediary states, there is an optional `status_register` attribute. It will enable you to write your command (e.g., to open a cover) into a coil, and read current cover status back through the register. Additionally, you can specify values for `state_open`, `state_opening`, `state_closed`, and `state_closing` attributes. These will be matched with the value read from the `status_register`.
+Cover that uses `input_type: coil` is not able to determine intermediary states such as opening and closing. Coil stores only two states — "0" means cover closed, and "1" implies cover open. To allow detecting intermediary states, there is an optional `status_register` attribute. It will enable you to write your command (e.g., to open a cover) into a coil, and read current cover status back through the register. Additionally, you can specify values for `state_open`, `state_opening`, `state_closed`, and `state_closing` attributes. These will be matched with the value read from the `status_register`.
 
-If your cover uses holding register to send commands (defined by the `register` attribute), it can also read the intermediary states. To adjust which value represents what state, you can fine-tune the optional state attributes, like `state_open`. These optional state values are also used for specifying values written into the register. If you specify an optional status_register attribute, cover states will be read from status_register instead of the register used for sending commands.
+If your cover uses ìnput_type: holding` (default) to send commands, it can also read the intermediary states. To adjust which value represents what state, you can fine-tune the optional state attributes, like `state_open`. These optional state values are also used for specifying values written into the register. If you specify an optional status_register attribute, cover states will be read from status_register instead of the register used for sending commands.
 
 To use Modbus covers in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
 
@@ -392,7 +392,8 @@ modbus:
     covers:
       - name: Door1
         device_class: door
-        coil: 117
+        input_type: coil
+        address: 117
         device_class: door
         state_open: 1
         state_opening: 2
@@ -401,7 +402,7 @@ modbus:
         status_register: 119
         status_register_type: holding
       - name: "Door2"
-        register: 117
+        address: 117
 ```
 
 {% configuration %}
@@ -410,19 +411,20 @@ covers:
   required: true
   type: map
   keys:
-    coil:
-      description: Coil address; `coil` and `register` attributes are mutually exclusive and you need to add one of them.
-      required: false
+    address:
+      description: Address of `coil` / `register`.
+      required: true
       type: integer
     device_class:
       description: The [type/class](/integrations/cover/#device-class) of the cover to set the icon in the frontend.
       required: false
       type: device_class
       default: None
-    register:
-      description: Holding register address; `coil` and `register` attributes are mutually exclusive, and you need to add one of them.
-      required: true
-      type: integer
+    input_type:
+      description: Modbus register type (holding, input), default holding.
+      default: holding
+      required: false
+      type: string
     state_open:
       description: A value in `status_register` or `register` representing an open cover. If your configuration uses the `register` attribute, this value will be written into the holding register to open the cover.
       required: false
