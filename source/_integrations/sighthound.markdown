@@ -78,29 +78,27 @@ A simple example is via 2 two automations:
 
 ```yaml
 # Example automations.yaml entry
-- id: '...'
+- id: "SOME_UNIQUE_ID"
   alias: Entrance Motion Image Processing
-  description: 'Send a camera image to sighthound when motion is detected at the entrance.'
+  description: "Send a camera image to sighthound, when motion is detected at the entrance."
   trigger:
   - type: motion
     platform: device
-    device_id: ...
+    device_id: YOUR_DEVICE_ID
     entity_id: binary_sensor.my_motion_sensor
     domain: binary_sensor
-  condition: []
   action:
   - service: image_processing.scan
     target:
       entity_id: image_processing.sighthound_my_cam
   mode: single
 
-- id: '...'
+- id: "ANOTHER_UNIQUE_ID"
   alias: Arriving Vehicle Notification
-  description: 'Send a notifocation to a phone, when a vehicle is detected at the entrance.'
+  description: "Send a notifocation to a phone, when a vehicle is detected at the entrance."
   trigger:
   - platform: event
     event_type: sighthound.vehicle_detected
-  condition: []
   action:
   - service: notify.mobile_app_my_iphone
     data:
