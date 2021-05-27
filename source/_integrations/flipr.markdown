@@ -32,7 +32,7 @@ You will need to use the standalone app for this device to register a username a
 - [Google](https://play.google.com/store/apps/details?id=com.goflipr.flipr)
 - [Apple](https://apps.apple.com/fr/app/flipr/id1225898851)
 
-Home Assistant offers Flipr integration through **Configuration** -> **Integrations**. Click the `+` sign and from the list of integrations select **Flipr**. Simply enter `username` and `password` when prompted. Your flipr ID is automatically determined.
+{% include integrations/config_flow.md %}
 
 ## Tips
 
