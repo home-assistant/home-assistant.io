@@ -22,7 +22,7 @@ The integration uses the web interface of the device. Before you start, make sur
 
 ## Sensors
 
-The SMA WebConnect module supports a wide variety of sensors, but not all of these have been mapped in the `pysma` library. Current available sensors can be found below. Feel free to submit additional sensors to be added as standard sensors to the [pysma library](https://github.com/rklomp/pysma/blob/dev/pysma/definitions.py)
+The SMA WebConnect module supports a wide variety of sensors, but not all of these have been mapped in the `pysma` library. Current available sensors can be found below. Feel free to submit additional sensors to be added as standard sensors to the [pysma library](https://github.com/rklomp/pysma/blob/dev/pysma/definitions.py).
 
 ### Solar Inverter
 
