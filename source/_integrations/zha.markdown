@@ -210,6 +210,8 @@ Note: `cluster_id: 25` may also be `cluster_id: 0x0019`. The two are synonymous.
 
 ### Defining Zigbee channel to use
 
+Zigbee network channel changes 15 will be used by default by ZHA but the Zigbee network channel can be changed via YAML, however note that changing Zigbee network channel changes requires repairing all already devices paired to ZHA.
+
 ```yaml
 zha:
   zigpy_config:
@@ -218,7 +220,7 @@ zha:
       channels: [15, 20, 25]  # Channel mask
 ```
 
-This is a good reference for channel selection [Zigbee and Wifi Coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence)
+Tip: Reference this for channel selection [Zigbee and WiFi coexistence (using non-overlapping frequency-bands)](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
 
 ### Modifying the device type
 
