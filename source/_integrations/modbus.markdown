@@ -277,8 +277,8 @@ modbus:
     port: 502
     climates:
       - name: "Watlow F4T"
-        current_temp_register: 27586
-        current_temp_register_type: holding
+        address: 27586
+        input_type: holding
         data_count: 1
         data_type: custom
         max_temp: 35
@@ -299,15 +299,10 @@ climates:
   required: false
   type: [map]
   keys:
-    current_temp_register:
+    address:
       description: Register address for current temperature (process value).
       required: true
       type: integer
-    current_temp_register_type:
-      description: Modbus register type (`holding`, `input`) for current temperature.
-      required: false
-      type: string
-      default: holding
     data_count:
       description: Number of registers to read.
       required: false
@@ -318,6 +313,11 @@ climates:
       required: false
       type: string
       default: float  
+    input_type:
+      description: Modbus register type (`holding`, `input`) for current temperature.
+      required: false
+      type: string
+      default: holding
     max_temp:
       description: Maximum setpoint temperature.
       required: false
