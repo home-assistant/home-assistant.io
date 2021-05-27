@@ -25,7 +25,7 @@ There is currently support for the following information within Home Assistant:
 - pH Status Indicator
 - Chlorine Status Indicator
 
-## Configuration
+## Prerequisites
 
 You will need to use the standalone app for this device to register a username and password.
 
