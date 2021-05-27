@@ -13,7 +13,7 @@ ha_domain: flipr
 
 [Flipr](https://www.goflipr.com) is a smart pool monitor that publishes data to the cloud via SigFox.
 Flipr sends data like ph, chlorine or temperature to a cloud server on a regular basis in order to monitor your pool.
-This integration gives you access to these information on Home Assistant in addition to the vendor's smartphone application.
+This integration gives you access to this information on Home Assistant in addition to the vendor's smartphone application.
 
 There is currently support for the following information within Home Assistant:
 
