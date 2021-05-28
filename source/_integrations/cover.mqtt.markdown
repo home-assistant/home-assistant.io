@@ -568,25 +568,6 @@ cover:
 ```
 
 {% endraw %}
-The following commands can be disabled: `open`, `close`, `stop` by overriding their payloads: `payload_open`, `payload_close`, `payload_stop`
-
-For auto discovery message the payload needs to be set to `null`, example for cover without close command:
-{% raw %}
-
-```json
-{
-  "cover": [
-    {
-      "platform": "mqtt",
-      "payload_open": "on",
-      "payload_close": null,
-      "payload_stop": "on"
-    }
-  ]
-}
-```
-
-{% endraw %}
 
 ### Testing your configuration
 
