@@ -11,7 +11,7 @@ ha_platforms:
   - sensor
 ---
 
-Integrate your [Neurio](https://neur.io/) meter information into Home Assistant. To get an API key and secret, login to your [Neurio account](https://my.neur.io/#settings/applications/register) and register an application. Note the Homepage URL and Callback URL are required but can be "fake" URLs.
+Integrate your [Neurio](https://neur.io/) meter information into Home Assistant. To get an API key and secret, login to your [Neurio account](https://my.neur.io/#settings/applications/register) and register an application.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -19,8 +19,8 @@ To enable this sensor in your installation, add the following to your `configura
 # Example configuration.yaml entry
 sensor:
   - platform: neurio_energy
-    api_key: CLIENT_ID
-    api_secret: CLIENT_SECRET
+    api_key: "CLIENT_ID"
+    api_secret: "CLIENT_SECRET"
     sensor_id: "SENSOR_ID"
 ```
 
@@ -39,7 +39,7 @@ api_secret:
   required: true
   type: string
 sensor_id:
-  description: "The sensor ID, a hex number as shown on the [PWRView webpage](https://mypwrview.generac.com/#settings/sensors), e.g., `0x0000XXXXXXXXXXXX`.  The value must be in double quotes so it is kept a string instead of being interpreted as a number."
+  description: "The sensor ID, a hex number as shown on the [PWRView webpage](https://mypwrview.generac.com/#settings/sensors), e.g., `0x0000XXXXXXXXXXXX`."
   required: true
   type: string
 {% endconfiguration %}
