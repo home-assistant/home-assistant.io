@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights: 23rd edition"
-description: ""
+description: "Get a reminder so you don't forget to take your medicine, swipe through your cards and control your lights from a (proof of concept) 2D game"
 date: 2021-05-28 00:00:00
 date_formatted: "May 28, 2021"
 author: Klaas Schoute
