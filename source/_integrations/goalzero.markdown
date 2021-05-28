@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.116
 ha_config_flow: true
+ha_dhcp: true
 ha_domain: goalzero
 ha_platforms:
   - binary_sensor
@@ -14,7 +15,7 @@ ha_codeowners:
   - '@tkdrob'
 ---
 
-This `goalzero` integration pulls data from a Wifi enabled Goal Zero Yeti.
+This Goal Zero Yeti integration pulls data from a Wifi-enabled [Goal Zero Yeti](https://www.goalzero.com).
 
 {% include integrations/config_flow.md %}
 

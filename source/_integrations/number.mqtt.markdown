@@ -99,6 +99,16 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as number attributes. Implies `force_update` of the current number state when a message is received on this topic.
   required: false
   type: string
+min:
+  description: Minimum value.
+  required: false
+  type: float
+  default: 1
+max:
+  description: Maximum value.
+  required: false
+  type: float
+  default: 100
 name:
   description: The name of the Number.
   required: false
@@ -122,6 +132,11 @@ state_topic:
   description: The MQTT topic subscribed to receive number values.
   required: false
   type: string
+step:
+  description: Step value. Smallest value `0.001`.
+  required: false
+  type: float
+  default: 1
 unique_id:
   description: An ID that uniquely identifies this Number. If two Numbers have the same unique ID Home Assistant will raise an exception.
   required: false

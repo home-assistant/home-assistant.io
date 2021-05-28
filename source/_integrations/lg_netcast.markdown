@@ -51,15 +51,32 @@ Just add the token to your configuration and restart Home Assistant and the medi
 
 ## Advanced configuration
 
-The example below shows how you can use the `turn_on_action`
+The example below shows how you can use the `turn_on_action` the [`wake_on_lan` integration](/integrations/wake_on_lan/).
 
 ```yaml
-# Example configuration.yaml entry
+wake_on_lan: # enables `wake_on_lan` integration
+
+# Enables the `lg_netcast` media player
 media_player:
   - platform: lg_netcast
     host: 192.168.0.20
     turn_on_action:
-      service: switch.turn_on
-      target:
-        entity_id: switch.tv_switch
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: AA-BB-CC-DD-EE-FF
+        broadcast_address: 11.22.33.44
+```
+
+## Change channel through play_media service
+
+The `play_media` service can be used in a script to switch to the specified TV channel. It selects the major channel number according to the `media_content_id` parameter:
+
+```yaml
+# Example action entry in script to switch to channel number 15
+service: media_player.play_media
+target:
+  entity_id: media_player.lg_tv
+data:
+  media_content_id: 15
+  media_content_type: channel
 ```

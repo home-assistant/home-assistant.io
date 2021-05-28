@@ -422,9 +422,44 @@ cover:
 
 {% endraw %}
 
+### Configuration for disabling cover commands
+
+The example below shows a configuration for a cover that does not have a close command.
+Setting `payload_close` empty or to `null` disables the close command and will not show the close button.
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: mqtt
+    payload_open: "on"
+    payload_close: 
+    payload_stop: "on"
+```
+
+{% endraw %}
+The following commands can be disabled: `open`, `close`, `stop` by overriding their payloads: `payload_open`, `payload_close`, `payload_stop`
+
+For auto discovery message the payload needs to be set to `null`, example for cover without close command:
+{% raw %}
+
+```json
+{
+  "cover": [
+    {
+      "platform": "mqtt",
+      "payload_open": "on",
+      "payload_close": null,
+      "payload_stop": "on"
+    }
+  ]
+}
+```
+
 ### Full configuration using `entity_id`- variable in the template
 
-The example below shows an example of how to correct the state of the bline depending if it moved up, or down. 
+The example below shows an example of how to correct the state of the blind depending if it moved up, or down. 
 
 {% raw %}
 
@@ -525,9 +560,33 @@ cover:
       {% set tilt = state_attr(entity_id, "current_tilt_position") %}
       {% set movement = (tilt_position - tilt) / 100 * tilt_max %}
       {{ position + movement }}
+    payload_open: "on"
+    payload_close: 
+    payload_stop: "on"
 ```
 
 {% endraw %}
+The following commands can be disabled: `open`, `close`, `stop` by overriding their payloads: `payload_open`, `payload_close`, `payload_stop`
+
+For auto discovery message the payload needs to be set to `null`, example for cover without close command:
+{% raw %}
+
+```json
+{
+  "cover": [
+    {
+      "platform": "mqtt",
+      "payload_open": "on",
+      "payload_close": null,
+      "payload_stop": "on"
+    }
+  ]
+}
+```
+
+{% endraw %}
+
+### Testing your configuration
 
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages. This allows you to operate your cover manually:
 

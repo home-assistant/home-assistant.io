@@ -15,38 +15,28 @@ ha_platforms:
   - sensor
 ---
 
-The `speedtestdotnet` integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
+The Speedtest.net integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
-By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a speed test to run.
+
+{% include integrations/config_flow.md %}
 
 Most Speedtest.net servers require TCP port 8080 outbound to function. Without this port open you may experience significant delays or no results at all. See note on their [help page](https://www.speedtest.net/help).
 
-{% include integrations/config_flow.md %}
+By default, a speed test will be run every hour. You can update frequency in the integration configuration.
 
 ## Integration Sensors
 
 The following sensors are added by the integration:
 
 sensors:
-  - Ping sensor: Reaction time in ms of your connection (how fast you get a response after you’ve sent out a request).
-  - Download sensor: The download speed (Mbit/s).
-  - Upload sensor: The upload speed (Mbit/s).
+
+- Ping sensor: Reaction time in ms of your connection (how fast you get a response after you’ve sent out a request).
+- Download sensor: The download speed (Mbit/s).
+- Upload sensor: The upload speed (Mbit/s).
   
-### Time period dictionary example
-
-```yaml
-scan_interval:
-  # At least one of these must be specified:
-  days: 0
-  hours: 0
-  minutes: 3
-  seconds: 30
-  milliseconds: 0
-```
-
 ### Service
 
-Once loaded, the `speedtestdotnet` integration will expose a service (`speedtestdotnet.speedtest`) that can be called to run a Speedtest.net speed test on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
+Once loaded, the integration will expose a service (`speedtestdotnet.speedtest`) that can be called to run a Speedtest.net speed test on demand. This service takes no parameters. This can be useful when auto update has been disabled in the integration options.
 
 ```yaml
 action:
@@ -59,18 +49,6 @@ Please be aware of the potential [inconsistencies](https://github.com/sivel/spee
 ## Examples
 
 In this section you will find some real-life examples of how to use this component.
-
-### Run periodically
-
-Every half hour of every day:
-
-```yaml
-# Example configuration.yaml entry
-speedtestdotnet:
-  scan_interval:
-    minutes: 30
-```
-
 ### Using as a trigger in an automation
 
 {% raw %}

@@ -191,6 +191,7 @@ This integration is tested to work with the following models. If you have a diff
 | `mono`     | YLTD03YL     | Yeelight Serene Eye-Friendly Desk Lamp           |
 | `ceiling10`     | YLDL01YL     | Yeelight Meteorite Pendant Light            |
 | `ceiling13`     | YLXD01YL     | Yeelight LED Ceiling Light           |
+| `ceil26`   | YLXD76YL     | Yeelight Ceiling Light - Updated HomeKit 23w     |
 | `lamp` | MJTD02YL | Xiaomi Mijia Desk Lamp Pro |
 
 ## Services

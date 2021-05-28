@@ -207,6 +207,16 @@ Note that purging will not immediately decrease disk space usage but it will sig
 | `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
 | `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size. |
 
+### Service `purge_entities`
+
+Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains` and `entity_globs` fields. Note: leaving all three parameters empty will result in all entities being selected for purging.
+
+| Service data attribute | Optional | Description                                                                                                                                                                                              |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | A list of entity_ids that should be purged from the recorder database. |
+| `domains`               | yes      | A list of domains that should be purged from the recorder database. |
+| `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database. |
+
 ### Service `disable`
 
 Call the service `recorder.disable` to stop saving events and states to the database.
@@ -214,6 +224,15 @@ Call the service `recorder.disable` to stop saving events and states to the data
 ### Service `enable`
 
 Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
+
+## Recommended engines and minimum versions
+
+The following database engines are tested when major changes are made to the recorder. Other database engines do not have an active core maintainer at this time and may require additional work to maintain.
+
+- SQLite 3.32.1+
+- MariaDB 10.3+
+- MySQL 5.7+
+- PostgresSQL 12+
 
 ## Custom database engines
 
@@ -232,7 +251,8 @@ Call the service `recorder.enable` to start again saving events and states to th
 | PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                                            |
 | PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                                  |
 | PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                                |
-| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;`              |
+| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=DRIVER`                      |
+| Oracle                         | `oracle+cx_oracle://username:password@SERVER_IP:1521/DB_NAME?encoding=UTF-8&nencoding=UTF-8`              |
 
 <div class='note'>
 
@@ -340,7 +360,13 @@ sudo apt-get install postgresql-server-dev-X.Y
 pip3 install psycopg2
 ```
 
-For using Unix Sockets, add the following line to your [`pg_hba.conf`](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html):
+For using Unix Sockets, first create your user from the `postgres` user account;
+```bash
+createuser USER_NAME
+```
+Where `USER_NAME` is the name of the user running the Home Assistant instance (see [securing your installation](/docs/configuration/securing/)).
+
+Then add the following line to your [`pg_hba.conf`](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html):
 
 `local  DB_NAME USER_NAME peer`
 
@@ -377,6 +403,6 @@ You will also need to install an ODBC Driver. Microsoft ODBC drivers are recomme
 
 <div class='note'>
 
-If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8mb4;DRIVER={FreeTDS};Port=1433;`.
+If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8mb4&driver=FreeTDS`.
 
 </div>

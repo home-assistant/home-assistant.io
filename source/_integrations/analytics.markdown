@@ -57,7 +57,7 @@ If you are running Home Assistant Operating System, this will also contain:
   },
   "operating_system": {
     "board": "odroid-n2",
-    "version:": "{{site.data.version_data.hassos['odroid-n2']}}"
+    "version": "{{site.data.version_data.hassos['odroid-n2']}}"
   }
 }
 ```
@@ -70,7 +70,8 @@ _Requires basic analytics to be enabled._
 
 This includes:
 
-- The names of all your integrations
+- The names of all your core integrations
+- The names and versions of all your custom integrations if you have any
 
 If your system includes the Supervisor, this will also contain:
 
@@ -93,7 +94,7 @@ If your system includes the Supervisor, this will also contain:
   },
   "operating_system": {
     "board": "odroid-n2",
-    "version:": "{{site.data.version_data.hassos['odroid-n2']}}"
+    "version": "{{site.data.version_data.hassos['odroid-n2']}}"
   },
   "integrations": ["awesome_integration"],
     "addons": [
@@ -137,7 +138,7 @@ If your system includes the Supervisor, this will also contain:
   },
   "operating_system": {
     "board": "odroid-n2",
-    "version:": "{{site.data.version_data.hassos['odroid-n2']}}"
+    "version": "{{site.data.version_data.hassos['odroid-n2']}}"
   },
   "state_count": 1,
   "automation_count": 2,

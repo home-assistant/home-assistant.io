@@ -40,6 +40,9 @@ resources:
       required: false
 {% endconfiguration %}
 
+After restarting Home Assistant, these sensors will show up and update their
+information every 15 seconds.
+
 The table contains types and their argument to use in your `configuration.yaml`
 file.
 
@@ -85,7 +88,7 @@ tmpfs           934M     0  934M   0% /dev/shm
 /dev/mmcblk0p1  253M   54M  199M  22% /boot
 ```
 
-Defining a `disk_use` sensor for `/` and `/home/pi` is redundant and will return the same values, since they both belong to the same "disk". However, defining separate sensors for `/dev` and `dev/shm` is possible and provides different values, since those are treated as separate "disks" by the integration.
+Defining a `disk_use` sensor for `/` and `/home/pi` is redundant and will return the same values, since they both belong to the same "disk". However, defining separate sensors for `/dev` and `/dev/shm` is possible and provides different values, since those are treated as separate "disks" by the integration.
 
 ## Processor temperature
 

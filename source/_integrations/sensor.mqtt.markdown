@@ -114,6 +114,14 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Implies `force_update` of the current sensor state when a message is received on this topic.
   required: false
   type: string
+last_reset_topic:
+  description: "The MQTT topic subscribed to receive timestamps for when an accumulating sensor such as an energy meter was reset. If the sensor never resets, set it to UNIX epoch 0: `1970-01-01T00:00:00+00:00`."
+  required: false
+  type: string
+last_reset_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the last_reset. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes."
+  required: false
+  type: string
 name:
   description: The name of the MQTT sensor.
   required: false
@@ -134,6 +142,11 @@ qos:
   required: false
   type: integer
   default: 0
+state_class:
+  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  required: false
+  type: string
+  default: None
 state_topic:
   description: The MQTT topic subscribed to receive sensor values.
   required: true
@@ -147,7 +160,7 @@ unit_of_measurement:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes."
   required: false
   type: template
 {% endconfiguration %}
@@ -205,6 +218,26 @@ sensor:
 {% endraw %}
 
 The state and the attributes of the sensor by design do not update in a synchronous manner if they share the same MQTT topic. Temporal mismatches between the state and the attribute data may occur if both the state and the attributes are changed simultaneously by the same MQTT message. An automation that triggers on any state change of the sensor will also trigger both on the change of the state or a change of the attributes. Such automations will be triggered twice if both the state and the attributes change. Please use a [MQTT trigger](/docs/automation/trigger/#mqtt-trigger) and process the JSON in the automation directly via the {% raw %}`{{ trigger.payload_json }}`{% endraw %} [trigger data](/docs/automation/templating/#mqtt) for automations that must synchronously handle multiple JSON values within the same MQTT message.
+
+### Usage of `entity_id` in the template
+
+The example below shows how a simple filter, that calculates the value by adding 90% of the new value and 10% of the previous value, can be implemented in a template. 
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: mqtt
+    name: "Temp 1"
+    state_topic: "sensor/temperature"
+    value_template: |-
+      {% if states(entity_id) == None %}
+        {{ value | round(2) }}
+      {% else %}
+        {{ value | round(2) * 0.9 + states(entity_id) * 0.1 }}
+      {% endif %}
+```
+{% endraw %}
 
 ### Owntracks battery level sensor
 

@@ -82,7 +82,7 @@ camera:
     authentication: basic
 ```
 
-Example of using a DCS-930L Wireless N Network Camera from D-Link:
+Example of using a DCS-933L Wireless N Network Camera from D-Link:
 
 ```yaml
 camera:
