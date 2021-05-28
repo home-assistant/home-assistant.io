@@ -653,6 +653,12 @@ Webhook endpoints don't require authentication, other than knowing a valid webho
 
 Note that a given webhook can only be used in one automation at a time. That is, only one automation trigger can use a specific webhook ID.
 
+In order to reference `trigger.json`, the `Content-Type` header must be specified with a value of `application/json`, e.g.:
+
+```bash
+curl -X POST -H "Content-Type: application/json" https://your-home-assistant:8123/api/webhook/some_hook_id
+```
+
 ## Zone trigger
 
 Zone trigger fires when an entity is entering or leaving the zone. The entity can be either a person, or a device_tracker. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).

@@ -176,7 +176,7 @@ Use the same `db_url` as for the `recorder` integration. Change `DB_NAME` to the
 ```yaml
 sensor:
   - platform: sql
-    db_url: "mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={FreeTDS};Port=1433;"
+    db_url: "mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=FreeTDS"
     queries:
       - name: DB size
         query: "SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';"
