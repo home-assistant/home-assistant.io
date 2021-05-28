@@ -168,7 +168,7 @@ position_open:
   type: integer
   default: 100
 position_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `position_topic` topic."
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `position_topic` topic. Within the template the following variables are available: `entity_id`, `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
   required: false
   type: string
 position_topic:
@@ -186,7 +186,7 @@ retain:
   type: boolean
   default: false
 set_position_template:
-  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. If no template is defined, the position (0-100) will be calculated according to `position_open` and `position_closed` values."
+  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. Within the template the following variables are available: `entity_id`, `position`, the target position in percent; `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
   required: false
   type: string
 set_position_topic:
@@ -228,7 +228,7 @@ tilt_closed_value:
   type: integer
   default: 0
 tilt_command_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_command_topic` topic."
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_command_topic` topic. Within the template the following variables are available: `entity_id`, `tilt_position`, the target tilt position in percent; `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
   required: false
   type: string
 tilt_command_topic:
@@ -236,7 +236,7 @@ tilt_command_topic:
   required: false
   type: string
 tilt_max:
-  description: The maximum tilt value
+  description: The maximum tilt value.
   required: false
   type: integer
   default: 100
@@ -256,7 +256,7 @@ tilt_optimistic:
   type: boolean
   default: "`true` if `tilt_status_topic` is not defined, else `false`"
 tilt_status_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic."
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic. Within the template the following variables are available: `entity_id`, `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
   required: false
   type: string
 tilt_status_topic:
@@ -433,6 +433,135 @@ Setting `payload_close` empty or to `null` disables the close command and will n
 # Example configuration.yaml entry
 cover:
   - platform: mqtt
+    payload_open: "on"
+    payload_close: 
+    payload_stop: "on"
+```
+
+{% endraw %}
+The following commands can be disabled: `open`, `close`, `stop` by overriding their payloads: `payload_open`, `payload_close`, `payload_stop`
+
+For auto discovery message the payload needs to be set to `null`, example for cover without close command:
+{% raw %}
+
+```json
+{
+  "cover": [
+    {
+      "platform": "mqtt",
+      "payload_open": "on",
+      "payload_close": null,
+      "payload_stop": "on"
+    }
+  ]
+}
+```
+
+{% endraw %}
+
+### Full configuration using `entity_id`- variable in the template
+
+The example below shows an example of how to correct the state of the blind depending if it moved up, or down. 
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: mqtt
+    name: "MQTT Cover"
+    command_topic: "home-assistant/cover/set"
+    state_topic: "home-assistant/cover/state"
+    position_topic: "home-assistant/cover/position"
+    set_position_topic: "home-assistant/cover/position/set"
+    payload_open:  "open"
+    payload_close: "close"
+    payload_stop:  "stop"
+    state_opening: "open"
+    state_closing: "close"
+    state_stopped: "stop"
+    optimistic: false
+    position_template: |-
+      {% if not state_attr(entity_id, "current_position") %}
+        {{ value }}
+      {% elif state_attr(entity_id, "current_position") < (value | int) %}
+        {{ (value | int + 1) }}
+      {% elif state_attr(entity_id, "current_position") > (value | int) %}
+        {{ (value | int - 1) }}
+      {% else %}
+        {{ value }}
+      {% endif %}
+```
+
+{% endraw %}
+
+### Full configuration using advanced templating
+
+The example below shows a full example of how to set up a venetian blind which has a combined position and tilt topic. The blind in the example has moveable slats which tilt with a position change. In the example, it takes the blind 6% of the movement for a full rotation of the slats.
+
+Following variable might be used in `position_template`, `set_position_template`, `tilt_command_template` and `tilt_status_template`, `json_attributes_template` (only `entity_id`).
+
+- `entity_id` - The ID of the entity itself. It can be used to reference its attributes with the help of the [states](/docs/configuration/templating/#states) template function.
+- `position_open`
+- `position_closed`
+- `tilt_min`
+- `tilt_max`
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: mqtt
+    name: "MQTT Cover"
+    command_topic: "home-assistant/cover/set"
+    state_topic: "home-assistant/cover/state"
+    position_topic: "home-assistant/cover/position"
+    set_position_topic: "home-assistant/cover/position/set"
+    tilt_command_topic: "home-assistant/cover/position/set" # same as `set_position_topic`
+    qos: 1
+    retain: false
+    payload_open:  "open"
+    payload_close: "close"
+    payload_stop:  "stop"
+    state_opening: "open"
+    state_closing: "close"
+    state_stopped: "stop"
+    position_open: 100
+    position_closed: 0
+    tilt_min: 0
+    tilt_max: 6
+    tilt_opened_value: 3
+    tilt_closed_value: 0
+    optimistic: false
+    position_template: |-
+      {% if not state_attr(entity_id, "current_position") %}
+        {
+          "position" : value,
+          "tilt_value" : 0
+        }
+      {% else %}
+        {% set position = state_attr(entity_id, "current_position") %}
+        {% set tilt_percent = (state_attr(entity_id, "current_tilt_position")) %}
+
+        {% set movement = value | int - position %}
+        {% set tilt = (tilt_percent / 100 * (tilt_max - tilt_min)) %}
+        {% set tilt_value = min(max((tilt + movement), tilt_min), max) %}
+ 
+        {
+           "postition": value,
+           "pos": position,
+           "tilt": tilt,
+           "tilt_value": tilt_value,
+           "tilt_percent" : tilt_percent,
+           "mov" : movement
+        }
+      {% endif %}
+   tilt_command_template: >-
+      {% set position = state_attr(entity_id, "current_position") %}
+      {% set tilt = state_attr(entity_id, "current_tilt_position") %}
+      {% set movement = (tilt_position - tilt) / 100 * tilt_max %}
+      {{ position + movement }}
     payload_open: "on"
     payload_close: 
     payload_stop: "on"
