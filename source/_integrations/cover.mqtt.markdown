@@ -457,6 +457,8 @@ For auto discovery message the payload needs to be set to `null`, example for co
 }
 ```
 
+{% endraw %}
+
 ### Full configuration using `entity_id`- variable in the template
 
 The example below shows an example of how to correct the state of the blind depending if it moved up, or down. 
