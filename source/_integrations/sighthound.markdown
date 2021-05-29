@@ -80,7 +80,7 @@ A simple example is via 2 two automations:
 # Example automations.yaml entry
 - id: "SOME_UNIQUE_ID"
   alias: Entrance Motion Image Processing
-  description: "Send a camera image to sighthound, when motion is detected at the entrance."
+  description: Send a camera image to sighthound, when motion is detected at the entrance.
   trigger:
   - type: motion
     platform: device
@@ -95,7 +95,7 @@ A simple example is via 2 two automations:
 
 - id: "ANOTHER_UNIQUE_ID"
   alias: Arriving Vehicle Notification
-  description: "Send a notifocation to a phone, when a vehicle is detected at the entrance."
+  description: Send a notifocation to a phone, when a vehicle is detected at the entrance.
   trigger:
   - platform: event
     event_type: sighthound.vehicle_detected
