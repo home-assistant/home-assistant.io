@@ -69,7 +69,7 @@ a proof of concept game that you can play in the browser, you can adjust the map
 so that your own light entities work with it.
 
 <div style="margin:0 auto; text-align:center">
-    <img src="https://media.githubusercontent.com/media/svendroid/homegame/master/docs/demo_video.webp" 
+    <img src="https://github.com/svendroid/homegame/blob/master/docs/demo_video.webp?raw=true" 
         alt="Demo of the 2D game"
         style='border: 0;box-shadow: none;width:80%;margin-bottom:15px;' />
 </div>
