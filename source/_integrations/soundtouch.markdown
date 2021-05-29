@@ -79,6 +79,21 @@ You can also play HTTP (not HTTPS) URLs:
   data:
     media_content_id: http://example.com/music.mp3
     media_content_type: MUSIC
+    
+```
+
+Spotify media can be played as follows:
+
+```yaml
+# Play media URL
+- service: media_player.play_media
+  target:
+    entity_id: media_player.soundtouch_living_room
+  data:
+    media_content_id: spotify:track:5J59VOgvclrhLDYUoH5OaW
+    media_content_type: spotify
+    extra:
+      user_id: johndoe
 ```
 
 ### Text-to-Speech services
