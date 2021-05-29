@@ -81,6 +81,18 @@ You can also play HTTP (not HTTPS) URLs:
     media_content_type: MUSIC
 ```
 
+Spotify media can be played as follows:
+
+```yaml
+# Play media URL
+- service: media_player.play_media
+  target:
+    entity_id: media_player.soundtouch_living_room
+  data:
+    media_content_id: '{"spotify_media_uri":"spotify:track:5J59VOgvclrhLDYUoH5OaW","user_id":"johndoe"}'
+    media_content_type: SPOTIFY
+```
+
 ### Text-to-Speech services
 
 You can use TTS services like [Google Text-to-Speech](/integrations/google_translate) or [Amazon Polly](/integrations/amazon_polly) only if your Home Assistant is configured in HTTP and not HTTPS (current device limitation, a firmware upgrade is planned).
