@@ -190,8 +190,8 @@ Optional:
 
 ### [Supla](https://www.supla.fi/)
 
-Example values to cast the item at <https://www.supla.fi/audio/3601824>
-
+#### Media parameters
+Mandatory:
 - `app_name`: `supla`
 - `media_id`: Supla item ID
 
@@ -200,7 +200,7 @@ Optional:
 - `is_live`: Item is a livestream
 
 #### Example:
-
+Example values to cast the item at <https://www.supla.fi/audio/3601824>
 ```yaml
 'cast_supla_to_my_chromecast':
   alias: "Cast supla to My Chromecast"
@@ -231,6 +231,83 @@ To cast media directly from a configured Plex server, set the fields [as documen
     data:
       media_content_type: movie
       media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
+```
+
+### [BBC Sounds](https://www.bbc.co.uk/sounds)
+This app doesn't retrieve its own metadata, so if you want the cast interface or media player card to show titles and/or images you will have to provide the data yourself. See the examples below.
+
+#### Media parameters
+Mandatory:
+- `app_name`: `bbcsounds`
+- `media_id`: Item ID
+
+Optional:
+- `is_live`: Item is a livestream
+
+#### Example:
+Example values to cast the item at <https://www.bbc.co.uk/sounds/play/live:bbc_radio_one>
+```yaml
+  alias: "Cast BBC Sounds to My Chromecast"
+  sequence:
+    - target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "bbcsounds",
+            "media_id": "bbc_radio_one",
+            "is_live": true
+          }'
+        extra: 
+          metadata: 
+            metadataType: 0
+            title: "Radio 1"
+            images:
+              - url: "https://sounds.files.bbci.co.uk/2.3.0/networks/bbc_radio_one/background_1280x720.png"
+      service: media_player.play_media
+```
+
+### [BBC iPlayer](https://www.bbc.co.uk/iplayer)
+This app doesn't retrieve its own metadata, so if you want the cast interface or media player card to show titles and/or images you will have to provide the data yourself. See the examples below.
+
+Note: Media ID is NOT the 8 digit alpha-numeric in the URL, it can be found by right clicking the playing video. E.g. <https://www.bbc.co.uk/iplayer/episode/b09w7fd9/bitz-bob-series-1-1-castle-makeover> shows:
+
+    2908kbps | dash (mf_cloudfront_dash_https)
+    b09w70r2 | 960x540
+
+With b09w70r2 being the `media_id`
+
+#### Media parameters
+Mandatory:
+- `app_name`: `bbciplayer`
+- `media_id`: Item ID
+
+Optional:
+- `is_live`: Item is a livestream
+
+#### Example:
+Example values to cast the item at <https://www.bbc.co.uk/iplayer/episode/b09w7fd9/bitz-bob-series-1-1-castle-makeover>
+```yaml
+  alias: "Cast BBC iPlayer to My Chromecast"
+  sequence:
+    - target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "bbciplayer",
+            "media_id": "b09w70r2"
+          }'
+        extra: 
+          metadata: 
+            metadataType: 0
+            title: "Bitz & Bob"
+            subtitle: "Castle Makeover"
+            images:
+              - url: "https://ichef.bbci.co.uk/images/ic/1280x720/p07j4m3r.jpg"
+      service: media_player.play_media
 ```
 
 ## Troubleshooting automatic discovery
