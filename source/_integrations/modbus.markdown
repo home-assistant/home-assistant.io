@@ -56,6 +56,16 @@ name:
   required: false
   default: "modbus_hub"
   type: string
+retries:
+  description: Number of times to retry a request.
+  required: false
+  default: 3
+  type: int
+retry_on_empty:
+  description: Retry request, when receiving and empty message.
+  required: false
+  default: false
+  type: boolean
 timeout:
   description: "Timeout while waiting for a response in seconds. Remark: a timeout of fewer than 5 seconds will be automatically adjusted to 5 seconds."
   required: false
