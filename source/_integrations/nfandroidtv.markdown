@@ -21,7 +21,11 @@ When setting this up be aware, that there are two apps: one for your smartphone 
 
 {% include integrations/config_flow.md %}
 
+## Services
+
 The following options can be specified inside the data field for the notify service call:
+
+### Service `notify.[name_of_your_tv]`
 
 {% configuration %}
 duration:
@@ -54,24 +58,18 @@ interrupt:
   type: boolean
 {% endconfiguration %}
 
-This is a fully customized JSON you can use to test how the final notification will look like:
+This is a fully customized YAML you can use inside `data` to test how the final notification will look like:
 
-```json
-{
-"message": "Messagetext",
-"title": "My Notification",
-"data":{
-    "fontsize": "large",
-    "position":"center",
-    "duration":2,
-    "transparency":"0%",
-    "color": "red",
-    "interrupt": 1
-    }
-}
+```yaml
+fontsize: "large"
+position: "center"
+duration: 2
+transparency: "0%"
+color: "red"
+interrupt: 1
 ```
 
-### Service data for sending images
+## Service data for sending images
 
 The following attributes can be placed inside `data` to send images.
 
@@ -82,37 +80,23 @@ The following attributes can be placed inside `data` to send images.
 | `url`                  |      yes | URL of an image file. Is placed inside `file`.
 | `username`             |      yes | Username if the URL requires authentication. Is placed inside `file`.
 | `password`             |      yes | Password if the URL requires authentication. Is placed inside `file`.
-| `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing, HTTP-BASIC-Authentication is used. Is placed inside `file`.
+| `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing, HTTP-BASIC-Authentication is used and is placed inside `file`.
 
 Example for posting file from URL:
 
-```json
-{
-  "message":"Messagetext",
-  "title":"My Notification",
-  "data":{
-    "file":{
-      "url":"http://[url to image file]",
-      "username":"optional user, if necessary",
-      "password":"optional password, if necessary",
-      "auth":"digest"
-    }
-  }
-}
+```yaml
+file:
+  url: "http://[url to image file]"
+  username: "optional user, if necessary"
+  password: "optional password, if necessary"
+  auth: "digest"
 ```
 
 Example for posting file from local path:
 
-```json
-{
-  "message":"Messagetext",
-  "title":"My Notification",
-  "data":{
-    "file":{
-      "path":"/path/to/file.ext"
-    }
-  }
-}
+```yaml
+file:
+  path: "/path/to/file.ext"
 ```
 
 Please note that `path` is validated against the `allowlist_external_dirs` in the `configuration.yaml`.
