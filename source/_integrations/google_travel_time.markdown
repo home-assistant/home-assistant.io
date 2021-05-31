@@ -17,9 +17,13 @@ The `google_travel_time` sensor provides travel time from the [Google Distance M
 
 You need to register for an API key by following the instructions [here](https://github.com/googlemaps/google-maps-services-python#api-keys). You only need to turn on the Distance Matrix API.
 
-[Google now requires billing](https://mapsplatform.googleblog.com/2018/05/introducing-google-maps-platform.html) to be enabled (and a valid credit card loaded) to access Google Maps APIs. The Distance Matrix API is billed at US$10 per 1000 requests, however, a US$200 per month credit is applied (20,000 requests). The sensor will update the travel time every 5 minutes, making approximately 288 calls per day. Note that at this rate, more than 2 sensors will likely exceed the free credit amount. While this call frequency can not be decreased, you may have a use case which requires the data to be updated more often, to do this you may update on-demand (see automation example below).
+### Billing & quota
 
-A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 645 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/distance-matrix/usage-and-billing#set-caps)
+[Google requires billing](https://mapsplatform.googleblog.com/2018/05/introducing-google-maps-platform.html) to be enabled (and a valid credit card loaded) to access Google Maps APIs. The Distance Matrix API is billed at US$10 per 1000 requests, however, a US$200 per month credit is applied (20,000 requests). By default, the sensor will update the travel time every 5 minutes, making approximately 288 calls per day. Note that at this rate more than 2 sensors will likely exceed the free credit amount. A quota can be set against the API to avoid exceeding the free credit amount: set the 'Elements per day' to a limit of 645 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/distance-matrix/usage-and-billing#set-caps)
+
+## Disabling automatic updates and update manually
+
+You can disable automatic updates in the configuration settings after which the sensor **will not update automatically at all**. This can be useful if you are using multiple sensors that need throttling to stay within the free credit, or if you are only interested in updates during your commute or specific days of the week. When automatic updates are disabled the travel time sensor can be updated by calling the `homeassistant.update_entity` service on-demand (see automation example below).
 
 {% include integrations/config_flow.md %}
 
@@ -52,14 +56,13 @@ Destination: Eddies House
   - All other states will be passed directly into the Google API
     - This includes all valid locations listed in the *Configuration Variables*
 
-## Updating sensors on-demand using Automation
+## Updating sensors on-demand using automation
 
-You can also use the `homeassistant.update_entity` service to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
+You can use the `homeassistant.update_entity` service to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
 
 ```yaml
 - id: update_morning_commute_sensor
   alias: "Commute - Update morning commute sensor"
-  initial_state: "on"
   trigger:
     - platform: time_pattern
       minutes: "/2"
@@ -67,7 +70,6 @@ You can also use the `homeassistant.update_entity` service to update the sensor 
     - condition: time
       after: "08:00:00"
       before: "11:00:00"
-    - condition: time
       weekday:
         - mon
         - tue
