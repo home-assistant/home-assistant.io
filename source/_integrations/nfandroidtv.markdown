@@ -13,7 +13,7 @@ ha_codeowners:
   - '@tkdrob'
 ---
 
-Notification platform for [Notifications for Android TV](https://play.google.com/store/apps/details?id=de.cyberdream.androidtv.notifications.google) and [Notifications for Fire TV](https://[play.google.com/store/apps/details?id=de.cyberdream.firenotifications.google](https://www.amazon.com/Christian-Fees-Notifications-for-Fire/dp/B00OESCXEK)). You can use this plarform to send notifications to your Android TV device. An overlay with the message content will appear for a configurable amount of seconds and then disappear again. Sending images (e.g., security cam) is supported too.
+Notification platform for [Notifications for Android TV](https://play.google.com/store/apps/details?id=de.cyberdream.androidtv.notifications.google) and [Notifications for Fire TV](https://www.amazon.com/Christian-Fees-Notifications-for-Fire/dp/B00OESCXEK). You can use this platform to send notifications to your Android TV device. An overlay with the message content will appear for a configurable amount of seconds and then disappear again. Sending images (e.g., security cam) is supported too.
 
 The notifications are in the global scope of your Android TV device. They will be displayed regardless of which application is running.
 
