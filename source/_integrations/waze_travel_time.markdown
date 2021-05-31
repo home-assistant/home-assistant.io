@@ -22,6 +22,33 @@ Notes:
 - The string inputs for `Substring *` allow you to force the integration to use a particular route or avoid a particular route in its time travel calculation. These inputs are case insensitive matched against the description of the route.
 - When using the `Avoid Toll Roads?`, `Avoid Subscription Roads?` and `Avoid Ferries?` options be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behavior is that Waze will route you over roads having subscription options, so best is to set both `Avoid Toll Roads?` and `Avoid Subscription Roads?` or `Avoid Ferries?` if needed and experiment to ensure the desired outcome.
 
+## Disabling automatic updates and update manually
+
+The Waze Travel Time integration automatically updates every 5 minutes. You can disable this behaviour in the configuration settings after which the integration **will not update automatically at all**. This can be useful if you are only interested in updates during your commute or only on specific days of the week. When automatic updates are disabled the travel time sensor can be updated by calling the homeassistant.update_entity service:
+
+```yaml
+## Update Waze sensor during commute
+- id: waze_update_commute
+  alias: "Waze: manually update during commute"
+  trigger:
+    - platform: time_pattern
+      minutes: "/5"
+      seconds: 00
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+      after: "05:30:00"
+      before: "08:00:00"
+  action:
+    - service: homeassistant.update_entity
+      entity_id: sensor.waze_home_to_work
+```
+
 ## Example using dynamic destination
 
 Using the flexible option to set a sensor value to the `Destination`, you can setup a single Waze integration that will calculate travel time to multiple optional locations on demand.
