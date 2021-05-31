@@ -24,7 +24,7 @@ Notes:
 
 ## Disabling automatic updates and update manually
 
-The Waze Travel Time integration automatically updates every 5 minutes. You can disable this behaviour in the configuration settings after which the integration **will not update automatically at all**. This can be useful if you are only interested in updates during your commute or only on specific days of the week. When automatic updates are disabled the travel time sensor can be updated by calling the homeassistant.update_entity service:
+The Waze Travel Time integration automatically updates every 5 minutes. You can disable this behavior in the configuration settings after which the integration **will not update automatically at all**. This can be useful if you are only interested in updates during your commute or only on specific days of the week. When automatic updates are disabled the travel time sensor can be updated by calling the homeassistant.update_entity service:
 
 ```yaml
 ## Update Waze sensor during commute
