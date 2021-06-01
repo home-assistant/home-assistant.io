@@ -11,10 +11,39 @@ Follow this guide if you want to get started with Home Assistant easily or if yo
 
 We will need a few things to get started with installing Home Assistant. Links below lead to Amazon US. If you’re not in the US, you should be able to find these items in web stores in your country.
 
-- [Power Supply](https://www.raspberrypi.org/help/faqs/#powerReqs) (at least 3A)
+- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 is ok too, if you have one laying around)
+- [Power Supply for Raspberry Pi 4](https://amzn.to/2ReZ2Vq) or [Power Supply for Raspberry Pi 3](https://amzn.to/2R8yG7h)
 - [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32 GB or bigger card is recommended.
 - SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/2WWxntY) if you don't have one. The brand doesn't matter, just pick the cheapest.
-- Ethernet cable. Home Assistant can work with Wi-Fi, but an Ethernet connection would be more reliable.
+- Ethernet cable. Home Assistant can work with Wi-Fi, but an Ethernet connection is more reliable and highly recommended.
+
+{% endif %}
+
+{% if page.installation_type == 'odroid' %}
+
+### Suggested Hardware
+
+We will need a few things to get started with installing Home Assistant. Links below lead to Ameridroid. If you’re not in the US, you should be able to find these items in web stores in your country.
+
+To get started we suggest the ODROID N2+, it's the most powerful ODROID. It's fast and with built-in eMMC one of the best boards to run Home Assistant. It's also the board that powers our [Home Assistant Blue](/blue/).
+
+- [ODROID N2+](https://ameridroid.com/products/odroid-n2-plus?ref=eeb6nfw07e)
+- [Power Supply](https://ameridroid.com/products/12v-2a-power-supply-plug?ref=eeb6nfw07e)
+- [CR2032 Coin Cell](https://ameridroid.com/products/rtc-bios-battery?ref=eeb6nfw07e)
+- [eMMC Module](https://ameridroid.com/products/emmc-module-n2-linux-red-dot?ref=eeb6nfw07e)
+- [Case](https://ameridroid.com/products/odroid-n2-case?ref=eeb6nfw07e)
+
+If unavailable, we also recommend the [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e) or [ODROID XU4](https://ameridroid.com/products/odroid-xu4?ref=eeb6nfw07e).
+
+{% endif %}
+
+{% if page.installation_type == 'tinkerboard' %}
+
+### Suggested Hardware
+
+We will need a few things to get started with installing Home Assistant. Links below lead to Amazon US. If you’re not in the US, you should be able to find it in web stores in your country.
+
+- [Asus Tinkerboard S](https://amzn.to/3fFIcbI)
 
 {% endif %}
 
@@ -39,8 +68,8 @@ We will need a few things to get started with installing Home Assistant. Links b
 
     {% if variant.key == "odroid-n2" %}
     [Guide: Flashing Odroid-N2 using OTG-USB](/hassio/flashing_n2_otg/)
-    {% elsif variant.key == "rpi4" %}
-      _(On the 8GB model 64-bit is recommended)_
+    {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
+      _(64-bit is recommended)_
     {% endif %}
 
 {% endfor %}
