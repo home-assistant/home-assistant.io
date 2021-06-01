@@ -2,9 +2,10 @@
 
 {% assign release_url = "https://github.com/home-assistant/operating-system/releases/download" %}
 
+{% if site.installation.types[page.installation_type].board %}
+
 Follow this guide if you want to get started with Home Assistant easily or if you have little to no Linux experience
 
-{% if site.installation.types[page.installation_type].board %}
 {% if page.installation_type == 'raspberrypi' %}
 
 ### Suggested Hardware
@@ -106,6 +107,10 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 
 {% else %}
 
+{% if page.installation_type != 'nuc' %}
+Follow this guide if you already are running a hypervisor, if not look at the [Raspberry Pi](/installation/raspberrypi) or the [ODROID](/installation/odroid)
+{% endif %}
+
 ### Download the appropriate image
 
 {% if page.installation_type == 'nuc' %}
@@ -128,10 +133,9 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 {% endif %}
 {% if page.installation_type == "nuc" %}
 
-1. Put the SD card in your card reader.
-2. Open balenaEtcher, select the Home Assistant image and flash it to the SD card.
-3. Unmount the SD card and remove it from your card reader.
-4. Once completed you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+1. Install the operating system from the link above on the drive you have on the NUC.
+2. Start the NUC with the drive you installed the operating system to as the boot device.
+3. Once the initial setup has completed you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 {% else %}
 
 ### Create the Virtual Machine
