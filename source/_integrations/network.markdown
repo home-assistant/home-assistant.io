@@ -10,7 +10,7 @@ ha_codeowners:
   - '@home-assistant/core'
 ---
 
-This integration provides network configuration for integrations such as [Zeroconf](/integrations/zeroconf/). It is managed by going to **{% my general title="Configuration >> General" %}** and is only available to users with "Advanced Mode" enabled.
+This integration provides network configuration for integrations such as [Zeroconf](/integrations/zeroconf/). It is managed by going to **{% my general title="Configuration >> General" %}** and is only available to users that have "Advanced Mode" enabled on their {% my profile title="user profile" %}.
 
 **{% my general badge %}**
 
