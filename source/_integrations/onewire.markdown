@@ -52,6 +52,7 @@ Each 1-wire component data sheet describes the different properties the componen
 
 | Family | Device           | Physical Quantity  |
 | -------|:-----|:-----|
+| 05     | [DS2405](https://datasheets.maximintegrated.com/en/ds/DS2405.pdf)  | 1 PIO <sup>[4](#note_4)</sup> |
 | 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | 2 latches (latch.A/B) and 2 PIOs (PIO.A/B) <sup>[4](#note_4)</sup> |
 | 29     | [DS2408](https://datasheets.maximintegrated.com/en/ds/DS2408.pdf)  | 8 latches (latch.0-7) and 8 PIOs (PIO.0/7) <sup>[4](#note_4)</sup> |
 
@@ -75,7 +76,7 @@ Notes:
 
 - <a name="note_5">Bridge devices have no sensors</a>. The `aux` and `main` branches are searched for additional 1-wire devices during discovery.  
 
-- <a name="note_6">Multisensors manufactures by Embedded Data Systems. Currently only EDS0068 (temperature/humidity/barometric pressure/light) is supported.
+- <a name="note_6">Multisensors manufactured by Embedded Data Systems</a>. Currently only EDS0066 (temperature/barometric pressure) and EDS0068 (temperature/humidity/barometric pressure/light) are supported.
 
 ## Interfacing with the 1-wire bus
 

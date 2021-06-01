@@ -250,6 +250,10 @@ Here are the modes that are currently available:
 - dry
 - eco
 
+### TV Channels
+
+There is no TV channel object in Home Assistant. TV channel can only be changed by number, not by name (for example, `Turn to channel two`).
+
 ### Troubleshooting
 
 #### 404 errors on request sync

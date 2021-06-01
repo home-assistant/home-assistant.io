@@ -103,6 +103,10 @@ When you have filled in the rest of the form to create your migration it will sh
 <img src='/images/integrations/homekit_controller/device_automation_finish.png' />
 </p>
 
+## Pairing with an insecure setup code
+
+Some device manufacturers do not follow the HomeKit spec and will use a fixed code or trivially guessable code such as `123-45-678` for pairing. HomeKit Controller will warn when pairing about the insecure nature of this configuration and require additional consent before pairing with the accessory. Consider finding a replacement device that implements code randomization.
+
 ## Troubleshooting
 
 ### I don't have a HomeKit PIN

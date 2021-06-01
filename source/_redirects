@@ -853,7 +853,6 @@
 /components/sensor.sonarr /integrations/sonarr
 /components/sensor.speedtest /integrations/speedtestdotnet
 /components/sensor.speedtestdotnet /integrations/speedtestdotnet
-/components/sensor.spotcrime /integrations/spotcrime
 /components/sensor.sql /integrations/sql
 /components/sensor.srp_energy /integrations/srp_energy
 /components/sensor.starlingbank /integrations/starlingbank
@@ -1584,7 +1583,6 @@
 /components/mysensors /integrations/mysensors
 /components/mystrom /integrations/mystrom
 /components/mythicbeastsdns /integrations/mythicbeastsdns
-/components/n26 /integrations/n26
 /components/nad /integrations/nad
 /components/namecheapdns /integrations/namecheapdns
 /components/nanoleaf /integrations/nanoleaf
@@ -1811,7 +1809,6 @@
 /components/speedtestdotnet /integrations/speedtestdotnet
 /components/spider /integrations/spider
 /components/splunk /integrations/splunk
-/components/spotcrime /integrations/spotcrime
 /components/spotify /integrations/spotify
 /components/sql /integrations/sql
 /components/squeezebox /integrations/squeezebox
@@ -2303,3 +2300,8 @@
 /components/sensor.socialblade /more-info/removed-integration 301
 /components/socialblade /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
+/components/n26 /more-info/removed-integration 301
+/integrations/n26 /more-info/removed-integration 301
+/components/sensor.spotcrime /more-info/removed-integration 301
+/components/spotcrime /more-info/removed-integration 301
+/integrations/spotcrime /more-info/removed-integration 301

@@ -614,10 +614,10 @@ setpoint_shift_state_address:
   required: false
   type: [string, list]
 setpoint_shift_mode:
-  description: Defines the internal device DPT used. Either 'DPT6010' or 'DPT9002'.
+  description: Defines the internal device DPT used. Either 'DPT6010', 'DPT9002' or None. When `None` or omitted the DPT is auto-assigned from the first incoming telegram.
   required: false
   type: string
-  default: DPT6010
+  default: None
 setpoint_shift_min:
   description: Minimum value of setpoint shift.
   required: false
@@ -705,11 +705,6 @@ max_temp:
   description: Override the maximum temperature.
   required: false
   type: float
-create_temperature_sensors:
-  description: If true, dedicated sensor entities are created for current and target temperature.
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration %}
 
 ## Cover
@@ -899,8 +894,16 @@ rgbw_state_address:
   description: KNX group address for retrieving the RGBW color of the light. *DPT 251.600*
   required: false
   type: [string, list]
+xyy_address:
+  description: KNX group address for setting the xyY color of the light. *DPT 242.600*
+  required: false
+  type: [string, list]
+xyy_state_address:
+  description: KNX group address for retrieving the xyY color of the light. *DPT 242.600*
+  required: false
+  type: [string, list]
 individual_colors:
-  description: Used when the actuator only supports individual group addresses for colors. When `address` is specified for all 3 (or 4) individual colors the root `address` key can be omitted.
+  description: Used when the actuator only supports individual group addresses for colors. When `individual_colors` is used the root `address` key may be omitted.
   required: false
   type: map
   keys:
@@ -1337,7 +1340,6 @@ knx:
       address_day_night: "7/0/8"
       address_air_pressure: "7/0/9"
       address_humidity: "7/0/10"
-      create_sensors: false
       sync_state: true
 ```
 
@@ -1399,11 +1401,6 @@ address_humidity:
   description: KNX address for reading current humidity. *DPT 9.007*
   required: false
   type: [string, list]
-create_sensors:
-  description: If true, dedicated sensor entities are created for all configured properties.
-  required: false
-  type: boolean
-  default: false
 sync_state:
   description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus.
   required: false

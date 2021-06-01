@@ -207,6 +207,16 @@ Note that purging will not immediately decrease disk space usage but it will sig
 | `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
 | `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size. |
 
+### Service `purge_entities`
+
+Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains` and `entity_globs` fields. Note: leaving all three parameters empty will result in all entities being selected for purging.
+
+| Service data attribute | Optional | Description                                                                                                                                                                                              |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | A list of entity_ids that should be purged from the recorder database. |
+| `domains`               | yes      | A list of domains that should be purged from the recorder database. |
+| `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database. |
+
 ### Service `disable`
 
 Call the service `recorder.disable` to stop saving events and states to the database.
@@ -242,6 +252,7 @@ The following database engines are tested when major changes are made to the rec
 | PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                                  |
 | PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                                |
 | MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=DRIVER`                      |
+| Oracle                         | `oracle+cx_oracle://username:password@SERVER_IP:1521/DB_NAME?encoding=UTF-8&nencoding=UTF-8`              |
 
 <div class='note'>
 
