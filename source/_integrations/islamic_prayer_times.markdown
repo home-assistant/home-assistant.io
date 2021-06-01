@@ -15,7 +15,7 @@ ha_platforms:
 
 The Islamic Prayer Times integration displays the various prayer times for Muslims as sensors.
 
-This platform uses the `prayer_times_calculator` package to get the prayer times. To learn about the different calculation options that are avaiable you can check this [link](https://aladhan.com/prayer-times-api#GetTimings).
+This integration uses the `prayer_times_calculator` package to get the prayer times. To learn about the different calculation options that are available you can check this [link](https://aladhan.com/prayer-times-api#GetTimings).
 In addition to the calculation options, you can also specify an offset for the different prayers for custom tuning.
 
 {% include integrations/config_flow.md %}
