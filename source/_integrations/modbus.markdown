@@ -57,7 +57,7 @@ name:
   default: "modbus_hub"
   type: string
 timeout:
-  description: "Timeout while waiting for a response in seconds. Remark: a timeout of fewer than 5 seconds will be automatically adjusted to 5 seconds."
+  description: "Timeout while waiting for a response in seconds."
   required: false
   default: 5
   type: integer
@@ -209,7 +209,7 @@ name:
   required: true
   type: string
 scan_interval:
-  description: Defines the update interval of the entity in seconds. If scan_interval is lower than `timeout` or 5 seconds it is automatically adjusted to `timeout` (default 5 seconds).
+  description: Defines the update interval of the entity in seconds.
   required: false
   type: integer
   default: 10
