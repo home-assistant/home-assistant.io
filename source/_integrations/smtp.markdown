@@ -36,7 +36,7 @@ sender:
   required: true
   type: string
 recipient:
-  description: E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.
+  description: Default E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.<br>This is where you want to send your E-mail notifications by default (when not specifying `target` in the service call). Any E-mail address(es) specified in the service call's `target` field will override this recipient content.
   required: true
   type: [list, string]
 server:
@@ -113,11 +113,15 @@ burglar:
       data:
           title: "Intruder alert"
           message: "Intruder alert at apartment!!"
+          target:
+            - "my_intruder_alert@gmail.com"
           data:
               images:
                   - /home/pi/snapshot1.jpg
                   - /home/pi/snapshot2.jpg
 ```
+
+The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, james@gmail.com and bob@gmail.com.
 
 The optional `images` field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.
 
