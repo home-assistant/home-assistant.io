@@ -46,7 +46,7 @@ release. No big things, but A LOT of things in this release.
 
 Some bigger things are coming though... :)
 
-- [Known issues with scrolling iOS in data tables & logbook](#known-issues-with-scrolling-ios-in-data-tables--logbook)
+- [(Fixed) Known issues with scrolling iOS in data tables & logbook](#fixed-known-issues-with-scrolling-ios-in-data-tables--logbook)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -59,10 +59,12 @@ Some bigger things are coming though... :)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-## Known issues with scrolling iOS in data tables & logbook
+## (Fixed) Known issues with scrolling iOS in data tables & logbook
 
-This beta will have issues with scrolling in data tables and the logbook.
-We are currently working with the upstream project to fix the issue.
+This is fixed in 2021.6.0b4
+
+~~This beta will have issues with scrolling in data tables and the logbook.
+We are currently working with the upstream project to fix the issue.~~
 
 <!--<p class='img'>
 <img src='/images/blog/2021-05/still-starting.png' alt='Screenshot of Home Assistant starting'>
