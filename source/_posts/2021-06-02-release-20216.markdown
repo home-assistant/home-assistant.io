@@ -368,9 +368,9 @@ This part of the implementation did not conform to policy regarding
 
 {% enddetails %}
 
-{% details "Alexa" %}
+{% details "Denon AVR" %}
 
-Alexa EqualizerController has been disabled for `media_players` entnties since
+Alexa EqualizerController has been disabled for Denon AVR since
 it caused Alexa to be unable to discover any devices.
 
 ([@starkillerOG] - [#49628]) ([Alexa docs])
