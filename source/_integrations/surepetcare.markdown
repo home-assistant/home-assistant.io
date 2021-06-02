@@ -55,3 +55,7 @@ This service lets you change the locking state of a flap.
 - `locked_in` - flap is 'in only' - pets can come in but not go back out.
 - `locked_out` - flap is 'out only' - pets can go out, but not back in.
 - `locked_all` - flap is locked both ways.
+
+
+## Initial Setup / Hints
+On initial setup, your cats won't have an in / out status. This is an edge case which causes the intergration to fail to load with KeyError: 'status', simply make sure all cats have a location, this can be done manually via the Sure website.
