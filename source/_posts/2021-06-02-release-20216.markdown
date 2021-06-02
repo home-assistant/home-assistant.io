@@ -1383,6 +1383,10 @@ The following integrations are no longer available as of this release:
 - Merge system options into pref properties ([@balloob] - [#51347]) (beta fix)
 - Handle incomplete Sonos alarm event payloads ([@jjlawren] - [#51353]) ([sonos docs]) (beta fix)
 - Update frontend to 20210601.1 ([@bramkragten] - [#51354]) ([frontend docs]) (beta fix)
+- Do not attempt to unload non loaded config entries ([@emontnemery] - [#51356]) (beta fix)
+- Bump pyiqvia to 1.0.0 ([@bachya] - [#51357]) ([iqvia docs]) (beta fix)
+- Fix BleBox wLightBoxS and gateBox support ([@gadgetmobile] - [#51367]) ([blebox docs]) (beta fix)
+- Fix Tibber timestamps parsing ([@Danielhiversen] - [#51368]) ([tibber docs]) (beta fix)
 
 {% enddetails %}
 
@@ -2081,6 +2085,10 @@ The following integrations are no longer available as of this release:
 [#51347]: https://github.com/home-assistant/core/pull/51347
 [#51353]: https://github.com/home-assistant/core/pull/51353
 [#51354]: https://github.com/home-assistant/core/pull/51354
+[#51356]: https://github.com/home-assistant/core/pull/51356
+[#51357]: https://github.com/home-assistant/core/pull/51357
+[#51367]: https://github.com/home-assistant/core/pull/51367
+[#51368]: https://github.com/home-assistant/core/pull/51368
 [@AaronDavidSchneider]: https://github.com/AaronDavidSchneider
 [@CantankerousBullMoose]: https://github.com/CantankerousBullMoose
 [@Danielhiversen]: https://github.com/Danielhiversen
@@ -2149,6 +2157,7 @@ The following integrations are no longer available as of this release:
 [@foxel]: https://github.com/foxel
 [@frenck]: https://github.com/frenck
 [@gabrialdestruir]: https://github.com/gabrialdestruir
+[@gadgetmobile]: https://github.com/gadgetmobile
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@helto4real]: https://github.com/helto4real
 [@hesselonline]: https://github.com/hesselonline
