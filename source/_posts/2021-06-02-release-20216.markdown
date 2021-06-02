@@ -2382,7 +2382,7 @@ The following integrations are no longer available as of this release:
 [namecheapdns docs]: /integrations/namecheapdns/
 [nest docs]: /integrations/nest/
 [netatmo docs]: /integrations/netatmo/
-[nettigo docs]: /integrations/nettigo/
+[nettigo docs]: /integrations/nam/
 [network docs]: /integrations/network/
 [nexia docs]: /integrations/nexia/
 [notify docs]: /integrations/notify/
