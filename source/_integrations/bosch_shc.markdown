@@ -4,12 +4,14 @@ description: Integrate Bosch SHC.
 ha_category:
   - Binary Sensor
 ha_release: 2021.6
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@tschamm'
 ha_domain: bosch_shc
-ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+ha_zeroconf: true
 ---
 
 The Bosch SHC integration allows you to integrate your [Bosch SHC](https://www.bosch-smarthome.com) into Home Assistant.

@@ -16,6 +16,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_dhcp: true
 ---
 
 The `guardian` integration integrates

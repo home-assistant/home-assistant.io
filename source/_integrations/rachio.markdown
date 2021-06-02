@@ -16,6 +16,7 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - switch
+ha_zeroconf: true
 ---
 
 The `rachio` platform allows you to control your [Rachio irrigation system](https://rachio.com/).

@@ -9,6 +9,8 @@ ha_domain: wallbox
 ha_platforms:
   - sensor
 ha_config_flow: true
+ha_codeowners:
+  - '@hesselonline'
 ---
 
 The Wallbox integration pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station.

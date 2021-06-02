@@ -14,6 +14,8 @@ ha_domain: yeelight
 ha_platforms:
   - binary_sensor
   - light
+ha_homekit: true
+ha_dhcp: true
 ---
 
 The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.

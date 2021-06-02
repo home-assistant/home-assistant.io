@@ -1,5 +1,5 @@
 ---
-title: Gogogate2 and iSmartGate
+title: Gogogate2 and ismartgate
 description: Instructions on how to integrate Gogogate2 and iSmartGate enabled garage door covers into Home Assistant.
 logo: gogogate2.png
 ha_category:
@@ -9,11 +9,13 @@ ha_iot_class: Local Polling
 ha_domain: gogogate2
 ha_codeowners:
   - '@vangorra'
+  - '@bdraco'
 ha_config_flow: true
 ha_homekit: true
 ha_platforms:
   - cover
   - sensor
+ha_dhcp: true
 ---
 
 The `gogogate2` cover platform lets you control Gogogate2 and iSmartGate enabled garage doors and gates through Home Assistant. Device names in Home Assistant are generated based on the names defined in the GogoGate2 or iSmartGate mobile app.

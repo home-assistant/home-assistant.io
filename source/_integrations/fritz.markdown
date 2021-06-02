@@ -14,8 +14,8 @@ ha_codeowners:
   - '@chemelli74'
 ha_iot_class: Local Polling
 ha_platforms:
-  - device_tracker
   - binary_sensor
+  - device_tracker
   - sensor
 ha_ssdp: true
 ---

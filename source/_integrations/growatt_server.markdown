@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: growatt_server
 ha_platforms:
   - sensor
+ha_config_flow: true
 ---
 
 This is a sensor to collect information from your Growatt inverters using [Growatt server](https://server.growatt.com/).
