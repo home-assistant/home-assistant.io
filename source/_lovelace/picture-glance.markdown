@@ -62,7 +62,7 @@ show_state:
   required: false
   description: Show entity state text.
   type: boolean
-  default: true
+  default: false
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).

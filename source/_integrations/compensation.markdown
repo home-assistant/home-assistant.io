@@ -24,6 +24,8 @@ To enable the compensation sensor, add the following lines to your `configuratio
 compensation:
   media_player_db_volume:
     source: media_player.yamaha_receiver
+    attribute: volume_level
+    unit_of_measurement: dB
     data_points:
       - [0.2, -80.0]
       - [1.0, 0.0]
