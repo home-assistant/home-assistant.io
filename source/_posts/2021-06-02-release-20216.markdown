@@ -102,7 +102,7 @@ You can find this new setting in your user profile.
 
 ## Disable polling updates on any integration
 
-On returning feature request, for many integrations, is adding controls for
+One returning feature request, for many integrations, is adding controls for
 tuning the polling interval an integration uses.
 
 For example, if an integration has an API that needs to be paid for and you
