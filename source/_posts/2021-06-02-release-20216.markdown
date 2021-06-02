@@ -2261,7 +2261,7 @@ The following integrations are no longer available as of this release:
 [bluetooth_tracker docs]: /integrations/bluetooth_tracker/
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [bond docs]: /integrations/bond/
-[boschshc docs]: /integrations/boschshc/
+[boschshc docs]: /integrations/bosch_shc/
 [braviatv docs]: /integrations/braviatv/
 [broadlink docs]: /integrations/broadlink/
 [brother docs]: /integrations/brother/
