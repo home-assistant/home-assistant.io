@@ -281,7 +281,7 @@ modbus:
       - name: "Watlow F4T"
         address: 27586
         input_type: holding
-        data_count: 1
+        count: 1
         data_type: custom
         max_temp: 35
         min_temp: 15
@@ -305,7 +305,7 @@ climates:
       description: Register address for current temperature (process value).
       required: true
       type: integer
-    data_count:
+    count:
       description: Number of registers to read.
       required: false
       type: integer
@@ -350,6 +350,11 @@ climates:
       required: false
       type: string
       default: ">f"
+    swap:
+      description: swap the order of bytes/words, options are none, byte, word, word_byte.
+      required: false
+      default: none
+      type: string 
     target_temp_register:
       description: Register address for target temperature (Setpoint).
       required: true
