@@ -343,6 +343,23 @@ For more information, see [the HTTP integration documentation](/integrations/htt
 
 {% enddetails %}
 
+{% details "Custom cards" %}
+
+We upgraded our frontend to use Lit 2.0. During the beta we have noticed some
+custom cards or views are using `LitElement` and `lit-html` from our components.
+
+This is not a recommended practice, and might now cause the custom card to
+break this release. If you encounter issues with a custom card, please
+report this issue with the custom card developer.
+
+Additional information about this change and information for custom card
+developers on how to upgrade their card, can be found in our
+developer blog:
+
+["Upgrade to Lit 2.0"](https://developers.home-assistant.io/blog/2021/05/19/lit-2.0)
+
+{% enddetails %}
+
 {% details "Custom integrations (custom_components)" %}
 
 As mentioned in every release since 2021.3, custom integrations will require a
