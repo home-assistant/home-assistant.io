@@ -622,6 +622,11 @@ fans:
           required: false
           default: write address
           type: integer
+        delay:
+          description: delay between write and verify.
+          required: false
+          default: 0
+          type: integer
         input_type:
           description: Type of address (holding/coil/discrete/input).
           required: false
@@ -705,6 +710,11 @@ lights:
           description: Address to read from. 
           required: false
           default: write address
+          type: integer
+        delay:
+          description: delay between write and verify.
+          required: false
+          default: 0
           type: integer
         input_type:
           description: Type of address (holding/coil/discrete/input).
