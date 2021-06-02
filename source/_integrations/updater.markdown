@@ -13,7 +13,10 @@ ha_platforms:
   - binary_sensor
 ---
 
-The `updater` binary sensor will check daily for new releases. The state will be "on" when an update is available. Otherwise, the state will be "off". The newer version, as well as the link to the release notes, are attributes of the updater.
+The `updater` binary sensor will check daily for new releases of the Home
+Assistant Core. The state will be "on" when an update is available. Otherwise,
+the state will be "off". The newer version, as well as the link to the release
+notes, are attributes of the updater.
 
 ## Configuration
 
