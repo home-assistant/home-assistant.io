@@ -24,7 +24,7 @@ Templating in Home Assistant is powered by the [Jinja2](https://palletsprojects.
 
 We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/latest/templates/).
 
-The frontend has a {% my developer_templates title="template editor tool" %} to help develop and debug templates. Navigate to {% my developer_templates title="Developer Tools > Template" %}, create your template in the _Template editor_ and check the results on the right.
+The frontend has a {% my developer_template title="template editor tool" %} to help develop and debug templates. Navigate to {% my developer_template title="Developer Tools > Template" %}, create your template in the _Template editor_ and check the results on the right.
 
 Templates can get big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
 
@@ -51,7 +51,7 @@ script:
 There are a few very important rules to remember when adding templates to YAML:
 
 1. You **must** surround single-line templates with double quotes (`"`) or single quotes (`'`).
-1. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](https://jinja.palletsprojects.com/en/latest/templates/#default), or both.
+1. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.default), or both.
 1. It is advised that when comparing numbers, you convert the number(s) to a [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) or an [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) by using the respective [filter](https://jinja.palletsprojects.com/en/latest/templates/#list-of-builtin-filters).
 1. While the [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) and [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
 

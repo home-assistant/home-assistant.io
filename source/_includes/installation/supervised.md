@@ -2,7 +2,7 @@
 
 <div class='note warning'>
 
-This way of running Home Assistant will require the most of you. It also have strict requirements you need to follow.
+This way of running Home Assistant will require the most of you. It also has strict requirements you need to follow.
 
 Unless you really need this installation type, you should install Home Assistant OS (this can also be a [virtual machine](#install-home-assistant-operating-system)), or [Home Assistant Container](#install-home-assistant-container).
 
