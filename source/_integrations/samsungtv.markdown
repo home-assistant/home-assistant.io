@@ -8,10 +8,13 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@escoand'
+  - '@chemelli74'
 ha_domain: samsungtv
 ha_ssdp: true
 ha_platforms:
   - media_player
+ha_zeroconf: true
+ha_dhcp: true
 ---
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).

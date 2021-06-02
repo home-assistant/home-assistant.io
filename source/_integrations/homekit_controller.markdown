@@ -19,6 +19,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@Jc2k'
+  - '@bdraco'
 ha_domain: homekit_controller
 ha_zeroconf: true
 ha_platforms:

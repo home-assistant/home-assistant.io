@@ -24,6 +24,7 @@ ha_platforms:
   - device_tracker
   - sensor
   - water_heater
+ha_dhcp: true
 ---
 
 The Tado integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.

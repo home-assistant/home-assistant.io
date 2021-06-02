@@ -4,7 +4,7 @@ description: Instructions on setting up Philips Hue within Home Assistant.
 ha_category:
   - Hub
   - Light
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 featured: true
 ha_release: '0.60'
 ha_config_flow: true

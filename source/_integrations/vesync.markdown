@@ -14,9 +14,9 @@ ha_codeowners:
   - '@thegardenmonkey'
 ha_domain: vesync
 ha_platforms:
+  - fan
   - light
   - switch
-  - fan
 ---
 
 The `vesync` integration enables you to control smart switches and outlets connected to the VeSync App.

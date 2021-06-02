@@ -10,6 +10,9 @@ ha_codeowners:
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_domain: garages_amsterdam
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The Garages Amsterdam integration uses an API provided by the municipality of Amsterdam, to measure the occupancy of Amsterdam parking garages in the Netherlands. You can track multiple garages by adding the integration multiple times.

@@ -7,7 +7,6 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 2021.6
 ha_config_flow: true
-ha_quality_scale: gold
 ha_codeowners:
   - '@eifinger'
 ha_domain: kraken
