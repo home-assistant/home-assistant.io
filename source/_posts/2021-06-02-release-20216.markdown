@@ -38,6 +38,7 @@ worth scanning the all changes section for your favorite integrations.
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.6.1 - June 3](#release-202161---june-3)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
   - [Integrations that removed deprecated YAML import](#integrations-that-removed-deprecated-yaml-import)
@@ -246,6 +247,40 @@ The following integrations are now available via the Home Assistant UI:
 
 - [Buienradar][buienradar docs], done by [@RobBie1221]
 - [Growatt][growatt_server docs], done by [@indykoning]
+
+## Release 2021.6.1 - June 3
+
+- Fix last activity consideration for AVM Fritz!Tools device tracker ([@mib1185] - [#51375]) ([fritz docs])
+- Handle Sonos connection issues better when polling ([@jjlawren] - [#51376]) ([sonos docs])
+- Fix no value error for heatit climate entities ([@raman325] - [#51392]) ([zwave_js docs])
+- Fix Tibber Pulse device name and sensor update ([@Danielhiversen] - [#51402]) ([tibber docs])
+- Fix shopping list "complete all" service name ([@spacegaier] - [#51406]) ([shopping_list docs])
+- Bump aiohomekit to 0.2.67 (fixes #51391) ([@Jc2k] - [#51418]) ([homekit_controller docs])
+- Bump zwave-js-server-python to 0.26.1 ([@raman325] - [#51425]) ([zwave_js docs])
+- Update frontend to 20210603.0 ([@bramkragten] - [#51442]) ([frontend docs])
+
+[#51375]: https://github.com/home-assistant/core/pull/51375
+[#51376]: https://github.com/home-assistant/core/pull/51376
+[#51392]: https://github.com/home-assistant/core/pull/51392
+[#51402]: https://github.com/home-assistant/core/pull/51402
+[#51406]: https://github.com/home-assistant/core/pull/51406
+[#51418]: https://github.com/home-assistant/core/pull/51418
+[#51425]: https://github.com/home-assistant/core/pull/51425
+[#51442]: https://github.com/home-assistant/core/pull/51442
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Jc2k]: https://github.com/Jc2k
+[@bramkragten]: https://github.com/bramkragten
+[@jjlawren]: https://github.com/jjlawren
+[@mib1185]: https://github.com/mib1185
+[@raman325]: https://github.com/raman325
+[@spacegaier]: https://github.com/spacegaier
+[fritz docs]: /integrations/fritz/
+[frontend docs]: /integrations/frontend/
+[homekit_controller docs]: /integrations/homekit_controller/
+[shopping_list docs]: /integrations/shopping_list/
+[sonos docs]: /integrations/sonos/
+[tibber docs]: /integrations/tibber/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
@@ -603,7 +638,7 @@ certificate for MQTT, you now need to adjust to the following:
 ```yaml
 mqtt:
   certificate: auto
-  host: ... # all other info 
+  host: ... # all other info
 ```
 
 ([@balloob] - [#51112]) ([MQTT docs])
