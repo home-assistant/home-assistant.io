@@ -93,6 +93,11 @@ docked_topic:
   description: The MQTT topic subscribed to receive docked state values from the vacuum.
   required: false
   type: string
+enabled_by_default:
+  description: Flag which defines if the entity should be enabled when first added.
+  required: false
+  type: boolean
+  default: true
 error_template:
   description: Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum. This is required if `error_topic` is set.
   required: false
