@@ -85,16 +85,16 @@ A sample configuration entry for Google Mail.
 notify:
   - name: "NOTIFIER_NAME"
     platform: smtp
-    server: "smtp.gmail.com"
+    server: "smtp.example.com"
     port: 587
     timeout: 15
-    sender: "john@gmail.com"
+    sender: "john@example.com"
     encryption: starttls
-    username: "john@gmail.com"
+    username: "john@example.com"
     password: "thePassword"
     recipient:
-      - "james@gmail.com"
-      - "bob@gmail.com"
+      - "james@example.com"
+      - "bob@example.com"
     sender_name: "My Home Assistant"
 ```
 
@@ -114,14 +114,14 @@ burglar:
           title: "Intruder alert"
           message: "Intruder alert at apartment!!"
           target:
-            - "my_intruder_alert@gmail.com"
+            - "my_intruder_alert@example.com"
           data:
               images:
                   - /home/pi/snapshot1.jpg
                   - /home/pi/snapshot2.jpg
 ```
 
-The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, james@gmail.com and bob@gmail.com.
+The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, james@example.com and bob@example.com.
 
 The optional `images` field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.
 
