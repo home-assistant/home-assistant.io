@@ -58,4 +58,4 @@ This service lets you change the locking state of a flap.
 
 
 ## Initial Setup / Hints
-On initial setup, your cats won't have an in / out status. This is an edge case which causes the intergration to fail to load with KeyError: 'status', simply make sure all cats have a location, this can be done manually via the Sure website.
+On initial setup, your cats won't have an in / out status. This is an edge case which causes the integration to fail to load with KeyError: 'status', simply make sure all cats have a location, this can be done manually via the Sure website.
