@@ -67,8 +67,8 @@ The following entities will be created:
 - **Precipation forecast average**: The average expected precipitation/rain in mm/h within the given time-frame.
 - **Precipation forecast total**: The total expected precipitation/rain in mm within the given time-frame. The total expected rain in the configured time-frame will be equal to _precipitation_forecast_total_/_timeframe_ mm/min. So, with time-frame configured to 30 minutes and a value of 5, the expected rain is 5 mm in 30 minutes, which is the same as 10 mm/h. If time-frame is set to 90 minutes and a value of 5, the expected rain is 5 mm in 90 minutes, which is equal to 3.3 mm/h.
 - **Irradiance**: "Sun intensity in Watt per square meter ([W/m2](https://en.wikipedia.org/wiki/W/m2))."
-- **Rain last 24h**: The rail over the last 24 hours (in mm).
-- **Rain last hour: The rail over the last hour (in mm). 
+- **Rain last 24h**: The rain over the last 24 hours (in mm).
+- **Rain last hour**: The rain over the last hour (in mm). 
 - **Temperature n days ahead**: "The forecasted temperature n days ahead (in [C](https://en.wikipedia.org/wiki/Celsius))."
 - **Minimum temperature n days ahead**: "The forecasted minimum temperature n days ahead (in [C](https://en.wikipedia.org/wiki/Celsius))."
 - **Rain chance n days ahead**: The forecasted chance for rain n days ahead (%).
