@@ -82,7 +82,8 @@ tried another option, namely opening with a fingerprint sensor 😲
 
 <iframe id="reddit-embed" src="https://www.redditmedia.com/r/homeassistant/comments/nraofm/made_a_fingerprint_sensor_for_my_garage/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="621" width="640" scrolling="no"></iframe>
 
-Do you want to know more about it? Then also check [this forum topic](LINK).
+Do you want to know more about it? Then also check
+[this forum topic](https://community.home-assistant.io/t/garage-fingerprint-sensor/312977).
 
 ## Got a tip for the next edition?
 ------
