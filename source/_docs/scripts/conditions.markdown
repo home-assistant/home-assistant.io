@@ -154,7 +154,8 @@ condition:
   below: 25
 ```
 
-Number helpers (`input_number` entities) can be used in the `above` and `below`
+Number helpers (`input_number` entities), `number` and `sensor` entities that
+contain a numeric value, can be used in the `above` and `below`
 options to make the condition more dynamic.
 
 ```yaml
