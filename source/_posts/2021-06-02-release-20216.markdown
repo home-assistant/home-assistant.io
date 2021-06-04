@@ -39,6 +39,7 @@ worth scanning the all changes section for your favorite integrations.
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.6.1 - June 3](#release-202161---june-3)
+- [Release 2021.6.2 - June 4](#release-202162---june-4)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
   - [Integrations that removed deprecated YAML import](#integrations-that-removed-deprecated-yaml-import)
@@ -281,6 +282,42 @@ The following integrations are now available via the Home Assistant UI:
 [sonos docs]: /integrations/sonos/
 [tibber docs]: /integrations/tibber/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.6.2 - June 4
+
+- Hot fix version of Apply modbus interval patch ([@balloob] - [#51487]) ([modbus docs])
+- Update to iaqualink 0.3.90 ([@flz] - [#51452]) ([iaqualink docs])
+- Retry isy994 setup later if isy.initialize times out ([@bdraco] - [#51453]) ([isy994 docs])
+- xknx 0.18.3 ([@farmio] - [#51277]) ([knx docs])
+- Update xknx to version 0.18.4 ([@farmio] - [#51459]) ([knx docs])
+- Bump aiolyric to 1.0.7 ([@timmo001] - [#51473]) ([lyric docs])
+- Improve logging for SamsungTV ([@chemelli74] - [#51477]) ([samsungtv docs])
+- Upgrade elgato to 2.1.1 ([@frenck] - [#51483]) ([elgato docs])
+- Protect our user agent ([@balloob] - [#51486])
+
+[#51277]: https://github.com/home-assistant/core/pull/51277
+[#51452]: https://github.com/home-assistant/core/pull/51452
+[#51453]: https://github.com/home-assistant/core/pull/51453
+[#51459]: https://github.com/home-assistant/core/pull/51459
+[#51473]: https://github.com/home-assistant/core/pull/51473
+[#51477]: https://github.com/home-assistant/core/pull/51477
+[#51483]: https://github.com/home-assistant/core/pull/51483
+[#51486]: https://github.com/home-assistant/core/pull/51486
+[#51487]: https://github.com/home-assistant/core/pull/51487
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@farmio]: https://github.com/farmio
+[@flz]: https://github.com/flz
+[@frenck]: https://github.com/frenck
+[@timmo001]: https://github.com/timmo001
+[elgato docs]: /integrations/elgato/
+[iaqualink docs]: /integrations/iaqualink/
+[isy994 docs]: /integrations/isy994/
+[knx docs]: /integrations/knx/
+[lyric docs]: /integrations/lyric/
+[modbus docs]: /integrations/modbus/
+[samsungtv docs]: /integrations/samsungtv/
 
 ## If you need help...
 
