@@ -5,54 +5,78 @@ ha_category:
   - Media Player
 ha_release: 0.53
 ha_codeowners:
-  - '@jalmeroth'
-ha_iot_class: Local Polling
+  - '@micha91'
+  - '@vigonotion'
+ha_iot_class: Local Push
+ha_ssdp: true
+ha_config_flow: true
 ha_domain: yamaha_musiccast
 ha_platforms:
   - media_player
 ---
 
-The `yamaha_musiccast` platform allows you to control [Yamaha MusicCast Receivers](https://usa.yamaha.com/products/audio_visual/musiccast/index.html) from Home Assistant.
+The `yamaha_musiccast` integration allows you to control [Yamaha MusicCast Receivers](https://usa.yamaha.com/products/audio_visual/musiccast/index.html) from Home Assistant.
 
 Supported devices are listed on their [site](https://usa.yamaha.com/products/contents/audio_visual/musiccast/musiccast-compatiblity.html).
 
-To add a Yamaha MusicCast Receiver to your installation, add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: yamaha_musiccast
-    host: 192.168.xx.xx
-```
+## Services
 
-{% configuration %}
-host:
-  description: IP address or hostname of the device.
-  required: true
-  type: string
-port:
-  description: UDP source port. If multiple devices are present, specify a different port per device.
-  required: false
-  type: integer
-  default: 5005
-interval_seconds:
-  description: Polling interval in seconds.
-  required: false
-  type: integer
-  default: 480
-{% endconfiguration %}
+The `yamaha_musiccast` integration makes various custom services available.
 
-### Supported operations
+### Service `yamaha_musiccast.join`
 
-Currently, this integration supports powering on/off, mute, volume control, and source selection. Playback controls, for instance, play and stop are available for sources that support it.
+Group players together under a single coordinator. This will make a new group or join to an existing group.
 
-### Example configuration
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `master` | no | A single `entity_id` that will become/stay the coordinator speaker.
+| `entity_id` | yes | String or list of `entity_id`s to join to the master.
 
-A full configuration example will look like the sample below:
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: yamaha_musiccast
-    host: 192.168.178.97
-    port: 5005
-```
+### Service `yamaha_musiccast.unjoin`
+
+Remove one or more speakers from their group of speakers.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of `entity_id`s to separate from their coordinator speaker.
+
+### Service `yamaha_musiccast.set_sleep_timer`
+
+Sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of `entity_id`s that will have their timers set.
+| `sleep_time` | no | Integer number of minutes until the speaker turns off. Possible values are 0, 30, 60, 90 or 120 minutes.
+
+### Service `yamaha_musiccast.set_alarm`
+
+Sets an alarm.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of `entity_id`s.
+| `enable` | yes | Enable the alarm.
+| `volume` | yes | Alarm volume.
+| `alarm_time` | yes | Alarm time. Example: `07:30`.
+| `source` | yes | Alarm source in the form `PLAYBACKTYPE:SOURCE`. Example: `preset:netusb:2`
+
+### Service `yamaha_musiccast.store_netusb_preset`
+
+Store the current NetUSB state as a preset.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of `entity_id`s.
+| `preset` | no | Preset number.
+
+### Service `yamaha_musiccast.recall_netusb_preset`
+
+Recall a NetUSB preset.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of `entity_id`s.
+| `preset` | no | Preset number.
