@@ -118,8 +118,8 @@ There are several services which can be used for automations and control of the 
 ## Long Press Events and Triggers
 
 For WeMo Light Switches and Dimmers, pressing the button on the device for two seconds will activate a long press event. The long press can can trigger an automation
-either by using an `event` trigger or a `device` trigger. For an `event` trigger the `event_type` will be `wemo_event`. The event data will have a `type` parameter
-set to the value `long_press` and a `entity_id` parameter indicating the dimmer or light switch that was triggered.
+either by using an `event` trigger or a `device` trigger. For an `event` trigger the `event_type` will be `wemo_subscription_event`. The event data will have a `type` parameter
+set to the value `LongPress` and a `name` parameter indicating the dimmer or light switch that was triggered.
 
 The following is an example implementation of an automation:
 
@@ -129,10 +129,10 @@ The following is an example implementation of an automation:
   alias: Toggle amplifier power
   trigger:
   - platform: event
-    event_type: wemo_event
+    event_type: wemo_subscription_event
     event_data:
-      type: long_press
-      entity_id: light.living_room
+      type: LongPress
+      entity_id: Living Room
   action:
   - service: media_player.toggle
     entity_id: media_player.amplifier
