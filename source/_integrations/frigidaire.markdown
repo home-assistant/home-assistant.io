@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: frigidaire
 ---
 
-[Frigidaire](https://www.frigidaire.com/) is a company that creates air conditioners with an app to control them.
+[Frigidaire](https://www.frigidaire.com/) creates air conditioners with an app to control them.
 
 The Frigidaire integration allows you to turn on/off, change mode, change fan speed, and change temperature of the air conditioners.
 
