@@ -21,7 +21,7 @@ group :jekyll_plugins do
 end
 
 gem 'sinatra', '2.1.0'
-gem 'nokogiri', '1.11.6'
+gem 'nokogiri', '1.11.7'
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library

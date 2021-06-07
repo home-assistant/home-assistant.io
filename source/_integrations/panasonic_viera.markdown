@@ -138,6 +138,7 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-50DX700B
 - TX-55ASM655
 - TX-55ASW654
+- TX-55CS630E (can't power on)
 - TX-55CX680B
 - TX-55CX700E
 - TX-55EXW584

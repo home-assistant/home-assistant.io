@@ -47,11 +47,11 @@ regenerate: false
       {%- for category in categories -%}
       {%- assign components_count = components | where: 'ha_category', category | size -%}
       {%- if category and category != 'Other' and components_count != 0 -%}
-      <a href='#{{ category | slugify }}' class="btn">{{ category }} ({{ components_count }})</a>
+      <a href='#{{ category | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category }} ({{ components_count }})</a>
       {%- endif -%}
       {%- endfor -%}
 
-      <a href='#other' class="btn">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
+      <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
     </div>
   </div>
   <div class="grid__item five-sixths lap-one-whole palm-one-whole">
