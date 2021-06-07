@@ -474,14 +474,28 @@ A better weekday condition could be by using the [Workday Binary Sensor](/integr
 
 </div>
 
-For the `after` and `before` options a time helper (`input_datetime` entity) can be used instead.
+For the `after` and `before` options a time helper (`input_datetime` entity)
+or another `sensor` entity containing a timestamp with the "timestamp" device
+class, can be used instead.
 
 ```yaml
 condition:
-  condition: time
-  after: input_datetime.house_silent_hours_start
-  before: input_datetime.house_silent_hours_end
+  - alias: "Example referencing a time helper"
+    condition: time
+    after: input_datetime.house_silent_hours_start
+    before: input_datetime.house_silent_hours_end
+
+  - alias: "Example referencing another sensor"
+    after: sensor.groceries_delivery_time
 ```
+
+<div class='note warning'>
+
+Please note that the time condition only takes the time into account. If
+an referenced sensor or helper entity contains a timestamp with a date, the
+date part is fully ignored.
+
+</div>
 
 ## Zone condition
 
