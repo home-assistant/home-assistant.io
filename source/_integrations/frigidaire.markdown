@@ -16,10 +16,6 @@ ha_domain: frigidaire
 
 The Frigidaire integration allows you to turn on/off, change mode, change fan speed, and change temperature of the air conditioners.
 
-## Prerequisites
-
-To use the integration you must own at least one Frigidaire Smart AC and have credentials to login to the app.
-
 {% include integrations/config_flow.md %}
 
 ## Integration Entities
