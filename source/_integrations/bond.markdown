@@ -32,7 +32,7 @@ Supported devices (see Requirements section below):
 
 ## Tested Bond Devices
 
-The following devices have been tested with Home Assistant and confirmed working:
+The following devices have been tested with Home Assistant and confirmed to be working:
 
 - Bond Bridge v1 (snowbird)
 - Bond Bridge v2 (zermatt)
