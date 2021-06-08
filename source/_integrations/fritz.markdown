@@ -17,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - device_tracker
   - sensor
+  - switch
 ha_ssdp: true
 ---
 
@@ -27,6 +28,7 @@ There is support for the following platform types within Home Assistant:
 - **Device tracker** - presence detection by looking at connected devices.
 - **Binary sensor** - connectivity status.
 - **Sensor** - external IP address and uptime.
+- **Switch** - call deflection, port forward, device profile and Wi-Fi networks.
 
 {% include integrations/config_flow.md %}
 
