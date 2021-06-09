@@ -104,7 +104,7 @@ Other Changes:
 - With Home Assistant OS 6 the latest version of the Barebox bootloader 2021.05.0
   which fixes boot from hard disks larger than 2TB.
 
-- Also the ACPI module for Thinkpad devices is now available.
+- The ACPI kernel driver for Thinkpad devices is enabled.
 
 ### Open Virtualization Appliance
 
@@ -139,7 +139,7 @@ use Google Coral Mini PCIe Accelerator or M.2 Accelerator on all boards
 supporting PCIe.
 
 
-That's all Folks! Now go out and update!
+That's all Folks! Now go out and update! :smiley:
 
 [@jens-maus]: https://github.com/jens-maus
 [@ryddler]: https://github.com/ryddler
