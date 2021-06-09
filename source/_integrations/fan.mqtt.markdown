@@ -209,7 +209,7 @@ preset_mode_command_topic:
   required: false
   type: string
 preset_mode_state_topic:
-  description: The MQTT topic to publish commands to change the preset mode.
+  description: The MQTT topic subscribed to receive fan speed based on presets.
   required: false
   type: string
 preset_mode_value_template:
