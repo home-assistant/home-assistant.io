@@ -99,7 +99,6 @@ module Jekyll
         "general" => "General Settings",
         "info" => "Information",
         "supervisor_info" => "Supervisor Information",
-        "supervisor_snapshots" => "Backups",
         "supervisor_backups" => "Backups",
       }
 
