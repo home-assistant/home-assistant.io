@@ -128,7 +128,7 @@ passthrough mode as well.
 ### Homematic IP Support
 
 [@jens-maus] contributed OS support for Homematic/Homematic IP dual-stack support
-for RPI-RF-MOD or HM-MOD-RPI-PCB devices. This toghether with the
+for RPI-RF-MOD or HM-MOD-RPI-PCB devices. This together with the
 [RaspberryMatic CCU Add-On](https://github.com/jens-maus/RaspberryMatic/wiki/Installation-HomeAssistant)
 offers the full functionality of RaspberryMatic embedded in Home Assistant.
 
