@@ -139,7 +139,7 @@ use Google Coral Mini PCIe Accelerator or M.2 Accelerator on all boards
 supporting PCIe.
 
 
-That's all Folks! Now go out and update! :smiley:
+That's all Folks! Now go out and update!
 
 [@jens-maus]: https://github.com/jens-maus
 [@ryddler]: https://github.com/ryddler
