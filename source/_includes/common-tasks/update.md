@@ -47,7 +47,7 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
     docker pull homeassistant/home-assistant:stable
     ```
 
-    You can also use spesific containers for your hardware. Like Raspberry pi 4:
+    You can also use specific containers for your hardware. Like Raspberry Pi 4:
 
     ```bash
     docker pull homeassistant/raspberrypi4-homeassistant:stable
