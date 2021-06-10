@@ -116,10 +116,10 @@ Linux, they continue to be in the xz compression format).
 By default, the image now has a serial console enabled which is useful to access
 Home Assistant OS on headless host systems.
 
-### Additional WiFi and Bluetooth Device Support
+### Additional Wi-Fi and Bluetooth Device Support
 
-Ralink rt27xx/rt28xx/rt30xx as well as Realtek 87xx/88xx devices are now
-supported on boards which don't have on-board WiFi/Bluetooth. This is also
+Ralink rt27xx/rt28xx/rt30xx, as well as Realtek 87xx/88xx devices, are now
+supported on boards that don't have onboard Wi-Fi/Bluetooth. This is also
 true for the OVA image for virtualized environments (when using hardware
 passthrough functionality). For the OVA image, also Intel firmwares are now
 part of the image so that Intel WiFi/Bluetooth devices can be used in
