@@ -27,8 +27,10 @@ themselves.
 
 To use the Ambee integration, you will need to obtain an API key from Ambee
 
-Ambee provides a free API keys, that are limited to 100 requests a day. If
-you are in need for more, paid options are available as well.
+Ambee provides free API keys, that are limited to 100 requests a day. This
+is enough for a single Ambee integration instance. If
+you are in need for more, Ambee offers paid options to raise the limits on
+your API key as well.
 
 [Sign up for an Ambee account](https://api-dashboard.getambee.com/#/signup).
 Once you have completed the sign up and logged in for the first time, the
@@ -53,3 +55,36 @@ various health risks. The following sensors from Ambee are available on this:
 - Particulate Matter < 10 μm
 - Particulate Matter < 2.5 μm
 - Sulphur Dioxide (SO2)
+
+### Pollen
+
+Pollen is a fine powder produced by trees and plants. Pollen can severely affect
+people, especially those with different ailments such as asthma and respiratory
+issues. This integration provides a lot of sensors to monitor pollen counts and
+risks.
+
+Generic pollen count sensors (in pollen/m3)
+and as risk level (low, moderate, high, very high):
+
+- Grass
+- Tree
+- Weed
+
+Additionally, sensors for specific pollen from specific grasses,
+trees or weeds, in pollen/m3, are provided. These are disabled by default.
+Enable those entities in the user interface if you like to use these:
+
+- Alder Tree
+- Birch Tree
+- Chenopod Weed
+- Cypress Tree
+- Elm Tree
+- Hazel Tree
+- Mugwort Weed
+- Nettle Weed
+- Oak Tree
+- Pine Tree
+- Plane Tree
+- Poaceae Grass
+- Poplar Tree
+- Ragweed
