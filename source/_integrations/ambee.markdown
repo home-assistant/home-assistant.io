@@ -27,7 +27,7 @@ themselves.
 
 To use the Ambee integration, you will need to obtain an API key from Ambee
 
-Ambee provides a free API keys, that are limited to 100 requests a day. This
+Ambee provides free API keys, that are limited to 100 requests a day. This
 is enough for a single Ambee integration instance. If
 you are in need for more, Ambee offers paid options to raise the limits on
 your API key as well.
@@ -70,9 +70,9 @@ and as risk level (low, moderate, high, very high):
 - Tree
 - Weed
 
-Additionally, sensors are provided for specific pollen from specific grasses,
-trees or weeds, in pollen/m3, are provided. These are disabled by default,
-enable those entities in the user interface if you like to use these:
+Additionally, sensors for specific pollen from specific grasses,
+trees or weeds, in pollen/m3, are provided. These are disabled by default.
+Enable those entities in the user interface if you like to use these:
 
 - Alder Tree
 - Birch Tree
