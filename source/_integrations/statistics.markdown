@@ -50,11 +50,11 @@ sampling_size:
   default: 20
   type: integer
 max_age:
-  description: Maximum age of measurements. Setting this to a time interval will cause older values to be discarded. Please note that you might have to increase the [sampling_size](/integrations/statistics#sampling_size) parameter. If you e.g., have a sensor value updated every second you will, by default, only get a max_age of 20s. Furthermore the sensor gets `unkown` if the entity is not updated within the time interval.
+  description: Maximum age of measurements. Setting this to a time interval will cause older values to be discarded. Please note that you might have to increase the [`sampling_size`](/integrations/statistics#sampling_size) parameter. If you e.g., have a sensor value updated every second you will by default only get a `max_age` of 20s. Furthermore the sensor gets `unknown` if the entity is not updated within the time interval.
   required: false
   type: time
 precision:
-  description: Defines the precision of the calculated values, through the argument of round().
+  description: Defines the precision of the calculated values, through the argument of [`round()`](/docs/configuration/templating/#numeric-functions-and-filters).
   required: false
   default: 2
   type: integer
