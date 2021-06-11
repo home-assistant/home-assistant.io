@@ -2,18 +2,18 @@
 layout: post
 title: "Home Assistant OS Release 6"
 description: ""
-date: 2021-06-09 00:00:00
-date_formatted: "June 09, 2021"
+date: 2021-06-11 00:00:00
+date_formatted: "June 11, 2021"
 author: Stefan Agner
 author_twitter: falstaff_ch
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2021-06-09-os6/social.png
+og_image: /images/blog/2021-06-11-os6/social.png
 ---
 
 <a href='https://github.com/home-assistant/operating-system/releases/tag/6.0'>
 <img title='Home Assistant OS Release 6' alt='Home Assistant OS Release 6 Logo'
-     src='/images/blog/2021-06-09-os6/social.png' style='border: 0;box-shadow: none;'>
+     src='/images/blog/2021-06-11-os6/social.png' style='border: 0;box-shadow: none;'>
 </a>
 
 Home Assistant OS 6.0 stable is available now!
