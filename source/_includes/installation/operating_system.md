@@ -107,14 +107,14 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 
 {% else %}
 
-{% if page.installation_type != 'nuc' %}
+{% if page.installation_type != 'generic-x86-64' %}
 Follow this guide if you already are running a hypervisor, if not look at the [Raspberry Pi](/installation/raspberrypi) or the [ODROID](/installation/odroid)
 {% endif %}
 
 ### Download the appropriate image
 
-{% if page.installation_type == 'nuc' %}
-- [Intel NUC][intel-nuc]
+{% if page.installation_type == 'generic-x86-64' %}
+- [Generic x86-64 (e.g. Intel NUC)][generic-x86-64]
 {% else %}
 - [VirtualBox][vdi] (.vdi)
 {% if page.installation_type == 'macos' %}
@@ -131,7 +131,7 @@ Follow this guide if you already are running a hypervisor, if not look at the [R
 - [Hyper-V][vhdx] (.vhdx)
 {% endif %}
 {% endif %}
-{% if page.installation_type == "nuc" %}
+{% if page.installation_type == 'generic-x86-64' %}
 
 1. Download the operating system from the link above.
 2. Attach the drive you are using in your NUC to your computer.
@@ -225,7 +225,7 @@ With the Home Assistant Operating System installed and accessible you can contin
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 
 
-[intel-nuc]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_intel-nuc-{{site.data.version_data.hassos['ova']}}.img.xz
+[generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
 [vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.xz
 [vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.xz
 [vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.xz
