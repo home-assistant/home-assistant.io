@@ -1,7 +1,7 @@
 ---
 title: "Community Highlights: 25th edition"
 description: "Fool possible burglars by pretending you are at home with a blueprint, get started with a floorplan in your Lovelace dashboard and keep an eye on your own brewed beer."
-date: 2021-06-11 00:00:00
+date: 2021-06-11 01:00:00
 date_formatted: "June 11, 2021"
 author: Klaas Schoute
 author_twitter: klaasnicolaas
