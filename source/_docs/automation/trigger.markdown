@@ -22,6 +22,27 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
 
+## Trigger id
+
+All triggers can be assigned an optional `id`. If the id is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from trigger conditions.
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: "MY_CUSTOM_EVENT"
+      id: "custom_event"
+    - platform: mqtt
+      topic: "living_room/switch/ac"
+      id: "ac_on"
+    - platform: state  # This trigger will be assigned id="2"
+      entity_id:
+        - device_tracker.paulus
+        - device_tracker.anne_therese
+      to: "home"
+```
+
+
 ## Trigger variables
 
 Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in trigger templates with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
