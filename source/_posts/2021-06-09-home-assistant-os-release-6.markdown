@@ -21,7 +21,7 @@ Home Assistant OS 6.0 stable is available now!
 **Highlights**:
 
 - OS Agent for better OS integration with Supervisor
-- Support for additional WiFi and Bluetooth devices
+- Support for additional Wi-Fi and Bluetooth devices
 - Smaller virtual machine disk images
 
 - Improved: Generic x86-64 system support
@@ -35,7 +35,7 @@ Home Assistant OS 6.0 stable is available now!
   - [Raspberry Pi](#raspberry-pi)
   - [Generic x86-64](#generic-x86-64)
   - [Open Virtualization Appliance](#open-virtualization-appliance)
-  - [Additional WiFi and Bluetooth device support](#additional-wifi-and-bluetooth-device-support)
+  - [Additional Wi-Fi and Bluetooth device support](#additional-wifi-and-bluetooth-device-support)
   - [Homematic IP Support](#homematic-ip-support)
   - [Google Coral PCIe AI Accelerator Support](#google-coral-pcie-ai-accelerator-support)
 - [Other Changes](#other-changes)
@@ -85,7 +85,7 @@ Pi images.
 
 ### Generic x86-64
 
-In Home Assistant OS 6 the board/image was renamed from "Intel NUC" to "Generic
+In Home Assistant OS 6 the board/image "Intel NUC" was renamed to "Generic
 x86-64". Existing "Intel NUC" installation will automatically migrate to the
 "Generic x86-64" image on update.
 
@@ -121,7 +121,7 @@ Ralink rt27xx/rt28xx/rt30xx, as well as Realtek 87xx/88xx devices, are now
 supported on boards that don't have onboard Wi-Fi/Bluetooth. This is also
 true for the OVA image for virtualized environments (when using hardware
 passthrough functionality). For the OVA image, also Intel firmwares are now
-part of the image so that Intel WiFi/Bluetooth devices can be used in
+part of the image so that Intel Wi-Fi/Bluetooth devices can be used in
 passthrough mode as well.
 
 ### Homematic IP Support
