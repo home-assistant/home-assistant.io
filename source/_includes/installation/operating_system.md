@@ -134,7 +134,7 @@ Follow this guide if you already are running a hypervisor, if not look at the [R
 {% if page.installation_type == "nuc" %}
 
 1. Download the operating system from the link above.
-2. Attach the Drive you are using in your NUC to your computer.
+2. Attach the drive you are using in your NUC to your computer.
 3. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
 4. Select "Flash from File" and choose the image you have just downloaded.
 5. Click "Select Target" and choose the drive you wish to flash too, then click "Flash".
