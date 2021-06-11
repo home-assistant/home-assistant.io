@@ -133,9 +133,13 @@ Follow this guide if you already are running a hypervisor, if not look at the [R
 {% endif %}
 {% if page.installation_type == "nuc" %}
 
-1. Install the operating system from the link above on the drive you have on the NUC.
-2. Start the NUC with the drive you installed the operating system to as the boot device.
-3. Once the initial setup has completed you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+1. Download the operating system from the link above.
+2. Attach the drive you are using in your NUC to your computer.
+3. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
+4. Select "Flash from File" and choose the image you have just downloaded.
+5. Click "Select Target" and choose the drive you wish to flash too, then click "Flash".
+6. Start the NUC with the drive you installed the operating system to as the boot device.
+7. Once the initial setup has completed you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 {% else %}
 
 ### Create the Virtual Machine
