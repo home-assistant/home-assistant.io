@@ -28,7 +28,6 @@ Home Assistant OS 6.0 stable is available now!
 
 ## Table of contents
 
-- [Table of contents](#table-of-contents)
 - [Operating System Changes](#operating-system-changes)
   - [OS Agent](#os-agent)
   - [Under the Hood](#under-the-hood)
