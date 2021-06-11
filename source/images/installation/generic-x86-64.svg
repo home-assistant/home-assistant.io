@@ -234,8 +234,8 @@
 	<g
    id="g92">
 		<path
-   style="fill:#333333;fill-opacity:1"
-   d="M53.807,30.726h159.386c12.5,0,22.633,10.133,22.633,22.633v159.386    c0,12.5-10.133,22.633-22.633,22.633H53.807c-12.5,0-22.633-10.133-22.633-22.633V53.36C31.174,40.86,41.307,30.726,53.807,30.726    z"
+   style="fill:#8c8c8c;fill-opacity:1;stroke-width:0.942816"
+   d="M 57.842664,36.503906 H 208.11437 c 11.7852,0 21.33875,9.553557 21.33875,21.338759 V 208.11437 c 0,11.7852 -9.55355,21.33875 -21.33875,21.33875 H 57.842664 c -11.785202,0 -21.338758,-9.55355 -21.338758,-21.33875 V 57.843608 c 0,-11.785202 9.553556,-21.339702 21.338758,-21.339702 z"
    id="path90" />
 	<text
    xml:space="preserve"
@@ -243,14 +243,14 @@
    id="text4770"
    style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect4772)" /><text
    xml:space="preserve"
-   style="font-style:normal;font-weight:normal;font-size:55.625px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffeeee;fill-opacity:1;stroke:none;stroke-width:0.521484px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-   x="45.799351"
-   y="151.2627"
+   style="font-style:normal;font-weight:normal;font-size:52.1484px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#212121;fill-opacity:1;stroke:none;stroke-width:0.521484px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+   x="50.999413"
+   y="151.97679"
    id="text11894"><tspan
      sodipodi:role="line"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:55.625px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Bold';stroke-width:0.521484px;fill:#ffeeee;fill-opacity:1"
-     x="45.799351"
-     y="151.2627"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:52.1484px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Bold';fill:#212121;fill-opacity:1;stroke-width:0.521484px"
+     x="50.999413"
+     y="151.97679"
      id="tspan25978">x86-64</tspan></text></g>
 	
 	
