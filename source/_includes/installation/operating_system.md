@@ -48,6 +48,33 @@ We will need a few things to get started with installing Home Assistant. Links b
 
 {% endif %}
 
+{% if page.installation_type == 'generic-x86-64' %}
+
+This guide is meant to install Home Assistant OS directly on a x86-64 computer (e.g. Intel NUC).
+
+<div class='note'>
+<b>Prerequisites</b>
+
+This guide assumes that you are using a generic x86 PC (typically an Intel or AMD based system) which is 64-bit capable and able to boot using UEFI. Pretty much all systems produced in the last 10 years support the UEFI boot mode.
+</div>
+
+### Configure the BIOS
+
+To boot Home Assistant OS the BIOS needs to have UEFI boot mode enabled and Secure Boot disabled. This following screenshots are from a 7th generation Intel NUC system. The BIOS menu likely looks different on your systems, however the options should still be present and named similarly.
+
+1. Enter the BIOS using the can enter using the `F2` key (on some systems this might be `Del`, `F1` or `F10`).
+![Enter BIOS using F2, Del, F1 or F10 key](/images/installation/intel-nuc-enter-bios.jpg)
+
+1. Make sure the UEFI Boot mode is enabled
+![Enable UEFI Boot mode](/images/installation/intel-nuc-uefi-boot.jpg)
+
+1. Disable Secure Boot
+![Disable Secure Boot mode](/images/installation/intel-nuc-disable-secure-boot.jpg)
+
+As a next step we need to write the Operating System image to the installation media. Depending on your system this can be a S-ATA hard disk, S-ATA SSD, a M.2 SSD or even a eMMC. Home Assistant OS has no integrated installer. You need to use your Desktop computer (e.g. by using a USB to S-ATA adapter) or boot a live operating system on your target system to install Home Assistant OS to the installation media. If you are opting for a live installation, follow the instructions of your Live distributon (e.g. [this Ubuntu guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). From the Live distribution the regular steps to write the image to your installation media can be followed.
+
+{% endif %}
+
 ### Write the image to your installation media
 
 1. Attach the installation media ({{site.installation.types[page.installation_type].installation_media}}) to your computer
@@ -104,12 +131,7 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 3. Attach a cable for power
 4. Within a few minutes you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 
-
 {% else %}
-
-{% if page.installation_type != 'generic-x86-64' %}
-Follow this guide if you already are running a hypervisor, if not look at the [Raspberry Pi](/installation/raspberrypi) or the [ODROID](/installation/odroid)
-{% endif %}
 
 ### Download the appropriate image
 
@@ -131,20 +153,14 @@ Follow this guide if you already are running a hypervisor, if not look at the [R
 - [Hyper-V][vhdx] (.vhdx)
 {% endif %}
 {% endif %}
-{% if page.installation_type == 'generic-x86-64' %}
 
-1. Download the operating system from the link above.
-2. Attach the drive you are using in your NUC to your computer.
-3. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
-4. Select "Flash from File" and choose the image you have just downloaded.
-5. Click "Select Target" and choose the drive you wish to flash too, then click "Flash".
-6. Start the NUC with the drive you installed the operating system to as the boot device.
-7. Once the initial setup has completed you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
-{% else %}
+{% if page.installation_type != 'generic-x86-64' %}
+
+Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines we recommend installation Home Assistant OS directly on a [Raspberry Pi](/installation/raspberrypi) or an [ODROID](/installation/odroid) board.
 
 ### Create the Virtual Machine
 
-Load the appliance image into your virtual machine software. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
+Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
 
 Minimum recommended assignments:
 
@@ -226,8 +242,8 @@ With the Home Assistant Operating System installed and accessible you can contin
 
 
 [generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
-[vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.xz
-[vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.xz
-[vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.xz
+[vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip
+[vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.zip
+[vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [qcow2]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.qcow2.xz
 [Virtual Appliance]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.ova
