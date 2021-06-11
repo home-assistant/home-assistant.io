@@ -64,7 +64,7 @@ We will need a few things to get started with installing Home Assistant. Links b
   content: |
 
     ```text
-    {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/hassos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+    {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
     ```
 
     {% if variant.key == "odroid-n2" %}
@@ -79,7 +79,7 @@ We will need a few things to get started with installing Home Assistant. Links b
 
 ```text
 {% assign board_key = site.installation.types[page.installation_type].variants[0].key %}
-{{release_url}}/{{site.data.version_data.hassos[board_key]}}/hassos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
+{{release_url}}/{{site.data.version_data.hassos[board_key]}}/haos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
 ```
 
 {% endif %}
@@ -225,9 +225,9 @@ With the Home Assistant Operating System installed and accessible you can contin
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 
 
-[intel-nuc]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/hassos_intel-nuc-{{site.data.version_data.hassos['ova']}}.img.xz
-[vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/hassos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.xz
-[vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/hassos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.xz
-[vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/hassos_ova-{{site.data.version_data.hassos['ova']}}.vdi.xz
-[qcow2]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/hassos_ova-{{site.data.version_data.hassos['ova']}}.qcow2.xz
-[Virtual Appliance]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/hassos_ova-{{site.data.version_data.hassos['ova']}}.ova
+[intel-nuc]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_intel-nuc-{{site.data.version_data.hassos['ova']}}.img.xz
+[vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.xz
+[vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.xz
+[vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.xz
+[qcow2]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.qcow2.xz
+[Virtual Appliance]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.ova
