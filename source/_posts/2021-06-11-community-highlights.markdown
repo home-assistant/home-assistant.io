@@ -60,8 +60,9 @@ want to keep their dashboard compact.
 
 This week again we have a new Lovelace dashboard for the necessary portion
 of inspiration 😄 This time the one from [theone11](https://github.com/theone11)
-who has a [dashboard](LINK) with a floorplan, definitely recommended to take a look
-at the repository because there is a lot of explanation on it.
+who has a [dashboard](https://github.com/theone11/HomeAssistantConfig) with a
+floorplan, definitely recommended to take a look at the repository because
+there is a lot of explanation on it.
 
 <div style="margin:0 auto; text-align:center; margin-bottom:15px">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/o_AKHEyWXR0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -83,9 +84,9 @@ on [Reddit][reddit] and maybe I'll pick it out for the next edition.
     </a>
 </div>
 
-Between the community submissions we came across a [nice project](https://github.com/alsFC/esphome-iSpindel)
+Between the community submissions, we came across a [nice project](https://github.com/alsFC/esphome-iSpindel)
 that works with [ESPHome][esphome], it's a sensor with which you can
-monitor your own homebrew, for example the alcohol percentage and the
+monitor your own homebrew, for example, the alcohol percentage and the
 temperature. Cheers [Alexander](https://github.com/alsFC)! 🍻
 
 ## Got a tip for the next edition?
