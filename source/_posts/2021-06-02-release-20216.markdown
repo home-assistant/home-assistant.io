@@ -41,6 +41,7 @@ worth scanning the all changes section for your favorite integrations.
 - [Release 2021.6.1 - June 3](#release-202161---june-3)
 - [Release 2021.6.2 - June 4](#release-202162---june-4)
 - [Release 2021.6.3 - June 7](#release-202163---june-7)
+- [Release 2021.6.4 - June 11](#release-202164---june-11)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
   - [Integrations that removed deprecated YAML import](#integrations-that-removed-deprecated-yaml-import)
@@ -381,6 +382,34 @@ The following integrations are now available via the Home Assistant UI:
 [sonos docs]: /integrations/sonos/
 [tibber docs]: /integrations/tibber/
 [tod docs]: /integrations/tod/
+
+## Release 2021.6.4 - June 11
+
+- Fix Sonos battery sensors on S1 firmware ([@jjlawren] - [#51585]) ([sonos docs])
+- Handle missing section ID for Plex clips ([@jjlawren] - [#51598]) ([plex docs])
+- Reduce ovo_energy polling rate to be less aggressive ([@blastoise186] - [#51613]) ([ovo_energy docs])
+- Do not configure Shelly config entry created by custom component ([@bieniu] - [#51616]) ([shelly docs])
+- Fix Onvif get_time_zone from device ([@pszafer] - [#51620])
+- Ensure samsungtv reloads after reauth ([@bdraco] - [#51714]) ([samsungtv docs])
+- Fix race condition in samsungtv turn off ([@bdraco] - [#51716]) ([samsungtv docs])
+
+[#51585]: https://github.com/home-assistant/core/pull/51585
+[#51598]: https://github.com/home-assistant/core/pull/51598
+[#51613]: https://github.com/home-assistant/core/pull/51613
+[#51616]: https://github.com/home-assistant/core/pull/51616
+[#51620]: https://github.com/home-assistant/core/pull/51620
+[#51714]: https://github.com/home-assistant/core/pull/51714
+[#51716]: https://github.com/home-assistant/core/pull/51716
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@blastoise186]: https://github.com/blastoise186
+[@jjlawren]: https://github.com/jjlawren
+[@pszafer]: https://github.com/pszafer
+[ovo_energy docs]: /integrations/ovo_energy/
+[plex docs]: /integrations/plex/
+[samsungtv docs]: /integrations/samsungtv/
+[shelly docs]: /integrations/shelly/
+[sonos docs]: /integrations/sonos/
 
 ## If you need help...
 
