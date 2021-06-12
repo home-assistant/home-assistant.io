@@ -83,48 +83,6 @@ The Hue hub has limited space for scenes and will delete scenes if new ones get 
 
 ## Using Switches in Automations
 
-This integration will detect button presses from the various switch accessories in Hue for use in automations. In the example below, when the off button on the `living_room_switch` dimmer is pressed briefly, the `living_room_tv` media player will also be switched off.
+This integration will detect button presses from the various switch accessories in Hue for use in automations. There is no entity for switch presses. The preferred way to automate presses is via device triggers. With a trigger type of "Device" selected, the Hue switch should appear with the same name as it has in the Hue mobile app. A list of available triggers will then be automatically populated.
 
-```yaml
-alias: TV - Turn off when light switch "off" is pressed
-trigger:
-  - platform: event
-    event_type: hue_event
-    event_data:
-      id: living_room_switch
-      event: 4002 # switch off, short press
-condition:
-  condition: state
-  entity_id: media_player.living_room_tv
-  state: 'on'
-action:
-  - service: media_player.turn_off
-    data:
-      entity_id: media_player.living_room_tv
-```
-
-<div class="note">
-Holding the button produces a different event code so will not trigger the above automation.
-</div>
-
-The simplest way to determine the correct event data for a trigger is to use the "Events" developer tool. In the "Listen to events" section, enter `hue_event` and click "Start Listening" then perform the action you want to use as the trigger. The event may take a few seconds to appear in the interface. In particular, you will need to `id` and `event`.
-
-To help in determining the triggers available for your device, see the table below. All events listed are triggered when a button is released. Other events may also be available.
-
-| Device Type           | Action            | Short Press Event | Long Press Event |
-| --------------------- | ----------------- | ----------------- | ---------------- |
-| Hue Dimmer Switch     | On                | `1002`            | `1003`           |
-|                       | Up                | `2002`            | `2003`           |
-|                       | Down              | `3002`            | `3003`           |
-|                       | Off               | `4002`            | `4003`           |
-| Hue Smart Button      | On                | `1002`            | `1003`           |
-| Hue Tap Switch        | Button 1          | `34`              |                  |
-|                       | Button 2          | `16`              |                  |
-|                       | Button 3          | `17`              |                  |
-|                       | Button 4          | `18`              |                  |
-| Friends of Hue Switch | Button 1          | `20`              | `16`             |
-|                       | Button 1 (Double) | `101`             | `100`            |
-|                       | Button 2          | `21`              | `17`             |
-|                       | Button 2 (Double) | `99`              | `98`             |
-|                       | Button 3          | `23`              | `19`             |
-|                       | Button 4          | `22`              | `18`             |
+Device triggers are preferred, however, automations can also be configured using events. This method can provide some additional functionality. For example, pressing the dimmer switch "On" button includes in the event how many times it has been pressed in succession. To determine the structure and values of the event, use the events tab of developer tools listening for `hue_event`.
