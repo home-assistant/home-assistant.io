@@ -502,26 +502,29 @@ date part is fully ignored.
 The trigger condition can test if an automation was triggered by a certain trigger, identified by the trigger's `id`.
 
 ```yaml
-condition: trigger
+condition:
+  condition: trigger
   id: event_trigger
 ```
 
 For a trigger identified by its index, both a string and integer is allowed:
 ```yaml
-condition: trigger
+condition:
+  condition: trigger
   id: "0"
 ```
 
 ```yaml
-condition: trigger
+condition:
+  condition: trigger
   id: 0
 ```
 
-
-
 It is possible to give a list of triggers:
+
 ```yaml
-condition: trigger
+condition:
+  condition: trigger
   id:
     - event_1_trigger
     - event_2_trigger
