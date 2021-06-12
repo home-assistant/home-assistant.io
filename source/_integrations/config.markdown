@@ -4,16 +4,17 @@ description: Instructions on how to setup the configuration panel for Home Assis
 ha_category:
   - Front End
 ha_release: 0.39
-ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: config
+ha_platforms:
+  - scene
 ---
 
 The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry

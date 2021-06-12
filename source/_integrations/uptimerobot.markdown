@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@ludeeus'
 ha_domain: uptimerobot
+ha_platforms:
+  - binary_sensor
 ---
 
 The `uptimerobot` binary sensor platform allows you get the status for all of your monitors from your account on [Uptime Robot]( https://uptimerobot.com).

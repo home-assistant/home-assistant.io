@@ -11,32 +11,53 @@ ha_codeowners:
   - '@marcelveldt'
   - '@MartinHjelmare'
 ha_domain: ozw
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
-This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT.
+This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT. If you're starting out with Z-Wave in Home Assistant, we recommend that you use [the Z-Wave JS integration](/integrations/zwave_js).
 
 ## Requirements
 
+### Supervisor managed installation
+
+- The official OpenZWave add-on installed available from the add-on store.
+
+### Core installation
+
 - MQTT server and the [MQTT integration](/integrations/mqtt/) set up in Home Assistant.
 - The [ozwdaemon](https://github.com/OpenZWave/qt-openzwave) installed and running in your network.
-  For Home Assistant Supervisor there's an official add-on named OpenZWave available from the add-on store.
+
+### Hardware requirements
+
 - Supported Z-Wave dongle compatible with OpenZWave 1.6. See this [list](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules) of controllers. The Z-Wave controller dongle should be connected to the same host as where the ozwdaemon is running.
 
-## Configuration
-
-This integration can be configured using the integrations in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **OpenZWave (beta)**.
-After completing the configuration flow, the OpenZWave integration will be
-available.
+{% include integrations/config_flow.md %}
 
 ### Secure network key
 
 The secure network key is set in the settings for the ozwdaemon and
 not in the integration configuration.
+
+## Migrate from Z-Wave integration
+
+To migrate to the OpenZWave integration from the Z-Wave integration there's a
+wizard in the frontend configuration panel of the Z-Wave integration. The wizard
+will try to migrate the entity IDs, names, icons and areas of the entities and
+devices of your Z-Wave integration to your OpenZWave integration. At the end of
+the migration, the Z-Wave integration configuration entry will be removed.
+
+Make sure you take necessary backups, eg a Supervisor snapshot, before migrating
+to be able to restore the Z-Wave integration. The wizard may not be able to
+migrate all entity and device information. It will show you what entity and
+device information failed to migrate.
 
 ## Services
 
@@ -136,6 +157,7 @@ This event is fired upon scene activation. The data in the event will vary depen
 {
     "event_type": "ozw.scene_activated",
     "data": {
+        "instance_id": 1,
         "node_id": 9,
         "scene_id": 1,
         "scene_label": "Scene 1",

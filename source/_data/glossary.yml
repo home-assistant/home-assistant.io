@@ -10,8 +10,6 @@
   description: "Integrations (see below) used to be known as components."
 - topic: Condition
   description: "[Conditions](/docs/scripts/conditions/) are an optional part of an automation that will prevent an action from firing if they are not met."
-- topic: Cookbook
-  description: "The [Cookbook](/cookbook/) contains a set of configuration examples of Home Assistant from the community."
 - topic: Cover
   description: "[Covers](/integrations/cover) are devices such as blinds, garage doors, etc that can be opened and closed and optionally set to a specific position."
 - topic: Customize

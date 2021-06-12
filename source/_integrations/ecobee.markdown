@@ -6,14 +6,22 @@ ha_category:
   - Binary Sensor
   - Notifications
   - Climate
+  - Humidifier
   - Weather
 featured: true
 ha_release: 0.9
-ha_iot_class: Cloud Poll
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@marthoc'
 ha_domain: ecobee
+ha_platforms:
+  - binary_sensor
+  - climate
+  - humidifier
+  - notify
+  - sensor
+  - weather
 ---
 
 The `ecobee` integration lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.
@@ -23,7 +31,7 @@ The `ecobee` integration lets you control and view sensor data from [ecobee](htt
 You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, your thermostat must be registered on ecobee's website (which you likely would have already done while installing your thermostat). Once you have done that, perform the following steps.
 
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/developers/).
-2. Log in with your ecobee credentials.
+2. Log in with your ecobee credentials. (Make sure multifactor authentication is disabled to allow login can re-enable after becoming developer.)
 3. Accept the SDK agreement.
 4. Fill in the fields.
 5. Click **save**.
@@ -111,6 +119,8 @@ defined vacation period and expires when the vacation period ends.
 When in _away preset_, the target temperature is permanently overridden by the target temperature defined for the away climate. The away preset is a simple way to emulate a vacation mode.
 
 The _HVAC mode_ of the device is the currently active operational modes that the ecobee thermostat provides: heat, auxHeatOnly, cool, auto, and off.
+
+The _target humidity_ is the humidity set point of the thermostat when a humidifier is connected and in manual control or "On" mode.
 
 ## Attributes
 

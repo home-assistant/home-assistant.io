@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.21
 ha_iot_class: Local Polling
 ha_domain: osramlightify
+ha_platforms:
+  - light
 ---
 
 The `osramlightify` platform allows you to integrate your [Osram Lightify](https://www.osram.com/cb/lightify/index.jsp) into Home Assistant.
@@ -73,7 +75,8 @@ dropdown on UI. You can apply a scene by clicking an item from the dropdown or b
 
 ```yaml
   - service: light.turn_on
-    entity_id: light.bedroom
+    target:
+      entity_id: light.bedroom
     data:
       effect: Romance
 ```

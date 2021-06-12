@@ -9,19 +9,21 @@ ha_config_flow: true
 ha_codeowners:
   - '@gagebenne'
 ha_domain: dexcom
+ha_platforms:
+  - sensor
 ---
 
 The Dexcom integration allows you to view your CGM data from [Dexcom](https://www.dexcom.com/) in Home Assistant.
 
-## Configuration
+## Prerequisites
+
+You will need to set up the [Dexcom Share](https://provider.dexcom.com/education-research/cgm-education-use/videos/setting-dexcom-share-and-follow) feature in your Dexcom G6 App to use this integration.
+
+{% include integrations/config_flow.md %}
 
 <div class='note warning'>
 Some people have had problems with connecting when their Dexcom passwords are entirely numeric. If you have connection issues in that case, try changing your password to something with a mix of numbers and letters.
 </div>
-
-You will need to set up the [Dexcom Share](https://provider.dexcom.com/education-research/cgm-education-use/videos/setting-dexcom-share-and-follow) feature in your Dexcom G6 App to use this integration. Once you have done that, perform the following steps.
-
-To add `Dexcom` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Dexcom**.
 
 #### Server
 
@@ -42,17 +44,17 @@ If you have a sensor session running, and once you have enabled the Dexcom integ
 
 ```yaml
 - id: '1234567890123'
-  alias: overnight_low_kitchen_lights
+  alias: "overnight_low_kitchen_lights"
   description: Turn on the lights in the kitchen if my blood sugar drops low overnight
   trigger:
   - below: '65'
     entity_id: sensor.dexcom_YOUR_USERNAME_glucose_value
     platform: numeric_state
   condition: time
-    after: '22:00:00'
-    before: '06:00:00'
+    after: "22:00:00"
+    before: "06:00:00"
   action:
   - service: light.turn_on
-      data:
+      target:
         entity_id: light.kitchen
 ```

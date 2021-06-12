@@ -10,6 +10,8 @@ ha_release: 0.49
 ha_codeowners:
   - '@robbiet480'
 ha_domain: lametric
+ha_platforms:
+  - notify
 ---
 
 [LaMetric Time](https://lametric.com/) is a smart clock that can be used to access applications, listen to web radio and display notifications.
@@ -115,18 +117,18 @@ To add a notification sound, icon, cycles, or priority override, it has to be do
   trigger:
     platform: state
     entity_id: device_tracker.son_mobile
-    from: 'not_home'
-    to: 'school'
+    from: "not_home"
+    to: "school"
   action:
     service: notify.lametric
     data:
       message: "Son has arrived at school!"
       data:
-        sound: 'notification'
-        icon: 'i51'
+        sound: "notification"
+        icon: "i51"
         cycles: 0
-        priority: 'critical'
-        icon_type: 'none'
+        priority: "critical"
+        icon_type: "none"
 ```
 
 ### Only notify specific device
@@ -140,8 +142,8 @@ If you have more than one La Metric device, you can specify which will receive t
       message: "Son has arrived at school!"
       target: "Office LaMetric"
       data:
-        sound: 'notification'
-        icon: 'i51'
+        sound: "notification"
+        icon: "i51"
  ```
 
  If target is not specified, all LaMetric devices will be notified.

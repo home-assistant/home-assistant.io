@@ -70,7 +70,7 @@ All previous things put the pieces in place for us to be able to build our own j
 # Note, this is using new automation features introduced in Home Assistant 0.115
 automation:
 - id: handle_tag_scan
-  alias: Handle Tag Scan
+  alias: "Handle Tag Scan"
   mode: single
   # Hide warnings when triggered while in delay.
   max_exceeded: silent
@@ -99,8 +99,9 @@ automation:
         media_content_id: "{{ tags[trigger.event.data.tag_id].media_content_id }}"
         media_content_type: "{{ tags[trigger.event.data.tag_id].media_content_type }}"
     - service: media_player.play_media
-      data:
+      target:
         entity_id: "{{ media_player_entity_id }}"
+      data:
         media_content_id: "{{ media_content_id }}"
         media_content_type: "{{ media_content_type }}"
     - delay: 2 # timeout before we allow processing next scan

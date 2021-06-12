@@ -9,6 +9,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@Swamp-Ig'
 ha_domain: izone
+ha_homekit: true
+ha_platforms:
+  - climate
 ---
 
 The `iZone` integration allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
@@ -17,16 +20,14 @@ The `iZone` integration allows access of control of a local [iZone](https://izon
 
 Any current iZone unit with ducted reverse cycle airconditioning and the CB wired or wireless bridge device installed should currently work. There is currently no support for the iZone lights, reticulation, or other devices.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-The iZone component can be configured in two ways. 
 
-- Via the integrations configuration of the Home Assistant user interface.
-- Or via the `configuration.yaml` file by adding the following:
+## Manual configuration
 
-If you load the integration from the integrations window, all local iZone instances are added. The integration will discover any new instances added to the local area later on as well.
-
-Alternately if there is more than one iZone system on the local network and one or more must be excluded use manual configuration:
+Alternatively, the iZone integration can be configured manually via the
+`configuration.yaml` file if there is more than one iZone system on the local
+network and one or more must be excluded use manual configuration:
 
 ```yaml
 # Full manual example configuration.yaml entry
@@ -54,10 +55,62 @@ Unit modes off, heat, cool, dry, and fan only are supported. For units fitted wi
 
 Zones have three modes available, closed, open, and auto. These are mapped to Home Assistant modes off, fan only, and auto, respectively. Only the auto mode supports setting the temperature.
 
+## Control zone (climate control mode)
+
+With multiple climate-controlled zones, you can't set the target temperature of the control but set the target temperature
+for each individual zone.
+
+The climate controller then selects the zone that is furthest away from the target and feeds the current temperature and
+target temperature into the air conditioner unit, closing any other zones that have already reached their target.
+
+In this mode the current control zone that has been selected is reported, as is the read-only target temperature for that 
+zone (read-only, set the value via the individual zones). The current temperature will also be that of the control
+zone.
+
+You can add configure to read these values into sensors (in `configuration.yaml`), 
+along with the supply temperature (use the ID of your unit):
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry to create sensors
+# from the izone controller state attributes
+sensor:
+  - platform: template
+    sensors:
+      control_zone:
+        friendly_name: "Control zone"
+        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_name') }}"
+      control_zone_target:
+        friendly_name: "Target temperature"
+        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_setpoint') }}"
+        unit_of_measurement: "°C" 
+      temperature_supply:
+        friendly_name: "Supply temperature"
+        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
+        unit_of_measurement: "°C"
+```
+
+{% endraw %}
+
+And then graph them on a dashboard, along with the standard values such as the current temperature. Either add the sensor entities via the visual editor, or cut and paste this
+snippet into the code editor:
+
+```yaml
+# Example snippet for dashboard card configuration (code editor)
+entities:
+  - entity: sensor.control_zone_target
+  - entity: sensor.control_zone
+  - entity: sensor.temperature_supply
+  - entity: climate.izone_controller_0000XXXXX
+hours_to_show: 24
+refresh_interval: 0
+type: history-graph
+```
+
 ## Debugging
 
 If you're trying to track down issues with the component, set up logging for it:
-
 
 ```yaml
 # Example configuration.yaml with logging for iZone
@@ -69,3 +122,23 @@ logger:
 ```
 
 This will help you to find network connection issues etc.
+
+## Services
+
+### Service `izone.airflow_min`
+
+Set the minimum airflow for a particular zone.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | izone Zone entity. For example `climate.bed_2`
+| `airflow` | no | Airflow percent in 5% increments
+
+### Service `izone.airflow_max`
+
+Set the maximum airflow for a particular zone.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | izone Zone entity. For example `climate.bed_2`
+| `airflow` | no | Airflow percent in 5% increments

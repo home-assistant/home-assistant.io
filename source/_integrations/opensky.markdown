@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.43
 ha_iot_class: Cloud Polling
 ha_domain: opensky
+ha_platforms:
+  - sensor
 ---
 
 The `opensky` sensor allows one to track overhead flights in a given region. It uses crowd-sourced data from the [OpenSky Network](https://opensky-network.org/) public API. It will also fire Home Assistant events when flights enter and exit the defined region.
@@ -45,14 +47,14 @@ To receive notifications of the entering flights using the [Home Assistant Compa
 
 ```yaml
 automation:
-  - alias: 'Flight entry notification'
+  - alias: "Flight entry notification"
     trigger:
       platform: event
       event_type: opensky_entry
     action:
       service: notify.mobile_app_<device_name>
       data:
-        message: 'Flight entry of {{ trigger.event.data.callsign }}'
+        message: "Flight entry of {{ trigger.event.data.callsign }}"
 ```
 
 {% endraw %}

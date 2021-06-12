@@ -6,7 +6,7 @@ ha_category:
 logo: geo_location.png
 ha_release: 0.78
 ha_domain: geo_location
-ha_iot_class:
+ha_quality_scale: internal
 ---
 
 Geolocation aware entities are typically related to events in the real world in the vicinity of Home Assistant's location, like for example weather events, bush fires or earthquakes.
@@ -34,6 +34,7 @@ Conditions can be used to further filter entities, for example by inspecting the
 The following example automation creates a notification on the screen when a fire classified as 'Bush Fire' is reported within a predefined bush fire alert zone:
 
 {% raw %}
+
 ```yaml
 geo_location:
   - platform: nsw_rural_fire_service_feed
@@ -50,7 +51,7 @@ zone:
     passive: true
 
 automation:
-  - alias: 'Bush Fire Alert'
+  - alias: "Bush Fire Alert"
     trigger:
       platform: geo_location
       source: nsw_rural_fire_service_feed
@@ -65,4 +66,5 @@ automation:
           message: "{{ trigger.to_state.name }} - {{ trigger.to_state.attributes.status }}"
           title: "Bush Fire Alert"
 ```
+
 {% endraw %}

@@ -11,6 +11,8 @@ ha_quality_scale: gold
 ha_codeowners:
   - '@fabaff'
 ha_domain: luftdaten
+ha_platforms:
+  - sensor
 ---
 
 The `luftdaten` integration will query the open data API of [luftdaten.info](https://luftdaten.info/) to monitor air quality and other weather data from a specific (self build) sensor station.
@@ -20,14 +22,7 @@ The `luftdaten` integration will query the open data API of [luftdaten.info](htt
 - To get the ID of a particle sensor you need to select it on the [Feinstaub map](https://deutschland.maps.luftdaten.info/) and find it in the sidebar (Column "Sensor ID").
 - To get the ID of a temperature/humidity sensor you need to find it on the map hosted on [Madavi](https://www.madavi.de/sensor/feinstaub-map-dht/).
 
-## Configuration via the frontend
-
-Menu: **Configuration** -> **Integrations**
-
-Configure the integration:
-
-- Enter the **Sensor ID**
-- Choose if you want to show the sensor's location on the map.
+{% include integrations/config_flow.md %}
 
 ## Manual Configuration
 

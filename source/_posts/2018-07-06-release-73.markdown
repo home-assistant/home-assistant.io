@@ -5,7 +5,9 @@ date: 2018-07-06 00:01:00
 date_formatted: "July 6, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-07-0.73/lovelace-elements.png
 ---
 
@@ -67,7 +69,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update to hole to 0.3.0 ([@fabaff] - [#15014]) ([sensor.pi_hole docs]) (breaking change)
 - Upgrade numpy to 1.14.5 ([@fabaff] - [#15015]) ([binary_sensor.trend docs]) ([image_processing.opencv docs])
 - Upgrade youtube_dl to 2018.06.14 ([@fabaff] - [#15013]) ([media_extractor docs])
-- Switch nuimo to a hopefully working pypi version ([@andrey-git] - [#15006]) ([nuimo_controller docs])
+- Switch nuimo to a hopefully working pypi version ([@andrey-git] - [#15006])
 - Remove typing ([@fabaff] - [#15018])
 - Add support for Homekit battery service ([@schmittx] - [#14288]) ([homekit docs])
 - Update PostNL unit of measure to align with UPS ([@keesschollaart81] - [#15023]) (breaking change)
@@ -304,7 +306,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [neato docs]: /integrations/neato/
 [netgear_lte docs]: /integrations/netgear_lte/
 [notify docs]: /integrations/notify/
-[nuimo_controller docs]: /integrations/nuimo_controller/
 [prometheus docs]: /integrations/prometheus/
 [rachio docs]: /integrations/rachio/
 [sensor.dht docs]: /integrations/dht

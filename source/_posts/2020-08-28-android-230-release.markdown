@@ -13,7 +13,7 @@ Hey there, its been so long since we last gave an update on our mobile apps we t
 
 ## Manage Sensors
 
-Starting from version 2.2.0 there is a new Manage Sensors screen that you can find under App Configuration. Users can now disable sensors they don't want while continuing to receive updates from the sensors they do care about. This includes turning off the Geocoded sensor while keeping location tracking on. Speaking of which the 2 location toggles that used to be found in App Configuration are now located in this new screen. You can expect to see the live data that was recently sent over to your Home Assistant server as well as the attributes and other sensor details.
+Starting from version 2.2.0 there is a new Manage Sensors screen that you can find under App Configuration. Users can now disable sensors they don't want while continuing to receive updates from the sensors they do care about. This includes turning off the Geocoded sensor while keeping location tracking on. Speaking of which the 2 location toggles that used to be found in App Configuration are now located in this new screen. You can expect to see the live data that was recently sent over to your Home Assistant instance as well as the attributes and other sensor details.
 
 <p class='img'>
 <img src='/images/blog/2020-08-28-android-230-release/manage_sensors.png' alt='Screenshot of Manage Sensors'></a>
@@ -27,7 +27,7 @@ Screenshot of Sensor Management.
 
 ## New Sensors
 
-We have had quite a bit of sensors get added since we last spoke so here's whats new. Some of these sensors will update their state in your Home Assistant server upon certain state changes. All of the sensors listed below will also update during the normal 15 minute update interval. To get more details about what to expect from each sensor check out the [docs](https://companion.home-assistant.io/docs/core/sensors).
+We have had quite a bit of sensors get added since we last spoke so here's whats new. Some of these sensors will update their state in your Home Assistant instance upon certain state changes. All of the sensors listed below will also update during the normal 15 minute update interval. To get more details about what to expect from each sensor check out the [docs](https://companion.home-assistant.io/docs/core/sensors).
 
 Available for Google Play Store version only:
 

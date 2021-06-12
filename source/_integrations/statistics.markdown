@@ -10,6 +10,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: statistics
+ha_platforms:
+  - sensor
 ---
 
 The `statistics` sensor platform consumes the state from other sensors. It exports the `mean` value as state and the following values as attributes: `count`, `mean`, `median`, `stdev`, `variance`, `total`, `min_value`, `max_value`, `min_age`, `max_age`, `change`, `average_change` and `change_rate`. If the source is a binary sensor then only state changes are counted.
@@ -30,8 +32,6 @@ sensor:
     entity_id: sensor.cpu
   - platform: statistics
     entity_id: binary_sensor.movement
-    max_age:
-      minutes: 30
 ```
 
 {% configuration %}
@@ -50,11 +50,11 @@ sampling_size:
   default: 20
   type: integer
 max_age:
-  description: Maximum age of measurements. Setting this to a time interval will cause older values to be discarded. Please note that you might have to increase the [sampling_size](/integrations/statistics#sampling_size) parameter. If you e.g., have a sensor value updated every second you will, by default, only get a max_age of 20s.
+  description: Maximum age of measurements. Setting this to a time interval will cause older values to be discarded. Please note that you might have to increase the [`sampling_size`](/integrations/statistics#sampling_size) parameter. If you e.g., have a sensor value updated every second you will by default only get a `max_age` of 20s. Furthermore the sensor gets `unknown` if the entity is not updated within the time interval.
   required: false
   type: time
 precision:
-  description: Defines the precision of the calculated values, through the argument of round().
+  description: Defines the precision of the calculated values, through the argument of [`round()`](/docs/configuration/templating/#numeric-functions-and-filters).
   required: false
   default: 2
   type: integer

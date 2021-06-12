@@ -9,13 +9,17 @@ ha_codeowners:
   - '@MrHarcombe'
 ha_domain: metoffice
 ha_config_flow: true
+ha_platforms:
+  - sensor
+  - weather
 ---
 
 The `metoffice` weather platform uses the Met Office's [DataPoint API](https://www.metoffice.gov.uk/datapoint) for weather data.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add the Met Office weather platform to your installation, you'll need to register for a free API key at the link above and then go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Met Office**. Multiple entries can be configured, but a unique set of latitude and longitude must be supplied for each.
+
+## Entities
 
 A number of weather entities are created for each entry created in the configuration by location: one weather entity with a summary of the 3-hourly forecasts and twelve sensor entities for individual reporting on each of the individual measurements. The time supplied for each forecast is the start time for the forecast.
 

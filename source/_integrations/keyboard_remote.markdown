@@ -19,7 +19,7 @@ The `evdev` package is used to interface with the keyboard and thus this is Linu
 ```yaml
 # Example configuration.yaml entry
 keyboard_remote:
-  type: 'key_up'
+  type: "key_up"
 ```
 
 {% configuration %}
@@ -62,7 +62,7 @@ A full configuration for two Keyboard Remotes could look like the one below:
 ```yaml
 keyboard_remote:
 - device_descriptor: '/dev/input/by-id/bluetooth-keyboard'
-  type: 'key_down'
+  type: "key_down"
   emulate_key_hold: true
   emulate_key_hold_delay: 250
   emulate_key_hold_repeat: 33
@@ -76,15 +76,15 @@ Or like the following for one keyboard:
 
 ```yaml
 keyboard_remote:
-  device_name: 'Bluetooth Keyboard'
-  type: 'key_down'
+  device_name: "Bluetooth Keyboard"
+  type: "key_down"
 ```
 
 And an automation rule to breathe life into it:
 
 ```yaml
 automation:
-  alias: Keyboard all lights on
+  alias: "Keyboard all lights on"
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
@@ -93,7 +93,8 @@ automation:
       key_code: 107 # inspect log to obtain desired keycode
   action:
     service: light.turn_on
-    entity_id: light.all
+    target:
+      entity_id: light.all
 ```
 
 `device_descriptor` or `device_name` may be specificed in the trigger so the automation will be fired only for that keyboard. This is especially useful if you wish to use several Bluetooth remotes to control different devices. Omit them to ensure the same key triggers the automation for all keyboards/remotes.
@@ -109,18 +110,19 @@ Here's an automation example that plays a sound through a media player whenever 
 
 ```yaml
 automation:
-  - alias: Keyboard Connected
+  - alias: "Keyboard Connected"
     trigger:
       platform: event
       event_type: keyboard_remote_connected
     action:
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.speaker
+        data:
           media_content_id: keyboard_connected.wav
           media_content_type: music
 
-  - alias: Bluetooth Keyboard Disconnected
+  - alias: "Bluetooth Keyboard Disconnected"
     trigger:
       platform: event
       event_type: keyboard_remote_disconnected
@@ -128,8 +130,9 @@ automation:
         device_name: "00:58:56:4C:C0:91"
     action:
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.speaker
+        data:
           media_content_id: keyboard_disconnected.wav
           media_content_type: music
 ```

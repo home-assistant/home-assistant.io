@@ -8,6 +8,8 @@ ha_release: 0.28
 ha_codeowners:
   - '@MartinHjelmare'
 ha_domain: xbox_live
+ha_platforms:
+  - sensor
 ---
 
 The Xbox Live integration is able to track [Xbox](https://xbox.com/) profiles.

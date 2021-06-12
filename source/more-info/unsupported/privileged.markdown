@@ -10,7 +10,7 @@ to be able to do everything it needs to do.
 
 ## The solution
 
-If you are running an older version of our Home Assistant OS, update it the
+If you are running an older version of our Home Assistant OS, update it in the
 supervisor panel.
 
 If this is not our Home Assistant OS, you need to re-run our

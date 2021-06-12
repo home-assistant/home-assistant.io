@@ -8,6 +8,9 @@ ha_category:
 ha_release: 0.68
 ha_iot_class: Local Polling
 ha_domain: eufy
+ha_platforms:
+  - light
+  - switch
 ---
 
 The `eufy` integration is the main integration to integrate various [eufy](https://www.eufylife.com/) devices with Home Assistant.

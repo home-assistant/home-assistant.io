@@ -10,6 +10,10 @@ ha_category:
 ha_release: '0.40'
 ha_iot_class: Local Polling
 ha_domain: android_ip_webcam
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `android_ip_webcam` integration turns any Android phone or tablet into a network camera with multiple viewing options.
@@ -181,7 +185,7 @@ binary_sensor:
     name: Kitchen Motion
     device_class: motion
     resource: http://IP_ADDRESS:PORT/sensors.json?sense=motion_active
-    value_template: '{{ value_json.motion_active.data[0][1][0] | round(0) }}'
+    value_template: "{{ value_json.motion_active.data[0][1][0] | round(0) }}"
 ```
 
 {% endraw %}

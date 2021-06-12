@@ -4,7 +4,6 @@ description: Instructions on how to integrate counters into Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.53
-ha_iot_class: Calculated
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
@@ -143,7 +142,7 @@ system_log:
 # Example configuration.yaml entry
 automation:
 - id: 'errorcounterautomation'
-  alias: Error Counting Automation
+  alias: "Error Counting Automation"
   trigger:
     platform: event
     event_type: system_log_event
@@ -151,7 +150,7 @@ automation:
       level: ERROR
   action:
     service: counter.increment
-    data:
+    target:
       entity_id: counter.error_counter
     
 counter:

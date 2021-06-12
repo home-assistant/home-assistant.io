@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.25
 ha_domain: imap_email_content
+ha_platforms:
+  - sensor
 ---
 
 The `imap_email_content` integration will read emails from an IMAP email server and report them as a state change within Home Assistant. This is useful if you have a device that only reports its state via email.
@@ -78,6 +80,7 @@ value_template:
 The following example shows the usage of the IMAP email content sensor to scan the subject of an email for text, in this case, an email from the APC SmartConnect service which tells whether the UPS is running on battery or not.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: imap_email_content
@@ -95,6 +98,7 @@ sensor:
         power_on
       {% endif %}
 ```
+
 {% endraw %}
 
 The same template structure can scan the date, body or sender for matching text before setting the state of the sensor.
@@ -115,6 +119,7 @@ To view your account for details about your energy use, please click here.
 Below is the template sensor which extracts the information from the body of the email in our IMAP email sensor (named sensor.energy_email) into 3 sensors for the energy use, daily cost, and billing cycle total.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -138,6 +143,7 @@ sensor:
         {{ state_attr('sensor.energy_email', 'body')
           |regex_findall_index("\ days:\* \$([0-9.]+)") }}
 ```
+
 {% endraw %}
 
 By making small changes to the regular expressions defined above, a similar structure can parse other types of data out of the body of other emails.

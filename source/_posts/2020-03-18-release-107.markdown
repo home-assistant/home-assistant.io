@@ -7,7 +7,9 @@ date_formatted: "March 18, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-03-0.107/social.png
 ---
 
@@ -139,7 +141,7 @@ Screen recording of the new card picker and stack editor.
 ## New Integrations
 
 - Add platform Ezviz ([@BaQs] - [#30378]) ([ezviz docs]) (new-integration)
-- Add Avri waste collection sensor ([@timvancann] - [#31134]) ([avri docs]) (new-integration)
+- Add Avri waste collection sensor ([@timvancann] - [#31134]) (new-integration)
 - Add Tankerkoenig integration ([@guillempages] - [#28661]) ([tankerkoenig docs]) (new-integration)
 - Add QVR Pro integration ([@oblogic7] - [#31173]) ([qvr_pro docs]) (new-integration)
 - Add edl21 component for SML-based smart meters ([@mtdcr] - [#27962]) ([edl21 docs]) (new-integration)
@@ -634,7 +636,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix unhandled exception in Ambient PWS_URL ([@bachya] - [#32238]) ([ambient_station docs])
 - Support vizio pairing through config flow ([@raman325] - [#31520]) ([vizio docs])
 - Dynalite listener for config entry update ([@ziv1234] - [#32116]) ([dynalite docs])
-- Add Avri waste collection sensor ([@timvancann] - [#31134]) ([avri docs]) (new-integration)
+- Add Avri waste collection sensor ([@timvancann] - [#31134]) (new-integration)
 - Set min and max temp only if it is not None ([@Petro31] - [#32262]) ([generic_thermostat docs])
 - Pass in aiohttp session for onvif ([@frenck] - [#32045]) ([onvif docs])
 - Explicitly set unique ids for GDACS integration ([@exxamalte] - [#32203]) ([gdacs docs])
@@ -653,7 +655,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix github sensor short SHA ([@Mariusthvdb] - [#32316]) ([github docs])
 - ZHA: Support light flashing ([@chmielowiec] - [#32234]) ([zha docs])
 - Require IFTTT to send data as dictionary ([@balloob] - [#32317]) ([ifttt docs]) (breaking change)
-- Bump avri api version ([@timvancann] - [#32373]) ([avri docs])
+- Bump avri api version ([@timvancann] - [#32373])
 - Add sms support to pushbullet notification ([@doudz] - [#32347]) ([pushbullet docs])
 - Upgrade youtube_dl to version 2020.03.01 ([@BKPepe] - [#32376]) ([media_extractor docs])
 - Add optimistic mode for somfy covers that do not support position ([@ColinRobbins] - [#31407]) ([somfy docs])
@@ -746,7 +748,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump pyicloud to 0.9.3 ([@Quentame] - [#32582]) ([icloud docs])
 - Upgrade youtube_dl to version 2020.03.08 ([@BKPepe] - [#32581]) ([media_extractor docs])
 - Bump denonavr to 0.8.0 ([@scarface-4711] - [#32578]) ([denonavr docs])
-- Add support for Ubee Router DVW32CB ([@seanvictory] - [#32406]) ([ubee docs])
+- Add support for Ubee Router DVW32CB ([@seanvictory] - [#32406])
 - Bump rflink to 0.0.52 ([@jeyrb] - [#32588]) ([rflink docs])
 - Correct grammatical error in CUSTOM_WARNING ([@davet2001] - [#32569])
 - Add Steam game ID and screenshot paths as attributes ([@i00] - [#32005]) ([steam_online docs])
@@ -1310,7 +1312,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [august docs]: /integrations/august/
 [auth docs]: /integrations/auth/
 [automation docs]: /integrations/automation/
-[avri docs]: /integrations/avri/
 [axis docs]: /integrations/axis/
 [bayesian docs]: /integrations/bayesian/
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
@@ -1441,7 +1442,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [transmission docs]: /integrations/transmission/
 [tts docs]: /integrations/tts/
 [twitch docs]: /integrations/twitch/
-[ubee docs]: /integrations/ubee/
 [unifi docs]: /integrations/unifi/
 [upnp docs]: /integrations/upnp/
 [utility_meter docs]: /integrations/utility_meter/

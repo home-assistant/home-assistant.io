@@ -9,15 +9,15 @@ ha_codeowners:
   - '@cyberjunky'
 ha_config_flow: true
 ha_domain: garmin_connect
+ha_platforms:
+  - sensor
 ---
 
 The Garmin Connect sensor allows you to expose data from [Garmin Connect](https://connect.garmin.com) to Home Assistant.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add Garmin Connect to your installation, go to Configuration >> Integrations in the UI and enable the Garmin Connect integration by entering your credentials.
-
-After successful login a standard set of sensors are enabled.
+After successful set up a standard set of sensors are enabled.
 You can enable more if needed by using the Integrations page.
 
 Please be aware that Garmin Connect has very low rate limits, max. once every ~10 minutes.

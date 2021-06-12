@@ -7,9 +7,10 @@ ha_release: 0.29
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
-  - '@ChristianKuehnel'
   - '@basnijholt'
 ha_domain: miflora
+ha_platforms:
+  - sensor
 ---
 
 The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](https://gadget-freakz.com/product/xiaomi-mi-flora-plant-sensor/) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.
@@ -58,7 +59,7 @@ To use your Mi Flora plant sensor in your installation, add the following to you
 # Example configuration.yaml entry
 sensor:
   - platform: miflora
-    mac: 'xx:xx:xx:xx:xx:xx'
+    mac: "xx:xx:xx:xx:xx:xx"
     monitored_conditions:
       - moisture
 ```
@@ -123,7 +124,7 @@ A full configuration example could look like the one below:
 # Example configuration.yaml entry
 sensor:
   - platform: miflora
-    mac: 'xx:xx:xx:xx:xx:xx'
+    mac: "xx:xx:xx:xx:xx:xx"
     name: Flower 1
     force_update: true
     median: 3
@@ -139,7 +140,7 @@ An automation example to report a battery failure:
 
 ```yaml
 - id: flower1_moisture_unavailable_check
-  alias: Flower 1 sensors available
+  alias: "Flower 1 sensors available"
   trigger:
   - entity_id: sensor.flower1_moisture
     for: 24:00:00

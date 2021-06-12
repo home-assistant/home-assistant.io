@@ -13,12 +13,29 @@ ha_category:
   - Sensor
   - Fan
   - Health
+  - Humidifier
 ha_release: 0.68
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@Jc2k'
+  - '@bdraco'
 ha_domain: homekit_controller
+ha_zeroconf: true
+ha_platforms:
+  - air_quality
+  - alarm_control_panel
+  - binary_sensor
+  - camera
+  - climate
+  - cover
+  - fan
+  - humidifier
+  - light
+  - lock
+  - media_player
+  - sensor
+  - switch
 ---
 
 The [HomeKit](https://developer.apple.com/homekit/) controller integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
@@ -41,6 +58,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
 - Fan
 - Air Quality
+- Humidifier (HomeKit humidifiers and dehumidifiers)
 - Automation Triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
 
 <div class='note'>
@@ -85,6 +103,10 @@ When you have filled in the rest of the form to create your migration it will sh
 <p class='img'>
 <img src='/images/integrations/homekit_controller/device_automation_finish.png' />
 </p>
+
+## Pairing with an insecure setup code
+
+Some device manufacturers do not follow the HomeKit spec and will use a fixed code or trivially guessable code such as `123-45-678` for pairing. HomeKit Controller will warn when pairing about the insecure nature of this configuration and require additional consent before pairing with the accessory. Consider finding a replacement device that implements code randomization.
 
 ## Troubleshooting
 

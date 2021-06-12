@@ -12,6 +12,11 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@DaAwesomeP'
 ha_domain: firmata
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
+  - switch
 ---
 
 [Firmata](https://github.com/firmata/protocol) can be used to add analog and digital inputs and outputs to Home Assistant. This allows for buttons, switches, motion detectors, relay control, sensors, potentiometers, dimmers, etc. The component can currently connect to a Firmata board via serial or serial over USB.

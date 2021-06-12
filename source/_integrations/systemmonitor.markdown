@@ -6,11 +6,12 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: systemmonitor
+ha_platforms:
+  - sensor
 ---
 
 The `systemmonitor` sensor platform allows you to monitor disk usage,
-memory usage, CPU usage, and running processes. This platform has superseded the
-process integration which is now considered deprecated.
+memory usage, CPU usage, and running processes. 
 
 To add this platform to your installation,
 add the following to your `configuration.yaml` file:
@@ -21,7 +22,7 @@ sensor:
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
-        arg: /home
+        arg: /config
       - type: memory_free
 ```
 
@@ -38,6 +39,9 @@ resources:
       description: Argument to use, please check the table below for details.
       required: false
 {% endconfiguration %}
+
+After restarting Home Assistant, these sensors will show up and update their
+information every 15 seconds.
 
 The table contains types and their argument to use in your `configuration.yaml`
 file.
@@ -84,7 +88,7 @@ tmpfs           934M     0  934M   0% /dev/shm
 /dev/mmcblk0p1  253M   54M  199M  22% /boot
 ```
 
-Defining a `disk_use` sensor for `/` and `/home/pi` is redundant and will return the same values, since they both belong to the same "disk". However, defining separate sensors for `/dev` and `dev/shm` is possible and provides different values, since those are treated as separate "disks" by the integration.
+Defining a `disk_use` sensor for `/` and `/home/pi` is redundant and will return the same values, since they both belong to the same "disk". However, defining separate sensors for `/dev` and `/dev/shm` is possible and provides different values, since those are treated as separate "disks" by the integration.
 
 ## Processor temperature
 
@@ -112,7 +116,7 @@ sensor:
   - platform: systemmonitor
     resources:
       - type: network_in
-        arg: 'Local Area Connection'
+        arg: "Local Area Connection"
 ```
 
 If you need to use some other interface, open a command line prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ipconfig` might look like:

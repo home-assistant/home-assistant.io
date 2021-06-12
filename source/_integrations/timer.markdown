@@ -6,7 +6,6 @@ ha_category:
 ha_release: 0.57
 ha_quality_scale: internal
 ha_domain: timer
-ha_iot_class: Calculated
 ---
 
 The `timer` integration aims to simplify automations based on (dynamic) durations.
@@ -25,7 +24,7 @@ To add a timer to your installation, add the following to your `configuration.ya
 # Example configuration.yaml entry
 timer:
   laundry:
-    duration: '00:01:00'
+    duration: "00:01:00"
 ```
 
 {% configuration %}
@@ -121,27 +120,28 @@ Set a timer called `test` to a duration of 30 seconds.
 # Example configuration.yaml entry
 timer:
   test:
-    duration: '00:00:30'
+    duration: "00:00:30"
 ```
 
 ### Control a timer from the frontend
 
 ```yaml
 # Example automations.yaml entry
-- alias: Timerswitch
-  id: 'Timerstart'
+- alias: "Timerswitch"
+  id: "Timerstart"
   # Timer is started when the switch pumprun is set to on.
   trigger:
   - platform: state
     entity_id: switch.pumprun
-    to: 'on'
+    to: "on"
   action:
   - service: timer.start
-    entity_id: timer.test
+    target:
+      entity_id: timer.test
 
 # When timer is stopped, the time run out, another message is sent
-- alias: Timerstop
-  id: 'Timerstop'
+- alias: "Timerstop"
+  id: "Timerstop"
   trigger:
   - platform: event
     event_type: timer.finished
@@ -160,23 +160,27 @@ With the [`script`](/integrations/script/) integration you would be able to cont
 ```yaml
 script:
   start_timer:
-    alias: Start timer
+    alias: "Start timer"
     sequence:
       - service: timer.start
-        entity_id: timer.test
+        target:
+          entity_id: timer.test
   pause_timer:
-    alias: Pause timer
+    alias: "Pause timer"
     sequence:
       - service: timer.pause
-        entity_id: timer.test
+        target:
+          entity_id: timer.test
   cancel_timer:
-    alias: Cancel timer
+    alias: "Cancel timer"
     sequence:
       - service: timer.cancel
-        entity_id: timer.test
+        target:
+          entity_id: timer.test
   finish_timer:
-    alias: Finish timer
+    alias: "Finish timer"
     sequence:
       - service: timer.finish
-        entity_id: timer.test
+        target:
+          entity_id: timer.test
 ```

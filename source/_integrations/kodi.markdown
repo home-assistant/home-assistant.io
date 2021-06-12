@@ -11,6 +11,10 @@ ha_codeowners:
   - '@cgtobi'
 ha_domain: kodi
 ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - media_player
+  - notify
 ---
 
 The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
@@ -22,11 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - [Media Player](#configuration)
 - [Notifications](#notifications)
 
-## Configuration
-
-The Kodi media player is configured through the integrations screen. If your Kodi is discovered, you'll see it there and can click to set it up.
-If you do not see your device, you can click on the `+` button and choose Kodi.
-The flow will guide you through the setup. Most of the settings are advanced, and the defaults should work.
+{% include integrations/config_flow.md %}
 
 If you previously had Kodi configured through `configuration.yaml`, it's advisable to remove it, and configure from the UI.
 If you do not remove it, your configuration will be imported with the following limitations:
@@ -129,8 +129,9 @@ script:
   kodi_quit:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: Application.Quit
 ```
 
@@ -141,8 +142,9 @@ script:
   kodi_hibernate:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: System.Hibernate
 ```
 
@@ -153,8 +155,9 @@ script:
   kodi_suspend:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: System.Suspend
 ```
 
@@ -165,8 +168,9 @@ script:
   kodi_reboot:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: System.Reboot
 ```
 
@@ -177,8 +181,9 @@ script:
   kodi_shutdown:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: System.Shutdown
 ```
 
@@ -191,8 +196,9 @@ script:
   turn_on_kodi_with_cec:
   sequence:
     - service: kodi.call_method
-      data:
+      target:
         entity_id: media_player.kodi
+      data:
         method: Addons.ExecuteAddon
         addonid: script.json-cec
         params:
@@ -201,11 +207,12 @@ script:
   turn_off_kodi_with_cec:
     sequence:
       - service: media_player.media_stop
-        data:
+        target:
           entity_id: media_player.kodi
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: Addons.ExecuteAddon
           addonid: script.json-cec
           params:
@@ -223,19 +230,21 @@ This example and the following requires to have the [script.json-cec](https://gi
 #### Simple script to turn on the PVR in some channel as a time function
 
 {% raw %}
+
 ```yaml
 script:
   play_kodi_pvr:
-    alias: Turn on the silly box
+    alias: "Turn on the silly box"
     sequence:
-      - alias: TV on
+      - alias: "TV on"
         service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.kodi
-      - alias: Play TV channel
+      - alias: "Play TV channel"
         service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           media_content_type: "CHANNEL"
           media_content_id: >
             {% if (now().hour < 14) or ((now().hour == 14) and (now().minute < 50)) %}
@@ -252,26 +261,30 @@ script:
               10
             {% endif %}
 ```
+
 {% endraw %}
 
 #### Simple script to play a smart playlist
 
 {% raw %}
+
 ```yaml
 script:
   play_kodi_smp:
-    alias: Turn on the silly box with random Firefighter Sam episode
+    alias: "Turn on the silly box with random Firefighter Sam episode"
     sequence:
-      - alias: TV on
+      - alias: "TV on"
         service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.kodi
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           media_content_type: DIRECTORY
           media_content_id: special://profile/playlists/video/feuerwehrmann_sam.xsp
 ```
+
 {% endraw %}
 
 #### Trigger a Kodi video library update
@@ -279,12 +292,13 @@ script:
 ```yaml
 script:
   update_library:
-    alias: Update Kodi Library
+    alias: "Update Kodi Library"
     sequence:
-      - alias: Call Kodi update
+      - alias: "Call Kodi update"
         service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: VideoLibrary.Scan
 ```
 

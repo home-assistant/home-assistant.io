@@ -7,6 +7,8 @@ ha_category:
 ha_release: 0.37
 ha_iot_class: Local Polling
 ha_domain: zabbix
+ha_platforms:
+  - sensor
 ---
 
 The `zabbix` integration is the main integration to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.

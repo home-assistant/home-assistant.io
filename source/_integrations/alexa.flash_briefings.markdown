@@ -29,8 +29,10 @@ You can use [templates] for the `title`, `audio`, `text` and `display_url` confi
 
 Here's an example configuration of a Flash briefing skill that will tell you who is at home:
 
+{% raw %}
+
 ```yaml
-{% raw %}# Example configuration.yaml entry
+# Example configuration.yaml entry
 alexa:
   flash_briefings:
     password: YOUR_PASSWORD
@@ -43,8 +45,10 @@ alexa:
           {%- else -%}
             Anne Therese is at {{ states("device_tracker.anne_therese") }}
             and Paulus is at {{ states("device_tracker.paulus") }}
-          {% endif %}{% endraw %}
+          {% endif %}
 ```
+
+{% endraw %}
 
 You can add multiple items for a feed if you want. The Amazon required UID and timestamp will be randomly generated at startup and change at every restart of Home Assistant.
 

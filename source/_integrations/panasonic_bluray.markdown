@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.83
 ha_domain: panasonic_bluray
+ha_platforms:
+  - media_player
 ---
 
 The `panasonic_bluray` platform allows you to control a Panasonic Blu-Ray player. Note that the device must be on the same subnet as Home Assistant; connections from a different subnet will return an error.

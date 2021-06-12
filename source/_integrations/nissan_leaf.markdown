@@ -8,6 +8,10 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@filcole'
 ha_domain: nissan_leaf
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `nissan_leaf` integration offers integration with the [NissanConnect EV](https://www.nissan.co.uk/dashboard.html) cloud service. NissanConnect EV was previously known as Nissan Carwings. It offers:
@@ -83,7 +87,7 @@ You can use the `nissan_leaf.start_charge` service to send a request to the Niss
 ```yaml
 - service: nissan_leaf.start_charge
   data:
-    vin: '1HGBH41JXMN109186'             # replace
+    vin: "1HGBH41JXMN109186"             # replace
 ```
 
 ## Updating on-demand using Automation
@@ -92,19 +96,19 @@ You can also use the `nissan_leaf.update` service to request an on-demand update
 
 ```yaml
 - id: update_when_driver_not_home
-  alias: 'Update when driver not home'
+  alias: "Update when driver not home"
   initial_state: on
   trigger:
     - platform: time_pattern
-      minutes: '/30'
+      minutes: "/30"
   condition:
     - condition: state
       entity_id: device_tracker.drivername   # replace
-      state: 'not_home'
+      state: "not_home"
   action:
     - service: nissan_leaf.update
       data:
-        vin: '1HGBH41JXMN109186'             # replace
+        vin: "1HGBH41JXMN109186"             # replace
 ```
 
 ## Hints

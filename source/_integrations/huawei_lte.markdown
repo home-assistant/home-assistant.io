@@ -15,6 +15,13 @@ ha_codeowners:
   - '@scop'
   - '@fphammerle'
 ha_domain: huawei_lte
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - device_tracker
+  - notify
+  - sensor
+  - switch
 ---
 
 The Huawei LTE router and modem integration for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/smart-home/).
@@ -45,7 +52,7 @@ integration will try to use all configured ones and fail gracefully if
 it detects one requiring authentication in unauthenticated mode.
 
 Only a subset of the entities provided by the target device by
-default: 
+default:
 
 - WAN IP address sensor
 - LTE signal sensors RSRQ, RSRP, RSSI, and SINR

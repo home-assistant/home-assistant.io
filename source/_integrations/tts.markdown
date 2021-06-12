@@ -4,10 +4,12 @@ description: Instructions on how to set up Text-to-Speech (TTS) with Home Assist
 ha_category:
   - Text-to-speech
 ha_release: 0.35
-ha_iot_class:
 ha_codeowners:
   - '@pvizeli'
 ha_domain: tts
+ha_quality_scale: internal
+ha_platforms:
+  - notify
 ---
 
 Text-to-Speech (TTS) enables Home Assistant to speak to you.
@@ -108,38 +110,42 @@ Say to all `media_player` device entities:
 ```yaml
 # Replace google_translate_say with <platform>_say when you use a different platform.
 service: tts.google_translate_say
-entity_id: "all"
 data:
-  message: 'May the Force be with you.'
+  entity_id: all
+  message: "May the force be with you."
 ```
 
 Say to the `media_player.floor` device entity:
 
 ```yaml
 service: tts.google_translate_say
-entity_id: media_player.floor
 data:
-  message: 'May the Force be with you.'
+  entity_id: media_player.floor
+  message: "May the force be with you."
 ```
 
 Say to the `media_player.floor` device entity in French:
 
 ```yaml
 service: tts.google_translate_say
-entity_id: media_player.floor
 data:
-  message: 'Que la force soit avec toi.'
-  language: 'fr'
+  entity_id: media_player.floor
+  message: "Que la force soit avec toi."
+  language: "fr"
 ```
 
 With a template:
 
+{% raw %}
+
 ```yaml
 service: tts.google_translate_say
 data:
-  message: "Temperature is {% raw %}{{states('sensor.temperature')}}{% endraw %}."
+  message: "Temperature is {{states('sensor.temperature')}}."
   cache: false
 ```
+
+{% endraw %}
 
 ## Cache
 
@@ -162,6 +168,7 @@ The return code is 200 if the file is generated. The message body will contain a
 
 ```json
 {
+    "path": "/api/tts_proxy/265944c108cbb00b2a621be5930513e03a0bb2cd_en_-_demo.mp3",
     "url": "http://127.0.0.1:8123/api/tts_proxy/265944c108cbb00b2a621be5930513e03a0bb2cd_en_-_demo.mp3"
 }
 ```
@@ -169,7 +176,7 @@ The return code is 200 if the file is generated. The message body will contain a
 Sample `curl` command:
 
 ```bash
-$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+$ curl -X POST -H "Authorization: Bearer <ACCESS TOKEN>" \
        -H "Content-Type: application/json" \
        -d '{"message": "I am speaking now", "platform": "amazon_polly"}' \
        http://localhost:8123/api/tts_get_url

@@ -7,7 +7,9 @@ date_formatted: "October 28, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-10-0.117/social.png
 ---
 
@@ -60,6 +62,7 @@ So, keep an eye on our social media for the announcement.
 - [Release 0.117.3 - November 4](#release-01173---november-4)
 - [Release 0.117.4 - November 4](#release-01174---november-4)
 - [Release 0.117.5 - November 5](#release-01175---november-5)
+- [Release 0.117.6 - November 11](#release-01176---november-11)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -206,7 +209,7 @@ After that, you can do things like this:
 ```yaml
 script:
   my_script:
-    alias: Example
+    alias: "Example"
     description: Example script with native lists in templates
     variables:
       entities:
@@ -215,8 +218,9 @@ script:
       color: [255, 0, 0]
     sequence:
       service: light.turn_on
-      data:
+      target:
         entity_id: "{{ entities }}"
+      data:
         rgb_color: "{{ color }}"
 ```
 
@@ -480,6 +484,24 @@ The following integrations are now available via the Home Assistant UI:
 [netatmo docs]: /integrations/netatmo/
 [simplisafe docs]: /integrations/simplisafe/
 [tasmota docs]: /integrations/tasmota/
+
+## Release 0.117.6 - November 11
+
+- Remove unneeded state restoration of the physical device in rpi_gpio_pwm integration ([@soldag] - [#42804]) ([rpi_gpio_pwm docs])
+- Bump pwmled to v1.6.7 ([@soldag] - [#42903]) ([rpi_gpio_pwm docs])
+- Bump gTTS-token to 1.1.4 ([@hmmbob] - [#43015]) ([google_translate docs])
+- Fix Plex auth issues by setting header ([@jjlawren] - [#43081]) ([plex docs])
+
+[#42804]: https://github.com/home-assistant/core/pull/42804
+[#42903]: https://github.com/home-assistant/core/pull/42903
+[#43015]: https://github.com/home-assistant/core/pull/43015
+[#43081]: https://github.com/home-assistant/core/pull/43081
+[@hmmbob]: https://github.com/hmmbob
+[@jjlawren]: https://github.com/jjlawren
+[@soldag]: https://github.com/soldag
+[google_translate docs]: /integrations/google_translate/
+[plex docs]: /integrations/plex/
+[rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm/
 
 ## If you need help...
 
@@ -1069,7 +1091,7 @@ is automatically imported after upgrading and can be safely removed afterward.
 - Use reference strings in Hunter Douglas PowerView ([@SNoof85] - [#41291]) ([hunterdouglas_powerview docs])
 - Indicate to user that remote was turned off when call was attempted ([@elupus] - [#40715]) ([broadlink docs])
 - Fix reported temperatures in Maxcube ([@Bre77] - [#41259]) ([maxcube docs])
-- Improve yessssms test notify ([@sycx2] - [#41283]) ([yessssms docs])
+- Improve yessssms test notify ([@sycx2] - [#41283])
 - Use reference strings in ambient_station ([@SNoof85] - [#41276]) ([ambient_station docs])
 - Don't use asynctest directly ([@balloob] - [#41306])
 - Rewrite sigfox unittest tests to pytest ([@frangiz] - [#41302]) ([sigfox docs])
@@ -1260,7 +1282,7 @@ is automatically imported after upgrading and can be safely removed afterward.
 - Merge Tasmota sensor device class and icon maps ([@emontnemery] - [#41706]) ([tasmota docs])
 - Add support for SimpliSafe sensors ([@nzapponi] - [#41080]) ([simplisafe docs]) (new-platform)
 - Add common strings in plaato config flow ([@chrillebile] - [#41622]) ([plaato docs])
-- Use common strings in Avri config flow ([@scheric] - [#41717]) ([avri docs])
+- Use common strings in Avri config flow ([@scheric] - [#41717])
 - Add media_player.repeat_set service ([@amelchio] - [#41435]) ([demo docs]) ([media_player docs])
 - Add Sonos support for media_player.repeat_set service ([@amelchio] - [#41735]) ([sonos docs])
 - Use native utc timezone for utcnow() ([@bdraco] - [#41727])
@@ -1521,7 +1543,7 @@ is automatically imported after upgrading and can be safely removed afterward.
 - Improve handling of ignored entries ([@balloob] - [#42148]) ([hue docs]) ([progettihwsw docs]) ([tradfri docs])
 - Use the beautiful ambient light icon ([@dermotduffy] - [#42153]) ([hyperion docs])
 - Upgrade sentry-sdk to 0.19.1 ([@frenck] - [#42132]) ([sentry docs])
-- Handle Fritz exception and log warning ([@JPHutchins] - [#42145]) ([fritz docs]) ([open_energy_view docs])
+- Handle Fritz exception and log warning ([@JPHutchins] - [#42145]) ([fritz docs])
 - Fix pico tts errors ([@KevinCathcart] - [#41619]) ([tts docs])
 - Add async_setup_entry to calendar platform ([@Olen] - [#42075]) ([calendar docs])
 - Bump aioshelly library to 0.4.0 ([@bieniu] - [#41905]) ([shelly docs])
@@ -2528,7 +2550,6 @@ is automatically imported after upgrading and can be safely removed afterward.
 [atag docs]: /integrations/atag/
 [august docs]: /integrations/august/
 [aurora docs]: /integrations/aurora/
-[avri docs]: /integrations/avri/
 [awair docs]: /integrations/awair/
 [axis docs]: /integrations/axis/
 [azure_devops docs]: /integrations/azure_devops/
@@ -2719,7 +2740,6 @@ is automatically imported after upgrading and can be safely removed afterward.
 [omnilogic docs]: /integrations/omnilogic/
 [onewire docs]: /integrations/onewire/
 [onvif docs]: /integrations/onvif/
-[open_energy_view docs]: /integrations/open_energy_view/
 [openhardwaremonitor docs]: /integrations/openhardwaremonitor/
 [openhome docs]: /integrations/openhome/
 [openuv docs]: /integrations/openuv/
@@ -2847,7 +2867,6 @@ is automatically imported after upgrading and can be safely removed afterward.
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [yamaha_musiccast docs]: /integrations/yamaha_musiccast/
-[yessssms docs]: /integrations/yessssms/
 [zabbix docs]: /integrations/zabbix/
 [zengge docs]: /integrations/zengge/
 [zeroconf docs]: /integrations/zeroconf/

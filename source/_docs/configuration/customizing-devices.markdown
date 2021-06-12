@@ -39,7 +39,7 @@ entity_picture:
   required: false
   type: string
 icon:
-  description: "Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://cdn.materialdesignicons.com/5.3.45/)). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
+  description: "Any icon from [MaterialDesignIcons.com](http://materialdesignicons.com). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
   required: false
   type: string
 assumed_state:
@@ -66,12 +66,13 @@ initial_state:
 
 #### Device Class
 
-Device class is currently supported by the following components:
+Device class is currently supported by the following platforms:
 
-* [Binary Sensor](/integrations/binary_sensor/)
-* [Sensor](/integrations/sensor/)
-* [Cover](/integrations/cover/)
-* [Media Player](/integrations/media_player/)
+- [Binary Sensor](/integrations/binary_sensor/)
+- [Cover](/integrations/cover/)
+- [Media Player](/integrations/media_player/)
+- [Sensor](/integrations/sensor/)
+- [Switch](/integrations/switch/)
 
 ### Manual customization
 
@@ -108,7 +109,7 @@ homeassistant:
     light:
       icon: mdi:home
     automation:
-      initial_state: 'on'
+      initial_state: "on"
   # Customize entities matching a pattern
   customize_glob:
     "light.kitchen_*":
@@ -123,7 +124,7 @@ Home Assistant offers a service to reload the core configuration while Home Assi
 
 To reload customizations, navigate to Configuration > Server Controls and then press the "Reload Location & Customizations" button. If you don't see this, enable Advanced Mode on your user profile page first.
 
-Alternatively, you can reload via service call. Navigate to Developer Tools > Services tab, select `homeassistant.reload_core_config` from the dropdown and press the "Call Service" button. 
+Alternatively, you can reload via service call. Navigate to Developer Tools > Services tab, select `homeassistant.reload_core_config` from the dropdown and press the "Call Service" button.
 
 <div class='note warning'>
 New customize information will be applied the next time the state of the entity gets updated.

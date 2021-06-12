@@ -8,6 +8,8 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@fabaff'
 ha_domain: syslog
+ha_platforms:
+  - notify
 ---
 
 The `syslog` platform allows you to deliver notifications from Home Assistant to the local syslog.

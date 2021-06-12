@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_release: 0.49
 ha_quality_scale: internal
 ha_domain: otp
+ha_platforms:
+  - sensor
 ---
 
 The `otp` sensor generates One-Time Passwords according to [RFC6238](https://tools.ietf.org/html/rfc6238) that is compatible with most OTP generators available, including Google Authenticator. You can use this when building custom security solutions and want to use "rolling codes", that change every 30 seconds.
@@ -55,5 +57,5 @@ Token: IHEDPEBEVA2WVHB7
 Copy and paste the token into your Home Assistant configuration and add it to your OTP generator. Verify that they generate the same code.
 
 <div class='note warning'>
-It is vital that your system clock is correct both on your Home Assistant server and on your OTP generator device (e.g., your phone). If not, the generated codes will not match! Make sure NTP is running and syncing your time correctly before creating an issue.
+It is vital that your system clock is correct both on your Home Assistant instance and on your OTP generator device (e.g., your phone). If not, the generated codes will not match! Make sure NTP is running and syncing your time correctly before creating an issue.
 </div>

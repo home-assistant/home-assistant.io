@@ -1,6 +1,6 @@
 ---
 title: LiteJet
-description: Instructions on how to setup the LiteJet hub within Home Assistant.
+description: Instructions on how to setup the LiteJet hub, Centralite Elegance or Centralite Jetstream within Home Assistant.
 ha_category:
   - Light
   - Scene
@@ -8,53 +8,28 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.32
 ha_domain: litejet
+ha_config_flow: true
+ha_platforms:
+  - light
+  - scene
+  - switch
+ha_codeowners:
+  - '@joncar'
 ---
 
-LiteJet is a centralized lighting system that predates most home automation technology. All lights and wall switches are wired to a central panel. This central panel has a serial port interface that allows a computer to control the system via LiteJet's third party protocol.
+LiteJet is a centralized lighting system that predates most home automation technology. All lights and wall switches are wired to a central panel. This central panel has a serial port interface that allows a computer to control the system via LiteJet's third party protocol. Home Assistant integrates the LiteJet 3rd party protocol and allows you to get the status and control the connected lights. This integration also supports the Centralite Elegance and Centralite Jetstream.
 
-Home Assistant integrates the LiteJet 3rd party protocol and allows you to get the status and control the connected lights.
+## Prerequisites
 
-After connecting the LiteJet's RS232-2 port to your computer, add the following to your `configuration.yaml`:
+Your LiteJet MCP should be configured for 19.2 K baud, 8 data bits, 1 stop bit, no parity, and to transmit a 'CR' after each response. These settings can be configured using the [LiteJet programming software](https://www.centralite.com/helpdesk/knowledgebase.php?article=735). Connect the LiteJet's RS232-2 port to your computer.
 
-```yaml
-litejet:
-  port: /dev/serial/by-id/THE-PATH-OF-YOUR-SERIAL-PORT
-```
+{% include integrations/config_flow.md %}
 
-Your LiteJet MCP should be configured for 19.2 K baud, 8 data bits, 1 stop bit, no parity, and to transmit a 'CR' after each response. These settings can be configured using the [LiteJet programming software](https://www.centralite.com/helpdesk/knowledgebase.php?article=735).
-
-You can also configure the Home Assistant to ignore lights, scenes, and switches via their name. This is highly recommended since LiteJet has a fixed number of each of these and with most systems many will be unused.
-
-{% configuration %}
-port:
-  description: The path to the serial port connected to the LiteJet.
-  required: true
-  type: string
-exclude_names:
-  description: A list of light or switch names that should be ignored.
-  required: false
-  type: [list, string]
-include_switches:
-  description: Cause entities to be created for all the LiteJet switches. This can be useful when debugging your lighting as you can press/release switches remotely.
-  required: false
-  default: false
-  type: boolean
-{% endconfiguration %}
-
-```yaml
-litejet:
-  exclude_names:
-  - 'Button #'
-  - 'Scene #'
-  - 'Timed Scene #'
-  - 'Timed Scene#'
-  - 'LV Rel #'
-  - 'Fan #'
-```
+By default only light entities will be enabled. Scene and switch entities can be individually enabled on the integration's entity list page.
 
 ### Trigger
 
-LiteJet switches can be used as triggers too to allow those buttons to behave differently based on hold time. For example, automation can distinguish quick tap versus long hold.
+LiteJet switches can be used as triggers to allow those buttons to behave differently based on hold time. For example, automation can distinguish quick tap versus long hold.
 
 - **platform** (*Required*): Must be 'litejet'.
 - **number** (*Required*): The switch number to be monitored.

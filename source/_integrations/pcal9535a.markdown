@@ -10,6 +10,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@Shulyaka'
 ha_domain: pcal9535a
+ha_platforms:
+  - binary_sensor
+  - switch
 ---
 
 The `pcal9535a` integration is the base for all related pcal9535a platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms, please check their corresponding sections.

@@ -10,7 +10,7 @@ for it to work properly.
 
 The current minimum supported version of Docker is: `19.03.0`.
 
-However, the future set changes and improves over time and therefore, the minimal
+However, the feature set changes and improves over time and therefore, the minimal
 required version may change in the future. When that happens, it will be communicated
 before we publish a version that will require you to upgrade Docker.
 

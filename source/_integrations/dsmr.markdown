@@ -9,11 +9,13 @@ ha_iot_class: Local Push
 ha_domain: dsmr
 ha_codeowners:
   - '@Robbie1221'
+ha_platforms:
+  - sensor
 ---
 
 A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'.
 
-- Currently support DSMR V2.2, V3, V4, V5 and V5 Belgian through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
+- Currently support DSMR V2.2, V3, V4, V5, V5 Belgian and V5 Smarty through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
 - For official information about DSMR refer to: [DSMR Document](https://www.netbeheernederland.nl/dossiers/slimme-meter-15)
 - For official information about the P1 port refer to: [P1 Companion Standard](https://www.netbeheernederland.nl/_upload/Files/Slimme_meter_15_a727fce1f1.pdf)
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
@@ -64,7 +66,7 @@ sensor:
     required: false
     type: string
   dsmr_version:
-    description: "Version of DSMR used by meter. Choices: `2.2`, `4`, `5`, `5B` (For Belgian Meter)."
+    description: "Version of DSMR used by meter. Choices: `2.2`, `4`, `5`, `5B` (For Belgian Meter), `5L` (For Smarty Meter)."
     required: false
     type: string
     default: "2.2"
@@ -136,6 +138,18 @@ Docker users have to allow Docker access to the device by adding `--device /dev/
 ```hass
 $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /home/USERNAME/hass:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
 ```
+
+### Options
+
+To configure options for DSMR integration go to **Configuration** >> **Integrations** and press **Options** on the DSMR card.
+
+#### Time between updates
+
+Typically the smart meter sends new data every 5-10 seconds. This value defines the minimum time between entity updates in seconds. Setting this value to 0 will update entities each time data is received from the smart meter.
+
+<div class='note warning'>
+Reducing the default time between updates will increase the amount of events generated and can potentially flood the system with events.
+</div>
 
 ### Technical overview
 

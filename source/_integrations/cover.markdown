@@ -8,7 +8,6 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: cover
-ha_iot_class:
 ---
 
 Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.
@@ -57,8 +56,9 @@ automation:
     at: "07:15:00"
   action:
     - service: cover.set_cover_position
-      data:
+      target:
         entity_id: cover.demo
+      data:
         position: 50
 ```
 
@@ -80,7 +80,8 @@ automation:
     at: "07:15:00"
   action:
     - service: cover.set_cover_tilt_position
-      data:
+      target:
         entity_id: cover.demo
+      data:
         tilt_position: 50
 ```

@@ -5,11 +5,13 @@ module Jekyll
       'device_class' => '/docs/configuration/customizing-devices/#device-class',
       'template'     => '/docs/configuration/templating/',
       'icon'         => '/docs/configuration/customizing-devices/#icon',
+      'selector'     => '/docs/blueprint/selectors/',
     }
 
     TYPES = [
       'action', 'boolean', 'string', 'integer', 'float', 'time', 'template',
-      'device_class', 'icon', 'map', 'list', 'date', 'datetime', 'any'
+      'device_class', 'icon', 'map', 'list', 'date', 'datetime', 'any',
+      'selector',
     ]
 
     MIN_DEFAULT_LENGTH = 30

@@ -44,9 +44,7 @@ An easy way to create this is to start with the "Edit zone DNS" template then ad
 
 [Cloudflare API Tokens Guide](https://developers.cloudflare.com/api/tokens/create)
 
-## Configuration
-
-Go to the integrations page in your configuration and click on new integration -> Cloudflare.
+{% include integrations/config_flow.md %}
 
 ## Additional information
 
@@ -71,7 +69,7 @@ For SSH usage (according to [this](https://blog.cloudflare.com/cloudflare-now-su
 
 #### The minimum DNS record settings (if you have set up HTTPS already)
 
-To redirect from your domain to the IP address of your Home Assistant server set this DNS record:
+To redirect from your domain to the IP address of your Home Assistant instance, set this DNS record:
 
 ```text
 Type: A

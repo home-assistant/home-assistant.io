@@ -7,13 +7,15 @@ ha_release: 0.53
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: geofency
+ha_platforms:
+  - device_tracker
 ---
 
 This integration sets up integration with [Geofency](https://www.geofency.com/). Geofency is a paid app for iOS that lets users to configure a request that will be sent when a geofence or iBeacon region is entered or exited. This can be configured with Home Assistant to update your location.
 
 ## Configuration
 
-To configure Geofency, you must set it up via the integrations panel in the configuration screen. You must then configure the iOS app (via the Webhook feature) to send a POST request to your Home Assistant server at the webhook URL provided by the integration during setup. Use the default POST format. Make sure to enable the 'Update Geo-Position' functionality for mobile beacons.
+To configure Geofency, you must set it up via the integrations panel in the configuration screen. You must then configure the iOS app (via the Webhook feature) to send a POST request to your Home Assistant instance at the webhook URL provided by the integration during setup. Use the default POST format. Make sure to enable the 'Update Geo-Position' functionality for mobile beacons.
 
 Geofency will automatically generate the device tracker name used for geofences, and you will find it in the integrations section after the first request. For beacons, the device name will be `beacon_<name from Geofency>`, e.g., `device_tracker.beacon_car`.
 

@@ -5,7 +5,7 @@ description: "A summary of common entity names."
 
 <div class='note'>
 
-This is a work in progress, based upon reports in the forum, the author's own devices and reading of various documentation. It will be incomplete, so if you have a device that isn't reported here or have a device that reports a different value, please provide a report in the [Z-Wave section](https://community.home-assistant.io/c/configuration/zwave) of the forum or the `#zwave` channel on [Discord](https://discord.gg/RkajcgS).
+This Z-Wave integration is deprecated and replaced with a [new implementation based on Z-Wave JS](/integrations/zwave_js); it's currently in beta, and you can [try it now](/integrations/zwave_js/).
 
 </div>
 

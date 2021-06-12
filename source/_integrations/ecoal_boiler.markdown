@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_domain: ecoal_boiler
+ha_platforms:
+  - sensor
+  - switch
 ---
 
 The `ecoal_boiler` integration is the base for pumps and sensors managed by [esterownik.pl eCoal boiler controller](https://esterownik.pl/nasze-produkty/ecoal).

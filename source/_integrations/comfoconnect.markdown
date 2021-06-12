@@ -9,6 +9,9 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@michaelarnauts'
 ha_domain: comfoconnect
+ha_platforms:
+  - fan
+  - sensor
 ---
 
 The `comfoconnect` integration lets you control Zehnder ComfoAir [Q350](https://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q350-tr)/[Q450](https://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q450-tr)/[Q600](https://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q600-st)
@@ -64,6 +67,7 @@ sensor:
       - air_flow_supply
       - bypass_state
       - current_humidity
+      - current_rmot
       - current_temperature
       - days_to_replace_filter
       - exhaust_fan_duty
@@ -72,7 +76,10 @@ sensor:
       - exhaust_temperature
       - outside_humidity
       - outside_temperature
+      - power_total
       - power_usage
+      - preheater_power_total
+      - preheater_power_usage
       - supply_fan_duty
       - supply_fan_speed
       - supply_humidity

@@ -11,6 +11,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
 ha_domain: integration
+ha_platforms:
+  - sensor
 ---
 
 The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. The integration sensors is updated upon changes of the **source**. Fast sampling source sensors provide better results. In this implementation, the default is the Trapezoidal method, but Left and Right methods can optionally be used.
@@ -62,7 +64,9 @@ method:
   default: trapezoidal
 {% endconfiguration %}
 
-In case you have an appliance which produces spikey consumption (like an on/off electrical boiler) you should opt for the `left` method to get accurate readings. If `unit` is set then `unit_prefix` and `unit_time` are ignored.
+In case you have an appliance which produces spikey consumption (like an on/off electrical boiler) you should opt for the `left` method to get accurate readings.
+
+The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). You can override this behavior by providing a custom value for `unit`. Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation. Even if you provide a custom value for `unit`, ensure prefix and time accurately reflect the properties of your source data.
 
 ## Energy
 

@@ -7,6 +7,8 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.24
 ha_domain: joaoapps_join
+ha_platforms:
+  - notify
 ---
 
 The `joaoapps_join` integration exposes services from

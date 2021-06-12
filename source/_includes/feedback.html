@@ -1,0 +1,38 @@
+{% unless page.feedback == false %}
+<div class="material-card text feedback">
+  <b>Help us to improve our documentation</b><br />
+  Suggest an edit to this page, or provide/view feedback for this page.
+  <div class="links">
+    <a
+      href="{{ site.netlify.repository_url }}/tree/{{ site.netlify.head }}/source/{{ page.path }}"
+      target="_blank"
+      ><i class="icon-edit" /> Edit</a
+    >
+    {% if page.ha_domain %}
+    <a
+      href="{{ site.netlify.repository_url }}/issues/new?template=feedback.yml&url={{ site.netlify.url | url_encode }}{{ page.url | url_encode }}&version={{ site.current_major_version }}.{{
+        site.current_minor_version }}.{{ site.current_patch_version }}&labels={{ site.netlify.branch }},integration%3A%20{{ page.ha_domain }}"
+      target="_blank"
+      ><i class="icon-comment" /> Provide feedback</a
+    >
+    <a
+      href="{{ site.netlify.repository_url }}/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22integration%3A+{{ page.ha_domain }}%22"
+      target="_blank"
+      ><i class="icon-comments" /> View pending feedback</a
+    >
+    {% else %}
+    <a
+      href="{{ site.netlify.repository_url }}/issues/new?template=feedback.yml&url={{ site.netlify.url | url_encode }}{{ page.url | url_encode }}&version={{ site.current_major_version }}.{{
+        site.current_minor_version }}.{{ site.current_patch_version }}&labels={{ site.netlify.branch }}"
+      target="_blank"
+      ><i class="icon-comment" /> Provide feedback</a
+    >
+    <a
+      href="{{ site.netlify.repository_url }}/issues?utf8=%E2%9C%93&q=%22{{ page.url | url_encode }}%22&in=body"
+      target="_blank"
+      ><i class="icon-comments" /> View given feedback</a
+    >
+    {% endif %}
+  </div>
+</div>
+{% endunless %}

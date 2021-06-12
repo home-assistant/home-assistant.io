@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: scrape
+ha_platforms:
+  - sensor
 ---
 
 The `scrape` sensor platform is scraping information from websites. The sensor loads a HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
@@ -85,6 +87,7 @@ In this section you find some real-life examples of how to use this sensor. Ther
 The current release Home Assistant is published on [https://www.home-assistant.io/](/)
 
 {% raw %}
+
 ```yaml
 sensor:
 # Example configuration.yaml entry
@@ -94,6 +97,7 @@ sensor:
     select: ".current-version h1"
     value_template: '{{ value.split(":")[1] }}'
 ```
+
 {% endraw %}
 
 ### Available implementations
@@ -101,6 +105,7 @@ sensor:
 Get the counter for all our implementations from the [Component overview](/integrations/) page.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -110,6 +115,7 @@ sensor:
     select: 'a[href="#all"]'
     value_template: '{{ value.split("(")[1].split(")")[0] }}'
 ```
+
 {% endraw %}
 
 ### Get a value out of a tag
@@ -122,9 +128,9 @@ sensor:
   - platform: scrape
     resource: http://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
     name: Coast Ostsee
-    select: 'p'
+    select: "p"
     index: 19
-    unit_of_measurement: 'UV Index'
+    unit_of_measurement: "UV Index"
 ```
 
 ### IFTTT status
@@ -137,7 +143,7 @@ sensor:
   - platform: scrape
     resource: https://status.ifttt.com/
     name: IFTTT status
-    select: '.component-status'
+    select: ".component-status"
 ```
 
 ### Get the latest podcast episode file URL
@@ -150,7 +156,7 @@ sensor:
   - platform: scrape
     resource: https://hasspodcast.io/feed/podcast
     name: Home Assistant Podcast
-    select: 'enclosure'
+    select: "enclosure"
     index: 1
     attribute: url
 ```
@@ -160,6 +166,7 @@ sensor:
 This example tries to retrieve the price for electricity.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -170,6 +177,7 @@ sensor:
     value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'
     unit_of_measurement: "öre/kWh"
 ```
+
 {% endraw %}
 
 ### BOM Weather
@@ -177,6 +185,7 @@ sensor:
 The Australian Bureau of Meteorology website returns an error if the User Agent header is not sent.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -184,10 +193,11 @@ sensor:
     resource: http://www.bom.gov.au/vic/forecasts/melbourne.shtml
     name: Melbourne Forecast Summary
     select: ".main .forecast p"
-    value_template: '{{ value | truncate(255) }}'
+    value_template: "{{ value | truncate(255) }}"
     # Request every hour
     scan_interval: 3600
     headers:
       User-Agent: Mozilla/5.0
 ```
+
 {% endraw %}

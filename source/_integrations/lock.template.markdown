@@ -31,11 +31,11 @@ lock:
     value_template: "{{ is_state('sensor.door', 'on') }}"
     lock:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.door
     unlock:
       service: switch.turn_off
-      data:
+      target:
         entity_id: switch.door
 ```
 
@@ -96,11 +96,11 @@ lock:
     value_template: "{{ is_state('switch.source', 'on') }}"
     lock:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.source
     unlock:
       service: switch.turn_off
-      data:
+      target:
         entity_id: switch.source
 ```
 
@@ -120,11 +120,11 @@ lock:
     optimistic: true
     lock:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.source
     unlock:
       service: switch.turn_off
-      data:
+      target:
         entity_id: switch.source
 ```
 
@@ -143,11 +143,11 @@ lock:
     value_template: "{{ is_state('sensor.skylight.state', 'on') }}"
     lock:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.skylight_open
     unlock:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.skylight_close
 ```
 

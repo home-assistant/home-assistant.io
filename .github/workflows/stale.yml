@@ -1,0 +1,36 @@
+name: Stale
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v3.0.19
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-stale: 60
+          days-before-close: 7
+          operations-per-run: 30
+          remove-stale-when-updated: true
+          stale-issue-label: "stale"
+          exempt-issue-labels: "no-stale,Help%20wanted,help-wanted"
+          stale-issue-message: >
+            There hasn't been any activity on this issue recently. Due to the high number
+            of incoming GitHub notifications, we have to clean some of the old issues,
+            as many of them have already been resolved.
+
+            If this issue is still relevant, please let us know by leaving a comment 👍
+
+            This issue has now has been marked as stale and will be closed if no further
+            activity occurs. Thank you for your contributions.
+          stale-pr-label: "stale"
+          exempt-pr-labels: "has-parent"
+          stale-pr-message: >
+            There hasn't been any activity on this pull request recently. This pull
+            request has been automatically marked as stale because of that and will
+            be closed if no further activity occurs within 7 days.
+
+            Thank you for your contributions.

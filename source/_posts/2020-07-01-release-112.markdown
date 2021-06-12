@@ -7,7 +7,9 @@ date_formatted: "July 1, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-07-0.112/social.png
 ---
 
@@ -213,7 +215,7 @@ An improvement in the battery of your device and your data cap are going to
 like:
 
 When the Home Assistant UI is not visible for longer than 5 minutes, it
-disconnects from your Home Assistant server. This means you no longer get data or
+disconnects from your Home Assistant instance. This means you no longer get data or
 camera streams and your device can optimize resource and power consumption.
 
 Of course, when showing the browser (or browser tab) again, it will
@@ -266,7 +268,7 @@ release, this attribute has been completely removed from the system.
 The following integrations are now available via the Home Assistant UI:
 
 - [Arcam][arcam_fmj docs], done by [@elupus]
-- [Avri][avri docs], done by [@timvancann]
+- Avri, done by [@timvancann]
 - [Awair][awair docs], done by [@ahayworth]
 - [DenonAVR][denonavr docs], done by [@starkillerOG]
 - [MetOffice][metoffice docs], done by [@MrHarcombe]
@@ -304,7 +306,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   Avri is now available for configration via the integrations UI. Remove the integration from `configuration.yaml` and re-add it in the UI.
 
-  ([@timvancann] - [#34288]) ([avri docs])
+  ([@timvancann] - [#34288])
 
 - **Arcam**
 
@@ -334,7 +336,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ```yaml
 automation:
-  - alias: Test vacuum zone
+  - alias: "Test vacuum zone"
     trigger:
     - event: start
       platform: homeassistant
@@ -342,7 +344,7 @@ automation:
     action:
     - service: xiaomi_miio.vacuum_clean_zone
       data:
-        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
 
@@ -354,16 +356,17 @@ to:
 
 ```yaml
 automation:
-  - alias: Test vacuum zone
+  - alias: "Test vacuum zone"
     trigger:
     - event: start
       platform: homeassistant
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_zone
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum
-        repeats: '{{states('input_number.vacuum_passes')|int}}'
+      data:
+        repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
 
@@ -824,7 +827,7 @@ The integrations below have been removed:
 - Add notify_events notify integration ([@papajojo] - [#36049]) ([notify_events docs]) (new-integration)
 - Add @knyar as a codeowner for prometheus integration ([@knyar] - [#36487]) ([prometheus docs])
 - Add entity list to light and cover group attributes ([@thomasloven] - [#36477]) ([group docs])
-- Add Avri config flow ([@timvancann] - [#34288]) ([avri docs]) (breaking-change)
+- Add Avri config flow ([@timvancann] - [#34288]) (breaking-change)
 - Add devolo binary_sensor devices ([@2Fake] - [#36370]) ([devolo_home_control docs]) (new-platform)
 - Add and fix type hints ([@scop] - [#36501]) ([config docs]) ([switcher_kis docs])
 - Upgrade youtube_dl to version 2020.06.06 ([@BKPepe] - [#36493]) ([media_extractor docs])
@@ -947,7 +950,7 @@ The integrations below have been removed:
 - Use chip id in Konnected pro boards ([@kit-klein] - [#36940]) ([konnected docs])
 - Remove unused webhook dependency from device automation ([@balloob] - [#36946]) ([device_automation docs])
 - Add TTS support to Heos ([@avocadio] - [#35386]) ([heos docs])
-- Upgrade ptvsd to 4.3.2 ([@frenck] - [#36950]) ([ptvsd docs])
+- Upgrade ptvsd to 4.3.2 ([@frenck] - [#36950])
 - Update frontend to 20200620.0 and add redirects ([@bramkragten] - [#36953]) ([frontend docs])
 - Bump pyaehw4a1 to v.0.3.5 ([@bannhead] - [#36949]) ([hisense_aehw4a1 docs])
 - Fix unique_id in Zeroconf flow ([@fredrike] - [#36948]) ([daikin docs])
@@ -1476,7 +1479,6 @@ The integrations below have been removed:
 [arcam_fmj docs]: /integrations/arcam_fmj/
 [asuswrt docs]: /integrations/asuswrt/
 [automation docs]: /integrations/automation/
-[avri docs]: /integrations/avri/
 [awair docs]: /integrations/awair/
 [axis docs]: /integrations/axis/
 [baidu docs]: /integrations/baidu/
@@ -1571,7 +1573,6 @@ The integrations below have been removed:
 [prometheus docs]: /integrations/prometheus/
 [proximity docs]: /integrations/proximity/
 [ps4 docs]: /integrations/ps4/
-[ptvsd docs]: /integrations/ptvsd/
 [rachio docs]: /integrations/rachio/
 [recorder docs]: /integrations/recorder/
 [remote_rpi_gpio docs]: /integrations/remote_rpi_gpio/

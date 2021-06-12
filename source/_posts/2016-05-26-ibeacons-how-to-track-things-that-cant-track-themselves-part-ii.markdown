@@ -60,48 +60,55 @@ With the basic tracking working - you can use automation to do things like open 
 
 ```yaml
 automation:
-    - alias: 'Open gate'
+    - alias: "Open gate"
       trigger:
         - platform: state
           entity_id: device_tracker.beacon_car
-          from: 'not_home'
-          to: 'home'
+          from: "not_home"
+          to: "home"
       condition:
         - condition: state
           entity_id: switch.gate
-          state: 'off'
+          state: "off"
       action:
           service: switch.turn_on
-          entity_id: switch.gate
+          target:
+            entity_id: switch.gate
 ```
 
 Or warn you if you leave your keys behind
 
+{% raw %}
+
 ```yaml
 automation:
-  - alias: 'Forgotten keys'
+  - alias: "Forgotten keys"
     trigger:
       platform: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}'
     condition:
       condition: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != "home" }}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state != "home" }}'
     action:
       service: script.turn_on
-      entity_id: script.send_key_alert
+      target:
+        entity_id: script.send_key_alert
 
-  - alias: 'Forgotten keys - cancel'
+  - alias: "Forgotten keys - cancel"
     trigger:
       platform: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}'
     condition:
       - condition: state
         entity_id: script.send_key_alert
-        state: 'on'
+        state: "on"
     action:
       service: script.turn_off
-      entity_id: script.send_key_alert
+      target:
+        entity_id: script.send_key_alert
 ```
+
+{% endraw %}
 
 ```yaml
 script:
@@ -111,8 +118,8 @@ script:
           minutes: 2
       - service: notify.notify
         data:
-            message: 'You forgot your keys'
-            target: 'device/gregs_iphone'
+            message: "You forgot your keys"
+            target: "device/gregs_iphone"
 ```
 
 

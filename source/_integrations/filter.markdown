@@ -10,6 +10,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
 ha_domain: filter
+ha_platforms:
+  - sensor
 ---
 
 The `filter` platform enables sensors that process the states of other entities.
@@ -128,7 +130,7 @@ The returned value is rounded to the number of decimals defined in (`precision`)
 
 The Outlier filter (`outlier`) is a basic Band-pass filter, as it cuts out any value outside a specific range.
 
-The included Outlier filter will discard any value beyond a band centered on the median of the previous values, replacing it with the median value of the previous values. If inside the band, the
+The included Outlier filter will discard any value beyond a band centered on the median of the previous values, replacing it with the median value of the previous values. If inside the band, the current state is returned.
 
 ```python
 distance = abs(state - median(previous_states))

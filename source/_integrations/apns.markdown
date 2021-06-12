@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.31
 ha_iot_class: Cloud Push
 ha_domain: apns
+ha_platforms:
+  - notify
 ---
 
 The `apns` platform uses the Apple Push Notification service (APNS) to deliver notifications from Home Assistant.
@@ -29,7 +31,7 @@ notify:
 
 {% configuration %}
 name:
-  description: he name of the notifier. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: The name of the notifier. The notifier will bind to the service `notify.NOTIFIER_NAME`.
   required: true
   type: string
 cert_file:

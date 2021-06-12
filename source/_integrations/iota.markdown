@@ -7,6 +7,8 @@ ha_category:
 ha_release: 0.62
 ha_iot_class: Cloud Polling
 ha_domain: iota
+ha_platforms:
+  - sensor
 ---
 
 [IOTA](https://iota.org/) is a new blockless distributed ledger which is scalable, lightweight and makes it possible to transfer value without any fees.

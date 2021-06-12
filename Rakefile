@@ -1,13 +1,16 @@
 require "rubygems"
 require "bundler/setup"
 require "stringex"
+require 'net/http'
+require 'json'
+
 
 ## -- Misc Configs -- ##
 public_dir      = "public/"   # compiled site directory
 source_dir      = "source"    # source file directory
 blog_index_dir  = 'source/blog'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
 stash_dir       = "_stash"    # directory to stash posts for speedy generation
-components_dir  = "_components"    #  directory for component files
+integrations_dir  = "_integrations"    #  directory for component files
 posts_dir       = "_posts"    # directory for blog files
 new_post_ext    = "markdown"  # default new post file extension when using the new_post task
 new_page_ext    = "markdown"  # default new page file extension when using the new_page task
@@ -28,6 +31,12 @@ task :generate do
   puts "## Generating Site with Jekyll"
   success = system "compass compile --css-dir #{source_dir}/stylesheets"
   abort("Generating CSS failed") unless success
+  success = system "rake analytics_data"
+  abort("Generating analytics data failed") unless success
+  success = system "rake version_data"
+  abort("Generating version data failed") unless success
+  success = system "rake blueprint_exchange_data"
+  abort("Generating blueprint exchange data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   if ENV["CONTEXT"] != 'production'
@@ -60,8 +69,12 @@ task :preview, :listen do |t, args|
   listen_addr = args[:listen] || '127.0.0.1'
   listen_addr = '0.0.0.0' unless ENV['DEVCONTAINER'].nil?
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
-  puts "Starting to watch source with Jekyll and Compass. Starting Rack on port #{server_port}"
+  puts "Starting to watch source with Jekyll and Compass."
+  puts "Now listening on http://localhost:#{server_port}"
   system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
+  system "rake analytics_data"
+  system "rake version_data"
+  system "rake blueprint_exchange_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   compassPid = Process.spawn("compass watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
@@ -144,27 +157,60 @@ desc "Move all other components and posts than the one currently being worked on
 task :isolate, :filename do |t, args|
   stash_dir = "#{source_dir}/#{stash_dir}"
   s_posts_dir = "#{stash_dir}/#{posts_dir}"
-  s_components_dir = "#{stash_dir}/#{components_dir}"
+  s_integrations_dir = "#{stash_dir}/#{integrations_dir}"
   FileUtils.mkdir(stash_dir) unless File.exist?(stash_dir)
   FileUtils.mkdir(s_posts_dir) unless File.exist?(s_posts_dir)
-  FileUtils.mkdir(s_components_dir) unless File.exist?(s_components_dir)
+  FileUtils.mkdir(s_integrations_dir) unless File.exist?(s_integrations_dir)
   Dir.glob("#{source_dir}/#{posts_dir}/*.*") do |post|
     FileUtils.mv post, s_posts_dir unless post.include?(args.filename)
   end
-  Dir.glob("#{source_dir}/#{components_dir}/*.*") do |component|
-    FileUtils.mv component, s_components_dir unless component.include?(args.filename)
+  Dir.glob("#{source_dir}/#{integrations_dir}/*.*") do |component|
+    FileUtils.mv component, s_integrations_dir unless component.include?(args.filename)
   end
 end
 
 desc "Move all stashed posts back into the posts directory, ready for site generation."
 task :integrate do
   FileUtils.mv Dir.glob("#{source_dir}/#{stash_dir}/#{posts_dir}/*.*"), "#{source_dir}/#{posts_dir}/"
-  FileUtils.mv Dir.glob("#{source_dir}/#{stash_dir}/#{components_dir}/*.*"), "#{source_dir}/#{components_dir}/"
+  FileUtils.mv Dir.glob("#{source_dir}/#{stash_dir}/#{integrations_dir}/*.*"), "#{source_dir}/#{integrations_dir}/"
 end
 
 desc "Clean out caches: .pygments-cache, .gist-cache, .sass-cache"
 task :clean do
   rm_rf [Dir.glob(".pygments-cache/**"), Dir.glob(".gist-cache/**"), Dir.glob(".sass-cache/**"), "source/stylesheets/screen.css"]
+end
+
+desc "Download data from analytics.home-assistant.io"
+task :analytics_data do
+  uri = URI('https://analytics.home-assistant.io/data.json')
+
+  remote_data = JSON.parse(Net::HTTP.get(uri))
+
+  File.open("#{source_dir}/_data/analytics_data.json", "w") do |file|
+    file.write(JSON.generate(remote_data['current']))
+  end
+end
+
+desc "Download version data from version.home-assistant.io"
+task :version_data do
+  uri = URI('https://version.home-assistant.io/stable.json')
+
+  remote_data = JSON.parse(Net::HTTP.get(uri))
+
+  File.open("#{source_dir}/_data/version_data.json", "w") do |file|
+    file.write(JSON.generate(remote_data))
+  end
+end
+
+desc "Download data from the blueprint exchange @ community.home-assistant.io"
+task :blueprint_exchange_data do
+  uri = URI('https://community.home-assistant.io/c/blueprints-exchange/53/l/top/all.json')
+
+  remote_data = JSON.parse(Net::HTTP.get(uri))
+
+  File.open("#{source_dir}/_data/blueprint_exchange_data.json", "w") do |file|
+    file.write(JSON.generate(remote_data['topic_list']['topics']))
+  end
 end
 
 def get_stdin(message)

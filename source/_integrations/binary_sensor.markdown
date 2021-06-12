@@ -4,7 +4,6 @@ description: Instructions on how-to setup binary sensors with Home Assistant.
 ha_category:
   - Binary Sensor
 ha_release: 0.9
-ha_iot_class:
 ha_quality_scale: internal
 ha_domain: binary_sensor
 ---

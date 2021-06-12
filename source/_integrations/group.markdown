@@ -9,6 +9,10 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: group
+ha_platforms:
+  - cover
+  - light
+  - notify
 ---
 
 Groups allow the user to combine multiple entities into one.

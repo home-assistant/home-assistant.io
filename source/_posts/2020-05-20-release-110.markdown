@@ -7,7 +7,9 @@ date_formatted: "May 20, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-05-0.110/social.png
 ---
 
@@ -203,7 +205,7 @@ for writing automations in YAML:
 
 ```yaml
 # Example automation
-alias: Turn kitchen lights off when alarm is armed.
+alias: "Turn kitchen lights off when alarm is armed."
 trigger:
   - platform: state
     entity_id: alarm_control_panel.home_alarm
@@ -215,7 +217,8 @@ condition:
         state: disarmed
 action:
   - service: light.turn_off
-    entity_id: light.kitchen
+    target:
+      entity_id: light.kitchen
 ```
 
 ## HomeKit

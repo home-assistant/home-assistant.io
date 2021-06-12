@@ -10,6 +10,10 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@konikvranik'
 ha_domain: rainbird
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 This `rainbird` integration allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
@@ -71,7 +75,8 @@ More complex configuration using all possible features could look like this exam
 rainbird:
   - host: IP_ADDRESS_OF_MODULE
     password: YOUR_PASSWORD
-    trigger_time: 6
+    trigger_time:
+      minutes: 6
     zones:
       1:
         friendly_name: My zone 1
@@ -79,7 +84,8 @@ rainbird:
           minutes: 6
       2:
         friendly_name: My zone 2
-        trigger_time: 2
+        trigger_time:
+          minutes: 2
   - host: IP_ADDRESS_OF_ANOTHER_MODULE
     password: YOUR_ANOTHER_PASSWORD
     trigger_time: 0:06
@@ -120,13 +126,13 @@ The service can be used as part of an automation script. For example:
 ```yaml
 # Example configuration.yaml automation entry
 automation:
-  - alias: Turn irrigation on
+  - alias: "Turn irrigation on"
     trigger:
-      platform: time
-      at: '5:30:00'
+      - platform: time
+        at: "5:30:00"
     action:
-      service: rainbird.start_irrigation
-      entity_id: switch.sprinkler_1
-      data:
-        duration: 5
+      - service: rainbird.start_irrigation
+        data:
+          entity_id: switch.sprinkler_1
+          duration: 5
 ```

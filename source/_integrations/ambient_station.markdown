@@ -9,18 +9,19 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: ambient_station
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `Ambient Weather Station` integration retrieves local weather information
 via personal weather stations from [Ambient Weather](https://ambientweather.net).
 
-## Setup
+## Prerequisites
 
 Using this integration requires both an Application Key and an API Key. To
 generate both, simply utilize the profile section of
 [your Ambient Weather dashboard](https://dashboard.ambientweather.net).
-
-## Configuration
 
 To add your Ambient Weather PWS to your Home Assistant installation, add the
 following to your `configuration.yaml` file:
@@ -42,6 +43,8 @@ app_key:
   required: true
   type: string
 {% endconfiguration %}
+
+{% include integrations/config_flow.md %}
 
 ## Local API Option
 

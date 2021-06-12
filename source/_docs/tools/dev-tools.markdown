@@ -54,9 +54,12 @@ For example, changing the `light.bedroom` state from `off` to `on` does not turn
 
 ## Events
 
-This Events section is as basic as it can get. It does only one thing – fires events on the event bus.
+In the Events section, you can either fire an event on the event bus or subscribe to an event type in order to view the event data JSON.
+
+### Fire an event
+
 To fire an event, simply type the name of the event, and pass the event data in JSON format.
-For ex: To fire a custom event, enter the `event_type` as `event_light_state_changed` and the event data JSON as
+For example, to fire a custom event, enter the `event_type` as `event_light_state_changed` and the event data JSON as
 
 ```yaml
 state: on
@@ -65,7 +68,7 @@ state: on
 If there is an automation that handles that event, it will be automatically triggered. See below:
 
 ```yaml
-- alias: Capture Event
+- alias: "Capture Event"
   trigger:
     platform: event
     event_type: event_light_state_changed
@@ -73,6 +76,32 @@ If there is an automation that handles that event, it will be automatically trig
     - service: notify.notify
       data:
         message: "Light is turned {{ trigger.event.data.state }}"
+```
+
+### Subscribe to an event
+
+To subscribe to an event, enter the event event type under "Listen to events" and click "Start listening". Some events types are listed in the Events section under "Available events". You can usually find information about event types for a particular integration in its documentation. You can then examine the event data JSON to find the correct parameters for your automations.
+
+For example, subscribing to the event type `shelly.click` of the Shelly integration, returns event data JSON similar to the following on a button press.
+
+```json
+Event 0 fired 9:53 AM:
+{
+    "event_type": "shelly.click",
+    "data": {
+        "device_id": "e09c64a22553484d804353ef97f6fcd6",
+        "device": "shellybutton1-A4C12A45174",
+        "channel": 1,
+        "click_type": "single"
+    },
+    "origin": "LOCAL",
+    "time_fired": "2021-04-28T08:53:12.755729+00:00",
+    "context": {
+        "id": "e0f379706563aaa0c2c1fda5174b5a0e",
+        "parent_id": null,
+        "user_id": null
+    }
+}
 ```
 
 ## Template Editor

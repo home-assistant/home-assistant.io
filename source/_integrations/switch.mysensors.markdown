@@ -61,25 +61,27 @@ The service can be used as part of an automation script. For example:
 ```yaml
 # Example configuration.yaml automation entry
 automation:
-  - alias: Turn HVAC on
+  - alias: "Turn HVAC on"
     trigger:
       platform: time
-      at: '5:30:00'
+      at: "5:30:00"
     action:
       service: mysensors.send_ir_code
-      entity_id: switch.hvac_1_1
+      target:
+        entity_id: switch.hvac_1_1
       data:
-        V_IR_SEND: '0xC284'  # the IR code to send
+        V_IR_SEND: "0xC284"  # the IR code to send
 
-  - alias: Turn HVAC off
+  - alias: "Turn HVAC off"
     trigger:
       platform: time
-      at: '0:30:00'
+      at: "0:30:00"
     action:
       service: mysensors.send_ir_code
-      entity_id: switch.hvac_1_1
+      target:
+        entity_id: switch.hvac_1_1
       data:
-        V_IR_SEND: '0xC288'  # the IR code to send
+        V_IR_SEND: "0xC288"  # the IR code to send
 ```
 
 ## Example sketches

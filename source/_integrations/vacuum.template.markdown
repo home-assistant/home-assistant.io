@@ -116,20 +116,23 @@ vacuum:
       living_room_vacuum:
         start:
           - service: remote.send_command
-            data:
+            target:
               entity_id: remote.harmony_hub
+            data:
               command: Clean
               device: 52840686
         return_to_base:
           - service: remote.send_command
-            data:
+            target:
               entity_id: remote.harmony_hub
+            data:
               command: Home
               device: 52840686
         clean_spot:
           - service: remote.send_command
-            data:
+            target:
               entity_id: remote.harmony_hub
+            data:
               command: SpotCleaning
               device: 52840686
 ```
@@ -177,6 +180,7 @@ vacuum:
 This example shows how to add custom attributes.
 
 {% raw %}
+
 ```yaml
 vacuum:
   - platform: template
@@ -195,4 +199,5 @@ vacuum:
               Charging
             {% endif %}
 ```
+
 {% endraw %}

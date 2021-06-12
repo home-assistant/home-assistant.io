@@ -11,6 +11,10 @@ ha_codeowners:
   - '@bdraco'
   - '@jrester'
 ha_domain: powerwall
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `powerwall` integration allows you to integrate your [Tesla Powerwall](https://www.tesla.com/powerwall) into Home Assistant.
@@ -20,26 +24,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-## Configuration
-
-You will need the IP Address of your Powerwall to use this module.
-
-To add `Tesla Powerwall` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tesla Powerwall**.
-
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-powerwall:
-  ip_address: YOUR_POWERWALL_IP
-```
-
-{% configuration %}
-ip_address:
-  description: The IP address of your Powerwall.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ### Binary Sensor
 

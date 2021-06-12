@@ -4,8 +4,10 @@ description: Instructions on how to track room presence within Home Assistant.
 ha_category:
   - Presence Detection
 ha_release: 0.27
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt_room
+ha_platforms:
+  - sensor
 ---
 
 The `mqtt_room` sensor platform allows you to detect the indoor location of devices using MQTT clients.
@@ -67,3 +69,4 @@ Instead of developing your own application, you can also use any of these alread
 - [**room-assistant**](https://github.com/mKeRix/room-assistant): looks for Bluetooth LE beacons, based on Node.js
 - [**Happy Bubbles Presence Server**](https://github.com/happy-bubbles/presence): presence detection server for Happy Bubbles BLE-scanning devices, based on Go
 - [**ESP32-MQTT-room**](https://jptrsn.github.io/ESP32-mqtt-room/): runs on an ESP32, and looks for Bluetooth LE devices, based on C++/Arduino
+- [**OpenMQTTGateway**](https://github.com/1technophile/OpenMQTTGateway): uses ESP32 Bluetooth Low Energy to scan BLE Broadcaster like smart watches/bands and much more to get sensor values

@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@bachya'
 ha_domain: seventeentrack
+ha_platforms:
+  - sensor
 ---
 
 The `seventeentrack` sensor platform allows users to get package data tied to their [17track.net](https://www.17track.net/en) account. The platform creates both summary sensors, which show the number of packages in a current state (e.g., "In Transit"), as well as individual sensors for each package within the account.
@@ -50,3 +52,25 @@ show_delivered:
   type: boolean
   default: false
 {% endconfiguration %}
+
+## Examples
+
+### Lovelace summary card
+
+Use the following templated Markdown card to list all packages in transit along their status:
+
+{% raw %}
+
+```yaml
+type: markdown
+title: Packages in transit
+content: >-
+  {% for package in
+  states.sensor.seventeentrack_packages_in_transit.attributes.packages %}
+
+  **{{ package.friendly_name }}:** {{ package.info_text }}
+
+  {% endfor %}
+```
+
+{% endraw %}

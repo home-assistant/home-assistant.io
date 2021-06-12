@@ -30,11 +30,11 @@ switch:
         value_template: "{{ is_state('sensor.skylight', 'on') }}"
         turn_on:
           service: switch.turn_on
-          data:
+          target:
             entity_id: switch.skylight_open
         turn_off:
           service: switch.turn_off
-          data:
+          target:
             entity_id: switch.skylight_close
 ```
 
@@ -104,11 +104,11 @@ switch:
         value_template: "{{ is_state('switch.source', 'on') }}"
         turn_on:
           service: switch.turn_on
-          data:
+          target:
             entity_id: switch.target
         turn_off:
           service: switch.turn_off
-          data:
+          target:
             entity_id: switch.target
 ```
 
@@ -129,12 +129,44 @@ switch:
         value_template: "{{ is_state_attr('switch.blind_toggle', 'sensor_state', 'on') }}"
         turn_on:
           service: switch.toggle
-          data:
+          target:
             entity_id: switch.blind_toggle
         turn_off:
           service: switch.toggle
-          data:
+          target:
             entity_id: switch.blind_toggle
+```
+
+{% endraw %}
+
+### Multiple actions for turn_on or turn_off
+
+This example shows multiple service calls for turn_on and turn_off.
+
+{% raw %}
+
+```yaml
+switch:
+  - platform: template
+    switches:
+      copy:
+        value_template: "{{ is_state('switch.source', 'on') }}"
+        turn_on:
+          - service: switch.turn_on
+            target:
+              entity_id: switch.target
+          - service: light.turn_on
+            target:
+              entity_id: light.target
+            data:
+              brightness_pct: 40
+        turn_off:
+          - service: switch.turn_off
+            target:
+              entity_id: switch.target
+          - service: light.turn_off
+            target:
+              entity_id: light.target
 ```
 
 {% endraw %}
@@ -155,11 +187,11 @@ switch:
         value_template: "{{ is_state('sensor.skylight', 'on') }}"
         turn_on:
           service: switch.turn_on
-          data:
+          target:
             entity_id: switch.skylight_open
         turn_off:
           service: switch.turn_on
-          data:
+          target:
             entity_id: switch.skylight_close
 ```
 
@@ -179,11 +211,11 @@ switch:
         value_template: "{{ is_state('cover.garage_door', 'on') }}"
         turn_on:
           service: cover.open_cover
-          data:
+          target:
             entity_id: cover.garage_door
         turn_off:
           service: cover.close_cover
-          data:
+          target:
             entity_id: cover.garage_door
         icon_template: >-
           {% if is_state('cover.garage_door', 'open') %}
@@ -209,11 +241,11 @@ switch:
         value_template: "{{ is_state('cover.garage_door', 'on') }}"
         turn_on:
           service: cover.open_cover
-          data:
+          target:
             entity_id: cover.garage_door
         turn_off:
           service: cover.close_cover
-          data:
+          target:
             entity_id: cover.garage_door
         entity_picture_template: >-
           {% if is_state('cover.garage_door', 'open') %}

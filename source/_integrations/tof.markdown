@@ -7,6 +7,8 @@ ha_category:
 ha_release: '0.90'
 ha_iot_class: Local Polling
 ha_domain: tof
+ha_platforms:
+  - sensor
 ---
 
 The Time of Flight sensor uses an invisible laser to measure distance with millimeter resolution.

@@ -6,7 +6,6 @@ ha_category:
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: camera
-ha_iot_class:
 ---
 
 The camera integration allows you to use IP cameras with Home Assistant.
@@ -60,8 +59,9 @@ For example, the following action in an automation would send an `hls` live stre
 ```yaml
 action:
   service: camera.play_stream
-  data:
+  target:
     entity_id: camera.yourcamera
+  data:
     media_player: media_player.chromecast
 ```
 
@@ -83,13 +83,16 @@ The path part of `filename` must be an entry in the `allowlist_external_dirs` in
 For example, the following action in an automation would take a recording from "yourcamera" and save it to /tmp with a timestamped filename.
 
 {% raw %}
+
 ```yaml
 action:
   service: camera.record
-  data:
+  target:
     entity_id: camera.yourcamera
+  data:
     filename: '/tmp/{{ entity_id.name }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
 ```
+
 {% endraw %}
 
 #### Service `snapshot`
@@ -106,13 +109,16 @@ The path part of `filename` must be an entry in the `allowlist_external_dirs` in
 For example, the following action in an automation would take a snapshot from "yourcamera" and save it to /tmp with a timestamped filename.
 
 {% raw %}
+
 ```yaml
 action:
   service: camera.snapshot
-  data:
+  target:
     entity_id: camera.yourcamera
+  data:
     filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
+
 {% endraw %}
 
 #### Service `turn_off`

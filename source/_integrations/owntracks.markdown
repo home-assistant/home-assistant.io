@@ -7,6 +7,8 @@ ha_iot_class: Local Push
 ha_release: 0.7.4
 ha_config_flow: true
 ha_domain: owntracks
+ha_platforms:
+  - device_tracker
 ---
 
 [OwnTracks](https://owntracks.org/) (and its Android fork [NextTracks](https://codeberg.org/nexttracks/android)) is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
@@ -23,7 +25,7 @@ To configure OwnTracks, you must set it up via the integrations panel in the con
 
 ### Configuring the app - Android
 
-Install [OwnTracks](https://play.google.com/store/apps/details?id=org.owntracks.android) or [NextTracks](https://codeberg.org/nexttracks/android/releases) (Soon available from [F-Droid](https://gitlab.com/fdroid/fdroiddata/-/merge_requests/6831)) application for Android.
+Install [OwnTracks](https://play.google.com/store/apps/details?id=org.owntracks.android) or [NextTracks](https://codeberg.org/nexttracks/android/releases) (Available from [F-Droid](https://f-droid.org/packages/org.nexttracks.android)) application for Android.
 
 In the app, open the sidebar and click on preferences, then on the connection. Change the following settings:
 

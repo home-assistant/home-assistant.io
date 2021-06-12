@@ -105,8 +105,8 @@ Here's an example for an automation that creates a new task whenever `sensor.mys
     - service: remember_the_milk.myaccount_complete_task
       data:
         id: "{{trigger.entity_id}}"
-
 ```
+
 {% endraw %}
 
 ## Disclaimer

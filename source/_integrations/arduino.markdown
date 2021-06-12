@@ -10,6 +10,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: arduino
+ha_platforms:
+  - sensor
+  - switch
 ---
 
 <div class='note warning'>
