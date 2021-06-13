@@ -125,6 +125,13 @@ The ecobee climate entity has some extra attributes to represent the state of th
 | `climate_mode` | This is the climate mode that is active, or would be active if no override is active.
 | `equipment_running` | This is a comma-separated list of equipment that is currently running.
 | `fan_min_on_time` | The minimum amount of time (in minutes) that the fan will run per hour. This is determined by the minimum fan runtime setting which can be changed in the ecobee app or on the thermostat itself.
+| `ventilator_type` | The type of ventilator present for the thermostat. The possible values are `none`, `ventilator`, `hrv`, and `erv`.
+| `vent` | (only exists if `ventilator_type` is not `none`) The ventilator mode. The possible values: `auto`, `minontime`, `on`, and `off`.
+| `ventilator_min_on_time` | (only exists if `ventilator_type` is not `none`) The minimum amount of time (in minutes) that the ventilator will run per hour. This is determined by the minimum ventilator runtime setting which can be changed in the ecobee app or on the thermostat itself.
+| `ventilator_min_on_time_home` | (only exists if `ventilator_type` is not `none`) Same as `ventilator_min_on_time` attribute, but for home mode.
+| `ventilator_min_on_time_away` | (only exists if `ventilator_type` is not `none`) Same as `ventilator_min_on_time` attribute, but for home mode.
+| `is_ventilator_timer_on` | (only exists if `ventilator_type` is not `none`) This represents whether the ventilator timer is on or off. If set to true, the ventilator will run for 20 mins then stop. The `ventilator_off_date_time` will be set to `now()` + 20 minutes. If set to false, the ventilator will stop the timer, the `ventilator_off_date_time` will be set to its default value. The timer functionality also exists in the ecobee app and on the thermostat itself.
+| `ventilator_off_date_time` | (only exists if `ventilator_type` is not `none`) This presents the date and time the ventilator will run until.
 
 ## Services
 
@@ -137,6 +144,11 @@ Besides the standard services provided by the Home Assistant [Climate](/integrat
 - `ecobee.set_dst_mode`
 - `ecobee.set_mic_mode`
 - `ecobee.set_occupancy_modes`
+- `ecobee.set_ventilator_mode`
+- `ecobee.set_ventilator_min_on_time`
+- `ecobee.set_ventilator_min_on_time_home`
+- `ecobee.set_ventilator_min_on_time_away`
+- `ecobee.set_ventilator_timer`
 
 ### Service `ecobee.create_vacation`
 
@@ -209,3 +221,48 @@ Enable/disable Smart Home/Away and Follow Me modes.
 | `entity_id`            | yes      | ecobee thermostat on which to set occupancy modes |
 | `auto_away`            | yes      | true or false                                     |
 | `follow_me`            | yes      | true or false                                     |
+
+### Service `ecobee.set_ventilator_mode`
+
+Set ventilator mode.
+
+| Service data attribute | Optional | Description                                                                                                              |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all. |
+| `ventilator_mode`      | no       | New value of ventilator mode, can be `auto`, `minontime`, `on`, or `off`.                                                |
+
+### Service `ecobee.set_ventilator_min_on_time`
+
+Set the minimum ventilator on time.
+
+| Service data attribute   | Optional | Description                                                                                                              |
+| ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`              | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all. |
+| `ventilator_min_on_time` | no       | integer (between 0 and 60, e.g. 30)                                                                                      |
+
+### Service `ecobee.set_ventilator_min_on_time_home`
+
+Set the minimum ventilator on time for home mode.
+
+| Service data attribute        | Optional | Description                                                                                                              |
+| ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`                   | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all. |
+| `ventilator_min_on_time_home` | no       | integer (between 0 and 60, e.g. 30)                                                                                      |
+
+### Service `ecobee.set_ventilator_min_on_time_away`
+
+Set the minimum ventilator on time for away mode.
+
+| Service data attribute        | Optional | Description                                                                                                              |
+| ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`                   | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all. |
+| `ventilator_min_on_time_away` | no       | integer (between 0 and 60, e.g. 30)                                                                                      |
+
+### Service `ecobee.set_ventilator_timer`
+
+Turn on or off ventilator timer. If turned on, ventilator will start running and stop after 20 minutes. If turned off, ventilator will stop.
+
+| Service data attribute   | Optional | Description                                                                                                              |
+| ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`              | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all. |
+| `is_ventilator_timer_on` | no       | true or false                                                                                                            |
