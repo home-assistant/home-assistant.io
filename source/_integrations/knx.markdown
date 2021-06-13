@@ -1068,9 +1068,11 @@ name:
 The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
 
 <div class='note'>
+
 Number entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
 Numbers having a `state_address` configured request their current state from the KNX bus.
+
 </div>
 
 ```yaml
