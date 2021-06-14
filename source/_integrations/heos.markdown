@@ -123,7 +123,7 @@ media_content_id: "http://path.to/stream.mp3"
 
 ### Debugging
 
-The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the the relevant line below to the `configuration.yaml` to enable debug logging:
+The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml` to enable debug logging:
 
 ```yaml
 logger:
