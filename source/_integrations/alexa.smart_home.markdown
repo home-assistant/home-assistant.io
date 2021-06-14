@@ -891,7 +891,7 @@ Supports changing the Media Player `source` from the preset `source_list`.
 
 - _"Alexa, change the input to DVD on the Living Room TV."_
 
-Home Assistant will attempt to translate the the `media_player` `source_list` into a valid `source` name for Alexa. Alexa only supports the following input names:
+Home Assistant will attempt to translate the `media_player` `source_list` into a valid `source` name for Alexa. Alexa only supports the following input names:
 
 `AUX 1`, `AUX 2`, `AUX 3`, `AUX 4`, `AUX 5`, `AUX 6`, `AUX 7`, `BLURAY`, `CABLE`, `CD`, `COAX 1`, `COAX 2`, `COMPOSITE 1`, `DVD`, `GAME`, `HD RADIO`, `HDMI 1`, `HDMI 2`, `HDMI 3`, `HDMI 4`, `HDMI 5`, `HDMI 6`, `HDMI 7`, `HDMI 8`, `HDMI 9`, `HDMI 10`, `HDMI ARC`, `INPUT 1`, `INPUT 2`, `INPUT 3`, `INPUT 4`, `INPUT 5`, `INPUT 6`, `INPUT 7`, `INPUT 8`, `INPUT 9`, `INPUT 10`, `IPOD`, `LINE 1`, `LINE 2`, `LINE 3`, `LINE 4`, `LINE 5`, `LINE 6`, `LINE 7`, `MEDIA PLAYER`, `OPTICAL 1`, `OPTICAL 2`, `PHONO`, `PLAYSTATION`, `PLAYSTATION 3`, `PLAYSTATION 4`, `SATELLITE`, `SMARTCAST`, `TUNER`, `TV`, `USB DAC`, `VIDEO 1`, `VIDEO 2`, `VIDEO 3`, `XBOX`
 
