@@ -894,6 +894,14 @@ rgbw_state_address:
   description: KNX group address for retrieving the RGBW color of the light. *DPT 251.600*
   required: false
   type: [string, list]
+xyy_address:
+  description: KNX group address for setting the xyY color of the light. *DPT 242.600*
+  required: false
+  type: [string, list]
+xyy_state_address:
+  description: KNX group address for retrieving the xyY color of the light. *DPT 242.600*
+  required: false
+  type: [string, list]
 individual_colors:
   description: Used when the actuator only supports individual group addresses for colors. When `individual_colors` is used the root `address` key may be omitted.
   required: false

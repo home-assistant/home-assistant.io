@@ -51,18 +51,23 @@ availability_topic:
   required: false
   type: string
 command_topic:
-  description: The MQTT topic to publish commands to change the switch state.
+  description: The MQTT topic to publish commands to change the scene state.
   required: false
   type: string
+enabled_by_default:
+  description: Flag which defines if the entity should be enabled when first added.
+  required: false
+  type: boolean
+  default: true
 icon:
-  description: Icon for the switch.
+  description: Icon for the scene.
   required: false
   type: icon
 name:
-  description: The name to use when displaying this switch.
+  description: The name to use when displaying this scene.
   required: false
   type: string
-  default: MQTT Switch
+  default: MQTT Scene
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -89,7 +94,7 @@ retain:
   type: boolean
   default: false
 unique_id:
-  description: An ID that uniquely identifies this switch device. If two switches have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this scene entity. If two scenes have the same unique ID, Home Assistant will raise an exception.
   required: false
   type: string
 {% endconfiguration %}
@@ -102,15 +107,15 @@ Make sure that your topic matches exactly. `some-topic/` and `some-topic` are di
 
 ## Examples
 
-In this section, you will find some real-life examples of how to use this sensor.
+In this section, you will find some real-life examples of how to use the MQTT Scene.
 
 ### Full configuration
 
-The example below shows a full configuration for a switch.
+The example below shows a full configuration for a scene.
 
 ```yaml
 # Example configuration.yaml entry
-switch:
+scene:
   - platform: mqtt
     unique_id: living_room_party_scene
     name: "Living Room Party Scene"

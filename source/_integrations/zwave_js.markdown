@@ -235,6 +235,31 @@ This service will set a value on multiple Z-Wave devices using multicast. It is 
 | `endpoint`   	          | no        	| ID of Endpoint that you want to set the value for. 	                                                                                                  |
 | `value`   	            | yes        	| The new value that you want to set. 	                                                                                                                |
 
+### Service `zwave_js.ping`
+
+Calling this service forces Z-Wave JS to try to reach a node. This can be used to update the status of the node in Z-Wave JS when you think it doesn't accurately reflect reality, e.g. reviving a failed/dead node or marking the node as asleep.
+
+| Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
+|------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
+| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                         |
+
+This service can be used in tandem with the node status sensor (disabled by default) to track the node's status and fire the command when needed. Here's an example automation that would ping a node when the node status sensor state has changed to dead and remained dead for 30 minutes. Note that this may be useful for some devices but will definitely not be useful for all. In cases where it is not useful, all you will be doing is generating additional traffic on your Z-Wave network which could slow down communication.
+
+```yaml
+trigger:
+  platform: state
+  entity_id:
+    - sensor.z_wave_thermostat_node_status
+    - sensor.z_wave_lock_node_status
+  to: "dead"
+  for: "00:30:00"
+action:
+  - service: zwave_js.ping
+    target:
+      entity_id: "{{ trigger.entity_id }}"
+```
+
 ### Service `zwave_js.set_lock_usercode`
 
 This service will set the usercode of a lock to X at code slot Y.
