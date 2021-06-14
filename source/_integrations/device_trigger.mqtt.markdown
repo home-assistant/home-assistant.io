@@ -84,19 +84,23 @@ device:
 
 ### Example
 
-This shows a complete example of defining a remote control type device with two triggers, left arrow click and right arrow click. Note that it is not necessary to provide the full device information in each message, but the identifying information, `identifier` in the example, must be the same.
+This shows a complete example of defining a remote control type device with two triggers, left arrow click and right arrow click.
 
-Left arrow click discovery topic: `homeassistant/device_automation/0x90fd9ffffedf1266/action_arrow_left_click/config`
-Left arrow click discovery payload: 
-{% raw %}
-{"automation_type":"trigger","type":"action","subtype":"arrow_left_click","payload":"arrow_left_click","topic":"zigbee2mqtt/0x90fd9ffffedf1266/action","device":{"identifiers":["zigbee2mqtt_0x90fd9ffffedf1266"],"name":"0x90fd9ffffedf1266","sw_version":"Zigbee2mqtt 1.14.0","model":"TRADFRI remote control (E1524/E1810)","manufacturer":"IKEA"}}
-{% endraw %}
-Left arrow click topic: `zigbee2mqtt/0x90fd9ffffedf1266/action`
-Left arrow click payload: `arrow_left_click`
-Right arrow click discovery topic: `homeassistant/device_automation/0x90fd9ffffedf1266/action_arrow_right_click/config`
-Right arrow click discovery payload:
-{% raw %}
-{"automation_type":"trigger","type":"action","subtype":"arrow_right_click","payload":"arrow_right_click","topic":"zigbee2mqtt/0x90fd9ffffedf1266/action","device":{"identifiers":["zigbee2mqtt_0x90fd9ffffedf1266"]}}
-{% endraw %}
-Right arrow click topic: `zigbee2mqtt/0x90fd9ffffedf1266/action`
-Right arrow click payload: `arrow_right_click`
+Note that it is not necessary to provide the full device information in each message, but the identifying information, `identifier` in the example, must be the same.
+
+#### Left arrow click configuration:
+- Left arrow click discovery topic: `homeassistant/device_automation/0x90fd9ffffedf1266/action_arrow_left_click/config`
+- Left arrow click discovery payload: 
+  ```json
+  {"automation_type":"trigger","type":"action","subtype":"arrow_left_click","payload":"arrow_left_click","topic":"zigbee2mqtt/0x90fd9ffffedf1266/action","device":{"identifiers":["zigbee2mqtt_0x90fd9ffffedf1266"],"name":"0x90fd9ffffedf1266","sw_version":"Zigbee2mqtt 1.14.0","model":"TRADFRI remote control (E1524/E1810)","manufacturer":"IKEA"}}
+  ```
+- Left arrow click topic: `zigbee2mqtt/0x90fd9ffffedf1266/action`
+- Left arrow click payload: `arrow_left_click`
+#### Right arrow click configuration:
+- Right arrow click discovery topic: `homeassistant/device_automation/0x90fd9ffffedf1266/action_arrow_right_click/config`
+- Right arrow click discovery payload:
+  ```json
+   {"automation_type":"trigger","type":"action","subtype":"arrow_right_click","payload":"arrow_right_click","topic":"zigbee2mqtt/0x90fd9ffffedf1266/action","device":{"identifiers":["zigbee2mqtt_0x90fd9ffffedf1266"]}}
+   ```
+- Right arrow click topic: `zigbee2mqtt/0x90fd9ffffedf1266/action`
+- Right arrow click payload: `arrow_right_click`
