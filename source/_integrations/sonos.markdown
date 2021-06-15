@@ -42,7 +42,18 @@ The Sonos integration adds one `switch` for each alarm set in the Sonos app. The
 
 ## Services
 
-The Sonos integration makes various custom services available.
+### Service `media_player.play_media`
+
+Sonos accepts a variety of `media_content_id` formats for playback, but most commonly as URIs. For example, both Spotify and Tidal share links can be provided as-is. Playback of [music hosted on a Plex server](https://www.home-assistant.io/integrations/plex#sonos-playback) is possible. Direct HTTP/HTTPS links to media files can also be used if the Sonos device can reach the URI directly, but specific media encoding support may vary.
+
+Spotify share links can also be provided in the `spotify:playlist:abcdefghij0123456789XY` format.
+
+| Service data attribute | Optional | Description                                                                                                                                                            |
+| -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            |       no | The `entity_id` of the target Sonos device. |
+| `media_content_id`     |       no | A media identifier, normally in a URI format. Must be reachable directly from the Sonos device. |
+| `media_content_type`   |       no | Should be one of `music`, `track`, or `playlist`. |
+| `enqueue`              |      yes | Set to `True` to add the media to the end of the playback queue. If empty or `False` the queue will be replaced. |
 
 ### Service `sonos.snapshot`
 
