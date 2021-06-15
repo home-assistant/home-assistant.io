@@ -35,10 +35,10 @@ Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransitio
 
 Where the array values are as per the following:
 
-- RGBTransition: [red, green, blue, duration, brightness] with red/green/blue being an number between 0 and 255, the duration being in milliseconds (with a minimum of 50) and the final brightness to transition to 1-100 (%).
-- HSVTransition: [hue, saturation, duration, brightness] with hue being an number between 0 and 359, saturation 0 -100, the duration in milliseconds (with a minimum of 50) and the final brightness 1-100 (%).
+- RGBTransition: [red, green, blue, duration, brightness] with red/green/blue being a number between 0 and 255, the duration being in milliseconds (with a minimum of 50) and the final brightness to transition to 1-100 (%).
+- HSVTransition: [hue, saturation, duration, brightness] with hue being a number between 0 and 359, saturation 0 -100, the duration in milliseconds (with a minimum of 50) and the final brightness 1-100 (%).
 - TemperatureTransition: [temp, duration, brightness] with temp being the final color temperature between 1700 and 6500, the duration in milliseconds (with a minimum of 50) and the final brightness to transition to 1-100 (%).
-- SleepTransition: [duration] with duration being an number for the effect time in milliseconds (with a minimum of 50).
+- SleepTransition: [duration] with duration being a number for the effect time in milliseconds (with a minimum of 50).
 
 More info about transitions and their expected parameters can be found in [python-yeelight documentation](https://yeelight.readthedocs.io/en/stable/flow.html).
 

@@ -174,7 +174,7 @@ light:
         required: false
         type: action
       set_effect:
-        description: Defines an action to run when the light is given a effect command.
+        description: Defines an action to run when the light is given an effect command.
         required: inclusive
         type: action
 {% endconfiguration %}

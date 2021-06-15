@@ -349,7 +349,7 @@ action:
         image: /api/camera_proxy/camera.front_door
 ```
 
-The action in this section uses the [Android Companion App](https://companion.home-assistant.io/docs/notifications/notifications-basic/) and the camera proxy to send an notification with a snapshot from the camera.
+The action in this section uses the [Android Companion App](https://companion.home-assistant.io/docs/notifications/notifications-basic/) and the camera proxy to send a notification with a snapshot from the camera.
 
 # Legacy Works With Nest API
 
