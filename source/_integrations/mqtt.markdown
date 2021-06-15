@@ -100,7 +100,7 @@ The following integerations are supported:
 
 #### Other MQTT Integrations
 
-To connect 2 or more Home Assistant instance togather you can use the [MQTT Eventstream](#mqtt-eventstream) intergration. 
+To connect 2 or more Home Assistant instance togather you can use the [MQTT Eventstream](#mqtt-eventstream) integration. 
 
 To publish Home Assistant state changes you can use the [MQTT Statestream](#mqtt-statestream) integration. 
 
@@ -3606,15 +3606,6 @@ climate:
 ```
 
 ## Vacuume
-
----
-title: "MQTT Vacuum"
-description: "Instructions on how to integrate your MQTT enabled Vacuum within Home Assistant."
-ha_category:
-  - Vacuum
-ha_release: 0.54
-ha_domain: mqtt
----
 
 The `mqtt` vacuum integration allows you to control your MQTT-enabled vacuum.
 There are two possible message schemas - `legacy` and `state`, chosen by setting the `schema` configuration parameter.
