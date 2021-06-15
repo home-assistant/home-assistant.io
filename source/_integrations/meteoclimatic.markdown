@@ -31,7 +31,7 @@ It displays the current weather along with individual sensors that include daily
 This integration provides the following sensors:
 
 |Name|Description|
-|------|-----------|
+|----|-----------|
 |Daily Max Humidity|Maximum humidity for the past 24 hours in %|
 |Daily Max Pressure|Maximum pressure for the past 24 hours in hPa|
 |Daily Max Temperature|Maximum temperature for the past 24 hours in °C|
