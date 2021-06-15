@@ -46,7 +46,7 @@ The `xiaomi_miio` integration supports the following devices:
 
 Most Xiaomi Miio devices support configuration using the config flow, except for the [Xiaomi device tracker](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2) and [Xiaomi IR Remote](#xiaomi-ir-remote).
 {% include integrations/config_flow.md %}
-During the config flow it is recommaned to supply your xiaomi cloud credentials to automatically connect to your devices. If you have multiple Xiaomi Miio devices, a list of your devices will be givin in which you can select the one you want to configure, the config flow process can be repeated to setup multiple devices. 
+During the config flow it is recommaned to supply your Xiaomi cloud credentials to automatically connect to your devices. You need to specify the cloud server you used in the Xiaomi Home App (where you initialy setup the device), There are 6 servers: cn, de, i2, ru, sg and us, see https://www.openhab.org/addons/bindings/miio/#country-servers for the server to use for each country. If you have multiple Xiaomi Miio devices, a list of your devices will be givin in which you can select the one you want to configure, the config flow process can be repeated to setup multiple devices. 
 
 
 ## Xiaomi Gateway
