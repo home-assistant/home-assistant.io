@@ -48,7 +48,7 @@ For many of these devices you need an access token, the first section will descr
 
 ### Using Get Mi Home Devices Token App
 
-If you are on a Windows or macOS device, you can use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases) App to retreive the token. Click the link, download the file that corresponds to your OS, enter your login details and it will retrive the access token. 
+If you are on a Windows or macOS device, you can use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases) App to retrieve the token. Click the link, download the file that corresponds to your OS, enter your login details and it will retrieve the access token. 
 
 ### Using Xiaomi Cloud Tokens Extractor
 
