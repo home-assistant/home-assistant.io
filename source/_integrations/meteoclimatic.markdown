@@ -20,30 +20,30 @@ The Meteoclimatic integration uses the [Meteoclimatic](https://www.meteoclimatic
 There is currently support for the following platforms within Home Assistant:
 
 - Weather
-- [Sensor](#sensor-platforms)
+- [Sensor](#sensor)
 
 It displays the current weather along with individual sensors that include daily maximum and minimum values.
 
 {% include integrations/config_flow.md %}
 
-## Sensor platforms
+## Sensor
 
-All the following sensors will be created:
+This integration provides the following sensors:
 
-|Entity|Description|
+|Name|Description|
 |------|-----------|
-|`daily_max_humidity`|Maximum humidity for the past 24 hours in %|
-|`daily_max_pressure`|Maximum pressure for the past 24 hours in hPa|
-|`daily_max_temperature`|Maximum temperature for the past 24 hours in °C|
-|`daily_max_wind_speed`|Maximum wind speed for the past 24 hours in km/h|
-|`daily_min_humidity`|Minimum humidity for the past 24 hours in %|
-|`daily_min_pressure`|Minimum pressure for the past 24 hours in hPa|
-|`daily_min_temperature`|Minimum temperature for the past 24 hours in °C|
-|`daily_precipitation`|Precipitation cumulation for past 24 hours in mm|
-|`humidity`|The current humidity in %|
-|`pressure`|The current pressure in hPa|
-|`temperature`|The current temperature in °C|
-|`wind_bearing`|The current wind bearing in °|
-|`wind_speed`|The current wind speed in km/h|
+|Daily Max Humidity|Maximum humidity for the past 24 hours in %|
+|Daily Max Pressure|Maximum pressure for the past 24 hours in hPa|
+|Daily Max Temperature|Maximum temperature for the past 24 hours in °C|
+|Daily Max Wind Speed|Maximum wind speed for the past 24 hours in km/h|
+|Daily Min Humidity|Minimum humidity for the past 24 hours in %|
+|Daily Min Pressure|Minimum pressure for the past 24 hours in hPa|
+|Daily Min Temperature|Minimum temperature for the past 24 hours in °C|
+|Daily Precipitation|Precipitation cumulation for past 24 hours in mm|
+|Humidity|The current humidity in %|
+|Pressure|The current pressure in hPa|
+|Temperature|The current temperature in °C|
+|Wind Bearing|The current wind bearing in °|
+|Wind Speed|The current wind speed in km/h|
 
-Warning: As not all weather stations have the same capabilities, some entities might not be available for certain weather stations. Entities are only added if data is available and provided by Meteoclimatic.
+Warning: As not all weather stations have the same capabilities, some sensors might not be available for certain weather stations. Sensors are only added if data is available and provided by Meteoclimatic.
