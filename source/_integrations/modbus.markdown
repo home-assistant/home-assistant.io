@@ -436,7 +436,7 @@ covers:
       default: 0
       type: integer
     state_opening:
-      description: A value in `status_register` or `register` representing a opening cover. Note that this state should be also supported on your connected Modbus cover. If it won't report the state, this state won't be detected.
+      description: A value in `status_register` or `register` representing an opening cover. Note that this state should be also supported on your connected Modbus cover. If it won't report the state, this state won't be detected.
       required: false
       default: 2
       type: integer
@@ -446,7 +446,7 @@ covers:
       default: 3
       type: integer
     status_register:
-      description: An address of an register, from which all the cover states will be read. If you specified `register` attribute, and not `status_register` attribute, your main register will also be used as a status register.
+      description: An address of a register, from which all the cover states will be read. If you specified `register` attribute, and not `status_register` attribute, your main register will also be used as a status register.
       required: false
       type: integer
     status_register_type:
