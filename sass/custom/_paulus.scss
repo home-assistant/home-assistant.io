@@ -40,6 +40,16 @@ $primary-color: #049cdb;
     }
   }
 }
+.feedback {
+  h4 {
+    margin: 0 0 8px !important;
+
+    a {
+      text-decoration: none !important;
+      color: #000;
+    }
+  }
+}
 
 @media only screen and (max-width: $menu-collapse) {
   .search-container {
