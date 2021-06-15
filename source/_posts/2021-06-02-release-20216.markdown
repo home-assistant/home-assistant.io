@@ -42,6 +42,7 @@ worth scanning the all changes section for your favorite integrations.
 - [Release 2021.6.2 - June 4](#release-202162---june-4)
 - [Release 2021.6.3 - June 7](#release-202163---june-7)
 - [Release 2021.6.4 - June 11](#release-202164---june-11)
+- [Release 2021.6.5 - June 15](#release-202165---june-15)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
   - [Integrations that removed deprecated YAML import](#integrations-that-removed-deprecated-yaml-import)
@@ -410,6 +411,25 @@ The following integrations are now available via the Home Assistant UI:
 [samsungtv docs]: /integrations/samsungtv/
 [shelly docs]: /integrations/shelly/
 [sonos docs]: /integrations/sonos/
+
+## Release 2021.6.5 - June 15
+
+- Replace garminconnect_aio with garminconnect_ha ([@cyberjunky] - [#51730]) ([garmin_connect docs])
+- Bump pydaikin, fix airbase issues ([@fredrike] - [#51797]) ([daikin docs])
+- Add httpcore with version 0.13.3 ([@ludeeus] - [#51799])
+- Bump pyialarm to 1.9.0 ([@RyuzakiKK] - [#51804]) ([ialarm docs])
+
+[#51730]: https://github.com/home-assistant/core/pull/51730
+[#51797]: https://github.com/home-assistant/core/pull/51797
+[#51799]: https://github.com/home-assistant/core/pull/51799
+[#51804]: https://github.com/home-assistant/core/pull/51804
+[@RyuzakiKK]: https://github.com/RyuzakiKK
+[@cyberjunky]: https://github.com/cyberjunky
+[@fredrike]: https://github.com/fredrike
+[@ludeeus]: https://github.com/ludeeus
+[daikin docs]: /integrations/daikin/
+[garmin_connect docs]: /integrations/garmin_connect/
+[ialarm docs]: /integrations/ialarm/
 
 ## If you need help...
 
