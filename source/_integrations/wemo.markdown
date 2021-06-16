@@ -126,16 +126,17 @@ The following is an example implementation of an automation:
 ```yaml
 # Example automation
 - id: long_press_living_room
-  alias: Toggle amplifier power
+  alias: "Toggle amplifier power"
   trigger:
-  - platform: event
-    event_type: wemo_subscription_event
-    event_data:
-      type: LongPress
-      entity_id: Living Room
+    - platform: event
+      event_type: wemo_subscription_event
+      event_data:
+        type: LongPress
+        entity_id: Living Room
   action:
-  - service: media_player.toggle
-    entity_id: media_player.amplifier
+    - service: media_player.toggle
+      target:
+        entity_id: media_player.amplifier
 ```
 
 A `device` automation can also be used through the automation editor. Look for the `Wemo button was pressed for 2 seconds` trigger for the dimmer or light switch device.
