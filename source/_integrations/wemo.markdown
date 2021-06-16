@@ -117,7 +117,7 @@ There are several services which can be used for automations and control of the 
 
 ## Long Press Events and Triggers
 
-For WeMo Light Switches and Dimmers, pressing the button on the device for two seconds will activate a long press event. The long press can can trigger an automation
+For WeMo Light Switches and Dimmers, pressing the button on the device for two seconds will activate a long press event. The long press can trigger an automation
 either by using an `event` trigger or a `device` trigger. For an `event` trigger the `event_type` will be `wemo_subscription_event`. The event data will have a `type` parameter
 set to the value `LongPress` and a `name` parameter indicating the dimmer or light switch that was triggered.
 
