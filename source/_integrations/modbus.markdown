@@ -351,7 +351,7 @@ climates:
       type: string
       default: ">f"
     swap:
-      description: swap the order of bytes/words, options are none, byte, word, word_byte.
+      description: "Swap the order of bytes/words, options are `none`, `byte`, `word`, `word_byte`."
       required: false
       default: none
       type: string 
