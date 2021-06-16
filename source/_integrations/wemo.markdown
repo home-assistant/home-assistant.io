@@ -128,11 +128,11 @@ The following is an example implementation of an automation:
 - id: long_press_living_room
   alias: "Toggle amplifier power"
   trigger:
-    - platform: event
-      event_type: wemo_subscription_event
-      event_data:
-        type: LongPress
-        entity_id: Living Room
+  - platform: event
+    event_type: wemo_subscription_event
+    event_data:
+      type: LongPress
+      name: Living Room
   action:
     - service: media_player.toggle
       target:
