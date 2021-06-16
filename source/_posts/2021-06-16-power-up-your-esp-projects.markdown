@@ -50,7 +50,7 @@ and all the possibilities that they unlock, are an important part of this.
 
 **Today, we are introducing some things to make using microcontrollers easier.**
 
-## Changing the verbiage
+## Using terms everybody understands
 
 We are going to start using words that a user understands instead of forcing
 the technical terms on them. Terms like _“firmware”_ and _“flashing”_ are the
