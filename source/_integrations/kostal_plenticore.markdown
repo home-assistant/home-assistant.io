@@ -33,7 +33,7 @@ The following sensors are available in the library:
 | Name                    | Unit | Description   |
 |-------------------------|------|:-------------------------------------------|
 | Inverter State          |      | State of the inverter. |
-| Solar Power             | W    | Sum of all DC strings. |
+| DC Power                | W    | Sum of all DC power on DC/AC converter (including battery). |
 | Grid Power              | W    | Power from (+)/to (-) the grid. |
 | Home Power from Battery | W    | Power from the battery for home consumption. |
 | Home Power from Grid    | W    | Power from the grid for home consumption. |
@@ -88,7 +88,7 @@ The following sensors are available in the library:
 | Energy Yield Month      | kWh  | Energy yield of the current month. |
 | Energy Yield Year       | kWh  | Energy yield of the current year. |
 | Energy Yield Total      | kWh  | Energy yield total. |
-
+| PV-DC Power             | kW   | Sum of all PV-DC powers. |
 ### Settings Sensors
 
 The following sensors are available in the library:
