@@ -40,20 +40,49 @@ The battery sensors rely on working change events or updates will be delayed. S1
 
 The Sonos integration adds one `switch` for each alarm set in the Sonos app. The alarm switches are detected, deleted and assigned automatically and come with several attributes that help to monitor Sonos alarms.
 
-## Services
+## Playing media
 
-### Service `media_player.play_media`
-
-Sonos accepts a variety of `media_content_id` formats for playback, but most commonly as URIs. For example, both Spotify and Tidal share links can be provided as-is. Playback of [music hosted on a Plex server](https://www.home-assistant.io/integrations/plex#sonos-playback) is possible. Direct HTTP/HTTPS links to media files can also be used if the Sonos device can reach the URI directly, but specific media encoding support may vary.
+Sonos accepts a variety of `media_content_id` formats in the `media_player.play_media` service, but most commonly as URIs. For example, both Spotify and Tidal share links can be provided as-is. Playback of [music hosted on a Plex server](https://www.home-assistant.io/integrations/plex#sonos-playback) is possible. Direct HTTP/HTTPS links to local or remote media files can also be used if the Sonos device can reach the URI directly, but specific media encoding support may vary.
 
 Spotify share links can also be provided in the `spotify:playlist:abcdefghij0123456789XY` format.
 
-| Service data attribute | Optional | Description                                                                                                                                                            |
-| -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            |       no | The `entity_id` of the target Sonos device. |
-| `media_content_id`     |       no | A media identifier, normally in a URI format. Must be reachable directly from the Sonos device. |
-| `media_content_type`   |       no | Should be one of `music`, `track`, or `playlist`. |
-| `enqueue`              |      yes | Set to `True` to add the media to the end of the playback queue. If empty or `False` the queue will be replaced. |
+An optional `enqueue` argument can be added to the service call. If `True`, the media will be appended to the end of the playback queue. If not provided or `False` then the queue will be replaced
+
+### Examples:
+```yaml
+# Play an audio file from the local network:
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: "music"
+  media_content_id: "http://192.168.1.50:8123/local/sound_files/doorbell-front.mp3"
+```
+
+```yaml
+# Play a Spotify playlist
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: "playlist"
+  media_content_id: "spotify:playlist:abcdefghij0123456789XY"
+  enqueue: true
+```
+
+```yaml
+# Play a Plex album (see link above for requirements)
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: "music"
+  media_content_id: 'plex://{ "library_name": "Music", "artist_name": "M83", "album_name": "Hurry Up, We're Dreaming" }'
+```
+
+## Services
+
+The Sonos integration makes various custom services available.
 
 ### Service `sonos.snapshot`
 
