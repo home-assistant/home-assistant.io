@@ -24,7 +24,7 @@ Once you have the name of your namespace, instance, Shared Access Policy and the
 
 The alternative approach is to use a connection string, this can be retrieved in the same way as the Shared Access Policy and this can also be gotten for a device in an IoT Hub (Event Hub-compatible connection string).
 
-The final thing to consider is how often you want the integration to send messages in a batch to your hub, this is set with the `send_interval`, with a default of 5 seconds. The other thing to look at is what the maximum delay you want to use, since this component runs in a asynchronous way there is no guarantee that the sending happens exactly on time, so depending on your semantics you might want messages discarded. The actual check of the time happens with `max_delay` plus `send_interval`, so that even with a long `send_interval` the semantics are the same.
+The final thing to consider is how often you want the integration to send messages in a batch to your hub, this is set with the `send_interval`, with a default of 5 seconds. The other thing to look at is what the maximum delay you want to use, since this component runs in an asynchronous way there is no guarantee that the sending happens exactly on time, so depending on your semantics you might want messages discarded. The actual check of the time happens with `max_delay` plus `send_interval`, so that even with a long `send_interval` the semantics are the same.
 
 ## Configuration
 

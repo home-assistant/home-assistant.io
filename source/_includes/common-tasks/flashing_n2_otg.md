@@ -45,7 +45,7 @@ ums /dev/mmcblk0
 
 #### Flashing Home Assistant
 
-Connect the ODROID-N2+ to your PC via the micro-USB port at the front of the ODROID-N2+. When the ODROID-N2 is recognized as a USB connected storage device, you can flash the eMMC with [Etcher](https://www.balena.io/etcher/) using the latest stable version of Home Assistant OS for the [ODROID-N2+](https://github.com/home-assistant/operating-system/releases/latest) (hassos_odroid-n2-XXXX.img.gz).
+Connect the ODROID-N2+ to your PC via the micro-USB port at the front of the ODROID-N2+. When the ODROID-N2 is recognized as a USB connected storage device, you can flash the eMMC with [Etcher](https://www.balena.io/etcher/) using the latest stable version of Home Assistant OS for the [ODROID-N2+](https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos['odroid-n2']}}/haos_odroid-n2-{{site.data.version_data.hassos['odroid-n2']}}.img.xz) (haos_odroid-n2-{{site.data.version_data.hassos['odroid-n2']}}.img.xz).
 
 When the flash process is complete, disconnect the ODROID-N2+ from your PC and remove the power cable. Remove the USB and HDMI cable, and make sure to toggle the boot mode switch back to MMC.
 

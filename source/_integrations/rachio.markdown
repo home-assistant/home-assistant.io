@@ -26,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - **Binary Sensor** - Allows you to view the status of your [Rachio irrigation system](https://rachio.com/).
 - [**Switch**](#switch)
 
-They will be automatically added if the Rachio integration integration is loaded.
+They will be automatically added if the Rachio integration is loaded.
 
 ## Getting your Rachio API Key
 

@@ -33,7 +33,7 @@ The pin numbers are from 1 to X where: 1-8 correspond to port 0 (00-07) and 9-16
 
 ### Configuration
 
-To use the I/O pins of an pi4ioe5v9xxxx connected to an I2C bus of your Raspberry Pi as binary sensors, add the following to your `configuration.yaml` file:
+To use the I/O pins of a pi4ioe5v9xxxx connected to an I2C bus of your Raspberry Pi as binary sensors, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -91,7 +91,7 @@ The pin numbers are from 1 to X, where 1-8 correspond to port A (A1-A8) and 9-16
 
 ### Configuration
 
-To use the I/O pins of an pi4ioe5v9xxxx connected to an I2C bus as switches, add the following to your `configuration.yaml` file:
+To use the I/O pins of a pi4ioe5v9xxxx connected to an I2C bus as switches, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -245,11 +245,11 @@ action:
 
 {% configuration %}
 url:
-  description: A remote path to an video. Either this or the `file` configuration option is required.
+  description: A remote path to a video. Either this or the `file` configuration option is required.
   required: true
   type: string
 file:
-  description: A local path to an video. Either this or the `url` configuration option is required.
+  description: A local path to a video. Either this or the `url` configuration option is required.
   required: true
   type: string
 caption:

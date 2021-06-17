@@ -56,7 +56,7 @@ shell_command:
 
 ### Automation example
 
-This is a an example of an shell command used in conjunction with an input
+This is an example of a shell command used in conjunction with an input
 helper and an automation.
 
 {% raw %}

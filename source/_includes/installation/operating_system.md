@@ -64,7 +64,7 @@ We will need a few things to get started with installing Home Assistant. Links b
   content: |
 
     ```text
-    {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/hassos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+    {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
     ```
 
     {% if variant.key == "odroid-n2" %}
@@ -79,7 +79,7 @@ We will need a few things to get started with installing Home Assistant. Links b
 
 ```text
 {% assign board_key = site.installation.types[page.installation_type].variants[0].key %}
-{{release_url}}/{{site.data.version_data.hassos[board_key]}}/hassos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
+{{release_url}}/{{site.data.version_data.hassos[board_key]}}/haos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
 ```
 
 {% endif %}
@@ -107,14 +107,14 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 
 {% else %}
 
-{% if page.installation_type != 'nuc' %}
+{% if page.installation_type != 'generic-x86-64' %}
 Follow this guide if you already are running a hypervisor, if not look at the [Raspberry Pi](/installation/raspberrypi) or the [ODROID](/installation/odroid)
 {% endif %}
 
 ### Download the appropriate image
 
-{% if page.installation_type == 'nuc' %}
-- [Intel NUC][intel-nuc]
+{% if page.installation_type == 'generic-x86-64' %}
+- [Generic x86-64 (e.g. Intel NUC)][generic-x86-64]
 {% else %}
 - [VirtualBox][vdi] (.vdi)
 {% if page.installation_type == 'macos' %}
@@ -131,11 +131,15 @@ Follow this guide if you already are running a hypervisor, if not look at the [R
 - [Hyper-V][vhdx] (.vhdx)
 {% endif %}
 {% endif %}
-{% if page.installation_type == "nuc" %}
+{% if page.installation_type == 'generic-x86-64' %}
 
-1. Install the operating system from the link above on the drive you have on the NUC.
-2. Start the NUC with the drive you installed the operating system to as the boot device.
-3. Once the initial setup has completed you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+1. Download the operating system from the link above.
+2. Attach the drive you are using in your NUC to your computer.
+3. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
+4. Select "Flash from File" and choose the image you have just downloaded.
+5. Click "Select Target" and choose the drive you wish to flash too, then click "Flash".
+6. Start the NUC with the drive you installed the operating system to as the boot device.
+7. Once the initial setup has completed you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 {% else %}
 
 ### Create the Virtual Machine
@@ -221,9 +225,9 @@ With the Home Assistant Operating System installed and accessible you can contin
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 
 
-[intel-nuc]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/hassos_intel-nuc-{{site.data.version_data.hassos['ova']}}.img.xz
-[vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/hassos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.xz
-[vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/hassos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.xz
-[vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/hassos_ova-{{site.data.version_data.hassos['ova']}}.vdi.xz
-[qcow2]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/hassos_ova-{{site.data.version_data.hassos['ova']}}.qcow2.xz
-[Virtual Appliance]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/hassos_ova-{{site.data.version_data.hassos['ova']}}.ova
+[generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
+[vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip
+[vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.zip
+[vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.zip
+[qcow2]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.qcow2.xz
+[Virtual Appliance]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.ova
