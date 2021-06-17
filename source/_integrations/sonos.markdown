@@ -44,7 +44,7 @@ The Sonos integration adds one `switch` for each alarm set in the Sonos app. The
 
 Sonos accepts a variety of `media_content_id` formats in the `media_player.play_media` service, but most commonly as URIs. For example, both Spotify and Tidal share links can be provided as-is. Playback of [music hosted on a Plex server](/integrations/plex#sonos-playback) is possible. Direct HTTP/HTTPS links to local or remote media files can also be used if the Sonos device can reach the URI directly, but specific media encoding support may vary.
 
-Spotify share links can also be provided in the `spotify:playlist:abcdefghij0123456789XY` format.
+Music services which require an account (e.g., Spotify) must first be configured using the Sonos app.
 
 An optional `enqueue` argument can be added to the service call. If `true`, the media will be appended to the end of the playback queue. If not provided or `false` then the queue will be replaced.
 
@@ -61,7 +61,7 @@ data:
   media_content_id: "http://192.168.1.50:8123/local/sound_files/doorbell-front.mp3"
 ```
 
-Sonos can also play music or playlists from Spotify if linked in Sonos. Full Spotify URIs and Spotify ID codes can both be used directly. An example service call:
+Sonos can also play music or playlists from Spotify. Full Spotify URIs and ID codes can both be used directly. An example service call:
 
 ```yaml
 service: media_player.play_media
