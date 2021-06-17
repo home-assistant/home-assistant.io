@@ -61,7 +61,7 @@ data:
   media_content_id: "http://192.168.1.50:8123/local/sound_files/doorbell-front.mp3"
 ```
 
-Sonos can also play music or playlists from Spotify. Full Spotify URIs and ID codes can both be used directly. An example service call:
+Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. An example service call using a playlist URI:
 
 ```yaml
 service: media_player.play_media
@@ -71,6 +71,17 @@ data:
   media_content_type: "playlist"
   media_content_id: "spotify:playlist:abcdefghij0123456789XY"
   enqueue: true
+```
+
+An example service call using a Spotify URL:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: "music"
+  media_content_id: "https://open.spotify.com/album/abcdefghij0123456789YZ"
 ```
 
 Run a [Plex Media Server](/integrations/plex#sonos-playback) in your home? The Sonos integration can work with that as well. This example plays music directly from your Plex server:
