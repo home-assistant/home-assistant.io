@@ -39,8 +39,10 @@ Sets the operation of any connected color-capable lights.
 
 | Service data attribute | Optional | Description                                                                                                                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `target`               | no       | An `area` containing the ScreenLogic device, the ScreenLogic `device` itself, or any `entity` from the ScreenLogic device you wish to set the color mode on. |
-| `color_mode`           | no       | The color mode to set. Valid values are listed below.                                                                                                        |
+| `area_id`              | no       | An area containing the target ScreenLogic device. One of `area_id`, `device_id`, or `entity_id` is required. |
+| `device_id`            | no       | The id of the ScreenLogic device itself. One of `area_id`, `device_id`, or `entity_id` is required. |
+| `entity_id`            | no       | Any entity from the target ScreenLogic device. One of `area_id`, `device_id`, or `entity_id` is required. |
+| `color_mode`           | no       | The color mode to set. Valid values are listed below. |
 
 ## Reference
 
