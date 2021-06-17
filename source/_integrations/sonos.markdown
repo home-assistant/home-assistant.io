@@ -42,15 +42,17 @@ The Sonos integration adds one `switch` for each alarm set in the Sonos app. The
 
 ## Playing media
 
-Sonos accepts a variety of `media_content_id` formats in the `media_player.play_media` service, but most commonly as URIs. For example, both Spotify and Tidal share links can be provided as-is. Playback of [music hosted on a Plex server](https://www.home-assistant.io/integrations/plex#sonos-playback) is possible. Direct HTTP/HTTPS links to local or remote media files can also be used if the Sonos device can reach the URI directly, but specific media encoding support may vary.
+Sonos accepts a variety of `media_content_id` formats in the `media_player.play_media` service, but most commonly as URIs. For example, both Spotify and Tidal share links can be provided as-is. Playback of [music hosted on a Plex server](/integrations/plex#sonos-playback) is possible. Direct HTTP/HTTPS links to local or remote media files can also be used if the Sonos device can reach the URI directly, but specific media encoding support may vary.
 
 Spotify share links can also be provided in the `spotify:playlist:abcdefghij0123456789XY` format.
 
-An optional `enqueue` argument can be added to the service call. If `True`, the media will be appended to the end of the playback queue. If not provided or `False` then the queue will be replaced
+An optional `enqueue` argument can be added to the service call. If `true`, the media will be appended to the end of the playback queue. If not provided or `false` then the queue will be replaced.
 
 ### Examples:
+
+This is an example service call that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver):
+
 ```yaml
-# Play an audio file from the local network:
 service: media_player.play_media
 target:
   entity_id: media_player.sonos
@@ -59,8 +61,9 @@ data:
   media_content_id: "http://192.168.1.50:8123/local/sound_files/doorbell-front.mp3"
 ```
 
+Sonos can also play music or playlists from Spotify if linked in Sonos. Full Spotify URIs and Spotify ID codes can both be used directly. An example service call:
+
 ```yaml
-# Play a Spotify playlist
 service: media_player.play_media
 target:
   entity_id: media_player.sonos
@@ -70,8 +73,9 @@ data:
   enqueue: true
 ```
 
+Run a [Plex Media Server](/integrations/plex#sonos-playback) in your home? The Sonos integration can work with that as well. This example plays music directly from your Plex server:
+
 ```yaml
-# Play a Plex album (see link above for requirements)
 service: media_player.play_media
 target:
   entity_id: media_player.sonos
