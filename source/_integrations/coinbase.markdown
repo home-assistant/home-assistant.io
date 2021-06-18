@@ -39,7 +39,7 @@ account_balance_currencies:
   description: List of currencies to create account wallet sensors for.
   required: false
   type: list
-  default: all account wallets
+  default: none, useful if you only want exchange rates
 exchange_rate_currencies:
   description: List of currencies to create exchange rate sensors for.
   required: false
