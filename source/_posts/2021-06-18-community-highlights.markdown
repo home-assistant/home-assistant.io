@@ -114,6 +114,6 @@ See you next edition!
 [blueprints]: https://community.home-assistant.io/c/blueprints-exchange
 [community]: https://community.home-assistant.io
 [esphome]: https://esphome.io
-[floorplan]: https://www.home-assistant.io/blog/2021/06/11/community-highlights/#floorplan-dashboard
+[floorplan]: /blog/2021/06/11/community-highlights/#floorplan-dashboard
 [chores]: https://community.home-assistant.io/t/created-a-chore-tracker-with-points-system-in-home-assistant/316175
 [week_blueprint]: https://community.home-assistant.io/t/simple-motion-activation-blueprint-with-illuminance-taken-into-account/308735
