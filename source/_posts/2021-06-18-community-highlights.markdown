@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights: 26th edition"
-description: "Another new blueprint for your lamps, get started with 3D floorplans and make household chores a bit more fun with a chores tracker."
+description: "Another new blueprint for your lights when it's dark, get started with 3D floorplans and make household chores a bit more fun with a chores tracker."
 date: 2021-06-18 01:00:00
 date_formatted: "June 18, 2021"
 author: Klaas Schoute
