@@ -28,6 +28,11 @@ language:
   required: false
   type: string
   default: "`en`"
+tld:
+  description: "The top-level domain of google translate server."
+  required: false
+  type: string
+  default: "`com`"
 {% endconfiguration %}
 
 Check the [complete list of supported languages](https://translate.google.com/intl/en_ALL/about/languages/) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
@@ -44,4 +49,5 @@ A full configuration sample including optional variables:
 tts:
   - platform: google_translate
     language: "de"
+    tld: "cn"
 ```
