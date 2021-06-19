@@ -8,7 +8,7 @@ ha_category:
   - Light
   - Switch
 ha_iot_class: Cloud Polling
-ha_release: 2021.6.0
+ha_release: 0.74
 ha_config_flow: true
 ha_domain: tuya
 ha_codeowners:
@@ -22,25 +22,27 @@ ha_platforms:
 ha_dhcp: true
 ---
 
-The `tuya v2` integration is developed for controlling [Powered by Tuya (PBT)](https://www.tuya.com) devices using [Tuya Open API](https://developer.tuya.com/en/docs/cloud/?_source=github), officially maintained by the Tuya Developer Team.
+The `Tuya v2` integration is developed for controlling [Powered by Tuya (PBT)](https://www.tuya.com) devices using [Tuya Open API](https://developer.tuya.com/en/docs/cloud/?_source=github), officially maintained by the Tuya Developer Team.
 
-It includes smart devices linked with the Tuya Smart and Smart Life apps. 
+It applies to smart devices that you have added to the Tuya Smart or Smart Life app.
 
-It requires you to create a cloud project on the [Tuya IoT Platform](https://iot.tuya.com/), added at least one device or one virtual device, and authorized your cloud project to use related Smart Home PaaS APIs. For more information, see [Tuya IoT Platform Configuration Guide Using Smart Home PaaS](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx).
+Before installation of `Tuya v2` integration, you need to create a cloud project on the [Tuya IoT Platform](https://iot.tuya.com/cloud/), link devices with this project by your account of Tuya Smart or Smart Life app, and authorize your cloud project to use Smart Home PaaS APIs. For more information, see [Tuya IoT Platform Configuration Guide Using Smart Home PaaS](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx).
 
-**Important**: This integration is built on Tuya's standard [Open API](https://developer.tuya.com/en/docs/cloud/?_source=github), supports PBT devices of all types and most of the control commands. For more information, see [Standard Instruction Set](https://developer.tuya.com/en/docs/iot/standarddescription?id=K9i5ql6waswzq). 
+**Important**: This integration is built on Tuya's standard [Open API](https://developer.tuya.com/en/docs/cloud/?_source=github), supports PBT devices of all types and most of the control commands. For more information, see [Standard Instruction Set](https://developer.tuya.com/en/docs/iot/standarddescription?id=K9i5ql6waswzq).
 
-The integration is currently support for the following device types within Home Assistant:
+The integration currently supports the following Tuya's device types within Home Assistant:
 
-- **Climate** - The platform supports the air conditioner and heater.
+- **Climate** - The platform supports air conditioners and heaters.
 - **Cover** - The platform supports curtains.
-- **Fan** - The platform supports most kinds of Tuya fans.
-- **Light** - The platform supports most kinds of Tuya light.
-- **Switch** - The platform supports switch and socket.
+- **Fan** - The platform supports most types of fans.
+- **Light** - The platform supports most types of lights.
+- **Switch** - The platform supports switches and sockets.
 
+<!--
 {% include integrations/config_flow.md %}
+-->
 
-You can check this tutorial [How to Use Tuya Home Assistant Integration](https://developer.tuya.com/en/docs/iot/Home_Assistant_Integration?id=Kamcjcbvk2mu8) to learn how to use the integration. Once configuration flow is completed, the devices configured in your Tuya Smart or Smart Life app will be automatically discovered. 
+You can check out this tutorial [How to Use Tuya Home Assistant Integration](https://developer.tuya.com/en/docs/iot/Home_Assistant_Integration?id=Kamcjcbvk2mu8) to learn how to use the `Tuya v2` integration. Once configuration flow is completed, the devices that you have added to the Tuya Smart or Smart Life app will be automatically discovered.
 
 **Note:** If you get an error message saying **Invalid authentication**. 
 
@@ -52,25 +54,25 @@ Please check the following steps:
 
 ## Important Note
 
-The old Tuya integration: <https://www.home-assistant.io/integrations/tuya/> will be deprecated by the end of 2021, the estimated deprecation date is **2021.12.31.** We will provide at least **6 months** for our Home Assistant users to migrate to the new integration. Before that, these two integrations will exist at the same time.
+The [Tuya integration](https://www.home-assistant.io/integrations/tuya/) will be deprecated by the end of 2021. The estimated deprecation date is **December 31, 2021**. We provide at least **6 months** for our Home Assistant users to migrate to the `Tuya v2` integration. Before that, these two integrations can coexist.
 
 ## Integration Migration
 
-We always strive to provide the best development experience possible and keep updating our Home Assistant integration capabilities. Since the [old version](https://www.home-assistant.io/integrations/tuya/) of Tuya Home Assistant integration supports limited categories and control commands, now we bring you our new integration with extended support for more categories and commands.
+We always strive to provide the best development experience possible and keep updating our Home Assistant integration capabilities. Since the [Tuya integration](<https://www.home-assistant.io/integrations/tuya/>) supports limited categories and control commands, now we bring you our `Tuya v2` integration with extended support for more categories and commands.
 
-Our new integration is built on Tuya’s standard APIs and tackles the limits of categories and accessible control commands. We deliver more development-friendly features including virtual device debugging, official authorization, and technical supports, which will help you efficiently work on development with the Tuya ecosystem.
+`Tuya v2` is built on Tuya's standard APIs and tackles the limits of categories and accessible control commands. We deliver more development-friendly features including virtual device debugging, official authorization, and technical supports, which will help you efficiently work on development with the Tuya ecosystem.
 
-The following table lists the differences between the old and new version:
+The following table lists the differences between the [Tuya integration](https://www.home-assistant.io/integrations/tuya/) and `Tuya v2` integration:
 
-| Items  | Old integration | New integration |
+| Items  | `Tuya` integration | `Tuya v2` integration |
 |:------------- |:---------------| :-------------|
-| Supported category     | Since the old interface only applies to voice control scenarios and six types of Tuya’s devices, the control commands and device types are obviously limited. |         Built on Tuya’s standard OpenAPI, the new integration supports devices of all types and most of the control commands. Supports all the devices that are controlled based on cloud-to-cloud connectivity. For more information, see [Standard Instruction Set](https://developer.tuya.com/en/docs/iot/standarddescription?id=K9i5ql6waswzq). |
+| Supported category     | Since the interface only applies to voice control scenarios and six types of Tuya's devices, the control commands and device types are obviously limited. | Built on Tuya's standard Open APIs, `Tuya v2` supports devices of all types and most of the control commands, as well as all the devices that are controlled based on cloud-to-cloud connectivity. For more information, see [Standard Instruction Set](https://developer.tuya.com/en/docs/iot/standarddescription?id=K9i5ql6waswzq). |
 | Driver development  | Supports real device testing only. |  Supports option for testing virtual devices, which improves the efficiency of debugging drivers for different categories. |
 | Verification method | Not supports official verification. | Supports Tuya official secure authorization and verification to protect your account from intrusion. |
-| Technical support | Not supports official support. | Supports official technical support and integration iteration. If you have any problems, submit a service [ticket](https://service.console.tuya.com/8/3/create?source=support_center) to request support. |
-| Operation on Tuya IoT Platform | No operation is needed on the Platform. | Create a cloud project of Smart Home PaaS. |
+| Technical support | No Tuya official support provided. | Supports Tuya official technical support and integration iteration. If you have any problems, submit a [service ticket](https://service.console.tuya.com/8/3/create?source=support_center) to request support. |
+| Operation on Tuya IoT Platform | No operation is needed on the Tuya IoT Platform. | Create a cloud project of Smart Home PaaS on the Tuya IoT Platform. |
 | Installation | Official installation method of Home Assistant. | Two options: copy method and HACS installation. |
-| Integration initialization | Requires four items of information: Account of Tuya IoT Platform, Account Password, Country Code, and Mobile App. | Requires seven items of information: Region, Access ID, Access Secret, Mobile App, Country Code, App Account, and App Account Password. Regarding the Mobile App, you must select the one you used to link devices on the Tuya IoT Platform.|
+| Integration initialization | Requires four items of information: App Account, App Account Password, Country Code, and Mobile App. | Requires seven items of information: Region, Access ID, Access Secret, Mobile App, Country Code, App Account, and App Account Password. Regarding the Mobile App, you must select the one you used to link devices on the Tuya IoT Platform.|
 | App | Supports Tuya Smart, Smart Life, and Jinvoo Smart. | Supports Tuya Smart and Smart Life currently. To request support for OEM apps, submit a [service ticket](https://service.console.tuya.com/8/3/create?source=support_center) and let us know. |
 | Response speed | Second | Millisecond |
 
@@ -81,6 +83,10 @@ The following table lists the differences between the old and new version:
 - If you have created a cloud project of **Smart Home PaaS** type before **May 25, 2021**, you need to unlink devices in your old project and then go through the **Link Devices** process for your new project. For more information, see [Migrate from old project](https://developer.tuya.com/en/docs/iot/migrate-from-an-older-version?id=Kamee9wtbd00b#old).
 
 > Note: If you have already created two cloud projects of **Smart Home PaaS** type, you need to sign up for a new account on the [Tuya IoT Platform](https://iot.tuya.com/cloud/) and create a cloud project again.
+
+- If you are going to install the `Tuya v2` integration on your Home Assistant that is running the `Tuya` integration, the configuration and device control of the `Tuya` integration will not be impacted.
+- If you have both `Tuya` and `Tuya v2` installed on your Home Assistant, removing the `Tuya v2` integration will not impact the configuration and device control of the `Tuya` integration.
+- After you add virtual devices using Tuya Smart or Smart Life app, these devices are displayed in the device list of the `Tuya v2` integration only, not the `Tuya` integration. The real devices are displayed for both `Tuya` and `Tuya v2` integration.
 
 ### Procedure
 
@@ -98,7 +104,7 @@ Before installation, you need to create a cloud project of **Smart Home PaaS** t
 
 ![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/16226298483a3ad1eeaac.png)
 
-**3.** Click Link Devices > Link devices by App Account and unlink the app.
+**3.** Click **Link Devices** > **Link devices by App Account** and unlink the app.
 
 ![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/1622629854320f3ed9225.png)
 
@@ -108,4 +114,16 @@ Before installation, you need to create a cloud project of **Smart Home PaaS** t
 
 ![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/1622629857c5a8128d537.png)
 
-![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/16226298608042ef8d898.png)
+<img src="https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/16226298608042ef8d898.png" width="70%">
+
+##### (Optional) Delete the old version
+
+1. Log in to the Home Assistant.
+2. Select **Configuration** > **Integrations**.
+3. On the **Integrations** tab, select **Delete**.
+
+![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/1622032530158e850e27d.png)
+
+##### Install the new integration
+
+For more information about installing new integration, see [How to Use Tuya Home Assistant Integration](https://developer.tuya.com/en/docs/iot/Home_Assistant_Integration?id=Kamcjcbvk2mu8).
