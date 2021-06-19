@@ -633,7 +633,7 @@ active_state_address:
   required: false
   type: [string, list]
 command_value_state_address:
-  description: KNX address for reading current command_value in percent. `0` sets the climate entity to idle if `active_state_address` is not set. *DPT 5.001*
+  description: KNX address for reading current command value in percent. `0` sets the climate entity to idle if `active_state_address` is not set. *DPT 5.001*
   required: false
   type: [string, list]
 operation_mode_address:
