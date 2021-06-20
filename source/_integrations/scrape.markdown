@@ -179,25 +179,3 @@ sensor:
 ```
 
 {% endraw %}
-
-### BOM Weather
-
-The Australian Bureau of Meteorology website returns an error if the User Agent header is not sent.
-
-{% raw %}
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: scrape
-    resource: http://www.bom.gov.au/vic/forecasts/melbourne.shtml
-    name: Melbourne Forecast Summary
-    select: ".main .forecast p"
-    value_template: "{{ value | truncate(255) }}"
-    # Request every hour
-    scan_interval: 3600
-    headers:
-      User-Agent: Mozilla/5.0
-```
-
-{% endraw %}
