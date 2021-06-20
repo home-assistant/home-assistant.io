@@ -1291,6 +1291,9 @@ knx:
   switch:
     - name: "Kitchen coffee maker"
       address: "1/1/6"
+      state_address: "1/1/7"
+      current_power_state_address: "1/1/8"
+      total_energy_usage_state_address: "1/1/9"
 ```
 
 {% configuration %}
@@ -1305,6 +1308,14 @@ name:
   type: string
 state_address:
   description: Separate KNX group address for retrieving the switch state. *DPT 1*
+  required: false
+  type: [string, list]
+current_power_state_address:
+  description: KNX group address for retrieving the current energy usage. *DPT 14.056*
+  required: false
+  type: [string, list]
+total_energy_usage_state_address:
+  description: KNX group address for retrieving the total energy usage. *DPT 13.013*
   required: false
   type: [string, list]
 invert:
