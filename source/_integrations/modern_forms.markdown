@@ -4,6 +4,7 @@ description: Instructions on how to integrate a Modern Forms Smart Fan with Home
 ha_category:
   - Fan
   - Light
+  - Switch
 ha_release:  2021.7
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -15,6 +16,7 @@ ha_zeroconf: true
 ha_platforms:
   - fan
   - light
+  - switch
 ---
 
 [Modern Forms](https://modernforms.com/) has a line of smart WiFi connected fans that allow for cloud or local control of the fan and light.  There is support for individual sleep timers for the fan and light that can be set and cleared independently.
@@ -28,6 +30,14 @@ The `modern_forms` integration has support for the Modern Forms fans. This inclu
 ## Lights
 
 The `modern_forms` integration has support for the Modern Forms fans light.  This includes brightness, and sleep timer services for the light.
+
+## Switches
+
+The `modern_forms` integration provides support for the following toggleable attributes of a fan:
+
+- Away mode - to allow the fan simulate someone being home.
+- Adaptive learning - for allow learning for away mode.
+- Reboot - to reboot the control module.
 
 ## Services
 
