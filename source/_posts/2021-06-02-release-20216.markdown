@@ -43,6 +43,7 @@ worth scanning the all changes section for your favorite integrations.
 - [Release 2021.6.3 - June 7](#release-202163---june-7)
 - [Release 2021.6.4 - June 11](#release-202164---june-11)
 - [Release 2021.6.5 - June 15](#release-202165---june-15)
+- [Release 2021.6.6 - June 20](#release-202166---june-20)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
   - [Integrations that removed deprecated YAML import](#integrations-that-removed-deprecated-yaml-import)
@@ -430,6 +431,38 @@ The following integrations are now available via the Home Assistant UI:
 [daikin docs]: /integrations/daikin/
 [garmin_connect docs]: /integrations/garmin_connect/
 [ialarm docs]: /integrations/ialarm/
+
+## Release 2021.6.6 - June 20
+
+- Fix whois expiration date ([@kantselovich] - [#51868]) ([whois docs])
+- Add Omnilogic switch defaults for max_speed and min_speed ([@djtimca] - [#51889]) ([omnilogic docs])
+- Bump pyRFXtrx to 0.27.0 ([@RobBie1221] - [#51911]) ([rfxtrx docs])
+- Bump pydaikin to 2.4.3 ([@fredrike] - [#51926]) ([daikin docs])
+- Fix AccuWeather sensors updates ([@bieniu] - [#52031]) ([accuweather docs])
+- Fix double subscriptions for local push notifications ([@balloob] - [#52039]) ([mobile_app docs])
+- Catch unexpected battery update payloads on Sonos ([@jjlawren] - [#52040]) ([sonos docs])
+
+[#51868]: https://github.com/home-assistant/core/pull/51868
+[#51889]: https://github.com/home-assistant/core/pull/51889
+[#51911]: https://github.com/home-assistant/core/pull/51911
+[#51926]: https://github.com/home-assistant/core/pull/51926
+[#52031]: https://github.com/home-assistant/core/pull/52031
+[#52039]: https://github.com/home-assistant/core/pull/52039
+[#52040]: https://github.com/home-assistant/core/pull/52040
+[@RobBie1221]: https://github.com/RobBie1221
+[@balloob]: https://github.com/balloob
+[@bieniu]: https://github.com/bieniu
+[@djtimca]: https://github.com/djtimca
+[@fredrike]: https://github.com/fredrike
+[@jjlawren]: https://github.com/jjlawren
+[@kantselovich]: https://github.com/kantselovich
+[accuweather docs]: /integrations/accuweather/
+[daikin docs]: /integrations/daikin/
+[mobile_app docs]: /integrations/mobile_app/
+[omnilogic docs]: /integrations/omnilogic/
+[rfxtrx docs]: /integrations/rfxtrx/
+[sonos docs]: /integrations/sonos/
+[whois docs]: /integrations/whois/
 
 ## If you need help...
 
