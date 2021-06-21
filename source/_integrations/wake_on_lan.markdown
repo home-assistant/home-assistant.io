@@ -32,7 +32,7 @@ wake_on_lan:
 
 Available services: `send_magic_packet`.
 
-#### Service `wake_on_lan/send_magic_packet`
+#### Service `wake_on_lan.send_magic_packet`
 
 Send a _magic packet_ to wake up a device with 'Wake-On-LAN' capabilities.
 
