@@ -136,7 +136,7 @@ or
 Docker users have to allow Docker access to the device by adding `--device /dev/ttyUSB21:/dev/ttyUSB21` to the run command:
 
 ```hass
-$ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /home/USERNAME/hass:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
+$ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /home/USERNAME/hass:/config -v /etc/localtime:/etc/localtime:ro --net=host {{ site.installation.container.base }}
 ```
 
 ### Options

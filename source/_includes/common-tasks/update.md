@@ -44,13 +44,13 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
     **First start with pulling the new container.**
 
     ```bash
-    docker pull homeassistant/home-assistant:stable
+    docker pull {{ site.installation.container.base }}:stable
     ```
 
     You can also use specific containers for your hardware. Like Raspberry Pi 4:
 
     ```bash
-    docker pull homeassistant/raspberrypi4-homeassistant:stable
+    docker pull {{ site.installation.container.raspberrypi4 }}:stable
     ```
 
     **[You then need to recreate the container with the new image.](/installation/linux#install-home-assistant-container)**

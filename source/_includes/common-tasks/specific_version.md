@@ -13,7 +13,7 @@ ha core update --version {{current_version}}
 {% elsif page.installation == "container" %}
 
 ```bash
-docker pull homeassistant/home-assistant:{{current_version}}
+docker pull {{ site.installation.container.base }}:{{current_version}}
 ```
 
 **[You then need to recreate the container with the new image.](/installation/linux#install-home-assistant-container)**
