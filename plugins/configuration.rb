@@ -175,6 +175,7 @@ module Jekyll
             platform: platform,
             converter: converter
           )}
+          <p class="configuration-link" title="Click here to find your configuration file"><a href="/docs/configuration/"><i class="icon-question" />Find your configuration</a>
         </div>
       MARKUP
     end
