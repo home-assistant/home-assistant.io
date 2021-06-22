@@ -31,7 +31,7 @@ If you want to stay on the bleeding-edge Home Assistant Core development branch,
 {% elsif page.installation == "container" %}
 
 ```bash
-docker pull homeassistant/home-assistant:dev
+docker pull {{ site.installation.container.base }}:dev
 ```
 
 **[You then need to recreate the container with the new image.](/installation/linux#install-home-assistant-container)**

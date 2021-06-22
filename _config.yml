@@ -175,6 +175,10 @@ toc:
 
 # Configuration for installation pages
 installation:
+  container:
+    base: "ghcr.io/home-assistant/home-assistant"
+    raspberrypi3: "ghcr.io/home-assistant/raspberrypi3-homeassistant"
+    raspberrypi4: "ghcr.io/home-assistant/raspberrypi4-homeassistant"
   versions:
     python: "3.8"
   types:
