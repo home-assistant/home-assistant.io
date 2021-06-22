@@ -15,15 +15,17 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 | Function          | [`default`](#default-schema) | [`json`](#json-schema) | [`template`](#template-schema) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
 | Brightness        | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| Color mode        |                                                            | ✔                                                                    |                                                                                |
+| Color mode        | ✔                                                          | ✔                                                                    | ✘                                                                              |
 | Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Effects           | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Flashing          | ✘                                                          | ✔                                                                    | ✔                                                                            |
-| RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
-| XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
 | HS Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| RGBW Color        | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| RGBWW Color       | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
 
 
 ## Default schema
@@ -284,6 +286,15 @@ unique_id:
   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
   required: false
   type: string
+white_command_topic:
+  description: "The MQTT topic to publish commands to change the light to white mode with a given brightness."
+  required: false
+  type: string
+white_scale:
+  description: "Defines the maximum white level (i.e., 100%) of the MQTT device."
+  required: false
+  type: integer
+  default: 255
 white_value_command_topic:
   description: "The MQTT topic to publish commands to change the light's white value."
   required: false
