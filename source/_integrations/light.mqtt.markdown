@@ -15,20 +15,21 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 | Function          | [`default`](#default-schema) | [`json`](#json-schema) | [`template`](#template-schema) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
 | Brightness        | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| Color mode        |                                                            | ✔                                                                    |                                                                                |
+| Color mode        | ✔                                                          | ✔                                                                    | ✘                                                                              |
 | Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Effects           | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Flashing          | ✘                                                          | ✔                                                                    | ✔                                                                            |
+| HS Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
 | RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| RGBW Color        | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| RGBWW Color       | ✔                                                          | ✔                                                                    | ✘                                                                            |
 | Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
 | XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| HS Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 
 ## Default schema
 
-The `mqtt` light platform with default schema lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, on/off, RGB colors, XY colors and white values.
+The `mqtt` light platform with default schema lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, on/off, RGB colors, XY colors and white.
 
 ## Default schema - Configuration
 
@@ -38,8 +39,8 @@ When a state topic is not available, the light will work in optimistic mode. In 
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect light operation.
 
-Home Assistant internally assumes that a light either has a color or a color temperature.
-The state of MQTT lights with default schema and support for both color and color temperature will include a color if `white_value` is 0 or None and a `color_temp` is white_value > 0.
+Home Assistant internally assumes that a light's state corresponds to a defined `color_mode`.
+The state of MQTT lights with default schema and support for both color and color temperature will set the `color_mode` according to the last received valid color or color temperature. Optionally, a `color_mode_state_topic` can be configured for explicit control of the `color_mode`
 
 ```yaml
 # Example configuration.yaml entry
@@ -92,6 +93,14 @@ brightness_state_topic:
   type: string
 brightness_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the brightness value."
+  required: false
+  type: string
+color_mode_state_topic:
+  description: "The MQTT topic subscribed to receive color mode updates. If this is not configured, `color_mode` will be automatically set according to the last received valid color or color temperature"
+  required: false
+  type: string
+color_mode_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the color mode."
   required: false
   type: string
 color_temp_command_template:
@@ -284,23 +293,15 @@ unique_id:
   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
   required: false
   type: string
-white_value_command_topic:
-  description: "The MQTT topic to publish commands to change the light's white value."
+white_command_topic:
+  description: "The MQTT topic to publish commands to change the light to white mode with a given brightness."
   required: false
   type: string
-white_value_scale:
-  description: "Defines the maximum white value (i.e., 100%) of the MQTT device."
+white_scale:
+  description: "Defines the maximum white level (i.e., 100%) of the MQTT device."
   required: false
   type: integer
   default: 255
-white_value_state_topic:
-  description: The MQTT topic subscribed to receive white value updates.
-  required: false
-  type: string
-white_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the white value."
-  required: false
-  type: string
 xy_command_topic:
   description: "The MQTT topic to publish commands to change the light's XY state."
   required: false
@@ -403,7 +404,7 @@ light:
 
 The `mqtt` light platform with JSON schema lets you control a MQTT-enabled light that can receive [JSON](https://en.wikipedia.org/wiki/JSON) messages.
 
-This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and white values. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed. The `color_mode` will not be present in messages sent to the light. It is optional in messages received from the light, but can be used to disambiguate the current mode in the light. In the example below, `color_mode` is set to `rgb` and `color_temp`, `color.c`, `color.w`, color.x`, `color.y`, `color.h`, `color.s` will all be ignored:
+This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions and short/long flashing. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed. The `color_mode` will not be present in messages sent to the light. It is optional in messages received from the light, but can be used to disambiguate the current mode in the light. In the example below, `color_mode` is set to `rgb` and `color_temp`, `color.c`, `color.w`, color.x`, `color.y`, `color.h`, `color.s` will all be ignored:
 
 ```json
 {
@@ -424,7 +425,6 @@ This schema supports on/off, brightness, RGB colors, XY colors, color temperatur
   "effect": "colorloop",
   "state": "ON",
   "transition": 2,
-  "white_value": 150
 }
 ```
 
@@ -757,7 +757,7 @@ light:
 The `mqtt` light platform with template schema lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
 It is format-agnostic so you can use any data format you want (i.e., string, JSON), just configure it with templating.
 
-This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing, effects and white values.
+This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and effects.
 
 ## Template schema - Configuration
 
@@ -823,7 +823,7 @@ command_off_template:
   required: true
   type: string
 command_on_template:
-  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `red`, `green`, `blue`, `white_value`, `flash`, `transition` and `effect`."
+  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `red`, `green`, `blue`, `flash`, `transition` and `effect`."
   required: true
   type: string
 command_topic:
@@ -942,10 +942,6 @@ unique_id:
    description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
    required: false
    type: string
-white_value_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract white value from the state payload value."
-  required: false
-  type: string
 {% endconfiguration %}
 
 <div class='note warning'>
