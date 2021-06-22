@@ -3,7 +3,7 @@ title: "Configuring Home Assistant"
 description: "Configuring Home Assistant."
 ---
 
-While you can configure most of Home Assistant directly from the user interface under {% my configuration %}, some parts needs you to access the configuration folder.
+While you can configure most of Home Assistant directly from the user interface under {% my configuration %}, some parts need you to access the configuration folder.
 
 The location of the folder differs for different installation methods. For our operating system, supervised and container installations this is `/config`, if you are running core you can see where the configuration folder is by looking at {% my info title="Configuration -> Info" %}.
 
@@ -36,7 +36,7 @@ You can use Samba file share (you need to install the {% my supervisor_addon tit
 ## Reloading changes
 
 You will have to restart Home Assistant for most changes to `configuration.yaml` to take effect.
-You can load changes to the following components without restarting, by using the UI. Navigate to {% my server_controls title="Configuration -> Server Control" %} and scrolling down to the YAML configuration reloading: [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/integrations/group/), [history stats](/integrations/history_stats/), [HomeKit](/integrations/homekit/), [input_booleans](/integrations/input_boolean/), [input_datetimes](/integrations/input_datetime/), [input_numbers](/integrations/input_number/), [input_selects](/integrations/input_select/), [input_texts](/integrations/input_text/), [MQTT](/integrations/mqtt/), [persons](/integrations/person/), [scenes](/integrations/scene/), [scripts](/integrations/script/), [statistics](/integrations/statistics/), [template sensors](/integrations/template/), [timers](/integrations/timer/), [zones](/integrations/zone/), and more without restarting.
+You can load changes to the following integrations without restarting, by using the UI. Navigate to {% my server_controls title="Configuration -> Server Control" %} and scrolling down to the YAML configuration reloading: [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/integrations/group/), [history stats](/integrations/history_stats/), [HomeKit](/integrations/homekit/), [input_booleans](/integrations/input_boolean/), [input_datetimes](/integrations/input_datetime/), [input_numbers](/integrations/input_number/), [input_selects](/integrations/input_select/), [input_texts](/integrations/input_text/), [MQTT](/integrations/mqtt/), [persons](/integrations/person/), [scenes](/integrations/scene/), [scripts](/integrations/script/), [statistics](/integrations/statistics/), [template sensors](/integrations/template/), [timers](/integrations/timer/), [zones](/integrations/zone/), and more without restarting.
 
 ## Migrating to a new system
 
