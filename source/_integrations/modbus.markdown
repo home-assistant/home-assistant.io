@@ -828,7 +828,7 @@ sensors:
       required: false
       type: string
     register_size:
-      description: Register size, number of bytes of 1 count. Swap not supported above 2 bytes. For non-standard registers only!
+      description: This is a non-standard protocol feature. Number of bytes of one register (count: 1).
       required: false
       default: 2
       type: integer
