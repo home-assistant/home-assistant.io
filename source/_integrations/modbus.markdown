@@ -827,6 +827,11 @@ sensors:
       description: "If `data_type` is custom specified a double-quoted Python struct is expected here, to format the string to unpack the value. See Python documentation for details. Example: `>i`."
       required: false
       type: string
+    register_size:
+      description: Register size, number of bytes of 1 count. For non-standard registers only!
+      required: false
+      default: 2
+      type: integer
     unit_of_measurement:
       description: Unit to attach to value.
       required: false
