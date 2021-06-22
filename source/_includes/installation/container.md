@@ -62,6 +62,12 @@ If you change the configuration you have to restart the server. To do that you h
 
 ### Docker Compose
 
+<div class="note tip">
+
+  In order to use `docker-compose` you first need to [install `docker-compose`](https://docs.docker.com/compose/install/) on your system.
+
+</div>
+
 As the Docker command becomes more complex, switching to `docker-compose` can be preferable and support automatically restarting on failure or system restart. Create a `docker-compose.yml` file:
 
 {% if page.installation_type == 'raspberrypi' %}
