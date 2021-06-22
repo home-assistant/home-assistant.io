@@ -6,6 +6,7 @@
     ```bash
     docker run --init -d \
       --name homeassistant \
+      --privileged \
       --restart=unless-stopped \
       -v /etc/localtime:/etc/localtime:ro \
       -v /PATH_TO_YOUR_CONFIG:/config \
@@ -36,6 +37,7 @@
     docker run --init -d \
       --name homeassistant \
       --restart=unless-stopped \
+      --privileged \
       -v /PATH_TO_YOUR_CONFIG:/config \
       -v /etc/localtime:/etc/localtime:ro \
       --network=host \
