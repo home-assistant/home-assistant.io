@@ -215,7 +215,7 @@ installation:
 
     generic-x86-64:
       board: Generic x86-64
-      installation_media: "S-ATA HDD/SSD/M.2 SSD/eMMC module"
+      installation_media: "storage device"
       variants:
         - name: "Generic x86-64"
           key: "generic-x86-64"

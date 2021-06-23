@@ -53,12 +53,12 @@ We will need a few things to get started with installing Home Assistant. Links b
 <div class='note'>
 <b>Prerequisites</b>
 
-This guide assumes that you have a dedicated generic x86 PC (typically an Intel or AMD based system) available to run exclusively Home Assistant OS. The system must be 64-bit capable and able to boot using UEFI. Pretty much all systems produced in the last 10 years support the UEFI boot mode.
+This guide assumes that you have a dedicated generic x86 PC (typically an Intel or AMD-based system) available to exclusively run Home Assistant Operating System. The system must be 64-bit capable and able to boot using UEFI. Pretty much all systems produced in the last 10 years support the UEFI boot mode.
 </div>
 
 ### Configure the BIOS
 
-To boot Home Assistant OS the BIOS needs to have UEFI boot mode enabled and Secure Boot disabled. This following screenshots are from a 7th generation Intel NUC system. The BIOS menu will likely look different on your systems. However, the options should still be present and named similarly.
+To boot Home Assistant OS the BIOS needs to have UEFI boot mode enabled and Secure Boot disabled. The following screenshots are from a 7th generation Intel NUC system. The BIOS menu will likely look different on your systems. However, the options should still be present and named similarly.
 
 1. Enter the BIOS using the can enter using the `F2` key (on some systems this might be `Del`, `F1` or `F10`).
 ![Enter BIOS using F2, Del, F1 or F10 key](/images/installation/intel-nuc-enter-bios.jpg)
@@ -69,9 +69,9 @@ To boot Home Assistant OS the BIOS needs to have UEFI boot mode enabled and Secu
 1. Disable Secure Boot
 ![Disable Secure Boot mode](/images/installation/intel-nuc-disable-secure-boot.jpg)
 
-As a next step we need to write the Operating System image to the installation media. Depending on your system this can be a S-ATA hard disk, S-ATA SSD, a M.2 SSD or even a eMMC. Home Assistant OS has no integrated installer. You need to use your Desktop computer (e.g. by using a USB to S-ATA adapter) or boot a live operating system on your target system to install Home Assistant OS.
+As a next step, we need to write the Operating System image to the installation media. Depending on your system this can be a S-ATA hard disk, S-ATA SSD, a M.2 SSD or even a eMMC. Home Assistant Operating System has no integrated installer. You need to use your Desktop computer (e.g. by using a USB to S-ATA adapter) or boot a live operating system on your target system to install Home Assistant Operating System.
 
-If you prefer to use live operating system, follow the instructions of your Live distribution (e.g. [this Ubuntu guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Once you booted the live operating system, the following steps on how-to write the image  to your installation media can be followed.
+If you prefer to use a live operating system, follow the instructions of your Live distribution (e.g., [this Ubuntu guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Once you booted the live operating system, the following steps on how-to write the image to your installation media can be followed.
 
 {% endif %}
 
@@ -127,8 +127,9 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
 {% if page.installation_type == 'generic-x86-64' %}
-1. If you used your Desktop system to write to your installation media, install the installation media ({{site.installation.types[page.installation_type].installation_media}}) to the target system. Otherwise shutdown the live operating system and make sure to remove the USB flash drive you have been using for the live system.
-2. Make sure a ethernet cable for network is plugged in and power the system on. 
+1. If you used your Desktop system to write to your installation media, install the installation media ({{site.installation.types[page.installation_type].installation_media}}) to the target system. Otherwise, shutdown the live operating system and make sure to remove the USB flash drive you have been using for the live system.
+2. Make sure an ethernet cable for network is plugged in
+3. Power the system on. 
 {% else %}
 1. Insert the installation media ({{site.installation.types[page.installation_type].installation_media}}) you just created
 2. Attach a ethernet cable for network.
@@ -155,7 +156,7 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 - [Hyper-V][vhdx] (.vhdx)
 {% endif %}
 
-Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines we recommend installation Home Assistant OS directly on a [Raspberry Pi](/installation/raspberrypi) or an [ODROID](/installation/odroid) board.
+Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines we recommend installation Home Assistant OS directly on a [Raspberry Pi](/installation/raspberrypi) or an [ODROID](/installation/odroid).
 
 ### Create the Virtual Machine
 
