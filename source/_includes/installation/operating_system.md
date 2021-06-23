@@ -48,6 +48,33 @@ We will need a few things to get started with installing Home Assistant. Links b
 
 {% endif %}
 
+{% if page.installation_type == 'generic-x86-64' %}
+
+<div class='note'>
+<b>Prerequisites</b>
+
+This guide assumes that you have a dedicated generic x86 PC (typically an Intel or AMD-based system) available to exclusively run Home Assistant Operating System. The system must be 64-bit capable and able to boot using UEFI. Pretty much all systems produced in the last 10 years support the UEFI boot mode.
+</div>
+
+### Configure the BIOS
+
+To boot Home Assistant OS the BIOS needs to have UEFI boot mode enabled and Secure Boot disabled. The following screenshots are from a 7th generation Intel NUC system. The BIOS menu will likely look different on your systems. However, the options should still be present and named similarly.
+
+1. Enter the BIOS using the can enter using the `F2` key (on some systems this might be `Del`, `F1` or `F10`).
+![Enter BIOS using F2, Del, F1 or F10 key](/images/installation/intel-nuc-enter-bios.jpg)
+
+1. Make sure the UEFI Boot mode is enabled
+![Enable UEFI Boot mode](/images/installation/intel-nuc-uefi-boot.jpg)
+
+1. Disable Secure Boot
+![Disable Secure Boot mode](/images/installation/intel-nuc-disable-secure-boot.jpg)
+
+As a next step, we need to write the Operating System image to the installation media. Depending on your system this can be a S-ATA hard disk, S-ATA SSD, a M.2 SSD or even a eMMC. Home Assistant Operating System has no integrated installer. You need to use your Desktop computer (e.g. by using a USB to S-ATA adapter) or boot a live operating system on your target system to install Home Assistant Operating System.
+
+If you prefer to use a live operating system, follow the instructions of your Live distribution (e.g., [this Ubuntu guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Once you booted the live operating system, the following steps on how-to write the image to your installation media can be followed.
+
+{% endif %}
+
 ### Write the image to your installation media
 
 1. Attach the installation media ({{site.installation.types[page.installation_type].installation_media}}) to your computer
@@ -99,23 +126,21 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
+{% if page.installation_type == 'generic-x86-64' %}
+1. If you used your Desktop system to write to your installation media, install the installation media ({{site.installation.types[page.installation_type].installation_media}}) to the target system. Otherwise, shutdown the live operating system and make sure to remove the USB flash drive you have been using for the live system.
+2. Make sure an ethernet cable for network is plugged in
+3. Power the system on. 
+{% else %}
 1. Insert the installation media ({{site.installation.types[page.installation_type].installation_media}}) you just created
 2. Attach a ethernet cable for network.
 3. Attach a cable for power
+{% endif %}
 4. Within a few minutes you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 
-
 {% else %}
-
-{% if page.installation_type != 'generic-x86-64' %}
-Follow this guide if you already are running a hypervisor, if not look at the [Raspberry Pi](/installation/raspberrypi) or the [ODROID](/installation/odroid)
-{% endif %}
 
 ### Download the appropriate image
 
-{% if page.installation_type == 'generic-x86-64' %}
-- [Generic x86-64 (e.g. Intel NUC)][generic-x86-64]
-{% else %}
 - [VirtualBox][vdi] (.vdi)
 {% if page.installation_type == 'macos' %}
 - [KVM][qcow2] (.qcow2)
@@ -130,21 +155,12 @@ Follow this guide if you already are running a hypervisor, if not look at the [R
 {% if page.installation_type == 'windows' %}
 - [Hyper-V][vhdx] (.vhdx)
 {% endif %}
-{% endif %}
-{% if page.installation_type == 'generic-x86-64' %}
 
-1. Download the operating system from the link above.
-2. Attach the drive you are using in your NUC to your computer.
-3. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
-4. Select "Flash from File" and choose the image you have just downloaded.
-5. Click "Select Target" and choose the drive you wish to flash too, then click "Flash".
-6. Start the NUC with the drive you installed the operating system to as the boot device.
-7. Once the initial setup has completed you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
-{% else %}
+Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines we recommend installation Home Assistant OS directly on a [Raspberry Pi](/installation/raspberrypi) or an [ODROID](/installation/odroid).
 
 ### Create the Virtual Machine
 
-Load the appliance image into your virtual machine software. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
+Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
 
 Minimum recommended assignments:
 
@@ -215,8 +231,6 @@ _All these can be extended if your usage calls for more resources._
 1. Start the Virtual Machine
 2. Observe the boot process of Home Assistant Operating System
 3. Once completed you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
-
-{% endif %}
 
 {% endif %}
 
