@@ -9,6 +9,7 @@ ha_category:
   - Fan
   - Light
   - Notifications
+  - Number
   - Scene
   - Sensor
   - Switch
@@ -28,6 +29,7 @@ ha_platforms:
   - fan
   - light
   - notify
+  - number
   - scene
   - sensor
   - switch
@@ -52,6 +54,7 @@ There is currently support for the following device types within Home Assistant:
 - [Fan](#fan)
 - [Light](#light)
 - [Notify](#notify)
+- [Number](#number)
 - [Scene](#scene)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -348,7 +351,7 @@ address:
   required: true
 type:
   description: Type of the exposed value. Either `binary`, `time`, `date`, `datetime` or any supported type of [KNX Sensor](#sensor) (e.g., "temperature" or "humidity").
-  type: string
+  type: [string, integer]
   required: true
 entity_id:
   description: Entity ID to be exposed. Not needed for types `time`, `date` and `datetime`.
@@ -1060,11 +1063,74 @@ name:
   type: string
 {% endconfiguration %}
 
+## Number
+
+The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
+
+<div class='note'>
+
+Number entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Numbers having a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  number:
+    - name: "Duration"
+      address: "0/0/1"
+      type: time_period_sec
+    - name: "Volume"
+      address: "0/0/2"
+      state_address: "0/0/3"
+      type: percent
+    - name: "Temperature threshold"
+      address: "0/0/4"
+      respond_to_read: true
+      type: temperature
+      min: 20
+      max: 24.5
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address new values will be sent to.
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus.
+  required: false
+  type: [string, list]
+type:
+  description: Any supported type of [KNX Sensor](#sensor) representing a numeric value (e.g., "percent" or "temperature").
+  required: true
+  type: [string, integer]
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+min:
+  description: Minimum value that can be sent. Defaults to the `type` DPT minimum value.
+  required: false
+  type: float
+max:
+  description: Maximum value that can be sent. Defaults to the `type` DPT maximum value.
+  required: false
+  type: float
+{% endconfiguration %}
+
 ## Sensor
 
 The KNX sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors.
 
-Sensors are read-only. To write to the KNX bus configure an exposure [KNX Integration Expose](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus) or use the `knx.send` service.
+Sensors are read-only. To write to the KNX bus configure a [Number](#number), an exposure [KNX Integration Expose](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus) or use the `knx.send` service.
 
 ```yaml
 # Example configuration.yaml entry
@@ -1095,7 +1161,7 @@ state_address:
 type:
   description: A type from the value types table below must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
   required: true
-  type: string
+  type: [string, integer]
 name:
   description: A name for this device used within Home Assistant.
   required: false
