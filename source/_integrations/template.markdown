@@ -112,6 +112,11 @@ sensor:
       required: false
       type: string
       default: None
+    state_class:
+      description: "Defines the state class of the sensor, if any. Only possible value currently is `measurement`. Set this if your template sensor represents a measurement of the current value (so not a daily aggregate etc)."
+      required: false
+      type: string
+      default: None
 binary_sensor:
   description: List of binary sensors
   required: true
