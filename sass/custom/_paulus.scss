@@ -552,6 +552,20 @@ twitter-widget,
 div.config-vars {
   padding-bottom: 16px;
 
+  h3 {
+    margin-bottom: 0;
+  }
+
+  .configuration-link {
+    font-size: 13px;
+
+    a {
+      color: #8792a2;
+      text-decoration: none;
+      border-bottom: #8792a2 dotted 0.5px;
+    }
+  }
+
   .config-vars-item {
     border-bottom: 1px solid #d9dbde;
     padding-top: 16px;
