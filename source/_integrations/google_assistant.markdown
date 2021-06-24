@@ -97,7 +97,7 @@ If you want to support active reporting of state to Google's server (configurati
     5. In the Service account ID field, enter an ID.
     6. From the Role list, select `Service Accounts` > `Service Account Token Creator`.
     7. Click `CONTINUE` and then `DONE`. You are returned to the service account list, and your new account is shown.
-    8. Click the the three dots menu under `Actions` next to your new account, and click `Manage keys`. You are taken to a `Keys` page.
+    8. Click the three dots menu under `Actions` next to your new account, and click `Manage keys`. You are taken to a `Keys` page.
     9. Click `ADD KEY` then `Create new key`. Leave the `key type` as `JSON` and click `CREATE`. A JSON file that contains your key downloads to your computer.
     10. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
     11. Click `Close`.

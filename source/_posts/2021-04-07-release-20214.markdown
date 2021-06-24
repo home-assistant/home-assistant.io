@@ -951,8 +951,12 @@ Home Assistant Core 2021.7.0:
 
 - `speed_command_topic`
 - `speed_state_topic`
-- `state_value_template`
-- `speed_list`
+- `speed_value_template`
+- `speeds`
+- `payload_off_speed`
+- `payload_low_speed`
+- `payload_medium_speed`
+- `payload_high_speed`
 
 Additionally,`preset_modes` and `percentage` are added to replace the legacy
 model supporting only three speeds `low`, `medium` and `high`.

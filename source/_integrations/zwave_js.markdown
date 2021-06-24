@@ -593,7 +593,7 @@ Sure, in the settings of zwavejs2mqtt, make sure to enable "WS Server" and disab
 
 ### My device does not automatically update its status in HA if I control it manually
 
-Your device might not send send automatic status updates to the controller. While the best advice would be to update to recent Z-Wave Plus devices, there is a workaround with active polling (request the status) at some interval. See the section below for more info about this.
+Your device might not send automatic status updates to the controller. While the best advice would be to update to recent Z-Wave Plus devices, there is a workaround with active polling (request the status) at some interval. See the section below for more info about this.
 
 ### What about polling of devices?
 

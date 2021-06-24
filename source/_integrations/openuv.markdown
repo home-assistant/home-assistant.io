@@ -148,7 +148,7 @@ automation:
   - alias: "Update OpenUV every hour (24 of 50 calls per day)"
     trigger:
       platform: time_pattern
-      minutes: "/60"
+      hours: "*"
     action:
       service: openuv.update_data
 ```

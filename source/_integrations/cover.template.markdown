@@ -334,7 +334,7 @@ cover:
           data:
             modus: "stop"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
-        icon_template: >-
+        entity_picture_template: >-
           {% if is_state('sensor.cover_group', 'open') %}
             /local/cover-open.png
           {% else %}

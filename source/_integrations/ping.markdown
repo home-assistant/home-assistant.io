@@ -51,10 +51,10 @@ name:
 
 The sensor exposes the different round trip times values measured by `ping` as attributes:
 
-- `round trip time mdev`
-- `round trip time avg`
-- `round trip time min`
-- `round trip time max`
+- `round_trip_time_mdev`
+- `round_trip_time_avg`
+- `round_trip_time_min`
+- `round_trip_time_max`
 
 The default polling interval is 5 minutes. As many integrations [based on the entity class](/docs/configuration/platform_options), it is possible to overwrite this scan interval by specifying a `scan_interval` configuration key (value in seconds). In the example below we setup the `ping` binary sensor to poll the device every 30 seconds.
 

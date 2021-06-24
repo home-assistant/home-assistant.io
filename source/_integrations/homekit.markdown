@@ -447,14 +447,17 @@ automation:
 
 HomeKit relies heavily on your home hub to keep track of Bluetooth devices. Additionally, each home hub has to keep track of every HomeKit accessory that you bridge. If you have many accessories, notably cameras or Bluetooth devices, **consider disabling HomeKit on older home hubs**.
 
-The following home hubs showed strong results when testing with 300 accessories:
+#### The below testing was conducted with Home Assistant 2021.6 (HAP-python 3.5.0) and iOS/tvOS 14.6
+
+The following home hubs showed strong results when testing with 400 accessories:
 
 - HomePod
 - HomePod Mini
+- Apple TV 4k Gen 2 (best results when using ethernet instead of WiFi)
 
-The following home hubs showed strong results when testing with 200 accessories:
+The following home hubs showed strong results when testing with 300 accessories:
 
-- Apple TV 4k (best results when using ethernet instead of WiFi)
+- Apple TV 4k Gen 1 (best results when using ethernet instead of WiFi)
 
 The following home hubs have been reported to have trouble with a large number of accessories:
 
