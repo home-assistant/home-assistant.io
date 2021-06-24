@@ -11,8 +11,8 @@ ha_codeowners:
 ha_domain: syncthru
 ha_ssdp: true
 ha_platforms:
-  - sensor
   - binary_sensor
+  - sensor
 ---
 
 The Samsung SyncThru Printer platform allows you to read current data from your local Samsung printer.

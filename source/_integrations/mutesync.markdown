@@ -1,5 +1,5 @@
 ---
-title: Mutesync
+title: mutesync
 description: Instructions on how to integrate Mutesync button with Home Assistant.
 ha_category:
   - Presence Detection

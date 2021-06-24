@@ -15,6 +15,7 @@ ha_codeowners:
 ha_domain: mazda
 ha_platforms:
   - device_tracker
+  - lock
   - sensor
 ---
 

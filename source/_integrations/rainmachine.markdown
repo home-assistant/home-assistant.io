@@ -16,6 +16,8 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_zeroconf: true
+ha_homekit: true
 ---
 
 The RainMachine integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).

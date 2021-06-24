@@ -7,8 +7,6 @@ ha_release: 0.61
 ha_iot_class: Cloud Polling
 ha_domain: nuheat
 ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
 ha_dhcp: true
 ha_platforms:
   - climate

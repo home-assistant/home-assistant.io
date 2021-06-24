@@ -29,6 +29,7 @@ ha_platforms:
   - scene
   - sensor
   - switch
+ha_dhcp: true
 ---
 
 SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:

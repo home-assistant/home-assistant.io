@@ -11,6 +11,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@zhulik'
 ha_domain: syncthing
+ha_platforms:
+  - sensor
 ---
 
 [Syncthing](https://syncthing.net/) is a continuous file synchronization program. It synchronizes files between two or more computers 
