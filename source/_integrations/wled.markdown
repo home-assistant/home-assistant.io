@@ -28,6 +28,7 @@ While Home Assistant supports WLED 0.8.4 and higher, the use of WLED 0.10 and
 newer is recommended to get the optimal experience.
 
 {% include integrations/config_flow.md %}
+
 ## Lights
 
 This integration adds the WLED device as a light in Home Assistant.
@@ -56,6 +57,7 @@ entity controls the strip power and overall brightness applied to all segments.
 
 This integration provides selects for the following information from WLED:
 
+- Preset
 - Color palette (per segment, disabled by default).
 
 ## Sensors
@@ -76,12 +78,12 @@ The integration will create a number of switches:
 
 ### Nightlight
 
-Toggles the WLED Timer. 
+Toggles the WLED Timer.
 Can be configured on the WLED itself under settings > LED Preferences > Timed light.
 
 ### Sync Receive and Sync Send
 
-Toggles the synchronisation between multiple WLED devices. 
+Toggles the synchronization between multiple WLED devices.
 Can be configured on the WLED itself under settings > Sync Interfaces > WLED Broadcast.
 
 [WLED Sync documentation](https://github.com/Aircoookie/WLED/wiki/Sync-WLED-devices-(UDP-Notifier))
