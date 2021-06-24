@@ -11,6 +11,7 @@ ha_category:
   - Notifications
   - Number
   - Scene
+  - Select
   - Sensor
   - Switch
   - Weather
@@ -31,6 +32,7 @@ ha_platforms:
   - notify
   - number
   - scene
+  - select
   - sensor
   - switch
   - weather
@@ -56,6 +58,7 @@ There is currently support for the following device types within Home Assistant:
 - [Notify](#notify)
 - [Number](#number)
 - [Scene](#scene)
+- [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Weather](#weather)
@@ -1035,34 +1038,6 @@ name:
   type: string
 {% endconfiguration %}
 
-## Scene
-
-The KNX scenes platform allows you to trigger [KNX](https://www.knx.org/) scenes. These entities are write-only.
-
-```yaml
-# Example configuration.yaml entry
-knx:
-  scene:
-    - name: "Romantic"
-      address: 8/8/8
-      scene_number: 23
-```
-
-{% configuration %}
-address:
-  description: KNX group address for the scene. *DPT 17.001*
-  required: true
-  type: [string, list]
-scene_number:
-  description: KNX scene number to be activated (range 1..64 ).
-  required: true
-  type: integer
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
-{% endconfiguration %}
-
 ## Number
 
 The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
@@ -1124,6 +1099,119 @@ max:
   description: Maximum value that can be sent. Defaults to the `type` DPT maximum value.
   required: false
   type: float
+{% endconfiguration %}
+
+## Scene
+
+The KNX scenes platform allows you to trigger [KNX](https://www.knx.org/) scenes. These entities are write-only.
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  scene:
+    - name: "Romantic"
+      address: 8/8/8
+      scene_number: 23
+```
+
+{% configuration %}
+address:
+  description: KNX group address for the scene. *DPT 17.001*
+  required: true
+  type: [string, list]
+scene_number:
+  description: KNX scene number to be activated (range 1..64 ).
+  required: true
+  type: integer
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+{% endconfiguration %}
+
+## Select
+
+The KNX select platform allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, the assigned generic raw payload is sent to the KNX bus. A received telegram updates the state of the select entity. It can optionally respond to read requests from the KNX bus with its current state.
+
+<div class='note'>
+
+Select entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Selects having a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  select:
+    - name: "DPT 2 selector"
+      address: "0/0/1"
+      payload_length: 0
+      options:
+        - option: "No control"
+          payload: 0
+        - option: "Control On"
+          payload: 0b10
+        - option: "Control Off"
+          payload: 0b11
+    - name: "DHWMode"
+      address: "0/0/2"
+      state_address: "0/0/3"
+      payload_length: 1
+      options:
+        - option: "Auto"
+          payload: 0
+        - option: "LegioProtect"
+          payload: 1
+        - option: "Normal"
+          payload: 2
+        - option: "Reduced"
+          payload: 3
+        - option: "Off/FrostProtect"
+          payload: 4
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address new values will be sent to.
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus.
+  required: false
+  type: [string, list]
+payload_length:
+  description: The length of the payload expected for the DPT. Use `0` for DPT 1, 2 or 3.
+  required: true
+  type: integer
+options:
+  description: List of options to choose from. Each `option` and `payload` have to be unique.
+  type: list
+  required: true
+  keys:
+    option:
+      description: The name of the option used to trigger the assigned `payload`.
+      required: true
+      type: string
+    payload:
+      description: The raw payload assigned to the `option`.
+      required: true
+      type: integer
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+sync_state:
+  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  required: false
+  type: [boolean, string, integer]
+  default: true
 {% endconfiguration %}
 
 ## Sensor
