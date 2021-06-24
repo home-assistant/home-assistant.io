@@ -51,7 +51,7 @@ event_hub_namespace:
   type: string
 event_hub_instance_name:
   description: The name of your Event Hub instance.
-  required: required
+  required: true
   type: string
 event_hub_sas_policy:
   description: The name of your Shared Access Policy.
