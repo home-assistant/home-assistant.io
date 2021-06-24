@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` Select platform allows you to integrate devices that might expose configuration options through MQTT into Home Assistant as a Select. Every time a message under the `topic` in the configuration is received, the select entity will be updated in Home Assisant and vice-versa, keeping the device and Home Assistant in-sync.
+The `mqtt` Select platform allows you to integrate devices that might expose configuration options through MQTT into Home Assistant as a Select. Every time a message under the `topic` in the configuration is received, the select entity will be updated in Home Assistant and vice-versa, keeping the device and Home Assistant in sync.
 
 ## Configuration
 
@@ -17,10 +17,12 @@ To enable MQTT Select in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 select:
-    - platform: mqtt,
-      command_topic: topic,
-      name: "Test Select",
-      options": ["Option 1", "Option 2"],
+    - platform: mqtt
+      command_topic: topic
+      name: "Test Select"
+      options:
+      	- "Option 1"
+      	- "Option 2"
 ```
 
 {% configuration %}
@@ -116,7 +118,7 @@ optimistic:
   type: boolean
   default: "`true` if no `state_topic` defined, else `false`."
 options:
-  description: List ov options which can be selected.
+  description: List of options that can be selected.
   required: true
   type: list
 qos:
@@ -133,11 +135,6 @@ state_topic:
   description: The MQTT topic subscribed to receive update of the selected option.
   required: false
   type: string
-step:
-  description: Step value. Smallest value `0.001`.
-  required: false
-  type: float
-  default: 1
 unique_id:
   description: An ID that uniquely identifies this Select. If two Selects have the same unique ID Home Assistant will raise an exception.
   required: false
