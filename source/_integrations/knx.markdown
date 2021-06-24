@@ -1468,8 +1468,10 @@ invert:
   default: false
 {% endconfiguration %}
 
-Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
-For switching actuators that are only controlled by a single group address and can't change their state internally, you don't have to configure the state address.
+The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
+
+Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+Switches having a `state_address` configured request their current state from the KNX bus.
 
 ## Weather
 
