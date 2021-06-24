@@ -10,7 +10,6 @@ ha_codeowners:
   - '@bieniu'
 ha_domain: nam
 ha_platforms:
-  - air_quality
   - sensor
 ha_quality_scale: platinum
 ha_zeroconf: true
@@ -24,6 +23,7 @@ The integration currently has support for the following sensors:
 - BMP280
 - DHT22
 - HECA
+- MH-Z14A
 - SDS011
 - SHT3X
 - SPS30
