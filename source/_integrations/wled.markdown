@@ -15,6 +15,7 @@ ha_domain: wled
 ha_zeroconf: true
 ha_platforms:
   - light
+  - select
   - sensor
   - switch
 ---
@@ -50,6 +51,12 @@ strip.
 If WLED has 2 or more segments, each segment gets its own light entity in
 Home Assistant. Additionally, a master light entity is created. This master
 entity controls the strip power and overall brightness applied to all segments.
+
+## Selects
+
+This integration provides selects for the following information from WLED:
+
+- Color palette (per segment, disabled by default).
 
 ## Sensors
 
