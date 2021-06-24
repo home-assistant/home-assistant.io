@@ -18,11 +18,11 @@ This sensor uses the official API to get the hourly price of electricity in Spai
 
 Specifically, it shows the current __active energy invoicing price (FEU)__ in €/kWh, 
 which is the energy term hourly price applied in the consumers' electrical bill 
-with a contracted power not exceeding 15 kW and which are under the PVPC 
+with a contracted power not exceeding 15 kW and which are under the PVPC
 (Voluntary Price for Small Consumer).
 
 It includes the energy term of the access tolls, the charges and the production cost. It does not include taxes.
-The hourly prices and energy periods are the same throughout the Spanish territory regardless of the time zone, 
+The hourly prices and energy periods are the same throughout the Spanish territory regardless of the time zone,
 except for the cities of Ceuta and Melilla, where they are slightly different.
 
 <iframe src="https://www.esios.ree.es/en/embed/active-energy-invoicing-price-pvpc" width="100%" height="608"></iframe>
@@ -33,17 +33,18 @@ More information available at http://www.cnmc.es/en/ and http://www.omie.es/en/
 
 To configure PVPC Hourly Pricing, set it up via the integrations panel in the configuration screen.
 
-Set a name for the price sensor (default is `sensor.pvpc`), and select one of the two available tariffs, 
+Set a name for the price sensor (default is `sensor.pvpc`), and select one of the two available tariffs,
 according to your geographic position in Spain: 
+
 - `2.0TD`, for the Peninsula, the Balearic Islands and the Canary Islands.
 - `2.0TD (Ceuta/Melilla)`, for the cities of Ceuta and Melilla.
 
 Set also your contracted power (in kW) for the two power periods that apply with the new 2.0TD tariff
 (one for P1/P2 and the other one for the valley period, P3), to show your available electric power as a sensor attribute.
 
-In case you did nothing after the tariff change on 2021-06-01, both powers are equal, and the same you had for your existing contract. 
+In case you did nothing after the tariff change on 2021-06-01, both powers are equal, and the same you had for your existing contract.
 
-You can add up to 2 sensors (one for each geographic zone) by adding them again through the integrations panel, 
+You can add up to 2 sensors (one for each geographic zone) by adding them again through the integrations panel,
 and you can change the sensor configuration anytime by going to the integration's options.
 
 ### Advanced configuration
@@ -53,12 +54,12 @@ PVPC Hourly Pricing allows manual configuration by adding a section to your `con
 ```yaml
 # Set up electricity price sensors as a component:
 pvpc_hourly_pricing:
-  - name: PVPC
-    tariff: 2.0TD
+  - name: "PVPC"
+    tariff: "2.0TD"
     power: 3.45
     power_p3: 4.6
-  - name: PVPC-CYM
-    tariff: 2.0TD (Ceuta/Melilla)
+  - name: "PVPC-CYM"
+    tariff: "2.0TD (Ceuta/Melilla)"
 ```
 
 {% configuration %}
