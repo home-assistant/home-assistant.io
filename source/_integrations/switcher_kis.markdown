@@ -1,18 +1,28 @@
 ---
 title: Switcher
-description: Controlling your Switcher V2 Water Heater.
+description: Integrate Switcher devices.
 ha_category:
   - Switch
 ha_release: 0.93
 ha_iot_class: Local Push
 ha_codeowners:
   - '@tomerfi'
+  - '@thecode'
 ha_domain: switcher_kis
 ha_platforms:
+  - sensor
   - switch
 ---
 
-This `Switcher` integration allows you to control the [Switcher V2 Water Heater](https://www.switcher.co.il/).
+This `Switcher` integration allows you to control your [Switcher Devices](https://www.switcher.co.il/).
+
+Supported devices:
+
+- Switcher Power Plug
+- Switcher Touch (from firmware 1.51)
+- Switcher V2 (Espressif chipset - from firmware 3.21)
+- Switcher V2 (Qualcomm chipset - from firmware 72.32)
+- Switcher V4
 
 To enable it, add an entry to your `configuration.yaml` according to the following configuration instructions.
 
