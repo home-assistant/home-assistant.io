@@ -7,11 +7,13 @@ ha_iot_class: Calculated
 ha_release: 0.11
 ha_quality_scale: internal
 ha_domain: universal
+ha_platforms:
+  - media_player
 ---
 
 Universal Media Players combine multiple existing entities in Home Assistant into one media player entity. This is used for creating a single entity that controls an entire media center.
 
-Multiple media player entities can be controlled from an universal media player. Additionally, the universal media player allows volume and power commands to be re-routed to other entities in Home Assistant. This allows the power and volume to control external devices like a television or audio receiver.
+Multiple media player entities can be controlled from a universal media player. Additionally, the universal media player allows volume and power commands to be re-routed to other entities in Home Assistant. This allows the power and volume to control external devices like a television or audio receiver.
 
 A Universal Media Player is created in `configuration.yaml` as follows.
 
@@ -39,6 +41,18 @@ media_player:
       volume_mute:
         service: SERVICE
         data: SERVICE_DATA
+      media_play:
+        service: SERVICE
+        data: SERVICE_DATA
+      media_pause:
+        service: SERVICE
+        data: SERVICE_DATA
+      media_previous_track:
+        service: SERVICE
+        data: SERVICE_DATA
+      media_next_track:
+        service: SERVICE
+        data: SERVICE_DATA 
     attributes:
       is_volume_muted: ENTITY_ID|ATTRIBUTE
       state: ENTITY_ID|ATTRIBUTE
@@ -59,7 +73,7 @@ state_template:
   required: false
   type: template
 commands:
-  description: "Commands to be overwritten. Most, if not all, media player service commands can be overwritten. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, and `volume_mute` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
+  description: "Commands to be overwritten. Almost all media player service commands can be overwritten. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, `volume_mute`, `media_play`, `media_pause`, `media_stop`, `media_previous_track`, `media_next_track` and `play_media` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
   required: false
   type: string
 attributes:
@@ -147,7 +161,7 @@ media_player:
 
 In this example, a [Kodi Media Player](/integrations/kodi) runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi add-on installed, it can turn on and off the attached TV.
 
-We store the state of the attached TV in a [input boolean](/integrations/input_boolean/), so we can differentiate the TV being on or off, while Kodi is always 'idle', and use the universal media player to render its state with a template. We now can differentiate between the 'idle' and the 'off' state (being the second when it is idle and the TV is off).
+We store the state of the attached TV in an [input boolean](/integrations/input_boolean/), so we can differentiate the TV being on or off, while Kodi is always 'idle', and use the universal media player to render its state with a template. We now can differentiate between the 'idle' and the 'off' state (being the second when it is idle and the TV is off).
 
 Because the input boolean used to store the TV state is only changing when using the Home Assistant `turn_on` and `turn_off` actions, and Kodi could be controlled by so many ways, we also define some automations to update this Input Boolean when needed.
 

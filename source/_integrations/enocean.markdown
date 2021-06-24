@@ -23,7 +23,7 @@ ha_platforms:
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.
 
-The `enocean` integration adds support for some of these devices. You will need a controller like the [USB300](https://www.enocean.com/en/enocean_modules/usb-300-oem/) in order for it to work.
+The EnOcean integration adds support for some of these devices. You will need a controller like the [USB300](https://www.enocean.com/en/enocean_modules/usb-300-oem/) in order for it to work.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -43,17 +43,13 @@ The following devices have been confirmed to work out of the box:
 - EnOcean STM-330 temperature sensor
 - Hoppe SecuSignal window handle from Somfy
 
-If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). 
-If it does, it will most likely work. 
-The available profiles are usually listed somewhere in the device manual. 
+If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). If it does, it will most likely work. The available profiles are usually listed somewhere in the device manual.
 
 Support for tech-in messages is not implemented.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
-Despite the UI-based configuration of the hub, the entities are still configured using YAML see mext chapters).
+Despite the UI-based configuration of the hub, the entities are still configured using YAML see next chapters).
 
 ## Binary Sensor
 

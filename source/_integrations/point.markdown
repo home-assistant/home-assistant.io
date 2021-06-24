@@ -76,16 +76,21 @@ The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is im
 
 Each Point exposes the following binary sensors:
 
+- **alarm**: `On` means alarm sound was recognised, `Off` means normal
 - **battery**: `On` means low, `Off` means normal
 - **button_press**: `On` means the button was pressed, `Off` means normal
 - **cold**: `On` means cold, `Off` means normal
 - **connectivity**: `On` means connected, `Off` means disconnected
 - **dry**: `On` means too dry, `Off` means normal
+- **glass**: `On` means the sound of glass break was detected, `Off` means normal
 - **heat**: `On` means hot, `Off` means normal
 - **light**: `On` means light detected, `Off` means no light
 - **moisture**: `On` means moisture detected (wet), `Off` means no moisture (dry)
+- **motion**: `On` means motion was detected, `Off` means no motion
+- **noise**: `On` means noise was detected, `Off` means noise levels have gone back to normal
 - **sound**: `On` means sound detected, `Off` means no sound (clear)
-- **tamper**: `On` means the point was removed or attached, `Off` means normal
+- **tamper**: `On` means the point was removed, `Off` means normal
+- **tamper_old**: `On` means the point was removed or attached, `Off` means normal (this is only supported on some "old" devices)
 
 <div class="note">
 

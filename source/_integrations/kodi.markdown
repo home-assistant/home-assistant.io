@@ -13,6 +13,7 @@ ha_domain: kodi
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - media_player
   - notify
 ---
 

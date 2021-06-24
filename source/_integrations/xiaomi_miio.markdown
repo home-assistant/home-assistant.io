@@ -34,7 +34,7 @@ ha_platforms:
 The `xiaomi_miio` integration supports the following devices:
 
 - [Xiaomi Gateway](#xiaomi-gateway)
-- [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2))
+- [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
 - [Xiaomi Air Purifier and Humidifier](#xiaomi-air-purifier-and-humidifier)
 - [Xiaomi Air Quality Monitor](#xiaomi-air-quality-monitor)
 - [Xiaomi IR Remote](#xiaomi-ir-remote)
@@ -47,7 +47,6 @@ The `xiaomi_miio` integration supports the following devices:
 Most Xiaomi Miio devices support configuration using the config flow, except for the [Xiaomi device tracker](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2) and [Xiaomi IR Remote](#xiaomi-ir-remote).
 {% include integrations/config_flow.md %}
 During the config flow it is recommaned to supply your Xiaomi cloud credentials to automatically connect to your devices. You need to specify the cloud server you used in the Xiaomi Home App (where you initialy setup the device), There are 6 servers: cn, de, i2, ru, sg and us, see https://www.openhab.org/addons/bindings/miio/#country-servers for the server to use for each country. If you have multiple Xiaomi Miio devices, a list of your devices will be givin in which you can select the one you want to configure, the config flow process can be repeated to setup multiple devices. 
-
 
 ## Xiaomi Gateway
 
@@ -1114,6 +1113,22 @@ automation:
         segments: 1
 ```
 
+The original app for Xiaomi vacuum has a nice feature of room cleaning with repetition, you can achieve the same result with repeating segments:
+
+```yaml
+automation:
+  - alias: "Vacuum kitchen"
+    trigger:
+      - event: start
+        platform: homeassistant
+    action:
+      - service: xiaomi_miio.vacuum_clean_segment
+        target:
+          entity_id: vacuum.xiaomi_vacuum
+        data:
+          segments: [1, 1]
+```
+
 ### Attributes
 
 In addition to [all of the attributes provided by the `vacuum` component](/integrations/vacuum/#attributes),
@@ -1513,9 +1528,9 @@ iOS: Most options are still in Chinese, you need the fourth item from the top.
 
 Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
 
-### Windows or macOS
+### Using Get Mi Home Devices Token App
 
-If using an Windows or macOS device to retrieve the Access Token use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token) App.
+If you are on a Windows or macOS device, you can use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases) App to retrieve the token. Click the link, download the file that corresponds to your OS, enter your login details and it will retrieve the access token. 
 
 ### Alternative methods
 

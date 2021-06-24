@@ -12,7 +12,7 @@ or need to recover your data.
 
 If you are still logged in to the web interface with your user, then you are in luck. Add a new user as an administrator and give the new user a password you can remember. Then log out, and log in with this new user. You may then reset your password via this new administrator account (and then delete this new account), or you can delete your old user account. Either way, your configuration will remain, and you don't have to do a new onboarding process.
 
-If you’ve forgotten your username, then deleting the files mentioned above will be necessary to start a new onboarding process.
+If you’ve forgotten your username, then deleting the files mentioned further below will be necessary to start a new onboarding process.
 
 #### To reset a user's password, via console
 If you know the username, but not the password and you can access the [Home Assistant console](https://www.home-assistant.io/hassio/commandline/) and use the command below:

@@ -19,12 +19,15 @@ ha_platforms:
 
 This integration connects with Risco Alarms over [Risco Cloud](https://riscocloud.com/).
 
+<div class='note'>
+As from January 2021, Risco have implemented charges for use of their Cloud Features.
+</div>
+
+{% include integrations/config_flow.md %}
+
 <div class='note warning'>
 It is recommended to use a regular (non-owner) account with the Risco app/website, and use a different regular account with the integration. Risco has restrictions on concurrent uses by different users, especially if they have different permission levels.
 </div>
-
-
-{% include integrations/config_flow.md %}
 
 4 sensors will be created to store events, depending on the category (Status, Alarm, Trouble and Other). Each sensor
 has the event timestamp as the state, and other event information in attributes.

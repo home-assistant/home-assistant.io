@@ -3,7 +3,10 @@
   <ul class="divided">
     {% assign categories = site.categories | sort %}
     {% for category in categories %}
-      <li><a href="/blog/categories/{{ category | first | downcase }}/">{{ category | first | replace: '-', ' '}}</a></li>
+      {% assign category_name = category | first | downcase %}
+      {% if category_name != "core" %}
+        <li><a href="/blog/categories/{{ category_name }}/">{{ category | first | replace: '-', ' '}}</a></li>
+      {% endif %}
     {% endfor %}
   </ul>
 </section>

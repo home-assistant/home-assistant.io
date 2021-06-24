@@ -171,12 +171,12 @@ automation:
       to: "open"
   condition:
     - condition: state
-      entity_id: alarm_control_panel.ha_alarm
+      entity_id: alarm_control_panel.home_alarm
       state: armed_away
   action:
     service: alarm_control_panel.alarm_trigger
     target:
-      entity_id: alarm_control_panel.ha_alarm
+      entity_id: alarm_control_panel.home_alarm
 ```
 
 Sending a notification when the alarm is triggered.
@@ -186,7 +186,7 @@ automation:
   - alias: 'Send notification when alarm triggered'
     trigger:
       - platform: state
-        entity_id: alarm_control_panel.ha_alarm
+        entity_id: alarm_control_panel.home_alarm
         to: "triggered"
     action:
       - service: notify.notify
@@ -207,7 +207,7 @@ automation:
     action:
       - service: alarm_control_panel.alarm_disarm
         target:
-          entity_id: alarm_control_panel.house_alarm
+          entity_id: alarm_control_panel.home_alarm
 ```
 
 Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pending Status

@@ -63,5 +63,6 @@ List of models known to be supported:
 
 - RT1900ac
 - RT2600ac
+- MR2200ac
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.

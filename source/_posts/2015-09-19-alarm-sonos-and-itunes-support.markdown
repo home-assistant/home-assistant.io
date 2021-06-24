@@ -5,7 +5,9 @@ date: 2015-09-19 21:47:00 0000
 date_formatted: "September 19, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's like someone opened a can of rock solid developers and emptied it above our [chat channel](https://discord.gg/c5DvZ4e) because it exploded with great conversations and solid contributions. Featured in release 0.7.3: Sonos, iTunes, Alarm component and Automation upgrade.

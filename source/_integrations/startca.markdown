@@ -14,7 +14,7 @@ Integrate your [Start.ca](https://www.start.ca/) account information into Home A
 
 ## Setup
 
-You can get your API key from: [Start.ca Usage API](https://www.start.ca/support/usage/api)
+You can get your API key from: [Start.ca Usage API](https://www.start.ca/account/usage/api)
 
 ## Configuration
 

@@ -12,10 +12,11 @@ ha_codeowners:
   - '@jjlawren'
 ha_domain: plex
 ha_platforms:
+  - media_player
   - sensor
 ---
 
-The Plex integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. Media Players will allow you to control media playback and see the current playing item.
+The Plex integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [Media Players](/integrations/media_player/) and report playback status and library sizes via [Sensors](/integrations/sensor/) in Home Assistant. Media Players will allow you to control media playback and see the current playing item.
 
 Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is available for users with an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription. More information [here](#sonos-playback).
 
@@ -27,6 +28,10 @@ There is currently support for the following device types within Home Assistant:
 If a Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
 
 {% include integrations/config_flow.md %}
+
+During setup, the integration will check all possible ways to connect to your Plex server(s) - i.e., local or public addresses, HTTP or HTTPS, by IP or using a subdomain of `plex.direct`, or by using a Plex relay if all other methods fail. The integration will prefer local over public and secure over insecure, in that order. The selected address is shown on the Plex card on the Integrations page.
+
+If your router enforces DNS rebind protection, connections to the local `plex.direct` hostname may fail (see [Plex documentation](https://support.plex.tv/articles/206225077-how-to-use-secure-server-connections/#dnsrebinding)). To avoid this, configure your router to allow DNS rebinding for `plex.direct` by following the instructions in the documentation link.
 
 ### Integration Options
 
@@ -56,7 +61,16 @@ Alternatively, you can manually configure a Plex server connection by selecting 
 
 ## Sensor
 
-The Plex sensor platform monitors activity on a given Plex Media Server. The sensor state provides the a count of users currently watching media from the Plex server. Clicking the sensor shows who is watching what media.
+The activity sensor provides a count of users currently watching media from the Plex server. Clicking the sensor shows details for the active users and media streams.
+
+The library sensors show a count of items in each library. Depending on the library contents, the sensor will show extra detail in its attributes. For example, a library sensor for TV shows will represent the total number of episodes in the library and its attributes will also report the number of shows and seasons it contains.
+
+<div class='note info'>
+  
+The library sensors are disabled by default, but can be enabled via the Plex integration page.
+  
+</div>
+
 
 ## Media Player
 
@@ -77,6 +91,12 @@ Refer to these links if casting to non-Plex players:
 - [Chromecast](/integrations/cast/#plex)
 - [Sonos](/integrations/plex#sonos-playback)
   
+</div>
+
+<div class='note warning'>
+
+  The integration must be configured with a token for playback commands to work. This can occur if using the `List of IP addresses and networks that are allowed without auth` option on the Plex server. If that feature is required, it's recommended to configure the integration with that feature temporarily disabled.
+
 </div>
 
 #### Music

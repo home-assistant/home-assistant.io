@@ -47,14 +47,9 @@ monitored_conditions:
 
 Sensors are exposing additional values through their attributes for all available conditions:
 
-- `delta-24h`: The delta measurement for the last 24 hours.
-- `max-1h`: The maximum measurement for the last hour.
 - `max-24h`: The maximum measurement for the last 24 hours.
-- `mean-1h`: The mean measurement for the last hour.
 - `mean-24h`: The mean measurement for the last 24 hours.
-- `min-1h`: The minimum measurement for the last hour.
 - `min-24h`: The minimum measurement for the last 24 hours.
-- `previous-24h`: The previous measurement for the last 24 hours.
 - `station_update`: There is a time span between the sensor update in Home Assistant and the updates from the stations. Include those information if you are building automations based on the discharge of a water body.
 
 <div class='note info'>

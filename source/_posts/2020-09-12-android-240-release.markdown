@@ -5,7 +5,9 @@ date: 2020-09-12 00:00:00
 date_formatted: "September 12, 2020"
 comments: true
 author: Daniel Shokouhi
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-09-12-android-240-release/Companion.png
 ---
 

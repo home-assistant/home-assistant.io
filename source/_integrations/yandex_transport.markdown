@@ -73,7 +73,7 @@ sensor:
 ## Options For Entities
 
 You can configure view information about the next bus using Lovelace card.
-To enable displaying the relative time in your `default_vew` add the following lines:
+To enable displaying the relative time in your `default_view` add the following lines:
 
 ```yaml
 # Example default_view entry

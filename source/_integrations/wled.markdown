@@ -79,6 +79,13 @@ Can be configured on the WLED itself under settings > Sync Interfaces > WLED Bro
 
 [WLED Sync documentation](https://github.com/Aircoookie/WLED/wiki/Sync-WLED-devices-(UDP-Notifier))
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Keep Master Light:
+  description: Keep the master light, even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to appear and remove dynamically.
+{% endconfiguration_basic %}
+
 ## Services
 
 Currently, the WLED integration provides one service for controlling effect.

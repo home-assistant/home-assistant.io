@@ -3,6 +3,12 @@ title: "Z-Wave Devices - Adding and Removing"
 description: "How to add and remove Z-Wave devices."
 ---
 
+<div class='note'>
+
+This Z-Wave integration is deprecated and replaced with a [new implementation based on Z-Wave JS](/integrations/zwave_js); it's currently in beta, and you can [try it now](/integrations/zwave_js/).
+
+</div>
+
 ## Adding Devices
 
 To add a [Z-Wave device](/docs/z-wave/devices/):

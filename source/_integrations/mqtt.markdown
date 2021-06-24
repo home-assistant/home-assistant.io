@@ -18,6 +18,8 @@ ha_platforms:
   - cover
   - fan
   - lock
+  - number
+  - scene
   - sensor
   - switch
 ---
@@ -38,6 +40,18 @@ To connect to your [own MQTT broker](/docs/mqtt/broker#run-your-own):
 # Example configuration.yaml entry
 mqtt:
   broker: IP_ADDRESS_BROKER
+```
+
+Manual configuration is required when connecting to a broker over TLS.
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  certificate: "PATH_TO_CA.crt"
+  broker: "IP_ADDRESS_BROKER"
+  port: 8883
+  username: "MQTT_USERNAME"
+  password: !secret MQTT_PASSWORD
 ```
 
 ## Additional features

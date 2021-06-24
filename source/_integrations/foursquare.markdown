@@ -4,7 +4,7 @@ description: Instructions on how to the Foursquare API into Home Assistant.
 ha_category:
   - Social
 ha_release: 0.26
-ha_iot_class: Cloud Polling and Cloud Push
+ha_iot_class: Cloud Push
 ha_domain: foursquare
 ---
 

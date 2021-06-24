@@ -14,7 +14,9 @@ ha_platforms:
   - sensor
 ---
 
-The `nut` sensor platform allows you to monitor a UPS (battery backup) by using data from a [NUT](https://networkupstools.org/) (Network UPS Tools) server.
+The Network UPS Tools (NUT) integration allows you to monitor a UPS
+(battery backup) by using data from a [NUT](https://networkupstools.org/)
+server.
 
 {% include integrations/config_flow.md %}
 
@@ -59,8 +61,11 @@ output.voltage: 121.50
 output.voltage.nominal: 120
 ```
 
-Use the values from the left hand column. Support is included for most values with 'ups', 'battery', 'input' and 'output' prefixes.
+Use the values from the left hand column. Support is included for most
+values with 'ups', 'battery', 'input' and 'output' prefixes.
 
 ## UPS Status - human-readable version
 
-An additional virtual sensor type `ups.status.display` is available translating the UPS status value retrieved from `ups.status` into a human-readable version.
+An additional virtual sensor type `ups.status.display` is available
+translating the UPS status value retrieved from `ups.status` into a
+human-readable version.

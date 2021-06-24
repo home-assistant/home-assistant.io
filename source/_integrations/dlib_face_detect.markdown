@@ -12,7 +12,11 @@ The `dlib_face_detect` image processing platform allows you to use the [Dlib](ht
 
 This can be used to trigger an automation rule. Further info is on the [integration](/integrations/image_processing/) page.
 
-### Configuration Home Assistant
+<div class='note'>
+This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
+</div>
+
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry

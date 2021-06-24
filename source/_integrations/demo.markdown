@@ -19,9 +19,12 @@ ha_platforms:
   - cover
   - device_tracker
   - fan
+  - humidifier
   - light
   - lock
+  - media_player
   - notify
+  - number
   - remote
   - sensor
   - stt

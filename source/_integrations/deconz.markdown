@@ -3,6 +3,7 @@ title: deCONZ
 description: Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
 ha_category:
   - Hub
+  - Alarm
   - Binary Sensor
   - Cover
   - Fan
@@ -20,12 +21,14 @@ ha_codeowners:
 ha_domain: deconz
 ha_ssdp: true
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - climate
   - cover
   - fan
   - light
   - lock
+  - scene
   - sensor
   - switch
 ---
@@ -36,6 +39,7 @@ ha_platforms:
 
 There is currently support for the following device types within Home Assistant:
 
+- [Alarm Control Panel](#alarm-control-panel)
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
 - [Cover](#cover)
@@ -192,24 +196,24 @@ automation:
   - alias: "'Toggle lamp from dimmer'"
     initial_state: "on"
     trigger:
-      platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_control_1
-        event: 1002
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: remote_control_1
+          event: 1002
     action:
-      service: light.toggle
-      target:
-        entity_id: light.lamp
+      - service: light.toggle
+        target:
+          entity_id: light.lamp
 
   - alias: "Increase brightness of lamp from dimmer"
     initial_state: "on"
     trigger:
-      platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_control_1
-        event: 2002
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: remote_control_1
+          event: 2002
     action:
       - service: light.turn_on
         target:
@@ -222,11 +226,11 @@ automation:
   - alias: "Decrease brightness of lamp from dimmer"
     initial_state: "on"
     trigger:
-      platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_control_1
-        event: 3002
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: remote_control_1
+          event: 3002
     action:
       - service: light.turn_on
         target:
@@ -239,15 +243,15 @@ automation:
   - alias: 'Turn lamp on when turning cube clockwise'
     initial_state: "on"
     trigger:
-      platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_control_1
-        gesture: 7
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: remote_control_1
+          gesture: 7
     action:
-      service: light.turn_on
-      target:
-        entity_id: light.lamp
+      - service: light.turn_on
+        target:
+          entity_id: light.lamp
 ```
 
 {% endraw %}
@@ -286,28 +290,35 @@ automation:
   - alias: "Flash Hue Bulb with Doorbell Motion"
     mode: single
     trigger:
-    - platform: state
-      entity_id: binary_sensor.doorbell_motion
-      to: "on"
+      - platform: state
+        entity_id: binary_sensor.doorbell_motion
+        to: "on"
     action:
-    - service: deconz.configure
-      data:
-        entity: light.hue_lamp
-        field: /state
+      - service: deconz.configure
         data:
-          'on': true
-          hue: 65535
-          sat: 255
-          bri: 255
-          alert: breathe
-    - delay: 00:00:15
-    - service: deconz.configure
-      data:
-        entity: light.hue_lamp
-        field: /state
+          entity: light.hue_lamp
+          field: /state
+          data:
+            'on': true
+            hue: 65535
+            sat: 255
+            bri: 255
+            alert: "breathe"
+      - delay: 00:00:15
+      - service: deconz.configure
         data:
-          'on': false
+          entity: light.hue_lamp
+          field: "/state"
+          data:
+            'on': false
 ```
+
+## Alarm Control Panel
+
+The entity of a physical keypad. Can be in 4 different modes (`arm_away`, `arm_home`, `arm_night` or `disarmed`). Changing the state will do an audible notification from the keypad.
+
+The Device also exposes a new event type `deconz_alarm_event` which signals a user action with the keypad.
+The Payload consists of an event (`arm_away`, `arm_home`, `arm_night` or `disarmed`) and a four-digit code.
 
 ## Binary Sensor
 

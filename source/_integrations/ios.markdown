@@ -4,7 +4,7 @@ description: Instructions on how to use the iOS companion app with Home Assistan
 ha_category:
   - Hub
 ha_release: 0.31
-ha_iot_class: Configurable
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@robbiet480'

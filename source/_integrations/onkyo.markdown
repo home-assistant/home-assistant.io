@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.17
 ha_iot_class: Local Polling
 ha_domain: onkyo
+ha_platforms:
+  - media_player
 ---
 
 The `onkyo` platform allows you to control a [Onkyo](https://www.onkyo.com), [Integra](http://www.integrahometheater.com)

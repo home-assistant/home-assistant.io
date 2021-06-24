@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_domain: yale_smart_alarm
 ha_platforms:
   - alarm_control_panel
+ha_codeowners:
+  - '@gjohansson-ST'
 ---
 
 The `yale_smart_alarm` platform provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.

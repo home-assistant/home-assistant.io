@@ -8,7 +8,6 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: websocket_api
-ha_iot_class:
 ha_platforms:
   - sensor
 ---
@@ -26,10 +25,12 @@ For details to use the WebSocket API, please refer to the [WebSocket API documen
 
 ## Track current connections
 
-The websocket API provides a sensor that will keep track of the number of current connected clients. You can add it by adding the following to your configuration:
+The WebSocket API provides a sensor that will keep track of the number of currently connected clients. You can add it by adding the following to your configuration:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: websocket_api
+  - platform: websocket_api
 ```
+
+This will create a sensor called `sensor.connected_clients` whose value is the total number of connected clients.

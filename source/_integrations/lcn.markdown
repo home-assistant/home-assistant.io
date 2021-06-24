@@ -20,6 +20,7 @@ ha_platforms:
   - climate
   - cover
   - light
+  - scene
   - sensor
   - switch
 ---

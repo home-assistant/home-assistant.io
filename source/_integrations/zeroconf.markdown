@@ -29,14 +29,13 @@ zeroconf:
   description: 
   type: map
   keys:
-   default_interface:
-     description: By default, `zeroconf` will attempt to bind to all interfaces. For systems running using network isolation or similar, this may result in `zeroconf` being unavailable. Change this option to `true` if `zeroconf` does not function.
-     required: false
-     type: boolean
-     default: false
    ipv6:
      description: By default, `zeroconf` will enable IPv6 support. If your network has trouble with IPv6 being enabled, you can set this option to `false`.
      required: false
      type: boolean
      default: true
 {% endconfiguration %}
+
+## Network interfaces and auto detection
+
+Zeroconf chooses which interfaces to broadcast on based on the [Network](/integrations/network/) integration.

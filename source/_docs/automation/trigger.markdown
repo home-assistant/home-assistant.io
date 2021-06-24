@@ -3,13 +3,45 @@ title: "Automation Trigger"
 description: "All the different ways how automations can be triggered."
 ---
 
-## What are triggers
-
 Triggers are what starts the processing of an automation rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
 
 An automation can be triggered by an event, with a certain entity state, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
 
-The following sections introduce all trigger types and further details to get started.
+- [Event trigger](#event-trigger)
+- [Home Assistant trigger](#home-assistant-trigger)
+- [MQTT trigger](#mqtt-trigger)
+- [Numeric state trigger](#numeric-state-trigger)
+- [State trigger](#state-trigger)
+- [Sun trigger](#sun-trigger)
+- [Tag trigger](#tag-trigger)
+- [Template trigger](#template-trigger)
+- [Time trigger](#time-trigger)
+- [Time pattern trigger](#time-pattern-trigger)
+- [Webhook trigger](#webhook-trigger)
+- [Zone trigger](#zone-trigger)
+- [Geolocation trigger](#geolocation-trigger)
+- [Device triggers](#device-triggers)
+
+## Trigger id
+
+All triggers can be assigned an optional `id`. If the id is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from trigger conditions.
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: "MY_CUSTOM_EVENT"
+      id: "custom_event"
+    - platform: mqtt
+      topic: "living_room/switch/ac"
+      id: "ac_on"
+    - platform: state  # This trigger will be assigned id="2"
+      entity_id:
+        - device_tracker.paulus
+        - device_tracker.anne_therese
+      to: "home"
+```
+
 
 ## Trigger variables
 
@@ -171,17 +203,17 @@ Listing above and below together means the numeric_state has to be between the t
 In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (from 17 and below or 25 and above). It will only fire again, once it has left the defined range and enters it again.
 </div>
 
-Number helpers (`input_number` entities) can be used in the `above` and `below` thresholds, making
-the trigger more dynamic, like:
+Number helpers (`input_number` entities), `number` and `sensor` entities that
+contain a numeric value, an be used in the `above` and `below` thresholds,
+making the trigger more dynamic, like:
 
 ```yaml
 automation:
   trigger:
     - platform: numeric_state
-      entity_id: sensor.temperature
-      # input_number entity id can be specified for above and/or below thresholds
-      above: input_number.temperature_threshold_high
-      below: input_number.temperature_threshold_low
+      entity_id: sensor.outside_temperature
+      # Other entity ids can be specified for above and/or below thresholds
+      above: sensor.inside_temperature
 ```
 
 The `for:` can also be specified as `HH:MM:SS` like this:
@@ -641,6 +673,12 @@ curl -X POST https://your-home-assistant:8123/api/webhook/some_hook_id
 Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 
 Note that a given webhook can only be used in one automation at a time. That is, only one automation trigger can use a specific webhook ID.
+
+In order to reference `trigger.json`, the `Content-Type` header must be specified with a value of `application/json`, e.g.:
+
+```bash
+curl -X POST -H "Content-Type: application/json" https://your-home-assistant:8123/api/webhook/some_hook_id
+```
 
 ## Zone trigger
 

@@ -8,7 +8,7 @@ ha_category:
   - Camera
   - Lock
 ha_release: 0.64
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'

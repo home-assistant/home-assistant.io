@@ -28,6 +28,12 @@ ha_platforms:
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
+## Shelly device configuration
+
+Shelly devices use the `CoIoT` protocol to communicate with integration. For Shelly firmware 1.10.0 or newer, `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
+
+We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. This is mandatory for Shelly Motion with firmware 1.1.0 or newer. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
+
 <div class="note">
 Integration is communicating directly with the device; cloud connection is not needed.
 </div>
@@ -47,10 +53,10 @@ Examples:
 
 | Device Name | Channel Name   | Entity Name                     |
 | ----------- | -------------- | --------------------------------|
-| `Not set`   |	`Not Set`	     | shellyswitch25-ABC123 Channel 1 |
-| `Not set`	  | Kids Room Bulb | Kids Room Bulb                  |
-| Kitchen     |	`Not Set`	     | Kitchen Channel 1               |
-| Bedroom	    | Round Bulb     | Round Bulb                      |
+| `Not set`   | `Not Set`      | shellyswitch25-ABC123 Channel 1 |
+| `Not set`   | Kids Room Bulb | Kids Room Bulb                  |
+| Kitchen     | `Not Set`      | Kitchen Channel 1               |
+| Bedroom     | Round Bulb     | Round Bulb                      |
 
 Names are set from the device web page:
 
@@ -64,9 +70,44 @@ Shelly device relays are added to the Home Assistant by default as `switch` enti
 
 ## Events
 
-If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events when the switch is used. You can use these events in your automations.
+If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events under the type `shelly.click` when the switch is used. You can use these events in your automations.
 
-### Automation examples
+Also, some devices do not add an entity for the button/switch. For example, the Shelly Button1 has only one entity for the battery level. It does not have an entity for the button itself. To trigger automations based on button presses, use the `shelly.click` event.
+
+### Listening for events
+
+You can subscribe to the `shelly.click` event type in [Developer Tools/Events](/docs/tools/dev-tools/) in order to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
+
+```json
+Event 0 fired 9:53 AM:
+{
+    "event_type": "shelly.click",
+    "data": {
+        "device_id": "e09c64a22553484d804353ef97f6fcd6",
+        "device": "shellybutton1-A4C12A45174",
+        "channel": 1,
+        "click_type": "single"
+    },
+    "origin": "LOCAL",
+    "time_fired": "2021-04-28T08:53:12.755729+00:00",
+    "context": {
+        "id": "e0f379706563aaa0c2c1fda5174b5a0e",
+        "parent_id": null,
+        "user_id": null
+    }
+}
+```
+
+### Automations
+
+The simplest way to create automations is to use the Home Assistant automation editor. For example, to set an automation triggered by a double press of a particular Shelly Button1:
+
+1. In the Triggers section of the automation, set Trigger Type to `Device`.
+2. In the Device dropdown menu. find the Shelly Button1.
+3. In the Trigger dropdown menu, select `Button double clicked`.
+4. Set any conditions and actions to complete your automation.
+
+You can also create automations using YAML, for example:
 
 ```yaml
 - alias: "Toggle living room light"
@@ -101,11 +142,11 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
 | Shelly input event | Click Type    |
 | ------------------ | --------------|
 | `S`                | `single`      |
-| `SS`	             | `double`      |
+| `SS`               | `double`      |
 | `SSS`              | `triple`      |
-| `L`	               | `long`        |
-| `SL`	             | `single_long` |
-| `LS`	             | `long_single` |
+| `L`                | `long`        |
+| `SL`               | `single_long` |
+| `LS`               | `long_single` |
 
 <div class="note">
 
@@ -113,7 +154,20 @@ Not all devices support all input events. You can check on [Shelly API Reference
 
 </div>
 
+## CoAP port
+
+In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
+
+In order to change it, add the following key to your configuration.yaml:
+
+```yaml
+# Example configuration.yaml entry
+shelly:
+  coap_port: 12345
+```
+
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
+- Shelly 4Pro and Shelly Sense are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.

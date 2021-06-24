@@ -10,6 +10,8 @@ ha_codeowners:
   - '@uvjustin'
 ha_config_flow: true
 ha_zeroconf: true
+ha_platforms:
+  - media_player
 ---
 
 The `forked_daapd` integration allows you to control your [forked-daapd](http://ejurgensen.github.io/forked-daapd/) server from Home Assistant. This integration can control the forked-daapd outputs (zones) with limited playback control (play/pause, previous/next track) and media info support. Playlist manipulation is not supported.

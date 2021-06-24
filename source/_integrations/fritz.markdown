@@ -1,46 +1,80 @@
 ---
-title: AVM FRITZ!Box
+title: AVM FRITZ!Box Tools
 description: Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant.
 ha_category:
   - Presence Detection
+  - Binary Sensor
+  - Sensor
 ha_release: '0.10'
 ha_domain: fritz
+ha_config_flow: true
+ha_codeowners:
+  - '@mammuth'
+  - '@AaronDavidSchneider'
+  - '@chemelli74'
 ha_iot_class: Local Polling
 ha_platforms:
+  - binary_sensor
   - device_tracker
+  - sensor
+ha_ssdp: true
 ---
 
-The `fritz` platform offers presence detection by looking at connected devices to a [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) based router.
+The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) based router.
 
-## Configuration
+There is support for the following platform types within Home Assistant:
 
-To use an FRITZ!Box router in your installation, add the following to your `configuration.yaml` file:
+- **Device tracker** - presence detection by looking at connected devices.
+- **Binary sensor** - connectivity status.
+- **Sensor** - external IP address and uptime.
 
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: fritz
-```
-
-{% configuration %}
-host:
-  description: The IP address of your router, e.g., `192.168.178.1`. It is optional since every FRITZ!Box is also reachable by using the IP address 169.254.1.1.
-  required: false
-  type: string
-  default: 169.254.1.1
-username:
-  description: The username of an user with administrative privileges, usually `admin`.
-  required: false
-  type: string
-  default: admin
-password:
-  description: The password for your given admin account.
-  required: false
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 TR-064 needs to be enabled in the FRITZ!Box network settings for Home Assistant to login and read device info.
 </div>
 
-See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
+## Username
+
+The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24 the default username was `admin`.
+
+## Services
+
+Currently supported services are Platform specific:
+
+- `fritz.reconnect`
+- `fritz.reboot`
+
+### Platform Services
+
+#### Service `fritz.reboot`
+
+Reboot the router.
+
+</div>
+
+| Service data attribute | Optional | Description                                                                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Only act on a specific  router                                                                                 |
+
+#### Service `fritz.reconnect`
+
+Disconnect and reconnect the router to the Internet.
+If you have a dynamic IP address, most likely it will change.
+
+| Service data attribute | Optional | Description                                                                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Only act on a specific  router                                                                                 |
+
+## Integration Options
+
+It is possible to change some behaviors through the integration options.
+These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrations page.
+
+- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
+
+## Additional info
+
+**Note 1**: All devices to be tracked, even the new detected, are disabled by default. You need to enable the wanted entities manually.
+
+**Note 2**: If you don't want to automatically track newly detected devices, disable the integration system option `Enable new added entities`.

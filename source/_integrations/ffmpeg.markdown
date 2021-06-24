@@ -5,7 +5,6 @@ ha_category:
   - Image Processing
 ha_release: 0.29
 ha_domain: ffmpeg
-ha_iot_class:
 ha_platforms:
   - camera
 ---

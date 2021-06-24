@@ -10,6 +10,7 @@ ha_codeowners:
   - '@bendavid'
 ha_domain: webostv
 ha_platforms:
+  - media_player
   - notify
 ---
 
@@ -116,7 +117,7 @@ This usually only works if the TV is connected to the same network. Routing the 
 
 ```yaml
 # Example configuration.yaml entry
-wake_on_lan: # enables `wake_on_lan` domain
+wake_on_lan: # enables `wake_on_lan` integration
 
 webostv:
   host: 192.168.0.10
@@ -136,7 +137,9 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 
 ## Sources
 
-To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration.
+To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration. If you leave the `sources:` configuration empty, the `media_player` will offer all sources of the TV. If you list a subset of sources in the configuration, only those will be displayed.
+
+Note: it is normal and expected behavior that for a switched-off TV only the Live TV source is offered in the `media_player`, even if you have configured other sources as well. These will show up as soon as the TV is switched on.
 
 ## Change channel through play_media service
 

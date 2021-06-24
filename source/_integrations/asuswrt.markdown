@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@kennedyshead'
+  - '@ollo69'
 ha_domain: asuswrt
 ha_platforms:
   - device_tracker

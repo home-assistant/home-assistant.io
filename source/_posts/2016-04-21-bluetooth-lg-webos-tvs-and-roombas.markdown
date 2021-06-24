@@ -5,7 +5,9 @@ date: 2016-04-20 23:10:00 UTC
 date_formatted: "April 20, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2016-04-release-18/social.png
 ---
 

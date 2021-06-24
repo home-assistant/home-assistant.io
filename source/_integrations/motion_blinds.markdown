@@ -16,6 +16,12 @@ ha_platforms:
 
 The integration allows you to control [Motion Blinds](https://motion-blinds.com) from [Coulisse B.V.](https://coulisse.com/products/motion).
 
+Additionally the following brands have been reported to also work with this integration:
+
+- [Motion Blinds](https://motion-blinds.com)
+- [Dooya](http://www.dooya.com/)
+- [Bloc Blinds](https://www.blocblinds.com/)
+
 {% include integrations/config_flow.md %}
 
 ## Retrieving the API Key
@@ -99,3 +105,5 @@ This communication needs to be allowed on your local network. If the blinds are 
 
 Please make sure the motion gateway and the device running Home Assistant are on the same VLAN and multicasting is enabled/allowed by your router.
 If using separate VLANs, make sure the 238.0.0.18:32100 and 238.0.0.18:32101 ports are open for communication between those VLANs (not tested or confirmed to work).
+
+For some routers "IGMP snooping" on the used wireless interface needs to be disabled to let the IGMP/multicast messages through.

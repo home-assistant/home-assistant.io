@@ -4,7 +4,6 @@ description: Instructions on how to setup Fan devices within Home Assistant.
 ha_category:
   - Fan
 ha_release: 0.27
-ha_iot_class:
 ha_quality_scale: internal
 ha_domain: fan
 ---
@@ -53,7 +52,7 @@ automation:
 
 ### Service `fan.set_preset_mode`
 
-Sets a preset mode for fan device.
+Sets a preset mode for the fan device. Available preset modes are defined by the integration that supplies the fan entity to Home Assistant. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed.html) component provides by default three available presets: `Low`, `Medium` and `High`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

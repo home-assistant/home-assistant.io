@@ -11,13 +11,24 @@ ha_domain: cast
 ha_codeowners:
   - '@emontnemery'
 ha_zeroconf: true
+ha_platforms:
+  - media_player
 ---
 
-You can enable the Cast integration by going to the Integrations page inside the configuration panel.
+{% include integrations/config_flow.md %}
 
-## Setup
+Support for mDNS discovery in your local network is mandatory for automatic discovery. Make sure that your router has this feature enabled. If mDNS does not work in your network, the IP addresses of the Cast devices can be manually entered in the configuration as mentioned below.
 
-Support for mDNS discovery in your local network is mandatory. Make sure that your router has this feature enabled. This is even required if you entered the IP addresses of the Cast devices are manually in the configuration as mentioned below.
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
+Known hosts:
+  description: "A comma-separated list of hostnames or IP-addresses of cast devices, use if mDNS discovery is not working"
+Allowed UUIDs:
+  description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))`. This option is only visible if advanced mode is enabled in your user profile.
+Ignore CEC:
+  description: A comma-separated list of Chromecasts that should ignore CEC data for determining the
+        active input. [See the upstream documentation for more information](https://github.com/home-assistant-libs/pychromecast#ignoring-cec-data). This option is only visible if advanced mode is enabled in your user profile.
+{% endconfiguration_basic %}
 
 ## Home Assistant Cast
 
@@ -39,78 +50,11 @@ Home Assistant Cast requires your Home Assistant installation to be accessible v
 
 </div>
 
-## Casting other apps
+## Playing media
 
-### YouTube
+### Using the built in media player app (Default Media Receiver)
 
-- `app_name`: `youtube`
-- `media_id`: YouTube video ID
-
-Optional:
-- `enqueue`: Enqueue only
-- `playlist_id`: Play video with `media_id` from this playlist
-
-```yaml
-'cast_youtube_to_my_chromecast':
-  alias: "Cast YouTube to My Chromecast"
-  sequence:
-    - target:
-        entity_id: media_player.my_chromecast
-      data:
-        media_content_type: cast
-        media_content_id: '
-          {
-            "app_name": "youtube",
-            "media_id": "dQw4w9WgXcQ"
-          }'
-      service: media_player.play_media
-```
-
-### [Supla](https://www.supla.fi/)
-
-Example values to cast the item at https://www.supla.fi/audio/3601824
-
-- `app_name`: `supla`
-- `media_id`: Supla item ID
-
-Optional:
-- `is_live`: Item is a livestream
-
-```yaml
-'cast_supla_to_my_chromecast':
-  alias: "Cast supla to My Chromecast"
-  sequence:
-    - target:
-        entity_id: media_player.my_chromecast
-      data:
-        media_content_type: cast
-        media_content_id: '
-          {
-            "app_name": "supla",
-            "media_id": "3601824"
-          }'
-      service: media_player.play_media
-```
-
-### Plex
-
-To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#service-play_media) and prepend the `media_content_id` with `plex://`:
-
-```yaml
-'cast_plex_to_chromecast':
-  alias: "Cast Plex to Chromecast"
-  sequence:
-  - service: media_player.play_media
-    target:
-      entity_id: media_player.chromecast
-    data:
-      media_content_type: movie
-      media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
-```
-
-### Play (almost) any kind of media
-
-Chromecasts can play many kinds of modern [media (image/audio/video) formats](https://developers.google.com/cast/docs/media). As a rule of thumb, if a Chrome browser can play a media file a Chromecast will be able to handle that too.
+Chromecasts can play many kinds of modern [media (image/audio/video) formats](https://developers.google.com/cast/docs/media) using the built in app Default Media Receiver. As a rule of thumb, if a Chrome browser can play a media file a Chromecast will be able to handle that too.
 
 The media needs to be accessible via HTTP(S). Chromecast devices do not support other protocols like DLNA or playback from an SMB file share.
 
@@ -173,46 +117,136 @@ data:
         - url: "https://tilos.hu/images/kockalogo.png"
 ```
 
-## Advanced use
+### Casting with other apps
 
-### Manual configuration
+It's possible to play with other apps than the default media receiver.
+To do so, `media_content_type` should be set to `cast`, and `media_content_id` should be a JSON dict with parameters for the app, including the app name.
 
-By default, any discovered Cast device is added to Home Assistant. This can be restricted by supplying a list of allowed chrome casts.
+### BubbleUPNP
+
+The BubbleUPNP app has similar functionality to the built in Default Media Receiver app, and can be used as a backup if the default app fails to play the media.
+
+#### Media parameters
+
+Mandatory:
+
+- `app_name`: `bubbleupnp`
+- `media_id`: The URL to play
+
+Optional:
+
+- `media_type`: Media type, e.g. `video/mp4`, `audio/mp3`, `image/jpeg`, defaults to `video/mp4`.
+
+#### Example:
 
 ```yaml
-# Example configuration.yaml entry
-cast:
-  media_player:
-    - uuid: "ae3be716-b011-4b88-a75d-21478f4f0822"
+'cast_bubbleupnp_to_my_chromecast':
+  alias: "Cast a video to My Chromecast using BubbleUPNP"
+  sequence:
+    - target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "bubbleupnp",
+            "media_id": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "media_type": "video/mp4"
+          }'
+      service: media_player.play_media
 ```
 
-{% configuration %}
-media_player:
-  description: A list that contains advanced configuration options.
-  required: false
-  type: list
-  keys:
-    uuid:
-      description: UUID of a Cast device to add to Home Assistant. Use only if you don't want to add all available devices. The device won't be added until discovered through mDNS. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`
-      required: false
-      type: string
-    ignore_cec:
-      description: >
-        A list of Chromecasts that should ignore CEC data for determining the
-        active input. [See the upstream documentation for more information.](https://github.com/balloob/pychromecast#ignoring-cec-data)
-      required: false
-      type: list
-{% endconfiguration %}
+### YouTube
 
-### Docker and Cast devices and Home Assistant on different subnets
+#### Media parameters
 
-Cast devices can only be discovered and connected to if they are on the same subnet as Home Assistant.
+Mandatory:
 
-When running Home Assistant Core in a [Docker container](/docs/installation/docker/), the command line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put it on the host's network, otherwise the Home Assistant Core will not be able to connect to any Cast device.
+- `app_name`: `youtube`
+- `media_id`: YouTube video ID
 
-Setups with cast devices on a different subnet than Home Assistant are not recommended and not supported.
+Optional:
 
-If this is not possible, it's necessary to:
+- `enqueue`: Enqueue only
+- `playlist_id`: Play video with `media_id` from this playlist
 
-- Enable mDNS forwarding between the subnets.
-- Enable source NAT to make requests from Home Assistant to the Chromecast appear to come from the same subnet as the Chromecast.
+#### Example:
+
+```yaml
+'cast_youtube_to_my_chromecast':
+  alias: "Cast YouTube to My Chromecast"
+  sequence:
+    - target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "youtube",
+            "media_id": "dQw4w9WgXcQ"
+          }'
+      service: media_player.play_media
+```
+
+### [Supla](https://www.supla.fi/)
+
+Example values to cast the item at <https://www.supla.fi/audio/3601824>
+
+- `app_name`: `supla`
+- `media_id`: Supla item ID
+
+
+Optional:
+- `is_live`: Item is a livestream
+
+#### Example:
+
+```yaml
+'cast_supla_to_my_chromecast':
+  alias: "Cast supla to My Chromecast"
+  sequence:
+    - target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "supla",
+            "media_id": "3601824"
+          }'
+      service: media_player.play_media
+```
+
+### Plex
+
+To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#service-play_media) and prepend the `media_content_id` with `plex://`:
+
+```yaml
+'cast_plex_to_chromecast':
+  alias: "Cast Plex to Chromecast"
+  sequence:
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.chromecast
+    data:
+      media_content_type: movie
+      media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
+```
+
+## Troubleshooting automatic discovery
+
+mDNS relies on UDP multicast, which may fail for various reasons. If none of the tips in this section helps, the recommended solution is to ensure all cast devices have static IPs assigned to them and configure a list of known hosts.
+
+### Zeroconf configuration
+
+The Google Cast integration relies on the [Zeroconf integration](/integrations/zeroconf) for mDNS discovery. The Zeroconf integration has some configuration options which impact mDNS routing.
+
+### Cast devices and Home Assistant on different subnets
+
+Cast devices can only be automatically discovered if they are on the same subnet as Home Assistant because mDNS packets are not routed across subnets.
+Automatic discovery in setups with cast devices on a different subnet than Home Assistant is not recommended and not supported.
+If it is not possible, it's necessary to either enable mDNS forwarding between the subnets or to configure a list of known hosts.
+
+### Home Assistant Container
+
+When running the [Home Assistant Container](/installation/linux#install-home-assistant-container) in Docker, make sure it is running with host network mode. Running without it is not supported by the Home Assistant project, and will cause this integration to be unable to discover to your Cast devices.

@@ -18,7 +18,9 @@ Supported by MQTT discovery:
 - [HVACs](/integrations/climate.mqtt/)
 - [Lights](/integrations/light.mqtt/)
 - [Locks](/integrations/lock.mqtt/)
+- [Numbers](/integrations/number.mqtt/)
 - [Scenes](/integrations/scene.mqtt/)
+- [Selects](/integrations/select.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
 - [Switches](/integrations/switch.mqtt/)
 - [Tag Scanners](/integrations/tag.mqtt/)
@@ -45,6 +47,8 @@ discovery_prefix:
   type: string
 {% endconfiguration %}
 
+### Discovery topic
+
 The discovery topic need to follow a specific format:
 
 ```text
@@ -55,9 +59,11 @@ The discovery topic need to follow a specific format:
 - `<node_id>` (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 - `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 
+Best practice for entities with a `unique_id` is to set `<object_id>` to `unique_id` and omit the `<node_id>`.
+
 The payload must be a JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
 
-An empty payload will cause a previously discovered device to be deleted.
+Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
 
 The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
@@ -154,8 +160,13 @@ Supported abbreviations:
     'on_cmd_type':         'on_command_type',
     'opt':                 'optimistic',
     'osc_cmd_t':           'oscillation_command_topic',
+    'osc_cmd_tpl':         'oscillation_command_template',
     'osc_stat_t':          'oscillation_state_topic',
     'osc_val_tpl':         'oscillation_value_template',
+    'pct_cmd_t':           'percentage_command_topic',
+    'pct_cmd_tpl':         'percentage_command_template',
+    'pct_stat_t':          'percentage_state_topic',
+    'pct_val_tpl':         'percentage_value_template',
     'pl':                  'payload',
     'pl_arm_away':         'payload_arm_away',
     'pl_arm_home':         'payload_arm_home',
@@ -165,16 +176,12 @@ Supported abbreviations:
     'pl_cln_sp':           'payload_clean_spot',
     'pl_cls':              'payload_close',
     'pl_disarm':           'payload_disarm',
-    'pl_hi_spd':           'payload_high_speed',
     'pl_home':             'payload_home',
     'pl_lock':             'payload_lock',
     'pl_loc':              'payload_locate',
-    'pl_lo_spd':           'payload_low_speed',
-    'pl_med_spd':          'payload_medium_speed',
     'pl_not_avail':        'payload_not_available',
     'pl_not_home':         'payload_not_home',
     'pl_off':              'payload_off',
-    'pl_off_spd':          'payload_off_speed',
     'pl_on':               'payload_on',
     'pl_open':             'payload_open',
     'pl_osc_off':          'payload_oscillation_off',
@@ -184,6 +191,8 @@ Supported abbreviations:
     'pl_strt':             'payload_start',
     'pl_stpa':             'payload_start_pause',
     'pl_ret':              'payload_return_to_base',
+    'pl_rst_pct':          'payload_reset_percentage',
+    'pl_rst_pr_mode':      'payload_reset_preset_mode',
     'pl_toff':             'payload_turn_off',
     'pl_ton':              'payload_turn_on',
     'pl_unlk':             'payload_unlock',
@@ -192,6 +201,11 @@ Supported abbreviations:
     'pow_cmd_t':           'power_command_topic',
     'pow_stat_t':          'power_state_topic',
     'pow_stat_tpl':        'power_state_template',
+    'pr_mode_cmd_t':       'preset_mode_command_topic',
+    'pr_mode_cmd_tpl':     'preset_mode_command_template',
+    'pr_mode_stat_t':      'preset_mode_state_topic',
+    'pr_mode_val_tpl':     'preset_mode_value_template',
+    'pr_modes':            'preset_modes',
     'r_tpl':               'red_template',
     'ret':                 'retain',
     'rgb_cmd_tpl':         'rgb_command_template',
@@ -205,10 +219,8 @@ Supported abbreviations:
     'set_pos_t':           'set_position_topic',
     'pos_t':               'position_topic',
     'pos_tpl':             'position_template',
-    'spd_cmd_t':           'speed_command_topic',
-    'spd_stat_t':          'speed_state_topic',
-    'spd_val_tpl':         'speed_value_template',
-    'spds':                'speeds',
+    'spd_rng_min':         'speed_range_min',
+    'spd_rng_max':         'speed_range_max',
     'src_type':            'source_type',
     'stat_clsd':           'state_closed',
     'stat_closing':        'state_closing',

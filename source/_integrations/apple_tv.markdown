@@ -13,6 +13,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - media_player
   - remote
 ---
 

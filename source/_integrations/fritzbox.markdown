@@ -16,6 +16,8 @@ ha_platforms:
   - climate
   - sensor
   - switch
+ha_codeowners:
+  - '@mib1185'
 ---
 
 The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ!DECT](https://en.avm.de/products/fritzdect/) devices like switches, sensors and thermostats.
@@ -39,6 +41,10 @@ There is currently support for the following device types within Home Assistant:
 - [Eurotronic Comet DECT](https://eurotronic.org/produkte/elektronische-heizkoerperthermostate/sparmatic-comet/)
 
 {% include integrations/config_flow.md %}
+
+<div class='note'>
+The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with "fritz" followed by four random numbers. Under properties on the right it says "created automatically". Prior to FRITZ!OS 7.24 the default username was "admin".
+</div>
 
 ## Switches & Thermostats
 

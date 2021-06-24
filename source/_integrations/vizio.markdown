@@ -11,6 +11,8 @@ ha_codeowners:
   - '@raman325'
 ha_domain: vizio
 ha_zeroconf: true
+ha_platforms:
+  - media_player
 ---
 
 The `vizio` integration allows you to control [SmartCast](https://www.vizio.com/smartcast-app)-compatible TVs and sound bars (2016+ models).

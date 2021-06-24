@@ -6,7 +6,6 @@ ha_category:
 ha_release: 0.57
 ha_quality_scale: internal
 ha_domain: timer
-ha_iot_class: Calculated
 ---
 
 The `timer` integration aims to simplify automations based on (dynamic) durations.

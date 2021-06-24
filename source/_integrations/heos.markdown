@@ -10,6 +10,8 @@ ha_codeowners:
   - '@andrewsayre'
 ha_domain: heos
 ha_ssdp: true
+ha_platforms:
+  - media_player
 ---
 
 The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/shop/amplifiersmrs/heosavr) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:
@@ -121,7 +123,7 @@ media_content_id: "http://path.to/stream.mp3"
 
 ### Debugging
 
-The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the the relevant line below to the `configuration.yaml` to enable debug logging:
+The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml` to enable debug logging:
 
 ```yaml
 logger:

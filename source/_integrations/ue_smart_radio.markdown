@@ -6,6 +6,8 @@ ha_category:
 ha_release: '0.60'
 ha_iot_class: Cloud Polling
 ha_domain: ue_smart_radio
+ha_platforms:
+  - media_player
 ---
 
 The `ue_radio` platform allows you to control a [Logitech UE Smart Radio](https://www.uesmartradio.com) from Home Assistant. This lets you control both Logitech UE Smart Radios and Logitech Squeezebox Radios that have been updated with the UE Smart Radio update.

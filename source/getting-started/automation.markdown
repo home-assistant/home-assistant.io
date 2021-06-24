@@ -43,10 +43,14 @@ A new automation with the action set up to turn on the lights.
 
 Click the orange button to save the automation. Now wait till it's 30 minutes until the sun sets and see your automation magic!
 
-Further reading on automations:
+{% include getting-started/next_step.html step="Presence detection" link="/getting-started/presence-detection/" %}
+
+If after completing this getting started, you are interested in reading more
+about automations, we recommend the following page.
 
 - [Triggers](/docs/automation/trigger/)
 - [Conditions](/docs/automation/condition/)
 - [Actions](/docs/automation/action/)
 
-{% include getting-started/next_step.html step="Presence detection" link="/getting-started/presence-detection/" %}
+Please note, these pages require a bit more experience with Home Assistant
+than you probably have at this point of this tutorial.

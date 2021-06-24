@@ -12,6 +12,7 @@ ha_platforms:
   - binary_sensor
   - device_tracker
 ha_config_flow: true
+ha_ssdp: true
 ---
 
 This platform offers presence detection by examining devices connected to a [Keenetic](https://keenetic.net/)
