@@ -199,7 +199,7 @@ action:
 
 <div class='note'>
 
-Since Home Assistant version 0.48 you have to [whitelist the source folder](/docs/configuration/basic/) of the file you want to include in the notification.
+If you need to include a file from an external folder in your notifications, you will have to [whitelist the source folder](/docs/configuration/basic/).
 
 ```yaml
 configuration.yaml
