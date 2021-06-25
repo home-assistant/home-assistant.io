@@ -102,7 +102,7 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 
 - Some models only report outside temperature when they are turned on.
 - Some models does not have humidity sensor.
-- Some models does not report the power consumption.
+- Some models does not report the power/energy consumption.
 - Some models does not report the compressor frequency.
 
 </div>
