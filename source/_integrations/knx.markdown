@@ -629,7 +629,7 @@ setpoint_shift_max:
   default: 6
   type: float
 active_state_address:
-  description: KNX address for reading current activity. `0` is idle, `1` is active. *DPT 1
+  description: KNX address for reading current activity. `0` is idle, `1` is active. *DPT 1*
   required: false
   type: [string, list]
 command_value_state_address:
