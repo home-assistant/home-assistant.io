@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights: 27th edition"
-description: "Know from now on when a device is no longer connected to your network with a blueprint, lock your cards with a card and get started with statistics in Home Assistant."
+description: "Know when a device is no longer connected to your network with a blueprint, lock your cards with a card and get started with statistics in Home Assistant."
 date: 2021-06-25 00:00:00
 date_formatted: "June 25, 2021"
 author: Klaas Schoute
@@ -80,7 +80,7 @@ on [Reddit][reddit] and maybe I'll pick it out for the next edition.
 
 Home Assistant has a number of tools for working with statistics, but the
 question is how can you best approach this. [Carlos](https://www.reddit.com/user/cgomesu/)
-has written a very good [write up](https://cgomesu.com/blog/smarter-hass/) on
+has written a very good [guide](https://cgomesu.com/blog/smarter-hass/) on
 how to get started and how to make cards that use this data.
 
 ## Got a tip for the next edition?
