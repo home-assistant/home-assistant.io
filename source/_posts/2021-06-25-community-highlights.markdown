@@ -13,7 +13,7 @@ The 27th edition of the Home Assistant Community Highlights! Some interesting
 things popped up around our community, which we thought was worth sharing.
 
 But first I have one more announcement. My internship is (almost) over and I'm
-happy to say that I passed and completed with a good grade. That also means that
+happy to say that I passed and completed it with a good grade. That also means that
 this community highlight is the last one from me as an intern, time will tell
 when the next one will appear.
 
@@ -49,7 +49,7 @@ instance with a click on the My button!
 
 Do you ever accidentally turn on a light or switch? Then try the
 [love lock card](https://github.com/CyrisXD/love-lock-card) made by
-[CyrisXD](https://github.com/CyrisXD). With this you can create a card
+[CyrisXD](https://github.com/CyrisXD). With this, you can create a card
 that is locked and you can unlock it with, for example, a pin code or a
 simple click on the card.
 
@@ -61,7 +61,7 @@ simple click on the card.
 This week again we have a new Lovelace dashboard for the necessary portion
 of inspiration 😄 This time the one from [swake88](https://www.reddit.com/user/swake88/)
 who is improving his [dashboard](https://www.reddit.com/r/homeassistant/comments/o2za2z/slowly_redesigning_my_ha_dashboards_for_mobile/)
-for using on a mobile device. If you want to know more about it, check out
+for use on a mobile device. If you want to know more about it, check out
 the comment part on Reddit.
 
 <div style="margin:0 auto; text-align:center; margin-bottom:15px">
