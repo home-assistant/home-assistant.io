@@ -28,24 +28,24 @@ Not all siren services may be available for your platform. Be sure to check the 
 
 ### Service `siren.turn_on`
 
-Turn the siren device on.
+Turn the siren on.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of siren devices to control.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
 
 ### Service `siren.turn_off`
 
-Turn the siren device off.
+Turn the siren off.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of siren devices to control.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
 
 ### Service `siren.toggle`
 
-Toggle the siren device on/off.
+Toggle the siren on/off.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of siren devices to control.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
