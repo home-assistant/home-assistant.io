@@ -26,10 +26,13 @@ Information on [how to share](#got-a-tip-for-the-next-edition).
 ## Blueprint of the week
 ------
 
+{% my blueprint_import badge blueprint_url="https://gist.github.com/bfranke1973/4a0835efffc81759d02f44842265ea96" %}
+
 This week's blueprint is that of [bfranke1973](https://community.home-assistant.io/u/bfranke1973),
 who has created a blueprint with which you can receive a notification when
-a device loses connection with the network. Try it out! To get started or to
-read more about this blueprint, check the topic on the [community forum][week_blueprint].
+a device loses connection with the network. Try it out! Read more about it
+on the [community forum][week_blueprint] or install this automation in your
+instance with a click on the My button!
 
 ## Love Lock Card
 ------
