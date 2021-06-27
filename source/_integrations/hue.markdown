@@ -31,6 +31,7 @@ There is currently support for the following device types within Home Assistant:
   - Hue Dimmer Switch
   - Hue Tap Switch
   - Hue Smart Button
+  - Hue Wall Switch Module
   - Friends of Hue Switch
 
 {% include integrations/config_flow.md %}
