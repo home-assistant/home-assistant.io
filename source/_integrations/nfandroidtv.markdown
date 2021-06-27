@@ -62,7 +62,7 @@ transparency:
   default: 25%
   type: string
 timeout:
-  description: The timeout in seconds.
+  description: The timeout in seconds for trying to send the notification to the device.
   required: false
   default: 5
   type: integer
