@@ -634,6 +634,14 @@ setpoint_shift_max:
   required: false
   default: 6
   type: float
+active_state_address:
+  description: KNX address for reading current activity. `0` is idle, `1` is active. *DPT 1*
+  required: false
+  type: [string, list]
+command_value_state_address:
+  description: KNX address for reading current command value in percent. `0` sets the climate entity to idle if `active_state_address` is not set. *DPT 5.001*
+  required: false
+  type: [string, list]
 operation_mode_address:
   description: KNX address for setting operation mode (Frost protection/night/comfort). *DPT 20.102*
   required: false
