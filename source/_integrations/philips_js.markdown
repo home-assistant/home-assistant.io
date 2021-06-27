@@ -124,11 +124,11 @@ The integration provides a remote entity for sending remote key presses directly
 
 ### Ambilight
 
-The integration exposes a single light entity to control the mode of the ambilight on the TV. It allow setting a fixed background color or switching the TV to one of the lounge modes supported by the TV.
+The integration exposes a single light entity to control the mode of the ambilight on the TV. It allows setting a fixed background color or switching the TV to one of the lounge modes supported by the TV.
 
-When the light entity is turned on, it is controlling the ambilights, when it is turned off the TV is in control of the ambilight in it's standard video based fashion.
+When the light entity is turned on, it is controlling the ambilights, when it is turned off the TV is in control of the ambilight in its standard video-based fashion.
 
 Limits:
  - The integration does not expose current ambilight measured values since it would
 overload the event bus in Home Assistant.
- - There is no support to control the standard, non expert, styles of the TV
+ - There is no support to control the standard, non-expert, styles of the TV.
