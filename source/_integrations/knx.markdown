@@ -1085,7 +1085,7 @@ state_address:
   required: true
   type: [string, list]
 type:
-  description: A type from the value types table below must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
+  description: A type from the [value types table](/integrations/knx/#value-types) below must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
   required: true
   type: string
 name:
