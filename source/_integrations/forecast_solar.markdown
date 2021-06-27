@@ -18,9 +18,9 @@ The [Forecast.Solar](https://forecast.solar/) service provides solar production
 forecasting for your solar panel system, based on historic averages combined
 with weather forecasting.
 
-The forecasting estimation this integration provides an estimated forecast on
-how much energy your solar panel are going to produce, allowing you
-to plan ahead on how you spend your produced energy in most efficiently.
+This integration provides an estimated forecast on how much energy your solar
+panels are going to produce, allowing you to plan ahead on how you spend your
+produced energy in most efficiently.
 
 As an example automation idea, you could determine if:
 
