@@ -2,6 +2,7 @@
 title: Philips TV
 description: Instructions on how to add Philips TVs to Home Assistant.
 ha_category:
+  - Light
   - Media Player
   - Remote
 ha_iot_class: Local Polling
@@ -41,7 +42,10 @@ Also, note that version 6 of the API needs to be authenticated by a PIN code dis
 | Application Detect | No               | ?   | Yes                | No               |
 | Browse URL         | No               | No  | No                 | No               |
 | Send Key           | No               | No  | No                 | Yes              |
-| Ambilight Control  | No               | No  | No                 | No               |
+| Ambilight Control  | Yes              | ?   | Yes                | ?                |
+| Ambilight Styles   | No               | ?   | Yes                | Yes              |
+| Ambilight Measure  | No               | No  | No                 | No               |
+
 
 ### Turn on device
 
@@ -117,3 +121,14 @@ The integration provides a remote entity for sending remote key presses directly
 | Online           |                                           |
 | SmartTV          |                                           |
 | PhilipsMenu      |                                           |
+
+### Ambilight
+
+The integration exposes a single light entity to control the mode of the ambilight on the TV. It allows setting a fixed background color or switching the TV to one of the lounge modes supported by the TV.
+
+When the light entity is turned on, it is controlling the ambilights, when it is turned off the TV is in control of the ambilight in its standard video-based fashion.
+
+Limits:
+ - The integration does not expose current ambilight measured values since it would
+overload the event bus in Home Assistant.
+ - There is no support to control the standard, non-expert, styles of the TV.
