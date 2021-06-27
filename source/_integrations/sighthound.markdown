@@ -68,9 +68,9 @@ To verify the integration, check if a new entity is appeared as `image_processin
 
 ## Process an Image
 
-When you want to process an image, you have to call `image_processing.scan` service and listen to the sighthound.person_detected and/or sighthound.vehicle_detected events.
+When you want to process an image, you have to call `image_processing.scan` service and listen to the `sighthound.person_detected` and/or `sighthound.vehicle_detected` events.
 
-A simple example is via 2 two automations:
+An example using two automations:
 
 - The first automation is triggered, when a motion is detected. It calls the `image_processing.scan` service to send the camera image to the sighthound server for processing.
 
@@ -79,29 +79,29 @@ A simple example is via 2 two automations:
 ```yaml
 # Example automations.yaml entry
 - id: "SOME_UNIQUE_ID"
-  alias: Entrance Motion Image Processing
-  description: Send a camera image to sighthound, when motion is detected at the entrance.
+  alias: "Entrance Motion Image Processing"
+  description: "Send a camera image to sighthound, when motion is detected at the entrance"
   trigger:
-  - type: motion
-    platform: device
-    device_id: YOUR_DEVICE_ID
-    entity_id: binary_sensor.my_motion_sensor
-    domain: binary_sensor
+    - type: motion
+      platform: device
+      device_id: YOUR_DEVICE_ID
+      entity_id: binary_sensor.my_motion_sensor
+      domain: binary_sensor
   action:
-  - service: image_processing.scan
-    target:
-      entity_id: image_processing.sighthound_my_cam
+    - service: image_processing.scan
+      target:
+        entity_id: image_processing.sighthound_my_cam
   mode: single
 
 - id: "ANOTHER_UNIQUE_ID"
-  alias: Arriving Vehicle Notification
-  description: Send a notifocation to a phone, when a vehicle is detected at the entrance.
+  alias: "Arriving Vehicle Notification"
+  description: "Send a notification to a phone, when a vehicle is detected at the entrance"
   trigger:
-  - platform: event
-    event_type: sighthound.vehicle_detected
+    - platform: event
+      event_type: sighthound.vehicle_detected
   action:
-  - service: notify.mobile_app_my_iphone
-    data:
-      message: Somebody has just arrived by car.
+    - service: notify.mobile_app_my_iphone
+      data:
+        message: "Somebody has just arrived by car."
   mode: single
 ```
