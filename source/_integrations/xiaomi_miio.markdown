@@ -118,7 +118,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 5. Ensure successful operation using 5.4.54 (locate is a nice simple test)
 6. Using adb we will now extract the token from the rooted phone
 7. Use adb shell to connect to your device and become root (if using Magisck root do `adb shell -> su -> whoami` to ensure root access.
-8. Then run grep -R '"token"' /data/data/com.xiaomi.smarthome and grab the token
+8. Then run `grep -R '"token"' /data/data/com.xiaomi.smarthome` and grab the token
 
 ### iOS
 
