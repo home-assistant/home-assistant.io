@@ -3,7 +3,7 @@ title: "Media Player Group"
 description: "Instructions for how to setup Media player groups within Home Assistant."
 ha_category:
   - Media Player
-ha_release: 0.117
+ha_release: "2021.7"
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: group
