@@ -28,7 +28,7 @@ ha_platforms:
   - switch
 ---
 
-The [Homematic](https://www.homematic.com/) integration provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
+The [Homematic](https://www.homematic.com/) integration provides bi-directional communication with your CCU/Homegear. It uses an XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
 If you are using Homegear with paired [Intertechno](https://intertechno.at/) devices, uni-directional communication is possible as well.
 
 There is currently support for the following device types within Home Assistant:

@@ -84,7 +84,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
   - [CC2538 USB stick or dev board hardware flashed with Z-Stack 3.x.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
 - Digi XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
   - [Digi XBee Series 3 (xbee3-24)](https://www.digi.com/products/embedded-systems/digi-xbee/rf-modules/2-4-ghz-rf-modules/xbee3-zigbee-3) and [Digi XBee Series S2C](https://www.digi.com/products/embedded-systems/digi-xbee/rf-modules/2-4-ghz-rf-modules/xbee-zigbee) modules
-    - Note! While not a must, [it is recommend to upgrade XBee Series 3 and S2C to newest firmware firmware using XCTU](https://www.digi.com/resources/documentation/Digidocs/90002002/Default.htm#Tasks/t_load_zb_firmware.htm)
+    - Note! While not a must, [it is recommend to upgrade XBee Series 3 and S2C to newest firmware using XCTU](https://www.digi.com/resources/documentation/Digidocs/90002002/Default.htm#Tasks/t_load_zb_firmware.htm)
   - [Digi XBee Series 2 (S2)](https://www.digi.com/support/productdetail?pid=3430) modules (Note! This first have to be [flashed with Zigbee Coordinator API firmware](https://www.digi.com/support/productdetail?pid=3430))
 - ZiGate based radios (via the [zigpy-zigate](https://github.com/zigpy/zigpy-zigate) library for zigpy and require firmware 3.1d or later)
   - [ZiGate USB-TTL](https://zigate.fr/produit/zigate-ttl/)

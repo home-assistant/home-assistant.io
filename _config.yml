@@ -105,8 +105,8 @@ social:
 # Home Assistant release details
 current_major_version: 2021
 current_minor_version: 6
-current_patch_version: 2
-date_released: 2021-06-04
+current_patch_version: 6
+date_released: 2021-06-20
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -175,6 +175,10 @@ toc:
 
 # Configuration for installation pages
 installation:
+  container:
+    base: "ghcr.io/home-assistant/home-assistant"
+    raspberrypi3: "ghcr.io/home-assistant/raspberrypi3-homeassistant"
+    raspberrypi4: "ghcr.io/home-assistant/raspberrypi4-homeassistant"
   versions:
     python: "3.8"
   types:
@@ -212,3 +216,10 @@ installation:
       variants:
         - name: "ASUS Tinkerboard"
           key: "tinker"
+
+    generic-x86-64:
+      board: Generic x86-64
+      installation_media: "storage device"
+      variants:
+        - name: "Generic x86-64"
+          key: "generic-x86-64"

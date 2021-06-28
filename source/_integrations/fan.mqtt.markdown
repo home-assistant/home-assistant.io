@@ -65,7 +65,7 @@ command_topic:
   required: true
   type: string
 device:
-  description: "Information about the device this fan is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set."
+  description: "Information about the device this fan is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -209,7 +209,7 @@ preset_mode_command_topic:
   required: false
   type: string
 preset_mode_state_topic:
-  description: The MQTT topic to publish commands to change the preset mode.
+  description: The MQTT topic subscribed to receive fan speed based on presets.
   required: false
   type: string
 preset_mode_value_template:

@@ -55,7 +55,7 @@ command_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this Number is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set."
+  description: "Information about the device this Number is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -146,6 +146,10 @@ unique_id:
   description: An ID that uniquely identifies this Number. If two Numbers have the same unique ID Home Assistant will raise an exception.
   required: false
   type: string
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  required: false
+  type: template
 {% endconfiguration %}
 
 <div class='note warning'>
