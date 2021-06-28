@@ -659,14 +659,23 @@ The sensor platform does not supply additional services.
 | `select`     | `select_option`            | `led_brightness`                                            |
 
 
-### Service `fan.set_speed`
+### Service `fan.set_percentage`
 
-Set the fan speed/operation mode.
+Set the fan speed percentage.
 
 | Service data attribute    | Optional | Description                                                         |
 |---------------------------|----------|---------------------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                      |
-| `speed`                   |       no | Fan speed. Valid values are 'Auto', 'Silent', 'Favorite' and 'Idle' |
+| `percentage`              |       no | Fan speed. Percentage speed setting                                 |
+
+### Service `fan.set_preset_mode`
+
+Set the fan operation mode.
+
+| Service data attribute    | Optional | Description                                                         |
+|---------------------------|----------|---------------------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                      |
+| `preset_mode`             |       no | The Xiaomi miIO operation mode                                      |
 
 ### Service `switch.turn_on` (Air Humidifiers only)
 
