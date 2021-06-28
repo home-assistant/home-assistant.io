@@ -149,7 +149,8 @@ unique_id:
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
   required: false
-  type: template{% endconfiguration %}
+  type: template
+{% endconfiguration %}
 
 <div class='note warning'>
 
