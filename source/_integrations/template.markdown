@@ -40,6 +40,8 @@ Sensor and binary sensor template entities are defined in your YAML configuratio
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
+**New-style template sensors cannot be used with [packages](/docs/configuration/packages/).** 
+
 ## State-based template sensors
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
