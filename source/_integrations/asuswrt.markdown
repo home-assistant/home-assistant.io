@@ -48,7 +48,7 @@ These sensors are automatically created and associated to the router device:
 - Load average sensors (1min, 5min, 15min)
 
 Only `Connected devices sensor` is created in status **enabled**, all other sensors are created in status **disabled**.
-To use them, simply **enable** in the devices page.
+To use them, simply **enable** on the devices page.
 
 ## Integration Options
 
