@@ -139,6 +139,10 @@ unique_id:
   description: An ID that uniquely identifies this Select. If two Selects have the same unique ID Home Assistant will raise an exception.
   required: false
   type: string
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  required: false
+  type: template
 {% endconfiguration %}
 
 <div class='note warning'>
