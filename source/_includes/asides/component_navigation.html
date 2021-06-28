@@ -24,7 +24,7 @@
     and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io" target="_blank" rel="noopener">
     
     {% if percentage < 1 %}
-      {{ site.data.analytics_data.integrations[page.ha_domain] }}</a> active installation.
+      {{ site.data.analytics_data.integrations[page.ha_domain] }}</a> active installations.
     {% else %}
       {{ percentage | remove: ".0" }}%</a> of the active installations.
     {% endif %}
