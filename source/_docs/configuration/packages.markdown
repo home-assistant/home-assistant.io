@@ -17,6 +17,8 @@ homeassistant:
 
 The package configuration can include: `switch`, `light`, `automation`, `groups`, or most other Home Assistant integrations including hardware platforms.
 
+**[New-style template sensors](/integrations/template/) cannot be used with packages.**
+
 It can be specified inline or in a separate YAML file using `!include`.
 
 Inline example, main `configuration.yaml`:
