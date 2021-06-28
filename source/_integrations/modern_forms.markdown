@@ -37,7 +37,6 @@ The Modern Forms integration provides support for the following toggleable attri
 
 - Away mode - to allow the fan simulate someone being home.
 - Adaptive learning - for allow learning for away mode.
-- Reboot - to reboot the control module.
 
 ## Services
 
