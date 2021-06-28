@@ -31,7 +31,7 @@ ha_platforms:
   - vacuum
 ---
 
-The `xiaomi_miio` integration supports the following devices:
+The Xiaomi Miio integration supports the following devices:
 
 - [Xiaomi Gateway](#xiaomi-gateway)
 - [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
@@ -42,182 +42,40 @@ The `xiaomi_miio` integration supports the following devices:
 - [Xiaomi Philips Light](#xiaomi-philips-light)
 - [Xiaomi Smart WiFi Socket and Smart Power Strip](#xiaomi-smart-wifi-socket-and-smart-power-strip)
 
-For many of these devices you need an access token, the first section will describe how to obtain that access token.
+## Prerequisites
 
-## Retrieving the Access Token
+Most Xiaomi Miio devices support configuration using the Home Assistant UI,
+except for the [Xiaomi device tracker](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
+and [Xiaomi IR Remote](#xiaomi-ir-remote).
 
-### Using Get Mi Home Devices Token App
+Please read the linked sections for those devices for more information.
 
-If you are on a Windows or macOS device, you can use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases) App to retrieve the token. Click the link, download the file that corresponds to your OS, enter your login details and it will retrieve the access token. 
+{% include integrations/config_flow.md %}
 
-### Using Xiaomi Cloud Tokens Extractor
-
-One of Home Assistant users wrote a tokens extractor tool, which is currently the easiest way to retrieve tokens for all devices assigned to Xiaomi account.
-[In the repository](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor) there's executable for convenient use on Windows or Python script to be run on any platform. If you do not wish to run executable, then you can run it using the source code:
-
-1. Install requirements:
-
-  ```bash
-  pip3 install pycryptodome pybase64 requests
-  ```
-  
-2. Run script
-
-  ```bash
-  python3 token_extractor.py
-  ```
-  
-3. Provide e-mail address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
-4. Script will print out all devices connected to the account with their IP address and tokens for use in Home Assistant.
-
-### Using Xiaomi Home app in developer mode (Xiaomi Aqara Gateway, Android & iOS)
-
-1. Install the Xiaomi Home app.
-2. Sign In/make an account.
-3. Make sure you set your region to: Mainland China (Seems to be the longest line with Chinese characters) under settings -> Region (language can later be set on English).
-4. Select your Gateway in Xiaomi Home app.
-5. Then the 3 dots at the top right of the screen.
-6. Then click on about.
-7. Tap the version number (Plug-in version 2.77.1 as of January 2020, iOS has a white space instead of version number) at the bottom of the screen repeatedly.
-8. You should now see 2 extra options listed in English (iOS still in Chinese), this means you enabled developer mode. [if not, try all steps again!].
-9. Android: under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
-iOS: Most options are still in Chinese, you need the fourth item from the top.
-
-Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
-
-### Alternative methods
-
-<div class='note'>
-
-If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019). Use `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
-<br/> <br/>
-The iPhone app still stores the token in the SQLite db as of `v4.23.4` (Nov 17, 2019).
-<br/> <br/>
-After resetting the Wi-Fi settings of the Xiaomi robot vacuum, a new Access Token will be generated and therefore these instructions need to be followed again.
-<br/> <br/>
-These instructions are written for the Mi Home app - not for the new RoboRock app.
-<br/> <br/>
-This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote.
-</div>
-
-### Android (not rooted)
-
-> If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019).
-
-1. To begin, set up your Robovac with the latest version of Mi Home on your primary Android device as you normally would.
-2. If your Robovac is already set up, you must reset its WiFi settings for it to get a new token.
-3. Using `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored.
-4. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
-
-### Linux and Rooted Android
-
-1. To begin, set up your Robovac with the latest version of Mi Home on your primary Android device as you normally would.
-2. Ensure successful operation using the latest Mi Home app and give the Vacuum a static IP in your router or however you do that on your LAN.
-3. Install version `v5.4.54` of Mi Home on your rooted Android device and login (you can't have two version of Mi Home installed at the same time).
-4. Ensure you are using the same server every time
-5. Ensure successful operation using 5.4.54 (locate is a nice simple test)
-6. Using adb we will now extract the token from the rooted phone
-7. Use adb shell to connect to your device and become root (if using Magisck root do `adb shell -> su -> whoami` to ensure root access.
-8. Then run grep -R '"token"' /data/data/com.xiaomi.smarthome and grab the token
-
-### iOS
-
-1. Configure the robot with the Mi Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
-2. Using iTunes, create an unencrypted backup of your iPhone. Since macOS 10.15 there is no iTunes app. Use Finder instead - after connecting your iOS device you should see it in left menu of Finder window.
-3. Install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
-4. Open the "Raw Data" module.
-5. Navigate to `com.xiaomi.mihome`.
-6. Search for a file that looks like this: `123456789_mihome.sqlite` (Note: `_mihome.sqlite` is *not* the correct file. Most likely, you will find this file in the `Documents` folder.)
-7. Save this file to your filesystem.
-8. Install [DB Browser for SQLite](https://sqlitebrowser.org/).
-9. Open DB Browser and load the `.sqlite` file you saved from your backup.
-10. Click on the `Execute SQL` tab.
-11. Input and run this query (use appropriate SELECT query for your device i.e. Vacuum, Powerstrip or Plug):
-
-    ```sql
-    -- Execute to retrieve token for Vacuum
-    SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%vacuum%"
-
-    -- Execute to retrieve token for Smart Powerstrip
-    SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%powerstrip%"
-
-    -- Execute to retrieve token for Smart Plug
-    SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%plug%"
-    ```
-
-12. Copy the returned 96-digit hexadecimal string to your clipboard.
-13. Open `Terminal` and execute this command:
-
-    ```bash
-    echo '0: <YOUR HEXADECIMAL STRING>' | xxd -r -p | openssl enc -d -aes-128-ecb -nopad -nosalt -K 00000000000000000000000000000000
-    ```
-
-14. Use the resulting 32-digit string as your token. (On your mac in front of the terminal session)
-
-### Bluestacks
-
-1. Configure the robot with the Mi-Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
-2. Install [BlueStacks](https://www.bluestacks.com).
-3. Set up [Mi Home version 5.4.49](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-4-49-release/) in BlueStacks and login to synchronize devices.
-4. Open Filemanager in the `More Apps` menu.
-5. Use `Explore` on the left and navigate to `sdcard/SmartHome/logs/plug_DeviceManager`.
-6. Click on `Export to Windows` in the lower left corner and select any or all files to export to you local disk.
-7. Search for `"token":"<yourTokenHere>"`.
-
-### Miio command line tool
-
-Use of Miio should be done before the Vacuum is connected to Mi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wi-Fi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
-
-Discovering devices on the current network:
-
-```bash
-npx miio discover
-```
-
-This will list devices that are connected to the same network as your computer. Let it run for a while so it has a chance to reach all devices, as it might take a minute or two for all devices to answer.
-
-The commands outputs each device on this format:
-
-```text
-Device ID: 48765421
-Model info: zhimi.airpurifier.m1
-Address: 192.168.100.9
-Token: token-as-hex-here via auto-token
-Support: At least basic
-```
-
-The information output is:
-
-- `Device ID` - The unique identifier of the device, does not change if the device is reset.
-- `Model ID`- The model id if it could be determined, this indicates what type of device it is.
-- `Address` - The IP that the device has on the network.
-- `Token` - The token of the device or `???` if it could not be automatically determined.
-
-### Xiaomi Cloud Tokens Extractor
-
-Alternate method to get all yours devices tokens in one run. Please follow this [instruction](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor).
+It is recommend to supply your Xiaomi cloud credentials during configuration
+to automatically connect to your devices. You need to specify the cloud server
+you used in the Xiaomi Home App (where you initialy setup the device). There are
+6 servers: `cn`, `de`, `i2`, `ru`, `sg` and `us`; please see
+[this page](https://www.openhab.org/addons/bindings/miio/#country-servers) for
+the server to use for each country.
 
 ## Xiaomi Gateway
 
 The `xiaomi_miio` gateway integration allows you to control the gateway and its connected subdevices.
-
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
-
-### Configuration flow setup
-
-To set up the Xiaomi gateway, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the "IP address" and 32 characters "token". After you click submit, you will have the opportunity to select the area that your devices are located.
 
 ### Supported Xiaomi gateway models:
 
 | Gateway name       | Zigbee id           | model                    | supported                                 |
 | ------------------ | ------------------- | ------------------------ |------------------------------------------ |
 | Chinese version    | lumi.gateway.v3     | DGNWG02LM                | yes                                       |
-| European version   | lumi.gateway.mieu01 | ZHWG11LM-763 / DGNWQ05LM | only gateway features (no subdevices yet) |
+| European version   | lumi.gateway.mieu01 | ZHWG11LM-763 / DGNWQ05LM | yes (cloud credentials needed)            |
 | Aqara hub          | lumi.gateway.aqhm01 | ZHWG11LM                 | untested                                  |
-| Mijia Zigbee 3.0   | lumi.gateway.mgl03  | ZNDMWG03LM               | untested                                  |
+| Mijia Zigbee 3.0   | lumi.gateway.mgl03  | ZNDMWG03LM               | yes                                       |
 | Aqara AC Companion | lumi.acpartner.v1   | KTBL01LM                 | untested                                  |
 | Mi AC Companion    | lumi.acpartner.v2   | KTBL02LM                 | untested                                  |
 | Aqara AC Companion | lumi.acpartner.v3   | KTBL11LM                 | yes                                       |
+
+Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevices locally. For those gateways, cloud credentials can be specified during the config flow and the "Use cloud to get connected subdevices" can be enabled in the options flow (after setting up the integration, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Miio Gateway integration). The connected subdevices will then be retrieved from the Xiaomi Miio cloud (internet), control and status updates of those subdevices will then further take place over local network connection. A re-authentication flow may be triggered when no cloud credentials are provided yet and are needed for that particular gateway model.
 
 ### Gateway Features
 
@@ -349,12 +207,6 @@ Supported devices:
 | Air Humidifier CB1     | zhimi.humidifier.cb1   | |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
 
-
-### Configuration
-
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
-
-To add a Xiaomi Air Purifier to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
 
 ### Features
 
@@ -886,12 +738,6 @@ Currently, the supported features are:
   - temperature
   - humidity
 
-### Configuration
-
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
-
-To add a Xiaomi Mi Air Quality Monitor to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
-
 ## Xiaomi IR Remote
 
 The `xiaomi miio` remote platform allows you to send IR commands from your Xiaomi IR Remote (ChuangmiIr).
@@ -1081,8 +927,6 @@ Used to turn remote's blue LED off.
 
 The `xiaomi_miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](https://www.mi.com/roomrobot/).
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
-
 Currently supported services are:
 
 - `start`
@@ -1095,10 +939,6 @@ Currently supported services are:
   Fan speeds: `Silent`, `Standard`, `Medium`, `Turbo` and `Gentle` (exclusively for mopping).
 - `remote_control_*` (of your robot)
 - `xiaomi_clean_zone`
-
-### Configuration
-
-To add a vacuum to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
 
 ### Platform Services
 
@@ -1426,12 +1266,6 @@ It seems to be the case that Numbers 1..15 are used to number the intitial segme
 
 The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philips LED Ball Lamp, Xiaomi Philips Zhirui LED Bulb E14 Candle Lamp, Xiaomi Philips Zhirui Downlight, Xiaomi Philips LED Ceiling Lamp, Xiaomi Philips Eyecare Lamp 2, Xiaomi Philips Moonlight Bedside Lamp and Philips Zhirui Desk Lamp.
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
-
-### Configuration
-
-To add a Xiaomi Philips Light to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
-
 ### Features
 
 ### Philips LED Ball Lamp, Philips Zhirui LED Candle Lamp and Philips Zhirui Downlight
@@ -1588,12 +1422,6 @@ Turn the eyecare mode off.
 
 The `xiaomi_miio` switch platform allows you to control the state of your Xiaomi Smart WiFi Socket aka Plug, Xiaomi Smart Power Strip and Xiaomi Chuangmi Plug V1.
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
-
-### Configuration
-
-To add a plug to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
-
 ### Features
 
 ### Xiaomi Smart WiFi Socket
@@ -1671,3 +1499,158 @@ Set the power mode.
 |---------------------------|----------|---------------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO switch entity.             |
 | `mode`                    |       no | Power mode, valid values are 'normal' and 'green'             |
+
+## Retrieving the Access Token
+Not recommended, please specify the cloud credentials during the config flow for easier setup.
+However when setting up a device manually the token can be retrieved in one of the following ways.
+
+### Xiaomi Cloud Tokens Extractor
+
+One of Home Assistant users wrote a tokens extractor tool, which is currently the easiest way to retrieve tokens for all devices assigned to Xiaomi account.
+[In the repository](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor) there's executable for convenient use on Windows or Python script to be run on any platform. If you do not wish to run executable, then you can run it using the source code:
+
+1. Install requirements:
+
+  ```bash
+  pip3 install pycryptodome pybase64 requests
+  ```
+  
+2. Run script
+
+  ```bash
+  python3 token_extractor.py
+  ```
+  
+3. Provide e-mail address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
+4. Script will print out all devices connected to the account with their IP address and tokens for use in Home Assistant.
+
+### Xiaomi Home app (Xiaomi Aqara Gateway, Android & iOS)
+
+1. Install the Xiaomi Home app.
+2. Sign In/make an account.
+3. Make sure you set your region to: Mainland China (Seems to be the longest line with Chinese characters) under settings -> Region (language can later be set on English).
+4. Select your Gateway in Xiaomi Home app.
+5. Then the 3 dots at the top right of the screen.
+6. Then click on about.
+7. Tap the version number (Plug-in version 2.77.1 as of January 2020, iOS has a white space instead of version number) at the bottom of the screen repeatedly.
+8. You should now see 2 extra options listed in English (iOS still in Chinese), this means you enabled developer mode. [if not, try all steps again!].
+9. Android: under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
+iOS: Most options are still in Chinese, you need the fourth item from the top.
+
+Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
+
+### Using Get Mi Home Devices Token App
+
+If you are on a Windows or macOS device, you can use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases) App to retrieve the token. Click the link, download the file that corresponds to your OS, enter your login details and it will retrieve the access token. 
+
+### Alternative methods
+
+<div class='note'>
+
+If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019). Use `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
+<br/> <br/>
+The iPhone app still stores the token in the SQLite db as of `v4.23.4` (Nov 17, 2019).
+<br/> <br/>
+After resetting the Wi-Fi settings of the Xiaomi robot vacuum, a new Access Token will be generated and therefore these instructions need to be followed again.
+<br/> <br/>
+These instructions are written for the Mi Home app - not for the new RoboRock app.
+<br/> <br/>
+This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote.
+</div>
+
+### Android (not rooted)
+
+> If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019).
+
+1. To begin, set up your Robovac with the latest version of Mi Home on your primary Android device as you normally would.
+2. If your Robovac is already set up, you must reset its WiFi settings for it to get a new token.
+3. Using `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored.
+4. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
+
+### Linux and Rooted Android
+
+1. To begin, set up your Robovac with the latest version of Mi Home on your primary Android device as you normally would.
+2. Ensure successful operation using the latest Mi Home app and give the Vacuum a static IP in your router or however you do that on your LAN.
+3. Install version `v5.4.54` of Mi Home on your rooted Android device and login (you can't have two version of Mi Home installed at the same time).
+4. Ensure you are using the same server every time
+5. Ensure successful operation using 5.4.54 (locate is a nice simple test)
+6. Using adb we will now extract the token from the rooted phone
+7. Use adb shell to connect to your device and become root (if using Magisck root do `adb shell -> su -> whoami` to ensure root access.
+8. Then run grep -R '"token"' /data/data/com.xiaomi.smarthome and grab the token
+
+### iOS
+
+1. Configure the robot with the Mi Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
+2. Using iTunes, create an unencrypted backup of your iPhone. Since macOS 10.15 there is no iTunes app. Use Finder instead - after connecting your iOS device you should see it in left menu of Finder window.
+3. Install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
+4. Open the "Raw Data" module.
+5. Navigate to `com.xiaomi.mihome`.
+6. Search for a file that looks like this: `123456789_mihome.sqlite` (Note: `_mihome.sqlite` is *not* the correct file. Most likely, you will find this file in the `Documents` folder.)
+7. Save this file to your filesystem.
+8. Install [DB Browser for SQLite](https://sqlitebrowser.org/).
+9. Open DB Browser and load the `.sqlite` file you saved from your backup.
+10. Click on the `Execute SQL` tab.
+11. Input and run this query (use appropriate SELECT query for your device i.e. Vacuum, Powerstrip or Plug):
+
+    ```sql
+    -- Execute to retrieve token for Vacuum
+    SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%vacuum%"
+
+    -- Execute to retrieve token for Smart Powerstrip
+    SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%powerstrip%"
+
+    -- Execute to retrieve token for Smart Plug
+    SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%plug%"
+    ```
+
+12. Copy the returned 96-digit hexadecimal string to your clipboard.
+13. Open `Terminal` and execute this command:
+
+    ```bash
+    echo '0: <YOUR HEXADECIMAL STRING>' | xxd -r -p | openssl enc -d -aes-128-ecb -nopad -nosalt -K 00000000000000000000000000000000
+    ```
+
+14. Use the resulting 32-digit string as your token. (On your mac in front of the terminal session)
+
+### Bluestacks
+
+1. Configure the robot with the Mi-Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
+2. Install [BlueStacks](https://www.bluestacks.com).
+3. Set up [Mi Home version 5.4.49](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-4-49-release/) in BlueStacks and login to synchronize devices.
+4. Open Filemanager in the `More Apps` menu.
+5. Use `Explore` on the left and navigate to `sdcard/SmartHome/logs/plug_DeviceManager`.
+6. Click on `Export to Windows` in the lower left corner and select any or all files to export to you local disk.
+7. Search for `"token":"<yourTokenHere>"`.
+
+### Miio command line tool
+
+Use of Miio should be done before the Vacuum is connected to Mi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wi-Fi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
+
+Discovering devices on the current network:
+
+```bash
+npx miio discover
+```
+
+This will list devices that are connected to the same network as your computer. Let it run for a while so it has a chance to reach all devices, as it might take a minute or two for all devices to answer.
+
+The commands outputs each device on this format:
+
+```text
+Device ID: 48765421
+Model info: zhimi.airpurifier.m1
+Address: 192.168.100.9
+Token: token-as-hex-here via auto-token
+Support: At least basic
+```
+
+The information output is:
+
+- `Device ID` - The unique identifier of the device, does not change if the device is reset.
+- `Model ID`- The model id if it could be determined, this indicates what type of device it is.
+- `Address` - The IP that the device has on the network.
+- `Token` - The token of the device or `???` if it could not be automatically determined.
+
+### Xiaomi Cloud Tokens Extractor
+
+Alternate method to get all yours devices tokens in one run. Please follow this [instruction](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor).
