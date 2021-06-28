@@ -7,6 +7,7 @@ ha_release: 2021.3
 ha_category:
   - Binary Sensor
   - Number
+  - Select
   - Sensor
   - Switch
 ha_codeowners:
@@ -15,6 +16,7 @@ ha_domain: rituals_perfume_genie
 ha_platforms:
   - binary_sensor
   - number
+  - select
   - sensor
   - switch
 ---
