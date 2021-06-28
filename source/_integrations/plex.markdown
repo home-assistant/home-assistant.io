@@ -93,6 +93,12 @@ Refer to these links if casting to non-Plex players:
   
 </div>
 
+<div class='note warning'>
+
+  The integration must be configured with a token for playback commands to work. This can occur if using the `List of IP addresses and networks that are allowed without auth` option on the Plex server. If that feature is required, it's recommended to configure the integration with that feature temporarily disabled.
+
+</div>
+
 #### Music
 
 | Service data attribute | Description                                                                                                                                                                                          |

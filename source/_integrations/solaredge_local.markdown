@@ -18,7 +18,7 @@ The `solaredge_local` platform uses the local API available on some SolarEdge In
 
 Only specific models support the local API. The local API is available on inverters that do not have an LCD character screen. You can also  check the datasheets if in the section "Additional Features", sub-section "Inverter Commissioning" is present the following line "With the SetApp mobile application using built-in Wi-Fi access point for local connection". These inverters also have a part number that ends with a 4. For example: SEXXK-XXXXXBXX4 or SEXXXXH-XXXXXBXX4
 
-You can check if the local API works by finding the IP address of your inverter and visiting it in a browser. If it supports the local API, you'll see a HTML page with the SolarEdge logo and a "Commissioning" menu. 
+You can check if the local API works by finding the IP address of your inverter and visiting it in a browser. If it supports the local API, you'll see an HTML page with the SolarEdge logo and a "Commissioning" menu. 
 
 <div class='note'>
 

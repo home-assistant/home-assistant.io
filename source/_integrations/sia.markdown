@@ -43,10 +43,10 @@ ping_interval:
 zones:
   description: The number of zones configured in your alarm.
 additional_account:
-  description: Used to ask if a additional account needs to be included, if so will open a dialog for the next account, after checking the current input.
+  description: Used to ask if an additional account needs to be included, if so will open a dialog for the next account, after checking the current input.
 {% endconfiguration_basic %}
 
-ASCII characters are 0-9 and ABCDEF, so a account is something like `346EB` and the encryption key has the same characters but needs to be 16, 24 or 32 characters in length.
+ASCII characters are 0-9 and ABCDEF, so an account is something like `346EB` and the encryption key has the same characters but needs to be 16, 24 or 32 characters in length.
 
 ### Note on monitoring multiple alarm systems
 
@@ -54,7 +54,7 @@ If you have multiple accounts (alarm systems) that you want to monitor you can c
 
 ### Port usage
 
-The port used with this component must be a port no other processes use on the machine your HA instance is running. If you have a complex network setup or want to monitor alarm systems at other locations you will most likely have to open firewalls and/or create network routes for that purpose, the integration will just listen for messages coming into that port, and will not proactively send, only responding with a acknowledgement to the alarm system.
+The port used with this component must be a port no other processes use on the machine your HA instance is running. If you have a complex network setup or want to monitor alarm systems at other locations you will most likely have to open firewalls and/or create network routes for that purpose, the integration will just listen for messages coming into that port, and will not proactively send, only responding with an acknowledgement to the alarm system.
 
 ### Entities
 

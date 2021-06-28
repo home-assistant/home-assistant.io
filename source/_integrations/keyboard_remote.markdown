@@ -64,8 +64,8 @@ keyboard_remote:
 - device_descriptor: '/dev/input/by-id/bluetooth-keyboard'
   type: "key_down"
   emulate_key_hold: true
-  emulate_key_hold_delay: 250
-  emulate_key_hold_repeat: 33
+  emulate_key_hold_delay: 0.25
+  emulate_key_hold_repeat: 0.033
 - device_descriptor: '/dev/input/event0'
   type:
     - 'key_up'

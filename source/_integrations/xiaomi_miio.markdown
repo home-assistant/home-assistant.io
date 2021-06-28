@@ -46,7 +46,11 @@ For many of these devices you need an access token, the first section will descr
 
 ## Retrieving the Access Token
 
-### Xiaomi Cloud Tokens Extractor
+### Using Get Mi Home Devices Token App
+
+If you are on a Windows or macOS device, you can use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases) App to retrieve the token. Click the link, download the file that corresponds to your OS, enter your login details and it will retrieve the access token. 
+
+### Using Xiaomi Cloud Tokens Extractor
 
 One of Home Assistant users wrote a tokens extractor tool, which is currently the easiest way to retrieve tokens for all devices assigned to Xiaomi account.
 [In the repository](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor) there's executable for convenient use on Windows or Python script to be run on any platform. If you do not wish to run executable, then you can run it using the source code:
@@ -66,7 +70,7 @@ One of Home Assistant users wrote a tokens extractor tool, which is currently th
 3. Provide e-mail address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
 4. Script will print out all devices connected to the account with their IP address and tokens for use in Home Assistant.
 
-### Xiaomi Home app (Xiaomi Aqara Gateway, Android & iOS)
+### Using Xiaomi Home app in developer mode (Xiaomi Aqara Gateway, Android & iOS)
 
 1. Install the Xiaomi Home app.
 2. Sign In/make an account.
@@ -80,10 +84,6 @@ One of Home Assistant users wrote a tokens extractor tool, which is currently th
 iOS: Most options are still in Chinese, you need the fourth item from the top.
 
 Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
-
-### Windows or macOS
-
-If using an Windows or macOS device to retrieve the Access Token use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token) App.
 
 ### Alternative methods
 
@@ -118,7 +118,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 5. Ensure successful operation using 5.4.54 (locate is a nice simple test)
 6. Using adb we will now extract the token from the rooted phone
 7. Use adb shell to connect to your device and become root (if using Magisck root do `adb shell -> su -> whoami` to ensure root access.
-8. Then run grep -R '"token"' /data/data/com.xiaomi.smarthome and grab the token
+8. Then run `grep -R '"token"' /data/data/com.xiaomi.smarthome` and grab the token
 
 ### iOS
 

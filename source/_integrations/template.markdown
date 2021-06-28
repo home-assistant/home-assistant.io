@@ -27,7 +27,7 @@ The `template` integration allows creating entities which derive their values fr
 
 Sensors and binary (on/off) sensors are covered on this page. For other types, please see the specific pages:
 
-- [Alarm_control_panel](/integrations/alarm_control_panel.template/)
+- [Alarm Control Panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
 - [Fan](/integrations/fan.template/)
 - [Light](/integrations/light.template/)
@@ -36,7 +36,7 @@ Sensors and binary (on/off) sensors are covered on this page. For other types, p
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
-Sensor and binary sensor template entities are defined in YAML directly under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensors and/or binary sensor entities and can contain an optional update trigger.
+Sensor and binary sensor template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensors and/or binary sensor entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 

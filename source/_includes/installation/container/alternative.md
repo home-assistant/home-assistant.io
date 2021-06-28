@@ -42,7 +42,7 @@ Adjust the following Terminal command as follows :
 Run it in Terminal.  
 
 ```bash
-sudo docker run --restart always -d --name homeassistant -v /PATH_TO_YOUR_CONFIG:/config --device=/PATH_TO_YOUR_USB_STICK -e TZ=Australia/Melbourne --net=host homeassistant/home-assistant:stable
+sudo docker run --restart always -d --name homeassistant -v /PATH_TO_YOUR_CONFIG:/config --device=/PATH_TO_YOUR_USB_STICK -e TZ=Australia/Melbourne --net=host {{ site.installation.container.base }}:stable
 ```
 
 Complete the remainder of the Z-Wave configuration by [following the instructions here.](/docs/z-wave/installation)
@@ -104,7 +104,7 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB stick with Home Assista
 - Run Docker command:
 
   ```bash
-  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London --device /dev/ttyACM0 homeassistant/home-assistant:stable
+  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London --device /dev/ttyACM0 {{ site.installation.container.base }}:stable
   ```
   
   `-v` is your configuration path
@@ -125,7 +125,7 @@ That will tell Home Assistant where to look for our Z-Wave radio.
 - Run Docker command:
 
   ```bash
-  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus homeassistant/home-assistant:stable
+  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus {{ site.installation.container.base }}:stable
   ```
   
   First `-v` is your configuration path
