@@ -28,7 +28,8 @@ API Secret:
 
 {% configuration_basic %}
 Wallet balances to report:
-  description: List of currency codes to create account wallet sensors for. This is optional, if left blank the integration will create sensors for all currencies you configured the API key for.
+  description: List of currency codes to create account wallet sensors for.
 Exchange rates to report:
   description: Optional list of currencies to create exchange rate sensors for.
 {% endconfiguration_basic %}
+
