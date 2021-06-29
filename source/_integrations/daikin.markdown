@@ -19,6 +19,10 @@ ha_platforms:
   - switch
 ---
 
+<p class='note warning'>
+  Daikin has removed their local API in newer products. They offer a cloud API accessible only under NDA, which is incompatible with open source.
+</p>
+
 The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
