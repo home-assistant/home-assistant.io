@@ -19,11 +19,18 @@ If you are using a 3rd party device (e.g. not reading directly from your utility
 
 Home Assistant will need to know the amount of energy flowing through your meter. This can be done in various ways.
 
-### Reading the meter via the P1 port
+### Connect to your meter
 
-TBD. Mention Slimme Lezer
+The best way to get this data is directly from your electricity meter that sits between your house and the grid. In certain countries these meters contain standardized ways of reading out the information locally.
 
-### Reading the meter via the HAN port
+### Connect using a P1 port
+
+The P1 port is a standardized port in the Netherlands, Belgium and Luxembourg. A P1 reader can connect to this port and receive
+
+
+[Slimme Lezer](https://www.slimmelezer.nl)
+
+### Connect using a HAN port
 
 This is basically an RS485 port on a smart meter
 https://github.com/tiagofreire-pt/Home_Assistant_EDP_Box
