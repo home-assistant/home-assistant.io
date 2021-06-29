@@ -644,21 +644,6 @@ Clean mode and Motor speed can only be set when the device is turned on.
 
 ### Platform Services
 
-<div class='note'>
-For supported Air Humidifiers additional entities for will be generated automatically (if supported) and added to the entity registry based on the platforms:
-<br></br>
-The sensor platform does not supply additional services.
-</div>
-
-| Platform     | Service(s)                 | Related auto generated device entities                      |
-|--------------|----------------------------|-------------------------------------------------------------|
-| `humidifier` | `set_humidity`, `set_mode` | Main device entity                                          |
-| `switch`     | `turn_on`, `turn_off`      | `buzzer`, `child_lock`, `cleaning_mode` and `dry_mode`      |
-| `sensor`     | _None_                     | `actual_speed`, `humidity`, `temperature` and `water_level` |
-| `number`     | `set_value`                | `motor_speed`                                               |
-| `select`     | `select_option`            | `led_brightness`                                            |
-
-
 ### Service `fan.set_percentage`
 
 Set the fan speed percentage.
