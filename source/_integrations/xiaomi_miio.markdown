@@ -658,7 +658,6 @@ The sensor platform does not supply additional services.
 | `number`     | `set_value`                | `motor_speed`                                               |
 | `select`     | `select_option`            | `led_brightness`                                            |
 
-
 ### Service `fan.set_percentage`
 
 Set the fan speed percentage.
