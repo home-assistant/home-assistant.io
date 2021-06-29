@@ -513,19 +513,6 @@ The sensor platform does not supply additional services.
 ### Service `fan.set_percentage`
 
 Set the fan speed percentage.
-=======
-### Service `fan.set_percentage`
-
-Set the fan speed percentage.
-
-| Service data attribute    | Optional | Description                                                         |
-|---------------------------|----------|---------------------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                      |
-| `percentage`              |       no | Fan speed. Percentage speed setting                                 |
-
-### Service `fan.set_preset_mode`
-
-Set the fan operation mode.
 
 | Service data attribute    | Optional | Description                                                         |
 |---------------------------|----------|---------------------------------------------------------------------|
@@ -549,20 +536,9 @@ Turn the `buzzer`, `child_lock`, `cleaning_mode` or `dry_mode` on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-
 ### Service `switch.turn_off` (Air Humidifiers only)
 
 Turn `buzzer`, `child_lock`, `clean_mode` or `dry_mode` on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-
-### Service `xiaomi_miio.fan_set_buzzer_on` (Air Humidifiers excluded)
-
-Turn the buzzer on.
-=======
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
