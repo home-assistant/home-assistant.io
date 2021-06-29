@@ -60,7 +60,7 @@ Plugs are type `switch` when autodiscovery has been disabled.
 
 ### Bulbs
 
-Other bulbs may also work, but with limited color temperatures. If you find a bulb isn't reaching the full-color temperature boundaries, submit a bug report.
+Other bulbs may also work, but with limited color temperatures. If you find a bulb isn't reaching the full-color temperature boundaries, submit a bug report. Bulbs do generally report some energy consumption information, see the entity state attributes to find out what information is available.
 
 - LB100
 - LB110
@@ -150,6 +150,7 @@ Devices that are confirmed to support Consumption Reading;
 1. HS110
 2. HS300
 3. KP115
+4. Bulbs (device-specific, only current power consumption is commonly available)
 
 In order to get the power consumption readings from a TP-Link HS110 device, you'll have to create a [template sensor](/integrations/template/).
 In the example below, change all of the `my_tp_switch`'s to match your device's entity ID (without the domain). For example, if your entity is `switch.whale_heater` then replace `my_tp_switch` with `whale_heater`:

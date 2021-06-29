@@ -112,7 +112,7 @@ Some of the known valid key values are:
 - `down`
 - `left`
 - `right`
-- `select`
+- `enter`
 - `home`
 - `back`
 - `power`
