@@ -21,10 +21,3 @@ The `gios` integration uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current
 To obtain `station_id` of the measuring station, go to [GIOŚ](http://powietrze.gios.gov.pl/pjp/current) page, select the measuring station on the map and click the "More Info" link. The address of the opened page will look like this: `http://powietrze.gios.gov.pl/pjp/current/station_details/chart/291` and `291` will be `station_id` of measuring station.
 
 {% include integrations/config_flow.md %}
-
-{% configuration_basic %}
-name:
-  description: Manually specify Name.
-station_id:
-  description: Specify ID of the measuring station.
-{% endconfiguration_basic %}
