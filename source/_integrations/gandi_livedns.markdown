@@ -10,51 +10,18 @@ ha_codeowners:
 ha_domain: gandi_livedns
 ---
 
-With the `gandi_livedns` integration you can keep your current IP address in sync with your [Gandi.net](https://www.gandi.net) registered hostname or domain.
+With the Gandi.net integration you can keep your current IP address in sync with your [Gandi.net](https://www.gandi.net) registered hostname or domain.
+
+The integration runs at regular intervals, but can also be started manually by using the service `gandi_livedns.update_records` under services.
+
+## Requirements
 
 <div class='note'>
-Note that it does not create the initial dns record but only updates it; you will still have to do this manually.
+Note that it does not create the initial DNS record but only updates it; you will still have to do this manually.
 </div>
 
-## Configuration
+Setup requires a unique Gandi API Key. If you don’t have one yet, you can generate your production API key from the API Key Page in the Security section.
 
-To use the integration in your installation, add the following to your `configuration.yaml` file:
+[Gandi.net account page](https://account.gandi.net/fr).
 
-```yaml
-# Example configuration.yaml entry
-gandi_livedns:
-  domain: domain.com
-  name: hass
-  api_key: YOUR_API_KEY
-  ttl: 3600
-```
-
-{% configuration %}
-domain:
-  description: Your fully qualified domain name (FQDN).
-  required: true
-  type: string
-name:
-  description: The name of record.
-  required: true
-  type: string
-api_key:
-  description: The generated api key for API V5 [Gandi account](https://account.gandi.net/en).
-  required: true
-  type: string
-type:
-  description: Type of DNS record entry.
-  required: false
-  type: string
-  default: "A"
-ttl:
-  description: TTL of DNS record entry (in seconds).
-  required: false
-  type: integer
-  default: 3600
-timeout:
-  description: Timeout (in seconds) for the API calls.
-  required: false
-  type: integer
-  default: 10  
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
