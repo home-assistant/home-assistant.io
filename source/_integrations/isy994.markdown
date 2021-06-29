@@ -184,7 +184,7 @@ Send a "raw" (e.g., `DON`, `DOF`) ISY REST Device Command to a Node using its Ho
 
 #### Service `isy994.get_zwave_parameter`
 
-Request a Z-Wave Device parameter via the ISY. The parameter value will be returned as a entity extra state attribute with the name "ZW#" where "#" is the parameter number.
+Request a Z-Wave Device parameter via the ISY. The parameter value will be returned as an entity extra state attribute with the name "ZW#" where "#" is the parameter number.
 
 | Service data attribute | Optional | Description                                                                                     |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
@@ -193,7 +193,7 @@ Request a Z-Wave Device parameter via the ISY. The parameter value will be retur
 
 #### Service `isy994.set_zwave_parameter`
 
-Update a Z-Wave Device parameter via the ISY. The parameter value will also be returned as a entity extra state attribute with the name "ZW#" where "#" is the parameter number.
+Update a Z-Wave Device parameter via the ISY. The parameter value will also be returned as an entity extra state attribute with the name "ZW#" where "#" is the parameter number.
 
 | Service data attribute | Optional | Description                                                                                     |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |

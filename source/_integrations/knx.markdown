@@ -9,7 +9,9 @@ ha_category:
   - Fan
   - Light
   - Notifications
+  - Number
   - Scene
+  - Select
   - Sensor
   - Switch
   - Weather
@@ -28,7 +30,9 @@ ha_platforms:
   - fan
   - light
   - notify
+  - number
   - scene
+  - select
   - sensor
   - switch
   - weather
@@ -52,7 +56,9 @@ There is currently support for the following device types within Home Assistant:
 - [Fan](#fan)
 - [Light](#light)
 - [Notify](#notify)
+- [Number](#number)
 - [Scene](#scene)
+- [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Weather](#weather)
@@ -348,7 +354,7 @@ address:
   required: true
 type:
   description: Type of the exposed value. Either `binary`, `time`, `date`, `datetime` or any supported type of [KNX Sensor](#sensor) (e.g., "temperature" or "humidity").
-  type: string
+  type: [string, integer]
   required: true
 entity_id:
   description: Entity ID to be exposed. Not needed for types `time`, `date` and `datetime`.
@@ -628,6 +634,14 @@ setpoint_shift_max:
   required: false
   default: 6
   type: float
+active_state_address:
+  description: KNX address for reading current activity. `0` is idle, `1` is active. *DPT 1*
+  required: false
+  type: [string, list]
+command_value_state_address:
+  description: KNX address for reading current command value in percent. `0` sets the climate entity to idle if `active_state_address` is not set. *DPT 5.001*
+  required: false
+  type: [string, list]
 operation_mode_address:
   description: KNX address for setting operation mode (Frost protection/night/comfort). *DPT 20.102*
   required: false
@@ -1032,6 +1046,69 @@ name:
   type: string
 {% endconfiguration %}
 
+## Number
+
+The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
+
+<div class='note'>
+
+Number entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Numbers having a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  number:
+    - name: "Duration"
+      address: "0/0/1"
+      type: time_period_sec
+    - name: "Volume"
+      address: "0/0/2"
+      state_address: "0/0/3"
+      type: percent
+    - name: "Temperature threshold"
+      address: "0/0/4"
+      respond_to_read: true
+      type: temperature
+      min: 20
+      max: 24.5
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address new values will be sent to.
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus.
+  required: false
+  type: [string, list]
+type:
+  description: Any supported type of [KNX Sensor](#sensor) representing a numeric value (e.g., "percent" or "temperature").
+  required: true
+  type: [string, integer]
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+min:
+  description: Minimum value that can be sent. Defaults to the `type` DPT minimum value.
+  required: false
+  type: float
+max:
+  description: Maximum value that can be sent. Defaults to the `type` DPT maximum value.
+  required: false
+  type: float
+{% endconfiguration %}
+
 ## Scene
 
 The KNX scenes platform allows you to trigger [KNX](https://www.knx.org/) scenes. These entities are write-only.
@@ -1060,11 +1137,96 @@ name:
   type: string
 {% endconfiguration %}
 
+## Select
+
+The KNX select platform allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, the assigned generic raw payload is sent to the KNX bus. A received telegram updates the state of the select entity. It can optionally respond to read requests from the KNX bus with its current state.
+
+<div class='note'>
+
+Select entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Selects having a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  select:
+    - name: "DPT 2 selector"
+      address: "0/0/1"
+      payload_length: 0
+      options:
+        - option: "No control"
+          payload: 0
+        - option: "Control On"
+          payload: 0b10
+        - option: "Control Off"
+          payload: 0b11
+    - name: "DHWMode"
+      address: "0/0/2"
+      state_address: "0/0/3"
+      payload_length: 1
+      options:
+        - option: "Auto"
+          payload: 0
+        - option: "LegioProtect"
+          payload: 1
+        - option: "Normal"
+          payload: 2
+        - option: "Reduced"
+          payload: 3
+        - option: "Off/FrostProtect"
+          payload: 4
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address new values will be sent to.
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus.
+  required: false
+  type: [string, list]
+payload_length:
+  description: The length of the payload expected for the DPT. Use `0` for DPT 1, 2 or 3.
+  required: true
+  type: integer
+options:
+  description: List of options to choose from. Each `option` and `payload` have to be unique.
+  type: list
+  required: true
+  keys:
+    option:
+      description: The name of the option used to trigger the assigned `payload`.
+      required: true
+      type: string
+    payload:
+      description: The raw payload assigned to the `option`.
+      required: true
+      type: integer
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+sync_state:
+  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  required: false
+  type: [boolean, string, integer]
+  default: true
+{% endconfiguration %}
+
 ## Sensor
 
 The KNX sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors.
 
-Sensors are read-only. To write to the KNX bus configure an exposure [KNX Integration Expose](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus) or use the `knx.send` service.
+Sensors are read-only. To write to the KNX bus configure a [Number](#number), an exposure [KNX Integration Expose](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus) or use the `knx.send` service.
 
 ```yaml
 # Example configuration.yaml entry
@@ -1095,7 +1257,7 @@ state_address:
 type:
   description: A type from the value types table below must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
   required: true
-  type: string
+  type: [string, integer]
 name:
   description: A name for this device used within Home Assistant.
   required: false
@@ -1312,10 +1474,17 @@ invert:
   required: false
   type: boolean
   default: false
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
-Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
-For switching actuators that are only controlled by a single group address and can't change their state internally, you don't have to configure the state address.
+The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
+
+Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+Switches having a `state_address` configured request their current state from the KNX bus.
 
 ## Weather
 

@@ -281,7 +281,7 @@ modbus:
       - name: "Watlow F4T"
         address: 27586
         input_type: holding
-        data_count: 1
+        count: 1
         data_type: custom
         max_temp: 35
         min_temp: 15
@@ -305,7 +305,7 @@ climates:
       description: Register address for current temperature (process value).
       required: true
       type: integer
-    data_count:
+    count:
       description: Number of registers to read.
       required: false
       type: integer
@@ -350,6 +350,11 @@ climates:
       required: false
       type: string
       default: ">f"
+    swap:
+      description: "Swap the order of bytes/words, options are `none`, `byte`, `word`, `word_byte`."
+      required: false
+      default: none
+      type: string 
     target_temp_register:
       description: Register address for target temperature (Setpoint).
       required: true
@@ -438,7 +443,7 @@ covers:
       default: 0
       type: integer
     state_opening:
-      description: A value in `status_register` or `register` representing a opening cover. Note that this state should be also supported on your connected Modbus cover. If it won't report the state, this state won't be detected.
+      description: A value in `status_register` or `register` representing an opening cover. Note that this state should be also supported on your connected Modbus cover. If it won't report the state, this state won't be detected.
       required: false
       default: 2
       type: integer
@@ -448,7 +453,7 @@ covers:
       default: 3
       type: integer
     status_register:
-      description: An address of an register, from which all the cover states will be read. If you specified `register` attribute, and not `status_register` attribute, your main register will also be used as a status register.
+      description: An address of a register, from which all the cover states will be read. If you specified `register` attribute, and not `status_register` attribute, your main register will also be used as a status register.
       required: false
       type: integer
     status_register_type:
@@ -622,6 +627,11 @@ fans:
           required: false
           default: write address
           type: integer
+        delay:
+          description: delay between write and verify.
+          required: false
+          default: 0
+          type: integer
         input_type:
           description: Type of address (holding/coil/discrete/input).
           required: false
@@ -705,6 +715,11 @@ lights:
           description: Address to read from. 
           required: false
           default: write address
+          type: integer
+        delay:
+          description: delay between write and verify.
+          required: false
+          default: 0
           type: integer
         input_type:
           description: Type of address (holding/coil/discrete/input).
