@@ -43,8 +43,8 @@ The Modern Forms integration has support for the Modern Forms fans light. This i
 
 The Modern Forms integration provides sensors for the following information:
 
-- Fan sleep timer time remaining in seconds
-- Light sleep timer time remaining in seconds
+- Fan sleep timer time expiring
+- Light sleep timer time expiring
   
 ## Switches
 
