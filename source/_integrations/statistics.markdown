@@ -14,7 +14,7 @@ ha_platforms:
   - sensor
 ---
 
-The `statistics` sensor platform consumes the state from other sensors. It exports the `mean` value as state and the following values as attributes: `count`, `mean`, `median`, `stdev`, `variance`, `total`, `min_value`, `max_value`, `min_age`, `max_age`, `change`, `average_change` and `change_rate`. If the source is a binary sensor then only state changes are counted.
+The `statistics` sensor platform consumes the state from other sensors. It exports the `mean` value as state and the following values as attributes: `count`, `mean`, `median`, `standard_deviation`, `variance`, `total`, `min_value`, `max_value`, `min_age`, `max_age`, `change`, `average_change` and `change_rate`. If the source is a binary sensor then only state changes are counted.
 
 Assuming the [`recorder`](/integrations/recorder/) integration is running (either configured explicitly or as part of a meta-integration/dependency, e.g., [`default_config`](/integrations/default_config/), [`history`](/integrations/history/), etc.), historical sensor data is read from the database on startup and is available immediately after a restart of the platform. If the [`recorder`](/integrations/recorder/) integration is *not* running, it can take time for the sensor to start reporting data because some attribute calculations require more than one value.
 
