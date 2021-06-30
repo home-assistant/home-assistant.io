@@ -72,7 +72,7 @@ Screenshot of a custom theme supporting both light & dark mode.
 </p>-->
 
 Some integrations started implementing the first select entities as of this
-release. MQTT & KNS made it available for use, WLED uses it to provide
+release. MQTT & KNX made it available for use, WLED uses it to provide
 controls on selecting and activating a user preset, and with Rituals Perfume
 Genie you can now change the room size for your diffuser.
 
