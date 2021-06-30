@@ -237,10 +237,10 @@ Others:
 We welcome the following new integrations this release:
 
 - [Ambee][ambee docs], added by [@frenck]
-- [Forecast.Solar], added by [@klaasnicolaas]
-- [Freedompro], added by [@stefano055415]
+- [Forecast.Solar][forecast_solar docs], added by [@klaasnicolaas]
+- [Freedompro][freedompro docs], added by [@stefano055415]
 - [Modern Forms][modern_forms docs], added by [@wonderslug]
-- [Select], added by [@frenck]
+- [Select][select docs], added by [@frenck]
 
 ## New Platforms
 
