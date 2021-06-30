@@ -3,7 +3,7 @@ title: Freedompro
 description: Instructions for how to integrate Freedompro accessories within Home Assistant.
 ha_category:
   - Light
-ha_release: 2021.3
+ha_release: 2021.7
 ha_iot_class: Cloud Poll
 ha_config_flow: true
 ha_codeowners:
