@@ -105,7 +105,7 @@ The `device_tracker.see` service can be used to manually update the state of a d
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `dev_id`               |       no | The `object_id`, for example `tardis` for `device_tracker.tardis` |
-| `location_name`        |       no | The location, `home`, `not_home`, or the name of the zone |
+| `location_name`        |      yes | The location, `home`, `not_home`, or the name of the zone |
 | `host_name`            |      yes | The hostname of the device tracker |
 | `mac`                  |      yes | The MAC address of the entity (only specify if you're updating a network based tracker) |
 | `gps`                  |      yes | If you're providing a location, for example `[51.513845, -0.100539]` |
