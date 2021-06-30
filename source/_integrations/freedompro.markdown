@@ -10,12 +10,9 @@ ha_codeowners:
   - '@stefano055415'
 ha_domain: freedompro
 ---
-
-
 [Freedompro](https://freedompro.eu/), a company specialized in home automation, designs and manufactures products to make domotics affordable for everyone, installers and enthusiasts. [Freedompro Products](https://freedompro.eu/collections/easykon) are designed to be easy to use and practical and fast to install.
 
 This integration lets you control all [Freedompro](https://freedompro.eu/) accessories.
-
 
 ## Preliminary Steps
 
@@ -27,7 +24,4 @@ You will need to obtain an API key from [Freedompro Cloud](https://home.freedomp
 4. Generate the API key.
 
 
-## Configuration
-
-1. In the **Configuration** > **Integrations** menu, click **+** and then select "freedompro" from the pop-up menu.
-2. In the pop-up box, enter the API key you obtained from [Freedompro Cloud](https://home.freedompro.eu/).
+{% include integrations/config_flow.md %}
