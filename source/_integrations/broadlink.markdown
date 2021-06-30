@@ -155,13 +155,12 @@ The learned codes are stored in `/configuration/.storage/` in a JSON file called
 
 #### Learned codes event
 
-When codes have been learned, an event of type `remote_event` is sent. The data passed in the event contains:
+When codes have been learned, an event of type `remote_learned_command` is sent. The data passed in the event contains:
 
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `device_id` | no | The ID of the Broadlink device the `learn` command was sent to. | 780fh7632287
-| `type` | no | The event type. Will always be `learned_code`. | learned_code
-| `command` | no | The command sent to be learnt. | heat_cool_medium_horizontal_18
+| `command` | yes | The command sent to be learnt. May not be included depending on error. | heat_cool_medium_horizontal_18
 | `code` | yes | The code learned by the Broadlink device. |
 | `error` | yes | If an error occurs, this will contain the error message. | No infrared code received within 30 seconds
 
