@@ -304,7 +304,7 @@ rejected if the request is marked as forwarded.
 
 {% details "Python 3.9 / Alpine 3.13" %}
 
-Our Docker images are not based on Alpine 3.13, and run Python 3.9.
+Our Docker images are now based on Alpine 3.13, and run Python 3.9.
 
 This is mainly interesting if you running custom Docker containers based
 on our container.
