@@ -534,8 +534,8 @@ you can use, please look at meteoalarm.org.
 
 {% details "CEC Support" %}
 
-our Docker container limited too support CEC drivers that are provided by
-the Linux kernel. This applies to the Home Assistant Container,
+Our Docker container has limited support for CEC drivers to those provided
+by the Linux kernel. This applies to the Home Assistant Container,
 Home Assistant OS and Home Assistant Supervised installation types.
 
 This will cover most CEC drivers out there.
