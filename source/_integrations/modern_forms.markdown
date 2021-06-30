@@ -2,6 +2,7 @@
 title: Modern Forms
 description: Instructions on how to integrate a Modern Forms Smart Fan with Home Assistant.
 ha_category:
+  - Binary Sensor
   - Fan
   - Light
   - Sensor
@@ -15,6 +16,7 @@ ha_codeowners:
 ha_domain: modern_forms
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - fan
   - light
   - sensor
@@ -38,6 +40,13 @@ The Modern Forms integration has support for the Modern Forms fans. This include
 ## Lights
 
 The Modern Forms integration has support for the Modern Forms fans light. This includes brightness, and sleep timer services for the light.
+
+## Binary sensors
+
+The Modern Forms integration provides binary sensors for the following information:
+
+- Fan sleep timer active status
+- Light sleep timer active status
 
 ## Sensors
 
