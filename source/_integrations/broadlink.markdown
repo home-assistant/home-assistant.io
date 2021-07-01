@@ -153,16 +153,23 @@ When the LED blinks for the first time, press the button you want to learn. Then
 
 The learned codes are stored in `/configuration/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#Setting%20up%20custom%20IR/RF%20switches) or to send them as [base64 codes](#Sending%20a%20base64%20code), but beware: the files in the .storage folder _should never be edited manually_.
 
-#### Learned codes event
+#### Learned codes events
 
 When codes have been learned, an event of type `remote_learned_command` is sent. The data passed in the event contains:
 
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `device_id` | no | The ID of the Broadlink device the `learn` command was sent to. | 780fh7632287
+| `command` | no | The command sent to be learnt. May not be included depending on error. | heat_cool_medium_horizontal_18
+| `code` | no | The code learned by the Broadlink device. |
+
+If the learning fails, a `remote_learned_command_failed` event is sent.
+
+| Data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `device_id` | no | The ID of the Broadlink device the `learn` command was sent to. | 780fh7632287
 | `command` | yes | The command sent to be learnt. May not be included depending on error. | heat_cool_medium_horizontal_18
-| `code` | yes | The code learned by the Broadlink device. |
-| `error` | yes | If an error occurs, this will contain the error message. | No infrared code received within 30 seconds
+| `error` | no | The error message. | No infrared code received within 30 seconds
 
 ### Sending commands
 
