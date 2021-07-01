@@ -64,6 +64,10 @@ The Modern Forms integration provides support for the following toggleable attri
 
 ## Services
 
+### Service `modern_forms.reboot`
+
+This service will reboot the controller of the fan. It will not effect the fan speed or light while rebooting.
+
 ### Service `modern_forms.clear_fan_sleep_timer`
 
 This service will clear the sleep timer for the fan if it has been set. It will not turn off the fan when the timer is cleared.
