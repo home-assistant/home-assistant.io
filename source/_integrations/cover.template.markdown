@@ -54,11 +54,11 @@ cover:
         required: false
         type: string
       value_template:
-        description: Defines a template to get the state of the cover. Valid values are `open`/`true` or `opening`/`closing`/`closed`/`false`. [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
+        description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If both a [`value_template`](#value_template) and a [`position_template`](#position_template) are specified only `opening` and `closing` states are set from the `value_template`, other valid output is ignored and the `position_template` will define the state.
         required: exclusive
         type: template
       position_template:
-        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
+        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open).
         required: exclusive
         type: template
       icon_template:
