@@ -10,7 +10,7 @@ jobs:
       - name: Check out files from GitHub
         uses: actions/checkout@v2.3.4
       - name: Setting up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v2.2.0
         with:
           node-version: 12.x
       - name: Setup NPM cache
@@ -33,7 +33,7 @@ jobs:
       - name: Check out files from GitHub
         uses: actions/checkout@v2.3.4
       - name: Setting up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v2.2.0
         with:
           node-version: 12.x
       - name: Setup NPM cache
