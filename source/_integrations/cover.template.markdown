@@ -140,7 +140,7 @@ There is an equivalent mode for `tilt_position` that is enabled when
 
 ## Combining `value_template` and `position_template`
 
-If both a [`value_template`](#value_template) and a [`position_template`](#position_template) are specified only `opening` and `closing` states are set from the `value_template`, other valid output is ignored and the `position_template` will define the state.
+If both a [`value_template`](#value_template) and a [`position_template`](#position_template) are specified only `opening` and `closing` states are set directly from the `value_template`, the `open` and `closed` states will instead be derived from the cover position.
 
 | value_template output | result |
 | ------------- |-------------|
