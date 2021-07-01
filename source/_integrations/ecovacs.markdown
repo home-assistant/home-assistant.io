@@ -29,6 +29,9 @@ ecovacs:
   password: YOUR_ECOVACS_PASSWORD
   country: YOUR_TWO_LETTER_COUNTRY_CODE
   continent: YOUR_TWO_LETTER_CONTINENT_CODE
+  skip_devices:
+    - OZMO_U2
+    - Basement
 ```
 
 {% configuration %}
@@ -48,6 +51,10 @@ continent:
   description: Your two-letter continent code (na, eu, etc).
   required: true
   type: string
+skip_devices:
+  description: A list of devices (by name, not id) to skip from being made available in Home Assistant, most usefull for new Ecovacs devices that this integration doesn't work with.
+  required: false
+  type: list
 {% endconfiguration %}
 
 Note: For some countries, you will need to set `continent` to `ww` (meaning worldwide.) There is unfortunately no way to know the correct settings other than guessing and checking. See the [sucks library protocol documentation](https://github.com/wpietri/sucks/blob/master/protocol.md) for more information about what has been figured out about the Ecovacs servers.
