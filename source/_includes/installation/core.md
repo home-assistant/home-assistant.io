@@ -84,7 +84,9 @@ Start Home Assistant Core for the first time. This will complete the installatio
 hass
 ```
 
-You can now reach your installation via the web interface on `http://homeassistant.local:8123`, `http://localhost:8123` or `http://X.X.X.X:8123`  (replace X.X.X.X with your machines’s IP address).. 
+You can now reach your installation via the web interface on `http://homeassistant.local:8123`.
+
+If this address doesn't work you may also try `http://localhost:8123` or `http://X.X.X.X:8123` (replace X.X.X.X with your machines’ IP address).
 
 <div class='note'>
 
