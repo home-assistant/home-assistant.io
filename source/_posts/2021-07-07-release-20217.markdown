@@ -14,7 +14,7 @@ og_image: /images/blog/2021-07/social.png
 feedback: true
 ---
 
-<!--<a href='/integrations/#version/2021.7'><img src='/images/blog/2021-07/social.png' style='border: 0;box-shadow: none;'></a>-->
+<a href='/integrations/#version/2021.7'><img src='/images/blog/2021-07/social.png' style='border: 0;box-shadow: none;'></a>
 
 These are the beta release notes for Home Assistant Core 2021.7 (and is thus a
 work in progress).
@@ -48,11 +48,6 @@ Issues introduced in the beta are processed with priority.
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
 
-<!--<p class='img'>
-<img src='/images/blog/2021-07/themes.png' alt='Screenshot of a custom theme supporting both light & dark mode'>
-Screenshot of a custom theme supporting both light & dark mode.
-</p>-->
-
 ## New entity: Select
 
 This release we welcome the `select` entity to the Home Assistant family. The
@@ -66,10 +61,10 @@ This means integrations can now provide provide entities that give a choice.
 Either in the Lovelace UI, but also via automations using services,
 and via the Google Assistant.
 
-<!--<p class='img'>
-<img src='/images/blog/2021-07/themes.png' alt='Screenshot of a custom theme supporting both light & dark mode'>
-Screenshot of a custom theme supporting both light & dark mode.
-</p>-->
+<p class='img'>
+<img src='/images/blog/2021-07/select.png' alt='Screenshot of a select entity, providing a choice from a list of options'>
+Screenshot of a select entity, providing a choice from a list of options.
+</p>
 
 Some integrations started implementing the first select entities as of this
 release. MQTT & KNX made it available for use, WLED uses it to provide
@@ -92,9 +87,11 @@ automation:
       - platform: state
         id: "normal"
         entity_id: binary_sensor.gate
+        state: "on"
       - platform: state
         id: "forgotten"
         entity_id: binary_sensor.gate
+        state: "on"
         for:
           minutes: 10
     ...
@@ -142,7 +139,7 @@ automation:
     action:
       - service: notify.frenck_iphone
         data:
-          message: "Close the windows, it is warm outside!"
+          message: "Close all windows, it is warm outside!"
 ```
 
 The numeric state conditions supports the same.
@@ -154,8 +151,8 @@ added support for that already in a previous release.
 ## Working with dates in templates
 
 If you ever tried to work with dates in templates, you probably know that that
-is hard. And honestly, that will never go away, a time and timezones is a
-complex little beast.
+is hard. And honestly, that will never go away, times, dates and timezones are
+a complex little beasts.
 
 However, we realized that the hardest part of using date & times with templates,
 is actually converting the state of a sensor or text to an datetime. This
@@ -179,8 +176,8 @@ we recommend to use a specific version tag, however, that means
 you need to update the version tag each time we release a new patch version
 of Home Assistant.
 
-As of this release, we also provide a series version tag, that always
-points to the latest patch version of that release.
+Thanks to [@kmdm], as of this release, we also provide a series version tag
+that always points to the latest patch version of that release.
 
 ```shell
 docker pull ghcr.io/home-assistant/home-assistant:2021.7
@@ -246,7 +243,7 @@ We welcome the following new integrations this release:
 
 The following integration got support for a new platform:
 
-- [AVM FRITZ!Box Tools][fritz docs] now has switches available, added by [[@chemelli74]
+- [AVM FRITZ!Box Tools][fritz docs] now has switches available, added by [@chemelli74]
 - [Bosch SHC][bosch_shc docs] has now several sensors for their devices, added by [@tschamm]
 - [Groups][group docs] now support creating Media Player groups, added by [@definitio]
 - [Hyperion][hyperion docs] can now provide a camera feed with the live image, added by [@dermotduffy]
@@ -312,6 +309,11 @@ on our container.
 If you are using Home Assistant Container, Home Assistant OS or the Home Assistant
 Supervised installation method, you will automatically get this update on upgrade
 and no additional interaction is needed.
+
+Please note, that Alpine 3.13 on an ARM devices running a 32-bits operating
+system (armhf/armv7), requires your Docker version to be at least 19.03.9
+(although, we recommend updating to an even higher version). Additionally,
+you need to have `libseccomp` 2.42 or newer.
 
 ([@pvizeli] - [#51628])
 
@@ -696,7 +698,7 @@ It's no longer possible to set attributes defined in the the base component
 via a configured `json_attributes_topic`.
 
 For example a light no longer accepts brightness via the `json_attribute_topic`.
-This was unintended and undocumented functionality that lead to expected
+This was unintended and undocumented functionality that lead to unexpected
 behavior.
 
 This change applies to all supported MQTT platforms.
@@ -758,6 +760,19 @@ If you have no idea what this message is about, you can safely ignore it.
 We have merely listed this to be complete in our breaking changes report.
 
 ([@emontnemery] - [#52331]) ([history docs])
+
+{% enddetails %}
+
+{% details "Recorder" %}
+
+The underlying library that is used for the database connections, has been
+updated. This fixes a bug, that might be a breaking change for you.
+
+If you use an `@` in your database username or password, you will have to
+adjust your database connection string to use `%40` instead.
+
+Database connection strings are considered URLs, thus special charaters need
+to be encoded. `%40` is the URL encoded version of `@`.
 
 {% enddetails %}
 
