@@ -714,7 +714,6 @@
 /components/sensor.freebox /integrations/freebox#sensor
 /components/sensor.fritzbox /integrations/fritzbox#sensor
 /components/sensor.fritzbox_callmonitor /integrations/fritzbox_callmonitor
-/components/sensor.fritzbox_netmonitor /integrations/fritzbox_netmonitor
 /components/sensor.geo_rss_events /integrations/geo_rss_events
 /components/sensor.github /integrations/github
 /components/sensor.gitlab_ci /integrations/gitlab_ci
@@ -1358,7 +1357,6 @@
 /components/fritz /integrations/fritz
 /components/fritzbox /integrations/fritzbox
 /components/fritzbox_callmonitor /integrations/fritzbox_callmonitor
-/components/fritzbox_netmonitor /integrations/fritzbox_netmonitor
 /components/fronius /integrations/fronius
 /components/frontend /integrations/frontend
 /components/frontier_silicon /integrations/frontier_silicon
@@ -2217,6 +2215,7 @@
 /components/fortigate /more-info/removed-integration 301
 /components/history_graph /more-info/removed-integration 301
 /components/hydroquebec /more-info/removed-integration 301
+/components/fritzbox_netmonitor  /more-info/removed-integration 301
 /components/linksys_ap /more-info/removed-integration 301
 /components/liveboxplaytv /more-info/removed-integration 301
 /components/lock.lockitron /more-info/removed-integration 301
@@ -2232,6 +2231,7 @@
 /components/ruter /more-info/removed-integration 301
 /components/sensor.bom /more-info/removed-integration 301
 /components/sensor.duke_energy  /more-info/removed-integration 301
+/components/sensor.fritzbox_netmonitor /more-info/removed-integration 301
 /components/sensor.gearbest /more-info/removed-integration 301
 /components/sensor.hydroquebec /more-info/removed-integration 301
 /components/sensor.linky /more-info/removed-integration 301
