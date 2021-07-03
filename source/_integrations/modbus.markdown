@@ -60,7 +60,7 @@ retries:
   description: Number of times to retry a request.
   required: false
   default: 3
-  type: int
+  type: integer
 retry_on_empty:
   description: Retry request, when receiving and empty message.
   required: false
@@ -248,35 +248,35 @@ modbus:
 
 {% configuration %}
 data_type:
-    description: Response representation (int16, int32, int64, uint16, uint32, uint64, float16, float32, float64, string). `int/uint`are silently converted to `int16/uint16`.
-    required: false
-    type: string
-    default: int16
+  description: Response representation (int16, int32, int64, uint16, uint32, uint64, float16, float32, float64, string). `int/uint`are silently converted to `int16/uint16`.
+  required: false
+  type: string
+  default: int16
 offset:
-      description: Final offset (output = scale * value + offset).
-      required: false
-      type: float
-      default: 0
+  description: Final offset (output = scale * value + offset).
+  required: false
+  type: float
+  default: 0
 precision:
-      description: Number of valid decimals.
-      required: false
-      type: integer
-      default: 1
+  description: Number of valid decimals.
+  required: false
+  type: integer
+  default: 1
 scale:
-      description: Scale factor (output = scale * value + offset).
-      required: false
-      type: float
-      default: 1
+  description: Scale factor (output = scale * value + offset).
+  required: false
+  type: float
+  default: 1
 structure:
-      description: "If `data_type` is custom specified a double-quoted Python struct is expected here, to format the string to unpack the value. See Python documentation for details. Example: `>i`."
-      required: false
-      type: string
-      default: ">f"
+  description: "If `data_type` is custom specified a double-quoted Python struct is expected here, to format the string to unpack the value. See Python documentation for details. Example: `>i`."
+  required: false
+  type: string
+  default: ">f"
 swap:
-      description: "Swap the order of bytes/words, options are `none`, `byte`, `word`, `word_byte`."
-      required: false
-      default: none
-      type: string
+  description: "Swap the order of bytes/words, options are `none`, `byte`, `word`, `word_byte`."
+  required: false
+  default: none
+  type: string
 {% endconfiguration %}
 
 ## Configuring platform binary sensor
