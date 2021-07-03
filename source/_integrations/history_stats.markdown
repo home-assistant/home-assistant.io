@@ -61,6 +61,16 @@ type:
   required: false
   default: time
   type: string
+precision:
+  description: Indicates the number of decimals in the state value for sensors of type `time` or `ratio`.  Precision is defined by the [`round()`](/docs/configuration/templating/#numeric-functions-and-filters) operation. Set it to `2` to round the state value to two decimals (default), for example, or to `4` to round it to four decimals.
+  required: false
+  default: 2
+  type: integer
+time_unit:
+  description: Defines the *unit of time* (days, hours, minutes, or seconds) to be used in the state value for sensors of type `time`.  Valid units are `d` (days), `h` (hours) (default), `min` (minutes), or `s` (seconds).  For example, set it to `"s"` to display the state value in *seconds*, instead of hours.
+  required: false
+  default: "h"
+  type: string
 start:
   description: When to start the measure (timestamp or datetime).
   required: false
