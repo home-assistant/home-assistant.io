@@ -47,4 +47,4 @@ The following sensors will also be created:
 - **Temperature**: Shows the battery temperature.
 - **Time to Empty/Full**: Shows the time left in minutes to empty or full depending on current usage. Shows -1 when there is no battery activity.
 - **Wi-fi Strength**: Shows the Wi-fi strength the device has with the connected access point.
-- **Up Time**: The time in seconds since the last reboot. (disabled by default)
+- **Total Run Time**: The total run time of the device. (disabled by default)
