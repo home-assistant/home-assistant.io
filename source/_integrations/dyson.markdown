@@ -20,6 +20,12 @@ ha_platforms:
 
 The `dyson` integration is the main integration to integrate all [Dyson](https://www.dyson.com) related platforms.
 
+<div class='note warning'>
+
+Due to changes on the Dyson website, this integration no longer works (you may see the message "Not connected to Dyson account. Unable to add devices" in your logs). You can track the progress of the fix as [issue #46400](https://github.com/home-assistant/core/issues/46400).
+
+</div>
+
 There is currently support for the following device types within Home Assistant:
 
 - Climate
