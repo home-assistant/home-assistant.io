@@ -65,8 +65,6 @@ There are several attributes that can be useful for automations and templates.
 | `window_open` | The state of the window open detection (only available since Fritz!OS 7).
 | `temperature_unit` |  The unit of the temperature sensor (only available if the device support temperature sensor).
 | `temperature` | The current temperature sensor reading (only available if the device supports temperature sensor).
-| `total_consumption` | The total power consumption since the beginning of operation (only available if the device supports power meter function).
-| `total_consumption_unit` | The unit of the total_consumption (only available if the device supports power meter function).
 
 ## Sensors
 
