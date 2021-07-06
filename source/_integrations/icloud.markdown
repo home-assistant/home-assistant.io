@@ -45,7 +45,7 @@ Apple allows you to provide an [App Specific Password](https://support.apple.com
 2. In the Security section, click Generate Password below App-Specific Passwords.
 3. Follow the steps on your screen.
 
-After you generate your app-specific password, enter or paste it into the password field of the intergration.
+After you generate your app-specific password, enter or paste it into the password field of the integration.
 
 Any time you change or reset your primary Apple ID password, all your app-specific passwords are revoked automatically to protect the security of your account. You'll need to generate new app-specific passwords for any apps that you want to continue using.
 
