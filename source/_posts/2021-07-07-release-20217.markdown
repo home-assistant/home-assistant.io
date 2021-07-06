@@ -250,7 +250,7 @@ The following integration got support for a new platform:
 - [KNX][knx docs] added support for number and the new select entities, added by [@farmio]
 - [Meteoclimatic][meteoclimatic docs] now provides sensors with weather information, added by [@adrianmo]
 - [MQTT][mqtt docs] got support for the new select entities, added by [@emontnemery]
-- [Rituals Perfume Genie][rituals_perfume_genie docs] added a select entity for room size, added by [@milanmeu]
+- [Rituals Perfume Genie][rituals_perfume_genie docs] added a number and select entity to adjust your diffuser, added by [@milanmeu]
 - [SIA Alarm Systems][sia docs] now provides various binary sensors, added by [@eavanvalkenburg]
 - [Sony Bravia TV][braviatv docs] now offers a remote entity, added by [@Drafteed]
 - [Switcher][switcher_kis docs] now provides sensors, added by [@thecode]
@@ -773,6 +773,13 @@ adjust your database connection string to use `%40` instead.
 
 Database connection strings are considered URLs, thus special charaters need
 to be encoded. `%40` is the URL encoded version of `@`.
+
+{% enddetails %}
+
+{% details "Rituals Perfume Genie" %}
+
+The switch extra state attributes `fan_speed` and `room_size` will be removed in the next release.
+As of this release, both attributes are available as entities, making it possible to change the value with Home Assistant.
 
 {% enddetails %}
 
