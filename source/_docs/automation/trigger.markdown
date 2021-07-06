@@ -589,6 +589,9 @@ automation:
 ```
 
 An example of a custom [template sensor](/integrations/template/) with the "timestamp" device class that adds 15 minutes to an input_datetime:
+
+{% raw %}
+
 ```yaml
 sensor:
 - unique_id: "phone_next_alarm"
@@ -604,6 +607,9 @@ sensor:
     
     {{ timeaware.isoformat() }}
 ```
+
+
+{% endraw %}
 
 ### Multiple Times
 
