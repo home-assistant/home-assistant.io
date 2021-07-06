@@ -588,6 +588,23 @@ automation:
           entity_id: light.bedroom
 ```
 
+An example of a custom [template sensor](/integrations/template/) with the "timestamp" device class that adds 15 minutes to an input_datetime:
+```yaml
+sensor:
+- unique_id: "phone_next_alarm"
+  name: "Phone Next Alarm"
+  device_class: timestamp
+  state: >-
+    # This will create a datetime object that has no timezone:
+    {% set time = strptime(now().date() ~ states("input_datetime.phone_next_alarm"), "%Y-%m-%d%H:%M:%S") %}    
+    
+    # We need a timezone however, else Home Assistant can't compare this sensor with the current time.
+    # By using the astimezone() function we now create a timezone aware datetime object based on the local timezone:
+    {% set timeaware = time.astimezone(now().tzinfo) + timedelta(minutes = 15) %}
+    
+    {{ timeaware.isoformat() }}
+```
+
 ### Multiple Times
 
 Multiple times can be provided in a list. Both formats can be intermixed.
