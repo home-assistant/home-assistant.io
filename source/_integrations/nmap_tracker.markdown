@@ -27,6 +27,8 @@ On a Fedora host run `sudo dnf -y install nmap`.
 
 {% include integrations/config_flow.md %}
 
+By default, Host detection is setup via Nmap's "fast scan" (`-F`) of the most frequently used 100 ports, with a host timeout of 5 seconds. You can find all Nmap configuration options in the [Reference guide](https://nmap.org/book/man.html).
+
 An example of how the Nmap scanner can be customized:
 
 ### Linux capabilities
