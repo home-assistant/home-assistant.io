@@ -57,7 +57,7 @@ select entity is relative of the dropdown helper (also known as
 The difference is that while the input select is configured and managed by you,
 the select entities are provided by integrations.
 
-This means integrations can now provide provide entities that give a choice.
+This means integrations can now provide entities that give a choice.
 Either in the Lovelace UI, but also via automations using services,
 and via the Google Assistant.
 
@@ -119,6 +119,33 @@ automation:
 
 You can use the trigger condition in all places all other conditions work
 as well, including things like [choose from a group of actions](/docs/scripts/#choose-a-group-of-actions).
+
+Rather use the UI to create and manage your automations? No problem! These new
+features have been added to the automation editor as well!
+
+<p class='img'>
+<img src='/images/blog/2021-07/trigger-condition.png' alt='Screenshot of using a trigger condition in the automation editor'>
+Screenshot of using a trigger condition in the automation editor.
+</p>
+
+## Script debugging
+
+In [Home Assistant Core 2021.4](/blog/2021/04/07/release-20214/#automation-debugging),
+we added the ability to debug automations. This release, we've made these
+same powerful tools available for scripts!
+
+So, this helps for the next time you are wondering: Why didn't that script work?
+Or why did it behave like it did? What the script is going on here?
+
+<p class='img'>
+<img src='/images/blog/2021-07/script-tracing.png' alt='Screenshot of using the new script debugger on the my office announce script'>
+Screenshot of using the new script debugger on the my office announce script.
+</p>
+
+The above screenshot shows a previous run of an script, using an interactive
+graph for each step in this script with the path it took highlighted.
+Each node in the graph can be clicked to view the details on what happened
+on each step in the script sequence.
 
 ## Referencing other entities in triggers and conditions
 
@@ -262,7 +289,6 @@ The following integrations are now available via the Home Assistant UI:
 
 - [Coinbase][coinbase docs], done by [@TomBrien]
 - [DSMR Slimme Meter][dsmr docs], done by [@RobBie1221]
-- [Nmap Tracker][nmap_tracker docs], done by [@bdraco]
 - [Yamaha MusicCast][yamaha_musiccast docs], done by [@vigonotion]
 
 ## If you need help...
@@ -679,16 +705,6 @@ automations and dashboards if you have been using the `air_quality` entity
 of Airly.
 
 ([@bieniu] - [#52225]) ([airly docs])
-
-{% enddetails %}
-
-{% details "Nmap Tracker" %}
-
-The Nmap Tracker has fully transitioned to configuration via UI.
-Existing YAML configuration will be imported automatically and can now safely
-be removed from your configuration files.
-
-([@bdraco] - [#50429]) ([nmap_tracker docs])
 
 {% enddetails %}
 
