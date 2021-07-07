@@ -6,7 +6,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.102
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
@@ -15,7 +15,6 @@ ha_domain: wled
 ha_zeroconf: true
 ha_platforms:
   - light
-  - select
   - sensor
   - switch
 ---

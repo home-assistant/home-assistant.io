@@ -8,10 +8,11 @@ ha_release: 2021.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@frenck"
+  - '@frenck'
 ha_domain: ambee
 ha_platforms:
   - sensor
+ha_quality_scale: platinum
 ---
 
 The Ambee integration integrations the [Ambee](https://www.getambee.com/) API

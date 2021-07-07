@@ -9,6 +9,9 @@ ha_iot_class: Cloud Polling
 ha_domain: coinbase
 ha_platforms:
   - sensor
+ha_codeowners:
+  - '@tombrien'
+ha_config_flow: true
 ---
 
 The `coinbase` integration lets you access account balances and exchange rates from [Coinbase](https://coinbase.com).
@@ -32,4 +35,3 @@ Wallet balances to report:
 Exchange rates to report:
   description: Optional list of currencies to create exchange rate sensors for.
 {% endconfiguration_basic %}
-
