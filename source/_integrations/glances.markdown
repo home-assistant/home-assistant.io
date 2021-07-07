@@ -37,7 +37,7 @@ $ curl -X GET http://IP_ADDRESS:61208/api/3/mem/free
 
 If this doesn't work, try changing the `3` to `2`, if you don't have the latest version of Glances installed.
 
-For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).  
+For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
 
 {% include integrations/config_flow.md %}
 
@@ -65,5 +65,8 @@ Glances integration will add the following sensors if available in the platform:
 - docker_active: The count of active Docker containers.
 - docker_cpu_use: The total CPU usage in percent of Docker containers.
 - docker_memory_use: The total memory used by Docker containers.
+- For each detected network interface, the following sensors will be created:
+  - network_rx: The recieve speed in MB.
+  - network_tx: The transmit speed in MB.
 
 Not all platforms are able to provide all metrics. For instance the cpu temp sensor requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.
