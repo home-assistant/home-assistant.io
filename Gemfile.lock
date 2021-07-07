@@ -86,7 +86,7 @@ GEM
     rack (2.2.3)
     rack-protection (2.1.0)
       rack
-    rake (13.0.3)
+    rake (13.0.4)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -131,7 +131,7 @@ DEPENDENCIES
   jekyll-time-to-read (= 0.1.2)
   jekyll-toc (= 0.17.1)
   nokogiri (= 1.11.7)
-  rake (= 13.0.3)
+  rake (= 13.0.4)
   sass-globbing (= 1.1.5)
   sassc (= 2.1.0)
   sinatra (= 2.1.0)
