@@ -8,6 +8,7 @@ ha_release: 0.104
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@benleb'
+  - '@danielhiversen'
 ha_domain: surepetcare
 ha_platforms:
   - binary_sensor

@@ -12,6 +12,7 @@ ha_domain: group
 ha_platforms:
   - cover
   - light
+  - media_player
   - notify
 ---
 

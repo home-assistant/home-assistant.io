@@ -32,7 +32,6 @@ ha_platforms:
   - notify
   - number
   - scene
-  - select
   - sensor
   - switch
   - weather
