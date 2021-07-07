@@ -1,12 +1,12 @@
 ---
-title: Yamaha MusicCast
+title: MusicCast
 description: Instructions on how to integrate Yamaha MusicCast Receivers into Home Assistant.
 ha_category:
   - Media Player
 ha_release: 0.53
 ha_codeowners:
-  - '@micha91'
   - '@vigonotion'
+  - '@micha91'
 ha_iot_class: Local Push
 ha_ssdp: true
 ha_config_flow: true

@@ -7,8 +7,8 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 0.36
 ha_codeowners:
-  - "@kellerza"
-  - "@rklomp"
+  - '@kellerza'
+  - '@rklomp'
 ha_domain: sma
 ha_platforms:
   - sensor

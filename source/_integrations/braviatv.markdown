@@ -8,6 +8,7 @@ ha_release: 0.23
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@bieniu'
+  - '@Drafteed'
 ha_domain: braviatv
 ha_config_flow: true
 ha_platforms:

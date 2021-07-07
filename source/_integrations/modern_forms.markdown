@@ -7,10 +7,9 @@ ha_category:
   - Light
   - Sensor
   - Switch
-ha_release:  2021.7
+ha_release: 2021.7
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_quality_scale: none
 ha_codeowners:
   - '@wonderslug'
 ha_domain: modern_forms
