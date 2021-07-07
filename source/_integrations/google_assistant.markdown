@@ -209,7 +209,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - scene (on)
 - script (on)
 - switch (on/off)
-- fan (on/off/speed)
+- fan (on/off/speed percentage/preset mode)
 - light (on/off/brightness/rgb color/color temp)
 - lock 
 - cover (on/off/set position)
