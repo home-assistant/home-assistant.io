@@ -90,4 +90,4 @@ Device profiles are designed for advanced users, thus they are disabled by defau
 ### Port Forward
 
 Due to security reasons, AVM implemented the ability to enable/disable a port forward rule only from the host involved in the rule.
-As a result this integration will create entities only for rules that have your HA host as destination.
+As a result, this integration will create entities only for rules that have your Home Assistant host as a destination.
