@@ -50,6 +50,7 @@ Alright, that's it! Enjoy the release!
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.7.1 - July 8](#release-202171---july-8)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -300,6 +301,68 @@ The following integrations are now available via the Home Assistant UI:
 - [Coinbase][coinbase docs], done by [@TomBrien]
 - [DSMR Slimme Meter][dsmr docs], done by [@RobBie1221]
 - [Yamaha MusicCast][yamaha_musiccast docs], done by [@vigonotion]
+
+## Release 2021.7.1 - July 8
+
+- Fix service registration typo in Nuki integration ([@anaisbetts] - [#52631]) ([nuki docs])
+- Fix Fritz default consider home value ([@chemelli74] - [#52648]) ([fritz docs])
+- Handle KeyError when accessing device information ([@ludeeus] - [#52650]) ([ecovacs docs])
+- Warn if `interface_addr` remains in Sonos configuration ([@jjlawren] - [#52652]) ([sonos docs])
+- Ignore unused keys from Sonos device properties callback ([@jjlawren] - [#52660]) ([sonos docs])
+- Ensure Forecast.Solar returns an iso formatted timestamp ([@frenck] - [#52669]) ([forecast_solar docs])
+- Use iso-formatted times in MetOffice weather forecast ([@avee87] - [#52672]) ([metoffice docs])
+- Fix precipitation calculation for hourly forecast ([@agners] - [#52676]) ([openweathermap docs])
+- Move recorder.py import to runtime ([@uvjustin] - [#52682]) ([stream docs])
+- Bump simplisafe-python to 11.0.1 ([@bachya] - [#52684]) ([simplisafe docs])
+- pyWeMo version bump (0.6.5) ([@esev] - [#52701]) ([wemo docs])
+- Bump pylutron to 0.2.8 fixing python 3.9 incompatibility ([@JonGilmore] - [#52702]) ([lutron docs])
+- Add check for _client existence in modbus ([@janiversen] - [#52719]) ([modbus docs])
+- Fix KNX Fan features ([@Tommatheussen] - [#52732]) ([fan docs])
+- Esphome fix camera image ([@jesserockz] - [#52738]) ([esphome docs])
+
+[#52631]: https://github.com/home-assistant/core/pull/52631
+[#52648]: https://github.com/home-assistant/core/pull/52648
+[#52650]: https://github.com/home-assistant/core/pull/52650
+[#52652]: https://github.com/home-assistant/core/pull/52652
+[#52660]: https://github.com/home-assistant/core/pull/52660
+[#52669]: https://github.com/home-assistant/core/pull/52669
+[#52672]: https://github.com/home-assistant/core/pull/52672
+[#52676]: https://github.com/home-assistant/core/pull/52676
+[#52682]: https://github.com/home-assistant/core/pull/52682
+[#52684]: https://github.com/home-assistant/core/pull/52684
+[#52701]: https://github.com/home-assistant/core/pull/52701
+[#52702]: https://github.com/home-assistant/core/pull/52702
+[#52719]: https://github.com/home-assistant/core/pull/52719
+[#52732]: https://github.com/home-assistant/core/pull/52732
+[#52738]: https://github.com/home-assistant/core/pull/52738
+[@JonGilmore]: https://github.com/JonGilmore
+[@Tommatheussen]: https://github.com/Tommatheussen
+[@agners]: https://github.com/agners
+[@anaisbetts]: https://github.com/anaisbetts
+[@avee87]: https://github.com/avee87
+[@bachya]: https://github.com/bachya
+[@chemelli74]: https://github.com/chemelli74
+[@esev]: https://github.com/esev
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@jesserockz]: https://github.com/jesserockz
+[@jjlawren]: https://github.com/jjlawren
+[@ludeeus]: https://github.com/ludeeus
+[@uvjustin]: https://github.com/uvjustin
+[ecovacs docs]: /integrations/ecovacs/
+[esphome docs]: /integrations/esphome/
+[fan docs]: /integrations/fan/
+[forecast_solar docs]: /integrations/forecast_solar/
+[fritz docs]: /integrations/fritz/
+[lutron docs]: /integrations/lutron/
+[metoffice docs]: /integrations/metoffice/
+[modbus docs]: /integrations/modbus/
+[nuki docs]: /integrations/nuki/
+[openweathermap docs]: /integrations/openweathermap/
+[simplisafe docs]: /integrations/simplisafe/
+[sonos docs]: /integrations/sonos/
+[stream docs]: /integrations/stream/
+[wemo docs]: /integrations/wemo/
 
 ## If you need help...
 
