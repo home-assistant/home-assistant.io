@@ -204,7 +204,7 @@ In the example above, the trigger would fire a single time if a numeric_state go
 </div>
 
 Number helpers (`input_number` entities), `number` and `sensor` entities that
-contain a numeric value, an be used in the `above` and `below` thresholds,
+contain a numeric value, can be used in the `above` and `below` thresholds,
 making the trigger more dynamic, like:
 
 ```yaml
