@@ -24,7 +24,7 @@ general, make me very happy. Mainly because, well, I use Home Assistant to
 automate 😁
 
 Also, we are saying "hi!" 👋 to a new type of entity, which is really exciting
-and I can't wait to see how that is being put the use in the future.
+and I can't wait to see how that is being put to use in the future.
 
 Lastly, I want to give a shout-out to [@klaasnicolaas]! He has been an intern
 with Nabu Casa for the last months. Besides doing the community highlights, he
@@ -56,8 +56,8 @@ Alright, that's it! Enjoy the release!
 
 ## New entity: Select
 
-In this release we welcome the `select` entity to the Home Assistant family. The
-select entity is family of the dropdown helper (also known as
+In this release, we welcome the `select` entity to the Home Assistant family. The
+select entity is a close relative of the dropdown helper (also known as
 `input_select`).
 
 The difference is that while the input select is configured and managed by you,
@@ -80,7 +80,7 @@ Genie you can now change the room size for your diffuser.
 ## Trigger conditions and trigger IDs
 
 If you are creating some complex automations in YAML, you might be familiar with
-this. Consider an big automation, with a whole bunch of triggers. But how
+this. Consider a big automation, with a whole bunch of triggers. But how
 would you know which of those triggers actually triggered the automation?
 
 You can now assign an `id` to your triggers that is passed into automation when
@@ -138,7 +138,7 @@ Screenshot of using a trigger condition in the automation editor.
 ## Script debugging
 
 In [Home Assistant Core 2021.4](/blog/2021/04/07/release-20214/#automation-debugging),
-we added the ability to debug automations. This release, we've made these
+we added the ability to debug automations. In this release, we've made these
 same powerful tools available for scripts!
 
 So, this helps for the next time you are wondering: Why didn't that script work?
@@ -190,7 +190,7 @@ complex little beasts.
 
 However, we realized that the hardest part of using date & times with templates
 is converting the state of a sensor or text to a datetime. This
-release we added a small template method to help with that: `as_datetime`.
+release adds a small template method to help with that: `as_datetime`.
 
 It can be used as a filter or as a method. Here is an example of
 calculating the number of days until my drivers' license expires:
@@ -328,8 +328,8 @@ configuration.
 For more information, see the
 [HTTP integration documentation](https://www.home-assistant.io/integrations/http#use_x_forwarded_for).
 
-Additionally, access to Home Assistant from same IP as a trusted proxy will be
-rejected if the request is marked as forwarded.
+Additionally, access to Home Assistant from the same IP address as a trusted
+proxy will be rejected if the request is marked as forwarded.
 
 ([@frenck] - [#51839]) ([http docs])
 
@@ -337,7 +337,7 @@ rejected if the request is marked as forwarded.
 
 {% details "Python 3.9 / Alpine 3.13" %}
 
-Our Docker images are now based on Alpine 3.13, and run Python 3.9.
+Our Docker images are now based on Alpine 3.13 and run Python 3.9.
 
 This is mainly interesting if you running custom Docker containers based
 on our container.
@@ -346,7 +346,7 @@ If you are using Home Assistant Container, Home Assistant OS or the Home Assista
 Supervised installation method, you will automatically get this update on upgrade
 and no additional interaction is needed.
 
-Please note, that Alpine 3.13 on an ARM devices running a 32-bits operating
+Please note, that Alpine 3.13 on ARM devices running a 32-bits operating
 system (armhf/armv7), requires your Docker version to be at least 19.03.9
 (although, we recommend updating to an even higher version). Additionally,
 you need to have `libseccomp` 2.42 or newer.
@@ -357,7 +357,7 @@ you need to have `libseccomp` 2.42 or newer.
 
 {% details "Airly" %}
 
-The AirQuality platform has been marked as deprecated. The `air_quality` entitiy
+The AirQuality platform has been marked as deprecated. The `air_quality` entity
 is removed and replaced with sensor entities. You will need to update their
 automations and dashboards if you have been using the `air_quality` entity
 of Airly.
@@ -368,8 +368,8 @@ of Airly.
 
 {% details "Azure Event Hub" %}
 
-When using this integration with with IoTHub, the `event_hub_name` is now
-a required field, can be filled by the DeviceID when using IoTHub.
+When using this integration with IoTHub, the `event_hub_name` is now
+a required field can be filled by the DeviceID when using IoTHub.
 
 ([@eavanvalkenburg] - [#52049]) ([azure_event_hub docs])
 
@@ -410,13 +410,13 @@ configured in your API settings on Coinbase.
 
 {% details "Database (statistics table)" %}
 
-The statistics table is Home Assistant data table that is not exposed
+The statistics table is a Home Assistant data table that is not exposed
 or used by Home Assistant yet and is part of an alpha / feature that is in
-development. However, it does exist and it might be you found it already
-interesting or found a use for it.
+development. However, it does exist and you might already want to check
+it out or find a use for it.
 
-This release, the contents of this table is reset. This does not impact
-any state history, and this data isn't used by Home Assistant as of yet.
+In this release, the content of this table is reset. This does not impact
+any state history and this data isn't used by Home Assistant as of yet.
 
 If you have no idea what this message is about, you can safely ignore it.
 We have merely listed this to be complete in our breaking changes report.
@@ -458,8 +458,8 @@ If you are looking for a replacement, you can use the
 - It's not clear if this integration still works with the gpmdp app that now
   only supports YouTube Music. If there's someone that uses the integration
   successfully and wants to take on the maintenance task that is required to get
-  the integration in a compatible state, please create an issue to discus
-   the future of this integration.
+  the integration in a compatible state, please create an issue to discuss
+  the future of this integration.
 
 ([@MartinHjelmare] - [#51509]) ([gpmdp docs])
 
@@ -477,8 +477,8 @@ therefore the units for these values will change.
 
 {% details "Kuler Sky" %}
 
-Kuler Sky lights no longer supports deprecated `white_value` attribute for
-its lights, use the `rgbw_color` attribute instead.
+Kuler Sky lights no longer supports the deprecated `white_value` attribute for
+its lights. Use the `rgbw_color` attribute instead.
 
 ([@emontnemery] - [#52080]) ([kulersky docs])
 
@@ -486,7 +486,7 @@ its lights, use the `rgbw_color` attribute instead.
 
 {% details "MeteoAlarm" %}
 
-You now cannot use the 2 letters of your country code, but must know use the
+You can no longer use the 2 letters of your country code, but must now use the
 complete country name in your configuration. To find out which country names
 you can use, please look at meteoalarm.org.
 
@@ -553,7 +553,7 @@ modbus:
         state_closed: 0
 ```
 
-The new configuration looks like:
+The new configuration looks like this:
 
 ```yaml
 modbus:
@@ -685,12 +685,12 @@ modbus:
 
 {% details "MQTT" %}
 
-It's no longer possible to set attributes defined in the the base component
+It's no longer possible to set attributes defined in the base component
 via a configured `json_attributes_topic`.
 
-For example a light no longer accepts brightness via the `json_attribute_topic`.
-This was unintended and undocumented functionality that lead to unexpected
-behavior.
+For example, a light no longer accepts brightness via the `json_attribute_topic`.
+This was unintended and an undocumented functionality that lead to
+unexpected behavior.
 
 This change applies to all supported MQTT platforms.
 
@@ -702,7 +702,7 @@ This change applies to all supported MQTT platforms.
 
 The AirQuality platform has been marked as deprecated. The `air_quality`
 entities will be deleted and replaced with `sensor` entities.
-You need to update your automations and dashboards if you have been usin
+You need to update your automations and dashboards if you have been using
 these `air_quality` entities in those.
 
 ([@bieniu] - [#52152]) ([nam docs])
@@ -736,7 +736,7 @@ updated. This fixes a bug, that might be a breaking change for you.
 If you use an `@` in your database username or password, you will have to
 adjust your database connection string to use `%40` instead.
 
-Database connection strings are considered URLs, thus special charaters need
+Database connection strings are considered URLs, thus special characters need
 to be encoded. `%40` is the URL encoded version of `@`.
 
 {% enddetails %}
@@ -766,8 +766,8 @@ and can now be safely removed from your YAML configuration files.
 
 With the change to the new, and unique, electric tariff 2.0TD, if you
 previously had configured multiple PVPC sensors monitoring prices for more
-than one of the old tariffs, only the first one will survive, so if you
-have any automations or scripts that depend on these removed sensors,
+than one of the old tariffs, only the first one will survive. This means
+if you have any automation or script that depends on these removed sensors,
 you might need to adjust them.
 
 ([@azogue] - [#51789]) ([pvpc_hourly_pricing docs])
@@ -776,7 +776,7 @@ you might need to adjust them.
 
 {% details "Switcher" %}
 
-In preparation for multi device support, configuration via the UI and support
+In preparation for multi-device support, configuration via the UI and support
 for discovery; this integration is migrating entity attributes into sensors
 to be later added as device entities. The following switch entity attributes
 migrated to sensors:
@@ -796,8 +796,8 @@ migrated to sensors:
 
 The integration has been rewritten from the ground up and is now configurable
 via the user interface only. Existing platform YAML config will automatically
-imported into the user interface on upgrade; and can be safely removed
-from the YAML configuration after upgrade has been completed.
+be imported into the user interface on upgrade and can be safely removed
+from the YAML configuration after the upgrade has been completed.
 
 ([@vigonotion] - [#51561]) ([yamaha_musiccast docs])
 
