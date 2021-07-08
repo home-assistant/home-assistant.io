@@ -249,6 +249,12 @@ script:
 
 {% endraw %}
 
+<div class='note'>
+
+Script variables that may be used by templates include those provided from the configuration, those that are passed when started from a service, and the  `this` variable whose value is a dictionary of the current scripts state.
+
+</div>
+
 ### Waiting for Script to Complete
 
 When calling a script "directly" (e.g., `script.NAME`) the calling script will wait for the called script to finish.
