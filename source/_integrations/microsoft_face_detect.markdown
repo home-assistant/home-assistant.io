@@ -55,7 +55,7 @@ source:
       required: false
       type: string
 attributes:
-  description: "The image search attributes. Supported: `age`, `gender`, `glasses`."
+  description: "The image search attributes. Supported: `age`, `gender`, `glasses`, `hair`, `smile`, `facialhair`, `emotion`, `accessories`."
   required: false
   type: list
   default: "[age, gender]"
