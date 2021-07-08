@@ -21,7 +21,7 @@ ha_platforms:
 ha_ssdp: true
 ---
 
-The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) based router.
+The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://en.avm.de/products/fritzbox/) based router.
 
 There is support for the following platform types within Home Assistant:
 
