@@ -9,7 +9,7 @@ ha_category:
   - Binary Sensor
   - Cover
   - Climate  
-ha_release: 2021.8
+ha_release: 2021.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
