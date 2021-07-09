@@ -4,6 +4,7 @@ description: Instructions on how to integrate AVM Fritz!DECT components into Hom
 ha_category:
   - Binary Sensor
   - Climate
+  - Light
   - Sensor
   - Switch
 ha_release: 0.68
@@ -14,6 +15,7 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - climate
+  - Light
   - sensor
   - switch
 ha_codeowners:
@@ -26,6 +28,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
 - Climate
+- Light
 - Sensor
 - Switch
 
@@ -82,3 +85,21 @@ There are several attributes that can be useful for automations and templates.
 | `locked` | The state of the lock for configuring the device via the app or the FRITZ!Box web interface.
 | `temperature_unit` |  The unit of the temperature sensor.
 | `temperature` | The current temperature sensor reading.
+
+## Light
+
+To get AVM FRITZ!DECT lightbulbs (e.g.,  FRITZ!DECT 500) follow the [configuration instructions](#configuration) above.
+
+<div class='note'>
+The FRITZ!DECT 500 lightbulb supports only 36 colors. When a color is picked in home assistant that is not supported by the device, a color that comes close will be activated.
+</div>
+
+### Attributes
+
+There are several attributes that can be useful for automations and templates. See [`Light`](/integrations/light/) integration for details.
+
+| Attribute | Description |
+| --------- | ----------- |
+| `hs_color` | The hue and saturation values for the color. See note above.
+| `color_temp` | The lights color temperature
+| `brightness` |  The lights brightness
