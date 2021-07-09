@@ -381,12 +381,12 @@ climates:
     hvac_action_supported:
       description: "List of current operations supported by your device. Options are `off`, `heating`, `cooling`, `drying`, `idle`, `fan`."
       required: false
-      type: list of strings
+      type: [string]
       default: [`idle`]
     hvac_action_values:
       description: "Register values that correspond to the hvac operations by your device, in order. If `off` is first in your `hvac_action_supported:` list, and is represented by a value of 0 in your device, use [0, ...]. See the example above."
       required: false
-      type: list of integers
+      type: [integer]
     hvac_mode_register:
       description: "Register address for the mode of the device."
       required: false
@@ -394,12 +394,12 @@ climates:
     hvac_mode_supported:
       description: "List of operations supported by your device. Options are `off`, `heat`, `cool`, `heat_cool`, `auto`, `dry`, `idle`, `fan_only`. If there is only one mode supported, be sure to include the brackets around it: [`heat`]"
       required: false
-      type: list of strings
+      type: [string]
       default: [`idle`]
     hvac_mode_values:
       description: "Register values that correspond to the operations supported by your device, in order. If `off` is first in your `hvac_mode_supported:` list, and is represented by a value of 0 in your device, use [0, ...]. See the example above."
       required: false
-      type: list of integers
+      type: [integer]
 {% endconfiguration %}
 
 #### Service `modbus.set-temperature`
