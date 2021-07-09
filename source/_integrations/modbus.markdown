@@ -278,21 +278,26 @@ modbus:
     host: IP_ADDRESS
     port: 502
     climates:
-      - name: "Watlow F4T"
-        address: 27586
+      - name: "Modbus Thermostat"
+        address: 2820
+        target_temp_register: 2782
+        count: 2
+        data_type: float
         input_type: holding
-        count: 1
-        data_type: custom
         max_temp: 35
         min_temp: 15
-        offset: 0
-        precision: 1
-        scale: 0.1
-        max_temp: 30
-        structure: ">f"
-        target_temp_register: 2782
         temp_step: 1
         temperature_unit: C
+        offset: 0
+        precision: 1
+        scale: 1
+
+        hvac_action_register: 2804
+        hvac_action_supported: ['idle', 'heating']
+        hvac_action_values: [0, 100]
+        hvac_mode_register: 15908
+        hvac_mode_supported: ['off', 'heat']
+        hvac_mode_values: [0, 1]
 ```
 
 {% configuration %}
@@ -303,6 +308,10 @@ climates:
   keys:
     address:
       description: Register address for current temperature (process value).
+      required: true
+      type: integer
+    target_temp_register:
+      description: Register address for target temperature (Setpoint).
       required: true
       type: integer
     count:
@@ -321,15 +330,25 @@ climates:
       type: string
       default: holding
     max_temp:
-      description: Maximum setpoint temperature.
+      description: Maximum target temperature.
       required: false
       type: integer
       default: 35
     min_temp:
-      description: Minimum setpoint temperature.
+      description: Minimum target temperature.
       required: false
       type: integer
       default: 5
+    temp_step:
+      description: The supported step size a target temperature can be increased/decreased.
+      required: false
+      type: float
+      default: 0.5
+    temperature_unit:
+      description: Temperature units used for the address and target_temp_register. C or F
+      required: false
+      type: string
+      default: C
     offset:
       description: Final offset (output = scale * value + offset).
       required: false
@@ -346,7 +365,7 @@ climates:
       type: float
       default: 1
     structure:
-      description: "If `data_type` is custom specified a double-quoted Python struct is expected here, to format the string to unpack the value. See Python documentation for details. Example: `>i`."
+      description: "If `data_type` is custom specified a double-quoted Python struct is expected here, to format the string to unpack the value. See Python struct documentation for details. Example: `>i`."
       required: false
       type: string
       default: ">f"
@@ -354,21 +373,33 @@ climates:
       description: "Swap the order of bytes/words, options are `none`, `byte`, `word`, `word_byte`."
       required: false
       default: none
-      type: string 
-    target_temp_register:
-      description: Register address for target temperature (Setpoint).
-      required: true
-      type: integer
-    temp_step:
-      description: The supported step size a target temperature can be increased/decreased.
-      required: false
-      type: float
-      default: 0.5
-    temperature_unit:
-      description: Temperature unit reported by the current_temp_register. C or F
-      required: false
       type: string
-      default: C
+    hvac_action_register:
+      description: "Register address for the current operation/mode action of the device."
+      required: false
+      type: integer
+    hvac_action_supported:
+      description: "List of current operations supported by your device. Options are `off`, `heating`, `cooling`, `drying`, `idle`, `fan`."
+      required: false
+      type: list of strings
+      default: [`idle`]
+    hvac_action_values:
+      description: "Register values that correspond to the hvac operations by your device, in order. If `off` is first in your `hvac_action_supported:` list, and is represented by a value of 0 in your device, use [0, ...]. See the example above."
+      required: false
+      type: list of integers
+    hvac_mode_register:
+      description: "Register address for the mode of the device."
+      required: false
+      type: integer
+    hvac_mode_supported:
+      description: "List of operations supported by your device. Options are `off`, `heat`, `cool`, `heat_cool`, `auto`, `dry`, `idle`, `fan_only`. If there is only one mode supported, be sure to include the brackets around it: [`heat`]"
+      required: false
+      type: list of strings
+      default: [`idle`]
+    hvac_mode_values:
+      description: "Register values that correspond to the operations supported by your device, in order. If `off` is first in your `hvac_mode_supported:` list, and is represented by a value of 0 in your device, use [0, ...]. See the example above."
+      required: false
+      type: list of integers
 {% endconfiguration %}
 
 #### Service `modbus.set-temperature`
@@ -623,7 +654,7 @@ fans:
       type: map
       keys:
         address:
-          description: Address to read from. 
+          description: Address to read from.
           required: false
           default: write address
           type: integer
@@ -712,7 +743,7 @@ lights:
       type: map
       keys:
         address:
-          description: Address to read from. 
+          description: Address to read from.
           required: false
           default: write address
           type: integer
@@ -818,7 +849,7 @@ sensors:
       description: swap the order of bytes/words, options are none, byte, word, word_byte.
       required: false
       default: none
-      type: string 
+      type: string
     scale:
       description: Scale factor (output = scale * value + offset).
       required: false
