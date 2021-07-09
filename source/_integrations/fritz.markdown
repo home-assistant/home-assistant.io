@@ -28,7 +28,7 @@ There is support for the following platform types within Home Assistant:
 - **Device tracker** - presence detection by looking at connected devices.
 - **Binary sensor** - connectivity status.
 - **Sensor** - external IP address, uptime and network monitors.
-- **Switch** - call deflection, port forward, device profile and Wi-Fi networks.
+- **Switch** - call deflection, parental control, device profile and Wi-Fi networks.
 
 {% include integrations/config_flow.md %}
 
