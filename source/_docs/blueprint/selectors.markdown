@@ -18,13 +18,19 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
+  - [Example area selectors](#example-area-selectors)
 - [Boolean selector](#boolean-selector)
 - [Device selector](#device-selector)
+  - [Example device selector](#example-device-selector)
 - [Entity selector](#entity-selector)
+  - [Example entity selector](#example-entity-selector)
+- [Example entity selector for State trigger](#example-entity-selector-for-state-trigger)
 - [Number selector](#number-selector)
+  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [Select selector](#select-selector)
 - [Target selector](#target-selector)
+  - [Example target selectors](#example-target-selectors)
 - [Text selector](#text-selector)
 - [Time selector](#time-selector)
 
@@ -316,6 +322,40 @@ entity:
   domain: binary_sensor
   device_class: motion
 ```
+
+## Example entity selector for State trigger
+
+```yaml
+blueprint:
+  name: State Entity ID Template
+  description: Demonstrate using a selector to select multiple entities for a State Trigger
+  domain: automation
+  source_url: https://github.com/home-assistant/core/blob/dev/homeassistant/components/automation/blueprints/example.yaml
+  input:
+    entities:
+      name: Trigger Entities
+      selector:
+        target:
+          entity:
+            domain: switch
+
+trigger_variables:
+  entities: !input entities
+
+trigger:
+  platform: state
+  id: StateTemplate
+  entity_id: "{{entities.entity_id}}"
+action:
+  - service: logbook.log
+    data:
+      name: Triggered
+      message: "Trigger:{{trigger}}"
+
+```
+
+{% endraw %}
+
 
 ## Number selector
 

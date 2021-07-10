@@ -7,20 +7,31 @@ Triggers are what starts the processing of an automation rule. When _any_ of the
 
 An automation can be triggered by an event, with a certain entity state, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
 
+- [Trigger id](#trigger-id)
+- [Trigger variables](#trigger-variables)
 - [Event trigger](#event-trigger)
 - [Home Assistant trigger](#home-assistant-trigger)
 - [MQTT trigger](#mqtt-trigger)
 - [Numeric state trigger](#numeric-state-trigger)
 - [State trigger](#state-trigger)
+  - [Holding a state](#holding-a-state)
 - [Sun trigger](#sun-trigger)
+  - [Sunset / Sunrise trigger](#sunset--sunrise-trigger)
+  - [Sun elevation trigger](#sun-elevation-trigger)
 - [Tag trigger](#tag-trigger)
 - [Template trigger](#template-trigger)
 - [Time trigger](#time-trigger)
+  - [Time String](#time-string)
+  - [Input Datetime](#input-datetime)
+  - [Sensors of datetime device class](#sensors-of-datetime-device-class)
+  - [Multiple Times](#multiple-times)
 - [Time pattern trigger](#time-pattern-trigger)
 - [Webhook trigger](#webhook-trigger)
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
+- [Multiple triggers](#multiple-triggers)
+- [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
 
 ## Trigger id
 
@@ -263,6 +274,8 @@ automation:
 
 The `for` template(s) will be evaluated when an entity changes as specified.
 
+You may use a [template](/docs/configuration/templating/) for configuring the `entity_id` property. This is useful for Blueprint developers to allow a selector to specify the entities for the trigger.
+
 ## State trigger
 
 Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
@@ -299,6 +312,7 @@ automation:
         - "returning"
       to: "error"
 ```
+You may use a [template](/docs/configuration/templating/) for configuring the `entity_id` property. This is useful for Blueprint developers to allow a selector to specify the entities for the trigger.
 
 ### Holding a state
 
