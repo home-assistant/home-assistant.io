@@ -325,6 +325,7 @@ entity:
 
 ## Example entity selector for State trigger
 
+
 ```yaml
 blueprint:
   name: State Entity ID Template
@@ -346,6 +347,7 @@ trigger:
   platform: state
   id: StateTemplate
   entity_id: "{{entities.entity_id}}"
+
 action:
   - service: logbook.log
     data:
@@ -353,8 +355,6 @@ action:
       message: "Trigger:{{trigger}}"
 
 ```
-
-{% endraw %}
 
 
 ## Number selector
