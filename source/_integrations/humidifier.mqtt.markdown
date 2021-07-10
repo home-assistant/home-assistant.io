@@ -48,11 +48,6 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
-available_modes:
-  description: List of available modes this humidifier is capable of running at. Common examples include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto` and `baby`. These examples offer built-in translations but other custom modes are allowed as well.
-  required: false
-  type: [list]
-  default: []
 availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
@@ -144,6 +139,11 @@ min_humidity:
   required: false
   type: integer
   default: 0
+modes:
+  description: List of available modes this humidifier is capable of running at. Common examples include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto` and `baby`. These examples offer built-in translations but other custom modes are allowed as well.
+  required: false
+  type: [list]
+  default: []
 name:
   description: The name of the humidifier.
   required: false
@@ -205,7 +205,7 @@ mode_command_template:
   required: false
   type: template
 mode_command_topic:
-  description: The MQTT topic to publish commands to change the `mode` on the humidifier.
+  description: The MQTT topic to publish commands to change the `mode` on the humidifier. This attribute ust be configured together with the `modes` attribute.
   required: false
   type: string
 mode_state_topic:
@@ -216,6 +216,11 @@ mode_value_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value for the humidifier `mode` state.
   required: false
   type: string
+modes:
+  description: List of available modes this humidifier is capable of running at. Common examples include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto` and `baby`. These examples offer built-in translations but other custom modes are allowed as well.  This attribute ust be configured together with the `mode_command_topic` attribute.
+  required: false
+  type: [list]
+  default: []
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -267,7 +272,7 @@ humidifier:
     target_humidity_state_topic: "bedroom_humidifier/humidity/state"
     mode_state_topic: "bedroom_humidifier/mode/state"
     mode_command_topic: "bedroom_humidifier/preset/preset_mode"
-    available_modes:
+    modes:
       - "normal"
       - "eco"
       - "away"
@@ -310,7 +315,7 @@ humidifier:
     target_humidity_command_topic: "bedroom_humidifier/humidity/set"
     target_humidity_state_topic: "bedroom_humidifier/humidity/state"
     target_humidity_command_template: "{{ value * 10 }}"
-    target_humidity_value_template: "{{ float(value) / 10 | int }}"
+    target_humidity_state_template: "{{ float(value) / 10 | int }}"
     min_humidity: 30
     max_humidity: 80
     humidity_range_min: 0
