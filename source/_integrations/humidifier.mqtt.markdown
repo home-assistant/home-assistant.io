@@ -48,6 +48,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+available_modes:
+  description: List of modes this humidifier is capable of running at. Common examples include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto` and `baby`. These examples offer built-in translations but other custom modes are allowed as well.
+  required: false
+  type: [list]
+  default: []
 availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
@@ -211,11 +216,6 @@ mode_value_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value for the humidifier `mode` state.
   required: false
   type: string
-modes:
-  description: List of modes this humidifier is capable of running at. Common examples include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto` and `baby`. These examples offer built-in translations but other custom modes are allowed as well.
-  required: false
-  type: [list]
-  default: []
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -267,7 +267,7 @@ humidifier:
     target_humidity_state_topic: "bedroom_humidifier/humidity/state"
     mode_state_topic: "bedroom_humidifier/mode/state"
     mode_command_topic: "bedroom_humidifier/preset/preset_mode"
-    modes:
+    available_modes:
       - "normal"
       - "eco"
       - "away"
