@@ -58,6 +58,20 @@ automation:
 
 Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in trigger templates with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
 
+The value of the `trigger_variables` are assigned at the time the automation is configured. This is one of the reasons they can only use the limited templates. The `trigger_variables` are used in templates that are evaluated during the configuration of the automation.
+
+The script level variables defined by the `variables` property are assigned each time the trigger is fired. The `trigger_variables` that were assigned at configuration time are also available to the templates used in your conditions and action. They do not get assigned a new value at the time the trigger is fired.  However, if you put the same variable name in `variables` and `trigger_variables` the value will be assigned again at trigger time.
+```yaml
+automation:
+  trigger_variables:
+    # Only assigned a value at configuration time and can only use limited templates in setting the values
+    my_config_var:  "{{ ... your logic here ... }}"
+  variables:
+    # Assigned a value at the time of the trigger. 
+    my_trigger_var:  "{{ ... your logic here ... }}"
+  trigger:
+  
+```
 ## Event trigger
 
 Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data or context to be present.
