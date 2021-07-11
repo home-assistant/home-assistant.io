@@ -65,12 +65,12 @@ The script level variables defined by the `variables` property are assigned each
 automation:
   trigger_variables:
     # Only assigned a value at configuration time and can only use limited templates in setting the values
-    my_config_var:  "{{ ... your logic here ... }}"
+    my_config_var:  "{{your_logic_here}}"
   variables:
     # Assigned a value at the time of the trigger. 
-    my_trigger_var:  "{{ ... your logic here ... }}"
+    my_trigger_var:  "{{your_logic_here}}"
   trigger:
-  
+
 ```
 ## Event trigger
 
