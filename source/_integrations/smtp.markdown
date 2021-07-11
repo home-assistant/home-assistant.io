@@ -85,7 +85,7 @@ A sample configuration entry for Google Mail.
 notify:
   - name: "NOTIFIER_NAME"
     platform: smtp
-    server: "smtp.example.com"
+    server: "smtp.gmail.com"
     port: 587
     timeout: 15
     sender: "john@example.com"
@@ -98,7 +98,9 @@ notify:
     sender_name: "My Home Assistant"
 ```
 
-Keep in mind that Google has some extra layers of protection which need special attention (Hint: 'Less secure apps'). If you have 2-step verification enabled on your Google account, you'll need to use [an application-specific password](https://support.google.com/mail/answer/185833?hl=en).
+Keep in mind that Google has some extra layers of protection which need special attention. By default, the usage by external applications is limited so you will need to visit the [less secure apps](https://www.google.com/settings/security/lesssecureapps) page and enable it to be able to send e-mails, and be aware that Google will periodically turn it off if it is not used (no e-mail is sent).
+
+To avoid having your e-mail notifications broken due to the less secure apps behaviour, it is recommended that you enable 2-step verification on your Google account, and use [an application-specific password](https://support.google.com/mail/answer/185833?hl=en) in your notification configuration.
 
 To use the SMTP notification, refer to it in an automation or script like in this example:
 
@@ -193,8 +195,5 @@ burglar:
 This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.
 
 A combination that will work properly is port 587 and STARTTLS. It's recommended to enable STARTTLS, if possible.
-
-For Google Mail (smtp.gmail.com) an additional step in the setup process is needed. Google has some extra layers of protection
-which need special attention. By default, the usage by external applications, especially scripts, is limited. Visit the [Less secure apps](https://www.google.com/settings/security/lesssecureapps) page and enable it.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
