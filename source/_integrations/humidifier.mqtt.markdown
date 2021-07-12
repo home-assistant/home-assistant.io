@@ -102,21 +102,16 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
+device_class:
+  description: The device class of the MQTT device. Must be either `humidifier` or `dehumidifier`.
+  required: false
+  type: string
+  default: humidifier
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
   type: boolean
   default: true
-humidity_range_max:
-  description: The maximum of numeric output range for `target_humidity_command_topic` where `humidity_range_max` represents a target humidity of 100 %.
-  required: false
-  type: integer
-  default: 100
-humidity_range_min:
-  description: The minimum of numeric output range for `target_humidity_command_topic` where `humidity_range_min` represents a target humidity of 0 %.
-  required: false
-  type: integer
-  default: 0
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -266,6 +261,7 @@ The example below shows a full configuration for a MQTT humidifier including mod
 humidifier:
   - platform: mqtt
     name: "Bedroom humidifier"
+    device_class: "humidifier"
     state_topic: "bedroom_humidifier/on/state"
     command_topic: "bedroom_humidifier/on/set"
     target_humidity_command_topic: "bedroom_humidifier/humidity/set"
@@ -287,39 +283,6 @@ humidifier:
     payload_off: "false"
     min_humidity: 30
     max_humidity: 80
-```
-
-{% endraw %}
-
-### Using templates and humidity range
-
-This example demonstrates how to use a humidity range templates for devices with a limited target humidity range.
-
-The configuration below supports the following target humidity settings: [ `30`, `40`, `50`, `60`, `70`, `80`].
-
-The humidity range will transform the valid humidity settings in range from 30%..80% to a numeric range from 3..8.
-The target humidity command template ensures the numeric output payload on `target_humidity_command_topic` is multiplied with 10.
-
-When reading the target humidity state payload from `target_humidity_state_topic`, the target humidity value template ensures the received numeric payload is divided back to the numeric range.
-The humidity range setting converts this numeric value back to a valid target humidity.
-
-{% raw %}
-
-```yaml
-# Example configuration.yaml with templates and humidity range
-humidifier:
-  - platform: mqtt
-    name: "Bedroom humidifier"
-    command_topic: "bedroom_humidifier/on/set"
-    state_topic: "bedroom_humidifier/on/state"
-    target_humidity_command_topic: "bedroom_humidifier/humidity/set"
-    target_humidity_state_topic: "bedroom_humidifier/humidity/state"
-    target_humidity_command_template: "{{ value * 10 }}"
-    target_humidity_state_template: "{{ float(value) / 10 | int }}"
-    min_humidity: 30
-    max_humidity: 80
-    humidity_range_min: 0
-    humidity_range_max: 10       
 ```
 
 {% endraw %}
