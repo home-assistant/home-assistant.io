@@ -34,13 +34,13 @@ Turn the siren on.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
 
-There are three optional input parameters that can be passed into the service call, each gated by a supported feature flag. If the corresponding flag isn't set when a given input parameter is provided in the service call, it will be filtered out from the service call by the base platform before being passed to the integration.
+There are three optional input parameters that can be passed into the service call depending on whether or not your device supports them. Check the device's integration documentation for more details.
 
-| Parameter Name 	| Data Validation                       	| Supported Feature Flag 	|
-|----------------	|---------------------------------------	|------------------------	|
-| `tone`         	| `vol.Any(vol.Coerce(int), cv.string)` 	| `SUPPORT_TONES`        	|
-| `duration`     	| `cv.positive_int`                     	| `SUPPORT_DURATIONS`    	|
-| `volume_level` 	| `cv.small_float`                      	| `SUPPORT_VOLUME_SET`   	|
+| Parameter Name  | Input Type
+|---------------- |-------------------------
+| `tone`          | `string` or `integer`
+| `duration`      | `integer`
+| `volume_level`  | `float` between 0 and 1
 
 ### Service `siren.turn_off`
 
