@@ -20,7 +20,7 @@ The `metoffice` weather platform uses the Met Office's [DataPoint API](https://w
 
 ## Entities
 
-This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast, and twelve sensor entities for individual reporting on each of the individual measurements, for both 3-hourly and daily updates (to a grand total of 26 entities available). Note that only one of the two summary entities and the 3-hourly sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration. The time supplied for each forecast is the start time for the forecast.
+This integration creates a number of weather entities for each entry created in the configuration by location: two weather entities with summary and forecast (with daily and 3-hourly forecasts), and twelve sensor entities for individual reporting on each of the individual measurements. The time supplied for each forecast is the start time for the forecast.
 
 The available sensor entities:
 
