@@ -53,7 +53,8 @@ Tesla options are set via **Configuration** -> **Integrations** -> **Tesla** -> 
 * Wake cars on start - Whether to wake sleeping cars on Home Assistant startup. This allows a user to choose whether cars should continue to sleep (and not update information) or to wake up the cars potentially interrupting long term hibernation and increasing vampire drain.
 
 ## Potential Battery impacts
-Here are some things to consider and understand when implimenting the Tesla component and it's potential effect on your car's battery. 
+
+Here are some things to consider and understand when implementing the Tesla component and its potential effect on your car's battery.
 
 * The `scan_interval` determines when to check if the car is awake and new information is available, but the Tesla integration will not wake up a sleeping car during this polling.  By default, the polling will occur every 660 seconds. Polling a car too frequently can keep the car awake and drain battery.  Different firmware versions and measurements of Tesla cars can take from 11 to 15 minutes for sleep mode to occur.  There is no official information on sleep mode timings so your mileage may vary and you should experiment with different polling times for an optimal experience.
 * The car will, however, be woken up when a command is actively sent to the car, such as door unlock or turning on the HVAC. It will then also fetch updated information while the car is awake based on the `scan_interval`.
