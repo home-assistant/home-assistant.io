@@ -14,17 +14,13 @@ ha_iot_class:
 
 The Siren integration is built for the controlling and monitoring of siren/chime devices.
 
+Siren entities are created automatically by integrations that support them.
+
 ## Services
 
 ### siren services
 
 Available services: `siren.turn_on`, `siren.turn_off`, `siren.toggle`
-
-<div class='note'>
-
-Not all siren services may be available for your device. Be sure to check the available services Home Assistant has enabled by checking the Services page in the [Developer Tools](/docs/tools/dev-tools/).
-
-</div>
 
 ### Service `siren.turn_on`
 
