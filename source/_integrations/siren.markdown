@@ -12,7 +12,7 @@ ha_codeowners:
 ha_iot_class:
 ---
 
-The `siren` integration is built for the controlling and monitoring of siren/chime devices.
+The Siren integration is built for the controlling and monitoring of siren/chime devices.
 
 ## Services
 
