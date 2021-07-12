@@ -270,8 +270,6 @@ In this section you find some real-life examples of how to use this fan.
 The example below shows a full configuration for a MQTT fan using percentage and preset modes.
 There are 10 speeds within the speed range, so  `percentage_step` = 100 / 10 steps = 10.0 %.
 
-{% raw %}
-
 ```yaml
 # Example using percentage based speeds with preset modes configuration.yaml
 fan:
@@ -299,8 +297,6 @@ fan:
     speed_range_min: 1
     speed_range_max: 10
 ```
-
-{% endraw %}
 
 ### Configuration using command templates
 
