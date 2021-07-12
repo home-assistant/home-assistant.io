@@ -88,7 +88,7 @@ There are several attributes that can be useful for automations and templates.
 
 ## Light
 
-To get AVM FRITZ!DECT lightbulbs (e.g.,  FRITZ!DECT 500) follow the [configuration instructions](#configuration) above.
+To get AVM FRITZ!DECT lightbulbs (e.g., FRITZ!DECT 500) follow the [configuration instructions](#configuration) above.
 
 <div class='note'>
 The FRITZ!DECT 500 lightbulb supports only 36 colors. When a color is picked in home assistant that is not supported by the device, a color that comes close will be activated.
