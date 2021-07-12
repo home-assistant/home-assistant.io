@@ -37,8 +37,8 @@ The integration adds the following sensors:
 
 ## Number
 
-The integration adds the following number (input) component:
+The integration adds the following number entity:
 
 - Max Charging Current
 
-The number component is only loaded if the supplied username has sufficient rights to change the Max. Charging Current.
+The number entity is only loaded if the supplied username has sufficient rights to change the Max. Charging Current.
