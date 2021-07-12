@@ -40,20 +40,20 @@ Alright, that's it! Enjoy the release!
 
 ../Frenck
 
-- [New entity: Select](#new-entity-select)
-- [Trigger conditions and trigger IDs](#trigger-conditions-and-trigger-ids)
-- [Script debugging](#script-debugging)
-- [Referencing other entities in triggers and conditions](#referencing-other-entities-in-triggers-and-conditions)
-- [Working with dates in templates](#working-with-dates-in-templates)
-- [Series version tags for Docker containers](#series-version-tags-for-docker-containers)
-- [Other noteworthy changes](#other-noteworthy-changes)
-- [New Integrations](#new-integrations)
-- [New Platforms](#new-platforms)
-- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
-- [Release 2021.7.1 - July 8](#release-202171---july-8)
-- [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
-- [All changes](#all-changes)
+- [New entity: Select]({{page.url}}#new-entity-select)
+- [Trigger conditions and trigger IDs]({{page.url}}#trigger-conditions-and-trigger-ids)
+- [Script debugging]({{page.url}}#script-debugging)
+- [Referencing other entities in triggers and conditions]({{page.url}}#referencing-other-entities-in-triggers-and-conditions)
+- [Working with dates in templates]({{page.url}}#working-with-dates-in-templates)
+- [Series version tags for Docker containers]({{page.url}}#series-version-tags-for-docker-containers)
+- [Other noteworthy changes]({{page.url}}#other-noteworthy-changes)
+- [New Integrations]({{page.url}}#new-integrations)
+- [New Platforms]({{page.url}}#new-platforms)
+- [Integrations now available to set up from the UI]({{page.url}}#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.7.1 - July 8]({{page.url}}#release-202171---july-8)
+- [If you need help...]({{page.url}}#if-you-need-help)
+- [Breaking Changes]({{page.url}}#breaking-changes)
+- [All changes]({{page.url}}#all-changes)
 
 ## New entity: Select
 
