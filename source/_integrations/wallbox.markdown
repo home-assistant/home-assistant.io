@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: wallbox
 ha_platforms:
   - sensor
+  - number
 ha_config_flow: true
 ha_codeowners:
   - '@hesselonline'
@@ -32,3 +33,10 @@ The integration adds the following sensors:
 - Max Available Power
 - State of Charge
 - Status Description
+- Max Charging Current
+
+## Number
+
+The integration adds the following number (input) component:
+
+- Max Charging Current
