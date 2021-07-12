@@ -19,7 +19,7 @@
 
     ```bash
     # if this returns "Image is up to date" then you can stop here
-    docker pull {{ include.image }}
+    docker pull {{ include.image | default: site.installation.container.base }}:{{ include.tag | default: 'stable' }}
     ```
 
     ```bash
