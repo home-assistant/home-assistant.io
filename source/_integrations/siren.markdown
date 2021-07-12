@@ -22,7 +22,7 @@ Available services: `siren.turn_on`, `siren.turn_off`, `siren.toggle`
 
 <div class='note'>
 
-Not all siren services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking the Services page in the [Developer Tools](/docs/tools/dev-tools/).
+Not all siren services may be available for your device. Be sure to check the available services Home Assistant has enabled by checking the Services page in the [Developer Tools](/docs/tools/dev-tools/).
 
 </div>
 
