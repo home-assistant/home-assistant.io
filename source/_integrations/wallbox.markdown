@@ -40,3 +40,5 @@ The integration adds the following sensors:
 The integration adds the following number (input) component:
 
 - Max Charging Current
+
+The number component is only loaded if the supplied username has sufficient rights to change the Max. Charging Current.
