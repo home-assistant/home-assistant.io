@@ -51,6 +51,7 @@ Alright, that's it! Enjoy the release!
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.7.1 - July 8](#release-202171---july-8)
+- [Release 2021.7.2 - July 12](#release-202172---july-12)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -363,6 +364,86 @@ The following integrations are now available via the Home Assistant UI:
 [sonos docs]: /integrations/sonos/
 [stream docs]: /integrations/stream/
 [wemo docs]: /integrations/wemo/
+
+## Release 2021.7.2 - July 12
+
+- Ignore Sonos Boost devices during discovery ([@jjlawren] - [#52845]) ([sonos docs])
+- Add zeroconf discovery to Sonos ([@bdraco] - [#52655]) ([sonos docs])
+- Remove scale calculation for climacell cloud cover ([@apaperclip] - [#52752]) ([climacell docs])
+- Fix homebridge devices becoming unavailable frequently ([@Jc2k] - [#52753]) ([homekit_controller docs])
+- Fix nexia thermostats humidify without dehumidify support ([@bdraco] - [#52758]) ([nexia docs])
+- Support certain homekit devices that emit invalid JSON ([@Jc2k] - [#52759]) ([homekit_controller docs])
+- Send ssdp requests to ipv4 broadcast as well ([@bdraco] - [#52760]) ([ssdp docs])
+- Bump dependency to properly handle current and voltage not being reported on some zhapower endpoints ([@Kane610] - [#52764]) ([deconz docs])
+- Upgrade pymazda to 0.2.0 ([@bdr99] - [#52775])
+- Fix ESPHome Camera not merging image packets ([@OttoWinter] - [#52783]) ([esphome docs])
+- Fix Neato parameter for token refresh ([@chemelli74] - [#52785]) ([neato docs])
+- Add the Trane brand to nexia ([@bdraco] - [#52805]) ([nexia docs])
+- Bump python-fireservicerota to 0.0.42 ([@cyberjunky] - [#52807]) ([fireservicerota docs])
+- Bump up ZHA depdencies ([@Adminiuga] - [#52818]) ([zha docs])
+- Update arcam lib to 0.7.0 ([@elupus] - [#52829]) ([arcam_fmj docs])
+- Bump aiohomekit to 0.5.1 to solve performance regression ([@bdraco] - [#52878]) ([homekit_controller docs])
+- Bump pyhaversion to 21.7.0 ([@ludeeus] - [#52880]) ([version docs])
+- Prefer using xy over hs when supported by light ([@Kane610] - [#52883]) ([deconz docs])
+- Bump zwave-js-server-python to 0.27.1 ([@raman325] - [#52885]) ([zwave_js docs])
+- Surepetcare, fix set_lock_state ([@Danielhiversen] - [#52912]) ([surepetcare docs])
+- Bump pyinsteon to 1.0.11 ([@teharris1] - [#52927]) ([insteon docs])
+- Fix recorder purge with sqlite3 < 3.32.0 ([@bdraco] - [#52929])
+- Bump pysonos to 0.0.52 ([@jjlawren] - [#52934]) ([sonos docs])
+
+[#52655]: https://github.com/home-assistant/core/pull/52655
+[#52752]: https://github.com/home-assistant/core/pull/52752
+[#52753]: https://github.com/home-assistant/core/pull/52753
+[#52758]: https://github.com/home-assistant/core/pull/52758
+[#52759]: https://github.com/home-assistant/core/pull/52759
+[#52760]: https://github.com/home-assistant/core/pull/52760
+[#52764]: https://github.com/home-assistant/core/pull/52764
+[#52775]: https://github.com/home-assistant/core/pull/52775
+[#52783]: https://github.com/home-assistant/core/pull/52783
+[#52785]: https://github.com/home-assistant/core/pull/52785
+[#52805]: https://github.com/home-assistant/core/pull/52805
+[#52807]: https://github.com/home-assistant/core/pull/52807
+[#52818]: https://github.com/home-assistant/core/pull/52818
+[#52829]: https://github.com/home-assistant/core/pull/52829
+[#52845]: https://github.com/home-assistant/core/pull/52845
+[#52878]: https://github.com/home-assistant/core/pull/52878
+[#52880]: https://github.com/home-assistant/core/pull/52880
+[#52883]: https://github.com/home-assistant/core/pull/52883
+[#52885]: https://github.com/home-assistant/core/pull/52885
+[#52912]: https://github.com/home-assistant/core/pull/52912
+[#52927]: https://github.com/home-assistant/core/pull/52927
+[#52929]: https://github.com/home-assistant/core/pull/52929
+[#52934]: https://github.com/home-assistant/core/pull/52934
+[@Adminiuga]: https://github.com/Adminiuga
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Jc2k]: https://github.com/Jc2k
+[@Kane610]: https://github.com/Kane610
+[@OttoWinter]: https://github.com/OttoWinter
+[@apaperclip]: https://github.com/apaperclip
+[@bdr99]: https://github.com/bdr99
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@cyberjunky]: https://github.com/cyberjunky
+[@elupus]: https://github.com/elupus
+[@jjlawren]: https://github.com/jjlawren
+[@ludeeus]: https://github.com/ludeeus
+[@raman325]: https://github.com/raman325
+[@teharris1]: https://github.com/teharris1
+[arcam_fmj docs]: /integrations/arcam_fmj/
+[climacell docs]: /integrations/climacell/
+[deconz docs]: /integrations/deconz/
+[esphome docs]: /integrations/esphome/
+[fireservicerota docs]: /integrations/fireservicerota/
+[homekit_controller docs]: /integrations/homekit_controller/
+[insteon docs]: /integrations/insteon/
+[neato docs]: /integrations/neato/
+[nexia docs]: /integrations/nexia/
+[sonos docs]: /integrations/sonos/
+[ssdp docs]: /integrations/ssdp/
+[surepetcare docs]: /integrations/surepetcare/
+[version docs]: /integrations/version/
+[zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
@@ -757,7 +838,7 @@ unexpected behavior.
 
 This change applies to all supported MQTT platforms.
 
-([@emontnemery] - [#52242] [#52278] [#52280] [#52285] [#52286] [#52283] [#52289] [#52291] [#52290] [#52288] [#52282] [#52279]) ([mqtt docs]) 
+([@emontnemery] - [#52242] [#52278] [#52280] [#52285] [#52286] [#52283] [#52289] [#52291] [#52290] [#52288] [#52282] [#52279]) ([mqtt docs])
 
 {% enddetails %}
 
