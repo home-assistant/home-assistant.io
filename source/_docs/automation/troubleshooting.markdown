@@ -9,7 +9,7 @@ Every time an automation runs, a debugging trace is generated regardless of whet
 
 ![Automation debug trace example](/images/integrations/automation/automation-tracing.png)
 
-Automations created in YAML must have an [`id`](../yaml/#migrating-your-yaml-automations-to-automationsyaml) assigned in order for debugging traces to be stored.
+Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating-your-yaml-automations-to-automationsyaml) assigned in order for debugging traces to be stored.
 
 By default the last 5 traces are stored for each automation, this can be adjusted in the [YAML configuration](/docs/automation/yaml/#number-of-debug-traces-stored) of an automation. Stored traces are reset each time Home Assistant restarts.
 
