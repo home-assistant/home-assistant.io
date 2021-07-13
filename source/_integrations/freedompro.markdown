@@ -3,6 +3,7 @@ title: Freedompro
 description: Instructions for how to integrate Freedompro accessories within Home Assistant.
 ha_category:
   - Light
+  - Switch
 ha_release: 2021.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: freedompro
 ha_platforms:
   - light
+  - switch
 ---
 
 [Freedompro](https://freedompro.eu/), a company specialized in home automation, designs and manufactures products to make domotics affordable for everyone, installers and enthusiasts. [Freedompro Products](https://freedompro.eu/collections/easykon) are designed to be easy to use and practical and fast to install.
