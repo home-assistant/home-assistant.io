@@ -5,7 +5,7 @@ description: "Tips on how to troubleshoot your automations."
 
 ## Using debug traces
 
-Every time an automation runs, a debugging trace is generated regardless of whether the automation completed, was aborted, or suffered an error. Traces allow you to interactively inspect the state of the automation at every step and also check the values of [variables](/docs/scripts/#variables) and rendered [templates](/docs/configuration/templating/). Traces can be accessed in the {% my automations title="Automations Section"%} of {%my configuration %}.
+Every time an automation runs, a debugging trace is generated regardless of whether the automation was completed, aborted, or suffered an error. Traces allow you to interactively inspect the state of the automation at every step and also check the values of [variables](/docs/scripts/#variables) and rendered [templates](/docs/configuration/templating/). Traces can be accessed in the {% my automations title="Automations Section" %} of {% my configuration %}.
 
 ![Automation debug trace example](/images/integrations/automation/automation-tracing.png)
 
