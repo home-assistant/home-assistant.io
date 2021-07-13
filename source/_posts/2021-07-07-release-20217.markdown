@@ -24,7 +24,7 @@ general, make me very happy. Mainly because, well, I use Home Assistant to
 automate 😁
 
 Also, we are saying "hi!" 👋 to a new type of entity, which is really exciting
-and I can't wait to see how that is being put the use in the future.
+and I can't wait to see how that is being put to use in the future.
 
 Lastly, I want to give a shout-out to [@klaasnicolaas]! He has been an intern
 with Nabu Casa for the last months. Besides doing the community highlights, he
@@ -50,14 +50,16 @@ Alright, that's it! Enjoy the release!
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.7.1 - July 8](#release-202171---july-8)
+- [Release 2021.7.2 - July 12](#release-202172---july-12)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
 
 ## New entity: Select
 
-In this release we welcome the `select` entity to the Home Assistant family. The
-select entity is family of the dropdown helper (also known as
+In this release, we welcome the `select` entity to the Home Assistant family. The
+select entity is a close relative of the dropdown helper (also known as
 `input_select`).
 
 The difference is that while the input select is configured and managed by you,
@@ -80,7 +82,7 @@ Genie you can now change the room size for your diffuser.
 ## Trigger conditions and trigger IDs
 
 If you are creating some complex automations in YAML, you might be familiar with
-this. Consider an big automation, with a whole bunch of triggers. But how
+this. Consider a big automation, with a whole bunch of triggers. But how
 would you know which of those triggers actually triggered the automation?
 
 You can now assign an `id` to your triggers that is passed into automation when
@@ -138,7 +140,7 @@ Screenshot of using a trigger condition in the automation editor.
 ## Script debugging
 
 In [Home Assistant Core 2021.4](/blog/2021/04/07/release-20214/#automation-debugging),
-we added the ability to debug automations. This release, we've made these
+we added the ability to debug automations. In this release, we've made these
 same powerful tools available for scripts!
 
 So, this helps for the next time you are wondering: Why didn't that script work?
@@ -190,7 +192,7 @@ complex little beasts.
 
 However, we realized that the hardest part of using date & times with templates
 is converting the state of a sensor or text to a datetime. This
-release we added a small template method to help with that: `as_datetime`.
+release adds a small template method to help with that: `as_datetime`.
 
 It can be used as a filter or as a method. Here is an example of
 calculating the number of days until my drivers' license expires:
@@ -301,6 +303,148 @@ The following integrations are now available via the Home Assistant UI:
 - [DSMR Slimme Meter][dsmr docs], done by [@RobBie1221]
 - [Yamaha MusicCast][yamaha_musiccast docs], done by [@vigonotion]
 
+## Release 2021.7.1 - July 8
+
+- Fix service registration typo in Nuki integration ([@anaisbetts] - [#52631]) ([nuki docs])
+- Fix Fritz default consider home value ([@chemelli74] - [#52648]) ([fritz docs])
+- Handle KeyError when accessing device information ([@ludeeus] - [#52650]) ([ecovacs docs])
+- Warn if `interface_addr` remains in Sonos configuration ([@jjlawren] - [#52652]) ([sonos docs])
+- Ignore unused keys from Sonos device properties callback ([@jjlawren] - [#52660]) ([sonos docs])
+- Ensure Forecast.Solar returns an iso formatted timestamp ([@frenck] - [#52669]) ([forecast_solar docs])
+- Use iso-formatted times in MetOffice weather forecast ([@avee87] - [#52672]) ([metoffice docs])
+- Fix precipitation calculation for hourly forecast ([@agners] - [#52676]) ([openweathermap docs])
+- Move recorder.py import to runtime ([@uvjustin] - [#52682]) ([stream docs])
+- Bump simplisafe-python to 11.0.1 ([@bachya] - [#52684]) ([simplisafe docs])
+- pyWeMo version bump (0.6.5) ([@esev] - [#52701]) ([wemo docs])
+- Bump pylutron to 0.2.8 fixing python 3.9 incompatibility ([@JonGilmore] - [#52702]) ([lutron docs])
+- Add check for _client existence in modbus ([@janiversen] - [#52719]) ([modbus docs])
+- Fix KNX Fan features ([@Tommatheussen] - [#52732]) ([fan docs])
+- Esphome fix camera image ([@jesserockz] - [#52738]) ([esphome docs])
+
+[#52631]: https://github.com/home-assistant/core/pull/52631
+[#52648]: https://github.com/home-assistant/core/pull/52648
+[#52650]: https://github.com/home-assistant/core/pull/52650
+[#52652]: https://github.com/home-assistant/core/pull/52652
+[#52660]: https://github.com/home-assistant/core/pull/52660
+[#52669]: https://github.com/home-assistant/core/pull/52669
+[#52672]: https://github.com/home-assistant/core/pull/52672
+[#52676]: https://github.com/home-assistant/core/pull/52676
+[#52682]: https://github.com/home-assistant/core/pull/52682
+[#52684]: https://github.com/home-assistant/core/pull/52684
+[#52701]: https://github.com/home-assistant/core/pull/52701
+[#52702]: https://github.com/home-assistant/core/pull/52702
+[#52719]: https://github.com/home-assistant/core/pull/52719
+[#52732]: https://github.com/home-assistant/core/pull/52732
+[#52738]: https://github.com/home-assistant/core/pull/52738
+[@JonGilmore]: https://github.com/JonGilmore
+[@Tommatheussen]: https://github.com/Tommatheussen
+[@agners]: https://github.com/agners
+[@anaisbetts]: https://github.com/anaisbetts
+[@avee87]: https://github.com/avee87
+[@bachya]: https://github.com/bachya
+[@chemelli74]: https://github.com/chemelli74
+[@esev]: https://github.com/esev
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@jesserockz]: https://github.com/jesserockz
+[@jjlawren]: https://github.com/jjlawren
+[@ludeeus]: https://github.com/ludeeus
+[@uvjustin]: https://github.com/uvjustin
+[ecovacs docs]: /integrations/ecovacs/
+[esphome docs]: /integrations/esphome/
+[fan docs]: /integrations/fan/
+[forecast_solar docs]: /integrations/forecast_solar/
+[fritz docs]: /integrations/fritz/
+[lutron docs]: /integrations/lutron/
+[metoffice docs]: /integrations/metoffice/
+[modbus docs]: /integrations/modbus/
+[nuki docs]: /integrations/nuki/
+[openweathermap docs]: /integrations/openweathermap/
+[simplisafe docs]: /integrations/simplisafe/
+[sonos docs]: /integrations/sonos/
+[stream docs]: /integrations/stream/
+[wemo docs]: /integrations/wemo/
+
+## Release 2021.7.2 - July 12
+
+- Ignore Sonos Boost devices during discovery ([@jjlawren] - [#52845]) ([sonos docs])
+- Add zeroconf discovery to Sonos ([@bdraco] - [#52655]) ([sonos docs])
+- Remove scale calculation for climacell cloud cover ([@apaperclip] - [#52752]) ([climacell docs])
+- Fix homebridge devices becoming unavailable frequently ([@Jc2k] - [#52753]) ([homekit_controller docs])
+- Fix nexia thermostats humidify without dehumidify support ([@bdraco] - [#52758]) ([nexia docs])
+- Support certain homekit devices that emit invalid JSON ([@Jc2k] - [#52759]) ([homekit_controller docs])
+- Send ssdp requests to ipv4 broadcast as well ([@bdraco] - [#52760]) ([ssdp docs])
+- Bump dependency to properly handle current and voltage not being reported on some zhapower endpoints ([@Kane610] - [#52764]) ([deconz docs])
+- Upgrade pymazda to 0.2.0 ([@bdr99] - [#52775])
+- Fix ESPHome Camera not merging image packets ([@OttoWinter] - [#52783]) ([esphome docs])
+- Fix Neato parameter for token refresh ([@chemelli74] - [#52785]) ([neato docs])
+- Add the Trane brand to nexia ([@bdraco] - [#52805]) ([nexia docs])
+- Bump python-fireservicerota to 0.0.42 ([@cyberjunky] - [#52807]) ([fireservicerota docs])
+- Bump up ZHA depdencies ([@Adminiuga] - [#52818]) ([zha docs])
+- Update arcam lib to 0.7.0 ([@elupus] - [#52829]) ([arcam_fmj docs])
+- Bump aiohomekit to 0.5.1 to solve performance regression ([@bdraco] - [#52878]) ([homekit_controller docs])
+- Bump pyhaversion to 21.7.0 ([@ludeeus] - [#52880]) ([version docs])
+- Prefer using xy over hs when supported by light ([@Kane610] - [#52883]) ([deconz docs])
+- Bump zwave-js-server-python to 0.27.1 ([@raman325] - [#52885]) ([zwave_js docs])
+- Surepetcare, fix set_lock_state ([@Danielhiversen] - [#52912]) ([surepetcare docs])
+- Bump pyinsteon to 1.0.11 ([@teharris1] - [#52927]) ([insteon docs])
+- Fix recorder purge with sqlite3 < 3.32.0 ([@bdraco] - [#52929])
+- Bump pysonos to 0.0.52 ([@jjlawren] - [#52934]) ([sonos docs])
+
+[#52655]: https://github.com/home-assistant/core/pull/52655
+[#52752]: https://github.com/home-assistant/core/pull/52752
+[#52753]: https://github.com/home-assistant/core/pull/52753
+[#52758]: https://github.com/home-assistant/core/pull/52758
+[#52759]: https://github.com/home-assistant/core/pull/52759
+[#52760]: https://github.com/home-assistant/core/pull/52760
+[#52764]: https://github.com/home-assistant/core/pull/52764
+[#52775]: https://github.com/home-assistant/core/pull/52775
+[#52783]: https://github.com/home-assistant/core/pull/52783
+[#52785]: https://github.com/home-assistant/core/pull/52785
+[#52805]: https://github.com/home-assistant/core/pull/52805
+[#52807]: https://github.com/home-assistant/core/pull/52807
+[#52818]: https://github.com/home-assistant/core/pull/52818
+[#52829]: https://github.com/home-assistant/core/pull/52829
+[#52845]: https://github.com/home-assistant/core/pull/52845
+[#52878]: https://github.com/home-assistant/core/pull/52878
+[#52880]: https://github.com/home-assistant/core/pull/52880
+[#52883]: https://github.com/home-assistant/core/pull/52883
+[#52885]: https://github.com/home-assistant/core/pull/52885
+[#52912]: https://github.com/home-assistant/core/pull/52912
+[#52927]: https://github.com/home-assistant/core/pull/52927
+[#52929]: https://github.com/home-assistant/core/pull/52929
+[#52934]: https://github.com/home-assistant/core/pull/52934
+[@Adminiuga]: https://github.com/Adminiuga
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Jc2k]: https://github.com/Jc2k
+[@Kane610]: https://github.com/Kane610
+[@OttoWinter]: https://github.com/OttoWinter
+[@apaperclip]: https://github.com/apaperclip
+[@bdr99]: https://github.com/bdr99
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@cyberjunky]: https://github.com/cyberjunky
+[@elupus]: https://github.com/elupus
+[@jjlawren]: https://github.com/jjlawren
+[@ludeeus]: https://github.com/ludeeus
+[@raman325]: https://github.com/raman325
+[@teharris1]: https://github.com/teharris1
+[arcam_fmj docs]: /integrations/arcam_fmj/
+[climacell docs]: /integrations/climacell/
+[deconz docs]: /integrations/deconz/
+[esphome docs]: /integrations/esphome/
+[fireservicerota docs]: /integrations/fireservicerota/
+[homekit_controller docs]: /integrations/homekit_controller/
+[insteon docs]: /integrations/insteon/
+[neato docs]: /integrations/neato/
+[nexia docs]: /integrations/nexia/
+[sonos docs]: /integrations/sonos/
+[ssdp docs]: /integrations/ssdp/
+[surepetcare docs]: /integrations/surepetcare/
+[version docs]: /integrations/version/
+[zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
@@ -328,8 +472,8 @@ configuration.
 For more information, see the
 [HTTP integration documentation](https://www.home-assistant.io/integrations/http#use_x_forwarded_for).
 
-Additionally, access to Home Assistant from same IP as a trusted proxy will be
-rejected if the request is marked as forwarded.
+Additionally, access to Home Assistant from the same IP address as a trusted
+proxy will be rejected if the request is marked as forwarded.
 
 ([@frenck] - [#51839]) ([http docs])
 
@@ -337,7 +481,7 @@ rejected if the request is marked as forwarded.
 
 {% details "Python 3.9 / Alpine 3.13" %}
 
-Our Docker images are now based on Alpine 3.13, and run Python 3.9.
+Our Docker images are now based on Alpine 3.13 and run Python 3.9.
 
 This is mainly interesting if you running custom Docker containers based
 on our container.
@@ -346,7 +490,7 @@ If you are using Home Assistant Container, Home Assistant OS or the Home Assista
 Supervised installation method, you will automatically get this update on upgrade
 and no additional interaction is needed.
 
-Please note, that Alpine 3.13 on an ARM devices running a 32-bits operating
+Please note, that Alpine 3.13 on ARM devices running a 32-bits operating
 system (armhf/armv7), requires your Docker version to be at least 19.03.9
 (although, we recommend updating to an even higher version). Additionally,
 you need to have `libseccomp` 2.42 or newer.
@@ -357,7 +501,7 @@ you need to have `libseccomp` 2.42 or newer.
 
 {% details "Airly" %}
 
-The AirQuality platform has been marked as deprecated. The `air_quality` entitiy
+The AirQuality platform has been marked as deprecated. The `air_quality` entity
 is removed and replaced with sensor entities. You will need to update their
 automations and dashboards if you have been using the `air_quality` entity
 of Airly.
@@ -368,8 +512,8 @@ of Airly.
 
 {% details "Azure Event Hub" %}
 
-When using this integration with with IoTHub, the `event_hub_name` is now
-a required field, can be filled by the DeviceID when using IoTHub.
+When using this integration with IoTHub, the `event_hub_name` is now
+a required field can be filled by the DeviceID when using IoTHub.
 
 ([@eavanvalkenburg] - [#52049]) ([azure_event_hub docs])
 
@@ -410,13 +554,13 @@ configured in your API settings on Coinbase.
 
 {% details "Database (statistics table)" %}
 
-The statistics table is Home Assistant data table that is not exposed
+The statistics table is a Home Assistant data table that is not exposed
 or used by Home Assistant yet and is part of an alpha / feature that is in
-development. However, it does exist and it might be you found it already
-interesting or found a use for it.
+development. However, it does exist and you might already want to check
+it out or find a use for it.
 
-This release, the contents of this table is reset. This does not impact
-any state history, and this data isn't used by Home Assistant as of yet.
+In this release, the content of this table is reset. This does not impact
+any state history and this data isn't used by Home Assistant as of yet.
 
 If you have no idea what this message is about, you can safely ignore it.
 We have merely listed this to be complete in our breaking changes report.
@@ -458,8 +602,8 @@ If you are looking for a replacement, you can use the
 - It's not clear if this integration still works with the gpmdp app that now
   only supports YouTube Music. If there's someone that uses the integration
   successfully and wants to take on the maintenance task that is required to get
-  the integration in a compatible state, please create an issue to discus
-   the future of this integration.
+  the integration in a compatible state, please create an issue to discuss
+  the future of this integration.
 
 ([@MartinHjelmare] - [#51509]) ([gpmdp docs])
 
@@ -477,8 +621,8 @@ therefore the units for these values will change.
 
 {% details "Kuler Sky" %}
 
-Kuler Sky lights no longer supports deprecated `white_value` attribute for
-its lights, use the `rgbw_color` attribute instead.
+Kuler Sky lights no longer supports the deprecated `white_value` attribute for
+its lights. Use the `rgbw_color` attribute instead.
 
 ([@emontnemery] - [#52080]) ([kulersky docs])
 
@@ -486,7 +630,7 @@ its lights, use the `rgbw_color` attribute instead.
 
 {% details "MeteoAlarm" %}
 
-You now cannot use the 2 letters of your country code, but must know use the
+You can no longer use the 2 letters of your country code, but must now use the
 complete country name in your configuration. To find out which country names
 you can use, please look at meteoalarm.org.
 
@@ -553,7 +697,7 @@ modbus:
         state_closed: 0
 ```
 
-The new configuration looks like:
+The new configuration looks like this:
 
 ```yaml
 modbus:
@@ -685,16 +829,16 @@ modbus:
 
 {% details "MQTT" %}
 
-It's no longer possible to set attributes defined in the the base component
+It's no longer possible to set attributes defined in the base component
 via a configured `json_attributes_topic`.
 
-For example a light no longer accepts brightness via the `json_attribute_topic`.
-This was unintended and undocumented functionality that lead to unexpected
-behavior.
+For example, a light no longer accepts brightness via the `json_attribute_topic`.
+This was unintended and an undocumented functionality that lead to
+unexpected behavior.
 
 This change applies to all supported MQTT platforms.
 
-([@emontnemery] - [#52242] [#52278] [#52280] [#52285] [#52286] [#52283] [#52289] [#52291] [#52290] [#52288] [#52282] [#52279]) ([mqtt docs]) 
+([@emontnemery] - [#52242] [#52278] [#52280] [#52285] [#52286] [#52283] [#52289] [#52291] [#52290] [#52288] [#52282] [#52279]) ([mqtt docs])
 
 {% enddetails %}
 
@@ -702,7 +846,7 @@ This change applies to all supported MQTT platforms.
 
 The AirQuality platform has been marked as deprecated. The `air_quality`
 entities will be deleted and replaced with `sensor` entities.
-You need to update your automations and dashboards if you have been usin
+You need to update your automations and dashboards if you have been using
 these `air_quality` entities in those.
 
 ([@bieniu] - [#52152]) ([nam docs])
@@ -736,7 +880,7 @@ updated. This fixes a bug, that might be a breaking change for you.
 If you use an `@` in your database username or password, you will have to
 adjust your database connection string to use `%40` instead.
 
-Database connection strings are considered URLs, thus special charaters need
+Database connection strings are considered URLs, thus special characters need
 to be encoded. `%40` is the URL encoded version of `@`.
 
 {% enddetails %}
@@ -766,8 +910,8 @@ and can now be safely removed from your YAML configuration files.
 
 With the change to the new, and unique, electric tariff 2.0TD, if you
 previously had configured multiple PVPC sensors monitoring prices for more
-than one of the old tariffs, only the first one will survive, so if you
-have any automations or scripts that depend on these removed sensors,
+than one of the old tariffs, only the first one will survive. This means
+if you have any automation or script that depends on these removed sensors,
 you might need to adjust them.
 
 ([@azogue] - [#51789]) ([pvpc_hourly_pricing docs])
@@ -776,7 +920,7 @@ you might need to adjust them.
 
 {% details "Switcher" %}
 
-In preparation for multi device support, configuration via the UI and support
+In preparation for multi-device support, configuration via the UI and support
 for discovery; this integration is migrating entity attributes into sensors
 to be later added as device entities. The following switch entity attributes
 migrated to sensors:
@@ -796,8 +940,8 @@ migrated to sensors:
 
 The integration has been rewritten from the ground up and is now configurable
 via the user interface only. Existing platform YAML config will automatically
-imported into the user interface on upgrade; and can be safely removed
-from the YAML configuration after upgrade has been completed.
+be imported into the user interface on upgrade and can be safely removed
+from the YAML configuration after the upgrade has been completed.
 
 ([@vigonotion] - [#51561]) ([yamaha_musiccast docs])
 
