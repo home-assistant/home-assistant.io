@@ -16,7 +16,7 @@ automation: !include automations.yaml
 # Labeled automation block
 automation kitchen:
   - trigger:
-    - platform: ...
+      - platform: ...
 ```
 
 You can add as many labeled `automation` blocks as you want.
@@ -30,8 +30,8 @@ Example of a YAML based automation that you can add to `configuration.yaml`.
 ```yaml
 # Example of entry in configuration.yaml
 automation my_lights:
-# Turns on lights 1 hour before sunset if people are home
-# and if people get home between 16:00-23:00
+  # Turns on lights 1 hour before sunset if people are home
+  # and if people get home between 16:00-23:00
   - alias: "Rule 1 Light on in the evening"
     trigger:
       # Prefix the first line of each trigger configuration
@@ -57,7 +57,7 @@ automation my_lights:
         target:
           entity_id: group.living_room
 
-# Turn off lights when everybody leaves the house
+  # Turn off lights when everybody leaves the house
   - alias: "Rule 2 - Away Mode"
     trigger:
       - platform: state
@@ -68,7 +68,7 @@ automation my_lights:
         target:
           entity_id: all
 
-# Notify when Paulus leaves the house in the evening
+  # Notify when Paulus leaves the house in the evening
   - alias: "Leave Home notification"
     trigger:
       - platform: zone
@@ -83,7 +83,7 @@ automation my_lights:
         data:
           message: "Paulus left the house"
 
-# Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi component.
+  # Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi component.
   - alias: "Xiaomi Cube Action"
     initial_state: false
     trigger:
@@ -110,10 +110,23 @@ At startup, automations by default restore their last state of when Home Assista
 
 ```yaml
 automation:
-- alias: "Automation Name"
-  initial_state: false
-  trigger:
-    - platform: ...
+  - alias: "Automation Name"
+    initial_state: false
+    trigger:
+      - platform: ...
+```
+
+### Number of debug traces stored
+
+When using YAML you can configure the number of debugging traces stored for an automation. This is controlled with the `stored_traces` option under `traces`. Set `stored_traces` to the number of traces you wish to store for the particular automation. If not specified the default value of 5 will be used.
+
+```yaml
+automation:
+  - alias: "Automation Name"
+    traces:
+      stored_traces: 10
+    trigger:
+      - platform: ...
 ```
 
 ## Migrating your YAML automations to `automations.yaml`
