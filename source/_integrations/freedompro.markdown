@@ -2,8 +2,9 @@
 title: Freedompro
 description: Instructions for how to integrate Freedompro accessories within Home Assistant.
 ha_category:
-  - Light
   - Binary Sensor
+  - Light
+  - Sensor
   - Switch
 ha_release: 2021.7
 ha_iot_class: Cloud Polling
@@ -12,8 +13,9 @@ ha_codeowners:
   - '@stefano055415'
 ha_domain: freedompro
 ha_platforms:
-  - light
   - binary sensor
+  - light
+  - sensor
   - switch
 ---
 
