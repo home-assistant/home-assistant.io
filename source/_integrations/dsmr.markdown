@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_domain: dsmr
 ha_codeowners:
   - '@Robbie1221'
+  - '@frenck'
 ha_platforms:
   - sensor
 ---

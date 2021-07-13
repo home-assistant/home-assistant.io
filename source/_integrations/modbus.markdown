@@ -609,7 +609,7 @@ fans:
       default: 0x00
       type: integer
     write_type:
-      description: Type of address (holding/coil).
+      description: Type of address (holding/coil or holdings/coils for array call).
       required: false
       default: holding
       type: string
@@ -702,7 +702,7 @@ lights:
       default: 0x00
       type: integer
     write_type:
-      description: Type of address (holding/coil).
+      description: Type of address (holding/coil or holdings/coils for array call).
       required: false
       default: holding
       type: string
@@ -925,7 +925,7 @@ switches:
       default: 0x00
       type: integer
     write_type:
-      description: type of address (holding/coil)
+      description: type of address (holding/coil or holdings/coils for array call)
       required: false
       default: holding
       type: string

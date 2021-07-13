@@ -7,11 +7,12 @@ ha_release: 2021.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@klaasnicolaas"
-  - "@frenck"
+  - '@klaasnicolaas'
+  - '@frenck'
 ha_domain: forecast_solar
 ha_platforms:
   - sensor
+ha_quality_scale: platinum
 ---
 
 The [Forecast.Solar](https://forecast.solar/) service provides solar production

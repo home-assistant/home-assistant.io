@@ -127,7 +127,7 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TC-P60ST50 (can't power on)
 - TC-P65VT30
 - TH-32ES500
-- TH-P60ST50A
+- TH-P60ST50A (can't power on)
 - TX-32AS520E
 - TX-32DSX609
 - TX-40CXE720

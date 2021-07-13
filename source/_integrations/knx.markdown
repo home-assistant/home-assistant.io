@@ -32,7 +32,6 @@ ha_platforms:
   - notify
   - number
   - scene
-  - select
   - sensor
   - switch
   - weather
@@ -575,8 +574,8 @@ The following values are valid for the Home Assistant [Climate](/integrations/cl
 
 - `Off` (maps internally to `HVAC_MODE_OFF` within Home Assistant)
 - `Auto` (maps internally to `HVAC_MODE_AUTO` within Home Assistant)
-- `Heat` (maps internally to `HVAC_MDOE_HEAT` within Home Assistant)
-- `Cool` (maps internally to `HVAC_MDOE_COOL` within Home Assistant)
+- `Heat` (maps internally to `HVAC_MODE_HEAT` within Home Assistant)
+- `Cool` (maps internally to `HVAC_MODE_COOL` within Home Assistant)
 - `Fan only` (maps internally to `HVAC_MODE_FAN_ONLY` within Home Assistant)
 - `Dry` (maps internally to `HVAC_MODE_DRY` within Home Assistant)
 
