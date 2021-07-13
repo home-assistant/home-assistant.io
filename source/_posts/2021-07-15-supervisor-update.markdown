@@ -15,15 +15,15 @@ categories:
 
 "Snapshot" is a term that we have been using in the Supervisor since the beginning,
 but it's not very descriptive for those that do not know what it is.
-Over the next few weeks we will start using "backup"
-as the term instead in all our software and documentation.
+Over the next few weeks, we will start using "backup"
+as the term instead of in all our software and documentation.
 
 The functionality of it does not change, this is just a rename to make it more understandable.
 
 ## Supervised installations
 
 <div class='note'>
-Having a supervisor does not make it a supervised installation, Home Assistant Operating System also have this, the information below does not apply to Home Assistant Operating System.
+Having a supervisor does not make it a supervised installation, Home Assistant Operating System also has this, the information below does not apply to Home Assistant Operating System.
 </div>
 
 While we try not to break supervised installations, we do have a few things we need to change.
