@@ -42,10 +42,13 @@ automation:
       to: "home"
 ```
 
-
 ## Trigger variables
 
 Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in trigger templates with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
+
+The value of the `trigger_variables` are assigned at the time the automation is configured, and are often used during the configuration of the automation.
+
+The variables listed in the `variables` property are assigned each time the trigger is fired. The `trigger_variables` that were assigned at configuration time are also available to the templates used in your conditions and actions. They do not get assigned a new value at the time the trigger is fired. However, if you put the same variable name in `variables` and `trigger_variables` the value will be assigned again at trigger time using the template defined in the `variables` property.
 
 ## Event trigger
 
@@ -291,6 +294,8 @@ automation:
 
 The `for` template(s) will be evaluated when an entity changes as specified.
 
+You may use a [template](/docs/configuration/templating/) for configuring the `entity_id` property. The template will only be evaluated at configuration time. Only [limited templates](/docs/configuration/templating/#limited-templates) are allowed.
+
 ## State trigger
 
 Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
@@ -327,6 +332,8 @@ automation:
         - "returning"
       to: "error"
 ```
+
+You may use a [template](/docs/configuration/templating/) for configuring the `entity_id` property. The template will only be evaluated at configuration time. Only [limited templates](/docs/configuration/templating/#limited-templates) are allowed.
 
 ### Holding a state
 
@@ -780,3 +787,5 @@ automation:
         - sensor.two
         - sensor.three
 ```
+
+For state and numeric_state triggers, you may use a [template](/docs/configuration/templating/) for configuring the `entity_id` property. The template can return a list of entities. The template will only be evaluated at configuration time. Only [limited templates](/docs/configuration/templating/#limited-templates) are allowed.
