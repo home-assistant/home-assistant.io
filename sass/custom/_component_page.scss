@@ -1,6 +1,6 @@
 #components-page {
   .component-search {
-    margin-bottom: 24px;
+    margin-bottom: 8px;
 
     input {
       width: 100%;
@@ -12,10 +12,28 @@
       border-color: #7c7c7c #c3c3c3 #ddd;
     }
   }
+
+  .integration_filters {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 8px 24px;
+
+    .capitalize {
+      text-transform: capitalize;
+    }
+  }
 }
 
 @media only screen and (max-width: $palm-end) {
   #components-page {
+    .integration_filters {
+      display: block;
+    }
+    .integration_filter {
+      display: grid;
+      margin: 8px 0;
+    }
+
     .hass-option-cards {
       .option-card {
         width: 100%;
@@ -26,6 +44,14 @@
 
 @media only screen and (max-width: $lap-end) {
   #components-page {
+    .integration_filters {
+      display: block;
+    }
+    .integration_filter {
+      display: grid;
+      margin: 8px 0;
+    }
+
     .filter-button-group {
       margin-bottom: 16px;
 
@@ -50,15 +76,16 @@
         font-weight: bold;
       }
 
-      .featured {
-        margin: 12px 0;
+      .integration_filters {
+        display: block;
       }
 
-      .version_select {
-        margin: 12px 0 12px 0;
+      .integration_filter {
+        margin: 8px 0;
+        display: grid;
       }
 
-      .version_select > select {
+      .integration_filter > select {
         width: 100%;
       }
 
@@ -98,7 +125,7 @@
 
   .option-card {
     flex: 0 0 auto;
-    width: 210px;
+    width: 256px;
     height: 142px;
     display: inline-block;
     background-color: #fefefe;

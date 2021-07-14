@@ -6,6 +6,7 @@ is_homepage: true
 feedback: false
 body_id: components-page
 regenerate: false
+show_title: false
 ---
 
 {%- comment -%}Can't use where to count nil because of https://github.com/jekyll/jekyll/issues/6038{%- endcomment -%}
@@ -23,46 +24,80 @@ regenerate: false
 {%- assign components = site.integrations | sort: 'title' -%}
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
 {%- assign categories = components | map: 'ha_category' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
+{%- assign integration_iot_classes = components | map: 'ha_iot_class' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
+{%- assign integration_quality_scales = components | map: 'ha_quality_scale' | join: ',' | join: ',' | split: ',' | uniq | sort  -%}
 
 <p class='note'>
   Support for these integrations is provided by the Home Assistant community.
 </p>
-<div class="grid">
-  <div class="grid__item one-sixth lap-one-whole palm-one-whole">
 
-    <div class="filter-button-group">
-      <a href='#all' class="btn">All ({{tot}})</a>
-      <a href='#featured' class="btn featured">Featured</a>
-      <div class="version_select">Added in: <select name="versions">
-          <option value="#"></option>
-          {%- for group in components_by_version -%}
-          <optgroup label="{{ group.label }} ({{group.new_components_count}})">
-            {%- for version in group.versions -%}
-            <option value="#version/{{ version.label }}">{{ version.label }} ({{ version.new_components_count }})
-            </option>
-            {%- endfor -%}
-          </optgroup>
-          {%- endfor -%}
-        </select></div>
+<div class="component-search">
+  <form onsubmit="event.preventDefault(); return false">
+    <input type="text" name="integration-search" id="integration-search" class="search" placeholder="Search integrations..." autofocus />
+  </form>
+</div>
+
+<div class="integration_filters">
+  <div class="integration_filter">
+    <select name="category">
+      <option value="#">Category</option>
+      <option value="#featured">Featured</option>
+      <option value="#all">All ({{tot}})</option>
+
       {%- for category in categories -%}
       {%- assign components_count = components | where: 'ha_category', category | size -%}
       {%- if category and category != 'Other' and components_count != 0 -%}
-      <a href='#{{ category | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category }} ({{ components_count }})</a>
+      <option value='#{{ category | slugify }}'>{{ category }} ({{ components_count }})</option>
       {%- endif -%}
       {%- endfor -%}
 
-      <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
-    </div>
+      <option value='#other'>Other ({{ components | where: 'ha_category', 'Other' | size }})</option>
+
+    </select>
   </div>
-  <div class="grid__item five-sixths lap-one-whole palm-one-whole">
-    <div class="component-search">
-      <form onsubmit="event.preventDefault(); return false">
-        <input type="text" name="search" id="search" class="search" placeholder="Search integrations..." autofocus />
-      </form>
-    </div>
-    <div class="hass-option-cards" id="componentContainer"> </div>
+
+  <div class="integration_filter">
+    <select name="version">
+      <option value="#">Version</option>
+      {%- for group in components_by_version -%}
+      <optgroup label="{{ group.label }} ({{group.new_components_count}})">
+        {%- for version in group.versions -%}
+        <option value="#version/{{ version.label }}">{{ version.label }} ({{ version.new_components_count }})
+        </option>
+        {%- endfor -%}
+      </optgroup>
+      {%- endfor -%}
+    </select>
+  </div>
+  <div class="integration_filter">
+    <select name="iot_classes">
+      <option value="#">IoT Class</option>
+      {%- for iot_class in integration_iot_classes -%}
+        {%- assign iot_class_count = components | where: 'ha_iot_class', iot_class | size -%}
+        {%- if iot_class_count != 0 -%}
+        <option value="#search/{{ iot_class }}">{{ iot_class }} ({{ iot_class_count }})
+        </option>
+        {%- endif -%}
+      {%- endfor -%}
+    </select>
+  </div>
+
+  <div class="integration_filter">
+    <select name="quality_scales" class="capitalize">
+      <option value="#">Quality Scale</option>
+      {%- for quality_scale in integration_quality_scales -%}
+        {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_scale | size -%}
+        {%- if quality_scale_count != 0 -%}
+        <option class="capitalize" value="#search/{{ quality_scale }}">{{ quality_scale }} ({{ quality_scale_count }})
+        </option>
+        {%- endif -%}
+      {%- endfor -%}
+    </select>
   </div>
 </div>
+
+<div class="hass-option-cards" id="componentContainer"> </div>
+
 
 <script
   src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -91,8 +126,9 @@ regenerate: false
 {% endraw %}
 
 <script type="text/javascript">
-// This object contains all components we have
-var allComponents = [
+
+// This object contains all integrations we have
+const integrations = [
   {%- for component in components -%}
     {%- if component.ha_category -%}
       {%- assign sliced_version = component.ha_release | split: '.' -%}
@@ -103,36 +139,46 @@ var allComponents = [
         {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
         {% assign categories = categories | push: category %}
       {%- endfor -%}
-      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}"},
+      {
+        url:"{{ component.url }}",
+        title:"{{component.title}}",
+        cat: [{{categories|join: ","}}],
+        featured: {{ component.featured }},
+        version: "{{major_version}}.{{minor_version}}",
+        logo: "{{component.logo}}",
+        domain: "{{component.ha_domain}}",
+        iot_class: "{{component.ha_iot_class}}",
+        quality_scale: "{{component.ha_quality_scale}}"
+      },
     {% endif -%}
   {%- endfor -%}
   false
 ];
-allComponents.pop(); // remove placeholder element at the end
-</script>
+integrations.pop(); // remove placeholder element at the end
 
-<script type="text/javascript">
   (function () {
     var template = $('#component-template').html();
     Mustache.parse(template); // make future calls to render faster
 
     function init() {
       // do the lowerCase transformation once
-      for (i = 0; i < allComponents.length; i++) {
-        title = allComponents[i].title.toLowerCase();
-        domain = allComponents[i].domain;
+      for (i = 0; i < integrations.length; i++) {
+        title = integrations[i].title.toLowerCase();
+        domain = integrations[i].domain;
+        iot_class = integrations[i].iot_class.toLowerCase()
+        quality_scale = integrations[i].quality_scale
         title_normalized = title
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "");
         title_dedashed = title.replace(/[-_]/g, " ");
         title_normalized_dedashed = title_normalized.replace(/[-_]/g, " ");
 
-        allComponents[i].titleLC = title;
-        allComponents[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain}`;
+        integrations[i].titleLC = title;
+        integrations[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain} ${iot_class} ${quality_scale}`;
       }
 
       // sort the components alphabetically
-      allComponents.sort(function (a, b) {
+      integrations.sort(function (a, b) {
         return a.titleLC.localeCompare(b.titleLC);
       });
 
@@ -178,7 +224,7 @@ allComponents.pop(); // remove placeholder element at the end
 
       if (hash === '#all') {
         // shortcut: no need to filter
-        data.components = allComponents;
+        data.components = integrations;
       } else {
         if (hash.indexOf('#search/') === 0) {
           // search through title and category
@@ -201,7 +247,7 @@ allComponents.pop(); // remove placeholder element at the end
           search = decodeURIComponent(hash).substring(9).toLowerCase();
           filter = function (comp) {
             // compare version string against version js
-            return comp.v === search;
+            return comp.version === search;
           };
 
         } else {
@@ -213,9 +259,9 @@ allComponents.pop(); // remove placeholder element at the end
         }
 
         // filter all components using the filter function
-        for (i = 0; i < (allComponents.length); i++) {
-          if (filter(allComponents[i])) {
-            data.components.push(allComponents[i]);
+        for (i = 0; i < (integrations.length); i++) {
+          if (filter(integrations[i])) {
+            data.components.push(integrations[i]);
           }
         }
       }
