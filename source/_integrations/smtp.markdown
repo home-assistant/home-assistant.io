@@ -27,6 +27,7 @@ notify:
     sender: "YOUR_SENDER"
     recipient: "YOUR_RECIPIENT"
 ```
+
 Check your e-mail provider configuration or help pages to get the correct SMTP settings.
 
 {% configuration %}
