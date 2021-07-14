@@ -15,7 +15,7 @@ ha_platforms:
 ha_quality_scale: platinum
 ---
 
-The Ambee integration integrations the [Ambee](https://www.getambee.com/) API
+The Ambee integration integrates the [Ambee](https://www.getambee.com/) API
 platform with Home Assistant.
 
 Ambee fuses the power of thousands of on-ground sensor data and hundreds of

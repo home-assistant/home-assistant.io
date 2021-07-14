@@ -21,7 +21,7 @@ ha_platforms:
 ha_ssdp: true
 ---
 
-The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) based router.
+The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://en.avm.de/products/fritzbox/) based router.
 
 There is support for the following platform types within Home Assistant:
 
@@ -77,6 +77,17 @@ These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrat
 
 ## Additional info
 
+### Device Profile
+
+Device profiles are designed for advanced users, thus they are disabled by default. You need to enable the wanted entities manually.
+
+### Device Tracker
+
 **Note 1**: All devices to be tracked, even the new detected, are disabled by default. You need to enable the wanted entities manually.
 
 **Note 2**: If you don't want to automatically track newly detected devices, disable the integration system option `Enable new added entities`.
+
+### Port Forward
+
+Due to security reasons, AVM implemented the ability to enable/disable a port forward rule only from the host involved in the rule.
+As a result, this integration will create entities only for rules that have your Home Assistant host as a destination.
