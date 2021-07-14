@@ -21,9 +21,6 @@ To enable notification by e-mail in your installation, add the following to your
 notify:
   - name: "NOTIFIER_NAME"
     platform: smtp
-    server: "smtp.example.com"
-    username: "YOUR_USER_NAME"
-    password: "YOUR_PASSWORD"
     sender: "YOUR_SENDER"
     recipient: "YOUR_RECIPIENT"
 ```
