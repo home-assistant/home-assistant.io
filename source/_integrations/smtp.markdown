@@ -178,6 +178,7 @@ burglar:
 To learn more about how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
 
 ## Specific E-Mail Provider Configuration
+
 Check below some configurations examples for specific e-mail providers. 
 If you are in doubt about the SMTP settings required, check your e-mail provider configuration or help pages for more information about its specific SMTP configuration. 
 
