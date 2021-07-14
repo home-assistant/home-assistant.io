@@ -3,18 +3,9 @@ title: "Automation Trigger Variables"
 description: "List all available variables made available by triggers."
 ---
 
-Automations support [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger`, `context`, and `this` template variables are available.
-
+Automations support [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger`, and `this` template variables are available.
 
 The template variable `this` is also available when evaluating any `trigger_variables` declared in the configuration.
-
-## Available Context Data
-
-| Template variable | Data |
-| ---- | ---- |
-| `context.id` | Unique id of the context.
-| `context.parent_id` | Unique id of the parent id that started this change.
-| `context.user_id` | Unique id of the user that started the change.
 
 ## Available this Data
 
