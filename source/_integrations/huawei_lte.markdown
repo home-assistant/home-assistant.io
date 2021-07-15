@@ -99,11 +99,11 @@ url:
   required: true
   type: string
 username:
-  description: The username used for the device web interface in authenticated mode. Typically `admin`, or empty string (`""`) for USB stick modems. To use unauthenticated mode, leave this variable out altogether.
+  description: The username used for the device web interface. Typically `admin`, or empty string (`""`) for USB stick modems. Required when first setting up the device and in authenticated mode.
   required: false
   type: string
 password:
-  description: The password used for the device web interface in authenticated mode. Typically empty string (`""`) for USB stick modems. To use unauthenticated mode, leave this variable out altogether.
+  description: The password used for the device web interface. Typically empty string (`""`) for USB stick modems. Required when first setting up the device and in authenticated mode.
   required: false
   type: string
 notify:
