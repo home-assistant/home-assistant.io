@@ -926,7 +926,7 @@ Tasmota lights supporting color and white will now be added as a light supportin
 color modes `hs` and `white`, not as a light supporting color_mode `rgbw`.
 now supports setting `white` instead.
 
-Scenes setting a Tasmota light can updated by using the scene UI editor.
+Scenes setting a Tasmota light can be updated by using the scene UI editor.
 
 Automations setting a Tasmota light need to be updated manually, to set a light to white mode do:
 ```yaml
