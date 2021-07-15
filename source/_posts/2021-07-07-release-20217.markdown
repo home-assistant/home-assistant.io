@@ -918,6 +918,29 @@ you might need to adjust them.
 
 {% enddetails %}
 
+{% details "Tasmota" %}
+
+Tasmota doesn't support independent control of all four channels of an RGBW light,
+so `rgbw_color` was a very poor fit for it and gave counter-intuitive results.
+Tasmota lights supporting color and white will now be added as a light supporting
+color modes `hs` and `white`, not as a light supporting color_mode `rgbw`.
+now supports setting `white` instead.
+
+Scenes setting a Tasmota light can be updated by using the scene UI editor.
+
+Automations setting a Tasmota light need to be updated manually, to set a light to white mode do:
+```yaml
+  - service: light.turn_on
+    target:
+      entity_id: light.genbbc05
+    data:
+      white: 242
+```
+
+([@emontnemery] - [#51608]) ([tasmota docs])
+
+{% enddetails %}
+
 {% details "Switcher" %}
 
 In preparation for multi-device support, configuration via the UI and support
