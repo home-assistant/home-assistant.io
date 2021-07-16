@@ -3,6 +3,18 @@ title: "Troubleshooting Automations"
 description: "Tips on how to troubleshoot your automations."
 ---
 
+## Using debug traces
+
+Every time an automation runs, a debugging trace is generated regardless of whether the automation was completed, aborted, or suffered an error. Traces allow you to interactively inspect the state of the automation at every step and also check the values of [variables](/docs/scripts/#variables) and rendered [templates](/docs/configuration/templating/). Traces can be accessed in the {% my automations title="Automations Section" %} of {% my configuration %}.
+
+![Automation debug trace example](/images/integrations/automation/automation-tracing.png)
+
+Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating-your-yaml-automations-to-automationsyaml) assigned in order for debugging traces to be stored.
+
+By default the last 5 traces are stored for each automation, this can be adjusted in the [YAML configuration](/docs/automation/yaml/#number-of-debug-traces-stored) of an automation. Stored traces are reset each time Home Assistant restarts.
+
+## Inspecting logs and the Logbook
+
 You can verify that your automation rules are being initialized correctly by watching both the realtime logs (`homeassistant.log` in the configuration directory) and also the [Logbook](/integrations/logbook/). The realtime logs will show the rules being initialized (once for each trigger), example:
 
 ```text
@@ -18,7 +30,7 @@ The Logbook integration will show a line entry when an automation is triggered. 
 
 [template]: /topics/templating/
 
-### Testing your automation
+## Testing your automation
 
 It is generally a difficult task to test an automation, especially if it includes several triggers and some conditions.
 

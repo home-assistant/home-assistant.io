@@ -913,7 +913,6 @@
 /components/sensor.worldtidesinfo /integrations/worldtidesinfo
 /components/sensor.worxlandroid /integrations/worxlandroid
 /components/sensor.wsdot /integrations/wsdot
-/components/sensor.wunderground /integrations/wunderground
 /components/sensor.xbox_live /integrations/xbox_live
 /components/sensor.xs1 /integrations/xs1#sensors
 /components/sensor.zabbix /integrations/zabbix#sensor
@@ -1972,7 +1971,6 @@
 /components/worldtidesinfo /integrations/worldtidesinfo
 /components/worxlandroid /integrations/worxlandroid
 /components/wsdot /integrations/wsdot
-/components/wunderground /integrations/wunderground
 /components/wunderlist /integrations/wunderlist
 /components/x10 /integrations/x10
 /components/xbox_live /integrations/xbox_live
@@ -2306,3 +2304,6 @@
 /components/sensor.spotcrime /more-info/removed-integration 301
 /components/spotcrime /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
+/components/sensor.wunderground /more-info/removed-integration 301
+/components/wunderground /more-info/removed-integration 301
+/integrations/wunderground /more-info/removed-integration 301

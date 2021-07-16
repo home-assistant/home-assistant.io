@@ -9,6 +9,15 @@ Automations support [templating](/docs/configuration/templating/) in the same wa
 
 The following tables show the available trigger data per platform.
 
+### All
+
+The following describes trigger data associated with all platforms.
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.id` | Optional trigger `id`, or index of the trigger.
+| `trigger.idx` | Index of the trigger.
+
 ### Event
 
 | Template variable | Data |
@@ -113,12 +122,15 @@ automation:
   trigger:
     - platform: state
       entity_id: device_tracker.paulus
+      id: paulus_device
   action:
     - service: notify.notify
       data:
         message: >
           Paulus just changed from {{ trigger.from_state.state }}
           to {{ trigger.to_state.state }}
+          
+          This was triggered by {{ trigger.id }}
 
 automation 2:
   trigger:

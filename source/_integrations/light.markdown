@@ -53,6 +53,7 @@ Most lights do not support all attributes. You can check the integration documen
 | `brightness_pct`| yes | Alternatively, you can specify brightness in percent (a number between 0 and 100), where 0 means the light is off, 1 is the minimum brightness and 100 is the maximum brightness supported by the light.
 | `brightness_step` | yes | Change brightness by an amount. Should be between -255..255.
 | `brightness_step_pct` | yes | Change brightness by a percentage. Should be between -100..100.
+| `white` | yes | Set the light to white mode and change its brightness, where 0 means the light is off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light.
 | `flash` | yes | Tell light to flash, can be either value `short` or `long`.
 | `effect`| yes | Applies an effect such as `colorloop` or `random`.
 
