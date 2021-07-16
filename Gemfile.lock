@@ -94,7 +94,7 @@ GEM
     rouge (3.26.0)
     ruby-enum (0.9.0)
       i18n
-    ruby2_keywords (0.0.4)
+    ruby2_keywords (0.0.5)
     safe_yaml (1.0.5)
     sass (3.4.25)
     sass-globbing (1.1.5)
