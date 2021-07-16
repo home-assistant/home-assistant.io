@@ -36,7 +36,8 @@ your API key as well.
 [Sign up for an Ambee account](https://api-dashboard.getambee.com/#/signup).
 Once you have completed the sign up and logged in for the first time, the
 API token will be displayed on the top of your
-[Ambee dashboard](https://api-dashboard.getambee.com/#/).
+[Ambee dashboard](https://api-dashboard.getambee.com/#/). Make sure you select
+both the Air Quality API and the Pollen API.
 
 {% include integrations/config_flow.md %}
 
