@@ -52,6 +52,7 @@ Alright, that's it! Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.7.1 - July 8](#release-202171---july-8)
 - [Release 2021.7.2 - July 12](#release-202172---july-12)
+- [Release 2021.7.3 - July 16](#release-202173---july-16)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -444,6 +445,80 @@ The following integrations are now available via the Home Assistant UI:
 [version docs]: /integrations/version/
 [zha docs]: /integrations/zha/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.7.3 - July 16
+
+- Update ZHA to support zigpy 0.34.0 device initialization ([@puddly] - [#52610]) ([zha docs])
+- copy() --> deepcopy(). ([@janiversen] - [#52794]) ([modbus docs])
+- only allow one active call in each platform. ([@janiversen] - [#52823]) ([modbus docs])
+- Bump pyatv to 0.8.1 ([@doug-hoffman] - [#52849]) ([apple_tv docs])
+- Handle dhcp packets without a hostname ([@bdraco] - [#52882]) ([dhcp docs])
+- Add OUIs for legacy samsungtv ([@bdraco] - [#52928]) ([samsungtv docs])
+- Bump python-fireservicerota to 0.0.43 ([@cyberjunky] - [#52966]) ([fireservicerota docs])
+- More graceful exception handling in Plex library sensors ([@jjlawren] - [#52969]) ([plex docs])
+- Fix issue connecting to Insteon Hub v2 ([@teharris1] - [#52970]) ([insteon docs])
+- Bump pysma to 0.6.4 ([@rklomp] - [#52973]) ([sma docs])
+- Update pyrainbird to 0.4.3 ([@peternijssen] - [#52990]) ([rainbird docs])
+- Bump pypck to 0.7.10 ([@alengwenus] - [#53013]) ([lcn docs])
+- fix for timestamp not present in SIA ([@eavanvalkenburg] - [#53015]) ([sia docs])
+- Co2signal, set SCAN_INTERVAL ([@Danielhiversen] - [#53023]) ([co2signal docs])
+- Another SIA fix for timestamp not present. ([@eavanvalkenburg] - [#53045])
+- Fix knx expose feature not correctly falling back to default value ([@da-anda] - [#53046]) ([knx docs])
+- Expose Spotify as a service ([@balloob] - [#53063])
+- Increase polling interval to prevent reaching daily limit ([@vlebourl] - [#53066]) ([home_plus_control docs])
+- Add light white parameter to light/services.yaml ([@emontnemery] - [#53075]) ([light docs])
+
+[#52610]: https://github.com/home-assistant/core/pull/52610
+[#52794]: https://github.com/home-assistant/core/pull/52794
+[#52823]: https://github.com/home-assistant/core/pull/52823
+[#52849]: https://github.com/home-assistant/core/pull/52849
+[#52882]: https://github.com/home-assistant/core/pull/52882
+[#52928]: https://github.com/home-assistant/core/pull/52928
+[#52966]: https://github.com/home-assistant/core/pull/52966
+[#52969]: https://github.com/home-assistant/core/pull/52969
+[#52970]: https://github.com/home-assistant/core/pull/52970
+[#52973]: https://github.com/home-assistant/core/pull/52973
+[#52990]: https://github.com/home-assistant/core/pull/52990
+[#53013]: https://github.com/home-assistant/core/pull/53013
+[#53015]: https://github.com/home-assistant/core/pull/53015
+[#53023]: https://github.com/home-assistant/core/pull/53023
+[#53045]: https://github.com/home-assistant/core/pull/53045
+[#53046]: https://github.com/home-assistant/core/pull/53046
+[#53063]: https://github.com/home-assistant/core/pull/53063
+[#53066]: https://github.com/home-assistant/core/pull/53066
+[#53075]: https://github.com/home-assistant/core/pull/53075
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@alengwenus]: https://github.com/alengwenus
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@cyberjunky]: https://github.com/cyberjunky
+[@da-anda]: https://github.com/da-anda
+[@doug-hoffman]: https://github.com/doug-hoffman
+[@eavanvalkenburg]: https://github.com/eavanvalkenburg
+[@emontnemery]: https://github.com/emontnemery
+[@janiversen]: https://github.com/janiversen
+[@jjlawren]: https://github.com/jjlawren
+[@peternijssen]: https://github.com/peternijssen
+[@puddly]: https://github.com/puddly
+[@rklomp]: https://github.com/rklomp
+[@teharris1]: https://github.com/teharris1
+[@vlebourl]: https://github.com/vlebourl
+[apple_tv docs]: /integrations/apple_tv/
+[co2signal docs]: /integrations/co2signal/
+[dhcp docs]: /integrations/dhcp/
+[fireservicerota docs]: /integrations/fireservicerota/
+[home_plus_control docs]: /integrations/home_plus_control/
+[insteon docs]: /integrations/insteon/
+[knx docs]: /integrations/knx/
+[lcn docs]: /integrations/lcn/
+[light docs]: /integrations/light/
+[modbus docs]: /integrations/modbus/
+[plex docs]: /integrations/plex/
+[rainbird docs]: /integrations/rainbird/
+[samsungtv docs]: /integrations/samsungtv/
+[sia docs]: /integrations/sia/
+[sma docs]: /integrations/sma/
+[zha docs]: /integrations/zha/
 
 ## If you need help...
 
