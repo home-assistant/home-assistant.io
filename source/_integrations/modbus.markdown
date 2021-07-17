@@ -368,7 +368,12 @@ climates:
       description: Number of registers to read.
       required: false
       type: integer
-      default: 2
+      default: 1 or calculated if data_type is not `struct`.
+    data_type:
+      description: Response representation (`int`, `uint`, `float`, `custom`). If `float` selected, value will converted to IEEE 754 floating point format. If `custom`is selected `structure`must de defined.
+      required: false
+      type: string
+      default: float
     input_type:
       description: Modbus register type (`holding`, `input`) for current temperature.
       required: false
@@ -814,7 +819,12 @@ sensors:
       description: Number of registers to read.
       required: false
       type: integer
-      default: 1
+      default: 1 or calculated if data_type is not `struct`.
+    data_type:
+      description: Response representation (int, uint, float, string, custom). If float selected, value will be converted to IEEE 754 floating point format.
+      required: false
+      default: int
+      type: string
     device_class:
       description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
       required: false
