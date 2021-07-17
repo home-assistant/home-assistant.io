@@ -30,10 +30,15 @@ To start getting notifications, you need to follow those simple steps:
 
 ```yaml
 gotify:
+  url: YOUR_GOTIFY_URL (e.g "https://gotify.myserver.com")
   token: YOUR_APP_TOKEN
 ```
 
 {% configuration %}
+url:
+  description: Your Gotify Server URL.
+  required: true
+  type: string
 token:
   description: Your Gotify application token.
   required: true
