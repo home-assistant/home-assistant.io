@@ -33,7 +33,7 @@ You need to know your router's IP address and login password - the defualts for 
 To add devices to track into your Home Assistant installation, go to:
 
 **Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **GL-inet**. Then complete the pop up with your router address in the format `http://192.168.0.1` and the password.
-**Note**: The router password is not stored by HomeAssistant, it is just used once to generate an access token.
+**Note**: The router password **is** stored by HomeAssistant as the API access tokens will expire
 
 
 ## Usage
