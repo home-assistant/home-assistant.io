@@ -17,7 +17,7 @@ ha_platforms:
   - light
 ---
 
-[Fjäråskupan](https://fjaraskupan.se/) allows you to control your bluetooth equiped kitchen fan.
+[Fjäråskupan](https://fjaraskupan.se/) allows you to control your Bluetooth equipped kitchen fan.
 
 There is currently support for the following device types within Home Assistant:
 
