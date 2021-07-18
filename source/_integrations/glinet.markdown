@@ -14,14 +14,15 @@ ha_platforms:
   - device_tracker
 ---
 
-The GL-inet integration can connect Home Assistant to a GL-inet router that runs on OpenWRT and GL-inet firmware.
+GL-inet are a Hong-Kong based company who produce highly customizable home routers. They are based on the very common OpenWRT firmware but provide a much more user-friendly user interface than OpenWRT's LUCI.
 
 There is currently support for the following device types within Home Assistant:
 
 - **Presence Detection** - The GL-inet platform offers presence detection by looking at connected devices to a GL-inet based router.
 
 Upder development:
-- **Sensor** - The GL-inet sensor platform would allow you to get upload and download data from your router within Home Assistant.
+- **Sensor** - The GL-inet sensor platform could allow you to get upload and download data from your router within Home Assistant.
+- **Switch** - The GL-inet switch platform could allow you to activate and deactivate your VPN from homeassistant
 
 ## Configuration
 <div class='note warning'>
