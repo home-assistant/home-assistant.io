@@ -5,7 +5,7 @@ ha_category:
   - Binary Sensor
   - Fan
   - Light
-ha_release: 2021.7.2
+ha_release: 2021.8
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
