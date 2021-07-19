@@ -89,6 +89,7 @@ The following sensors are available in the library:
 | Energy Yield Year       | kWh  | Energy yield of the current year. |
 | Energy Yield Total      | kWh  | Energy yield total. |
 | PV-DC Power             | kW   | Sum of all PV-DC powers. |
+
 ### Settings Sensors
 
 The following sensors are available in the library:
