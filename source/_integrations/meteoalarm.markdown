@@ -12,7 +12,7 @@ ha_platforms:
   - binary_sensor
 ---
 
-The `MeteoAlarm` platform allows one to watch for weather alerts in europe from [MeteoAlarm](https://www.meteoalarm.org) (EUMETNET). To use this binary sensor, you need the name of your country and the province name from  [MeteoAlarm](https://www.meteoalarm.org). Please note that you need to write the exact details from the website with capitals.
+The `MeteoAlarm` platform allows one to watch for weather alerts in europe from [MeteoAlarm](https://www.meteoalarm.org) (EUMETNET). To use this binary sensor, you need the name of your country and the province name from  [MeteoAlarm](https://feeds.meteoalarm.org). Please note that you need to write the exact country name (with hyphens) as at the end of the URL starting with: `https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-`.
 
 The binary sensor state shows if applicable the warning message. The details are available as attribute.
 
