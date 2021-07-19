@@ -20,7 +20,7 @@ At the moment, the free CO2Signal API only supports the average carbon intensity
 The "free" API key is limited to a limited number of calls. Too many requests can result in data loss.
 </div>
 
-## Setup
+## Prerequisites
 
 To set up this platform, get your [API key](https://www.co2signal.com/).
 
