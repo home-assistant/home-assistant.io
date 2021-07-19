@@ -3,6 +3,7 @@ title: Freedompro
 description: Instructions for how to integrate Freedompro accessories within Home Assistant.
 ha_category:
   - Light
+  - Binary Sensor
 ha_release: 2021.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -11,9 +12,21 @@ ha_codeowners:
 ha_domain: freedompro
 ha_platforms:
   - light
+  - binary sensor
 ---
 
 [Freedompro](https://freedompro.eu/), a company specialized in home automation, designs and manufactures products to make domotics affordable for everyone, installers and enthusiasts. [Freedompro Products](https://freedompro.eu/collections/easykon) are designed to be easy to use and practical and fast to install.
+
+Freedompro with its products installed on the electrical system, allows you to control all the KNX and MyHome SCS devices already present in your home.
+
+KNX and MyHome SCS are home automation protocols for home management.
+
+The accessories that can be controlled with these protocols are:
+  - Light
+  - Smoke sensor
+  - Contact sensor
+  - Presence sensor
+  - Motion sensor
 
 This integration lets you control all [Freedompro](https://freedompro.eu/) accessories.
 
