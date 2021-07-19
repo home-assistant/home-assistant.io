@@ -30,10 +30,9 @@ The intergration will attempt to give each device a readable name like `device_t
 </div>
 
 
-## Integration Options
-
-It is possible to change some behaviors through the integration options. These can be changed at **GL-inet** -> **Configure** on the Integrations page.
-
-- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home"
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
+Consider home: Number of seconds that must elapse before considering a disconnected device "not at home".
+{% endconfiguration_basic %}
 
 **Note**: The intergration will automatically add every now device that connects to your network. Once you have selected the devices you want to track, disable the integration system option `Enable new added entities`
