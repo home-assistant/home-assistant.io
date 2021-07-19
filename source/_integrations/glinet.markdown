@@ -24,18 +24,7 @@ Upder development:
 - **Sensor** - The GL-inet sensor platform could allow you to get upload and download data from your router within Home Assistant.
 - **Switch** - The GL-inet switch platform could allow you to activate and deactivate your VPN from homeassistant
 
-## Configuration
-<div class='note warning'>
-
-You need to know your router's IP address and login password - the defualts for GL-inet routers are `192.168.8.1` and `goodlife`. For security reasons you should change your password to something more secure.
-
-</div>
-
-To add devices to track into your Home Assistant installation, go to:
-
-**Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **GL-inet**. Then complete the pop up with your router address in the format `http://192.168.0.1` and the password.
-**Note**: The router password **is** stored by HomeAssistant as the API access tokens will expire
-
+{% include integrations/config_flow.md %}
 
 ## Usage
 Navigate to **Configuration** -> **People**, click a person and then select 'Pick device to track'. You are done! Read more about the [Person intergration](https://www.home-assistant.io/integrations/person/)
