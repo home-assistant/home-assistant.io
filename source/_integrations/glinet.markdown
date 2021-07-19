@@ -14,7 +14,7 @@ ha_platforms:
   - device_tracker
 ---
 
-[GL-inet](https://www.gl-inet.com/) are a Hong-Kong based company who produce highly customizable home routers. They are based on the very common OpenWRT firmware but provide a much more user-friendly user interface than OpenWRT's LUCI.
+[GL-inet](https://www.gl-inet.com/) are a Hong-Kong based company that produce highly customizable home routers. They are based on the very common OpenWRT firmware but provide a much more user-friendly user interface than OpenWRT's LUCI.
 
 There is currently support for the following device types within Home Assistant:
 
