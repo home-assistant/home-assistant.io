@@ -18,7 +18,7 @@ GL-inet are a Hong-Kong based company who produce highly customizable home route
 
 There is currently support for the following device types within Home Assistant:
 
-- **Presence Detection** - The GL-inet platform offers presence detection by looking at connected devices to a GL-inet based router.
+- **Presence Detection** - Presence detection by looking at connected devices to a GL-inet based router.
 
 {% include integrations/config_flow.md %}
 
