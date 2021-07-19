@@ -22,7 +22,7 @@ The "free" API key is limited to a limited number of calls. Too many requests ca
 
 ## Prerequisites
 
-To set up this platform, get your [API key](https://www.co2signal.com/).
+To configure and use this integration, you need to obtain an [API key from CO2Signal](https://www.co2signal.com/).
 
 {% include integrations/config_flow.md %}
 
