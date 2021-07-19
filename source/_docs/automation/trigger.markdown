@@ -53,6 +53,7 @@ automation:
       to: "home"
 ```
 
+
 ## Trigger variables
 
 Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in trigger templates with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
