@@ -4,6 +4,7 @@ description: Instructions for how to integrate Freedompro accessories within Hom
 ha_category:
   - Light
   - Binary Sensor
+  - Switch
 ha_release: 2021.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,20 +14,12 @@ ha_domain: freedompro
 ha_platforms:
   - light
   - binary sensor
+  - switch
 ---
 
 [Freedompro](https://freedompro.eu/), a company specialized in home automation, designs and manufactures products to make domotics affordable for everyone, installers and enthusiasts. [Freedompro Products](https://freedompro.eu/collections/easykon) are designed to be easy to use and practical and fast to install.
 
 Freedompro with its products installed on the electrical system, allows you to control all the KNX and MyHome SCS devices already present in your home.
-
-KNX and MyHome SCS are home automation protocols for home management.
-
-The accessories that can be controlled with these protocols are:
-  - Light
-  - Smoke sensor
-  - Contact sensor
-  - Presence sensor
-  - Motion sensor
 
 This integration lets you control all [Freedompro](https://freedompro.eu/) accessories.
 
@@ -38,6 +31,5 @@ You will need to obtain an API key from [Freedompro Cloud](https://home.freedomp
 2. Make sure you have at least one accessory paired with the Freedompro Cloud before starting integration.
 3. Click on your photo profile.
 4. Generate the API key.
-
 
 {% include integrations/config_flow.md %}
