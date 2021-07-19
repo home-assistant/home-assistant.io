@@ -3,6 +3,7 @@ title: Freedompro
 description: Instructions for how to integrate Freedompro accessories within Home Assistant.
 ha_category:
   - Binary Sensor
+  - Fan
   - Light
   - Lock
   - Sensor
@@ -15,6 +16,7 @@ ha_codeowners:
 ha_domain: freedompro
 ha_platforms:
   - binary sensor
+  - fan
   - light
   - lock
   - sensor
