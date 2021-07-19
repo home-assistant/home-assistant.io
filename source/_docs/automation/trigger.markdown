@@ -7,31 +7,20 @@ Triggers are what starts the processing of an automation rule. When _any_ of the
 
 An automation can be triggered by an event, with a certain entity state, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
 
-- [Trigger id](#trigger-id)
-- [Trigger variables](#trigger-variables)
 - [Event trigger](#event-trigger)
 - [Home Assistant trigger](#home-assistant-trigger)
 - [MQTT trigger](#mqtt-trigger)
 - [Numeric state trigger](#numeric-state-trigger)
 - [State trigger](#state-trigger)
-  - [Holding a state](#holding-a-state)
 - [Sun trigger](#sun-trigger)
-  - [Sunset / Sunrise trigger](#sunset--sunrise-trigger)
-  - [Sun elevation trigger](#sun-elevation-trigger)
 - [Tag trigger](#tag-trigger)
 - [Template trigger](#template-trigger)
 - [Time trigger](#time-trigger)
-  - [Time String](#time-string)
-  - [Input Datetime](#input-datetime)
-  - [Sensors of datetime device class](#sensors-of-datetime-device-class)
-  - [Multiple Times](#multiple-times)
 - [Time pattern trigger](#time-pattern-trigger)
 - [Webhook trigger](#webhook-trigger)
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
-- [Multiple triggers](#multiple-triggers)
-- [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
 
 ## Trigger id
 
@@ -53,14 +42,13 @@ automation:
       to: "home"
 ```
 
-
 ## Trigger variables
 
 Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in trigger templates with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
 
 The value of the `trigger_variables` are assigned at the time the automation is configured, and are often used during the configuration of the automation.
 
-The variables listed in the `variables` property are assigned each time the trigger is fired. The `trigger_variables` that were assigned at configuration time are also available to the templates used in your conditions and action. They do not get assigned a new value at the time the trigger is fired. However, if you put the same variable name in `variables` and `trigger_variables` the value will be assigned again at trigger time using the template defined in the `variables` property.
+The variables listed in the `variables` property are assigned each time the trigger is fired. The `trigger_variables` that were assigned at configuration time are also available to the templates used in your conditions and actions. They do not get assigned a new value at the time the trigger is fired. However, if you put the same variable name in `variables` and `trigger_variables` the value will be assigned again at trigger time using the template defined in the `variables` property.
 
 ## Event trigger
 
