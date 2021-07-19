@@ -9,12 +9,6 @@ The template variable `this` is also available when evaluating any `trigger_vari
 
 ## Available this Data
 
-| Template variable | Data |
-| ---- | ---- |
-| `this.entity_id` | The entity_id of the automation.
-| `this.state` | The current state of the automation, in your templates this will always be `on`.
-| `this.attributes` | A dictionary of the state attributes for the automation.
-
 `this` is a state object. [State Objects](docs/configuration/state_object) provides a comprehensive description for the properties of `this` and `this.attributes`.
 
 ## Available Trigger Data
