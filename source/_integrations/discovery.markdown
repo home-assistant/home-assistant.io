@@ -21,6 +21,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Linn / Openhome](/integrations/openhome)
  * [Logitech Harmony Hub](/integrations/harmony)
  * [Logitech Media Server (Squeezebox)](/integrations/squeezebox)
+ * [Nanoleaf](/integrations/nanoleaf)
  * [NETGEAR routers](/integrations/netgear)
  * [Philips Hue](/integrations/hue)
  * [SABnzbd downloader](/integrations/sabnzbd)
@@ -75,6 +76,7 @@ Valid values for ignore are:
  * `frontier_silicon`: Frontier Silicon internet radios
  * `harmony`: Logitech Harmony Hub
  * `logitech_mediaserver`: Logitech Media Server (Squeezebox)
+ * `nanoleaf_aurora`: Nanoleaf
  * `netgear_router`: NETGEAR routers
  * `octoprint`: Octoprint
  * `openhome`: Linn / Openhome
