@@ -28,7 +28,7 @@ There is support for the following platform types within Home Assistant:
 - **Device tracker** - presence detection by looking at connected devices.
 - **Binary sensor** - connectivity status.
 - **Sensor** - external IP address, uptime and network monitors.
-- **Switch** - call deflection, port forward, device profile and Wi-Fi networks.
+- **Switch** - call deflection, port forward, parental control and Wi-Fi networks.
 
 {% include integrations/config_flow.md %}
 
@@ -77,9 +77,9 @@ These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrat
 
 ## Additional info
 
-### Device Profile
+### Parental control
 
-Device profiles are designed for advanced users, thus they are disabled by default. You need to enable the wanted entities manually.
+Parental control switches are designed for advanced users, thus they are disabled by default. You need to enable the wanted entities manually.
 
 ### Device Tracker
 
