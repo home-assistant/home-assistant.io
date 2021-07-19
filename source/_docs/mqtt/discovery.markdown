@@ -15,6 +15,7 @@ Supported by MQTT discovery:
 - [Device Trackers](/integrations/device_tracker.mqtt/)
 - [Device Triggers](/integrations/device_trigger.mqtt/)
 - [Fans](/integrations/fan.mqtt/)
+- [Humidifiers](/integrations/humidifier.mqtt/)
 - [HVACs](/integrations/climate.mqtt/)
 - [Lights](/integrations/light.mqtt/)
 - [Locks](/integrations/lock.mqtt/)
@@ -144,6 +145,10 @@ Supported abbreviations:
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
     'init':                'initial',
+    'hum_cmd_t':           'target_humidity_command_topic',
+    'hum_cmd_tpl':         'target_humidity_command_template',
+    'hum_stat_t':          'target_humidity_state_topic',
+    'hum_stat_tpl':        'target_humidity_state_template',
     'json_attr':           'json_attributes',
     'json_attr_t':         'json_attributes_topic',
     'json_attr_tpl':       'json_attributes_template',
@@ -151,10 +156,13 @@ Supported abbreviations:
     'min_mirs':            'min_mireds',
     'max_temp':            'max_temp',
     'min_temp':            'min_temp',
+    'max_hum':             'max_humidity',
+    'min_hum':             'min_humidity',
     'mode_cmd_tpl':        'mode_command_template',
     'mode_cmd_t':          'mode_command_topic',
     'mode_stat_tpl':       'mode_state_template',
     'mode_stat_t':         'mode_state_topic',
+    'modes':               'modes',
     'name':                'name',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
@@ -191,6 +199,8 @@ Supported abbreviations:
     'pl_strt':             'payload_start',
     'pl_stpa':             'payload_start_pause',
     'pl_ret':              'payload_return_to_base',
+    'pl_rst_hum':          'payload_reset_humidity',
+    'pl_rst_mode':         'payload_reset_mode',    
     'pl_rst_pct':          'payload_reset_percentage',
     'pl_rst_pr_mode':      'payload_reset_preset_mode',
     'pl_toff':             'payload_turn_off',
