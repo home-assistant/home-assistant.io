@@ -20,10 +20,6 @@ There is currently support for the following device types within Home Assistant:
 
 - **Presence Detection** - The GL-inet platform offers presence detection by looking at connected devices to a GL-inet based router.
 
-Upder development:
-- **Sensor** - The GL-inet sensor platform could allow you to get upload and download data from your router within Home Assistant.
-- **Switch** - The GL-inet switch platform could allow you to activate and deactivate your VPN from homeassistant
-
 {% include integrations/config_flow.md %}
 
 ## Usage
