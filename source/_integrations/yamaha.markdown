@@ -144,6 +144,15 @@ Enable or disable an output port (HDMI) on the receiver.
 | `port` | no | Port to enable or disable, e.g., `hdmi1`.
 | `enabled` | no | To enable set true, otherwise set to false.
 
+### Service `menu_cursor`
+
+Control the menu cursor.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
+| `cursor` | no | Name of the cursor key to press: `up`, `down`, `left`, `right`, `select`, `return`
+
 ### Service `select_scene`
 
 Select a scene on the receiver.

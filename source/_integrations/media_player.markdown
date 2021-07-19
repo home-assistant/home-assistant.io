@@ -106,8 +106,8 @@ metadata:
 
 Documentation:
 
-- [Google Dev Documentaion MediaData](https://developers.google.com/cast/docs/reference/messages#MediaData)
-- [Google Dev Documentaion MediaInformation](https://developers.google.com/cast/docs/reference/web_receiver/cast.framework.messages.MediaInformation)
+- [Google Dev Documentation MediaData](https://developers.google.com/cast/docs/reference/messages#MediaData)
+- [Google Dev Documentation MediaInformation](https://developers.google.com/cast/docs/reference/web_receiver/cast.framework.messages.MediaInformation)
 
 
 Example of calling media_player service with title and image set:

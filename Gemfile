@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '> 2.5.0'
 
 group :development do
-  gem 'rake', '13.0.3'
+  gem 'rake', '13.0.6'
   gem 'jekyll', '4.2.0'
   gem 'compass', '1.0.3'
   gem 'sass-globbing', '1.1.5'

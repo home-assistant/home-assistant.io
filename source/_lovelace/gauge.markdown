@@ -39,11 +39,6 @@ unit:
   description: Unit of measurement given to data.
   type: string
   default: Unit of measurement given by entity
-icon:
-  required: false
-  description: Overwrites icon.
-  type: string
-  default: Entity domain icon
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
