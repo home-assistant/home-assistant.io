@@ -4,6 +4,7 @@ description: Instructions for how to integrate Freedompro accessories within Hom
 ha_category:
   - Binary Sensor
   - Light
+  - Lock
   - Sensor
   - Switch
 ha_release: 2021.7
@@ -15,6 +16,7 @@ ha_domain: freedompro
 ha_platforms:
   - binary sensor
   - light
+  - lock
   - sensor
   - switch
 ---
