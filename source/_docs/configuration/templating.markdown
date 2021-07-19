@@ -218,11 +218,11 @@ The same thing can also be expressed as a filter:
 {% raw %}
 
 ```text
-{{ state_attr('deadbeefdeadbeefdeadbeefdeadbeef', 'manufacturer') }}  # Sony
+{{ device_attr('deadbeefdeadbeefdeadbeefdeadbeef', 'manufacturer') }}  # Sony
 ```
 
 ```text
-{{ is_state_attr('deadbeefdeadbeefdeadbeefdeadbeef', 'manufacturer', 'Sony') }}  # true
+{{ is_device_attr('deadbeefdeadbeefdeadbeefdeadbeef', 'manufacturer', 'Sony') }}  # true
 ```
 
 {% endraw %}
