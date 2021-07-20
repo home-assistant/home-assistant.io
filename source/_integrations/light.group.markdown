@@ -26,14 +26,18 @@ light:
 ```
 
 {% configuration %}
-  name:
-    description: The name of the light group. Defaults to "Light Group".
-    required: false
-    type: string
-  entities:
-    description: A list of entities to be included in the light group.
-    required: true
-    type: [string, list]
+entities:
+  description: A list of entities to be included in the light group.
+  required: true
+  type: [string, list]
+name:
+  description: The name of the light group. Defaults to "Light Group".
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this light group. If two lights have the same unique ID, Home Assistant will raise an error.
+  required: false
+  type: string
 {% endconfiguration %}
 
 <p class='img'>

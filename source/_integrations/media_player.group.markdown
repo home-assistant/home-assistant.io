@@ -23,14 +23,18 @@ media_player:
 ```
 
 {% configuration %}
-  name:
-    description: The name of the media player group. Defaults to "Media Group".
-    required: false
-    type: string
-  entities:
-    description: A list of entities to be included in the media player group.
-    required: true
-    type: [string, list]
+entities:
+  description: A list of entities to be included in the media player group.
+  required: true
+  type: [string, list]
+name:
+  description: The name of the media player group. Defaults to "Media Group".
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this media player group. If two media players have the same unique ID, Home Assistant will raise an error.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Script Example
