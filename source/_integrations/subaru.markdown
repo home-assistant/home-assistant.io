@@ -20,7 +20,7 @@ This integration retrieves vehicle information and actuates remote services prov
 
 This integration requires a telematics equipped Subaru and an active vehicle subscription to the Subaru STARLINK service. Before using this integration, you must first register and have login credentials to [MySubaru](https://www.mysubaru.com).
 
-Subaru has deployed two generations of telematics, Gen 1 and Gen 2. The latter offers more vehicle sensor information and additional remote capabilities. Use the table below to determine your vehicle's telematics generation and capabilities. 
+Subaru has deployed two generations of telematics, Gen 1 and Gen 2. The latter offers more vehicle sensor information and additional remote capabilities. Use the table below to determine your vehicle's telematics generation and capabilities.
 
 | Model     | Gen 1     | Gen 2 |
 |-----------|-----------|-------|
@@ -40,8 +40,7 @@ In addition to the telematics generational differences, there are two levels of 
 If your account includes multiple vehicles, the same PIN will be used for all vehicles. Ensure that you have configured all vehicles in your account to have the same PIN.
 </p>
 
-## Platforms
-### Sensor
+## Sensors
 
 Available sensors will vary by model, year, and subscription type. The integration will add all supported sensors for your vehicle. Sensor data is usually only updated when the vehicle is turned off, unless the [polling option](#options) is enabled.
 
@@ -59,7 +58,7 @@ Available sensors will vary by model, year, and subscription type. The integrati
 
 \* Gen 1 odometer only updates every 500 miles <br>
 
-### Lock
+## Lock
 
 This integration supports remote locking and unlocking of vehicle doors. 
 <p class='note'>
