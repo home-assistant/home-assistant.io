@@ -11,6 +11,7 @@
   margin-bottom: 1.5em;
   padding: 50px 0;
   position: relative;
+  z-index:999;
 
   // &::before {
   //   background: url("../images/matrix.png") 0 0 rgba(0, 0, 0, 0.35);
@@ -25,6 +26,11 @@
   > .grid-wrapper {
     position: relative;
     z-index: 7;
+  }
+  
+  .screenshotimage
+  {
+    display:block;
   }
 
   .credit {
