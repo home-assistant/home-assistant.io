@@ -49,3 +49,5 @@ The following sensors will also be created:
 - **Time to Empty/Full**: Shows the time left in minutes to empty or full depending on current usage. Shows -1 when there is no battery activity.
 - **Wi-fi Strength**: Shows the Wi-fi strength the device has with the connected access point.
 - **Total Run Time**: The total run time of the device. (disabled by default)
+- **Wi-Fi SSID**: The W-Fi network the device is connected to. (disabled by default)
+- **IP Address**: The IP address of the device. (disabled by default)
