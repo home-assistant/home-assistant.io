@@ -105,7 +105,11 @@ notifiers:
 data:
   description: "Dictionary of extra parameters to send to the notifier."
   required: false
-  type: list  
+  type: list
+ignore_states:
+  description: "List of states of the monitored entity to ignore."
+  required: false
+  type: list
 {% endconfiguration %}
 
 In this example, the garage door status (`input_boolean.garage_door`) is watched
@@ -286,6 +290,33 @@ but you will still receive the done message.
     - service: alert.turn_off
       target:
         entity_id: alert.garage_door
+```
+
+### Ignoring states
+
+Under some circumstances it may be desired to ignore states of an entity
+to clear an alert.
+
+For example if a device enters an error state but disconnects from Home
+Assistant and reconnects later. The alert gets cleared when the device gets
+```unavailable``` and fires again when the device reconnects and is still in
+error state. This can lead to an annoying behavior.
+
+To prevent the alert from being cleared on certain states use the
+`ignore_states` list configuration parameter:
+
+```yaml
+alert:
+  my_esphome_device:
+    name: My ESPHome device has en error!
+    entity_id: sensor.my_eshome_device_status
+    state: 'Error'
+    ignore_states:
+      - 'unavailable'
+    message: My ESPHome device has en error!
+    repeat: 5
+    notifiers:
+      - my_iphone
 ```
 
 [template]: /docs/configuration/templating/
