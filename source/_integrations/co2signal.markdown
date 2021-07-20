@@ -20,78 +20,12 @@ At the moment, the free CO2Signal API only supports the average carbon intensity
 The "free" API key is limited to a limited number of calls. Too many requests can result in data loss.
 </div>
 
-## Configuration
+## Prerequisites
 
-To set up this platform, get your [API key](https://www.co2signal.com/) and add the following lines to your `configuration.yaml` file:
+To configure and use this integration, you need to obtain an [API key from CO2Signal](https://www.co2signal.com/).
 
-```yaml
-sensor:
-  - platform: co2signal
-    token: YOUR_CO2SIGNAL_API_KEY
-```
+{% include integrations/config_flow.md %}
 
-By default, the sensor will use your Home Assistant longitude and latitude. More detailed configurations to overwrite this can be found below.
-
-{% configuration %}
-token:
-  description: Your CO2Signal API key.
-  required: true
-  type: string
-latitude:
-  description: The latitude of the location to monitor.
-  required: false
-  type: string
-  default: "The latitude defined under the `homeassistant` key in `configuration.yaml`."
-longitude:
-  description: The longitude of the location to monitor.
-  required: false
-  type: string
-  default: "The longitude defined under the `homeassistant` key in `configuration.yaml`."
-country_code:
-  description: The country code or region code.
-  required: false
-  type: string
-{% endconfiguration %}
-
-To enable the platform and gather data via a specific latitude/longitude, add the following lines to your `configuration.yaml` file:
-
-```yaml
-sensor:
-  - platform: co2signal
-    token: YOUR_CO2SIGNAL_API_KEY
-    latitude: YOUR_LATITUDE
-    longitude: YOUR_LONGITUDE
-```
-
-A similar result can be achieved by using the country code. In that case, use the following lines in your `configuration.yaml` file:
-
-```yaml
-sensor:
-  - platform: co2signal
-    token: YOUR_CO2SIGNAL_API_KEY
-    country_code: YOUR_COUNTRY_CODE
-```
-
-## Example Configurations
-
-Configuration using custom latitude and longitude:
-
-```yaml
-sensor:
-  - platform: co2signal
-    token: YOUR_CO2SIGNAL_API_KEY
-    latitude: 55.4
-    longitude: 5.5
-```
-
-Configuration using a country code:
-
-```yaml
-sensor:
-  - platform: co2signal
-    token: YOUR_CO2SIGNAL_API_KEY
-    country_code: BE
-```
 
 ## Sensor Types
 
