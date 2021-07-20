@@ -207,6 +207,31 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+### Devices
+
+- `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
+- `device_attr(device_or_entity_id, attr_name)` returns the value of `attr_name` for the given device or entity ID. Not supported in [limited templates](#limited-templates).
+- `is_device_attr(device_or_entity_id, attr_name, attr_value)` returns whether the value of `attr_name` for the given device or entity ID matches `attr_value`. Not supported in [limited templates](#limited-templates).
+- `device_id(entity_id)` returns the device ID for a given entity ID. Can also be used as a filter
+
+#### Devices examples
+
+{% raw %}
+
+```text
+{{ device_attr('deadbeefdeadbeefdeadbeefdeadbeef', 'manufacturer') }}  # Sony
+```
+
+```text
+{{ is_device_attr('deadbeefdeadbeefdeadbeefdeadbeef', 'manufacturer', 'Sony') }}  # true
+```
+
+```text
+{{ device_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+{% endraw %}
+
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
