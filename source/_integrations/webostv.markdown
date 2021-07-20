@@ -23,87 +23,16 @@ There is currently support for the following device types within Home Assistant:
 
 To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](https://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
 
-Once basic configuration is added to your `configuration.yaml` file. A notification should be visible in the frontend's **Notification** section. Follow the instructions and accept the pairing request on your TV.
+{% include integrations/config_flow.md %}
 
-Pairing information will be saved to a configuration file `webostv.conf` in the Home Assistant configuration directory. This process is IP address-sensitive, in case the IP address of your TV would change in future.
+**Notification** section. Follow the instructions and accept the pairing request on your TV.
+ This process is IP address-sensitive, in case the IP address of your TV would change in future.
 
-## Configuration
+## Options
 
-To add a TV to your installation, add the following to your `configuration.yaml` file:
+The options are accessible by clicking the Configure button on integration. 
 
-```yaml
-# Example configuration.yaml entry
-webostv:
-```
-
-{% configuration %}
-host:
-  description: "The IP of the LG webOS Smart TV, e.g., `192.168.0.10`."
-  required: true
-  type: string
-name:
-  description: The name you would like to give to the LG webOS Smart TV.
-  required: false
-  type: string
-turn_on_action:
-  description: Defines an [action](/docs/automation/action/) to turn the TV on.
-  required: false
-  type: string
-customize:
-  description: List of options to customize.
-  required: false
-  type: map
-  keys:
-    sources:
-      description: List of hardware and webOS App inputs.
-      required: false
-      type: list
-{% endconfiguration %}
-
-### Full configuration example
-
-A full configuration example will look like the sample below:
-
-```yaml
-# Example configuration.yaml entry
-webostv:
-  host: 192.168.0.10
-  name: Living Room TV
-  turn_on_action:
-    service: persistent_notification.create
-    data:
-      message: "Turn on action"
-  customize:
-    sources:
-      - livetv
-      - youtube
-      - makotv
-      - netflix
-
-media_player:
-
-notify:
-```
-
-Avoid using `[ ]` in the `name:` of your device.
-
-### Using multiple TVs
-
-It is also possible to use multiple TVs with this integration.
-
-```yaml
-# Example configuration.yaml entry with multiple TVs
-webostv:
-  - name: Living Room TV
-    host: 192.168.1.100
-  - name: Bedroom TV
-    host: 192.168.1.101
-```
-
-Please note, the above provides a minimal example, however, all options are
-available for each individual TV.
-
-## Turn on action
+### Option `Turn on action`
 
 Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.
 
@@ -111,35 +40,35 @@ Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this f
 
 On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
-<div class='note'>
+**Notes** :
 This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
-</div>
 
+To turn on the TV, create a script in the HA Scripts section and specify its `script name` in the option.
+
+example: `script.wake_on_lan`
+
+#### Sample script 
 ```yaml
-# Example configuration.yaml entry
-wake_on_lan: # enables `wake_on_lan` integration
-
-webostv:
-  host: 192.168.0.10
-  #other settings
-  turn_on_action:
-    service: wake_on_lan.send_magic_packet
+alias: wake_on_lan
+sequence:
+  - service: wake_on_lan.send_magic_packet
     data:
-      mac: AA-BB-CC-DD-EE-FF
-      broadcast_address: 11.22.33.44
-
-media_player:
-
-notify:
+      broadcast_address: 192.168.1.255
+      mac: '01:02:03:04:05:06'
+mode: single
 ```
 
 Any other [actions](/docs/automation/action/) to power on the device can be configured.
 
-## Sources
+### Option `Sources`
 
-To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration. If you leave the `sources:` configuration empty, the `media_player` will offer all sources of the TV. If you list a subset of sources in the configuration, only those will be displayed.
+Once the WebOS TV is configured and linked.
+Turn on your webOS TV and click the Configure button on integration.
+Ha interviews the TV for a complete list of available sources currently configured on the TV
 
-Note: it is normal and expected behavior that for a switched-off TV only the Live TV source is offered in the `media_player`, even if you have configured other sources as well. These will show up as soon as the TV is switched on.
+If you leave the sources: `empty` configuration, the` media_player` will offer all the sources of the TV. If you listed a subset of sources in the configuration, only they will be displayed.
+
+Note: This is a normal and expected behavior that for a TV disabled only the live TV source is offered in the `media_player`, even if you have also configured other sources. These will appear as soon as the television is lit. 
 
 ## Change channel through play_media service
 
