@@ -172,7 +172,9 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
     static_configs:
       - targets: ['HOSTNAME:8123']
 ```
-The format to configure the bearer token have changed in Prometheus 2.26, so if you have a newer version, you can use this configuration sample: 
+
+The format to configure the bearer token has changed in Prometheus 2.26, so if you have a newer version, you can use this configuration sample:
+
 ```yaml
 # Example Prometheus scrape_configs entry (For version 2.26+
   - job_name: "hass"
