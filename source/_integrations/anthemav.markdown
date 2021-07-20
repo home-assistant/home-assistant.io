@@ -6,6 +6,9 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.37
 ha_domain: anthemav
+ha_codeowners:
+  - '@hyralex'
+ha_config_flow: true
 ha_platforms:
   - media_player
 ha_integration_type: integration
@@ -18,21 +21,16 @@ Both [Anthem]'s current and last generation of A/V Receivers and Processors supp
 * [MRX 520](https://www.anthemav.com/products-current/series=mrx-series-gen3/model=mrx-520/page=overview), [MRX 720](https://www.anthemav.com/products-current/collection=performance/model=mrx-720/page=overview), [MRX 1120](https://www.anthemav.com/products-current/collection=performance/model=mrx-1120/page=overview), and [AVM 60](https://www.anthemav.com/products-current/model=avm-60/page=overview)
 * [MRX 310](https://www.anthemav.com/products-archived/type=av-receiver/model=mrx-310/page=overview), [MRX 510](https://www.anthemav.com/products-archived/series=mrx-series/model=mrx-510/page=overview), [MRX 710](https://www.anthemav.com/products-archived/type=av-receiver/model=mrx-710/page=overview)
 
+If your model is not on the list then give it a test, if everything works correctly then add it to the list by clicking on the **Edit this page on GitHub** link above.
+
 Support is provided through the Python [anthemav] module. Older, RS-232 serial-based units like the [D2v series](https://www.anthemav.com/products-archived/model=d2v/page=overview) use a different protocol entirely and are not currently supported.
 
 [Anthem]: https://www.anthemav.com/
 [anthemav]: https://github.com/nugget/python-anthemav
 
-To use your Anthem A/V Receiver in your installation, add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: anthemav
-    host: IP_ADDRESS
-```
-
-{% configuration %}
+{% configuration_basic %}
 host:
   description: The host name or the IP address of the device.
   required: true
@@ -45,8 +43,9 @@ port:
 name:
   description: The name of the device used in the frontend.
   required: false
+  default: Anthem AV
   type: string
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 ## Notes and Limitations
 
