@@ -3,7 +3,7 @@ title: Flipr
 description: Instructions on how to integrate your Flipr device within Home Assistant.
 ha_category:
   - Sensor
-ha_release: 2021.2
+ha_release: 2021.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
