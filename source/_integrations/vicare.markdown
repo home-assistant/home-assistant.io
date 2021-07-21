@@ -31,20 +31,19 @@ To set it up, add the following information to your `configuration.yaml` file:
 vicare:
   username: VICARE_EMAIL
   password: VICARE_PASSWORD
-  client_id: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  client_id: VICARE_CLIENT_ID
 ```
 
-The above required configuration parameters can be obtained as follows:
+The above-required configuration parameters can be obtained as follows:
 1. Register and login in the [Viessmann Developer Portal](https://developer.viessmann.com).
 2. In the menu navigate to API Keys.
-3. Create a new OAuth client using following data:
-```
-Name: PyViCare
-Google reCAPTCHA: Disabled
-Redirect URIs: vicare://oauth-callback/everest
-```
-4. Copy the Client ID to the configuration, e.g.
-`client_id="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"`.
+3. Create a new OAuth client using the following data:
+  ```txt
+  Name: PyViCare
+  Google reCAPTCHA: Disabled
+  Redirect URIs: vicare://oauth-callback/everest
+  ```
+4. Copy the Client ID to the configuration, e.g., `client_id="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"`.
 5. Set `username`and `password` to your Viessmann Developer Portal login credentials.
 
 
