@@ -34,7 +34,7 @@ The following describes trigger data associated with all platforms.
 | `trigger.platform` | Hardcoded: `mqtt`.
 | `trigger.topic` | Topic that received payload.
 | `trigger.payload` | Payload.
-| `trigger.payload_json` | Dictonary of the JSON parsed payload.
+| `trigger.payload_json` | Dictionary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
 ### Numeric State

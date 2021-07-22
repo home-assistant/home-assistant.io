@@ -98,7 +98,7 @@ The SMA WebConnect module supports a wide variety of sensors, but not all of the
 | power_l2 | W | Power for phase 2 |
 | power_l3 | W | Power for phase 3 |
 
-### Batery Inverter
+### Battery Inverter
 
 | name | Unit | Description |
 | --- | --- | --- |

@@ -207,7 +207,7 @@ _All these can be extended if your usage calls for more resources._
 
 - title: VMware ESXi/vSphere
   content: |
-    Use the “E1001” or “E1001E” virtual network adapater. There are confirmed mDNS/Multicast discovery issues when using VMware’s “VMXnet3” virtual network adapter.
+    Use the “E1001” or “E1001E” virtual network adapter. There are confirmed mDNS/Multicast discovery issues when using VMware’s “VMXnet3” virtual network adapter.
 {% endif %}
 {% if page.installation_type == 'windows' %}
 - title: Hyper-V

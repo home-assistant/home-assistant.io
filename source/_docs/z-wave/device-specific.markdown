@@ -62,7 +62,7 @@ For both processes below you will need to insert your SD card into your PC and o
 
 #### Raspberry Pi 4 procedure
 
-Add the following paramaters to the bottom of the `/boot/config.txt` file.
+Add the following parameters to the bottom of the `/boot/config.txt` file.
 
 ```text
 dtoverlay=disable-bt
@@ -384,7 +384,7 @@ Zen22v2 (Dimmer):
     <Item label="Enabled" value="1" />
   </Value>
   <Value type="list" genre="config" instance="1" index="14" label="Enable/Disable Double-tap" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="2" vindex="2" size="1">
-    <Help>Enables/Disables the double-tap fucntion and assign brightness to single tap. Last level: single tap returns to last brightness level. Full/Max level: single tap returns to full/max level</Help>
+    <Help>Enables/Disables the double-tap function and assign brightness to single tap. Last level: single tap returns to last brightness level. Full/Max level: single tap returns to full/max level</Help>
     <Item label="Enabled" value="0" />
     <Item label="Disabled (last level)" value="1" />
     <Item label="Disabled (full/max level)" value="2" />
@@ -708,7 +708,7 @@ Zen30 (Double Switch):
     <Item label="maximum level" value="1"/>
   </Value>
   <Value type="list" genre="config" index="18" label="Enable/Disable Double-tap for Dimmer" size="1" min="0" max="2" value="0">
-    <Help>Enable/Disable Double-tap for Dimmer.  Enables/Disables the double-tap fucntion and assign brightness to single tap.  enabled: single tap turns on to maximum brightness level.  disabled (last level): single tap returns to last brightness level.  disabled (full/max level): single tap returns to full brightmess.  Default: enabled</Help>
+    <Help>Enable/Disable Double-tap for Dimmer.  Enables/Disables the double-tap function and assign brightness to single tap.  enabled: single tap turns on to maximum brightness level.  disabled (last level): single tap returns to last brightness level.  disabled (full/max level): single tap returns to full brightmess.  Default: enabled</Help>
     <Item label="enabled" value="0"/>
     <Item label="disabled (last level)" value="1"/>
     <Item label="disabled (full/max level)" value="2"/>
@@ -899,7 +899,7 @@ Zen34 Remote Switch:
 	<Item label="LED always on in color specific under parameter 3" value="3" />
  </Value>
  <Value type="list" index="2" genre="config" label="LED indicator color for upper paddle triggers" units="" min="0" max="6" value="0" size="1">
-    <Help>Choose the LED indicator color for the upper paddle remote controle triggers</Help>
+    <Help>Choose the LED indicator color for the upper paddle remote controlled triggers</Help>
         <Item label="White" value="0" />
         <Item label="Blue" value="1" />
    	<Item label="Green" value="2" />

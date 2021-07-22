@@ -68,7 +68,7 @@ Each home configured in the Point mobile application will show up as a separate 
 
 <div class="note">
 
-The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is implememented.
+The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is implemented.
 
 </div>
 
