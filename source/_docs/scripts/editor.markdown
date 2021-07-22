@@ -1,7 +1,6 @@
 ---
 title: "Script Editor"
 description: "Instructions on how to use the new script editor."
-redirect_from: /docs/script/editor/
 ---
 
 In Home Assistant 0.52 we introduced the first version of our script editor. If you just created a new configuration with Home Assistant then you're all set! Go to the UI and enjoy.

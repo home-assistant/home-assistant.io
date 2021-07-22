@@ -5,6 +5,7 @@ ha_category:
   - Voice
 ha_release: 0.7
 ha_quality_scale: internal
+ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: conversation
@@ -40,6 +41,8 @@ By default, it will support turning devices on and off. You can say things like 
 
 Here is a simple example to be able to ask what the temperature in the living room is.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 conversation:
@@ -50,8 +53,10 @@ conversation:
 intent_script:
   LivingRoomTemperature:
     speech:
-      text: It is currently {% raw %}{{ states.sensor.temperature }}{% endraw %} degrees in the living room.
+      text: It is currently {{ states.sensor.temperature }} degrees in the living room.
 ```
+
+{% endraw %}
 
 ## Adding advanced custom sentences
 
@@ -59,12 +64,14 @@ Sentences can contain slots (marked with curly braces: `{name}`) and optional wo
 
 The following configuration can handle the following sentences:
 
- - Change the lights to red
- - Change the lights to green
- - Change the lights to blue
- - Change the lights to the color red
- - Change the lights to the color green
- - Change the lights to the color blue
+- Change the lights to red
+- Change the lights to green
+- Change the lights to blue
+- Change the lights to the color red
+- Change the lights to the color green
+- Change the lights to the color blue
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -72,7 +79,6 @@ conversation:
   intents:
     ColorLight:
      - Change the lights to [the color] {color}
-{% raw %}
 intent_script:
   ColorLight:
     speech:
@@ -84,8 +90,9 @@ intent_script:
           - "{% if color == 'red' %}255{% else %}0{% endif %}"
           - "{% if color == 'green' %}255{% else %}0{% endif %}"
           - "{% if color == 'blue' %}255{% else %}0{% endif %}"
-{% endraw %}
 ```
+
+{% endraw %}
 
 #### Service `conversation.process`
 

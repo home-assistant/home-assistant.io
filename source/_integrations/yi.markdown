@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@bachya'
 ha_domain: yi
+ha_platforms:
+  - camera
 ---
 
 The `yi` camera platform allows you to utilize [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:
@@ -69,7 +71,7 @@ To enable the platform, add the following lines to your`configuration.yaml` file
 camera:
   - platform: yi
     name: Camera
-    host: '192.168.1.100'
+    host: "192.168.1.100"
     password: my_password_123
 ```
 
@@ -112,8 +114,8 @@ One particularly useful adjustment deals with video size. Since Yi videos are fa
 camera:
   - platform: yi
     name: My Camera
-    host: '192.168.1.100'
+    host: "192.168.1.100"
     password: my_password_123
     path: /home/camera/feed
-    ffmpeg_arguments: '-vf scale=800:450'
+    ffmpeg_arguments: "-vf scale=800:450"
 ```

@@ -5,7 +5,9 @@ date: 2019-01-23 00:01:03
 date_formatted: "January 23, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-01-release-86/zha.png
 ---
 
@@ -61,7 +63,7 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 ## Release 0.86.1 - January 23
 
 - Hotfix for blink initialization failure. Fixes #20335 ([@fronzbot] - [#20351]) ([blink docs])
-- [FIX] Time reporting incorrect in sensor.gtt ([@eliseomartelli] - [#20362]) ([sensor.gtt docs])
+- [FIX] Time reporting incorrect in sensor.gtt ([@eliseomartelli] - [#20362])
 - Fix error when API doesn't return a forecast. ([@dgomes] - [#20365])
 - Fix restore state crashing invalid entity ID ([@balloob] - [#20367])
 - Calling save before load would crash Lovelace storage ([@balloob] - [#20368])
@@ -76,7 +78,6 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 [@eliseomartelli]: https://github.com/eliseomartelli
 [@fronzbot]: https://github.com/fronzbot
 [blink docs]: /integrations/blink/
-[sensor.gtt docs]: /integrations/gtt
 
 ## Release 0.86.2 - January 24
 
@@ -290,7 +291,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added partial detection to async_add_job ([@andrewsayre] - [#20119])
 - Fix tellduslive discovery and auth issues ([@fredrike] - [#20023]) ([tellduslive docs])
 - Use voluptuous to perform validation for the geofency webhook ([@rohankapoorcom] - [#20067]) ([geofency docs])
-- fixed gtt to report isotime ([@eliseomartelli] - [#20128]) ([sensor.gtt docs])
+- fixed gtt to report isotime ([@eliseomartelli] - [#20128])
 - Move MQTT platforms under the component ([@emontnemery] - [#20050]) ([mqtt docs])
 - Split time_pattern triggers from time trigger ([@armills] - [#19825]) ([automation.interval docs]) ([automation.time docs]) (breaking change)
 - Change deCONZ to embedded platforms ([@Kane610] - [#20113]) ([deconz docs])
@@ -676,7 +677,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.fibaro docs]: /integrations/fibaro
 [sensor.flunearyou docs]: /integrations/flunearyou
 [sensor.freebox docs]: /integrations/freebox#sensor
-[sensor.gtt docs]: /integrations/gtt
 [sensor.hive docs]: /integrations/hive#sensor
 [sensor.imap_email_content docs]: /integrations/imap_email_content/
 [sensor.influxdb docs]: /integrations/influxdb#sensor

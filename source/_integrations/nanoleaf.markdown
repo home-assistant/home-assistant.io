@@ -6,11 +6,13 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.67
 ha_domain: nanoleaf
+ha_platforms:
+  - light
 ---
 
 ### Configuration Sample
 
-The `nanoleaf` platform allows you to control [Nanoleaf Light Panels](https://nanoleaf.me) from Home Assistant.
+The Nanoleaf integration allows you to control [Nanoleaf Light Panels](https://nanoleaf.me) from Home Assistant. Note that for full control of Nanoleaf devices, particularly effects, make sure they are set up as instructed on this page and not as a HomeKit device.
 
 The preferred way to set up this platform is by enabling the [discovery component](/integrations/discovery/). Make sure to press and hold the *ON* button for 5 seconds (the LED will start flashing) on your Nanoleaf Lights while Home Assistant is starting.
 
@@ -48,3 +50,7 @@ name:
 4. The output should include the auth token like *{"auth_token":"xxxxxxxxxxxxxxxxxxxxx"}*, copy the resulting token into your configuration
 
 If you get a 403 Forbidden message, you probably did not press the *ON* button long enough. The time-frame to get a valid token is only 30 seconds, so you have to be quick to issue the curl request.
+
+### Using the Nanoleaf Device
+
+The Nanoleaf device is a standard light, so can be used with standard Home Assistant Light services for automations and scripts. For full details see the [Light Integrations Page.](/integrations/light/) Of particular interest for Nanoleaf devices is using the `effect` in service calls, to choose the pattern/effect that the lights display.

@@ -3,13 +3,14 @@ title: Microsoft Face Detect
 description: Instructions on how to integrate Microsoft Face Detect into Home Assistant.
 ha_category:
   - Image Processing
+ha_iot_class: Cloud Push
 ha_release: 0.38
 ha_domain: microsoft_face_detect
 ---
 
 The `microsoft_face_detect` image processing platform allows you to use the
 [Microsoft Face Identify](https://www.microsoft.com/cognitive-services/en-us/)
-API through Home Assistant. This platform enables you do detect face on camera
+API through Home Assistant. This platform enables you to detect face on camera
 and fire an event with attributes.
 
 Please refer to the [Microsoft Face component](/integrations/microsoft_face/) configuration on

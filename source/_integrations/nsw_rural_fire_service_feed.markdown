@@ -13,13 +13,13 @@ ha_domain: nsw_rural_fire_service_feed
 The `nsw_rural_fire_service_feed` platform lets you integrate a GeoJSON feed provided by the [NSW Rural Fire Service](https://www.rfs.nsw.gov.au/fire-information/fires-near-me) with information about bush fires, grass fires, hazard reductions and more. It retrieves incidents from a feed and shows information of those incidents filtered by distance to Home Assistant's location.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/nsw-rural-fire-service-feed-entities.png' />
+  <img src='/images/screenshots/nsw-rural-fire-service-feed-entities.png' />
 </p>
 
 Entities are generated, updated and removed automatically with each update from the feed. Each entity defines latitude and longitude and will be shown on the map automatically. The distance in kilometers is available as the state of each entity.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/nsw-rural-fire-service-feed-map.png' />
+  <img src='/images/screenshots/nsw-rural-fire-service-feed-map.png' />
 </p>
 
 The entity's information can be used for example if a bush fire that produces smoke or embers is reported close to your home, and you want to automatically close windows, turn on a sprinkler system or simply send yourself a reminder to clean the gutters from dry leaves.
@@ -87,7 +87,7 @@ Depending on your personal circumstances with regards to bush fire risk you may 
 # Example configuration.yaml entry
 geo_location:
   - platform: nsw_rural_fire_service_feed
-    entity_namespace: 'nsw_fire_service_feed'
+    entity_namespace: "nsw_fire_service_feed"
     radius: 10
     categories:
       - 'Emergency Warning'

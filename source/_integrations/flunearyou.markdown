@@ -9,6 +9,8 @@ ha_codeowners:
   - '@bachya'
 ha_domain: flunearyou
 ha_config_flow: true
+ha_platforms:
+  - sensor
 ---
 
 The `flunearyou` sensor platform allows users in the United States and its
@@ -16,33 +18,7 @@ territories to get information regarding reported flu symptoms from [Flu Near
 You](https://flunearyou.org/). The platform can return user-reported information as well reports from the
 Center for Disease Control (CDC).
 
-## Configuration
-
-To enable the platform, add the following lines to your `configuration.yaml`
-file:
-
-```yaml
-sensor:
-  - platform: flunearyou
-```
-
-{% configuration %}
-monitored_conditions:
-  description: The sensor categories to display.
-  required: false
-  type: list
-  default: ['cdc_report', 'user_report']
-latitude:
-  description: The latitude of the location to monitor.
-  required: false
-  type: float
-  default: The latitude defined under the `homeassistant` key in `configuration.yaml`.
-longitude:
-  description: The longitude of the location to monitor.
-  required: false
-  type: float
-  default: The longitude defined under the `homeassistant` key in `configuration.yaml`.
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Sensor Types
 

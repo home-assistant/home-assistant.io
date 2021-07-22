@@ -6,6 +6,8 @@ ha_category:
   - Presence Detection
 ha_iot_class: Cloud Polling
 ha_domain: trackr
+ha_platforms:
+  - device_tracker
 ---
 
 The `trackr` platform allows you to detect presence using [TrackR](https://www.thetrackr.com/) devices.

@@ -5,7 +5,9 @@ date: 2016-08-28 20:30:25 UTC
 date_formatted: "August 28, 2016"
 author: Robbie Trencheny
 author_twitter: Robbie
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 This week's blog post could only be possibly described by exactly one hashtag:
@@ -59,7 +61,7 @@ We have some excellent upgrades to the notification system coming to you in 0.27
 This release adds support for [HTML5] push notifications on Chrome/Firefox/Opera on both desktop and Android devices. This means that you can send a notification to your phone even when your Home Assistant is not open in your mobile browser. When using Chrome you can even include 2 action buttons so that you can control your Home Assistant from your phone's lock screen, allowing you to do things like sound alarms or unlock your front door, all without leaving the notification. Thanks again to me ([@robbiet480]) and Paulus ([@balloob]) for all the hard work on this!
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/html5-notify.png' />
+  <img src='/images/screenshots/html5-notify.png' />
 </p>
 
 #### Notification Groups
@@ -83,7 +85,7 @@ hass --script check_config
 This release includes a big push on making sure all platforms contain proper configuration validation. This should help in getting your configuration right. Thanks to [@fabaff], [@pavoni], [@pvizeli], [@nkgilley] for all the hard work on this, you all rock!
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/config-validation.png' />
+  <img src='/images/screenshots/config-validation.png' />
 </p>
 
 ### FFMpeg motion/noise sensing
@@ -268,7 +270,7 @@ Talk to you soon on Discord and in your pull request comments!
 [forecast]: /integrations/darksky
 [Bluetooth]: /integrations/bluetooth_le_tracker
 [Slack]: /integrations/slack
-[template]: /integrations/generic
+[template]: /integrations/generic_ip_camera
 [Bug]: /integrations/wink/
 [support]: /integrations/homematic/
 [node]: /integrations/zwave/

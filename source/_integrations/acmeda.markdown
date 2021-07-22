@@ -10,15 +10,21 @@ ha_config_flow: true
 ha_codeowners:
   - '@atmurray'
 ha_domain: acmeda
+ha_platforms:
+  - cover
+  - sensor
 ---
 
-The Rollease Acmeda Automate integration allows you to control and monitor covers via your Rolelase Acmeda Automate hub (v1 only see the [Automate Integration](/integrations/automate) for the Automate Pulse v2 Hub). The integration uses an [API](https://pypi.org/project/aiopulse/) to directly communicate with hubs on the local network, rather than connecting via the cloud or via RS-485.
+The Rollease Acmeda Automate integration allows you to control and monitor covers via your Rolelase Acmeda Automate hub (v1 only, see the [Automate Integration](/integrations/automate) for the Automate Pulse v2 Hub).
 
+The integration uses an [API](https://pypi.org/project/aiopulse/) to directly communicate with hubs on the local network, rather than connecting via the cloud or via RS-485.
 Devices are represented as a cover for monitoring and control as well as a sensor for monitoring battery condition.
 
-To set up this integration, click the + icon in the lower right and find Rolelase Acmeda Automate. This will automatically discover any hubs on the local network and register them with Home Assistant. All devices are automatically discovered on the hub and you will have the opportunity to select the area each device is located.
+### Supported devices
 
-Once registration is complete, you should see a `cover` and a `sensor` entity for each device. The integration automatically manages the addition/update/removal of any devices connected on the hub including device names unless manually specified in Home Assistant.
+- Automate Pulse Hub v1
+
+{% include integrations/config_flow.md %}
 
 ### Multiple hubs
 

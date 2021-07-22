@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_domain: ee_brightbox
+ha_platforms:
+  - device_tracker
 ---
 
 This platform offers presence detection by looking at connected devices to a [EE Bright Box 2](https://ee.co.uk/help/phones-and-device/home-broadband/bright-box-2-wireless-router/bright-box-2-wireless-router) router.

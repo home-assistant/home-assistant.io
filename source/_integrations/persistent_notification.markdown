@@ -3,6 +3,7 @@ title: Persistent Notification
 description: Instructions on how to integrate persistent notifications into Home Assistant.
 ha_category:
   - Other
+ha_iot_class: Local Push
 ha_release: 0.23
 ha_quality_scale: internal
 ha_codeowners:
@@ -69,7 +70,7 @@ action:
 This automation example shows a notification when the Z-Wave network is starting and removes it when the network is ready.
 
 ```yaml
-- alias: 'Z-Wave network is starting'
+- alias: "Z-Wave network is starting"
   trigger:
     - platform: event
       event_type: zwave.network_start
@@ -80,7 +81,7 @@ This automation example shows a notification when the Z-Wave network is starting
         message: "Z-Wave network is starting..."
         notification_id: zwave
 
-- alias: 'Z-Wave network is ready'
+- alias: "Z-Wave network is ready"
   trigger:
     - platform: event
       event_type: zwave.network_ready

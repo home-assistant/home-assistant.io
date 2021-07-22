@@ -11,6 +11,9 @@ ha_iot_class: Local Polling
 ha_domain: pi4ioe5v9xxxx
 ha_codeowners:
   - '@antonverburg'
+ha_platforms:
+  - binary_sensor
+  - switch
 ---
 
 The `pi4ioe5v9xxxx` integration provides support for the quasi-bidirectional devices PI4IOE5V9570, PI4IOE5V9674, PI4IOE5V9673, PI4IOE5V96224 and PI4IOE5V96248 from [diodes.com](https://www.diodes.com).
@@ -30,7 +33,7 @@ The pin numbers are from 1 to X where: 1-8 correspond to port 0 (00-07) and 9-16
 
 ### Configuration
 
-To use the I/O pins of an pi4ioe5v9xxxx connected to an I2C bus of your Raspberry Pi as binary sensors, add the following to your `configuration.yaml` file:
+To use the I/O pins of a pi4ioe5v9xxxx connected to an I2C bus of your Raspberry Pi as binary sensors, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -88,7 +91,7 @@ The pin numbers are from 1 to X, where 1-8 correspond to port A (A1-A8) and 9-16
 
 ### Configuration
 
-To use the I/O pins of an pi4ioe5v9xxxx connected to an I2C bus as switches, add the following to your `configuration.yaml` file:
+To use the I/O pins of a pi4ioe5v9xxxx connected to an I2C bus as switches, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

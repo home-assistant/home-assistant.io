@@ -4,6 +4,7 @@ description: Setup for Google Pub/Sub integration
 ha_category:
   - History
 ha_release: 0.88
+ha_iot_class: Cloud Push
 ha_domain: google_pubsub
 ---
 
@@ -13,15 +14,14 @@ The `google_pubsub` integration allows you to hook into the Home Assistant event
 
 This assumes you already have a Google Cloud project. If you don't, please create one in the [Google Cloud Console](https://console.cloud.google.com/projectcreate)
 
-You need to create a Service Account key in the [Google Cloud API Console](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
+Create a Google Pub/Sub topic in the [Google Cloud API Console](https://console.cloud.google.com/cloudpubsub/topicList). The topic name will become something like `projects/project-198373/topics/topic-name`. Note the last part only (the name you chose): `topic-name`.
+
+Next, you need to create a Service Account key in the [Google Cloud API Console](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
 
 - Choose a new "New Service Account", give it a name and leave the key type as JSON
 - Select the role: Pub/Sub Publisher 
 
 This will download the Service Account JSON key to your machine. Do NOT share this with anyone. Place this file in your Home Assistant configuration folder.
-
-Next, create a Google Pub/Sub topic in the [Google Cloud API Console](https://console.cloud.google.com/cloudpubsub/topicList). The topic name will become something like `projects/project-198373/topics/topic-name`. Note the last part only (the name you chose): `topic-name`.
-
 
 ## Configuration
 
@@ -87,8 +87,6 @@ filter:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Google Pub/Sub`, you can use the `filter` parameter.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 google_pubsub:
@@ -104,8 +102,6 @@ google_pubsub:
     exclude_entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 

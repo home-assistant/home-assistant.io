@@ -5,7 +5,9 @@ date: 2017-12-03 02:00:00
 date_formatted: "December 3, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-12-0.59/components.png
 ---
 

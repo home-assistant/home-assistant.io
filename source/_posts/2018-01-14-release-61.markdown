@@ -5,7 +5,9 @@ date: 2018-01-14 18:00:00
 date_formatted: "January 14, 2018"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-01-0.61/components.png
 ---
 
@@ -97,9 +99,9 @@ Note however, that this feature was replaced by a new ignore_string config optio
       alexa:
         entity_config:
           switch.kitchen:
-            name: 'Name for Alexa'
-            description: 'Description for Alexa'
-            display_categories: 'LIGHT'
+            name: "Name for Alexa"
+            description: "Description for Alexa"
+            display_categories: "LIGHT"
     ```
   ([@balloob] - [#11461]) ([cloud docs]) ([alexa.smart_home docs]) (breaking change)
 - The extension of the `alpha_vantage` requires an update of the configuration as now are exchange data available as well. ([@ChristianKuehnel] - [#11427]) ([sensor.alpha_vantage docs]) (breaking change)
@@ -136,7 +138,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
       entity_config:
         switch.kitchen:
           expose: false
-          alias: roof lights
+          alias: "roof lights"
           name: nice lights
           type: light
     ```
@@ -272,7 +274,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 - Add Touchline climate platform ([@abondoe] - [#10547]) ([climate.touchline docs]) (new-platform)
 - Upgrade pysnmp to 4.4.4 ([@fabaff] - [#11485]) ([device_tracker.snmp docs]) ([sensor.snmp docs]) ([switch.snmp docs])
 - Add new iGlo component ([@jesserockz] - [#11171]) ([light.iglo docs]) (new-platform)
-- Add missing configuration variables ([@fabaff] - [#11390]) ([sensor.metoffice docs])
+- Add missing configuration variables ([@fabaff] - [#11390]) ([metoffice docs])
 - Clean up Alexa.intent and DialogFlow.intent ([@balloob] - [#11492]) ([alexa.intent docs])
 - Fix time functions would throw errors in python scripts ([@tomwaters] - [#11414]) ([python_script docs])
 - Upgrade pywebpush to 1.5.0 ([@Chris-V] - [#11497]) ([notify.html5 docs])
@@ -329,7 +331,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 - add velux roller shutter to tahoma ([@thijsdejong] - [#11586]) ([tahoma docs])
 - Added support for enable/disable motion detection ([@abjorshammar] - [#11583]) ([camera.uvc docs])
 - Avoid returning empty media_image_url string ([@JackWindows] - [#11557]) ([media_player.cast docs])
-- Core support for hass.io calls & Bugfix check_config ([@pvizeli] - [#11571]) ([__init__ docs]) ([hassio docs]) ([updater docs])
+- Core support for hass.io calls & Bugfix check_config ([@pvizeli] - [#11571]) ([homeassistant docs]) ([hassio docs]) ([updater docs])
 - Fix Tahoma stop command for 2 types of shutters ([@thijsdejong] - [#11588]) ([cover.tahoma docs])
 - Pushbullet email support (fix) ([@tschmidty69] - [#11590]) ([notify.pushbullet docs])
 - Fix state for trigger with forced updates ([@armills] - [#11595]) ([automation.state docs])
@@ -610,7 +612,6 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [@veleek]: https://github.com/veleek
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@yienxu]: https://github.com/yienxu
-[__init__ docs]: /integrations/__init__/
 [alarm_control_panel.alarmdecoder docs]: /integrations/alarmdecoder#alarm-control-panel
 [alarm_control_panel.concord232 docs]: /integrations/concord232#alarm-control-panel
 [alarm_control_panel.egardia docs]: /integrations/egardia
@@ -673,6 +674,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [google_assistant.http docs]: /integrations/google_assistant/
 [google_assistant.smart_home docs]: /integrations/google_assistant
 [group docs]: /integrations/group/
+[homeassistant docs]: /integrations/homeassistant
 [hassio docs]: /integrations/hassio/
 [history docs]: /integrations/history/
 [hive docs]: /integrations/hive/
@@ -707,6 +709,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [media_player.plex docs]: /integrations/plex#media-player
 [media_player.squeezebox docs]: /integrations/squeezebox
 [media_player.yamaha docs]: /integrations/yamaha
+[metoffice docs]: /integrations/metoffice/
 [modbus docs]: /integrations/modbus/
 [notify.html5 docs]: /integrations/html5
 [notify.pushbullet docs]: /integrations/pushbullet
@@ -730,7 +733,6 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [sensor.isy994 docs]: /integrations/isy994#sensors
 [sensor.knx docs]: /integrations/sensor.knx/
 [sensor.luftdaten docs]: /integrations/luftdaten#sensor
-[sensor.metoffice docs]: /integrations/sensor.metoffice/
 [sensor.miflora docs]: /integrations/miflora
 [sensor.mqtt docs]: /integrations/sensor.mqtt/
 [sensor.openweathermap docs]: /integrations/openweathermap#sensor
@@ -781,7 +783,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [@rcloran]: https://github.com/rcloran
 [@rwa]: https://github.com/rwa
 [@tinloaf]: https://github.com/tinloaf
-[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [calendar.todoist docs]: /integrations/todoist
 [history docs]: /integrations/history/
 [light.zha docs]: /integrations/zha

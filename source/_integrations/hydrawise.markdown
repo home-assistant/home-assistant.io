@@ -11,6 +11,10 @@ ha_iot_class: Cloud Polling
 ha_domain: hydrawise
 ha_codeowners:
   - '@ptcryan'
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `hydrawise` integration allows you to integrate your [Hunter Hydrawise](https://hydrawise.com) Wi-Fi irrigation controller system in Home Assistant.

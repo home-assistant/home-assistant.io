@@ -11,11 +11,12 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
 <script type="text/javascript">
 docsearch({
-  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  apiKey: "{{ site.algolia.api_key }}",
   indexName: 'home-assistant',
   inputSelector: '#search',
   debug: false // Set debug to true if you want to inspect the dropdown
 });
+
 document.querySelector('.search .close').addEventListener('click', function(ev) {
   ev.preventDefault();
   document.querySelector('.search-container').style.display = 'none';

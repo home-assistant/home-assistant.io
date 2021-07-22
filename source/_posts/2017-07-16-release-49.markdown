@@ -5,7 +5,9 @@ date: 2017-07-15 00:02:05 +0000
 date_formatted: "July 15, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-07-0.49/components.png
 ---
 
@@ -486,7 +488,7 @@ amcrest:
 [@clkao]: https://github.com/clkao
 [@maikelwever]: https://github.com/maikelwever
 [@ypollart]: https://github.com/ypollart
-[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [telegram_bot docs]: /integrations/telegram_bot/
 [#8545]: https://github.com/home-assistant/home-assistant/pull/8545
 [#8571]: https://github.com/home-assistant/home-assistant/pull/8571

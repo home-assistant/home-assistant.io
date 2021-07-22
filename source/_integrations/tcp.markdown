@@ -7,6 +7,9 @@ ha_category:
 ha_release: 0.14
 ha_iot_class: Local Polling
 ha_domain: tcp
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The TCP integration allows the integration of some services for which a specific Home Assistant integration does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this integration will allow integration with it.
@@ -64,6 +67,16 @@ buffer_size:
   required: false
   default: "`1024`"
   type: integer
+ssl:
+  description: If `true`, use SSL/TLS.
+  required: false
+  default: false
+  type: boolean
+verify_ssl:
+  description: Set this to `false` if the server is using a self-signed certificate.
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 ### Examples
@@ -81,6 +94,8 @@ $ echo "r WaterPressure" | nc 10.0.0.127 8888
 
 You will notice that the output from the service is not just a single value (it contains ";ok" as well). To grab the value we're interested in, we can use a Jinja2 template. The response received is injected into the template as the `value` variable. To use this value within Home Assistant, use the following configuration:
 
+{% raw %}
+
 ```yaml
 sensor:
 # Example configuration.yaml entry
@@ -90,9 +105,11 @@ sensor:
     port: 8888
     timeout: 5
     payload: "r WaterPressure\n"
-    value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
+    value_template: "{{ value.split(';')[0] }}"
     unit_of_measurement: Bar
 ```
+
+{% endraw %}
 
 #### hddtemp
 
@@ -115,6 +132,8 @@ Escape character is '^]'.
 
 The entry for the `configuration.yaml` file for a `hddtemp` sensor could look like the example below.
 
+{% raw %}
+
 ```yaml
 sensor:
 # Example configuration.yaml entry
@@ -124,9 +143,12 @@ sensor:
     port: 7634
     timeout: 5
     payload: "\n"
-    value_template: "{% raw %}{{ value.split('|')[3] }}{% endraw %}"
+    value_template: "{{ value.split('|')[3] }}"
     unit_of_measurement: "°C"
 ```
+
+{% endraw %}
+
 
 ## Binary Sensor
 
@@ -181,4 +203,14 @@ timeout:
   required: false
   type: integer
   default: 10
+ssl:
+  description: If `true`, use SSL/TLS.
+  required: false
+  default: false
+  type: boolean
+verify_ssl:
+  description: Set this to `false` if the server is using a self-signed certificate.
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}

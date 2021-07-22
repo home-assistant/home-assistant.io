@@ -4,7 +4,9 @@ description: "Configuration will now be more flexible"
 date: 2015-03-01 20:38:00 +0100
 date_formatted: March 1, 2015
 author: "Theodor Lindquist"
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Home Assistant is now using [YAML](http://yaml.org/) for it's configuration file. YAML allows the use of lists, which should make the configuration file a bit more flexible and useful. The new configuration file format is backwards compatible with existing components. Because of this, there is no need for component developers to update their components.

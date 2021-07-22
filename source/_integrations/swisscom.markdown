@@ -5,6 +5,9 @@ ha_category:
   - Presence Detection
 ha_release: 0.32
 ha_domain: swisscom
+ha_iot_class: Local Polling
+ha_platforms:
+  - device_tracker
 ---
 
 The `swisscom` platform offers presence detection by looking at connected devices to an [Internet-Box](https://www.swisscom.ch/en/residential/help/device/internet-router.html) router from [Swisscom](https://www.swisscom.ch) which is an Internet provider in Switzerland.

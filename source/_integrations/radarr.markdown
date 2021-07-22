@@ -4,7 +4,10 @@ description: Instructions on how to integrate Radarr sensors with Home Assistant
 ha_category:
   - Downloading
 ha_release: 0.47
+ha_iot_class: Local Polling
 ha_domain: radarr
+ha_platforms:
+  - sensor
 ---
 
 This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.
@@ -80,7 +83,7 @@ ssl:
 
 In this section you find some real-life examples of how to use this sensor.
 
-### Get Episodes airing in next 2 days
+### Show upcoming movie releases in the next 2 days
 
 ```yaml
 # Example configuration.yaml entry

@@ -8,6 +8,10 @@ ha_category:
 ha_release: 0.23
 ha_iot_class: Local Push
 ha_domain: envisalink
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - sensor
 ---
 
 The `envisalink` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this integration is built. Currently, the Envisalink version 4 is the latest model. This integration supports both the evl3 and the evl4.
@@ -16,7 +20,7 @@ Please visit the [eyezon website](http://www.eyezon.com/) for further informatio
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor: Reports on zone status (Check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zone.)
+- Binary Sensor: Reports on zone status (Check the [type/class](/integrations/binary_sensor/#device-class) list for a possible visualization of your zone.)
 - Sensor: Emulates an alpha-numeric keypad attached to the alarm panel
 - Alarm Control Panel: Reports on partition status, and can be used to arm/disarm the system
 
@@ -29,11 +33,11 @@ An `envisalink` section must be present in the `configuration.yaml` file and con
 ```yaml
 # Example configuration.yaml entry
 envisalink:
-  host: <envisalink IP address>
+  host: <envisalink IP address or hostname>
   panel_type: HONEYWELL or DSC
   user_name: YOUR_USERNAME
   password: YOUR_PASSWORD
-  code: '1234'
+  code: "1234"
   port: 4025
   evl_version: 3
   keepalive_interval: 60
@@ -42,19 +46,19 @@ envisalink:
   panic_type: Police
   zones:
     11:
-      name: 'Back Door'
-      type: 'opening'
+      name: "Back Door"
+      type: "opening"
     21:
-      name: 'First Floor Motion'
-      type: 'motion'
+      name: "First Floor Motion"
+      type: "motion"
   partitions:
     1:
-      name: 'Home Alarm'
+      name: "Home Alarm"
 ```
 
 {% configuration %}
 host:
-  description: The IP address of the Envisalink device on your home network.
+  description: The IP address or hostname (host.fqdn.tld) of the Envisalink device on your home network.
   required: true
   type: string
 panel_type:
@@ -70,7 +74,7 @@ password:
   required: true
   type: string
 code:
-  description: Your alarm panel's code, for authenticating user input during arm/disarm.  If you do not provide this value, the integration will prompt the user to enter the code at runtime.
+  description: Your alarm panel's code, for authenticating user input during arm/disarm. If you do not provide this value, the integration will prompt the user to enter the code at runtime.
   required: false
   type: string
 port:
@@ -104,7 +108,7 @@ panic_type:
   default: Police
   type: string
 zones:
-  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/integrations/envisalink) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
+  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information about the visual representation of a zone, take a look at the [Binary Sensor](/integrations/binary_sensor/#device-class) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
   required: false
   type: integer
   keys:

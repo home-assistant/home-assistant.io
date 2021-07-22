@@ -8,6 +8,9 @@ ha_category:
 ha_iot_class: Assumed State
 ha_release: 0.44
 ha_domain: sensehat
+ha_platforms:
+  - light
+  - sensor
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -87,14 +90,14 @@ sensor:
   - platform: template
     sensors:
       sensehat_temperature:
-        value_template: '{{ states('sensor.temperature') | round(1) }}'
-        unit_of_measurement: '°C'
+        value_template: "{{ states('sensor.temperature') | round(1) }}"
+        unit_of_measurement: "°C"
       sensehat_pressure:
-        value_template: '{{ states('sensor.pressure') | round(1) }}'
-        unit_of_measurement: 'mb'
+        value_template: "{{ states('sensor.pressure') | round(1) }}"
+        unit_of_measurement: "mb"
       sensehat_humidity:
-        value_template: '{{ states('sensor.humidity') | round(1) }}'
-        unit_of_measurement: '%'
+        value_template: "{{ states('sensor.humidity') | round(1) }}"
+        unit_of_measurement: "%"
 ```
 
 {% endraw %}
@@ -182,7 +185,7 @@ sudo reboot
 ```
 
 Unfortunately enabling the SenseHAT Sensor integration for a Virtual Environment install of Home Assistant fails with errors.
-_(The Raspberry Pi All-In-One installer run Home Assistant in an virtual environment)._
+_(The Raspberry Pi All-In-One installer run Home Assistant in a virtual environment)._
 These issues have been discussed in the repository issue [#5093](https://github.com/home-assistant/home-assistant/issues/5093)
 
 This fix has been tested with a clean install of:

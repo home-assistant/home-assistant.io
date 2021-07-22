@@ -5,6 +5,7 @@ ha_category:
   - History
 ha_release: 0.72
 ha_domain: watson_iot
+ha_iot_class: Cloud Push
 ---
 
 The `watson_iot` integration enables you to link the devices in Home Assistant
@@ -28,10 +29,10 @@ With this basic information you can configure the component:
 ```yaml
 # Example configuration.yaml entry:
 watson_iot:
-  organization: 'organization_id'
-  type: 'device_type'
-  id: 'device_id'
-  token: 'auth_token'
+  organization: "organization_id"
+  type: "device_type"
+  id: "device_id"
+  token: "auth_token"
 ```
 
 {% configuration %}
@@ -65,7 +66,7 @@ exclude:
       required: false
       type: list
 include:
-  description: Configure which integrations should be included in recordings to Watson IoT Platform. If set, all other entities will not be recorded to Watson IoT Platform. Values set by the **blacklist** option will prevail.
+  description: Configure which integrations should be included in recordings to Watson IoT Platform. If set, all other entities will not be recorded to Watson IoT Platform. Values set by the **exclude** option will prevail.
   required: false
   type: map
   keys:

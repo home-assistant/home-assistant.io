@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.81
 ha_iot_class: Local Polling
 ha_domain: rtorrent
+ha_platforms:
+  - sensor
 ---
 
 The `rtorrent` platform allows you to monitor your downloads with [rTorrent](https://rakshasa.github.io/rtorrent/) from within Home Assistant and setup automations based on the information.
@@ -16,7 +18,7 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 sensor:
   - platform: rtorrent
-    url: 'http://<user>:<password>@<host>:<port>/RPC2'
+    url: "http://<user>:<password>@<host>:<port>/RPC2"
     monitored_variables:
       - 'current_status'
       - 'download_speed'

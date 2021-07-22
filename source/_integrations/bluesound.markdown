@@ -7,6 +7,8 @@ ha_category:
 ha_release: 0.51
 ha_iot_class: Local Polling
 ha_domain: bluesound
+ha_platforms:
+  - media_player
 ---
 
 The `bluesound` platform allows you to control your [Bluesound](https://www.bluesound.com/) HiFi wireless speakers and audio integrations from Home Assistant.

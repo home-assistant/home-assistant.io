@@ -8,6 +8,9 @@ ha_release: 0.105
 ha_codeowners:
   - '@mtreinish'
 ha_domain: opnsense
+ha_iot_class: Local Polling
+ha_platforms:
+  - device_tracker
 ---
 
 [OPNsense](https://opnsense.org/) is an open source HardenedBSD based firewall

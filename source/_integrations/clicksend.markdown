@@ -5,6 +5,9 @@ ha_category:
   - Notifications
 ha_release: 0.48
 ha_domain: clicksend
+ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
 ---
 
 The `clicksend` platform uses [ClickSend](https://clicksend.com) to deliver notifications from Home Assistant.
@@ -53,10 +56,10 @@ recipient:
   required: true
   type: [string, list]
 sender:
-  description: The name or number of the sender.
+  description: The name or number of the sender. (Limited to 11 characters.)
   required: false
   type: string
-  default: 'hass'
+  default: "hass"
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

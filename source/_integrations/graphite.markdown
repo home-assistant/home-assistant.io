@@ -6,6 +6,7 @@ ha_category:
   - History
 ha_release: 0.13
 ha_domain: graphite
+ha_iot_class: Local Push
 ---
 
 The `graphite` integration records all events and state changes and feeds the data to a [graphite](http://graphite.wikidot.com/) instance.
@@ -24,10 +25,15 @@ host:
   type: string
   default: localhost
 port:
-  description: This is a description of what this key is for.
+  description: Port on graphite host.
   required: false
   type: integer
   default: 2003
+protocol:
+  description: "Type of communication protocol: `tcp` or `udp`."
+  required: false
+  type: string
+  default: tcp
 prefix:
   description: Prefix is the metric prefix in graphite.
   required: false

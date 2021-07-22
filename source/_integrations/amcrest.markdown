@@ -8,12 +8,14 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.49
-ha_codeowners:
-  - '@pnbruckner'
 ha_domain: amcrest
+ha_platforms:
+  - binary_sensor
+  - camera
+  - sensor
 ---
 
-The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera in Home Assistant.
+The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -113,6 +115,10 @@ binary_sensors:
       description: "Return `on` when a motion is detected, `off` when not. Motion detection is enabled by default for most cameras, if this functionality is not working check that it is enabled in Settings > Events > Video Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
     motion_detected_polled:
       description: "Return `on` when a motion is detected, `off` when not. Motion detection is enabled by default for most cameras, if this functionality is not working check that it is enabled in Settings > Events > Video Detection. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
+    crossline_detected:
+      description: "Return `on` when a tripwire tripping is detected, `off` when not. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
+    crossline_detected_polled:
+      description: "Return `on` when a tripwire is tripping is detected, `off` when not. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
     online:
       description: "Return `on` when camera is available (i.e., responding to commands), `off` when not."
 sensors:
@@ -152,6 +158,23 @@ documentation to install the `ffmpeg`.
 ### Streaming vs Polled Binary Sensors
 
 Some binary sensors provide two choices for method of operation: streaming or polled. Streaming is more responsive and causes less network traffic because the camera will tell Home Assistant when the sensor's state has changed. Polled mode queries the camera periodically (every five seconds) to check the state of the sensor. Therefore streaming is the better option. However, some camera models and versions of camera firmware do not seem to implement the streaming method properly. Therefore the polled mode is also available. It is recommended to use the streaming mode (e.g., `motion_detected`) first, and if that doesn't work (e.g., results in constant errors), then try the polled mode instead (e.g., `motion_detected_polled`.)
+
+## Events
+
+Once loaded, the Amcrest integration will generate (Home Assistant) events when it receives event notifications in the stream sent by the camera. This is only possible if the camera model and firmware implement the streaming method (see [above](#streaming-vs-polled-binary-sensors)). The event type is `amcrest` and the data is as follows:
+
+```json
+{
+  "camera": "<name of the camera that triggered the event>",
+  "event": "<amcrest-specific code of the event>",
+  "payload": {
+    <json-encoded content sent by the device
+     through the streaming protocol>
+  }
+ }
+```
+
+The event code is sent by Amcrest or Dahua devices in the payload as a "Code" member. To ease event matching in automations, this code is replicated in a more top-level `event` member in `data`.
 
 ## Services
 
@@ -246,9 +269,9 @@ camera_image: camera.lakehouse
 camera_view: live   # or auto for snapshot view
 elements:
   - type: icon
-    icon: 'mdi:arrow-up'
+    icon: "mdi:arrow-up"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 25px
       bottom: 50px
     tap_action:
@@ -258,9 +281,9 @@ elements:
         entity_id: camera.lakehouse
         movement: up
   - type: icon
-    icon: 'mdi:arrow-down'
+    icon: "mdi:arrow-down"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 25px
       bottom: 0px
     tap_action:
@@ -270,9 +293,9 @@ elements:
         entity_id: camera.lakehouse
         movement: down
   - type: icon
-    icon: 'mdi:arrow-left'
+    icon: "mdi:arrow-left"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 50px
       bottom: 25px
     tap_action:
@@ -282,9 +305,9 @@ elements:
         entity_id: camera.lakehouse
         movement: left
   - type: icon
-    icon: 'mdi:arrow-right'
+    icon: "mdi:arrow-right"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 0px
       bottom: 25px
     tap_action:
@@ -294,9 +317,9 @@ elements:
         entity_id: camera.lakehouse
         movement: right
   - type: icon
-    icon: 'mdi:arrow-top-left'
+    icon: "mdi:arrow-top-left"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 50px
       bottom: 50px
     tap_action:
@@ -306,9 +329,9 @@ elements:
         entity_id: camera.lakehouse
         movement: left_up
   - type: icon
-    icon: 'mdi:arrow-top-right'
+    icon: "mdi:arrow-top-right"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 0px
       bottom: 50px
     tap_action:
@@ -318,9 +341,9 @@ elements:
         entity_id: camera.lakehouse
         movement: right_up
   - type: icon
-    icon: 'mdi:arrow-bottom-left'
+    icon: "mdi:arrow-bottom-left"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 50px
       bottom: 0px
     tap_action:
@@ -330,9 +353,9 @@ elements:
         entity_id: camera.lakehouse
         movement: left_down
   - type: icon
-    icon: 'mdi:arrow-bottom-right'
+    icon: "mdi:arrow-bottom-right"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 0px
       bottom: 0px
     tap_action:
@@ -342,9 +365,9 @@ elements:
         entity_id: camera.lakehouse
         movement: right_down
   - type: icon
-    icon: 'mdi:magnify'
+    icon: "mdi:magnify"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       bottom: 25px
       right: 25px
     tap_action:
@@ -373,6 +396,7 @@ amcrest:
     password: YOUR_PASSWORD
     binary_sensors:
       - motion_detected
+      - crossline_detected
       - online
     sensors:
       - sdcard

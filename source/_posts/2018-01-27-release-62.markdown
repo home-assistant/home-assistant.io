@@ -5,7 +5,9 @@ date: 2018-01-27 01:00:00
 date_formatted: "January 27, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-01-0.62/components.png
 ---
 
@@ -23,7 +25,7 @@ With this new integration by [@sdague] you are able to keep an eye on your Chevy
 
 - Adding support for Lutron covers ([@nickovs] - [#11602]) ([lutron docs]) ([cover.lutron docs]) (new-platform)
 - Add basic mychevy component ([@sdague] - [#11409]) ([mychevy docs]) (new-platform)
-- Added support for TekSavvy bandwidth sensor ([@jpjodoin] - [#11186]) ([sensor.teksavvy docs]) (new-platform)
+- Added support for TekSavvy bandwidth sensor ([@jpjodoin] - [#11186]) (new-platform)
 - Ihc component and platforms ([@dingusdk] - [#10916]) ([ihc docs]) ([binary_sensor.ihc docs]) ([light.ihc docs]) ([sensor.ihc docs]) ([switch.ihc docs]) (new-platform)
 - Iota wallet ([@jinnerbichler] - [#11398]) ([iota docs]) ([sensor.iota docs]) (new-platform)
 
@@ -100,11 +102,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Round off exchange rate ([@arsaboo] - [#11765]) ([sensor.alpha_vantage docs])
 - Update icon (fixes #11744) ([@fabaff] - [#11758]) ([sensor.fixer docs])
 - Use localized forecast for openweathermap ([@brainexe] - [#11770]) ([sensor.openweathermap docs])
-- Unit should be mph as that is what the metoffices datapoint API returns ([@ioangogo] - [#11760]) ([sensor.metoffice docs])
+- Unit should be mph as that is what the metoffices datapoint API returns ([@ioangogo] - [#11760]) ([metoffice docs])
 - Owntracks: Use bluetooth_le as source_type if beacon was used for location change. ([@cnrd] - [#11615]) ([device_tracker.owntracks docs])
 - Add a 'last' mode and attribute to min_max sensor ([@markferry] - [#11037]) ([sensor.min_max docs])
 - Update header and make it less verbose ([@fabaff] - [#11774]) ([asterisk_mbox docs])
-- Added support for TekSavvy bandwidth sensor ([@jpjodoin] - [#11186]) ([sensor.teksavvy docs]) (new-platform)
+- Added support for TekSavvy bandwidth sensor ([@jpjodoin] - [#11186]) (new-platform)
 - Fix for Neato D3 and D5 ([@karlkar] - [#11775])
 - Axis discovery fails to save conf ([@Kane610] - [#11769]) ([axis docs])
 - Limit service description loading to a single thread ([@amelchio] - [#11733])
@@ -121,7 +123,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - flux led version 0.20 ([@danielhiversen] - [#11791])
 - Hyperion: fix ([@starkillerOG] - [#11793]) ([light.hyperion docs])
 - Fix sensibo function names ([@andrey-git] - [#11797]) ([climate.sensibo docs])
-- Always load yr picture from https ([@andrey-git] - [#11796]) ([sensor.yr docs])
+- Always load yr picture from https ([@andrey-git] - [#11796])
 - Make Google TTS secure ([@PRabahy] - [#11031]) ([tts.google docs])
 - Correct inadvertent change to file permissions ([@shortbloke] - [#11755]) ([light.flux_led docs])
 - Fix recorder purge ([@tinloaf] - [#11802])
@@ -389,7 +391,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.hive docs]: /integrations/hive#binary-sensor
 [binary_sensor.ihc docs]: /integrations/ihc#binary-sensor
 [binary_sensor.maxcube docs]: /integrations/maxcube
-[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [binary_sensor.wink docs]: /integrations/wink#binary-sensor
 [binary_sensor.workday docs]: /integrations/workday
 [binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
@@ -442,6 +444,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.samsungtv docs]: /integrations/samsungtv
 [media_player.sonos docs]: /integrations/sonos
 [media_player.yamaha docs]: /integrations/yamaha
+[metoffice docs]: /integrations/metoffice/
 [notify.clicksend docs]: /integrations/clicksend
 [notify.prowl docs]: /integrations/prowl
 [plant docs]: /integrations/plant/
@@ -456,17 +459,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.hive docs]: /integrations/hive#sensor
 [sensor.ihc docs]: /integrations/ihc#sensor
 [sensor.iota docs]: /integrations/iota#sensor
-[sensor.metoffice docs]: /integrations/sensor.metoffice/
 [sensor.miflora docs]: /integrations/miflora
 [sensor.min_max docs]: /integrations/min_max
 [sensor.mold_indicator docs]: /integrations/mold_indicator
 [mychevy docs]: /integrations/mychevy/
 [sensor.openweathermap docs]: /integrations/openweathermap#sensor
 [sensor.random docs]: /integrations/random#sensor
-[sensor.teksavvy docs]: /integrations/teksavvy
 [sensor.xbox_live docs]: /integrations/xbox_live
 [sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
-[sensor.yr docs]: /integrations/yr
 [snips docs]: /integrations/snips/
 [switch.hive docs]: /integrations/hive#switch
 [switch.ihc docs]: /integrations/ihc#switch

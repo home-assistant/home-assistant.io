@@ -1,7 +1,6 @@
 ---
 title: "Browsers"
 description: "Browser Compatibility List"
-redirect_from: /getting-started/browsers/
 ---
 
 Home Assistant requires a web browser to show the frontend and supports all major modern browsers. We don't test the web interface against all available browsers but this page tracks different browsers on various operating systems and should help you to pick a browser which works. The "Release" column contains the release number which was tested. This doesn't mean that older or newer releases will not work.
@@ -25,7 +24,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | works      | Map is fixed since 0.51. |
+| [Safari]              |                | works      | Not working with Safari Technology Preview 112 beta |
 
 ## Linux
 
@@ -59,16 +58,16 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | works      | Can also be added to desktop. Map is fixed since 0.51. |
-| [Chrome]              |                | works      |                          |
+| [Safari]              |                | works      | Can also be added to desktop. Not working in iOS 14 beta 5. |
+| [Chrome]              |                | works      | Not working in iOS 14 beta 5.               |
 
-There are reports that devices running with iOS prior to iOS 10, especially old iPads, are having trouble.
+There are reports that devices running with iOS prior to iOS 10, especially old iPads, are having trouble. Devices running iOS 14 beta 5, you will not be able to interact with Home Assistant controls.
 
 ## webOS
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [LG webOS TV Built-in]| 2019-2020      | fails      | loads empty page         |
+| [LG webOS TV Built-in]| webOS 04.80.03 | works      | including magic remote   |
 
 [Chrome]: https://www.google.com/chrome/
 [Chromium]: https://www.chromium.org/
@@ -81,7 +80,7 @@ There are reports that devices running with iOS prior to iOS 10, especially old 
 [Iridium]: https://iridiumbrowser.de/
 [Konqueror]: https://konqueror.org/
 [Lynx]: https://lynx.browser.org/
-[Midori]: https://www.midori-browser.org/
+[Midori]: https://astian.org/midori-browser/
 [Opera]: https://www.opera.com/
 [Safari]: https://www.apple.com/safari/
 [surf]: https://surf.suckless.org/
@@ -89,4 +88,4 @@ There are reports that devices running with iOS prior to iOS 10, especially old 
 [Uzbl]: https://www.uzbl.org/
 [w3m]: http://w3m.sourceforge.net/
 [Waterfox]: https://www.waterfoxproject.org
-[LG webOS TV Built-In]: https://www.lg.com/uk/support/solutions/tv/smart-tv/internet-browsing
+[LG webOS TV Built-In]: https://www.lg.com/uk/support/help-library/details-on-enjoying-internet-browsing-on-your-lg-webos-tv-CT00008334-1435838149474

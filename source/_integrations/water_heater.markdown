@@ -3,6 +3,7 @@ title: Water Heater
 description: Instructions on how to setup water heater devices within Home Assistant.
 ha_release: 0.81
 ha_domain: water_heater
+ha_quality_scale: internal
 ---
 
 The `water_heater` integration is built for the controlling and monitoring of hot water heaters.
@@ -23,7 +24,7 @@ Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode
 
 <div class='note'>
 
-Not all water heater services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
+Not all water heater services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking **Developer Tools** -> **Services**.
 
 </div>
 
@@ -46,8 +47,9 @@ automation:
     at: "07:15:00"
   action:
     - service: water_heater.set_temperature
-      data:
+      target:
         entity_id: water_heater.demo
+      data:
         temperature: 24
         operation_mode: eco
 ```
@@ -70,8 +72,9 @@ automation:
     at: "07:15:00"
   action:
     - service: water_heater.set_operation_mode
-      data:
+      target:
         entity_id: water_heater.demo
+      data:
         operation_mode: eco
 ```
 
@@ -93,7 +96,8 @@ automation:
     at: "07:15:00"
   action:
     - service: water_heater.set_away_mode
-      data:
+      target:
         entity_id: water_heater.demo
+      data:
         away_mode: true
 ```

@@ -8,7 +8,7 @@ author_twitter: balloob
 categories: Public-Service-Announcement
 ---
 
-**Update 1 (Jan 24):** We got some reports from people that they are still able to create accounts and generate the right keys. We just verified and this is the case. So for now you can still access your data, which is good. We're still puzzled on the response to our tweet. And thanks to Reddit user /u/lefos123 for [pointing out](https://www.reddit.com/r/homeassistant/comments/ajgiz2/nest_locks_users_out_of_their_own_data/eevh8on/) that they ~~[announced this](https://nestdevelopers.io/t/client-reviews-currently-suspended/1548)~~ [updated link](https://developers.nest.com/) on Nov 2018.
+**Update 1 (Jan 24):** We got some reports from people that they are still able to create accounts and generate the right keys. We just verified and this is the case. So for now you can still access your data, which is good. We're still puzzled on the response to our tweet. And thanks to Reddit user /u/lefos123 for [pointing out](https://www.reddit.com/r/homeassistant/comments/ajgiz2/nest_locks_users_out_of_their_own_data/eevh8on/) that they ~~announced this~~ [updated link](https://developers.nest.com/) on Nov 2018.
 
 Although it's still working, we're still scared about the future of the Nest API.
 

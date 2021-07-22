@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.75
 ha_iot_class: Cloud Polling
 ha_domain: magicseaweed
+ha_platforms:
+  - sensor
 ---
 
 The `magicseaweed` platform uses the [Magicseaweed Forecast API](https://magicseaweed.com/developer/forecast-api) as a source for surf forecasting data for the surf spots of your choice.

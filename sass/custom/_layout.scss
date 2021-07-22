@@ -19,3 +19,61 @@
 //$sidebar-pad-medium: 15px;
 //$sidebar-pad-wide: 20px;
 //$sidebar-width-wide: 300px;
+
+html {
+    overflow-y: hidden;
+}
+
+.page-content {
+    display: inline-block;
+    height: calc(100% - 68px);;
+    margin-top: 68px;
+    overflow-y: scroll;
+    padding-top: 32px;
+    width: 100%;
+}
+
+#sidebar {
+    .grid {
+        position: fixed;
+        width: 350px;
+        .brand-logo-container {
+            margin-top: 0;
+        }
+    }
+}
+
+.site-header {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+
+    th,td {
+        word-wrap: break-word;
+    }
+}
+
+
+@media only screen and (max-width: $lap-end) {
+    #sidebar {
+      .grid {
+          position: initial;
+          width: 100%;
+        }
+    }
+    .site-header {
+        .pull-right {
+            position: fixed;
+        }
+    }
+    .hero {
+        > .grid-wrapper {
+            z-index: 0;
+        }
+    }
+  }

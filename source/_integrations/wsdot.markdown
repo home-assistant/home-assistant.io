@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.37
 ha_domain: wsdot
+ha_platforms:
+  - sensor
 ---
 
 The `wsdot` sensor will give you travel time information from the [Washington State Department of Transportation (WSDOT)](https://wsdot.com/).
@@ -87,5 +89,5 @@ WSDOT does provide information about ferry schedules, mountain passes, tolls, et
 Here's an example of the sensor in use:
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/wsdot_sensor.png' />
+  <img src='/images/screenshots/wsdot_sensor.png' />
 </p>

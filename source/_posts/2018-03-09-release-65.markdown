@@ -5,7 +5,9 @@ date: 2018-03-09 00:01:00
 date_formatted: "March 9, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-03-0.65/entity-registry-name.gif
 ---
 
@@ -165,7 +167,7 @@ intent_script:
 - Tado: don't reference unset hass var ([@balloob] - [#13237]) ([device_tracker docs])
 - Fix Sonos join/unjoin in scripts ([@amelchio] - [#13248]) ([media_player.sonos docs])
 - Fix Sonos radio stations with ampersand ([@amelchio] - [#13293]) ([media_player.sonos docs])
-- Do not include unavailable entities in Google Assistant SYNC ([@balloob] - [#13358]) ([google_assistant docs]) ([light.demo docs])
+- Do not include unavailable entities in Google Assistant SYNC ([@balloob] - [#13358]) ([google_assistant docs]) ([light docs])
 
 ## If you need help...
 
@@ -180,7 +182,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Insteon PLM: If you have created platform overrides in your configuration.yaml file to change a your INSTEON device to map to a different Home Assistant platform, that mapping will no longer be in effect. Please see the new device override capabilities in the [insteon_plm documentation](/integrations/insteon/). ([@teharris1] - [#12534]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
 - AirVisual's air index unit is AQI (Air Quality Index), not PSI (Pressure per Square Inch). ([@chilicheech] - [#12730]) ([sensor.airvisual docs]) (breaking change)
-- TekSavvy Sensor: The sensor entity id for peak upload usage used to be `sensor.teksavvy_on_peak_upload_` this has been changed to `sensor.teksavvy_on_peak_upload`. The `usage` title was shared between and therefore indeterminate between GB and % usage. Therefore % usage entity ID has been changed to `sensor.teksavvy_usage_ratio` ([@mikeodr] - [#12325]) ([sensor.teksavvy docs]) (breaking change)
+- TekSavvy Sensor: The sensor entity id for peak upload usage used to be `sensor.teksavvy_on_peak_upload_` this has been changed to `sensor.teksavvy_on_peak_upload`. The `usage` title was shared between and therefore indeterminate between GB and % usage. Therefore % usage entity ID has been changed to `sensor.teksavvy_usage_ratio` ([@mikeodr] - [#12325]) (breaking change)
 - Egardia redesign - generic component and sensor support ([@jeroenterheerdt] - [#11994]) ([egardia docs]) ([alarm_control_panel.egardia docs]) ([binary_sensor.egardia docs]) (breaking change) (new-platform)
 - zip_code for the Pollen integration is now required to have quotes around it to prevent accidental errors: `zip_code: "00544"` ([@bachya] - [#12934]) ([sensor.pollen docs]) (breaking change)
 - Google Assistant integration: It is no longer possible to override the domain that Home Assistant uses for an entity. This was bound to go wrong when we would test supported features for different domains. Also removed support for disguising temperature sensors as thermostats. We should follow the traits that Google offer us and not offer things that will only work half. ([@balloob] - [#12959]) ([google_assistant docs]) ([light docs]) (breaking change)
@@ -232,7 +234,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - MQTT Static Typing ([@OttoWinter] - [#12433]) ([mqtt docs])
 - Add "headers" config parameter to rest switch ([@mfrueh] - [#12706]) ([switch.rest docs])
 - Added Sense energy monitor sensor ([@kbickar] - [#11580]) ([sensor.sense docs]) (new-platform)
-- TekSavvy Sensor unlimited bandwidth support ([@mikeodr] - [#12325]) ([sensor.teksavvy docs]) (breaking change)
+- TekSavvy Sensor unlimited bandwidth support ([@mikeodr] - [#12325]) (breaking change)
 - iCloud location tracking improvements ([@reedriley] - [#12399]) ([device_tracker.icloud docs])
 - Support serving of backend translations ([@armills] - [#12453]) ([frontend docs])
 - Translation cleanup ([@armills] - [#12804])
@@ -584,8 +586,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [insteon_plm docs]: /integrations/insteon/
 [knx docs]: /integrations/knx/
 [light docs]: /integrations/light/
-[light.demo docs]: /integrations/light.demo/
-[light.group docs]: /integrations/light.group/
 [light.group docs]: /integrations/light.group/
 [light.hue docs]: /integrations/hue
 [light.hyperion docs]: /integrations/hyperion
@@ -627,7 +627,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.simulated docs]: /integrations/simulated
 [sensor.sql docs]: /integrations/sql
 [sensor.systemmonitor docs]: /integrations/systemmonitor
-[sensor.teksavvy docs]: /integrations/teksavvy
 [sensor.tesla docs]: /integrations/tesla
 [sensor.tibber docs]: /integrations/tibber#sensor
 [sensor.xbox_live docs]: /integrations/xbox_live
@@ -750,5 +749,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [camera.proxy docs]: /integrations/proxy
 [device_tracker docs]: /integrations/device_tracker/
 [google_assistant docs]: /integrations/google_assistant/
-[light.demo docs]: /integrations/light.demo/
 [media_player.sonos docs]: /integrations/sonos

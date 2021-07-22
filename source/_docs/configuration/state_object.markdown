@@ -1,7 +1,6 @@
 ---
 title: "State Objects"
 description: "Describes all there is to know about state objects in Home Assistant."
-redirect_from: /topics/state_object/
 ---
 
 Your devices are represented in Home Assistant as entities. The entities will write their current state to the state machine for other entities/templates/frontend to access. States are a current representation of the entity.
@@ -33,4 +32,4 @@ When using templates, attributes will be available by their name. For example `s
 | `assumed_state`       | Boolean if the current state is an assumption. [More info](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers) Example: `True`. |
 | `unit_of_measurement` | The unit of measurement the state is expressed in. Used for grouping graphs or understanding the entity. Example: `°C`.                       |
 
-When an attribute contains spaces, you can retrieve it like this: `states.sensor.livingroom.attributes["Battery numeric"]`.
+When an attribute contains spaces, you can retrieve it like this: `state_attr('sensor.livingroom', 'Battery numeric')`.

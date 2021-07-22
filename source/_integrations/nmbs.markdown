@@ -8,6 +8,8 @@ ha_release: 0.85
 ha_codeowners:
   - '@thibmaek'
 ha_domain: nmbs
+ha_platforms:
+  - sensor
 ---
 
 The `nmbs` platform will create sensors for monitoring travel time and information between 2 stations.
@@ -59,6 +61,6 @@ show_on_map:
 {% endconfiguration %}
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/nmbs-card-example.png' />
+  <img src='/images/screenshots/nmbs-card-example.png' />
   <p>Example using the <a href="https://github.com/custom-cards/entity-attributes-card">Lovelace Attributes custom card</a> </p>
 </p>

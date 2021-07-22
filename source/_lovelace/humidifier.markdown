@@ -11,27 +11,31 @@ The Humidifier card lets you control and monitor humidifiers, dehumidifiers, and
   Screenshot of the humidifier card.
 </p>
 
+To add the Humidifier card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Humidifier** from the card picker. All options for this card can be configured via the user interface.
+
 {% configuration %}
 type:
   required: true
-  description: humidifier
+  description: "`humidifier`"
   type: string
 entity:
   required: true
-  description: Entity id of `humidifier` domain
+  description: Entity ID of `humidifier` domain.
   type: string
 name:
   required: false
-  description: Name of Entity
+  description: Name of entity.
   type: string
-  default: Entity Name
+  default: Entity name
 theme:
   required: false
-  description: Set to any theme within `themes.yaml`
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 {% endconfiguration %}
 
 ## Example
+
+Alternatively, the card can be configured using YAML:
 
 ```yaml
 - type: humidifier

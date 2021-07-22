@@ -31,6 +31,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [PyconFR 2018 - Faire de la domotique libriste avec Python](https://www.youtube.com/watch?v=Eu6umBJ51I4) (French) ([Slides](https://hackmd.io/p/BJTSyDkqm)) - October 2018
 - [Build your own smart home with Home Assistant](https://zmonkey.org/blog/files/Home%20Assistant%202018%20v1.0.pdf) at [OpenWest](https://openwest.org) - June 2018
 - [Automate your home with Home Assistant](https://www.youtube.com/watch?v=SSrgi4iHGbs) at [foss-north 2018](https://foss-north.se/2018/speakers-and-talks.html#jparadies) - March 2018
+- [Home Assistant - Smart Home für Jedermann](https://www.youtube.com/watch?v=74oPCh0NS4Y) (German) at [Pi and More 2018](https://piandmore.de/de/conference/pam10-5/schedule/event/305) ([Slides](https://benleb.de/talks/pam105_homeassistant.pdf)) - February 2018
 - [Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/english/2017-qecampX) at QECampX 2017 - October 2017
 - [Open Source Heimautomation mit Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-maker-faire-zurich) at [Mini Maker Faire Zurich 2017](https://www.makerfairezurich.ch/en/) - September 2017
 - [Why we can't have the Internet of Nice Things: A home automation primer](https://www.openwest.org/custom/description.php?id=92) at [OpenWest 2017](https://www.openwest.org) - July 2017
@@ -42,7 +43,6 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Building Online Communities: Home Assistant](https://medium.com/@gitter/building-online-communities-home-assistant-8818dff671ad#.och4x4rhx) - July 2016
 - [Home Assistant Support 101 - Getting around in Home Assistant](https://www.youtube.com/watch?v=dRfk9JAlPJk) (Slides) - June 2016
 - [Awaken your home: Python and the Internet of Things](https://www.youtube.com/watch?v=Cfasc9EgbMU&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=1) at PyCon 2016 - June 2016
-- [Automating your Home with Home Assistant](https://www.youtube.com/watch?v=4-6rTwKl6ww&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=2) at OpenIoT 2016 - March 2016
 
 Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
@@ -50,6 +50,9 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [Why I use Home Assistant for open source home automation](https://opensource.com/article/20/11/home-assistant) - November 2020
+- [Home Assistant, the Python IoT hub](https://lwn.net/Articles/822350/) - June 2020
+- [Thomas-Krenn-Award 2020: Dino, Teckids und Home Assistant](https://www.thomas-krenn.com/de/tkmag/allgemein/gewinner-thomas-krenn-award-2020/) - June 2020
 - [Magical Smart Home Upgrade Lets Muggles Control Their Homes With a Wand Too](https://gizmodo.com/magical-smart-home-upgrade-lets-muggles-control-their-h-1833941228) - April 2019
 - [Thomas-Krenn-Award 2019 – The winners](https://www.thomas-krenn.com/de/tkmag/tk-insights/thomas-krenn-award-2019-gewinner/) - March 2019
 - [How to set up and use Home Assistant: For Dummies edition](https://www.the-ambient.com/how-to/set-up-use-home-assistant-644) - October 2018

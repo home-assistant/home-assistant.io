@@ -1,14 +1,16 @@
 ---
 title: LANnouncer
 description: Instructions on how to add Lannouncer notifications to Home Assistant.
-logo: lannouncer.png
 ha_category:
   - Notifications
+ha_iot_class: Local Push
 ha_release: 0.36
 ha_domain: lannouncer
+ha_platforms:
+  - notify
 ---
 
-The `lannouncer` notification platform allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](https://www.keybounce.com/lannouncer/). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.
+The `lannouncer` notification platform allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](https://play.google.com/store/apps/details?id=com.keybounce.lannouncer&hl=en_US). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.
 
 To enable Lannouncer notifications in your installation, add the following to your `configuration.yaml` file:
 

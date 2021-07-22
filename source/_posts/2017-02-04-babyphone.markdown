@@ -72,25 +72,27 @@ input_boolean:
     initial: off
 
 automation:
- - alias: 'Babyphone on'
+ - alias: "Babyphone on"
    trigger:
      platform: state
      entity_id: input_boolean.babyphone
-     from: 'off'
-     to: 'on'
+     from: "off"
+     to: "on"
    action:
      service: ffmpeg.start
-     entity_id: binary_sensor.ffmpeg_noise
+     target:
+       entity_id: binary_sensor.ffmpeg_noise
 
- - alias: 'Babyphone off'
+ - alias: "Babyphone off"
    trigger:
      platform: state
      entity_id: input_boolean.babyphone
-     from: 'on'
-     to: 'off'
+     from: "on"
+     to: "off"
    action:
      service: ffmpeg.stop
-     entity_id: binary_sensor.ffmpeg_noise
+     target:
+       entity_id: binary_sensor.ffmpeg_noise
 ```
 
 ### Trigger an alarm
@@ -99,46 +101,53 @@ Now we can make a lot stuff. Here is a simple example of an automation what shou
 
 ```yaml
 automation:
- - alias: 'Babyphone alarm on'
+ - alias: "Babyphone alarm on"
    trigger:
      platform: state
      entity_id: binary_sensor.ffmpeg_noise
-     from: 'off'
-     to: 'on'
+     from: "off"
+     to: "on"
    action:
     - service: media_player.sonos_snapshot
-      entity_id: media_player.bedroom
+      target:
+        entity_id: media_player.bedroom
     - service: media_player.sonos_unjoin
-      entity_id: media_player.bedroom
+      target:
+        entity_id: media_player.bedroom
     - service: media_player.volume_set
-      entity_id: media_player.bedroom
+      target:
+        entity_id: media_player.bedroom
       data:
         volume_level: 0.4
     - service: media_player.play_media
-      entity_id: media_player.bedroom
+      target:
+        entity_id: media_player.bedroom
       data:
-        media_content_type: 'music'
+        media_content_type: "music"
         media_content_id: http://my_ip_icecast:8000/babyphone.mp3
     - service: light.turn_on:
-      entity_id:
+      target:
+        entity_id:
        - light.floor
        - light.bedroom
       data:
         brightness: 150
 
- - alias: 'Babyphone alarm off'
+ - alias: "Babyphone alarm off"
    trigger:
      platform: state
      entity_id: binary_sensor.ffmpeg_noise
-     from: 'on'
-     to: 'off'
+     from: "on"
+     to: "off"
    action:
     - service: media_player.sonos_restore
-      entity_id: media_player.bedroom
+      target:
+        entity_id: media_player.bedroom
     - service: light.turn_off:
-      entity_id:
-       - light.floor
-       - light.bedroom
+      target:
+        entity_id:
+         - light.floor
+         - light.bedroom
 ```
 
 ### Thanks

@@ -23,11 +23,15 @@ switch:
 
 {% configuration %}
 resource:
-  description: The resource or endpoint that contains the value.
+  description: The resource or endpoint used to control the REST switch.
   required: true
   type: string
+state_resource:
+  description: "The resource or endpoint that reports the state if different from `resource`. Used by `is_on_template`. Defaults to `resource`."
+  required: false
+  type: string
 method:
-  description: "The method of the request. Supported `post` or `put`."
+  description: "The method of the request. Supported `post`, `put` or `patch`."
   required: false
   type: string
   default: post
@@ -45,12 +49,12 @@ body_on:
   description: "The body of the POST request that commands the switch to become enabled. This value can be a [template](/topics/templating/)."
   required: false
   type: string
-  default: ON
+  default: "ON"
 body_off:
   description: "The body of the POST request that commands the switch to become disabled. This value can also be a [template](/topics/templating/)."
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 is_on_template:
   description: "A [template](/docs/configuration/templating/#processing-incoming-data) that determines the state of the switch from the value returned by the GET request on the resource URL. This template should compute to a boolean (True or False). If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is equivalent to `'{% raw %}{{ value_json == body_on }}{% endraw %}'`. This means that by default, the state of the switch is on if and only if the response to the GET request matches."
   required: false
@@ -95,7 +99,7 @@ switch:
     resource: http://IP_ADDRESS/led_endpoint
     body_on: '{"active": "true"}'
     body_off: '{"active": "false"}'
-    is_on_template: '{{ value_json.is_active }}'
+    is_on_template: "{{ value_json.is_active }}"
     headers:
       Content-Type: application/json
     verify_ssl: true

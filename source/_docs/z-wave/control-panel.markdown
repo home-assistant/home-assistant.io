@@ -1,16 +1,18 @@
 ---
 title: "Z-Wave Control Panel"
 description: "How to use the Z-Wave control panel."
-redirect_from: /getting-started/z-wave-panel/
 ---
+
+The Z-Wave control panel is available via **Configuration** &rarr; **Integrations** &rarr; **Z-Wave** &rarr; **Configure**.
+
+* **No Z-Wave integration?** Follow the [set up instructions](/docs/z-wave/installation/) to enable it.
+* **Missing the *Configuration* button?** See the [configuration documentation](/integrations/config/) for instructions on enabling it.
 
 <div class='note'>
 
-  If you don't see the **Configuration** menu on the menubar, where you'll find the Z-Wave menu, [see here](/integrations/config/).
+This Z-Wave integration is deprecated and has been replaced with a [new implementation based on Z-Wave JS](/integrations/zwave_js); You can [try it now](/integrations/zwave_js/).
 
 </div>
-
-Renaming Z-Wave entities is now done using the same [customization options](/docs/configuration/customizing-devices/) as for any other entity.
 
 ## Z-Wave Network Management
 
@@ -85,6 +87,8 @@ Here you can mark a device as requiring polling so the controller is aware of ch
 The **Polling intensity** says how many poll intervals this device is polled on. For example, if you set 2 then it's polled on every second interval.
 
 You can also exclude a Z-Wave devices from Home Assistant. You can do that if you have a device that you need to have on the Z-Wave network, but you don't want it to appear in Home Assistant, or if you've got a device that's failed and you're unable to exclude it.
+
+Renaming Z-Wave entities is done with the same [customization options](/docs/configuration/customizing-devices/) as any other entity in Home Assistant.
 
 ### Node Values
 
@@ -162,3 +166,4 @@ for c in sys.argv[1]:
 If you want to only retrieve some lines at the end of the log, you can specify that with the selection field. Max is the last 1000 lines and minimum is 0 which equals the whole log. If this is not specified, you will retrieve the whole log.
 Select **Load** to open a new window with the static log.
 Select **Tail** to open a new window with a tailing log with the last specified lines of the log. This is a self updating window.
+

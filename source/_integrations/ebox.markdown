@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 ha_domain: ebox
+ha_platforms:
+  - sensor
 ---
 
 Integrate your [EBox](https://client.ebox.ca/) account information into Home Assistant.

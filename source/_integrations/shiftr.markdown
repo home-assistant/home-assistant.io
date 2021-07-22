@@ -3,6 +3,7 @@ title: shiftr.io
 description: Transfer events to Shiftr.io.
 ha_category:
   - History
+ha_iot_class: Cloud Push
 ha_release: 0.48
 ha_codeowners:
   - '@fabaff'

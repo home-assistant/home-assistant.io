@@ -6,53 +6,58 @@ ha_category:
   - Binary Sensor
   - Notifications
   - Climate
+  - Humidifier
   - Weather
 featured: true
 ha_release: 0.9
-ha_iot_class: Cloud Poll
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@marthoc'
 ha_domain: ecobee
+ha_platforms:
+  - binary_sensor
+  - climate
+  - humidifier
+  - notify
+  - sensor
+  - weather
 ---
 
 The `ecobee` integration lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.
 
-## Preliminary Step
+## Preliminary Steps
 
 You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, your thermostat must be registered on ecobee's website (which you likely would have already done while installing your thermostat). Once you have done that, perform the following steps.
 
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/developers/).
-2. Log in with your ecobee credentials.
+2. Log in with your ecobee credentials. (Make sure multifactor authentication is disabled to allow login can re-enable after becoming developer.)
 3. Accept the SDK agreement.
 4. Fill in the fields.
 5. Click **save**.
 
-Log in to the regular consumer portal, and click the overflow menu button in the upper right. You will see a new option named **Developer**. Now we can create the Application to hook up to Home Assistant.
+Log in to the regular consumer portal and click the overflow menu button in the upper right. You will see a new option named **Developer**. Now an application can be created to integrate with Home Assistant.
 
-1. Select the **Developer** option from the hamburger menu.
+1. Select the **Developer** option from the hamburger menu on the top-right.
 2. Select **Create New**.
-3. Give your App a name (it must be unique across all ecobee users; try your-name-or-alias-home-assistant) and a summary (which need not be unique). Neither of these are important as they are not used anywhere in Home Assistant.
-4. For authorization method select **ecobee PIN**.
-5. You don't need an Application Icon or Detailed Description.
-6. Click **Create**.
+3. Complete the form on the right. (Neither of the fields are referenced by Home Assistant)
+    * Name: Must be unique across all ecobee users.
+    * Summary: Does not need to be unique.
+4. Click *Authorization method* and select **ecobee PIN**.
+5. Click **Create**.
 
-Under the Name and Summary Section, you will now have an API key. Copy this key and use it in your configuration section below. Click the **X** to close the Developer section.
+Your new application will now appear on the left. Upon clicking on the application, API key will appear on the right. Copy this key and use it in the configuration section below. Click **X** to close the Developer section.
 
-## Configuring the Integration
+## Configuration
 
-To configure the ecobee integration in Home Assistant, you can either use the **Configuration** > **Integrations** menu, or add an entry to `configuration.yaml`.
+1. In the **Configuration** > **Integrations** menu, click **+** and then select "ecobee" from the pop-up menu.
+2. In the pop-up box, enter the API key you obtained from ecobee's [developer portal](https://ecobee.com/developers).
+3. In the next pop-up box, you will be presented with a unique four-character PIN code which you will need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by logging in, selecting **My Apps** from the hamburger menu, clicking **Add Application** on the left, entering the PIN code from Home Assistant, clicking **Validate** and then **Add Application** in the bottom right.
+4. After authorizing the app with ecobee, return to Home Assistant and click **Submit**. If the authorization was successful, a configuration entry will be created and your thermostats and sensors will be available in Home Assistant.
 
-### Setup via the Integrations menu
+## Manual Configuration
 
-1. In the **Configuration** > **Integrations** menu, click **+** and then select `ecobee` from the pop-up menu.
-2. In the pop-up box, enter the API key you obtained from ecobee.com.
-3. In the next pop-up box, you will be presented with a unique four-character PIN code which you will need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by logging in, selecting **My Apps** from the hamburger menu, clicking **Add Application** on the left, entering the PIN code from Home Assistant, and clicking **Validate** and then **Add Application** in the bottom right.
-4. After authorizing the App on ecobee.com, return to Home Assistant and hit **Submit**. If the authorization was successful, a configuration entry will be created and your thermostats and sensors will be available in Home Assistant.
-
-### Setup via `configuration.yaml`
-
-If you prefer to initially set up this integration in [`configuration.yaml`](/docs/configuration/), you may do so by adding your API key (and optional parameters) as follows (however, you must still complete authorization via the **Integrations** menu):
+If you prefer to set up the integration in [`configuration.yaml`](/docs/configuration/), add your API key (and optional parameters) as follows (however, you must still complete authorization via the **Integrations** menu):
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,11 +73,11 @@ api_key:
 {% endconfiguration %}
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/ecobee-sensor-badges.png' />
-  <img src='{{site_root}}/images/screenshots/ecobee-thermostat-card.png' />
+  <img src='/images/screenshots/ecobee-sensor-badges.png' />
+  <img src='/images/screenshots/ecobee-thermostat-card.png' />
 </p>
 
-[Restart Home Assistant](/docs/configuration/#reloading-changes) for the changes to take effect. In the **Configuration** > **Integrations** menu, hit **Configure** next to the discovered `ecobee` entry, and continue to authorize the App per the Integration menu instructions above, starting at step 2.
+You must [restart Home Assistant](/docs/configuration/#reloading-changes) for the changes to take effect. After restarting, navigate to the **Configuration** > **Integrations** menu, hit **Configure** next to the discovered `ecobee` entry, and continue to authorize the app according to the above **Automatic Configuration**, starting at step 2.
 
 ## Notifications
 
@@ -114,6 +119,8 @@ defined vacation period and expires when the vacation period ends.
 When in _away preset_, the target temperature is permanently overridden by the target temperature defined for the away climate. The away preset is a simple way to emulate a vacation mode.
 
 The _HVAC mode_ of the device is the currently active operational modes that the ecobee thermostat provides: heat, auxHeatOnly, cool, auto, and off.
+
+The _target humidity_ is the humidity set point of the thermostat when a humidifier is connected and in manual control or "On" mode.
 
 ## Attributes
 

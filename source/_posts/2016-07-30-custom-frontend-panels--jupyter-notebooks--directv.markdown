@@ -5,7 +5,9 @@ date: 2016-07-30 12:00:00 +0000
 date_formatted: "July 30, 2016"
 author: Fabian Affolter & Paulus Schoutsen
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!
@@ -20,11 +22,11 @@ The brand-new [iFrame panel component][iframe_panel] allows you to add other web
 
 I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] data ([PEP484]) to the Home Assistant core. This will help us identify issues before they are released.
 
-<img src='/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/directv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://brands.home-assistant.io/directv/icon.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 - Frontend: Support for [iFrame panels][iframe_panel] to adding other sites to sidebar ([@balloob])
 - Allow components to register [custom frontend panels][custom-panels] ([@balloob])
-- Add example custom_component [react_panel][react-panel] showing custom panels ([@balloob])
+- Add example custom_component react_panel showing custom panels ([@balloob])
 - Light: [MagicLight/Flux WiFi Color LED Light][flux] support ([@Danielhiversen])
 - Script: Specify a delay [using templates][script] ([@Teagan42])
 - Media player: [Russound RNET][Russound] integration ([@laf]) 
@@ -102,7 +104,6 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 
 [custom-panels]: /developers/frontend_creating_custom_panels/
 [iframe_panel]: /integrations/panel_iframe/
-[custom]: /cookbook/custom_panel_using_react/
 [flux]: /integrations/flux_led
 [script]: /getting-started/scripts/#delay
 [Russound]: /integrations/russound_rnet
@@ -120,7 +121,6 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 [PEP484]: https://www.python.org/dev/peps/pep-0484/
 [MPC-HC]: /integrations/mpchc
 [Telegram]: /integrations/telegram
-[react-panel]: /cookbook/custom_panel_using_react/
 [KNX]: /integrations/climate.knx/
 [Nest]: /integrations/nest/#climate
 [filters]: /topics/templating/#home-assistant-template-extensions

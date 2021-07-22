@@ -5,7 +5,9 @@ date: 2016-02-27 14:15:00 -0800
 date_formatted: "February 28, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2016-02-release-14/social.png
 ---
 
@@ -42,13 +44,13 @@ It's been another two weeks which means it's time for release: 0.14!
 </p>
 
 ### Backwards incompatible changes
- - Component: Simple Alarm has been removed. Still available in [the cookbook].
+ - Component: Simple Alarm has been removed. Still available in the cookbook.
  - Script: Turning on a [script] that is already on is now a no-op instead of skipping current delay.
  - Wemo switches now have to be set up via the main [Wemo component]
  - Command line platforms for [switch][switch.cmd], [sensor][sensor.cmd] and [binary_sensor][binary_sensor.cmd] have been renamed to `command_line`.
  - The rfxtrx sensors entity ids will incur a one time change to move to a stable format. See [the docs][sensor.rfxtrx] for more details.
 
-[sensor.rfxtrx]: /integrations/sensor.rfxtrx/
+[sensor.rfxtrx]: /integrations/rfxtrx#sensors
 [notify.command_line]: /integrations/notify.command_line/
 [Verisure]: /integrations/verisure
 [binary_sensor.tcp]: /integrations/tcp#binary-sensor
@@ -66,7 +68,6 @@ It's been another two weeks which means it's time for release: 0.14!
 [Wemo]: /integrations/wemo
 [Steam]: /integrations/steam_online
 [Wink]: /integrations/wink#binary-sensor
-[the cookbook]: /cookbook/python_component_simple_alarm/
 [script]: /integrations/script/
 [Wemo component]: /integrations/wemo/
 [switch.cmd]: /integrations/switch.command_line/

@@ -8,20 +8,16 @@ ha_release: 0.114
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@timmo001"
+  - '@timmo001'
 ha_domain: ovo_energy
+ha_platforms:
+  - sensor
 ---
 
 The `ovo_energy` integration allows you to monitor your energy consumption data
 in Home Assistant.
 
-## Configuration
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **OVO Energy**.
-After completing the configuration flow, the OVO Energy integration will be
-available.
+{% include integrations/config_flow.md %}
 
 ## Sensors
 

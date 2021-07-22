@@ -1,6 +1,6 @@
 ---
-title: Nexia
-description: Instructions on how to integrate Nexia Thermostats (Trane/American Standard) into Home Assistant.
+title: Nexia/American Standard
+description: Instructions on how to integrate Trane and American Standard thermostats into Home Assistant.
 ha_category:
   - Binary Sensor
   - Sensor
@@ -10,12 +10,17 @@ ha_release: 0.108
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@ryannazaretian'
   - '@bdraco'
 ha_domain: nexia
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - scene
+  - sensor
 ---
 
-The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com/) thermostats into Home Assistant.
+The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com/) (Trane) thermostats or [American Standard](https://asairhome.com/) thermostats into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -24,31 +29,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Scene](#scene)
 
-## Configuration
-
-You will need your mynexia.com username and password to use this module.
-
-To add `Nexia` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Nexia**.
-
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-nexia:
-  username: YOUR_NEXIA_USERNAME
-  password: YOUR_NEXIA_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: The username for accessing your Nexia account.
-  required: true
-  type: string
-password:
-  description: The password for accessing your Nexia account.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ### Binary Sensor
 
@@ -77,9 +58,11 @@ The following binary sensors are added for each thermostat zone:
 
 The `nexia` climate platform lets you control a thermostat.
 
-The following thermostats are supported: `XL1050`, `XL850`, `XL824`
+The following Trane thermostats are supported: `XL1050`, `XL850`, `XL824`
 
-The following thermostats are not supported: `XL624`
+The following American Standard thermostats have been reported to work: `AZONE1050`, `AZONE850`, `ACONT824`
+
+The following thermostats are not supported: `XL624`, `XL950`, `AZONE950`, `AZEMT500`, `AZEMT400B`
 
 Other thermostats may work, but they have not been tested.
 

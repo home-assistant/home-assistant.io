@@ -92,7 +92,7 @@ Before beginning make sure that you have the following:
    Type=simple
    User=asterisk
    Group=asterisk
-   ExecStart=/usr/local/bin/asterisk_mbox_server --cfg /etc/asterisk/asterisk_mbox.ini
+   ExecStart=/usr/local/bin/asterisk-mbox-server --cfg /etc/asterisk/asterisk_mbox.ini
    Restart=on-failure
 
    [Install]

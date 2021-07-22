@@ -1,7 +1,6 @@
 ---
 title: "Adding devices to Home Assistant"
 description: "Steps to help you get your devices in Home Assistant."
-redirect_from: /getting-started/devices/
 ---
 
 Home Assistant will be able to automatically discover many devices and services available on your network if you have [the discovery component](/integrations/discovery/) enabled (the default setting).
@@ -26,7 +25,7 @@ sensor:
     state_topic: "home/kitchen/temperature"
     name: "MQTT Sensor 2"
   - platform: rest
-    resource: http://IP_ADDRESS/ENDPOINT
+    resource: "http://IP_ADDRESS/ENDPOINT"
     name: "Weather"
 
 switch:
@@ -50,7 +49,7 @@ sensor kitchen:
 
 sensor weather:
   platform: rest
-  resource: http://IP_ADDRESS/ENDPOINT
+  resource: "http://IP_ADDRESS/ENDPOINT"
   name: "Weather"
 
 switch 1:
@@ -63,13 +62,15 @@ switch 2:
 ## Grouping devices
 
 Once you have several devices set up, it is time to organize them into groups.
-Each group consists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (<img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" />).
+Each group consists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the {% my developer_states title="States page in the Developer Tools" %}.
 
 ```yaml
-# Example configuration.yaml entry showing two styles
+# Example configuration.yaml entry
 group:
   living_room:
-    entities: light.table_lamp, switch.ac
+    entities:
+      - light.table_lamp
+      - switch.ac
   bedroom:
     entities:
       - light.bedroom

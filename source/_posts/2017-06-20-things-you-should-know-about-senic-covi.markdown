@@ -21,7 +21,7 @@ TL;DR: We are not affiliated with Senic or their COVI product. We will not suppo
 
 </div>
 
-Recently Home Assistant has been made aware of a product by [Senic] that will be launching later today on [Kickstarter][kickstarter] ([screenshot][ks-backup]). Senic is not new in the IoT business, we have had support for their first product ([Nuimo]) since last September. Their new product, COVI, uses Home Assistant as its core home automation codebase. This is great, that is what open source is all about. However, they also use our name and logo in their Kickstarter, with the press and in their [developer documentation] ([screenshot][docs-backup]) to give the appearance of being affiliated with Home Assistant, against our wishes. Which is not great, at all.
+Recently Home Assistant has been made aware of a product by [Senic] that will be launching later today on [Kickstarter][kickstarter] ([screenshot][ks-backup]). Senic is not new in the IoT business, we have had support for their first product (Nuimo) since last September. Their new product, COVI, uses Home Assistant as its core home automation codebase. This is great, that is what open source is all about. However, they also use our name and logo in their Kickstarter, with the press and in their [developer documentation] ([screenshot][docs-backup]) to give the appearance of being affiliated with Home Assistant, against our wishes. Which is not great, at all.
 
 Take some of the following quotes from their Kickstarter campaign:
 
@@ -60,6 +60,5 @@ Core Developer, Home Assistant
 [Hass.io]: /hassio/
 [to Forbes]: https://www.forbes.com/sites/paularmstrongtech/2017/06/20/covi-is-about-to-make-some-general-electric-execs-very-unhappy/
 [tradfri]: /blog/2017/04/17/ikea-tradfri-internet-of-things-done-right/
-[Nuimo]: /integrations/nuimo_controller/
 [developer documentation]: http://blog.senic.com/posts/the-senic-hub-a-brief-software-overview
 [apology]: https://medium.com/@senic/an-open-letter-to-home-assistant-5ccb53ccf722

@@ -4,6 +4,7 @@ description: Instructions on how to setup automatic alerts within Home Assistant
 ha_category:
   - Automation
 ha_release: 0.38
+ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: alert
 ---
@@ -14,8 +15,15 @@ remind you of this by sending you repeating notifications at customizable
 intervals. This is also used for low battery sensors,
 water leak sensors, or any condition that may need your attention.
 
-Alerts will add an entity to the front end only when they are firing.
-This entity allows you to silence an alert until it is resolved.
+Alerts will add an entity to the front end.
+This entity allows you to silence an alert until it is resolved and has three
+possible states:
+
+State | Description
+-|-
+`idle` | The condition for the alert is false.
+`on` | The condition for the alert is true.
+`off` | The condition for the alert is true but it was acknowledged.
 
 ### Basic Example
 
@@ -30,7 +38,7 @@ alert:
     name: Garage is open
     done_message: Garage is closed
     entity_id: input_boolean.garage_door
-    state: 'on'
+    state: "on"
     repeat: 30
     can_acknowledge: true
     skip_first: true
@@ -79,15 +87,15 @@ skip_first:
   default: false
 message:
   description: >
-    A message to be sent after an alert transitions from `off` to `on`
+    A message to be sent after an alert transitions from `idle` to `on`
     with [template](/docs/configuration/templating/) support.
   required: false
   type: template
 done_message:
   description: >
-    A message sent after an alert transitions from `on` to `off` with
+    A message sent after an alert transitions from `on` or `off` to `idle` with
     [template](/docs/configuration/templating/) support. Is only sent if an alert notification
-    was sent for transitioning from `off` to `on`.
+    was sent for transitioning from `idle` to `on`.
   required: false
   type: template
 notifiers:
@@ -129,7 +137,7 @@ alert:
   freshwater_temp_alert:
     name: "Warning: I have detected a problem with the freshwater tank temperature"
     entity_id: binary_sensor.freshwater_temperature_status
-    state: 'on'
+    state: "on"
     repeat: 5
     can_acknowledge: true
     skip_first: false
@@ -148,13 +156,14 @@ than one input. For all of these situations, it is best to use the alert in
 conjunction with a `Template Binary Sensor`. The following example does that.
 
 {% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
     sensors:
       motion_battery_low:
         value_template: "{{ state_attr('sensor.motion', 'battery') < 15 }}"
-        friendly_name: 'Motion battery is low'
+        friendly_name: "Motion battery is low"
 
 alert:
   motion_battery:
@@ -165,6 +174,7 @@ alert:
       - ryans_phone
       - kristens_phone
 ```
+
 {% endraw %}
 
 This example will begin firing as soon as the entity `sensor.motion`'s `battery`
@@ -184,7 +194,7 @@ alert:
   garage_door:
     name: Garage is open
     entity_id: input_boolean.garage_door
-    state: 'on'   # Optional, 'on' is the default value
+    state: "on"   # Optional, 'on' is the default value
     repeat:
       - 15
       - 30
@@ -211,13 +221,14 @@ The following will show for a plant how to include the problem `attribute`
 of the entity.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 alert:
   office_plant:
     name: Plant in office needs help
     entity_id: plant.plant_office
-    state: 'problem'
+    state: "problem"
     repeat: 30
     can_acknowledge: true
     skip_first: true
@@ -227,6 +238,7 @@ alert:
       - ryans_phone
       - kristens_phone
 ```
+
 {% endraw %}
 
 The resulting message could be `Plant Officeplant needs help (moisture low)`.
@@ -240,9 +252,11 @@ Some notifiers support more parameters (e.g., to set text color or action
 # Example configuration.yaml entry
 alert:
   garage_door:
-    name: Garage is open
+    name: "Garage is open"
+    message: "The garage door is still open"
+    done_message: "The garage door is closed"
     entity_id: input_boolean.garage_door
-    state: 'on'   # Optional, 'on' is the default value
+    state: "on"   # Optional, 'on' is the default value
     repeat:
       - 15
       - 30
@@ -257,5 +271,21 @@ alert:
 ```
 This particular example relies on the `inline_keyboard` functionality of
 Telegram, where the user is presented with buttons to execute certain actions.
+
+Based on the example above you can make an automation to stop further messages,
+but you will still receive the done message.
+
+```yaml
+- alias: "Telegram callback to stop alerts for garage door"
+  trigger:
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/garage_acknowledge"
+  action:
+    - service: alert.turn_off
+      target:
+        entity_id: alert.garage_door
+```
 
 [template]: /docs/configuration/templating/

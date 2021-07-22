@@ -11,14 +11,17 @@ ha_config_flow: true
 ha_codeowners:
   - '@outadoc'
 ha_domain: smarthab
+ha_platforms:
+  - cover
+  - light
 ---
 
-If your home is fitted with [SmartHab](https://www.smarthab.fr/en/home/)'s 
+If your home is fitted with [SmartHab](https://smarthab.fr/index.php/home-en)'s 
 devices and you have access to their app-based services, you will be able 
 to control your lights and shutters with the SmartHab integration for Home 
 Assistant.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
 <div class='note warning'>
   To prevent being automatically logged out of your SmartHab mobile app, you
@@ -26,27 +29,3 @@ Assistant.
   access to your home. You can then configure the integration using this account's
   credentials. This is also more secure, as this user should be less priviledged.
 </div>
-
-To add the SmartHab integration to your installation, go to **Configuration** >> 
-**Integrations** in the UI, click the button with `+` sign and from the list of 
-integrations select **SmartHab**.
-
-Alternatively, add the following lines to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-smarthab:
-  email: EMAIL_ADDRESS
-  password: PASSWORD
-```
-
-{% configuration %}
-email:
-  description: The email address of your SmartHab account.
-  required: true
-  type: string
-password:
-  description: The SmartHab account's password.
-  required: true
-  type: string
-{% endconfiguration %}

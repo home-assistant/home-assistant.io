@@ -3,8 +3,11 @@ title: LlamaLab Automate
 description: Instructions on how to add user notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.27
 ha_domain: llamalab_automate
+ha_platforms:
+  - notify
 ---
 
 The `llamalab_automate` platform uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.

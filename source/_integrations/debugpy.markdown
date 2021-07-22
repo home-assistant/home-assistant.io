@@ -8,6 +8,7 @@ ha_codeowners:
   - '@frenck'
 ha_domain: debugpy
 ha_quality_scale: internal
+ha_iot_class: Local Push
 ---
 
 The remote Python debugger integration allows you to use the Visual Studio Code
@@ -18,8 +19,8 @@ the default library used by Visual Studio Code.
 
 This is useful in testing changes on a local development install, or connecting
 to a production server to debug issues. It is possible to load the integration
-without the activating the debugger, but injecting it with a service call. This
-is particularly useful on a developer' production system as it does not impact
+without activating the debugger, but injecting it with a service call. This
+is particularly useful on a developer's production system as it does not impact
 performance when not injected.
 
 ## Configuration
@@ -62,9 +63,9 @@ wait:
 
 Ensure if this is a public-facing server, that the port is secured. Anyone who
 is able to access the debugger port can *execute arbitrary code* on the
-Home Assistant server, which is very unsafe.
+Home Assistant instance, which is very unsafe.
 
-If the Home Assistant server is behind your firewall with only the http(s) port
+If the Home Assistant instance is behind your firewall with only the http(s) port
 exposed, then this is safe from outside connections.
 
 ## Performance and Memory Use

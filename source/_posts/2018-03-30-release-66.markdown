@@ -5,7 +5,9 @@ date: 2018-03-30 00:01:00
 date_formatted: "March 30, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-03-0.66/components.png
 ---
 
@@ -27,7 +29,7 @@ A quick note if you are using Philips Hue and a Hue custom component: it will no
 - Adding Foobot device sensor ([@reefab] - [#12417]) ([sensor.foobot docs]) (new-platform)
 - Added Stride notification component ([@BioSehnsucht] - [#13221]) ([notify docs]) (new-platform)
 - Xiaomi MiIO Sensor: Xiaomi Air Quality Monitor (PM2.5) integration ([@syssi] - [#13264]) ([sensor.xiaomi_miio docs]) (new-platform)
-- Add initial support fo HomematicIP components ([@mxworm] - [#12761]) ([homematicip docs]) ([sensor.homematicip docs]) (new-platform)
+- Add initial support fo HomematicIP components ([@mxworm] - [#12761]) (new-platform)
 - Support for security systems controlled by IFTTT ([@maxclaey] - [#12975]) ([alarm_control_panel.ifttt docs]) (new-platform)
 - Zigbee fan ([@igorbernstein2] - [#12289]) ([zha docs]) ([fan.zha docs]) (new-platform)
 - Adding a discoverable Samsung Syncthru Printer sensor platform ([@nielstron] - [#13134]) ([sensor.syncthru docs]) (new-platform)
@@ -149,7 +151,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Delete .gitmodules ([@pvizeli] - [#13295])
 - Update to latest python-nest ([@cburgess] - [#12590]) ([nest docs])
 - Upgrade async_timeout to 2.0.1 ([@fabaff] - [#13290])
-- Add initial support fo HomematicIP components ([@mxworm] - [#12761]) ([homematicip docs]) ([sensor.homematicip docs]) (new-platform)
+- Add initial support fo HomematicIP components ([@mxworm] - [#12761]) (new-platform)
 - Added Time based SMA to Filter Sensor ([@dgomes] - [#13104]) ([sensor.filter docs])
 - Support for security systems controlled by IFTTT ([@maxclaey] - [#12975]) ([alarm_control_panel.ifttt docs]) (new-platform)
 - Add ecobee fan mode ([@uchagani] - [#12732]) ([ecobee docs]) ([climate.ecobee docs])
@@ -476,7 +478,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [history docs]: /integrations/history/
 [homekit docs]: /integrations/homekit/
 [homematic docs]: /integrations/homematic/
-[homematicip docs]: /integrations/homematicip/
 [homematicip_cloud docs]: /integrations/homematicip_cloud/
 [http docs]: /integrations/http/
 [hue docs]: /integrations/hue/
@@ -526,7 +527,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.foobot docs]: /integrations/foobot
 [sensor.glances docs]: /integrations/glances
 [sensor.homematic docs]: /integrations/homematic
-[sensor.homematicip docs]: /integrations/homematicip/
 [sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
 [sensor.lacrosse docs]: /integrations/lacrosse
 [sensor.mqtt docs]: /integrations/sensor.mqtt/

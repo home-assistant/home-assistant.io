@@ -2,7 +2,7 @@
 title: "FAQ"
 description: "Home Assistant's FAQ"
 regenerate: true
-hide_github_edit: true
+feedback: false
 ---
 
 This is a community curated list of frequently asked questions (FAQ) about the installation, setup, and usage of Home Assistant. If you want to get details about a term, please check the [glossary](/docs/glossary/).
@@ -23,4 +23,3 @@ This is a community curated list of frequently asked questions (FAQ) about the i
     {% endif %}
   {% endfor %}
 {% endfor %}
-

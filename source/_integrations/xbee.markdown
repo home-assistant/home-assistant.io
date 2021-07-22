@@ -9,9 +9,14 @@ ha_category:
 ha_release: 0.12
 ha_iot_class: Local Polling
 ha_domain: xbee
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
+  - switch
 ---
 
-[Zigbee](https://zigbee.org/what-is-zigbee/) integration for Home Assistant allows you to utilize modules such as the [XBee](https://www.digi.com/xbee) as wireless General Purpose Input/Output (GPIO) devices. The integration requires a local Xbee device to be connected to a serial port. Through this, it will send and receive commands to and from other devices on the Zigbee mesh network.
+[Zigbee](https://zigbeealliance.org/solution/zigbee/) integration for Home Assistant allows you to utilize modules such as the [XBee](https://www.digi.com/xbee) as wireless General Purpose Input/Output (GPIO) devices. The integration requires a local Xbee device to be connected to a serial port. Through this, it will send and receive commands to and from other devices on the Zigbee mesh network.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -134,7 +139,7 @@ on_state:
 
 ## Sensor
 
-There are two types of [Zigbee](https://zigbee.org/) sensor available to Home Assistant:
+There are two types of [Zigbee](https://zigbeealliance.org/) sensor available to Home Assistant:
 
 - [Analog input pin](#analog-input-pin)
 - [Temperature sensor](#temperature-sensor) (XBee Pro)
