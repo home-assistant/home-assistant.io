@@ -4,7 +4,7 @@ description: Instructions on setting up  the Automate Pulse Hub v2 by Rollease A
 ha_category:
   - Cover
 ha_iot_class: Local Push
-ha_release: 0.115
+ha_release: 2021.8
 ha_config_flow: true
 ha_codeowners:
   - '@sillyfrog'
@@ -15,9 +15,12 @@ The Automate Pulse 2 Hub by Rollease Acmeda integration allows you to control an
 
 Devices are represented as a cover for monitoring and control as well as a sensor for monitoring battery level and signal strength.
 
-To set up this integration, click the + icon in the lower right and find the Automate Pulse Hub v2. This will prompt for the IP address of the hub and register the covers with Home Assistant. All devices are automatically discovered on the hub and you will have the opportunity to select the area each device is located.
 
-Once registration is complete, you should see a `cover` and two `sensor` entities for each device. The integration automatically manages the addition/update/removal of any devices connected on the hub at startup, including device names unless manually specified in Home Assistant.
+{% include integrations/config_flow.md %}
+
+Once registration is complete, all devices are automatically discovered on the hub and you will have the opportunity to select the area each device is located. You should see a `cover` and two `sensor` entities for each device.
+
+The integration automatically manages the addition/update/removal of any devices connected to the hub at startup, including device names unless manually specified in Home Assistant.
 
 ## Caveats
 
