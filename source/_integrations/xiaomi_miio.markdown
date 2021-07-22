@@ -54,7 +54,7 @@ Please read the linked sections for those devices for more information.
 
 It is recommend to supply your Xiaomi cloud credentials during configuration
 to automatically connect to your devices. You need to specify the cloud server
-you used in the Xiaomi Home App (where you initialy setup the device). There are
+you used in the Xiaomi Home App (where you initially setup the device). There are
 6 servers: `cn`, `de`, `i2`, `ru`, `sg` and `us`; please see
 [this page](https://www.openhab.org/addons/bindings/miio/#country-servers) for
 the server to use for each country.
@@ -1244,7 +1244,7 @@ Allowed `params` for the `reset_consumable` command:
 
 [RRCC](https://github.com/LazyT/rrcc) supports both rooted and non-rooted Vacuums and acts as a mostly fully featured replacement for Mi Home that works locally without the cloud. If you have installed the rooted firmware [Valetudo](https://github.com/Hypfer/Valetudo) you are able to SSH into your Vacuum and enable MQTT plus use map functions with no cloud requirement.
 
-Using the map editor you are able to acquire the co-ordinates required for zoned clean up. Here is an example script for zoned clean up:
+Using the map editor you are able to acquire the coordinates required for zoned clean up. Here is an example script for zoned clean up:
 
 ```yaml
 vacuum_kitchen:
@@ -1269,7 +1269,7 @@ miiocli vacuum --ip <ip of the vacuum> --token <your vacuum token> get_room_mapp
 It will return the full mapping of room numbers to user-defined names as a list of (number,name) tuples.
 Alternatively, one can just test the clean_segment service with a number and see which room it cleans.
 
-It seems to be the case that Numbers 1..15 are used to number the intitial segmentation done by the vacuum cleaner itself. Numbers 16 and upwards numbers rooms from the users manual editing.
+It seems to be the case that Numbers 1..15 are used to number the initial segmentation done by the vacuum cleaner itself. Numbers 16 and upwards numbers rooms from the users manual editing.
 
 ## Xiaomi Philips Light
 

@@ -70,7 +70,7 @@ sleep_tune:
   required: false
   type: float
 sampling_interval:
-  description: Sampling interval in millseconds sent to Firmata. Most Firmata sketches will ignore any interval less than 10 milliseconds.
+  description: Sampling interval in milliseconds sent to Firmata. Most Firmata sketches will ignore any interval less than 10 milliseconds.
   required: false
   type: integer
 switches:

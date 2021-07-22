@@ -280,7 +280,7 @@ Example values to cast [BBC Radio 1](https://www.bbc.co.uk/sounds/play/live:bbc_
 
 This app doesn't retrieve its own metadata, so if you want the cast interface or media player card to show titles and/or images you will have to provide the data yourself. See the examples below.
 
-Note: Media ID is NOT the 8 digit alpha-numeric in the URL, it can be found by right-clicking the playing video. E.g., [this episode](https://www.bbc.co.uk/iplayer/episode/b09w7fd9/bitz-bob-series-1-1-castle-makeover) shows:
+Note: Media ID is NOT the 8 digit alphanumeric in the URL, it can be found by right-clicking the playing video. E.g., [this episode](https://www.bbc.co.uk/iplayer/episode/b09w7fd9/bitz-bob-series-1-1-castle-makeover) shows:
 
     2908kbps | dash (mf_cloudfront_dash_https)
     b09w70r2 | 960x540

@@ -22,7 +22,7 @@ profile,color_x,color_y,brightness,transition
 
 The field transition is optional and can be omitted.
 
-The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g., for `light.ceiling_2` the `profile` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supercede the `all_lights` default setting.
+The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g., for `light.ceiling_2` the `profile` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supersede the `all_lights` default setting.
 
 <div class='note'>
 
