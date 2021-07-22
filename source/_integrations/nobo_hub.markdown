@@ -14,7 +14,8 @@ ha_platforms:
 ---
 
 Integrates [Nobø Ecohub](https://www.glendimplex.no/produkter/varmestyring/11123610/noboe-hub/c-77/p-330)
-into Home Assistant.
+into Home Assistant. This integration is not officially supported or endorsed by Glen Dimplex Nordic AS,
+and the authors/maintainers are not official partners of Glen Dimplex Nordic AS.
 
 To configure the integration, you need the 3 last digits of the serial number of your hub. These are located
 on the back of the hub. If the hub is on a different local network than Home Assistant, you also need the
