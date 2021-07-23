@@ -93,6 +93,62 @@ automation:
 To find your scanner's device ID, open Developer tools -> Events -> Listen to events and subscribe to `tag_scanned`.
 Then scan a tag on the reader and note down the `device_id` from the `data` section. 
 
+Another example is using tags for disarming the home assistant alarm system. 
+
+{% raw %}
+automation:
+  - id: TAG.001
+    alias: "Handle Tag Scan"
+    mode: single
+    # Hide warnings when triggered while in delay.
+    max_exceeded: silent
+    variables:
+      # Map scanner device ID to terminal entity_id
+      terminal:
+        92da34743b362a8a: device_tracker.tablet
+      # Map tag ID to user
+      tags:
+        2v36f723-2d47-416f-36ee-3bb650b453b0:
+          user: person.kate
+        11a04b95-ab99-2ge2-aa28-cf9587be4c86:
+          user: person.guest_1
+    trigger:
+      platform: event
+      event_type: tag_scanned
+    condition:
+      - condition: state
+        entity_id: alarm_control_panel.alarm
+        state: 'pending'
+      - condition: time
+        after: "07:00:00"
+        before: "23:00:00"
+        weekday:
+          # - sun
+          # - mon
+          # - tue
+          # - wed
+          # - thu
+          - fri
+          # - sat
+      - "{{ trigger.event.data.tag_id in tags }}"
+      - "{{ trigger.event.data.device_id in terminal }}"
+    action:
+      - service: tts.cloud_say
+        data:
+          entity_id: media_player.kitchen_sonos
+          message: Thank you for logging in, the alarm system has now been disarmed
+          options:
+            gender: female
+          language: en-GB
+      - service: alarm_control_panel.alarm_disarm
+        entity_id: alarm_control_panel.alarm
+        data:
+          code: !secret alarm_code
+      - delay: 2 # timeout before we allow processing next scan
+{% endraw %}
+
+The key features of this implementation are, only one reader is "authorised" so even if other devices are capable of reading they cannot. The tags are individually linked to users and the tags can only be used at specific days / times as specified. 
+
 ## Printing tags
 
 NFC tags come in many different shapes and formats. [NFC Stickers](https://amzn.to/3bQU0nN) are great to make existing objects scannable, like books or photos. But another fun use case is to get printable NFC cards. The great thing about these cards is that they are very accessible. Kids as young as 1 year old will be able to use it.
