@@ -6,6 +6,8 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: '0.100'
+ha_config_flow: true
+ha_quality_scale: gold
 ha_codeowners:
   - '@eifinger'
 ha_domain: here_travel_time
@@ -30,114 +32,35 @@ HERE has changed its authentication mechanism. It is no longer possible to use `
 
 ## Configuration
 
-To enable the sensor, add the following lines to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example entry for configuration.yaml
-sensor:
-  - platform: here_travel_time
-    api_key: "YOUR_API_KEY"
-    origin_latitude: "51.222975"
-    origin_longitude: "9.267577"
-    destination_latitude: "51.257430"
-    destination_longitude: "9.335892"
-```
+{% include integrations/option_flow.md %}
 
-{% configuration %}
-api_key:
-  description: "Your application's API key (get one by following the instructions above)."
-  required: true
-  type: string
-origin_latitude:
-  description: "The starting latitude for calculating travel distance and time. Must be used in combination with origin_longitude. Cannot be used in combination with `origin_entity_id`."
-  required: exclusive
-  type: float
-origin_longitude:
-  description: "The starting longitude for calculating travel distance and time. Must be used in combination with origin_latitude. Cannot be used in combination with `origin_entity_id`."
-  required: exclusive
-  type: float
-destination_latitude:
-  description: "The finishing latitude for calculating travel distance and time. Must be used in combination with destination_longitude. Cannot be used in combination with `destination_entity_id`."
-  required: exclusive
-  type: float
-destination_longitude:
-  description: "The finishing longitude for calculating travel distance and time. Must be used in combination with destination_latitude. Cannot be used in combination with `destination_entity_id`."
-  required: exclusive
-  type: float
-origin_entity_id:
-  description: "The entity_id holding the starting point for calculating travel distance and time. Cannot be used in combination with `origin_latitude`/`origin_longitude`."
-  required: exclusive
-  type: string
-destination_entity_id:
-  description: "The entity_id holding the finishing point for calculating travel distance and time. Cannot be used in combination with `destination_latitude`/`destination_longitude`."
-  required: exclusive
-  type: string
-name:
-  description: A name to display on the sensor. The default is "HERE Travel Time".
-  required: false
-  type: string
-  default: "HERE Travel Time"
-mode:
+{% configuration_basic %}
+Travel Mode:
   description: "You can choose between: `bicycle`, `car`, `pedestrian`, `publicTransport`, `publicTransportTimeTable` or `truck`. The default is `car`. For public transport `publicTransportTimeTable` is recommended. You can find more information on the modes [here](https://developer.here.com/documentation/routing/topics/transport-modes.html) and on the public modes [here](https://developer.here.com/documentation/routing/topics/public-transport-routing.html)"
-  required: false
-  type: string
-  default: "car"
-route_mode:
+Route Mode:
   description: "You can choose between: `fastest`, or `shortest`. This will determine whether the route is optimized to be the shortest and completely disregard traffic and speed limits or the fastest route according to the current traffic information. The default is `fastest`"
-  required: false
-  type: string
-  default: "fastest"
-traffic_mode:
+Traffic Mode:
   description: "You can choose between: `true`, or `false`. Decide whether you want to take the current traffic condition into account. Default is `false`."
-  required: false
-  type: boolean
-  default: false
-arrival:
-  description: "Time when travel is expected to end. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. Cannot be used in combination with `departure`. Can only be used in combination with `mode: publicTransportTimeTable`"
-  required: false
-  type: time
-departure:
-  description: "Time when travel is expected to start. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. Cannot be used in combination with `arrival`. If departure is not provided each update of the sensor uses the current date and time." 
-  required: false
-  type: time
-unit_system:
+Time Type:
+  description: "You can choose between `arrival_time`, the time travel is expected to end and `departure_time`, the time travel is expected to start. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. `arrival_time` can only be used in combination with Travel Mode `publicTransportTimeTable`"
+Unit System:
   description: "You can choose between `metric` or `imperial`."
-  required: false
-  default: Defaults to `metric` or `imperial` based on the Home Assistant configuration.
-  type: string
-scan_interval:
-  description: "Defines the update interval of the sensor in seconds. Defaults to 300 (5 minutes)."
-  required: false
-  type: integer
-  default: 300
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 ## Dynamic Configuration
 
-Tracking can be set up to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the origin or destination then every 5 minutes when the platform updates, it will use the latest location of that entity.
+Tracking can be set up to track entities of type `device_tracker`, `zone`, `sensor`, `input_select`, `input_text` and `person`. If an entity is placed in the origin or destination then each time the platform updates, it will use the latest location of that entity. This means it will directly use its location if possible or try to resolve entity values until it finds a valid set of coordinates. You can put several destinations as options of an `input_select` and define that as the destination.
 
 ```yaml
 # Example entry for configuration.yaml
-sensor:
-  # Tracking entity to entity
-  - platform: here_travel_time
-    api_key: "YOUR_API_KEY"
-    name: Phone To Home
-    origin_entity_id: device_tracker.mobile_phone
-    destination_entity_id: zone.home
-  # Full config
-  - platform: here_travel_time
-    api_key: "YOUR_API_KEY"
-    name: Work to Home By Bike
-    origin_entity_id: zone.work
-    destination_latitude: 59.2842
-    destination_longitude: 59.2642
-    mode: bicycle
-    route_mode: fastest
-    traffic_mode: false
-    unit_system: imperial
-    departure: "17:00:00"
-    scan_interval: 2678400 # 1 month
+input_select:
+  here_destination_preset:
+    options:
+      - zone.home
+      - zone.office
+      - zone.somewheredefault
 ```
 
 ## Entity Tracking
@@ -145,12 +68,20 @@ sensor:
 - **device_tracker**
   - If the state is a zone, then the zone location will be used
   - If the state is not a zone, it will look for the longitude and latitude attributes
+- **person**
+  - If the state is a zone, then the zone location will be used
+  - If the state is not a zone, it will look for the longitude and latitude attributes
 - **zone**
   - Uses the longitude and latitude attributes
 - **sensor**
   - If the state is a zone, then will use the zone location
-  - All other states will be passed directly into the HERE API
-    - This includes all valid locations listed in the *Configuration Variables*
+  - If the state is a name of another entity it will recursively resolve entity states until if finds a valid set of coordinates
+- **input_select**
+  - If the state is a zone, then will use the zone location
+  - If the state is a name of another entity it will recursively resolve entity states until if finds a valid set of coordinates
+- **input_text**
+  - If the state is a zone, then will use the zone location
+  - If the state is a name of another entity it will recursively resolve entity states until if finds a valid set of coordinates
 
 ## Updating sensors on-demand using Automation
 
