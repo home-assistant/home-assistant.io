@@ -16,19 +16,19 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing/topics/introduction.html).
+The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing/dev_guide/topics/introduction.html).
 
 ## Setup
 
-You need to register for an API key (REST & XYZ HUB API/CLI) by following the instructions [here](https://developer.here.com/documentation/routing/topics/introduction.html?create=Freemium-Basic&keepState=true&step=account).
+You need to register for an API key (REST & XYZ HUB API/CLI) by following the instructions [here](https://developer.here.com/tutorials/getting-here-credentials/).
 
-HERE offers a Freemium Plan which includes 250,000 free Transactions per month. For the Routing API, one transaction equals one request with one starting point (no multi stop). More information can be found [here](https://developer.here.com/faqs#payment-subscription)
+HERE offers a Freemium Plan which includes 250,000 free Transactions per month. For the Routing API, one transaction equals one request with one starting point (no multi stop). More information can be found [here](https://knowledge.here.com/csm_kb?id=public_kb_csm_details&number=KB0016433)
 
-By default HERE will deactivate your account if you exceed the free Transaction limit for the month. You can add payment details to re-enable your account as described [here](https://developer.here.com/faqs)
+By default HERE will deactivate your account if you exceed the free Transaction limit for the month. You can add payment details to re-enable your account as described [here](https://knowledge.here.com/csm_kb?id=public_kb_csm_details&number=KB0016434)
 
 ### Migrate from app_code to api_key
 
-HERE has changed its authentication mechanism. It is no longer possible to use `app_id` and `app_code`. Existing users have to follow the [migration guide](https://developer.here.com/documentation/authentication/dev_guide/topics/api-key-credentials.html) in order to retrieve the now needed `api_key`.
+HERE has changed its authentication mechanism. It is no longer possible to use `app_id` and `app_code`. You need to register an `api_key` as described [here](https://developer.here.com/tutorials/getting-here-credentials/).
 
 ## Configuration
 
