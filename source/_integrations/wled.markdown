@@ -56,6 +56,7 @@ entity controls the strip power and overall brightness applied to all segments.
 
 This integration provides selects for the following information from WLED:
 
+- Playlist
 - Preset
 - Color palette (per segment, disabled by default).
 
