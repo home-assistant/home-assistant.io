@@ -262,7 +262,7 @@ action:
       entity_id: "{{ trigger.entity_id }}"
 ```
 
-### Service `zwave_js.meter_reset`
+### Service `zwave_js.reset_meter`
 
 This service will reset the meters on a device that supports the Meter Command Class.
 
@@ -270,6 +270,7 @@ This service will reset the meters on a device that supports the Meter Command C
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | no       | Entity (or list of entities) to reset meters for. An `entity_id` or `device_id` must be provided.                  |
 | `device_id`            | no       | ID of device (or list of device IDs) to reset meters for. An `entity_id` or `device_id` must be provided.          |
+| `endpoint `            | no       | The endpoint to target when resetting meters.                                                                      |
 | `meter_type`           | no       | If supported by the device, indicates the type of meter to reset. Not all devices support this option.             |
 | `value`                | no       | If supported by the device, indicates the value to reset the meter to. Not all devices that support this option.   |
 
