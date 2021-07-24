@@ -361,6 +361,10 @@ sensor:
 ```
 
 {% configuration %}
+scan_interval:
+  type: integer
+  description: Override the default update interval. Minimum 10s, although values under 30s may ve variable.
+  default: 60
 api_version:
   type: string
   description: API version to use. Valid values are `1` or `2`.
