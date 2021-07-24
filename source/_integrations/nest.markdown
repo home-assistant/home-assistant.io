@@ -37,7 +37,7 @@ This integration supports two Nest APIs. The SDM API is the new primary API that
 
 Google applies strict [Redirect URI validation
 rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) to keep your login
-crendentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain*.  See the documentation on [Securing](https://www.home-assistant.io/docs/configuration/securing/) or [Troubleshooting](#troubleshooting), and note that you don't need actually need to enable remote access.
+credentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain*. See the documentation on [Securing](/docs/configuration/securing/) or [Troubleshooting](#troubleshooting), and note that you don't need actually need to enable remote access.
 
 ## Overview: Supported Devices
 
