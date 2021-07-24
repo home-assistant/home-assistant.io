@@ -250,7 +250,7 @@ everything, however, you can leave out any feature you do not wish to use with H
   may need to change the URL you use to access Home Assistant in order to access your devices.
 
     - See [Securing](https://www.home-assistant.io/docs/configuration/securing/) Home Assistant for convient solutions e.g. [Nabu Casa](https://www.nabucasa.com/) or Duck DNS.
-    - There are subtle [rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) for what types of URLs are allowed, namely that they must use a publicly known hostname, though your Home Assistant ports do not need to be exposed to the internet.
+    - There are subtle [rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) for what types of URLs are allowed, namely that they must use SSL and a publicly known hostname, though your Home Assistant ports do not need to be exposed to the internet.
     - You can use any publicly known hostname you own
     - As a hack, you can use hosts tricks to temporarily assign a public hostname to your Home Assistant IP address.
 
