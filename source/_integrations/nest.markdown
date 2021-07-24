@@ -277,13 +277,14 @@ logger:
     homeassistant.components.nest.climate_sdm: debug
     homeassistant.components.nest.camera_sdm: debug
     homeassistant.components.nest.sensor_sdm: debug
+    homeassistant.helpers.config_entry_flow: debug
+    homeassistant.helpers.config_entry_oauth2_flow: debug
     google_nest_sdm: debug
     google_nest_sdm.device: debug
     google_nest_sdm.device_manager: debug
     google_nest_sdm.google_nest_subscriber: debug
     google_nest_sdm.event: debug
     google.cloud.pubsub_v1: debug
-    google.cloud.pubsub_v1.subscriber._protocol.streaming_pull_manager: debug
 ```
 
 ## Camera
