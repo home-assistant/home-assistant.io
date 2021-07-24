@@ -35,6 +35,8 @@ There is currently support for the following device types within Home Assistant:
 This integration supports two Nest APIs. The SDM API is the new primary API that accepts new users. The Legacy Works With Nest API is not accepting new users, but the documentation still exists at the bottom of the page so existing users can keep using it.
 </div>
 
+Google applies strict [Redirect URI validation rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) to ensure that your login crendentials are secure. In practice, this means that you *must use SSL* and a *public top-level domain* with your `Home Assistant`.  See the docs on [Securing](https://www.home-assistant.io/docs/configuration/securing/) or [Troubleshooting](#troubleshooting), and note that you don't need actually need to enable remote access.
+
 ## Overview: Supported Devices
 
 Home Assistant is integrated with the following devices through the SDM API:
@@ -247,8 +249,8 @@ everything, however, you can leave out any feature you do not wish to use with H
   domain (such as .com or .org)* or *must use a valid domain that is a valid top private domain*. This means that you
   may need to change the URL you use to access Home Assistant in order to access your devices.
 
-    - A convienent solution is to use [Nabu Casa](https://www.nabucasa.com/)
-    - There are subtle rules for what types of URLs are allowed, namely that they must use a publicly known hostname, though your Home Assistant ports do not need to be exposed to the internet.
+    - See [Securing](https://www.home-assistant.io/docs/configuration/securing/) Home Assistant for convient solutions e.g. [Nabu Casa](https://www.nabucasa.com/) or Duck DNS.
+    - There are subtle [rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) for what types of URLs are allowed, namely that they must use a publicly known hostname, though your Home Assistant ports do not need to be exposed to the internet.
     - You can use any publicly known hostname you own
     - As a hack, you can use hosts tricks to temporarily assign a public hostname to your Home Assistant IP address.
 
