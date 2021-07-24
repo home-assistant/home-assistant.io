@@ -35,7 +35,7 @@ There is currently support for the following device types within Home Assistant:
 This integration supports two Nest APIs. The SDM API is the new primary API that accepts new users. The Legacy Works With Nest API is not accepting new users, but the documentation still exists at the bottom of the page so existing users can keep using it.
 </div>
 
-Google applies strict [Redirect URI validation rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) with the intent to keep your ogin crendentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain*.  See the docs on [Securing](https://www.home-assistant.io/docs/configuration/securing/) or [Troubleshooting](#troubleshooting), and note that you don't need actually need to enable remote access.
+Google applies strict [Redirect URI validation rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) to keep your login crendentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain*.  See the docs on [Securing](https://www.home-assistant.io/docs/configuration/securing/) or [Troubleshooting](#troubleshooting), and note that you don't need actually need to enable remote access.
 
 ## Overview: Supported Devices
 
