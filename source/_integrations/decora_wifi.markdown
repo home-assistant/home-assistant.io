@@ -17,24 +17,16 @@ Supported devices (tested):
 - [DW6HD1-BZ](https://www.leviton.com/en/products/dw6hd-1bz) (Decora Smart Wi-Fi 600W Dimmer)
 - [DW15S-1BZ](https://www.leviton.com/en/products/dw15s-1bz) (Decora Smart Wi-Fi 15A Switch)
 - [DW15P-1BW](https://www.leviton.com/en/products/dw15p-1bw) (Decora Smart Wi-Fi Plug-in Outlet)
+- [DW4SF-1BW](https://www.leviton.com/en/products/dw4sf-1bw) (Decora Smart Wi-Fi Fan Speed Controller)
 
-To enable these lights, add the following lines to your `configuration.yaml` file:
+## Setup
 
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: decora_wifi
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
+You will need your MyLeviton login information (username, which is usually your email address, and password) to use this module.
 
-{% configuration %}
-username:
-  description: Your "My Leviton" app email address/user name.
-  required: true
-  type: string
-password:
-  description: Your "My Leviton" app password.
-  required: true
-  type: string
-{% endconfiguration %}
+## Configuration
+
+The preferred method for setting this integration up is by using the configuration flow. Go to the integrations page in your configuration and click on new integration -> Leviton Decora Wifi. Enter your credentials in the dialog and the integration will then set up. Once Home Assistant authenticates access, the `decora-wifi` integration will create the following platforms:
+
+- A `light` for each device linked to your MyLeviton account.
+
+The integration reads the capabilities of each device (dimming, etc.) from the API, so devices with dimming or speed control capabilities will provide those controls in the Home Assitant UI.
