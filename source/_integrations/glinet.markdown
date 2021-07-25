@@ -14,7 +14,7 @@ ha_platforms:
   - device_tracker
 ---
 
-[GL-inet](https://www.gl-inet.com/) are a Hong-Kong based company that produce highly customizable home routers. They are based on the very common [OpenWRT](https://openwrt.org/) firmware but provide a much more user-friendly user interface than OpenWRT's LUCI.
+[GL-inet](https://www.gl-inet.com/) are a Hong-Kong based company that produce highly customizable home routers. They are based on the very common [OpenWrt](https://openwrt.org/) firmware but provide a much more user-friendly user interface than OpenWrt's LUCI.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -23,9 +23,9 @@ There is currently support for the following device types within Home Assistant:
 {% include integrations/config_flow.md %}
 
 ## Usage
-Navigate to **Configuration** -> **People**, click a person and then select 'Pick device to track'. You are done! Read more about the [Person intergration](https://www.home-assistant.io/integrations/person/)
+Navigate to **Configuration** -> **People**, click a person and then select 'Pick device to track'. You are done! Read more about the [Person integration](https://www.home-assistant.io/integrations/person/)
 <div class='note warning'>
-The intergration will attempt to give each device a readable name like `device_tracker.myIphone`. However if it cannot the device will recieve a name like `device_tracker.b8_27_eb_53_a2_4f`, this is based on the device's unique [MAC address](https://kb.netgear.com/1005/How-do-I-find-my-device-s-MAC-address).
+The integration will attempt to give each device a readable name like `device_tracker.myIphone`. However if it cannot the device will recieve a name like `device_tracker.b8_27_eb_53_a2_4f`, this is based on the device's unique [MAC address](https://kb.netgear.com/1005/How-do-I-find-my-device-s-MAC-address).
 
 </div>
 
@@ -37,6 +37,6 @@ Consider home: Number of seconds that must elapse before considering a disconnec
 
 <div class='note warning'>
   
-**Note**: The intergration will automatically add every now device that connects to your network. Once you have selected the devices you want to track, disable the integration system option `Enable new added entities`
+**Note**: The integration will automatically add every now device that connects to your network. Once you have selected the devices you want to track, disable the integration system option `Enable new added entities`
 
 </div>
