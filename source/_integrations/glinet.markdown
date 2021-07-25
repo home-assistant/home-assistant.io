@@ -38,6 +38,6 @@ Consider home: Number of seconds that must elapse before considering a disconnec
 
 <div class='note warning'>
   
-**Note**: The integration will automatically add every now device that connects to your network. Once you have selected the devices you want to track, disable the integration system option `Enable new added entities`
+**Note**: The integration will automatically add every nee device that connects to your network. Once you have selected the devices you want to track, disable the integration system option `Enable new added entities`
 
 </div>
