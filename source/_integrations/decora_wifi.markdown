@@ -19,13 +19,14 @@ Supported devices (tested):
 - [DW15P-1BW](https://www.leviton.com/en/products/dw15p-1bw) (Decora Smart Wi-Fi Plug-in Outlet)
 - [DW4SF-1BW](https://www.leviton.com/en/products/dw4sf-1bw) (Decora Smart Wi-Fi Fan Speed Controller)
 
-## Setup
+## Prerequisites
 
-You will need your MyLeviton login information (username, which is usually your email address, and password) to use this module.
+You will need your MyLeviton login information (username, which is usually your email address, and password) to use this integration.
 
-## Configuration
 
-The preferred method for setting this integration up is by using the configuration flow. Go to the integrations page in your configuration and click on new integration -> Leviton Decora Wifi. Enter your credentials in the dialog and the integration will then set up. Once Home Assistant authenticates access, the `decora-wifi` integration will create the following platforms:
+{% include integrations/config_flow.md %}
+
+Once Home Assistant authenticates access, the Leviton Decora Wi-Fi integration will create the following:
 
 - A `light` for each device linked to your MyLeviton account.
 
