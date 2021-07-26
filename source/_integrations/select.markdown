@@ -16,8 +16,28 @@ a limited set of selectable options for the entity.
 
 ### Services
 
-The Number entities registers the following services:
+The Select entities registers the following services:
 
-| Service | Data | Description |
-| ------- | ---- | ----------- |
-| `select_option` | `option`<br>`entity_id(s)`<br>`area_id(s)` | Set the current select option of specific `select` entities
+#### Service `select.select_option`
+
+Select the specified option.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `option` | no | Option to be selected
+
+#### Service `select.select_next`
+
+Select the next option.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `cycle` | yes | Whether to select the last option if the first is currently selected. Default: `true`
+
+#### Service `select.select_previous`
+
+Select the previous option.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `cycle` | yes | Whether to select the first option if the last is currently selected. Default: `true`
