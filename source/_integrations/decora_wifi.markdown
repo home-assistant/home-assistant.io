@@ -30,4 +30,4 @@ Once Home Assistant authenticates access, the Leviton Decora Wi-Fi integration w
 
 - A `light` for each device linked to your MyLeviton account.
 
-The integration reads the capabilities of each device (dimming, etc.) from the API, so devices with dimming or speed control capabilities will provide those controls in the Home Assitant UI.
+The integration reads the capabilities of each device (dimming, etc.) from the API, so devices with dimming or speed control capabilities will provide those controls in the Home Assistant UI.
