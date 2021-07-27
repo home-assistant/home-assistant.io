@@ -38,15 +38,17 @@ You need to enable telnet on your router if you choose to use `protocol: telnet`
 
 ### Sensor Configuration
 
-These sensors are automatically created in status **disabled** and associated to the router device:
+These sensors are automatically created and associated to the router device:
 
 - Connected devices sensor
 - Download sensor (unit_of_measurement: Gigabyte - *Daily accumulation*)
 - Download Speed sensor (unit_of_measurement: Mbit/s)
 - Upload sensor (unit_of_measurement: Gigabyte - *Daily accumulation*)
 - Upload Speed sensor (unit_of_measurement: Mbit/s)
+- Load average sensors (1min, 5min, 15min)
 
-To use ASUSWRT sensors, simply **enable** them in the devices page.
+Only `Connected devices sensor` is created in status **enabled**, all other sensors are created in status **disabled**.
+To use them, simply **enable** on the devices page.
 
 ## Integration Options
 

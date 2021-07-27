@@ -40,6 +40,61 @@ The battery sensors rely on working change events or updates will be delayed. S1
 
 The Sonos integration adds one `switch` for each alarm set in the Sonos app. The alarm switches are detected, deleted and assigned automatically and come with several attributes that help to monitor Sonos alarms.
 
+## Playing media
+
+Sonos accepts a variety of `media_content_id` formats in the `media_player.play_media` service, but most commonly as URIs. For example, both Spotify and Tidal share links can be provided as-is. Playback of [music hosted on a Plex server](/integrations/plex#sonos-playback) is possible. Direct HTTP/HTTPS links to local or remote media files can also be used if the Sonos device can reach the URI directly, but specific media encoding support may vary.
+
+Music services which require an account (e.g., Spotify) must first be configured using the Sonos app.
+
+An optional `enqueue` argument can be added to the service call. If `true`, the media will be appended to the end of the playback queue. If not provided or `false` then the queue will be replaced.
+
+### Examples:
+
+This is an example service call that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver):
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: "music"
+  media_content_id: "http://192.168.1.50:8123/local/sound_files/doorbell-front.mp3"
+```
+
+Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. An example service call using a playlist URI:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: "playlist"
+  media_content_id: "spotify:playlist:abcdefghij0123456789XY"
+  enqueue: true
+```
+
+An example service call using a Spotify URL:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: "music"
+  media_content_id: "https://open.spotify.com/album/abcdefghij0123456789YZ"
+```
+
+Run a [Plex Media Server](/integrations/plex#sonos-playback) in your home? The Sonos integration can work with that as well. This example plays music directly from your Plex server:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: "music"
+  media_content_id: 'plex://{ "library_name": "Music", "artist_name": "M83", "album_name": "Hurry Up, We're Dreaming" }'
+```
+
 ## Services
 
 The Sonos integration makes various custom services available.
@@ -214,14 +269,7 @@ sonos:
       - 192.0.2.27
 ```
 
-If your Home Assistant instance has multiple IP addresses, you can provide the IP address that should be used for Sonos auto-discovery. This is rarely needed since all addresses should be tried by default.
-
-```yaml
-# Example configuration.yaml entry using Sonos discovery on a specific interface
-sonos:
-  media_player:
-    interface_addr: 192.0.2.1
-```
+If your Home Assistant instance has multiple IP addresses, you can enable the IP address that should be used for Sonos auto-discovery with the [Network](/integrations/network/) integration. This should only be necessary if the Sonos speakers are on a network segment not reachable from the default interface.
 
 The Sonos speakers will attempt to connect back to Home Assistant to deliver change events. By default, Home Assistant will listen on port 1400 but will try the next 100 ports above 1400 if it is in use. You can change the IP address that Home Assistant advertises to Sonos speakers. This can help in NAT scenarios such as when _not_ using the Docker option `--net=host`:
 

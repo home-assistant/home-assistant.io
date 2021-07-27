@@ -21,6 +21,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Motion Blinds](https://motion-blinds.com)
 - [Dooya](http://www.dooya.com/)
 - [Bloc Blinds](https://www.blocblinds.com/)
+- [Brel Home](https://www.brel-home.nl/)
 
 {% include integrations/config_flow.md %}
 

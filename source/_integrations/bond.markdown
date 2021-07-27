@@ -30,6 +30,15 @@ Supported devices (see Requirements section below):
 - Shades
 - Fireplaces
 
+## Tested Bond Devices
+
+The following devices have been tested with Home Assistant and confirmed to be working:
+
+- Bond Bridge v1 (snowbird)
+- Bond Bridge v2 (zermatt)
+- Bond Bridge Pro (zermatt-pro)
+- Smart By Bond Fans (breck)
+
 ## Prerequisites
 
 To use Bond controlled devices in your installation, add your Bond hub host and access token from the integrations page. Instructions for how to obtain an access token can be found on the [Bond Local API](http://docs-local.appbond.com/#section/Getting-Started/Get-Device-Information) documentation, which includes a section for how to obtain the [IP address of the device](http://docs-local.appbond.com/#section/Getting-Started/Finding-the-Bond-IP) which you will need to obtain the access token.

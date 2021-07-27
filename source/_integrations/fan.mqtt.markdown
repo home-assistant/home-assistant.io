@@ -197,7 +197,7 @@ percentage_state_topic:
   required: false
   type: string
 percentage_value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from fan percentage speed.
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the `percentage` value from the payload received on `percentage_state_topic`.
   required: false
   type: string
 preset_mode_command_template:
@@ -213,7 +213,7 @@ preset_mode_state_topic:
   required: false
   type: string
 preset_mode_value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the preset_mode payload.
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the `preset_mode` value from the payload received on `preset_mode_state_topic`.
   required: false
   type: string
 preset_modes:
@@ -231,16 +231,16 @@ retain:
   required: false
   type: boolean
   default: true
-speed_range_min:
-  description: The minimum of numeric output range (`off` not included, so `speed_range_min` - 1 represents 0%). The number of speeds within the speed_range / 100 will determine the `percentage_step`.
-  required: false
-  type: integer
-  default: 1
 speed_range_max:
-  description: The maximum of numeric output range (representing 100%). The number of speeds within the speed_range / 100 will determine the `percentage_step`.
+  description: The maximum of numeric output range (representing 100 %). The number of speeds within the `speed_range` / `100` will determine the `percentage_step`.
   required: false
   type: integer
   default: 100
+speed_range_min:
+  description: The minimum of numeric output range (`off` not included, so `speed_range_min` - `1` represents 0 %). The number of speeds within the speed_range / 100 will determine the `percentage_step`.
+  required: false
+  type: integer
+  default: 1
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
@@ -298,13 +298,14 @@ fan:
     speed_range_max: 10
 ```
 
-{% raw %}
+### Configuration using command templates
 
 This example demonstrates how to use command templates with JSON output.
 
+{% raw %}
+
 ```yaml
-# Example configuration.yaml
-# Example using command templates
+# Example configuration.yaml with command templates
 fan:
   - platform: mqtt
     name: "Bedroom Fan"

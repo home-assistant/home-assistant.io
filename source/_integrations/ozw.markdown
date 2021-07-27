@@ -22,7 +22,14 @@ ha_platforms:
   - switch
 ---
 
-This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT. If you're starting out with Z-Wave in Home Assistant, we recommend that you use [the Z-Wave JS integration](/integrations/zwave_js).
+This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT. 
+
+<div class='note warning'>
+
+ As of mid-2021 this integration, as well as the upstream ozwdaemon project, are not currently maintained. If you're starting out with Z-Wave in Home Assistant, we recommend that you use [the Z-Wave JS integration](/integrations/zwave_js).
+
+</div>
+
 
 ## Requirements
 

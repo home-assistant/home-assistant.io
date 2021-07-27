@@ -475,11 +475,11 @@ automation:
 
   The important part is the `sensor.time` entity (from time_date component). This will update the binary sensor on every change of the sensor and every minute. If the Homematic sensor does not send any updates anymore, the `sensor.time` will set the binary sensor to `off` 10 minutes after the last sensor update. This will trigger the automation.
 
-- If you have a CCU you can also create a system variable on the CCU, which stores its last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot) this is another option to call *homematic.reconnect*. Even though this option might look preferrable to many since it does not rely on a sensor, **it is less fail-safe** than checking for updates of a sensor. Since the variable on the CCU is only changed on boot, any problem that causes the connection between Home Assistant and the CCU to break but will not result in a reboot will not be detected (eg. in case of networking issues). This is how this can be done:
+- If you have a CCU you can also create a system variable on the CCU, which stores its last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot) this is another option to call *homematic.reconnect*. Even though this option might look preferable to many since it does not rely on a sensor, **it is less fail-safe** than checking for updates of a sensor. Since the variable on the CCU is only changed on boot, any problem that causes the connection between Home Assistant and the CCU to break but will not result in a reboot will not be detected (eg. in case of networking issues). This is how this can be done:
 
   1. Create a string variable **V_Last_Reboot** on the CCU
 
-  2. Creata a new programm on the CCU **without any conditions**, which executes the following *HM-Script* with a delay of 30 seconds. The Script needs to be implemented within the section `Activity: Then`.
+  2. Create a new program on the CCU **without any conditions**, which executes the following *HM-Script* with a delay of 30 seconds. The script needs to be implemented within the section `Activity: Then`.
 
      ```javascript
      var obj = dom.GetObject("V_Last_Reboot");

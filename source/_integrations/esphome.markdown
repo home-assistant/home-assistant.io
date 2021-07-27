@@ -9,6 +9,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@OttoWinter'
+  - '@jesserockz'
 ha_domain: esphome
 ha_zeroconf: true
 ha_platforms:
@@ -18,6 +19,7 @@ ha_platforms:
   - cover
   - fan
   - light
+  - number
   - sensor
   - switch
 ---

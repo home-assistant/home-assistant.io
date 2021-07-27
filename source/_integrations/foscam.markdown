@@ -56,7 +56,7 @@ Using the following card code you can achieve a card displaying the live video f
 
 ```yaml
 type: picture-elements
-entity: camera.bedroom
+image: camera.bedroom
 camera_image: camera.bedroom
 camera_view: live
 elements:

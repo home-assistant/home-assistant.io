@@ -78,11 +78,11 @@ total consumption during the current hour, total consumption during the last 5 m
 and the always-on (slumber) consumption from today. In case of solar production, entities for the active power production, today's total solar production
 and the solar production during the current hour are added as well.
 
-Smappee Pro, Plus and Genius devices will create current active powers for each configured load (submeter).
+Smappee Pro, Plus, Genius and Connect devices will create current active powers for each configured load (submeter).
 
 In case a Smappee Gas and/or Water meter is installed as well, an entity showing today's consumption is provided.
 
-Additionally, Smappee Genius devices will also provide entities for the line voltages and phase voltages (for each phase).
+Additionally, Smappee, Genius and Connect devices will also provide entities for the line voltages and phase voltages (for each phase).
 
 ### Switch
 

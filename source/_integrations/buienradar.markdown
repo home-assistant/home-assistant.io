@@ -31,7 +31,7 @@ Besides the weather platform, there is currently support for the following addit
 
 ## Camera
 
-The `buienradar` camera platform uses [buienradar.nl](https://buienradar.nl/) as a source for the last rain radar map. The overview image of the whole of the Netherlands is loaded and shown as a camera in Home Assistant. The Netherlands is the default country and can be changed to Belgium (see [Setting options](#setting-options)).
+The `buienradar` camera platform uses [buienradar.nl](https://buienradar.nl/) as a source for the last rain radar map. The overview image of the whole of the Netherlands is loaded and shown as a camera in Home Assistant. The Netherlands is the default country and can be changed to Belgium (see [Options](#options)).
 
 Internally this component uses the radar map image as [documented](https://www.buienradar.nl/overbuienradar/gratis-weerdata) on buienradar.nl.
 The downloaded image is cached to prevent Home Assistant from making a new request to buienradar.nl multiple times a minute when Home Assistant checks for new stills from the camera.
@@ -62,7 +62,7 @@ The following entities will be created:
 - **Wind azimuth**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
 - **Pressure**: "The sea-level air pressure in [hPa](https://en.wikipedia.org/wiki/Hectopascal)."
 - **Visibility**: "Visibility in meters ([m](https://en.wikipedia.org/wiki/Metre))."
-- **Wind gust**: "The wind speed of wind gusts ([m/s](https://en.wikipedia.org/wiki/M/s))."
+- **Wind gust**: "The wind speed of wind gusts ([km/h](https://en.wikipedia.org/wiki/Kilometres_per_hour))."
 - **Precipation**: The amount of precipitation/rain in mm/h.
 - **Precipation forecast average**: The average expected precipitation/rain in mm/h within the given time-frame.
 - **Precipation forecast total**: The total expected precipitation/rain in mm within the given time-frame. The total expected rain in the configured time-frame will be equal to _precipitation_forecast_total_/_timeframe_ mm/min. So, with time-frame configured to 30 minutes and a value of 5, the expected rain is 5 mm in 30 minutes, which is the same as 10 mm/h. If time-frame is set to 90 minutes and a value of 5, the expected rain is 5 mm in 90 minutes, which is equal to 3.3 mm/h.

@@ -55,7 +55,7 @@ accounts:
   type: list
   keys:
     account:
-      description: The IBAN of the blance account.
+      description: The IBAN of the balance account.
       required: true
       type: string
     name:

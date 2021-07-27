@@ -134,6 +134,8 @@ Other state examples:
 {{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
 {{ as_local(states.sensor.time.last_changed) }}
+
+{{ states('sensor.expires') | as_datetime }}
 ```
 
 {% endraw %}
@@ -215,6 +217,7 @@ The same thing can also be expressed as a filter:
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
   - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
+- `as_datetime()` converts a string containing a timestamp to a datetime object.
 - `as_timestamp()` converts datetime object or string to UNIX timestamp. This function also be used as a filter.
 - `as_local()` converts datetime object to local time. This function also be used as a filter.
 - `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object.

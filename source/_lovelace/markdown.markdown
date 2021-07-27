@@ -111,7 +111,7 @@ For example:
 ```yaml
 type: markdown
 content: |
-  <ha-icon icon="mdi:home-assistant"></ha-icon>
+  <ha-icon icon="mdi:home-assistant" />
 ```
 
 {% endraw %}

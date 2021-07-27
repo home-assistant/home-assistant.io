@@ -18,7 +18,9 @@ Supported by MQTT discovery:
 - [HVACs](/integrations/climate.mqtt/)
 - [Lights](/integrations/light.mqtt/)
 - [Locks](/integrations/lock.mqtt/)
+- [Numbers](/integrations/number.mqtt/)
 - [Scenes](/integrations/scene.mqtt/)
+- [Selects](/integrations/select.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
 - [Switches](/integrations/switch.mqtt/)
 - [Tag Scanners](/integrations/tag.mqtt/)
@@ -452,7 +454,7 @@ Setting up a device tracker:
 - State topic: `homeassistant/device_tracker/paulus/state`
 - Example state payload: `home` or `not_home` or `location name`
 
-If the device supports gps co-ordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
+If the device supports gps coordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
 
 - Attributes topic: `homeassistant/device_tracker/paulus/attributes`
 - Example attributes payload:
