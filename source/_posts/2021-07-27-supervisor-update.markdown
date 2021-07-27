@@ -1,8 +1,8 @@
 ---
 title: "Supervisor Update"
 description: "Upcoming changes to the Supervisor"
-date: 2021-07-13 00:00:00
-date_formatted: "July 15, 2020"
+date: 2021-07-27 00:00:00
+date_formatted: "July 27, 2020"
 comments: true
 author: Joakim Sørensen
 author_twitter: ludeeus
@@ -45,12 +45,11 @@ These variables have to be added to the run command for the Supervisor container
 ### OS agent
 
 Recently we created an [OS Agent][os_agent]. This allows for better communication between the host OS and the Supervisor, and to bring in more features.
-You will find the latest binary of this agent on the release page for [OS Agent][os_agent_releases]. It is recommended to create a service to start this on startup of the host.
+You will find the installation instructions for this in the repository for fhe [OS Agent][os_agent].
 
 If you you are interested we have also just published a [blog on the developer site][dev_blog].
 
 [os_agent]: https://github.com/home-assistant/os-agent
-[os_agent_releases]: https://github.com/home-assistant/os-agent/releases
 [dev_blog]: https://developers.home-assistant.io/blog/2021/07/15/supervisor_update/
 [installation_docs]: /installation/
 [machine_types]: https://github.com/home-assistant/supervised-installer#supported-machine-types
