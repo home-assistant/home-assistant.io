@@ -68,7 +68,7 @@ oversampling_humidity:
   default: 1
   type: integer
 filter_mode:
-  description: IIR filter coeficient as described in the sensor datasheet.
+  description: IIR filter coefficient as described in the sensor datasheet.
   required: false
   default: 0
   type: integer

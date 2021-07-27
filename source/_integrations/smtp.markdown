@@ -25,6 +25,8 @@ notify:
     recipient: "YOUR_RECIPIENT"
 ```
 
+Check your e-mail provider configuration or help pages to get the correct SMTP settings.
+
 {% configuration %}
 name:
   description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
@@ -78,27 +80,7 @@ debug:
   default: false
 {% endconfiguration %}
 
-A sample configuration entry for Google Mail.
-
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: "NOTIFIER_NAME"
-    platform: smtp
-    server: "smtp.example.com"
-    port: 587
-    timeout: 15
-    sender: "john@example.com"
-    encryption: starttls
-    username: "john@example.com"
-    password: "thePassword"
-    recipient:
-      - "james@example.com"
-      - "bob@example.com"
-    sender_name: "My Home Assistant"
-```
-
-Keep in mind that Google has some extra layers of protection which need special attention (Hint: 'Less secure apps'). If you have 2-step verification enabled on your Google account, you'll need to use [an application-specific password](https://support.google.com/mail/answer/185833?hl=en).
+### Usage
 
 To use the SMTP notification, refer to it in an automation or script like in this example:
 
@@ -190,11 +172,35 @@ burglar:
               </html>
 ```
 
-This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.
+To learn more about how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
 
-A combination that will work properly is port 587 and STARTTLS. It's recommended to enable STARTTLS, if possible.
+## Specific E-Mail Provider Configuration
 
-For Google Mail (smtp.gmail.com) an additional step in the setup process is needed. Google has some extra layers of protection
-which need special attention. By default, the usage by external applications, especially scripts, is limited. Visit the [Less secure apps](https://www.google.com/settings/security/lesssecureapps) page and enable it.
+Check below some configurations examples for specific e-mail providers. 
+If you are in doubt about the SMTP settings required, check your e-mail provider configuration or help pages for more information about its specific SMTP configuration. 
 
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+### Google Mail
+
+A sample configuration entry for Google Mail.
+
+```yaml
+# Example configuration.yaml entry for Google Mail.
+notify:
+  - name: "NOTIFIER_NAME"
+    platform: smtp
+    server: "smtp.gmail.com"
+    port: 587
+    timeout: 15
+    sender: "YOUR_USERNAME@gmail.com"
+    encryption: starttls
+    username: "YOUR_USERNAME@gmail.com"
+    password: "YOUR_PASSWORD"
+    recipient:
+      - "RECIPIENT_1@example.com"
+      - "RECIPIENT_N@example.com"
+    sender_name: "SENDER_NAME"
+```
+
+Keep in mind that Google has some extra layers of protection that need special attention. By default, the usage by external applications is limited so you will need to visit the [less secure apps](https://www.google.com/settings/security/lesssecureapps) page and enable it to be able to send e-mails. Be aware that Google will periodically turn it off if it is not used (no e-mail is sent).
+
+To avoid having your e-mail notifications broken due to the less secure app's behavior, it is recommended that you enable 2-step verification on your Google account, and use [an application-specific password](https://support.google.com/mail/answer/185833?hl=en) in your notification configuration.
