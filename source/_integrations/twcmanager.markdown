@@ -16,7 +16,7 @@ ha_platforms:
 ---
 
 The TWCManager integration allows you to integrate your
-[TWCManager](https://github.com/ngardiner/TWCManager) server into Home Assistant. TWCManager is an open source hardware hack (typically Raspberry Pi-based) for the Tesla wall charger (gen 2) that allows you to control the charging rate dynamically by leveraging Tesla's load sharing protocol.A typical use case is to track solar production and charge your car entirely with green energy.
+[TWCManager](https://github.com/ngardiner/TWCManager) server into Home Assistant. TWCManager is an open source hardware hack (typically Raspberry Pi-based) for the Tesla wall charger (gen 2) that allows you to control the charging rate dynamically by leveraging Tesla's load-sharing protocol. A typical use case is to track solar production and charge your car entirely with green energy.
 
 {% include integrations/config_flow.md %}
 
