@@ -3,21 +3,29 @@ title: "YAML"
 description: "Details about YAML to configure Home Assistant."
 ---
 
-Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations.
+Home Assistant can be configured in two ways:
 
-While more and more integrations are configured through the UI, for some, you will add code in your `configuration.yaml` file to specify its settings.
+1. Through `configuration.yaml` and other [YAML](https://yaml.org/) files.
+2. Through the web user interface (UI), which stores the configuration in JSON files in the `.storage` folder.
 
-The following example entry assumes that you would like to set up the [notify integration](/integrations/notify) with the [pushbullet platform](/integrations/pushbullet).
+Traditionally, all configuration was managed in YAML files, but as explained in the 2020 blog post ["The future of YAML"](https://www.home-assistant.io/blog/2020/04/14/the-future-of-yaml/), there's been a shift towards allowing more and more configuration to be done in the UI. For many integrations, you can still choose to use YAML if you like, but some things can only be configured in the web UI and some things only in YAML. Refer to the documentation for the specific integration for details.
+
+Here's a quick example showing how you could use YAML to set up the [Notify integration](/integrations/notify) to use the [Text-to-Speech (TTS) platform](/integrations/tts), and also configure the TTS platform to use the [Google Translate platform](https://www.home-assistant.io/integrations/google_translate/):
 
 ```yaml
+tts:
+  - platform: google_translate
+    service_name: google_say
+
 notify:
-  platform: pushbullet
-  api_key: "o.1234abcd"
-  name: pushbullet
+  - platform: tts
+    name: in_the_living_room
+    tts_service: tts.google_say
+    media_player: media_player.living_room
 ```
 
-- An **integration** provides the core logic for some functionality (like `notify` provides sending notifications).
-- A **platform** makes the connection to a specific software or hardware platform (like `pushbullet` works with the service from pushbullet.com).
+- An **integration** provides the core logic for some functionality (like `notify` provides the logic for sending notifications, and `tts` provides the core logic for text-to-speech).
+- A **platform** is a specific form of integration which connects to a software or hardware platform. A platform can be abstract, like the `tts` platform which connects to *some* text-to-speech service, or specific, like the `google_translate` platform which connects to the Google Translate web service.
 
 The basics of YAML syntax are block collections and mappings containing key-value pairs. Each item in a collection starts with a `-` while mappings have the format `key: value`.  This is somewhat similar to a Hash table or more specifically a dictionary in Python. These can be nested as well.  **Beware that if you specify duplicate keys, the last value for a key is used**.
 
