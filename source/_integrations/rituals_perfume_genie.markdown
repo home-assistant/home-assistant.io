@@ -16,6 +16,7 @@ ha_domain: rituals_perfume_genie
 ha_platforms:
   - binary_sensor
   - number
+  - select
   - sensor
   - switch
 ---
