@@ -11,7 +11,7 @@ ha_platforms:
 ---
 
 The `picotts` text-to-speech platform uses [Pico TTS library](https://github.com/naggety/picotts) to read out text with natural sounding voices.
-Pico TTS is a powerful open-source engine that runs locally (cloudless) so it can work even without an internet connection.
+Pico TTS is a powerful open-source engine that runs locally (cloudless) so it can work even without an internet connection. This requires to install the pico tts library on the system, typically on debian just do `sudo apt-get install libttspico-utils`.
 
 ## Configuration
 
