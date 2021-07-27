@@ -3,7 +3,7 @@ title: Prosegur
 description: Instructions on how to integrate Prosegur Smart Alarms into Home Assistant.
 ha_category:
   - Alarm
-ha_release: 2021.6
+ha_release: 2021.8
 ha_codeowners:
   - '@dgomes'
 ha_iot_class: Cloud Polling
