@@ -14,9 +14,8 @@ ha_platforms:
   - sensor
 ---
 
-The `filter` platform enables sensors that process the states of other entities.
-
-`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/lovelace/history-graph/) component.
+The `filter` platform creates sensors from the states of other entities.
+It applies a signal processing algorithm to an original sensor which then becomes the new sensor. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/lovelace/history-graph/) component.
 
 <p class='img'>
   <img src='/images/screenshots/filter-sensor.png' />
@@ -61,7 +60,7 @@ entity_id:
   required: true
   type: string
 name:
-  description: Name to use in the frontend.
+  description: the name is used to create the new entity_id and is also used as the friendly_name of the new entity. 
   required: false
   type: string
 filters:
