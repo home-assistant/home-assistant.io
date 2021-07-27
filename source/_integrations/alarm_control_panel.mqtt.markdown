@@ -16,6 +16,7 @@ The integration will accept the following states from your Alarm Panel (in lower
 - `armed_home`
 - `armed_away`
 - `armed_night`
+- `armed_vacation`
 - `armed_custom_bypass`
 - `pending`
 - `triggered`
@@ -162,6 +163,11 @@ payload_arm_night:
   required: false
   type: string
   default: ARM_NIGHT
+payload_arm_vacation:
+  description: The payload to set armed-vacation mode on your Alarm Panel.
+  required: false
+  type: string
+  default: ARM_VACATION
 payload_arm_custom_bypass:
   description: The payload to set armed-custom-bypass mode on your Alarm Panel.
   required: false
