@@ -50,6 +50,6 @@ You will find the installation instructions for this in the repository for fhe [
 If you you are interested we have also just published a [blog on the developer site][dev_blog].
 
 [os_agent]: https://github.com/home-assistant/os-agent
-[dev_blog]: https://developers.home-assistant.io/blog/2021/07/15/supervisor_update/
+[dev_blog]: https://developers.home-assistant.io/blog/2021/07/27/supervisor_update/
 [installation_docs]: /installation/
 [machine_types]: https://github.com/home-assistant/supervised-installer#supported-machine-types
