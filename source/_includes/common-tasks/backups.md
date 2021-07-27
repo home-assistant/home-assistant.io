@@ -1,6 +1,6 @@
 ## Backups
 
-Backup of your Home Assistant and add-on data and configuration. They are stored in a compressed archive file (.tar). Backups are made from the Supervisor Backups panel. There is also a service available which allows you to trigger the creation of a backup from an automation. Backups are stored in the /backup directory.
+Backup of your Home Assistant and add-on data and configuration. They are stored in a compressed archive file (.tar). Backups are made from the Supervisor Backups panel. There is also a service available that allows you to trigger the creation of a backup from an automation. Backups are stored in the /backup directory.
 
 A full backup includes the following directories:
 
@@ -14,10 +14,10 @@ A partial backup consists of any number of the above default directories and ins
 
 ### Making a Backup from the UI
 
-1. Go to {% my supervisor_backups title="Supervisor > Backups" %} in the UI
+1. Go to {% my supervisor_backups title="Supervisor > Backups" %} in the UI.
 2. Provide a name for the backup.
 3. Choose full or partial.
-4. Choose to password protect or not. Password protected backups cannot easily be browsed outside of Home Assistant OS
+4. Choose to password protect or not. Password-protected backups cannot easily be browsed outside of Home Assistant OS.
 5. Click "Create" to begin the backup.
 
 ### Restoring a Backup on a new install
@@ -35,7 +35,7 @@ If the backup you are uploading is more than 1GB in size, it can be faster and m
 
 The length of time it takes to create or restore backup will depend on how much you have to compress or decompress.
 
-If you're looking to slim down your backup, check if your configuration directory contains a large database file (`home-assistant_v2.db`). See the [`recorder`](https://www.home-assistant.io/components/recorder/) integration page for options to keep your database data down to a size that won't cause issues. Note the keep days, purge interval, and include/exclude options.
+If you're looking to slim down your backup, check if your configuration directory contains a large database file (`home-assistant_v2.db`). See the [`recorder`](/integrations/recorder/) integration page for options to keep your database data down to a size that won't cause issues. Note the keep days, purge interval, and include/exclude options.
 
 When the restore is complete, Home Assistant will restart to apply the new settings. You will lose the connection to the UI and it will return once the restart is completed.
 
@@ -45,12 +45,12 @@ When the restore is complete, Home Assistant will restart to apply the new setti
 2. `ha backups restore slugname` - restores a specific backup
 3. `ha backups new --name nameofbackup` - create a backup
 
-Use `ha help` to see more info.
+Use `ha help` to get more information about the command line usage.
 
 
 ### Copying your backups to another location
 
-You often need a backup in case your system has crashed. If you only store them on the crashed device, you won't be able to access it easily. We recommend that you manually copy them from `/backup` to another machine on occasion. Or even better, create an automation to handle that, or make use of one of the following add-ons:
+You often need a backup in case your system has crashed. If you only store them on the crashed device, you won't be able to access them easily. We recommend that you manually copy them from `/backup` to another machine on occasion. Or even better, create an automation to handle that, or make use of one of the following add-ons:
 
 - [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
 - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
