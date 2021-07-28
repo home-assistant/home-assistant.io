@@ -263,6 +263,16 @@ action:
       entity_id: "{{ trigger.entity_id }}"
 ```
 
+### Service `zwave_js.reset_meter`
+
+This service will reset the meters on a device that supports the Meter Command Class.
+
+| Service Data Attribute | Required | Description                                                                                                        |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | yes      | Entity (or list of entities) for the meters you want to reset.               |
+| `meter_type`           | no       | If supported by the device, indicates the type of meter to reset. Not all devices support this option.             |
+| `value`                | no       | If supported by the device, indicates the value to reset the meter to. Not all devices support this option.   |
+
 ### Service `zwave_js.set_lock_usercode`
 
 This service will set the usercode of a lock to X at code slot Y.
