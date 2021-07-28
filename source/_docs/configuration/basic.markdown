@@ -14,6 +14,7 @@ homeassistant:
   longitude: 117.22743
   elevation: 430
   unit_system: metric
+  currency: "$",
   time_zone: "America/Los_Angeles"
   external_url: "https://www.example.com"
   internal_url: "http://homeassistant.local:8123"
@@ -57,6 +58,10 @@ temperature_unit:
   type: string
 time_zone:
   description: "Pick your time zone from the column **TZ** of [Wikipedia's list of tz database time zones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
+  required: false
+  type: string
+currency:
+  description: The default currency symbol for your location.
   required: false
   type: string
 external_url:
