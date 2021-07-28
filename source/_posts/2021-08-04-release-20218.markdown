@@ -196,7 +196,7 @@ We welcome the following new integrations this release:
 - [Energy][energy docs], added by the Home Assistant Core team
 - [Flipr][flipr docs], added by [@cnico]
 - [Generic Hygrostat][generic_hygrostat docs], added by [@Shulyaka]
-- [Prosegur][prometheus docs], added by [@dgomes]
+- [Prosegur][prosegur docs], added by [@dgomes]
 - [Siren][siren docs], added by [@raman325]
 - [YouLess][youless docs], added by [@gjong]
 - [Renault][renault docs], added by [@epenet]
