@@ -368,7 +368,7 @@ climates:
       description: Number of registers to read.
       required: false
       type: integer
-      default: 2
+      default: 1 or calculated if data_type is not `struct`.
     input_type:
       description: Modbus register type (`holding`, `input`) for current temperature.
       required: false
@@ -814,7 +814,7 @@ sensors:
       description: Number of registers to read.
       required: false
       type: integer
-      default: 1
+      default: 1 or calculated if data_type is not `struct`.
     device_class:
       description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
       required: false
