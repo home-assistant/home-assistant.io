@@ -45,7 +45,7 @@ title:
   type: string
 hours_to_show:
   required: false
-  description: Number of hours in the past to track.
+  description: Number of hours in the past to track. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes. 
   type: integer
   default: 24
 theme:
