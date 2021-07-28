@@ -5,7 +5,7 @@ ha_category:
   - Sensor
 ha_iot_class: Local Pull
 ha_config_flow: true
-ha_release: '0.117'
+ha_release: 2021.8
 ha_domain: youless
 ---
 
