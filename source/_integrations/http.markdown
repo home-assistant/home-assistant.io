@@ -105,13 +105,16 @@ http:
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
 
+## Reverse proxies
+
 When using a reverse proxy, you will need to enable the `use_x_forwarded_for` and `trusted_proxies` options. Requests from reverse proxies will be blocked if these options are not set.
   
 ```yaml
 http:
   use_x_forwarded_for: true
   trusted_proxies:
-    - 172.30.33.0/24  # Add the IP address of the proxy server
+    - 10.0.0.200      # Add the IP address of the proxy server
+    - 172.30.33.0/24  # You may also provide the subnet mask
 ```
 
 ## APIs

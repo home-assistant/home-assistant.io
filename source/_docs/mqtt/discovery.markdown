@@ -464,7 +464,7 @@ Setting up a device tracker:
 - State topic: `homeassistant/device_tracker/paulus/state`
 - Example state payload: `home` or `not_home` or `location name`
 
-If the device supports gps co-ordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
+If the device supports gps coordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
 
 - Attributes topic: `homeassistant/device_tracker/paulus/attributes`
 - Example attributes payload:

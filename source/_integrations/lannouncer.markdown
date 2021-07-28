@@ -59,7 +59,7 @@ Spoken messages is the default method (`speak`). You just invoke the `notify` se
 }
 ```
 
-The second method is to play notifications (`alarm`). There are 4 build-in sounds (`chime`, `doorbell`, `alarm` and `siren`).
+The second method is to play notifications (`alarm`). There are 4 built-in sounds (`chime`, `doorbell`, `alarm` and `siren`).
 
 ```json
 {

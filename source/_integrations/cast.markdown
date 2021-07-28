@@ -32,14 +32,14 @@ Ignore CEC:
 
 ## Home Assistant Cast
 
-Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/lovelace/entities/#cast) to your Lovelace UI, or by calling the `cast.show_lovelace_view` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your Lovelace YAML for each view, as outlined in the [views documentation](/lovelace/views/#path). The `dashboard_path` is the part of the Lovelace UI URL that follows the defined `base_url` Typically "lovelace". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the service call):
+Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/lovelace/entities/#cast) to your Lovelace UI, or by calling the `cast.show_lovelace_view` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your Lovelace YAML for each view, as outlined in the [views documentation](/lovelace/views/#path). The `dashboard_path` is the part of the Lovelace UI URL that follows the defined `base_url`, typically "lovelace". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the service call):
 
 ```yaml
 cast_downstairs_on_kitchen:
   alias: "Show Downstairs on kitchen"
   sequence:
     - data:
-        dashboard_path: lovelace
+        dashboard_path: lovelace-cast
         entity_id: media_player.kitchen
         view_path: downstairs
       service: cast.show_lovelace_view
@@ -280,7 +280,7 @@ Example values to cast [BBC Radio 1](https://www.bbc.co.uk/sounds/play/live:bbc_
 
 This app doesn't retrieve its own metadata, so if you want the cast interface or media player card to show titles and/or images you will have to provide the data yourself. See the examples below.
 
-Note: Media ID is NOT the 8 digit alpha-numeric in the URL, it can be found by right-clicking the playing video. E.g., [this episode](https://www.bbc.co.uk/iplayer/episode/b09w7fd9/bitz-bob-series-1-1-castle-makeover) shows:
+Note: Media ID is NOT the 8 digit alphanumeric in the URL, it can be found by right-clicking the playing video. E.g., [this episode](https://www.bbc.co.uk/iplayer/episode/b09w7fd9/bitz-bob-series-1-1-castle-makeover) shows:
 
     2908kbps | dash (mf_cloudfront_dash_https)
     b09w70r2 | 960x540

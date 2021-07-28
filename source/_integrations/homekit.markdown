@@ -468,7 +468,7 @@ The following home hubs have been reported to have trouble with a large number o
 
  1. Delete the `HomeKit` integration in the **{% my integrations %}** screen.
  2. **Restart** Home Assistant.
- 3. The configuration will be automaticlly reimported from YAML.
+ 3. The configuration will be automatically reimported from YAML.
  4. [Pair the bridge or accessory](#setup).
 
 ### Resetting when created via the **Integrations** screen

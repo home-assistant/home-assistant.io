@@ -32,7 +32,7 @@ The following configuration works the same as the one listed above:
 
 ```yaml
 alias: "Paulus home AND temperature below 20"
-condition:
+conditions:
   - condition: state
     entity_id: "device_tracker.paulus"
     state: "home"
