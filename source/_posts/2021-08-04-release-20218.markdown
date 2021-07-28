@@ -72,7 +72,7 @@ Screenshot of the new energy dashboard.
 
 <p class='img'>
 <img src='https://media.discordapp.net/attachments/857346526527094814/869697914308554762/distribution.gif' alt='Screenshot of power usage card on the energy dashboard'>
-Screenshot of power usage card on the energy dashboard.
+Screenshot of the usage card on the energy dashboard.
 </p>
 
 ## Siren
@@ -112,7 +112,7 @@ Some new features landed for script, automations and templates this release.
 ### This
 
 When an automation or script is triggered to run, a new variable is available:
-`this`. This variable contains the [state object](docs/configurationstate_object)
+`this`. This variable contains the [state object](/docs/configuration/state_object/)
 of the automation or script running and allows you to access information about
 the automation directly. Thanks, [@r-t-s]!
 
