@@ -5,7 +5,7 @@ description: "Home Energy Management is a vast topic and not everything might be
 
 ## Energy vs Power
 
-Seldomly these two terms are used to refer to energy, but they are very different physical concepts. Energy is a quantitative measurement of what it takes to produce work (e.g. heat water) while Power measures the speed at which energy is transferred.
+Energy is a quantitative measurement of what it takes to produce work (e.g. heat water) while Power measures the speed at which energy is transferred.
 
 Electrical Power is usually measured in Watts (W) and Electrical Energy is usually measured in Watt-Hour (Wh) (not to be confused with Watt/Hour).
 
