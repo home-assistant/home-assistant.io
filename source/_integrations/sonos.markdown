@@ -18,6 +18,7 @@ ha_platforms:
   - media_player
   - sensor
   - switch
+ha_zeroconf: true
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.

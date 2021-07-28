@@ -29,6 +29,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
 ---
 

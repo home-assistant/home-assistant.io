@@ -25,9 +25,12 @@ ha_platforms:
   - binary_sensor
   - device_tracker
   - fan
+  - humidifier
   - light
+  - number
   - remote
   - sensor
+  - select
   - switch
   - vacuum
 ---

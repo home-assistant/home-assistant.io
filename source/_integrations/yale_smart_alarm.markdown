@@ -7,12 +7,10 @@ ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@gjohanssson-ST'
+  - '@gjohansson-ST'
 ha_domain: yale_smart_alarm
 ha_platforms:
   - alarm_control_panel
-ha_codeowners:
-  - '@gjohansson-ST'
 ---
 
 The Yale Smart Living integration provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.

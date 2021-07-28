@@ -17,7 +17,7 @@ ha_codeowners:
   - '@stefano055415'
 ha_domain: freedompro
 ha_platforms:
-  - binary sensor
+  - binary_sensor
   - climate
   - cover
   - fan
