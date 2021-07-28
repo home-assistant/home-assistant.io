@@ -51,6 +51,17 @@ $primary-color: #049cdb;
   }
 }
 
+.integration-alert {
+  margin: -1em 0;
+  background-color: wheat;
+  padding: 4px;
+
+  a {
+    text-decoration: none !important;
+  }
+
+}
+
 @media only screen and (max-width: $menu-collapse) {
   .search-container {
     z-index: 20;
