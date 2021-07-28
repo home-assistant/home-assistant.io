@@ -33,6 +33,7 @@ ha_platforms:
   - number
   - scene
   - sensor
+  - select
   - switch
   - weather
 ---

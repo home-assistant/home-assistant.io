@@ -1,5 +1,5 @@
 ---
-title: Automate Pulse 2 Hub by Rollease Acmeda
+title: Automate Pulse Hub v2
 description: Instructions on setting up  the Automate Pulse Hub v2 by Rollease Acmeda within Home Assistant.
 ha_category:
   - Cover
@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@sillyfrog'
 ha_domain: automate
+ha_platforms:
+  - cover
 ---
 
 The Automate Pulse 2 Hub by Rollease Acmeda integration allows you to control and monitor covers via your Automate Pulse v2 Hub (see the [acmeda](/integrations/acmeda) integration for the v1 hub). The integration uses an [API](https://pypi.org/project/aiopulse2/) to directly communicate with hubs on the local network, rather than connecting via the cloud.

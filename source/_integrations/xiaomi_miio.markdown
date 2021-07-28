@@ -24,9 +24,12 @@ ha_platforms:
   - alarm_control_panel
   - device_tracker
   - fan
+  - humidifier
   - light
+  - number
   - remote
   - sensor
+  - select
   - switch
   - vacuum
 ---

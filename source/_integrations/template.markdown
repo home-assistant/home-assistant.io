@@ -9,6 +9,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@PhracturedBlue'
   - '@tetienne'
+  - '@home-assistant/core'
 ha_domain: template
 ha_platforms:
   - alarm_control_panel

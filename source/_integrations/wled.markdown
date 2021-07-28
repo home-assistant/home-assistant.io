@@ -16,6 +16,7 @@ ha_zeroconf: true
 ha_platforms:
   - light
   - sensor
+  - select
   - switch
 ---
 

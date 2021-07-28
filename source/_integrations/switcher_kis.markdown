@@ -12,6 +12,7 @@ ha_domain: switcher_kis
 ha_platforms:
   - sensor
   - switch
+ha_config_flow: true
 ---
 
 This `Switcher` integration allows you to control your [Switcher Devices](https://www.switcher.co.il/).
