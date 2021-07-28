@@ -18,6 +18,15 @@ The following describes trigger data associated with all platforms.
 | `trigger.id` | Optional trigger `id`, or index of the trigger.
 | `trigger.idx` | Index of the trigger.
 
+### Device
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `device`.
+| `trigger.event` | Event object that matched.
+| `trigger.event.event_type` | Event type.
+| `trigger.event.data` | Optional event data.
+
 ### Event
 
 | Template variable | Data |
