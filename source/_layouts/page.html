@@ -10,6 +10,19 @@ layout: default
       }}{% endif %}
     </h1>
   </header>
+  {% if page.collection == "integrations" %}
+    {% assign active_alert = "" %}
+    {% for alert in site.data.alerts_data %}
+      {% if alert.integrations and alert.integrations[0].package == page.ha_domain %}
+        {% assign active_alert = alert.alert_url %}
+      {% endif %}
+    {% endfor %}
+    {% if active_alert != "" %}
+      <div class="integration-alert">
+        <a href="{{active_alert}}" target="_blank">⚠️ There is an active alert for this integration!</a>
+      </div>
+    {% endif %}
+  {% endif %}
   <hr class="divider" />
   {% endif %}
   {{ content }}
