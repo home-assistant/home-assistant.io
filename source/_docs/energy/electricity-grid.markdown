@@ -19,38 +19,38 @@ If you are using a 3rd party device (e.g. not reading directly from your utility
 
 Home Assistant will need to know the amount of energy flowing through your meter. This can be done in various ways.
 
+### Using a CT clamp sensor
+
+CT clamp sensors measure the instantaneous current passing through an electrical wire. To translate this into electrical power (Wh) you also need a voltage measurement, because Power = Current x Voltage.
+
+In Home Assistant we have support for off-the-shelf CT clamp sensors and you can build your own with ESPHome's [CT Clamp Current sensor](https://esphome.io/components/sensor/ct_clamp.html).
+
+The off-the-shelf solution that we advice is the [Shelly EM](https://shop.shelly.cloud/shelly-em-120a-clamp-wifi-smart-home-automation#143). The device has a local API, updates are pushed to Home Assistant and it has a high quality integration.
+
+Devices like Shelly EM/3EM, Iotawatt, Openenergymonitor (EmonPi) measure both current and voltage.
+
+In case of three-phase electrical systems, attention should be drawn to the fact that the current measurement of a given phase is matched to the voltage of the same phase, otherwise the power measurements will be incorrect.
+
+_Attention! Installing CT clamp sensor devices requires opening your electrical cabinet. This work should be done by someone familiar with electrical wiring. Your qualified installer will know how to do this._
+
 ### Connect to your meter
 
 The best way to get this data is directly from your electricity meter that sits between your house and the grid. In certain countries these meters contain standardized ways of reading out the information locally.
 
 ### Connect using a P1 port
 
-The P1 port is a standardized port in the Netherlands, Belgium and Luxembourg. A P1 reader can connect to this port and receive
+The P1 port is a standardized port in the Netherlands, Belgium and Luxembourg. A P1 reader can connect to this port and receive real-time information.
 
-
-[Slimme Lezer](https://www.slimmelezer.nl)
-
-### Connect using a HAN port
-
-This is basically an RS485 port on a smart meter
-https://github.com/tiagofreire-pt/Home_Assistant_EDP_Box
+We have worked with creator Marcel Zuidwijk to develop [Slimme Lezer](https://www.slimmelezer.nl). It's a P1 reader powered by ESPHome that will seamlessly integrate this information in Home Assistant. It is being sold on his website.
 
 ### Reading the meter via a pulse counter
 
 Many meters, including older ones, have an LED that will flash whenever energy passes through it. For example, each flash is a 1/1000th kWh. By monitoring the time between flashes it’s possible to determine the energy consumption.
 
-Mention ESPHome support + Home Assistant Glow.
-
-### Data provided by a CT clamp sensor (e.g. Shelly 3EM or OpenEnergyMonitor)
-
-Popular option
-CT clamp sensors basically measure the instantaneous current passing through an electrical wire. To translate this into electrical power (Wh) you also need a voltage measurement, because Power = Current x Voltage.
-Devices like Shelly EM/3EM, Iotawatt, Openenergymonitor (EmonPi) measure both current and voltage.
-In case of three-phase electrical systems, attention should be drawn to the fact that the current measurement of a given phase is matched to the voltage of the same phase, otherwise the power measurements will be incorrect.
-
-Attention! Installing CT clamp sensor devices requires opening your electrical cabinet. This work should be done by someone familiar with electrical wiring. Your qualified installer will know how to do this.
+We have developed [Home Assistant Glow], an open source solution powered by ESPHome's [pulse meter sensor](https://esphome.io/components/sensor/pulse_meter.html).
 
 ### Data provided by your energy provider
 
-TBD. Mention toon/tibber?
-Probably a popular option but it relies on clouds.
+Some energy providers will provide you real-time information about your usage and have this data integrated into Home Assistant.
+
+_Disclaimer: Some links on this page are affiliate links._
