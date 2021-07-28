@@ -268,9 +268,7 @@ This service will reset the meters on a device that supports the Meter Command C
 
 | Service Data Attribute | Required | Description                                                                                                        |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | no       | Entity (or list of entities) to reset meters for. An `entity_id` or `device_id` must be provided.                  |
-| `device_id`            | no       | ID of device (or list of device IDs) to reset meters for. An `entity_id` or `device_id` must be provided.          |
-| `endpoint `            | no       | The endpoint to target when resetting meters.                                                                      |
+| `entity_id`            | yes      | Entity (or list of entities) for the meters you want to reset.               |
 | `meter_type`           | no       | If supported by the device, indicates the type of meter to reset. Not all devices support this option.             |
 | `value`                | no       | If supported by the device, indicates the value to reset the meter to. Not all devices support this option.   |
 
