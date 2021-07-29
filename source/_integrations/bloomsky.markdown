@@ -15,7 +15,7 @@ ha_platforms:
   - sensor
 ---
 
-The `bloomsky` integration allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's.
+The `bloomsky` integration allows you to access your [BloomSky](https://www.bloomsky.com/) weather stations, including Storm accessory data.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -58,22 +58,7 @@ To use your BloomSky binary sensor in your installation, add the following to yo
 # Example configuration.yaml entry
 binary_sensor:
   - platform: bloomsky
-    monitored_conditions:
-      - Night
-      - Rain
 ```
-
-{% configuration %}
-monitored_conditions:
-  description: "The sensors that you wish to monitor on all of your devices. Select from these options:"
-  required: true
-  type: list
-  keys:
-    night:
-      description: Night
-    rain:
-      description: Rain
-{% endconfiguration %}
 
 ## Camera
 
@@ -101,33 +86,4 @@ To enable these sensors in your installation, set up the BloomSky integration wi
 # Example configuration.yaml entry
 sensor:
   platform: bloomsky
-  monitored_conditions:
-    - Temperature
-    - Humidity
-    - Pressure
-    - UVIndex
-    - Luminance
-    - Voltage
 ```
-
-{% configuration %}
-monitored_conditions:
-  description: "The sensors that you wish to monitor on all of your devices. Select from these options:"
-  required: true
-  type: list
-  keys:
-    humidity:
-      description: Humidity
-    luminance:
-      description: Luminance
-    pressure:
-      description: Pressure
-    temperature:
-      description: Temperature
-    uvindex:
-      description: UVIndex
-    voltage:
-      description: Voltage
-{% endconfiguration %}
-
-More conditions are available using the [BloomSky binary sensor](#binary-sensor) component.
