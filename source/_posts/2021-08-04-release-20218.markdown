@@ -192,7 +192,6 @@ noteworthy changes this release:
 We welcome the following new integrations this release:
 
 - [Adax][adax docs], added by [@Danielhiversen]
-- [Automate Pulse 2 Hub by Rollease Acmeda][automate docs], added by [@sillyfrog]
 - [Energy][energy docs], added by the Home Assistant Core team
 - [Flipr][flipr docs], added by [@cnico]
 - [Generic Hygrostat][generic_hygrostat docs], added by [@Shulyaka]
@@ -222,6 +221,7 @@ The following integrations are now available via the Home Assistant UI:
 - [CO2 Signal][co2_signal docs], done by [@Danielhiversen]
 - [Honeywell Total Connect Comfort (US)][honeywell docs], done by [@rdfurman]
 - [Notifications for Android TV / Fire TV][nfandroid docs], done by [@tkdrob]
+- [Switcher][switcher_kis docs], done by [@thecode]
 - [Yale Smart Living][yale_smart_alarm docs], done by [@gjohansson-ST]
 
 ## If you need help...
@@ -501,22 +501,6 @@ If you relied on these attributes in your automations, scripts or Lovelace
 dashboards, you'll need to update your configuration to match this change.
 
 ([@Shutgun] - [#53335]) ([devolo_home_control docs])
-
-{% enddetails %}
-
-{% details "Sonos" %}
-
-Sonos speaker regrouping behavior may change during snapshot restores for
-certain layouts. Previously, speakers which were joined after a snapshot was
-taken were not unjoined during restores.
-
-Restored groups are now recreated to exactly match the snapshot.
-If `sonos.restore` is called with `with_group: True` (the default) on individual
-speakers (instead of `entity_id: all`) **and** speakers were joined after
-snapshots were taken, then it is possible to create groups which did not
-previously exist.
-
-([@jjlawren] - [#53277]) ([sonos docs])
 
 {% enddetails %}
 
