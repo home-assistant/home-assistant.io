@@ -266,9 +266,11 @@ action:
 
 This service will reset the meters on a device that supports the Meter Command Class.
 
+<div class='note info'>The service will reset all meters on the same endpoint of the entity(s) you target, so you should only choose one meter entity for a given node, endpoint, and meter type (if applicable). If you target multiple entities on the same node, endpoint, and meter type, you will trigger multiple reset calls which will generate unnecessary traffic on your network.</div>
+
 | Service Data Attribute | Required | Description                                                                                                        |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | yes      | Entity (or list of entities) for the meters you want to reset.               |
+| `entity_id`            | yes      | Entity (or list of entities) for the meters you want to reset. See note above for considerations.                  |
 | `meter_type`           | no       | If supported by the device, indicates the type of meter to reset. Not all devices support this option.             |
 | `value`                | no       | If supported by the device, indicates the value to reset the meter to. Not all devices support this option.   |
 
