@@ -35,7 +35,9 @@ If your router enforces DNS rebind protection, connections to the local `plex.di
 
 ### Integration Options
 
-Several options are provided to adjust the behavior of `media_player` entities. These can be changed at **Plex** -> **Options** on the Integrations page.
+Several options are provided to adjust the behavior of the integration and its `media_player` entities. These can be changed at **Plex** -> **Options** on the Integrations page.
+
+**Select connection hostname**: Allows manual selection of the hostname to use when connecting to this Plex server instance.
 
 **Use episode art**: Display TV episode art instead of TV show art.
 
