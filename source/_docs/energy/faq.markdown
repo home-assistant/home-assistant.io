@@ -5,10 +5,21 @@ description: "Home Energy Management is a vast topic and not everything might be
 
 ## Energy vs Power
 
-Energy is a quantitative measurement of what it takes to produce work (e.g. heat water) while Power measures the speed at which energy is transferred.
+It's a common mistake to take Power as an Energy value, but the two are not alike 
 
-Electrical Power is usually measured in Watts (W) and Electrical Energy is usually measured in Watt-Hour (Wh) (not to be confused with Watt/Hour).
+[Energy](https://en.wikipedia.org/wiki/Energy) is a quantitative measurement of what it takes to produce work (e.g. heat water) while [Power](https://en.wikipedia.org/wiki/Electric_power) measures the speed at which energy is transferred.
 
-This difference is very important as you need to use the proper entities and/or convert between the two. Energy (Watt-Hour) is not an average of the Power you are consuming over a given period of time, but the sum of the power function: Power is the derivative of Energy over time.
+Electrical Power is measured in Watts (W) and Electrical Energy is measured in kiloWatt-hour (kWh).
 
 Think of this in a parallel to speed and distance: Power is the speed you are going and Energy is the distance driven.
+
+This difference is very important as you need to use the proper entities in our Energy Panel. 
+
+## Creating an Energy Sensor out of a Power Sensor
+
+Energy (kiloWatt-hour) is not an average of the Power you are consuming over a given period of time (that would be kiloWatt/hour). Energy is the integral of the Power function, or in other mathematical therms, it is the area of the graph beneath the power function.
+
+Since in HA we don't deal with Power functions but with samples of the power being used, we can't do the integral directly and get the true amount of energy consumed/produced.
+
+That being said, if you can sample Power values fast enough (every few seconds) you can reliably measure energy transfered through a mathematic aproximatinos called [Riemann Sum](https://en.wikipedia.org/wiki/Riemann_sum). HA provides this mathematical operation through the integration [integration](https://www.home-assistant.io/integrations/integration/#energy)
+
