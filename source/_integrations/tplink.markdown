@@ -166,7 +166,7 @@ sensor:
         value_template: "{{ state_attr('switch.my_tp_switch','current_a') }}"
         unit_of_measurement: "A"
       my_tp_switch_watts:
-        friendly_name_template: "{{ state_attr('switch.my_tp_switch','friendly_name') }} Current Consumption"
+        friendly_name_template: "{{ state_attr('switch.my_tp_switch','friendly_name') }} Power"
         value_template: "{{ state_attr('switch.my_tp_switch','current_power_w') }}"
         unit_of_measurement: "W"
       my_tp_switch_total_kwh:
