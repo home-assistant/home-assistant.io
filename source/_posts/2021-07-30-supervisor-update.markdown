@@ -1,5 +1,5 @@
 ---
-title: "Supervisor Update"
+title: "Supervisor update"
 description: "Upcoming changes to the Supervisor"
 date: 2021-07-30 00:00:00
 date_formatted: "July 30, 2020"
@@ -16,7 +16,7 @@ categories:
 "Snapshot" is a term that we have been using in the Supervisor since the beginning,
 but it's not very descriptive for those that do not know what it is.
 Over the next few weeks, we will start using "backup"
-as the term instead of in all our software and documentation.
+in all our software and documentation.
 
 The functionality of it does not change, this is just a rename to make it more understandable.
 
@@ -42,10 +42,10 @@ These variables have to be added to the run command for the Supervisor container
 - `ENV_SUPERVISOR_NAME` - The name of the supervisor container, typically `hassio_supervisor`
 - `ENV_SUPERVISOR_MACHINE` - For a list of machine types, [have a look here][machine_types]
 
-### OS agent
+### OS Agent
 
-Recently we created an [OS Agent][os_agent]. This allows for better communication between the host OS and the Supervisor, and to bring in more features.
-You will find the installation instructions for this in the repository for fhe [OS Agent][os_agent].
+Recently, we created an [OS Agent][os_agent]. OS Agent allows for better communication between the host OS and the Supervisor which will enable new features.
+You can find the installation instructions for OS Agent in its [GitHub repository][os_agent].
 
 If you you are interested we have also just published a [blog on the developer site][dev_blog].
 
