@@ -38,9 +38,9 @@ As an alternative to doing these adjustments, you can migrate your installation 
 There are a few environment variables that you have to add in order to make the Supervisor work properly with newer versions of the Supervisor.
 These variables have to be added to the run command for the Supervisor container, on most installations this is a script called from a service file.
 
-- `ENV_SUPERVISOR_SHARE` - The path to the directory for the Supervisor data files, typically `/usr/share/hassio`.
-- `ENV_SUPERVISOR_NAME` - The name of the supervisor container, typically `hassio_supervisor`
-- `ENV_SUPERVISOR_MACHINE` - For a list of machine types, [have a look here][machine_types]
+- `SUPERVISOR_SHARE` - The path to the directory for the Supervisor data files, typically `/usr/share/hassio`.
+- `SUPERVISOR_NAME` - The name of the supervisor container, typically `hassio_supervisor`
+- `SUPERVISOR_MACHINE` - The machine you are using. For a list of machine types, [have a look here][machine_types]
 
 ### OS Agent
 
