@@ -28,10 +28,6 @@ It does require that your devices are registered with the [Find My](https://www.
 {% include integrations/config_flow.md %}
 
 <div class='note warning'>
-Low `max_interval` may cause battery drainage as it wakes up your device to get the current location.
-</div>
-
-<div class='note warning'>
 You may receive an email and a notification from Apple saying that someone has logged into your account.
 
 For the notification, press "Allow", then "OK".
@@ -61,7 +57,7 @@ The iCloud integration will add a battery sensor for each iCloud devices availab
 
 ### Service `icloud.update`
 
-This service can be used to ask an update of a certain iDevice or all devices linked to an iCloud account. Request will result in new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing current iPhone location. It can be used in automations when a manual location update is needed, e.g., to check if anyone is home when a door been opened.
+This service can be used to ask an update of a certain iDevice or all devices linked to an iCloud account. Request will result in new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing current iPhone location. It can be used in automations when a manual location update is needed, e.g., to check if anyone is home when a door has been opened.
 
 ### Service `icloud.play_sound`
 

@@ -99,7 +99,7 @@ Available key codes |
 `Back`
 `InstantReplay`
 `Info`
-`Backspace`
+`BackSpace`
 `Search`
 `Enter`
 

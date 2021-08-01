@@ -32,6 +32,7 @@ This integration is a meta-component and configures a default set of integration
 - [Scene](/integrations/scene/) (`scene`)
 - [Scripts](/integrations/script/) (`script`)
 - [Simple Service Discovery Protocol (SSDP)](/integrations/ssdp/) (`ssdp`)
+- [Stream](/integrations/stream/) (`stream`)
 - [Sun](/integrations/sun/) (`sun`)
 - [System Health](/integrations/system_health/) (`system_health`)
 - [Tag](/integrations/tag/) (`tag`)

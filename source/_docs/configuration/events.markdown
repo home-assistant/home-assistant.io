@@ -45,14 +45,6 @@ Event `call_service` is fired to call a service.
 | `service_data`    | Dictionary with the service call parameters. Example: `{ 'brightness': 120 }`. |
 | `service_call_id` | String with a unique call id. Example: `23123-4`.                              |
 
-## Event `service_executed`
-
-Event `service_executed` is fired by the service handler to indicate the service is done.
-
-| Field             | Description                                                                               |
-| ----------------- | ----------------------------------------------------------------------------------------- |
-| `service_call_id` | String with the unique call id of the service call that was executed. Example: `23123-4`. |
-
 ## Event `automation_reloaded`
 
 Event `automation_reloaded` is fired when automations have been reloaded and thus might have changed.

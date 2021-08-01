@@ -96,8 +96,8 @@ While executing a script you can add a condition to stop further execution. When
 
 ```yaml
 # If paulus is home, continue to execute the script below these lines
-  alias: "Check if Paulus is home"
-- condition: state
+- alias: "Check if Paulus is home"
+  condition: state
   entity_id: device_tracker.paulus
   state: "home"
 ```

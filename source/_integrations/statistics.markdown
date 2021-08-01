@@ -32,8 +32,6 @@ sensor:
     entity_id: sensor.cpu
   - platform: statistics
     entity_id: binary_sensor.movement
-    max_age:
-      minutes: 30
 ```
 
 {% configuration %}

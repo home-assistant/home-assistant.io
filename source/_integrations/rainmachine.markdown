@@ -16,6 +16,8 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_zeroconf: true
+ha_homekit: true
 ---
 
 The RainMachine integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
@@ -38,7 +40,6 @@ Disable a RainMachine program. This will mark the program switch as
 | Service Data Attribute    | Optional | Description                                                 |
 |---------------------------|----------|-------------------------------------------------------------|
 | `program_id  `              |      no  | The program to disable                                      |
-| `entity_id`                 |      yes | An entity belonging to the RainMachine controller to adjust |
 
 ### `rainmachine.disable_zone`
 
@@ -48,7 +49,6 @@ Disable a RainMachine zone. This will mark the zone switch as
 | Service Data Attribute    | Optional | Description                                                 |
 |---------------------------|----------|-------------------------------------------------------------|
 | `zone_id  `                 |      no  | The program to disable                                      |
-| `entity_id`                 |      yes | An entity belonging to the RainMachine controller to adjust |
 
 ### `rainmachine.enable_program`
 
@@ -57,7 +57,6 @@ Enable a RainMachine program.
 | Service Data Attribute    | Optional | Description                                                 |
 |---------------------------|----------|-------------------------------------------------------------|
 | `program_id  `              |      no  | The program to enable                                       |
-| `entity_id`                 |      yes | An entity belonging to the RainMachine controller to adjust |
 
 ### `rainmachine.enable_zone`
 
@@ -66,7 +65,6 @@ Enable a RainMachine zone.
 | Service Data Attribute    | Optional | Description                                                 |
 |---------------------------|----------|-------------------------------------------------------------|
 | `zone_id  `                 |      no  | The zone to enable                                          |
-| `entity_id`                 |      yes | An entity belonging to the RainMachine controller to adjust |
 
 ### `rainmachine.pause_watering`
 
@@ -75,7 +73,6 @@ Pause all watering activities for a number of seconds.
 | Service Data Attribute    | Optional | Description                                                 |
 |---------------------------|----------|-------------------------------------------------------------|
 | `seconds`                   |      no  | The number of seconds to pause                              |
-| `entity_id`                 |      yes | An entity belonging to the RainMachine controller to adjust |
 
 ### `rainmachine.start_program`
 
@@ -84,7 +81,6 @@ Start a RainMachine program.
 | Service Data Attribute    | Optional | Description                                                 |
 |---------------------------|----------|-------------------------------------------------------------|
 | `program_id  `              |      no  | The program to start                                        |
-| `entity_id`                 |      yes | An entity belonging to the RainMachine controller to adjust |
 
 ### `rainmachine.start_zone`
 
@@ -94,15 +90,10 @@ Start a RainMachine zone for a set number of seconds.
 |---------------------------|----------|-------------------------------------------------------------|
 | `zone_id`                   |      no  | The zone to start                                           |
 | `zone_run_time`             |      yes | The number of seconds to run; defaults to 60 seconds        |
-| `entity_id`                 |      yes | An entity belonging to the RainMachine controller to adjust |
 
 ### `rainmachine.stop_all`
 
 Stop all watering activities.
-
-| Service Data Attribute    | Optional | Description                                                 |
-|---------------------------|----------|-------------------------------------------------------------|
-| `entity_id`                 |      yes | An entity belonging to the RainMachine controller to adjust |
 
 ### `rainmachine.stop_program`
 
@@ -111,7 +102,6 @@ Stop a RainMachine program.
 | Service Data Attribute    | Optional | Description                                                 |
 |---------------------------|----------|-------------------------------------------------------------|
 | `program_id  `              |      no  | The program to stop                                         |
-| `entity_id`                 |      yes | An entity belonging to the RainMachine controller to adjust |
 
 ### `rainmachine.stop_zone`
 
@@ -120,15 +110,10 @@ Stop a RainMachine zone.
 | Service Data Attribute    | Optional | Description                                                 |
 |---------------------------|----------|-------------------------------------------------------------|
 | `zone_id  `                 |      no  | The zone to stop                                            |
-| `entity_id`                 |      yes | An entity belonging to the RainMachine controller to adjust |
 
 ### `rainmachine.unpause_watering`
 
 Unpause all watering activities.
-
-| Service Data Attribute    | Optional | Description                                                 |
-|---------------------------|----------|-------------------------------------------------------------|
-| `entity_id`                 |      yes | An entity belonging to the RainMachine controller to adjust |
 
 ## Switch
 

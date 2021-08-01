@@ -128,6 +128,11 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
+enabled_by_default:
+  description: Flag which defines if the entity should be enabled when first added.
+  required: false
+  type: boolean
+  default: true
 fan_mode_command_template:
   description: A template to render the value sent to the `fan_mode_command_topic` with.
   required: false

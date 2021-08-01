@@ -38,6 +38,7 @@ If your system includes the Supervisor, this will also contain:
 
 - If your installation is supported
 - If your installation is healthy
+- The architecture of your installation
 
 If you are running Home Assistant Operating System, this will also contain:
 
@@ -53,7 +54,8 @@ If you are running Home Assistant Operating System, this will also contain:
   "installation_type": "Home Assistant OS",
   "supervisor": {
     "healthy": true,
-    "supported": true
+    "supported": true,
+    "arch": "amd64"
   },
   "operating_system": {
     "board": "odroid-n2",
@@ -90,7 +92,8 @@ If your system includes the Supervisor, this will also contain:
   "installation_type": "Home Assistant OS",
   "supervisor": {
     "healthy": true,
-    "supported": true
+    "supported": true,
+    "arch": "amd64"
   },
   "operating_system": {
     "board": "odroid-n2",
@@ -134,7 +137,8 @@ If your system includes the Supervisor, this will also contain:
   "installation_type": "Home Assistant OS",
   "supervisor": {
     "healthy": true,
-    "supported": true
+    "supported": true,
+    "arch": "amd64"
   },
   "operating_system": {
     "board": "odroid-n2",

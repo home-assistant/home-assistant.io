@@ -705,11 +705,6 @@ max_temp:
   description: Override the maximum temperature.
   required: false
   type: float
-create_temperature_sensors:
-  description: If true, dedicated sensor entities are created for current and target temperature.
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration %}
 
 ## Cover
@@ -897,6 +892,14 @@ rgbw_address:
   type: [string, list]
 rgbw_state_address:
   description: KNX group address for retrieving the RGBW color of the light. *DPT 251.600*
+  required: false
+  type: [string, list]
+xyy_address:
+  description: KNX group address for setting the xyY color of the light. *DPT 242.600*
+  required: false
+  type: [string, list]
+xyy_state_address:
+  description: KNX group address for retrieving the xyY color of the light. *DPT 242.600*
   required: false
   type: [string, list]
 individual_colors:
@@ -1337,7 +1340,6 @@ knx:
       address_day_night: "7/0/8"
       address_air_pressure: "7/0/9"
       address_humidity: "7/0/10"
-      create_sensors: false
       sync_state: true
 ```
 
@@ -1399,11 +1401,6 @@ address_humidity:
   description: KNX address for reading current humidity. *DPT 9.007*
   required: false
   type: [string, list]
-create_sensors:
-  description: If true, dedicated sensor entities are created for all configured properties.
-  required: false
-  type: boolean
-  default: false
 sync_state:
   description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus.
   required: false

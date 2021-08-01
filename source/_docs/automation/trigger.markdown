@@ -182,17 +182,17 @@ Listing above and below together means the numeric_state has to be between the t
 In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (from 17 and below or 25 and above). It will only fire again, once it has left the defined range and enters it again.
 </div>
 
-Number helpers (`input_number` entities) can be used in the `above` and `below` thresholds, making
-the trigger more dynamic, like:
+Number helpers (`input_number` entities), `number` and `sensor` entities that
+contain a numeric value, an be used in the `above` and `below` thresholds,
+making the trigger more dynamic, like:
 
 ```yaml
 automation:
   trigger:
     - platform: numeric_state
-      entity_id: sensor.temperature
-      # input_number entity id can be specified for above and/or below thresholds
-      above: input_number.temperature_threshold_high
-      below: input_number.temperature_threshold_low
+      entity_id: sensor.outside_temperature
+      # Other entity ids can be specified for above and/or below thresholds
+      above: sensor.inside_temperature
 ```
 
 The `for:` can also be specified as `HH:MM:SS` like this:
@@ -652,6 +652,12 @@ curl -X POST https://your-home-assistant:8123/api/webhook/some_hook_id
 Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 
 Note that a given webhook can only be used in one automation at a time. That is, only one automation trigger can use a specific webhook ID.
+
+In order to reference `trigger.json`, the `Content-Type` header must be specified with a value of `application/json`, e.g.:
+
+```bash
+curl -X POST -H "Content-Type: application/json" https://your-home-assistant:8123/api/webhook/some_hook_id
+```
 
 ## Zone trigger
 

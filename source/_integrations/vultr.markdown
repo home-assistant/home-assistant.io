@@ -128,13 +128,13 @@ monitored_conditions:
   detault: All conditions
   type: list
   keys:
-    current_bandwidth_used:
+    current_bandwidth_gb:
       description: The current (invoice period) bandwidth usage in Gigabytes (GB).
     pending_charges:
       description: The current (invoice period) charges that have built up for this subscription. Value is in US Dollars (US$).
 {% endconfiguration %}
 
-Full `configuration.yaml` using `{}` to format condition name (produces `sensor.server_current_bandwidth_used` and `sensor.server_pending_charges`):
+Full `configuration.yaml` using `{}` to format condition name (produces `sensor.server_current_bandwidth_gb` and `sensor.server_pending_charges`):
 
 ```yaml
 sensor:
@@ -142,7 +142,7 @@ sensor:
     name: Server {}
     subscription: 123456
     monitored_conditions:
-      - current_bandwidth_used
+      - current_bandwidth_gb
       - pending_charges
 ```
 

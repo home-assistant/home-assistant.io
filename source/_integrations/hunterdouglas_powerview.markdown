@@ -16,6 +16,8 @@ ha_platforms:
   - cover
   - scene
   - sensor
+ha_zeroconf: true
+ha_dhcp: true
 ---
 
 The `hunterdouglas_powerview` integration allows you to integrate your [Hunter Douglas PowerView](https://www.hunterdouglas.com/operating-systems/powerview-motorization/support) devices in Home Assistant.

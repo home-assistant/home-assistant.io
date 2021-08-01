@@ -16,6 +16,12 @@ ha_platforms:
 
 The integration allows you to control [Motion Blinds](https://motion-blinds.com) from [Coulisse B.V.](https://coulisse.com/products/motion).
 
+Additionally the following brands have been reported to also work with this integration:
+
+- [Motion Blinds](https://motion-blinds.com)
+- [Dooya](http://www.dooya.com/)
+- [Bloc Blinds](https://www.blocblinds.com/)
+
 {% include integrations/config_flow.md %}
 
 ## Retrieving the API Key

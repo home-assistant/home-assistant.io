@@ -30,6 +30,8 @@ devolo Home Control is a Z-Wave ecosystem with a Z-Wave to IP gateway in the cen
 
 {% include integrations/config_flow.md %}
 
+Please do not change the URL provided in the advanced mode unless you know what you are doing.
+
 ## Switches
 
 The integration provides support for the following Z-Wave devices:

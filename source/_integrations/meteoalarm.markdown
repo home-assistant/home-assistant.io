@@ -12,7 +12,7 @@ ha_platforms:
   - binary_sensor
 ---
 
-The `MeteoAlarm` platform allows one to watch for weather alerts in europe from [MeteoAlarm](https://www.meteoalarm.eu) (EUMETNET). To use this binary sensor, you need the two digits of your country and the province name from  [MeteoAlarm](https://www.meteoalarm.eu). Please note that you need to write the exact details from the website with capitals.
+The `MeteoAlarm` platform allows one to watch for weather alerts in europe from [MeteoAlarm](https://www.meteoalarm.org) (EUMETNET). To use this binary sensor, you need the name of your country and the province name from  [MeteoAlarm](https://www.meteoalarm.org). Please note that you need to write the exact details from the website with capitals.
 
 The binary sensor state shows if applicable the warning message. The details are available as attribute.
 
@@ -23,7 +23,7 @@ To enable this binary sensor, add the following lines to your `configuration.yam
 ```yaml
 binary_sensor:
   - platform: meteoalarm
-    country: "NL"
+    country: "netherlands"
     province: "Groningen"
 ```
 
@@ -34,7 +34,7 @@ name:
   default: meteoalarm
   type: string
 country:
-  description: The 2 letters of your country
+  description: The fullname of your country in English format (lowercases)
   required: true
   type: string
 province:

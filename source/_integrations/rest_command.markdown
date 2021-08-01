@@ -46,11 +46,11 @@ service_name:
       required: false
       type: template
     username:
-      description: The username for HTTP authentication.
+      description: The username for basic HTTP authentication (digest is not supported).
       required: false
       type: string
     password:
-      description: The password for HTTP authentication.
+      description: The password for basic HTTP authentication (digest is not supported).
       required: false
       type: string
     timeout:

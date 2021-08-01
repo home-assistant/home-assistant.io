@@ -92,6 +92,11 @@ device_class:
   required: false
   type: device_class
   default: None
+enabled_by_default:
+  description: Flag which defines if the entity should be enabled when first added.
+  required: false
+  type: boolean
+  default: true
 expire_after:
   description: Defines the number of seconds after the sensor's state expires, if it's not updated. After expiry, the sensor's state becomes `unavailable`.
   required: false
@@ -114,6 +119,14 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Implies `force_update` of the current sensor state when a message is received on this topic.
   required: false
   type: string
+last_reset_topic:
+  description: "The MQTT topic subscribed to receive timestamps for when an accumulating sensor such as an energy meter was reset. If the sensor never resets, set it to UNIX epoch 0: `1970-01-01T00:00:00+00:00`."
+  required: false
+  type: string
+last_reset_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the last_reset. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes."
+  required: false
+  type: string
 name:
   description: The name of the MQTT sensor.
   required: false
@@ -134,6 +147,11 @@ qos:
   required: false
   type: integer
   default: 0
+state_class:
+  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  required: false
+  type: string
+  default: None
 state_topic:
   description: The MQTT topic subscribed to receive sensor values.
   required: true

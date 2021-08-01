@@ -188,21 +188,6 @@ name:
   default: myStrom Switch
 {% endconfiguration %}
 
-Check if you are able to access the device located at `http://IP_ADRRESS`. The details about your switch is provided as a JSON response.
-
-```bash
-$ curl -X GET -H "Content-Type: application/json" http://IP_ADDRESS/report
-{
-  "power": 0,
-  "relay": false
-}
-```
-
-or change its state:
-
-```bash
-curl -G -X GET http://IP_ADDRESS/relay -d 'state=1'
-```
 
 ### Get the current power consumption
 
