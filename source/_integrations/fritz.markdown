@@ -79,7 +79,7 @@ These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrat
 
 ### Parental control
 
-Parental control switches can be used to enable and disable internet access of individual devices. If a device has internet access (no internet access) it will be enabled (disabled). You can also find the current blocking state of the individual devices in the UI of the fritzbox under `Internet` -> `Filters` -> `Parental Controls` -> `Device Block`
+Parental control switches can be used to enable and disable internet access of individual devices. If a device has internet access (no internet access) it will be enabled (disabled). You can also find the current blocking state of the individual devices in the UI of the FRITZ!Box under `Internet` -> `Filters` -> `Parental Controls` -> `Device Block`
 
 Parental control switches are designed for advanced users, thus they are disabled by default. You need to enable the wanted entities manually.
 
@@ -103,7 +103,7 @@ As a result, this integration will create entities only for rules that have your
 
 **Script: Reconnect / get new IP**
 
-The following script can be used to easily add a reconnect button to your UI. If you want to reboot your fritzbox, you can use fritzbox_tools.reboot instead.
+The following script can be used to easily add a reconnect button to your UI. If you want to reboot your FRITZ!Box, you can use `fritzbox_tools.reboot` instead.
 
 ```yaml
 fritz_box_reconnect:
