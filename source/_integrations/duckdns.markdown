@@ -29,7 +29,7 @@ duckdns:
 
 {% configuration duckdns %}
   domain:
-    description: Your duckdns subdomain (without the `.duckdns.org` suffix).
+    description: Your duckdns subdomain (with the `.duckdns.org` suffix).
     required: true
     type: string
   access_token:
