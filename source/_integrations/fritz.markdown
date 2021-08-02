@@ -121,7 +121,7 @@ automation:
 - alias: "System: Reconnect FRITZ!Box"
   trigger:
     platform: time
-    at: '05:00:00'
+    at: "05:00:00"
   action:
     - service: fritz.reconnect
       target:
