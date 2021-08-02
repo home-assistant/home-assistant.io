@@ -13,7 +13,7 @@ Screenshot of the Gauge card.
 </p>
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_gauge_needle_card.gif' alt='Screenshot of the Gauge card in needle mode'>
+<img src='/images/lovelace/lovelace_gauge_needle_card.png' alt='Screenshot of the Gauge card in needle mode'>
 Screenshot of the Gauge card in needle mode.
 </p>
 
