@@ -945,7 +945,7 @@ switches:
           default: 0
           type: integer
         input_type:
-          description: type of address (holding/coil/discrete/input)
+          description: type of address (holding/coil/discrete/input or holdings/coils for array call)
           required: false
           default: write_type
           type: integer
