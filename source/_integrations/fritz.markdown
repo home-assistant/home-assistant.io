@@ -79,7 +79,7 @@ These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrat
 
 ### Parental control
 
-Parental control switches can be used to enable and disable internet access of individual devices. If a device has internet access (no internet access) it will be enabled (disabled). You can also find the current blocking state of the individual devices in the UI of the FRITZ!Box under `Internet` -> `Filters` -> `Parental Controls` -> `Device Block`
+Parental control switches can be used to enable and disable internet access of individual devices. If a device has internet access it will be enabled, otherwise it will be disabled. You can also find the current blocking state of the individual devices in the UI of the FRITZ!Box under `Internet` -> `Filters` -> `Parental Controls` -> `Device Block`
 
 Parental control switches are designed for advanced users, thus they are disabled by default. You need to enable the wanted entities manually.
 
@@ -121,7 +121,7 @@ automation:
 - alias: "System: Reconnect FRITZ!Box"
   trigger:
     - platform: time
-      at: '05:00:00'
+      at: "05:00:00"
   action:
     - service: fritz.reconnect
       target:
@@ -137,7 +137,7 @@ automation:
     trigger:
       - platform: state
         entity_id: switch.fritzbox_x_wifi_x
-        to: 'on'
+        to: "on"
     action:
       - service: notify.notify
         data:
