@@ -86,7 +86,7 @@ user:
 
 ## Type
 
-You can change the layout of a view by using a different view type. The default is [`masonary`](/lovelace/masonary).
+You can change the layout of a view by using a different view type. The default is [`masonry`](/lovelace/masonry).
 
 #### Example
 
@@ -135,7 +135,7 @@ views:
       required: false
       description: The type of the view.
       type: string
-      default: masonary
+      default: masonry
     title:
       required: true
       description: The title or name.
