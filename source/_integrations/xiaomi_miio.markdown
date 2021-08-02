@@ -208,6 +208,9 @@ Supported devices:
 | Air Humidifier CA1     | zhimi.humidifier.ca1   | |
 | Air Humidifier CA4     | zhimi.humidifier.ca4   | |
 | Air Humidifier CB1     | zhimi.humidifier.cb1   | |
+| Air Humidifier JSQ     | deerma.humidifier.jsq  | |
+| Air Humidifier JSQ1    | deerma.humidifier.jsq1 | |
+| Air Humidifier MJJSQ   | deerma.humidifier.mjjsq| |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
 
 
@@ -469,6 +472,17 @@ Clean mode and Motor speed can only be set when the device is turned on.
   - `humidity`
   - `temperature`
 
+### Air Humidifier JSQ/JSQ1/MJJSQ (deerma.humidifier.jsq/deerma.humidifier.jsq1/deerma.humidifier.mjjsq)
+
+- On, Off
+- Operation modes (low, medium, high, humidity)
+- Buzzer (on, off)
+- LED (on, off)
+- Target humidity (30, 40, 50, 60, 70, 80)
+- Sensor entities
+  - `humidity`
+  - `temperature`
+
 ### Air Fresh VA2
 
 - Power (on, off)
@@ -502,13 +516,13 @@ For supported Air Humidifiers additional entities for will be generated automati
 The sensor platform does not supply additional services.
 </div>
 
-| Platform     | Service(s)                 | Related auto generated device entities                      |
-|--------------|----------------------------|-------------------------------------------------------------|
-| `humidifier` | `set_humidity`, `set_mode` | Main device entity                                          |
-| `switch`     | `turn_on`, `turn_off`      | `buzzer`, `child_lock`, `cleaning_mode` and `dry_mode`      |
-| `sensor`     | _None_                     | `actual_speed`, `humidity`, `temperature` and `water_level` |
-| `number`     | `set_value`                | `motor_speed`                                               |
-| `select`     | `select_option`            | `led_brightness`                                            |
+| Platform     | Service(s)                 | Related auto generated device entities                       |
+|--------------|----------------------------|--------------------------------------------------------------|
+| `humidifier` | `set_humidity`, `set_mode` | Main device entity                                           |
+| `switch`     | `turn_on`, `turn_off`      | `buzzer`, `child_lock`, `cleaning_mode`, `dry_mode` and `led`|
+| `sensor`     | _None_                     | `actual_speed`, `humidity`, `temperature` and `water_level`  |
+| `number`     | `set_value`                | `motor_speed`                                                |
+| `select`     | `select_option`            | `led_brightness`                                             |
 
 ### Service `fan.set_percentage`
 
@@ -1495,13 +1509,13 @@ One of Home Assistant users wrote a tokens extractor tool, which is currently th
   ```bash
   pip3 install pycryptodome pybase64 requests
   ```
-  
+
 2. Run script
 
   ```bash
   python3 token_extractor.py
   ```
-  
+
 3. Provide e-mail address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
 4. Script will print out all devices connected to the account with their IP address and tokens for use in Home Assistant.
 
@@ -1522,7 +1536,7 @@ Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum
 
 ### Using Get Mi Home Devices Token App
 
-If you are on a Windows or macOS device, you can use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases) App to retrieve the token. Click the link, download the file that corresponds to your OS, enter your login details and it will retrieve the access token. 
+If you are on a Windows or macOS device, you can use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases) App to retrieve the token. Click the link, download the file that corresponds to your OS, enter your login details and it will retrieve the access token.
 
 ### Alternative methods
 
