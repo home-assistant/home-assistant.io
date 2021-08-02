@@ -29,18 +29,29 @@ You will need your API key. This can be found and configured in the application'
 
 This integration provides the following sensors:
 
-| Name             | Description                                         |
-| ---------------- | --------------------------------------------------- |
-| BIOS Version     | Version of your system's BIOS                       |
-| Battery          | Battery level of the device                         |
-| CPU Speed        | The current CPU speed                               |
-| CPU Temperature  | The current temperature of the device               |
-| Filesystem(s)    | Space used for each drive letter / filesystem mount |
-| Memory Free      | Memory (RAM) free in GB                             |
-| Memory Used      | Memory (RAM) used in GB                             |
-| Memory Used %    | Memory (RAM) % used                                 |
-| Operating System | Version information of the Operating System         |
-| Load             | System load percentage                              |
+| Name                   | Description                                         |
+| ---------------------- | --------------------------------------------------- |
+| Battery                | Battery level of the device                         |
+| BIOS Version           | Version of your system's BIOS                       |
+| CPU Speed              | The current CPU speed                               |
+| CPU Temperature        | The current temperature of the CPU                  |
+| Filesystem(s)          | Space used for each drive letter / filesystem mount |
+| Gpu Core Clock Speed   | GPU core clock speed in MHz                         |
+| Gpu Memory Clock Speed | GPU memory clock speed in MHz                       |
+| Gpu Memory Free        | GPU memory free in GB                               |
+| Gpu Memory Used        | GPU memory used in GB                               |
+| Gpu Memory Used %      | GPU memory used percentage                          |
+| Gpu Power Usage        | GPU power usage                                     |
+| Gpu Temperature        | The current temperature of the GPU                  |
+| Gpu Usage              | GPU usage percentage                                |
+| Gpu Fan Speed          | GPU fan speed percentage                            |
+| Load                   | System load percentage                              |
+| Load (Per CPU)         | System load percentage for each CPU                 |
+| Memory Free            | Memory (RAM) free in GB                             |
+| Memory Used            | Memory (RAM) used in GB                             |
+| Memory Used %          | Memory (RAM) % used                                 |
+| Operating System       | Version information of the Operating System         |
+| Version                | System Bridge Version                               |
 
 ## Services
 
