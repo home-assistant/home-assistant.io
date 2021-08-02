@@ -7,7 +7,7 @@ description: "An overview of the energy cards that are available."
 
 This is a list of all the cards used in the energy dashboard, you can also place them anywhere you want in your Lovelace dashboard.
 
-At the moment there are no configuration options available for these cards, you can configure them by configuring the energy integration.
+At the moment there are no configuration options available for these cards, you can configure them on the energy {% my config_energy title="energy configuration page" %}.
 
 They will always show the data of today when used outside the energy dashboard.
 
