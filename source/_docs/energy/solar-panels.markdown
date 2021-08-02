@@ -15,7 +15,7 @@ Home Assistant will need to know the amount of energy that is being produced. Th
 
 ### Using a CT clamp sensor
 
-CT clamp sensors measure the instantaneous current passing through an electrical wire. To translate this into electrical power (Wh) you also need a voltage measurement, because Power = Current x Voltage.
+CT clamp sensors measure the instantaneous current passing through an electrical wire. To translate this into electrical power (W) you also need a voltage measurement, because Power = Current x Voltage.
 
 In Home Assistant we have support for off-the-shelf CT clamp sensors and you can build your own with ESPHome's [CT Clamp Current sensor](https://esphome.io/components/sensor/ct_clamp.html).
 
