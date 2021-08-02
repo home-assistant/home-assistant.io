@@ -137,7 +137,7 @@ automation:
     trigger:
       platform: state
       entity_id: switch.[fritzbox]_[wifi name]
-      to: 'on'
+      to: "on"
     action:
       - service: notify.n
         data:
