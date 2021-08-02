@@ -1,4 +1,5 @@
 ---
+type: card
 title: "History Graph Card"
 sidebar_label: History Graph
 description: "The History Graph card allows you to display a graph for each of the entities listed."

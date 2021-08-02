@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Gauge Card"
 sidebar_label: Gauge
 description: "The Gauge card is a basic card that allows visually seeing sensor data."
