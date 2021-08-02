@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Light Card"
 sidebar_label: Light
 description: "The Light card allows you to change the brightness of the light."
