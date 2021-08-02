@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Logbook Card"
 sidebar_label: Logbook
 description: "The Logbook card displays entries from the logbook for specific entities."
