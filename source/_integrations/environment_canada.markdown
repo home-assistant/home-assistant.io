@@ -217,4 +217,19 @@ precip_type:
   required: false
   type: string
   default: RAIN from April to October, SNOW from November to March
+legend:
+  description: Boolean setting to determine whether a legend will be shown over the image.
+  required: false
+  type: boolean
+  default: true
+radar_opacity:
+  description: A positive number between 0 and 100 that sets the radar opacity of the precipitation.
+  required: false
+  type: integer
+  default: 65
+radius:
+  description: A positive number that sets the radius of the displayed radar image, measured in kilometers.
+  required: false
+  type: integer
+  default: 200
 {% endconfiguration %}
