@@ -120,12 +120,12 @@ fritz_box_reconnect:
 automation:
 - alias: "System: Reconnect FRITZ!Box"
   trigger:
-    platform: time
-    at: '05:00:00'
+    - platform: time
+      at: '05:00:00'
   action:
     - service: fritz.reconnect
       target:
-        entity_id: binary_sensor.[fritzbox]_connectivity
+        entity_id: binary_sensor.fritzbox_x_connectivity
 
 ```
 
@@ -135,11 +135,11 @@ automation:
 automation:
   - alias: "Guests Wifi Turned On -> Send Password To Phone"
     trigger:
-      platform: state
-      entity_id: switch.[fritzbox]_[wifi name]
-      to: 'on'
+      - platform: state
+        entity_id: switch.fritzbox_x_wifi_x
+        to: 'on'
     action:
-      - service: notify.n
+      - service: notify.notify
         data:
           title: "Guest wifi is enabled"
           message: "Password: ..."
