@@ -18,8 +18,8 @@ They will always show the data of today when used outside the energy dashboard.
   Screenshot of the Energy usage graph card.
 </p>
 
-The energy usage graph card shows the ammount of energy your house has consumed, and from what source this energy came.
-It will also show the ammount of energy your have returned to the grid.
+The energy usage graph card shows the amount of energy your house has consumed, and from what source this energy came.
+It will also show the amount of energy your have returned to the grid.
 
 #### Example
 ```yaml
@@ -33,7 +33,7 @@ type: energy-usage-graph
   Screenshot of the Solar production graph card.
 </p>
 
-The solar production graph card shows the ammount of energy your solar panels have produced per source, and if setup and available the forecast of the solar production.
+The solar production graph card shows the amount of energy your solar panels have produced per source, and if setup and available the forecast of the solar production.
 
 #### Example
 ```yaml
