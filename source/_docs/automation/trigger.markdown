@@ -173,7 +173,7 @@ automation:
 
 ## Numeric state trigger
 
-Fires when the numeric value of an entity's state (or attribute's value if using the `attribute` property) **crosses** (and only when crossing) a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold.
+Fires when the numeric value of an entity's state (or attribute's value if using the `attribute` property, or the calculated value if using the `value_template` property) **crosses** (and only when crossing) a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold.
 
 {% raw %}
 
@@ -182,18 +182,48 @@ automation:
   trigger:
     - platform: numeric_state
       entity_id: sensor.temperature
-      # Optional
-      value_template: "{{ state.attributes.battery }}"
+      # If given, will trigger when the value of the given attribute for the given entity changes..
+      attribute: attribute_name
+      # ..or alternatively, will trigger when the value given by this evaluated template changes.
+      value_template: "{{ state.attributes.value - 5 }}"
       # At least one of the following required
       above: 17
       below: 25
-      # If given, will trigger when the value of the given attribute for the given entity changes
-      attribute: attribute_name
       # If given, will trigger when the condition has been true for X time; you can also use days and milliseconds.
       for:
         hours: 1
         minutes: 10
         seconds: 5
+```
+
+{% endraw %}
+
+When the `attribute` option is specified the trigger is compared to the given `attribute` instead of the state of the entity.
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: numeric_state
+      entity_id: climate.kitchen
+      attribute: current_temperature
+      above: 23
+```
+
+{% endraw %}
+
+More dynamic and complex calculations can be done with `value_template`.
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: numeric_state
+      entity_id: climate.kitchen
+      value_template: "{{ state.attributes.current_temperature - state.attributes.temperature_set_point }}"
+      above: 3
 ```
 
 {% endraw %}
@@ -225,8 +255,6 @@ automation:
   trigger:
     - platform: numeric_state
       entity_id: sensor.temperature
-      # Optional
-      value_template: "{{ state.attributes.battery }}"
       # At least one of the following required
       above: 17
       below: 25
