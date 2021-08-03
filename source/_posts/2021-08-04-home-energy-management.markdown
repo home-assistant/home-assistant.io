@@ -14,6 +14,8 @@ og_image: /images/blog/2021-08-energy/social.png
 feedback: true
 ---
 
+_TL; DR: We're adding energy management and [it's awesome](https://demo.home-assistant.io/#/energy). Created two products to read out electricity meters: [SlimmeLezer](https://www.slimmelezer.nl) for P1 ports & [Home Assistant Glow](https://github.com/klaasnicolaas/home-assistant-glow) for activity LEDs. Upgraded most of the [existing energy integrations](/integrations/#energy) to be compatible._
+
 <img src='/images/blog/2021-08-energy/social.png' style='border: 0;box-shadow: none;'>
 
 The world is in a climate crisis. Global warming is reality and the weather is getting unpredictable. Our way of living needs to change, at all levels. I am worried that the climate crisis is something that the world is going to try to solve too late and after irreversible damages have already been done.
@@ -24,7 +26,7 @@ Starting today, Home Assistant is adding official support for home energy manage
 
 <p class='img'>
 <img src='/images/blog/2021-08-energy/architecture.png' alt='Diagram how both home automation and energy management use the same data.'>
-Both home automation and energy management are built on top of the same foundation of knowing what devices are doing
+Home automation and energy management are built on top of knowing what devices are doing
 </p>
 
 ## Energy management and Home Assistant in context
@@ -47,7 +49,7 @@ When it comes to your home, Home Assistant is the best platform to manage it and
 
 ## Energy Dashboard
 
-Today's release of Home Assistant 2021.8 contains a new energy dashboard. The goal is to make it super easy for users to get insight into their energy usage. The dashboard has been designed to see at a quick glance how you're doing today, with the option to also break down per hour to see what happened when. It also includes indicators to help you identify your reliance on the grid and if adding energy storage would help your situation.
+Today's release of Home Assistant 2021.8 contains a new energy dashboard ([demo](https://demo.home-assistant.io/#/energy)). The goal is to make it super easy for users to get insight into their energy usage. The dashboard has been designed to see at a quick glance how you're doing today, with the option to also break down per hour to see what happened when. It also includes indicators to help you identify your reliance on the grid and if adding energy storage would help your situation.
 
 <p class='img'>
 <img src='/images/blog/2021-08-energy/sidebar-widgets.png'>
@@ -74,7 +76,7 @@ The configuration is separated in different sections.
 
 ## Hardware
 
-Home Assistant is vendor agnostic and there is no vendor lock-in – you can use any hardware that you want. We’ve already upgraded many of the [existing integrations for energy monitoring](/integrations/#energy) to work out of the box with energy management.
+Home Assistant is vendor agnostic and there is no vendor lock-in. You can use any hardware that you want. We’ve already upgraded many of the [existing integrations for energy monitoring](/integrations/#energy) to work out of the box with energy management.
 
 Besides supporting existing integrations, we’ve also created two open-source hardware projects to help you get your energy data into Home Assistant.
 
