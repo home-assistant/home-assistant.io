@@ -3,7 +3,7 @@ layout: default
 ---
 
 <article class="page">
-  {% if page.title and page.show_title != false %}
+  {% if page.title and page.show_title != false and page.layout != "landingpage"  %}
   <header>
     <h1 class="title indent">
       {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title
