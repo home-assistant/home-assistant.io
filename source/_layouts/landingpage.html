@@ -20,10 +20,10 @@ layout: page
 
 
 {% if page.sections and page.button_row != false %}
-  <div class="icon-button-row">
+  <div class="button-row-with-icon">
   {% for section in page.sections %}
         <a href="#{{section.title | downcase | strip | replace: " ", "_"}}">
-            <div class="icon-button">
+            <div class="button-icon">
                 <div class="icon"><img src="{{section.image}}"></div>
                 <div class="text">{{section.title}}</div>
             </div>

@@ -74,7 +74,7 @@ $ha__primary_color: #03a9f4;
     height: 24px;
   }
 
-  .icon-button-row {
+  .button-row-with-icon {
     display: flex;
     justify-content: space-evenly;
 
@@ -84,7 +84,7 @@ $ha__primary_color: #03a9f4;
       color: #0c0c0c;
     }
 
-    .icon-button {
+    .button-icon {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -103,7 +103,7 @@ $ha__primary_color: #03a9f4;
         width: auto;
         display: flex;
         align-items: center;
-        
+
         img {
           box-shadow: none;
           border: none;
@@ -201,7 +201,7 @@ $ha__primary_color: #03a9f4;
     .section-inner:nth-child(odd) {
       flex-direction: row-reverse;
     }
-  
+
     .section-inner:nth-child(even) {
       flex-direction: row;
     }
@@ -214,10 +214,17 @@ $ha__primary_color: #03a9f4;
     .banner-overlay {
       z-index: 2;
       position: relative;
-      display: flex;
       width: 600px;
       border-radius: 8px;
       margin: -36px auto 0;
+
+      &.with-box {
+        display: flex;
+
+        .banner-overlay-content {
+          width: 420px;
+        }
+      }
 
       a {
         text-decoration: none;
@@ -233,7 +240,6 @@ $ha__primary_color: #03a9f4;
         font-size: 16px;
         line-height: 19px;
         margin-top: 16px;
-        width: 420px;
       }
 
       .banner-overlay {
@@ -918,7 +924,7 @@ $ha__primary_color: #03a9f4;
         img {
           max-width: 100%;
         }
-  
+
         .section-inner-content {
           margin-bottom: 16px;
           width: 100%;
@@ -926,10 +932,10 @@ $ha__primary_color: #03a9f4;
       }
     }
 
-    .icon-button-row {
+    .button-row-with-icon {
       display: flex;
       flex-direction: column;
-      .icon-button {
+      .button-icon {
         width: calc(100% - 8px);
         margin: 2px 4px;
       }
@@ -965,9 +971,6 @@ $ha__primary_color: #03a9f4;
 
         .banner-overlay-content {
           padding-left: 8px;
-        }
-
-        .banner-overlay-content {
           width: 100%;
         }
         .secondary {

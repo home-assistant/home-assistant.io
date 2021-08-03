@@ -120,6 +120,12 @@ $primary-color: #049cdb;
       margin: 0 8px;
     }
   }
+
+  @media screen and (max-width: 480px) {
+    .links {
+      margin-left: 0;
+    }
+  }
 }
 
 .feedback {
