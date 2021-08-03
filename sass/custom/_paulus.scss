@@ -40,16 +40,6 @@ $primary-color: #049cdb;
     }
   }
 }
-.feedback {
-  h4 {
-    margin: 0 0 8px !important;
-
-    a {
-      text-decoration: none !important;
-      color: #000;
-    }
-  }
-}
 
 .integration-alert {
   margin: -1em 0;
@@ -129,6 +119,24 @@ $primary-color: #049cdb;
       display: inline-block;
       margin: 0 8px;
     }
+  }
+}
+
+.feedback {
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, .12);
+  border-radius: 4px;
+  h4 {
+    margin: 0 0 8px !important;
+
+    a {
+      text-decoration: none !important;
+      color: #000;
+    }
+  }
+  .links a {
+    font-weight: 400;
+    text-transform: none;
   }
 }
 
