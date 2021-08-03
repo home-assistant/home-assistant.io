@@ -60,11 +60,15 @@ type: energy-solar-graph
 </p>
 
 The energy distribution card shows how the energy flowed, from the grid to your house, from your solar panels to your house and/or back to the grid.
+
 If setup, it will also tell you how many kWh of the energy you got from the grid was produced without using fossil fuels.
+
+If you set `link_dashboard` to `true`, the card will include a link to the energy dashboard.
 
 #### Example
 ```yaml
 type: energy-distribution
+link_dashboard: true
 ```
 
 ## Energy sources table
