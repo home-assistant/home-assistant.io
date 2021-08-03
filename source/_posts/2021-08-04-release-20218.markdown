@@ -96,7 +96,7 @@ database grow pretty fast (especially if you have sensors that update a lot!).
 
 In the previous releases, we've worked towards improving this situation and
 laid down the groundwork for tracking statistics in the database;
-We are making widely it available this release!
+We are making it widely available this release!
 
 Integrations can now hint Home Assistant about the type of value the sensor
 represents, allowing us to process and store that data in a more efficient way.
