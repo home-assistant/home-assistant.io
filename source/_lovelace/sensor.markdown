@@ -49,6 +49,21 @@ hours_to_show:
   description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
   type: integer
   default: 24
+limits:
+  required: false
+  description: Limits of the graph Y-axis.
+  type: map
+  keys:
+    min:
+      description: Minimum value of the graph Y-axis.
+      type: float
+      required: false
+      default: "`0` if the entity `unit_of_measurement` is `%`, otherwise minimum value of sample"
+    max:
+      description: Maximum value of the graph Y-axis.
+      type: float
+      required: false
+      default: "`100` if the entity `unit_of_measurement` is `%`, otherwise maximum value of sample"
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
