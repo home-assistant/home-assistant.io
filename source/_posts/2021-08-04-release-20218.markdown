@@ -14,7 +14,7 @@ og_image: /images/blog/2021-08/social.png
 feedback: true
 ---
 
-<!--<a href='/integrations/#version/2021.8'><img src='/images/blog/2021-08/social.png' style='border: 0;box-shadow: none;'></a>-->
+<a href='/integrations/#version/2021.8'><img src='/images/blog/2021-08/social.png' style='border: 0;box-shadow: none;'></a>
 
 These are the beta release notes for Home Assistant Core 2021.8 (and is thus a
 work in progress).
@@ -35,7 +35,12 @@ description (not title), so we can classify your issue correctly.
 
 Issues introduced in the beta are processed with priority.
 
-- [Energy!](#energy)
+- [Matthias de Baat joins Nabu Casa](#matthias-de-baat-joins-nabu-casa)
+- [Home Energy Management!](#home-energy-management)
+- [Long term statistics](#long-term-statistics)
+- [Sidebar view](#sidebar-view)
+- [Gauge card now has needle mode](#gauge-card-now-has-needle-mode)
+- [Currency core setting](#currency-core-setting)
 - [Siren](#siren)
 - [Locking, Unlocking and Jammed](#locking-unlocking-and-jammed)
 - [Scripts/Automations/Templates](#scriptsautomationstemplates)
@@ -50,60 +55,136 @@ Issues introduced in the beta are processed with priority.
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-<!--<p class='img'>
-<img src='/images/blog/2021-08/lorem.png' alt='Screenshot of lorem ipsum'>
-Screenshot of lorem ipsum.
-</p>-->
+## Matthias de Baat joins Nabu Casa
 
-## Energy!
+Let start by announcing that [Matthias de Baat](https://twitter.com/matthiasdebaat)
+is joining the team at [Nabu Casa](https://nabucasa.com/) to work on
+Home Assistant as a UX-designer.
 
-This needs a whole section and blog post of its own, but a focus towards
-energy consumption is being added. If you run the beta... Click on "Energy"
-in the sidebar menu to get started...
+UX stands for "User Experience", which is Matthias' area of expertise and what
+he will be working on improving. His goal is to make Home Assistant easier to
+use and accessible for everyone. He will be setting up design processes and
+tooling, doing user research and making designs.
 
-Some background information can be found here: [Home Energy Management](/docs/energy/)
+If you are interested in joining the Home Assistant user research group, you
+can show your interest by filling in this [Google Form](https://forms.gle/5NSabxHJ3qkp7Vke9)
+that Matthias has prepared.
 
-More to follow... Some temporary screenshots, as they say more than a 1000 words:
+Welcome Matthias! Excited to have you on board!
+
+But wait! There is more!
+
+[Otto Winter][@ottowinter], the founder of [ESPHome](https://esphome.io/), will
+be joining Nabu Casa during his summer break as well! Welcome Otto! This summer
+is going to be fantastic!
+
+## Home Energy Management!
+
+This feature is a big thing; A start of something new. Home Assistant is going
+to provide you insight into your energy usage.
+
+But this needs more than just a paragraph in the release notes, this needs
+its own blog! So, at this point, stop reading the release notes (momentarily)
+and read the blog Paulus has written about this feature:
+
+[Read the blog about the new Home Energy Management features of Home Assistant]
+
+## Long term statistics
+
+Storing sensor data for a more extended period using the recorder, can make your
+database grow pretty fast (especially if you have sensors that update a lot!).
+
+In the previous releases, we've worked towards improving this situation and
+laid down the groundwork for tracking statistics in the database;
+We are making widely it available this release!
+
+Integrations can now hint Home Assistant about the type of value the sensor
+represents, allowing us to process and store that data in a more efficient way.
+Every hour, we calculate things like mean, min/max values, or the difference
+created that hour and store just that result in our long-term statistics.
+
+These statistics is what partly powers the new Energy dashboard, however,
+they can be used for anything else: Introducing the Lovelace [statistics graph card](/lovelace/statistics-graph/).
 
 <p class='img'>
-<img src='https://cdn.discordapp.com/attachments/717500499670335558/869979947907837982/unknown.png' alt='Screenshot of the new energy dashboard'>
-Screenshot of the new energy dashboard.
+<img src='/images/blog/2021-08/statistics-graph.png' alt='Screenshot of the new Lovelace statistics graph card'>
+Screenshot of the new Lovelace statistics graph card.
 </p>
 
+This card can make beautiful graphs, allowing you to make graphs for any of
+your stored long-term statistical data. It can render as a line or bar chart.
+Bars are suited for `metered` entities that have a summed value. Lines are
+perfect to display the `mean`, `min` and `max` of the entity.
+
+The support for long-term statistics is limited at this moment. We are
+expecting to open it up for more measurements in the upcoming releases while
+more integrations are adding support for these new measurement types.
+
+## Sidebar view
+
+The default layout you see in Lovelace (which we generally all use), is called
+the "masonry" layout. We also have a panel view/layout that stretches a single
+card to the whole view. This release brings in a brand new view layout: Sidebar.
+
+This new sidebar view has two columns, a wide one and a small one on the right.
+It is perfect for displaying larger cards like graphs (like that nice new
+statistics graph card), or maps. While having some additional smaller cards
+with information on the side.
+
+The new Energy dashboard uses this new view layout, but of course, made
+available for use in other Lovelace dashboards as well.
+
 <p class='img'>
-<img src='https://media.discordapp.net/attachments/857346526527094814/869697914308554762/distribution.gif' alt='Screenshot of power usage card on the energy dashboard'>
-Screenshot of the usage card on the energy dashboard.
+<img src='/images/blog/2021-08/sidebar-view.png' alt='Screenshot of new Lovelace sidebar view layout'>
+Screenshot of new Lovelace sidebar view layout.
 </p>
+
+## Gauge card now has needle mode
+
+A nice little addition to the Lovelace gauge card: Needle mode!
+
+Instead of showing a value and filling it partially, in needle mode, it will
+show the full gauge but point out the value with a needle. And, if you add
+severity to your gauge card configuration, it will always be shown.
+
+<p class='img'>
+<img src='/images/blog/2021-08/gauge-needle.png' alt='Screenshot of the Gauge card in needle mode with severity configured'>
+Screenshot of the Gauge card in needle mode with severity configured.
+</p>
+
+These settings are available straight from the Lovelace UI editor; More
+information and examples can be found in the [Gauge card documentation](/lovelace/gauge/).
+
+## Currency core setting
+
+To support the display of financial values, we've added a new setting to Home
+Assistant that allows you to define the currency Home Assistant should use
+in cases it relies on your input.
+
+You can find this new currency setting in the general settings of Home Assistant.
+
+{% my general badge %}
+
+This setting is used for the cost calculation of the new energy features.
 
 ## Siren
 
-Last release, we introduced the `select` entity, this release we introduce
-the `siren` entity! 🚨
+The last release, we introduced the [`select` entity](/blog/2021/07/07/release-20217/#new-entity-select),
+this release, we introduce the `siren` entity! 🚨
 
-Thanks to [@raman325] for adding this noise maker to the family! He also
-implement the first integration to add support for Sirens: the Z-Wave JS
+Thanks to [@raman325] for adding this noisemaker to the family! He also
+implemented the first integration to add support for Sirens: the Z-Wave JS
 integration. So, if you have a Z-Wave enabled Siren, you can now control it.
-
-- Add siren platform ([@raman325] - [#48309]) ([demo docs]) ([siren docs]) (new-integration)
-- Add support for Z-Wave JS siren ([@raman325] - [#52948]) ([zwave_js docs])
 
 ## Locking, Unlocking and Jammed
 
-Locks in Home Assistant can be a little bit more smarter as of today, thanks
+Locks in Home Assistant can be a little bit smarter as of today, thanks
 to [@bdraco]. Besides the locked & unlocked states, support for locking,
-unlocking and jammed has been added as well.
+unlocking and jammed has been added.
 
-Support for these new states have been added to the August, HomeKit Controller
-and template integration. Additionally HomeKit, Alexa and Google Assistant have
-been made compatible and aware for these states as well.
-
-- Update lock entity to support locking, unlocking, jammed ([@bdraco] - [#51455]) ([lock docs])
-- Update alexa lock to support locking, unlocking, jammed ([@bdraco] - [#52841]) ([alexa docs])
-- Update august to support locking, unlocking, jammed ([@bdraco] - [#52814]) ([august docs])
-- Update google assistant locks to support locking, unlocking, jammed ([@bdraco] - [#52820]) ([google_assistant docs])
-- Update template lock to support locking, unlocking, jammed ([@bdraco] - [#52817]) ([template docs])
-- Update homekit controller lock to support locking, unlocking, jammed ([@bdraco] - [#52821]) ([homekit_controller docs])
-- Update homekit lock to support locking, unlocking, jammed ([@bdraco] - [#52819]) ([homekit docs])
+Support for these new states has been added to the August, HomeKit Controller
+and template integrations. Additionally, HomeKit, Alexa and Google Assistant
+have been made compatible and aware for these states as well.
 
 ## Scripts/Automations/Templates
 
@@ -118,14 +199,14 @@ the automation directly. Thanks, [@r-t-s]!
 
 ### Device template functions
 
-If you like to write YAML automations manually, or using template and require
+If you like to write YAML automations manually, are using templates, and require
 device IDs or device information, than you know those IDs are hard to find and
 the device information is not available at all.
 
 [@raman325] added some new template functions that can be helpful when working
 with devices.
 
-- `device_entities(device_id)` returns a list of entities that are associated
+- `device_entities(device_id)` returns a list of entities associated
   with a given device ID (can also be used as a filter).
 - `device_attr(device_or_entity_id, attr_name)` returns the value of `attr_name`
   for the given device ID or entity ID.
@@ -134,58 +215,45 @@ with devices.
 - `device_id(entity_id)` returns the device ID for a given entity ID
   (can also be used as a filter).
 
-Thanks for these powerful new feature!
-
-- Add DeviceRegistry template functions ([@raman325] - [#53131])
+Thanks for these powerful new features!
 
 ## Other noteworthy changes
 
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-<!--- [@lorem] Lorem ipsum! -->
-
-- Add motion detection support to motionEye ([@dermotduffy] - [#49665]) ([motioneye docs])
-- Add support for Formaldehyde and VOC level sensors ([@Adminiuga] - [#52232]) ([zha docs])
-- Allow combining value_template and position_template for template cover ([@emontnemery] - [#52383]) ([template docs])
-- Vacation Mode on Alarm Panels ([@posixx] - [#45980]) ([alarm_control_panel docs])
-- Add rainbird set_rain_delay service ([@Kr0llx] - [#52369]) ([rainbird docs])
-- Add sensor platform to goalzero ([@tkdrob] - [#49835]) ([goalzero docs]) (new-platform)
-- Mark entities for dead zwave_js nodes as unavailable ([@raman325] - [#48017]) ([zwave_js docs]) (breaking-change)
-- Add transition support to zwave_js lights ([@firstof9] - [#52160]) ([zwave_js docs])
-- Add AllTrips sensors for BMW Connected Drive ([@EddyK69] - [#50420]) ([bmw_connected_drive docs])
-- Initial support for zwave_js device conditions ([@raman325] - [#52003]) ([zwave_js docs])
-- Add more data_types to modbus ([@janiversen] - [#52423]) ([modbus docs])
-- Change behavior of Z-Wave JS services ([@raman325] - [#52941]) ([zwave_js docs])
-- Add array write to turn_on/off in modbus switch/fan/light ([@janiversen] - [#52582]) ([modbus docs])
-- Add schedule selector for Netatmo ([@cgtobi] - [#52909]) ([netatmo docs])
-- Add generic hygrostat integration ([@Shulyaka] - [#36759]) ([generic_hygrostat docs]) (new-integration)
-- Add sensor support to Freedompro ([@stefano055415] - [#52726]) ([freedompro docs]) (new-integration) (new-platform)
-- Deprecate Lyft integration ([@frenck] - [#53005]) ([lyft docs]) (breaking-change)
-- Add support for Z-Wave JS siren ([@raman325] - [#52948]) ([zwave_js docs])
-- Add zwave_js device triggers ([@raman325] - [#51968]) ([zwave_js docs])
-- Add MQTT humidifier platform integration ([@jbouwh] - [#52828]) ([humidifier docs]) ([mqtt docs]) (new-integration)
-- Add more Gree switches ([@cmroche] - [#49629]) ([gree docs])
-- Add unique ID support to light, cover and media player groups ([@frenck] - [#53225]) ([group docs])
-- Advantage Air add zone temperature sensors ([@Bre77] - [#51941]) ([advantage_air docs])
-- Auto recreate HomeKit TVs when the sources are out of sync ([@bdraco] - [#53208]) ([homekit docs])
-- Add reauth flow to Synology DSM ([@mib1185] - [#53204]) ([synology_dsm docs])
-- Fix similar network names for Fritz ([@chemelli74] - [#53278]) ([fritz docs])
-- Handle more Sonos snapshot restore scenarios ([@jjlawren] - [#53277]) ([sonos docs]) (breaking-change)
-- Store JSON in database in compact format ([@frenck] - [#53364]) ([recorder docs])
-- Add new input to zwave_js.multicast_set_value service ([@raman325] - [#53369]) ([zwave_js docs])
-- Support group events for AC switches and binary sensors. Fixes #53065. ([@bnordli] - [#53384]) ([rfxtrx docs])
-- Add transition to LiteJet ([@joncar] - [#47657])
-- Feature/google calendar read only support ([@BottlecapDave] - [#52790]) ([google docs])
-- Add WLED playlist support ([@frenck] - [#53381]) ([wled docs]) (breaking-change)
-- Add crossfade control support to Sonos ([@jjlawren] - [#53228]) ([sonos docs])
-- Add MFA Capability to Tesla Integration ([@BreakingBread0] - [#53245]) ([tesla docs])
-- Split color temp and color into separate HomeKit services when a light supports both ([@bdraco] - [#53471]) ([homekit docs])
-- KNX: Support for HS-color lights ([@farmio] - [#53538]) ([knx docs])
-- Allow removing workday holidays by name ([@matthewgottlieb] - [#52700]) ([workday docs])
-- Add DeviceRegistry template functions ([@raman325] - [#53131])
-- Add this variable for use by automation and script templates ([@r-t-s] - [#52774]) ([automation docs]) ([script docs])
-- Xiaomi_Miio Humidifier rework ([@jbouwh] - [#52366]) ([xiaomi_miio docs]) (breaking-change)
+- Thanks to [@firstof9], Z-Wave JS now has support for transitions with lights!
+- More Z-Wave JS improvements by [@raman325]. He added support for device
+  triggers and conditions. Thanks!
+- You can now assign a unique ID to light, cover and media player groups,
+  allowing you to manage them from the Home Assistant frontend and assign
+  them to an area!
+- The motionEye integration now has support for motion detection, thanks [@dermotduffy]
+- ZHA can now work with Formaldehyde and VOC level sensors, thanks [@Adminiuga]
+- [@posixx] added a new feature for integration that provide alarm panels;
+  those integrations can now update to support Vacation mode!
+- Rainbird now has a service to change the rain delay, thanks [@Kr0llx]!
+- If you are using BMW Connected Drive, [@EddyK69] added a lot of trip sensors.
+- Sonos snapshots now behave, are more robust and work as expected. Additionally,
+  support for controlling crossfade has been added, thanks [@jjlawren]!
+- WLED now supports controlling the new playlists features introduced in WLED 0.13.
+- [@farmio] added support for KNX lights that use HS-colors, thanks!
+- And [@joncar] added support for transitions to LiteJet lights, awesome!
+- If you have MFA on your Tesla account, thanks to [@BreakingBread0],
+  the integration now supports that.
+- When using the Netatmo integration, you can now control the schedule it
+  should be using with a select entity. Thanks, [@cgtobi]!
+- [@janiversen] added more data types to modus and added array write to
+  the turn on/off capabilities of Modbus switches, fans and lights.
+- Advantage Air now has temperature sensors for each zone, thanks [@Bre77]!
+- Gree Climate now has switches to support more modes, thanks to [@cmroche]!
+- You can now remove holidays from the workday sensor by name instead of
+  date. This is useful for holidays they don't have a fixed date each year.
+  Thanks [@matthewgottlieb]!
+- HomeKit will not auto-recreated TVs when sources are out of sync. One thinsg
+  less to worry about, thanks [@bdraco]
+- [@jbouwh] has drastically reworked and extended the Humidifier support for
+  the Xiaomi Miio integration. Amazing job!
 
 ## New Integrations
 
@@ -211,6 +279,7 @@ The following integration got support for a new platform:
 - [Itho Daalderop Spider][spider docs], added sensors for energy usages. Added by [@peternijssen]
 - [Mill] added support for sensors for its energy consumption, added by [@Danielhiversen]
 - [motionEye][motioneye docs] now exposes switches, added by [@dermotduffy]
+- [TP-Link Kasa Smart][tplink docs] added sensors for energy usage. Added by [@mib1185]
 - [Velux][velux docs] now supports lights, added by [@bramstroker]
 - [Z-Wave JS][zwave_js docs] now supports sirens, added by [@raman325]
 
@@ -246,84 +315,6 @@ Abode is now configured via the UI, any existing YAML configuration has been imp
 in previous releases and can now be safely removed from your YAML configuration files.
 
 ([@frenck] - [#52357]) ([abode docs])
-
-{% enddetails %}
-
-{% details "VeSync" %}
-
-The previously deprecated YAML configuration of the VeSync integration has been removed.
-
-VeSync is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
-
-([@frenck] - [#52358]) ([vesync docs])
-
-{% enddetails %}
-
-{% details "Demo" %}
-
-Demo switch entity no longer reports `current_power_w` and `today_energy_kwh` attributes.
-
-([@thecode] - [#52424]) ([demo docs])
-
-{% enddetails %}
-
-{% details "AVM FRITZ!Box Net Monitor / AVM FRITZ!Box Tools" %}
-
-In order to optimize device load and avoid exhausting available connections,
-`fritz_netmonitor` has been merged into `fritz`.
-
-Please remove your YAML existing configuration and configure the new integration.
-
-([@chemelli74] - [#52264]) ([fritz docs])
-
-----
-
-The profile switches introduced in the previous release have been removed as
-they where incompatible with the Home Assistant architectural design rules.
-
-Instead, you can now block every device connected individually.
-
-([@AaronDavidSchneider] - [#52721]) ([fritz docs])
-
-{% enddetails %}
-
-{% details "Ambient Weather Station" %}
-
-The previously deprecated YAML configuration of the Ambient Weather Station integration has been removed.
-
-Ambient Weather Station is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
-
-([@bachya] - [#52459]) ([ambient_station docs])
-
-{% enddetails %}
-
-{% details "Z-Wave JS" %}
-
-Z-Wave JS entities will now be in an `unavailable` state when the parent node
-is considered dead by Z-Wave JS. This may impact existing automations because
-Home Assistant will block service calls to unavailable entities.
-
-A node can potentially be revived by sending a ping to it, therefore you can
-use the new node status sensor (disabled by default) to track node status and
-use the `zwave_js.ping_node` service to try to revive the node.
-
-The node status sensor will always be available even when the node is dead.
-
-([@raman325] - [#48017]) ([zwave_js docs])
-
-{% enddetails %}
-
-{% details "GIOŚ" %}
-
-The Air Quality platform has been marked as deprecated, therefore the
-`air_quality` entity has been removed and replaced with `sensor` entities.
-
-If you used the `air_quality` entity in your automations, scripts or Lovelace
-dashboards, you'll need to update your configuration to match this change.
-
-([@bieniu] - [#52295]) ([gios docs])
 
 {% enddetails %}
 
@@ -364,23 +355,83 @@ Pollutant Label:
 
 {% enddetails %}
 
-{% details "Huawei LTE" %}
+{% details "Ambient Weather Station" %}
 
-Routers currently in unauthenticated mode need to be provided credentials for
-duration of one successful startup in order to retrieve a unique id from the API.
-Unauthenticated mode can then be enabled for subsequent starts in integration options.
+The previously deprecated YAML configuration of the Ambient Weather Station integration has been removed.
 
-([@scop] - [#49878]) ([huawei_lte docs])
+Ambient Weather Station is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@bachya] - [#52459]) ([ambient_station docs])
 
 {% enddetails %}
 
-{% details "Lyft" %}
+{% details "AVM FRITZ!Box Net Monitor / AVM FRITZ!Box Tools" %}
 
-The Lyft integration has been deprecated and is pending removal in
-Home Assistant Core 2021.10.0. It is considered impossible to obtain API keys
-to be able to use this integration.
+In order to optimize device load and avoid exhausting available connections,
+`fritz_netmonitor` has been merged into `fritz`.
 
-([@frenck] - [#53005]) ([lyft docs])
+Please remove your YAML existing configuration and configure the new integration.
+
+([@chemelli74] - [#52264]) ([fritz docs])
+
+----
+
+The profile switches introduced in the previous release have been removed as
+they where incompatible with the Home Assistant architectural design rules.
+
+Instead, you can now block every device connected individually.
+
+([@AaronDavidSchneider] - [#52721]) ([fritz docs])
+
+{% enddetails %}
+
+{% details "AVM FRITZ!SmartHome" %}
+
+The power and energy attributes from switch entities have been removed and
+replaced by sensors.
+
+If you relied on these attributes in your automations, scripts or Lovelace
+dashboards, you'll need to update your configuration to match this change.
+
+([@mib1185] - [#52562]) ([fritzbox docs])
+
+{% enddetails %}
+
+{% details "Bosch BME280" %}
+
+The YAML configuration for this integration has changed. Instead of a sensor
+config with platform section, an integration configuration section under the
+integration domain key should be used.
+
+Before:
+
+```yaml
+sensor:
+  - platform: bme280
+    name: "Stary_Oskol"
+```
+
+After:
+
+```yaml
+bme280:
+  - name: "Stary_Oskol"
+```
+
+([@Kuzj] - [#48775]) ([bme280 docs])
+
+{% enddetails %}
+
+{% details "Broadlink" %}
+
+The power and energy attributes from switch entities have been removed and
+replaced by sensors.
+
+If you relied on these attributes in your automations, scripts or Lovelace
+dashboards, you'll need to update your configuration to match this change.
+
+([@Danielhiversen] - [#53342]) ([broadlink docs])
 
 {% enddetails %}
 
@@ -392,42 +443,6 @@ Buienradar is now configured via the UI, any existing YAML configuration has bee
 in previous releases and can now be safely removed from your YAML configuration files.
 
 ([@frenck] - [#52939]) ([buienradar docs])
-
-{% enddetails %}
-
-{% details "HomeKit" %}
-
-Previously the on/off switches provided to HomeKit by scripts, would enable or
-disable a script. This likely was not what is expected as
-`Hey Siri turn on "script"` would appear to do nothing.
-
-Pressing a script switch in HomeKit now runs the script instead.
-
-([@bdraco] - [#53106]) ([homekit docs])
-
-{% enddetails %}
-
-{% details "Synology DSM" %}
-
-The previously deprecated YAML configuration of the Synology DSM integration has been removed.
-
-Synology DSM is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
-
-([@mib1185] - [#53197]) ([synology_dsm docs])
-
-{% enddetails %}
-
-{% details "Honeywell Total Connect Comfort (US)" %}
-
-The Honeywell integration migrated to configuration via the UI. Configuring
-Honeywell via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
-
-([@rdfurman] - [#50731]) ([honeywell docs])
 
 {% enddetails %}
 
@@ -444,14 +459,35 @@ and thus can be safely removed from your YAML configuration after upgrading.
 
 {% enddetails %}
 
-{% details "Tibber" %}
+{% details "Demo" %}
 
-The previously deprecated YAML configuration of the Tibber integration has been removed.
+Demo switch entity no longer reports `current_power_w` and `today_energy_kwh` attributes.
 
-Tibber is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
+([@thecode] - [#52424]) ([demo docs])
 
-([@Danielhiversen] - [#53235]) ([tibber docs])
+{% enddetails %}
+
+{% details "devolo Home Control" %}
+
+The consumptions attributes from the switch entities have been removed and
+replaced by sensors.
+
+If you relied on these attributes in your automations, scripts or Lovelace
+dashboards, you'll need to update your configuration to match this change.
+
+([@Shutgun] - [#53335]) ([devolo_home_control docs])
+
+{% enddetails %}
+
+{% details "GIOŚ" %}
+
+The Air Quality platform has been marked as deprecated, therefore the
+`air_quality` entity has been removed and replaced with `sensor` entities.
+
+If you used the `air_quality` entity in your automations, scripts or Lovelace
+dashboards, you'll need to update your configuration to match this change.
+
+([@bieniu] - [#52295]) ([gios docs])
 
 {% enddetails %}
 
@@ -464,6 +500,98 @@ Ask you Google device to `Sync my device` or trigger an update via
 the `google_assistant.request_sync` service.
 
 ([@elupus] - [#53105]) ([google_assistant docs])
+
+{% enddetails %}
+
+{% details "HomeKit" %}
+
+Previously the on/off switches provided to HomeKit by scripts, would enable or
+disable a script. This likely was not what is expected as
+`Hey Siri turn on "script"` would appear to do nothing.
+
+Pressing a script switch in HomeKit now runs the script instead.
+
+([@bdraco] - [#53106]) ([homekit docs])
+
+{% enddetails %}
+
+{% details "HomeKit Controller" %}
+
+HomeKit Controller was using the wrong ID to track some sensors.
+The following are affected:
+
+- Koogeek or Eve power sensors (added in [Jan 2021](https://github.com/home-assistant/core/pull/44013))
+- The temperature sensor added alongside homekit climate devices (added in [Jul 2021](https://github.com/home-assistant/core/pull/52194), the climate entity itself is not affected)
+
+If you have one of these you may need to remove a stale entity registry entry
+and you may need to fix the names of these entities as customizations may be lost.
+
+([@Jc2k] - [#53848]) ([homekit_controller docs])
+
+----
+
+If you have a power sensor for a Eve Energy or Koogeek P1EU/SW2, the units for
+that sensor has changed from `watts` to `W` to properly follow
+Home Assistant standards.
+
+([@Jc2k] - [#53877]) ([homekit_controller docs])
+
+{% enddetails %}
+
+{% details "Honeywell Total Connect Comfort (US)" %}
+
+The Honeywell integration migrated to configuration via the UI. Configuring
+Honeywell via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+([@rdfurman] - [#50731]) ([honeywell docs])
+
+{% enddetails %}
+
+{% details "Huawei LTE" %}
+
+Routers currently in unauthenticated mode need to be provided credentials for
+duration of one successful startup in order to retrieve a unique id from the API.
+Unauthenticated mode can then be enabled for subsequent starts in integration options.
+
+([@scop] - [#49878]) ([huawei_lte docs])
+
+{% enddetails %}
+
+{% details "Itho Daalderop Spider" %}
+
+The power and energy attributes from switch entities have been removed and
+replaced by sensors.
+
+If you relied on these attributes in your automations, scripts or Lovelace
+dashboards, you'll need to update your configuration to match this change.
+
+([@peternijssen] - [#53397]) ([spider docs])
+
+{% enddetails %}
+
+{% details "Jewish Calendar" %}
+
+The Jewish Calendar integration returned a datetime format that wasn't properly
+formatted according to ISO standards. This has been adjusted.
+
+If you rely on manually parsing of dates that are returned from this integration,
+you might need to adjust your templates to incorporate this change.
+
+([@frenck] - [#52722]) ([jewish_calendar docs])
+
+{% enddetails %}
+
+{% details "Lyft" %}
+
+The Lyft integration has been deprecated and is pending removal in
+Home Assistant Core 2021.10.0. It is considered impossible to obtain API keys
+to be able to use this integration.
+
+([@frenck] - [#53005]) ([lyft docs])
 
 {% enddetails %}
 
@@ -492,15 +620,109 @@ entity to be unavailable for 9999 seconds.
 
 {% enddetails %}
 
-{% details "devolo Home Control" %}
+{% details "MySensors" %}
 
-The consumptions attributes from the switch entities have been removed and
-replaced by sensors.
+The power and energy attributes from switch entities have been removed.
+
+If you relied on these switch attributes in your automations, scripts or Lovelace
+dashboards, you'll need to update your configuration to match this change.
+
+This measurement (`S_POWER`, `V_WATT`) will still be reported as previously
+by the power sensor entity.
+
+([@MartinHjelmare] - [#53566]) ([mysensors docs])
+
+{% enddetails %}
+
+{% details "Prometheus" %}
+
+This includes a few changes to the names of the exported Prometheus metrics,
+which now better align with Prometheus [naming guidelines](https://github.com/home-assistant/core/tree/dev/homeassistant/components/prometheus#metric-naming-guidelines):
+
+- Default value for the `namespace` configuration variable is now `homeassistant`,
+  and all metric names now have a default `homeassistant_` prefix.
+- Some metrics have been renamed:
+  - `light_state` renamed to `light_brightness_percent`.
+  - `temperature_c` renamed to `climate_target_temperature_celsius`.
+  - `current_temperature_c` renamed to `climate_current_temperature_celsius`.
+  - Sensor metrics now have a `sensor_` name prefix.
+  - Temperature sensor metrics now have a `_celsius` unit suffix (as opposed to just `_c`).
+
+Note, that users that don't currently explicitly set the `namespace` variable
+will see names changed for all exported metrics. If keeping existing metric
+names is important to you, you can adjust your Home Assistant and Prometheus
+configuration as described below.
+
+To keep metrics exported without the `homeassistant_` prefix, explicitly set an
+empty namespace in Home Assistant configuration:
+
+```yaml
+prometheus:
+  namespace: ""
+```
+
+To revert the other metric name changes, you can use [metric_relabel_configs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs)
+in your Prometheus configuration file to rename the metrics after scraping.
+[This set of relabeling rules](https://gist.github.com/knyar/c3a58f8be92a2b7afadba5c16bbfc28f)
+is a good starting point, but please note that if you set a non-empty `namespace`
+in Home Assistant you will need to adjust these rules accordingly.
+
+([@knyar] - [#50156]) ([prometheus docs])
+
+{% enddetails %}
+
+{% details "Rituals Perfume Genie" %}
+
+The previously deprecated fan speed and room size attributes have been removed.
+They have now have got their own entities.
+
+([@milanmeu] - [#53611]) ([rituals_perfume_genie docs])
+
+{% enddetails %}
+
+{% details "Synology DSM" %}
+
+The previously deprecated YAML configuration of the Synology DSM integration has been removed.
+
+Synology DSM is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@mib1185] - [#53197]) ([synology_dsm docs])
+
+{% enddetails %}
+
+{% details "Tibber" %}
+
+The previously deprecated YAML configuration of the Tibber integration has been removed.
+
+Tibber is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@Danielhiversen] - [#53235]) ([tibber docs])
+
+{% enddetails %}
+
+{% details "TP-Link Kasa Smart" %}
+
+The power and energy attributes from switch entities have been removed and
+replaced by sensors. This applies to all five extra attributes about energy
+(_`current_power_w`, `total_energy_kwh`, `today_energy_kwh`, `voltage`, `current_a`_).
 
 If you relied on these attributes in your automations, scripts or Lovelace
 dashboards, you'll need to update your configuration to match this change.
 
-([@Shutgun] - [#53335]) ([devolo_home_control docs])
+([@mib1185] - [#53596]) ([tplink docs])
+
+{% enddetails %}
+
+{% details "VeSync" %}
+
+The previously deprecated YAML configuration of the VeSync integration has been removed.
+
+VeSync is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@frenck] - [#52358]) ([vesync docs])
 
 {% enddetails %}
 
@@ -543,31 +765,6 @@ available again.
 
 {% enddetails %}
 
-{% details "AVM FRITZ!SmartHome" %}
-
-The power and energy attributes from switch entities have been removed and
-replaced by sensors.
-
-If you relied on these attributes in your automations, scripts or Lovelace
-dashboards, you'll need to update your configuration to match this change.
-
-([@mib1185] - [#52562]) ([fritzbox docs])
-
-{% enddetails %}
-
-{% details "Yale Smart Living" %}
-
-The CYale Smart Living integration migrated to configuration via the UI. Configuring
-Yale Smart Living via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
-
-([@gjohansson-ST] - [#50850]) ([yale_smart_alarm docs])
-
-{% enddetails %}
-
 {% details "WLED" %}
 
 The `wled.preset` service has been deprecated. In the previous Home Assistant
@@ -585,178 +782,6 @@ If you relied on the attribute in your automation or scripts, you need to
 adjust those to use the new entity instead.
 
 ([@frenck] - [#53381]) ([wled docs])
-
-{% enddetails %}
-
-{% details "Broadlink" %}
-
-The power and energy attributes from switch entities have been removed and
-replaced by sensors.
-
-If you relied on these attributes in your automations, scripts or Lovelace
-dashboards, you'll need to update your configuration to match this change.
-
-([@Danielhiversen] - [#53342]) ([broadlink docs])
-
-{% enddetails %}
-
-{% details "Prometheus" %}
-
-This includes a few changes to the names of the exported Prometheus metrics,
-which now better align with Prometheus [naming guidelines](https://github.com/home-assistant/core/tree/dev/homeassistant/components/prometheus#metric-naming-guidelines):
-
-- Default value for the `namespace` configuration variable is now `homeassistant`,
-  and all metric names now have a default `homeassistant_` prefix.
-- Some metrics have been renamed:
-  - `light_state` renamed to `light_brightness_percent`.
-  - `temperature_c` renamed to `climate_target_temperature_celsius`.
-  - `current_temperature_c` renamed to `climate_current_temperature_celsius`.
-  - Sensor metrics now have a `sensor_` name prefix.
-  - Temperature sensor metrics now have a `_celsius` unit suffix (as opposed to just `_c`).
-
-Note, that users that don't currently explicitly set the `namespace` variable
-will see names changed for all exported metrics. If keeping existing metric
-names is important to you, you can adjust your Home Assistant and Prometheus
-configuration as described below.
-
-To keep metrics exported without the `homeassistant_` prefix, explicitly set an
-empty namespace in Home Assistant configuration:
-
-```yaml
-prometheus:
-  namespace: ""
-```
-
-To revert the other metric name changes, you can use [metric_relabel_configs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs)
-in your Prometheus configuration file to rename the metrics after scraping.
-[This set of relabeling rules](https://gist.github.com/knyar/c3a58f8be92a2b7afadba5c16bbfc28f)
-is a good starting point, but please note that if you set a non-empty `namespace`
-in Home Assistant you will need to adjust these rules accordingly.
-
-([@knyar] - [#50156]) ([prometheus docs])
-
-{% enddetails %}
-
-{% details "Jewish Calendar" %}
-
-The Jewish Calendar integration returned a datetime format that wasn't properly
-formatted according to ISO standards. This has been adjusted.
-
-If you rely on manually parsing of dates that are returned from this integration,
-you might need to adjust your templates to incorporate this change.
-
-([@frenck] - [#52722]) ([jewish_calendar docs])
-
-{% enddetails %}
-
-{% details "Itho Daalderop Spider" %}
-
-The power and energy attributes from switch entities have been removed and
-replaced by sensors.
-
-If you relied on these attributes in your automations, scripts or Lovelace
-dashboards, you'll need to update your configuration to match this change.
-
-([@peternijssen] - [#53397]) ([spider docs])
-
-{% enddetails %}
-
-{% details "MySensors" %}
-
-The power and energy attributes from switch entities have been removed.
-
-If you relied on these switch attributes in your automations, scripts or Lovelace
-dashboards, you'll need to update your configuration to match this change.
-
-This measurement (`S_POWER`, `V_WATT`) will still be reported as previously
-by the power sensor entity.
-
-([@MartinHjelmare] - [#53566]) ([mysensors docs])
-
-{% enddetails %}
-
-{% details "Bosch BME280" %}
-
-The YAML configuration for this integration has changed. Instead of a sensor
-config with platform section, an integration configuration section under the
-integration domain key should be used.
-
-Before:
-
-```yaml
-sensor:
-  - platform: bme280
-    name: "Stary_Oskol"
-```
-
-After:
-
-```yaml
-bme280:
-  - name: "Stary_Oskol"
-```
-
-([@Kuzj] - [#48775]) ([bme280 docs])
-
-{% enddetails %}
-
-{% details "Home Assistant Supervisor" %}
-
-The usage of "snapshot" is deprecated, from now "backup" is used instead.
-
-- The service `snapshot_full` is now named `backup_full`, the service `snapshot_full` will be removed in Home Assistant 2021.9.
-- The service `snapshot_partial` is now named `backup_partial`, the service `snapshot_partial` will be removed in Home Assistant 2021.9.
-- Using `snapshot` in the data for the `restore_full` and `restore_partial`  services is deprecated and will be removed in Home Assistant 2021.9, use `slug`  instead.
-
-Old examples:
-
-```yaml
-service: hassio.snapshot_full
-data:
-  name: "Awesome full snapshot"
-...
-service: hassio.snapshot_partial
-data:
-  name: "Awesome partial snapshot"
-  addons:
-    - awesome_addon
-...
-service: hassio.restore_full
-data:
-  snapshot: sn2321
-...
-service: hassio.restore_partial
-data:
-  snapshot: sn2321
-  addons:
-    - awesome_addon
-```
-
-New examples:
-
-```yaml
-service: hassio.backup_full
-data:
-  name: "Awesome full snapshot"
-...
-service: hassio.backup_partial
-data:
-  name: "Awesome partial snapshot"
-  addons:
-    - awesome_addon
-...
-service: hassio.restore_full
-data:
-  slug: sn2321
-...
-service: hassio.restore_partial
-data:
-  slug: sn2321
-  addons:
-    - awesome_addon
-```
-
-([@ludeeus] - [#51629]) ([hassio docs])
 
 {% enddetails %}
 
@@ -784,12 +809,32 @@ A sensor for `humidity` will have a name like "My humidifier Humidity".
 
 {% enddetails %}
 
-{% details "Rituals Perfume Genie" %}
+{% details "Yale Smart Living" %}
 
-The previously deprecated fan speed and room size attributes have been removed.
-They have now have got their own entities.
+The CYale Smart Living integration migrated to configuration via the UI. Configuring
+Yale Smart Living via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
 
-([@milanmeu] - [#53611]) ([rituals_perfume_genie docs])
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+([@gjohansson-ST] - [#50850]) ([yale_smart_alarm docs])
+
+{% enddetails %}
+
+{% details "Z-Wave JS" %}
+
+Z-Wave JS entities will now be in an `unavailable` state when the parent node
+is considered dead by Z-Wave JS. This may impact existing automations because
+Home Assistant will block service calls to unavailable entities.
+
+A node can potentially be revived by sending a ping to it, therefore you can
+use the new node status sensor (disabled by default) to track node status and
+use the `zwave_js.ping_node` service to try to revive the node.
+
+The node status sensor will always be available even when the node is dead.
+
+([@raman325] - [#48017]) ([zwave_js docs])
 
 {% enddetails %}
 
@@ -803,7 +848,6 @@ The following integrations are no longer available as of this release:
   and cannot function without violating Home Assistant design rules. Garmin
   will not allow open source projects to their official APIs.
   ([@cyberjunky] - [#52808]) ([garmin_connect docs])
-
 
 ## All changes
 
@@ -1367,6 +1411,89 @@ The following integrations are no longer available as of this release:
 - Fix missing supported_features when only custom presets for ESPHome ([@OttoWinter] - [#53632]) ([esphome docs])
 - Tado, setup to return False and not ConfigEntryNotReady on RuntimeError ([@milanmeu] - [#53637]) ([tado docs])
 - Add renault integration ([@epenet] - [#39605]) ([renault docs]) (new-integration)
+- Add zwave_js.reset_meter service ([@raman325] - [#53390]) ([zwave_js docs]) (beta fix)
+- Fix invalid homekit state when arming ([@bdraco] - [#53646]) ([homekit docs]) (beta fix)
+- Add last reset to enphase sensors ([@balloob] - [#53653]) ([enphase_envoy docs]) (beta fix)
+- Add last reset to Shelly ([@balloob] - [#53654]) ([shelly docs]) (beta fix)
+- Bump aiolip to 1.1.6 to fix timeout with ident ([@bdraco] - [#53660]) ([lutron_caseta docs]) (beta fix)
+- Add device class energy and last reset to sense ([@bdraco] - [#53667]) ([sense docs]) (beta fix)
+- Allow uploading large snapshots ([@sabeechen] - [#53528]) ([hassio docs]) (beta fix)
+- Move TP-Link power and energy switch attributes to sensors ([@mib1185] - [#53596]) ([tplink docs]) (breaking-change) (beta fix) (new-platform)
+- Add enabled attribute to zwave_js discovery model ([@raman325] - [#53645]) ([zwave_js docs]) (beta fix)
+- Prosegur code quality improvements ([@dgomes] - [#53647]) ([prosegur docs]) (beta fix)
+- Fix unhandled exception with Guardian paired sensor coordinators ([@bachya] - [#53663]) ([guardian docs]) (beta fix)
+- Add energy support for zwave_js meter CC entities ([@raman325] - [#53665]) ([zwave_js docs]) (beta fix)
+- Skip each ssdp listener that fails to bind ([@bdraco] - [#53670]) ([ssdp docs]) (beta fix)
+- pyWeMo version bump (0.6.6) ([@esev] - [#53671]) ([wemo docs]) (beta fix)
+- Bump nest to version 0.3.5 ([@allenporter] - [#53672]) ([nest docs]) (beta fix)
+- Fix `last_reset_topic` config replaces `state_topic` for sensor platform ([@bieniu] - [#53677]) ([mqtt docs]) (beta fix)
+- Only disable a device if all associated config entries are disabled ([@Kane610] - [#53681]) (beta fix)
+- Bump bimmer_connected to 0.7.16 to fix parking light issue ([@gerard33] - [#53687]) ([bmw_connected_drive docs]) (beta fix)
+- Fix problem with telegram_bot ([@Andrew55529] - [#53690]) ([telegram_bot docs]) (beta fix)
+- Surepetcare, bug fix ([@Danielhiversen] - [#53695]) ([surepetcare docs]) (beta fix)
+- Energy round ([@Danielhiversen] - [#53696]) ([energy docs]) (beta fix)
+- Integration. Add device class, last_reset, state_class ([@Danielhiversen] - [#53698]) ([integration docs]) (beta fix)
+- Revert "Add Automate Pulse Hub v2 support (#39501)" ([@MartinHjelmare] - [#53704]) ([automate docs]) (beta fix)
+- Set state class measurement also for Total Energy for AVM Fritz!Smarthome devices ([@mib1185] - [#53707]) ([fritzbox docs]) (beta fix)
+- Add last reset to Shelly's energy entities ([@chemelli74] - [#53710]) ([shelly docs]) (beta fix)
+- Add state class support to DSMR Reader ([@frenck] - [#53715]) ([dsmr_reader docs]) (beta fix) (new-integration)
+- Fix zwave_js meter sensor state class ([@MartinHjelmare] - [#53716]) ([zwave_js docs]) (beta fix)
+- Bump frontend to 20210729.0 ([@balloob] - [#53717]) ([frontend docs]) (beta fix)
+- Fix SolarEdge statistics; missing device_class ([@frenck] - [#53720]) ([solaredge docs]) (beta fix)
+- Fix DSMR reconnecting loop without timeout ([@frenck] - [#53722]) ([dsmr docs]) (beta fix)
+- Fix zwave_js current and voltage meter sensor device class ([@MartinHjelmare] - [#53723]) ([zwave_js docs]) (beta fix)
+- Fix effect selector of light.turn_on service ([@frenck] - [#53726]) ([light docs]) (beta fix)
+- Revert "Allow uploading large snapshots (#53528)" ([@balloob] - [#53729]) ([hassio docs]) (beta fix)
+- Bump pyatv to 0.8.2 ([@ryanjohnsontv] - [#53659]) (beta fix)
+- Extract smartthings switch energy attributes into sensors ([@mib1185] - [#53719]) ([smartthings docs]) (beta fix)
+- Add energy device class to deCONZ consumption sensors ([@Kane610] - [#53731]) (beta fix)
+- Bump up ZHA dependencies ([@Adminiuga] - [#53732]) ([zha docs]) (beta fix)
+- Fix exception handling in DataUpdateCoordinator in TP-Link ([@mib1185] - [#53734]) ([tplink docs]) (beta fix)
+- Only allow one Mazda vehicle status request at a time ([@bdr99] - [#53736]) ([mazda docs]) (beta fix)
+- Apply left suggestions #53596 for TP-Link ([@mib1185] - [#53737]) ([tplink docs]) (beta fix)
+- Fix Xiaomi humidifier name migration ([@jbouwh] - [#53738]) ([xiaomi_miio docs]) (beta fix)
+- Fix Xiaomi-miio switch platform setup ([@jbouwh] - [#53739]) ([xiaomi_miio docs]) (beta fix)
+- Add energy attributes to Fronius ([@balloob] - [#53741]) ([fronius docs]) (beta fix)
+- Fix non monotonic dts error in stream ([@uvjustin] - [#53712]) ([stream docs]) (beta fix)
+- Cost sensor handle consumption sensor in Wh ([@balloob] - [#53746]) ([energy docs]) (beta fix)
+- Revert "Rename snapshot -> backup" ([@ludeeus] - [#53751]) ([hassio docs]) ([zwave_js docs]) (beta fix)
+- Bump HAP-python to 3.6.0 ([@bdraco] - [#53754]) ([homekit docs]) (beta fix)
+- Fix Xiaomi Miio humidifier mode change ([@bieniu] - [#53757]) ([xiaomi_miio docs]) (beta fix)
+- Fix Xiaomi-miio humidifier write the state back when turning on or off ([@jbouwh] - [#53771]) ([xiaomi_miio docs]) (beta fix)
+- Fix parsing of non-string values in Slack data ([@bachya] - [#53775]) ([slack docs]) (beta fix)
+- Update frontend to 20210730.0 ([@bramkragten] - [#53778]) ([frontend docs]) (beta fix)
+- Bump Hue and only fire events for button presses ([@balloob] - [#53781]) ([hue docs]) (beta fix)
+- Do not block setup of TP-Link when device unreachable ([@mib1185] - [#53770]) ([tplink docs]) (beta fix)
+- Fix name migration of the Xiaomi Miio humidifier ([@bieniu] - [#53790]) ([xiaomi_miio docs]) (beta fix)
+- Fix onkyo UnboundLocalError ([@andreasbrett] - [#53793]) ([onkyo docs]) (beta fix)
+- Remove `led` from Xiaomi Miio humidifier features ([@bieniu] - [#53796]) ([xiaomi_miio docs]) (beta fix)
+- ForecastSolar - power production now w not k w ([@B-Hartley] - [#53797]) ([forecast_solar docs]) (beta fix)
+- Clean Xiaomi Miio humidifier services ([@bieniu] - [#53806]) ([xiaomi_miio docs]) (beta fix)
+- Fix file path error in nfandroidtv ([@tkdrob] - [#53814]) ([nfandroidtv docs]) (beta fix)
+- Update frontend to 20210801.0 ([@bramkragten] - [#53841]) ([frontend docs]) (beta fix)
+- Add energy consumption sensors to smartthings devices ([@firstof9] - [#53759]) ([smartthings docs]) (beta fix)
+- Fix error in homekit_controller causing some entities to get an incorrect unique id ([@Jc2k] - [#53848]) ([homekit_controller docs]) (breaking-change) (beta fix)
+- Fix Radiothermostat hold value updates ([@vinnyfuria] - [#53656]) ([radiotherm docs]) (beta fix)
+- Fix missing default reconnect interval in dsmr ([@Emilv2] - [#53760]) ([dsmr docs]) (beta fix)
+- Fix entry setup for Broadlink SP4 sensors ([@felipediel] - [#53765]) ([broadlink docs]) (beta fix)
+- Bump pysma to 0.6.5 ([@rklomp] - [#53792]) ([sma docs]) (beta fix)
+- Fix TP-Link smart strip devices ([@mib1185] - [#53799]) ([tplink docs]) (beta fix)
+- Add STATE_CLASS_MEASUREMENT to Tibber ([@Danielhiversen] - [#53802]) ([tibber docs]) (beta fix)
+- Fix crash when AVM FRITZ!SmartHome devices are unreachable ([@mib1185] - [#53809]) ([fritzbox docs]) (beta fix)
+- Add base energy analytics ([@ludeeus] - [#53855]) ([analytics docs]) (beta fix)
+- Allow combinations write_coil/read_coils and write_coils/read_coil for modbus switch ([@janiversen] - [#53856]) ([modbus docs]) (beta fix)
+- Add RPi.GPIO dependency to rpi_rf integration ([@frenck] - [#53858]) ([rpi_rf docs]) (beta fix)
+- Fix cloud accountlinking replacing token data ([@frenck] - [#53865]) ([cloud docs]) (beta fix)
+- Add measurement state class to ZHA power devices ([@frenck] - [#53866]) ([zha docs]) (beta fix)
+- Fix growat server config entry missing URL key ([@frenck] - [#53867]) ([growatt_server docs]) (beta fix)
+- Fix issue when data is None ([@ludeeus] - [#53875]) ([energy docs]) (beta fix)
+- Bump frontend to 20210802.0 ([@balloob] - [#53876]) ([frontend docs]) (beta fix)
+- Fix watts unit for homekit_controller power sensors ([@Jc2k] - [#53877]) ([homekit_controller docs]) (breaking-change) (beta fix)
+- ESPHome implement light color modes ([@OttoWinter] - [#53854]) ([esphome docs]) (beta fix)
+- Bump aiohue to 2.6.1 ([@balloob] - [#53887]) ([hue docs]) (beta fix)
+- Handle powerConsumption reports with null value ([@firstof9] - [#53888]) ([smartthings docs]) (beta fix)
+- Only show a SimpliSafe code entry when one exists ([@bachya] - [#53894]) ([simplisafe docs]) (beta fix)
+- Bump frontend to 20210803.0 ([@balloob] - [#53897]) ([frontend docs]) (beta fix)
 
 {% enddetails %}
 
@@ -1803,6 +1930,7 @@ The following integrations are no longer available as of this release:
 [#53384]: https://github.com/home-assistant/core/pull/53384
 [#53385]: https://github.com/home-assistant/core/pull/53385
 [#53386]: https://github.com/home-assistant/core/pull/53386
+[#53390]: https://github.com/home-assistant/core/pull/53390
 [#53393]: https://github.com/home-assistant/core/pull/53393
 [#53397]: https://github.com/home-assistant/core/pull/53397
 [#53402]: https://github.com/home-assistant/core/pull/53402
@@ -1861,6 +1989,7 @@ The following integrations are no longer available as of this release:
 [#53524]: https://github.com/home-assistant/core/pull/53524
 [#53526]: https://github.com/home-assistant/core/pull/53526
 [#53527]: https://github.com/home-assistant/core/pull/53527
+[#53528]: https://github.com/home-assistant/core/pull/53528
 [#53529]: https://github.com/home-assistant/core/pull/53529
 [#53531]: https://github.com/home-assistant/core/pull/53531
 [#53532]: https://github.com/home-assistant/core/pull/53532
@@ -1905,6 +2034,7 @@ The following integrations are no longer available as of this release:
 [#53591]: https://github.com/home-assistant/core/pull/53591
 [#53592]: https://github.com/home-assistant/core/pull/53592
 [#53593]: https://github.com/home-assistant/core/pull/53593
+[#53596]: https://github.com/home-assistant/core/pull/53596
 [#53597]: https://github.com/home-assistant/core/pull/53597
 [#53598]: https://github.com/home-assistant/core/pull/53598
 [#53600]: https://github.com/home-assistant/core/pull/53600
@@ -1928,13 +2058,96 @@ The following integrations are no longer available as of this release:
 [#53635]: https://github.com/home-assistant/core/pull/53635
 [#53636]: https://github.com/home-assistant/core/pull/53636
 [#53637]: https://github.com/home-assistant/core/pull/53637
+[#53645]: https://github.com/home-assistant/core/pull/53645
+[#53646]: https://github.com/home-assistant/core/pull/53646
+[#53647]: https://github.com/home-assistant/core/pull/53647
+[#53653]: https://github.com/home-assistant/core/pull/53653
+[#53654]: https://github.com/home-assistant/core/pull/53654
+[#53656]: https://github.com/home-assistant/core/pull/53656
+[#53659]: https://github.com/home-assistant/core/pull/53659
+[#53660]: https://github.com/home-assistant/core/pull/53660
+[#53663]: https://github.com/home-assistant/core/pull/53663
+[#53665]: https://github.com/home-assistant/core/pull/53665
+[#53667]: https://github.com/home-assistant/core/pull/53667
+[#53670]: https://github.com/home-assistant/core/pull/53670
+[#53671]: https://github.com/home-assistant/core/pull/53671
+[#53672]: https://github.com/home-assistant/core/pull/53672
+[#53677]: https://github.com/home-assistant/core/pull/53677
+[#53681]: https://github.com/home-assistant/core/pull/53681
+[#53687]: https://github.com/home-assistant/core/pull/53687
+[#53690]: https://github.com/home-assistant/core/pull/53690
+[#53695]: https://github.com/home-assistant/core/pull/53695
+[#53696]: https://github.com/home-assistant/core/pull/53696
+[#53698]: https://github.com/home-assistant/core/pull/53698
+[#53704]: https://github.com/home-assistant/core/pull/53704
+[#53707]: https://github.com/home-assistant/core/pull/53707
+[#53710]: https://github.com/home-assistant/core/pull/53710
+[#53712]: https://github.com/home-assistant/core/pull/53712
+[#53715]: https://github.com/home-assistant/core/pull/53715
+[#53716]: https://github.com/home-assistant/core/pull/53716
+[#53717]: https://github.com/home-assistant/core/pull/53717
+[#53719]: https://github.com/home-assistant/core/pull/53719
+[#53720]: https://github.com/home-assistant/core/pull/53720
+[#53722]: https://github.com/home-assistant/core/pull/53722
+[#53723]: https://github.com/home-assistant/core/pull/53723
+[#53726]: https://github.com/home-assistant/core/pull/53726
+[#53729]: https://github.com/home-assistant/core/pull/53729
+[#53731]: https://github.com/home-assistant/core/pull/53731
+[#53732]: https://github.com/home-assistant/core/pull/53732
+[#53734]: https://github.com/home-assistant/core/pull/53734
+[#53736]: https://github.com/home-assistant/core/pull/53736
+[#53737]: https://github.com/home-assistant/core/pull/53737
+[#53738]: https://github.com/home-assistant/core/pull/53738
+[#53739]: https://github.com/home-assistant/core/pull/53739
+[#53741]: https://github.com/home-assistant/core/pull/53741
+[#53746]: https://github.com/home-assistant/core/pull/53746
+[#53751]: https://github.com/home-assistant/core/pull/53751
+[#53754]: https://github.com/home-assistant/core/pull/53754
+[#53757]: https://github.com/home-assistant/core/pull/53757
+[#53759]: https://github.com/home-assistant/core/pull/53759
+[#53760]: https://github.com/home-assistant/core/pull/53760
+[#53765]: https://github.com/home-assistant/core/pull/53765
+[#53770]: https://github.com/home-assistant/core/pull/53770
+[#53771]: https://github.com/home-assistant/core/pull/53771
+[#53775]: https://github.com/home-assistant/core/pull/53775
+[#53778]: https://github.com/home-assistant/core/pull/53778
+[#53781]: https://github.com/home-assistant/core/pull/53781
+[#53790]: https://github.com/home-assistant/core/pull/53790
+[#53792]: https://github.com/home-assistant/core/pull/53792
+[#53793]: https://github.com/home-assistant/core/pull/53793
+[#53796]: https://github.com/home-assistant/core/pull/53796
+[#53797]: https://github.com/home-assistant/core/pull/53797
+[#53799]: https://github.com/home-assistant/core/pull/53799
+[#53802]: https://github.com/home-assistant/core/pull/53802
+[#53806]: https://github.com/home-assistant/core/pull/53806
+[#53809]: https://github.com/home-assistant/core/pull/53809
+[#53814]: https://github.com/home-assistant/core/pull/53814
+[#53841]: https://github.com/home-assistant/core/pull/53841
+[#53848]: https://github.com/home-assistant/core/pull/53848
+[#53854]: https://github.com/home-assistant/core/pull/53854
+[#53855]: https://github.com/home-assistant/core/pull/53855
+[#53856]: https://github.com/home-assistant/core/pull/53856
+[#53858]: https://github.com/home-assistant/core/pull/53858
+[#53865]: https://github.com/home-assistant/core/pull/53865
+[#53866]: https://github.com/home-assistant/core/pull/53866
+[#53867]: https://github.com/home-assistant/core/pull/53867
+[#53875]: https://github.com/home-assistant/core/pull/53875
+[#53876]: https://github.com/home-assistant/core/pull/53876
+[#53877]: https://github.com/home-assistant/core/pull/53877
+[#53887]: https://github.com/home-assistant/core/pull/53887
+[#53888]: https://github.com/home-assistant/core/pull/53888
+[#53894]: https://github.com/home-assistant/core/pull/53894
+[#53897]: https://github.com/home-assistant/core/pull/53897
 [@AaronDavidSchneider]: https://github.com/AaronDavidSchneider
 [@Adminiuga]: https://github.com/Adminiuga
+[@Andrew55529]: https://github.com/Andrew55529
+[@B-Hartley]: https://github.com/B-Hartley
 [@BottlecapDave]: https://github.com/BottlecapDave
 [@Bre77]: https://github.com/Bre77
 [@BreakingBread0]: https://github.com/BreakingBread0
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@EddyK69]: https://github.com/EddyK69
+[@Emilv2]: https://github.com/Emilv2
 [@Jc2k]: https://github.com/Jc2k
 [@Kane610]: https://github.com/Kane610
 [@Kirchoff]: https://github.com/Kirchoff
@@ -1955,8 +2168,10 @@ The following integrations are no longer available as of this release:
 [@alengwenus]: https://github.com/alengwenus
 [@allenporter]: https://github.com/allenporter
 [@amelchio]: https://github.com/amelchio
+[@andreasbrett]: https://github.com/andreasbrett
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
+[@bdr99]: https://github.com/bdr99
 [@bdraco]: https://github.com/bdraco
 [@bieniu]: https://github.com/bieniu
 [@bnordli]: https://github.com/bnordli
@@ -1987,6 +2202,7 @@ The following integrations are no longer available as of this release:
 [@flabbamann]: https://github.com/flabbamann
 [@fredericseiler]: https://github.com/fredericseiler
 [@frenck]: https://github.com/frenck
+[@gerard33]: https://github.com/gerard33
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@gjong]: https://github.com/gjong
 [@hmmbob]: https://github.com/hmmbob
@@ -2018,6 +2234,8 @@ The following integrations are no longer available as of this release:
 [@raman325]: https://github.com/raman325
 [@rdfurman]: https://github.com/rdfurman
 [@rklomp]: https://github.com/rklomp
+[@ryanjohnsontv]: https://github.com/ryanjohnsontv
+[@sabeechen]: https://github.com/sabeechen
 [@samueltardieu]: https://github.com/samueltardieu
 [@scop]: https://github.com/scop
 [@sergeymaysak]: https://github.com/sergeymaysak
@@ -2027,8 +2245,10 @@ The following integrations are no longer available as of this release:
 [@thecode]: https://github.com/thecode
 [@timmo001]: https://github.com/timmo001
 [@tkdrob]: https://github.com/tkdrob
+[@uvjustin]: https://github.com/uvjustin
 [@vfreex]: https://github.com/vfreex
 [@viiru-]: https://github.com/viiru-
+[@vinnyfuria]: https://github.com/vinnyfuria
 [@web-dc]: https://github.com/web-dc
 [@yuvalabou]: https://github.com/yuvalabou
 [abode docs]: /integrations/abode/
@@ -2052,6 +2272,7 @@ The following integrations are no longer available as of this release:
 [ambee docs]: /integrations/ambee/
 [ambiclimate docs]: /integrations/ambiclimate/
 [ambient_station docs]: /integrations/ambient_station/
+[analytics docs]: /integrations/analytics/
 [androidtv docs]: /integrations/androidtv/
 [anel_pwrctrl docs]: /integrations/anel_pwrctrl/
 [anthemav docs]: /integrations/anthemav/
@@ -2129,6 +2350,7 @@ The following integrations are no longer available as of this release:
 [devolo_home_control docs]: /integrations/devolo_home_control/
 [dht docs]: /integrations/dht/
 [dsmr docs]: /integrations/dsmr/
+[dsmr_reader docs]: /integrations/dsmr_reader/
 [dwd_weather_warnings docs]: /integrations/dwd_weather_warnings/
 [dynalite docs]: /integrations/dynalite/
 [ebox docs]: /integrations/ebox/
@@ -2136,6 +2358,7 @@ The following integrations are no longer available as of this release:
 [edl21 docs]: /integrations/edl21/
 [emulated_roku docs]: /integrations/emulated_roku/
 [energy docs]: /integrations/energy/
+[enphase_envoy docs]: /integrations/enphase_envoy/
 [epsonworkforce docs]: /integrations/epsonworkforce/
 [esphome docs]: /integrations/esphome/
 [ezviz docs]: /integrations/ezviz/
@@ -2174,12 +2397,14 @@ The following integrations are no longer available as of this release:
 [honeywell docs]: /integrations/honeywell/
 [htu21d docs]: /integrations/htu21d/
 [huawei_lte docs]: /integrations/huawei_lte/
+[hue docs]: /integrations/hue/
 [huisbaasje docs]: /integrations/huisbaasje/
 [humidifier docs]: /integrations/humidifier/
 [hyperion docs]: /integrations/hyperion/
 [ihc docs]: /integrations/ihc/
 [influxdb docs]: /integrations/influxdb/
 [insteon docs]: /integrations/insteon/
+[integration docs]: /integrations/integration/
 [iqvia docs]: /integrations/iqvia/
 [isy994 docs]: /integrations/isy994/
 [jewish_calendar docs]: /integrations/jewish_calendar/
@@ -2188,12 +2413,14 @@ The following integrations are no longer available as of this release:
 [knx docs]: /integrations/knx/
 [lacrosse docs]: /integrations/lacrosse/
 [lcn docs]: /integrations/lcn/
+[light docs]: /integrations/light/
 [litterrobot docs]: /integrations/litterrobot/
 [lock docs]: /integrations/lock/
 [luftdaten docs]: /integrations/luftdaten/
 [lutron_caseta docs]: /integrations/lutron_caseta/
 [lyft docs]: /integrations/lyft/
 [matrix docs]: /integrations/matrix/
+[mazda docs]: /integrations/mazda/
 [melcloud docs]: /integrations/melcloud/
 [meteoclimatic docs]: /integrations/meteoclimatic/
 [metoffice docs]: /integrations/metoffice/
@@ -2218,6 +2445,7 @@ The following integrations are no longer available as of this release:
 [notion docs]: /integrations/notion/
 [nws docs]: /integrations/nws/
 [ondilo_ico docs]: /integrations/ondilo_ico/
+[onkyo docs]: /integrations/onkyo/
 [opencv docs]: /integrations/opencv/
 [openevse docs]: /integrations/openevse/
 [opengarage docs]: /integrations/opengarage/
@@ -2232,6 +2460,7 @@ The following integrations are no longer available as of this release:
 [prosegur docs]: /integrations/prosegur/
 [ps4 docs]: /integrations/ps4/
 [qnap docs]: /integrations/qnap/
+[radiotherm docs]: /integrations/radiotherm/
 [rainbird docs]: /integrations/rainbird/
 [rainforest_eagle docs]: /integrations/rainforest_eagle/
 [rainmachine docs]: /integrations/rainmachine/
@@ -2242,8 +2471,10 @@ The following integrations are no longer available as of this release:
 [rituals_perfume_genie docs]: /integrations/rituals_perfume_genie/
 [roku docs]: /integrations/roku/
 [rova docs]: /integrations/rova/
+[rpi_rf docs]: /integrations/rpi_rf/
 [samsungtv docs]: /integrations/samsungtv/
 [script docs]: /integrations/script/
+[sense docs]: /integrations/sense/
 [sensor docs]: /integrations/sensor/
 [sentry docs]: /integrations/sentry/
 [shell_command docs]: /integrations/shell_command/
@@ -2252,17 +2483,23 @@ The following integrations are no longer available as of this release:
 [simplisafe docs]: /integrations/simplisafe/
 [siren docs]: /integrations/siren/
 [skybell docs]: /integrations/skybell/
+[slack docs]: /integrations/slack/
 [sma docs]: /integrations/sma/
+[smartthings docs]: /integrations/smartthings/
+[solaredge docs]: /integrations/solaredge/
 [sonos docs]: /integrations/sonos/
 [speedtestdotnet docs]: /integrations/speedtestdotnet/
 [spider docs]: /integrations/spider/
+[ssdp docs]: /integrations/ssdp/
 [stream docs]: /integrations/stream/
+[surepetcare docs]: /integrations/surepetcare/
 [switcher_kis docs]: /integrations/switcher_kis/
 [synology_dsm docs]: /integrations/synology_dsm/
 [system_bridge docs]: /integrations/system_bridge/
 [tado docs]: /integrations/tado/
 [tag docs]: /integrations/tag/
 [tasmota docs]: /integrations/tasmota/
+[telegram_bot docs]: /integrations/telegram_bot/
 [temper docs]: /integrations/temper/
 [template docs]: /integrations/template/
 [tensorflow docs]: /integrations/tensorflow/
@@ -2270,6 +2507,7 @@ The following integrations are no longer available as of this release:
 [thermoworks_smoke docs]: /integrations/thermoworks_smoke/
 [tibber docs]: /integrations/tibber/
 [tile docs]: /integrations/tile/
+[tplink docs]: /integrations/tplink/
 [trend docs]: /integrations/trend/
 [unifi docs]: /integrations/unifi/
 [upnp docs]: /integrations/upnp/
