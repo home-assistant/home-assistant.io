@@ -18,7 +18,7 @@ _TL; DR: We're adding energy management and [it's awesome](https://demo.home-ass
 
 <img src='/images/blog/2021-08-energy/social.png' style='border: 0;box-shadow: none;'>
 
-The world is in a climate crisis. Global warming is reality and the weather is getting unpredictable. Our way of living needs to change, at all levels. I am worried that the climate crisis is something that the world is going to try to solve too late and after irreversible damages have already been done.
+The world is in a climate crisis. Global warming is a reality and the weather is getting unpredictable. Our way of living needs to change, at all levels. I am worried that the climate crisis is something that the world is going to try to solve too late and after irreversible damages have already been done.
 
 So with Home Assistant we want to do our part to help take on the climate crisis, and help you do the same. One part of fighting the climate crisis is making sure our homes are energy efficient and use low-carbon energy sources.
 
@@ -39,7 +39,7 @@ Bill Gates was recently interviewed by Marques Brownlee (MKBHD) and talked about
 
 Home Assistant won’t have all the answers when it comes to energy management, at least not right away. But we have two key things going for us that makes us the perfect platform to choose for your energy management:
 
-The first is that we’re completely open. This means that with Home Assistant, anyone can use [the source](https://github.com/home-assistant/core) or [it's collected data](https://data.home-assistant.io/) and build anything with it. We already see this happening: the [European federation of citizen energy cooperatives](https://www.rescoop.eu/) is using Home Assistant to build [energy management software tailored for communities](https://www.rescoopvpp.eu/blog/presenting-the-cofy-box). We are part of a rich ecosystem with many different approaches, all connected with Home Assistant.
+The first is that we’re completely open. This means that with Home Assistant, anyone can use [the source](https://github.com/home-assistant/core) or [its collected data](https://data.home-assistant.io/) and build anything with it. We already see this happening: the [European federation of citizen energy cooperatives](https://www.rescoop.eu/) is using Home Assistant to build [energy management software tailored for communities](https://www.rescoopvpp.eu/blog/presenting-the-cofy-box). We are part of a rich ecosystem with many different approaches, all connected with Home Assistant.
 
 The second thing is that we have a passionate and global community that wants to make their homes the best it can be. A community that revolves around building and sharing their own hardware and software to be able to achieve their goals. Through experimentation and iteration we will be able to improve energy management over time to fit our needs – there are no investors to satisfy.
 
@@ -61,7 +61,7 @@ Today's release of Home Assistant 2021.8 contains a new energy dashboard ([demo]
 
 Users will be able to see at a glance what sources of energy have been used in their home. This insight includes the carbon intensity of the electricity being consumed from the grid, which is available thanks to [electricityMap](https://www.electricitymap.org/).
 
-If users have solar panels they can set up the [Forecast.Solar](https://www.forecast.solar) integration which allows users to see at a glance how today’s production is going to be. This allows users to schedule when to charge their electric car or heat extra water.
+If users have solar panels they can set up the [Forecast.Solar](https://www.forecast.solar) integration which allows users to see at a glance how today’s production is going to be. This enables users to schedule when to charge their electric car or heat extra water.
 
 <img src='/images/blog/2021-08-energy/solar-production.png' style='border: 0;box-shadow: none;'><br>
 
@@ -71,7 +71,7 @@ Users can configure their consumption and production and Home Assistant will do 
 
 <p class='img'>
 <img src='/images/blog/2021-08-energy/config-dialogs.png'>
-The configuration is separated in different sections.
+The configuration is separated into different sections.
 </p>
 
 ## Hardware
