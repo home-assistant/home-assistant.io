@@ -95,7 +95,7 @@ feedback: false
           class="material-card picture-promo"
           href="{{page.url}}"
           style="
-            background-image: url({{page.og_image}});
+            background-image: url({{page.hero_image | default:page.og_image}});
             background-size: cover;
             background-color: #41bdf5;
           "
