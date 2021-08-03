@@ -277,7 +277,7 @@ The following integration got support for a new platform:
 - [GIOŚ][gios docs] now has sensors for replacing the air quality platform, added by [@bieniu]
 - [Goal Zero Yeti][goalzero docs], added sensors that provide a lot of information, added by [@tkdrob]
 - [Itho Daalderop Spider][spider docs], added sensors for energy usages. Added by [@peternijssen]
-- [Mill] added support for sensors for its energy consumption, added by [@Danielhiversen]
+- [Mill][mill docs], added support for sensors for its energy consumption, added by [@Danielhiversen]
 - [motionEye][motioneye docs] now exposes switches, added by [@dermotduffy]
 - [TP-Link Kasa Smart][tplink docs] added sensors for energy usage. Added by [@mib1185]
 - [Velux][velux docs] now supports lights, added by [@bramstroker]
@@ -287,9 +287,9 @@ The following integration got support for a new platform:
 
 The following integrations are now available via the Home Assistant UI:
 
-- [CO2 Signal][co2_signal docs], done by [@Danielhiversen]
+- [CO2 Signal][co2signal docs], done by [@Danielhiversen]
 - [Honeywell Total Connect Comfort (US)][honeywell docs], done by [@rdfurman]
-- [Notifications for Android TV / Fire TV][nfandroid docs], done by [@tkdrob]
+- [Notifications for Android TV / Fire TV][nfandroidtv docs], done by [@tkdrob]
 - [Switcher][switcher_kis docs], done by [@thecode]
 - [Yale Smart Living][yale_smart_alarm docs], done by [@gjohansson-ST]
 
