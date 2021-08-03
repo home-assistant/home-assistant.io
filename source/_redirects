@@ -8,7 +8,7 @@
 /latest-security-alert /blog/2021/01/23/security-disclosure2/
 
 # Redirect for Energy
-/home-energy-management /energy
+/energy /home-energy-management
 
 # Older development pages
 /developers https://developers.home-assistant.io
