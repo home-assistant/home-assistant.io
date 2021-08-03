@@ -9,7 +9,19 @@ This is a list of all the cards used in the energy dashboard, you can also place
 
 At the moment there are no configuration options available for these cards, you can configure them on the energy {% my config_energy title="energy configuration page" %}.
 
-They will always show the data of today when used outside the energy dashboard.
+## Energy Date Picker
+
+<p class='img'>
+  <img src='/images/lovelace/energy/date-selection.png' alt='Screenshot of the energy date selection card'>
+  Screenshot of the Energy date selection card.
+</p>
+
+This card will allow you to pick what data to show. Changing it in this card will influence the data in all other cards.
+
+#### Example
+```yaml
+type: energy-date-selection
+```
 
 ## Energy usage graph
 
