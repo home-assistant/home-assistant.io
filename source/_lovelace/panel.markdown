@@ -9,7 +9,7 @@ In this view the first card is rendered full-width, other cards in the view will
 
 This view doesn't have support for badges.
 
-This mode is good when using cards like `map`, `stack` or `picture-elements`.
+This view is good when using cards like `map`, `stack` or `picture-elements`.
 
 {% configuration %}
 type:
