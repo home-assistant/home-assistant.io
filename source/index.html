@@ -88,26 +88,30 @@ feedback: false
       </a>
     </div>
     <div class="grid__item two-thirds lap-two-thirds palm-one-whole">
-
-      <a
-        class="material-card picture-promo"
-        href="/blue"
-        style="
-          background-image: url(/images/blue/blue_narrow.jpg);
-          background-size: cover;
-          background-color: #41bdf5;
-        "
-      >
-        <div class="caption">
-          <div class="title">
-            Home Assistant Blue!
-            <div class="subtitle">
-              Where style and performance meet privacy
+    {% assign pages_by_date = site.pages | sort: "date" | reverse %}
+    {% for page in pages_by_date %}
+      {% if page.layout == "landingpage" and page.frontpage != false %}
+        <a
+          class="material-card picture-promo"
+          href="{{page.url}}"
+          style="
+            background-image: url({{page.og_image}});
+            background-size: cover;
+            background-color: #41bdf5;
+          "
+        >
+          <div class="caption">
+            <div class="title">
+              {{page.title}}
+              <div class="subtitle">
+                {{page.description}}
+              </div>
             </div>
+            <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
           </div>
-          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-        </div>
-      </a>
+        </a>
+      {% endif %}
+    {% endfor %}
 
       <a
         class="material-card picture-promo"

@@ -7,6 +7,9 @@
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
 /latest-security-alert /blog/2021/01/23/security-disclosure2/
 
+# Redirect for Energy
+/home-energy-management /energy
+
 # Older development pages
 /developers https://developers.home-assistant.io
 /developers/add_new_platform https://developers.home-assistant.io/docs/creating_platform_index/

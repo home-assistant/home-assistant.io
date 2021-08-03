@@ -1,17 +1,9 @@
 ---
+layout: landingpage
 title: "Home Assistant Blue!"
 description: "Where style and performance meet privacy"
-sidebar: false
-is_homepage: true
-feedback: false
-body_id: blue
-show_title: false
-og_image: /images/blue/blue_hero.jpg
----
-
-<div class="banner">
-  <img src="/images/blue/blue_hero.jpg" />
-  <div class="title">
+date: 2020-12-12
+tagline: >-
     Home Assistant
     <svg
       width="212"
@@ -28,41 +20,42 @@ og_image: /images/blue/blue_hero.jpg
       />
       <text x="40" y="78" stroke="white" fill="white">Blue</text>
     </svg>
-  </div>
-</div>
+tagline_wide: false
+og_image: /images/blue/blue_hero.jpg
+---
 
 <div class="content">
-  <div class="material-card text missing-piece">
+  <div class="material-card text banner-overlay">
     <div>
-      <div class="missing-piece-header">The missing piece</div>
-      <div class="missing-piece-content">
+      <div class="banner-overlay-header">The missing piece</div>
+      <div class="banner-overlay-content">
         We challenged ourselves: what would the perfect home automation hub look
         like. Not just software, but also hardware and looks.
       </div>
-      <div class="missing-piece-content secondary">
+      <div class="banner-overlay-content secondary">
         The result is the limited edition Home Assistant Blue bundle. Hardware
         that is affordable and fast, packed in a gorgeous case and powered by
         the most powerful home automation software on the planet: Home
         Assistant.
       </div>
     </div>
-    <div class="material-card text missing-piece-overlay">
-      <div class="missing-piece-overlay-header">LIMITED EDITION</div>
-      <div class="missing-piece-overlay-price">
+    <div class="material-card text banner-overlay">
+      <div class="banner-overlay-header">LIMITED EDITION</div>
+      <div class="banner-overlay-price">
         $140
         <div>*</div>
       </div>
-      <div class="missing-piece-overlay-images">
+      <div class="banner-overlay-images">
         <div class="img-container"><img src="/images/blue/blue1.png" /></div>
         <div class="img-container"><img src="/images/blue/blue2.png" /></div>
         <div class="img-container"><img src="/images/blue/blue3.png" /></div>
       </div>
-      <div class="missing-piece-overlay-button" onclick="showBuyDialog()">
+      <div class="banner-overlay-button" onclick="showBuyDialog()">
         <div>BUY NOW</div>
       </div>
     </div>
   </div>
-  <div class="missing-piece-disclaimer">
+  <div class="banner-overlay-disclaimer">
     * Price does not include taxes and import fees
   </div>
 
@@ -731,7 +724,7 @@ Nope! We are committed to keep supporting all platforms that are currently avail
       </div>
     </div>
   </div>
-  <div class="blue-buy-fab" onclick="showBuyDialog()" title="buy blue">
+  <div class="fab" onclick="showBuyDialog()" title="buy blue">
     <svg style="width: 32px; height: 32px" viewBox="0 0 32 32">
       <path
         fill="currentColor"
@@ -742,7 +735,7 @@ Nope! We are committed to keep supporting all platforms that are currently avail
   </div>
   <script>
     const buyDialog = document.getElementById("buy-dialog");
-    const buyFab = document.querySelector(".blue-buy-fab");
+    const buyFab = document.querySelector(".fab");
 
     function showBuyDialog() {
       buyDialog.style.display = "flex";
@@ -759,23 +752,5 @@ Nope! We are committed to keep supporting all platforms that are currently avail
         closeDialog();
       }
     };
-
-    if (document.documentElement.clientWidth < 480) {
-      document.querySelector(".page-content").addEventListener(
-        "scroll",
-        function (e) {
-          const header = document.querySelector(".site-header");
-          const fab = document.querySelector(".blue-buy-fab");
-          if (e.currentTarget.scrollTop > 180) {
-            header.style.backgroundColor = "#ffffff";
-            fab.style.display = "flex";
-          } else {
-            header.style.backgroundColor = "#ffffff66";
-            fab.style.display = "none";
-          }
-        },
-        { passive: true, capture: true }
-      );
-    }
   </script>
 </div>
