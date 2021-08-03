@@ -7,9 +7,9 @@ description: "An overview of the energy cards that are available."
 
 This is a list of all the cards used in the energy dashboard, you can also place them anywhere you want in your Lovelace dashboard.
 
-At the moment there are no configuration options available for these cards, you can configure them on the energy {% my config_energy title="energy configuration page" %}.
+At the moment there are no configuration options available for these cards, you can configure them on the {% my config_energy title="energy configuration page" %}.
 
-## Energy Date Picker
+## Energy date picker
 
 <p class='img'>
   <img src='/images/lovelace/energy/date-selection.png' alt='Screenshot of the energy date selection card'>
