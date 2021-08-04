@@ -852,7 +852,7 @@ The node status sensor will always be available even when the node is dead.
 
 The following integrations are no longer available as of this release:
 
-- **Weather Underground** hss been unavailable and in a non-working state and
+- **Weather Underground** has been unavailable and in a non-working state and
   has therefore been removed. ([@frenck] - [#52999])
 - **Garmin Connect** has been removed. Due to API changes, it stopped working
   and cannot function without violating Home Assistant design rules. Garmin
