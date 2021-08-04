@@ -22,7 +22,7 @@ This platform allows you to use [Gotify](https://gotify.net/), an open-source, s
 
 To start getting notifications, you need to follow those simple steps:
 
-1. Setup a Gotify server by following the instructions on their [docs site](https://gotify.net/docs/install). You can run the server using docker or a native Go binary. You must make sure your Gotify server is accessible from the open web for this component to be able to communicate with it.
+1. Setup a Gotify server by following the instructions on their [documentation site](https://gotify.net/docs/install). You can run the server using Docker or a native Go binary. You must make sure your Gotify server is accessible from the open web for this component to be able to communicate with it.
 2. When you first login to your Gotify server's WebUI setup a new user (unless you want to only use the default admin user), then logout and log back in as your new user.
 3. Add a new application to your Gotify server on the **Apps** tab. Name the new application **Home Assistant**. You can upload the [Home Assistant logo](https://github.com/home-assistant/brands/raw/master/core_integrations/_homeassistant/icon.png) in order to add badges to your notifications.
 4. When your application has been created Gotify will present you with a matching **token**. Copy this now as we will need it in the next step.
