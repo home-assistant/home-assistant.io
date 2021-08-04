@@ -9,6 +9,7 @@
 
 # Redirect for Energy
 /energy /home-energy-management
+/integrations/energy /docs/energy
 
 # Older development pages
 /developers https://developers.home-assistant.io
