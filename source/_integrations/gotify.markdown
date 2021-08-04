@@ -10,13 +10,14 @@ ha_codeowners:
 ha_iot_class: Cloud Polling
 ha_platforms:
   - notify
+ha_config_flow: true
 ---
 
 ## Description
 
 The Gotify integration is a platform for the **notify** component.
 
-This platform allows you to use [Gotify](https://gotify.net/), an open-source, self-hosted, and simple to set-up push-message server to receive notifications from Home Assistant on your Android device.
+This integration allows you to use [Gotify](https://gotify.net/), an open-source, self-hosted, and simple to set-up push-message server to receive notifications from Home Assistant.
 
 ## Setting up
 
