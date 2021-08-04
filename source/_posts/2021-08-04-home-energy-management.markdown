@@ -2,7 +2,7 @@
 layout: post
 title: "Energy Management in Home Assistant"
 description: "Monitor your energy usage, transition to sustainable energy and save money."
-date: 2021-08-01 00:01:00
+date: 2021-08-04 00:01:00
 date_formatted: "August 4, 2021"
 author: Paulus Schoutsen
 author_twitter: balloob
