@@ -175,4 +175,6 @@ Other storages in Azure (and outside) are possible with a [Azure Stream Analytic
 
 On the analytical side, Event Hub can be directly fed into [Azure Databricks Spark](https://docs.microsoft.com/en-us/azure/azure-databricks/databricks-stream-from-eventhubs?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fevent-hubs%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json), [Azure Time Series Insights](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub) and [Microsoft Power BI](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-tutorial-visualize-anomalies).
 
+Want to learn Power BI from the industry experts, then enroll this [Microsoft Power BI training](https://intellipaat.com/power-bi-training/).
+
 The final way to use the data in Azure is to connect a Azure Function to the Event Hub using the [Event Hub trigger binding](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs).
