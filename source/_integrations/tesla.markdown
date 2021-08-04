@@ -42,7 +42,7 @@ This integration provides the following platforms:
 
 <div class='note warning'>
   
-  Note: MFA on your Tesla Account is not supported at this time.
+  Note: MFA Support was added in Home Assistant Core 2021.8.0
 
 </div>
 
