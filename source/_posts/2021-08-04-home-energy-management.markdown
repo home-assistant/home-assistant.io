@@ -83,7 +83,7 @@ Besides supporting existing integrations, we’ve also created two open-source h
 
 Most energy meters in the Netherlands, Belgium and Luxembourg have a P1 port on their energy meter. This port provides real-time usage statistics.
 
-Together with [Marcel Zuidwijk](https://www.zuidwijk.com) we have designed and developed [SlimmeLezer](https://www.slimmelezer). This product, based on [ESPHome](https://esphome.io), will make all P1 data instantly available in Home Assistant. P1 ports using the DSMR v5 protocol will also be able to power this device directly, so you don’t need an external charger. The SlimmeLezer firmware is fully open source.
+Together with [Marcel Zuidwijk](https://www.zuidwijk.com) we have designed and developed [SlimmeLezer](https://www.slimmelezer.nl). This product, based on [ESPHome](https://esphome.io), will make all P1 data instantly available in Home Assistant. P1 ports using the DSMR v5 protocol will also be able to power this device directly, so you don’t need an external charger. The SlimmeLezer firmware is fully open source.
 
 [Buy a SlimmeLezer](https://www.slimmelezer.nl)
 
