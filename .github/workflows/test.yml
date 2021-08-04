@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out files from GitHub
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
       - name: Setting up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v2.3.1
         with:
           node-version: 12.x
       - name: Setup NPM cache
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.6
         with:
           path: ~/.npm
           key: npm-${{ hashFiles('**/package-lock.json') }}
@@ -31,13 +31,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out files from GitHub
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
       - name: Setting up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v2.3.1
         with:
           node-version: 12.x
       - name: Setup NPM cache
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.6
         with:
           path: ~/.npm
           key: npm-${{ hashFiles('**/package-lock.json') }}
@@ -55,13 +55,13 @@ jobs:
     needs: [markdown-lint]
     steps:
       - name: Check out files from GitHub
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
       - name: Setting up Ruby 2.6
-        uses: ruby/setup-ruby@v1.66.0
+        uses: ruby/setup-ruby@v1.79.0
         with:
           ruby-version: 2.6
       - name: Setup Ruby Gems cache
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.6
         with:
           path: vendor/bundle
           key: gems-${{ hashFiles('**/Gemfile.lock') }}
@@ -73,7 +73,7 @@ jobs:
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
       - name: Setting up Jekyll cache
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.6
         with:
           path: source/.jekyll-cache
           key:

@@ -4,7 +4,6 @@ description: Instructions on how to setup Home Assistant to discover new devices
 ha_category:
   - Other
 ha_release: 0.7
-ha_iot_class:
 ha_quality_scale: internal
 ha_domain: discovery
 ---
@@ -22,6 +21,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Linn / Openhome](/integrations/openhome)
  * [Logitech Harmony Hub](/integrations/harmony)
  * [Logitech Media Server (Squeezebox)](/integrations/squeezebox)
+ * [Nanoleaf](/integrations/nanoleaf)
  * [NETGEAR routers](/integrations/netgear)
  * [Philips Hue](/integrations/hue)
  * [SABnzbd downloader](/integrations/sabnzbd)
@@ -76,6 +76,7 @@ Valid values for ignore are:
  * `frontier_silicon`: Frontier Silicon internet radios
  * `harmony`: Logitech Harmony Hub
  * `logitech_mediaserver`: Logitech Media Server (Squeezebox)
+ * `nanoleaf_aurora`: Nanoleaf
  * `netgear_router`: NETGEAR routers
  * `octoprint`: Octoprint
  * `openhome`: Linn / Openhome

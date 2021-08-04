@@ -4,7 +4,6 @@ description: Instructions on how to integrate the Input Select integration into 
 ha_category:
   - Automation
 ha_release: 0.13
-ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'

@@ -34,31 +34,6 @@ In addition, there is a **Sensor** for each of CV pressure, CV temperature, and 
 
 Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's `temperature` (setpoint, target temperature) and `current_temperature` and the setpoint can be changed.
 
-## Automation
-
-To send an alert if the CV pressure is too low or too high, consider the following example:
-
-{% raw %}
-
-```yaml
-- alias: "Low CV Pressure Alert"
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.cv_pressure
-    below: 1.0
-  action:
-  - service: notify.pushbullet_notifier
-    data:
-      title: "Warning: Low CH Pressure"
-      message: >-
-        {{ trigger.to_state.attributes.friendly_name }}
-        is low, {{ trigger.to_state.state }} bar.
-```
-
-{% endraw %}
-
-Other properties are available via each device's attributes.
-
 ## Configuration
 
 To set up this integration, add one of the following to your `configuration.yaml` file:
@@ -101,3 +76,28 @@ password:
   required: inclusive
   type: string
 {% endconfiguration %}
+
+## Automation
+
+To send an alert if the CV pressure is too low or too high, consider the following example:
+
+{% raw %}
+
+```yaml
+- alias: "Low CV Pressure Alert"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.cv_pressure
+    below: 1.0
+  action:
+  - service: notify.pushbullet_notifier
+    data:
+      title: "Warning: Low CH Pressure"
+      message: >-
+        {{ trigger.to_state.attributes.friendly_name }}
+        is low, {{ trigger.to_state.state }} bar.
+```
+
+{% endraw %}
+
+Other properties are available via each device's attributes.

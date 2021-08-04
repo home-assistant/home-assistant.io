@@ -18,13 +18,13 @@ Templating is a powerful feature that allows you to control information going in
 
 Templating in Home Assistant is powered by the [Jinja2](https://palletsprojects.com/p/jinja) templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. Jinja2 supports a wide variety of operations:
 
-- [Mathematical operation](https://jinja.palletsprojects.com/en/master/templates/#math)
-- [Comparisons](https://jinja.palletsprojects.com/en/master/templates/#comparisons)
-- [Logic](https://jinja.palletsprojects.com/en/master/templates/#logic)
+- [Mathematical operation](https://jinja.palletsprojects.com/en/latest/templates/#math)
+- [Comparisons](https://jinja.palletsprojects.com/en/latest/templates/#comparisons)
+- [Logic](https://jinja.palletsprojects.com/en/latest/templates/#logic)
 
-We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/master/templates/).
+We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/latest/templates/).
 
-The frontend has a {% my developer_templates title="template editor tool" %} to help develop and debug templates. Navigate to {% my developer_templates title="Developer Tools > Template" %}, create your template in the _Template editor_ and check the results on the right.
+The frontend has a {% my developer_template title="template editor tool" %} to help develop and debug templates. Navigate to {% my developer_template title="Developer Tools > Template" %}, create your template in the _Template editor_ and check the results on the right.
 
 Templates can get big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
 
@@ -51,9 +51,9 @@ script:
 There are a few very important rules to remember when adding templates to YAML:
 
 1. You **must** surround single-line templates with double quotes (`"`) or single quotes (`'`).
-1. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](http://jinja.pocoo.org/docs/dev/templates/#default), or both.
-1. It is advised that when comparing numbers, you convert the number(s) to a [`float`](http://jinja.pocoo.org/docs/dev/templates/#float) or an [`int`](http://jinja.pocoo.org/docs/dev/templates/#int) by using the respective [filter](http://jinja.pocoo.org/docs/dev/templates/#list-of-builtin-filters).
-1. While the [`float`](http://jinja.pocoo.org/docs/dev/templates/#float) and [`int`](http://jinja.pocoo.org/docs/dev/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
+1. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.default), or both.
+1. It is advised that when comparing numbers, you convert the number(s) to a [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) or an [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) by using the respective [filter](https://jinja.palletsprojects.com/en/latest/templates/#list-of-builtin-filters).
+1. While the [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) and [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
@@ -63,7 +63,7 @@ Extensions allow templates to access all of the Home Assistant specific states a
 
 ### Limited Templates
 
-Templates for some triggers [triggers](/docs/automation/trigger/) as well as `trigger_variables` only support a subset of the Home Assistant template extensions. This subset is referred to as "Limited Templates".
+Templates for some [triggers](/docs/automation/trigger/) as well as `trigger_variables` only support a subset of the Home Assistant template extensions. This subset is referred to as "Limited Templates".
 
 ### States
 
@@ -134,6 +134,8 @@ Other state examples:
 {{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
 {{ as_local(states.sensor.time.last_changed) }}
+
+{{ states('sensor.expires') | as_datetime }}
 ```
 
 {% endraw %}
@@ -186,7 +188,7 @@ The `expand` function and filter can be used to sort entities and expand groups.
 
 ```text
 {% for tracker in expand('device_tracker.paulus', 'group.child_trackers') %}
-  {{ state_attr(tracker, 'battery') }}
+  {{ state_attr(tracker.entity_id, 'battery') }}
   {%- if not loop.last %}, {% endif -%}
 {% endfor %}
 ```
@@ -205,6 +207,31 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+### Devices
+
+- `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
+- `device_attr(device_or_entity_id, attr_name)` returns the value of `attr_name` for the given device or entity ID. Not supported in [limited templates](#limited-templates).
+- `is_device_attr(device_or_entity_id, attr_name, attr_value)` returns whether the value of `attr_name` for the given device or entity ID matches `attr_value`. Not supported in [limited templates](#limited-templates).
+- `device_id(entity_id)` returns the device ID for a given entity ID. Can also be used as a filter
+
+#### Devices examples
+
+{% raw %}
+
+```text
+{{ device_attr('deadbeefdeadbeefdeadbeefdeadbeef', 'manufacturer') }}  # Sony
+```
+
+```text
+{{ is_device_attr('deadbeefdeadbeefdeadbeefdeadbeef', 'manufacturer', 'Sony') }}  # true
+```
+
+```text
+{{ device_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+{% endraw %}
+
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
@@ -215,6 +242,7 @@ The same thing can also be expressed as a filter:
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
   - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
+- `as_datetime()` converts a string containing a timestamp to a datetime object.
 - `as_timestamp()` converts datetime object or string to UNIX timestamp. This function also be used as a filter.
 - `as_local()` converts datetime object to local time. This function also be used as a filter.
 - `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object.
@@ -422,7 +450,7 @@ Closest to some entity:
 
 ### Numeric functions and filters
 
-Some of these functions can also be used in a [filter](https://jinja.palletsprojects.com/en/master/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
+Some of these functions can also be used in a [filter](https://jinja.palletsprojects.com/en/latest/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
 
 - `log(value, base)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.
 - `sin(value)` will return the sine of the input. Can be used as a filter.
@@ -440,8 +468,8 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
   - `round(x, "floor")` will always round down to `x` decimals
   - `round(x, "ceil")` will always round up to `x` decimals
   - `round(1, "half")` will always round to the nearest .5 value. `x` should be 1 for this mode
-- Filter `max` will obtain the largest item in a sequence.
-- Filter `min` will obtain the smallest item in a sequence.
+- Filter `[x, y, ...] | max` will obtain the largest item in a sequence.
+- Filter `[x, y, ...] | min` will obtain the smallest item in a sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
@@ -452,8 +480,8 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 
 ### Regular expressions
 
-- Filter `string|regex_match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
-- Filter `string|regex_search(find, ignorecase=True)` will match the find expression anywhere in the string using regex.
+- Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
+- Test `string is search(find, ignorecase=True)` will match the find expression anywhere in the string using regex.
 - Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
 - Filter `string|regex_findall_index(find='', index=0, ignorecase=False)` will find all regex matches of find in string and return the match at index (findall returns an array of matches).
 
@@ -544,7 +572,7 @@ The following overview contains a couple of options to get the needed values:
 
 {% endraw %}
 
-To evaluate a response, go to **{% my developer_templates title="Developer Tools -> Template" %}**, create your output in "Template editor", and check the result.
+To evaluate a response, go to **{% my developer_template title="Developer Tools -> Template" %}**, create your output in "Template editor", and check the result.
 
 {% raw %}
 

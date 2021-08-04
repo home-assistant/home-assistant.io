@@ -5,7 +5,7 @@ description: "Instructions on how to use the scenes editor."
 
 In Home Assistant 0.102 we introduced the first version of our scene editor. If you just created a new configuration with Home Assistant, then you're all set! Go to the UI and enjoy.
 
-From the UI choose **Configuration** which is located in the sidebar, then click on **Scenes** to go to the scene editor. Press the **+** sign in the lower right corner to get started.
+From the UI choose **Configuration** which is located in the sidebar, then click on **Scenes** to go to the scene editor. Press the **Add Scene** button in the lower right corner to get started.
 
 Choose a meaningful name for your scene.
 
@@ -13,11 +13,12 @@ Choose a meaningful name for your scene.
   <img src='/images/docs/scenes/editor.png' />
 </p>
 
-Select all the devices (and/or entities when in advanced mode) you want to include in your scene.
+Select all the devices (or entities when advanced mode is enabled on your user profile) you want to include in your scene.
 The state of your devices will be saved, so it can be restored when you are finished creating your scene.
 Set the state of the devices to how you want them to be in your scene, this can be done by clicking on it and edit the state from the popup, or any other method that changes the state.
 On the moment you save the scene, all the states of your devices are stored in the scene.
 When you leave the editor the states of the devices are restored to the state from before you started editing.
+The menu on the top-right has options to **Duplicate scene** and **Delete scene**.
 
 ## Updating your configuration to use the editor
 

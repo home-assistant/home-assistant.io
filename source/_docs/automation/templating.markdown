@@ -1,29 +1,37 @@
 ---
-title: "Automation Templating"
-description: "Advanced automation documentation using templating."
+title: "Automation Trigger Variables"
+description: "List all available variables made available by triggers."
 ---
 
-Automations support [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` template variable is available.
+Automations support [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` and `this` template variables are available.
 
-<div class='note'>
-  
-  Be aware that if you reference a `trigger` state object in templates of an automation' `action` or `condition` sections, attempting to test that automation by calling the `automation.trigger` service or by clicking EXECUTE in the More Info box for the automation will not work. This is because the trigger state object doesn't exist in those contexts. One way to test automations like these is to manually check that the templates work as expected by pasting them in {% my developer_template title="Developer Tools > Template" %} together with your trigger's definition like:
+The template variable `this` is also available when evaluating any `trigger_variables` declared in the configuration.
 
-{%raw%}
+## Available this Data
 
-```yaml
-{% set trigger={'to_state':{'state': 'heat'}} %}
-{% set option = trigger.to_state.state %}
-{{ 'on' if option == 'heat' else 'off' }}
-```
-
-{%endraw%}
-  
-</div>
+`this` is a state object. [State Objects](docs/configuration/state_object) provides a comprehensive description for the properties of `this` and `this.attributes`.
 
 ## Available Trigger Data
 
 The following tables show the available trigger data per platform.
+
+### All
+
+The following describes trigger data associated with all platforms.
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.id` | Optional trigger `id`, or index of the trigger.
+| `trigger.idx` | Index of the trigger.
+
+### Device
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `device`.
+| `trigger.event` | Event object that matched.
+| `trigger.event.event_type` | Event type.
+| `trigger.event.data` | Optional event data.
 
 ### Event
 
@@ -41,7 +49,7 @@ The following tables show the available trigger data per platform.
 | `trigger.platform` | Hardcoded: `mqtt`.
 | `trigger.topic` | Topic that received payload.
 | `trigger.payload` | Payload.
-| `trigger.payload_json` | Dictonary of the JSON parsed payload.
+| `trigger.payload_json` | Dictionary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
 ### Numeric State
@@ -129,12 +137,15 @@ automation:
   trigger:
     - platform: state
       entity_id: device_tracker.paulus
+      id: paulus_device
   action:
     - service: notify.notify
       data:
         message: >
           Paulus just changed from {{ trigger.from_state.state }}
           to {{ trigger.to_state.state }}
+          
+          This was triggered by {{ trigger.id }}
 
 automation 2:
   trigger:

@@ -1,4 +1,5 @@
 ---
+type: card
 title: "History Graph Card"
 sidebar_label: History Graph
 description: "The History Graph card allows you to display a graph for each of the entities listed."
@@ -29,7 +30,7 @@ entities:
   type: list
 hours_to_show:
   required: false
-  description: Hours to show. Minimum is 1 hour, maximum of 80 hours.
+  description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
   type: integer
   default: 24
 refresh_interval:

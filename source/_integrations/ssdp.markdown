@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.94
 ha_domain: ssdp
+ha_quality_scale: internal
 ---
 
 The `ssdp` "Simple Service Discovery Protocol" (part of UPnP) integration will scan the network for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel.
@@ -25,12 +26,25 @@ ssdp:
 
 The following integrations are automatically discovered by the SSDP integration:
 
+ - [AVM FRITZ!SmartHome](/integrations/fritzbox/)
+ - [Belkin WeMo](/integrations/wemo/)
  - [deCONZ](/integrations/deconz/)
+ - [Denon AVR](/integrations/denonavr/)
+ - [Denon HEOS](/integrations/heos/)
  - [DirecTV](/integrations/directv/)
  - [Huawei LTE](/integrations/huawei_lte/)
+ - [Hyperion](/integrations/hyperion/)
+ - [Keenetic NDMS2 Router](/integrations/keenetic_ndms2/)
+ - [Konnected.io](/integrations/konnected/)
+ - [Logitech Harmony](/integrations/harmony/)
  - [Philips Hue](/integrations/hue/)
  - [Roku](/integrations/roku/)
  - [Samsung SyncThru Printer](/integrations/syncthru/)
  - [Samsung TV](/integrations/samsungtv/)
- - [UPnP](/integrations/upnp/)
+ - [Sonos](/integrations/sonos/)
  - [Sony Songpal](/integrations/songpal/)
+ - [Synology DSM](/integrations/synology_dsm/)
+ - [Ubiquiti UniFi](/integrations/unifi/)
+ - [Universal Devices ISY994](/integrations/isy994/)
+ - [UPnP](/integrations/upnp/)
+ - [WiLight](/integrations/wilight/)

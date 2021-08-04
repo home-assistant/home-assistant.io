@@ -19,24 +19,8 @@ Integrations can opt-in to be found by adding either [a Zeroconf section](https:
 
 This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, and you wish to have Home Assistant scan for integrations using zeroconf and HomeKit, the following example shows you how to enable this integration manually:
 
-```yaml
-# Example configuration.yaml entry
-zeroconf:
-```
+## Network interfaces and auto detection
 
-{% configuration %}
-zeroconf:
-  description: 
-  type: map
-  keys:
-   default_interface:
-     description: By default, `zeroconf` will attempt to bind to all interfaces. For systems running using network isolation or similar, this may result in `zeroconf` being unavailable. Change this option to `true` if `zeroconf` does not function.
-     required: false
-     type: boolean
-     default: false
-   ipv6:
-     description: By default, `zeroconf` will enable IPv6 support. If your network has trouble with IPv6 being enabled, you can set this option to `false`.
-     required: false
-     type: boolean
-     default: true
-{% endconfiguration %}
+Zeroconf chooses which interfaces to broadcast on based on the [Network](/integrations/network/) integration.
+
+IPv6 will automatically be enabled if one of the selected interfaces has an IPv6 address that is enabled via the Network integration.

@@ -5,7 +5,9 @@ date: 2016-01-17 15:20:00 -0800
 date_formatted: "January 17, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 First release of 2016 and we are on 🔥! The [main repository][github-ha] has passed 2500 ⭐ on GitHub (2596 ⭐ as of now). This release also has a [record number][release-pr] of 20 contributors all working on improving and extending Home Assistant. With the continued growth, I am very excited to see what 2016 will bring us 🤘.

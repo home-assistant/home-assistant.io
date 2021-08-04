@@ -35,7 +35,7 @@ host:
 port:
   description: Port to use.
   required: false
-  default: 8080
+  default: 8088
   type: integer
 ssl:
   description: Use HTTPS instead of HTTP to connect.

@@ -172,7 +172,7 @@ The Flux LED light offers a number of effects which are not included in other li
 | `random`                                                                                                     | Chooses a random color by selecting random values for R, G, and B. |
 | `custom`                                                                                                     | Custom effect (if defined, see below).                             |
 
-Users can define their own custom effect. It consists of three parameters: a list of 1 to 16 colors, speed and type of transition. The controller will transition between the colors in a loop, with sepcified transition and speed. Here is an example of a custom effect that will quickly flash red, yellow, green, cyan, blue, magenta in a loop:
+Users can define their own custom effect. It consists of three parameters: a list of 1 to 16 colors, speed and type of transition. The controller will transition between the colors in a loop, with specified transition and speed. Here is an example of a custom effect that will quickly flash red, yellow, green, cyan, blue, magenta in a loop:
 
 ```yaml
 light:

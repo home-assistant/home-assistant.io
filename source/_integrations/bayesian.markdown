@@ -153,7 +153,3 @@ binary_sensor:
 ```
 
 {% endraw %}
-
-The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is updated. 
-
-In this example, since the template is only evaluated on state change of `device_tracker.paulus` the template won't change state after 5 mins like intended. The ways to force template reevaluation are documented in the [template binary_sensor](/integrations/binary_sensor.template/#working-without-entities).

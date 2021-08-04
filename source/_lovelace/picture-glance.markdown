@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Picture Glance Card"
 sidebar_label: Picture Glance
 description: "The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog."
@@ -62,7 +63,7 @@ show_state:
   required: false
   description: Show entity state text.
   type: boolean
-  default: true
+  default: false
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).

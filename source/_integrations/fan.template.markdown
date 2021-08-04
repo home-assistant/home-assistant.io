@@ -54,7 +54,7 @@ fan:
         preset_modes:
           - 'auto'
           - 'smart'
-          - 'woosh'
+          - 'whoosh'
 ```
 
 {% endraw %}
@@ -108,6 +108,10 @@ fan:
         type: action
       set_percentage:
         description: Defines an action to run when the fan is given a speed percentage command.
+        required: false
+        type: action
+      set_preset_mode:
+        description: Defines an action to run when the fan is given a preset command.
         required: false
         type: action
       set_oscillating:

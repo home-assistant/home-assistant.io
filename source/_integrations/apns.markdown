@@ -31,7 +31,7 @@ notify:
 
 {% configuration %}
 name:
-  description: he name of the notifier. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: The name of the notifier. The notifier will bind to the service `notify.NOTIFIER_NAME`.
   required: true
   type: string
 cert_file:

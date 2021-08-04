@@ -11,6 +11,8 @@ ha_codeowners:
   - '@frenck'
 ha_domain: spotify
 ha_zeroconf: true
+ha_platforms:
+  - media_player
 ---
 
 The Spotify media player integration allows you to control [Spotify](https://www.spotify.com/) playback from Home Assistant.
@@ -34,6 +36,7 @@ The Spotify media player integration allows you to control [Spotify](https://www
 - Enter the **Edit Settings** dialog of your newly-created application and add a *Redirect URI*:
   - If you are not using SSL: `http://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
   - If you are using SSL: `https://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
+  - Note Spotify does a case-sensitive match of the fields above, as such ensure the Redirect URI is all lower case.
 - Click **Save** after adding the URI.
 
 <div class='note'>
@@ -80,7 +83,7 @@ Restart your Home Assistant instance before continuing with the next step.
 This integration supports multiple Spotify accounts at once. You don't need to
 create another Spotify application in the Spotify Developer Portal and no
 modification to the `configuration.yaml` file is needed. Multiple Spotify
-accounts can be linked to a _single_ Spotify application.
+accounts can be linked to a _single_ Spotify application. You will have to add those accounts into the **Users and Access** section of your application in the Spotify Developer Portal.
 
 To add an additional Spotify account to Home Assistant, go to the Spotify website and log out, then repeat _only_ the steps
 in the [Configuration](#configuration) section. 

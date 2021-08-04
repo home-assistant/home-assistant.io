@@ -8,6 +8,8 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@mezz64'
 ha_domain: emby
+ha_platforms:
+  - media_player
 ---
 
 The `emby` platform allows you to control a [Emby](https://emby.media/) multimedia system from Home Assistant.

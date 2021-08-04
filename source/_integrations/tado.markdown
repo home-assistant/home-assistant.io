@@ -24,6 +24,7 @@ ha_platforms:
   - device_tracker
   - sensor
   - water_heater
+ha_dhcp: true
 ---
 
 The Tado integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
@@ -70,7 +71,7 @@ password:
   required: true
   type: string
 home_id:
-  description: The id of your home of which you want to track devices. If provided, the Tado device tracker will tack *all* devices known to Tado associated with this home. See below how to find it.
+  description: The id of your home of which you want to track devices. If provided, the Tado device tracker will track *all* devices known to Tado associated with this home. See below how to find it.
   required: false
   type: integer
 {% endconfiguration %}
@@ -139,7 +140,7 @@ You can use the service `tado.set_water_heater_timer` to set your water heater t
 
 ### Service `tado.set_climate_temperature_offset`
 
-You can use the service `tado.set_climate_temperature_offset` to set the temprature offset for Tado climate devices 
+You can use the service `tado.set_climate_temperature_offset` to set the temperature offset for Tado climate devices.
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
@@ -169,7 +170,7 @@ script:
 
 {% raw %}
 ```yaml
-# Example automation to set temprature offset based on another thermostat value
+# Example automation to set temperature offset based on another thermostat value
 automation:
     # Trigger if the state of either thermostat changes
     trigger:

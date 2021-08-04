@@ -35,6 +35,10 @@ There is currently support for the following device types within Home Assistant:
 This integration supports two Nest APIs. The SDM API is the new primary API that accepts new users. The Legacy Works With Nest API is not accepting new users, but the documentation still exists at the bottom of the page so existing users can keep using it.
 </div>
 
+Google applies strict [Redirect URI validation
+rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) to keep your login
+credentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain*. See the documentation on [Securing](/docs/configuration/securing/) or [Troubleshooting](#troubleshooting), and note that you don't need actually need to enable remote access.
+
 ## Overview: Supported Devices
 
 Home Assistant is integrated with the following devices through the SDM API:
@@ -105,7 +109,7 @@ Project**. Note: This is a different type of project from the Device Access proj
 1. From the drop-down list select *OAuth client ID*.
     ![Screenshot of OAuth client ID selection](/images/integrations/nest/oauth_client_id.png)
 
-1. Enter *Web Application* for the Application typex, since you will use this with Home Assistant.
+1. Enter *Web Application* for the Application type, since you will use this with Home Assistant.
 
 1. Pick a name for your credential.
 
@@ -182,7 +186,7 @@ project_id:
   required: false
   type: string
 subscriber_id:
-  description: Full path for the Pub/sub Subscription ID used to receive events. This is required to use the SDM API. Enter this exactly as it appers under "Subscription name" in the [Pub/Sub console](https://console.cloud.google.com/cloudpubsub/subscription/list).
+  description: Full path for the Pub/sub Subscription ID used to receive events. This is required to use the SDM API. Enter this exactly as it appears under "Subscription name" in the [Pub/Sub console](https://console.cloud.google.com/cloudpubsub/subscription/list).
   type: string
   required: false
 {% endconfiguration %}
@@ -247,8 +251,8 @@ everything, however, you can leave out any feature you do not wish to use with H
   domain (such as .com or .org)* or *must use a valid domain that is a valid top private domain*. This means that you
   may need to change the URL you use to access Home Assistant in order to access your devices.
 
-    - A convienent solution is to use [Nabu Casa](https://www.nabucasa.com/)
-    - There are subtle rules for what types of URLs are allowed, namely that they must use a publicly known hostname, though your Home Assistant ports do not need to be exposed to the internet.
+    - See [Securing](https://www.home-assistant.io/docs/configuration/securing/) Home Assistant for convient solutions e.g. [Nabu Casa](https://www.nabucasa.com/) or Duck DNS.
+    - There are subtle [rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) for what types of URLs are allowed, namely that they must use SSL and a publicly known hostname, though your Home Assistant ports do not need to be exposed to the internet.
     - You can use any publicly known hostname you own
     - As a hack, you can use hosts tricks to temporarily assign a public hostname to your Home Assistant IP address.
 
@@ -256,7 +260,7 @@ everything, however, you can leave out any feature you do not wish to use with H
 
 - *Error: invalid_client no application name* means the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) has not been fully configured for the project. Enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
 
-- *Subscriber error: Subscription misconfigured. Expected subscriber_id to match...* means that the `configuration.yaml` has an incorrect `subscriber_id` field. Re-enter the the *Subscription Name* which looks like `projects/project-label-22ee1/subscriptions/SUBSCRIBER_ID`. Make sure this is not the *Topic name*.
+- *Subscriber error: Subscription misconfigured. Expected subscriber_id to match...* means that the `configuration.yaml` has an incorrect `subscriber_id` field. Re-enter the *Subscription Name* which looks like `projects/project-label-22ee1/subscriptions/SUBSCRIBER_ID`. Make sure this is not the *Topic name*.
 
 - *Subscriber error: Subscription misconfigured. Expected topic name to match ...* means that the topic name in the Google Cloud Console was entered incorrectly. The topic name comes from the Device Console and must start with `projects/sdm-prod/topics/`. It is easy to make the mistake of creating a new topic rather than manually entering the right topic name.
 
@@ -275,13 +279,14 @@ logger:
     homeassistant.components.nest.climate_sdm: debug
     homeassistant.components.nest.camera_sdm: debug
     homeassistant.components.nest.sensor_sdm: debug
+    homeassistant.helpers.config_entry_flow: debug
+    homeassistant.helpers.config_entry_oauth2_flow: debug
     google_nest_sdm: debug
     google_nest_sdm.device: debug
     google_nest_sdm.device_manager: debug
     google_nest_sdm.google_nest_subscriber: debug
     google_nest_sdm.event: debug
     google.cloud.pubsub_v1: debug
-    google.cloud.pubsub_v1.subscriber._protocol.streaming_pull_manager: debug
 ```
 
 ## Camera
@@ -349,7 +354,7 @@ action:
         image: /api/camera_proxy/camera.front_door
 ```
 
-The action in this section uses the [Android Companion App](https://companion.home-assistant.io/docs/notifications/notifications-basic/) and the camera proxy to send an notification with a snapshot from the camera.
+The action in this section uses the [Android Companion App](https://companion.home-assistant.io/docs/notifications/notifications-basic/) and the camera proxy to send a notification with a snapshot from the camera.
 
 # Legacy Works With Nest API
 

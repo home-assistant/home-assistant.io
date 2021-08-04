@@ -14,6 +14,8 @@ ha_domain: yeelight
 ha_platforms:
   - binary_sensor
   - light
+ha_homekit: true
+ha_dhcp: true
 ---
 
 The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
@@ -33,10 +35,10 @@ Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransitio
 
 Where the array values are as per the following:
 
-- RGBTransition: [red, green, blue, duration, brightness] with red/green/blue being an number between 0 and 255, the duration being in milliseconds (with a minimum of 50) and the final brightness to transition to 1-100 (%).
-- HSVTransition: [hue, saturation, duration, brightness] with hue being an number between 0 and 359, saturation 0 -100, the duration in milliseconds (with a minimum of 50) and the final brightness 1-100 (%).
+- RGBTransition: [red, green, blue, duration, brightness] with red/green/blue being a number between 0 and 255, the duration being in milliseconds (with a minimum of 50) and the final brightness to transition to 1-100 (%).
+- HSVTransition: [hue, saturation, duration, brightness] with hue being a number between 0 and 359, saturation 0 -100, the duration in milliseconds (with a minimum of 50) and the final brightness 1-100 (%).
 - TemperatureTransition: [temp, duration, brightness] with temp being the final color temperature between 1700 and 6500, the duration in milliseconds (with a minimum of 50) and the final brightness to transition to 1-100 (%).
-- SleepTransition: [duration] with duration being an number for the effect time in milliseconds (with a minimum of 50).
+- SleepTransition: [duration] with duration being a number for the effect time in milliseconds (with a minimum of 50).
 
 More info about transitions and their expected parameters can be found in [python-yeelight documentation](https://yeelight.readthedocs.io/en/stable/flow.html).
 
@@ -173,6 +175,8 @@ This integration is tested to work with the following models. If you have a diff
 | `color1`   | YLDP03YL     | LED Bulb (Color) - E26                           |
 | `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
 | `color4`   | YLDP13YL     | LED Bulb 1S (Color)                              |
+| `color6`   | YLDP13AYL    | LED Bulb 1S (Color)                              |
+| `colorc`   | YLDP004-A    | GU10 W1 (Color)                                  |
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
 | ?          | YLDD04YL     | Lightstrip (Color)                               |
@@ -189,6 +193,7 @@ This integration is tested to work with the following models. If you have a diff
 | `mono`     | YLTD03YL     | Yeelight Serene Eye-Friendly Desk Lamp           |
 | `ceiling10`     | YLDL01YL     | Yeelight Meteorite Pendant Light            |
 | `ceiling13`     | YLXD01YL     | Yeelight LED Ceiling Light           |
+| `ceil26`   | YLXD76YL     | Yeelight Ceiling Light - Updated HomeKit 23w     |
 | `lamp` | MJTD02YL | Xiaomi Mijia Desk Lamp Pro |
 
 ## Services

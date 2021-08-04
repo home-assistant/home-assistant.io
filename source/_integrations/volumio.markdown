@@ -10,6 +10,8 @@ ha_codeowners:
   - '@OnFreund'
 ha_domain: volumio
 ha_zeroconf: true
+ha_platforms:
+  - media_player
 ---
 
 The `Volumio` platform allows you to control a [Volumio](https://volumio.org/) media player from Home Assistant.

@@ -19,6 +19,10 @@ ha_platforms:
   - switch
 ---
 
+<p class='note warning'>
+  Daikin has removed their local API in newer products. They offer a cloud API accessible only under NDA, which is incompatible with open source.
+</p>
+
 The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
@@ -96,12 +100,23 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 - Total instant power consumption
 - Hourly energy consumption in cool mode
 - Hourly energy consumption in heat mode
+- Outside compressor frequency
 
 <div class='note'>
 
 - Some models only report outside temperature when they are turned on.
 - Some models does not have humidity sensor.
 - Some models does not report the power/energy consumption.
+- Some models does not report the compressor frequency.
+
+</div>
+
+<div class='note'>
+
+- The 'total' power sensor is updated every time 100 Wh are consumed by all the AC summed together.
+- The 'cool/heat' energy sensors are updated hourly with the previous hour energy consumption
+  of a given mode and a given AC.
+- The 'cool' mode also includes the 'fan' and 'dehumidifier' modes' power consumption.
 
 </div>
 
@@ -115,7 +130,7 @@ Zones with the name `-` will be ignored, just as the AirBase application is work
 
 </div>
 
-Additionally the Daikin Streamer (air purifier) function can be toggled on supported devices using a switch.
+Additionally the Daikin Streamer (air purifier) function can be toggled onsupported devices using a switch. Note that it isn't currently possible to reliably detect whether a specific device has streamer support, so the switch may appear in the UI even if the functionality isn't actually supported.
 
 ## Region Changing
 

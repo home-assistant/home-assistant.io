@@ -11,6 +11,8 @@ ha_codeowners:
   - '@starkillerOG'
 ha_config_flow: true
 ha_ssdp: true
+ha_platforms:
+  - media_player
 ---
 
 The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/en-gb/shop/networkmusicsystem/ceolpiccolon4) from Home Assistant. It might be that your device is supported by the [Denon] platform.
@@ -48,9 +50,11 @@ Known supported devices:
 - Denon AVR-3312
 - Denon AVR-3313CI
 - Denon AVR-4810
+- Denon AVR-S650H
 - Denon AVR-S710W
 - Denon AVR-S720W
 - Denon AVR-S750H
+- Denon AVR-S960H
 - Denon DN-500AV
 - Marantz M-CR510
 - Marantz M-CR511
@@ -88,6 +92,11 @@ zone1:
   description: Specifies if zone 1 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
 zone2:
   description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
+update_audyssey:
+  description: Specifies if Audyssey settings should be updated. This can take up to 10 Seconds for some receivers.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration_basic %}
 
 A few notes:
@@ -108,5 +117,22 @@ A comprehensive list of telnet protocol commands is [also available](http://asse
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Name of entity to send command to. For example `media_player.marantz`|
 | `command`              |       no | Command to send to device, e.g.,  `/goform/formiPhoneAppDirect.xml?VSMONI2`|
+
+#### Service `denonavr.set_dynamic_eq`
+
+Enable or disable DynamicEQ setting.
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            |      yes | Name of entity to send command to. For example `media_player.marantz`|
+| `dynamic_eq`           |       no | True/false for enable/disable.|
+
+#### Service `denonavr.update_audyssey`
+
+Update Audyssey settings. This can take up to 10 Seconds for some receivers.
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            |      yes | Name of entity to send command to. For example `media_player.marantz`|
 
 [Denon]: /integrations/denon

@@ -20,11 +20,11 @@ module Jekyll
           MSG
         end
       end
-  
+
       def render(context)
         # We parse on render, as we now have context
         options = parse_options(@options, context)
-  
+
         # Base URI
         uri =  URI.join("https://my.home-assistant.io/redirect/", @redirect)
 
@@ -33,6 +33,7 @@ module Jekyll
         query += [["addon", options[:addon]]] if options.include? :addon
         query += [["blueprint_url", options[:blueprint_url]]] if options.include? :blueprint_url
         query += [["domain", options[:domain]]] if options.include? :domain
+        query += [["repository_url", options[:repository_url]]] if options.include? :repository_url
         query += [["service", options[:service]]] if options.include? :service
         unless query.empty?
             uri.query = URI.encode_www_form(query)
@@ -86,15 +87,17 @@ module Jekyll
       DEFAULT_TITLES = {
         "blueprint_import" => "Import Blueprint",
         "cloud" => "Home Assistant Cloud",
+        "config_energy" => "Energy Configuration",
         "config_flow_start" => "Add Integration",
         "config_mqtt" => "MQTT Configuration",
-        "config_zha" => "ZHA Configuration", 
+        "config_zha" => "ZHA Configuration",
         "config_zwave_js" => "Z-Wave JS Configuration",
         "config" => "Configuration",
         "developer_events" => "Events",
         "developer_services" => "Services",
         "developer_states" => "States",
         "developer_template" => "Templates",
+        "energy" => "Energy",
         "general" => "General Settings",
         "info" => "Information",
         "supervisor_info" => "Supervisor Information",
@@ -107,7 +110,7 @@ module Jekyll
         # Split along 3 possible forms: key="value", key=value, or just key
         input.scan(OPTIONS_REGEX) do |opt|
           key, value = opt.split("=")
-          if !value.nil? 
+          if !value.nil?
             if value&.include?('"')
               value.delete!('"')
             else

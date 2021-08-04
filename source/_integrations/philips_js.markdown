@@ -2,6 +2,7 @@
 title: Philips TV
 description: Instructions on how to add Philips TVs to Home Assistant.
 ha_category:
+  - Light
   - Media Player
   - Remote
 ha_iot_class: Local Polling
@@ -10,11 +11,18 @@ ha_codeowners:
   - '@elupus'
 ha_domain: philips_js
 ha_config_flow: true
+ha_platforms:
+  - light
+  - media_player
+  - remote
 ---
 
 The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.
 
-Instructions on how to activate the API and if your model is supported can be found [here](http://jointspace.sourceforge.net/download.html). Note that not all listed, jointSPACE-enabled devices will have JSON-interface running on port 1925. This is true at least for some models before year 2011.
+If your TV responds to `http://IP_ADDRESS_OF_TV:1925/system` then this integration can be used. In the response, you should also be able to see the version of the API the TV uses (`"api_version":{"Major":6...`).
+For older TVs follow instructions on how to activate the API and if your model is supported [here](http://jointspace.sourceforge.net/download.html). Note that not all listed, jointSPACE-enabled devices will have JSON-interface running on port 1925. This is true at least for some models before year 2011.
+
+Also, note that version 6 of the API needs to be authenticated by a PIN code displayed on your TV.
 
 {% include integrations/config_flow.md %}
 
@@ -35,11 +43,14 @@ Instructions on how to activate the API and if your model is supported can be fo
 | Application Detect | No               | ?   | Yes                | No               |
 | Browse URL         | No               | No  | No                 | No               |
 | Send Key           | No               | No  | No                 | Yes              |
-| Ambilight Control  | No               | No  | No                 | No               |
+| Ambilight Control  | Yes              | ?   | Yes                | ?                |
+| Ambilight Styles   | No               | ?   | Yes                | Yes              |
+| Ambilight Measure  | No               | No  | No                 | No               |
+
 
 ### Turn on device
 
-The Philips TV does not always support turning on via the API. You can either turn it on via IR blaster or on som models WOL. To trigger this command from the entities, the integration exposes a `device trigger` that can be setup to execute when the `media_player` is asked to turn on.
+The Philips TV does not always support turning on via the API. You can either turn it on via an IR blaster or on some models using Wake On LAN (WOL). To trigger this command from the entities, the integration exposes a `device trigger` that can be setup to execute when the `media_player` is asked to turn on.
 
 ### Remote
 
@@ -111,3 +122,14 @@ The integration provides a remote entity for sending remote key presses directly
 | Online           |                                           |
 | SmartTV          |                                           |
 | PhilipsMenu      |                                           |
+
+### Ambilight
+
+The integration exposes a single light entity to control the mode of the ambilight on the TV. It allows setting a fixed background color or switching the TV to one of the lounge modes supported by the TV.
+
+When the light entity is turned on, it is controlling the ambilights, when it is turned off the TV is in control of the ambilight in its standard video-based fashion.
+
+Limits:
+ - The integration does not expose current ambilight measured values since it would
+overload the event bus in Home Assistant.
+ - There is no support to control the standard, non-expert, styles of the TV.

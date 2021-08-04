@@ -31,7 +31,7 @@ Generate a Client ID and Client Secret on
 1. You then need to select a `Support email`. To do this, simply click the drop down box and select your email address.
 1. You finally need to complete the section: `Developer contact information`. To do this, simply enter your email address (same as above is fine).
 1. Scroll to the bottom and click `save`. (You don't have to fill out anything else)
-1. You will then be automatically taken to the OAuth consent screen, you do not need to add any scopes here so click `SAVE AND CONTINUE` to move to the `Test users` page. You will need to add the Gmail address you will be using with this integration as a test user before you will be allowed to use the API. Once you have added your email address under `Test users` click `SAVE AND CONTINUE` which will take to to the 'Summary' page (you do not need to do anything here).
+1. You will then be automatically taken to the OAuth consent screen, you do not need to add any scopes here so click `SAVE AND CONTINUE` to move to the `Test users` page. You will need to add the Gmail address you will be using with this integration as a test user before you will be allowed to use the API. Once you have added your email address under `Test users` click `SAVE AND CONTINUE` which will take to the 'Summary' page (you do not need to do anything here).
 1. Click Credentials in the menu on the left hand side of the screen, then click `+ Create credentials` (at the top of the screen), then select `OAuth client ID`.
 1. Set the Application type to `TV and Limited Input` and give this credential set a name (like "Home Assistant Credentials") then click 'Create'.
 1. You will then be presented with a pop-up saying 'OAuth client created' showing `Your Client ID` and `Your Client Secret`. Make a note of these (for example, copy and paste them into a text editor) as you will need to put these in your `configuration.yaml` file shortly. Once you have noted these strings, click `OK`. If you need to find these credentials again at any point then simply nagivate to `APIs & Services` > `Credentials` and you will see `Home Assistant Credentials` (or whatever you named them in the previous step) under `OAuth 2.0 Clident IDs`. To view both the `Client ID` and `Client secret`, click on the pencil icon, this will take you to the settings page for these credentials and the information will be on the right hand side of the page.
@@ -74,13 +74,20 @@ track_new_calendar:
   required: false
   type: boolean
   default: true
+calendar_access:
+  description: >
+    Determines the level of access that Home Assistant will request when
+    connecting to calendars. This can be `read_only` or `read_write`.
+  required: false
+  type: string
+  default: read_write
 {% endconfiguration %}
 
-The next time you run or restart Home Assistant, you should find a new notification (the little bell icon in the lower-left corner). Click on that notification it will give you a link and an authentication code. Click on that link to open a Google website where you should enter the code found in the notification (**NOTE**: You may get a message telling you that the API has not been verified and you will need to acknowledge that in order to proceed). This will grant your Home Assistant service read-only access to all the Google Calendars that the account you authenticate with can read.
+The next time you run or restart Home Assistant, you should find a new notification (the little bell icon in the lower-left corner). Click on that notification it will give you a link and an authentication code. Click on that link to open a Google website where you should enter the code found in the notification (**NOTE**: You may get a message telling you that the API has not been verified and you will need to acknowledge that in order to proceed). This will grant your Home Assistant service `read-only` or `read-write` access (based on configuration) to all the Google Calendars that the account you authenticate with can read.
 
 ## Calendar Configuration
 
-Editing the `google_calendars.yaml` file.
+With every restart all calendars of the configured Google account will get pulled and added to the `google_calendars.yaml` and preconfigured as a single entity. By setting the 'track' variable to `true` the calendar will get monitored for new events which can be used for automations and its content is shown on the 'Calendar' dashboard (mind 'max_results' is set to 5 by default).
 
 A basic entry for a single calendar looks like:
 
@@ -90,18 +97,37 @@ A basic entry for a single calendar looks like:
   - device_id: test_everything
     name: Give me everything
     track: true
+    max_results: 10
+```
+
+From this, we will get a binary sensor `calendar.test_everything` triggered by any event on the calendar and will show the next 10 events on the 'Calendar' dashboard.
+
+A bit more elaborate configuration:
+
+```yaml
 - cal_id: "*****@group.calendar.google.com"
   entities:
+  - device_id: test_unimportant
+    name: UnImportant Stuff
+    track: true
+    search: "#UnImportant"
   - device_id: test_important
     name: Important Stuff
     track: true
     search: "#Important"
     offset: "!!"
-  - device_id: test_unimportant
-    name: UnImportant Stuff
-    track: true
-    search: "#UnImportant"
 ```
+
+From this we will end up with the binary sensors `calendar.test_unimportant` and `calendar.test_important` which will toggle themselves on/off based on events on the same calendar that match the search value set for each.
+`calendar.test_unimportant` will toggle for events whose title contain '#UnImportant'
+`calendar.test_important` will toggle for events whose title contain '#Important'. By using the offset variable an event title containing "#Important !!-10" will toggle the sensor 10 minutes before the event starts.
+
+<div class='note warning'>
+
+If you use a `#` sign for `search` then wrap the whole search term in quotes.
+Otherwise everything following the hash sign would be considered a YAML comment.
+
+</div>
 
 {% configuration %}
 cal_id:
@@ -153,21 +179,7 @@ entities:
       default: 5
 {% endconfiguration %}
 
-From this we will end up with the binary sensors `calendar.test_unimportant` and
-`calendar.test_important` which will toggle themselves on/off based on events on
-the same calendar that match the search value set for each.
-You'll also have a sensor `calendar.test_everything` that will
-not filter events out and always show the next event available.
 
-But what if you only wanted it to toggle based on all events?
-Just leave out the *search* parameter.
-
-<div class='note warning'>
-
-If you use a `#` sign for `search` then wrap the whole search term in quotes.
-Otherwise everything following the hash sign would be considered a YAML comment.
-
-</div>
 
 ### Sensor attributes
 
@@ -182,6 +194,12 @@ Otherwise everything following the hash sign would be considered a YAML comment.
 ### Service `google.add_event`
 
 You can use the service `google.add_event` to create a new calendar event in a calendar. Calendar id's can be found in the file `google_calendars.yaml`. All dates and times are in your local time, the integration gets your time zone from your `configuration.yaml` file.
+
+<div class='note'>
+
+This will only be available if you have given Home Assistant `read-write` access (see `calendar_access`).
+
+</div>
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|

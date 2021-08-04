@@ -11,7 +11,7 @@ ha_domain: alert
 
 The `alert` integration is designed to notify you when problematic issues arise.
 For example, if the garage door is left open, the `alert` integration can be used
-remind you of this by sending you repeating notifications at customizable
+to remind you of this by sending you repeating notifications at customizable
 intervals. This is also used for low battery sensors,
 water leak sensors, or any condition that may need your attention.
 
@@ -27,7 +27,7 @@ State | Description
 
 ### Basic Example
 
-The `alert` integration makes use of any of the `notifications` integrations. To
+The `alert` integration makes use of any of the `notification` integrations. To
 setup the `alert` integration, first, you must setup a `notification` integration.
 Then, add the following to your configuration file:
 

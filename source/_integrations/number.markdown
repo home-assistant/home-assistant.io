@@ -6,7 +6,6 @@ ha_category:
 ha_release: 2020.12
 ha_quality_scale: internal
 ha_domain: number
-ha_iot_class:
 ha_codeowners:
   - '@home-assistant/core'
   - '@Shulyaka'

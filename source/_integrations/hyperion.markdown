@@ -12,6 +12,7 @@ ha_quality_scale: platinum
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
+  - camera
   - light
   - switch
 ---
@@ -32,8 +33,9 @@ All configuration options are offered from the frontend. Choose `Options` under 
 relevant entry on the `Integrations` page.
 
 Options supported:
-- **priority**: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
-
+- **Priority**: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
+- **Effects to hide**: An optional selection of effects to hide from the light effects
+  list. New effects added to the Hyperion server will be shown by default.
 ## Hyperion Instances
 
 This integration supports multiple Hyperion instances running on a single Hyperion
@@ -45,10 +47,20 @@ added/removed from Home Assistant.
 The effect list is dynamically pulled from the Hyperion server. The following
 extra effects will be available:
 
-- BOBLIGHTSERVER: Use a Boblight-Server configured in Hyperion.
-- GRABBER: Use a 'Platform Capture' grabber that is configured in Hyperion.
-- V4L: Use a 'USB Capture' V4L device that is configured in Hyperion.
-- Solid: Use a solid color only.
+- 'Boblight Server': Use a 'Boblight Server' configured in Hyperion.
+- 'Platform Capture': Use a 'Platform Capture' grabber that is configured in Hyperion.
+- 'USB Capture': Use a 'USB Capture' device that is configured in Hyperion.
+- 'Solid': Use a solid color only.
+
+## Hyperion Camera
+
+A Hyperion camera entity is created that shows a stream of the input to Hyperion (e.g., a
+USB Capture device). This could be used to show a small "preview window" next to TV
+controls, for example.
+
+Please note that only the currently live Hyperion priority can be streamed, and only
+streamable sources will actually stream content (e.g., USB Capture Devices will work, but
+static colors will not).
 
 ## Advanced Entities
 
@@ -113,7 +125,7 @@ To have the lights playing an effect when pausing, idle or turn off a media play
         effect: "Full color mood blobs"
 ```
 
-To capture the screen when playing something on a media_player you can use this example:
+To capture the screen on a USB capture device, when playing something on a media_player, you can use this example:
 
 ```yaml
 - alias: "Set hyperion when playback starts"
@@ -126,5 +138,5 @@ To capture the screen when playing something on a media_player you can use this 
       target:
         entity_id: light.hyperion
       data:
-        effect: V4L
+        effect: "USB Capture"
 ```

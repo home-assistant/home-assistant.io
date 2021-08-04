@@ -5,7 +5,9 @@ date: 2015-03-22 0:21 -0800
 date_formatted: "March 22, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 A new version of Home Assistant has just been pushed out. It contains bugfixes contributed by [jamespcole](https://github.com/jamespcole), [andythigpen](https://github.com/andythigpen), [trainman419](https://github.com/trainman419) and [me](https://github.com/balloob). It also adds a bunch of great new features:
 

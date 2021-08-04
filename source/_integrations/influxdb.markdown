@@ -5,7 +5,7 @@ ha_category:
   - History
   - Sensor
 ha_release: 0.9
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_codeowners:
   - '@fabaff'
   - '@mdegat01'
@@ -61,7 +61,7 @@ port:
   default: 8086
 path:
   type: string
-  description: Path to use if your InfuxDB is running behind an reverse proxy.
+  description: Path to use if your InfuxDB is running behind a reverse proxy.
   required: false
 username:
   type: string
@@ -516,8 +516,7 @@ The example configuration entry below create two request to your local InfluxDB 
 sensor:
   platform: influxdb
   host: localhost
-
-username: home-assistant
+  username: home-assistant
   password: password
   queries:
     - name: last value of foo

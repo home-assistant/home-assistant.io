@@ -7,7 +7,6 @@ ha_release: 2020.12
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
-ha_iot_class:
 ha_domain: blueprint
 ---
 

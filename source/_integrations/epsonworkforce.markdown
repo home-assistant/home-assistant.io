@@ -67,6 +67,7 @@ Tested devices:
 - Epson WF3640
 - Epson EcoTank ET-77x0
 - Epson ET-2650
+- Epson Expression Home XP-2105
 
 To make this module work you need to connect your printer to your LAN.
 The best is to navigate to the status page of the printer to check if it shows the page with the ink levels on the URL http://<IP_ADDRESS>/PRESENTATION/HTML/TOP/PRTINFO.HTML

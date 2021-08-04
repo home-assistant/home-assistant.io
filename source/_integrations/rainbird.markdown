@@ -75,7 +75,8 @@ More complex configuration using all possible features could look like this exam
 rainbird:
   - host: IP_ADDRESS_OF_MODULE
     password: YOUR_PASSWORD
-    trigger_time: 6
+    trigger_time:
+      minutes: 6
     zones:
       1:
         friendly_name: My zone 1
@@ -83,7 +84,8 @@ rainbird:
           minutes: 6
       2:
         friendly_name: My zone 2
-        trigger_time: 2
+        trigger_time:
+          minutes: 2
   - host: IP_ADDRESS_OF_ANOTHER_MODULE
     password: YOUR_ANOTHER_PASSWORD
     trigger_time: 0:06
@@ -118,6 +120,7 @@ The Rain Bird switch platform exposes a service to start a single irrigation for
 | Service | Description |
 | ------- | ----------- |
 | rainbird.start_irrigation | Set a duration state attribute for a switch and turn the irrigation on.|
+| rainbird.set_rain_delay | Set how long automatic irrigation is turned off.|
 
 The service can be used as part of an automation script. For example:
 
@@ -126,12 +129,11 @@ The service can be used as part of an automation script. For example:
 automation:
   - alias: "Turn irrigation on"
     trigger:
-      platform: time
-      at: "5:30:00"
+      - platform: time
+        at: "5:30:00"
     action:
-      service: rainbird.start_irrigation
-      target:
-        entity_id: switch.sprinkler_1
-      data:
-        duration: 5
+      - service: rainbird.start_irrigation
+        data:
+          entity_id: switch.sprinkler_1
+          duration: 5
 ```

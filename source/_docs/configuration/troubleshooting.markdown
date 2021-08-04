@@ -19,9 +19,12 @@ If you have incorrect entries in your configuration files you can use the config
 
 One of the most common problems with Home Assistant is an invalid `configuration.yaml` or other configuration file.
 
-- With Home Assistant OS and Supervised you can use the [`ha` command](/hassio/commandline/#home-assistant): `ha core check`.
-  - You can test your configuration with Home Assistant Core using the command line with: `hass --script check_config`. If you need to provide the path for your configuration you can do this using the `-c` argument like this: `hass --script check_config -c /path/to/your/config/dir`.
-  - On Docker you can use `docker exec home-assistant python -m homeassistant --script check_config --config /config` - where `home-assistant` is the name of the container.
+- Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has it's own section in the common-tasks about this:
+  - [Operating System](/common-tasks/os/#configuration-check)
+  - [Container](/common-tasks/container/#configuration-check)
+  - [Core](/common-tasks/core/#configuration-check)
+  - [Supervised](/common-tasks/supervised/#configuration-check)
+
 - The configuration files, including `configuration.yaml` must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
 - You can verify your configuration's YAML structure using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
 - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).

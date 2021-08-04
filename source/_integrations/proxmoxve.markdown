@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@k4ds3'
   - '@jhollowe'
+  - '@Corbeno'
 ha_domain: proxmoxve
 ha_platforms:
   - binary_sensor
@@ -41,7 +42,7 @@ proxmoxve:
 
 {% configuration %}
 host:
-  description: IP address of the Proxmox VE instance.
+  description: IP address of the Proxmox VE instance. Can include port by appending ":\<port\>".
   required: true
   type: string
 port:
@@ -55,11 +56,11 @@ verify_ssl:
   default: true
   type: boolean
 username:
-  description: The username used to authenticate.
+  description: The username used to authenticate. Can include the realm by appending "@\<realm\>".
   required: true
   type: string
 password:
-  description: The password used to authenticate. Can include the realm by appending "@<realm>"
+  description: The password used to authenticate.
   required: true
   type: string
 realm:
@@ -148,3 +149,5 @@ Creating a dedicated user for Home Assistant, limited to only to the access just
 7. Select the group just created earlier (`HomeAssistant`) to grant access to Proxmox
 8. Ensure `Enabled` is checked and `Expire` is set to "never"
 9. Click `Add`
+
+In your Home Assistant configuration, use `hass@pve` for the username and your chosen password for the password.

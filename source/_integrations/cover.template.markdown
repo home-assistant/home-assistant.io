@@ -54,12 +54,12 @@ cover:
         required: false
         type: string
       value_template:
-        description: Defines a template to get the state of the cover. Valid values are `open`/`true` or `opening`/`closing`/`closed`/`false`. [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
-        required: exclusive
+        description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `value_template` and a `position_template`](#combining_value_template_and_position_template) are specified, only `opening` and `closing` are set from the `value_template`.
+        required: false
         type: template
       position_template:
-        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
-        required: exclusive
+        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open).
+        required: false
         type: template
       icon_template:
         description: Defines a template to specify which icon to use.
@@ -138,6 +138,20 @@ There is an equivalent mode for `tilt_position` that is enabled when
 [`tilt_template`](#tilt_template) is not specified or when the
 [`tilt_optimistic`](#tilt_optimistic) attribute is used.
 
+## Combining `value_template` and `position_template`
+
+If both a [`value_template`](#value_template) and a [`position_template`](#position_template) are specified only `opening` and `closing` states are set directly from the `value_template`, the `open` and `closed` states will instead be derived from the cover position.
+
+| value_template output | result |
+| ------------- |-------------|
+| open | state defined by `position_template` |
+| close | state defined by `position_template` |
+| true | state defined by `position_template` |
+| false | state defined by `position_template` |
+| opening | state set to `opening` |
+| closing | state set to `closing` |
+| <any other output> | No change of state or position |
+
 ## Examples
 
 In this section you will find some real-life examples of how to use this cover.
@@ -145,7 +159,8 @@ In this section you will find some real-life examples of how to use this cover.
 ### Garage Door
 
 This example converts a garage door with a controllable switch and position
-sensor into a cover.
+sensor into a cover. The condition check is optional, but suggested if you
+use the same switch to open and close the garage.
 
 {% raw %}
 
@@ -158,13 +173,19 @@ cover:
         friendly_name: "Garage Door"
         position_template: "{{ states('sensor.garage_door') }}"
         open_cover:
-          service: switch.turn_on
-          target:
-            entity_id: switch.garage_door
+          - condition: state
+            entity_id: sensor.garage_door
+            state: "off"
+          - service: switch.turn_on
+            target:
+              entity_id: switch.garage_door
         close_cover:
-          service: switch.turn_off
-          target:
-            entity_id: switch.garage_door
+          - condition: state
+            entity_id: sensor.garage_door
+            state: "on"
+          - service: switch.turn_off
+            target:
+              entity_id: switch.garage_door
         stop_cover:
           service: switch.turn_on
           target:
@@ -327,7 +348,7 @@ cover:
           data:
             modus: "stop"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
-        icon_template: >-
+        entity_picture_template: >-
           {% if is_state('sensor.cover_group', 'open') %}
             /local/cover-open.png
           {% else %}

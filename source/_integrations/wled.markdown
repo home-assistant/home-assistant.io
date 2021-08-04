@@ -6,7 +6,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.102
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
@@ -16,6 +16,7 @@ ha_zeroconf: true
 ha_platforms:
   - light
   - sensor
+  - select
   - switch
 ---
 
@@ -27,6 +28,7 @@ While Home Assistant supports WLED 0.8.4 and higher, the use of WLED 0.10 and
 newer is recommended to get the optimal experience.
 
 {% include integrations/config_flow.md %}
+
 ## Lights
 
 This integration adds the WLED device as a light in Home Assistant.
@@ -51,6 +53,14 @@ If WLED has 2 or more segments, each segment gets its own light entity in
 Home Assistant. Additionally, a master light entity is created. This master
 entity controls the strip power and overall brightness applied to all segments.
 
+## Selects
+
+This integration provides selects for the following information from WLED:
+
+- Playlist
+- Preset
+- Color palette (per segment, disabled by default).
+
 ## Sensors
 
 This integration provides sensors for the following information from WLED:
@@ -69,15 +79,22 @@ The integration will create a number of switches:
 
 ### Nightlight
 
-Toggles the WLED Timer. 
+Toggles the WLED Timer.
 Can be configured on the WLED itself under settings > LED Preferences > Timed light.
 
 ### Sync Receive and Sync Send
 
-Toggles the synchronisation between multiple WLED devices. 
+Toggles the synchronization between multiple WLED devices.
 Can be configured on the WLED itself under settings > Sync Interfaces > WLED Broadcast.
 
 [WLED Sync documentation](https://github.com/Aircoookie/WLED/wiki/Sync-WLED-devices-(UDP-Notifier))
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Keep Master Light:
+  description: Keep the master light, even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to appear and remove dynamically.
+{% endconfiguration_basic %}
 
 ## Services
 
@@ -99,17 +116,6 @@ This service allows for controlling the WLED effect.
 
 A list of all available effects (and the behavior of the intensity for each
 effect) [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/List-of-effects-and-palettes#effects).
-
-### Service `wled.preset`
-
-This service allows for loading a preset saved on the WLED device.
-
-| Service Data Attribute | Required | Description                                                                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | A WLED entity ID to load the preset from.                                                                       |
-| `preset`               | no       | ID of the preset slot to load from.                                                                             |
-
-More information on presets [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/Presets)
 
 ## Example Automations
 

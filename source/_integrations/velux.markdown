@@ -11,6 +11,8 @@ ha_codeowners:
 ha_domain: velux
 ha_platforms:
   - cover
+  - light
+  - scene
 ---
 
 [Velux](https://www.velux.com/) integration for Home Assistant allows you to connect to a Velux KLF 200 interface, to control [io-homecontrol](http://www.io-homecontrol.com) devices like windows and blinds. The module allows you to start scenes configured within KLF 200.
@@ -20,6 +22,7 @@ At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmw
 There is currently support for the following device types within Home Assistant:
 
 - Cover
+- Light
 - Scene
 
 ## Configuration

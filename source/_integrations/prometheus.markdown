@@ -173,9 +173,39 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
       - targets: ['HOSTNAME:8123']
 ```
 
+The format to configure the bearer token has changed in Prometheus 2.26, so if you have a newer version, you can use this configuration sample:
+
+```yaml
+# Example Prometheus scrape_configs entry (For version 2.26+
+  - job_name: "hass"
+    scrape_interval: 60s
+    metrics_path: /api/prometheus
+
+    # Long-Lived Access Token
+    authorization:
+      credentials: "your.longlived.token"
+
+    scheme: https
+    static_configs:
+      - targets: ['HOSTNAME:8123']
+```
+
 When looking into the metrics on the Prometheus side, there will be:
 
 - All Home Assistant domains, which can be easily found through the common **namespace** prefix, if defined.
 - The [client library](https://github.com/prometheus/client_python) provided metrics, which are a bunch of **process_\*** and also a single pseudo-metric **python_info** which contains (not as value but as labels) information about the Python version of the client, i.e., the Home Assistant Python interpreter.
   
 Typically, you will only be interested in the first set of metrics.
+
+## Metrics in unavailable or unknown states
+
+When the Prometheus exporter starts (typically when Home Assistant starts), all non-excluded entities in an unavailable or unknown state are not be exported until they are available again. If the entity goes into state unavailable or unknown again, the value exported will always be the latest known one.
+
+While an entity is in those states, the `entity_available` corresponding metric is set to 0. This metric can be used to filter out values while the entity is unavailable or in an unknown state thanks to a [recording rule](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/).
+
+For example:
+
+```yaml
+- record: "known_temperature_c"
+  expr: "temperature_c unless entity_available == 0"
+```

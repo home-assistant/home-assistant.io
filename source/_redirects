@@ -2,10 +2,14 @@
 #
 
 # General use redirects
-/join-chat https://discord.gg/BzQNTqK
+/join-chat https://discord.gg/home-assistant
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
 /latest-security-alert /blog/2021/01/23/security-disclosure2/
+
+# Redirect for Energy
+/energy /home-energy-management
+/integrations/energy /docs/energy
 
 # Older development pages
 /developers https://developers.home-assistant.io
@@ -635,8 +639,8 @@
 /components/sensor.amcrest /integrations/amcrest
 /components/sensor.android_ip_webcam /integrations/android_ip_webcam#sensor
 /components/sensor.apcupsd /integrations/apcupsd#sensor
-/components/sensor.api_stream /integrations/sensor.websocket_api
-/components/sensor.api_streams /integrations/sensor.websocket_api
+/components/sensor.api_stream /integrations/websocket_api
+/components/sensor.api_streams /integrations/websocket_api
 /components/sensor.aqualogic /integrations/aqualogic#sensor
 /components/sensor.arduino /integrations/arduino#sensor
 /components/sensor.arest /integrations/arest#sensor
@@ -714,8 +718,6 @@
 /components/sensor.freebox /integrations/freebox#sensor
 /components/sensor.fritzbox /integrations/fritzbox#sensor
 /components/sensor.fritzbox_callmonitor /integrations/fritzbox_callmonitor
-/components/sensor.fritzbox_netmonitor /integrations/fritzbox_netmonitor
-/components/sensor.geizhals /integrations/geizhals
 /components/sensor.geo_rss_events /integrations/geo_rss_events
 /components/sensor.github /integrations/github
 /components/sensor.gitlab_ci /integrations/gitlab_ci
@@ -850,12 +852,10 @@
 /components/sensor.smartthings /integrations/smartthings#sensor
 /components/sensor.snmp /integrations/snmp#sensor
 /components/sensor.sochain /integrations/sochain
-/components/sensor.socialblade /integrations/socialblade
 /components/sensor.solaredge /integrations/solaredge
 /components/sensor.sonarr /integrations/sonarr
 /components/sensor.speedtest /integrations/speedtestdotnet
 /components/sensor.speedtestdotnet /integrations/speedtestdotnet
-/components/sensor.spotcrime /integrations/spotcrime
 /components/sensor.sql /integrations/sql
 /components/sensor.srp_energy /integrations/srp_energy
 /components/sensor.starlingbank /integrations/starlingbank
@@ -917,7 +917,6 @@
 /components/sensor.worldtidesinfo /integrations/worldtidesinfo
 /components/sensor.worxlandroid /integrations/worxlandroid
 /components/sensor.wsdot /integrations/wsdot
-/components/sensor.wunderground /integrations/wunderground
 /components/sensor.xbox_live /integrations/xbox_live
 /components/sensor.xs1 /integrations/xs1#sensors
 /components/sensor.zabbix /integrations/zabbix#sensor
@@ -1073,13 +1072,20 @@
 /components/xiaomi /integrations/xiaomi_aqara
 /integrations/air_quality.xiaomi_miio /integrations/xiaomi_miio
 /integrations/alarm_control_panel.xiaomi_miio /integrations/xiaomi_miio
+/integrations/binary_sensor.modbus /integrations/modbus
+/integrations/binary_sensor.template /integrations/template
+/integrations/climate.modbus /integrations/modbus
+/integrations/cover.modbus /integrations/modbus
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio
+/integrations/lovelace /lovelace
 /integrations/remote.xiaomi_miio /integrations/xiaomi_miio
+/integrations/sensor.websocket_api /integrations/websocket_api
+/integrations/sensor.modbus /integrations/modbus
 /integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
+/integrations/switch.modbus /integrations/modbus
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio
 /integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio
-/integrations/lovelace /lovelace
 
 # Renaming components to integrations
 /components /integrations
@@ -1354,14 +1360,12 @@
 /components/fritz /integrations/fritz
 /components/fritzbox /integrations/fritzbox
 /components/fritzbox_callmonitor /integrations/fritzbox_callmonitor
-/components/fritzbox_netmonitor /integrations/fritzbox_netmonitor
 /components/fronius /integrations/fronius
 /components/frontend /integrations/frontend
 /components/frontier_silicon /integrations/frontier_silicon
 /components/futurenow /integrations/futurenow
 /components/garadget /integrations/garadget
 /components/gc100 /integrations/gc100
-/components/geizhals /integrations/geizhals
 /components/generic_ip_camera /integrations/generic
 /components/generic_thermostat /integrations/generic_thermostat
 /components/geniushub /integrations/geniushub
@@ -1580,7 +1584,6 @@
 /components/mysensors /integrations/mysensors
 /components/mystrom /integrations/mystrom
 /components/mythicbeastsdns /integrations/mythicbeastsdns
-/components/n26 /integrations/n26
 /components/nad /integrations/nad
 /components/namecheapdns /integrations/namecheapdns
 /components/nanoleaf /integrations/nanoleaf
@@ -1792,7 +1795,6 @@
 /components/snips /integrations/snips
 /components/snmp /integrations/snmp
 /components/sochain /integrations/sochain
-/components/socialblade /integrations/socialblade
 /components/solaredge /integrations/solaredge
 /components/solaredge_local /integrations/solaredge_local
 /components/solax /integrations/solax
@@ -1808,7 +1810,6 @@
 /components/speedtestdotnet /integrations/speedtestdotnet
 /components/spider /integrations/spider
 /components/splunk /integrations/splunk
-/components/spotcrime /integrations/spotcrime
 /components/spotify /integrations/spotify
 /components/sql /integrations/sql
 /components/squeezebox /integrations/squeezebox
@@ -1974,7 +1975,6 @@
 /components/worldtidesinfo /integrations/worldtidesinfo
 /components/worxlandroid /integrations/worxlandroid
 /components/wsdot /integrations/wsdot
-/components/wunderground /integrations/wunderground
 /components/wunderlist /integrations/wunderlist
 /components/x10 /integrations/x10
 /components/xbox_live /integrations/xbox_live
@@ -2014,6 +2014,7 @@
 # Moved documentation
 /details/database /docs/backend/database
 /details/updater /docs/backend/updater
+/docs/backend/updater /integrations/analytics
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
@@ -2043,6 +2044,7 @@
 /ecosystem/notebooks/installation https://data.home-assistant.io
 /ecosystem/notebooks/stats https://data.home-assistant.io
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
+/installation/nuc /installation/generic-x86-64
 /integrations/auth /docs/authentication
 /integrations/automation /docs/automation
 /integrations/blueprint /docs/automation/using_blueprints
@@ -2111,6 +2113,13 @@
 /hassio/index /installation
 /hassio/installation /installation
 /hassio/installing_third_party_addons /common-tasks/os#installing-third-party-add-ons
+/integrations/faadelays /integrations/faa_delays
+/cookbook/notify.mqtt /examples#notifications
+/cookbook/#example-configurationyaml /examples/#example-configurationyaml
+/cookbook/#user-interface /examples/#user-interface
+/cookbook/#infrastructure /examples/#infrastructure
+/cookbook/#automation-examples /examples
+/cookbook /examples
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -2208,6 +2217,7 @@
 /components/fortigate /more-info/removed-integration 301
 /components/history_graph /more-info/removed-integration 301
 /components/hydroquebec /more-info/removed-integration 301
+/components/fritzbox_netmonitor  /more-info/removed-integration 301
 /components/linksys_ap /more-info/removed-integration 301
 /components/liveboxplaytv /more-info/removed-integration 301
 /components/lock.lockitron /more-info/removed-integration 301
@@ -2223,6 +2233,7 @@
 /components/ruter /more-info/removed-integration 301
 /components/sensor.bom /more-info/removed-integration 301
 /components/sensor.duke_energy  /more-info/removed-integration 301
+/components/sensor.fritzbox_netmonitor /more-info/removed-integration 301
 /components/sensor.gearbest /more-info/removed-integration 301
 /components/sensor.hydroquebec /more-info/removed-integration 301
 /components/sensor.linky /more-info/removed-integration 301
@@ -2286,3 +2297,18 @@
 /components/coinmarketcap /more-info/removed-integration 301
 /integrations/coinmarketcap /more-info/removed-integration 301
 /integrations/griddy /more-info/removed-integration 301
+/components/geizhals /more-info/removed-integration 301
+/components/sensor.geizhals /more-info/removed-integration 301
+/integrations/geizhals /more-info/removed-integration 301
+/components/sensor.socialblade /more-info/removed-integration 301
+/components/socialblade /more-info/removed-integration 301
+/integrations/socialblade /more-info/removed-integration 301
+/components/n26 /more-info/removed-integration 301
+/integrations/n26 /more-info/removed-integration 301
+/components/sensor.spotcrime /more-info/removed-integration 301
+/components/spotcrime /more-info/removed-integration 301
+/integrations/spotcrime /more-info/removed-integration 301
+/components/sensor.wunderground /more-info/removed-integration 301
+/components/wunderground /more-info/removed-integration 301
+/integrations/wunderground /more-info/removed-integration 301
+/integrations/garmin_connect /more-info/removed-integration 301

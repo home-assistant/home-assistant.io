@@ -1,5 +1,13 @@
 ## Install Home Assistant Core
 
+{% if page.installation_type == 'windows' %}
+### Install WSL
+
+To install Home Assistant Core on Windows, you will need to use the Windows Subsystem for Linux (WSL). Follow the [WSL installation instructions](https://docs.microsoft.com/windows/wsl/install-win10) and install Ubuntu from the Windows Store.
+
+As an alternative, Home Assistant OS can be installed in a Linux guest VM. Running Home Assistant Core directly on Windows is not supported.
+{% endif %}
+
 <div class='note'>
 <b>Prerequisites</b>
 
@@ -18,7 +26,7 @@ sudo apt-get upgrade -y
 Install the dependencies:
 
 ```bash
-sudo apt-get install -y python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libopenjp2-7 libtiff5
+sudo apt-get install -y python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libopenjp2-7 libtiff5 tzdata
 ```
 
 ### Create an account
@@ -76,7 +84,9 @@ Start Home Assistant Core for the first time. This will complete the installatio
 hass
 ```
 
-You can now reach your installation on your Raspberry Pi over the web interface on `http://homeassistant.local:8123`.
+You can now reach your installation via the web interface on `http://homeassistant.local:8123`.
+
+If this address doesn't work you may also try `http://localhost:8123` or `http://X.X.X.X:8123` (replace X.X.X.X with your machines’ IP address).
 
 <div class='note'>
 

@@ -57,7 +57,7 @@ Now use the Discord Authorization page with the **Client ID** of your [bot](http
 
 Wait for the confirmation which should say "Authorized".
 
-Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. In The Discord application go to **Settings** > **Appearance** > **Check developer mode**.
+Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. In The Discord application go to **Settings** > **Advanced** > **Enable Developer Mode**.
 
 <p class='img'>
   <img src='/images/screenshots/discord-api.png' />

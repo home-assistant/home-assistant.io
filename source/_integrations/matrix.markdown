@@ -82,6 +82,12 @@ commands:
       default: empty
 {% endconfiguration %}
 
+<div class="note">
+
+In order to prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
+
+</div>
+
 ### Event Data
 
 If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
@@ -175,3 +181,32 @@ default_room:
 The target room has to be precreated, the room id can be obtained from the rooms settings dialog. Rooms by default have a canonical id of the form `"!<randomid>:homeserver.tld"`, but can also be allocated aliases like `"#roomname:homeserver.tld"`. Make sure to use quotes around the room id or alias to escape special characters (`!`, and `#`) in YAML. The notifying account may need to be invited to the room, depending on the individual rooms policies.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+### Images in notification
+
+It is possible to send images with notifications. To do so, add a list of paths in the notification `data`.
+
+```yaml
+# Example of notification with images
+action:
+  service: notify.matrix_notify
+  data:
+    message: "Test with images"
+    data:
+      images:
+        - /path/to/picture.jpg
+```
+
+<div class='note'>
+
+If you need to include a file from an external folder in your notifications, you will have to [list the source folder as allowed](/docs/configuration/basic/).
+
+```yaml
+configuration.yaml
+...
+homeassistant:
+  allowlist_external_dirs:
+    - /tmp
+```
+
+</div>

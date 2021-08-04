@@ -16,6 +16,8 @@ ha_platforms:
   - climate
   - sensor
   - switch
+ha_codeowners:
+  - '@mib1185'
 ---
 
 The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ!DECT](https://en.avm.de/products/fritzdect/) devices like switches, sensors and thermostats.
@@ -40,6 +42,10 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+<div class='note'>
+The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with "fritz" followed by four random numbers. Under properties on the right it says "created automatically". Prior to FRITZ!OS 7.24 the default username was "admin".
+</div>
+
 ## Switches & Thermostats
 
 To get AVM FRITZ!DECT switches (e.g. FRITZ!DECT 400/440) or thermostats (e.g. FRITZ!DECT 301) follow the [configuration instructions](#configuration) above.
@@ -57,10 +63,6 @@ There are several attributes that can be useful for automations and templates.
 | `holiday_mode` | The state of the holiday mode (only available since Fritz!OS 7).
 | `summer_mode` | The state of the summer mode (only available since Fritz!OS 7).
 | `window_open` | The state of the window open detection (only available since Fritz!OS 7).
-| `temperature_unit` |  The unit of the temperature sensor (only available if the device support temperature sensor).
-| `temperature` | The current temperature sensor reading (only available if the device supports temperature sensor).
-| `total_consumption` | The total power consumption since the beginning of operation (only available if the device supports power meter function).
-| `total_consumption_unit` | The unit of the total_consumption (only available if the device supports power meter function).
 
 ## Sensors
 
@@ -74,5 +76,3 @@ There are several attributes that can be useful for automations and templates.
 | --------- | ----------- |
 | `device_locked` | The state of the key lock at the device.
 | `locked` | The state of the lock for configuring the device via the app or the FRITZ!Box web interface.
-| `temperature_unit` |  The unit of the temperature sensor.
-| `temperature` | The current temperature sensor reading.

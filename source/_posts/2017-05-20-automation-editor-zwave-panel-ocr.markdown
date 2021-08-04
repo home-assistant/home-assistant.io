@@ -5,7 +5,9 @@ date: 2017-05-20 13:00:00 +0000
 date_formatted: "May 20, 2017"
 author: Paulus Schoutsen & Fabian Affolter
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-05-0.45/components.png
 ---
 

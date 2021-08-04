@@ -9,13 +9,23 @@ ha_iot_class: Local Polling
 ha_domain: dht
 ha_platforms:
   - sensor
+ha_codeowners:
+  - '@thegardenmonkey'
 ---
 
 The `dht` sensor platform allows you to get the current temperature and humidity from a DHT11, DHT22 or AM2302 device.
 
+## Setup
+
+To use your DHTxx sensor in your installation, you must first install the `libgpiod2` library.
+
+```shell
+sudo apt install libgpiod2
+```
+
 ## Configuration
 
-To use your DHTxx sensor in your installation, add the following to your `configuration.yaml` file:
+Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -30,7 +40,7 @@ sensor:
 
 {% configuration %}
 sensor:
-  description: The sensor type, supported devices are DHT11, DHT22, and AM2302.
+  description: The sensor type, supported devices are DHT11, DHT22 and AM2302.
   required: true
   type: string
 pin:

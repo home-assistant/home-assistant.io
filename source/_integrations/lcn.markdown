@@ -20,6 +20,7 @@ ha_platforms:
   - climate
   - cover
   - light
+  - scene
   - sensor
   - switch
 ---
@@ -626,7 +627,7 @@ data:
 ```
 
 <div class='note'>
-  Ensure that the LCN module is configured properly to provide acces to the defined variable.
+  Ensure that the LCN module is configured properly to provide access to the defined variable.
   Otherwise the module might show unexpected behaviors or return error messages.
 </div>
 

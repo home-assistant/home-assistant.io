@@ -92,34 +92,6 @@ mqtt:
   certificate: /home/paulus/downloads/mosquitto.org.crt
 ```
 
-### CloudMQTT
-
-[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance. Plans start at 5$ per month.
-
-<div class='note'>
-Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
-</div>
-
- 1. [Create an account](https://customer.cloudmqtt.com/login)
- 2. [Create a new CloudMQTT instance](https://customer.cloudmqtt.com/subscription/create)
- 3. From the control panel, click on the _Details_ button.
- 4. Create unique users for Home Assistant and each phone to connect<br>(CloudMQTT does not allow two connections from the same user)
-      1. Under manage users, fill in username, password and click add
-      2. Under ACLs, select user, topic `#`, check 'read access' and 'write access'
- 5. Copy the instance info to your configuration.yaml:
-
-```yaml
-mqtt:
-  broker: CLOUDMQTT_SERVER
-  port: CLOUDMQTT_PORT
-  username: CLOUDMQTT_USER
-  password: CLOUDMQTT_PASSWORD
-```
-
-<div class='note'>
-Home Assistant will automatically load the correct certificate if you connect to an encrypted channel of CloudMQTT (port range 20000-30000).
-</div>
-
 <div class='note'>
 
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then add `certificate: auto` to your broker configuration and restart Home Assistant.

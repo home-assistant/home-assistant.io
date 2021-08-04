@@ -61,8 +61,8 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 3. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App. If you don't see this option, go to the `Test` tab instead, click on the `Settings` button in the top right below the header, and ensure `On device testing` is enabled (if it isn't, enable it).
 4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
 5. Add services in the Google Home App (Note that app versions may be slightly different.)
-    1. Open the Google Home app and go to `Settings`.
-    2. Click `Add...`, `+ Set up or add`, `+ Set up device`, and click `Have something already setup?`. You should have `[test] your app name` listed under 'Add new'. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
+    1. Open the Google Home app.
+    2. Click the `+` button on the top left corner, click `Set up device`, in the "Set up a device" screen click "Works with Google". You should have `[test] <Action Name>` listed under 'Add new'. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
 
 <div class='note'>
 
@@ -92,14 +92,15 @@ If you want to support active reporting of state to Google's server (configurati
 1. Service Account
     1. In the Google Cloud Platform Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
     2. At the top left of the page next to "Google Cloud Platform" logo, select your project created in the Actions on Google console. Confirm this by reviewing the project ID and it ensure it matches.
-    3. From the Service account list, select New service account.
+    3. From the Service account list, select `CREATE SERVICE ACCOUNT`.
     4. In the Service account name field, enter a name.
     5. In the Service account ID field, enter an ID.
     6. From the Role list, select `Service Accounts` > `Service Account Token Creator`.
-    7. For the Key type, select the JSON option.
-    8. Click `Create`. A JSON file that contains your key downloads to your computer.
-    9. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
-    10. Click `close`.
+    7. Click `CONTINUE` and then `DONE`. You are returned to the service account list, and your new account is shown.
+    8. Click the three dots menu under `Actions` next to your new account, and click `Manage keys`. You are taken to a `Keys` page.
+    9. Click `ADD KEY` then `Create new key`. Leave the `key type` as `JSON` and click `CREATE`. A JSON file that contains your key downloads to your computer.
+    10. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
+    11. Click `Close`.
 2. HomeGraph API
     1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
     2. At the top left of the page next to "Google Cloud Platform" logo, select your project created in the Actions on Google console. Confirm this by reviewing the project ID and it ensure it matches.
@@ -208,7 +209,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - scene (on)
 - script (on)
 - switch (on/off)
-- fan (on/off/speed)
+- fan (on/off/speed percentage/preset mode)
 - light (on/off/brightness/rgb color/color temp)
 - lock 
 - cover (on/off/set position)
@@ -248,6 +249,10 @@ Here are the modes that are currently available:
 - fan-only
 - dry
 - eco
+
+### TV Channels
+
+There is no TV channel object in Home Assistant. TV channel can only be changed by number, not by name (for example, `Turn to channel two`).
 
 ### Troubleshooting
 

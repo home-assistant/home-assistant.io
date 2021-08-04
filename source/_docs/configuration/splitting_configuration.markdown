@@ -5,7 +5,7 @@ description: "Splitting the configuration.yaml into several files."
 
 So you've been using Home Assistant for a while now and your `configuration.yaml` file brings people to tears or you simply want to start off with the distributed approach, here's how to split the `configuration.yaml` into more manageable (read: humanly readable) pieces.
 
-First off, several community members have sanitized (read: without API keys/passwords etc) versions of their configurations available for viewing, you can see a list of them [here](/cookbook/#example-configurationyaml).
+First off, several community members have sanitized (read: without API keys/passwords etc) versions of their configurations available for viewing, you can see a list of them [here](/examples/#example-configurationyaml).
 
 As commenting code doesn't always happen, please read on for the details.
 
@@ -189,15 +189,14 @@ That about wraps it up.
 
 If you have issues checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to our [Discord chat server][discord] and ask away.
 
-## Debugging multiple configuration files
+## Debugging configuration files
 
-If you have many configuration files, the `check_config` script allows you to see how Home Assistant interprets them:
+If you have many configuration files, Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has it's own section in the common-tasks about this:
 
-- Listing all loaded files: `hass --script check_config --files`
-- Viewing a component's configuration: `hass --script check_config --info light`
-- Or all components' configuration:  `hass --script check_config --info all`
-
-You can get help from the command line using: `hass --script check_config --help`
+- [Operating System](/common-tasks/os/#configuration-check)
+- [Container](/common-tasks/container/#configuration-check)
+- [Core](/common-tasks/core/#configuration-check)
+- [Supervised](/common-tasks/supervised/#configuration-check)
 
 ## Advanced Usage
 

@@ -5,7 +5,7 @@ ha_category:
   - History
 ha_release: 0.7
 ha_domain: logbook
-ha_iot_class:
+ha_quality_scale: internal
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />
@@ -181,7 +181,7 @@ script:
 
 <div class="note warning">
 
-When calling the `logbook.log` service without a `domain` or `entity_id`, entries will be added with the the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
+When calling the `logbook.log` service without a `domain` or `entity_id`, entries will be added with the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
 
 </div>
 

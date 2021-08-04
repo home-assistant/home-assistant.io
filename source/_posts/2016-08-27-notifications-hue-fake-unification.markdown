@@ -5,7 +5,9 @@ date: 2016-08-28 20:30:25 UTC
 date_formatted: "August 28, 2016"
 author: Robbie Trencheny
 author_twitter: Robbie
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 This week's blog post could only be possibly described by exactly one hashtag:

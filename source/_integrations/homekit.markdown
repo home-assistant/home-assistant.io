@@ -307,12 +307,12 @@ It is recommended to only edit a HomeKit instance in the UI that was created in 
 
 ### Accessory mode
 
-When exposing a Camera or Television media player (a `media_player` with device class `tv`) to HomeKit, `mode` must be set to `accessory`, and the include filter should be setup to only include a single entity.
+When exposing a Camera, Activity based remote (a `remote` that supports activities), Lock, or Television media player (a `media_player` with device class `tv`) to HomeKit, `mode` must be set to `accessory`, and the include filter should be setup to only include a single entity.
 
 To quickly add all accessory modes entities in the UI:
 
 1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Configuration >> Integrations" domain=page.ha_domain %}**).
-2. Select `media_player` and `camera` domains.
+2. Select `media_player`, `remote`, `lock`, and `camera` domains.
 3. Complete the flow as normal.
 4. Additional HomeKit entries for each entity that must operate in accessory mode will be created for each entity that does not already have one.
 5. If you have already created another HomeKit bridge for the non-accessory mode entities, the new bridge can safely be removed.
@@ -443,11 +443,32 @@ automation:
 
 ## Troubleshooting
 
+### All or some devices are intermittently unresponsive
+
+HomeKit relies heavily on your home hub to keep track of Bluetooth devices. Additionally, each home hub has to keep track of every HomeKit accessory that you bridge. If you have many accessories, notably cameras or Bluetooth devices, **consider disabling HomeKit on older home hubs**.
+
+#### The below testing was conducted with Home Assistant 2021.6 (HAP-python 3.5.0) and iOS/tvOS 14.6
+
+The following home hubs showed strong results when testing with 400 accessories:
+
+- HomePod
+- HomePod Mini
+- Apple TV 4k Gen 2 (best results when using ethernet instead of WiFi)
+
+The following home hubs showed strong results when testing with 300 accessories:
+
+- Apple TV 4k Gen 1 (best results when using ethernet instead of WiFi)
+
+The following home hubs have been reported to have trouble with a large number of accessories:
+
+- Apple TV HD
+- Various iPad models
+
 ### Resetting when created via YAML
 
  1. Delete the `HomeKit` integration in the **{% my integrations %}** screen.
  2. **Restart** Home Assistant.
- 3. The configuration will be automaticlly reimported from YAML.
+ 3. The configuration will be automatically reimported from YAML.
  4. [Pair the bridge or accessory](#setup).
 
 ### Resetting when created via the **Integrations** screen
@@ -538,17 +559,13 @@ If you have any iOS 12.x devices signed into your iCloud account, media player e
 
 #### Accessories are all listed as not responding
 
-There are reports where the IGMP settings in a router were causing issues with HomeKit. This resulted in a situation where all of the Home Assistant HomeKit accessories stopped responding a few minutes after Home Assistant (re)started. Double check your router's IGPM settings if you experiencing this issue. The default IGMP settings typically work best.
+There are reports where the IGMP settings in a router were causing issues with HomeKit. This resulted in a situation where all of the Home Assistant HomeKit accessories stopped responding a few minutes after Home Assistant (re)started. Double check your router's IGMP settings if you experiencing this issue. The default IGMP settings typically work best.
 
 See [specific entity doesn't work](#specific-entity-doesnt-work)
 
 #### Accessory not responding - after restart or update
 
-See [resetting accessories](#resetting-accessories)
-
-#### Accessory not responding - randomly
-
-Unfortunately, that sometimes happens at the moment. It might help to close the `Home` App and delete it from the cache. Usually, the accessory should get back to responding after a few minutes at most.
+See [resetting accessories](#resetting-accessories) and [Unpairing and Re-pairing](#unpairing-and-re-pairing).
 
 #### The linked battery sensor isn't recognized
 
@@ -599,3 +616,9 @@ You may use the service `homekit.reset_accessory` with one or more entity_ids to
 On earlier versions of Home Assistant, you can reset accessories by removing the entity from HomeKit (via [filter](#configure-filter)) and then re-adding the accessory.
 
 With either strategy, the accessory will behave as if it's the first time the accessory has been set up, so you will need to restore the name, group, room, scene, and/or automation settings.
+
+#### Unpairing and Re-pairing
+
+The HomeKit integration remembers a public key for each paired device. Occasionally the public key for a device pairing will be missing because of pairing failures. Suppose one or more devices show the accessory as unavailable. In that case, it may be necessary to unpair and re-pair the device to ensure the integration has the public key for each paired client. The `homekit.unpair` service will forcefully remove all pairings and allow re-pairing with the accessory. When setting up HomeKit from the UI, this avoids the sometimes time-consuming process of deleting and create a new instance.
+
+The accessory will behave as if it's the first time the accessory has been set up, so you will need to restore the name, group, room, scene, and/or automation settings.

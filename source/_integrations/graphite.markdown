@@ -29,6 +29,11 @@ port:
   required: false
   type: integer
   default: 2003
+protocol:
+  description: "Type of communication protocol: `tcp` or `udp`."
+  required: false
+  type: string
+  default: tcp
 prefix:
   description: Prefix is the metric prefix in graphite.
   required: false

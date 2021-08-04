@@ -13,7 +13,7 @@ The `template` integrations creates weather provider that combines integrations 
 
 There are several powerful ways to use this integration, including localizing your weather provider information with local information from temperature, humidity, pressure sensors that you own.
 
-Another use case could be using temperature and humidity from one weather plaform, with forecasts from a different one.
+Another use case could be using temperature and humidity from one weather platform, with forecasts from a different one.
 
 
 ## Configuration
@@ -40,6 +40,10 @@ name:
   description: Name to use in the frontend.
   required: true
   type: string
+unique_id:
+  description: An ID that uniquely identifies this weather entity. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 condition_template:
   description: The current weather condition.
   required: true
@@ -52,6 +56,10 @@ humidity_template:
   description: The current humidity.
   required: true
   type: template
+attribution_template:
+  description: The attribution to be shown in the frontend.
+  required: false
+  type: string
 pressure_template:
   description: The current air pressure.
   required: false
@@ -60,12 +68,20 @@ wind_speed_template:
   description: The current wind speed.
   required: false
   type: template
+wind_bearing_template:
+  description: The current wind bearing.
+  required: false
+  type: template
+ozone_template:
+  description: The current ozone level.
+  required: false
+  type: template
+visibility_template:
+  description: The current visibility.
+  required: false
+  type: template
 forecast_template:
   description: Daily forecast data.
   required: false
   type: template
 {% endconfiguration %}
-
-## Considerations
-
-If you are using the state of a integration that takes extra time to load, the Template Weather may get an `unknown` state during startup. This results in error messages in your log file until that integration has completed loading. If you use `is_state()` function in your template, you can avoid this situation.

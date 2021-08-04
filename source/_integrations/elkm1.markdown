@@ -20,6 +20,7 @@ ha_platforms:
   - alarm_control_panel
   - climate
   - light
+  - scene
   - sensor
   - switch
 ---

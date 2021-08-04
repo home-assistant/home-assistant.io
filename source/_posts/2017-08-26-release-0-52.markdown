@@ -5,7 +5,9 @@ date: 2017-08-26 00:11:05
 date_formatted: "August 26, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-08-0.52/components.png
 ---
 

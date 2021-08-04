@@ -5,7 +5,9 @@ date: 2018-01-14 18:00:00
 date_formatted: "January 14, 2018"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-01-0.61/components.png
 ---
 

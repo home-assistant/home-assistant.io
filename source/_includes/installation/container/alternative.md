@@ -22,7 +22,7 @@ The steps would be:
 
 If you are using the built-in firewall, you must also add the port 8123 to allowed list. This can be found in "Control Panel -> Security" and then the Firewall tab. Click "Edit Rules" besides the Firewall Profile dropdown box. Create a new rule and select "Custom" for Ports and add 8123. Edit Source IP if you like or leave it at default "All". Action should stay at "Allow".
 
-To use a Z-Wave USB stick for Z-Wave control, the HA Docker container needs extra configuration to access to the USB stick. While there are multiple ways to do this, the least privileged way of granting access can only be performed via the Terminal, at the time of writing. See this page for configuring Terminal acces to your Synology NAS:
+To use a Z-Wave USB stick for Z-Wave control, the HA Docker container needs extra configuration to access to the USB stick. While there are multiple ways to do this, the least privileged way of granting access can only be performed via the Terminal, at the time of writing. See this page for configuring Terminal access to your Synology NAS:
 
 <https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_terminal>
 
@@ -42,7 +42,7 @@ Adjust the following Terminal command as follows :
 Run it in Terminal.  
 
 ```bash
-sudo docker run --restart always -d --name homeassistant -v /PATH_TO_YOUR_CONFIG:/config --device=/PATH_TO_YOUR_USB_STICK -e TZ=Australia/Melbourne --net=host homeassistant/home-assistant:stable
+sudo docker run --restart always -d --name homeassistant -v /PATH_TO_YOUR_CONFIG:/config --device=/PATH_TO_YOUR_USB_STICK -e TZ=Australia/Melbourne --net=host {{ site.installation.container.base }}:stable
 ```
 
 Complete the remainder of the Z-Wave configuration by [following the instructions here.](/docs/z-wave/installation)
@@ -54,7 +54,7 @@ Remark: to update your Home Assistant on your Docker within Synology NAS, you ju
 - Wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
 - Move to "Container"-section
 - Stop your container if it's running
-- Right-click on it and select "Action"->"Clear". You won't lose any data, as all files are stored in your configuration-directory
+- Right-click on it and select "Action"->"Reset". You won't lose any data, as all files are stored in your configuration-directory
 - Start the container again - it will then boot up with the new Home Assistant image
 
 Remark: to restart your Home Assistant within Synology NAS, you just have to do the following:
@@ -104,7 +104,7 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB stick with Home Assista
 - Run Docker command:
 
   ```bash
-  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London --device /dev/ttyACM0 homeassistant/home-assistant:stable
+  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London --device /dev/ttyACM0 {{ site.installation.container.base }}:stable
   ```
   
   `-v` is your configuration path
@@ -125,7 +125,7 @@ That will tell Home Assistant where to look for our Z-Wave radio.
 - Run Docker command:
 
   ```bash
-  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus homeassistant/home-assistant:stable
+  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus {{ site.installation.container.base }}:stable
   ```
   
   First `-v` is your configuration path

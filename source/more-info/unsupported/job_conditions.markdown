@@ -11,7 +11,7 @@ If the system is not working as expected, certain tasks can result in breaking t
 
 ## The solution
 
-To solve this you need to re-enable the protection mechanism by removing all the ignored conditions by using the CLI:
+To solve this you need to re-enable the protection mechanism by removing all the ignored conditions by using the command-line interface (CLI):
 
 ```bash
 ha jobs reset

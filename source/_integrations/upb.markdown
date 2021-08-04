@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: upb
 ha_platforms:
   - light
+  - scene
 ---
 
 The UPB integration allows Home Assistant to connect to a Universal Powerline Bus Powerline Interface Module (UPB PIM) to get status and control UPB devices and UPB links. The UPB PIM may be connected either to a serial port or over TCP. The integration implements the following platforms:
