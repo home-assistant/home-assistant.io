@@ -49,7 +49,7 @@ When it comes to your home, Home Assistant is the best platform to manage it and
 
 ## Energy Dashboard
 
-Today's release of Home Assistant 2021.8 contains a new energy dashboard ([demo](https://demo.home-assistant.io/#/energy)). The goal is to make it super easy for users to get insight into their energy usage. The dashboard has been designed to see at a quick glance how you're doing today, with the option to also break down per hour to see what happened when. It also includes indicators to help you identify your reliance on the grid and if adding energy storage would help your situation.
+Today's release of [Home Assistant Core 2021.8](/blog/2021/08/04/release-20218/) contains a new energy dashboard ([demo](https://demo.home-assistant.io/#/energy)). The goal is to make it super easy for users to get insight into their energy usage. The dashboard has been designed to see at a quick glance how you're doing today, with the option to also break down per hour to see what happened when. It also includes indicators to help you identify your reliance on the grid and if adding energy storage would help your situation.
 
 <p class='img'>
 <img src='/images/blog/2021-08-energy/sidebar-widgets.png'>
