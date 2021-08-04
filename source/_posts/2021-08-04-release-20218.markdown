@@ -95,9 +95,9 @@ to provide you insight into your energy usage.
 
 But this needs more than just a paragraph in the release notes, this needs
 its own blog! So, at this point, stop reading the release notes (momentarily)
-and read the blog Paulus has written about this feature:
+and read the blog Paulus has written about this:
 
-[Read the blog about the new Home Energy Management features of Home Assistant]
+[Read the blog about the new Home Energy Management features of Home Assistant](/blog/2021/08/04/home-energy-management/)
 
 ## Long term statistics
 
