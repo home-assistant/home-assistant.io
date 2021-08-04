@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2021.8.0 beta: Feel the energy"
-description: "Beta release notes for Home Assistant 2021.8.0"
-date: 2021-07-28 00:00:00
+title: "2021.8.0: Feel the energy ⚡️"
+description: "Introducing Home Energy Management, long-term statistics, new Lovelace sidebar layout and statistics graph card, sirens, additional lock capabilities and new advanced templating features"
+date: 2021-08-04 00:00:00
 date_formatted: "August 4, 2021"
 author: Franck Nijhof
 author_twitter: frenck
@@ -16,24 +16,34 @@ feedback: true
 
 <a href='/integrations/#version/2021.8'><img src='/images/blog/2021-08/social.png' style='border: 0;box-shadow: none;'></a>
 
-These are the beta release notes for Home Assistant Core 2021.8 (and is thus a
-work in progress).
+Happy August! ☀️
 
-If you encounter any issues with the beta release, please report them on GitHub:
+Home Assistant Core 2021.8 is here, and this is the release I have been looking
+forward to for months! There is so much exciting new stuff in here: I don't
+know where to start.
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+The most exciting part is the new main focus that is added to Home Assistant:
 
-Please be sure to include the beta version you are running in the issue
-description (not title), so we can classify your issue correctly.
+**Home Energy management.**
 
-Issues introduced in the beta are processed with priority.
+A massive deal for a lot of people, no matter if you are doing it for
+environmental reasons or simply to save a buck or two (or both 😬). Knowing
+that moving forward, it will be an additional focus, I think, is amazing.
+
+But besides the Energy management stuff, I'm also excited about the side effects
+of it. A lot of things created for Energy, are also re-usable for other things!
+That is how we roll, right?
+
+We get long-term statistics, new super nice and fast graphs, and a new
+layout option for Lovelace. All the building blocks are available for
+customization and re-use. I am looking forward to seeing how they are going
+to be put to use.
+
+Anyways, enjoy the release! And don't forget the drop by
+[the release party on YouTube](https://www.youtube.com/watch?v=VLiqDkam33k)
+later today (9:00 PM CET).
+
+../Frenck
 
 - [Matthias de Baat joins Nabu Casa](#matthias-de-baat-joins-nabu-casa)
 - [Home Energy Management!](#home-energy-management)
@@ -1494,6 +1504,17 @@ The following integrations are no longer available as of this release:
 - Handle powerConsumption reports with null value ([@firstof9] - [#53888]) ([smartthings docs]) (beta fix)
 - Only show a SimpliSafe code entry when one exists ([@bachya] - [#53894]) ([simplisafe docs]) (beta fix)
 - Bump frontend to 20210803.0 ([@balloob] - [#53897]) ([frontend docs]) (beta fix)
+- Add user to homeassistant system health ([@ludeeus] - [#53902]) ([homeassistant docs]) (beta fix)
+- Bump aioesphomeapi to 6.0.1 ([@jesserockz] - [#53905]) ([esphome docs]) (beta fix)
+- Bump pyroon to 0.0.38 ([@pavoni] - [#53906]) ([roon docs]) (beta fix)
+- Use `SelectEntityDescription` for Xiaomi Miio integration ([@bieniu] - [#53907]) (beta fix)
+- Handle scenario where SimpliSafe code is falsey ([@bachya] - [#53912]) ([simplisafe docs]) (beta fix)
+- Enforce maximum length for HomeKit characteristics ([@bdraco] - [#53913]) ([homekit docs]) (beta fix)
+- Handle Shelly get name on uninitialized device ([@balloob] - [#53917]) ([shelly docs]) (beta fix)
+- Limit API usage for Uptime Robot ([@ludeeus] - [#53918]) ([uptimerobot docs]) (beta fix)
+- Limit zwave_js meter sensor last reset ([@MartinHjelmare] - [#53921]) ([zwave_js docs]) (beta fix)
+- Update frontend to 20210803.2 ([@bramkragten] - [#53923]) ([frontend docs]) (beta fix)
+- Address review comments for 53918 ([@ludeeus] - [#53927]) ([uptimerobot docs]) (beta fix)
 
 {% enddetails %}
 
@@ -2138,6 +2159,17 @@ The following integrations are no longer available as of this release:
 [#53888]: https://github.com/home-assistant/core/pull/53888
 [#53894]: https://github.com/home-assistant/core/pull/53894
 [#53897]: https://github.com/home-assistant/core/pull/53897
+[#53902]: https://github.com/home-assistant/core/pull/53902
+[#53905]: https://github.com/home-assistant/core/pull/53905
+[#53906]: https://github.com/home-assistant/core/pull/53906
+[#53907]: https://github.com/home-assistant/core/pull/53907
+[#53912]: https://github.com/home-assistant/core/pull/53912
+[#53913]: https://github.com/home-assistant/core/pull/53913
+[#53917]: https://github.com/home-assistant/core/pull/53917
+[#53918]: https://github.com/home-assistant/core/pull/53918
+[#53921]: https://github.com/home-assistant/core/pull/53921
+[#53923]: https://github.com/home-assistant/core/pull/53923
+[#53927]: https://github.com/home-assistant/core/pull/53927
 [@AaronDavidSchneider]: https://github.com/AaronDavidSchneider
 [@Adminiuga]: https://github.com/Adminiuga
 [@Andrew55529]: https://github.com/Andrew55529
@@ -2227,6 +2259,7 @@ The following integrations are no longer available as of this release:
 [@oischinger]: https://github.com/oischinger
 [@oxan]: https://github.com/oxan
 [@p4p3r]: https://github.com/p4p3r
+[@pavoni]: https://github.com/pavoni
 [@peternijssen]: https://github.com/peternijssen
 [@posixx]: https://github.com/posixx
 [@pvizeli]: https://github.com/pvizeli
@@ -2470,6 +2503,7 @@ The following integrations are no longer available as of this release:
 [rfxtrx docs]: /integrations/rfxtrx/
 [rituals_perfume_genie docs]: /integrations/rituals_perfume_genie/
 [roku docs]: /integrations/roku/
+[roon docs]: /integrations/roon/
 [rova docs]: /integrations/rova/
 [rpi_rf docs]: /integrations/rpi_rf/
 [samsungtv docs]: /integrations/samsungtv/
@@ -2512,6 +2546,7 @@ The following integrations are no longer available as of this release:
 [unifi docs]: /integrations/unifi/
 [upnp docs]: /integrations/upnp/
 [uptime docs]: /integrations/uptime/
+[uptimerobot docs]: /integrations/uptimerobot/
 [utility_meter docs]: /integrations/utility_meter/
 [vallox docs]: /integrations/vallox/
 [velux docs]: /integrations/velux/
