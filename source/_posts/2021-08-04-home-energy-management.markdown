@@ -8,8 +8,7 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories:
-- Release-Notes
-- Core
+- Announcements
 og_image: /images/blog/2021-08-energy/social.png
 feedback: true
 ---
