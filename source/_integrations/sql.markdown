@@ -61,6 +61,11 @@ queries:
       description: Defines the units of measurement of the sensor, if any.
       required: false
       type: string
+    state_class:
+      description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+      required: false
+      type: string
+      default: None
     value_template:
       description: Defines a template to extract a value from the payload.
       required: false
