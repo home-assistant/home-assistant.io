@@ -24,4 +24,12 @@ Add the following section to your `configuration.yaml` file:
 # Example configuration.yaml entry
 energy:
 ```
+If you need to define or change your currency, you can do this via the UI or in the YAML configuration.
+
+```yaml
+# Example configuration.yaml entry
+homeassistant:
+  currency: USD
+```
+
 {% my energy badge %} {% my config_energy badge %}
