@@ -69,7 +69,7 @@ The `xiaomi_miio` gateway integration allows you to control the gateway and its 
 | ------------------ | ------------------- | ------------------------ |------------------------------------------ |
 | Chinese version    | lumi.gateway.v3     | DGNWG02LM                | yes                                       |
 | European version   | lumi.gateway.mieu01 | ZHWG11LM-763 / DGNWQ05LM | yes (cloud credentials needed)            |
-| Aqara hub          | lumi.gateway.aqhm01 | ZHWG11LM                 | untested                                  |
+| Aqara hub          | lumi.gateway.aqhm01 | ZHWG11LM                 | yes                                       |
 | Mijia Zigbee 3.0   | lumi.gateway.mgl03  | ZNDMWG03LM               | yes                                       |
 | Aqara AC Companion | lumi.acpartner.v1   | KTBL01LM                 | untested                                  |
 | Mi AC Companion    | lumi.acpartner.v2   | KTBL02LM                 | untested                                  |
