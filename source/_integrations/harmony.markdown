@@ -15,6 +15,7 @@ ha_domain: harmony
 ha_ssdp: true
 ha_platforms:
   - remote
+  - select
   - switch
 ---
 
