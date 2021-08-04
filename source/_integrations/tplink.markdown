@@ -15,6 +15,7 @@ ha_codeowners:
 ha_domain: tplink
 ha_platforms:
   - light
+  - sensor
   - switch
 ha_dhcp: true
 ---
