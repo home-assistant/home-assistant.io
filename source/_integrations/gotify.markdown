@@ -4,17 +4,17 @@ description: Instructions on how to integrate a self-hosted Gotify service with 
 ha_release: 2021.08
 ha_category:
   - Notifications
-ha_domain: notify_events
+ha_domain: gotify
 ha_codeowners:
   - '@benjmarshall'
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Polling
 ha_platforms:
   - notify
 ---
 
 ## Description
 
-The Gotify service is a platform for the **notify** component.
+The Gotify integration is a platform for the **notify** component.
 
 This platform allows you to use [Gotify](https://gotify.net/), an open-source, self-hosted, and simple to set-up push-message server to receive notifications from Home Assistant on your Android device.
 
@@ -26,48 +26,13 @@ To start getting notifications, you need to follow those simple steps:
 2. When you first login to your Gotify server's WebUI setup a new user (unless you want to only use the default admin user), then logout and log back in as your new user.
 3. Add a new application to your Gotify server on the **Apps** tab. Name the new application **Home Assistant**. You can upload the [Home Assistant logo](https://github.com/home-assistant/brands/raw/master/core_integrations/_homeassistant/icon.png) in order to add badges to your notifications.
 4. When your application has been created Gotify will present you with a matching **token**. Copy this now as we will need it in the next step.
-5. Add the Gotify integration to your installation by adding the following to your `configuration.yaml` file:
-
-```yaml
-gotify:
-  url: YOUR_GOTIFY_URL (e.g "https://gotify.myserver.com")
-  token: YOUR_APP_TOKEN
-```
-
-{% configuration %}
-url:
-  description: Your Gotify Server URL.
-  required: true
-  type: string
-token:
-  description: Your Gotify application token.
-  required: true
-  type: string
-{% endconfiguration %}
-
+5. This integration uses a Config Flow. Visit the Integrations page of your Home Assistant and select **Add Integration**. Enter the host URL of your Gotify server, the API token generated in step 4, and then provide a name. The name provided will become the name of the generated notify service.
 6. Install the [Gotify Android App](https://github.com/gotify/android) and configure it to connect to your Gotify server using your user's details. It's also a good idea to [follow the instructions](https://github.com/gotify/android#disable-battery-optimization) to disable battery optimisations.
-
-7. Now you can use the Gotify integration as a platform for your **notify** service, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-
-notify:
-  - name: NOTIFIER_NAME (e.g. "gotify_push")
-    platform: gotify
-```
-
-{% configuration %}
-name:
-  description: "The optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`."
-  required: false
-  type: string
-  default: notify
-{% endconfiguration %}
+7. Now you can use your new Gotify integration entry as a platform for your **notify** service. A new service will be available as notify.***name***, e.g. notify.gotify_push. The new service can be tested using the Developer Tools, or integrated straight into an automation/script.
 
 ### That's it!
 
-Now you can use the **gotify** service inside your Home Assistant to send any notifications or alerts.
+Now you can use your new Gotify service inside your Home Assistant to send any notifications or alerts.
 
 ### Example service calls
 
@@ -88,6 +53,7 @@ Now you can use the **gotify** service inside your Home Assistant to send any no
 ```
 
 ### Message optional parameters
+
 The following optional attributes can be added alongside the basic **message** field.
 
 | Attribute  | Description
