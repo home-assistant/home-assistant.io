@@ -14,7 +14,7 @@ homeassistant:
   longitude: 117.22743
   elevation: 430
   unit_system: metric
-  currency: "$",
+  currency: "AUD",
   time_zone: "America/Los_Angeles"
   external_url: "https://www.example.com"
   internal_url: "http://homeassistant.local:8123"
@@ -61,7 +61,7 @@ time_zone:
   required: false
   type: string
 currency:
-  description: The default currency symbol for your location.
+  description: "The default currency code for your location. [Wikipedia's list of currency codes](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)"
   required: false
   type: string
 external_url:
