@@ -47,6 +47,11 @@ port:
   required: false
   type: integer
   default: 3551
+scan_interval:
+  description: How often should data be updated (in seconds).
+  required: false
+  type: integer
+  default: 60
 {% endconfiguration %}
 
 <div class='note'>
