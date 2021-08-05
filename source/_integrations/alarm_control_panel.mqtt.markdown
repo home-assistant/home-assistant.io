@@ -205,3 +205,20 @@ value_template:
   required: false
   type: template
 {% endconfiguration %}
+
+## Example
+
+```yaml
+# Example configuration.yaml entry
+alarm_control_panel:
+  - platform: mqtt
+    name: My Alarm
+    state_topic: "alarm/state"
+    command_topic: "alarm/command"
+    availability_topic: "alarm/status"
+    code: !secret alarm_code
+    code_arm_required: true
+    
+```
+
+
