@@ -1334,6 +1334,10 @@ always_callback:
   required: false
   type: boolean
   default: false
+state_class:
+  description: Sets the [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### Value Types
@@ -1504,6 +1508,7 @@ knx:
       state_address: "6/2/1"
       sync_state: every 60
       type: temperature
+      state_class: measurement
 ```
 
 ## Switch
