@@ -60,6 +60,7 @@ later today (9:00 PM CET).
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.8.1 - August 4](#release-202181---august-4)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -302,6 +303,38 @@ The following integrations are now available via the Home Assistant UI:
 - [Notifications for Android TV / Fire TV][nfandroidtv docs], done by [@tkdrob]
 - [Switcher][switcher_kis docs], done by [@thecode]
 - [Yale Smart Living][yale_smart_alarm docs], done by [@gjohansson-ST]
+
+## Release 2021.8.1 - August 4
+
+- Fix Panasonic Viera TV going unavailable when turned off ([@Hyralex] - [#53788]) ([panasonic_viera docs])
+- Add temporary fix to modbus to solve upstream problem ([@janiversen] - [#53857]) ([modbus docs])
+- Fix attr_unit_of_measurement in update of apcupsd entity ([@mib1185] - [#53947]) ([apcupsd docs])
+- Fix coordinator not defined in yale_smart_alarm ([@gjohansson-ST] - [#53973]) ([yale_smart_alarm docs])
+- Fix divider for Fritz sensors ([@chemelli74] - [#53980]) ([fritz docs])
+- Fix empty sonos_group entity attribute on startup ([@jjlawren] - [#53985]) ([sonos docs])
+- Update frontend to 20210804.0 ([@bramkragten] - [#53997]) ([frontend docs])
+
+[#53788]: https://github.com/home-assistant/core/pull/53788
+[#53857]: https://github.com/home-assistant/core/pull/53857
+[#53947]: https://github.com/home-assistant/core/pull/53947
+[#53973]: https://github.com/home-assistant/core/pull/53973
+[#53980]: https://github.com/home-assistant/core/pull/53980
+[#53985]: https://github.com/home-assistant/core/pull/53985
+[#53997]: https://github.com/home-assistant/core/pull/53997
+[@Hyralex]: https://github.com/Hyralex
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@janiversen]: https://github.com/janiversen
+[@jjlawren]: https://github.com/jjlawren
+[@mib1185]: https://github.com/mib1185
+[apcupsd docs]: /integrations/apcupsd/
+[fritz docs]: /integrations/fritz/
+[frontend docs]: /integrations/frontend/
+[modbus docs]: /integrations/modbus/
+[panasonic_viera docs]: /integrations/panasonic_viera/
+[sonos docs]: /integrations/sonos/
+[yale_smart_alarm docs]: /integrations/yale_smart_alarm/
 
 ## If you need help...
 
