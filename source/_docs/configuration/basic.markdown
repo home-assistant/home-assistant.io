@@ -14,7 +14,7 @@ homeassistant:
   longitude: 117.22743
   elevation: 430
   unit_system: metric
-  currency: USD,
+  currency: USD
   time_zone: "America/Los_Angeles"
   external_url: "https://www.example.com"
   internal_url: "http://homeassistant.local:8123"
