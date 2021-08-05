@@ -4,7 +4,7 @@ description: Instructions on how to integrate Renault car into Home Assistant.
 ha_category:
   - Car
   - Sensor
-ha_release: 0.115
+ha_release: 2021.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners: '@epenet'
