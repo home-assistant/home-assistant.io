@@ -286,3 +286,7 @@ humidifier:
 ```
 
 {% endraw %}
+
+### Usage with cloudless Midea dehumidifiers
+
+This integration can be used with [esp8266-midea-dehumidifier](https://github.com/Hypfer/esp8266-midea-dehumidifier).
