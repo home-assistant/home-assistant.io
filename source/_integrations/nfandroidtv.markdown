@@ -5,6 +5,7 @@ ha_category:
   - Notifications
 ha_release: 0.32
 ha_config_flow: true
+ha_dhcp: true
 ha_domain: nfandroidtv
 ha_iot_class: Local Push
 ha_platforms:
