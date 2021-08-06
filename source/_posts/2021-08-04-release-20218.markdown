@@ -61,6 +61,7 @@ later today (9:00 PM CET).
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.8.1 - August 4](#release-202181---august-4)
+- [Release 2021.8.2 - August 5](#release-202182---august-5)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -335,6 +336,45 @@ The following integrations are now available via the Home Assistant UI:
 [panasonic_viera docs]: /integrations/panasonic_viera/
 [sonos docs]: /integrations/sonos/
 [yale_smart_alarm docs]: /integrations/yale_smart_alarm/
+
+## Release 2021.8.2 - August 5
+
+- Bump pylitterbot to 2021.8.0 ([@natekspencer] - [#54000]) ([litterrobot docs])
+- Add missing device class to SAJ energy sensors ([@frenck] - [#54048]) ([saj docs])
+- Handle empty software version when setting up HomeKit ([@bdraco] - [#54068]) ([homekit docs])
+- Bump up ZHA dependencies ([@puddly] - [#54079]) ([zha docs])
+- Packages to support config platforms ([@balloob] - [#54085]) ([automation docs]) ([script docs]) ([template docs])
+- Fix Shelly last_reset ([@thecode] - [#54101]) ([shelly docs])
+- Two fixes ([@chemelli74] - [#54102]) ([fritz docs])
+- Increase time before scene and script HomeKit entities are reset ([@bdraco] - [#54105]) ([homekit docs])
+- Bump zeroconf to 0.33.3 ([@bdraco] - [#54108]) ([zeroconf docs])
+
+[#54000]: https://github.com/home-assistant/core/pull/54000
+[#54048]: https://github.com/home-assistant/core/pull/54048
+[#54068]: https://github.com/home-assistant/core/pull/54068
+[#54079]: https://github.com/home-assistant/core/pull/54079
+[#54085]: https://github.com/home-assistant/core/pull/54085
+[#54101]: https://github.com/home-assistant/core/pull/54101
+[#54102]: https://github.com/home-assistant/core/pull/54102
+[#54105]: https://github.com/home-assistant/core/pull/54105
+[#54108]: https://github.com/home-assistant/core/pull/54108
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@frenck]: https://github.com/frenck
+[@natekspencer]: https://github.com/natekspencer
+[@puddly]: https://github.com/puddly
+[@thecode]: https://github.com/thecode
+[automation docs]: /integrations/automation/
+[fritz docs]: /integrations/fritz/
+[homekit docs]: /integrations/homekit/
+[litterrobot docs]: /integrations/litterrobot/
+[saj docs]: /integrations/saj/
+[script docs]: /integrations/script/
+[shelly docs]: /integrations/shelly/
+[template docs]: /integrations/template/
+[zeroconf docs]: /integrations/zeroconf/
+[zha docs]: /integrations/zha/
 
 ## If you need help...
 
