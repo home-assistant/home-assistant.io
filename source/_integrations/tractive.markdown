@@ -9,6 +9,9 @@ ha_config_flow: true
 ha_codeowners:
   - "@zhulik"
 ha_domain: tractive
+ha_platforms:
+  - device_tracker
+  - sensor
 ---
 
 [Tractive](https://tractive.com/en/) is an Austrian company that develops real-time location trackers for pets and other animals using GPS and GSM technology.
@@ -23,6 +26,6 @@ To use the integration you must be a premium tractive client.
 
 ## Integration Entities
 
-The Tractive integration adds one device tracker per registered pet:
+The Tractive integration adds one device tracker and few sensors per registered pet:
 
 ![Tractive device tracker](/images/integrations/tractive/device_tracker.png)
