@@ -26,6 +26,6 @@ To use the integration you must be a premium tractive client.
 
 ## Integration Entities
 
-The Tractive integration adds one device tracker and few sensors per registered pet:
+The Tractive integration adds one device tracker and several sensors per registered pet:
 
 ![Tractive device tracker](/images/integrations/tractive/device_tracker.png)
