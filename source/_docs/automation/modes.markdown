@@ -23,6 +23,7 @@ number of runs that can be executing and/or queued up at a time. The default is 
 
 When `max` is exceeded (which is effectively 1 for `single` mode) a log message will be emitted to indicate this has happened. Configuration option `max_exceeded` controls the severity level of that log message. Set it to `silent` to ignore warnings or set it to a [log level](/integrations/logger/#log-levels). The default is `warning`.
 
+
 ## Example throttled automation
 
 Some automations you only want to run every 5 minutes. This can be achieved using the `single` mode and silencing the warnings when the automation is triggered while it's running.
@@ -50,4 +51,44 @@ automation:
       - ...
     action:
       - ...
+```
+
+
+When choosing the correct mode take into consideration that top level triggers only trigger once for any single instance of an automation. If your automation has until loops that rely on Trigger IDs consider using the restart mode. In this example if we set the mode to single the release trigger will not stop the light decreasing as the automation will be in the repeat loop. 
+
+## Example of restart
+
+```yaml
+alias: decrease light brightness
+description: ''
+trigger:
+  - device_id: 8621b4f2fce548a49da1d754a2c41bce
+    domain: zha
+    platform: device
+    type: remote_button_long_press
+    subtype: button
+    id: long press
+  - device_id: 8621b4f2fce548a49da1d754a2c41bce
+    domain: zha
+    platform: device
+    type: remote_button_long_release
+    subtype: button
+    id: press release
+condition: []
+action:
+  - repeat:
+      until:
+        - condition: trigger
+          id: press release
+      sequence:
+        - device_id: 3f7189b028a7f5b5007604f8ce44fa08
+          domain: light
+          entity_id: light.computer_room
+          type: brightness_decrease
+        - delay:
+            hours: 0
+            minutes: 0
+            seconds: 0
+            milliseconds: 500
+mode: restart
 ```
