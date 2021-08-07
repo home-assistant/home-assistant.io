@@ -25,6 +25,8 @@ Supported devices:
 - Switcher V2 (Qualcomm chipset - from firmware 72.32)
 - Switcher V4
 
+If you completed the config flow but still unable to control the device, please make sure your device's firmware is up-to-date.
+
 {% include integrations/config_flow.md %}
 
 ## Sensors
