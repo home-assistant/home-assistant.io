@@ -234,7 +234,8 @@ The same thing can also be expressed as a filter:
 
 ### Areas
 
-- `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter. Note that if an area name is also a valid entity ID or device ID, the area ID for the area name will always be returned.
+- `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
+- `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
 
 #### Areas examples
 
@@ -250,6 +251,18 @@ The same thing can also be expressed as a filter:
 
 ```text
 {{ area_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ area_name('deadbeefdeadbeefdeadbeefdeadbeef') }}  # Living Room
+```
+
+```text
+{{ area_name('my_device_id') }}  # Living Room
+```
+
+```text
+{{ area_name('sensor.sony') }}  # Living Room
 ```
 
 {% endraw %}
