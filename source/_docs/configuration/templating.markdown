@@ -234,7 +234,7 @@ The same thing can also be expressed as a filter:
 
 ### Areas
 
-- `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
+- `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter. Note that if an area name is also a valid entity ID or device ID, the area ID for the area name will always be returned.
 
 #### Areas examples
 
