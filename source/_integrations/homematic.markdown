@@ -447,7 +447,7 @@ When the connection to your Homematic CCU or Homegear is lost, Home Assistant wi
 - If you have a sensor which you know will be updated frequently (e.g., an outdoor temperature sensor, voltage sensor or light sensor) you could set up a helper binary sensor and an automation like this:
 
 {% raw %}
-
+Using old template sensor:
 ```yaml
 binary_sensor:
   - platform: template
@@ -459,7 +459,19 @@ binary_sensor:
           - sensor.time
         value_template: >-
           {{ as_timestamp(now()) - as_timestamp(state_attr('sensor.office_voltage', 'last_changed')) < 600 }}
+```
 
+Using new template sensor (prefered):
+```yaml
+template:
+  - sensor:
+      - name: "Homematic is sending updates"
+        state: >-
+          {{ as_timestamp(now()) - as_timestamp(states.sensor.outlet_washmachine_voltage.last_changed) < 600 }}
+```
+
+Add also the automation for it in the automations.yaml:
+```yaml
 automation:
   - alias: "Homematic Reconnect"
     trigger:
@@ -492,14 +504,21 @@ automation:
   3. Set up a template sensor in Home Assistant, which contains the value of the system variable:
 
      {% raw %}
-
+     Using new template sensor (prefered):
+     ```yaml
+     template:
+       - sensor:
+           - name: "raspberrymatic last reboot"
+             state: "{{ state_attr('homematic.raspberrymatic', 'V_Last_Reboot') or '01.01.1970 00:00:00' }}"
+     ```
+     Using old template sensor:
      ```yaml
      - platform: template
        sensors:
          v_last_reboot:
            value_template: "{{ state_attr('homematic.ccu2', 'V_Last_Reboot') or '01.01.1970 00:00:00' }}"
-           icon_template: "mdi:clock"
-           entity_id: homematic.ccu2
+           icon_template: "mdi:clock" #deprecated
+           entity_id: homematic.ccu2 #deprecated
      ```
 
      {% endraw %}
