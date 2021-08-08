@@ -16,3 +16,8 @@ Home Assistant is an open platform and so home energy management is not restrict
 - [Integrate individual devices](/docs/energy/individual-devices/)
 
 <img src='/images/docs/energy/energy-overview.png' alt='Visual representation of how all different energy forms relate.' style='border: 0;box-shadow: none;'>
+
+If after installing version 2021.8 or higher you don't see the energy management dashboard or its settings, make sure to add the following to your YAML configuration:
+```yaml
+energy:
+```
