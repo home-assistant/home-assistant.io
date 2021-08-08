@@ -40,12 +40,6 @@ This integration provides the following platforms:
 
 {% include integrations/config_flow.md %}
 
-<div class='note warning'>
-  
-  Note: MFA Support was added in Home Assistant Core 2021.8.0
-
-</div>
-
 ## Options
 
 Tesla options are set via **Configuration** -> **Integrations** -> **Tesla** -> **Options**.
