@@ -16,3 +16,7 @@ Home Assistant is an open platform and so home energy management is not restrict
 - [Integrate individual devices](/docs/energy/individual-devices/)
 
 <img src='/images/docs/energy/energy-overview.png' alt='Visual representation of how all different energy forms relate.' style='border: 0;box-shadow: none;'>
+
+<div class='note'>
+If you are an [Advanced Configuration](/docs/getting-started/configuration/) user and your configuration.yaml does not have <code>default_config:</code> you must add <code>energy:</code> under <code>homeassistant:</code> manually before you can start using the energy integration.
+</div>
