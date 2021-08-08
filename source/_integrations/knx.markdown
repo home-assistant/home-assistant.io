@@ -697,6 +697,11 @@ controller_modes:
   description: Overrides the supported controller modes. Provide the supported `hvac_mode` values for your device.
   required: false
   type: list
+default_controller_mode:
+  description: Overrides the default controller mode. Any Home Assistant `hvac_mode` can be configured. This can for examplt be set to "cool" for cooling only devices.
+  required: false
+  default: "heat"
+  type: string
 on_off_address:
   description: KNX address for switching the climate device on/off. *DPT 1*
   required: false
