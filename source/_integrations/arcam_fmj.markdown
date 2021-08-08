@@ -17,10 +17,15 @@ The `arcam_fmj` integration allows you to control [Arcam FMJ Receivers](https://
 
 Supported devices:
 
+- SR 250
 - AVR 380
+- AVR 390
 - AVR 450
+- AVR 550
 - AVR 750
-- Likely other AVRs
+- AVR 850
+- AVR 860
+- AV 860
 
 {% include integrations/config_flow.md %}
 
