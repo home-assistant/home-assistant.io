@@ -303,7 +303,7 @@ modbus:
         address: 100
         scan_interval: 20
         slave: 1
-      - name: "binary_ensor2"
+      - name: "binary_sensor2"
         address: 110
         device_class: door
         input_type: discrete_input
