@@ -166,6 +166,30 @@ shelly:
   coap_port: 12345
 ```
 
+## Light transition
+
+Shelly lights supporting light transition:
+
+- Shelly DUO
+- Shelly Bulb RGBW
+- Shelly Dimmer
+- Shelly Dimmer 2
+- Shelly RGBW2
+- Shelly Vintage
+
+<div class="note">
+
+Firmware 1.11 or later is required.
+
+</div>
+
+<div class="note">
+
+The firmware limits the transition time to 5 seconds.
+
+</div>
+
+
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
