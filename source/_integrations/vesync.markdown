@@ -128,7 +128,7 @@ sensor:
 ```
 {% endraw %}
 
-Extracting air quality from a VeSync LV-PUR131S air purifier. change the `vesync_air_purifier` to match your devices entity ID.
+Extracting air quality from a VeSync LV-PUR131S air purifier. Change the `vesync_air_purifier` to match your device's entity ID.
 
 {% raw %}
 
