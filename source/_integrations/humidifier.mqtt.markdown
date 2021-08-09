@@ -191,7 +191,7 @@ target_humidity_state_topic:
   description: The MQTT topic subscribed to receive humidifier target humidity.
   required: false
   type: string
-target_humidity_value_template:
+target_humidity_state_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value for the humidifier `target_humidity` state.
   required: false
   type: string
@@ -207,7 +207,7 @@ mode_state_topic:
   description: The MQTT topic subscribed to receive the humidifier `mode`.
   required: false
   type: string
-mode_value_template:
+mode_state_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value for the humidifier `mode` state.
   required: false
   type: string
