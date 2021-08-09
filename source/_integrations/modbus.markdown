@@ -824,6 +824,10 @@ sensors:
       description: Modbus register type (holding, input), default holding.
       required: false
       type: string
+    last_reset:
+      description: Time of last reset, used for energy panel.
+      required: false
+      type: datetime
     name:
       description: Name of the sensor.
       required: true
