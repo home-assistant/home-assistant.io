@@ -698,7 +698,7 @@ controller_modes:
   required: false
   type: list
 default_controller_mode:
-  description: Overrides the default controller mode. Any Home Assistant `hvac_mode` can be configured. This can for examplt be set to "cool" for cooling only devices.
+  description: Overrides the default controller mode. Any Home Assistant `hvac_mode` can be configured. This can, for example, be set to "cool" for cooling-only devices.
   required: false
   default: "heat"
   type: string
