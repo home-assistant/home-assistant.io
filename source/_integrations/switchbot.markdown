@@ -14,6 +14,15 @@ ha_platforms:
 
 The `switchbot` switch platform allows you to control SwitchBot [devices](https://www.switch-bot.com/).
 
+
+<div class="note">
+
+SwitchBot devices operate over Bluetooth Low Energy (BLE) and require some sort of hub to connect to Home Assistant.  That can either be the [official SwitchBot hub](https://www.switch-bot.com/products/switchbot-hub-mini) or something like [SwitchBot-MQTT-BLE-ESP32](https://github.com/devWaves/SwitchBot-MQTT-BLE-ESP32) running on an ESP32 board.
+
+tl;dr: this integration won't work if you just buy a SwitchBot and nothing else.
+
+</div>
+
 ## Manual Configuration
 
 To enable it, add the following lines to your `configuration.yaml`:
