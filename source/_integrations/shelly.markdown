@@ -170,8 +170,8 @@ shelly:
 
 Shelly lights supporting light transition:
 
-- Shelly DUO
 - Shelly Bulb RGBW
+- Shelly DUO
 - Shelly Dimmer
 - Shelly Dimmer 2
 - Shelly RGBW2
