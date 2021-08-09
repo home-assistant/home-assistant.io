@@ -189,7 +189,6 @@ The firmware limits the transition time to 5 seconds.
 
 </div>
 
-
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
