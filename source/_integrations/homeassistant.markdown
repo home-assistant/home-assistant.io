@@ -134,3 +134,10 @@ action:
     - light.living_room
     - switch.coffe_pot
 ```
+
+### Service `homeassistant.save_persistent_states`
+
+Save the persistent states (for entities derived from RestoreEntity) immediately.
+Maintain the normal periodic saving interval.
+
+Normally these states are saved at startup, every 15 minutes and at shutdown.
