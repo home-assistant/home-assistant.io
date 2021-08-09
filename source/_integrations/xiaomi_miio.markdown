@@ -489,7 +489,7 @@ Attribute | Description
 
 Sensor | Description
 --- | ---
-`actual_speed` | The current `moter_speed` measured in (rpm)
+`actual_speed` | The current `motor_speed` measured in (rpm)
 `humidity` | The current `humidity` percentage measured
 `temperature` | The current `temperature` measured in degrees Celius
 `water_level` | The current `water_level` percentage measured
