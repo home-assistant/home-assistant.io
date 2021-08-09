@@ -133,11 +133,10 @@ Extracting air quality from a VeSync LV-PUR131S air purifier. change the `vesync
 {% raw %}
 
 ```yaml 
-sensor:
-  - platform: template
-    sensors:
-      vesync_air_quality:
-        value_template: "{{(states.fan.vesync_air_purifier.attributes.air_quality)|title}}"
-        friendly_name: "Vesync Air Quality"
+template: 
+  - sensor:
+      - name: "VeSync Air Quality"
+        state: "{{state_attr('fan.vesync_air_purifier', 'air_quality') |title }}"
+
 ```
 {% endraw %}
