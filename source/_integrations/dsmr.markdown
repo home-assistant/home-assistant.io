@@ -49,7 +49,7 @@ Serial to network proxies:
 
 DIY solutions (ESP8266 based):
 
-- [esp8266_p1meter (fliphess)](https://github.com/fliphess/esp8266_p1meter)
+- [esp8266_p1meter (daniel-jong)](https://github.com/daniel-jong/esp8266_p1meter)
 
 {% include integrations/config_flow.md %}
 
