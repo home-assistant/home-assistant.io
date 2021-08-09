@@ -22,6 +22,7 @@ ha_zeroconf: true
 ha_platforms:
   - air_quality
   - alarm_control_panel
+  - binary_sensor
   - device_tracker
   - fan
   - light
@@ -516,13 +517,14 @@ For supported Air Humidifiers additional entities for will be generated automati
 The sensor platform does not supply additional services.
 </div>
 
-| Platform     | Service(s)                 | Related auto generated device entities                       |
-|--------------|----------------------------|--------------------------------------------------------------|
-| `humidifier` | `set_humidity`, `set_mode` | Main device entity                                           |
-| `switch`     | `turn_on`, `turn_off`      | `buzzer`, `child_lock`, `cleaning_mode`, `dry_mode` and `led`|
-| `sensor`     | _None_                     | `actual_speed`, `humidity`, `temperature` and `water_level`  |
-| `number`     | `set_value`                | `motor_speed`                                                |
-| `select`     | `select_option`            | `led_brightness`                                             |
+| Platform        | Service(s)                 | Related auto generated device entities                       |
+|-----------------|----------------------------|--------------------------------------------------------------|
+| `humidifier`    | `set_humidity`, `set_mode` | Main device entity                                           |
+| `switch`        | `turn_on`, `turn_off`      | `buzzer`, `child_lock`, `cleaning_mode`, `dry_mode` and `led`|
+| `sensor`        | _None_                     | `actual_speed`, `humidity`, `temperature` and `water_level`  |
+| `number`        | `set_value`                | `motor_speed`                                                |
+| `select`        | `select_option`            | `led_brightness`                                             |
+| `binary_sensor` | _None_                     | `water_tank_empty` and `water_tank_detached`                 |
 
 ### Service `fan.set_percentage`
 
