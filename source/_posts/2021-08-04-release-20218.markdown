@@ -63,6 +63,7 @@ later today (9:00 PM CET).
 - [Release 2021.8.1 - August 4](#release-202181---august-4)
 - [Release 2021.8.2 - August 5](#release-202182---august-5)
 - [Release 2021.8.3 - August 6](#release-202183---august-6)
+- [Release 2021.8.4 - August 8](#release-202184---august-8)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -399,6 +400,42 @@ The following integrations are now available via the Home Assistant UI:
 [network docs]: /integrations/network/
 [sms docs]: /integrations/sms/
 [zeroconf docs]: /integrations/zeroconf/
+
+## Release 2021.8.4 - August 8
+
+- Add missing `motor_speed` sensor for Xiaomi Miio humidifier CA1 and CB1 ([@bieniu] - [#54202])
+- Fix update entity prior to adding ([@Trinnik] - [#54015]) ([aladdin_connect docs])
+- Fix androidtv media_image_hash ([@tkdrob] - [#54188]) ([androidtv docs])
+- Solve missing automatic update of struct configuration in modbus ([@janiversen] - [#54193]) ([modbus docs])
+- Update const.py ([@Mk4242] - [#54195]) ([ebusd docs])
+- Add parameter to delay sending of requests in modbus ([@janiversen] - [#54203]) ([modbus docs])
+- Bugfix: Bring back unique IDs for ADS covers after #52488 ([@carstenschroeder] - [#54212]) ([ads docs])
+- Don't block motionEye setup on NoURLAvailableError ([@dermotduffy] - [#54225]) ([motioneye docs])
+- Pin google-cloud-pubsub to an older version ([@allenporter] - [#54239])
+
+[#54015]: https://github.com/home-assistant/core/pull/54015
+[#54188]: https://github.com/home-assistant/core/pull/54188
+[#54193]: https://github.com/home-assistant/core/pull/54193
+[#54195]: https://github.com/home-assistant/core/pull/54195
+[#54202]: https://github.com/home-assistant/core/pull/54202
+[#54203]: https://github.com/home-assistant/core/pull/54203
+[#54212]: https://github.com/home-assistant/core/pull/54212
+[#54225]: https://github.com/home-assistant/core/pull/54225
+[#54239]: https://github.com/home-assistant/core/pull/54239
+[@Mk4242]: https://github.com/Mk4242
+[@Trinnik]: https://github.com/Trinnik
+[@allenporter]: https://github.com/allenporter
+[@bieniu]: https://github.com/bieniu
+[@carstenschroeder]: https://github.com/carstenschroeder
+[@dermotduffy]: https://github.com/dermotduffy
+[@janiversen]: https://github.com/janiversen
+[@tkdrob]: https://github.com/tkdrob
+[ads docs]: https://www.home-assistant.io/integrations/ads/
+[aladdin_connect docs]: https://www.home-assistant.io/integrations/aladdin_connect/
+[androidtv docs]: https://www.home-assistant.io/integrations/androidtv/
+[ebusd docs]: https://www.home-assistant.io/integrations/ebusd/
+[modbus docs]: https://www.home-assistant.io/integrations/modbus/
+[motioneye docs]: https://www.home-assistant.io/integrations/motioneye/
 
 ## If you need help...
 
