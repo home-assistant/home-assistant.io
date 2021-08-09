@@ -416,32 +416,58 @@ This model uses newer MiOT communication protocol.
 ### Air Humidifier (zhimi.humidifier.v1)
 
 - On, Off
-- Operation modes (silent, medium, high, strong)
+- Operation modes (Silent, Medium, High, Strong)
 - Buzzer (on, off)
 - Child lock (on, off)
 - LED (on, off), LED brightness (bright, dim, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
+- Attributes (humidifier platform)
+
+Attribute | Description
+--- | ---
+`humidity` | The current `target_humidity`
+`max_humidity` | The maximum settable `target_humidity`
+`min_humidity` | The minimum settable `target_humidity`
+`available_modes` | A list with the operation modes available
+`mode` | the current operation mode selected
+
 - Sensor entities
-  - `humidity`
-  - `temperature`
+
+Sensor | Description
+--- | ---
+`humidity` | The current `humidity` measured
+`temperature` | The current `temperature` measured
 
 ### Air Humidifier CA (zhimi.humidifier.ca1)
 
 - On, Off
-- Operation modes (silent, medium, high, auto)
+- Operation modes (Silent, Medium, High, Auto)
 - Buzzer (on, off)
 - Child lock (on, off)
 - LED brightness (bright, dim, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Dry mode (on, off)
+- Attributes (humidifier platform)
+
+Attribute | Description
+--- | ---
+`humidity` | The current `target_humidity`
+`max_humidity` | The maximum settable `target_humidity`
+`min_humidity` | The minimum settable `target_humidity`
+`available_modes` | A list with the operation modes available
+`mode` | the current operation mode selected
+
 - Sensor entities
-  - `humidity`
-  - `temperature`
+
+Sensor | Description
+--- | ---
+`humidity` | The current `humidity` measured
+`temperature` | The current `temperature` measured
 
 ### Air Humidifier CA (zhimi.humidifier.ca4)
 
 - On, Off
-- Operation modes (auto, low, medium, high)
+- Operation modes (Auto, Low, Medium, High)
 - Buzzer (on, off)
 - Child lock (on, off)
 - LED brightness (off, dim, bright)
@@ -449,11 +475,24 @@ This model uses newer MiOT communication protocol.
 - Clean mode (on, off)
 - Dry mode (on, off)
 - Motor speed rpm (200 - 2000)
+- Attributes (humidifier platform)
+
+Attribute | Description
+--- | ---
+`humidity` | The current `target_humidity`
+`max_humidity` | The maximum settable `target_humidity`
+`min_humidity` | The minimum settable `target_humidity`
+`available_modes` | A list with the operation modes available
+`mode` | the current operation mode selected
+
 - Sensor entities
-  - `actual_speed`
-  - `humidity`
-  - `temperature`
-  - `water_level`
+
+Sensor | Description
+--- | ---
+`actual_speed` | The current `moter_speed` measured in (rpm)
+`humidity` | The current `humidity` percentage measured
+`temperature` | The current `temperature` measured in degrees Celius
+`water_level` | The current `water_level` percentage measured
 
 <div class='note'>
 Clean mode and Motor speed can only be set when the device is turned on.
@@ -462,15 +501,28 @@ Clean mode and Motor speed can only be set when the device is turned on.
 ### Air Humidifier CB (zhimi.humidifier.cb1)
 
 - On, Off
-- Operation modes (silent, medium, high, auto)
+- Operation modes (Silent, Medium, High, Auto)
 - Buzzer (on, off)
 - Child lock (on, off)
 - LED (on, off), LED brightness (bright, dim, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Dry mode (on, off)
+- Attributes (humidifier platform)
+
+Attribute | Description
+--- | ---
+`humidity` | The current `target_humidity`
+`max_humidity` | The maximum settable `target_humidity`
+`min_humidity` | The minimum settable `target_humidity`
+`available_modes` | A list with the operation modes available
+`mode` | the current operation mode selected
+
 - Sensor entities
-  - `humidity`
-  - `temperature`
+
+Sensor | Description
+--- | ---
+`humidity` | The current `humidity` measured
+`temperature` | The current `temperature` measured
 
 ### Air Fresh VA2
 
