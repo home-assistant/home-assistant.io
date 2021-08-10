@@ -91,7 +91,7 @@ show_all_sources:
 zone1:
   description: Specifies if zone 1 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
 zone2:
-  description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.  Some receivers do not support a second zone.
+  description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports. Some receivers do not support a second zone.
 update_audyssey:
   description: Specifies if Audyssey settings should be updated. This can take up to 10 seconds for some receivers.
   required: false
