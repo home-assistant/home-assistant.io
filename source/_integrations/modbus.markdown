@@ -51,6 +51,11 @@ delay:
   required: false
   default: 0
   type: integer
+message_wait_milliseconds:
+  description: Time to wait in milliseconds between requests.
+  required: false
+  default: 30 for serial connection, 0 for everything else.
+  type: integer
 name:
   description: Name for this hub. Must be unique, so it is required when setting up multiple instances.
   required: false
