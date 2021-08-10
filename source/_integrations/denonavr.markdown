@@ -121,7 +121,7 @@ To use these commands, call the `denonavr.get_command` service and append the sp
 | `entity_id`            |       no | Name of entity to send command to. For example `media_player.marantz`|
 | `command`              |       no | Command to send to device, e.g.,  `/goform/formiPhoneAppDirect.xml?VSMONI2`|
 
-So for example, the above command `/goform/formiPhoneAppDirect.xml?VSMONI2` will switch the HDMI to output 2 (if your receiver supports it).  Sending an IR code works the same, so the command `/goform/formiPhoneAppDirect.xml?RCKSK0410370` will toggle muting.
+So for example, the above command `/goform/formiPhoneAppDirect.xml?VSMONI2` will switch the HDMI to output 2 (if your receiver supports it). Sending an IR code works the same, so the command `/goform/formiPhoneAppDirect.xml?RCKSK0410370` will toggle muting.
 
 <div class='note'>
 
