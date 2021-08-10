@@ -64,6 +64,7 @@ later today (9:00 PM CET).
 - [Release 2021.8.2 - August 5](#release-202182---august-5)
 - [Release 2021.8.3 - August 6](#release-202183---august-6)
 - [Release 2021.8.4 - August 8](#release-202184---august-8)
+- [Release 2021.8.5 - August 9](#release-202185---august-9)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -436,6 +437,87 @@ The following integrations are now available via the Home Assistant UI:
 [ebusd docs]: https://www.home-assistant.io/integrations/ebusd/
 [modbus docs]: https://www.home-assistant.io/integrations/modbus/
 [motioneye docs]: https://www.home-assistant.io/integrations/motioneye/
+
+## Release 2021.8.5 - August 9
+
+- Fix camera state and attributes for agent_dvr ([@tkdrob] - [#54049]) ([agent_dvr docs])
+- Force an attempted subscribe on speaker reboot ([@geuben] - [#54100]) ([sonos docs])
+- Fix login to BMW services for rest_of_world and north_america ([@rikroe] - [#54261]) ([bmw_connected_drive docs])
+- Always set interfaces explicitly when IPv6 is present ([@bdraco] - [#54268]) ([zeroconf docs])
+- Fix atom integration for long term statistics ([@ZeGuigui] - [#54285]) ([atome docs])
+- Use correct state attribute for alarmdecoder binary sensor ([@tkdrob] - [#54286]) ([alarmdecoder docs])
+- Bump soco to 0.23.3 ([@jjlawren] - [#54288]) ([sonos docs])
+- Fix ondilo_ico name attribute ([@cdce8p] - [#54290]) ([ondilo_ico docs])
+- Bump zeroconf to 0.34.3 ([@bdraco] - [#54294]) ([zeroconf docs])
+- Ensure hunterdouglas_powerview model type is a string ([@bdraco] - [#54299]) ([hunterdouglas_powerview docs])
+- Remove zwave_js transition on individual color channels ([@firstof9] - [#54303]) ([zwave_js docs])
+- Restores unit_of_measurement ([@dgomes] - [#54335]) ([integration docs])
+- Fix xiaomi air fresh fan preset modes ([@jbouwh] - [#54342]) ([xiaomi_miio docs])
+- Update frontend to 20210809.0 ([@bramkragten] - [#54350]) ([frontend docs])
+- Fix Xiaomi-miio turn fan on with speed, percentage or preset ([@jbouwh] - [#54353]) ([xiaomi_miio docs])
+- Fix aqualogic state attribute update ([@dailow] - [#54354]) ([aqualogic docs])
+- Cast SimpliSafe version number as a string in device info ([@bachya] - [#54356]) ([simplisafe docs])
+- Do not process forwarded for headers for cloud requests ([@balloob] - [#54364]) ([http docs]) ([cloud docs])
+- Revert "Use entity class attributes for Bluesound (#53033)" ([@balloob] - [#54365]) ([bluesound docs])
+- Update Climacell rate limit ([@raman325] - [#54373]) ([climacell docs])
+- Fix race condition in Advantage Air ([@Bre77] - [#53439]) ([advantage_air docs])
+
+[#53439]: https://github.com/home-assistant/core/pull/53439
+[#54049]: https://github.com/home-assistant/core/pull/54049
+[#54100]: https://github.com/home-assistant/core/pull/54100
+[#54261]: https://github.com/home-assistant/core/pull/54261
+[#54268]: https://github.com/home-assistant/core/pull/54268
+[#54285]: https://github.com/home-assistant/core/pull/54285
+[#54286]: https://github.com/home-assistant/core/pull/54286
+[#54288]: https://github.com/home-assistant/core/pull/54288
+[#54290]: https://github.com/home-assistant/core/pull/54290
+[#54294]: https://github.com/home-assistant/core/pull/54294
+[#54299]: https://github.com/home-assistant/core/pull/54299
+[#54303]: https://github.com/home-assistant/core/pull/54303
+[#54335]: https://github.com/home-assistant/core/pull/54335
+[#54342]: https://github.com/home-assistant/core/pull/54342
+[#54350]: https://github.com/home-assistant/core/pull/54350
+[#54353]: https://github.com/home-assistant/core/pull/54353
+[#54354]: https://github.com/home-assistant/core/pull/54354
+[#54356]: https://github.com/home-assistant/core/pull/54356
+[#54364]: https://github.com/home-assistant/core/pull/54364
+[#54365]: https://github.com/home-assistant/core/pull/54365
+[#54373]: https://github.com/home-assistant/core/pull/54373
+[@Bre77]: https://github.com/Bre77
+[@ZeGuigui]: https://github.com/ZeGuigui
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@dailow]: https://github.com/dailow
+[@dgomes]: https://github.com/dgomes
+[@firstof9]: https://github.com/firstof9
+[@geuben]: https://github.com/geuben
+[@jbouwh]: https://github.com/jbouwh
+[@jjlawren]: https://github.com/jjlawren
+[@raman325]: https://github.com/raman325
+[@rikroe]: https://github.com/rikroe
+[@tkdrob]: https://github.com/tkdrob
+[advantage_air docs]: /integrations/advantage_air/
+[agent_dvr docs]: /integrations/agent_dvr/
+[alarmdecoder docs]: /integrations/alarmdecoder/
+[aqualogic docs]: /integrations/aqualogic/
+[atome docs]: /integrations/atome/
+[bluesound docs]: /integrations/bluesound/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[climacell docs]: /integrations/climacell/
+[cloud docs]: /integrations/cloud/
+[frontend docs]: /integrations/frontend/
+[http docs]: /integrations/http/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[integration docs]: /integrations/integration/
+[ondilo_ico docs]: /integrations/ondilo_ico/
+[simplisafe docs]: /integrations/simplisafe/
+[sonos docs]: /integrations/sonos/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zeroconf docs]: /integrations/zeroconf/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
