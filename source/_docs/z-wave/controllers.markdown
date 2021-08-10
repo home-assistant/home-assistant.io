@@ -15,6 +15,7 @@ You need to have a compatible Z-Wave stick or module installed. This needs to be
 
 - Aeotec Z-Stick Gen5 (see note below)
 - Aeotec Z-Stick 7
+- Aeotec Z-Pi 7
 - Everspring USB stick - Gen 5
 - GoControl HUSBZB-1 stick
 - Sigma Designs UZB stick
