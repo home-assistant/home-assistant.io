@@ -219,6 +219,11 @@ modbus:
 ```
 
 {% configuration %}
+lazy_error_count:
+  description: Number of messages with error received before setting entity to unaviable. This parameter can be used to prevent spontanous errors to ruin statistic graphs.
+  required: false
+  type: integer
+  default: 0
 name:
   description: Name for the platform entity which must be unique within the platform.
   required: true
