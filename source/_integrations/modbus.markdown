@@ -220,7 +220,7 @@ modbus:
 
 {% configuration %}
 lazy_error_count:
-  description: Number of messages with error received before setting entity to unaviable. This parameter can be used to prevent spontanous errors to ruin statistic graphs.
+  description: Number of messages with error received before setting entity to unavailable. This parameter can be used to prevent spontaneous errors to ruin statistic graphs.
   required: false
   type: integer
   default: 0
