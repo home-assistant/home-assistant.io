@@ -65,6 +65,7 @@ later today (9:00 PM CET).
 - [Release 2021.8.3 - August 6](#release-202183---august-6)
 - [Release 2021.8.4 - August 8](#release-202184---august-8)
 - [Release 2021.8.5 - August 9](#release-202185---august-9)
+- [Release 2021.8.6 - August 10](#release-202186---august-10)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -518,6 +519,29 @@ The following integrations are now available via the Home Assistant UI:
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [zeroconf docs]: /integrations/zeroconf/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.8.6 - August 10
+
+- Handle CO2Signal response value being None ([@balloob] - [#54377]) ([co2signal docs])
+- Fix Canary sensor state ([@ludeeus] - [#54380]) ([canary docs])
+- Re-add Tibber notify service name ([@Danielhiversen] - [#54401]) ([tibber docs])
+- Bump hass_nabucasa to 0.46.0 ([@balloob] - [#54421]) ([cloud docs])
+- Bump pyopenuv to 2.1.0 ([@bachya] - [#54436]) ([openuv docs])
+
+[#54377]: https://github.com/home-assistant/core/pull/54377
+[#54380]: https://github.com/home-assistant/core/pull/54380
+[#54401]: https://github.com/home-assistant/core/pull/54401
+[#54421]: https://github.com/home-assistant/core/pull/54421
+[#54436]: https://github.com/home-assistant/core/pull/54436
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@ludeeus]: https://github.com/ludeeus
+[canary docs]: /integrations/canary/
+[cloud docs]: /integrations/cloud/
+[co2signal docs]: /integrations/co2signal/
+[openuv docs]: /integrations/openuv/
+[tibber docs]: /integrations/tibber/
 
 ## If you need help...
 
