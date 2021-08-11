@@ -65,7 +65,9 @@ template:
 
 The `| float` part in the above example is a [filter](https://jinja.palletsprojects.com/en/latest/templates/#filters) that converts the state to a float.
 If it is not possible to convert (e.g because the value is text) it will default to 0.0. This can make temperature readings look rather strange.
-A way to solve this is to make the template sensor have an Unknown or Unavailable state instead.
+
+A way to solve this is to make the template sensor keep the previous value or be set to Unavailable / Unknown during startup.
+To make the sensor always Unavailable if any of the included sensors fails change `states('sensor.average_temperature')`to `'Unavailable'`instead
 
 {% raw %}
 ```yaml
