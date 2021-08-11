@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-The `fronius` sensor polls a [Fronius](https://www.fronius.com/) solar inverter, battery system or smart meter and present the values as sensors in Home Assistant.
+The `fronius` sensor polls a [Fronius](https://www.fronius.com/) solar inverter, battery system or smart meter and presents the values as sensors in Home Assistant. Data is gathered directly through the system's datamanager card connected to your local network, this integration doesn't access the cloud. You will need to either set a static IP or assign a static DHCP lease, or alternatively access it through the local DNS name if your network is properly configured.
 
 ## Configuration
 
@@ -22,14 +22,14 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 ```yaml
 sensor:
   - platform: fronius
-    resource: FRONIUS_URL
+    resource: FRONIUS_LOCAL_API_URL
     monitored_conditions:
     - sensor_type: inverter
 ```
 
 {% configuration %}
 resource:
-  description: "The URL of the Fronius device (e.g., `http://192.0.2.0` or `http://fronius.local`)"
+  description: "The URL of the API on the Fronius datamanager card (e.g., `http://192.0.2.0` or `http://fronius.local`)"
   required: true
   type: string
 monitored_conditions:
@@ -47,7 +47,7 @@ monitored_conditions:
       type: string
       default: "device"
     device:
-      description: "The id of the device to poll"
+      description: "The ID of the device to poll"
       required: false
       default: "\"1\" for inverters and \"0\" for other devices such as storages in compliance with Fronius Specs"
 {% endconfiguration %}
@@ -90,6 +90,19 @@ there might be no sensor providing photovoltaic related data.
 This does not need to be problematic as the values will be added on sunrise,
 when the Fronius devices begins providing the needed data.
 
+## Finding out devices IDs
+
+To find out the device ID of the inverter visit the URL:
+http://your_datamanager_card_ip/solar_api/v1/GetPowerFlowRealtimeData.fcgi
+In the returned json, under the key Body > Data > Inverters you should see your inverters listed with IDs starting from 1.
+
+To find out the device ID of the meter visit the URL:
+http://your_datamanager_card_ip/solar_api/v1/GetMeterRealtimeData.cgi?Scope=System
+In the returned json, under the key Body > Data you should see your meters listed with IDs starting from 0.
+
+To find out which API version your system runs, visit the URL:
+http://your_datamanager_card_ip/solar_api/GetAPIVersion.cgi
+
 ## Examples
 
 When including more of the components that one Fronius device offers, 
@@ -108,3 +121,7 @@ sensor:
       device: 0
     - sensor_type: power_flow
 ```
+
+## Note
+
+Fronius often provides firmware updates for the datamanager interfaces and the devices in their system, it's recommended to check and apply them regurarly.
