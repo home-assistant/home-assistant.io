@@ -98,7 +98,7 @@ In the returned json, under the key Body > Data > Inverters you should see your 
 
 To find out the device ID of the meter visit the URL:
 http://your_datamanager_card_ip/solar_api/v1/GetMeterRealtimeData.cgi?Scope=System
-In the returned json, under the key Body > Data you should see your meters listed with IDs starting from 0.
+In the returned JSON, under the key Body > Data you should see your meters listed with IDs starting from 0.
 
 To find out which API version your system runs, visit the URL:
 http://your_datamanager_card_ip/solar_api/GetAPIVersion.cgi
