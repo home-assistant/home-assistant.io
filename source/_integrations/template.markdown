@@ -63,6 +63,28 @@ template:
 
 {% endraw %}
 
+The `| float` part in the above example is a [filter](https://jinja.palletsprojects.com/en/latest/templates/#filters) that converts the state to a float.
+If it is not possible to convert (e.g because the value is text) it will default to 0.0. This can make temperature readings look rather strange.
+A way to solve this is to make the template sensor have an Unknown or Unavailable state instead.
+
+{% raw %}
+```yaml
+template:
+  - sensor:
+      - name: "Average temperature"
+        unit_of_measurement: "°C"
+        state: >
+          {% set bedroom = states('sensor.bedroom_temperature') | float(None) %}
+          {% set kitchen = states('sensor.kitchen_temperature') | float(None) %}
+          {% if (kitchen and bedroom) != None %}
+            {{ ((kitchen + bedroom) / 2 | round(1)) }}
+          {% else %}
+            {{ states('sensor.average_temperature') }}
+          {% endif %}
+
+```
+{% endraw %}
+
 ## Trigger-based template sensors
 
 If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#storing-webhook-information)), or update entities based on a schedule.
