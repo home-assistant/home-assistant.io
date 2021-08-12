@@ -425,7 +425,7 @@ The following integrations are currently supported:
 
 Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Configuration >> Integrations" %}**.
 
-Bridged device triggers are represented as single press button on stateless programmable switches. This allows a HomeKit automation to be run when a device trigger fires. Because the iOS Home app currently only shows the number of the button, and not the name, users may find it easier to identify the name of the button in the `Eve for HomeKit` app.
+Bridged device triggers are represented as a single press button on stateless programmable switches. This allows a HomeKit automation to run when a device trigger fires. Because the iOS Home app currently only shows the number of the button and not the name, users may find it easier to identify the name of the button in the `Eve for HomeKit` app.
 
 ## iOS Remote Widget
 
