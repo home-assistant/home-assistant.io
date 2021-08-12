@@ -217,7 +217,7 @@ Supported devices:
 
 ### Features
 
-### Air Purifier 2 et al.
+### Air Purifier 2 (zhimi.airpurifier.v2)
 
 - Power (on, off)
 - Operation modes (auto, silent, favorite, idle)
@@ -227,18 +227,10 @@ Supported devices:
 - Favorite Level (0...16)
 - Attributes
   - `model`
-  - `temperature`
-  - `humidity`
-  - `aqi`
   - `mode`
-  - `filter_hours_used`
-  - `filter_life_remaining`
   - `favorite_level`
   - `child_lock`
   - `led`
-  - `motor_speed`
-  - `average_aqi`
-  - `purify_volume`
   - `learn_mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
@@ -250,6 +242,17 @@ Supported devices:
   - `buzzer`
   - `led_brightness`
   - `sleep_mode`
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+`aqi`                   | The current `aqi` measured
+`filter_life_remaining` | The remaining life of the filter
+`humidity`              | The current `humidity` measured
+`motor_speed`           | The current `motor_speed` measured in rpm
+`purify_volume`         | The volume of purified air in qubic meter
+`temperature`           | The current `temperature` measured
+
 
 ### Air Purifier Pro (zhimi.airpurifier.v6)
 
@@ -260,18 +263,10 @@ Supported devices:
 - Favorite Level (0...16)
 - Attributes
   - `model`
-  - `temperature`
-  - `humidity`
-  - `aqi`
   - `mode`
-  - `filter_hours_used`
-  - `filter_life_remaining`
   - `favorite_level`
   - `child_lock`
   - `led`
-  - `motor_speed`
-  - `average_aqi`
-  - `purify_volume`
   - `learn_mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
@@ -280,12 +275,19 @@ Supported devices:
   - `auto_detect`
   - `use_time`
   - `button_pressed`
-  - `filter_rfid_product_id`
-  - `filter_rfid_tag`
-  - `filter_type`
-  - `illuminance`
-  - `motor2_speed`
   - `volume`
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+`aqi`                   | The current `aqi` measured
+`filter_life_remaining` | The remaining life of the filter
+`humidity`              | The current `humidity` measured
+`illuminance`           | The current `illuminance` measured
+`motor_speed`           | The current `motor_speed` measured in rpm
+`motor2_speed`          | The current `motor2_speed` measured in rpm
+`purify_volume`         | The volume of purified air in qubic meter
+`temperature`           | The current `temperature` measured
 
 ### Air Purifier Pro V7 (zhimi.airpurifier.v7)
 
@@ -296,27 +298,26 @@ Supported devices:
 - Favorite Level (0...16)
 - Attributes
   - `model`
-  - `temperature`
-  - `humidity`
-  - `aqi`
   - `mode`
-  - `filter_hours_used`
-  - `filter_life_remaining`
   - `favorite_level`
   - `child_lock`
   - `led`
-  - `motor_speed`
-  - `average_aqi`
   - `learn_mode`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
-  - `filter_rfid_product_id`
-  - `filter_rfid_tag`
-  - `filter_type`
-  - `illuminance`
-  - `motor2_speed`
   - `volume`
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+`aqi`                   | The current `aqi` measured
+`filter_life_remaining` | The remaining life of the filter
+`humidity`              | The current `humidity` measured
+`illuminance`           | The current `illuminance` measured
+`motor_speed`           | The current `motor_speed` measured in rpm
+`motor2_speed`          | The current `motor2_speed` measured in rpm
+`temperature`           | The current `temperature` measured
 
 ### Air Purifier 2S (zhimi.airpurifier.mc1)
 
@@ -328,26 +329,24 @@ Supported devices:
 - Favorite Level (0...16)
 - Attributes
   - `model`
-  - `temperature`
-  - `humidity`
-  - `aqi`
   - `mode`
-  - `filter_hours_used`
-  - `filter_life_remaining`
   - `favorite_level`
   - `child_lock`
   - `led`
-  - `motor_speed`
-  - `average_aqi`
   - `learn_mode`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
-  - `filter_rfid_product_id`
-  - `filter_rfid_tag`
-  - `filter_type`
-  - `illuminance`
   - `buzzer`
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+`aqi`                   | The current `aqi` measured
+`filter_life_remaining` | The remaining life of the filter
+`humidity`              | The current `humidity` measured
+`motor_speed`           | The current `motor_speed` measured in rpm
+`temperature`           | The current `temperature` measured
 
 ### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4/zhimi.airpurifier.mb3)
 
@@ -362,25 +361,24 @@ This model uses newer MiOT communication protocol.
 - Fan Level (1...3)
 - Attributes
   - `model`
-  - `temperature`
-  - `humidity`
-  - `aqi`
   - `mode`
-  - `filter_hours_used`
-  - `filter_life_remaining`
   - `favorite_level`
   - `child_lock`
   - `led`
-  - `motor_speed`
-  - `average_aqi`
-  - `purify_volume`
   - `use_time`
   - `buzzer`
   - `led_brightness`
-  - `filter_rfid_product_id`
-  - `filter_rfid_tag`
-  - `filter_type`
   - `fan_level`
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+`aqi`                   | The current `aqi` measured
+`filter_life_remaining` | The remaining life of the filter
+`humidity`              | The current `humidity` measured
+`motor_speed`           | The current `motor_speed` measured in rpm
+`purify_volume`         | The volume of purified air in qubic meter
+`temperature`           | The current `temperature` measured
 
 ### Air Purifier V3 (zhimi.airpurifier.v3)
 
@@ -413,6 +411,16 @@ This model uses newer MiOT communication protocol.
   - `auto_detect`
   - `use_time`
   - `button_pressed`
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+`aqi`                   | The current `aqi` measured
+`illuminance`           | The current `illuminance` measured
+`filter_life_remaining` | The remaining life of the filter
+`motor_speed`           | The current `motor_speed` measured in rpm
+`motor2_speed`          | The current `motor2_speed` measured in rpm
+`purify_volume`         | The volume of purified air in qubic meter
 
 ### Air Humidifier (zhimi.humidifier.v1)
 
@@ -508,6 +516,16 @@ Clean mode and Motor speed can only be set when the device is turned on.
   - `use_time`
   - `motor_speed`
   - `extra_features`
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+`aqi`                   | The current `aqi` measured
+`carbon_dioxide`        | The current `carbon_dioxide` measured
+`filter_life_remaining` | The remaining life of the filter
+`humidity`              | The current `humidity` measured
+`illuminance`           | The current `illuminance` measured
+`temperature`           | The current `temperature` measured
 
 ### Platform Services
 
