@@ -16,7 +16,7 @@ ha_platforms:
 
 The SMA Solar integration will poll a [SMA](http://www.sma-solar.com/) [(US)](https://www.sma-america.com/) solar inverter, energy meter or battery inverter and present the values as sensors in Home Assistant.
 
-The integration uses the web interface of the device. Before you start, make sure you are able to connect to the solar inverter from your favorite web browser.
+The integration uses the web interface of the device. Before you start, make sure you are able to connect to the solar inverter from your favorite web browser. If you do not have access to the web interface, this [alternate integration](https://community.home-assistant.io/t/integration-with-sma-solar-stp-10000tl-20-via-sbfspot/204278) might work.
 
 {% include integrations/config_flow.md %}
 
