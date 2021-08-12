@@ -11,6 +11,7 @@ ha_category:
   - Light
   - Lock
   - Sensor
+  - Siren
   - Switch
 ha_release: '2021.2'
 ha_iot_class: Local Push
@@ -26,6 +27,7 @@ ha_platforms:
   - light
   - lock
   - sensor
+  - siren
   - switch
 ---
 
