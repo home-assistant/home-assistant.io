@@ -10,6 +10,7 @@ ha_category:
   - Hub
   - Light
   - Lock
+  - Number
   - Sensor
   - Siren
   - Switch
@@ -26,6 +27,7 @@ ha_platforms:
   - fan
   - light
   - lock
+  - number
   - sensor
   - siren
   - switch
