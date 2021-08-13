@@ -21,7 +21,7 @@ The `upnp` integration enables you to collect network statistics from your route
 
 There is currently support for the following device types within Home Assistant:
 
-- **Binary Sensor** - If router is connected to WAN, attributes further include actual status text, WAP IP, and uptime of router.
+- **Binary Sensor** - Router connected to WAN, attributes include actual status text, WAP IP, and uptime of router.
 - **Sensor** - Allows to get the network statistics from your router such as bytes in/out and packets in/out.
 
 Please note that UPnP or NAT-PMP needs to be enabled on your router for this integration to work.
