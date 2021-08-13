@@ -10,6 +10,7 @@ ha_category:
   - Hub
   - Light
   - Lock
+  - Select
   - Sensor
   - Switch
 ha_release: '2021.2'
@@ -26,6 +27,7 @@ ha_platforms:
   - light
   - lock
   - number
+  - select
   - sensor
   - switch
 ---
