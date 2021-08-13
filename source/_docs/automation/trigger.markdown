@@ -294,7 +294,7 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 ## State trigger
 
 Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
-If only one of `from_state` or `to_state` are given, the trigger will fire on any matching state change, but not if only attributes change.
+If also one of `from:` or `to:` are given (unless a wildcard `'*'` is used), the trigger will fire on any matching state change, but not if only attributes change.
 
 <div class='note'>
 
