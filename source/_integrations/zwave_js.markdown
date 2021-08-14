@@ -10,7 +10,9 @@ ha_category:
   - Hub
   - Light
   - Lock
+  - Number
   - Sensor
+  - Siren
   - Switch
 ha_release: '2021.2'
 ha_iot_class: Local Push
