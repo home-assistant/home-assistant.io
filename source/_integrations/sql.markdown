@@ -53,6 +53,10 @@ queries:
       description: An SQL QUERY string, should return 1 result at most.
       required: true
       type: string
+    query_template:
+      description: An SQL QUERY string with template support, should return 1 result at most.
+      required: true
+      type: template
     column:
       description: The field name to select.
       required: true
@@ -103,6 +107,19 @@ sensor:
 ```
 
 Note that the SQL sensor state corresponds to the last row of the SQL result set.
+
+### Select passing date time using template
+
+```yaml
+# Example configuration.yaml with template
+sensor:
+  - platform: sql
+    queries:
+      - name: my_sensor
+        query_template: 'SELECT value from table start_time <= ''{{ now().strftime("%H:%M") }}'';'
+        column: "value"
+        unit_of_measurement: "KWh"
+```
 
 ### Previous state of an entity
 
