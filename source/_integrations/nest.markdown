@@ -37,7 +37,7 @@ This integration supports two Nest APIs. The SDM API is the new primary API that
 
 Google applies strict [Redirect URI validation
 rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) to keep your login
-credentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain*. See the documentation on [Securing](/docs/configuration/securing/) or [Troubleshooting](#troubleshooting), and note that you don't need actually need to enable remote access.
+credentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain* when setting up this integration. See the documentation on [Securing](/docs/configuration/securing/) or [Troubleshooting](#troubleshooting), and note that you don't actually need to enable remote access.
 
 ## Overview: Supported Devices
 
@@ -365,7 +365,7 @@ New users are not currently able to set up a Works With Nest Developer account. 
 </div>
 
 <details>
-<summary>Click here for documentation for the Legacy Works with Nest API</summary>
+<summary>Click here to expand documentation for the Legacy Works with Nest API</summary>
 
 The Nest integration is the main integration to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
 
