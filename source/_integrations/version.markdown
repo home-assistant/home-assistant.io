@@ -13,9 +13,10 @@ ha_codeowners:
 ha_domain: version
 ha_platforms:
   - sensor
+ha_config_flow: true
 ---
 
-The `version` integration can display the current Home Assistant versions.
+The Version integration can display the current Home Assistant versions.
 
 {% include integrations/config_flow.md %}
 
