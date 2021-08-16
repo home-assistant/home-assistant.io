@@ -422,7 +422,7 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 
 <div class='note warning'>
 
-Use quotes around your values for `from` and `to` to avoid the YAML parser from interpreting values as booleans.
+Use quotes around boolean values (`Y`, `true`, `Yes`, `ON` and `N`, `FALSE`, `No`, `off`) for `from` and `to` to avoid the YAML parser from interpreting values as booleans. See [Booleans](https://www.home-assistant.io/docs/configuration/yaml/#booleans).
 
 </div>
 
