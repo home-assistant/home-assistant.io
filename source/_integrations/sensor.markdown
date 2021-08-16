@@ -17,11 +17,20 @@ Some of these sensors are built-in to Home Assistant, some are created automatic
 The type of data a sensor returns impacts how it is displayed in the frontend. This is controlled by the sensor's device class designation. Built-in sensors and many created from an integration will have this designation predefined. Those can be modified in the [customize section](/docs/configuration/customizing-devices/). When manually creating a new sensor the device class may be optionally assigned. A full list of available sensor device classes is below:
 
 - **None**: Generic sensor. This is the default and doesn't need to be set.
+- **aqi**: Air Quality Index
 - **battery**: Percentage of battery that is left.
 - **current**: Current in A.
 - **energy**: Energy in Wh or kWh.
 - **humidity**: Percentage of humidity in the air.
 - **illuminance**: The current light level in lx or lm.
+- **nitrogen_dioxide**: Concentration of Nitrogen Dioxide in µg/m³
+- **nitrogen_monoxide**: Concentration of Nitrogen Monoxide in µg/m³
+- **nitrous_oxide**: Concentration of Nitrous Oxide in µg/m³
+- **ozone**: Concentration of Ozone in µg/m³
+- **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
+- **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
+- **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
+- **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **signal_strength**: Signal strength in dB or dBm.
 - **temperature**: Temperature in °C or °F.
 - **power**: Power in W or kW.
