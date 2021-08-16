@@ -17,11 +17,11 @@ ha_platforms:
   - sensor
 ---
 
-The `upnp` integration enables you to collect network statistics from your router such as bytes in/out and packets in/out and information such as WAN connectivity, WAN IP, and uptime. This information is provided by the [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play)/[Internet Gateway Device (IGD) Protocol](https://en.wikipedia.org/wiki/Internet_Gateway_Device_Protocol) if enabled on your router.
+The `upnp` integration enables you to collect network statistics from your router such as bytes in/out and packets in/out and WAN connectivity status. This information is provided by the [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play)/[Internet Gateway Device (IGD) Protocol](https://en.wikipedia.org/wiki/Internet_Gateway_Device_Protocol) if enabled on your router.
 
 There is currently support for the following device types within Home Assistant:
 
-- **Binary Sensor** - Router connected to WAN, attributes include actual status text, WAP IP, and uptime of router.
+- **Binary Sensor** - If router is connected to the WAN.
 - **Sensor** - Allows to get the network statistics from your router such as bytes in/out and packets in/out.
 
 Please note that UPnP or NAT-PMP needs to be enabled on your router for this integration to work.
