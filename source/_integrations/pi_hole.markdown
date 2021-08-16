@@ -43,6 +43,8 @@ Disables configured Pi-hole(s) for the specified amount of time.
 
 You can add the following to your `configuration.yaml` file if want to create a template switch which will disable Pi-Hole temporarily as opposed to turning off the main `switch` component provided by the integration. You can turn the switch on before the timer expires for an immediate effect or just leave it to turn itself on after timer expires.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 switch:
@@ -62,3 +64,4 @@ switch:
           target:
             entity_id: switch.pi_hole
 ```
+{% endraw %}
