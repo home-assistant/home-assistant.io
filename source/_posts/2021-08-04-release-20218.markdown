@@ -66,6 +66,7 @@ later today (9:00 PM CET).
 - [Release 2021.8.4 - August 8](#release-202184---august-8)
 - [Release 2021.8.5 - August 9](#release-202185---august-9)
 - [Release 2021.8.6 - August 10](#release-202186---august-10)
+- [Release 2021.8.7 - August 15](#release-202187---august-15)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -542,6 +543,77 @@ The following integrations are now available via the Home Assistant UI:
 [co2signal docs]: /integrations/co2signal/
 [openuv docs]: /integrations/openuv/
 [tibber docs]: /integrations/tibber/
+
+## Release 2021.8.7 - August 15
+
+- Use pycarwings2 2.11 ([@filcole] - [#54424]) ([nissan_leaf docs])
+- Fix Huawei LTE entity state updating ([@scop] - [#54447]) ([huawei_lte docs])
+- Strip attributes whitespace in universal media_player ([@0xFelix] - [#54451]) ([universal docs])
+- Bump notifications-android-tv to 0.1.3 ([@tkdrob] - [#54462]) ([nfandroidtv docs])
+- Updates to bump MyQ to 3.1.2 ([@ehendrix23] - [#54488]) ([myq docs])
+- Add missing PRESSURE_BAR conversion ([@Danielhiversen] - [#54497])
+- Treat temporary errors as warnings for Tesla ([@alandtse] - [#54515]) ([tesla docs])
+- Fix attributes not showing after using entity class attributes ([@gerard33] - [#54558]) ([bmw_connected_drive docs])
+- Upgrade qnapstats library to 0.4.0 ([@colinodell] - [#54571]) ([qnap docs])
+- Fix bug in ambiclimate ([@Danielhiversen] - [#54579]) ([ambiclimate docs])
+- Fix Tibber last reset ([@Danielhiversen] - [#54582]) ([tibber docs])
+- Adax, update requirements ([@Danielhiversen] - [#54587]) ([adax docs])
+- Clamp color temperature to supported range in ESPHome light ([@oxan] - [#54595]) ([esphome docs])
+- Bump zeroconf to 0.35.0 ([@bdraco] - [#54604]) ([zeroconf docs])
+- Bump py-synologydsm-api to 1.0.4 ([@mib1185] - [#54610]) ([synology_dsm docs])
+- Guard partial upgrade ([@balloob] - [#54617]) ([http docs])
+- Solve switch/verify register type convert problem in modbus ([@janiversen] - [#54645]) ([modbus docs])
+- Send color_brightness to ESPHome devices on 1.20 (pre-color_mode) ([@jesserockz] - [#54670]) ([esphome docs])
+
+[#54424]: https://github.com/home-assistant/core/pull/54424
+[#54447]: https://github.com/home-assistant/core/pull/54447
+[#54451]: https://github.com/home-assistant/core/pull/54451
+[#54462]: https://github.com/home-assistant/core/pull/54462
+[#54488]: https://github.com/home-assistant/core/pull/54488
+[#54497]: https://github.com/home-assistant/core/pull/54497
+[#54515]: https://github.com/home-assistant/core/pull/54515
+[#54558]: https://github.com/home-assistant/core/pull/54558
+[#54571]: https://github.com/home-assistant/core/pull/54571
+[#54579]: https://github.com/home-assistant/core/pull/54579
+[#54582]: https://github.com/home-assistant/core/pull/54582
+[#54587]: https://github.com/home-assistant/core/pull/54587
+[#54595]: https://github.com/home-assistant/core/pull/54595
+[#54604]: https://github.com/home-assistant/core/pull/54604
+[#54610]: https://github.com/home-assistant/core/pull/54610
+[#54617]: https://github.com/home-assistant/core/pull/54617
+[#54645]: https://github.com/home-assistant/core/pull/54645
+[#54670]: https://github.com/home-assistant/core/pull/54670
+[@0xFelix]: https://github.com/0xFelix
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@alandtse]: https://github.com/alandtse
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@colinodell]: https://github.com/colinodell
+[@ehendrix23]: https://github.com/ehendrix23
+[@filcole]: https://github.com/filcole
+[@gerard33]: https://github.com/gerard33
+[@janiversen]: https://github.com/janiversen
+[@jesserockz]: https://github.com/jesserockz
+[@mib1185]: https://github.com/mib1185
+[@oxan]: https://github.com/oxan
+[@scop]: https://github.com/scop
+[@tkdrob]: https://github.com/tkdrob
+[adax docs]: /integrations/adax/
+[ambiclimate docs]: /integrations/ambiclimate/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[esphome docs]: /integrations/esphome/
+[http docs]: /integrations/http/
+[huawei_lte docs]: /integrations/huawei_lte/
+[modbus docs]: /integrations/modbus/
+[myq docs]: /integrations/myq/
+[nfandroidtv docs]: /integrations/nfandroidtv/
+[nissan_leaf docs]: /integrations/nissan_leaf/
+[qnap docs]: /integrations/qnap/
+[synology_dsm docs]: /integrations/synology_dsm/
+[tesla docs]: /integrations/tesla/
+[tibber docs]: /integrations/tibber/
+[universal docs]: /integrations/universal/
+[zeroconf docs]: /integrations/zeroconf/
 
 ## If you need help...
 
