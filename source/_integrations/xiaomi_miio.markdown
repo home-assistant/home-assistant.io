@@ -240,7 +240,6 @@ Supported devices:
   - `use_time`
   - `button_pressed`
   - `buzzer`
-  - `led_brightness`
   - `sleep_mode`
 - Sensor entities
 
@@ -367,7 +366,6 @@ This model uses newer MiOT communication protocol.
   - `led`
   - `use_time`
   - `buzzer`
-  - `led_brightness`
   - `fan_level`
 - Sensor entities
 
@@ -380,12 +378,17 @@ Sensor                  | Description
 `purify_volume`         | The volume of purified air in qubic meter
 `temperature`           | The current `temperature` measured
 
+- Select entities
+
+Select | Description
+--- | ---
+`led brightness` | Controls the brightness of the LEDs (bright, dim, off)
+
 ### Air Purifier V3 (zhimi.airpurifier.v3)
 
 - Power (on, off)
 - Operation modes (auto, silent, favorite, idle, medium, high, strong)
 - Child lock (on, off)
-- LED (on, off)
 - Attributes
   - `model`
   - `aqi`
@@ -421,6 +424,12 @@ Sensor                  | Description
 `motor_speed`           | The current `motor_speed` measured in rpm
 `motor2_speed`          | The current `motor2_speed` measured in rpm
 `purify_volume`         | The volume of purified air in qubic meter
+
+- Select entities
+
+Select | Description
+--- | ---
+`led brightness` | Controls the brightness of the LEDs (bright, dim, off)
 
 ### Air Humidifier (zhimi.humidifier.v1)
 
@@ -498,7 +507,6 @@ Clean mode and Motor speed can only be set when the device is turned on.
 - Operation modes (auto, silent, interval, low, middle, strong)
 - Buzzer (on, off)
 - Child lock (on, off)
-- LED (on, off), LED brightness (bright, dim, off)
 - Attributes
   - `model`
   - `aqi`
@@ -508,7 +516,6 @@ Clean mode and Motor speed can only be set when the device is turned on.
   - `co2`
   - `mode`
   - `led`
-  - `led_brightness`
   - `buzzer`
   - `child_lock`
   - `filter_life_remaining`
@@ -526,6 +533,12 @@ Sensor                  | Description
 `humidity`              | The current `humidity` measured
 `illuminance`           | The current `illuminance` measured
 `temperature`           | The current `temperature` measured
+
+- Select entities
+
+Select | Description
+--- | ---
+`led brightness` | Controls the brightness of the LEDs (bright, dim, off)
 
 ### Platform Services
 
