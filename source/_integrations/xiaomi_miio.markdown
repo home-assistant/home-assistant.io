@@ -389,6 +389,7 @@ Select | Description
 - Power (on, off)
 - Operation modes (auto, silent, favorite, idle, medium, high, strong)
 - Child lock (on, off)
+- LED (on, off)
 - Attributes
   - `model`
   - `aqi`
@@ -507,6 +508,7 @@ Clean mode and Motor speed can only be set when the device is turned on.
 - Operation modes (auto, silent, interval, low, middle, strong)
 - Buzzer (on, off)
 - Child lock (on, off)
+- LED (on, off)
 - Attributes
   - `model`
   - `aqi`
