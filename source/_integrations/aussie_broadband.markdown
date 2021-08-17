@@ -11,7 +11,6 @@ ha_codeowners:
 ha_domain: aussie_broadband
 ha_platforms:
 - sensor
-- camera
 ---
 
 The Aussie Broadband integration uses the [Aussie Broadband API](https://myaussie-api.aussiebroadband.com.au) as a source for internet usage data.
