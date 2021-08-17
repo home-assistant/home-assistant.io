@@ -35,6 +35,7 @@ This integration is known to work for:
 - Kaifa E0026
 - Kamstrup 382JxC (DSMR 2.2)
 - Sagemcom XS210 ESMR5
+- Ziv E0058 ESMR5
 
 USB serial converters:
 
