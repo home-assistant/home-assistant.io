@@ -3,6 +3,7 @@ title: Aussie Broadband
 description: Instructions on how to integrate Aussie Broadband within Home Assistant.
 ha_category:
 - Network
+- Sensor
 ha_release: 2021.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
