@@ -14,8 +14,6 @@ ha_platforms:
 - camera
 ---
 
-The `aussie_broadband` integration uses the [Aussie Broadband API](https://myaussie-api.aussiebroadband.com.au) as a source for internet usage data.
-
-## Setup
+The Aussie Broadband integration uses the [Aussie Broadband API](https://myaussie-api.aussiebroadband.com.au) as a source for internet usage data.
 
 {% include integrations/config_flow.md %}
