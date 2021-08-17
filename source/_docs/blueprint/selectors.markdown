@@ -551,6 +551,16 @@ multiline:
   type: boolean
   default: false
   required: false
+pattern:
+  description: Set to a regular expression to validate the input.
+  type: string
+  default: none
+  required: false
+placeholder:
+  description: If no input is currently specified, displays a short hint that describes the exprected value.
+  type: string
+  default: none
+  required: false
 {% endconfiguration %}
 
 ## Time selector
