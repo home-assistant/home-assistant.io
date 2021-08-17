@@ -21,7 +21,18 @@ ha_platforms:
   - sensor
 ---
 
-The `august` integration allows you to integrate your [August](https://august.com/) devices in Home Assistant.
+The `august` integration allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.
+
+{% include integrations/config_flow.md %}
+
+### Known Working Devices
+
+- August Wi-Fi Smart Lock (Gen 4)
+- August Smart Lock Pro (Gen 3)
+- August Smart Lock (Gen 2)
+- August Doorbell Cam (Gen 1, Gen2)
+- August View
+- Yale Assure Locks with August/Yale Connect Module
 
 There is currently support for the following device types within Home Assistant:
 
@@ -35,7 +46,10 @@ There is currently support for the following device types within Home Assistant:
 August Lock 2nd Gen will need either August Connect or Doorbell to connect to Home Assistant.
 </div>
 
-{% include integrations/config_flow.md %}
+### Known Unsupported Devices
+- The Yale Doorman L3
+
+Other devices not listed above have not been tested and may not function as expected.
 
 ### Binary Sensor
 
