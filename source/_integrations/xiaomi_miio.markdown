@@ -635,15 +635,6 @@ Set the LED brightness. Supported values are 'Bright', 'Dim', 'Off'.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `option`                  |       no | Brightness option. Should be 'Bright', 'Dim' or 'Off'   |
 
-### Service `xiaomi_miio.fan_set_led_brightness` (Air Humidifiers, Air Purifier 2S and Air Purifier Pro excluded)
-
-Set the LED brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-| `brightness`              |       no | Brightness, between 0 and 2.                            |
-
 ### Service `xiaomi_miio.fan_set_favorite_level` (Air Purifiers only)
 
 Set the favorite level of the operation mode "favorite".
