@@ -240,7 +240,6 @@ Supported devices:
   - `use_time`
   - `button_pressed`
   - `buzzer`
-  - `led_brightness`
   - `sleep_mode`
 - Sensor entities
 
@@ -367,7 +366,6 @@ This model uses newer MiOT communication protocol.
   - `led`
   - `use_time`
   - `buzzer`
-  - `led_brightness`
   - `fan_level`
 - Sensor entities
 
@@ -379,6 +377,12 @@ Sensor                  | Description
 `motor_speed`           | The current `motor_speed` measured in rpm
 `purify_volume`         | The volume of purified air in qubic meter
 `temperature`           | The current `temperature` measured
+
+- Select entities
+
+Select | Description
+--- | ---
+`led brightness` | Controls the brightness of the LEDs (bright, dim, off)
 
 ### Air Purifier V3 (zhimi.airpurifier.v3)
 
@@ -498,7 +502,7 @@ Clean mode and Motor speed can only be set when the device is turned on.
 - Operation modes (auto, silent, interval, low, middle, strong)
 - Buzzer (on, off)
 - Child lock (on, off)
-- LED (on, off), LED brightness (bright, dim, off)
+- LED (on, off)
 - Attributes
   - `model`
   - `aqi`
@@ -508,7 +512,6 @@ Clean mode and Motor speed can only be set when the device is turned on.
   - `co2`
   - `mode`
   - `led`
-  - `led_brightness`
   - `buzzer`
   - `child_lock`
   - `filter_life_remaining`
@@ -526,6 +529,12 @@ Sensor                  | Description
 `humidity`              | The current `humidity` measured
 `illuminance`           | The current `illuminance` measured
 `temperature`           | The current `temperature` measured
+
+- Select entities
+
+Select | Description
+--- | ---
+`led brightness` | Controls the brightness of the LEDs (bright, dim, off)
 
 ### Platform Services
 
@@ -634,15 +643,6 @@ Set the LED brightness. Supported values are 'Bright', 'Dim', 'Off'.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `option`                  |       no | Brightness option. Should be 'Bright', 'Dim' or 'Off'   |
-
-### Service `xiaomi_miio.fan_set_led_brightness` (Air Humidifiers, Air Purifier 2S and Air Purifier Pro excluded)
-
-Set the LED brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-| `brightness`              |       no | Brightness, between 0 and 2.                            |
 
 ### Service `xiaomi_miio.fan_set_favorite_level` (Air Purifiers only)
 
