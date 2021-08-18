@@ -67,6 +67,7 @@ later today (9:00 PM CET).
 - [Release 2021.8.5 - August 9](#release-202185---august-9)
 - [Release 2021.8.6 - August 10](#release-202186---august-10)
 - [Release 2021.8.7 - August 15](#release-202187---august-15)
+- [Release 2021.8.8 - August 18](#release-202188---august-18)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -614,6 +615,33 @@ The following integrations are now available via the Home Assistant UI:
 [tibber docs]: /integrations/tibber/
 [universal docs]: /integrations/universal/
 [zeroconf docs]: /integrations/zeroconf/
+
+## Release 2021.8.8 - August 18
+
+- Fix TPLink emeter reset not updating ([@TomBrien] - [#54848]) ([tplink docs])
+- Fix tplink doing I/O in event loop and optimize ([@rytilahti] - [#54570]) ([tplink docs])
+- Fix 'in' comparisons vesync light ([@cdce8p] - [#54614]) ([vesync docs])
+- Update PyMetEireann to 2021.8.0 ([@DylanGore] - [#54693]) ([met_eireann docs])
+- Fix BMW remote services in rest_of_world & north_america ([@rikroe] - [#54726]) ([bmw_connected_drive docs])
+- Fix HomeKit cover creation with tilt position, open/close, no set position ([@bdraco] - [#54727]) ([homekit docs])
+
+[#54570]: https://github.com/home-assistant/core/pull/54570
+[#54614]: https://github.com/home-assistant/core/pull/54614
+[#54693]: https://github.com/home-assistant/core/pull/54693
+[#54726]: https://github.com/home-assistant/core/pull/54726
+[#54727]: https://github.com/home-assistant/core/pull/54727
+[#54848]: https://github.com/home-assistant/core/pull/54848
+[@DylanGore]: https://github.com/DylanGore
+[@TomBrien]: https://github.com/TomBrien
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@rikroe]: https://github.com/rikroe
+[@rytilahti]: https://github.com/rytilahti
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[homekit docs]: /integrations/homekit/
+[met_eireann docs]: /integrations/met_eireann/
+[tplink docs]: /integrations/tplink/
+[vesync docs]: /integrations/vesync/
 
 ## If you need help...
 
