@@ -3,7 +3,7 @@ title: "Template Number"
 description: "Instructions on how to integrate Template Numbers into Home Assistant."
 ha_category:
   - Number
-ha_release: 0.81
+ha_release: 2021.9
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: template

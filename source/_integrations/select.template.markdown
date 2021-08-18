@@ -3,7 +3,7 @@ title: "Template Select"
 description: "Instructions on how to integrate Template Selects into Home Assistant."
 ha_category:
   - Select
-ha_release: 0.81
+ha_release: 2021.9
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: template
