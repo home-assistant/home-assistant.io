@@ -426,12 +426,6 @@ Sensor                  | Description
 `motor2_speed`          | The current `motor2_speed` measured in rpm
 `purify_volume`         | The volume of purified air in qubic meter
 
-- Select entities
-
-Select | Description
---- | ---
-`led brightness` | Controls the brightness of the LEDs (bright, dim, off)
-
 ### Air Humidifier (zhimi.humidifier.v1)
 
 - On, Off
