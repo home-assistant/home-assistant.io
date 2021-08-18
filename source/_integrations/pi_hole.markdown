@@ -41,27 +41,13 @@ Disables configured Pi-hole(s) for the specified amount of time.
 | `entity_id` | `False` | string | Target switch entity. Use `all` to target all Pi-hole services |
 | `duration` | `True` | timedelta | Time for which Pi-hole should be disabled |
 
-You can add the following to your `configuration.yaml` file if want to create a template switch which will disable Pi-Hole temporarily as opposed to turning off the main `switch` component provided by the integration. You can turn the switch on before the timer expires for an immediate effect or just leave it to turn itself on after timer expires.
-
-{% raw %}
+Example service call:
 
 ```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: template
-    switches:
-      pihole_temp_disable:
-        friendly_name: "Disable Pi-Hole for 30 min"
-        value_template: "{{ is_state('switch.pi_hole', 'on') }}"
-        turn_on:
-          service: switch.turn_on
-          target:
-            entity_id: switch.pi_hole
-        turn_off:
-          service: pi_hole.disable
-          data:
-            duration: '00:30'
-          target:
-            entity_id: switch.pi_hole
+# Example service call to disable Pi-Hole for 30 minutes
+service: pi_hole.disable
+data:
+  duration: '00:30'
+target:
+  entity_id: all
 ```
-{% endraw %}
