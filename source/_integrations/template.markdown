@@ -7,6 +7,7 @@ ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
+  - '@home-assistant/core'
   - '@PhracturedBlue'
   - '@tetienne'
 ha_domain: template
@@ -37,7 +38,7 @@ Sensors, binary (on/off) sensors, and numbers are covered on this page. For othe
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
-Sensor, binary sensor, number, and select template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number entities and can contain an optional update trigger.
+Sensor, binary sensor, and number template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
@@ -202,7 +203,7 @@ number:
     required: false
     type: boolean
     default: false
-"[all (sensor, binary sensor, number) entities]":
+"[all sensor, binary sensor, number entities]":
   description: Fields that can be used above for sensors, binary sensors, and numbers.
   required: false
   type: map
