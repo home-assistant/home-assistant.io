@@ -17,6 +17,8 @@ ha_platforms:
   - fan
   - light
   - lock
+  - number
+  - select
   - sensor
   - switch
   - vacuum
@@ -32,6 +34,8 @@ Sensors and binary (on/off) sensors are covered on this page. For other types, p
 - [Fan](/integrations/fan.template/)
 - [Light](/integrations/light.template/)
 - [Lock](/integrations/lock.template/)
+- [Number](/integrations/number.template/)
+- [Select](/integrations/select.template/)
 - [Switch](/integrations/switch.template/)
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)

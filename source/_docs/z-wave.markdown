@@ -5,13 +5,13 @@ description: "Using Z-Wave with Home Assistant."
 
 <div class='note'>
 
-This Z-Wave integration is deprecated and replaced with a [new implementation based on Z-Wave JS](/integrations/zwave_js); it's currently in beta, and you can [try it now](/integrations/zwave_js/).
+There are three Z-Wave integrations in Home Assistant, [zwave](), [ozw](), and [zwave_js](). You are free to use any of the integrations, but it is recommended to use `zwave_js` as it is in active development. There is no more development effort planned for `zwave` and `ozw` - while the existing code may work for your use case, it can break at any time.
 
 </div>
 
-[Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a [supported Z-Wave USB stick or module](/docs/z-wave/controllers/) to be plugged into the host.
+The [Z-Wave JS](https://zwave-js.github.io/node-zwave-js) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a [supported Z-Wave USB stick or module](/docs/z-wave/controllers/) to be plugged into the host.
 
-There is currently support for climate, covers, lights, locks, sensors, switches, and thermostats. All will be picked up automatically after configuring this platform.
+There is currently support for climate, covers, fans, lights, locks, sensors, sirens, switches, and thermostats. All will be picked up automatically after configuring this platform.
 
 Before configuring the Z-Wave setup, please take a moment and read [this article](https://drzwave.blog/2017/01/20/seven-habits-of-highly-effective-z-wave-networks-for-consumers/) to understand the most common pitfalls of Z-Wave networks.
 
@@ -39,6 +39,6 @@ You can get more information on the [available services](/docs/z-wave/services/)
 
 ## Instant status updates
 
-When you toggle a switch or control a light locally you may find that it takes some time for that to be reflected in Home Assistant. That's because Lutron had patents on the status updates using the *Hail* command class, the traditional way of allowing devices to tell the controller that something happened locally. The same result can be achieved through the *Association* command class, or *Central Scene* command class (though, *Central Scene* isn't [fully supported](https://github.com/OpenZWave/open-zwave/pull/1125) in OpenZWave).
+When you toggle a switch or control a light locally you may find that it takes some time for that to be reflected in Home Assistant. That's because Lutron had patents on the status updates using the *Hail* command class, the traditional way of allowing devices to tell the controller that something happened locally. The same result can be achieved through the *Association* command class, or *Central Scene* command class.
 
-If you search [the Z-Wave products database](https://products.z-wavealliance.org/) for your product and it lists one of those in the **Controlled** command classes (not the **Supported** command classes), then your device will be able to report state changes when they happen. If it doesn't then updates may either happen eventually, or you may need to (carefully) [enable polling](/docs/z-wave/control-panel/#entities-of-this-node).
+If you search [the Z-Wave products database](https://products.z-wavealliance.org/) for your product and it lists one of those in the **Controlled** command classes (not the **Supported** command classes), then your device will be able to report state changes when they happen. If it doesn't then updates may either happen eventually, or you may need to (carefully) [occasionally call the zwave_js.refresh_value service](/docs/z-wave/control-panel/#entities-of-this-node).
