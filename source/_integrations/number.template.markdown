@@ -23,19 +23,19 @@ To enable Template Numbers in your installation, add the following to your `conf
 
 ```yaml
 # Example configuration.yaml entry
-number:
-  - platform: template
-    name: Volume
-    value_template: "{{ state_attr('media_player.speaker', 'volume_level') }}"
-    step_template: "{{ 0.01 }}"
-    minimum_template: "{{ 0 }}"
-    maximum_template: "{{ 1 }}"
-    set_value:
-      service: media_player.volume_set
-      target:
-        entity_id: media_player.speaker
-      data_template:
-        volume_level: "{{ value }}"
+template:
+  - number:
+      name: Volume
+      value_template: "{{ state_attr('media_player.speaker', 'volume_level') }}"
+      step_template: "{{ 0.01 }}"
+      minimum_template: "{{ 0 }}"
+      maximum_template: "{{ 1 }}"
+      set_value:
+        service: media_player.volume_set
+        target:
+          entity_id: media_player.speaker
+        data_template:
+          volume_level: "{{ value }}"
 ```
 
 {% endraw %}
