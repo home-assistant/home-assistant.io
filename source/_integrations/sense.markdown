@@ -33,7 +33,7 @@ Sensors are added for both usage and production:
 - Active sensors: Updated every 60 seconds.
   - Usage: Current active power usage in Watts.
   - Production: Current active power production in Watts.
-- Trend sensors: Data provided for daily, weekly, monthly, and yearly scales. Updated every 5 minutes.
+- Trend sensors: Data provided for daily, weekly, monthly and yearly scales. Updated every 5 minutes.
   - Usage: Power usage in kWh.
   - Production: Power production in kWh.
   - To Grid: Power exported to the grid in kWh.
