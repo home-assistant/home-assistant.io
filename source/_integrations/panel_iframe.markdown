@@ -24,9 +24,11 @@ panel_iframe:
   router:
     title: "Router"
     url: "http://192.168.1.1"
+    require_admin: true
   fridge:
     title: "Fridge"
     url: "http://192.168.1.5"
+    icon: mdi:fridge
   otherapp:
     title: "Other App"
     url: "/otherapp"
