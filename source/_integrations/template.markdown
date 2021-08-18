@@ -194,15 +194,15 @@ number:
           description: Template for the number's increment/decrement step.
           required: true
           type: template
- set_value:
-    description: Defines an action to run when the number value changes.
-    required: true
-    type: action
-  optimistic:
-    description: Flag that defines if lock works in optimistic mode.
-    required: false
-    type: boolean
-    default: false
+    set_value:
+      description: Defines an action to run when the number value changes.
+      required: true
+      type: action
+    optimistic:
+      description: Flag that defines if lock works in optimistic mode.
+      required: false
+      type: boolean
+      default: false
 "[all sensor, binary sensor, number entities]":
   description: Fields that can be used above for sensors, binary sensors, and numbers.
   required: false
