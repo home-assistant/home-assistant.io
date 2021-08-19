@@ -10,8 +10,10 @@ ha_category:
   - Hub
   - Light
   - Lock
+  - Number
   - Select
   - Sensor
+  - Siren
   - Switch
 ha_release: '2021.2'
 ha_iot_class: Local Push
@@ -29,6 +31,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
 ---
 
@@ -435,7 +438,7 @@ It is perfectly doable to switch over from one of the above mentioned previous i
 
    <div class='note info'>Make a list of what node ID belongs to each device. Your network (Nodes and their config etc) is stored on the stick but the names you gave your devices and entities are not. This step is optional but will save you a lot of time later.</div>
 
-2) Remove the Z-Wave integration from Home Assistant: Configuration --> Integrations --> Z-Wave (or OpenZWave) --> Press the three dots and click Remove.
+2) Remove the Z-Wave integration from Home Assistant: Configuration --> Integrations --> Z-Wave (or OpenZWave) --> Press the three dots and click Delete.
 
 3) If you were running the OpenZWave beta, make sure to stop (or even remove) the OpenZWave add-on, also make sure it doesn't start automatically at startup.
 

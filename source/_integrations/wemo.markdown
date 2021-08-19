@@ -17,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - fan
   - light
+  - sensor
   - switch
 ha_codeowners:
   - '@esev'

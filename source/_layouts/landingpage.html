@@ -36,7 +36,7 @@ layout: page
 
 {% if page.sections %}
   {% for section in page.sections %}
-    <div class="section-content" id="{{section.title | downcase | strip | replace: " ", "_"}}">
+    <div class="section-content" id="{{section.title | downcase | strip | replace: " ", "_"}}" style="{{section.style}}">
         <div class="header">
             <img src="{{section.image}}">
             <div class="title">{{section.title}}</div>

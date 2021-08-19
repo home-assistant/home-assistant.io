@@ -23,9 +23,9 @@ Home Assistant will need to know the amount of energy flowing through your meter
 
 CT clamp sensors measure the instantaneous current passing through an electrical wire. To translate this into electrical power (W) you also need a voltage measurement, because Power = Current x Voltage.
 
-In Home Assistant we have support for off-the-shelf CT clamp sensors and you can build your own with ESPHome's [CT Clamp Current sensor](https://esphome.io/components/sensor/ct_clamp.html).
+In Home Assistant we have support for off-the-shelf CT clamp sensors and you can build your own with ESPHome's [CT Clamp Current sensor](https://esphome.io/components/sensor/ct_clamp.html). You can also use a dedicated energy meter sensor in ESPHome, which outputs more detailed data, like the [ATM90E32](https://esphome.io/components/sensor/atm90e32.html).
 
-The off-the-shelf solution that we advice is the [Shelly EM](https://shop.shelly.cloud/shelly-em-2-x-120a-clamp-wifi-smart-home-automation?tracking=A7FsiPIfUWsFpnfKHa8SRyUYLXjr2hPq). The device has a local API, updates are pushed to Home Assistant and it has a high quality integration.
+The off-the-shelf solution that we advise is the [Shelly EM](https://shop.shelly.cloud/shelly-em-2-x-120a-clamp-wifi-smart-home-automation?tracking=A7FsiPIfUWsFpnfKHa8SRyUYLXjr2hPq). The device has a local API, updates are pushed to Home Assistant and it has a high quality integration.
 
 In case of three-phase electrical systems, attention should be drawn to the fact that the current measurement of a given phase is matched to the voltage of the same phase, otherwise the power measurements will be incorrect.
 
@@ -47,7 +47,9 @@ We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to devel
 
 Many meters, including older ones, have an LED that will flash whenever energy passes through it. For example, each flash is a 1/1000th kWh. By monitoring the time between flashes it’s possible to determine the energy consumption.
 
-We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-assistant-glow), an open source solution powered by ESPHome's [pulse meter sensor](https://esphome.io/components/sensor/pulse_meter.html).
+We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-assistant-glow), an open source solution powered by ESPHome's [pulse meter sensor](https://esphome.io/components/sensor/pulse_meter.html). You put it on top of the activity LED of your electricity meter and it will bring your consumption into Home Assistant.
+
+![Photo of Home Assistant Glow attached to an electricity meter](/images/docs/energy/home-assistant-glow.jpg)
 
 ![Photo of Home Assistant Glow attached to an electricity meter](/images/docs/energy/home-assistant-glow.jpg)
 

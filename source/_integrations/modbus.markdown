@@ -18,6 +18,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_quality_scale: silver
 ---
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit). The integration adheres strictly to the [protocol specification](https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf).
@@ -302,7 +303,7 @@ modbus:
         address: 100
         scan_interval: 20
         slave: 1
-      - name: "binary_ensor2"
+      - name: "binary_sensor2"
         address: 110
         device_class: door
         input_type: discrete_input

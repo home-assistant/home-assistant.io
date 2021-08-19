@@ -48,24 +48,3 @@ If you set `show_on_map: true` then the location attributes are named `latitude`
 The default name of the location attributes is `lat` and `long` to avoid showing them on the map.
 
 </div>
-
-### Show position on map with camera platform
-
-The [generic camera platform](/integrations/mjpeg) offers
-the possibility to show the location of the ISS on OpenStreetMap.
-
-{% raw %}
-
-```yaml
-# Example configuration.yaml entry
-  - platform: iss
-    show_on_map: true
-    
-camera:
-  - platform: generic
-    name: ISS
-    still_image_url: http://staticmap.openstreetmap.de/staticmap.php?center={{ state_attr('binary_sensor.iss', 'lat') }},{{ state_attr('binary_sensor.iss', 'long') }}&zoom=4&size=865x512&maptype=mapnik&markers={{ state_attr('binary_sensor.iss', 'lat') }},{{ state_attr('binary_sensor.iss', 'long') }},lightblue
-    limit_refetch_to_url_change: true
-```
-
-{% endraw %}
