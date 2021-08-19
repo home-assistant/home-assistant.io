@@ -129,6 +129,7 @@ source/_integrations/emby.markdown @mezz64
 source/_integrations/emoncms.markdown @borpin
 source/_integrations/emonitor.markdown @bdraco
 source/_integrations/emulated_kasa.markdown @kbickar
+source/_integrations/enasolar.markdown @geustace
 source/_integrations/enigma2.markdown @fbradyirl
 source/_integrations/enocean.markdown @bdurrer
 source/_integrations/enphase_envoy.markdown @gtdiehl
