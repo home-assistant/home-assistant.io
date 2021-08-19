@@ -43,6 +43,12 @@ We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to devel
 
 ![Photo of SlimmeLezer attached to a smart electricity meter](/images/docs/energy/slimmelezer.jpg)
 
+#### Connect via Zigbee Energy Profile
+
+The Zigbee Energy Profile is a wireless energy standard to provide real-time information about electricity usage. This standard is available in some meters in the US, UK and Australia. This is not "normal" Zigbee as implemented by Home Assistant but requires special certified hardware.
+
+One such option with a local API is the [Rainforest EAGLE-200](/integrations/rainforest_eagle/).
+
 #### Reading the meter via a pulse counter
 
 Many meters, including older ones, have an LED that will flash whenever energy passes through it. For example, each flash is a 1/1000th kWh. By monitoring the time between flashes it’s possible to determine the energy consumption.
