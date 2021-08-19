@@ -43,7 +43,7 @@ The above-required configuration parameters can be obtained as follows:
   Google reCAPTCHA: Disabled
   Redirect URIs: vicare://oauth-callback/everest
   ```
-4. Copy the Client ID to the configuration, e.g., `client_id="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"`.
+4. Copy the Client ID to the configuration, e.g., `client_id: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"`.
 5. Set `username`and `password` to your Viessmann Developer Portal login credentials.
 
 
