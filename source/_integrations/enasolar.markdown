@@ -50,20 +50,20 @@ sun_down:
   default: "22:00"
   type: time 
 max_output:
-  description: "The inverter's rating"
+  description: "The inverter's rating - must be one of 1.5, 2.0, 3.0, 3.8, 4.0 or 5.0"
   required: false
   default: will be set by looking in jscript from inverters main web page
-  type: small_float - must be one of 1.5, 2.0, 3.0, 3.8, 4.0 or 5.0
+  type: small_float
 dc_strings:
-  description: "The number of DC strings attached to the inverter"
+  description: "The number of DC strings attached to the inverter - must be 1 or 2"
   required: false
   default: will be set by looking in jscript from inverters main web page
-  type: positive_int - must be 1 or 2
+  type: positive_int
 capability:
-  description: "9 bits ANDed indicating features of the inverter"
+  description: "9 bits ANDed indicating features of the inverter - 1 has power meter, 2 has solar meter, 4 has temperature meter, 256 fahrenhiet"
   required: false
   default: will be set by looking in jscript from inverters main web page
-  type: positive_int - 1 has power meter, 2 has solar meter, 4 has temperature meter, 256 fahrenhiet
+  type: positive_int
 {% endconfiguration %}
 
 ## Sensors
