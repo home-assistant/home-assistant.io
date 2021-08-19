@@ -53,17 +53,17 @@ max_output:
   description: "The inverter's rating - must be one of 1.5, 2.0, 3.0, 3.8, 4.0 or 5.0"
   required: false
   default: will be set by looking in jscript from inverters main web page
-  type: small_float
+  type: float
 dc_strings:
   description: "The number of DC strings attached to the inverter - must be 1 or 2"
   required: false
   default: will be set by looking in jscript from inverters main web page
-  type: positive_int
+  type: integer
 capability:
   description: "9 bits ANDed indicating features of the inverter - 1 has power meter, 2 has solar meter, 4 has temperature meter, 256 fahrenhiet"
   required: false
   default: will be set by looking in jscript from inverters main web page
-  type: positive_int
+  type: integer
 {% endconfiguration %}
 
 ## Sensors
