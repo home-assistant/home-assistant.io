@@ -27,3 +27,33 @@ The Yamaha MusicCast integration implements the grouping services. There are som
 
 - It is not possible to let mediaplayer entities of the same device (e.g., different zones) be in distinct groups.
 - If a non-main zone is the master of a group, it is not possible to let other mediaplayers of the same device join this group.
+
+## Play Media functionality
+
+The MusicCast integration supports the home assistant media browser for all streaming sevices, your device supports. For services such as deezer you have to login using the official musiccast app. In addition, local http URLs can be played back using this service. This includes the home assistant text to text services.
+
+It is also possible to recall netusb presets using the play media service. To do so "presets:<preset_num>" has to be uses as media_content_id in the service call.
+
+### Examples:
+
+This is an example service call that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver):
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: "music"
+  media_content_id: "http://192.168.188.18:8123/local/sound_files/doorbell-front.mp3"
+```
+
+This example call shows how to call netusb preset 1:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.buro
+data:
+  media_content_id: presets:1
+  media_content_type: music
+```
