@@ -14,7 +14,7 @@ ha_platforms:
 
 The `enasolar` sensor will poll a EnaTel EnaSolar GT solar inverter.  EnaTel are no longer in the solar market but their inverters were popular in Australia and New Zealand.
 
-This sensor uses the inverter's web interface. To use it, you have to be able to connect to the solar inverter from your favorite web browser. Try http://your-inverter/settings.htm
+This sensor uses the inverter's web interface. To use it, you have to be able to connect to the solar inverter from your favorite web browser. Try http://your-inverter/settings.html
 
 Note: Polling too frequently caused the web server in the inverter to become unresponsive, to reset turn the AC switch on the inverter Off and On again. The current implementation polls the meters every minute and the daily data every 10 minutes. Polling is also reduced at night.
 
