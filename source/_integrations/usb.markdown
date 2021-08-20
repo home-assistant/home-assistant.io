@@ -15,7 +15,7 @@ The `usb` "USB Discovery" integration will watch the host for USB devices. Disco
 
 - On Linux, devices are detected as soon as they are plugged in.
 
-- On Window and Mac OS, devices are detected at startup and hourly.
+- On Windows and Mac OS, devices are detected at startup and hourly.
 
 ## Configuration
 
