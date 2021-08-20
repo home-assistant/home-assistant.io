@@ -642,54 +642,6 @@ Turn `buzzer`, `child_lock`, `clean_mode` or `dry_mode` on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `xiaomi_miio.fan_set_buzzer_on` (Air Purifier Pro and Air Humidifiers excluded)
-
-Turn the buzzer on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_buzzer_off` (Air Purifier Pro and Air Humidifiers excluded)
-
-Turn the buzzer off.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_led_on` (Air Purifiers only)
-
-Turn the LED on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_led_off` (Air Purifiers only)
-
-Turn the LED off.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_child_lock_on` (Air Humidifiers excluded)
-
-Turn the child lock on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_child_lock_off` (Air Humidifiers excluded)
-
-Turn the child lock off.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
 ### Service `select.select_option` (Air Humidifiers only)
 
 Set the LED brightness. Supported values are 'Bright', 'Dim', 'Off'.
@@ -716,38 +668,6 @@ Set the fan level for "fan" operation mode.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi MiOT fan entity.          |
 | `level`                   |       no | Level, between 1 and 3.                                 |
-
-### Service `xiaomi_miio.fan_set_auto_detect_on` (Air Purifier 2S and Air Purifier Pro only)
-
-Turn the auto detect on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_auto_detect_off` (Air Purifier 2S and Air Purifier Pro only)
-
-Turn the auto detect off.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_learn_mode_on` (Air Purifier 2 only)
-
-Turn the learn mode on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_learn_mode_off` (Air Purifier 2 only)
-
-Turn the learn mode off.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
 ### Service `xiaomi_miio.fan_set_volume` (Air Purifier Pro only)
 
