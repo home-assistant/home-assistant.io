@@ -449,6 +449,26 @@ trigger:
 
 {% endraw %}
 
+#### Available Trigger Data
+
+In addition to the [standard automation trigger data](docs/automation/templating/#all), the `zwave_js.value_updated` trigger platform has additional trigger data available for use.
+
+| Template variable            | Data                                                                                       |
+|------------------------------|--------------------------------------------------------------------------------------------|
+| `trigger.device_id`          | Device ID for the device in the device registry.                                           |
+| `trigger.node_id`            | Z-Wave node ID.                                                                            |
+| `trigger.command_class`      | Command class ID.                                                                          |
+| `trigger.command_class_name` | Command class name.                                                                        |
+| `trigger.property`           | Z-Wave Value's property.                                                                   |
+| `trigger.property_name`      | Z-Wave Value's property name.                                                              |
+| `trigger.property_key`       | Z-Wave Value's property key.                                                               |
+| `trigger.property_key_name`  | Z-Wave Value's property key name.                                                          |
+| `trigger.endpoint`           | Z-Wave Value's endpoint.                                                                   |
+| `trigger.previous_value`     | The previous value for this Z-Wave value (translated to a state name when possible).       |
+| `trigger.previous_value_raw` | The raw previous value for this Z-Wave value (the key of the state when a state is named). |
+| `trigger.current_value`      | The current value for this Z-Wave value (translated to a state name when possible).        |
+| `trigger.current_value_raw`  | The raw current value for this Z-Wave value (the key of the state when a state is named).  |
+
 ## Current Limitations
 
 - While support for the most common devices is working, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
