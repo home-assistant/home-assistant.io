@@ -254,7 +254,7 @@ Switch                  | Description
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
 Learn Mode              | Turn on/off `learn mode`
-Led                     | Turn on/off `led`
+LED                     | Turn on/off `led`
 
 ### Air Purifier Pro (zhimi.airpurifier.v6)
 
@@ -292,7 +292,7 @@ Switch                  | Description
 ----------------------- | -----------------------
 Child Lock              | Turn on/off `child lock`
 Learn Mode              | Turn on/off `learn mode`
-Led                     | Turn on/off `led`
+LED                     | Turn on/off `led`
 
 ### Air Purifier Pro V7 (zhimi.airpurifier.v7)
 
@@ -325,7 +325,7 @@ Switch                  | Description
 ----------------------- | -----------------------
 Child Lock              | Turn on/off `child lock`
 Learn Mode              | Turn on/off `learn mode`
-Led                     | Turn on/off `led`
+LED                     | Turn on/off `led`
 
 ### Air Purifier 2S (zhimi.airpurifier.mc1)
 
@@ -355,7 +355,7 @@ Switch                  | Description
 ----------------------- | -----------------------
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
-Led                     | Turn on/off `led`
+LED                     | Turn on/off `led`
 
 ### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4/zhimi.airpurifier.mb3)
 
@@ -436,7 +436,7 @@ Switch                  | Description
 ----------------------- | -----------------------
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
-Led                     | Turn on/off `led`
+LED                     | Turn on/off `led`
 
 ### Air Humidifier (zhimi.humidifier.v1)
 
