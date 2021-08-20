@@ -594,6 +594,8 @@ Select | Description
 --- | ---
 `led brightness` | Controls the brightness of the LEDs (bright, dim, off)
 
+- Switch entities
+
 Switch                  | Description
 ----------------------- | -----------------------
 Buzzer                  | Turn on/off `buzzer`
