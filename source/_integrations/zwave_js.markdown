@@ -413,6 +413,42 @@ action:
       entity_id: switch.in_wall_dual_relay_switch_2, switch.in_wall_dual_relay_switch_3
 ```
 
+## Automations
+
+### Device automations
+
+Z-Wave JS has support for device triggers and conditions. To use a device automation, use the automation UI to select the "Device" trigger/condition type, and then pick your Z-Wave JS device. Under trigger/condition types, you will see Z-Wave JS specific entries.
+
+### `zwave_js.value_updated` trigger
+
+Z-Wave JS provides the `zwave_js.value_updated` trigger platform which can be used to trigger automations on any Z-Wave JS value update, including Z-Wave values that aren't supported in Home Assistant via entities. While they can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
+
+{% raw %}
+
+```yaml
+# Example automation trigger that fires whenever the `latchStatus` value changes from `closed` to `opened` on the three devices (devices will be derived from an entity ID).
+trigger:
+  platform: zwave_js.value_updated
+  # At least one `device_id` or `entity_id` must be provided
+  device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
+  entity_id:
+    - lock.front_lock
+    - lock.back_door
+  # `property` and `command_class` are required
+  command_class: 98 # Door Lock CC
+  property: latchStatus
+  # `property_key` and `endpoint` are optional
+  property_key: null
+  endpoint: 0
+  # `from` and `to` will both accept lists of values and the trigger will fire if the value update matches any of the listed values
+  from:
+    - closed
+    - jammed
+  to: opened
+```
+
+{% endraw %}
+
 ## Current Limitations
 
 - While support for the most common devices is working, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
