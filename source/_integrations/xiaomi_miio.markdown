@@ -563,10 +563,7 @@ Sensor | Description
 ### Air Fresh VA2
 
 - Power (on, off)
-- Operation modes (auto, silent, interval, low, middle, strong)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED (on, off)
+- Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
 - Attributes
   - `model`
   - `aqi`
@@ -575,9 +572,6 @@ Sensor | Description
   - `humidity`
   - `co2`
   - `mode`
-  - `led`
-  - `buzzer`
-  - `child_lock`
   - `filter_life_remaining`
   - `filter_hours_used`
   - `use_time`
@@ -599,6 +593,12 @@ Sensor                  | Description
 Select | Description
 --- | ---
 `led brightness` | Controls the brightness of the LEDs (bright, dim, off)
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+LED                     | Turn on/off `led`
 
 ### Platform Services
 
