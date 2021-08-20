@@ -223,26 +223,18 @@ Supported devices:
 ### Air Purifier 2 (zhimi.airpurifier.v2)
 
 - Power (on, off)
-- Operation modes (auto, silent, favorite, idle)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED (on, off), LED brightness (bright, dim, off)
+- Operation modes (Auto, Silent, Favorite, Idle)
 - Favorite Level (0...16)
 - Attributes
   - `model`
   - `mode`
   - `favorite_level`
-  - `child_lock`
-  - `led`
-  - `learn_mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
   - `turbo_mode_supported`
-  - `auto_detect`
   - `use_time`
   - `button_pressed`
-  - `buzzer`
   - `sleep_mode`
 - Sensor entities
 
@@ -255,21 +247,24 @@ Sensor                  | Description
 `purify_volume`         | The volume of purified air in qubic meter
 `temperature`           | The current `temperature` measured
 
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+Learn Mode              | Turn on/off `learn mode`
+Led                     | Turn on/off `led`
 
 ### Air Purifier Pro (zhimi.airpurifier.v6)
 
 - Power (on, off)
-- Operation modes (auto, silent, favorite)
-- Child lock (on, off)
-- LED (on, off)
+- Operation modes (Auto, Silent, Favorite)
 - Favorite Level (0...16)
 - Attributes
   - `model`
   - `mode`
   - `favorite_level`
-  - `child_lock`
-  - `led`
-  - `learn_mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
@@ -291,20 +286,23 @@ Sensor                  | Description
 `purify_volume`         | The volume of purified air in qubic meter
 `temperature`           | The current `temperature` measured
 
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Child Lock              | Turn on/off `child lock`
+Learn Mode              | Turn on/off `learn mode`
+Led                     | Turn on/off `led`
+
 ### Air Purifier Pro V7 (zhimi.airpurifier.v7)
 
 - Power (on, off)
-- Operation modes (auto, silent, favorite)
-- Child lock (on, off)
-- LED (on, off)
+- Operation modes (Auto, Silent, Favorite)
 - Favorite Level (0...16)
 - Attributes
   - `model`
   - `mode`
   - `favorite_level`
-  - `child_lock`
-  - `led`
-  - `learn_mode`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
@@ -321,25 +319,26 @@ Sensor                  | Description
 `motor2_speed`          | The current `motor2_speed` measured in rpm
 `temperature`           | The current `temperature` measured
 
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Child Lock              | Turn on/off `child lock`
+Learn Mode              | Turn on/off `learn mode`
+Led                     | Turn on/off `led`
+
 ### Air Purifier 2S (zhimi.airpurifier.mc1)
 
 - Power (on, off)
-- Operation modes (auto, silent, favorite)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED (on, off)
+- Operation modes (Auto, Silent, Favorite)
 - Favorite Level (0...16)
 - Attributes
   - `model`
   - `mode`
   - `favorite_level`
-  - `child_lock`
-  - `led`
-  - `learn_mode`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
-  - `buzzer`
 - Sensor entities
 
 Sensor                  | Description
@@ -350,25 +349,27 @@ Sensor                  | Description
 `motor_speed`           | The current `motor_speed` measured in rpm
 `temperature`           | The current `temperature` measured
 
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+Led                     | Turn on/off `led`
+
 ### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4/zhimi.airpurifier.mb3)
 
 This model uses newer MiOT communication protocol.
 
 - Power (on, off)
-- Operation modes (auto, silent, favorite, fan)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED (on, off)
+- Operation modes (Auto, Silent, Favorite, Fan)
 - Favorite Level (0...16)
 - Fan Level (1...3)
 - Attributes
   - `model`
   - `mode`
   - `favorite_level`
-  - `child_lock`
-  - `led`
   - `use_time`
-  - `buzzer`
   - `fan_level`
 - Sensor entities
 
@@ -387,19 +388,21 @@ Select | Description
 --- | ---
 `led brightness` | Controls the brightness of the LEDs (bright, dim, off)
 
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+
 ### Air Purifier V3 (zhimi.airpurifier.v3)
 
 - Power (on, off)
-- Operation modes (auto, silent, favorite, idle, medium, high, strong)
-- Child lock (on, off)
-- LED (on, off)
+- Operation modes (Auto, Silent, Favorite, Idle, Medium, High, Strong)
 - Attributes
   - `model`
   - `aqi`
   - `mode`
-  - `led`
-  - `buzzer`
-  - `child_lock`
   - `illuminance`
   - `filter_hours_used`
   - `filter_life_remaining`
@@ -411,11 +414,9 @@ Select | Description
   - `filter_rfid_tag`
   - `filter_type`
   - `purify_volume`
-  - `learn_mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
-  - `auto_detect`
   - `use_time`
   - `button_pressed`
 - Sensor entities
@@ -428,6 +429,14 @@ Sensor                  | Description
 `motor_speed`           | The current `motor_speed` measured in rpm
 `motor2_speed`          | The current `motor2_speed` measured in rpm
 `purify_volume`         | The volume of purified air in qubic meter
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+Led                     | Turn on/off `led`
 
 ### Air Humidifier (zhimi.humidifier.v1)
 
