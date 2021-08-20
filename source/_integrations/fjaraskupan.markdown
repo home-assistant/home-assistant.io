@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: fjaraskupan
 ha_platforms:
   - binary_sensor
-  - fam
+  - fan
   - light
 ---
 
