@@ -43,6 +43,7 @@ Note that it depends on the appliance and on API permissions which of the featur
 - OAuth Flow: Authorization Code Grant Flow
 - Redirect URI: "`<INTERNAL_HOME_ASSISTANT_URL>/auth/external/callback`
   Use your internal Home Assistant URL, if you didn't configure one manually, use your local IP address. Examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`."
+- If your Home Assistant server is not reachable from the internet, you need to also add your public IP address in the same format as above and forward the Port in your router settings. The port can be closed after the setup is completed.
 
 Next, add the following to your `configuration.yaml` file:
 
