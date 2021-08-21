@@ -11,7 +11,7 @@ ha_codeowners:
   - '@bdraco'
 ---
 
-The `usb` "USB Discovery" integration will watch the host for USB devices. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel.
+The USB Discovery integration will watch the host for USB devices. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel.
 
 - On Linux, devices are detected as soon as they are plugged in.
 
