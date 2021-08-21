@@ -67,8 +67,9 @@ This service will update a configuration parameter. To update multiple partial p
 
 | Service Data Attribute 	| Required  	| Description                                                                                                                               	|
 |------------------------	|-----------	|-------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
-| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                                	|
+| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 | `parameter`            	| yes       	| The parameter number or the name of the property. The name of the property is case sensitive.                                             	|
 | `bitmask`              	| no        	| The bitmask for a partial parameter in hex (0xff) or decimal (255) format. If the name of the parameter is provided, this is not needed. 	|
 | `value`                	| yes       	| The target value for the parameter as the integer value or the state label. The state label is case sensitive.                       	|
@@ -119,8 +120,9 @@ This service will bulk set multiple partial configuration parameters. Be warned 
 
 | Service Data Attribute 	| Required  	| Description                                                                                                                               	|
 |------------------------	|-----------	|-------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
-| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                                	|
+| `entity_id`            	| no        	| Entity (or list of entities) to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 | `parameter`            	| yes       	| The parameter number of the property. The name of the property is case sensitive.                                             	|
 | `value`                	| yes       	| Either the raw integer value that you want to set for the entire parameter, or a dictionary where the keys are either the bitmasks (in integer or hex form) or the partial parameter name and the values are the value you want to set on each partial (either the integer value or a named state when applicable). Note that when using a dictionary, and bitmasks that are not provided will be set to their currently cached values.                       	|
 
@@ -216,8 +218,9 @@ This service will set a value on a Z-Wave device. It is for advanced use cases w
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
-| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                         |
+| `entity_id`            	| no        	| Entity (or list of entities) to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 | `command_class`       	| yes       	| ID of Command Class that you want to set the value for. 	                                                                                            |
 | `property`            	| yes       	| ID of Property that you want to set the value for. 	                                                                                                  |
 | `property_key`        	| no        	| ID of Property Key that you want to set the value for. 	                                                                                              |
@@ -232,8 +235,9 @@ This service will set a value on multiple Z-Wave devices using multicast. It is 
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least two `entity_id` or `device_id` must be provided if not broadcasting the command.                       	|
-| `device_id`            	| no        	| ID of device (or list of device IDs) to set the configuration parameter on. At least two `entity_id` or `device_id` must be provided if not broadcasting the command.                                         |
+| `entity_id`            	| no        	| Entity (or list of entities) to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                	|
 | `broadcast`             | no          | Boolean that indicates whether you want the message to be broadcast to all nodes on the network. If you have only one Z-Wave JS network configured, you do not need to provide a `device_id` or `entity_id` when this is set to true. When you have multiple Z-Wave JS networks configured, you MUST provide at least one `device_id` or `entity_id` so the service knows which network to target.                                         |
 | `command_class`       	| yes       	| ID of Command Class that you want to set the value for. 	                                                                                            |
 | `property`            	| yes       	| ID of Property that you want to set the value for. 	                                                                                                  |
@@ -248,8 +252,9 @@ Calling this service forces Z-Wave JS to try to reach a node. This can be used t
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to ping. At least one `entity_id` or `device_id` must be provided.                       	|
-| `device_id`            	| no        	| ID of device to ping. At least one `entity_id` or `device_id` must be provided.                                         |
+| `entity_id`            	| no        	| Entity (or list of entities) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 
 This service can be used in tandem with the node status sensor (disabled by default) to track the node's status and fire the command when needed. Here's an example automation that would ping a node when the node status sensor state has changed to dead and remained dead for 30 minutes. Note that this may be useful for some devices but will definitely not be useful for all. In cases where it is not useful, all you will be doing is generating additional traffic on your Z-Wave network which could slow down communication.
 
