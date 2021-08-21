@@ -156,7 +156,7 @@ If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path c
 
 ### Discovery via USB or Zeroconf
 
-Some devices can be auto-discovered, which can simplify the ZHA setup process. The following devices have been tested with discovery, and offer a quick setup experience:
+Some devices can be auto-discovered, which can simplify the ZHA setup process. The following devices have been tested with discovery and offer a quick setup experience:
 
 | Device | Discovery Method | Identifier | Vendor |
 | -------| ---------------- | ---------- | ------ |
