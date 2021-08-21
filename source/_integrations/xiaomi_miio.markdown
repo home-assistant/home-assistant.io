@@ -224,11 +224,9 @@ Supported devices:
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Idle)
-- Favorite Level (0...16)
 - Attributes
   - `model`
   - `mode`
-  - `favorite_level`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
@@ -236,6 +234,12 @@ Supported devices:
   - `use_time`
   - `button_pressed`
   - `sleep_mode`
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Level          | Set the `favorite_level`
+
 - Sensor entities
 
 Sensor                  | Description
@@ -260,11 +264,9 @@ LED                     | Turn on/off `led`
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
-- Favorite Level (0...16)
 - Attributes
   - `model`
   - `mode`
-  - `favorite_level`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
@@ -272,7 +274,13 @@ LED                     | Turn on/off `led`
   - `auto_detect`
   - `use_time`
   - `button_pressed`
-  - `volume`
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Level          | Set the `favorite_level`
+Volume                  | Set the `volume`
+
 - Sensor entities
 
 Sensor                  | Description
@@ -298,15 +306,19 @@ LED                     | Turn on/off `led`
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
-- Favorite Level (0...16)
 - Attributes
   - `model`
   - `mode`
-  - `favorite_level`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
-  - `volume`
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Level          | Set the `favorite_level`
+Volume                  | Set the `volume`
+
 - Sensor entities
 
 Sensor                  | Description
@@ -331,14 +343,18 @@ LED                     | Turn on/off `led`
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
-- Favorite Level (0...16)
 - Attributes
   - `model`
   - `mode`
-  - `favorite_level`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Level          | Set the `favorite_level`
+
 - Sensor entities
 
 Sensor                  | Description
@@ -363,14 +379,17 @@ This model uses newer MiOT communication protocol.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Fan)
-- Favorite Level (0...16)
-- Fan Level (1...3)
 - Attributes
   - `model`
   - `mode`
-  - `favorite_level`
   - `use_time`
-  - `fan_level`
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Fan Level               | Set the `fan_level`
+Favorite Level          | Set the `favorite_level`
+
 - Sensor entities
 
 Sensor                  | Description
@@ -661,33 +680,6 @@ Set the LED brightness. Supported values are 'Bright', 'Dim', 'Off'.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `option`                  |       no | Brightness option. Should be 'Bright', 'Dim' or 'Off'   |
-
-### Service `xiaomi_miio.fan_set_favorite_level` (Air Purifiers only)
-
-Set the favorite level of the operation mode "favorite".
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-| `level`                   |       no | Level, between 0 and 16.                                |
-
-### Service `xiaomi_miio.fan_set_fan_level` (Air Purifiers only)
-
-Set the fan level for "fan" operation mode.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi MiOT fan entity.          |
-| `level`                   |       no | Level, between 1 and 3.                                 |
-
-### Service `xiaomi_miio.fan_set_volume` (Air Purifier Pro only)
-
-Set the sound volume.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-| `volume`                  |       no | Volume, between 0 and 100.                              |
 
 ### Service `xiaomi_miio.fan_reset_filter` (Air Purifier 2 only)
 
