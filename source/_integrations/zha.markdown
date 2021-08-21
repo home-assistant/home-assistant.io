@@ -159,7 +159,7 @@ If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path c
 Some devices can be auto-discovered, which can simplify the ZHA setup process. The following devices have been tested with discovery, and offer a quick setup experience:
 
 | Device | Discovery Method | Identifier | Vendor |
-| -------| ---------------- | ------ |
+| -------| ---------------- | ---------- | ------ |
 | ConBee II | USB | 1CF1:0030 | https://phoscon.de/en/conbee2 |
 | Electrolama zig-a-zig-ah | USB | 1A86:7523 | https://electrolama.com/projects/zig-a-zig-ah/ |
 | Nortek HUSBZB-1 | USB | 10C4:8A2A | https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/ |
