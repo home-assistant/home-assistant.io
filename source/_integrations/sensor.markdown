@@ -32,6 +32,9 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
+- **monetary**: The monetary value.
+- **signal_strength**: Signal strength in dB or dBm.
+- **temperature**: Temperature in °C or °F.
 - **power**: Power in W or kW.
 - **power_factor**: Power factor in %.
 - **pressure**: Pressure in hPa or mbar.
