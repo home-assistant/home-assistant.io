@@ -166,7 +166,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 | slae.sh CC2652RB development stick | USB | 10C4:EA60 | https://slae.sh/projects/cc2652/ |
 | Tube Zigbee Coordinator | Zeroconf | tube_zb_gw_cc2652p2.local. | https://www.tubeszb.com/ |
 
-Additional devices in the [Known working Zigbee radio modules](#known-working-zigbee-radio-modules) list may be discoverable, however only devices that have been confirmed discoverable are listed above.
+Additional devices in the [Known working Zigbee radio modules](#known-working-zigbee-radio-modules) list may be discoverable, however, only devices that have been confirmed discoverable are listed above.
 
 ## Configuration - YAML
 
