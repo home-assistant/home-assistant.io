@@ -62,7 +62,7 @@ Each sensor type chosen as monitored condition adds a set of sensors to Home Ass
 
 - `logger_info`
 
-    General information about the fronius logger, such as:
+    General information about the Fronius Datalogger. Not available on "Gen24" devices.
 
     - The serial number and software and hardware platforms
     - The current price of energy consumed from the grid ("cash factor")
