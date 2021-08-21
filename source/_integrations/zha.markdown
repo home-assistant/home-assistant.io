@@ -145,12 +145,28 @@ A list of available device paths can be found in **Supervisor** > **System** > *
 
 Press `Submit`. The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
 
+### ZiGate or Sonoff ZBBridge Devices
+
 If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path configuration:
 
 - ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
 - PiZigate : `pizigate:/dev/ttyS0`
 - Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
 - Sonoff ZBBridge : `socket://[IP]:[PORT]` for example `socket://192.168.1.11:8888`
+
+### Discovery via USB or Zeroconf
+
+Some devices can be auto-discovered, which can simplify the ZHA setup process. The following devices have been tested with discovery, and offer a quick setup experience:
+
+| Device | Discovery Method | Identifier | Vendor |
+| -------| ---------------- | ------ |
+| ConBee II | USB | 1CF1:0030 | https://phoscon.de/en/conbee2 |
+| Electrolama zig-a-zig-ah | USB | 1A86:7523 | https://electrolama.com/projects/zig-a-zig-ah/ |
+| Nortek HUSBZB-1 | USB | 10C4:8A2A | https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/ |
+| slae.sh CC2652RB development stick | USB | 10C4:EA60 | https://slae.sh/projects/cc2652/ |
+| Tube Zigbee Coordinator | Zeroconf | tube_zb_gw_cc2652p2.local. | https://www.tubeszb.com/ |
+
+Additional devices in the [Known working Zigbee radio modules](#known-working-zigbee-radio-modules) list may be discoverable, but have not been confirmed.
 
 ## Configuration - YAML
 
