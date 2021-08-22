@@ -9,11 +9,7 @@ The template variable `this` is also available when evaluating any `trigger_vari
 
 ## Available this Data
 
-`this` is a state object. [State Objects](/docs/configuration/state_object) provides a comprehensive description for the properties of `this` and `this.attributes`.
-
-## Available context Data
-
-Each of `this`, `to_state` and `from_state` have a context object, which includes information such as the user that caused the change. [Home Assistant Context](https://data.home-assistant.io/docs/context/t) provides more detail on contexts.
+`this` is a state object. [State Objects](/docs/configuration/state_object) provides a comprehensive description for the properties of `this` and `this.attributes`. State objects also contain context data, which can be used to identify the user that caused a script or automation to execute.
 
 ## Available Trigger Data
 
