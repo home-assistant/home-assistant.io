@@ -423,8 +423,6 @@ Z-Wave JS has support for device triggers and conditions. To use a device automa
 
 Z-Wave JS provides the `zwave_js.value_updated` trigger platform which can be used to trigger automations on any Z-Wave JS value update, including Z-Wave values that aren't supported in Home Assistant via entities. While they can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
 
-{% raw %}
-
 ```yaml
 # Example automation trigger that fires whenever the `latchStatus` value changes from `closed` to `opened` on the three devices (devices will be derived from an entity ID).
 trigger:
@@ -436,18 +434,16 @@ trigger:
     - lock.back_door
   # `property` and `command_class` are required
   command_class: 98 # Door Lock CC
-  property: latchStatus
+  property: "latchStatus"
   # `property_key` and `endpoint` are optional
   property_key: null
   endpoint: 0
   # `from` and `to` will both accept lists of values and the trigger will fire if the value update matches any of the listed values
   from:
-    - closed
-    - jammed
-  to: opened
+    - "closed"
+    - "jammed"
+  to: "opened"
 ```
-
-{% endraw %}
 
 #### Available Trigger Data
 
