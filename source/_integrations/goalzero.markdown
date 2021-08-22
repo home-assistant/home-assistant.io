@@ -8,6 +8,7 @@ ha_release: 0.116
 ha_config_flow: true
 ha_dhcp: true
 ha_domain: goalzero
+ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
   - sensor
