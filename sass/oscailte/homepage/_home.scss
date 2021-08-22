@@ -1,3 +1,14 @@
+ul.menu li {
+    position: relative;
+    height: 68px;
+    overflow: hidden;
+}
+
+ul.menu li.menuhasdropdown {
+    overflow: visible;
+}
+
+
 .usp {
   text-align: center;
 
