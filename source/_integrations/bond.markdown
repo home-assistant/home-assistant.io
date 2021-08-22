@@ -74,7 +74,7 @@ Start decreasing the light brightness.
 
 ### Service `bond.stop`
 
-Stop any in-progress action and empty the queue.  Calling this service will
+Stop any in-progress action and empty the queue. Calling this service will
 stop any increase or decrease in brightness that is in progress.
 
 | Service data attribute | Optional | Description |
