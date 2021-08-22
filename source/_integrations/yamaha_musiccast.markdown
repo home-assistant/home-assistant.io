@@ -54,6 +54,6 @@ service: media_player.play_media
 target:
   entity_id: media_player.buro
 data:
-  media_content_id: presets:1
-  media_content_type: music
+  media_content_id: "presets:1"
+  media_content_type: "music"
 ```
