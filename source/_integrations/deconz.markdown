@@ -60,6 +60,8 @@ See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/
 
 {% include integrations/config_flow.md %}
 
+Home Assistant connects to Zigbee devices via an API exposed by the deCONZ tool. Therefore, in the process of configuration Home Assistant needs to be authenticated to the tool. This is performed by launching Phoscon App from deCONZ tool, selecting Settings|Gateway|Advanced and clicking "Authenticate app" button.
+
 ## Debugging integration
 
 If you have problems with deCONZ or the integration you can add debug prints to the log.
