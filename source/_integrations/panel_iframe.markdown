@@ -27,9 +27,11 @@ panel_iframe:
   fridge:
     title: "Fridge"
     url: "http://192.168.1.5"
+    icon: mdi:fridge
   otherapp:
     title: "Other App"
     url: "/otherapp"
+    require_admin: true
 ```
 
 {% configuration %}

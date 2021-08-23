@@ -24,9 +24,12 @@ ha_platforms:
   - alarm_control_panel
   - device_tracker
   - fan
+  - humidifier
   - light
+  - number
   - remote
   - sensor
+  - select
   - switch
   - vacuum
 ---
@@ -180,7 +183,10 @@ token:
 
 ## Xiaomi Air Purifier and Humidifier
 
-The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier, Air Humidifier and Air Fresh.
+The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier and Air Fresh.
+The Air Humidifier uses multiple platforms to allow you to set the target humidiy, control modes and settings.
+Unlike the the Air Purifier and Air Fresh the Air Humidfiers use Home Assistant native integrations and services to support the device.
+Humidifiers cannot setup using a configuration file.
 
 Supported devices:
 
@@ -410,105 +416,113 @@ This model uses newer MiOT communication protocol.
 ### Air Humidifier (zhimi.humidifier.v1)
 
 - On, Off
-- Operation modes (silent, medium, high, strong)
+- Operation modes (Silent, Medium, High, Strong)
 - Buzzer (on, off)
 - Child lock (on, off)
 - LED (on, off), LED brightness (bright, dim, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
-- Attributes
-  - `model`
-  - `temperature`
-  - `humidity`
-  - `mode`
-  - `buzzer`
-  - `child_lock`
-  - `trans_level`
-  - `target_humidity`
-  - `led_brightness`
-  - `button_pressed`
-  - `use_time`
-  - `hardware_version`
+- Attributes (humidifier platform)
+
+Attribute | Description
+--- | ---
+`humidity` | The current `target_humidity`
+`max_humidity` | The maximum settable `target_humidity`
+`min_humidity` | The minimum settable `target_humidity`
+`available_modes` | A list with the operation modes available
+`mode` | the current operation mode selected
+
+- Sensor entities
+
+Sensor | Description
+--- | ---
+`humidity` | The current `humidity` measured
+`temperature` | The current `temperature` measured
 
 ### Air Humidifier CA (zhimi.humidifier.ca1)
 
 - On, Off
-- Operation modes (silent, medium, high, auto)
+- Operation modes (Silent, Medium, High, Auto)
 - Buzzer (on, off)
 - Child lock (on, off)
-- LED (on, off), LED brightness (bright, dim, off)
+- LED brightness (bright, dim, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Dry mode (on, off)
-- Attributes
-  - `model`
-  - `temperature`
-  - `humidity`
-  - `mode`
-  - `buzzer`
-  - `child_lock`
-  - `trans_level`
-  - `target_humidity`
-  - `led_brightness`
-  - `button_pressed`
-  - `use_time`
-  - `hardware_version`
-  - `motor_speed`
-  - `depth`
-  - `dry`
+- Attributes (humidifier platform)
+
+Attribute | Description
+--- | ---
+`humidity` | The current `target_humidity`
+`max_humidity` | The maximum settable `target_humidity`
+`min_humidity` | The minimum settable `target_humidity`
+`available_modes` | A list with the operation modes available
+`mode` | the current operation mode selected
+
+- Sensor entities
+
+Sensor | Description
+--- | ---
+`humidity` | The current `humidity` measured
+`temperature` | The current `temperature` measured
 
 ### Air Humidifier CA (zhimi.humidifier.ca4)
 
 - On, Off
-- Operation modes (auto, low, medium, high)
+- Operation modes (Auto, Low, Medium, High)
 - Buzzer (on, off)
 - Child lock (on, off)
 - LED brightness (off, dim, bright)
 - Target humidity (30 - 80)
+- Clean mode (on, off)
 - Dry mode (on, off)
 - Motor speed rpm (200 - 2000)
-- Attributes
-  - `model`
-  - `temperature`
-  - `humidity`
-  - `mode`
-  - `buzzer`
-  - `child_lock`
-  - `target_humidity`
-  - `led_brightness`
-  - `use_time`
-  - `actual_speed`
-  - `button_pressed`
-  - `dry`
-  - `fahrenheit`
-  - `motor_speed`
-  - `power_time`
-  - `water_level`
+- Attributes (humidifier platform)
+
+Attribute | Description
+--- | ---
+`humidity` | The current `target_humidity`
+`max_humidity` | The maximum settable `target_humidity`
+`min_humidity` | The minimum settable `target_humidity`
+`available_modes` | A list with the operation modes available
+`mode` | the current operation mode selected
+
+- Sensor entities
+
+Sensor | Description
+--- | ---
+`actual_speed` | The current `motor_speed` measured in (rpm)
+`humidity` | The current `humidity` percentage measured
+`temperature` | The current `temperature` measured in degrees Celius
+`water_level` | The current `water_level` percentage measured
+
+<div class='note'>
+Clean mode and Motor speed can only be set when the device is turned on.
+</div>
 
 ### Air Humidifier CB (zhimi.humidifier.cb1)
 
 - On, Off
-- Operation modes (silent, medium, high, auto)
+- Operation modes (Silent, Medium, High, Auto)
 - Buzzer (on, off)
 - Child lock (on, off)
 - LED (on, off), LED brightness (bright, dim, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Dry mode (on, off)
-- Attributes
-  - `speed`
-  - `speed_list`
-  - `model`
-  - `temperature`
-  - `humidity`
-  - `mode`
-  - `buzzer`
-  - `child_lock`
-  - `target_humidity`
-  - `led_brightness`
-  - `use_time`
-  - `hardware_version`
-  - `motor_speed`
-  - `depth`
-  - `dry`
-  - `supported_features`
+- Attributes (humidifier platform)
+
+Attribute | Description
+--- | ---
+`humidity` | The current `target_humidity`
+`max_humidity` | The maximum settable `target_humidity`
+`min_humidity` | The minimum settable `target_humidity`
+`available_modes` | A list with the operation modes available
+`mode` | the current operation mode selected
+
+- Sensor entities
+
+Sensor | Description
+--- | ---
+`humidity` | The current `humidity` measured
+`temperature` | The current `temperature` measured
 
 ### Air Fresh VA2
 
@@ -535,8 +549,21 @@ This model uses newer MiOT communication protocol.
   - `motor_speed`
   - `extra_features`
 
-
 ### Platform Services
+
+<div class='note'>
+For supported Air Humidifiers additional entities for will be generated automatically (if supported) and added to the entity registry based on the platforms:
+<br></br>
+The sensor platform does not supply additional services.
+</div>
+
+| Platform     | Service(s)                 | Related auto generated device entities                      |
+|--------------|----------------------------|-------------------------------------------------------------|
+| `humidifier` | `set_humidity`, `set_mode` | Main device entity                                          |
+| `switch`     | `turn_on`, `turn_off`      | `buzzer`, `child_lock`, `cleaning_mode` and `dry_mode`      |
+| `sensor`     | _None_                     | `actual_speed`, `humidity`, `temperature` and `water_level` |
+| `number`     | `set_value`                | `motor_speed`                                               |
+| `select`     | `select_option`            | `led_brightness`                                            |
 
 ### Service `fan.set_percentage`
 
@@ -556,7 +583,23 @@ Set the fan operation mode.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                      |
 | `preset_mode`             |       no | The Xiaomi miIO operation mode                                      |
 
-### Service `xiaomi_miio.fan_set_buzzer_on` (Air Purifier Pro excluded)
+### Service `switch.turn_on` (Air Humidifiers only)
+
+Turn the `buzzer`, `child_lock`, `cleaning_mode` or `dry_mode` on.
+
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
+
+### Service `switch.turn_off` (Air Humidifiers only)
+
+Turn `buzzer`, `child_lock`, `clean_mode` or `dry_mode` on.
+
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
+
+### Service `xiaomi_miio.fan_set_buzzer_on` (Air Purifier Pro and Air Humidifiers excluded)
 
 Turn the buzzer on.
 
@@ -564,7 +607,7 @@ Turn the buzzer on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `xiaomi_miio.fan_set_buzzer_off` (Air Purifier Pro excluded)
+### Service `xiaomi_miio.fan_set_buzzer_off` (Air Purifier Pro and Air Humidifiers excluded)
 
 Turn the buzzer off.
 
@@ -588,7 +631,7 @@ Turn the LED off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `xiaomi_miio.fan_set_child_lock_on`
+### Service `xiaomi_miio.fan_set_child_lock_on` (Air Humidifiers excluded)
 
 Turn the child lock on.
 
@@ -596,7 +639,7 @@ Turn the child lock on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `xiaomi_miio.fan_set_child_lock_off`
+### Service `xiaomi_miio.fan_set_child_lock_off` (Air Humidifiers excluded)
 
 Turn the child lock off.
 
@@ -604,7 +647,16 @@ Turn the child lock off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
-### Service `xiaomi_miio.fan_set_led_brightness` (Air Purifier 2S and Air Purifier Pro excluded)
+### Service `select.select_option` (Air Humidifiers only)
+
+Set the LED brightness. Supported values are 'Bright', 'Dim', 'Off'.
+
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
+| `option`                  |       no | Brightness option. Should be 'Bright', 'Dim' or 'Off'   |
+
+### Service `xiaomi_miio.fan_set_led_brightness` (Air Humidifiers, Air Purifier 2S and Air Purifier Pro excluded)
 
 Set the LED brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 
@@ -689,39 +741,14 @@ Set the extra features.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `features`                |       no | Integer, known values are 0 and 1.                      |
 
-### Service `xiaomi_miio.fan_set_target_humidity` (Air Humidifier only)
-
-Set the target humidity.
-
-| Service data attribute    | Optional | Description                                                     |
-|---------------------------|----------|-----------------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                  |
-| `humidity`                |       no | Target humidity. Allowed values are 30, 40, 50, 60, 70 and 80   |
-
-### Service `fan.xiaomi_miio_set_dry_on` (Air Humidifier CA and CB)
-
-Turn the dry mode on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `fan.xiaomi_miio_set_dry_off` (Air Humidifier CA and CB)
-
-Turn the dry mode off.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_motor_speed` (Air Humidifier CA4)
+### Service `number.set_value` (Air Humidifier CA4)
 
 Set motor speed RPM.
 
 | Service data attribute    | Optional | Description                                              |
 |---------------------------|----------|----------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.           |
-| `motor_speed`             |       no | Motor speed RPM. Allowed values are between 200 and 2000 |
+| `value`                   |       no | Motor speed RPM. Allowed values are between 200 and 2000 |
 
 ### Troubleshooting `Unable to find device` error messages
 

@@ -10,7 +10,9 @@ ha_category:
   - Hub
   - Light
   - Lock
+  - Number
   - Sensor
+  - Siren
   - Switch
 ha_release: '2021.2'
 ha_iot_class: Local Push
@@ -27,6 +29,7 @@ ha_platforms:
   - lock
   - number
   - sensor
+  - siren
   - switch
 ---
 
@@ -218,6 +221,7 @@ This service will set a value on a Z-Wave device. It is for advanced use cases w
 | `property_key`        	| no        	| ID of Property Key that you want to set the value for. 	                                                                                              |
 | `endpoint`   	          | no        	| ID of Endpoint that you want to set the value for. 	                                                                                                  |
 | `value`   	            | yes        	| The new value that you want to set. 	                                                                                                                |
+| `options`   	          | no        	| Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set. 	                                                                                                                |
 | `wait_for_result`   	  | no        	| Boolean that indicates whether or not to wait for a response from the node. If not included in the payload, the integration will decide whether to wait or not. If set to `true`, note that the service call can take a while if setting a value on an asleep battery device. |
 
 ### Service `zwave_js.multicast_set_value`
@@ -234,6 +238,7 @@ This service will set a value on multiple Z-Wave devices using multicast. It is 
 | `property_key`        	| no        	| ID of Property Key that you want to set the value for. 	                                                                                              |
 | `endpoint`   	          | no        	| ID of Endpoint that you want to set the value for. 	                                                                                                  |
 | `value`   	            | yes        	| The new value that you want to set. 	                                                                                                                |
+| `options`   	          | no        	| Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set. 	                                                                                                                |
 
 ### Service `zwave_js.ping`
 
@@ -259,6 +264,16 @@ action:
     target:
       entity_id: "{{ trigger.entity_id }}"
 ```
+
+### Service `zwave_js.reset_meter`
+
+This service will reset the meters on a device that supports the Meter Command Class.
+
+| Service Data Attribute | Required | Description                                                                                                        |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | yes      | Entity (or list of entities) for the meters you want to reset.               |
+| `meter_type`           | no       | If supported by the device, indicates the type of meter to reset. Not all devices support this option.             |
+| `value`                | no       | If supported by the device, indicates the value to reset the meter to. Not all devices support this option.   |
 
 ### Service `zwave_js.set_lock_usercode`
 
@@ -421,7 +436,7 @@ It is perfectly doable to switch over from one of the above mentioned previous i
 
    <div class='note info'>Make a list of what node ID belongs to each device. Your network (Nodes and their config etc) is stored on the stick but the names you gave your devices and entities are not. This step is optional but will save you a lot of time later.</div>
 
-2) Remove the Z-Wave integration from Home Assistant: Configuration --> Integrations --> Z-Wave (or OpenZWave) --> Press the three dots and click Remove.
+2) Remove the Z-Wave integration from Home Assistant: Configuration --> Integrations --> Z-Wave (or OpenZWave) --> Press the three dots and click Delete.
 
 3) If you were running the OpenZWave beta, make sure to stop (or even remove) the OpenZWave add-on, also make sure it doesn't start automatically at startup.
 

@@ -3,7 +3,13 @@ title: "Automation Trigger Variables"
 description: "List all available variables made available by triggers."
 ---
 
-Automations support [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` template variable is available.
+Automations support [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` and `this` template variables are available.
+
+The template variable `this` is also available when evaluating any `trigger_variables` declared in the configuration.
+
+## Available this Data
+
+`this` is a state object. [State Objects](/docs/configuration/state_object) provides a comprehensive description for the properties of `this` and `this.attributes`.
 
 ## Available Trigger Data
 
@@ -17,6 +23,15 @@ The following describes trigger data associated with all platforms.
 | ---- | ---- |
 | `trigger.id` | Optional trigger `id`, or index of the trigger.
 | `trigger.idx` | Index of the trigger.
+
+### Device
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `device`.
+| `trigger.event` | Event object that matched.
+| `trigger.event.event_type` | Event type.
+| `trigger.event.data` | Optional event data.
 
 ### Event
 

@@ -674,4 +674,4 @@ automation:
 [service calls page]: /getting-started/scripts-service-calls/
 [conditions page]: /getting-started/scripts-conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
-[script variables]: /integrations/script/#-configuration-variables
+[script variables]: /integrations/script/#configuration-variables
