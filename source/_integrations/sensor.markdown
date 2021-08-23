@@ -37,6 +37,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **power_factor**: Power factor in %.
 - **pressure**: Pressure in hPa or mbar.
 - **timestamp**: Datetime object or timestamp string (ISO 8601).
+- **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³.
 - **voltage**: Voltage in V.
 - **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG)
 - **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke)
