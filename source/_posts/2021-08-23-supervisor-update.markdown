@@ -33,6 +33,13 @@ If you are interested to make changes required on supervised installations more 
 
 As an alternative to doing these adjustments, you can migrate your installation to [Home Assistant Operating System][installation_docs].
 
+## Bullseye
+
+Two weeks ago Debian 11 (Bullseye) was released. The upcoming version of the Supervisor will recognize that version as a supported Operating System.
+
+Support for the previous version (Debian 10 (Buster)) now is deprecated and will be removed in the first version of the Supervisor after the 4 months grace period.
+Which means that within the next 4 months you need to update to Debian 11.
+
 ### Environment variables
 
 There are a few environment variables that you have to add in order to make the Supervisor work properly with newer versions of the Supervisor.
