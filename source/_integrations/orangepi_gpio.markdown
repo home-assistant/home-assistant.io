@@ -79,7 +79,7 @@ As this platform supports different types of GPIO pinouts for difference Orange 
 | `zeroplus2` | Supports the Orange Pi Zero Plus 2 |
 | `duo` | Supports the NanoPi Duo |
 | `neocore2` | Supports the NanoPi Neocore 2 |
-| `pi4` | Supports the Oranpe pi 4 |
+| `pi4` | Supports the Orange pi 4 |
 | `pi4B` | Supports the Orange pi 4B |
 
 ## Additional steps
