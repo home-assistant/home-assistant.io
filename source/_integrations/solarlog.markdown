@@ -68,10 +68,10 @@ The following sensors are available in the library:
 | consumption_total     | kWh    | Accumulated total consumption from all consumption meters. |
 | total_power           | Wp     | Installed generator power. |
 | alternator_loss       | W      | Altenator loss (equals to power_dc - power_ac) |
-| capacity              | %      | Capacity (equals to power_dc / total power) |
-| efficiency            | % W/Wp | Efficiency (equals to power_ac / power_dc |
+| capacity              | W/Wp   | Capacity (equals to power_dc / total power) |
+| efficiency            | %      | Efficiency (equals to power_ac / power_dc) |
 | power_available       | W      | Available power (equals to power_ac - consumption_ac) | 
-| usage                 |        | Usage (equals to consumption_ac / power_ac) |
+| usage                 | %      | Usage (equals to consumption_ac / power_ac) |
 
 <div class='note'>
 The solarlog integration is using the sunwatcher pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the sunwatcher package.
