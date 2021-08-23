@@ -9,4 +9,4 @@ Home Assistant detected untrusted code. It looks like someone/something injected
 
 ## The solution
 
-Please make sure your network is not affected by an intruder. We recommend to reinstall your installation and make sure only authorized person have access to your instance.
+Please make sure your network is not affected by an intruder. We recommend reinstalling your installation and make sure only authorized persons have access to your instance.
