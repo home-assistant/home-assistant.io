@@ -37,7 +37,7 @@ As an alternative to doing these adjustments, you can migrate your installation 
 
 Two weeks ago Debian 11 (Bullseye) was released. The upcoming version of the Supervisor will recognize that version as a supported Operating System. This means that if you are running Home Assistant Supervised, you can start upgrading that.
 
-Support for the previous version (Debian 10 (Buster))is now deprecated and will be removed in the first version of the Supervisor after the 4 months grace period.
+Support for the previous version (Debian 10 (Buster)) is now deprecated and will be removed in the first version of the Supervisor after the 4 months grace period.
 This means that within the next 4 months you need to update to Debian 11.
 
 ### Environment variables
