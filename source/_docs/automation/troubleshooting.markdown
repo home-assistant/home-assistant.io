@@ -3,7 +3,6 @@ title: "Troubleshooting Automations"
 description: "Tips on how to troubleshoot your automations."
 ---
 
-### Debugging your automation
 
 Automation debugging was added in the 2021.4 release. When an automation is run, all steps are recorded and a trace is made. From the UI choose **Configuration** which is located in the sidebar, then click on **Automation** to go to the automation editor or click this button directly:  [![Open your Home Assistant instance and show your automations.](https://my.home-assistant.io/badges/automations.svg)](https://my.home-assistant.io/redirect/automations/)
 
