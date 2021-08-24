@@ -217,6 +217,9 @@ Supported devices:
 | Inverter Pedestal Fan  | zhimi.fan.za1          | |
 | Standing Fan 2         | zhimi.fan.za3          | |
 | Standing Fan 2S        | zhimi.fan.za4          | |
+| Standing Fan           | zhimi.fan.sa1          | |
+| DC Pedestal Fan        | zhimi.fan.v2           | |
+| DC Pedestal Fan        | zhimi.fan.v3           | |
 
 ### Features
 
@@ -726,7 +729,7 @@ Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
 LED                     | Turn on/off `led`
 
-### Standing Fan (zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4)
+### Standing Fan (zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, zhimi.fan.sa1)
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
@@ -743,6 +746,39 @@ Oscillation Angle       | Set the oscillation angle in degrees
 Select                  | Description
 ----------------------- | -----------------------
 LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+
+### DC Pedestal Fan (zhimi.fan.v2, zhimi.fan.v3)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+Oscillation Angle       | Set the oscillation angle in degrees
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
+
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+Battery                 | The current battery level in percentage
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
 
 - Switch entities
 
