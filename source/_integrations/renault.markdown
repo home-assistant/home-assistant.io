@@ -3,6 +3,7 @@ title: Renault
 description: Instructions on how to integrate Renault car into Home Assistant.
 ha_category:
   - Car
+  - Binary Sensor
   - Presence Detection
   - Sensor
 ha_release: 2021.8
@@ -11,6 +12,7 @@ ha_config_flow: true
 ha_codeowners: '@epenet'
 ha_domain: renault
 ha_platforms:
+  - binary_sensor
   - device_tracker
   - sensor
 ---
@@ -19,8 +21,9 @@ The Renault integration offers integration with the **MyRenault** cloud service 
 
 This integration provides the following platforms:
 
-- Sensors - such as battery level, outside temperature, odometer, estimated range, and charging rate.
+- Binary sensors - such as plug and charge status.
 - Device tracker - to track location of your car
+- Sensors - such as battery level, outside temperature, odometer, estimated range, and charging rate.
 
 ## Prerequisites
 
