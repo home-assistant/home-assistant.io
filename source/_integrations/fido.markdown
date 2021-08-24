@@ -84,6 +84,6 @@ monitored_variables:
       description: Other talk time used (It could be international calls)
     other_talk_limit:
       description: Other talk time limit
-    other_talt_remaining:
+    other_talk_remaining:
       description: Other talk time remaining
 {% endconfiguration %}
