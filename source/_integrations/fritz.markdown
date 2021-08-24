@@ -17,16 +17,18 @@ ha_platforms:
   - binary_sensor
   - device_tracker
   - sensor
+  - switch
 ha_ssdp: true
 ---
 
-The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) based router.
+The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://en.avm.de/products/fritzbox/) based router.
 
 There is support for the following platform types within Home Assistant:
 
 - **Device tracker** - presence detection by looking at connected devices.
 - **Binary sensor** - connectivity status.
-- **Sensor** - external IP address and uptime.
+- **Sensor** - external IP address, uptime and network monitors.
+- **Switch** - call deflection, port forward, parental control and Wi-Fi networks.
 
 {% include integrations/config_flow.md %}
 
@@ -75,6 +77,71 @@ These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrat
 
 ## Additional info
 
+### Parental control
+
+Parental control switches can be used to enable and disable internet access of individual devices. If a device has internet access it will be enabled, otherwise it will be disabled. You can also find the current blocking state of the individual devices in the UI of the FRITZ!Box under `Internet` -> `Filters` -> `Parental Controls` -> `Device Block`
+
+Parental control switches are designed for advanced users, thus they are disabled by default. You need to enable the wanted entities manually.
+
+### Device Tracker
+
 **Note 1**: All devices to be tracked, even the new detected, are disabled by default. You need to enable the wanted entities manually.
 
 **Note 2**: If you don't want to automatically track newly detected devices, disable the integration system option `Enable new added entities`.
+
+### Port Forward
+
+Due to security reasons, AVM implemented the ability to enable/disable a port forward rule only from the host involved in the rule.
+As a result, this integration will create entities only for rules that have your Home Assistant host as a destination.
+
+**Note 1**: On your FRITZ!Box, enable the setting `Permit independent port sharing for this device` for the device which runs HA (`Internet` -> `Permit Access` -> `<Name of HA device>`)
+
+**Note 2**: Only works if you have a dedicated IPv4 address (it won't work with DS-Lite)
+
+## Example Automations and Scripts
+
+
+**Script: Reconnect / get new IP**
+
+The following script can be used to easily add a reconnect button to your UI. If you want to reboot your FRITZ!Box, you can use `fritzbox_tools.reboot` instead.
+
+```yaml
+fritz_box_reconnect:
+  alias: "Reconnect FRITZ!Box"
+  sequence:
+    - service: fritz.reconnect
+      target:
+        entity_id: binary_sensor.fritz_box_7530_connectivity
+
+```
+**Automation: Reconnect / get new IP every night**
+
+```yaml
+automation:
+- alias: "System: Reconnect FRITZ!Box"
+  trigger:
+    - platform: time
+      at: "05:00:00"
+  action:
+    - service: fritz.reconnect
+      target:
+        entity_id: binary_sensor.fritzbox_x_connectivity
+
+```
+
+**Automation: Phone notification with wifi credentials when guest wifi is created**
+
+```yaml
+automation:
+  - alias: "Guests Wifi Turned On -> Send Password To Phone"
+    trigger:
+      - platform: state
+        entity_id: switch.fritzbox_x_wifi_x
+        to: "on"
+    action:
+      - service: notify.notify
+        data:
+          title: "Guest wifi is enabled"
+          message: "Password: ..."
+
+```

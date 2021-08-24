@@ -97,7 +97,7 @@ automation:
       entity_id: light.all
 ```
 
-`device_descriptor` or `device_name` may be specificed in the trigger so the automation will be fired only for that keyboard. This is especially useful if you wish to use several Bluetooth remotes to control different devices. Omit them to ensure the same key triggers the automation for all keyboards/remotes.
+`device_descriptor` or `device_name` may be specified in the trigger so the automation will be fired only for that keyboard. This is especially useful if you wish to use several Bluetooth remotes to control different devices. Omit them to ensure the same key triggers the automation for all keyboards/remotes.
 
 ## Disconnections
 

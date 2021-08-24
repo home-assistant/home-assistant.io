@@ -339,7 +339,7 @@ To help resolve any kinks or compatibility problems, report bugs as issues with 
 
 There is no official compatibility list of supported devices for the simple reason that practically all devices Zigbee Home Automation that are fully compliant with the standards and specifications as set by the [Zigbee Alliance](https://zigbeealliance.org) should technically be compatible with this ZHA integration. The fact remains, however, that some hardware manufacturers do not always fully comply with each set specification, which can cause a few devices to only partially work or not work at all with ZHA, but developers can create workarounds for such issues via a solution for 'ZHA exception and deviation handling' that this implementation features. See that section for more information.
 
-Tip to new users is that, while there is no official list of supported devices, some ZHA users take comfort that blakadder maintains an unofficial Zigbee Device Compatibility Repository which anyone can submit compatibility reports to, it can be found at [zigbee.blakadder.com](https://zigbee.blakadder.com) and currently contains independent compatibility lists and device pairing tips for several home automation gateway/bridge/hub softwares, including but not limited to open source Zigbee implementations such as; ZHA, Tasmota, Zigbee2MQTT, and ZiGate.
+Tip to new users is that, while there is no official list of supported devices, some ZHA users take comfort that blakadder maintains an unofficial Zigbee Device Compatibility Repository which anyone can submit compatibility reports to, it can be found at [zigbee.blakadder.com](https://zigbee.blakadder.com) and currently contains independent compatibility lists and device pairing tips for several home automation gateway/bridge/hub software, including but not limited to open source Zigbee implementations such as; ZHA, Tasmota, Zigbee2MQTT, and ZiGate.
 
 ### ZHA exception and deviation handling
 
@@ -391,8 +391,10 @@ Using a Philips Hue Dimmer Switch or Lutron Connected Bulb Remote is probably th
 
 1. Turn on your Hue bulb/light you want to reset. (It is important that the bulb has just been turned).
 2. Hold the Philips Hue Dimmer Switch near your bulb (closer than 10 centimeters / 4 inches).
-3. Press and hold the (I)/(ON) and (O)/(OFF) buttons on the Philips Hue Dimmer Switch for about 10 seconds continuously until your bulb starts to blink.
+3. Press and hold the (I)/(ON) and (O)/(OFF) buttons on the Philips Hue Dimmer Switch for about 10 seconds continuously until your bulb starts to blink. On the newer switches hold the I/O and Scene Switch buttons.
 4. Your bulb should stop blinking and eventually turn on again. At the same time, a green light on the top left of your remote indicates that your bulb has been successfully reset to factory default settings.
+
+Note: If you are not unable to reset the bulb, remove it from the Hue Bridge and retry the procedure.
 
 #### Lutron Connected Bulb Remote
 

@@ -3,9 +3,7 @@ title: "Troubleshooting Automations"
 description: "Tips on how to troubleshoot your automations."
 ---
 
-
 When an automation is run, all steps are recorded and a trace is made. From the UI choose **Configuration** which is located in the sidebar, then click on **Automation** to go to the automation editor or click this button directly: {% my automation badge %}
-
 
 Click on the clock icon next to an automation to enter the debugging screen. Alternatively, click on **Show trace** directly from a Logbook automation entry.
 
@@ -14,6 +12,8 @@ Click on the clock icon next to an automation to enter the debugging screen. Alt
 The above screenshot shows a previous run of an automation. The automation is displayed using an interactive graph, highlighting which path the automation took. Each node in the graph can be clicked to view the details on what happened with the automation during that specific step. It traces the complete run of an automation.
 
 The debugging screen is split into four features, the first being the Step Details which provides all details for each step of the automation. The second feature is the Trace Timeline which the screenshot above shows and where the automation can be followed on a timeline. The next is Related logbook entries, as the name says a logbook for all the entries related to the specific trace. The last two features are Automation Config and optionally Blueprint Config for the automation YAML code.
+
+Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating-your-yaml-automations-to-automationsyaml) assigned in order for debugging traces to be stored.
 
 #### Traces ####
 
@@ -26,7 +26,7 @@ trace:
 
 [template]: /topics/templating/
 
-### Testing your automation
+## Testing your automation
 
 It is generally a difficult task to test an automation, especially if it includes several triggers and some conditions.
 

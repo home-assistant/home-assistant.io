@@ -2,6 +2,7 @@
 title: Template
 description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
+  - Binary Sensor
   - Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
@@ -9,6 +10,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@PhracturedBlue'
   - '@tetienne'
+  - '@home-assistant/core'
 ha_domain: template
 ha_platforms:
   - alarm_control_panel
@@ -109,6 +111,11 @@ sensor:
       type: template
     unit_of_measurement:
       description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
+      required: false
+      type: string
+      default: None
+    state_class:
+      description: "Defines the state class of the sensor, if any. Only possible value currently is `measurement`. Set this if your template sensor represents a measurement of the current value (so not a daily aggregate etc)."
       required: false
       type: string
       default: None
@@ -292,6 +299,21 @@ curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"temperature": 5, "humidity": 34, "motion": true}' \
   http://homeassistant.local:8123/api/webhook/my-super-secret-webhook-id
+```
+
+### Turning an event into a binary sensor
+
+You can use a trigger-based template entity to convert any event or other automation trigger into a binary sensor. The below configuration will turn on a binary sensor for 5 seconds when the automation trigger triggers.
+
+```yaml
+template:
+  trigger:
+    platform: event
+    event_type: my_event
+  binary_sensor:
+    - name: Event recently fired
+      auto_off: 5
+      state: "true"
 ```
 
 ### Sun Angle

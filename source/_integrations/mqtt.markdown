@@ -17,10 +17,12 @@ ha_platforms:
   - climate
   - cover
   - fan
+  - humidifier
   - lock
   - number
   - scene
   - sensor
+  - select
   - switch
 ---
 

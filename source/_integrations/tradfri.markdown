@@ -74,3 +74,7 @@ Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf
 ### Setting the `api_key`
 
 Do not use the `api_key` variable in `configuration.yaml`. The API key is only needed once at initial setup and will be stored.
+
+## Known limitations
+
+- The TRÅDFRI Shortcut button sends no events to Home Assistant so it cannot be used to automate with; it does report battery status.

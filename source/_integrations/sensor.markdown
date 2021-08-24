@@ -22,6 +22,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **energy**: Energy in Wh or kWh.
 - **humidity**: Percentage of humidity in the air.
 - **illuminance**: The current light level in lx or lm.
+- **monetary**: The monetary value.
 - **signal_strength**: Signal strength in dB or dBm.
 - **temperature**: Temperature in °C or °F.
 - **power**: Power in W or kW.

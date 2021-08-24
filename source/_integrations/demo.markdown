@@ -27,6 +27,8 @@ ha_platforms:
   - number
   - remote
   - sensor
+  - select
+  - siren
   - stt
   - switch
   - tts

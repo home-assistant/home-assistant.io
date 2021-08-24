@@ -1,4 +1,5 @@
 ---
+type: card
 title: Picture Entity Card
 sidebar_label: Picture Entity
 description: The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of camera entities.

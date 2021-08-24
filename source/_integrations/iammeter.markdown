@@ -60,7 +60,7 @@ Sensors available in the library:
 | wem3080_voltage       | V    | Voltage.                                     |
 | wem3080_current       | A    | current.                                           |
 | wem3080_power         | W    | active power.                                    |
-| wem3080_importenergy  | kWh  | Energy consumption from gird |
+| wem3080_importenergy  | kWh  | Energy consumption from grid |
 | wem3080_exportgrid    | kWh  | Energy export to grid    |
 
 ### Three-phase energy meter (WEM3080T)

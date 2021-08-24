@@ -63,10 +63,6 @@ There are several attributes that can be useful for automations and templates.
 | `holiday_mode` | The state of the holiday mode (only available since Fritz!OS 7).
 | `summer_mode` | The state of the summer mode (only available since Fritz!OS 7).
 | `window_open` | The state of the window open detection (only available since Fritz!OS 7).
-| `temperature_unit` |  The unit of the temperature sensor (only available if the device support temperature sensor).
-| `temperature` | The current temperature sensor reading (only available if the device supports temperature sensor).
-| `total_consumption` | The total power consumption since the beginning of operation (only available if the device supports power meter function).
-| `total_consumption_unit` | The unit of the total_consumption (only available if the device supports power meter function).
 
 ## Sensors
 
@@ -80,5 +76,3 @@ There are several attributes that can be useful for automations and templates.
 | --------- | ----------- |
 | `device_locked` | The state of the key lock at the device.
 | `locked` | The state of the lock for configuring the device via the app or the FRITZ!Box web interface.
-| `temperature_unit` |  The unit of the temperature sensor.
-| `temperature` | The current temperature sensor reading.

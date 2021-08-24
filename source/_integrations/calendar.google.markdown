@@ -74,9 +74,16 @@ track_new_calendar:
   required: false
   type: boolean
   default: true
+calendar_access:
+  description: >
+    Determines the level of access that Home Assistant will request when
+    connecting to calendars. This can be `read_only` or `read_write`.
+  required: false
+  type: string
+  default: read_write
 {% endconfiguration %}
 
-The next time you run or restart Home Assistant, you should find a new notification (the little bell icon in the lower-left corner). Click on that notification it will give you a link and an authentication code. Click on that link to open a Google website where you should enter the code found in the notification (**NOTE**: You may get a message telling you that the API has not been verified and you will need to acknowledge that in order to proceed). This will grant your Home Assistant service read-only access to all the Google Calendars that the account you authenticate with can read.
+The next time you run or restart Home Assistant, you should find a new notification (the little bell icon in the lower-left corner). Click on that notification it will give you a link and an authentication code. Click on that link to open a Google website where you should enter the code found in the notification (**NOTE**: You may get a message telling you that the API has not been verified and you will need to acknowledge that in order to proceed). This will grant your Home Assistant service `read-only` or `read-write` access (based on configuration) to all the Google Calendars that the account you authenticate with can read.
 
 ## Calendar Configuration
 
@@ -187,6 +194,12 @@ entities:
 ### Service `google.add_event`
 
 You can use the service `google.add_event` to create a new calendar event in a calendar. Calendar id's can be found in the file `google_calendars.yaml`. All dates and times are in your local time, the integration gets your time zone from your `configuration.yaml` file.
+
+<div class='note'>
+
+This will only be available if you have given Home Assistant `read-write` access (see `calendar_access`).
+
+</div>
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|

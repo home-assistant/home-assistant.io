@@ -13,7 +13,7 @@ The `template` integrations creates weather provider that combines integrations 
 
 There are several powerful ways to use this integration, including localizing your weather provider information with local information from temperature, humidity, pressure sensors that you own.
 
-Another use case could be using temperature and humidity from one weather plaform, with forecasts from a different one.
+Another use case could be using temperature and humidity from one weather platform, with forecasts from a different one.
 
 
 ## Configuration

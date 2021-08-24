@@ -145,7 +145,7 @@ sender_id:
   required: true
   type: list
 name:
-  description: An identifier for the Ligh in the frontend.
+  description: An identifier for the light in the frontend.
   required: false
   default: EnOcean Light
   type: string

@@ -335,7 +335,7 @@ alexa:
                   type: string
 {% endconfiguration %}
 
-### Alexa Locale
+### Alexa Locale <!-- omit in toc -->
 
 The `locale` should match the location and language used for your Amazon echo devices.
 
@@ -359,7 +359,7 @@ The supported locales are:
 
 See [List of Capability Interfaces and Supported Locales][alexa-supported-locales].
 
-### Proactive Events
+### Proactive Events <!-- omit in toc -->
 
 The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e., "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
 
@@ -367,7 +367,7 @@ The `endpoint`, `client_id` and `client_secret` are optional, and are only requi
 - The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][amazon-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
 - If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available. Also, you need to restart your Home Assistant after each disabling/enabling the skill in Alexa."
 
-### Configure Filter
+### Configure Filter <!-- omit in toc -->
 
 By default, no entity will be excluded. To limit which entities are being exposed to Alexa, you can use the `filter` parameter. Keep in mind that only [supported platforms](#supported-platforms) can be added.
 
@@ -405,7 +405,7 @@ Filters are applied as follows:
 
 See the [troubleshooting](#troubleshooting) if for issues setting up the integration.
 
-### Alexa Display Categories
+### Alexa Display Categories <!-- omit in toc -->
 
 Configure a display category to override the display category and iconography each entity is shown in the Alexa app. This makes it easier to find and monitor devices.
 
@@ -427,34 +427,43 @@ Home Assistant supports the following integrations through Alexa using a Smart H
 The following integrations are currently supported:
 
 - [Alarm Control Panel](#alarm-control-panel)
-- [Alert](#alert-automation-group-input-boolean)
-- [Automation](#alert-automation-group-input-boolean)
+  - [Arming](#arming)
+  - [Disarming](#disarming)
+- [Alert, Automation, Group, Input Boolean](#alert-automation-group-input-boolean)
 - [Binary Sensor](#binary-sensor)
+  - [Routines](#routines)
   - [Doorbell Announcement](#doorbell-announcement)
-  - [Presence Detection](#presence-detection-with-binary-sensor)
+  - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
 - [Camera](#camera)
 - [Climate](#climate)
+  - [Set Thermostat Temperature](#set-thermostat-temperature)
+  - [Thermostat Mode](#thermostat-mode)
 - [Cover](#cover)
+  - [Open/Close/Raise/Lower](#opencloseraiselower)
+  - [Set Cover Position](#set-cover-position)
+  - [Set Cover Tilt](#set-cover-tilt)
   - [Garage Doors](#garage-doors)
 - [Fan](#fan)
   - [Fan Speed](#fan-speed)
+  - [Fan Preset Mode](#fan-preset-mode)
   - [Fan Direction](#fan-direction)
   - [Fan Oscillation](#fan-oscillation)
-- [Group](#alert-automation-group-input-boolean)
-- [Input Boolean](#alert-automation-group-input-boolean)
-- [Input Number](#input-number)
 - [Image Processing](#image-processing)
+  - [Presence Detection Notification](#presence-detection-notification)
+- [Input Number](#input-number)
 - [Light](#light)
   - [Brightness](#brightness)
   - [Color Temperature](#color-temperature)
   - [Color](#color)
 - [Lock](#lock)
+  - [Unlocking](#unlocking)
 - [Media Player](#media-player)
-  - [Channels](#change-channel)
-  - [Speakers](#speaker-volume)
-  - [Sound Mode & Equalizers](#equalizer-mode)
+  - [Change Channel](#change-channel)
+  - [Speaker Volume](#speaker-volume)
+  - [Equalizer Mode](#equalizer-mode)
   - [Inputs](#inputs)
-  - [Payback Control](#seek)
+  - [Playback State](#playback-state)
+  - [Seek](#seek)
 - [Scene](#scene)
 - [Script](#script)
 - [Sensor](#sensor)
@@ -707,7 +716,7 @@ Control fan speed, direction, and oscillation.
 
 #### Fan Speed
 
-The fan device must support the `speed` attribute. `speed` can be set using a percentage or a range value determined from the `speed_list` attribute.
+The fan device must support percentage based speeds with the `percentage` attribute.
 
 - _"Alexa, set the fan speed to three."_
 - _"Alexa, set the fan speed to fifty percent."_
@@ -715,24 +724,15 @@ The fan device must support the `speed` attribute. `speed` can be set using a pe
 - _"Alexa, turn up the speed on the tower fan."_
 - _"Alexa, set the air speed on the tower fan to maximum."_
 
-The `speed_list` attribute is used to determine the range value. For example, using a `speed_list` consisting of `[off, low, medium, high]` the range values would be `0:off`, `1:low`, `2:medium`, `3:high`.
+#### Fan Preset Mode
 
-The following table lists the possible friendly name synonyms available for a fan with `speed_list: [off, low, medium, high]`.
+The fan device must support the `preset_mode` attribute.
 
-| Fan Range | Friendly Name Synonyms                                             |
-| --------- | ------------------------------------------------------------------ |
-| 0         | _"zero"_, _"off"_                                                  |
-| 1         | _"one"_, _"thirty-three percent"_, _"low"_, _"minimum"_, _"min"_   |
-| 2         | _"two"_, _"sixty-six percent"_, _"medium"_                         |
-| 3         | _"three"_, _"one hundred percent"_, _"high"_, _"maximum"_, _"max"_ |
+- _"Alexa, set the fan preset to eco."_
+- _"Alexa, set the fan preset to smart."_
+- _"Alexa, set the fan preset to auto."_
 
-The following synonyms can be used for _"fan speed"_
-
-| Locale  | Friendly Name Synonyms                                                                             |
-| ------- | -------------------------------------------------------------------------------------------------- |
-| `en-US` | _"fan speed"_, _"airflow speed"_, _"wind speed"_, _"air speed"_, _"air velocity"_, _"power level"_ |
-
-Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
+Currently, Alexa only supports `en-US` locale for preset modes.
 
 #### Fan Direction
 
@@ -981,13 +981,13 @@ The following is a list of regions and the corresponding URL for the web-based A
 
 ## Troubleshooting
 
-### Binary Sensor not available in Routine Trigger
+### Binary Sensor not available in Routine Trigger <!-- omit in toc -->
 
 Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
 
 Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
-### Token Invalid and no Refresh Token Available
+### Token Invalid and no Refresh Token Available <!-- omit in toc -->
 
 Disable and re-enable the skill using the Alexa App; then restart Home Assistant.
 

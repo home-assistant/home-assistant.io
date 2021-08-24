@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Horizontal Stack Card"
 sidebar_label: Horizontal Stack
 description: "The Horizontal Stack card allows you to stack together multiple cards, so they always sit next to each other in the space of one column."

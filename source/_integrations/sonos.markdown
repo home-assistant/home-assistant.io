@@ -18,6 +18,7 @@ ha_platforms:
   - media_player
   - sensor
   - switch
+ha_zeroconf: true
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
@@ -190,6 +191,7 @@ Night Sound and Speech Enhancement modes are only supported when playing from th
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that will have their options set.
 | `buttons_enabled` | yes | Boolean to control the functioning of hardware buttons on the device.
+| `crossfade` | yes | Boolean to control crossfading between songs.
 | `night_sound` | yes | Boolean to control Night Sound mode.
 | `speech_enhance` | yes | Boolean to control Speech Enhancement mode.
 | `status_light` | yes | Boolean to control the Status (LED) Light.
@@ -269,14 +271,7 @@ sonos:
       - 192.0.2.27
 ```
 
-If your Home Assistant instance has multiple IP addresses, you can provide the IP address that should be used for Sonos auto-discovery. This is rarely needed since all addresses should be tried by default.
-
-```yaml
-# Example configuration.yaml entry using Sonos discovery on a specific interface
-sonos:
-  media_player:
-    interface_addr: 192.0.2.1
-```
+If your Home Assistant instance has multiple IP addresses, you can enable the IP address that should be used for Sonos auto-discovery with the [Network](/integrations/network/) integration. This should only be necessary if the Sonos speakers are on a network segment not reachable from the default interface.
 
 The Sonos speakers will attempt to connect back to Home Assistant to deliver change events. By default, Home Assistant will listen on port 1400 but will try the next 100 ports above 1400 if it is in use. You can change the IP address that Home Assistant advertises to Sonos speakers. This can help in NAT scenarios such as when _not_ using the Docker option `--net=host`:
 
