@@ -7,7 +7,7 @@ description: "Tips on how to troubleshoot your automations."
 When an automation is run, all steps are recorded and a trace is made. From the UI choose **Configuration** which is located in the sidebar, then click on **Automation** to go to the automation editor or click this button directly: {% my automation badge %}
 
 
-Click on the clock icon next to an automation to enter the debugging screen. Alternatively click on **Show trace** directly from a Logbook automation entry.
+Click on the clock icon next to an automation to enter the debugging screen. Alternatively, click on **Show trace** directly from a Logbook automation entry.
 
 ![Automation tracing example](/images/integrations/automation/automation-tracing.png)
 
