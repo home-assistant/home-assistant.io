@@ -60,7 +60,7 @@ See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/
 
 {% include integrations/config_flow.md %}
 
-If manual configuration (without an add-on) is used, then Home Assistant needs to be authenticated to the deCONZ tool. This is performed by launching Phoscon App from deCONZ tool, selecting Settings|Gateway|Advanced and clicking "Authenticate app" button.
+Running a stand-alone instance of deCONZ (non add-on installation) requires a pairing between the deCONZ gateway and Home Assistant. To allow Home Assistant to connect with deCONZ go to the Phoscon UI click Settings -> Gateway -> Advanced and press the "Authenticate app" button. This same information is also shown during the config flow of the deCONZ integration.
 
 ## Debugging integration
 
