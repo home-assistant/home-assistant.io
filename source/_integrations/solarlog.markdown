@@ -66,9 +66,9 @@ The following sensors are available in the library:
 | consumption_month     | kWh    | Total consumption for the month from all of the consumption meters. |
 | consumption_year      | kWh    | Total consumption for the year from all of the consumption meters. |
 | consumption_total     | kWh    | Accumulated total consumption from all consumption meters. |
-| total_power           | Wp     | Installed generator power. |
+| installed_peak_power  | W      | Installed solar peak power. |
 | alternator_loss       | W      | Altenator loss (equals to power_dc - power_ac) |
-| capacity              | W/Wp   | Capacity (equals to power_dc / total power) |
+| capacity              | %      | Capacity (equals to power_dc / total power) |
 | efficiency            | %      | Efficiency (equals to power_ac / power_dc) |
 | power_available       | W      | Available power (equals to power_ac - consumption_ac) | 
 | usage                 | %      | Usage (equals to consumption_ac / power_ac) |
