@@ -2,7 +2,7 @@
 title: "Supervisor update"
 description: "Upcoming changes to the Supervisor"
 date: 2021-08-24 00:00:00
-date_formatted: "August 24, 2020"
+date_formatted: "August 24, 2021"
 comments: true
 author: Joakim Sørensen
 author_twitter: ludeeus
