@@ -16,6 +16,7 @@ ha_zeroconf: true
 ha_platforms:
   - light
   - sensor
+  - select
   - switch
 ---
 
@@ -56,6 +57,7 @@ entity controls the strip power and overall brightness applied to all segments.
 
 This integration provides selects for the following information from WLED:
 
+- Playlist
 - Preset
 - Color palette (per segment, disabled by default).
 
@@ -114,17 +116,6 @@ This service allows for controlling the WLED effect.
 
 A list of all available effects (and the behavior of the intensity for each
 effect) [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/List-of-effects-and-palettes#effects).
-
-### Service `wled.preset`
-
-This service allows for loading a preset saved on the WLED device.
-
-| Service Data Attribute | Required | Description                                                                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | A WLED entity ID to load the preset from.                                                                       |
-| `preset`               | no       | ID of the preset slot to load from.                                                                             |
-
-More information on presets [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/Presets)
 
 ## Example Automations
 

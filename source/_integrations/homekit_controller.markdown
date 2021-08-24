@@ -34,6 +34,7 @@ ha_platforms:
   - light
   - lock
   - media_player
+  - number
   - sensor
   - switch
 ---

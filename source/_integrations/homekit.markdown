@@ -468,7 +468,7 @@ The following home hubs have been reported to have trouble with a large number o
 
  1. Delete the `HomeKit` integration in the **{% my integrations %}** screen.
  2. **Restart** Home Assistant.
- 3. The configuration will be automaticlly reimported from YAML.
+ 3. The configuration will be automatically reimported from YAML.
  4. [Pair the bridge or accessory](#setup).
 
 ### Resetting when created via the **Integrations** screen
@@ -565,7 +565,7 @@ See [specific entity doesn't work](#specific-entity-doesnt-work)
 
 #### Accessory not responding - after restart or update
 
-See [resetting accessories](#resetting-accessories)
+See [resetting accessories](#resetting-accessories) and [Unpairing and Re-pairing](#unpairing-and-re-pairing).
 
 #### The linked battery sensor isn't recognized
 
@@ -616,3 +616,9 @@ You may use the service `homekit.reset_accessory` with one or more entity_ids to
 On earlier versions of Home Assistant, you can reset accessories by removing the entity from HomeKit (via [filter](#configure-filter)) and then re-adding the accessory.
 
 With either strategy, the accessory will behave as if it's the first time the accessory has been set up, so you will need to restore the name, group, room, scene, and/or automation settings.
+
+#### Unpairing and Re-pairing
+
+The HomeKit integration remembers a public key for each paired device. Occasionally the public key for a device pairing will be missing because of pairing failures. Suppose one or more devices show the accessory as unavailable. In that case, it may be necessary to unpair and re-pair the device to ensure the integration has the public key for each paired client. The `homekit.unpair` service will forcefully remove all pairings and allow re-pairing with the accessory. When setting up HomeKit from the UI, this avoids the sometimes time-consuming process of deleting and create a new instance.
+
+The accessory will behave as if it's the first time the accessory has been set up, so you will need to restore the name, group, room, scene, and/or automation settings.

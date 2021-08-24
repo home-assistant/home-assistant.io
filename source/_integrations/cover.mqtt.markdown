@@ -554,7 +554,7 @@ cover:
         {% set tilt_value = min(max((tilt + movement), tilt_min), max) %}
  
         {
-           "postition": value,
+           "position": value,
            "pos": position,
            "tilt": tilt,
            "tilt_value": tilt_value,

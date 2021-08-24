@@ -5,6 +5,7 @@ ha_category:
   - Hub
   - Switch
   - Light
+  - Sensor
 ha_release: 0.89
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_domain: tplink
 ha_platforms:
   - light
+  - sensor
   - switch
 ha_dhcp: true
 ---
@@ -24,6 +26,7 @@ There is currently support for the following device types within Home Assistant:
 
 - **Light**
 - **Switch**
+- **Sensor**
 
 In order to activate the support, you will have to enable the integration inside the configuration panel.
 The supported devices in your network are automatically discovered, but if you want to control devices residing in other networks you will need to configure them manually as shown below.
@@ -40,17 +43,19 @@ Plugs are type `switch` when autodiscovery has been disabled.
 - HS100
 - HS103
 - HS105
-- HS110 (This device is capable of reporting energy usage data to template sensors)
+- HS110 (confirmed to support consumption sensors)
 - KP105
-- KP115
+- KP115 (confirmed to support consumption sensors)
 
 ### Strip (Multi-Plug)
 
 - HS107 (indoor 2-outlet)
-- HS300 (powerstrip 6-outlet) (This device is capable of reporting energy usage data to template sensors)
+- HS300 (powerstrip 6-outlet) (confirmed to support consumption sensors)
 - KP303 (powerstrip 3-outlet)
 - KP400 (outdoor 2-outlet)
 - KP200 (indoor 2-outlet)
+- KP40 (outdoor 2-outlet)
+- EP40 (outdoor 2-outlet)
 
 ### Wall Switches
 
@@ -143,44 +148,3 @@ tplink:
     - host: 192.168.200.7
     - host: 192.168.200.8
 ```
-
-## Extracting Energy Sensor data
-
-Devices that are confirmed to support Consumption Reading;
-1. HS110
-2. HS300
-3. KP115
-4. Bulbs (device-specific, only current power consumption is commonly available)
-
-In order to get the power consumption readings from a TP-Link HS110 device, you'll have to create a [template sensor](/integrations/template/).
-In the example below, change all of the `my_tp_switch`'s to match your device's entity ID (without the domain). For example, if your entity is `switch.whale_heater` then replace `my_tp_switch` with `whale_heater`:
-
-{% raw %}
-
-```yaml
-sensor:
-  - platform: template
-    sensors:
-      my_tp_switch_amps:
-        friendly_name_template: "{{ state_attr('switch.my_tp_switch','friendly_name') }} Current"
-        value_template: "{{ state_attr('switch.my_tp_switch','current_a') }}"
-        unit_of_measurement: "A"
-      my_tp_switch_watts:
-        friendly_name_template: "{{ state_attr('switch.my_tp_switch','friendly_name') }} Current Consumption"
-        value_template: "{{ state_attr('switch.my_tp_switch','current_power_w') }}"
-        unit_of_measurement: "W"
-      my_tp_switch_total_kwh:
-        friendly_name_template: "{{ state_attr('switch.my_tp_switch','friendly_name') }} Total Consumption"
-        value_template: "{{ state_attr('switch.my_tp_switch','total_energy_kwh') }}"
-        unit_of_measurement: "kWh"
-      my_tp_switch_volts:
-        friendly_name_template: "{{ state_attr('switch.my_tp_switch','friendly_name') }} Voltage"
-        value_template: "{{ state_attr('switch.my_tp_switch','voltage') }}"
-        unit_of_measurement: "V"
-      my_tp_switch_today_kwh:
-        friendly_name_template: "{{ state_attr('switch.my_tp_switch','friendly_name') }} Today's Consumption"
-        value_template: "{{ state_attr('switch.my_tp_switch','today_energy_kwh') }}"
-        unit_of_measurement: "kWh"
-```
-
-{% endraw %}

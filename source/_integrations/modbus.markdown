@@ -18,6 +18,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_quality_scale: silver
 ---
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit). The integration adheres strictly to the [protocol specification](https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf).
@@ -56,6 +57,16 @@ name:
   required: false
   default: "modbus_hub"
   type: string
+retries:
+  description: Number of times to retry a request.
+  required: false
+  default: 3
+  type: integer
+retry_on_empty:
+  description: Retry request, when receiving and empty message.
+  required: false
+  default: false
+  type: boolean
 timeout:
   description: "Timeout while waiting for a response in seconds."
   required: false
@@ -209,7 +220,7 @@ name:
   required: true
   type: string
 scan_interval:
-  description: Defines the update interval of the entity in seconds.
+  description: Defines the update interval of the entity in seconds, if scan_interval = 0 polling is stopped. Entities are unavailable until the first response is received, except for entities with scan_interval = 0, these entities are available from startup.
   required: false
   type: integer
   default: 10
@@ -220,11 +231,60 @@ slave:
   default: 0
 {% endconfiguration %}
 
-### Configuring platform binary sensor
+### Configuring data_type and struct
+
+Climate and Sensor share setup of data_type and struct. 
+
+```yaml
+# Example configuration.yaml entry for platform common parameters
+modbus:
+  - type: tcp
+    host: IP_ADDRESS_1
+    port: 2020
+    name: "hub1"
+    sensors:
+      - name: sensor1
+        data_type: int
+```
+
+{% configuration %}
+data_type:
+  description: Response representation (int16, int32, int64, uint16, uint32, uint64, float16, float32, float64, string). `int/uint`are silently converted to `int16/uint16`.
+  required: false
+  type: string
+  default: int16
+offset:
+  description: Final offset (output = scale * value + offset).
+  required: false
+  type: float
+  default: 0
+precision:
+  description: Number of valid decimals.
+  required: false
+  type: integer
+  default: 1
+scale:
+  description: Scale factor (output = scale * value + offset).
+  required: false
+  type: float
+  default: 1
+structure:
+  description: "If `data_type` is custom specified a double-quoted Python struct is expected here, to format the string to unpack the value. See Python documentation for details. Example: `>i`."
+  required: false
+  type: string
+  default: ">f"
+swap:
+  description: "Swap the order of bytes/words, options are `none`, `byte`, `word`, `word_byte`."
+  required: false
+  default: none
+  type: string
+{% endconfiguration %}
+
+## Configuring platform binary sensor
 
 The Modbus binary sensor allows you to gather data from coils which as per standard have state ON/OFF.
 
-To use your Modbus binary sensors in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus binary sensors in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry for binary_sensor configuration
@@ -238,7 +298,7 @@ modbus:
         address: 100
         scan_interval: 20
         slave: 1
-      - name: "binary_ensor2"
+      - name: "binary_sensor2"
         address: 110
         device_class: door
         input_type: discrete_input
@@ -264,11 +324,11 @@ binary_sensors:
       type: string
 {% endconfiguration %}
 
-### Configuring platform climate
+## Configuring platform climate
 
 The Modbus climate platform allows you to monitor your thermostat as well as set a target temperature.
 
-To use your Modbus thermostat in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus thermostat in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters) and [response regresentation](#configuring-data_type-and-struct):
 
 ```yaml
 # Example configuration.yaml entry
@@ -309,12 +369,7 @@ climates:
       description: Number of registers to read.
       required: false
       type: integer
-      default: 2
-    data_type:
-      description: Response representation (`int`, `uint`, `float`, `custom`). If `float` selected, value will converted to IEEE 754 floating point format. If `custom`is selected `structure`must de defined.
-      required: false
-      type: string
-      default: float  
+      default: 1 or calculated if data_type is not `struct`.
     input_type:
       description: Modbus register type (`holding`, `input`) for current temperature.
       required: false
@@ -330,31 +385,6 @@ climates:
       required: false
       type: integer
       default: 5
-    offset:
-      description: Final offset (output = scale * value + offset).
-      required: false
-      type: float
-      default: 0
-    precision:
-      description: Number of valid decimals.
-      required: false
-      type: integer
-      default: 1
-    scale:
-      description: Scale factor (output = scale * value + offset).
-      required: false
-      type: float
-      default: 1
-    structure:
-      description: "If `data_type` is custom specified a double-quoted Python struct is expected here, to format the string to unpack the value. See Python documentation for details. Example: `>i`."
-      required: false
-      type: string
-      default: ">f"
-    swap:
-      description: "Swap the order of bytes/words, options are `none`, `byte`, `word`, `word_byte`."
-      required: false
-      default: none
-      type: string 
     target_temp_register:
       description: Register address for target temperature (Setpoint).
       required: true
@@ -371,13 +401,13 @@ climates:
       default: C
 {% endconfiguration %}
 
-#### Service `modbus.set-temperature`
+### Service `modbus.set-temperature`
 
 | Service | Description |
 | ------- | ----------- |
 | set_temperature | Set Temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
 
-### Configuring platform cover
+## Configuring platform cover
 
 The `modbus` cover platform allows you to control covers (such as blinds, a roller shutter, or a garage door).
 
@@ -387,7 +417,7 @@ Cover that uses `input_type: coil` is not able to determine intermediary states 
 
 If your cover uses ìnput_type: holding` (default) to send commands, it can also read the intermediary states. To adjust which value represents what state, you can fine-tune the optional state attributes, like `state_open`. These optional state values are also used for specifying values written into the register. If you specify an optional status_register attribute, cover states will be read from status_register instead of the register used for sending commands.
 
-To use Modbus covers in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use Modbus covers in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry
@@ -462,7 +492,7 @@ covers:
       type: string
 {% endconfiguration %}
 
-#### Example: Modbus cover controlled by a coil
+### Example: Modbus cover controlled by a coil
 
 This example shows a configuration for a Modbus cover controlled using a coil. Intermediary states like opening/closing are not supported. The cover state is polled from Modbus every 10 seconds.
 
@@ -485,7 +515,7 @@ modbus:
         scan_interval: 10
 ```
 
-#### Example: Modbus cover controlled by a coil, it's state is read from the register
+### Example: Modbus cover controlled by a coil, it's state is read from the register
 
 This example shows a configuration for a Modbus cover controlled using a coil. Actual cover state is read from the `status_register`. We've also specified register values to match with the states open/opening/closed/closing. The cover state is polled from Modbus every 10 seconds.
 
@@ -509,7 +539,7 @@ modbus:
         state_closed: 4
 ```
 
-#### Example: Modbus cover controlled by a holding register
+### Example: Modbus cover controlled by a holding register
 
 This example shows a configuration for a Modbus cover controlled using a holding register, from which we also read current cover state. We've also specified register values to match with the states open/opening/closed/closing. The cover state is polled from Modbus every 10 seconds.
 
@@ -531,7 +561,7 @@ modbus:
         state_closed: 4
 ```
 
-#### Example: Modbus cover controlled by a holding register, it's state is read from the status register
+### Example: Modbus cover controlled by a holding register, it's state is read from the status register
 
 This example shows a configuration for a Modbus cover controlled using a holding register. However, cover state is read from a `status_register`. In this case, we've specified only values for `state_open` and `state_closed`, for the rest, default values are used. The cover state is polled from Modbus every 10 seconds.
 
@@ -556,11 +586,11 @@ modbus:
 
 
 
-### Configuring platform fan
+## Configuring platform fan
 
 The `modbus` fan platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
-To use your Modbus fans in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus fans in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry
@@ -609,7 +639,7 @@ fans:
       default: 0x00
       type: integer
     write_type:
-      description: Type of address (holding/coil).
+      description: Type of address (holding/coil or holdings/coils for array call).
       required: false
       default: holding
       type: string
@@ -649,11 +679,11 @@ fans:
           type: integer
 {% endconfiguration %}
 
-### Configuring platform light
+## Configuring platform light
 
 The `modbus` light platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
-To use your Modbus lights in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus lights in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry
@@ -702,7 +732,7 @@ lights:
       default: 0x00
       type: integer
     write_type:
-      description: Type of address (holding/coil).
+      description: Type of address (holding/coil or holdings/coils for array call).
       required: false
       default: holding
       type: string
@@ -738,11 +768,11 @@ lights:
           type: integer
 {% endconfiguration %}
 
-### Configuring platform sensor
+## Configuring platform sensor
 
 The `modbus` sensor allows you to gather data from [Modbus](http://www.modbus.org/) registers.
 
-To use your Modbus sensors in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus sensors in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters) and [response regresentation](#configuring-data_type-and-struct):
 
 ```yaml
 # Example configuration.yaml entry
@@ -785,12 +815,7 @@ sensors:
       description: Number of registers to read.
       required: false
       type: integer
-      default: 1
-    data_type:
-      description: Response representation (int, uint, float, string, custom). If float selected, value will be converted to IEEE 754 floating point format.
-      required: false
-      default: int
-      type: string
+      default: 1 or calculated if data_type is not `struct`.
     device_class:
       description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
       required: false
@@ -804,26 +829,6 @@ sensors:
       description: Name of the sensor.
       required: true
       type: string
-    offset:
-      description: Final offset (output = scale * value + offset).
-      required: false
-      default: 0
-      type: float
-    precision:
-      description: Number of valid decimals.
-      required: false
-      default: 0
-      type: integer
-    swap:
-      description: swap the order of bytes/words, options are none, byte, word, word_byte.
-      required: false
-      default: none
-      type: string 
-    scale:
-      description: Scale factor (output = scale * value + offset).
-      required: false
-      default: 1
-      type: float
     scan_interval:
       description: Defines the update interval of the sensor in seconds.
       required: false
@@ -833,10 +838,6 @@ sensors:
       description: The number of the slave (Optional for tcp and upd Modbus).
       required: true
       type: integer
-    structure:
-      description: "If `data_type` is custom specified a double-quoted Python struct is expected here, to format the string to unpack the value. See Python documentation for details. Example: `>i`."
-      required: false
-      type: string
     unit_of_measurement:
       description: Unit to attach to value.
       required: false
@@ -849,7 +850,7 @@ If you specify scale or offset as floating point values, double precision floati
 
 </div>
 
-#### Full example
+### Full example
 
 Example temperature sensor with a default scan interval:
 
@@ -872,11 +873,11 @@ modbus:
         data_type: integer
 ```
 
-### Configuring platform switch
+## Configuring platform switch
 
 The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
-To use your Modbus switches in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus switches in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry
@@ -925,7 +926,7 @@ switches:
       default: 0x00
       type: integer
     write_type:
-      description: type of address (holding/coil)
+      description: type of address (holding/coil or holdings/coils for array call)
       required: false
       default: holding
       type: string
@@ -945,7 +946,7 @@ switches:
           default: 0
           type: integer
         input_type:
-          description: type of address (holding/coil/discrete/input)
+          description: type of address (holding/coil/discrete/input or holdings/coils for array call)
           required: false
           default: write_type
           type: integer

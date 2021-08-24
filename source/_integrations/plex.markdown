@@ -57,7 +57,7 @@ Alternatively, you can manually configure a Plex server connection by selecting 
 
 **Verify SSL certificate**: Verify the SSL certificate of your Plex server. May be used if connecting with an IP or if using a self-signed certificate.
 
-**Token**: A valid authorization token for your Plex server. If provided without 'Host', a connection URL will be retreived from Plex.
+**Token**: A valid authorization token for your Plex server. If provided without 'Host', a connection URL will be retrieved from Plex.
 
 ## Sensor
 

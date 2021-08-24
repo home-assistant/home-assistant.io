@@ -17,7 +17,7 @@ The Dexcom integration allows you to view your CGM data from [Dexcom](https://ww
 
 ## Prerequisites
 
-You will need to set up the [Dexcom Share](https://provider.dexcom.com/education-research/cgm-education-use/videos/setting-dexcom-share-and-follow) feature in your Dexcom G6 App to use this integration.
+You will need to set up the [Dexcom Share](https://provider.dexcom.com/education-research/cgm-education-use/videos/setting-dexcom-share-and-follow) feature in your Dexcom G6 App to use this integration. Enabling the Dexcom Share service requires setup of at least one follower. The integration will use the Dexcom user's credentials, not the follower's credentials.
 
 {% include integrations/config_flow.md %}
 

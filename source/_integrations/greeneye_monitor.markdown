@@ -5,6 +5,7 @@ logo: brultech.png
 ha_category:
   - Hub
   - Sensor
+  - Energy
 ha_release: 0.82
 ha_iot_class: Local Push
 ha_codeowners:

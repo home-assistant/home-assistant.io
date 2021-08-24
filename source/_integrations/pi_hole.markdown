@@ -40,3 +40,14 @@ Disables configured Pi-hole(s) for the specified amount of time.
 | ---------------------- | -------- | -------- | ----------- |
 | `entity_id` | `False` | string | Target switch entity. Use `all` to target all Pi-hole services |
 | `duration` | `True` | timedelta | Time for which Pi-hole should be disabled |
+
+Example service call:
+
+```yaml
+# Example service call to disable Pi-Hole for 30 minutes
+service: pi_hole.disable
+data:
+  duration: '00:30'
+target:
+  entity_id: all
+```

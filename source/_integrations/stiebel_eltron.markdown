@@ -24,8 +24,9 @@ It requires the following components:
 
 By now, the following units are tested:
 
-- LWZ504e
-- LWZ304
+- LWZ 504e
+- LWZ 304
+- LWZ 304 Trend
 
 ## HVAC modes
 
