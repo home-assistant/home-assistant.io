@@ -54,6 +54,8 @@ Plugs are type `switch` when autodiscovery has been disabled.
 - KP303 (powerstrip 3-outlet)
 - KP400 (outdoor 2-outlet)
 - KP200 (indoor 2-outlet)
+- KP40 (outdoor 2-outlet)
+- EP40 (outdoor 2-outlet)
 
 ### Wall Switches
 

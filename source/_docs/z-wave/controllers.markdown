@@ -13,13 +13,12 @@ This Z-Wave integration is deprecated and replaced with a [new implementation ba
 
 You need to have a compatible Z-Wave stick or module installed. This needs to be a *static controller*, which most Z-Wave sticks and modules will be. If yours is a *bridge* device then it won't work with [OpenZWave](http://openzwave.com/), which is what provides Home Assistant's Z-Wave capabilities. The following devices have been confirmed to work:
 
-- Aeotec Z-Stick Series 5 (see note below)
+- Aeotec Z-Stick Gen5 (see note below)
 - Everspring USB stick - Gen 5
 - GoControl HUSBZB-1 stick
 - Sigma Designs UZB stick
 - Silicon Labs SLUSB7000A 
 - Vision USB stick - Gen5
-- Zooz Z-Wave Plus S2 stick ZST10
 - ZWave.me Razberry Board
 - ZWave.me UZB1 stick
 
@@ -34,7 +33,6 @@ We recommend that you purchase a [Z-Wave Plus](https://z-wavealliance.org/z-wave
 The alternative to a stick is a hub that supports Z-Wave. Home Assistant supports the following hubs with Z-Wave support:
 
 - [Vera](/integrations/vera/)
-- [Wink](/integrations/wink/)
 - [Fibaro](/integrations/fibaro/)
 - [SmartThings](/integrations/smartthings/)
 

@@ -230,7 +230,7 @@ automation:
 
 <div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (from 17 and below or 25 and above). It will only fire again, once it has left the defined range and enters it again.
+In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (above 17 and below 25). It will only fire again, once it has left the defined range and enters it again.
 </div>
 
 Number helpers (`input_number` entities), `number` and `sensor` entities that
@@ -677,7 +677,7 @@ automation 3:
 
 <div class='note warning'>
 
-Do not prefix numbers with a zero - using `'00'` instead of '0' for example will result in errors.
+Do not prefix numbers with a zero - using `'00'` instead of `'0'` for example will result in errors.
 
 </div>
 

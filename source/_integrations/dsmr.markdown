@@ -35,6 +35,7 @@ This integration is known to work for:
 - Kaifa E0026
 - Kamstrup 382JxC (DSMR 2.2)
 - Sagemcom XS210 ESMR5
+- Ziv E0058 ESMR5
 
 USB serial converters:
 
@@ -49,7 +50,7 @@ Serial to network proxies:
 
 DIY solutions (ESP8266 based):
 
-- [esp8266_p1meter (fliphess)](https://github.com/fliphess/esp8266_p1meter)
+- [esp8266_p1meter (daniel-jong)](https://github.com/daniel-jong/esp8266_p1meter)
 
 {% include integrations/config_flow.md %}
 

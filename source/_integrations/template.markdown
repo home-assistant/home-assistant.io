@@ -2,6 +2,7 @@
 title: Template
 description: Instructions on how to integrate Template Sensors into Home Assistant.
 ha_category:
+  - Binary Sensor
   - Sensor
 ha_release: 0.12
 ha_iot_class: Local Push

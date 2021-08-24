@@ -44,6 +44,15 @@ calendar:
     url: https://nextcloud.example.com/remote.php/dav
 ```
 
+```yaml
+# Example configuration.yaml entry for iCloud, calendars will be found automatically
+calendar:
+  - platform: caldav
+    username: !secret userIcloud
+    password: !secret passIcloud
+    url: https://caldav.icloud.com
+```
+
 This example will generate default binary sensors for each calendar you have in your account. Those calendars will be `on` when there is an ongoing event and `off` if not. Events that last a whole day are ignored in those calendars. You have to setup custom calendars in order to take them into account or for advanced event filtering.
 
 ## Custom calendars

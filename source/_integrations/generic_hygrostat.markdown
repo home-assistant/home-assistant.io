@@ -48,7 +48,7 @@ max_humidity:
   default: 100
   type: integer
 target_humidity:
-  description: Set initial target temperature. This value will be used as a fallback when the previous setpoint is not available.
+  description: Set initial target humidity. This value will be used as a fallback when the previous setpoint is not available.
   required: false
   type: integer
 device_class:
