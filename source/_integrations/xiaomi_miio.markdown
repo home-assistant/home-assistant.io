@@ -182,12 +182,9 @@ token:
   type: string
 {% endconfiguration %}
 
-## Xiaomi Air Purifier and Humidifier
+## Xiaomi Air Purifier, Air Humidifier and Standing Fan
 
-The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier and Air Fresh.
-The Air Humidifier uses multiple platforms to allow you to set the target humidiy, control modes and settings.
-Unlike the the Air Purifier and Air Fresh the Air Humidfiers use Home Assistant native integrations and services to support the device.
-Humidifiers cannot setup using a configuration file.
+The Air Purifiers, Air Humidifiers and Standing Fans use multiple platforms to allow you to set the control modes and settings of the device.
 
 Supported devices:
 
@@ -216,7 +213,10 @@ Supported devices:
 | Air Humidifier JSQ     | deerma.humidifier.jsq  | |
 | Air Humidifier JSQ1    | deerma.humidifier.jsq1 | |
 | Air Humidifier MJJSQ   | deerma.humidifier.mjjsq| |
-
+| Standing Fan 1X        | dmaker.fan.p5          | |
+| Inverter Pedestal Fan  | zhimi.fan.za1          | |
+| Standing Fan 2         | zhimi.fan.za3          | |
+| Standing Fan 2S        | zhimi.fan.za4          | |
 
 ### Features
 
@@ -705,6 +705,51 @@ Switch                  | Description
 ----------------------- | -----------------------
 Buzzer                  | Turn on/off the buzzer
 LED                     | Turn on/off the LED
+
+### Standing Fan 1X (dmaker.fan.p5)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+Oscillation Angle       | Set the oscillation angle in degrees
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+LED                     | Turn on/off `led`
+
+### Standing Fan (zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+Oscillation Angle       | Set the oscillation angle in degrees
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
 
 ### Platform Services
 
