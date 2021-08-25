@@ -708,20 +708,23 @@ LED                     | Turn on/off the LED
 
 ### Platform Services
 
-<div class='note'>
-For supported Air Humidifiers additional entities for will be generated automatically (if supported) and added to the entity registry based on the platforms:
-<br></br>
-The sensor platform does not supply additional services.
-</div>
+### Service `humidifier.set_humidity`
 
-| Platform        | Service(s)                 | Related auto generated device entities                       |
-|-----------------|----------------------------|--------------------------------------------------------------|
-| `humidifier`    | `set_humidity`, `set_mode` | Main device entity                                           |
-| `switch`        | `turn_on`, `turn_off`      | `buzzer`, `child_lock`, `cleaning_mode`, `dry_mode` and `led`|
-| `sensor`        | _None_                     | `actual_speed`, `humidity`, `temperature` and `water_level`  |
-| `number`        | `set_value`                | `motor_speed`                                                |
-| `select`        | `select_option`            | `led_brightness`                                             |
-| `binary_sensor` | _None_                     | `water_tank_empty` and `water_tank_detached`                 |
+Set the target humidity.
+
+| Service data attribute    | Optional | Description                                                         |
+|---------------------------|----------|---------------------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO humidifier entity.               |
+| `humidity`                |       no | Target humidity                                                     |
+
+### Service `humidifier.set_mode`
+
+Set the humidifier operation mode.
+
+| Service data attribute    | Optional | Description                                                         |
+|---------------------------|----------|---------------------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                      |
+| `mode`                    |       no | The Xiaomi miIO operation mode                                      |
 
 ### Service `fan.set_percentage`
 
@@ -741,31 +744,6 @@ Set the fan operation mode.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                      |
 | `preset_mode`             |       no | The Xiaomi miIO operation mode                                      |
 
-### Service `switch.turn_on` (Air Humidifiers only)
-
-Turn the `buzzer`, `child_lock`, `cleaning_mode` or `dry_mode` on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `switch.turn_off` (Air Humidifiers only)
-
-Turn `buzzer`, `child_lock`, `clean_mode` or `dry_mode` on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `select.select_option` (Air Humidifiers only)
-
-Set the LED brightness. Supported values are 'Bright', 'Dim', 'Off'.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-| `option`                  |       no | Brightness option. Should be 'Bright', 'Dim' or 'Off'   |
-
 ### Service `xiaomi_miio.fan_reset_filter` (Air Purifier 2 only)
 
 Reset the filter lifetime and usage.
@@ -782,15 +760,6 @@ Set the extra features.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `features`                |       no | Integer, known values are 0 and 1.                      |
-
-### Service `number.set_value` (Air Humidifier CA4)
-
-Set motor speed RPM.
-
-| Service data attribute    | Optional | Description                                              |
-|---------------------------|----------|----------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.           |
-| `value`                   |       no | Motor speed RPM. Allowed values are between 200 and 2000 |
 
 ### Troubleshooting `Unable to find device` error messages
 
