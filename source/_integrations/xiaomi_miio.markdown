@@ -208,6 +208,7 @@ Supported devices:
 | Air Purifier Super 2   | zhimi.airpurifier.sa2  | |
 | Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | |
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3  | |
+| Air Fresh VA2          | zhimi.airfresh.va2     | |
 | Air Humidifier         | zhimi.humidifier.v1    | |
 | Air Humidifier CA1     | zhimi.humidifier.ca1   | |
 | Air Humidifier CA4     | zhimi.humidifier.ca4   | |
@@ -215,7 +216,6 @@ Supported devices:
 | Air Humidifier JSQ     | deerma.humidifier.jsq  | |
 | Air Humidifier JSQ1    | deerma.humidifier.jsq1 | |
 | Air Humidifier MJJSQ   | deerma.humidifier.mjjsq| |
-| Air Fresh VA2          | zhimi.airfresh.va2     | |
 
 
 ### Features
@@ -397,9 +397,9 @@ Favorite Level          | Set the favorite level
 
 - Select entities
 
-Select | Description
---- | ---
-LED Brightness | Controls the brightness of the LEDs (bright, dim, off)
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
@@ -452,6 +452,41 @@ Buzzer                  | Turn on/off the buzzer
 Child Lock              | Turn on/off the child lock
 LED                     | Turn on/off the LED
 
+### Air Fresh VA2
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
+- Attributes (fan platform)
+  - `model`
+  - `mode`
+  - `use_time`
+  - `extra_features`
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+Carbon Dioxide          | The current carbon dioxide measured in ppm
+Filter Life Remaining   | The remaining life of the filter
+Filter Use              | Filter usage time in hours
+Humidity                | The current humidity measured
+Illuminance             | The current illuminance measured
+PM2.5                   | The current particulate matter 2.5 measured
+Temperature             | The current temperature measured
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+LED                     | Turn on/off `led`
+
 ### Air Humidifier (zhimi.humidifier.v1)
 
 - On, Off
@@ -459,26 +494,33 @@ LED                     | Turn on/off the LED
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Attributes (humidifier platform)
 
-Attribute | Description
---- | ---
-`humidity` | The current target humidity
-`max_humidity` | The maximum settable target humidity
-`min_humidity` | The minimum settable target humidity
-`available_modes` | A list with the operation modes available
-`mode` | The current operation mode selected
+Attribute               | Description
+----------------------- | -----------------------
+`available_modes`       | A list with the operation modes available
+`humidity`              | The current target humidity
+`max_humidity`          | The maximum settable target humidity
+`min_humidity`          | The minimum settable target humidity
+`mode`                  | The current operation mode selected
+
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------------
+Water Tank              | Indicates whether the water tank is connected or not
 
 - Select entities
 
-Select | Description
---- | ---
-LED Brightness | Controls the brightness of the LEDs (bright, dim, off)
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor | Description
---- | ---
-Humidity | The current humidity measured
-Temperature | The current temperature measured
+Sensor                  | Description
+----------------------- | -----------------------
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+Water Level             | The current water level percentage measured
 
 - Switch entities
 
@@ -494,26 +536,33 @@ Child Lock              | Turn on/off the child lock
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Attributes (humidifier platform)
 
-Attribute | Description
---- | ---
-`humidity` | The current target humidity
-`max_humidity` | The maximum settable target humidity
-`min_humidity` | The minimum settable target humidity
-`available_modes` | A list with the operation modes available
-`mode` | The current operation mode selected
+Attribute               | Description
+----------------------- | -----------------------
+`available_modes`       | A list with the operation modes available
+`humidity`              | The current target humidity
+`max_humidity`          | The maximum settable target humidity
+`min_humidity`          | The minimum settable target humidity
+`mode`                  | The current operation mode selected
+
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------------
+Water Tank              | Indicates whether the water tank is connected or not
 
 - Select entities
 
-Select | Description
---- | ---
-LED Brightness | Controls the brightness of the LEDs (bright, dim, off)
+Select                  | Description
+----------------------- | ---
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
 Sensor | Description
---- | ---
-Humidity | The current humidity measured
-Temperature | The current temperature measured
+----------------------- | -----------------------
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+Water Level             | The current water level percentage measured
 
 - Switch entities
 
@@ -527,31 +576,52 @@ Dry Mode                | Turn on/off the dry mode
 
 - On, Off
 - Operation modes (Auto, Low, Medium, High)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED brightness (off, dim, bright)
 - Target humidity (30 - 80)
-- Clean mode (on, off)
-- Dry mode (on, off)
-- Motor speed rpm (200 - 2000)
 - Attributes (humidifier platform)
 
-Attribute | Description
---- | ---
-`humidity` | The current `target_humidity`
-`max_humidity` | The maximum settable `target_humidity`
-`min_humidity` | The minimum settable `target_humidity`
-`available_modes` | A list with the operation modes available
-`mode` | the current operation mode selected
+Attribute               | Description
+----------------------- | -----------------------
+`available_modes`       | A list with the operation modes available
+`humidity`              | The current target humidity
+`max_humidity`          | The maximum settable target humidity
+`min_humidity`          | The minimum settable target humidity
+`mode`                  | The current operation mode selected
+
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------------
+Water Tank              | Indicates whether the water tank is connected or not
+
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Motor Speed             | Set the motor speed
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor | Description
---- | ---
-`actual_speed` | The current `motor_speed` measured in rpm
-`humidity` | The current `humidity` percentage measured
-`temperature` | The current `temperature` measured in degrees Celius
-`water_level` | The current `water_level` percentage measured
+Sensor                  | Description
+----------------------- | -----------------------
+Actual Speed            | The current motor speed measured in rpm
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+Water Level             | The current water level percentage measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+Clean Mode              | Turn on/off the clean mode
+Dry Mode                | Turn on/off the dry mode
 
 <div class='note'>
 Clean mode and Motor speed can only be set when the device is turned on.
@@ -561,80 +631,80 @@ Clean mode and Motor speed can only be set when the device is turned on.
 
 - On, Off
 - Operation modes (Silent, Medium, High, Auto)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED (on, off), LED brightness (bright, dim, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
-- Dry mode (on, off)
 - Attributes (humidifier platform)
 
-Attribute | Description
---- | ---
-`humidity` | The current `target_humidity`
-`max_humidity` | The maximum settable `target_humidity`
-`min_humidity` | The minimum settable `target_humidity`
-`available_modes` | A list with the operation modes available
-`mode` | the current operation mode selected
+Attribute               | Description
+----------------------- | -----------------------
+`available_modes`       | A list with the operation modes available
+`humidity`              | The current target humidity
+`max_humidity`          | The maximum settable target humidity
+`min_humidity`          | The minimum settable target humidity
+`mode`                  | The current operation mode selected
 
-- Sensor entities
+- Binary sensor entities
 
-Sensor | Description
---- | ---
-`humidity` | The current `humidity` measured
-`temperature` | The current `temperature` measured
+Binary sensor           | Description
+----------------------- | -----------------------
+Water Tank              | Indicates whether the water tank is connected or not
 
-### Air Humidifier JSQ/JSQ1/MJJSQ (deerma.humidifier.jsq/deerma.humidifier.jsq1/deerma.humidifier.mjjsq)
+- Select entities
 
-- On, Off
-- Operation modes (low, medium, high, humidity)
-- Buzzer (on, off)
-- LED (on, off)
-- Target humidity (30, 40, 50, 60, 70, 80)
-- Sensor entities
-  - `humidity`
-  - `temperature`
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
-### Air Fresh VA2
-
-- Power (on, off)
-- Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
-- Attributes
-  - `model`
-  - `aqi`
-  - `average_aqi`
-  - `temperature`
-  - `humidity`
-  - `co2`
-  - `mode`
-  - `filter_life_remaining`
-  - `filter_hours_used`
-  - `use_time`
-  - `motor_speed`
-  - `extra_features`
 - Sensor entities
 
 Sensor                  | Description
 ----------------------- | -----------------------
-`aqi`                   | The current `aqi` measured
-`carbon_dioxide`        | The current `carbon_dioxide` measured
-`filter_life_remaining` | The remaining life of the filter
-`humidity`              | The current `humidity` measured
-`illuminance`           | The current `illuminance` measured
-`temperature`           | The current `temperature` measured
-
-- Select entities
-
-Select | Description
---- | ---
-`led brightness` | Controls the brightness of the LEDs (bright, dim, off)
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+Water Level             | The current water level percentage measured
 
 - Switch entities
 
 Switch                  | Description
 ----------------------- | -----------------------
-Buzzer                  | Turn on/off `buzzer`
-Child Lock              | Turn on/off `child lock`
-LED                     | Turn on/off `led`
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+Dry Mode                | Turn on/off the dry mode
+
+### Air Humidifier JSQ/JSQ1/MJJSQ (deerma.humidifier.jsq/deerma.humidifier.jsq1/deerma.humidifier.mjjsq)
+
+- On, Off
+- Operation modes (low, medium, high, humidity)
+- Target humidity (30, 40, 50, 60, 70, 80)
+- Attributes (humidifier platform)
+
+Attribute               | Description
+----------------------- | -----------------------
+`available_modes`       | A list with the operation modes available
+`humidity`              | The current target humidity
+`max_humidity`          | The maximum settable target humidity
+`min_humidity`          | The minimum settable target humidity
+`mode`                  | The current operation mode selected
+
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------------
+Water Tank              | Indicates whether the water tank is connected or not
+Water Tank Empty        | Indicates whether the water tank is empty or not
+
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+LED                     | Turn on/off the LED
 
 ### Platform Services
 
