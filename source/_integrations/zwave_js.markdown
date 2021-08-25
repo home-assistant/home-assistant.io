@@ -502,7 +502,7 @@ It is perfectly doable to switch over from one of the above mentioned previous i
 
 ### In a nutshell this is what the migration path looks like
 
-1) Make a **backup** of your Home Assistant configuration. If you're running the supervisor this is very easy to do by creating a snapshot. You should do this so you'll be able to quickly revert if you may run into unexpected problems.
+1) Make a **backup** of your Home Assistant configuration. If you're running the supervisor this is very easy to do by creating a backup. You should do this so you'll be able to quickly revert if you may run into unexpected problems.
 
    <div class='note info'>Write down/copy your Z-Wave network key somewhere, you are going to need it later.</div>
 

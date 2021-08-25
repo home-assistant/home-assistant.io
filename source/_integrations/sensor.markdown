@@ -25,15 +25,16 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **energy**: Energy in Wh or kWh.
 - **humidity**: Percentage of humidity in the air.
 - **illuminance**: The current light level in lx or lm.
+- **monetary**: The monetary value.
 - **nitrogen_dioxide**: Concentration of Nitrogen Dioxide in µg/m³
 - **nitrogen_monoxide**: Concentration of Nitrogen Monoxide in µg/m³
 - **nitrous_oxide**: Concentration of Nitrous Oxide in µg/m³
 - **ozone**: Concentration of Ozone in µg/m³
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
-- **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
-- **power**: Power in W or kW.
+- **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **power_factor**: Power factor in %.
+- **power**: Power in W or kW.
 - **pressure**: Pressure in hPa or mbar.
 - **signal_strength**: Signal strength in dB or dBm.
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
