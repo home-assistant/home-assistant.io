@@ -852,6 +852,10 @@ sensors:
       description: Unit to attach to value.
       required: false
       type: integer
+    state_class:
+      description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+      required: false
+      type: string
 {% endconfiguration %}
 
 <div class='note'>
@@ -876,6 +880,7 @@ modbus:
         address: 0
         input_type: holding
         unit_of_measurement: °C
+        state_class: measurement
         count: 1
         scale: 0.1
         offset: 0
