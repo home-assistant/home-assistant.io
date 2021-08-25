@@ -179,25 +179,20 @@ number:
       description: Defines an action to run when the number value changes.
       required: true
       type: action
-    attributes:
-      description: Defines templates for attributes of the sensor.
+    step:
+      description: Template for the number's increment/decrement step.
       required: true
-      type: map
-      keys:
-        step:
-          description: Template for the number's increment/decrement step.
-          required: true
-          type: template
-        min:
-          description: Template for the number's minimum value.
-          required: false
-          type: template
-          default: 0.0
-        max:
-          description: Template for the number's maximum value.
-          required: false
-          type: template
-          default: 100.0
+      type: template
+    min:
+      description: Template for the number's minimum value.
+      required: false
+      type: template
+      default: 0.0
+    max:
+      description: Template for the number's maximum value.
+      required: false
+      type: template
+      default: 100.0
     optimistic:
       description: Flag that defines if lock works in optimistic mode.
       required: false
