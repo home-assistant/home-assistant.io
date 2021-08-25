@@ -723,7 +723,7 @@ Set the humidifier operation mode.
 
 | Service data attribute    | Optional | Description                                                         |
 |---------------------------|----------|---------------------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                      |
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO humidifier entity.               |
 | `mode`                    |       no | The Xiaomi miIO operation mode                                      |
 
 ### Service `fan.set_percentage`
