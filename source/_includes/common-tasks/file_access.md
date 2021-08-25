@@ -37,7 +37,7 @@ You would then enter the IP address or hostname of your Home Assistant OS instan
 
 ### Installing and using the SSH add-on (requires enabling advanced mode for the HA user)
 
-The Terminal & SSH add-on provides access over an SSH connection, and also includes nano and vi editors. It can be installed from the add-on store's Official add-on repository after enabling advanced mode for your Home Assistant user's profile. Additionally, this add-on provides access to the Home Assistant Command Line Interface (CLI) which provides custom commands for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring snapshots, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info). The Terminal & SSH add-on does *not* provide access to the underlying host file system.
+The Terminal & SSH add-on provides access over an SSH connection, and also includes nano and vi editors. It can be installed from the add-on store's Official add-on repository after enabling advanced mode for your Home Assistant user's profile. Additionally, this add-on provides access to the Home Assistant Command Line Interface (CLI) which provides custom commands for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring backups, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info). The Terminal & SSH add-on does *not* provide access to the underlying host file system.
 
 To use the add-on, enter a password or public key on its configuration page, then save and start the add-on.
 
@@ -47,7 +47,7 @@ The Terminal & SSH add-on also provides a web terminal which allows you to acces
 
 ### Installing and using the Visual Studio Code (VSC) add-on
 
-The Visual Studio Code add-on provides access through a feature packed web-based version of the Visual Studio Code editor and currently only supports AMD64 and aarch64/ARM64 machines. This add-on can be installed in the add-on store from the Community add-on repository. The add-on also provides access to the Home Assistant Command Line Interface (CLI) using VSC's built in terminal, which allows for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring snapshots, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info).
+The Visual Studio Code add-on provides access through a feature packed web-based version of the Visual Studio Code editor and currently only supports AMD64 and aarch64/ARM64 machines. This add-on can be installed in the add-on store from the Community add-on repository. The add-on also provides access to the Home Assistant Command Line Interface (CLI) using VSC's built in terminal, which allows for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring backups, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info).
 
 There is no configuration required for editing files within your `/config` directory. In order to enable access to other directories, it is necessary to edit the add-on's configuration from its configuration tab. See the add-on documentation for details.
 
