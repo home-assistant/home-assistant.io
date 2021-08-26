@@ -161,7 +161,6 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 | Device | Discovery Method | Identifier |
 | -------| ---------------- | ---------- |
 | [ConBee II](https://phoscon.de/en/conbee2) | USB | 1CF1:0030 |
-| [Electrolama zig-a-zig-ah](https://electrolama.com/projects/zig-a-zig-ah/) | USB | 1A86:7523 |
 | [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) | USB | 10C4:8A2A |
 | [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/) | USB | 10C4:EA60 |
 | [Tube Zigbee Coordinator](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_cc2652p2.local. |
