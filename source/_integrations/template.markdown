@@ -197,7 +197,7 @@ number:
       type: template
       default: 100.0
     optimistic:
-      description: Flag that defines if lock works in optimistic mode.
+      description: Flag that defines if number works in optimistic mode.
       required: false
       type: boolean
       default: false
