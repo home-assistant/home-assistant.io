@@ -169,8 +169,8 @@ binary_sensor:
       required: false
       type: device_class
       default: None
-select:
-  description: List of selects
+number:
+  description: List of numbers
   required: true
   type: map
   keys:
