@@ -83,8 +83,7 @@ If you prefer to use a live operating system, follow the instructions of your Li
 
 1. Attach the Home Assistant boot media ({{site.installation.types[page.installation_type].installation_media}}) to your computer
 {% if page.installation_type == 'odroid' %}
-
-   If you are using a Home Assistant Blue or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
+   If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
 {% endif %}
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
 3. Select "Flash from URL"
