@@ -124,8 +124,8 @@ Numerous have requested this feature, and therefore we now have added support
 for home batteries to the Home Assistant energy management.
 
 <p class='img'>
-<img src='/images/blog/2021-09/energy-battery.gif' alt='Screenshot of a home battery as part of the energy distribution'>
-Screenshot of a home battery as part of the energy distribution.
+<img src='/images/blog/2021-09/energy-battery.gif' alt='Animation of a home battery as part of the energy distribution'>
+Animation of a home battery as part of the energy distribution.
 </p>
 
 ### Added support for many more integrations
