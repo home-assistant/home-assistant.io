@@ -42,7 +42,7 @@ Issues introduced in the beta are processed with priority.
 - [USB Discovery](#usb-discovery)
 - [New template entities: Select and Number](#new-template-entities-select-and-number)
 - [New template functions for area's](#new-template-functions-for-areas)
-- [Z-Wave JS Updates](#zwave-js-updates)
+- [Z-Wave JS Updates](#z-wave-js-updates)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
