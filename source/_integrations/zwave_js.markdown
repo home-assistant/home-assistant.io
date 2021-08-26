@@ -29,8 +29,8 @@ ha_platforms:
   - light
   - lock
   - number
-  - select
   - sensor
+  - select
   - siren
   - switch
 ---

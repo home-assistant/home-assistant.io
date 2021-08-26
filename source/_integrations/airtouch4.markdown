@@ -8,6 +8,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@LonePurpleWolf'
 ha_domain: airtouch4
+ha_platforms:
+  - climate
 ---
 
 The AirTouch 4 integration allows you to control Ducted Air Conditioning Systems that are using the [AirTouch 4](https://www.airtouch.net.au/airtouch/airtouch-4/) Controller. Currently, this integration only supports AirTouch 4 controllers with the Individual Temperature Control (ITC) modules.

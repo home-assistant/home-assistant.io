@@ -4,18 +4,20 @@ description: Instructions on how to setup Yeelight Wifi devices within Home Assi
 ha_category:
   - Light
 ha_release: 0.32
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@rytilahti'
   - '@zewelor'
   - '@shenxn'
+  - '@starkillerOG'
 ha_domain: yeelight
 ha_platforms:
   - binary_sensor
   - light
 ha_homekit: true
 ha_dhcp: true
+ha_quality_scale: platinum
 ---
 
 The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.

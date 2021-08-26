@@ -8,9 +8,9 @@ ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
-  - '@home-assistant/core'
   - '@PhracturedBlue'
   - '@tetienne'
+  - '@home-assistant/core'
 ha_domain: template
 ha_platforms:
   - alarm_control_panel
@@ -20,8 +20,8 @@ ha_platforms:
   - light
   - lock
   - number
-  - select
   - sensor
+  - select
   - switch
   - vacuum
   - weather
