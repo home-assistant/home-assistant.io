@@ -42,6 +42,7 @@ Issues introduced in the beta are processed with priority.
 - [USB Discovery](#usb-discovery)
 - [New template entities: Select and Number](#new-template-entities-select-and-number)
 - [New template functions for area's](#new-template-functions-for-areas)
+- [Z-Wave JS Updates](#zwave-js-updates)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -136,6 +137,32 @@ a device ID, entity ID, or area name. This function can also be used as a filter
   be a device ID, entity ID, or area ID. This function can also be used as a filter.
 
 <!-- TODO: add example -->
+
+## Z-Wave JS Updates
+
+Some siren/doorbell owners will remember how frustrating it was to wait for Home
+Assistant to add entity support for the Sound Switch CC. The `zwave-js` project will
+likely move much faster than the Home Assistant integration at times, and we may not
+ever add support for a Command Class you care about, but that shouldn't stop you from
+being able to create automations for those devices.
+
+In this release, we have introduced the new `zwave_js.value_updated` automation trigger
+type which will allow you to trigger an automation off of any Command Class value that
+`zwave-js` supports! In order to leverage this trigger type in the UI, you will have to
+use [device automations](/integrations/zwave_js#device-automations), but if you are
+writing your automations in YAML, you can
+[use the trigger directly](/integrations/zwave_js#zwave_jsvalue_updated-trigger).
+
+Additional `zwave_js` changes in this release:
+- Tired of your child flipping that switch that's fully automated? Use the new `select`
+entity for the Protection Command Class to disable local access
+- Don't want to specify the tone and volume every time you activate your siren? Now you
+have access to the default volume via a `number` entity and the default tone via a
+`select` entity
+- We made `zwave_js` services more flexible: they now support area ID's and `group`
+entities as inputs
+- We made Basic CC values controllable by moving them from the `sensor` platform to the
+`number` platform.
 
 ## Other noteworthy changes
 
