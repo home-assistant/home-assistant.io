@@ -8,6 +8,7 @@ ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
+  - '@home-assistant/core'
   - '@PhracturedBlue'
   - '@tetienne'
   - '@home-assistant/core'
@@ -19,6 +20,7 @@ ha_platforms:
   - fan
   - light
   - lock
+  - number
   - sensor
   - switch
   - vacuum
@@ -27,7 +29,7 @@ ha_platforms:
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Sensors and binary (on/off) sensors are covered on this page. For other types, please see the specific pages:
+Sensors, binary (on/off) sensors, and numbers are covered on this page. For other types, please see the specific pages:
 
 - [Alarm Control Panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
@@ -38,7 +40,7 @@ Sensors and binary (on/off) sensors are covered on this page. For other types, p
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
-Sensor and binary sensor template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensors and/or binary sensor entities and can contain an optional update trigger.
+Sensor, binary sensor, and number template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
@@ -145,14 +147,6 @@ binary_sensor:
   required: false
   type: map
   keys:
-    name:
-      description: Defines a template to get the name of the sensor.
-      required: false
-      type: template
-    unique_id:
-      description: An ID that uniquely identifies this sensor. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
-      required: false
-      type: string
     icon:
       description: Defines a template for the icon of the sensor.
       required: false
@@ -170,16 +164,61 @@ binary_sensor:
           description: The attribute and corresponding template.
           required: true
           type: template
-    availability:
-      description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the component will always be `available`.
-      required: false
-      type: template
-      default: true
     device_class:
       description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
       required: false
       type: device_class
       default: None
+number:
+  description: List of numbers
+  required: true
+  type: map
+  keys:
+    state:
+      description: Template for the number's current value.
+      required: true
+      type: template
+    set_value:
+      description: Defines an action to run when the number value changes.
+      required: true
+      type: action
+    step:
+      description: Template for the number's increment/decrement step.
+      required: true
+      type: template
+    min:
+      description: Template for the number's minimum value.
+      required: false
+      type: template
+      default: 0.0
+    max:
+      description: Template for the number's maximum value.
+      required: false
+      type: template
+      default: 100.0
+    optimistic:
+      description: Flag that defines if lock works in optimistic mode.
+      required: false
+      type: boolean
+      default: false
+"[all sensor, binary sensor, number entities]":
+  description: Fields that can be used above for sensors, binary sensors, and numbers.
+  required: false
+  type: map
+  keys:
+    name:
+      description: Defines a template to get the name of the sensor.
+      required: false
+      type: template
+    unique_id:
+      description: "An ID that uniquely identifies this sensor. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface."
+      required: false
+      type: string
+    availability:
+      description: "Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the component will always be `available`."
+      required: false
+      type: template
+      default: true
 
 {% endconfiguration %}
 
