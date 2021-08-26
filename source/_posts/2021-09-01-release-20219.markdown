@@ -314,9 +314,9 @@ Thanks [@raman325]!
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- [@balloob] added a lot more configuration validation to the energy
-  configuratioN UI and added more warning/error messages. [@ludeeus] made
-  them look good by adding a beautiful new styling for these kind of messages.
+- [@balloob] added a lot more validations to the energy configuration UI
+  and added more warning/error messages. [@ludeeus] made them look good by
+  adding a beautiful new styling for these kind of messages.
 - Home Assistant offline and missed generating its energy/long statistics?
   Not anymore! Home Assistant will now catch up on start, thanks [@emontnemery]!
 - Thanks to [@bdraco], camera images can now be scaled to a resolution that
