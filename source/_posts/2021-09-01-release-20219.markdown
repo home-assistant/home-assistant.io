@@ -14,9 +14,11 @@ og_image: /images/blog/2021-09/social.png
 feedback: true
 ---
 
-<!-- TODO: Verify brands -->
-<!-- TODO: Need image -->
-<!--<a href='/integrations/#version/2021.8'><img src='/images/blog/2021-08/social.png' style='border: 0;box-shadow: none;'></a>-->
+<a href='/integrations/#version/2021.9'><img src='/images/blog/2021-09/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- ON RELEASE: SET TITLE & DESCRIPTION IN FRONT MATTER -->
+<!-- ON RELEASE: UPDATE DATE OF POST IN FRONT MATTER -->
+<!-- ON RELEASE: DELETE FROM HERE -->
 
 These are the beta release notes for Home Assistant Core 2021.9 (and is thus a
 work in progress).
@@ -37,183 +39,310 @@ description (not title), so we can classify your issue correctly.
 
 Issues introduced in the beta are processed with priority.
 
-- [Energy now supports batteries and gas!](#energy-now-supports-batteries-and-gas)
+<!-- ON RELEASE: DELETE UNTIL HERE -->
+
+- [Home Energy Management updates](#home-energy-management-updates)
+  - [View energy usage over a period of time](#view-energy-usage-over-a-period-of-time)
+  - [Keeping track of your gas usage](#keeping-track-of-your-gas-usage)
+  - [Support for home batteries](#support-for-home-batteries)
+  - [Added support for many more integrations](#added-support-for-many-more-integrations)
 - [Long term statistics unlocked for all sensors](#long-term-statistics-unlocked-for-all-sensors)
 - [USB Discovery](#usb-discovery)
-- [New template entities: Select and Number](#new-template-entities-select-and-number)
+- [Z-Wave JS Updates](#z-wave-js-updates)
+- [New template entities: Number and Select](#new-template-entities-number-and-select)
 - [New template functions for area's](#new-template-functions-for-areas)
-- [Z-Wave JS Updates](#zwave-js-updates)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
-- [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
 
-## Energy now supports batteries and gas!
+## Home Energy Management updates
 
-<!-- TODO: Split in 2 seperate topics? -->
+Last release, we [introduced the new Home Energy management features][energy]
+into Home Assistant and we are happy to see you like it!
 
-We have now added support for using your Home batteries with the energy
-dashboard. If you are heating your home with Gas, than you are in luck too!
-The Home Assistant energy management can now also monitor your gas usage.
+We have seen quite a few people sharing their Energy dashboards on socials like
+[Facebook][facebook] and [Twitter][twitter], which is really awesome.
+Share a screenshot of your dashboard and your story too!
 
-<!-- TODO: Needs screenshot -->
-<!--<p class='img'>
-<img src='/images/blog/2021-09/statistics-graph.png' alt='Screenshot of the new Lovelace statistics graph card'>
-Screenshot of the new Lovelace statistics graph card.
-</p>-->
+In this release, the story continues! Here is what we have in store for you:
 
-Additionally, a LOT of energy related integrations have been been updated
-this release to support all this new energy greatness! So, if you where
-unlucky your integration didn't show up on the dashboard yet, as of this
-release changes are they will.
+[energy]: /blog/2021/08/04/home-energy-management/
+[facebook]: https://www.facebook.com/groups/HomeAssistant
+[twitter]: https://twitter.com/home_assistant
+
+### View energy usage over a period of time
+
+The first iteration of the Energy Dashboard showed a single day at the time.
+Great! But what if you want to see how you did this week? Or month? Heck, a
+year even?!
+
+Well, now you can! In the top right of the dashboard, you can now select the
+grouping period you want to see: Day, Week, Month or Year.
+
+<p class='img'>
+<img src='/images/blog/2021-09/energy-month.png' alt='Screenshot of the new Energy Dashboard period selection'>
+Screenshot of the new Energy Dashboard period selection.
+</p>
+
+The arrow buttons allow you to browse through those periods. For example, when
+selecting a period of a month to display, the arrow buttons will take
+you a whole month back/forward in the view.
+
+### Keeping track of your gas usage
+
+In some countries, homes are connected to gas. The gas is being used to heat
+water, cook and for heating the house. If you have a home that is connected to
+gas, we have some great news for you!
+
+Maybe you noticed it already in the previous screenshot, as of this release,
+we have added support for monitoring your gas usage.
+
+<p class='img'>
+<img src='/images/blog/2021-09/energy-gas.png' alt='Screenshot of the new Energy Dashboard monitoring gas usage'>
+Screenshot of the new Energy Dashboard monitoring gas usage.
+</p>
+
+In certain countries, the gas meters have a standardized way of reading
+out the gas usage locally or provide this information via the electricity
+meter. For example, in the Netherlands, Belgium and Luxembourg you could
+use the [SlimmeLezer](https://www.zuidwijk.com/product/slimmelezer/)
+to obtain your gas usage.
+
+### Support for home batteries
+
+Having solar panels is a great way to generate electricity to power your home.
+However, where do you store energy generated by your solar panels that you
+don't need right now?
+
+Well, for many, the solution resides in a, high capacity, home battery to store
+electricity for use when the sun can't provide it (e.g., during the night).
+
+Numerous have requested this feature, and therefore we now have added support
+for home batteries to the Home Assistant energy management.
+
+<p class='img'>
+<img src='/images/blog/2021-09/energy-battery.gif' alt='Screenshot of a home battery as part of the energy distribution'>
+Screenshot of a home battery as part of the energy distribution.
+</p>
+
+### Added support for many more integrations
+
+When releasing a feature such as the Home Energy management, we understand you
+want to use and play with it right away. And while we had prepared and updated
+a lot of integrations to be ready when we first launched, there were still
+many in need of an update.
+
+As a result, we have been flooded by requests to add support to virtually all
+integrations that didn't had it yet... :) Many of those requests have been
+fulfilled in this release.
+
+For example, the [Kostal Plenticore Solar Inverter](/integrations/kostal_plenticore),
+[PVOutput](/integrations/pvoutput), [Fronius](/integrations/fronius),
+[SolaX Power](/integrations/solax), [Growatt](/integrations/growatt_server),
+[Solar-Log](/integrations/solar_log), [YouLess](/integrations/youless),
+[Emoncms](/integrations/emoncms), [Modbus](/integrations/modbus),
+and many more have added support for all the energy goodness.
+
+If you are a custom integration developer who wants to add support, be sure to
+check out our [developer blog](https://developers.home-assistant.io/blog/2021/08/16/state_class_total/)
+to catch up with the latest changes.
 
 ## Long term statistics unlocked for all sensors
 
-In the previous release, we introduced long term statistics for sensors and
-introduce a nice Lovelace card that goes with it. However, in the previous
-release we only unlocked this feature for temperature, humidity, power and
-energy related sensors.
-
-<!-- TODO: Needs screenshot -->
-<!--<p class='img'>
-<img src='/images/blog/2021-09/statistics-graph.png' alt='Screenshot of the new Lovelace statistics graph card'>
-Screenshot of the new Lovelace statistics graph card.
-</p>-->
+In the previous release, we [introduced long term statistics][statistics]
+for sensors, including a beautiful Lovelace card that goes with it. However,
+in the previous release we've limited this feature to temperature,
+humidity, power and energy related sensors.
 
 As of this release, we unleashed the long term statistics for all sensors!
-An integration still do need to provide Home Assistant with information
-about the type of value it provides, and a lot of integrations have done that
-at this point.
 
-<!-- TODO: Needs example -->
-For example, SpeedTest.net sensors can now be used with these.
+<p class='img'>
+<img src='/images/blog/2021-09/statistics-for-all.png' alt='Screenshot of a statistics graph showing the luminosity in the garden versus the front of my house'>
+Screenshot of a statistics graph showing the luminosity in the garden versus the front of my house.
+</p>
+
+Long term statistics applies to all integrations that indicate their sensors
+support those. Luckily a lot have already done so.
+
+[statistics]: /blog/2021/08/04/release-20218/#long-term-statistics
 
 ## USB Discovery
 
-Thanks to [@bdraco], Home Assistant now can discover USB device and provide
-integrations for those devices with configuration automatically.
+Thanks to [@bdraco], Home Assistant can now discover USB devices and the
+integrations that work that device. This makes setting up
+things like Z-Wave or Zigbee with Home Assistant an actual breeze now!
 
-For example, if you plug in your new Aeotec Z-Wave USB stick into your
-machine running Home Assistant, it will discover it and Home Assistant will
-notify you about it. With a single click you can than configure the Z-Wave JS
-integration.
+For example, if you plug in your new Nortek HubZ USB stick into the
+machine running Home Assistant, it will discover and notify you about it.
 
-<!-- TODO: Needs screenshot -->
-<!--<p class='img'>
-<img src='/images/blog/2021-09/statistics-graph.png' alt='Screenshot of the new Lovelace statistics graph card'>
-Screenshot of the new Lovelace statistics graph card.
-</p>-->
+<p class='img'>
+<img src='/images/blog/2021-09/usb-zwavejs.png' alt='Screenshot of a discovered USB device compatible with Z-Wave JS'>
+Screenshot of a discovered USB device compatible with Z-Wave JS.
+</p>
 
-This works similar as with other integration that discover devices on, for
-example, your network but now based on physical hardware plugged into the
-USB port of your Home Assistant device.
+Now it is just a single click on the "Configure" button to set up the Z-Wave JS
+integration and done! Super nice!
 
-Super cool! Thanks [@bdraco]!
+Support for USB discovery has currently been added to the
+[Z-Wave JS](/integrations/zwave_js) and [ZHA](/integrations/zha) integrations.
 
-Added to ZHA, Z-Wave JS
+## Z-Wave JS Updates
 
-## New template entities: Select and Number
+If you are a Z-Wave siren/doorbell owner, you probably know how frustrating it
+was to wait for Home Assistant to add entity support for the Sound Switch CC
+(Command Class). This is caused by the blazing fast speed the upstream Z-Wave JS
+project is moving forward at; Often much faster than Home Assistant is able
+to keep up with.
 
-This is cool, this release we weclome two new platforms to the template
-integrations: `select` and `number`.
-Thanks to [@raman325] you can create your own!
+It also might be that Home Assistant cannot (or is likely not to) support the
+specific command class you care about; Nevertheless, that shouldn't stop you
+from being able to create automations for those devices!
 
-<!-- TODO: need examples and better story -->
+In this release, we have introduced the new `zwave_js.value_updated` automation
+trigger type which will allow you to trigger an automation off of any
+Command Class value that Z-Wave JS supports!
+
+In order to leverage this trigger type in the UI, you will have to
+use [device automations](/integrations/zwave_js#device-automations),
+but if you are writing your automations in YAML, you can
+[use the trigger directly](/integrations/zwave_js#zwave_jsvalue_updated-trigger).
+
+That's not all for Z-Wave JS integration, we have more to share!
+
+- Tired of your child flipping that switch that's fully automated? Use the new
+  `select` entity for the Protection Command Class to disable local access.
+- Don't want to specify the tone and volume every time you activate your siren?
+  Now you have access to the default volume via a `number` entity and the
+  default tone via a `select` entity.
+- We've made `zwave_js.*` services more flexible: They now support area IDs
+  and `group` entities as inputs!
+- We've made basic CC values directly controllable by moving them from using
+  `sensor` entities to become `number` entities instead.
+
+## New template entities: Number and Select
+
+Yes! We have new platforms you can utilize using the template integration!
+
+Thanks to [@raman325] you can now template your own `select` and `number`
+entities! This unlocks quite quite the potential for creating some advanced
+user interfaces :)
+
+As an example says more than a thousand words, here are two examples that both
+are based on a WLED LED strip. It can be used to extract features from
+the WLED strip into their own entities.
+
+{% raw %}
+
+```yaml
+# Example number entity that represents the effect speed on a WLED LED strip
+# between 0 and 100%, translating it from an 0 to 255 scale.
+template:
+  number:
+    - name: "Example number: WLED effect speed"
+      state: "{{ (( state_attr("light.wled", "Speed") / 255) * 100) | round }}"
+      min: 0
+      max: 100
+      set_value:
+        service: wled.effect
+        target:
+          entity_id: light.wled
+        data:
+          speed: "{{ (255 / 100) * value }}" 
+```
+
+```yaml
+# Example select entity that extracts effects from a light.
+# When you change the selected option, the effect of the light changes.
+template:
+  select:
+    - name: "Example select: WLED effect"
+      state: "{{ state_attr("light.wled", "effect") }}"
+      options: "{{ state_attr("light.wled", "effect_list") }}"
+      select_option:
+        service: light.turn_on
+        target:
+          entity_id: light.wled
+        data:
+          effect: "{{ option }}" 
+```
+
+{% endraw %}
+
+Oh! And they can also be used with the new trigger templates! Check out
+[the documentation](/integrations/template) for all options available.
 
 ## New template functions for area's
 
-Two new template function have been added, that make working with area's
-in YAML when using template a little bit easier.
+Two new template functions have been added, making working with area's
+in YAML (when using templating) a little bit easier.
 
-- `area_id("value")` returns the area ID for a given value. The `value` van be
+- `area_id("value")` returns the area ID for a given value. The `value` can be
 a device ID, entity ID, or area name. This function can also be used as a filter.
 
-<!-- TODO: add example -->
+{% raw %}
+
+  ```yaml
+  example: "{{ area_id("light.living_room_tv") }}"
+  example: "{{ area_id("Garden Shed") }}"
+  example: "{{ trigger.entity_id | area_id }}"
+  ```
+
+{% endraw %}
 
 - `area_name("value")` returns the area name for a given value. The `value` can
   be a device ID, entity ID, or area ID. This function can also be used as a filter.
 
-<!-- TODO: add example -->
+{% raw %}
 
-## Z-Wave JS Updates
+  ```yaml
+  service: notify.frenck
+  data:
+    title: "Motion detected!"
+    message: >-
+      Motion has been detected in the {{ area_name(trigger.entity_id) }} area.
+  ```
 
-Some siren/doorbell owners will remember how frustrating it was to wait for Home
-Assistant to add entity support for the Sound Switch CC. The `zwave-js` project will
-likely move much faster than the Home Assistant integration at times, and we may not
-ever add support for a Command Class you care about, but that shouldn't stop you from
-being able to create automations for those devices.
+{% endraw %}
 
-In this release, we have introduced the new `zwave_js.value_updated` automation trigger
-type which will allow you to trigger an automation off of any Command Class value that
-`zwave-js` supports! In order to leverage this trigger type in the UI, you will have to
-use [device automations](/integrations/zwave_js#device-automations), but if you are
-writing your automations in YAML, you can
-[use the trigger directly](/integrations/zwave_js#zwave_jsvalue_updated-trigger).
-
-Additional `zwave_js` changes in this release:
-- Tired of your child flipping that switch that's fully automated? Use the new `select`
-entity for the Protection Command Class to disable local access
-- Don't want to specify the tone and volume every time you activate your siren? Now you
-have access to the default volume via a `number` entity and the default tone via a
-`select` entity
-- We made `zwave_js` services more flexible: they now support area ID's and `group`
-entities as inputs
-- We made Basic CC values controllable by moving them from the `sensor` platform to the
-`number` platform.
+Thanks [@raman325]!
 
 ## Other noteworthy changes
 
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-<!-- TODO: Needs formatting / cleanup -->
-<!-- TODO: Collect/select frontend changes -->
-
-- Camera image scaling by [@bdraco]?
-- System Bridge v2.3.0+ - Data from WebSocket ([@timmo001] - [#53443]) ([system_bridge docs])
-- Add light transition for Shelly integration ([@bieniu] - [#54327]) ([shelly docs])
-- Yeelight local push updates ([@starkillerOG] - [#51160]) ([yeelight docs])
-- Add support for Swedish smart electricity meters to DSMR ([@emontnemery] - [#54630]) ([dsmr docs])
-- Yamaha Musiccast Media Browser feature ([@micha91] - [#54864]) ([yamaha_musiccast docs])
-- Add Rainforest Eagle tests and price ([@balloob] - [#54887]) ([rainforest_eagle docs])
-- Compile missing statistics ([@emontnemery] - [#54690]) ([recorder docs])
-- Add support for area ID in zwave_js service calls ([@raman325] - [#54940]) ([zwave_js docs])
-- Add support for Google Assistant's LocatorTrait for vacuum cleaners ([@giannello] - [#55015]) ([google_assistant docs])
-- Add service to clear completed shoppinglist items ([@GrumpyMeow] - [#55032]) ([shopping_list docs])
-- Support device triggers in HomeKit ([@bdraco] - [#53869]) ([homekit docs])
-- Sonos add bass & treble EQ option ([@Tigger2014] - [#53978]) ([sonos docs])
-- Add "cron patterns" to define utility_meter cycles ([@dgomes] - [#46795]) ([utility_meter docs])
-- Add services to bond to start and stop increase/decrease brightness ([@bdraco] - [#55006]) ([bond docs])
-
-A bunch of integration that now support long term / energy. Some of these need
-to be mentioned in the first paragraph about the energy changes or in the
-paragraph about the unlocked long term statistics for sensors.
-
-- Add state class measurement to all suitable sensors on Speedtest.net ([@mib1185] - [#53693]) ([speedtestdotnet docs])
-- Add support for jammed status to SimpliSafe locks ([@bachya] - [#54006]) ([simplisafe docs]) (breaking-change)
-- Add statistics support for the PVOutput sensor ([@zoeisnowooze] - [#54149]) ([pvoutput docs])
-- Add state class and last reset in kostal_plenticore ([@gianklug] - [#54084]) ([kostal_plenticore docs])
-- OVO Energy Long-term Statistics ([@timmo001] - [#54157]) ([ovo_energy docs])
-- Refactor Fronius sensor device class and long term statistics ([@nielstron] - [#54185]) ([fronius docs])
-- Add state_class attribute to keba integration ([@carstenschroeder] - [#54271]) ([keba docs])
-- Use state class total increasing for TPLink smart plugs ([@mib1185] - [#54723]) ([tplink docs])
-- Update deCONZ to use new state classes ([@frenck] - [#54729]) ([deconz docs])
-- Add state classes to Vallox sensors ([@andre-richter] - [#54297]) ([vallox docs])
-- Energy support for Solax inverters ([@ppetru] - [#54654]) ([solax docs])
-- Rfxtrx,STATE_CLASS_TOTAL_INCREASING ([@Danielhiversen] - [#54776]) ([rfxtrx docs])
-- Add Gas device class to DSMR Reader ([@frenck] - [#54748]) ([dsmr_reader docs])
-- Add energy management support to Growatt server integration ([@maschel] - [#54174]) ([growatt_server docs])
-- Add growatt total state_class for storage ([@JasperPlant] - [#54913]) ([growatt_server docs])
-- Extract smappee switch energy attributes into sensors ([@bsmappee] - [#54329]) ([smappee docs]) (breaking-change)
-- Add state_class to relevant sensors in Danfoss Air ([@JonasPed] - [#54847]) ([danfoss_air docs])
-- Add state_class and device_class to Solarlog platform ([@Ernst79] - [#53946]) ([solarlog docs])
-- Update YouLess integration for long time measurements ([@gjong] - [#54767]) ([youless docs])
-- SMA: Add statistics support for power sensors ([@andre-richter] - [#54422]) ([sma docs])
-- Add statistics for emoncms power and energy feeds ([@lukewaite] - [#55109]) ([emoncms docs])
-- Add configurable `state_class` to Modbus sensors ([@farmio] - [#54103]) ([modbus docs])
+- [@balloob] added a lot more configuration validation to the energy
+  configuratioN UI and added more warning/error messages. [@ludeeus] made
+  them look good by adding a beautiful new styling for these kind of messages.
+- Home Assistant offline and missed generating its energy/long statistics?
+  Not anymore! Home Assistant will now catch up on start, thanks [@emontnemery]!
+- Thanks to [@bdraco], camera images can now be scaled to a resolution that
+  fits the device/screen you are looking at; Additionally, they only update
+  when visible. This makes cameras usable in any bandwidth situation.
+- The Shelly integration now supports transitions for lights! Thanks [@bieniu]!
+- Yeelight now supports local push (instead of polling), awesome [@starkillerOG]!
+- [@emontnemery] upgraded DSMR to support Swedish smart energy meters! Nice!
+- For Yamaha MusicCast, [@micha91] has unlocked the Media Browser features!
+- The Rainforest Eagle will now provide pricing data if that is available,
+  thanks [@balloob]!
+- [@giannello] added the ability to ask your Google Home where your vacuum
+  cleaner is :)
+- If you use the shopping list feature of Home Assistant, you can now remove
+  all completed items at once using a service call. Thanks, [@GrumpyMeow]!
+- [@bdraco] Added a new advanced feature for HomeKit, allowing to forward device
+  events to HomeKit, unlocking the ability to trigger HomeKit automations or
+  scenes.
+- Thanks to [@ludeeus], we can now use different brand images in the UI when
+  it is in dark mode.
+- If you have a Sonos speaker, you can now modify the bass & treble level
+  using a service call, thanks [@Tigger2014]!
+- Utility Meter cycles can are now super flexible with the new cron patterns
+  option, nice [@dgomes]!
+- Bond now provides new service to start/stop increasing/decreasing the
+  brightness of a light. Thanks [@bdraco]!
 
 ## New Integrations
 
@@ -224,18 +353,6 @@ We welcome the following new integrations this release:
 - [P1 Monitor][p1_monitor docs], added by [@klaasnicolaas]
 - [Tractive][tractive docs], added by [@zhulik]
 - [USB Discovery][usb docs], added by [@bdraco]
-
-## New Platforms
-
-The following integration got support for a new platform:
-
-<!-- TODO: Process these, or maybe time to ditch the chapter? -->
-
-- Add `binary_sensor` platform for Xiaomi Miio integration ([@bieniu] - [#54096]) ([xiaomi_miio docs]) (new-platform)
-- Add light platform to MyQ ([@ehendrix23] - [#54611]) ([myq docs]) (new-platform)
-- Add binary sensor platform to Renault integration ([@epenet] - [#54750]) ([renault docs]) (new-platform)
-- Add select platform to template integration ([@raman325] - [#54835]) ([template docs]) (new-platform)
-- Add number platform to template integration ([@raman325] - [#54789]) ([template docs]) (new-platform)
 
 ## Integrations now available to set up from the UI
 
@@ -260,6 +377,102 @@ Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 
+{% details "1-Wire" %}
+
+The previously deprecated YAML configuration of the 1-Wire integration has been removed.
+
+1-Wire is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@epenet] - [#53728]) ([onewire docs])
+
+{% enddetails %}
+
+{% details "AVM FRITZ!Box Tools" %}
+
+The attributes of the switches provided by AVM FRITZ!Box Tools have been adjusted
+to match the naming rules and schema of Home Assistant.
+
+If you relied on one of these attributes in your automation or scripts, you'll
+need to adopt to this change.
+
+([@AaronDavidSchneider] - [#54842]) ([fritz docs])
+
+{% enddetails %}
+
+{% details "DSMR" %}
+
+The unit of measurement of gas sensors for DSMR has changed from `m3` to `m³`.
+
+([@bramkragten] - [#54110]) ([dsmr docs])
+
+{% enddetails %}
+
+{% details "Epson" %}
+
+The previously deprecated YAML configuration of the Epson integration has been removed.
+
+Epson is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@pszafer] - [#55045]) ([epson docs])
+
+{% enddetails %}
+
+{% details "Growatt" %}
+
+The previously deprecated YAML configuration of the Growatt integration has been removed.
+
+Growatt is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@frenck] - [#54325]) ([growatt_server docs])
+
+{% enddetails %}
+
+{% details "HomeKit" %}
+
+The underlying HomeKit protocol version has changed from version 1.0 to version 1.1.
+
+Cameras with motion sensors and some other accessories may need to be reset using
+the `homekit.reset_accessory` service or unpaired and paired again.
+
+If after unpairing with your iOS the QR code does not show, the pairings can
+manually be removed with the `homekit.unpair` service using the Developer Tools.
+
+([@bdraco] - [#53780]) ([homekit docs])
+
+{% enddetails %}
+
+{% details "HomeKit Controller" %}
+
+A future release (currently scheduled for 2021.12.0) will remove the (deprecated)
+air quality platfrom from the HomeKit Controller integration.
+
+Starting from this release the air quality values have been broken out as their
+own sensors, making them easier to incorporate in your dashboard widgets,
+graphs and automations.
+
+If you relied on an air quality entity (provided by the HomeKit Controller
+integration) in your automation or scripts, you'll need to adopt to this change.
+
+([@Jc2k] - [#54673]) ([homekit_controller docs])
+
+{% enddetails %}
+
+{% details "IKEA TRÅDFRI" %}
+
+The legacy code, which imported hosts from a JSON file have been removed.
+If you relied on that, please follow the instructions to setup the hosts
+(can be detected automatically).
+
+To avoid this first upgrade to 2021.8.x first which will (which will
+automatically import) and then upgrade to latest release.
+
+([@janiversen] - [#54452]) ([tradfri docs])
+
+{% enddetails %}
+
 {% details "Lutron" %}
 
 If (and only if) you currently attempt to make use of the (previously ambiguous)
@@ -271,14 +484,131 @@ they are not very useful.
 
 {% enddetails %}
 
-{% details "1-Wire" %}
+{% details "MQTT" %}
 
-The previously deprecated YAML configuration of the 1-Wire integration has been removed.
+MQTT fan no longer supports Support for legacy speeds (OFF, LOW, MEDIUM, HIGH).
+With release 2021.3 the support for legacy speeds was announced to be removed
+after a quater (2021.7).
 
-1-Wire is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
+With removing the legacy speeds support, integrations that rely on MQTT fan
+platform that still use legacy speeds would break because they can not be
+setup if deprecated attributes are used. This includes the MQTT auto discovery.
 
-([@epenet] - [#53728]) ([onewire docs])
+To prevent that these integration will fail to setup, the deprecated attributes
+listed here are still allowed in the config:
+
+- `payload_high_speed`
+- `payload_low_speed`
+- `payload_medium_speed`
+- `speed_command_topic`
+- `speeds`
+- `speed_state_topic`
+- `speed_value_template`
+
+([@jbouwh] - [#54768]) ([mqtt docs])
+
+{% enddetails %}
+
+{% details "MySensors" %}
+
+MySensors lights no longer supports deprecated `white_value`, use `rgbw_color`
+instead.
+
+([@emontnemery] - [#52068]) ([mysensors docs])
+
+{% enddetails %}
+
+{% details "Nanoleaf" %}
+
+The Nanoleaf integration migrated to configuration via the UI. Configuring
+Nanoleaf via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+If you have configured Nanoleaf with the discovery integration: You can remove
+`discovery:` from your YAML configuration if you only used it for Nanoleaf.
+The `.nanoleaf.conf` file in your configuration folder is no longer used,
+you can delete it after upgrading.
+
+([@milanmeu] - [#52199]) ([nanoleaf docs])
+
+{% enddetails %}
+
+{% details "Nmap Tracker" %}
+
+The Nmap Tracker integration migrated to configuration via the UI. Configuring
+Nmap Tracker via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+To disable creation of new entities, use the the system option to disable new
+entities for the config entry, and manually enable entities as needed.
+
+([@bdraco] - [#54715]) ([nmap_tracker docs])
+
+{% enddetails %}
+
+{% details "OVO Energy" %}
+
+These attributes have been removed and replaced with full sensors for both
+gas and electricity:
+
+- `start_time`
+- `end_time`
+
+If you relied on one of these attributes in your automation or scripts, you'll
+need to adopt to this change.
+
+([@timmo001] - [#54952]) ([ovo_energy docs])
+
+{% enddetails %}
+
+{% details "Rainforest Eagle-200" %}
+
+The Rainforest Eagle-200 integration migrated to configuration via the UI.
+Configuring Rainforest Eagle-200 via YAML configuration has been deprecated and
+will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+([@balloob] - [#54846]) ([rainforest_eagle docs])
+
+{% enddetails %}
+
+{% details "SimpliSafe" %}
+
+SimpliSafe locks no longer have a `jammed` attribute; instead, when jammed,
+they will show a `jammed` state.
+
+If you are currently using the `jammed` attribute in your automation or scripts,
+you'll need to adopt to this change.
+
+([@bachya] - [#54006]) ([simplisafe docs])
+
+{% enddetails %}
+
+{% details "Smappee" %}
+
+The power and energy attributes from switch entities have been removed and
+replaced by sensors.
+
+If you relied on these attributes in your automations, scripts or Lovelace
+dashboards, you'll need to update your configuration to match this change.
+
+([@bsmappee] - [#54329]) ([smappee docs])
+
+{% enddetails %}
+
+{% details "Solar-Log" %}
+
+The `Watt-peak` unit of measurement has changed  to `Watt`.
+
+([@Ernst79] - [#55110]) ([solarlog docs])
 
 {% enddetails %}
 
@@ -342,17 +672,34 @@ data:
 
 {% enddetails %}
 
-{% details "HomeKit" %}
+{% details "Tesla Powerwall" %}
 
-The underlying HomeKit protocol version has changed from version 1.0 to version 1.1.
+The Tesla Powerwall attributes for `energy_exported_(in_kW)` and
+`energy_imported_(in_kW)` have been converted to their own energy sensors.
 
-Cameras with motion sensors and some other accessories may need to be reset using
-the `homekit.reset_accessory` service or unpaired and paired again.
+If you relied on those attributes in your automation or scripts, you'll need
+to adopt to this change.
 
-If after unpairing with your iOS the QR code does not show, the pairings can
-manually be removed with the `homekit.unpair` service using the Developer Tools.
+([@bdraco] - [#54018]) ([powerwall docs])
 
-([@bdraco] - [#53780]) ([homekit docs])
+{% enddetails %}
+
+{% details "Toon" %}
+
+The unit of measurement of gas and water sensors for Toon has changed from `m3` to `m³`.
+
+([@bramkragten] - [#54110]) ([toon docs])
+
+{% enddetails %}
+
+{% details "UpCloud" %}
+
+The previously deprecated YAML configuration of the UpCloud integration has been removed.
+
+UpCloud is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@scop] - [#54516]) ([upcloud docs])
 
 {% enddetails %}
 
@@ -369,135 +716,6 @@ and thus can be safely removed from your YAML configuration after upgrading.
 
 {% enddetails %}
 
-{% details "SimpliSafe" %}
-
-SimpliSafe locks no longer have a `jammed` attribute; instead, when jammed,
-they will show a `jammed` state.
-
-If you are currently using the `jammed` attribute in your automation or scripts,
-you'll need to adopt to this change.
-
-([@bachya] - [#54006]) ([simplisafe docs])
-
-{% enddetails %}
-
-{% details "Growatt" %}
-
-The previously deprecated YAML configuration of the Growatt integration has been removed.
-
-Growatt is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
-
-([@frenck] - [#54325]) ([growatt_server docs])
-
-{% enddetails %}
-
-{% details "Tesla Powerwall" %}
-
-The Tesla Powerwall attributes for `energy_exported_(in_kW)` and
-`energy_imported_(in_kW)` have been converted to their own energy sensors.
-
-If you relied on those attributes in your automation or scripts, you'll need
-to adopt to this change.
-
-([@bdraco] - [#54018]) ([powerwall docs])
-
-{% enddetails %}
-
-{% details "Custom integrations: Cameras" %}
-
-This breaking change is only relevant to custom integration authors!
-
-The function signature for `async_camera_image` and `camera_image` has changed
-to include a width and height.
-
-```py
-    async def async_camera_image(
-        self, width: int | None = None, height: int | None = None
-    ) -> bytes | None:
-```
-
-The goal of the change is to reduce the overhead of sending large images that
-will only be displayed as small images as this can quickly consume hundred of
-megabytes of bandwidth / mobile data allocation.
-
-Scaling should be done on a best effort basis and is not a strict requirement
-as the existing behavior of falling back to scaling at the display layer is
-preserved.
-
-- Integrations should pass on the width and height if the underlying
-  camera is capable of scaling the image.
-
-- Integrations may choose to ignore the height parameter in order to
-  preserve aspect ratio
-
-- If the integration cannot scale the image and returns a jpeg image, it will
-  automatically be scaled by the camera integration when requested.
-
-([@bdraco] - [#53835])
-
-{% enddetails %}
-
-{% details "Custom integrations: Sensors" %}
-
-This breaking change is only relevant to custom integration authors!
-
-Although not a breaking change from a user's perspective, this is a significant
-change from a developer's perspective.
-
-Temperature conversions are moving from the `Entity` base class to the
-`SensorEntity` base class.
-
-Additionally, we have two new properties, `native_value` (which replaces `state`)
-and `native_unit_of_measurement` which replaces `unit_of_measurement`.
-
-Read all about it in the developer blog:
-
-<https://developers.home-assistant.io/blog/2021/08/12/sensor_temperature_conversion/>
-
-([@emontnemery] - [#48261]) ([abode docs]) ([sensor docs])
-
-----
-
-Additionally, a new sensor state class has been introduced: `total_increasing`.
-
-This releases the `measurement` that was used in conjunction with the
-`last_reset` attribute. For more information about his can be found in the
-developer blog about it:
-
-<https://developers.home-assistant.io/blog/2021/08/16/state_class_total/>
-
-{% enddetails %}
-
-{% details "IKEA TRÅDFRI" %}
-
-The legacy code, which imported hosts from a JSON file have been removed.
-If you relied on that, please follow the instructions to setup the hosts
-(can be detected automatically).
-
-To avoid this first upgrade to 2021.8.x first which will (which will
-automatically import) and then upgrade to latest release.
-
-([@janiversen] - [#54452]) ([tradfri docs])
-
-{% enddetails %}
-
-{% details "Toon" %}
-
-The unit of measurement of gas and water sensors for Toon has changed from `m3` to `m³`.
-
-([@bramkragten] - [#54110]) ([toon docs])
-
-{% enddetails %}
-
-{% details "DSMR" %}
-
-The unit of measurement of gas sensors for DSMR has changed from `m3` to `m³`.
-
-([@bramkragten] - [#54110]) ([dsmr docs])
-
-{% enddetails %}
-
 {% details "Wink" %}
 
 The Wink integration has been deprecated and is pending removal in
@@ -508,17 +726,6 @@ offline and their customer support has confirmed no new token or client/secret
 can be obtained. This makes it impossible to use this integration.
 
 ([@frenck] - [#54496]) ([wink docs])
-
-{% enddetails %}
-
-{% details "UpCloud" %}
-
-The previously deprecated YAML configuration of the UpCloud integration has been removed.
-
-UpCloud is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
-
-([@scop] - [#54516]) ([upcloud docs])
 
 {% enddetails %}
 
@@ -614,144 +821,67 @@ you were trying to use for your condition.
 
 {% enddetails %}
 
-{% details "Nmap Tracker" %}
+{% details "Custom integrations: Cameras" %}
 
-The Nmap Tracker integration migrated to configuration via the UI. Configuring
-Nmap Tracker via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
+This breaking change is only relevant to custom integration authors!
 
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
+The function signature for `async_camera_image` and `camera_image` has changed
+to include a width and height.
 
-To disable creation of new entities, use the the system option to disable new
-entities for the config entry, and manually enable entities as needed.
+```py
+    async def async_camera_image(
+        self, width: int | None = None, height: int | None = None
+    ) -> bytes | None:
+```
 
-([@bdraco] - [#54715]) ([nmap_tracker docs])
+The goal of the change is to reduce the overhead of sending large images that
+will only be displayed as small images as this can quickly consume hundred of
+megabytes of bandwidth / mobile data allocation.
+Scaling should be done on a best effort basis and is not a strict requirement
+as the existing behavior of falling back to scaling at the display layer is
+preserved.
 
-{% enddetails %}
+- Integrations should pass on the width and height if the underlying
+  camera is capable of scaling the image.
 
-{% details "HomeKit Controller" %}
+- Integrations may choose to ignore the height parameter in order to
+  preserve aspect ratio
 
-A future release (currently scheduled for 2021.12.0) will remove the (deprecated)
-air quality platfrom from the HomeKit Controller integration.
+- If the integration cannot scale the image and returns a jpeg image, it will
+  automatically be scaled by the camera integration when requested.
 
-Starting from this release the air quality values have been broken out as their
-own sensors, making them easier to incorporate in your dashboard widgets,
-graphs and automations.
-
-If you relied on an air quality entity (provided by the HomeKit Controller
-integration) in your automation or scripts, you'll need to adopt to this change.
-
-([@Jc2k] - [#54673]) ([homekit_controller docs])
-
-{% enddetails %}
-
-{% details "Smappee" %}
-
-The power and energy attributes from switch entities have been removed and
-replaced by sensors.
-
-If you relied on these attributes in your automations, scripts or Lovelace
-dashboards, you'll need to update your configuration to match this change.
-
-([@bsmappee] - [#54329]) ([smappee docs])
+([@bdraco] - [#53835])
 
 {% enddetails %}
 
-{% details "Epson" %}
+{% details "Custom integrations: Sensors" %}
 
-The previously deprecated YAML configuration of the Epson integration has been removed.
+This breaking change is only relevant to custom integration authors!
 
-Epson is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
+Although not a breaking change from a user's perspective, this is a significant
+change from a developer's perspective.
 
-([@pszafer] - [#55045]) ([epson docs])
-{% enddetails %}
+Temperature conversions are moving from the `Entity` base class to the
+`SensorEntity` base class.
 
-{% details "Solar-Log" %}
+Additionally, we have two new properties, `native_value` (which replaces `state`)
+and `native_unit_of_measurement` which replaces `unit_of_measurement`.
 
-The `Watt-peak` unit of measurement has changed  to `Watt`.
+Read all about it in the developer blog:
 
-([@Ernst79] - [#55110]) ([solarlog docs])
+<https://developers.home-assistant.io/blog/2021/08/12/sensor_temperature_conversion/>
 
-{% enddetails %}
+([@emontnemery] - [#48261]) ([abode docs]) ([sensor docs])
 
-{% details "MQTT" %}
+----
 
-MQTT fan no longer supports Support for legacy speeds (OFF, LOW, MEDIUM, HIGH).
-With release 2021.3 the support for legacy speeds was announced to be removed
-after a quater (2021.7).
+Additionally, a new sensor state class has been introduced: `total_increasing`.
 
-With removing the legacy speeds support, integrations that rely on MQTT fan
-platform that still use legacy speeds would break because they can not be
-setup if deprecated attributes are used. This includes the MQTT auto discovery.
+This releases the `measurement` that was used in conjunction with the
+`last_reset` attribute. For more information about his can be found in the
+developer blog about it:
 
-To prevent that these integration will fail to setup, the deprecated attributes
-listed here are still allowed in the config:
-
-- `payload_high_speed`
-- `payload_low_speed`
-- `payload_medium_speed`
-- `speed_command_topic`
-- `speeds`
-- `speed_state_topic`
-- `speed_value_template`
-
-([@jbouwh] - [#54768]) ([mqtt docs])
-
-{% enddetails %}
-
-{% details "OVO Energy" %}
-
-These attributes have been removed and replaced with full sensors for both
-gas and electricity:
-
-- `start_time`
-- `end_time`
-
-If you relied on one of these attributes in your automation or scripts, you'll
-need to adopt to this change.
-
-([@timmo001] - [#54952]) ([ovo_energy docs])
-
-{% enddetails %}
-
-{% details "AVM FRITZ!Box Tools" %}
-
-The attributes of the switches provided by AVM FRITZ!Box Tools have been adjusted
-to match the naming rules and schema of Home Assistant.
-
-If you relied on one of these attributes in your automation or scripts, you'll
-need to adopt to this change.
-
-([@AaronDavidSchneider] - [#54842]) ([fritz docs])
-
-{% enddetails %}
-
-{% details "Lorem" %}
-
-The Nanoleaf integration migrated to configuration via the UI. Configuring
-Nanoleaf via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
-
-If you have configured Nanoleaf with the discovery integration: You can remove
-`discovery:` from your YAML configuration if you only used it for Nanoleaf.
-The `.nanoleaf.conf` file in your configuration folder is no longer used,
-you can delete it after upgrading.
-
-([@milanmeu] - [#52199]) ([nanoleaf docs])
-
-{% enddetails %}
-
-{% details "MySensors" %}
-
-MySensors lights no longer supports deprecated `white_value`, use `rgbw_color`
-instead.
-
-([@emontnemery] - [#52068]) ([mysensors docs])
+<https://developers.home-assistant.io/blog/2021/08/16/state_class_total/>
 
 {% enddetails %}
 
@@ -1102,7 +1232,7 @@ instead.
 - Add support for Swedish smart electricity meters to DSMR ([@emontnemery] - [#54630]) ([dsmr docs])
 - Minor cleanup of SensorEntity ([@emontnemery] - [#54624]) ([sensor docs])
 - Add missing id to yeelights that were setup manually ([@bdraco] - [#54855]) ([yeelight docs])
-- Add config flow to Rainforest EAGLE-200 ([@balloob] - [#54846]) ([rainforest_eagle docs])
+- Add config flow to Rainforest EAGLE-200 ([@balloob] - [#54846]) ([rainforest_eagle docs]) (breaking-change)
 - Yamaha Musiccast Media Browser feature ([@micha91] - [#54864]) ([yamaha_musiccast docs])
 - Add Rainforest Eagle tests and price ([@balloob] - [#54887]) ([rainforest_eagle docs])
 - Improve device action type hinting ([@scop] - [#54850])
@@ -1373,6 +1503,19 @@ instead.
 - Add Nanoleaf reauth flow ([@milanmeu] - [#55217]) ([nanoleaf docs])
 - Convert color temperature to visible color in lights ([@bdraco] - [#55219]) ([light docs])
 - Add services to bond to start and stop increase/decrease brightness ([@bdraco] - [#55006]) ([bond docs])
+- Set up polling task with subscriptions in Sonos ([@jjlawren] - [#54355]) ([sonos docs]) (beta fix)
+- Remove temperature conversion - tado ([@cdce8p] - [#55231]) ([tado docs]) (beta fix)
+- Limit USB discovery to specific manufacturer/description/serial_number matches ([@bdraco] - [#55236]) ([zha docs]) ([usb docs]) (beta fix)
+- Only warn once per entity when the async_camera_image signature needs to be updated ([@bdraco] - [#55238]) ([camera docs]) (beta fix)
+- Defer zha auto configure probe until after clicking configure ([@bdraco] - [#55239]) ([zha docs]) (beta fix)
+- Bump up ZHA dependencies ([@Adminiuga] - [#55242]) ([zha docs]) (beta fix)
+- Abort zha usb discovery if deconz is setup ([@bdraco] - [#55245]) ([zha docs]) (beta fix)
+- Only postfix image name for container ([@ludeeus] - [#55248]) ([version docs]) (beta fix)
+- Fix double precision float for postgresql ([@emontnemery] - [#55249]) ([recorder docs]) (beta fix)
+- Fix MQTT add-on discovery to be ignorable ([@frenck] - [#55250]) ([mqtt docs]) (beta fix)
+- Warn if a sensor with state_class_total has a decreasing value twice ([@emontnemery] - [#55251]) ([sensor docs]) (beta fix)
+- Don't create DSL sensor for devices that don't support DSL ([@TheZoker] - [#55269]) ([fritz docs]) (beta fix)
+- Fix AttributeError for non-MIOT Xiaomi Miio purifiers ([@bieniu] - [#55271]) ([xiaomi_miio docs]) (beta fix)
 
 {% enddetails %}
 
@@ -1563,6 +1706,7 @@ instead.
 [#54329]: https://github.com/home-assistant/core/pull/54329
 [#54336]: https://github.com/home-assistant/core/pull/54336
 [#54343]: https://github.com/home-assistant/core/pull/54343
+[#54355]: https://github.com/home-assistant/core/pull/54355
 [#54359]: https://github.com/home-assistant/core/pull/54359
 [#54360]: https://github.com/home-assistant/core/pull/54360
 [#54362]: https://github.com/home-assistant/core/pull/54362
@@ -1990,6 +2134,18 @@ instead.
 [#55217]: https://github.com/home-assistant/core/pull/55217
 [#55219]: https://github.com/home-assistant/core/pull/55219
 [#55221]: https://github.com/home-assistant/core/pull/55221
+[#55231]: https://github.com/home-assistant/core/pull/55231
+[#55236]: https://github.com/home-assistant/core/pull/55236
+[#55238]: https://github.com/home-assistant/core/pull/55238
+[#55239]: https://github.com/home-assistant/core/pull/55239
+[#55242]: https://github.com/home-assistant/core/pull/55242
+[#55245]: https://github.com/home-assistant/core/pull/55245
+[#55248]: https://github.com/home-assistant/core/pull/55248
+[#55249]: https://github.com/home-assistant/core/pull/55249
+[#55250]: https://github.com/home-assistant/core/pull/55250
+[#55251]: https://github.com/home-assistant/core/pull/55251
+[#55269]: https://github.com/home-assistant/core/pull/55269
+[#55271]: https://github.com/home-assistant/core/pull/55271
 [@AaronDavidSchneider]: https://github.com/AaronDavidSchneider
 [@Adminiuga]: https://github.com/Adminiuga
 [@Bert-R]: https://github.com/Bert-R
@@ -2015,6 +2171,7 @@ instead.
 [@StevenLooman]: https://github.com/StevenLooman
 [@TastyPi]: https://github.com/TastyPi
 [@TheJulianJES]: https://github.com/TheJulianJES
+[@TheZoker]: https://github.com/TheZoker
 [@Tigger2014]: https://github.com/Tigger2014
 [@TomBrien]: https://github.com/TomBrien
 [@ViViDboarder]: https://github.com/ViViDboarder
