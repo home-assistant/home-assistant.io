@@ -40,7 +40,7 @@ Sensors, binary (on/off) sensors, numbers and selects are covered on this page. 
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
-Sensor, binary sensor, number and select template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number entities and can contain an optional update trigger.
+Sensor, binary sensor, number and select template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
@@ -224,7 +224,7 @@ select:
       type: boolean
       default: false
 "[all sensor, binary sensor, number, select entities]":
-  description: Fields that can be used above for sensors, binary sensors, and numbers.
+  description: Fields that can be used above for sensors, binary sensors, numbers, and selects.
   required: false
   type: map
   keys:
