@@ -50,7 +50,7 @@ Issues introduced in the beta are processed with priority.
 - [USB Discovery](#usb-discovery)
 - [Z-Wave JS Updates](#z-wave-js-updates)
 - [New template entities: Number and Select](#new-template-entities-number-and-select)
-- [New template functions for area's](#new-template-functions-for-areas)
+- [New template functions for areas](#new-template-functions-for-areas)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -274,9 +274,9 @@ template:
 Oh! And they can also be used with the new trigger templates! Check out
 [the documentation](/integrations/template) for all options available.
 
-## New template functions for area's
+## New template functions for areas
 
-Two new template functions have been added, making working with area's
+Two new template functions have been added, making working with areas
 in YAML (when using templating) a little bit easier.
 
 - `area_id("value")` returns the area ID for a given value. The `value` can be
