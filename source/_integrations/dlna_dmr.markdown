@@ -5,7 +5,11 @@ ha_category:
   - Media Player
 ha_release: 0.76
 ha_iot_class: Local Push
+ha_config_flow: true
+ha_codeowners:
+  - '@StevenLooman'
 ha_domain: dlna_dmr
+ha_ssdp: true
 ha_platforms:
   - media_player
 ---
@@ -14,9 +18,24 @@ The `dlna_dmr` platform allows you to control a [DLNA Digital Media Renderer](ht
 
 Please note that some devices, such as Samsung TVs, are rather picky about the source used to play from. The TTS service might not work in combination with these devices. If the play_media service does not work, please try playing from a DLNA/DMS (such as [MiniDLNA](https://sourceforge.net/projects/minidlna/)).
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add a DLNA DMR device to your installation, add the following to your `configuration.yaml` file:
+## Options
+
+Options for DLNA DMR devices can be set going to **Configuration** -> **Integrations** -> **DLNA Digital Media Renderer** -> **Configuration**.
+
+{% configuration_basic %}
+Event listener port:
+  description: "Local port to listen on for events sent by the DLNA device. If this is not set, a random port will be allocated. Use this if you need a specific incoming port for firewall or NAT reasons."
+Event listener callback URL:
+  description: "Local URL destination for events sent by the DLNA device. It should be of the form `http://{host}:{port}/notify`, where keywords `{host}` and `{port}` will be automatically filled-in but can be set explicitly here, e.g. `http://192.88.99.1:5555/notify`. Use this if the local IP address or port seen by Home Assistant is not what the device should connect to, because of Network Address Translation (NAT)."
+Poll for device availability:
+  description: "Periodically try to connect to the DLNA device, even if it is unavailable. Enable this if SSDP advertisements sent by the device are not received by Home Assistant, e.g. when IP multicast is broken on your network."
+{% endconfiguration_basic %}
+
+## Manual Configuration
+
+Alternatively, you can add a DLNA DMR device to your installation, by adding the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,10 +48,6 @@ media_player:
 url:
   description: The URL to the device description XML file, e.g., `http://192.168.0.10:9197/description.xml`.
   required: true
-  type: string
-listen_ip:
-  description: IP to listen on for events from the device. Only set this when the IP is not detected properly.
-  required: false
   type: string
 listen_port:
   description: Port to listen on for events from the device.
