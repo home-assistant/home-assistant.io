@@ -171,6 +171,7 @@ number:
   description: List of numbers
   required: true
   type: map
+  keys:
     state:
       description: Template for the number's current value.
       required: true
