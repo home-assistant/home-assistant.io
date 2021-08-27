@@ -15,7 +15,6 @@ ha_platforms:
 
 The `opengarage` cover platform lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
 
-## Setup
 
 {% include integrations/config_flow.md %}
 
