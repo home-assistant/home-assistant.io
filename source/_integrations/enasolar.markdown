@@ -27,7 +27,7 @@ Note: Polling too frequently caused the web server in the inverter to become unr
 2. Select ADD INTEGRATION
 3. Search for EnaSolar.
 
-Fill in the connection form. Note: Naming the inverter isnt particularly helpful unless you have more than one. select NEXT. If the connection succeeded the next form will have been pre-filled with values extracted from the inverter.  You may choose to over-ride a value if is incorrect.
+Fill in the connection form. Note: Naming the inverter isn't particularly helpful unless you have more than one. select NEXT. If the connection succeeded the next form will have been pre-filled with values extracted from the inverter.  You may choose to over-ride a value if is incorrect.
 
 Max AC Output Power: is used to calculate the utilisation. It should be one of - 1.5, 2.0, 3.0, 3.8, 4.0 or 5.0
 Number of DC strings in the array: It should be either - 1 or 2
