@@ -172,7 +172,7 @@ support those. Luckily a lot have already done so.
 ## USB Discovery
 
 Thanks to [@bdraco], Home Assistant can now discover USB devices and the
-integrations that work that device. This makes setting up
+integrations that work with that device. This makes setting up
 things like Z-Wave or Zigbee with Home Assistant an actual breeze now!
 
 For example, if you plug in your new Nortek HubZ USB stick into the
@@ -488,7 +488,7 @@ they are not very useful.
 
 MQTT fan no longer supports Support for legacy speeds (OFF, LOW, MEDIUM, HIGH).
 With release 2021.3 the support for legacy speeds was announced to be removed
-after a quater (2021.7).
+after a quarter (2021.7).
 
 With removing the legacy speeds support, integrations that rely on MQTT fan
 platform that still use legacy speeds would break because they can not be
@@ -877,7 +877,7 @@ Read all about it in the developer blog:
 
 Additionally, a new sensor state class has been introduced: `total_increasing`.
 
-This releases the `measurement` that was used in conjunction with the
+This changes the `measurement` state class that was used in conjunction with the
 `last_reset` attribute. For more information about his can be found in the
 developer blog about it:
 
