@@ -3,7 +3,7 @@ title: "Zyxel T50"
 description: "Instructions on how to integrate Zyxel T50 modem into Home Assistant."
 ha_category:
 - Presence Detection
-ha_release: next
+ha_release: 2021.12
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
