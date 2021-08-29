@@ -32,34 +32,3 @@ Event listener callback URL:
 Poll for device availability:
   description: "Periodically try to connect to the DLNA device, even if it is unavailable. Enable this if SSDP advertisements sent by the device are not received by Home Assistant, e.g. when IP multicast is broken on your network."
 {% endconfiguration_basic %}
-
-## Manual Configuration
-
-Alternatively, you can add a DLNA DMR device to your installation, by adding the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: dlna_dmr
-    url: http://192.168.0.10:9197/description.xml
-```
-
-{% configuration %}
-url:
-  description: The URL to the device description XML file, e.g., `http://192.168.0.10:9197/description.xml`.
-  required: true
-  type: string
-listen_port:
-  description: Port to listen on for events from the device.
-  required: false
-  default: 8301
-  type: integer
-name:
-  description: The name you would like to give to the device, e.g., `TV living room`.
-  required: false
-  type: string
-callback_url_override:
-  description: Override the advertised callback URL. In case the Home Assistant instance is not directly reachable (e.g., running in a Docker container without bridged-networking), advertise this callback URL for events.
-  required: false
-  type: string
-{% endconfiguration %}
