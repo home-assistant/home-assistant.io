@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@StevenLooman'
+  - '@chishm'
 ha_domain: dlna_dmr
 ha_ssdp: true
 ha_platforms:
