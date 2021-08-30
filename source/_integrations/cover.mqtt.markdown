@@ -272,7 +272,7 @@ unique_id:
   description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
   required: false
   type: string
-value_template:
+state_value_template:
   description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `state_topic` topic."
   required: false
   type: string
@@ -310,6 +310,7 @@ cover:
     payload_open: "OPEN"
     payload_close: "CLOSE"
     payload_stop: "STOP"
+    state_value_template: "{{ value.x }}"
     state_open: "open"
     state_opening: "opening"
     state_closed: "closed"
@@ -317,7 +318,6 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: "{{ value.x }}"
 ```
 
 {% endraw %}
@@ -348,7 +348,7 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: "{{ value.x }}"
+    state_value_template: "{{ value.x }}"
 ```
 
 {% endraw %}
@@ -374,6 +374,7 @@ cover:
     payload_open: "OPEN"
     payload_close: "CLOSE"
     payload_stop: "STOP"
+    state_value_template: "{{ value.x }}"
     state_open: "open"
     state_opening: "opening"
     state_closed: "closed"
@@ -381,7 +382,6 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: "{{ value.x }}"
     position_template: "{{ value.y }}"
     tilt_command_topic: "home-assistant/cover/tilt"
     tilt_status_topic: "home-assistant/cover/tilt-state"
@@ -415,13 +415,13 @@ cover:
     payload_open: "OPEN"
     payload_close: "CLOSE"
     payload_stop: "STOP"
+    state_value_template: "{{ value.x }}"
     state_opening: "opening"
     state_closed: "closed"
     state_stopped: "stopped"
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: "{{ value.x }}"
     position_template: "{{ value.y }}"
 ```
 
