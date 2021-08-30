@@ -112,8 +112,8 @@ throttling logic, so use with care.
 
 ## Encyption
 
-Adguard supports DNS-over-HTTPS and DNS-over-TLS. 
+AdGuard supports DNS-over-HTTPS and DNS-over-TLS. 
 
 <div class="note">
-When using the Let's encrypt addon the Certs will be mounted at /ssl/ by defaults so the 2 certs can be found at /ssl/fullchain.pem & /ssl/privkey.pem
+When using the Let's Encrypt addon the certificates will be mounted at /ssl/ by default, therefore the required certificates can be located at /ssl/fullchain.pem & /ssl/privkey.pem
 </div>
