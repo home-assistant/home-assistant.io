@@ -10,7 +10,7 @@ The sidebar view has 2 columns, a wide one and a smaller one on the right.
 This view doesn't have support for badges.
 
 To change a view to edit mode, or to change the location of a card, enable edit mode:
-Click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**.
+Click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Then, select your [view (Lovelace tab)](https://www.home-assistant.io/lovelace/views/) and click the edit icon next to its name. At the bottom of the view configuation screen, select the "View type" called sidebar.  
 
 You can set if a card should be placed in the main (left) column of the sidebar column (right), by pressing the arrow right or left arrow in the bar underneath the card.
 
