@@ -109,3 +109,11 @@ Refresh all filter subscriptions in AdGuard Home.
 
 By default, `force` is set to `false`. Forcing an update bypasses AdGuard Home's
 throttling logic, so use with care.
+
+## Encyption
+
+Adguard supports DNS-over-HTTPS and DNS-over-TLS. 
+
+<div class="note">
+When using the Let's encrupt addon the Certs will be mounted at /ssl/ by defaults so the 2 certs can be found at /ssl/fullchain.pem &/ssl/privkey.pem
+</div>
