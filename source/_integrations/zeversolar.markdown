@@ -8,12 +8,12 @@ ha_iot_class: Local Polling
 ha_release: 2021.8.8
 ha_codeowners:
   - '@sander76'
-ha_domain: zeversolar_local
+ha_domain: zeversolar
 ha_platforms:
   - sensor
 ---
 
-The `zeversolar_local` platform uses the local API available on Zeversolar invertors.
+The `zeversolar` platform uses the local API available on Zeversolar invertors.
 It is unclear which Zeversolar invertors are supported, but a quick check would be to see if the address `http://<local zever IP address>/home.cgi` returns any data in the form of
 
 ```shell
