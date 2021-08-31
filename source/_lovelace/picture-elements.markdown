@@ -435,7 +435,7 @@ user:
 ### How to use the style object
 
 Position and style your elements using [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS). More/other keys are also possible.
-Note, the default style for most elements includes [translate](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate)(-50%, -50%), which means that the coordinates you provide will set the position of the center of the element.
+Note, the default style for most elements includes [translate](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate)(-50%, -50%), which means that the coordinates you provide will set the position of the center of the element. Use `transform: none` to disable this behavior.
 
 ```yaml
 style:
