@@ -205,6 +205,7 @@ Supported devices:
 | Air Purifier Super 2   | zhimi.airpurifier.sa2  | |
 | Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | |
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3  | |
+| Air Purifier 3C        | zhimi.airpurifier.mb4  | |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
 | Air Humidifier         | zhimi.humidifier.v1    | |
 | Air Humidifier CA1     | zhimi.humidifier.ca1   | |
@@ -415,6 +416,37 @@ Motor Speed             | The current motor speed measured in rpm
 PM2.5                   | The current particulate matter 2.5 measured
 Purify Volume           | The volume of purified air in qubic meter
 Temperature             | The current temperature measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+
+### Air Purifier 3C (zhimi.airpurifier.mb4)
+
+This model uses newer MiOT communication protocol.
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Favorite)
+- Attributes (fan platform)
+  - `model`
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Motor Speed    | Set the favorite motor speed
+LED Brihtness           | Set the LED brightness
+
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+Filter Life Remaining   | The remaining life of the filter
+Filter Use              | Filter usage time in hours
+Motor Speed             | The current motor speed measured in rpm
+PM2.5                   | The current particulate matter 2.5 measured
 
 - Switch entities
 
