@@ -1,6 +1,6 @@
 ---
 title: Zeversolar Local.
-description: Get solar data from your Zeversolar invertor using the local API.
+description: Get solar data from your Zeversolar inverter using the local API.
 ha_category:
   - Sensor
   - Energy
@@ -13,8 +13,8 @@ ha_platforms:
   - sensor
 ---
 
-The `zeversolar` platform uses the local API available on Zeversolar invertors.
-It is unclear which Zeversolar invertors are supported, but a quick check would be to see if the address `http://<local zever IP address>/home.cgi` returns any data in the form of
+The `zeversolar` platform uses the local API available on Zeversolar inverters.
+It is unclear which Zeversolar inverters are supported, but a quick check would be to see if the address `http://<local zever IP address>/home.cgi` returns any data in the form of
 
 ```shell
 1 1 EAB9618C1399 AWWQBDWVVXDJKVXF M11 12225-787R+42829-719R 13:05 26/08/2021 236 1 ZS150060118C0109 196 1.54 OK Error 
