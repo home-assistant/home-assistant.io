@@ -24,7 +24,7 @@ P1 Monitor is a platform that allows you to read the data from your smart meter 
 ## Sensors
 
 The P1 Monitor platform mainly provides sensors that you can use in your
-[energy dashboard][energy].
+[energy dashboard](/energy).
 
 **Note** that by default, the gas consumption entities are disabled, so if you want to use them, you need to enable them manually.
 
@@ -51,6 +51,6 @@ See per phase what your voltage, current and power consumption/production is.
 
 You can use the rates set in P1 Monitor for your calculations in Home Assistant.
 
-- Gas Consumption Tariff
-- Energy Consumption Tariff Low/High
-- Energy Production Tariff Low/High
+- Gas Consumption Price
+- Energy Consumption Price Low/High
+- Energy Production Price Low/High
