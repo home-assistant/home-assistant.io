@@ -1,5 +1,5 @@
 ---
-title: Zeversolar Local.
+title: Zeversolar Local
 description: Get solar data from your Zeversolar inverter using the local API.
 ha_category:
   - Sensor
