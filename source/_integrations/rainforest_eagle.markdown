@@ -16,7 +16,7 @@ ha_config_flow: true
 ha_dhcp: true
 ---
 
-Integrate energy usage and price (if available) from the Rainforest Automation's [Eagle-200](https://rainforestautomation.com/rfa-z114-eagle-200/)
-and [Legacy Eagle](https://rainforestautomation.com/support/rfa-z109-eagle-support/) energy gateways.
+Integrate energy usage and price from the Rainforest Automation's [Eagle-200](https://rainforestautomation.com/rfa-z114-eagle-200/)
+and [Legacy Eagle](https://rainforestautomation.com/support/rfa-z109-eagle-support/) energy gateways. The price will only be included if it is provided by the electricity meter. If you picked an electricity plan in the app, the price data will not be available.
 
 {% include integrations/config_flow.md %}
