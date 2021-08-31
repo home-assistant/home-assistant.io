@@ -4,16 +4,42 @@ description: Instructions on how to integrate Aussie Broadband within Home Assis
 ha_category:
 - Network
 - Sensor
-ha_release: 2021.9
+ha_release: 2021.10
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
 - '@nickw444'
+- '@Bre77'
 ha_domain: aussie_broadband
 ha_platforms:
 - sensor
 ---
 
-The Aussie Broadband integration uses the [Aussie Broadband API](https://myaussie-api.aussiebroadband.com.au) as a source for internet usage data.
+The Aussie Broadband integration displays various service metrics using the [Aussie Broadband API](https://myaussie-api.aussiebroadband.com.au).
+
+## Prerequisites
+
+You must have a [My Aussie Broadband](https://my.aussiebroadband.com.au) account, and at least 1 active service.
 
 {% include integrations/config_flow.md %}
+
+## Entities
+
+### Sensor
+
+The integration will create sensor entities for a variety of metrics that relate to your service:
+
+#### NBN/Internet Services
+- Total Usage
+- Downloaded Data
+- Uploaded Data
+- Billing Cycle Length
+- Billing Cycle Remaining
+
+#### Mobile Phone
+- Data Usage
+- National Calls
+- Mobile Calls
+- SMS Sent
+- Billing Cycle Length
+- Billing Cycle Remaining
