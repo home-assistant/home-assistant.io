@@ -426,8 +426,6 @@ Child Lock              | Turn on/off the child lock
 
 ### Air Purifier 3C (zhimi.airpurifier.mb4)
 
-This model uses newer MiOT communication protocol.
-
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
 - Attributes (fan platform)
