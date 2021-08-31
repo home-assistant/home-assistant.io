@@ -7,7 +7,8 @@ ha_release: '0.110'
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@gadgetmobile'
+  - '@bbx-a'
+  - '@bbx-jp'
 ha_domain: blebox
 ha_platforms:
   - air_quality

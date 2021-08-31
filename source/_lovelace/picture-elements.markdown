@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Picture Elements Card"
 sidebar_label: Picture Elements
 description: "The Picture Elements card is one of the most versatile types of cards. The cards allow you to position icons or text and even services! On an image based on coordinates."
@@ -549,10 +550,10 @@ elements:
     filter: saturate(.8)
     state_filter:
       "on": brightness(120%) saturate(1.2)
-      style:
-        top: 25%
-        left: 75%
-        width: 15%
+    style:
+      top: 25%
+      left: 75%
+      width: 15%
   # Camera, red border, rounded-rectangle - show more-info on click
   - type: image
     entity: camera.driveway_camera

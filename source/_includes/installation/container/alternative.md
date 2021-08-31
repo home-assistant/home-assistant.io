@@ -22,7 +22,7 @@ The steps would be:
 
 If you are using the built-in firewall, you must also add the port 8123 to allowed list. This can be found in "Control Panel -> Security" and then the Firewall tab. Click "Edit Rules" besides the Firewall Profile dropdown box. Create a new rule and select "Custom" for Ports and add 8123. Edit Source IP if you like or leave it at default "All". Action should stay at "Allow".
 
-To use a Z-Wave USB stick for Z-Wave control, the HA Docker container needs extra configuration to access to the USB stick. While there are multiple ways to do this, the least privileged way of granting access can only be performed via the Terminal, at the time of writing. See this page for configuring Terminal acces to your Synology NAS:
+To use a Z-Wave USB stick for Z-Wave control, the HA Docker container needs extra configuration to access to the USB stick. While there are multiple ways to do this, the least privileged way of granting access can only be performed via the Terminal, at the time of writing. See this page for configuring Terminal access to your Synology NAS:
 
 <https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_terminal>
 
@@ -54,7 +54,7 @@ Remark: to update your Home Assistant on your Docker within Synology NAS, you ju
 - Wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
 - Move to "Container"-section
 - Stop your container if it's running
-- Right-click on it and select "Action"->"Clear". You won't lose any data, as all files are stored in your configuration-directory
+- Right-click on it and select "Action"->"Reset". You won't lose any data, as all files are stored in your configuration-directory
 - Start the container again - it will then boot up with the new Home Assistant image
 
 Remark: to restart your Home Assistant within Synology NAS, you just have to do the following:

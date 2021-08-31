@@ -43,7 +43,9 @@ device_id:
   default: "`-1` (The first available Bluetooth adapter)"
 {% endconfiguration %}
 
-In some cases it can be that your device is not discovered. In that case let your phone scan for Bluetooth devices while you restart Home Assistant. Just hit `Scan` on your phone all the time until Home Assistant is fully restarted and the device should appear in `known_devices.yaml`.
+In some cases it can be that your device is not discovered. In that case let your phone scan for Bluetooth devices while you restart Home Assistant. Just hit `Scan` on your phone all the time (or keep the Bluetooth device view open on an iOS device) until Home Assistant is fully restarted and the device should appear in `known_devices.yaml`.
+
+The integration will try to create an entity using the device name that is detected. If such an entity already exists (for example because you are already using the [Companion App](https://companion.home-assistant.io/) for this device) no entity will be created and the log file will show an error that the `The see service is not supported for this entity device_tracker.device` (as it is not a `device_tracker` entity). You can rename the other conflicting entity, next time the device is detected a new entity with the same name will be created.
 
 For additional configuration variables check the [Device tracker page](/integrations/device_tracker/).
 

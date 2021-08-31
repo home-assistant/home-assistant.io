@@ -134,6 +134,8 @@ Other state examples:
 {{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
 {{ as_local(states.sensor.time.last_changed) }}
+
+{{ states('sensor.expires') | as_datetime }}
 ```
 
 {% endraw %}
@@ -205,6 +207,66 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+### Devices
+
+- `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
+- `device_attr(device_or_entity_id, attr_name)` returns the value of `attr_name` for the given device or entity ID. Not supported in [limited templates](#limited-templates).
+- `is_device_attr(device_or_entity_id, attr_name, attr_value)` returns whether the value of `attr_name` for the given device or entity ID matches `attr_value`. Not supported in [limited templates](#limited-templates).
+- `device_id(entity_id)` returns the device ID for a given entity ID or device name. Can also be used as a filter.
+
+#### Devices examples
+
+{% raw %}
+
+```text
+{{ device_attr('deadbeefdeadbeefdeadbeefdeadbeef', 'manufacturer') }}  # Sony
+```
+
+```text
+{{ is_device_attr('deadbeefdeadbeefdeadbeefdeadbeef', 'manufacturer', 'Sony') }}  # true
+```
+
+```text
+{{ device_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+{% endraw %}
+
+### Areas
+
+- `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
+- `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
+
+#### Areas examples
+
+{% raw %}
+
+```text
+{{ area_id('Living Room') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ area_id('my_device_id') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ area_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ area_name('deadbeefdeadbeefdeadbeefdeadbeef') }}  # Living Room
+```
+
+```text
+{{ area_name('my_device_id') }}  # Living Room
+```
+
+```text
+{{ area_name('sensor.sony') }}  # Living Room
+```
+
+{% endraw %}
+
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
@@ -215,6 +277,7 @@ The same thing can also be expressed as a filter:
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
   - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
+- `as_datetime()` converts a string containing a timestamp to a datetime object.
 - `as_timestamp()` converts datetime object or string to UNIX timestamp. This function also be used as a filter.
 - `as_local()` converts datetime object to local time. This function also be used as a filter.
 - `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object.

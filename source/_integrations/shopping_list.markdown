@@ -52,6 +52,10 @@ Marks all items as completed in the shopping list. It does not remove the items.
 
 Marks all items as incomplete in the shopping list.
 
+### Service `shopping_list.clear_completed_items`
+
+Clear completed items from the shopping list.
+
 ## Using in Automations
 
 The simplest way use shopping list with automations (e.g., when entering a zone with shops) is to create a notification that can be clicked to open the shopping list.

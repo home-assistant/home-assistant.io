@@ -86,6 +86,8 @@ hass
 
 You can now reach your installation via the web interface on `http://homeassistant.local:8123`.
 
+If this address doesn't work you may also try `http://localhost:8123` or `http://X.X.X.X:8123` (replace X.X.X.X with your machines’ IP address).
+
 <div class='note'>
 
 When you run the `hass` command for the first time, it will download, install and cache the necessary libraries/dependencies. This procedure may take anywhere between 5 to 10 minutes. During that time, you may get "site cannot be reached" error when accessing the web interface. This will only happen for the first time, and subsequent restarts will be much faster.
