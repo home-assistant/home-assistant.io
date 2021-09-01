@@ -32,11 +32,11 @@ All vehicles linked to the account should then get added as devices, with sensor
 
 Start A/C on vehicle.
 
-  | Service data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
-  | `vehicle`| yes | device_id of the vehicle |
-  | `temperature` | yes | Target A/C temperature in °C |
-  | `when` | no | Timestamp for the start of the A/C (optional - defaults to now) |
+  | Service data attribute | Required | Description | Example |
+  | ---------------------- | -------- | ----------- | ------- |
+  | `vehicle`| yes | device_id of the vehicle | |
+  | `temperature` | yes | Target A/C temperature in °C | |
+  | `when` | no | Timestamp for the start of the A/C (optional - defaults to now) | `2020-05-01T17:45:00` |
 
 ### Service `renault.ac_cancel`
 
@@ -50,10 +50,17 @@ Cancel A/C on vehicle.
 
 Update charge schedule on vehicle.
 
-  | Service data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
+  | Service data attribute | Required | Description | Example |
+  | ---------------------- | -------- | ----------- | ------- |
   | `vehicle`| yes | device_id of the vehicle |
-  | `schedules` | yes | Schedule details. Can be a single schedule or a list of schedules |
+  | `schedules` | yes | Schedule details. Can be a single schedule or a list of schedules | `[{'id':1,'activated':true,'monday':{'startTime':'T12:00Z','duration':15}},<br>{'id':2,'activated':false,'monday':{'startTime':'T12:00Z','duration':240}}<br>]` |
+  
+Notes:
+
+- `schedules` can be in the form `{'id':1,...}` when updating a single schedules, or in the form `[{'id':1,...},{'id':2,...},...]` when updating multiple schedules within the same call
+- the `id` is compulsory on each `schedule` (should be 1 to 5 depending on the vehicle)
+- the `activated` flag is an optional boolean. If it is not provided, then the existing flag will be kept as is.
+- the `monday` to `sunday` elements are optional. If they are not provided, then the existing settings will be kept for each day. If they are provided as None, then the existing setting will be cleared. If a value is provided, it must conform to this format `{'startTime':'T12:00Z','duration':15}` where start time is in UTC format and the duration is in minutes.
 
 ### Service `renault.charge_start`
 
