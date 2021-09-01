@@ -53,7 +53,7 @@ Update charge schedule on vehicle.
   | Service data attribute | Required | Description | Example |
   | ---------------------- | -------- | ----------- | ------- |
   | `vehicle`| yes | device_id of the vehicle |
-  | `schedules` | yes | Schedule details. Can be a single schedule or a list of schedules | `[{'id':1,'activated':true,'monday':{'startTime':'T12:00Z','duration':15}},<br>{'id':2,'activated':false,'monday':{'startTime':'T12:00Z','duration':240}}<br>]` |
+  | `schedules` | yes | Schedule details. Can be a single schedule or a list of schedules | see [example below](#schedule_example) |
   
 Notes:
 
@@ -61,6 +61,23 @@ Notes:
 - the `id` is compulsory on each `schedule` (should be 1 to 5 depending on the vehicle)
 - the `activated` flag is an optional boolean. If it is not provided, then the existing flag will be kept as is.
 - the `monday` to `sunday` elements are optional. If they are not provided, then the existing settings will be kept for each day. If they are provided as None, then the existing setting will be cleared. If a value is provided, it must conform to this format `{'startTime':'T12:00Z','duration':15}` where start time is in UTC format and the duration is in minutes.
+
+<a name="schedule_example">Example</a>:
+
+```yaml
+[
+  { 
+    'id': 1, 
+    'activated': true, 
+    'monday': {'startTime':'T12:00Z', 'duration':15} 
+  }, 
+  { 
+    'id': 2, 
+    'activated': false, 
+    'monday': {'startTime':'T12:00Z', 'duration':240} 
+  },
+]
+```
 
 ### Service `renault.charge_start`
 
