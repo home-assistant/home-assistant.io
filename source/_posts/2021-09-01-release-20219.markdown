@@ -2332,7 +2332,6 @@ developer blog about it:
 [@danielperna84]: https://github.com/danielperna84
 [@deiger]: https://github.com/deiger
 [@denismilanovic]: https://github.com/denismilanovic
-[@dependabot[bot]]: https://github.com/apps/dependabot
 [@dermotduffy]: https://github.com/dermotduffy
 [@dgomes]: https://github.com/dgomes
 [@ehendrix23]: https://github.com/ehendrix23
