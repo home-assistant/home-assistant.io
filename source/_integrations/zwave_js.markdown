@@ -11,6 +11,7 @@ ha_category:
   - Light
   - Lock
   - Number
+  - Select
   - Sensor
   - Siren
   - Switch
@@ -29,6 +30,7 @@ ha_platforms:
   - lock
   - number
   - sensor
+  - select
   - siren
   - switch
 ---
@@ -44,6 +46,19 @@ To add Z-Wave JS to your installation, plug the Z-Wave stick into the device tha
 Note: A new network key is automatically generated for you. If this Z-Wave stick has already paired with secure devices, you need to enter the previously used network key. Make sure that you keep a backup of this key in a safe place in case you need to move your Z-Wave stick to another device.
 
 If you do not run Home Assistant OS (the default installation type) or Home Assistant Supervised, please see the [advanced installation instructions](#advanced-installation-instructions).
+
+### Discovery via USB
+
+Some devices can be auto-discovered, which can simplify the Z-Wave JS setup process. The following devices have been tested with discovery, and offer a quick setup experience:
+
+| Device | Identifier | Vendor |
+| -------| ---------- | ------ |
+| Aeotec Z-Stick Gen5+ | 0658:0200 | https://aeotec.com/z-wave-usb-stick/ |
+| Nortek HUSBZB-1 | 10C4:8A2A | https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/ |
+| Zooz ZST10 | 10C4:EA60 | https://www.getzooz.com/zooz-zst10-s2-stick.html |
+| Z-WaveMe UZB | 0658:0200 | https://z-wave.me/products/uzb/ |
+
+Additional devices may be discoverable, however only devices that have been confirmed discoverable are listed above.
 
 ## Using Z-Wave
 
@@ -65,8 +80,9 @@ This service will update a configuration parameter. To update multiple partial p
 
 | Service Data Attribute 	| Required  	| Description                                                                                                                               	|
 |------------------------	|-----------	|-------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
-| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                                	|
+| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 | `parameter`            	| yes       	| The parameter number or the name of the property. The name of the property is case sensitive.                                             	|
 | `bitmask`              	| no        	| The bitmask for a partial parameter in hex (0xff) or decimal (255) format. If the name of the parameter is provided, this is not needed. 	|
 | `value`                	| yes       	| The target value for the parameter as the integer value or the state label. The state label is case sensitive.                       	|
@@ -117,8 +133,9 @@ This service will bulk set multiple partial configuration parameters. Be warned 
 
 | Service Data Attribute 	| Required  	| Description                                                                                                                               	|
 |------------------------	|-----------	|-------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
-| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                                	|
+| `entity_id`            	| no        	| Entity (or list of entities) to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 | `parameter`            	| yes       	| The parameter number of the property. The name of the property is case sensitive.                                             	|
 | `value`                	| yes       	| Either the raw integer value that you want to set for the entire parameter, or a dictionary where the keys are either the bitmasks (in integer or hex form) or the partial parameter name and the values are the value you want to set on each partial (either the integer value or a named state when applicable). Note that when using a dictionary, and bitmasks that are not provided will be set to their currently cached values.                       	|
 
@@ -214,8 +231,9 @@ This service will set a value on a Z-Wave device. It is for advanced use cases w
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
-| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                         |
+| `entity_id`            	| no        	| Entity (or list of entities) to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 | `command_class`       	| yes       	| ID of Command Class that you want to set the value for. 	                                                                                            |
 | `property`            	| yes       	| ID of Property that you want to set the value for. 	                                                                                                  |
 | `property_key`        	| no        	| ID of Property Key that you want to set the value for. 	                                                                                              |
@@ -230,8 +248,9 @@ This service will set a value on multiple Z-Wave devices using multicast. It is 
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least two `entity_id` or `device_id` must be provided if not broadcasting the command.                       	|
-| `device_id`            	| no        	| ID of device (or list of device IDs) to set the configuration parameter on. At least two `entity_id` or `device_id` must be provided if not broadcasting the command.                                         |
+| `entity_id`            	| no        	| Entity (or list of entities) to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                	|
 | `broadcast`             | no          | Boolean that indicates whether you want the message to be broadcast to all nodes on the network. If you have only one Z-Wave JS network configured, you do not need to provide a `device_id` or `entity_id` when this is set to true. When you have multiple Z-Wave JS networks configured, you MUST provide at least one `device_id` or `entity_id` so the service knows which network to target.                                         |
 | `command_class`       	| yes       	| ID of Command Class that you want to set the value for. 	                                                                                            |
 | `property`            	| yes       	| ID of Property that you want to set the value for. 	                                                                                                  |
@@ -246,8 +265,9 @@ Calling this service forces Z-Wave JS to try to reach a node. This can be used t
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to ping. At least one `entity_id` or `device_id` must be provided.                       	|
-| `device_id`            	| no        	| ID of device to ping. At least one `entity_id` or `device_id` must be provided.                                         |
+| `entity_id`            	| no        	| Entity (or list of entities) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 
 This service can be used in tandem with the node status sensor (disabled by default) to track the node's status and fire the command when needed. Here's an example automation that would ping a node when the node status sensor state has changed to dead and remained dead for 30 minutes. Note that this may be useful for some devices but will definitely not be useful for all. In cases where it is not useful, all you will be doing is generating additional traffic on your Z-Wave network which could slow down communication.
 
@@ -410,6 +430,58 @@ action:
     target:
       entity_id: switch.in_wall_dual_relay_switch_2, switch.in_wall_dual_relay_switch_3
 ```
+
+## Automations
+
+### Device automations
+
+Z-Wave JS has support for device triggers and conditions. To use a device automation, use the automation UI to select the "Device" trigger/condition type, and then pick your Z-Wave JS device. Under trigger/condition types, you will see Z-Wave JS specific entries.
+
+### `zwave_js.value_updated` trigger
+
+Z-Wave JS provides the `zwave_js.value_updated` trigger platform which can be used to trigger automations on any Z-Wave JS value update, including Z-Wave values that aren't supported in Home Assistant via entities. While they can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
+
+```yaml
+# Example automation trigger that fires whenever the `latchStatus` value changes from `closed` to `opened` on the three devices (devices will be derived from an entity ID).
+trigger:
+  platform: zwave_js.value_updated
+  # At least one `device_id` or `entity_id` must be provided
+  device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
+  entity_id:
+    - lock.front_lock
+    - lock.back_door
+  # `property` and `command_class` are required
+  command_class: 98 # Door Lock CC
+  property: "latchStatus"
+  # `property_key` and `endpoint` are optional
+  property_key: null
+  endpoint: 0
+  # `from` and `to` will both accept lists of values and the trigger will fire if the value update matches any of the listed values
+  from:
+    - "closed"
+    - "jammed"
+  to: "opened"
+```
+
+#### Available Trigger Data
+
+In addition to the [standard automation trigger data](docs/automation/templating/#all), the `zwave_js.value_updated` trigger platform has additional trigger data available for use.
+
+| Template variable            | Data                                                                                       |
+|------------------------------|--------------------------------------------------------------------------------------------|
+| `trigger.device_id`          | Device ID for the device in the device registry.                                           |
+| `trigger.node_id`            | Z-Wave node ID.                                                                            |
+| `trigger.command_class`      | Command class ID.                                                                          |
+| `trigger.command_class_name` | Command class name.                                                                        |
+| `trigger.property`           | Z-Wave Value's property.                                                                   |
+| `trigger.property_name`      | Z-Wave Value's property name.                                                              |
+| `trigger.property_key`       | Z-Wave Value's property key.                                                               |
+| `trigger.property_key_name`  | Z-Wave Value's property key name.                                                          |
+| `trigger.endpoint`           | Z-Wave Value's endpoint.                                                                   |
+| `trigger.previous_value`     | The previous value for this Z-Wave value (translated to a state name when possible).       |
+| `trigger.previous_value_raw` | The raw previous value for this Z-Wave value (the key of the state when a state is named). |
+| `trigger.current_value`      | The current value for this Z-Wave value (translated to a state name when possible).        |
+| `trigger.current_value_raw`  | The raw current value for this Z-Wave value (the key of the state when a state is named).  |
 
 ## Current Limitations
 

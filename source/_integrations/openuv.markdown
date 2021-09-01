@@ -18,6 +18,12 @@ ha_platforms:
 
 The `openuv` integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
 
+<div class='note warning'>
+The guidelines within this documentation constitute estimates and are intended to help
+informed decision making. They should not replace analysis, advice or diagnosis from a
+trained medical professional.
+</div>
+
 ## Generating an API Key
 
 To generate an API key,
@@ -47,19 +53,23 @@ the `update_protection_data` services).
 | Current UV Index | Sensor | UV Index (numerical value) |
 | Current UV Level | Sensor | UV Level (as literal) |
 | Max UV Index | Sensor | max UV Index for the day (at solar noon) |
-| Protection Window | Binary Sensor | 'On' when protection window is needed |
+| Protection Window | Binary Sensor | whether sunblock protection should be used |
+
+### Protection Window
+
+The Protection Window binary sensor will be `on` when sunblock protection should be used.
+
+By default, this occurs anytime the UV index is above 3.5. This behavior can be
+configured via the config entry options within the UI. Two parameters are given:
+
+* `Starting UV index for the protection window`: the UV index that, when passed, indicates protection should be utilized
+* `Ending UV index for the protection window`: the UV index that, when passed, indicates protection is no longer required
 
 ### The Fitzpatrick Scale
 
 The approximate number of minutes of a particular skin type can be exposed to
 the sun before burning/tanning starts is based on the
 [Fitzpatrick scale](https://en.wikipedia.org/wiki/Fitzpatrick_scale).
-
-<div class='note warning'>
-The above guidelines constitute estimates and are intended to help informed
-decision making. They should not replace analysis, advice or diagnosis from a
-trained medical professional.
-</div>
 
 OpenUV integration provide sensors for safe exposure time (in minutes) based on skin type:
 

@@ -9,6 +9,7 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@indykoning'
   - '@muppet3000'
+  - '@JasperPlant'
 ha_domain: growatt_server
 ha_platforms:
   - sensor

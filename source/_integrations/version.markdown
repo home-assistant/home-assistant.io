@@ -53,6 +53,3 @@ source:
 ### Supported images for Home Assistant
 
 `default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `generic-x86-64`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `raspberrypi4`, `raspberrypi4-64`, `tinker`, `odroid-c2`, `odroid-n2`, `odroid-xu`
-
-
-

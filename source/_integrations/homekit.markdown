@@ -256,6 +256,10 @@ homekit:
               type: string
               default: libopus
               available options: copy, libopus
+    devices:
+      description: Include device triggers for all matching device ids. Configuration in the UI via Options is recommended instead.
+      required: false
+      type: list                
 {% endconfiguration %}
 
 ## Setup
@@ -415,6 +419,13 @@ The following integrations are currently supported:
 | sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
 | water_heater | WaterHeater | All `water_heater` devices. |
+| device_automation | DeviceTriggerAccessory | All devices that support triggers. |
+
+# Device Triggers
+
+Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Configuration >> Integrations" %}**.
+
+Bridged device triggers are represented as a single press button on stateless programmable switches. This allows a HomeKit automation to run when a device trigger fires. Because the iOS Home app currently only shows the number of the button and not the name, users may find it easier to identify the name of the button in the `Eve for HomeKit` app.
 
 ## iOS Remote Widget
 
