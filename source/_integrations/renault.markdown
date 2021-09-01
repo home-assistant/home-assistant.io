@@ -5,6 +5,7 @@ ha_category:
   - Car
   - Binary Sensor
   - Presence Detection
+  - Select
   - Sensor
 ha_release: 2021.8
 ha_iot_class: Cloud Polling
@@ -14,6 +15,7 @@ ha_domain: renault
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - select
   - sensor
 ---
 
@@ -22,7 +24,8 @@ The Renault integration offers integration with the **MyRenault** cloud service 
 This integration provides the following platforms:
 
 - Binary sensors - such as plug and charge status.
-- Device tracker - to track location of your car
+- Device tracker - to track location of your car.
+- Selectors - to change the charge mode.
 - Sensors - such as battery level, outside temperature, odometer, estimated range, and charging rate.
 
 ## Prerequisites
