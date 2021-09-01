@@ -30,45 +30,36 @@ All vehicles linked to the account should then get added as devices, with sensor
 
 ### Service `renault.ac_start`
 
-Start A/C on the specified vehicle by `vin`.
+Start A/C on vehicle.
 
   | Service data attribute | Required | Description |
   | ---------------------- | -------- | ----------- |
-  | `vin` | yes | VIN of the vehicle |
+  | `vehicle`| yes | device_id of the vehicle |
   | `temperature` | yes | Target A/C temperature in °C |
   | `when` | no | Timestamp for the start of the A/C (optional - defaults to now) |
 
 ### Service `renault.ac_cancel`
 
-Cancel A/C on the specified vehicle by `vin`.
+Cancel A/C on vehicle.
 
   | Service data attribute | Required | Description |
   | ---------------------- | -------- | ----------- |
-  | `vin` | yes | VIN of the vehicle |
-
-### Service `renault.charge_set_mode`
-
-Set charge mode on the specified vehicle by `vin`.
-
-  | Service data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
-  | `vin` | yes | VIN of the vehicle |
-  | `charge_mode` | yes | Charge mode to apply. Allowed values: `always`, `always_charging`, `schedule_mode` |
+  | `vehicle`| yes | device_id of the vehicle |
 
 ### Service `renault.charge_set_schedules`
 
-Update charge schedule on the specified vehicle by `vin`.
+Update charge schedule on vehicle.
 
   | Service data attribute | Required | Description |
   | ---------------------- | -------- | ----------- |
-  | `vin` | yes | VIN of the vehicle |
+  | `vehicle`| yes | device_id of the vehicle |
   | `schedules` | yes | Schedule details. Can be a single schedule or a list of schedules |
 
 ### Service `renault.charge_start`
 
-Start charge on the specified vehicle by `vin`.
+Start charge on vehicle.
 
   | Service data attribute | Required | Description |
   | ---------------------- | -------- | ----------- |
-  | `vin` | yes | VIN of the vehicle |
+  | `vehicle`| yes | device_id of the vehicle |
 
