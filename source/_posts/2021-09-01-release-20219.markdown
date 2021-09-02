@@ -36,6 +36,7 @@ Enjoy another great release! Be sure to tune into [the 2021.9 Release Party on Y
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.9.1 - September 2](#release-202191---september-2)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -232,7 +233,7 @@ template:
         target:
           entity_id: light.wled
         data:
-          speed: "{{ (255 / 100) * value }}" 
+          speed: "{{ (255 / 100) * value }}"
 ```
 
 ```yaml
@@ -248,7 +249,7 @@ template:
         target:
           entity_id: light.wled
         data:
-          effect: "{{ option }}" 
+          effect: "{{ option }}"
 ```
 
 {% endraw %}
@@ -345,6 +346,29 @@ The following integrations are now available via the Home Assistant UI:
 - [Nmap Tracker][nmap_tracker docs], done by [@bdraco]
 - [Rainforest EAGLE-200][rainforest_eagle docs], done by [@balloob]
 - [Uptime Robot][uptimerobot docs], done by [@ludeeus]
+
+## Release 2021.9.1 - September 2
+
+- Bump pyuptimerobot to 21.9.0 ([@ludeeus] - [#55546]) ([uptimerobot docs])
+- xiaomi_miio: bump python-miio dependency ([@rytilahti] - [#55549]) ([xiaomi_miio docs])
+- Pick right coordinator ([@Adminiuga] - [#55555]) ([zha docs])
+- Correct duplicate address. ([@janiversen] - [#55578]) ([modbus docs])
+- Downgrade sqlite-libs on docker image ([@pvizeli] - [#55591])
+
+[#55546]: https://github.com/home-assistant/core/pull/55546
+[#55549]: https://github.com/home-assistant/core/pull/55549
+[#55555]: https://github.com/home-assistant/core/pull/55555
+[#55578]: https://github.com/home-assistant/core/pull/55578
+[#55591]: https://github.com/home-assistant/core/pull/55591
+[@Adminiuga]: https://github.com/Adminiuga
+[@janiversen]: https://github.com/janiversen
+[@ludeeus]: https://github.com/ludeeus
+[@pvizeli]: https://github.com/pvizeli
+[@rytilahti]: https://github.com/rytilahti
+[modbus docs]: /integrations/modbus/
+[uptimerobot docs]: /integrations/uptimerobot/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zha docs]: /integrations/zha/
 
 ## If you need help...
 
