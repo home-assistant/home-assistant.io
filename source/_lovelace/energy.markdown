@@ -55,7 +55,7 @@ type: energy-solar-graph
 ## Gas consumption graph
 
 <p class='img'>
-  <img src='/images/lovelace/energy/gas-usage-graph.png' alt='Screenshot of the gas consumption graph card'>
+  <img src='/images/lovelace/energy/gas-graph.png' alt='Screenshot of the gas consumption graph card'>
   Screenshot of the gas consumption graph card.
 </p>
 
