@@ -62,6 +62,7 @@ type: energy-solar-graph
 The gas usage graph card shows the amount of gas consumed per source.
 
 #### Example
+
 ```yaml
 type: energy-gas-graph
 ```
