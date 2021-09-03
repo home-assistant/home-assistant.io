@@ -52,6 +52,15 @@ The solar production graph card shows the amount of energy your solar panels hav
 type: energy-solar-graph
 ```
 
+## Gas usage graph
+
+The gas usage graph card shows the amount of gas consumed per source.
+
+#### Example
+```yaml
+type: energy-gas-graph
+```
+
 ## Energy distribution
 
 <p class='img'>
