@@ -228,6 +228,7 @@ template:
       state: "{{ (( state_attr('light.wled', 'Speed') / 255) * 100) | round }}"
       min: 0
       max: 100
+      step: "{{ 1 }}"
       set_value:
         service: wled.effect
         target:
