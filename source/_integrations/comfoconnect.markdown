@@ -70,15 +70,15 @@ sensor:
       - current_rmot
       - current_temperature
       - days_to_replace_filter
+      - energy_total
       - exhaust_fan_duty
       - exhaust_fan_speed
       - exhaust_humidity
       - exhaust_temperature
       - outside_humidity
       - outside_temperature
-      - power_total
       - power_usage
-      - preheater_power_total
+      - preheater_energy_total
       - preheater_power_usage
       - supply_fan_duty
       - supply_fan_speed
@@ -89,5 +89,7 @@ sensor:
 The list above indicates all supported sensors. It is recommended to only include the ones you need.
 
 <div class='note'>
-Note that it's not possible to have multiple connection to the bridge at the same time. This integration will keep the connection open, and if you open the app, it will ask you to disconnect Home Assistant. If you close the app again, Home Assistant will reconnect automatically.
+Note that it might not possible to have multiple connection to the bridge at the same time. This integration will keep the connection open, and if you open the app, it will ask you to disconnect Home Assistant. If you close the app again, Home Assistant will reconnect automatically.
+
+In firmware 1.3.0, this limitation has been removed and you can have up to 5 active connections. When you install the beta app of Comfoconnect on your mobile, it will ask to update the firmware of the bridge.
 </div>
