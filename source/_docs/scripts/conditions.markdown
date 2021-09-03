@@ -371,7 +371,7 @@ For example:
 {% raw %}
 
 ```yaml
-conditions: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
+condition: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
 ```
 
 {% endraw %}
