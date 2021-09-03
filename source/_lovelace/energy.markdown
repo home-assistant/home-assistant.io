@@ -52,7 +52,7 @@ The solar production graph card shows the amount of energy your solar panels hav
 type: energy-solar-graph
 ```
 
-## Gas usage graph
+## Gas consumption graph
 
 <p class='img'>
   <img src='/images/lovelace/energy/gas-usage-graph.png' alt='Screenshot of the gas consumption graph card'>
