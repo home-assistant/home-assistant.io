@@ -32,7 +32,7 @@ This integration provides the following binary sensors:
 | Name                  | Description                        |
 | --------------------- | ---------------------------------- |
 | Battery Is Charging   | Whether the battery is charging    |
-| New Version Available | Whether a new version is avaliable |
+| New Version Available | Whether a new version is available |
 
 ## Sensors
 
@@ -53,7 +53,7 @@ This integration provides the following sensors:
 | Version                | System Bridge Version                               |
 | Latest Version         | System Bridge Latest Version                        |
 
-These sensors are also avaliable, but are not enabled by default:
+These sensors are also available, but are not enabled by default:
 
 | Name                   | Description                              |
 | ---------------------- | ---------------------------------------- |
