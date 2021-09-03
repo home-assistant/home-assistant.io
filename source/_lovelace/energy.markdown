@@ -59,7 +59,7 @@ type: energy-solar-graph
   Screenshot of the gas consumption graph card.
 </p>
 
-The gas usage graph card shows the amount of gas consumed per source.
+The gas consumption graph card shows the amount of gas consumed per source.
 
 #### Example
 
