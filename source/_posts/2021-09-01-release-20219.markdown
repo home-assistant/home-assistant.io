@@ -37,6 +37,7 @@ Enjoy another great release! Be sure to tune into [the 2021.9 Release Party on Y
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.9.1 - September 2](#release-202191---september-2)
+- [Release 2021.9.2 - September 3](#release-202192---september-3)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -370,6 +371,45 @@ The following integrations are now available via the Home Assistant UI:
 [uptimerobot docs]: /integrations/uptimerobot/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [zha docs]: /integrations/zha/
+
+## Release 2021.9.2 - September 3
+
+- Ignore missing devices when in ssdp unsee ([@bdraco] - [#55553]) ([ssdp docs])
+- Disable observer for USB on containers ([@pvizeli] - [#55570]) ([usb docs])
+- Fix CONFIG_SCHEMA validation in Speedtest.net ([@mib1185] - [#55612]) ([speedtestdotnet docs])
+- Narrow zwave_js USB discovery ([@bdraco] - [#55613]) ([zwave_js docs])
+- Fix template sensor availability ([@balloob] - [#55635]) ([template docs])
+- Better handle invalid trigger config ([@balloob] - [#55637]) ([hue docs]) ([device_automation docs])
+- Guard for unexpected exceptions in device automation ([@balloob] - [#55639]) ([device_automation docs])
+- Fix Starline sensor state AttributeError ([@Anonym-tsk] - [#55654]) ([starline docs])
+- Fix hdmi_cec switches ([@ludeeus] - [#55666]) ([hdmi_cec docs])
+- Guard for doRollover failing ([@balloob] - [#55669])
+
+[#55553]: https://github.com/home-assistant/core/pull/55553
+[#55570]: https://github.com/home-assistant/core/pull/55570
+[#55612]: https://github.com/home-assistant/core/pull/55612
+[#55613]: https://github.com/home-assistant/core/pull/55613
+[#55635]: https://github.com/home-assistant/core/pull/55635
+[#55637]: https://github.com/home-assistant/core/pull/55637
+[#55639]: https://github.com/home-assistant/core/pull/55639
+[#55654]: https://github.com/home-assistant/core/pull/55654
+[#55666]: https://github.com/home-assistant/core/pull/55666
+[#55669]: https://github.com/home-assistant/core/pull/55669
+[@Anonym-tsk]: https://github.com/Anonym-tsk
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@ludeeus]: https://github.com/ludeeus
+[@mib1185]: https://github.com/mib1185
+[@pvizeli]: https://github.com/pvizeli
+[device_automation docs]: /integrations/device_automation/
+[hdmi_cec docs]: /integrations/hdmi_cec/
+[hue docs]: /integrations/hue/
+[speedtestdotnet docs]: /integrations/speedtestdotnet/
+[ssdp docs]: /integrations/ssdp/
+[starline docs]: /integrations/starline/
+[template docs]: /integrations/template/
+[usb docs]: /integrations/usb/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
