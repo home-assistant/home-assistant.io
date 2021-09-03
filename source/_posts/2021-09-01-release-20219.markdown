@@ -225,7 +225,7 @@ the WLED strip into their own entities.
 template:
   number:
     - name: "Example number: WLED effect speed"
-      state: "{{ (( state_attr("light.wled", "Speed") / 255) * 100) | round }}"
+      state: "{{ (( state_attr('light.wled', 'Speed') / 255) * 100) | round }}"
       min: 0
       max: 100
       set_value:
@@ -242,8 +242,8 @@ template:
 template:
   select:
     - name: "Example select: WLED effect"
-      state: "{{ state_attr("light.wled", "effect") }}"
-      options: "{{ state_attr("light.wled", "effect_list") }}"
+      state: "{{ state_attr('light.wled', 'effect') }}"
+      options: "{{ state_attr('light.wled', 'effect_list') }}"
       select_option:
         service: light.turn_on
         target:
@@ -268,8 +268,8 @@ a device ID, entity ID, or area name. This function can also be used as a filter
 {% raw %}
 
   ```yaml
-  example: "{{ area_id("light.living_room_tv") }}"
-  example: "{{ area_id("Garden Shed") }}"
+  example: "{{ area_id('light.living_room_tv') }}"
+  example: "{{ area_id('Garden Shed') }}"
   example: "{{ trigger.entity_id | area_id }}"
   ```
 
