@@ -25,6 +25,15 @@ You will need your API key. This can be found and configured in the application'
 
 {% include integrations/config_flow.md %}
 
+## Binary Sensors
+
+This integration provides the following binary sensors:
+
+| Name                  | Description                        |
+| --------------------- | ---------------------------------- |
+| Battery Is Charging   | Whether the battery is charging    |
+| New Version Available | Whether a new version is avaliable |
+
 ## Sensors
 
 This integration provides the following sensors:
@@ -32,26 +41,38 @@ This integration provides the following sensors:
 | Name                   | Description                                         |
 | ---------------------- | --------------------------------------------------- |
 | Battery                | Battery level of the device                         |
-| BIOS Version           | Version of your system's BIOS                       |
 | CPU Speed              | The current CPU speed                               |
-| CPU Temperature        | The current temperature of the CPU                  |
 | Filesystem(s)          | Space used for each drive letter / filesystem mount |
-| Gpu Core Clock Speed   | GPU core clock speed in MHz                         |
-| Gpu Memory Clock Speed | GPU memory clock speed in MHz                       |
-| Gpu Memory Free        | GPU memory free in GB                               |
-| Gpu Memory Used        | GPU memory used in GB                               |
-| Gpu Memory Used %      | GPU memory used percentage                          |
-| Gpu Power Usage        | GPU power usage                                     |
-| Gpu Temperature        | The current temperature of the GPU                  |
-| Gpu Usage              | GPU usage percentage                                |
-| Gpu Fan Speed          | GPU fan speed percentage                            |
-| Load                   | System load percentage                              |
-| Load (Per CPU)         | System load percentage for each CPU                 |
+| GPU Memory Free        | GPU memory free in GB                               |
+| GPU Usage %            | GPU usage percentage                                |
+| Kernel                 | Version information of the Kernel                   |
 | Memory Free            | Memory (RAM) free in GB                             |
 | Memory Used            | Memory (RAM) used in GB                             |
 | Memory Used %          | Memory (RAM) % used                                 |
 | Operating System       | Version information of the Operating System         |
 | Version                | System Bridge Version                               |
+| Latest Version         | System Bridge Latest Version                        |
+
+These sensors are also avaliable, but are not enabled by default:
+
+| Name                   | Description                              |
+| ---------------------- | ---------------------------------------- |
+| BIOS Version           | Version of your system's BIOS            |
+| CPU Temperature        | The current temperature of the CPU       |
+| CPU Voltage            | The current voltage of the CPU           |
+| GPU Core Clock Speed   | GPU core clock speed in MHz              |
+| GPU Memory Clock Speed | GPU memory clock speed in MHz            |
+| GPU Fan Speed          | GPU fan speed percentage                 |
+| GPU Memory Used        | GPU memory used in GB                    |
+| GPU Memory Used %      | GPU memory used percentage               |
+| GPU Power Usage        | GPU power usage                          |
+| GPU Temperature        | The current temperature of the GPU       |
+| Idle Load              | System idle load percentage              |
+| System Load            | System load percentage                   |
+| User Load              | System user load percentage              |
+| Idle Load (Per CPU)    | System idle load percentage for each CPU |
+| System Load (Per CPU)  | System load percentage for each CPU      |
+| User Load (Per CPU)    | System user load percentage for each CPU |
 
 ## Services
 
