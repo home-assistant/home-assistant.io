@@ -225,7 +225,7 @@ the WLED strip into their own entities.
 template:
   number:
     - name: "Example number: WLED effect speed"
-      state: "{{ (( state_attr('light.wled', 'speed') / 255) * 100) | round }}"
+      state: "{{ (( state_attr('light.wled', 'Speed') / 255) * 100) | round }}"
       min: 0
       max: 100
       set_value:
