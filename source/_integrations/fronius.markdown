@@ -97,7 +97,7 @@ when the Fronius devices begins providing the needed data.
 ## Finding out devices IDs
 
 To find out the device ID of the inverter visit the URL:
-http://FRONIUS_DATAMANAGER_CARD_IP/solar_api/v1/GetPowerFlowRealtimeData.fcgi
+http://FRONIUS_IP/solar_api/v1/GetPowerFlowRealtimeData.fcgi
 In the returned JSON, under the key Body > Data > Inverters you should see your inverters listed with IDs starting from 1.
 
 To find out the device ID of the meter visit the URL:
