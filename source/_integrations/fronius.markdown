@@ -101,7 +101,7 @@ http://FRONIUS_IP/solar_api/v1/GetPowerFlowRealtimeData.fcgi
 In the returned JSON, under the key Body > Data > Inverters you should see your inverters listed with IDs starting from 1.
 
 To find out the device ID of the meter visit the URL:
-http://FRONIUS_DATAMANAGER_CARD_IP/solar_api/v1/GetMeterRealtimeData.cgi?Scope=System
+http://FRONIUS_IP/solar_api/v1/GetMeterRealtimeData.cgi?Scope=System
 In the returned JSON, under the key Body > Data you should see your meters listed with IDs starting from 0.
 
 To find out which API version your system runs, visit the URL:
