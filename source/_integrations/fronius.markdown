@@ -17,7 +17,7 @@ The `fronius` sensor polls a [Fronius](https://www.fronius.com/) solar inverter,
 
 ## Prerequisites
 
-You will need to either set a static IP on the datamanager card or assign a static DHCP lease for it, or alternatively access it through the local DNS name if your network is properly configured for this.
+You will need to either set a static IP on the Fronius device or assign a static DHCP lease for it, or alternatively access it through the local DNS name if your network is properly configured for this.
 
 ## Configuration
 
