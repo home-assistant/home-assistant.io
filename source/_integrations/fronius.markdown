@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-The `fronius` sensor polls a [Fronius](https://www.fronius.com/) solar inverter, battery system or smart meter and presents the values as sensors in Home Assistant. Data is gathered directly through the system's datamanager card connected to your local network, this integration doesn't access the cloud. 
+The `fronius` sensor polls a [Fronius](https://www.fronius.com/) solar inverter, battery system or smart meter and presents the values as sensors in Home Assistant. Data is gathered directly from a Fronius device connected to your local network, this integration doesn't access the cloud. 
 
 ## Prerequisites
 
