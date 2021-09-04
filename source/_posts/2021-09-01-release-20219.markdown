@@ -38,6 +38,7 @@ Enjoy another great release! Be sure to tune into [the 2021.9 Release Party on Y
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.9.1 - September 2](#release-202191---september-2)
 - [Release 2021.9.2 - September 3](#release-202192---september-3)
+- [Release 2021.9.3 - September 4](#release-202193---september-4)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -410,6 +411,29 @@ The following integrations are now available via the Home Assistant UI:
 [template docs]: /integrations/template/
 [usb docs]: /integrations/usb/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.9.3 - September 4
+
+- better detect legacy eagly devices ([@balloob] - [#55706]) ([rainforest_eagle docs])
+- Handle negative numbers in sensor long term statistics ([@emontnemery] - [#55708]) ([sensor docs])
+- Handle Fritz InternalError ([@chemelli74] - [#55711]) ([fritz docs])
+- Fix LIFX firmware version information ([@amelchio] - [#55713]) ([lifx docs])
+- Fix SamsungTV sendkey when not connected ([@chemelli74] - [#55723]) ([samsungtv docs])
+
+[#55706]: https://github.com/home-assistant/core/pull/55706
+[#55708]: https://github.com/home-assistant/core/pull/55708
+[#55711]: https://github.com/home-assistant/core/pull/55711
+[#55713]: https://github.com/home-assistant/core/pull/55713
+[#55723]: https://github.com/home-assistant/core/pull/55723
+[@amelchio]: https://github.com/amelchio
+[@balloob]: https://github.com/balloob
+[@chemelli74]: https://github.com/chemelli74
+[@emontnemery]: https://github.com/emontnemery
+[fritz docs]: /integrations/fritz/
+[lifx docs]: /integrations/lifx/
+[rainforest_eagle docs]: /integrations/rainforest_eagle/
+[samsungtv docs]: /integrations/samsungtv/
+[sensor docs]: /integrations/sensor/
 
 ## If you need help...
 
