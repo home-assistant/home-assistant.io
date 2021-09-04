@@ -26,7 +26,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 ```yaml
 sensor:
   - platform: fronius
-    resource: FRONIUS_CARD_LOCAL_URL
+    resource: FRONIUS_URL_OR_IP
     monitored_conditions:
     - sensor_type: inverter
 ```
