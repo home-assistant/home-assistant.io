@@ -39,12 +39,10 @@ When an attribute contains spaces, you can retrieve it like this: `state_attr('s
 
 ## Context
 
-Context is used to tie events and states together in Home Assistant. Whenever an automation or user interaction triggers a new change, a new context is assigned. This context will be attached to all events and states that happen as result of the change.
-
-The `user_id` in a context object may be useful in determining which user caused a script or automation to be executed.
+Context is used to tie events and states together in Home Assistant. Whenever an automation or user interaction causes states to change, a new context is assigned. This context will be attached to all events and states that happen as result of the change.
 
 | Field      | Description                                                         |
 | -----      | ------------------------------------------------------------------- |
 | context_id | Unique identifier for the context.                                  |
-| user_id    | Unique identifier of the user that started the change.              |
-| parent_id  | Unique identifier of the parent context_id that started the change. |
+| user_id    | Unique identifier of the user that started the change. Will be `None` if action was not started by a user (ie. started by an automation)               |
+| parent_id  | Unique identifier of the parent context that started the change, if available. For example, if an automation is triggered, the context of the trigger will be set as parent.  |
