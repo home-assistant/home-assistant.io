@@ -33,7 +33,7 @@ sensor:
 
 {% configuration %}
 resource:
-  description: "The root URL of the Fronius datamanager card (e.g., `http://192.0.2.0` or `http://fronius.local`)"
+  description: "The hostname or IP address of the Fronius device (e.g., `192.0.2.0` or `http://fronius.local`)"
   required: true
   type: string
 monitored_conditions:
