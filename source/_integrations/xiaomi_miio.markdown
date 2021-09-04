@@ -16,6 +16,7 @@ ha_codeowners:
   - '@rytilahti'
   - '@syssi'
   - '@starkillerOG'
+  - '@bieniu'
 ha_domain: xiaomi_miio
 ha_config_flow: true
 ha_zeroconf: true
@@ -182,12 +183,9 @@ token:
   type: string
 {% endconfiguration %}
 
-## Xiaomi Air Purifier and Humidifier
+## Xiaomi Air Purifier, Air Humidifier and Standing Fan
 
-The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier and Air Fresh.
-The Air Humidifier uses multiple platforms to allow you to set the target humidiy, control modes and settings.
-Unlike the the Air Purifier and Air Fresh the Air Humidfiers use Home Assistant native integrations and services to support the device.
-Humidifiers cannot setup using a configuration file.
+The Air Purifiers, Air Humidifiers and Standing Fans use multiple platforms to allow you to set the control modes and settings of the device.
 
 Supported devices:
 
@@ -208,6 +206,7 @@ Supported devices:
 | Air Purifier Super 2   | zhimi.airpurifier.sa2  | |
 | Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | |
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3  | |
+| Air Fresh VA2          | zhimi.airfresh.va2     | |
 | Air Humidifier         | zhimi.humidifier.v1    | |
 | Air Humidifier CA1     | zhimi.humidifier.ca1   | |
 | Air Humidifier CA4     | zhimi.humidifier.ca4   | |
@@ -215,61 +214,64 @@ Supported devices:
 | Air Humidifier JSQ     | deerma.humidifier.jsq  | |
 | Air Humidifier JSQ1    | deerma.humidifier.jsq1 | |
 | Air Humidifier MJJSQ   | deerma.humidifier.mjjsq| |
-| Air Fresh VA2          | zhimi.airfresh.va2     | |
-
+| Standing Fan 1X        | dmaker.fan.p5          | |
+| Inverter Pedestal Fan  | zhimi.fan.za1          | |
+| Standing Fan 2         | zhimi.fan.za3          | |
+| Standing Fan 2S        | zhimi.fan.za4          | |
+| Standing Fan           | zhimi.fan.sa1          | |
+| DC Pedestal Fan        | zhimi.fan.v2           | |
+| DC Pedestal Fan        | zhimi.fan.v3           | |
 
 ### Features
 
 ### Air Purifier 2 (zhimi.airpurifier.v2)
 
 - Power (on, off)
-- Operation modes (auto, silent, favorite, idle)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED (on, off), LED brightness (bright, dim, off)
-- Favorite Level (0...16)
-- Attributes
+- Operation modes (Auto, Silent, Favorite, Idle)
+- Attributes (fan platform)
   - `model`
   - `mode`
-  - `favorite_level`
-  - `child_lock`
-  - `led`
-  - `learn_mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
   - `turbo_mode_supported`
-  - `auto_detect`
   - `use_time`
   - `button_pressed`
-  - `buzzer`
   - `sleep_mode`
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Level          | Set the favorite level
+
 - Sensor entities
 
 Sensor                  | Description
 ----------------------- | -----------------------
-`aqi`                   | The current `aqi` measured
-`filter_life_remaining` | The remaining life of the filter
-`humidity`              | The current `humidity` measured
-`motor_speed`           | The current `motor_speed` measured in rpm
-`purify_volume`         | The volume of purified air in qubic meter
-`temperature`           | The current `temperature` measured
+Filter Life Remaining   | The remaining life of the filter
+Filter Use              | Filter usage time in hours
+Humidity                | The current humidity measured
+Motor Speed             | The current motor speed measured in rpm
+PM2.5                   | The current particulate matter 2.5 measured
+Purify Volume           | The volume of purified air in qubic meter
+Temperature             | The current temperature measured
 
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+Learn Mode              | Turn on/off the learn mode
+LED                     | Turn on/off the LED
 
 ### Air Purifier Pro (zhimi.airpurifier.v6)
 
 - Power (on, off)
-- Operation modes (auto, silent, favorite)
-- Child lock (on, off)
-- LED (on, off)
-- Favorite Level (0...16)
-- Attributes
+- Operation modes (Auto, Silent, Favorite)
+- Attributes (fan platform)
   - `model`
   - `mode`
-  - `favorite_level`
-  - `child_lock`
-  - `led`
-  - `learn_mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
@@ -277,238 +279,353 @@ Sensor                  | Description
   - `auto_detect`
   - `use_time`
   - `button_pressed`
-  - `volume`
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Level          | Set the favorite level
+Volume                  | Set the volume
+
 - Sensor entities
 
 Sensor                  | Description
 ----------------------- | -----------------------
-`aqi`                   | The current `aqi` measured
-`filter_life_remaining` | The remaining life of the filter
-`humidity`              | The current `humidity` measured
-`illuminance`           | The current `illuminance` measured
-`motor_speed`           | The current `motor_speed` measured in rpm
-`motor2_speed`          | The current `motor2_speed` measured in rpm
-`purify_volume`         | The volume of purified air in qubic meter
-`temperature`           | The current `temperature` measured
+Filter Life Remaining   | The remaining life of the filter
+Filter Use              | Filter usage time in hours
+Humidity                | The current humidity measured
+Illuminance             | The current illuminance measured
+Motor Speed             | The current motor speed measured in rpm
+PM2.5                   | The current particulate matter 2.5 measured
+Purify Volume           | The volume of purified air in qubic meter
+Second Motor Speed      | The current second motor speed measured in rpm
+Temperature             | The current temperature measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Child Lock              | Turn on/off the child lock
+Learn Mode              | Turn on/off the learn mode
+LED                     | Turn on/off the LED
 
 ### Air Purifier Pro V7 (zhimi.airpurifier.v7)
 
 - Power (on, off)
-- Operation modes (auto, silent, favorite)
-- Child lock (on, off)
-- LED (on, off)
-- Favorite Level (0...16)
-- Attributes
+- Operation modes (Auto, Silent, Favorite)
+- Attributes (fan platform)
   - `model`
   - `mode`
-  - `favorite_level`
-  - `child_lock`
-  - `led`
-  - `learn_mode`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
-  - `volume`
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Level          | Set the favorite level
+Volume                  | Set the volume
+
 - Sensor entities
 
 Sensor                  | Description
 ----------------------- | -----------------------
-`aqi`                   | The current `aqi` measured
-`filter_life_remaining` | The remaining life of the filter
-`humidity`              | The current `humidity` measured
-`illuminance`           | The current `illuminance` measured
-`motor_speed`           | The current `motor_speed` measured in rpm
-`motor2_speed`          | The current `motor2_speed` measured in rpm
-`temperature`           | The current `temperature` measured
+Filter Life Remaining   | The remaining life of the filter
+Filter Use              | Filter usage time in hours
+Humidity                | The current humidity measured
+Illuminance             | The current illuminance measured
+Motor Speed             | The current motor speed measured in rpm
+PM2.5                   | The current particulate matter 2.5 measured
+Second Motor Speed      | The current second motor speed measured in rpm
+Temperature             | The current temperature measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Child Lock              | Turn on/off the child lock
+Learn Mode              | Turn on/off the learn mode
+LED                     | Turn on/off the LED
 
 ### Air Purifier 2S (zhimi.airpurifier.mc1)
 
 - Power (on, off)
-- Operation modes (auto, silent, favorite)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED (on, off)
-- Favorite Level (0...16)
-- Attributes
+- Operation modes (Auto, Silent, Favorite)
+- Attributes (fan platform)
   - `model`
   - `mode`
-  - `favorite_level`
-  - `child_lock`
-  - `led`
-  - `learn_mode`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
-  - `buzzer`
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Level          | Set the favorite level
+
 - Sensor entities
 
 Sensor                  | Description
 ----------------------- | -----------------------
-`aqi`                   | The current `aqi` measured
-`filter_life_remaining` | The remaining life of the filter
-`humidity`              | The current `humidity` measured
-`motor_speed`           | The current `motor_speed` measured in rpm
-`temperature`           | The current `temperature` measured
+Filter Life Remaining   | The remaining life of the filter
+Filter Use              | Filter usage time in hours
+Humidity                | The current humidity measured
+Motor Speed             | The current motor speed measured in rpm
+PM2.5                   | The current particulate matter 2.5 measured
+Temperature             | The current temperature measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+Learn Mode              | Turn on/off the learn mode
+LED                     | Turn on/off the LED
 
 ### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4/zhimi.airpurifier.mb3)
 
 This model uses newer MiOT communication protocol.
 
 - Power (on, off)
-- Operation modes (auto, silent, favorite, fan)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED (on, off)
-- Favorite Level (0...16)
-- Fan Level (1...3)
-- Attributes
+- Operation modes (Auto, Silent, Favorite, Fan)
+- Attributes (fan platform)
   - `model`
   - `mode`
-  - `favorite_level`
-  - `child_lock`
-  - `led`
   - `use_time`
-  - `buzzer`
-  - `fan_level`
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Fan Level               | Set the fan level
+Favorite Level          | Set the favorite level
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
+
 - Sensor entities
 
 Sensor                  | Description
 ----------------------- | -----------------------
-`aqi`                   | The current `aqi` measured
-`filter_life_remaining` | The remaining life of the filter
-`humidity`              | The current `humidity` measured
-`motor_speed`           | The current `motor_speed` measured in rpm
-`purify_volume`         | The volume of purified air in qubic meter
-`temperature`           | The current `temperature` measured
+Filter Life Remaining   | The remaining life of the filter
+Filter Use              | Filter usage time in hours
+Humidity                | The current humidity measured
+Motor Speed             | The current motor speed measured in rpm
+PM2.5                   | The current particulate matter 2.5 measured
+Purify Volume           | The volume of purified air in qubic meter
+Temperature             | The current temperature measured
 
-- Select entities
+- Switch entities
 
-Select | Description
---- | ---
-`led brightness` | Controls the brightness of the LEDs (bright, dim, off)
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
 
 ### Air Purifier V3 (zhimi.airpurifier.v3)
 
 - Power (on, off)
-- Operation modes (auto, silent, favorite, idle, medium, high, strong)
-- Child lock (on, off)
-- LED (on, off)
-- Attributes
+- Operation modes (Auto, Silent, Favorite, Idle, Medium, High, Strong)
+- Attributes (fan platform)
   - `model`
-  - `aqi`
   - `mode`
-  - `led`
-  - `buzzer`
-  - `child_lock`
-  - `illuminance`
-  - `filter_hours_used`
-  - `filter_life_remaining`
-  - `motor_speed`
-  - `average_aqi`
-  - `volume`
-  - `motor2_speed`
-  - `filter_rfid_product_id`
-  - `filter_rfid_tag`
-  - `filter_type`
-  - `purify_volume`
-  - `learn_mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
-  - `auto_detect`
   - `use_time`
   - `button_pressed`
 - Sensor entities
 
 Sensor                  | Description
 ----------------------- | -----------------------
-`aqi`                   | The current `aqi` measured
-`illuminance`           | The current `illuminance` measured
-`filter_life_remaining` | The remaining life of the filter
-`motor_speed`           | The current `motor_speed` measured in rpm
-`motor2_speed`          | The current `motor2_speed` measured in rpm
-`purify_volume`         | The volume of purified air in qubic meter
+PM2.5                   | The current particulate matter 2.5 measured
+Illuminance             | The current illuminance measured
+Filter Life Remaining   | The remaining life of the filter
+Filter Use              | Filter usage time in hours
+Motor Speed             | The current motor speed measured in rpm
+Second Motor Speed      | The current second motor speed measured in rpm
+Purify Volume           | The volume of purified air in qubic meter
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+LED                     | Turn on/off the LED
+
+### Air Fresh VA2
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
+- Attributes (fan platform)
+  - `model`
+  - `mode`
+  - `use_time`
+  - `extra_features`
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+Carbon Dioxide          | The current carbon dioxide measured in ppm
+Filter Life Remaining   | The remaining life of the filter
+Filter Use              | Filter usage time in hours
+Humidity                | The current humidity measured
+Illuminance             | The current illuminance measured
+PM2.5                   | The current particulate matter 2.5 measured
+Temperature             | The current temperature measured
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+LED                     | Turn on/off `led`
 
 ### Air Humidifier (zhimi.humidifier.v1)
 
 - On, Off
 - Operation modes (Silent, Medium, High, Strong)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED (on, off), LED brightness (bright, dim, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Attributes (humidifier platform)
 
-Attribute | Description
---- | ---
-`humidity` | The current `target_humidity`
-`max_humidity` | The maximum settable `target_humidity`
-`min_humidity` | The minimum settable `target_humidity`
-`available_modes` | A list with the operation modes available
-`mode` | the current operation mode selected
+Attribute               | Description
+----------------------- | -----------------------
+`available_modes`       | A list with the operation modes available
+`humidity`              | The current target humidity
+`max_humidity`          | The maximum settable target humidity
+`min_humidity`          | The minimum settable target humidity
+`mode`                  | The current operation mode selected
+
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------------
+Water Tank              | Indicates whether the water tank is connected or not
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor | Description
---- | ---
-`humidity` | The current `humidity` measured
-`temperature` | The current `temperature` measured
+Sensor                  | Description
+----------------------- | -----------------------
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+Water Level             | The current water level percentage measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
 
 ### Air Humidifier CA (zhimi.humidifier.ca1)
 
 - On, Off
 - Operation modes (Silent, Medium, High, Auto)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED brightness (bright, dim, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
-- Dry mode (on, off)
 - Attributes (humidifier platform)
 
-Attribute | Description
---- | ---
-`humidity` | The current `target_humidity`
-`max_humidity` | The maximum settable `target_humidity`
-`min_humidity` | The minimum settable `target_humidity`
-`available_modes` | A list with the operation modes available
-`mode` | the current operation mode selected
+Attribute               | Description
+----------------------- | -----------------------
+`available_modes`       | A list with the operation modes available
+`humidity`              | The current target humidity
+`max_humidity`          | The maximum settable target humidity
+`min_humidity`          | The minimum settable target humidity
+`mode`                  | The current operation mode selected
+
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------------
+Water Tank              | Indicates whether the water tank is connected or not
+
+- Select entities
+
+Select                  | Description
+----------------------- | ---
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
 Sensor | Description
---- | ---
-`humidity` | The current `humidity` measured
-`temperature` | The current `temperature` measured
+----------------------- | -----------------------
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+Water Level             | The current water level percentage measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+Dry Mode                | Turn on/off the dry mode
 
 ### Air Humidifier CA (zhimi.humidifier.ca4)
 
 - On, Off
 - Operation modes (Auto, Low, Medium, High)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED brightness (off, dim, bright)
 - Target humidity (30 - 80)
-- Clean mode (on, off)
-- Dry mode (on, off)
-- Motor speed rpm (200 - 2000)
 - Attributes (humidifier platform)
 
-Attribute | Description
---- | ---
-`humidity` | The current `target_humidity`
-`max_humidity` | The maximum settable `target_humidity`
-`min_humidity` | The minimum settable `target_humidity`
-`available_modes` | A list with the operation modes available
-`mode` | the current operation mode selected
+Attribute               | Description
+----------------------- | -----------------------
+`available_modes`       | A list with the operation modes available
+`humidity`              | The current target humidity
+`max_humidity`          | The maximum settable target humidity
+`min_humidity`          | The minimum settable target humidity
+`mode`                  | The current operation mode selected
+
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------------
+Water Tank              | Indicates whether the water tank is connected or not
+
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Motor Speed             | Set the motor speed
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor | Description
---- | ---
-`actual_speed` | The current `motor_speed` measured in (rpm)
-`humidity` | The current `humidity` percentage measured
-`temperature` | The current `temperature` measured in degrees Celius
-`water_level` | The current `water_level` percentage measured
+Sensor                  | Description
+----------------------- | -----------------------
+Actual Speed            | The current motor speed measured in rpm
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+Water Level             | The current water level percentage measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+Clean Mode              | Turn on/off the clean mode
+Dry Mode                | Turn on/off the dry mode
 
 <div class='note'>
 Clean mode and Motor speed can only be set when the device is turned on.
@@ -518,95 +635,178 @@ Clean mode and Motor speed can only be set when the device is turned on.
 
 - On, Off
 - Operation modes (Silent, Medium, High, Auto)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED (on, off), LED brightness (bright, dim, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
-- Dry mode (on, off)
 - Attributes (humidifier platform)
 
-Attribute | Description
---- | ---
-`humidity` | The current `target_humidity`
-`max_humidity` | The maximum settable `target_humidity`
-`min_humidity` | The minimum settable `target_humidity`
-`available_modes` | A list with the operation modes available
-`mode` | the current operation mode selected
+Attribute               | Description
+----------------------- | -----------------------
+`available_modes`       | A list with the operation modes available
+`humidity`              | The current target humidity
+`max_humidity`          | The maximum settable target humidity
+`min_humidity`          | The minimum settable target humidity
+`mode`                  | The current operation mode selected
+
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------------
+Water Tank              | Indicates whether the water tank is connected or not
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor | Description
---- | ---
-`humidity` | The current `humidity` measured
-`temperature` | The current `temperature` measured
+Sensor                  | Description
+----------------------- | -----------------------
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+Water Level             | The current water level percentage measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+Dry Mode                | Turn on/off the dry mode
 
 ### Air Humidifier JSQ/JSQ1/MJJSQ (deerma.humidifier.jsq/deerma.humidifier.jsq1/deerma.humidifier.mjjsq)
 
 - On, Off
 - Operation modes (low, medium, high, humidity)
-- Buzzer (on, off)
-- LED (on, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
-- Sensor entities
-  - `humidity`
-  - `temperature`
+- Attributes (humidifier platform)
 
-### Air Fresh VA2
+Attribute               | Description
+----------------------- | -----------------------
+`available_modes`       | A list with the operation modes available
+`humidity`              | The current target humidity
+`max_humidity`          | The maximum settable target humidity
+`min_humidity`          | The minimum settable target humidity
+`mode`                  | The current operation mode selected
 
-- Power (on, off)
-- Operation modes (auto, silent, interval, low, middle, strong)
-- Buzzer (on, off)
-- Child lock (on, off)
-- LED (on, off)
-- Attributes
-  - `model`
-  - `aqi`
-  - `average_aqi`
-  - `temperature`
-  - `humidity`
-  - `co2`
-  - `mode`
-  - `led`
-  - `buzzer`
-  - `child_lock`
-  - `filter_life_remaining`
-  - `filter_hours_used`
-  - `use_time`
-  - `motor_speed`
-  - `extra_features`
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------------
+Water Tank              | Indicates whether the water tank is connected or not
+Water Tank Empty        | Indicates whether the water tank is empty or not
+
 - Sensor entities
 
 Sensor                  | Description
 ----------------------- | -----------------------
-`aqi`                   | The current `aqi` measured
-`carbon_dioxide`        | The current `carbon_dioxide` measured
-`filter_life_remaining` | The remaining life of the filter
-`humidity`              | The current `humidity` measured
-`illuminance`           | The current `illuminance` measured
-`temperature`           | The current `temperature` measured
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+LED                     | Turn on/off the LED
+
+### Standing Fan 1X (dmaker.fan.p5)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+Oscillation Angle       | Set the oscillation angle in degrees
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+LED                     | Turn on/off `led`
+
+### Standing Fan (zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, zhimi.fan.sa1)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+Oscillation Angle       | Set the oscillation angle in degrees
 
 - Select entities
 
-Select | Description
---- | ---
-`led brightness` | Controls the brightness of the LEDs (bright, dim, off)
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+
+### DC Pedestal Fan (zhimi.fan.v2, zhimi.fan.v3)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+Oscillation Angle       | Set the oscillation angle in degrees
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
+
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+Battery                 | The current battery level in percentage
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
 
 ### Platform Services
 
-<div class='note'>
-For supported Air Humidifiers additional entities for will be generated automatically (if supported) and added to the entity registry based on the platforms:
-<br></br>
-The sensor platform does not supply additional services.
-</div>
+### Service `humidifier.set_humidity`
 
-| Platform        | Service(s)                 | Related auto generated device entities                       |
-|-----------------|----------------------------|--------------------------------------------------------------|
-| `humidifier`    | `set_humidity`, `set_mode` | Main device entity                                           |
-| `switch`        | `turn_on`, `turn_off`      | `buzzer`, `child_lock`, `cleaning_mode`, `dry_mode` and `led`|
-| `sensor`        | _None_                     | `actual_speed`, `humidity`, `temperature` and `water_level`  |
-| `number`        | `set_value`                | `motor_speed`                                                |
-| `select`        | `select_option`            | `led_brightness`                                             |
-| `binary_sensor` | _None_                     | `water_tank_empty` and `water_tank_detached`                 |
+Set the target humidity.
+
+| Service data attribute    | Optional | Description                                                         |
+|---------------------------|----------|---------------------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO humidifier entity.               |
+| `humidity`                |       no | Target humidity                                                     |
+
+### Service `humidifier.set_mode`
+
+Set the humidifier operation mode.
+
+| Service data attribute    | Optional | Description                                                         |
+|---------------------------|----------|---------------------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO humidifier entity.               |
+| `mode`                    |       no | The Xiaomi miIO operation mode                                      |
 
 ### Service `fan.set_percentage`
 
@@ -626,138 +826,6 @@ Set the fan operation mode.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                      |
 | `preset_mode`             |       no | The Xiaomi miIO operation mode                                      |
 
-### Service `switch.turn_on` (Air Humidifiers only)
-
-Turn the `buzzer`, `child_lock`, `cleaning_mode` or `dry_mode` on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `switch.turn_off` (Air Humidifiers only)
-
-Turn `buzzer`, `child_lock`, `clean_mode` or `dry_mode` on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_buzzer_on` (Air Purifier Pro and Air Humidifiers excluded)
-
-Turn the buzzer on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_buzzer_off` (Air Purifier Pro and Air Humidifiers excluded)
-
-Turn the buzzer off.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_led_on` (Air Purifiers only)
-
-Turn the LED on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_led_off` (Air Purifiers only)
-
-Turn the LED off.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_child_lock_on` (Air Humidifiers excluded)
-
-Turn the child lock on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_child_lock_off` (Air Humidifiers excluded)
-
-Turn the child lock off.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `select.select_option` (Air Humidifiers only)
-
-Set the LED brightness. Supported values are 'Bright', 'Dim', 'Off'.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-| `option`                  |       no | Brightness option. Should be 'Bright', 'Dim' or 'Off'   |
-
-### Service `xiaomi_miio.fan_set_favorite_level` (Air Purifiers only)
-
-Set the favorite level of the operation mode "favorite".
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-| `level`                   |       no | Level, between 0 and 16.                                |
-
-### Service `xiaomi_miio.fan_set_fan_level` (Air Purifiers only)
-
-Set the fan level for "fan" operation mode.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi MiOT fan entity.          |
-| `level`                   |       no | Level, between 1 and 3.                                 |
-
-### Service `xiaomi_miio.fan_set_auto_detect_on` (Air Purifier 2S and Air Purifier Pro only)
-
-Turn the auto detect on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_auto_detect_off` (Air Purifier 2S and Air Purifier Pro only)
-
-Turn the auto detect off.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_learn_mode_on` (Air Purifier 2 only)
-
-Turn the learn mode on.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_learn_mode_off` (Air Purifier 2 only)
-
-Turn the learn mode off.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-
-### Service `xiaomi_miio.fan_set_volume` (Air Purifier Pro only)
-
-Set the sound volume.
-
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
-| `volume`                  |       no | Volume, between 0 and 100.                              |
-
 ### Service `xiaomi_miio.fan_reset_filter` (Air Purifier 2 only)
 
 Reset the filter lifetime and usage.
@@ -774,15 +842,6 @@ Set the extra features.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `features`                |       no | Integer, known values are 0 and 1.                      |
-
-### Service `number.set_value` (Air Humidifier CA4)
-
-Set motor speed RPM.
-
-| Service data attribute    | Optional | Description                                              |
-|---------------------------|----------|----------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.           |
-| `value`                   |       no | Motor speed RPM. Allowed values are between 200 and 2000 |
 
 ### Troubleshooting `Unable to find device` error messages
 

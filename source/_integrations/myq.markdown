@@ -10,6 +10,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
+  - '@ehendrix23'
 ha_domain: myq
 ha_homekit: true
 ha_platforms:

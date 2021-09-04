@@ -18,7 +18,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_quality_scale: silver
+ha_quality_scale: gold
 ---
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit). The integration adheres strictly to the [protocol specification](https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf).
@@ -220,6 +220,11 @@ modbus:
 ```
 
 {% configuration %}
+lazy_error_count:
+  description: Number of messages with error received before setting entity to unavailable. This parameter can be used to prevent spontaneous errors to ruin statistic graphs.
+  required: false
+  type: integer
+  default: 0
 name:
   description: Name for the platform entity which must be unique within the platform.
   required: true
@@ -847,6 +852,10 @@ sensors:
       description: Unit to attach to value.
       required: false
       type: integer
+    state_class:
+      description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+      required: false
+      type: string
 {% endconfiguration %}
 
 <div class='note'>
@@ -871,6 +880,7 @@ modbus:
         address: 0
         input_type: holding
         unit_of_measurement: °C
+        state_class: measurement
         count: 1
         scale: 0.1
         offset: 0

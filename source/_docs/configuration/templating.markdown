@@ -232,6 +232,41 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+### Areas
+
+- `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
+- `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
+
+#### Areas examples
+
+{% raw %}
+
+```text
+{{ area_id('Living Room') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ area_id('my_device_id') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ area_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ area_name('deadbeefdeadbeefdeadbeefdeadbeef') }}  # Living Room
+```
+
+```text
+{{ area_name('my_device_id') }}  # Living Room
+```
+
+```text
+{{ area_name('sensor.sony') }}  # Living Room
+```
+
+{% endraw %}
+
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).

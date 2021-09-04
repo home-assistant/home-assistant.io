@@ -10,6 +10,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@StevenLooman'
+  - '@ehendrix23'
 ha_domain: upnp
 ha_ssdp: true
 ha_platforms:

@@ -13,6 +13,8 @@ Home Assistant is an open platform and so home energy management is not restrict
 
 - [Integrate your energy use from the electricity grid](/docs/energy/electricity-grid/)
 - [Integrate your solar panels](/docs/energy/solar-panels/)
+- [Integrate your home batteries](/docs/energy/battery/)
+- [Integrate your gas consumption](/docs/energy/gas/)
 - [Integrate individual devices](/docs/energy/individual-devices/)
 
 <img src='/images/docs/energy/energy-overview.png' alt='Visual representation of how all different energy forms relate.' style='border: 0;box-shadow: none;'>

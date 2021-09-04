@@ -10,6 +10,8 @@ ha_codeowners:
 ha_domain: uptimerobot
 ha_platforms:
   - binary_sensor
+ha_quality_scale: platinum
+ha_config_flow: true
 ---
 
 The `uptimerobot` integration provides binary sensors to get the status for all of your monitors from your account on [Uptime Robot]( https://uptimerobot.com).

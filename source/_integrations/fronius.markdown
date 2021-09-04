@@ -24,7 +24,11 @@ sensor:
   - platform: fronius
     resource: FRONIUS_URL
     monitored_conditions:
+    - sensor_type: logger_info
     - sensor_type: inverter
+      scope: system
+    - sensor_type: meter
+      device: 1
 ```
 
 {% configuration %}
@@ -55,6 +59,14 @@ monitored_conditions:
 ## Monitored data
 
 Each sensor type chosen as monitored condition adds a set of sensors to Home Assistant.
+
+- `logger_info`
+
+    General information about the Fronius Datalogger. Not available on "Gen24" devices.
+
+    - The serial number and software and hardware platforms
+    - The current price of energy consumed from the grid ("cash factor")
+    - The current price of energy returned to the grid ("delivery factor")
 
 - `power_flow`
 
@@ -100,10 +112,11 @@ sensor:
   - platform: fronius
     resource: FRONIUS_URL
     monitored_conditions:
+    - sensor_type: logger_info
     - sensor_type: inverter
-      device: 1
+      scope: system
     - sensor_type: meter
-      device: 3
+      device: 1
     - sensor_type: storage
       device: 0
     - sensor_type: power_flow
