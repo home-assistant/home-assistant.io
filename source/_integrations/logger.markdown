@@ -109,13 +109,10 @@ Those are the namespaces available for you to set a `log level` against.
 Possible log severity levels, listed in order from most severe to least severe, are:
 
 - critical
-- fatal
 - error
 - warning
-- warn
 - info
 - debug
-- notset
 
 ### Log Filters
 
