@@ -240,6 +240,19 @@ $primary-color: #049cdb;
     }
   }
 
+  .sponsored-by {
+
+  img {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 15px;
+      max-width: 40%;
+      max-height: 80px;
+    }    
+
+  }
+  
   .seen-press {
     margin-top: 24px;
 
@@ -247,7 +260,6 @@ $primary-color: #049cdb;
       border: 0;
       box-shadow: none;
       margin: 15px;
-      width: 100%;
       max-width: 40%;
       max-height: 70px;
     }
