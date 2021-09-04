@@ -105,7 +105,7 @@ http://FRONIUS_IP/solar_api/v1/GetMeterRealtimeData.cgi?Scope=System
 In the returned JSON, under the key Body > Data you should see your meters listed with IDs starting from 0.
 
 To find out which API version your system runs, visit the URL:
-http://FRONIUS_DATAMANAGER_CARD_IP/solar_api/GetAPIVersion.cgi
+http://FRONIUS_IP/solar_api/GetAPIVersion.cgi
 
 ## Examples
 
