@@ -232,6 +232,7 @@ Supported abbreviations:
     'spd_rng_min':         'speed_range_min',
     'spd_rng_max':         'speed_range_max',
     'src_type':            'source_type',
+    'stat_cla':            'state_class',
     'stat_clsd':           'state_closed',
     'stat_closing':        'state_closing',
     'stat_off':            'state_off',
