@@ -140,8 +140,19 @@ media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
 | Service data attribute | Description                                                                                                                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | `entity_id` of the client                                                                                                                                                          |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` (Required)</li><li>`season_number`</li><li>`episode_number`</li><li>`shuffle` (0 or 1)</li></ul> |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` (Required)</li><li>`season_number`</li><li>`episode_number`</li><li>`shuffle` (0 or 1)</li><li>`continuous` (0 or 1)</li><li>`episode_resume_query`</li></ul> |
 | `media_content_type`   | `EPISODE`                                                                                                                                                                          |
+
+There are several optional keys in `media_content_id` JSON payload, which enable greater control over show playback. The optional key `episode_resume_query` supports the ability to resume shows based on any one of the following characteristcs:
+
+ - `ondeck`: select the show/season from the On Deck section (if it is listed there)
+ - `unfinished`: select the first or last unfinished episode in the show (or season)
+ - `unwatched`: select the first or last unwatched episode in the show (or season)
+ - `watched`: select the first or last watched episode in the show (or season)
+
+Each of the above characteristics can be used as a fallback in case the prior condition fails to find suitable episodes. Fallbacks are delimited by a "|". If all query conditions fail to find suitable media, the show or season will start from the beginning.
+
+The query characteristics may also be parameterized to get the 'first' or 'last' element among the results (e.g. `unwatched_first`, `unfinished_last`). Parameters are optional, and are delimited by an "\_". Default parameter is 'first'.
 
 ##### Examples:
 
@@ -154,6 +165,18 @@ media_content_id: '{ "library_name": "Adult TV", "show_name": "Rick and Morty", 
 entity_id: media_player.plex_player
 media_content_type: EPISODE
 media_content_id: '{ "library_name": "Kid TV", "show_name": "Sesame Street", "shuffle": "1" }'
+```
+
+The following example illustrates the use of `episode_resume_query`; the query `"episode_resume_query": "ondeck|unfinished_last|unwatched_first"` will attempt to:
+ 1. Select the show from On Deck, and if it's not listed then...
+ 2. Select the last unfinished episode, and if there are no unfinished episodes then...
+ 3. Select the first unwatched episode, and if there are no unwatched episodes then...
+ 4. Start from the beginning
+
+```yaml
+entity_id: media_player.plex_player
+media_content_type: EPISODE
+media_content_id: '{ "library_name": "Adult TV", "show_name": "Rick and Morty", "episode_resume_query": "ondeck|unfinished_last|unwatched_first"}'
 ```
 
 #### Movie
