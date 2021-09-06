@@ -1,0 +1,18 @@
+---
+title: The Energy Detective TED6000
+description: How to add a TED6000 to Home Assistant.
+ha_category:
+  - Energy
+ha_release: '??'
+ha_iot_class: Local Polling
+ha_domain: ted6000
+ha_config_flow: true
+ha_codeowners:
+  - '@rianadon'
+ha_platforms:
+  - sensor
+---
+
+The TED6000 integration monitors electricity consumption/production by connecting to the Energy Control Center, itself connected to one or several Measuring Transmitting Units (MTU). The platform creates sensors for measuring current, daily, and month-to-date energy consumption.
+
+{% include integrations/config_flow.md %}
