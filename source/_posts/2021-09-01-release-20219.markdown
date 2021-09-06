@@ -39,6 +39,7 @@ Enjoy another great release! Be sure to tune into [the 2021.9 Release Party on Y
 - [Release 2021.9.1 - September 2](#release-202191---september-2)
 - [Release 2021.9.2 - September 3](#release-202192---september-3)
 - [Release 2021.9.3 - September 4](#release-202193---september-4)
+- [Release 2021.9.4 - September 6](#release-202194---september-6)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -434,6 +435,60 @@ The following integrations are now available via the Home Assistant UI:
 [rainforest_eagle docs]: /integrations/rainforest_eagle/
 [samsungtv docs]: /integrations/samsungtv/
 [sensor docs]: /integrations/sensor/
+
+## Release 2021.9.4 - September 6
+
+- Fix switch name attribute for thinkingcleaner ([@Joshi425] - [#55730]) ([thinkingcleaner docs])
+- Fix logbook entity_matches_only query mode ([@tathamoddie] - [#55761]) ([logbook docs])
+- Allow same IP if ports are different on modbus ([@janiversen] - [#55766]) ([modbus docs])
+- Allow same address different register types in modbus ([@janiversen] - [#55767]) ([modbus docs])
+- Fix xiaomi miio Air Quality Monitor initialization ([@bieniu] - [#55773]) ([xiaomi_miio docs])
+- Fix incomfort min/max temperatures ([@zxdavb] - [#55806]) ([incomfort docs])
+- Upgrade pymazda to 0.2.1 ([@bdr99] - [#55820]) ([mazda docs])
+- Bump zwave-js-server-python to 0.30.0 ([@MartinHjelmare] - [#55831]) ([zwave_js docs])
+- Fix a lazy preset mode update for Xiaomi Miio fans ([@bieniu] - [#55837]) ([xiaomi_miio docs])
+- Fix typo in in rfxtrx Barometer sensor ([@mrwhite31] - [#55839]) ([rfxtrx docs])
+- Surepetcare, bug fix ([@Danielhiversen] - [#55842]) ([surepetcare docs])
+- Fix target humidity step for Xiaomi MJJSQ humidifiers ([@bieniu] - [#55858]) ([xiaomi_miio docs])
+- Fix exception during rediscovery of ignored zha config entries ([@bdraco] - [#55859]) ([zha docs])
+- Integration Sensor unit of measurement overwrite ([@dgomes] - [#55869]) ([integration docs])
+
+[#55730]: https://github.com/home-assistant/core/pull/55730
+[#55761]: https://github.com/home-assistant/core/pull/55761
+[#55766]: https://github.com/home-assistant/core/pull/55766
+[#55767]: https://github.com/home-assistant/core/pull/55767
+[#55773]: https://github.com/home-assistant/core/pull/55773
+[#55806]: https://github.com/home-assistant/core/pull/55806
+[#55820]: https://github.com/home-assistant/core/pull/55820
+[#55831]: https://github.com/home-assistant/core/pull/55831
+[#55837]: https://github.com/home-assistant/core/pull/55837
+[#55839]: https://github.com/home-assistant/core/pull/55839
+[#55842]: https://github.com/home-assistant/core/pull/55842
+[#55858]: https://github.com/home-assistant/core/pull/55858
+[#55859]: https://github.com/home-assistant/core/pull/55859
+[#55869]: https://github.com/home-assistant/core/pull/55869
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Joshi425]: https://github.com/Joshi425
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bdr99]: https://github.com/bdr99
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@dgomes]: https://github.com/dgomes
+[@janiversen]: https://github.com/janiversen
+[@mrwhite31]: https://github.com/mrwhite31
+[@tathamoddie]: https://github.com/tathamoddie
+[@zxdavb]: https://github.com/zxdavb
+[incomfort docs]: /integrations/incomfort/
+[integration docs]: /integrations/integration/
+[logbook docs]: /integrations/logbook/
+[mazda docs]: /integrations/mazda/
+[modbus docs]: /integrations/modbus/
+[rfxtrx docs]: /integrations/rfxtrx/
+[surepetcare docs]: /integrations/surepetcare/
+[thinkingcleaner docs]: /integrations/thinkingcleaner/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
