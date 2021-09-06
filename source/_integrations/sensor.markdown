@@ -23,6 +23,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG)
 - **current**: Current in A.
 - **energy**: Energy in Wh or kWh.
+- **gas**: Gasvolume in m³.
 - **humidity**: Percentage of humidity in the air.
 - **illuminance**: The current light level in lx or lm.
 - **monetary**: The monetary value.
