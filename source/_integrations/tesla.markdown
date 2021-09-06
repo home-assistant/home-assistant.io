@@ -39,7 +39,7 @@ This integration provides the following platforms:
 - Lock - Door lock, rear trunk lock, front trunk (frunk) lock and charger door lock. Enables you to control Tesla's door, trunks and charger door lock
 - Climate - HVAC control. Allow you to control (turn on/off, set target temperature) your Tesla's HVAC system. Also enables preset modes to enable or disable max defrost mode `defrost` or `normal` operation mode.
 - Switch - Charger and max range switch to allow you to start/stop charging and set max range charging. Update switch to allow you to disable polling of vehicles to conserve battery. Sentry mode switch to enable or disable Sentry mode. Heated Steering Wheel switch to toggle the Heated Steering Wheel.
-- Select - Control Heated Seets - Off, Low, Medium, High.
+- Select - Control Heated Seats - Off, Low, Medium, High.
 
 {% include integrations/config_flow.md %}
 
