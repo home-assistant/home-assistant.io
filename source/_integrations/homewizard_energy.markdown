@@ -18,9 +18,9 @@ Integration for the [HomeWizard Energy](https://www.homewizard.nl/energy) platfo
 can collect data locally form the HomeWizard Energy products create them as sensors in Home Assistant.
 
 **Supported devices**
-- [Wifi P1 Meter](https://www.homewizard.nl/p1-meter): Depending on the connected DSMR meter: sensors for power import/export, energy consumption (single or three phases) and gas.
-- [Wifi kWh Meter](https://www.homewizard.nl/kwh-meter): Sensors for power import/export and energy consumption.
-- Wifi Energy Socket: Sensors for power import/export and energy consumption. Switches for the on/off state of the socket and 'Switch Lock' feature.
+- [Wifi P1 Meter](https://www.homewizard.nl/p1-meter): Depending on the connected DSMR meter: sensors for power import/export, energy consumption (single or three phases) and gas. (Model: `HWE-P1`)
+- [Wifi kWh Meter](https://www.homewizard.nl/kwh-meter): Sensors for power import/export and energy consumption. (Models: `SDM230-wifi`, `SDM630-wifi`)
+- Wifi Energy Socket: Sensors for power import/export and energy consumption. Switches for the on/off state of the socket and 'Switch Lock' feature. (model: `HWE-SKT`)
 
 <div class='note'>
 The Wifi Energy Socket is currently only available for a selected group of betatesters.
@@ -34,3 +34,33 @@ You have to enable the local API to allow Home Assistant to communicate with you
   4. Scroll down and turn on 'Local API'.
 
 {% include integrations/config_flow.md %}
+
+## Sensors
+
+The HomeWizard Energy API only exposes properties that are used within the HomeWizard Energy app. The available properties are listed below.
+
+| Name | Unit | Availability | Description |
+| --- | --- | --- | --- |
+| Wifi SSID | | HWE-P1, SDM230-wifi, SDM630-wifi, HWE-SKT | The SSID of the connected network. |
+| Wifi Strength | % | HWE-P1, SDM230-wifi, SDM630-wifi, HWE-SKT | Percentage of the wifi connection. |
+| Total Energy Import_t1 | kWh | HWE-P1, SDM230-wifi, SDM630-wifi, HWE-SKT | Energy import reading. |
+| Total Energy Import_t2 | kWh | HWE-P1 | Energy import reading for other tariff. |
+| Total Energy Export_t1 | kWh | HWE-P1, SDM230-wifi, SDM630-wifi, HWE-SKT | Energy export reading. |
+| Total Energy Export_t2 | kWh | HWE-P1 | Energy export reading for other tariff. |
+| Active Power | w | HWE-P1, SDM230-wifi, SDM630-wifi, HWE-SKT | Active power usage. |
+| Active Power_l1 | w | HWE-P1, SDM230-wifi, SDM630-wifi, HWE-SKT | Active power usage Line 1, for `SDM230-wifi` and`HWE-SKT` this value is the same as `Active Power`. |
+| Active Power_l2 | w | HWE-P1, SDM630-wifi | Active power usage Line 2. |
+| Active Power_l3 | w | HWE-P1, SDM630-wifi | Active power usage Line 3. |
+| Total Gas | m3 | HWE-P1 | Current gas import reading, only available when your smart meter is connected to a gas meter. |
+| Gas Timestamp | | HWE-P1 | Last update from gas reading, only available when your smart meter is connected to a gas meter.  |
+| SMR Version | | HWE-P1 | The detected DSMR version. |
+| Model | | HWE-P1 | The detected smart meter model. |
+
+## Switches
+
+The HomeWizard Energy API only exposes properties that are used within the HomeWizard Energy app. The available properties are listed below.
+
+| Name | Availability | Description |
+| --- | --- | --- |
+| Switch |HWE-SKT | Indicates/controls the output state of the socket. |
+| Switch Lock | HWE-SKT | When enabled, the socket output can't be turned off by the app, API and button. This is to prevent someone for accidentally turning off a socket that is connected to, for example, a fridge. |
