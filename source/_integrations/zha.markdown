@@ -126,7 +126,6 @@ a new pop-up asking for a radio type. In the pop-up:
 | `ezsp`  | Silicon Labs EmberZNet protocol (e.g., Elelabs, HUSBZB-1, Telegesis) |
 | `deconz` | dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II) |
 | `znp` | Texas Instruments (e.g., CC253x, CC26x2, CC13x2) |
-| `ti_cc` | Texas Instruments (legacy) |
 | `zigate` | ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi) |
 | `xbee` | Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3) |
 
@@ -386,7 +385,6 @@ logger:
     bellows.zigbee.application: debug
     bellows.ezsp: debug
     zigpy: debug
-    zigpy_cc: debug
     zigpy_deconz.zigbee.application: debug
     zigpy_deconz.api: debug
     zigpy_xbee.zigbee.application: debug
