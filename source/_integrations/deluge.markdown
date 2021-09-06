@@ -12,7 +12,7 @@ ha_platforms:
   - sensor
   - switch
 
-To be able to use this integration, you have to enable the following option in deluge settings: `Daemon > Allow remote controls`
+To be able to use this integration, you have to enable the following option in deluge settings: Daemon > Allow remote controls
 ---
 
 There is currently support for the following device types within Home Assistant:
