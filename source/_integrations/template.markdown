@@ -215,7 +215,7 @@ select:
       required: true
       type: action
     options:
-      description: Template for the select's available options.  The variable `option` will contain the option selected.
+      description: Template for the select's available options. The variable `option` will contain the option selected.
       required: true
       type: template
     optimistic:
