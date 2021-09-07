@@ -11,7 +11,6 @@ ha_codeowners:
   - '@DCSBL'
 ha_platforms:
   - sensor
-  - switch
 ha_zeroconf: true
 ---
 Integration for the [HomeWizard Energy](https://www.homewizard.nl/energy) platform. It
@@ -20,7 +19,7 @@ can collect data locally form the HomeWizard Energy products create them as sens
 **Supported devices**
 - [Wifi P1 Meter](https://www.homewizard.nl/p1-meter): Depending on the connected DSMR meter: sensors for power import/export, energy consumption (single or three phases) and gas. (Model: `HWE-P1`)
 - [Wifi kWh Meter](https://www.homewizard.nl/kwh-meter): Sensors for power import/export and energy consumption. (Models: `SDM230-wifi`, `SDM630-wifi`)
-- Wifi Energy Socket: Sensors for power import/export and energy consumption. Switches for the on/off state of the socket and 'Switch Lock' feature. (model: `HWE-SKT`)
+- Wifi Energy Socket: Sensors for power import/export and energy consumption. (model: `HWE-SKT`)
 
 <div class='note'>
 The Wifi Energy Socket is currently only available for a selected group of betatesters.
@@ -55,12 +54,3 @@ The HomeWizard Energy API only exposes properties that are used within the HomeW
 | Gas Timestamp | | HWE-P1 | Last update from gas reading, only available when your smart meter is connected to a gas meter.  |
 | SMR Version | | HWE-P1 | The detected DSMR version. |
 | Model | | HWE-P1 | The detected smart meter model. |
-
-## Switches
-
-The HomeWizard Energy API only exposes properties that are used within the HomeWizard Energy app. The available properties are listed below.
-
-| Name | Availability | Description |
-| --- | --- | --- |
-| Switch |HWE-SKT | Indicates/controls the output state of the socket. |
-| Switch Lock | HWE-SKT | When enabled, the socket output can't be turned off by the app, API and button. This is to prevent someone for accidentally turning off a socket that is connected to, for example, a fridge. |
