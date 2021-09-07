@@ -322,7 +322,7 @@ To add a new device:
   - Pairing a Zigbee device next to the Zigbee coordinator and then moving it later can result in dropped/lost connections or other issues. 
 -	Zigbee devices that have in the past been connected used to a other Zigbee coordinator (hub/bridge/gateway/controller) can usually only be added/paired in ZHA after they have been restored to their factory reset settings. 
     - If the device you want to add is not brand new and as such never paired before then you always have to make sure to first manually reset the device to its factory default settings before you will be able to add/pair it. 
--	Some battery-operated Zigbee devices are known to have problems with pairing if they have Low battery voltage. 
+- Some battery-operated Zigbee devices are known to have problems with pairing if they have Low battery voltage. 
     -	Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues. 
 -	Check that you have enough Zigbee router devices (also known as Zigbee signal repeaters or range extenders) and if you do not have any, invest and add some mains-powered devices that will work as Zigbee routers. 
     -	Aim to start out with mains-powered devices before adding battery-operated devices as a "weak" Zigbee network mesh (e.g., the device is too far from the Zigbee coordinator or a Zigbee router) may prevent some devices from being paired. Zigbee router devices are also needed to increase the maximum of devices that can be connected to your Zigbee mesh network. 
