@@ -318,7 +318,7 @@ To add a new device:
 
 #### Best practices for avoiding pairing difficulties
 
--	If possible try to pair your Zigbee devices in their intended final location, (and not pair it next to the Zigbee coordinator and then need to move it after). 
+- If possible try to pair your Zigbee devices in their intended final location, (and not pair it next to the Zigbee coordinator and then need to move it after). 
   -	Pairing a Zigbee device next to the Zigbee coordinator and then moving it later can result in a dropped/lost connections or other issues. 
 -	Zigbee devices that have in the past been connected used to a other Zigbee coordinator (hub/bridge/gateway/controller) can usually only be added/paired in ZHA after they have been restored to their factory reset settings. 
     -	If the device you want to add is not brand new and as such never paired before then you always have to make sure to first manually reset the device to its factory default settings before you will be able add/pair it. 
