@@ -24,7 +24,6 @@ ha_platforms:
 ha_dhcp: true
 ---
 
-
 The Tuya Home Assistant integration is developed for controlling **Powered by Tuya (PBT)** devices using the [tuya-iot-python-sdk](https://github.com/tuya/tuya-iot-python-sdk) (a python version of [Tuya Open API](https://developer.tuya.com/en/docs/iot/api-reference?id=Ka7qb7vhber64)), which is officially maintained by the Tuya Developer Team.
 
 It applies to smart devices that you have added to the Tuya Smart or Smart Life app.
@@ -32,8 +31,8 @@ It applies to smart devices that you have added to the Tuya Smart or Smart Life 
 ## Supported device categories
 - **Climate**: Supports air conditioner, heater, thermostat.
 - **Cover**: Supports curtain, curtain switch.
-- **Fan**: Supports fan, air purifier.
-- **Light**: Supports light, light strip, ambient light, light string, humidifier's light.
+- **Fan**: Supports fan, air purifier, humidifier, dehumidifier.
+- **Light**: Supports light, light strip, ambient light, light string, humidifier's light, Ceiling light.
 - **Scene**: Supports smart scene.
 - **Switch**: Supports switch, socket, power strip, smart kettle, breaker, pet water feeder, air purifier, diffuser.
 
@@ -117,6 +116,7 @@ See the following table and enter your Tuya credential.
 </details>
 
 ## Errorcode and troubleshooting
+
 |Error Code|Error Message|Troubleshooting|
 |:----|:--------|:------------------------------|
 |1004| sign invalid| Incorrect Access ID or Access Secret. Please refer to [Tuya credential table](https://github.com/tuya/tuya-home-assistant/wiki/Install-Tuya-v2?_source=d10de34623e3daca5b02e3c31528a0c4#3-enter-your-tuya-credential).
