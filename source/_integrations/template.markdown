@@ -415,7 +415,7 @@ template:
 
 ### Multiline Example With an `if` Test
 
-This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend.
+This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend, and shows 'standby' if the power use is less than 1000Watts.
 
 {% raw %}
 
@@ -426,7 +426,7 @@ template:
         state: >
           {% if is_state('switch.kettle', 'off') %}
             off
-          {% elif state_attr('switch.kettle', 'kwh')|float < 1000 %}
+          {% elif state_attr('switch.kettle', 'W')|float < 1000 %}
             standby
           {% elif is_state('switch.kettle', 'on') %}
             on
