@@ -317,17 +317,18 @@ To add a new device:
 1. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
 #### Best practices for avoiding pairing difficulties
+
 -	If possible try to pair your Zigbee devices in their intended final location, (and not pair it next to the Zigbee coordinator and then need to move it after). 
-    -	Pairing a Zigbee device next to the Zigbee coordinator and then moving it later can result in a dropped/lost connections or other issues.
+  -	Pairing a Zigbee device next to the Zigbee coordinator and then moving it later can result in a dropped/lost connections or other issues. 
 -	Zigbee devices that have in the past been connected used to a other Zigbee coordinator (hub/bridge/gateway/controller) can usually only be added/paired in ZHA after they have been restored to their factory reset settings. 
-    -	If the device you want to add is not brand new and as such never paired before then you always have to make sure to first manually reset the device to its factory default settings before you will be able add/pair it.
+    -	If the device you want to add is not brand new and as such never paired before then you always have to make sure to first manually reset the device to its factory default settings before you will be able add/pair it. 
 -	Some battery-operated Zigbee devices are known to have problems with pairing if they have Low battery voltage. 
-    -	Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues.
+    -	Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues. 
 -	Check that you have enough Zigbee router devices (also known as Zigbee signal repeaters or range extenders) and if you do not have any, invest and add some mains-powered devices that will work as Zigbee routers. 
     -	Aim to start out with mains-powered devices before adding battery-operated devices as a "weak" Zigbee network mesh (e.g., the device is too far from the Zigbee coordinator or a Zigbee router) may prevent some devices from being paired. Zigbee router devices are also needed to increase the maximum of devices that can be connected to your Zigbee mesh network. 
-    -	Note that some Zigbee devices are not fully compatible with all brands of Zigbee router devices. Xiaomi/Aqara devices are for example known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM/ LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios.
--	Be patient as the pairing of some Zigbee devices may require multiple attempts and you may sometimes need to try again and again.
-    -	 Some devices, like example those from Xiaomi/Aqara, are known to not be 100% compliant with the standard Zigbee specifications and may therefor require many paring attempts over 10-20 minutes or longer.
+    -	Note that some Zigbee devices are not fully compatible with all brands of Zigbee router devices. Xiaomi/Aqara devices are for example known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM/ LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios. 
+-	Be patient as the pairing of some Zigbee devices may require multiple attempts and you may sometimes need to try again and again. 
+    -	 Some devices, like example those from Xiaomi/Aqara, are known to not be 100% compliant with the standard Zigbee specifications and may therefor require many paring attempts over 10-20 minutes or longer. 
 
 ### Using router devices
 
