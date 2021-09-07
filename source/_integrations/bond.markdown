@@ -83,7 +83,8 @@ stop any increase or decrease in brightness that is in progress.
 
 ### Service `bond.set_fan_speed_belief`
 
-Set the believed speed of a fan. Calling this service will change the believed speed of the fan but not transmit any signal to make the device change speed.
+Set the believed speed of a fan. 
+Calling this service will change the believed speed of the fan but not transmit any signal to make the device change speed.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -92,7 +93,8 @@ Set the believed speed of a fan. Calling this service will change the believed s
 
 ### Service `bond.set_switch_power_belief`
 
-Set the believed power state of a switch. Calling this service will change the believed power state of any bond switch but not transmit any signal to make the device change its state.
+Set the believed power state of a switch. 
+Calling this service will change the believed power state of any bond switch but not transmit any signal to make the device change its state.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -101,7 +103,8 @@ Set the believed power state of a switch. Calling this service will change the b
 
 ### Service `bond.set_light_power_belief`
 
-Set the believed power state of a light. Calling this service will change the believed power state of any bond light but not transmit any signal to make the device change its state.
+Set the believed power state of a light. 
+Calling this service will change the believed power state of any bond light but not transmit any signal to make the device change its state.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -110,9 +113,10 @@ Set the believed power state of a light. Calling this service will change the be
 
 ### Service `bond.set_light_brightness_belief`
 
-Set the believed brightness state of a light. Calling this service will change the believed brightness state of any bond light but not transmit any signal to make the device change its state.
+Set the believed brightness state of a light. 
+Calling this service will change the believed brightness state of any bond light but not transmit any signal to make the device change its state.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings of `entity_id`s.
-| `brightness` | no | Number (0-255)
+| `brightness` | no | brightness as an integer between 0 and 255
