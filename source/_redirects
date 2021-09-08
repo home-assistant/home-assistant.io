@@ -2312,3 +2312,5 @@
 /components/wunderground /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
 /integrations/garmin_connect /more-info/removed-integration 301
+/components/device_tracker.trackr /more-info/removed-integration 301
+/components/trackr /more-info/removed-integration 301
