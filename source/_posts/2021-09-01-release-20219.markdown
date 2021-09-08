@@ -622,7 +622,7 @@ manually be removed with the `homekit.unpair` service using the Developer Tools.
 {% details "HomeKit Controller" %}
 
 A future release (currently scheduled for 2021.12.0) will remove the (deprecated)
-air quality platfrom from the HomeKit Controller integration.
+air quality platform from the HomeKit Controller integration.
 
 Starting from this release the air quality values have been broken out as their
 own sensors, making them easier to incorporate in your dashboard widgets,
