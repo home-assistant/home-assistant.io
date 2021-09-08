@@ -40,6 +40,7 @@ Enjoy another great release! Be sure to tune into [the 2021.9 Release Party on Y
 - [Release 2021.9.2 - September 3](#release-202192---september-3)
 - [Release 2021.9.3 - September 4](#release-202193---september-4)
 - [Release 2021.9.4 - September 6](#release-202194---september-6)
+- [Release 2021.9.5 - September 8](#release-202195---september-8)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -489,6 +490,53 @@ The following integrations are now available via the Home Assistant UI:
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [zha docs]: /integrations/zha/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.9.5 - September 8
+
+- Try to avoid rate limiting in honeywell ([@rdfurman] - [#55304]) ([honeywell docs])
+- Edit unit of measurement for gas/electricity supplier prices ([@pascalwinters] - [#55771]) ([dsmr_reader docs])
+- Integration Sensor Initial State ([@dgomes] - [#55875]) ([integration docs])
+- Fix available property for Xiaomi Miio fan platform ([@bieniu] - [#55889]) ([xiaomi_miio docs])
+- Allow multiple template.select platform entries ([@raman325] - [#55908]) ([template docs])
+- Bump aioswitcher to 2.0.5 ([@thecode] - [#55934]) ([switcher_kis docs])
+- Do not let one bad statistic spoil the bunch ([@emontnemery] - [#55942]) ([recorder docs])
+- Do not allow `inf` or `nan` sensor states in statistics ([@emontnemery] - [#55943]) ([sensor docs])
+- Fix handling of imperial units in long term statistics ([@emontnemery] - [#55959]) ([recorder docs]) ([sensor docs])
+- Fix gas validation ([@balloob] - [#55886]) ([energy docs])
+- Add support for state class measurement to energy cost sensor ([@emontnemery] - [#55962]) ([energy docs])
+- Add significant change support to AQI type sensors ([@emontnemery] - [#55833]) ([light docs]) ([google_assistant docs]) ([sensor docs])
+
+[#55304]: https://github.com/home-assistant/core/pull/55304
+[#55771]: https://github.com/home-assistant/core/pull/55771
+[#55833]: https://github.com/home-assistant/core/pull/55833
+[#55875]: https://github.com/home-assistant/core/pull/55875
+[#55886]: https://github.com/home-assistant/core/pull/55886
+[#55889]: https://github.com/home-assistant/core/pull/55889
+[#55908]: https://github.com/home-assistant/core/pull/55908
+[#55934]: https://github.com/home-assistant/core/pull/55934
+[#55942]: https://github.com/home-assistant/core/pull/55942
+[#55943]: https://github.com/home-assistant/core/pull/55943
+[#55959]: https://github.com/home-assistant/core/pull/55959
+[#55962]: https://github.com/home-assistant/core/pull/55962
+[@balloob]: https://github.com/balloob
+[@bieniu]: https://github.com/bieniu
+[@dgomes]: https://github.com/dgomes
+[@emontnemery]: https://github.com/emontnemery
+[@pascalwinters]: https://github.com/pascalwinters
+[@raman325]: https://github.com/raman325
+[@rdfurman]: https://github.com/rdfurman
+[@thecode]: https://github.com/thecode
+[dsmr_reader docs]: /integrations/dsmr_reader/
+[energy docs]: /integrations/energy/
+[google_assistant docs]: /integrations/google_assistant/
+[honeywell docs]: /integrations/honeywell/
+[integration docs]: /integrations/integration/
+[light docs]: /integrations/light/
+[recorder docs]: /integrations/recorder/
+[sensor docs]: /integrations/sensor/
+[switcher_kis docs]: /integrations/switcher_kis/
+[template docs]: /integrations/template/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
 
 ## If you need help...
 
