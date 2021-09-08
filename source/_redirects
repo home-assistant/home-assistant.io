@@ -2311,6 +2311,8 @@
 /components/spotcrime /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /components/sensor.wunderground /more-info/removed-integration 301
+/components/tesla /more-info/removed-integration 301
+/integrations/tesla /more-info/removed-integration 301
 /components/wunderground /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
 /integrations/garmin_connect /more-info/removed-integration 301
