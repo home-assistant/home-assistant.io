@@ -40,7 +40,7 @@ Replace `(Main_In_Red + Main_In_White + Main_In_Blue)` with the correct formula 
 Add the following to your configuration.yaml file to convert the Watt measurements into kWh:
 
 ```yaml
-sensor iotawatt:
+sensor:
   - platform: integration
     source: sensor.mainsexport
     name: Total Grid Export
