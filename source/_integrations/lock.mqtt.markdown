@@ -122,7 +122,7 @@ name:
 optimistic:
   description: Flag that defines if lock works in optimistic mode.
   required: false
-  type: string
+  type: boolean
   default: "`true` if no `state_topic` defined, else `false`."
 payload_available:
   description: The payload that represents the available state.

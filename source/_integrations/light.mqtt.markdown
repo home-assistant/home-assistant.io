@@ -904,7 +904,7 @@ name:
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
-  type: string
+  type: boolean
   default: "`true` if no state topic or state template is defined, else `false`."
 payload_available:
   description: The payload that represents the available state.
