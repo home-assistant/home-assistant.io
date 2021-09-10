@@ -451,7 +451,7 @@ lock:
   - platform: template
     name: Basedoor
     unique_id: basedoor
-    value_template: "{{ states.homematic.ccu2.attributes.base_lock_status }}"
+    value_template: "{{ state_attr('homematic.ccu2', 'base_lock_status') }}"
     lock:
       service: homematic.set_device_value
       data:
