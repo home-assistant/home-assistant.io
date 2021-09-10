@@ -194,7 +194,7 @@ The firmware limits the transition time to 5 seconds.
 ## Additional info
 
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
-Please ensure that the configured server is reacheable.
+Please check from the device Web UI that the configured server is reacheable.
 
 ## Known issues and limitations
 
