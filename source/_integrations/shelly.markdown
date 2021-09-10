@@ -193,7 +193,7 @@ The firmware limits the transition time to 5 seconds.
 
 ## Additional info
 
-Shelly's devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol) for some of their features, like power measurement.
+Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
 Please ensure that the configured server is reacheable.
 
 ## Known issues and limitations
