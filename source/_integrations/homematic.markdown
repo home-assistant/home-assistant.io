@@ -443,7 +443,7 @@ action:
 
 #### Integrating HMIP-DLD
 
-There is no avaliable default integration for HMIP Doorlock (HMIP-DLD) in the current pyhomeatic implementation.
+There is no available default integration for HMIP Doorlock (HMIP-DLD) in the current pyhomeatic implementation.
 A workaround is to define a template lock in configuration.yaml:
 
 ```yaml
