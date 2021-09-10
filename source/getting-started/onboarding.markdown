@@ -14,6 +14,12 @@ Set your username and password.
 
 Next, you can enter a name for your home and set your location and unit system. Click "DETECT" to find your location and set your time zone and unit system based on that location. If you'd rather not send your location, you can set these values manually.
 
+<div class='note warning'>
+
+Avoid adding any personal identifiable information (address, surname, etc.) when naming your home.  If you decide to expose your instance to the internet this information is visiable to anyone.
+
+</div>
+
 <p class='img'>
 <img src='/images/getting-started/location.png' />
 Set your location, time zone, and unit system.
