@@ -67,4 +67,4 @@ The Yamaha MusicCast integration is working with updates sent from the device to
 * `Received invalid message: <message>`
 * `Received non UTF-8 compliant message: b'<binary>'`
 
-If you realize these errors frequently, you should first try to disconnect your MusicCast devices from the power, wait 30 seconds and reconnect them to the power. If this does not help, you can try to use a LAN cable instead of WiFi to connect the device to the network.
+If you receive these errors frequently, you should first try to disconnect your MusicCast devices from the power, wait 30 seconds and reconnect them to the power. If this does not help, you can try to use a LAN cable instead of WiFi to connect the device to the network.
