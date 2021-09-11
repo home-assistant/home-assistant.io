@@ -200,7 +200,7 @@ Description:
 
 ### Example: writing a float32 type register
 
-To write a float32 datatype register with value decimal 10 first determine the 32 bit float value (`10` decimal == `0x41200000` in float hexadecimal notation). Then call the modbus.write_register as such:
+To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal). Call the modbus.write_register:
 
 ```yaml
 service: modbus.write_register
