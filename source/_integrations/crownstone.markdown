@@ -3,9 +3,8 @@ title: Crownstone
 description: Instructions on how to setup the Crownstone integration within Home Assistant.
 ha_category:
   - Light
-  - Switch
 ha_iot_class: Cloud Push  
-ha_release: '2021.7'
+ha_release: '2021.10'
 ha_config_flow: true
 ha_quality_scale: silver
 ha_codeowners:
@@ -27,7 +26,9 @@ The Crownstone integration supports the following Crownstone devices:
 
 {% configuration_basic %}
 Use a Crownstone USB dongle to enable local data transmission:
-  description: "Enabling this option will launch a flow, which will allow you to configure a Crownstone USB dongle. You may have to refresh the page to see the pop-up. Disabling this option will remove current configuration."
+  description: "Enabling this option will launch a flow, which will allow you to configure a Crownstone USB dongle. Disabling this option will remove current configuration."
+Crownstone Sphere where the USB is located:
+  description: "This option is available when a Crownstone USB dongle is configured, and there are multiple Crownstone Spheres available. You can select in which Sphere the USB dongle is currently located."
 {% endconfiguration_basic %}
 
 ## Crownstones
