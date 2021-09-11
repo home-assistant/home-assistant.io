@@ -446,6 +446,8 @@ action:
 There is no available default integration for HMIP Doorlock (HMIP-DLD) in the current pyhomeatic implementation.
 A workaround is to define a template lock in configuration.yaml:
 
+{% raw %}
+
 ```yaml
 lock:
   - platform: template
@@ -467,6 +469,8 @@ lock:
         param: LOCK_TARGET_LEVEL
         value: 1
 ```
+
+{% endraw %}
 
 To get the current value of the current lock status, you have to create a system variable (in example above it is `base_lock_status`) and create a program on CCU, which updates the variable with every change of the Lock level to `true` for locked and `false` for unlocked.
 
