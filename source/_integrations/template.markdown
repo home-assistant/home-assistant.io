@@ -415,7 +415,7 @@ template:
 
 ### Multiline Example With an `if` Test
 
-This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend, and shows 'standby' if the power use is less than 1000Watts.
+This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend, and shows 'standby' if the power use is less than 1000 watts.
 
 {% raw %}
 
