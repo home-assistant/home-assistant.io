@@ -4,6 +4,7 @@
   content: |
 
     ```bash
+    # on macOS hosts "--network=host" is not supported, replace it with "-p 8123:8123" 
     docker run -d \
       --name homeassistant \
       --privileged \
@@ -34,6 +35,7 @@
 
     ```bash
     # finally, start a new one
+    # on macOS hosts "--network=host" is not supported, replace it with "-p 8123:8123" 
     docker run -d \
       --name homeassistant \
       --restart=unless-stopped \
