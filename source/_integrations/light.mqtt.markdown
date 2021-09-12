@@ -112,7 +112,7 @@ color_temp_command_topic:
   required: false
   type: string
 color_temp_state_topic:
-  description: "The MQTT topic subscribed to receive color temperature state updates. If the light also supports setting colors, also define a `white_value_state_topic`. "
+  description: "The MQTT topic subscribed to receive color temperature state updates."
   required: false
   type: string
 color_temp_value_template:
