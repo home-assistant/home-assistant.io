@@ -200,7 +200,7 @@ Description:
 
 ### Example: writing a float32 type register
 
-To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal). Do:
+To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal). 
 
 ```yaml
 service: modbus.write_register
