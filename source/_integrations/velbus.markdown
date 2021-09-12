@@ -48,7 +48,7 @@ The port string used in the user interface or the configuration file can have 2 
 ## Services
 
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
-- `velbus.scan`: Scan the bus for new divices.
+- `velbus.scan`: Scan the bus for new devices.
 - `velbus.set_memo_text`: Show memo text on Velbus display modules.
 
 ### Service `velbus.sync_clock`
