@@ -41,6 +41,7 @@ Enjoy another great release! Be sure to tune into [the 2021.9 Release Party on Y
 - [Release 2021.9.3 - September 4](#release-202193---september-4)
 - [Release 2021.9.4 - September 6](#release-202194---september-6)
 - [Release 2021.9.5 - September 8](#release-202195---september-8)
+- [Release 2021.9.6 - September 11](#release-202196---september-11)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -537,6 +538,31 @@ The following integrations are now available via the Home Assistant UI:
 [switcher_kis docs]: /integrations/switcher_kis/
 [template docs]: /integrations/template/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
+
+## Release 2021.9.6 - September 11
+
+- Correct confusing log message in sensor statistics ([@emontnemery] - [#56016]) ([sensor docs])
+- Suppress last_reset deprecation warning for energy cost sensor ([@emontnemery] - [#56037]) ([sensor docs])
+- Fix UDP message handling by upgrading aiomusiccast to 0.9.2 ([@micha91] - [#56041]) ([yamaha_musiccast docs])
+- Bump amcrest version to 1.8.1 ([@flacjacket] - [#56058]) ([amcrest docs])
+- Fix singleton not working with falsey values ([@balloob] - [#56072])
+- Bump pymyq to 3.1.4 ([@ehendrix23] - [#56089]) ([myq docs])
+
+[#56016]: https://github.com/home-assistant/core/pull/56016
+[#56037]: https://github.com/home-assistant/core/pull/56037
+[#56041]: https://github.com/home-assistant/core/pull/56041
+[#56058]: https://github.com/home-assistant/core/pull/56058
+[#56072]: https://github.com/home-assistant/core/pull/56072
+[#56089]: https://github.com/home-assistant/core/pull/56089
+[@balloob]: https://github.com/balloob
+[@ehendrix23]: https://github.com/ehendrix23
+[@emontnemery]: https://github.com/emontnemery
+[@flacjacket]: https://github.com/flacjacket
+[@micha91]: https://github.com/micha91
+[amcrest docs]: https://www.home-assistant.io/integrations/amcrest/
+[myq docs]: https://www.home-assistant.io/integrations/myq/
+[sensor docs]: https://www.home-assistant.io/integrations/sensor/
+[yamaha_musiccast docs]: https://www.home-assistant.io/integrations/yamaha_musiccast/
 
 ## If you need help...
 
