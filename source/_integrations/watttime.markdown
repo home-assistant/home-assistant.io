@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-The `watttime` integration allows users to get real-time emissions data for a latitude/longitude from [WattTime](https://www.watttime.org). In addition to login in with an existing WattTime account, users can register for a new account directly within Home Assistant.
+The `watttime` integration allows users to get real-time emissions data for a latitude/longitude from [WattTime](https://www.watttime.org). In addition to logging in with an existing WattTime account, users can register for a new account directly within Home Assistant.
 
 {% include integrations/config_flow.md %}
 
