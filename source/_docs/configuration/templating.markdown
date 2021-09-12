@@ -644,3 +644,13 @@ The default priority of operators is that the filter (`|`) has priority over eve
 {% endraw %}
 
 Would round `10` to 2 decimal places, then divide `states('sensor.temperature')` by `10` (rounded to 2 decimal places so 10.00). This behavior is maybe not the one expected, but priority rules imply that.
+
+To get the (possibly) desired result use parenthesis like this:
+
+{% raw %}
+
+```yaml
+{{ (states('sensor.temperature') | float / 10) | round(2) }}
+```
+
+{% endraw %}
