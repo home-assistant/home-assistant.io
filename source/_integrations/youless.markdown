@@ -11,6 +11,7 @@ ha_codeowners:
   - '@gjong'
 ha_platforms:
   - sensor
+  - energy
 ---
 
 The YouLess integration for Home Assistant allows you to read the meter values from sensors created by [YouLess](https://www.youless.nl/home.html).
