@@ -464,7 +464,7 @@ lock:
     unlock:
       service: homematic.set_device_value
       data:
-        address: 002A1BE9A792D2
+        address: "002A1BE9A792D2"
         channel: 1
         param: LOCK_TARGET_LEVEL
         value: 1
