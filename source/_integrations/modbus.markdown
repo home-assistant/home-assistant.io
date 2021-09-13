@@ -198,6 +198,19 @@ Description:
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F |
 
+### Example: writing a float32 type register
+
+To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal). 
+
+```yaml
+service: modbus.write_register
+data:
+  address: <target register address>
+  unit: <target slave address>
+  hub: <hub name>
+  value: [0x4120, 0x0000]
+```
+
 # configure Modbus platforms
 
 Modbus platform entities are configured within the Modbus configuration.
