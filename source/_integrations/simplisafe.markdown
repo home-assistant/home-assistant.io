@@ -36,6 +36,8 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+* Note: there is a "Code" parameter in the UI configuration. This is only used to protect the UI element and is not used in the arming/disarming flow. Setting this will break any Homekit integrations. *
+
 ## Services
 
 Note that the `system_id` parameter required by the below service calls can be discovered
