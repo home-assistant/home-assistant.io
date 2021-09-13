@@ -20,7 +20,7 @@ ha_platforms:
 ---
 
 <p class='note warning'>
-  Daikin has removed their local API in newer products. They offer a cloud API accessible only under NDA, which is incompatible with open source.
+  Daikin has removed their local API in newer products. They offer a cloud API accessible only under NDA, which is incompatible with open source. This affects units fitted with the BRP069C4x wifi adaptor. Units listed under Supported Hardwere below continue to have access to local control. Aditionally the older but comonly available BRP072A42 adaptor can be fitted to most if not all newer units for acces to local control. 
 </p>
 
 The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.
