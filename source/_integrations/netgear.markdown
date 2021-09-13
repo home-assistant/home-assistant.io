@@ -15,10 +15,10 @@ This platform allows you to detect presence by looking at connected devices to a
 
 {% include integrations/config_flow.md %}
 
-Most Netgear routers use port 5000 to communicate, however the following list of models are known to use port 80:
+Most NETGEAR routers use port 5000 to communicate, however the following list of models are known to use port 80:
 - Nighthawk X4S - AC2600 (R7800)
 - Orbi
 - XR500
 When setup through ssdp discovery the port schould be automatically detected.
 
-The options flow of the netgear integration (in the sidebar of your HomeAssistant instance click on "Configuration" -> "Integrations" -> find the Netgear integration and click "Configure") allows you to specify the 'consider_home' time. This is the amount of seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. consider_home helps prevent false alarms in presence detection.
+The options flow of the NETGEAR integration (in the sidebar of your Home Assistant instance click on "Configuration" -> "Integrations" -> find the NETGEAR integration and click "Configure") allows you to specify the 'consider_home' time. This is the amount of seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. consider_home helps prevent false alarms in presence detection.
