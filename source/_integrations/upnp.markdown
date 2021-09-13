@@ -36,21 +36,3 @@ Alternatively, you can use YAML by adding the following section to your `configu
 # Example configuration.yaml entry
 upnp:
 ```
-
-{% configuration %}
-local_ip:
-  description: The local IP address of the computer running Home Assistant.
-  required: false
-  type: string
-  default: Try to auto-detect IP of host.
-{% endconfiguration %}
-
-## Troubleshooting
-
-If Home Assistant is not able to discover the UPnP device, it may be because the local IP address of the computer running Home Assistant was not auto-detected correctly. To prevent this, you may add the `local_ip` option to your UPnP configuration:
-
-```yaml
-# Example configuration.yaml with local_ip set
-upnp:
-  local_ip: 192.168.1.2
-```
