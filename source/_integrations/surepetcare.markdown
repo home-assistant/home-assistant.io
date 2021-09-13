@@ -17,27 +17,8 @@ ha_platforms:
 
 The `surepetcare` component allows you to get information on your Sure Petcare Connect Pet or Cat Flap.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add a flap, feeder or pet, add the following to your `configuration.yaml` file. The Hubs a flap or feeder is connected to, will be discovered automatically.
-
-```yaml
-# Example configuration.yaml entry
-surepetcare:
-  username: YOUR_SURE_PETCARE_LOGIN
-  password: YOUR_SURE_PETCARE_PASSWORD
-```
-
-{% configuration %}
-  username:
-    description: The Sure Petcare Username/Email
-    required: true
-    type: string
-  password:
-    description: The Sure Petcare Password
-    required: true
-    type: string
-{% endconfiguration %}
 
 ## Services
 
