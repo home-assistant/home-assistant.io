@@ -198,7 +198,7 @@ Description:
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F |
 
-The Modbus integration also provides communication stop/restart services. Remark these services will not do any reconfiguring, but simple stop/start the modbus communication layer.
+The Modbus integration also provides communication stop/restart services. These services will not do any reconfiguring, but simply stop/start the modbus communication layer.
 
 | Service | Description |
 | ------- | ----------- |
