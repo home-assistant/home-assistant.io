@@ -179,7 +179,7 @@ number:
       required: true
       type: template
     set_value:
-      description: Defines an action to run when the number value changes.
+      description: Defines an action to run when the number value changes. The variable `value` will contain the number entered.
       required: true
       type: action
     step:
@@ -215,7 +215,7 @@ select:
       required: true
       type: action
     options:
-      description: Template for the select's available options.
+      description: Template for the select's available options. The variable `option` will contain the option selected.
       required: true
       type: template
     optimistic:
@@ -415,7 +415,7 @@ template:
 
 ### Multiline Example With an `if` Test
 
-This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend.
+This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend, and shows 'standby' if the power use is less than 1000 watts.
 
 {% raw %}
 
@@ -426,7 +426,7 @@ template:
         state: >
           {% if is_state('switch.kettle', 'off') %}
             off
-          {% elif state_attr('switch.kettle', 'kwh')|float < 1000 %}
+          {% elif state_attr('switch.kettle', 'W')|float < 1000 %}
             standby
           {% elif is_state('switch.kettle', 'on') %}
             on

@@ -39,6 +39,9 @@ Enjoy another great release! Be sure to tune into [the 2021.9 Release Party on Y
 - [Release 2021.9.1 - September 2](#release-202191---september-2)
 - [Release 2021.9.2 - September 3](#release-202192---september-3)
 - [Release 2021.9.3 - September 4](#release-202193---september-4)
+- [Release 2021.9.4 - September 6](#release-202194---september-6)
+- [Release 2021.9.5 - September 8](#release-202195---september-8)
+- [Release 2021.9.6 - September 11](#release-202196---september-11)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -435,6 +438,132 @@ The following integrations are now available via the Home Assistant UI:
 [samsungtv docs]: /integrations/samsungtv/
 [sensor docs]: /integrations/sensor/
 
+## Release 2021.9.4 - September 6
+
+- Fix switch name attribute for thinkingcleaner ([@Joshi425] - [#55730]) ([thinkingcleaner docs])
+- Fix logbook entity_matches_only query mode ([@tathamoddie] - [#55761]) ([logbook docs])
+- Allow same IP if ports are different on modbus ([@janiversen] - [#55766]) ([modbus docs])
+- Allow same address different register types in modbus ([@janiversen] - [#55767]) ([modbus docs])
+- Fix xiaomi miio Air Quality Monitor initialization ([@bieniu] - [#55773]) ([xiaomi_miio docs])
+- Fix incomfort min/max temperatures ([@zxdavb] - [#55806]) ([incomfort docs])
+- Upgrade pymazda to 0.2.1 ([@bdr99] - [#55820]) ([mazda docs])
+- Bump zwave-js-server-python to 0.30.0 ([@MartinHjelmare] - [#55831]) ([zwave_js docs])
+- Fix a lazy preset mode update for Xiaomi Miio fans ([@bieniu] - [#55837]) ([xiaomi_miio docs])
+- Fix typo in in rfxtrx Barometer sensor ([@mrwhite31] - [#55839]) ([rfxtrx docs])
+- Surepetcare, bug fix ([@Danielhiversen] - [#55842]) ([surepetcare docs])
+- Fix target humidity step for Xiaomi MJJSQ humidifiers ([@bieniu] - [#55858]) ([xiaomi_miio docs])
+- Fix exception during rediscovery of ignored zha config entries ([@bdraco] - [#55859]) ([zha docs])
+- Integration Sensor unit of measurement overwrite ([@dgomes] - [#55869]) ([integration docs])
+
+[#55730]: https://github.com/home-assistant/core/pull/55730
+[#55761]: https://github.com/home-assistant/core/pull/55761
+[#55766]: https://github.com/home-assistant/core/pull/55766
+[#55767]: https://github.com/home-assistant/core/pull/55767
+[#55773]: https://github.com/home-assistant/core/pull/55773
+[#55806]: https://github.com/home-assistant/core/pull/55806
+[#55820]: https://github.com/home-assistant/core/pull/55820
+[#55831]: https://github.com/home-assistant/core/pull/55831
+[#55837]: https://github.com/home-assistant/core/pull/55837
+[#55839]: https://github.com/home-assistant/core/pull/55839
+[#55842]: https://github.com/home-assistant/core/pull/55842
+[#55858]: https://github.com/home-assistant/core/pull/55858
+[#55859]: https://github.com/home-assistant/core/pull/55859
+[#55869]: https://github.com/home-assistant/core/pull/55869
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Joshi425]: https://github.com/Joshi425
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bdr99]: https://github.com/bdr99
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@dgomes]: https://github.com/dgomes
+[@janiversen]: https://github.com/janiversen
+[@mrwhite31]: https://github.com/mrwhite31
+[@tathamoddie]: https://github.com/tathamoddie
+[@zxdavb]: https://github.com/zxdavb
+[incomfort docs]: /integrations/incomfort/
+[integration docs]: /integrations/integration/
+[logbook docs]: /integrations/logbook/
+[mazda docs]: /integrations/mazda/
+[modbus docs]: /integrations/modbus/
+[rfxtrx docs]: /integrations/rfxtrx/
+[surepetcare docs]: /integrations/surepetcare/
+[thinkingcleaner docs]: /integrations/thinkingcleaner/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.9.5 - September 8
+
+- Try to avoid rate limiting in honeywell ([@rdfurman] - [#55304]) ([honeywell docs])
+- Edit unit of measurement for gas/electricity supplier prices ([@pascalwinters] - [#55771]) ([dsmr_reader docs])
+- Integration Sensor Initial State ([@dgomes] - [#55875]) ([integration docs])
+- Fix available property for Xiaomi Miio fan platform ([@bieniu] - [#55889]) ([xiaomi_miio docs])
+- Allow multiple template.select platform entries ([@raman325] - [#55908]) ([template docs])
+- Bump aioswitcher to 2.0.5 ([@thecode] - [#55934]) ([switcher_kis docs])
+- Do not let one bad statistic spoil the bunch ([@emontnemery] - [#55942]) ([recorder docs])
+- Do not allow `inf` or `nan` sensor states in statistics ([@emontnemery] - [#55943]) ([sensor docs])
+- Fix handling of imperial units in long term statistics ([@emontnemery] - [#55959]) ([recorder docs]) ([sensor docs])
+- Fix gas validation ([@balloob] - [#55886]) ([energy docs])
+- Add support for state class measurement to energy cost sensor ([@emontnemery] - [#55962]) ([energy docs])
+- Add significant change support to AQI type sensors ([@emontnemery] - [#55833]) ([light docs]) ([google_assistant docs]) ([sensor docs])
+
+[#55304]: https://github.com/home-assistant/core/pull/55304
+[#55771]: https://github.com/home-assistant/core/pull/55771
+[#55833]: https://github.com/home-assistant/core/pull/55833
+[#55875]: https://github.com/home-assistant/core/pull/55875
+[#55886]: https://github.com/home-assistant/core/pull/55886
+[#55889]: https://github.com/home-assistant/core/pull/55889
+[#55908]: https://github.com/home-assistant/core/pull/55908
+[#55934]: https://github.com/home-assistant/core/pull/55934
+[#55942]: https://github.com/home-assistant/core/pull/55942
+[#55943]: https://github.com/home-assistant/core/pull/55943
+[#55959]: https://github.com/home-assistant/core/pull/55959
+[#55962]: https://github.com/home-assistant/core/pull/55962
+[@balloob]: https://github.com/balloob
+[@bieniu]: https://github.com/bieniu
+[@dgomes]: https://github.com/dgomes
+[@emontnemery]: https://github.com/emontnemery
+[@pascalwinters]: https://github.com/pascalwinters
+[@raman325]: https://github.com/raman325
+[@rdfurman]: https://github.com/rdfurman
+[@thecode]: https://github.com/thecode
+[dsmr_reader docs]: /integrations/dsmr_reader/
+[energy docs]: /integrations/energy/
+[google_assistant docs]: /integrations/google_assistant/
+[honeywell docs]: /integrations/honeywell/
+[integration docs]: /integrations/integration/
+[light docs]: /integrations/light/
+[recorder docs]: /integrations/recorder/
+[sensor docs]: /integrations/sensor/
+[switcher_kis docs]: /integrations/switcher_kis/
+[template docs]: /integrations/template/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+
+## Release 2021.9.6 - September 11
+
+- Correct confusing log message in sensor statistics ([@emontnemery] - [#56016]) ([sensor docs])
+- Suppress last_reset deprecation warning for energy cost sensor ([@emontnemery] - [#56037]) ([sensor docs])
+- Fix UDP message handling by upgrading aiomusiccast to 0.9.2 ([@micha91] - [#56041]) ([yamaha_musiccast docs])
+- Bump amcrest version to 1.8.1 ([@flacjacket] - [#56058]) ([amcrest docs])
+- Fix singleton not working with falsey values ([@balloob] - [#56072])
+- Bump pymyq to 3.1.4 ([@ehendrix23] - [#56089]) ([myq docs])
+
+[#56016]: https://github.com/home-assistant/core/pull/56016
+[#56037]: https://github.com/home-assistant/core/pull/56037
+[#56041]: https://github.com/home-assistant/core/pull/56041
+[#56058]: https://github.com/home-assistant/core/pull/56058
+[#56072]: https://github.com/home-assistant/core/pull/56072
+[#56089]: https://github.com/home-assistant/core/pull/56089
+[@balloob]: https://github.com/balloob
+[@ehendrix23]: https://github.com/ehendrix23
+[@emontnemery]: https://github.com/emontnemery
+[@flacjacket]: https://github.com/flacjacket
+[@micha91]: https://github.com/micha91
+[amcrest docs]: https://www.home-assistant.io/integrations/amcrest/
+[myq docs]: https://www.home-assistant.io/integrations/myq/
+[sensor docs]: https://www.home-assistant.io/integrations/sensor/
+[yamaha_musiccast docs]: https://www.home-assistant.io/integrations/yamaha_musiccast/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
@@ -519,7 +648,7 @@ manually be removed with the `homekit.unpair` service using the Developer Tools.
 {% details "HomeKit Controller" %}
 
 A future release (currently scheduled for 2021.12.0) will remove the (deprecated)
-air quality platfrom from the HomeKit Controller integration.
+air quality platform from the HomeKit Controller integration.
 
 Starting from this release the air quality values have been broken out as their
 own sensors, making them easier to incorporate in your dashboard widgets,
