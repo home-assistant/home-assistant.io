@@ -10,6 +10,7 @@ ha_codeowners:
   - '@benleb'
   - '@danielhiversen'
 ha_domain: surepetcare
+ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - sensor
