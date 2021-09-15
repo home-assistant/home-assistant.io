@@ -11,6 +11,8 @@
 /energy /home-energy-management
 /integrations/energy /docs/energy
 
+/amber https://www.crowdsupply.com/nabu-casa/home-assistant-amber
+
 # Older development pages
 /developers https://developers.home-assistant.io
 /developers/add_new_platform https://developers.home-assistant.io/docs/creating_platform_index/
