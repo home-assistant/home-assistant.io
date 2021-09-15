@@ -24,7 +24,7 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 
 ## Trigger id
 
-All triggers can be assigned an optional `id`. If the id is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from trigger conditions.
+All triggers can be assigned an optional `id`. If the id is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from trigger conditions. The `id` should be unique for each trigger.
 
 ```yaml
 automation:
