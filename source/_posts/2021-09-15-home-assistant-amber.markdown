@@ -20,7 +20,7 @@ to be the easiest way to run Home Assistant.
 <!-- markdownlint-disable-next-line MD002 -->
 ### [Go to campaign on CrowdSupply &raquo;](https://www.crowdsupply.com/nabu-casa/home-assistant-amber)
 
-We will be hosting a Home Assistant Amber live stream today at 12.00 PDT / 19.00 CEST. We will talk about how Home Assistant Amber came to be and answer any questions you might have!
+We will be hosting a Home Assistant Amber live stream today at 12.00 PDT / 21.00 CEST. We will talk about how Home Assistant Amber came to be and answer any questions you might have!
 
 <div class="videoWrapper">
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/KPR-shzT_VQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
