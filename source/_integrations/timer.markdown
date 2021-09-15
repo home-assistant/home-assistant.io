@@ -19,6 +19,10 @@ When a timer finishes or gets canceled the corresponding events are fired. This 
 ## Configuration
 The preferred way to configure timer helpers is via the user interface. To add one, go to Configuration -> Helpers and click the add button; next choose the “Timer” option.
 
+You can also click the following button to be redirected to the Helpers page of your Home Assistant instance.
+
+[![Open your Home Assistant instance and show your helper entities.](https://my.home-assistant.io/badges/helpers.svg)](https://my.home-assistant.io/redirect/helpers/)
+
 To be able to add Helpers via the user interface you should have default_config: in your configuration.yaml, it should already be there by default unless you removed it. If you removed default_config: from your configuration, you must add timer: to your configuration.yaml first, then you can use the UI.
 
 Timers can also be configured via configuration.yaml:
