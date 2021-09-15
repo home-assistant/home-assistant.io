@@ -25,6 +25,9 @@ To add a timer to your installation, add the following to your `configuration.ya
 timer:
   laundry:
     duration: "00:01:00"
+
+  pool:
+    duration: "01:00:00"
 ```
 
 {% configuration %}
