@@ -7,6 +7,7 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.44
 ha_domain: opengarage
+ha_config_flow: true
 ha_codeowners:
   - '@danielhiversen'
 ha_platforms:
