@@ -13,7 +13,24 @@ ha_platforms:
   - sensor
 ---
 
-The `watttime` integration allows users to get real-time emissions data for a latitude/longitude from [WattTime](https://www.watttime.org). In addition to logging in with an existing WattTime account, users can register for a new account directly within Home Assistant.
+The `watttime` integration allows users to get real-time emissions data for a latitude/longitude from [WattTime](https://www.watttime.org).
+
+## Registering an Account
+
+WattTime account registration is accomplished [via the REST API itself](https://www.watttime.org/api-documentation/#register-new-user). The simplest way to do this is by using cURL on the command line:
+
+```bash
+curl -X "POST" "https://api2.watttime.org/v2/register" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{
+       "username": "<USERNAME>",
+       "password": "<PASSWORD>",
+       "email": "<EMAIL>",
+       "org": "<ORG>"
+     }'
+```
+
+Note that the `org` value can be anything you like – it doesn't need to represent a real entity.
 
 {% include integrations/config_flow.md %}
 
