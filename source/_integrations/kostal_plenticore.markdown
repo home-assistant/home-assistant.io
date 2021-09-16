@@ -43,6 +43,12 @@ The following sensors are available in the library:
 | DC1 Power               | W    | Power of string 1. |
 | DC2 Power               | W    | Power of string 2. |
 | DC3 Power               | W    | Power of string 3. |
+| DC1 Voltage             | V    | Voltage of string 1. |
+| DC2 Voltage             | V    | Voltage of string 2. |
+| DC3 Voltage             | V    | Voltage of string 3. |
+| DC1 Current             | A    | Current of string 1. |
+| DC2 Current             | A    | Current of string 2. |
+| DC3 Current             | A    | Current of string 3. |
 | PV to Battery Power     | W    | Power used to charge the battery. |
 | Energy Manager State    |      | State of the energy manager. |
 | Battery Cycles          |      | Number of full charge/discharge cylces. |
