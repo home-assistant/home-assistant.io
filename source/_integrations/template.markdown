@@ -510,7 +510,7 @@ template:
   - binary_sensor:
       - name: My Device
         state: >
-          {{ is_state('device_tracker.my_device_nmap', 'home') or is_state('device_tracker.my_device_gps', 'home') }
+          {{ is_state('device_tracker.my_device_nmap', 'home') or is_state('device_tracker.my_device_gps', 'home') }}
         device_class: "presence"
         attributes:
           latitude: >
