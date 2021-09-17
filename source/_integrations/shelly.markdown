@@ -84,10 +84,6 @@ Names are set from the device web page:
 
 lolem ipsum
 
-## Appliance type
-
-Shelly device relays are added to the Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if the device uses firmware version 1.9.0 or newer and the **Settings** >> **APPLIANCE TYPE** value is set to `light`.
-
 ## Events (generation 1)
 
 If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events under the type `shelly.click` when the switch is used. You can use these events in your automations.
@@ -177,6 +173,10 @@ Not all devices support all input events. You can check on [Shelly API Reference
 ## Events (generation 2)
 
 lolem ipsum
+
+## Appliance type
+
+Shelly device relays are added to the Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if the device uses firmware version 1.9.0 or newer and the **Settings** >> **APPLIANCE TYPE** value is set to `light`.
 
 ## Light transition
 
