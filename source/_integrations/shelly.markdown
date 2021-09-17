@@ -32,9 +32,9 @@ Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
 ## Shelly device generations
 
-There are two generations of devices. Both generations are supported by integration.
+There are two generations of devices. Both generations are supported by integration. There are some differences in how devices should be configured, event names, and entity and device naming between generations.
 
-## Shelly device configuration
+## Shelly device configuration (generation 1)
 
 Shelly devices use the `CoIoT` protocol to communicate with integration. For Shelly firmware 1.10.0 or newer, `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
 
@@ -44,7 +44,19 @@ We recommend using `unicast` for communication. To enable this, enter the local 
 Integration is communicating directly with the device; cloud connection is not needed.
 </div>
 
-## Entity naming
+## CoAP port (generation 1)
+
+In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
+
+In order to change it, add the following key to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+shelly:
+  coap_port: 12345
+```
+
+## Entity naming (generation 1)
 
 The integration uses the following strategy to name its entities:
 
@@ -68,11 +80,15 @@ Names are set from the device web page:
 - Channel name for single-channel devices can be set in **Settings** >> **CHANNEL NAME**
 - Channel name for multi-channel devices can be set in **Settings** >> **CHANNEL NAME** after selecting the channel, by clicking on the channel name.
 
+## Entity naming (generation 2)
+
+lolem ipsum
+
 ## Appliance type
 
 Shelly device relays are added to the Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if the device uses firmware version 1.9.0 or newer and the **Settings** >> **APPLIANCE TYPE** value is set to `light`.
 
-## Events
+## Events (generation 1)
 
 If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events under the type `shelly.click` when the switch is used. You can use these events in your automations.
 
@@ -158,17 +174,9 @@ Not all devices support all input events. You can check on [Shelly API Reference
 
 </div>
 
-## CoAP port
+## Events (generation 2)
 
-In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
-
-In order to change it, add the following key to your configuration.yaml:
-
-```yaml
-# Example configuration.yaml entry
-shelly:
-  coap_port: 12345
-```
+lolem ipsum
 
 ## Light transition
 
