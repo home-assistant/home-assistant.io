@@ -22,7 +22,7 @@ The Crownstone integration supports the following Crownstone devices:
 
 {% include integrations/config_flow.md %}
 
-{% include integrations/options_flow.md %}
+{% include integrations/option_flow.md %}
 
 {% configuration_basic %}
 Use a Crownstone USB dongle to enable local data transmission:
