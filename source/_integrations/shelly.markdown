@@ -28,6 +28,8 @@ ha_platforms:
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
+{% include integrations/config_flow.md %}
+
 ## Shelly device generations
 
 There are two generations of devices. Both generations are supported by integration.
@@ -41,8 +43,6 @@ We recommend using `unicast` for communication. To enable this, enter the local 
 <div class="note">
 Integration is communicating directly with the device; cloud connection is not needed.
 </div>
-
-{% include integrations/config_flow.md %}
 
 ## Entity naming
 
