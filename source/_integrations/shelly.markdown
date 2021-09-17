@@ -28,6 +28,10 @@ ha_platforms:
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
+## Shelly device generations
+
+There are two generations of devices. Both generations are supported by integration.
+
 ## Shelly device configuration
 
 Shelly devices use the `CoIoT` protocol to communicate with integration. For Shelly firmware 1.10.0 or newer, `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
@@ -191,6 +195,7 @@ The firmware limits the transition time to 5 seconds.
 
 ## Known issues and limitations
 
-- Only supports firmware 1.8 and later
+- Only supports firmware 1.8 and later for devices generation 1
+- Only supports firmware 0.8 and later for devices generation 2
 - Shelly 4Pro and Shelly Sense are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
