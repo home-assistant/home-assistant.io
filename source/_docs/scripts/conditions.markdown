@@ -31,7 +31,6 @@ If you do not want to combine AND and OR conditions, you can list them sequentia
 The following configuration works the same as the one listed above:
 
 ```yaml
-alias: "Paulus home AND temperature below 20"
 condition:
   - condition: state
     entity_id: "device_tracker.paulus"
