@@ -42,6 +42,7 @@ Enjoy another great release! Be sure to tune into [the 2021.9 Release Party on Y
 - [Release 2021.9.4 - September 6](#release-202194---september-6)
 - [Release 2021.9.5 - September 8](#release-202195---september-8)
 - [Release 2021.9.6 - September 11](#release-202196---september-11)
+- [Release 2021.9.7 - September 18](#release-202197---september-18)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -563,6 +564,63 @@ The following integrations are now available via the Home Assistant UI:
 [myq docs]: https://www.home-assistant.io/integrations/myq/
 [sensor docs]: https://www.home-assistant.io/integrations/sensor/
 [yamaha_musiccast docs]: https://www.home-assistant.io/integrations/yamaha_musiccast/
+
+## Release 2021.9.7 - September 18
+
+- Support incoming SMS messages via polling ([@ocalvo] - [#54237]) ([sms docs])
+- Fix generic thermostat switch state initialization ([@brianegge] - [#56073]) ([generic_thermostat docs])
+- Bump growattServer to 1.1.0 ([@muppet3000] - [#56084]) ([growatt_server docs])
+- Ensure rainmachine device name is a string ([@bdraco] - [#56121]) ([rainmachine docs])
+- Bump pykodi to 0.2.6 ([@mxilievski] - [#56148]) ([kodi docs])
+- Bump plexapi to 4.7.1 ([@jjlawren] - [#56163]) ([plex docs])
+- Update docker base image to 2021.09.0 ([@ludeeus] - [#56191])
+- Fix HomeKit requests with hvac mode and temperature in the same call ([@bdraco] - [#56239]) ([homekit docs])
+- Bump pyopenuv to 2.2.1 ([@bachya] - [#56270]) ([openuv docs])
+- Bump pychromecast to 9.2.1 ([@emontnemery] - [#56296]) ([cast docs])
+- Avoid sending Standby when already off ([@elupus] - [#56306]) ([philips_js docs])
+- Bump aioswitcher to 2.0.6 ([@thecode] - [#56358]) ([switcher_kis docs])
+- Fix yeelight nightlight mode ([@bdraco] - [#56363]) ([yeelight docs])
+- Fetch the data a second time when -9999 error occurs in Xiaomi Miio integration ([@bieniu] - [#56288]) ([xiaomi_miio docs])
+
+[#54237]: https://github.com/home-assistant/core/pull/54237
+[#56073]: https://github.com/home-assistant/core/pull/56073
+[#56084]: https://github.com/home-assistant/core/pull/56084
+[#56121]: https://github.com/home-assistant/core/pull/56121
+[#56148]: https://github.com/home-assistant/core/pull/56148
+[#56163]: https://github.com/home-assistant/core/pull/56163
+[#56191]: https://github.com/home-assistant/core/pull/56191
+[#56239]: https://github.com/home-assistant/core/pull/56239
+[#56270]: https://github.com/home-assistant/core/pull/56270
+[#56288]: https://github.com/home-assistant/core/pull/56288
+[#56296]: https://github.com/home-assistant/core/pull/56296
+[#56306]: https://github.com/home-assistant/core/pull/56306
+[#56358]: https://github.com/home-assistant/core/pull/56358
+[#56363]: https://github.com/home-assistant/core/pull/56363
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@brianegge]: https://github.com/brianegge
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@jjlawren]: https://github.com/jjlawren
+[@ludeeus]: https://github.com/ludeeus
+[@muppet3000]: https://github.com/muppet3000
+[@mxilievski]: https://github.com/mxilievski
+[@ocalvo]: https://github.com/ocalvo
+[@thecode]: https://github.com/thecode
+[cast docs]: /integrations/cast/
+[generic_thermostat docs]: /integrations/generic_thermostat/
+[growatt_server docs]: /integrations/growatt_server/
+[homekit docs]: /integrations/homekit/
+[kodi docs]: /integrations/kodi/
+[openuv docs]: /integrations/openuv/
+[philips_js docs]: /integrations/philips_js/
+[plex docs]: /integrations/plex/
+[rainmachine docs]: /integrations/rainmachine/
+[sms docs]: /integrations/sms/
+[switcher_kis docs]: /integrations/switcher_kis/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[yeelight docs]: /integrations/yeelight/
 
 ## If you need help...
 
