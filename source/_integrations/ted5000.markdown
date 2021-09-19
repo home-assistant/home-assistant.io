@@ -21,7 +21,7 @@ Advanced and extended modes:
 - Energy Monthly (Wh)
 - Power Factor (%)
 
-In addition to above MTU sensors, seven utility sensors can also be added in extended mode.
+In addition to above MTU sensors, nine utility sensors are added in extended mode.
 
 Extended mode:
 - MTUs Quantity
@@ -31,6 +31,8 @@ Extended mode:
 - Current Tier (0 = Disabled)
 - Current TOU (0 = Disabled)
 - Current TOU Description (if Current TOU is 0 => Not Configured)
+- Carbon Rate lbs/kW
+- Meter read date
 
 
 If you want to enable the ted5000 sensor, add the following lines to your `configuration.yaml`:
@@ -69,22 +71,27 @@ scan_interval:
   default: 10
 {% endconfiguration %}
 
-For each plugged MTU, using an index starting at 1, the platform creates the following sensors depending on the configured mode:
+The platform creates the following sensors depending on the configured mode:
 
 Base mode:
+For each plugged MTU, using an index starting at 1
 ```yaml
 sensor.<name>_mtu<MTU id>_power
 sensor.<name>_mtu<MTU id>_voltage
 ```
 
 Advanced mode:
+For each plugged MTU, using an index starting at 1
 ```yaml
+sensor.<name>_mtu<MTU id>_power
+sensor.<name>_mtu<MTU id>_voltage
 sensor.<name>_mtu<MTU id>_energy_daily
 sensor.<name>_mtu<MTU id>_energy_monthly
 sensor.<name>_mtu<MTU id>_pf
 ```
 
 Extended mode:
+All sensors from advanced mode and the following in addition:
 ```yaml
 sensor.<name>_utility_mtus
 sensor.<name>_utility_currentrate
@@ -93,4 +100,6 @@ sensor.<name>_utility_plantype
 sensor.<name>_utility_currentiter
 sensor.<name>_utility_currenttou
 sensor.<name>_utility_currenttoudescription
+sensor.<name>_utility_carbonrate
+sensor.<name>_utility_meterreaddate
 ```
