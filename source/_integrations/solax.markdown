@@ -36,6 +36,11 @@ port:
   type: integer
   default: 80
   description: The port number
+password:
+  required: false
+  type: string
+  default: empty
+  description: The password
 {% endconfiguration %}
 
 ### Optional template sensor
