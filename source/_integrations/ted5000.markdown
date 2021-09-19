@@ -45,7 +45,6 @@ sensor:
 ```
 
 {% configuration %}
-
 host:
   description: The IP address of your ted gateway.
   required: true
@@ -70,7 +69,6 @@ scan_interval:
   required: false
   type: integer
   default: 10
-  
 {% endconfiguration %}
 
 The platform creates the following sensors depending on the configured mode:
