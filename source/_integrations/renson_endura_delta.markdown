@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-The `integration` platform provides the data from the Renson Endura delta application for Android en IOS. Also the integration provides some services to control the ventilation unit.
+The `integration` platform provides the data from the Renson Endura delta application for Android en iOS. Also the integration provides some services to control the ventilation unit.
 
 ## Configuration
 
