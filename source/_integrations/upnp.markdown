@@ -35,3 +35,4 @@ Alternatively, you can use YAML by adding the following section to your `configu
 ```yaml
 # Example configuration.yaml entry
 upnp:
+```
