@@ -105,7 +105,8 @@ Event 0 fired 9:53 AM:
         "device_id": "e09c64a22553484d804353ef97f6fcd6",
         "device": "shellybutton1-A4C12A45174",
         "channel": 1,
-        "click_type": "single"
+        "click_type": "single",
+        "generation": 1
     },
     "origin": "LOCAL",
     "time_fired": "2021-04-28T08:53:12.755729+00:00",
@@ -116,6 +117,8 @@ Event 0 fired 9:53 AM:
     }
 }
 ```
+
+The `generation` value indicates the generation of the device that is the source of the event.
 
 ### Automations
 
