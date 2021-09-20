@@ -30,8 +30,10 @@ recorder:
 sensor:
   - platform: statistics
     entity_id: sensor.cpu
+    name: "CPU Statistics"
   - platform: statistics
     entity_id: binary_sensor.movement
+    name: "Movement Statistics"
 ```
 
 {% configuration %}
