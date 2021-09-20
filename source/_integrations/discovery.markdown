@@ -18,6 +18,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [LG Soundbars](/integrations/lg_soundbar)
  * [Linn / Openhome](/integrations/openhome)
  * [Logitech Media Server (Squeezebox)](/integrations/squeezebox)
+ * [NETGEAR routers](/integrations/netgear)
  * [SABnzbd downloader](/integrations/sabnzbd)
  * [Telldus Live](/integrations/tellduslive/)
  * [Yamaha media player](/integrations/yamaha)
@@ -53,6 +54,7 @@ Valid values for ignore are:
  * `frontier_silicon`: Frontier Silicon internet radios
  * `lg_smart_device`: LG Soundbars
  * `logitech_mediaserver`: Logitech Media Server (Squeezebox)
+ * `netgear_router`: NETGEAR routers
  * `openhome`: Linn / Openhome
  * `sabnzbd`: SABnzbd downloader
  * `tellstick`: Telldus Live
