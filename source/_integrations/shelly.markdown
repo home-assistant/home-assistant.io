@@ -82,7 +82,10 @@ Names are set from the device web page:
 
 ## Entity naming (generation 2)
 
-The integration uses `Device ID` and `Channel name` to name its entities, e.g. if device ID is `ShellyPro4PM-9808D1D8B912` then the switch entity for relay with channel name `switch_0` will use name `ShellyPro4PM-9808D1D8B912 switch_0`.
+The integration uses the following strategy to name its entities:
+
+- If `Channel Name` is set in the device, the integration will use it to generate the entities' name, e.g. `Kitchen Light`
+- If `Channel Name` is set to the default value, the integration will use the `Device ID` and default channel name to generate the entities' name, e.g. `ShellyPro4PM-9808D1D8B912 switch_0`.
 
 ## Events
 
