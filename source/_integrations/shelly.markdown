@@ -84,7 +84,7 @@ Names are set from the device web page:
 
 lolem ipsum
 
-## Events (generation 1)
+## Events
 
 If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events under the type `shelly.click` when the switch is used. You can use these events in your automations.
 
@@ -164,15 +164,13 @@ You can also create automations using YAML, for example:
 | `SL`               | `single_long` |
 | `LS`               | `long_single` |
 
+Generation 2 devices use the values `btn_down`, `btn_up`, `single_push`, `double_push` and `long_push` as `click_type`.
+
 <div class="note">
 
 Not all devices support all input events. You can check on [Shelly API Reference](https://shelly-api-docs.shelly.cloud/) website what types of Shelly input events your device supports.
 
 </div>
-
-## Events (generation 2)
-
-lolem ipsum
 
 ## Appliance type (generation 1)
 
