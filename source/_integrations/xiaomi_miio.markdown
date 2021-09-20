@@ -270,8 +270,6 @@ LED                     | Turn on/off the LED
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
@@ -313,8 +311,6 @@ LED                     | Turn on/off the LED
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
@@ -351,8 +347,6 @@ LED                     | Turn on/off the LED
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
@@ -389,8 +383,6 @@ This model uses newer MiOT communication protocol.
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Fan)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `use_time`
 - Number entities
 
@@ -428,8 +420,6 @@ Child Lock              | Turn on/off the child lock
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
-- Attributes (fan platform)
-  - `model`
 - Number entities
 
 Number                  | Description
@@ -458,8 +448,6 @@ Child Lock              | Turn on/off the child lock
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Idle, Medium, High, Strong)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
@@ -490,8 +478,6 @@ LED                     | Turn on/off the LED
 - Power (on, off)
 - Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `use_time`
   - `extra_features`
 - Sensor entities
