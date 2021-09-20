@@ -180,7 +180,7 @@ Shelly device relays are added to the Home Assistant by default as `switch` enti
 
 ## Consumption type (generation 2)
 
-Shelly device relays are added to the Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **CONSUMPTION TYPE** value is set to `light`.
+Shelly device relays are added to the Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **CONSUMPTION TYPE** value is set to `Lights`.
 
 ## Light transition
 
@@ -207,7 +207,7 @@ The firmware limits the transition time to 5 seconds.
 
 ## Known issues and limitations
 
-- Only supports firmware 1.8 and later for devices generation 1
-- Only supports firmware 0.8 and later for devices generation 2
+- Only supports firmware 1.8 and later for generation 1 devices
+- Only supports firmware 0.8 and later for generation 2 devices
 - Shelly 4Pro and Shelly Sense are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
