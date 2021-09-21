@@ -11,6 +11,7 @@ ha_codeowners:
   - '@RenierM26'
 ha_domain: switchbot
 ha_platforms:
+  - cover
   - switch
 ---
 
