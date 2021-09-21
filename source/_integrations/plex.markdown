@@ -63,7 +63,7 @@ Alternatively, you can manually configure a Plex server connection by selecting 
 
 The activity sensor provides a count of users currently watching media from the Plex server. Clicking the sensor shows details for the active users and media streams.
 
-The library sensors show a count of items in each library. Depending on the library contents, the sensor will show extra detail in its attributes. For example, a library sensor for TV shows will represent the total number of episodes in the library and its attributes will also report the number of shows and seasons it contains.
+The library sensors show a count of items in each library. Depending on the library contents, the sensor will show extra detail in its attributes. For example, a library sensor for TV shows will represent the total number of episodes in the library and its attributes will also report the number of shows and seasons it contains. The last added media item (movie, album, or episode) and a timestamp showing when it was added to its respective library are also provided.
 
 <div class='note info'>
   
