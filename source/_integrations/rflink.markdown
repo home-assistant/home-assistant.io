@@ -54,7 +54,7 @@ host:
 baud:
   description: The baudrate when connecting to a USB/serial device.
   required: false
-  type: int
+  type: integer
   default: 57600
 wait_for_ack:
   description: Wait for RFLink to acknowledge commands sent before sending new command (slower but more reliable).
