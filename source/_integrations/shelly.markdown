@@ -32,7 +32,7 @@ Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
 ## Shelly device generations
 
-There are two generations of devices. Both generations are supported by this integration. There are some differences in how devices should be configured and entity and device naming between generations.
+There are two generations of devices. Both generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
 
 ## Shelly device configuration (generation 1)
 
