@@ -168,7 +168,7 @@ Not all devices support all input events. You can check on [Shelly API Reference
 
 ## Appliance type (generation 1)
 
-Shelly device relays are added to the Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if the device uses firmware version 1.9.0 or newer and the **Settings** >> **APPLIANCE TYPE** value is set to `light`.
+Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if the device uses firmware version 1.9.0 or newer and the **Settings** >> **APPLIANCE TYPE** value is set to `light`.
 
 ## Consumption type (generation 2)
 
