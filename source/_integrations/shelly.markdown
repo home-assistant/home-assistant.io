@@ -213,5 +213,5 @@ shelly:
 
 - Only supports firmware 1.8 and later for generation 1 devices
 - Only supports firmware 0.8 and later for generation 2 devices
-- Genetaion 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
+- Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
