@@ -32,7 +32,7 @@ Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
 ## Shelly device generations
 
-There are two generations of devices. Both generations are supported by integration. There are some differences in how devices should be configured, event names, and entity and device naming between generations.
+There are two generations of devices. Both generations are supported by this integration. There are some differences in how devices should be configured and entity and device naming between generations.
 
 ## Shelly device configuration (generation 1)
 
@@ -213,5 +213,5 @@ The firmware limits the transition time to 5 seconds.
 
 - Only supports firmware 1.8 and later for generation 1 devices
 - Only supports firmware 0.8 and later for generation 2 devices
-- Shelly 4Pro and Shelly Sense are not supported (devices based on old CoAP v1 protocol)
+- Genetaion 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
