@@ -51,6 +51,11 @@ host:
   description: Switches to TCP mode, connects to host instead of to USB/serial.
   required: false
   type: string
+baud:
+  description: The baudrate when connecting to a USB/serial device.
+  required: false
+  type: int
+  default: 57600
 wait_for_ack:
   description: Wait for RFLink to acknowledge commands sent before sending new command (slower but more reliable).
   required: false
