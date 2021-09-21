@@ -2,6 +2,7 @@
 title: SwitchBot
 description: Instructions on how to set up SwitchBot switches.
 ha_category:
+  - Cover
   - Switch
 ha_release: 0.78
 ha_iot_class: Local Polling
