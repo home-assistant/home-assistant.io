@@ -44,18 +44,6 @@ We recommend using `unicast` for communication. To enable this, enter the local 
 Integration is communicating directly with the device; cloud connection is not needed.
 </div>
 
-## CoAP port (generation 1)
-
-In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
-
-In order to change it, add the following key to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-shelly:
-  coap_port: 12345
-```
-
 ## Entity naming (generation 1)
 
 The integration uses the following strategy to name its entities:
@@ -208,6 +196,18 @@ Firmware 1.11 or later is required.
 The firmware limits the transition time to 5 seconds.
 
 </div>
+
+## CoAP port (generation 1)
+
+In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
+
+In order to change it, add the following key to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+shelly:
+  coap_port: 12345
+```
 
 ## Known issues and limitations
 
