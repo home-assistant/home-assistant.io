@@ -105,9 +105,11 @@ By default, the Plex integration will create Media Player entities for all local
 
 Play media hosted on a Plex server on a Plex client or other supported device.
 
-Required fields within the `media_content_id` payloads are marked as such, others are optional.
+Required fields within the `media_content_id` payloads are marked as such, others are optional. There are special parameters that can be added to any query:
+* `shuffle`: Shuffles the playback order of the media. Accepts `1` or `true` to enable.
+* `allow_multiple`: A search must find one specific item to succeed. This parameter accepts multiple matches in a search and enqueues all found items for playback. Accepts `1` or `true` to enable.
 
-Simplified examples are provided for [music](#Music), [TV episodes](#TV-Episode), and [movies](#Movie). See [advanced searches](#Advanced-Searches) for complex/smart search capabilities.
+Simplified examples are provided for [music](#music), [TV episodes](#tv-episode), and [movies](#movie). See [advanced searches](#advanced-searches) for complex/smart search capabilities.
 
 <div class='note info'>
   
@@ -129,7 +131,7 @@ The integration must be configured with a token for playback commands to work. T
 | Service data attribute | Description                                                                                                                                                                                          |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | `entity_id` of the client                                                                                                                                                                            |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`artist_name` or `artist.title`</li><li>`album_name` or `album.title`</li><li>`track_name` or `track.title`</li><li>`track_number` or `track.index`</li><li>`shuffle` (0 or 1)</li></ul> |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`artist_name` or `artist.title`</li><li>`album_name` or `album.title`</li><li>`track_name` or `track.title`</li><li>`track_number` or `track.index`</li><li>`shuffle` (0 or 1)</li><li>`allow_multiple` (0 or 1)</li></ul> |
 | `media_content_type`   | `MUSIC`                                                                                                                                                                                              |
 
 ##### Examples:
@@ -165,7 +167,7 @@ media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
 | Service data attribute | Description                                                                                                                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | `entity_id` of the client                                                                                                                                                          |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` or `show.title`</li><li>`season_number` or `season.index`</li><li>`episode_number` or `episode.index`</li><li>`shuffle` (0 or 1)</li></ul> |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` or `show.title`</li><li>`season_number` or `season.index`</li><li>`episode_number` or `episode.index`</li><li>`shuffle` (0 or 1)</li><li>`allow_multiple` (0 or 1)</li></ul> |
 | `media_content_type`   | `EPISODE`                                                                                                                                                                          |
 
 ##### Examples:
@@ -186,7 +188,7 @@ media_content_id: '{ "library_name": "Kid TV", "show_name": "Sesame Street", "sh
 | Service data attribute | Description                                                                                             |
 | ---------------------- | ------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | `entity_id` of the client                                                                               |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`title`</li><li>`<SEARCH_KEY>` (optional)</li></ul> |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`title`</li></ul> |
 | `media_content_type`   | `movie`                                                                                                 |
 
 ##### Examples:
@@ -233,6 +235,9 @@ The search will attempt to guess the type of media based on the search parameter
 
 # Play for an artist's album where only a track name is known:
 { "library_name": "Music", "artist.title": "Stevie", "track.title": "Higher Ground" }
+
+# Play all albums with "orange" in the title:
+{ "library_name": "Music", "album.title": "orange", "allow_multiple": true }
 
 # Watch the most recently added movie
 { "library_name": "Movies", "sort": "addedAt:desc", "maxresults": 1 }
