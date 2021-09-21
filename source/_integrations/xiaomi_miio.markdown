@@ -222,7 +222,6 @@ Supported devices:
 | DC Pedestal Fan        | zhimi.fan.v2           | |
 | DC Pedestal Fan        | zhimi.fan.v3           | |
 
-
 ### Features
 
 ### Air Purifier 2 (zhimi.airpurifier.v2)
