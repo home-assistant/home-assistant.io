@@ -147,12 +147,12 @@ Press `Submit`. The success dialog will appear or an error will be displayed in 
 
 ### ZiGate or Sonoff ZBBridge Devices
 
-If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path configuration:
+If you are using ZiGate Ethernet/WiFi Gateway, Sonoff ZBBridge, or other network-attached Zigbee adapter you will have to use some special usb_path configuration. It is also strongly advised that you use a reserved or static IP Address is strongly by reserving the IP address in your router and/or configure a static IP address in your Zigbee gateway/bridge.
 
-- ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
-- PiZigate : `pizigate:/dev/ttyS0`
-- Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
-- Sonoff ZBBridge : `socket://[IP]:[PORT]` for example `socket://192.168.1.11:8888`
+- ZiGate USB, USB-TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
+- ZiGate PiZigate : `pizigate:/dev/ttyS0`
+- ZiGate Ethernet and WiFi Gateways : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
+- ITead Sonoff ZBBridge : `socket://[IP]:[PORT]` for example `socket://192.168.1.11:8888`
 
 ### Discovery via USB or Zeroconf
 
