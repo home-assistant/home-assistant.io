@@ -294,7 +294,7 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 ## State trigger
 
 Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
-If only one of `from_state` or `to_state` are given, the trigger will fire on any matching state change, but not if only attributes change.
+If only one of `from` or `to` are given, the trigger will fire on any matching state change, but not if only attributes change.
 
 <div class='note'>
 
@@ -315,7 +315,7 @@ automation:
       to: "home"
 ```
 
-It's possible to give a list of from_states or to_states:
+It's possible to give a list of `from` states or `to` states:
 
 ```yaml
 automation:
