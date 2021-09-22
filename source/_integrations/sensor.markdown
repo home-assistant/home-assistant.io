@@ -22,7 +22,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke)
 - **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG)
 - **current**: Current in A.
-- **date**: Date object or date string (ISO 8601).
+- **date**: Date string (ISO 8601).
 - **energy**: Energy in Wh or kWh.
 - **humidity**: Percentage of humidity in the air.
 - **illuminance**: The current light level in lx or lm.
