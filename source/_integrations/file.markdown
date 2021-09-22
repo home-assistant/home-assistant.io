@@ -142,4 +142,3 @@ sensor:
 
 {% endraw %}
 
-See how to [process incoming data](https://www.home-assistant.io/docs/configuration/templating/#processing-incoming-data) for more information.
