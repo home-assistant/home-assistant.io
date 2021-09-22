@@ -87,7 +87,12 @@ Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/c
 - [Huawei E3531](https://www.amazon.com/Modem-Huawei-Unlocked-Caribbean-Desbloqueado/dp/B011YZZ6Q2/ref=sr_1_1?keywords=Huawei+E3531&qid=1581447800&sr=8-1)
 - [Huawei E3272](https://www.amazon.com/Huawei-E3272s-506-Unlocked-Americas-Europe/dp/B00HBL51OQ)
 
-[List of modems that may work](https://www.asus.com/event/networks_3G4G_support/)
+### List of modems known to NOT work
+
+- [SIM800C](https://www.amazon.com/gp/product/B087Z6F953/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
+  The [core will crash](https://github.com/home-assistant/core/issues/54876) when receiving a SMS message
+
+### [List of modems that may work](https://www.asus.com/event/networks_3G4G_support/)
 
 ### Huawei modems on Raspberry Pi (and similar) devices
 
