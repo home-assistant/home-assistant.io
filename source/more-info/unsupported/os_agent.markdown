@@ -5,12 +5,12 @@ description: "More information on why missing OS-Agent marks the installation as
 
 ## The issue
 
-OS-Agent is how the Supervisor does handle additional tasks on the host,
-without this, multiple things that the Supervisor needs to do will fail.
+OS-Agent is how the Supervisor handles additional tasks on the host,
+without it, the Supervisor won't be able to fulfill their tasks and responsibilities.
 
 ## The solution
 
-Home Assistant Operating-System have this preinstall since Vesion 6.0 - you need maybe reboot your system.
+Home Assistant Operating-System has had this preinstalled since version 6.0 - you need maybe reboot your system.
 
 If the OS-Agent daemon is not running, start it.
 If the [OS-Agent is not installed](https://github.com/home-assistant/os-agent), you need install it.
