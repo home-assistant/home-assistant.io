@@ -181,7 +181,7 @@ Remark: `name:`is required for multiple connections, because it needs to be uniq
 
 ## Modbus services
 
-The Modbus integration provides two generic services in addition to the platform-specific services.
+The Modbus integration provides two generic write services in addition to the platform-specific services.
 
 | Service | Description |
 | ------- | ----------- |
@@ -197,6 +197,19 @@ Description:
 | address   | Address of the Register (e.g. 138) |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F |
+
+The Modbus integration also provides communication stop/restart services. These services will not do any reconfiguring, but simply stop/start the modbus communication layer.
+
+| Service | Description |
+| ------- | ----------- |
+| modbus.stop | Stop communication |
+| modbus.restart | Restart communication (Stop first if running) |
+
+Description:
+
+| Attribute | Description |
+| --------- | ----------- |
+| hub       | Hub name (defaults to 'modbus_hub' when omitted) |
 
 # configure Modbus platforms
 
