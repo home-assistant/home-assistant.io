@@ -64,11 +64,6 @@ mode:
   required: false
   type: string
   default: base
-scan_interval:
-  description: Scan interval. Gateway normally updates every 10-15 seconds, anything below this won't update.
-  required: false
-  type: integer
-  default: 10
 {% endconfiguration %}
 
 The platform creates the following sensors depending on the configured mode:
