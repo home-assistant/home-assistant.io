@@ -141,6 +141,12 @@ control_light:
   required: false
   type: boolean
   default: true
+channel:
+  description: >
+    When using an Amcrest NVR for the camera feed, set the channel for the camera to use. For stand-alone cameras, the default channel will work correctly.
+  required: false
+  type: integer
+  default: 0
 {% endconfiguration %}
 
 **Note:** Amcrest cameras with newer firmware no longer have the ability to
