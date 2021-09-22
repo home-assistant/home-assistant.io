@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-[Amber](https://www.amber.com.au/) is an Australian electricity retailer that provides wholesale prices. By monitoring the price, and shifting usage to cheaper and greener times, You can save money and the environment. Using the `amberelectric` component allows you to run automations based on the real-time electricity price, and forecasts.
+[Amber](https://www.amber.com.au/) is an Australian electricity retailer that provides wholesale prices. By monitoring the price, and shifting usage to cheaper and greener times, You can save money and the environment. Using the `amberelectric` component allows you to run automations based on the real-time electricity price and forecasts.
 
 Prices are split up into three channel types:
 
