@@ -38,3 +38,17 @@ This service lets you change the locking state of a flap.
 - `locked_in` - flap is 'in only' - pets can come in but not go back out.
 - `locked_out` - flap is 'out only' - pets can go out, but not back in.
 - `locked_all` - flap is locked both ways.
+
+### Service `surepetcare.set_pet_location`
+
+This service lets you set the pet location.
+
+| Service data attribute | Required | Type | Description |
+| ---------------------- | -------- | -------- | ----------- |
+| `name` | yes | string | Pet name
+| `location` | yes | string | Pet location
+
+`location` should be one of:
+
+- `Inside` - Pet is inside.
+- `Outside` - Pet is outside.
