@@ -15,7 +15,7 @@ ha_platforms:
   - switch
 ---
 
-The `SwitchBot` switch platform allows you to control SwitchBot [devices](https://www.switch-bot.com/).
+The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/).
 
 {% include integrations/config_flow.md %}
 
