@@ -45,8 +45,8 @@ This service lets you set the pet location.
 
 | Service data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
-| `name` | `True` | string | Pet name
-| `location` | `True` | string | Pet location
+| `name` | yes | string | Pet name
+| `location` | yes | string | Pet location
 
 `location` should be one of:
 
