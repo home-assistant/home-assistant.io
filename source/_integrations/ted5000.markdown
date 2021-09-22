@@ -12,7 +12,7 @@ ha_platforms:
 
 The `ted5000` monitors electricity consumption/production by connecting to the [TED](https://www.theenergydetective.com/home) gateway, itself connected to one or several Measuring Transmitting Units (MTU). The platform creates up to five sensors per MTU depending on config mode
 
-All modes have those two sensors per MTU:
+All modes:
 - Power (W)
 - Voltage (V)
 
