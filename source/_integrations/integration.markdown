@@ -53,10 +53,6 @@ unit_time:
   required: false
   default: h
   type: string
-unit:
-  description: Unit of measurement to be used for the integration.
-  required: false
-  type: string
 method:
   description: "Riemann sum method to be used. Available methods are `trapezoidal`, `left` and `right`."
   required: false
@@ -66,7 +62,7 @@ method:
 
 In case you have an appliance which produces spikey consumption (like an on/off electrical boiler) you should opt for the `left` method to get accurate readings.
 
-The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). You can override this behavior by providing a custom value for `unit`. Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation. Even if you provide a custom value for `unit`, ensure prefix and time accurately reflect the properties of your source data.
+The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation. 
 
 ## Energy
 
