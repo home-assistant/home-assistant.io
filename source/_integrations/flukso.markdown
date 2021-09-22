@@ -20,6 +20,8 @@ ha_platforms:
 
 This integration allows you to add [Flukso](https://flukso.net/) energy monitoring devices over the local MQTT link.
 
+This page describes how to integrate your Flukso energy monitoring devices with Home Assistant. Installation instructions for your Flukso device itself can be found on the [official website](https://flukso.net/installation).
+
 ## Requirements
 
 - MQTT broker and the [MQTT integration](/integrations/mqtt/) set up in Home Assistant.
@@ -27,11 +29,11 @@ This integration allows you to add [Flukso](https://flukso.net/) energy monitori
 
 ## Supported Features
 
-Flukso sensors and Kube sensors are supported.
+Both Flukso sensors and Kube sensors are supported. Multiple Flukso's are supported.
 
 - Sensors that are [tmpo](https://www.flukso.net/files/presentations/flukso.20140425.pdf) enabled will have the `total_increasing` state class.
 - Your Flukso and it sensors will be automatically discovered when you set up the bridge connection between your HA MQTT broker and your Flukso's MQTT broker.
-- The integration will create a sensor for each Flukso sensor topic that it discovers on MQTT.
+- The integration will create a sensor for each Flukso/Kube sensor topic that it discovers on MQTT.
 
 {% include integrations/config_flow.md %}
 
@@ -42,15 +44,13 @@ If using the [Mosquitto Broker add-on for Home Assistant](https://github.com/hom
 acl_file /share/mosquitto/accesscontrollist
 ```
 
-`/share/mosquitto/acesscontrollist.conf`:
+`/share/mosquitto/accesscontrollist.conf`:
 ```ini
 topic readwrite #
 ```
 
 `/share/mosquitto/flukso01.conf`:
 ```ini
-topic readwrite #
-
 connection flukso01
 address <flukso ip>:1883
 remote_clientid flukso01bridge
