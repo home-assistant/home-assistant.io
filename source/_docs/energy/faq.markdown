@@ -29,7 +29,7 @@ If you are using a 3rd party device (e.g. not reading directly from your utility
 
 To accomplish such, you can use [the utility_meter integration](/integrations/utility_meter/). With this integration, you define as many tariffs as required (in accordance with your utility provider contract) and HA will be able to differentiate energy consumptions in each of the tariffs. Please note that each utility provider has its own time schedules for peak and off-peak and you are required to create an automation that switches the utility_meter entity from one tariff to the other.
 
-## The Energy Panel is Not Visible
+## The Energy panel is not visible
 
-If you do not see the Energy panel in the sidebar, make sure you have not removed [`default_config:`](https://www.home-assistant.io/integrations/default_config/) from your configuration.yaml. If you have, you will need to add the `energy:` integration manually.
+If you do not see the Energy panel in the sidebar, make sure you have not removed [`default_config:`](/integrations/default_config/) from your `configuration.yaml`. If you have, you will need to add the `energy:` integration manually.
 
