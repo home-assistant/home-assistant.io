@@ -32,6 +32,11 @@ icon:
   required: false
   description: Overwrites icon.
   type: string
+state_color:
+  required: false
+  description: Set to `true` to have icon colored when entity is active.
+  type: boolean
+  default: false  
 attribute:
   required: false
   description: An attribute associated with the `entity`.
