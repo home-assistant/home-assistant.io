@@ -137,6 +137,10 @@ name:
   required: false
   description: Overwrites friendly entity name.
   type: string
+icon:
+  required: false
+  description: Icon to use. Defaults to icon of entity.
+  type: string
 format:
   required: false
   description: "How the attribute value should be formatted. Currently only supported for timestamp attributes. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
