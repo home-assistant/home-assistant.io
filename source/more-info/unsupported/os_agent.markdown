@@ -6,7 +6,7 @@ description: "More information on why missing OS-Agent marks the installation as
 ## The issue
 
 OS-Agent is how the Supervisor handles additional tasks on the host,
-without it, the Supervisor won't be able to fulfill their tasks and responsibilities.
+without it, the Supervisor won't be able to fulfill its tasks and responsibilities.
 
 ## The solution
 
