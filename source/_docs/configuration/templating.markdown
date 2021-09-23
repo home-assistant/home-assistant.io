@@ -293,8 +293,8 @@ The same thing can also be expressed as a filter:
 
    {% endraw %}
 
-- Filter `timestamp_local` converts an UNIX timestamp to its string representation as date/time in your local timezone.
-- Filter `timestamp_utc` converts a UNIX timestamp to its string representation representation as date/time in UTC timezone.
+- Filter `timestamp_local` converts an UNIX timestamp to its naive string representation as date/time in your local timezone. If timezone information is needed in the string, use `timestamp_custom` instead.
+- Filter `timestamp_utc` converts a UNIX timestamp to its naive string representation representation as date/time in UTC timezone. If timezone information is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_custom(format_string, local_time=True)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
 
 <div class='note'>
