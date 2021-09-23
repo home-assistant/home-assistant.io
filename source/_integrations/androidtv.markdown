@@ -20,6 +20,12 @@ When setting up this integration, it is recommended that you do NOT use an ADB s
 
 </div>
 
+<div class='note warning'>
+
+Does not support Android TV 11. States and running apps cannot be read.
+  
+</div>
+
 ## Device preparation
 
 To set up your device, you will need to find its IP address and enable ADB debugging. For Android TV devices, please consult the documentation for your device.
