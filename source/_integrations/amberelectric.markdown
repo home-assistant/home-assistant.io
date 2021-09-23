@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-[Amber](https://www.amber.com.au/) is an Australian electricity retailer that provides wholesale prices. By monitoring the price, and shifting usage to cheaper and greener times, You can save money and the environment. Using the `amberelectric` component allows you to run automations based on the real-time electricity price and forecasts.
+[Amber](https://www.amber.com.au/) is an Australian electricity retailer that provides access to wholesale electricity prices. Customers monitor the wholesale price and shift their energy usage to cheaper, greener times. This saves them money and supports the shift to a more renewably-powered Australia. Using the `amberelectric` component, customers can go a step further - setting up devices to automatically shift energy usage to cheaper and greener times, based on real-time electricity prices and forecasts”
 
 Prices are split up into three channel types:
 
@@ -29,7 +29,7 @@ It exposes the following sensors for each channel type:
 
 There are two additional sensors:
 
-- **Price Spike** - A binary sensor that indicates the current price is over $3/kWh.
+- **Price Spike** - A binary sensor that indicates when the current price is over $3/kWh.
 - **Renewables** - The percentage of renewable energy currently in the grid.
 
 ## Getting an API Key
