@@ -24,27 +24,6 @@ Though these fireplaces are supported, they can only be integrated if they were 
 {% include integrations/config_flow.md %}
 
 
-## Manual configuration
-
-Alternatively, the Escea integration can be configured manually via the
-`configuration.yaml` file. If there is more than one Escea fireplace on the local
-network and one or more must be excluded, use manual configuration:
-
-```yaml
-# Full manual example configuration.yaml entry 
-# (enter Serial Number in exclude attribute)
-escea:
-  exclude:
-    - "000013170"
-```
-
-{% configuration %}
-exclude:
-  description: Exclude particular fireplaces from integration with Home Assistant.
-  required: false
-  type: list
-{% endconfiguration %}
-
 ## Network settings
 
 The Escea system uses UDP over the local network to find and communicate with Escea devices. For this to work properly, UDP port  3300 must be available for broadcasting and messaging fireplaces, and similarly port UDP port 3300 must be available to listen for responses. The integration currently listens on `0.0.0.0` and broadcasts to all broadcast IPv4 local addresses, which is not configurable.
