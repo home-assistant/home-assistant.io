@@ -1,6 +1,8 @@
 ---
 title: "Conditions"
 description: "Documentation about all available conditions."
+toc: true
+no_toc: true
 ---
 
 Conditions can be used within a script or automation to prevent further execution. When a condition does not return true, the script or automation stops executing. A condition will look at the system at that moment. For example, a condition can test if a switch is currently turned on or off.
@@ -9,7 +11,11 @@ Unlike a trigger, which is always `or`, conditions are `and` by default - all co
 
 All conditions support an optional `alias`.
 
-## AND condition
+{{ page.content | markdownify | toc_only }}
+
+## Logical conditions
+
+### AND condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are valid.
 
@@ -42,7 +48,7 @@ condition:
 
 Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
 
-## OR condition
+### OR condition
 
 Test multiple conditions in one condition statement. Passes if any embedded condition is valid.
 
@@ -59,7 +65,7 @@ condition:
       below: 20
 ```
 
-## MIXED AND and OR conditions
+### MIXED AND and OR conditions
 
 Test multiple AND and OR conditions in one condition statement. Passes if any embedded condition is valid.
 This allows you to mix several AND and OR conditions together.
@@ -81,7 +87,7 @@ condition:
           below: 20
 ```
 
-## NOT condition
+### NOT condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** valid.
 
