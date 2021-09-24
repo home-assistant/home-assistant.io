@@ -59,23 +59,6 @@ icon:
   type: string
 {% endconfiguration %}
 
-One can also create `binary_sensor`, `light` and `media_player` groups which behave like a single entity. For `binary_sensor` the configuration should include the device class you want the group to appear as.
-```yaml
-binary_sensor:
-    - platform: group
-      name: Patio Doors
-      device_class: opening
-      entities:
-        - binary_sensor.door_left_contact
-        - binary_sensor.door_right_contact
-```
-{% configuration %}
-name:
-  description: Name of the group.
-  required: false
-  type: string
-{% endconfiguration %}
-
 ## Group behavior
 
 By default when any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`. If you set the `all` option to `true` though, this behavior is inverted and all members of the group have to be `on` for the group to turn on as well.
