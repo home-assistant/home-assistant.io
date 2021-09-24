@@ -17,6 +17,12 @@ The `solax` integration connects Home Assistant to Solax solar power inverters. 
 
 ## Configuration
 
+To configure the connection with your inverter simply configure it via the UI with the Solax integration. You will be asked for the IP Address, the port and password (optional).
+
+<p class='note warning'>
+Configuration of the Solax integration via YAML is now deprecated and it will be removed in a future version. Please use the UI configuration to setup it up in a more convinient way. If your inverter requires a password to connect, this is also the only way to do it, as it is not supported by YAML.
+</p>
+
 To use the Solax sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
