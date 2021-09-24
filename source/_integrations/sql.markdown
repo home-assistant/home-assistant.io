@@ -106,7 +106,6 @@ Note that the SQL sensor state corresponds to the last row of the SQL result set
 
 ### Previous state of an entity
 
-#### generic
 Based on previous example with temperature, the query to get the former state is :
 ```sql
 SELECT * FROM (SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 2) two_entity  ORDER BY state_id ASC LIMIT 1;
@@ -120,13 +119,6 @@ sensor:
       - name: Former_Temperature_In
         query: "SELECT * FROM (SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 2) two_entity  ORDER BY state_id ASC LIMIT 1;"
         column: "state"
-```
-
-#### another way for binary sensor
-This example only works with *binary_sensors*:
-
-```sql
-SELECT * FROM states WHERE entity_id = 'binary_sensor.xyz789' GROUP BY state ORDER BY last_changed DESC LIMIT 1;
 ```
 
 ### Database size
