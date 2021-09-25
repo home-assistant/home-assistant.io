@@ -10,6 +10,7 @@ ha_codeowners:
   - "@zhulik"
 ha_domain: tractive
 ha_platforms:
+  - binary_sensor
   - device_tracker
   - sensor
 ---
