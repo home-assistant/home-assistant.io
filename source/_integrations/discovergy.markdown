@@ -4,7 +4,7 @@ description: Instructions on how to integrate Discovergy within Home Assistant.
 ha_category:
   - Energy
   - Sensor
-ha_release: '2021.9'
+ha_release: '2021.10'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@jpbede'
@@ -17,13 +17,10 @@ ha_platforms:
 The `discovergy` integration allows users to integrate their [Discovergy](https://discovergy.com/) smart meters into Home Assistant.
 The integration is using the [official REST API](https://api.discovergy.com/docs/#/) by Discovergy.
 
-<div class='note info'>
-Currently this integration is only supporting electricity smart meters. There is no support for gas meters at the moment.
-</div>
+The integration supports the following meters within Home Assistant:
 
-There is currently support for the following device types within Home Assistant:
-
-- [Sensor](#sensor)
+- [Electricity meter](#electricity-meter)
+- [Gas meter](#gas-meter)
 
 ## Prerequisites
 
@@ -31,9 +28,13 @@ For this integration, you need a Discovergy smart meter, a [Discovergy account](
 
 {% include integrations/config_flow.md %}
 
-## Sensor
+## Electricity meter
 
 Sensor entities are being added for current active power usage and the all-time total consumption.
 By default, the sensors for phase-specific current active power usage are disabled.
 
 In case you have a combined meter for consumption and production, the all-time total production is added as well.
+
+## Gas meter
+
+A Sensor entity is being added for total gas consumption.
