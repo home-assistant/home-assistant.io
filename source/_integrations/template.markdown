@@ -531,7 +531,7 @@ template:
 
 ### Change the icon when a state changes
 
-This example demonstrates how to use template to change the icon as it's state changes. This icon is referencing it's own state.
+This example demonstrates how to use template to change the icon as its state changes. This icon is referencing its own state.
 
 {% raw %}
 
