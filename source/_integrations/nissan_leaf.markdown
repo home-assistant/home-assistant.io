@@ -45,7 +45,7 @@ region:
   required: true
   type: string
 update_interval:
-  description: The interval between updates if the climate control is off and the car is not charging. Set in any time unit (e.g.,  minutes, hours, days!).
+  description: The interval between updates if the climate control is off and the car is not charging. Set in any time unit (e.g.,  minutes, hours, days!). Providing a low interval will cause the service to refresh more frequently and can negatively impact your 12V battery. 
   required: false
   default: 1 hour
   type: time
@@ -113,7 +113,6 @@ You can also use the `nissan_leaf.update` service to request an on-demand update
 
 ## Hints
 
-* The `update_interval` is the time **between** updates. A high update interval will refresh rarely, and a low one refreshes more frequently. 
 * The update interval has a minimum of two minutes.
 * Requesting updates uses a small amount of power from the 12 V battery. The 12 V battery charges from the main traction battery when the car is not plugged in. If the car is left plugged in for a long time, or if the main traction battery is very low then the 12 V battery may gradually discharge. A low update interval may cause the 12 V battery to become flat.  When the 12 V battery is flat the car will not start. _Do not set the update interval too low.  Use at your own risk._
 * This integration communicates with the Nissan Servers which then communicate with the car. The communication between the car and the Nissan Servers is very slow, and takes up to five minutes to get information from the car, therefore the default polling interval is set to one hour to not overwhelm the connection.
