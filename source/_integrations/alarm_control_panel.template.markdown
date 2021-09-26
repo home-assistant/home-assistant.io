@@ -103,7 +103,7 @@ panels:
           description: If true, the code is required to arm the alarm.
           required: false
           type: boolean
-          default: false
+          default: true
 {% endconfiguration %}
 
 ## Considerations
