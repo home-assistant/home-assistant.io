@@ -23,9 +23,8 @@ Prices are split up into three channel types:
 
 It exposes the following sensors for each channel type:
 
-- **Price** - Your current electricity price in c/kWh
+- **Price** - Your current electricity price in $/kWh
 - **Forecast** - The forecasted prices for the next 12 hours
-- **Energy Price** - Your current electricity price in $/kWh for use in the energy dashboard
 
 There are two additional sensors:
 
