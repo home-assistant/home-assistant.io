@@ -489,14 +489,16 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 The numeric functions and filters will not fail if the input is not a valid number, instead the input value will be returned unless a default value is specified. The `float` filter is an exception, it returns `0.0` if the input is invalid and a default value has not been specified. This is unwanted behavior in many cases, use `is_number` to check if the value is valid.
 
 {% raw %}
-`{{ float("not_a_number") }}` - renders as `"not_a_number"`
-`{{ "not_a_number" | float }}` - renders as `0.0`
-`{{ sin("not_a_number") }}` - renders as `"not_a_number"`
-`{{ "not_a_number" | sin }}` - renders as `"not_a_number"`
-`{{ float("not_a_number", default="Invalid number!") }}` - renders as `"Invalid number!"`
-`{{ "not_a_number" | float(default="Invalid number!") }}` - renders as `"Invalid number!"`
-`{{ sin("not_a_number", default="Invalid number!") }}` - renders as `"Invalid number!"`
-`{{ "not_a_number" | sin(default="Invalid number!") }}` - renders as `"Invalid number!"`
+
+- `{{ float("not_a_number") }}` - renders as `"not_a_number"`
+- `{{ "not_a_number" | float }}` - renders as `0.0`
+- `{{ sin("not_a_number") }}` - renders as `"not_a_number"`
+- `{{ "not_a_number" | sin }}` - renders as `"not_a_number"`
+- `{{ float("not_a_number", default="Invalid number!") }}` - renders as `"Invalid number!"`
+- `{{ "not_a_number" | float(default="Invalid number!") }}` - renders as `"Invalid number!"`
+- `{{ sin("not_a_number", default="Invalid number!") }}` - renders as `"Invalid number!"`
+- `{{ "not_a_number" | sin(default="Invalid number!") }}` - renders as `"Invalid number!"`
+
 {% endraw %}
 
 </div>
