@@ -119,11 +119,12 @@ Other state examples:
   Paulus is at {{ states('device_tracker.paulus') }}.
 {% endif %}
 
-{{ states('sensor.temperature') | float + 1 }}
+{% set state = states('sensor.temperature') %}{{ state | float + 1 if is_number(state) else "invalid temperature" }}
 
-{{ (states('sensor.temperature') | float * 10) | round(2) }}
+{% set state = states('sensor.temperature') %}{{ (state | float * 10) | round(2) if is_number(state)}}
 
-{% if states('sensor.temperature') | float > 20 %}
+{% set state = states('sensor.temperature') %}
+{% if is_number(state) and state | float > 20 %}
   It is warm!
 {% endif %}
 
@@ -483,6 +484,17 @@ Closest to some entity:
 
 Some of these functions can also be used in a [filter](https://jinja.palletsprojects.com/en/latest/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
 
+<div class='note'>
+
+The numeric functions and filters will not fail if the input is not a valid number, instead the input value will be returned with the exception of the flaot fitler which returns `0.0`. This is unwanted behavior in many cases, use `is_number` to check if the value is valid.
+
+`{{ float("not_a_number") }}` - renders as `"not_a_number"`
+`{{ "not_a_number" | float }}` - renders as `0.0`
+`{{ sin("not_a_number") }}` - renders as `"not_a_number"`
+`{{ "not_a_number" | sin }}` - renders as `"not_a_number"`
+
+</div>
+
 - `float` function will attempt to convert the input to a `float`. If that fails, return the input value.
 - `float` filter will attempt to convert the input to a `float`. If that fails, returns `0.0`.
 - `is_number` will return `True` if the input can be parsed by Python's `float` function and the parsed input is not `inf` or `nan`, in all other cases returns `False`. Note that a Python `bool` will return `True` but the strings `"True"` and `"False"` will both return `False`. Can be used as a filter.
@@ -591,9 +603,9 @@ The following overview contains a couple of options to get the needed values:
 {{ "%+.1f" | value_json }}
 
 # Math
-{{ value_json | float * 1024 }}
-{{ float(value_json) * (2**10) }}
-{{ value_json | log }}
+{{ value_json | float * 1024 if is_number(value_json) }}
+{{ float(value_json) * (2**10) if is_number(value_json) }}
+{{ value_json | log if is_number(value_json) }}
 {{ log(1000, 10) }}
 {{ sin(pi / 2) }}
 {{ cos(tau) }}
