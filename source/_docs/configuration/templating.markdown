@@ -479,13 +479,13 @@ Closest to some entity:
 
 {% endraw %}
 
-### Formatting
-
-- `float` will format the output as float.
-
 ### Numeric functions and filters
 
 Some of these functions can also be used in a [filter](https://jinja.palletsprojects.com/en/latest/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
+
+- `float` function will attempt to convert the input to a `float`. If that fails, return the input value.
+- `float` filter will attempt to convert the input to a `float`. If that fails, returns `0.0`.
+- `is_number` will return `True` if the input can be parsed by Python's `float` function and the parsed input is not `inf` or `nan`, in all other cases returns `False`. Note that a Python `bool` will return `True` but the strings `"True"` and `"False"` will both return `False`. Can be used as a filter.
 
 - `log(value, base)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.
 - `sin(value)` will return the sine of the input. Can be used as a filter.
