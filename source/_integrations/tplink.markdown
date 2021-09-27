@@ -28,8 +28,7 @@ There is currently support for the following device types within Home Assistant:
 - **Switch**
 - **Sensor**
 
-In order to activate the support, you will have to enable the integration inside the configuration panel.
-The supported devices in your network are automatically discovered, but if you want to control devices residing in other networks you will need to add them manually.
+{% include integrations/config_flow.md %}
 
 ## Supported Devices
 
