@@ -21,6 +21,7 @@ ha_platforms:
   - climate
   - light
   - sensor
+  - select
 ---
 
 The Netatmo integration platform is the main integration to integrate all Netatmo related platforms.

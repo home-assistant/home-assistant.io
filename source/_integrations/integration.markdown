@@ -83,4 +83,4 @@ sensor:
     round: 2
 ```
 
-This configuration will provide you with `sensor.energy_spent` who will have your energy in kWh.
+This configuration will provide you with `sensor.energy_spent` which will have your energy in kWh.

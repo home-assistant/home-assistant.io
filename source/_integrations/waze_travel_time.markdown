@@ -22,6 +22,10 @@ Notes:
 - The string inputs for `Substring *` allow you to force the integration to use a particular route or avoid a particular route in its time travel calculation. These inputs are case insensitive matched against the description of the route.
 - When using the `Avoid Toll Roads?`, `Avoid Subscription Roads?` and `Avoid Ferries?` options be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behavior is that Waze will route you over roads having subscription options, so best is to set both `Avoid Toll Roads?` and `Avoid Subscription Roads?` or `Avoid Ferries?` if needed and experiment to ensure the desired outcome.
 
+## Manual Polling
+
+Some users will want to have more control over polling frequencies. To use more granular polling, disable automated polling in your config entry's System Options. To manually trigger a polling request, call the [`homeassistant.update_entity` service](/integrations/homeassistant/#service-homeassistantupdate_entity) as needed, either manually or via automations.
+
 ## Example using dynamic destination
 
 Using the flexible option to set a sensor value to the `Destination`, you can setup a single Waze integration that will calculate travel time to multiple optional locations on demand.

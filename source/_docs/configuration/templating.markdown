@@ -207,6 +207,66 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+### Devices
+
+- `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
+- `device_attr(device_or_entity_id, attr_name)` returns the value of `attr_name` for the given device or entity ID. Not supported in [limited templates](#limited-templates).
+- `is_device_attr(device_or_entity_id, attr_name, attr_value)` returns whether the value of `attr_name` for the given device or entity ID matches `attr_value`. Not supported in [limited templates](#limited-templates).
+- `device_id(entity_id)` returns the device ID for a given entity ID. Can also be used as a filter
+
+#### Devices examples
+
+{% raw %}
+
+```text
+{{ device_attr('deadbeefdeadbeefdeadbeefdeadbeef', 'manufacturer') }}  # Sony
+```
+
+```text
+{{ is_device_attr('deadbeefdeadbeefdeadbeefdeadbeef', 'manufacturer', 'Sony') }}  # true
+```
+
+```text
+{{ device_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+{% endraw %}
+
+### Areas
+
+- `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
+- `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
+
+#### Areas examples
+
+{% raw %}
+
+```text
+{{ area_id('Living Room') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ area_id('my_device_id') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ area_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ area_name('deadbeefdeadbeefdeadbeefdeadbeef') }}  # Living Room
+```
+
+```text
+{{ area_name('my_device_id') }}  # Living Room
+```
+
+```text
+{{ area_name('sensor.sony') }}  # Living Room
+```
+
+{% endraw %}
+
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
@@ -233,8 +293,8 @@ The same thing can also be expressed as a filter:
 
    {% endraw %}
 
-- Filter `timestamp_local` converts an UNIX timestamp to its string representation as date/time in your local timezone.
-- Filter `timestamp_utc` converts a UNIX timestamp to its string representation representation as date/time in UTC timezone.
+- Filter `timestamp_local` converts an UNIX timestamp to its naive string representation as date/time in your local timezone. If timezone information is needed in the string, use `timestamp_custom` instead.
+- Filter `timestamp_utc` converts a UNIX timestamp to its naive string representation representation as date/time in UTC timezone. If timezone information is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_custom(format_string, local_time=True)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
 
 <div class='note'>

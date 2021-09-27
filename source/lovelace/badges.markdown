@@ -1,5 +1,5 @@
 ---
-title: "Lovelace Badges"
+title: "Badges"
 description: "Description of the various badges that are available."
 ---
 

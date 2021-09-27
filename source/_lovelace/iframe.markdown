@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Webpage Card"
 sidebar_label: Webpage
 description: "The Webpage card allows you to embed your favorite webpage right into Home Assistant."

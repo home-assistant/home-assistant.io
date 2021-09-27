@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Grid Card"
 sidebar_label: Grid
 description: "The Grid card allows you to show multiple cards in a grid."

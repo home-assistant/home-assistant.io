@@ -145,12 +145,27 @@ A list of available device paths can be found in **Supervisor** > **System** > *
 
 Press `Submit`. The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
 
+### ZiGate or Sonoff ZBBridge Devices
+
 If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path configuration:
 
 - ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
 - PiZigate : `pizigate:/dev/ttyS0`
 - Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
 - Sonoff ZBBridge : `socket://[IP]:[PORT]` for example `socket://192.168.1.11:8888`
+
+### Discovery via USB or Zeroconf
+
+Some devices can be auto-discovered, which can simplify the ZHA setup process. The following devices have been tested with discovery and offer a quick setup experience:
+
+| Device | Discovery Method | Identifier |
+| -------| ---------------- | ---------- |
+| [ConBee II](https://phoscon.de/en/conbee2) | USB | 1CF1:0030 |
+| [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) | USB | 10C4:8A2A |
+| [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/) | USB | 10C4:EA60 |
+| [Tube Zigbee Coordinator](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_cc2652p2.local. |
+
+Additional devices in the [Known working Zigbee radio modules](#known-working-zigbee-radio-modules) list may be discoverable, however, only devices that have been confirmed discoverable are listed above.
 
 ## Configuration - YAML
 
@@ -318,6 +333,19 @@ To add a new device:
 1. Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times, switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
 1. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
+### Best practices for avoiding pairing difficulties
+
+- If possible try to pair your Zigbee devices in their intended final location, (and not pair it next to the Zigbee coordinator and then need to move it after). 
+  - Pairing a Zigbee device next to the Zigbee coordinator and then moving it later can result in dropped/lost connections or other issues. 
+    - If the device you want to add is not brand new and as such never paired before then you always have to make sure to first manually reset the device to its factory default settings before you will be able to add/pair it. 
+- Some battery-operated Zigbee devices are known to have problems with pairing if they have Low battery voltage. 
+    - Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues. 
+- Check that you have enough Zigbee router devices (also known as Zigbee signal repeaters or range extenders) and if you do not have any, invest and add some mains-powered devices that will work as Zigbee routers. 
+    - Aim to start out with mains-powered devices before adding battery-operated devices as a "weak" Zigbee network mesh (e.g., the device is too far from the Zigbee coordinator or a Zigbee router) may prevent some devices from being paired. Zigbee router devices are also needed to increase the maximum of devices that can be connected to your Zigbee mesh network. 
+    - Note that some Zigbee devices are not fully compatible with all brands of Zigbee router devices. Xiaomi/Aqara devices are for example known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM/ LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios. 
+- Be patient as the pairing of some Zigbee devices may require multiple attempts and you may sometimes need to try again and again. 
+    - Some devices, like example those from Xiaomi/Aqara, are known to not be 100% compliant with the standard Zigbee specifications and may therefore require many paring attempts over 10-20 minutes or longer. 
+
 ### Using router devices
 
 You use routers to increase the number of Zigbee devices that can be used in a network. The total number of Zigbee devices that you have on a Zigbee network depends on a few things, but you should know that Zigbee coordinator hardware and firmware only plays a larger role in Zigbee networks with a lot of devices. More important is how many directly connected devices ("direct children") versus how many routers are connected to your Zigbee coordinator. Zigpy library which ZHA uses has an upper limit. This is 32 direct children, but if your Zigbee coordinator hardware is powerful enough then you can still have hundreds of Zigbee devices connected through routers.  
@@ -391,8 +419,10 @@ Using a Philips Hue Dimmer Switch or Lutron Connected Bulb Remote is probably th
 
 1. Turn on your Hue bulb/light you want to reset. (It is important that the bulb has just been turned).
 2. Hold the Philips Hue Dimmer Switch near your bulb (closer than 10 centimeters / 4 inches).
-3. Press and hold the (I)/(ON) and (O)/(OFF) buttons on the Philips Hue Dimmer Switch for about 10 seconds continuously until your bulb starts to blink.
+3. Press and hold the (I)/(ON) and (O)/(OFF) buttons on the Philips Hue Dimmer Switch for about 10 seconds continuously until your bulb starts to blink. On the newer switches hold the I/O and Scene Switch buttons.
 4. Your bulb should stop blinking and eventually turn on again. At the same time, a green light on the top left of your remote indicates that your bulb has been successfully reset to factory default settings.
+
+Note: If you are not unable to reset the bulb, remove it from the Hue Bridge and retry the procedure.
 
 #### Lutron Connected Bulb Remote
 

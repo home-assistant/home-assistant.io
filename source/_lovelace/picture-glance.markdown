@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Picture Glance Card"
 sidebar_label: Picture Glance
 description: "The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog."

@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Calendar Card"
 sidebar_label: Calendar
 description: "The calendar card displays your calendar entities in a month, day and list view"

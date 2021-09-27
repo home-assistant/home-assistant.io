@@ -92,7 +92,13 @@ The variables action allows you to set/override variables that will be accessibl
 
 ## Test a Condition
 
-While executing a script you can add a condition to stop further execution. When a condition does not return `true`, the script will stop executing. There are many different conditions which are documented at the [conditions page].
+While executing a script you can add a condition in the main sequence to stop further execution. When a condition does not return `true`, the script will stop executing. There are many different conditions which are documented at the [conditions page].
+
+<div class='note'>
+
+The `condition` action only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#test-a-condition) action, only the actions within that `choose` will stop.
+
+</div>
 
 ```yaml
 # If paulus is home, continue to execute the script below these lines
@@ -674,4 +680,4 @@ automation:
 [service calls page]: /getting-started/scripts-service-calls/
 [conditions page]: /getting-started/scripts-conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
-[script variables]: /integrations/script/#-configuration-variables
+[script variables]: /integrations/script/#configuration-variables

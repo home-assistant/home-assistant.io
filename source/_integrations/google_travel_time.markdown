@@ -23,6 +23,10 @@ A quota can be set against the API to avoid exceeding the free credit amount. Se
 
 {% include integrations/config_flow.md %}
 
+## Manual Polling
+
+Using automatic polling can lead to calls that exceed your API limit, especially when you are tracking multiple travel times using the same API key. To use more granular polling, disable automated polling in your config entry's System Options. To manually trigger a polling request, call the [`homeassistant.update_entity` service](/integrations/homeassistant/#service-homeassistantupdate_entity) as needed, either manually or via automations.
+
 ## Dynamic Configuration
 
 Tracking can be setup to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the Origin or Destination then every 5 minutes when the platform updates it will use the latest location of that entity.

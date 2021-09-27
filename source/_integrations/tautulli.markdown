@@ -93,4 +93,4 @@ sensor:
 ```
 
 [tautulli]: https://tautulli.com
-[tautulliapi]: https://github.com/Tautulli/Tautulli/blob/master/API.md#get_activity
+[tautulliapi]: https://github.com/Tautulli/Tautulli/wiki/Tautulli-API-Reference#get_activity

@@ -135,7 +135,7 @@ name:
 optimistic:
   description: Flag that defines if switch works in optimistic mode.
   required: false
-  type: string
+  type: boolean
   default: "`false` if state or position topic defined, else `true`."
 payload_available:
   description: The payload that represents the online state.

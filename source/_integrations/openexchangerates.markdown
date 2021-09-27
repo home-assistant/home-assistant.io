@@ -39,7 +39,7 @@ quote:
   required: true
   type: string
 base:
-  description: The symbol of the base currency.
+  description: The symbol of the base currency. Note that, changing the API `base` currency is not part of the freemium API plan.
   required: false
   type: string
   default: USD

@@ -33,6 +33,7 @@ ha_platforms:
   - number
   - scene
   - sensor
+  - select
   - switch
   - weather
 ---
@@ -697,6 +698,11 @@ controller_modes:
   description: Overrides the supported controller modes. Provide the supported `hvac_mode` values for your device.
   required: false
   type: list
+default_controller_mode:
+  description: Overrides the default controller mode. Any Home Assistant `hvac_mode` can be configured. This can, for example, be set to "cool" for cooling-only devices.
+  required: false
+  default: "heat"
+  type: string
 on_off_address:
   description: KNX address for switching the climate device on/off. *DPT 1*
   required: false
@@ -907,6 +913,22 @@ rgbw_state_address:
   description: KNX group address for retrieving the RGBW color of the light. *DPT 251.600*
   required: false
   type: [string, list]
+hue_address:
+  description: KNX group address for setting the hue of the light color in degrees. *DPT 5.003*
+  required: false
+  type: [string, list]
+hue_state_address:
+  description: KNX group address for retrieving the hue of the light color in degrees. *DPT 5.003*
+  required: false
+  type: [string, list]
+saturation_address:
+  description: KNX group address for setting the saturation of the light color in percent. *DPT 5.001*
+  required: false
+  type: [string, list]
+saturation_state_address:
+  description: KNX group address for retrieving the saturation of the light color in percent. *DPT 5.001*
+  required: false
+  type: [string, list]
 xyy_address:
   description: KNX group address for setting the xyY color of the light. *DPT 242.600*
   required: false
@@ -978,7 +1000,7 @@ max_kelvin:
   default: 6000
 {% endconfiguration %}
 
-Many KNX devices can change their state internally without a message to the switch address on the KNX bus, e.g., if you configure a scene or a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given `state_address` (in most cases from the light actuator), it will overwrite the state of the switch object.
+Many KNX devices can change their state internally without a message to the switch address on the KNX bus, e.g., if you configure a scene or a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given `state_address` (in most cases from the light actuator), it will overwrite the state of the object.
 
 For switching/light actuators that are only controlled by a single group address and don't have dedicated state communication objects you can set `state_address` to the same value as `address`.
 
@@ -990,23 +1012,70 @@ For switching/light actuators that are only controlled by a single group address
 knx:
   light:
     # dimmable light
-    - name: "Bedroom Light 1"
+    # color mode: brightness
+    - name: "Dimmable light"
       address: "1/0/9"
       state_address: "1/1/9"
       brightness_address: "1/2/9"
       brightness_state_address: "1/3/9"
-    #
-    # RGB light
-    - name: "Bathroom Light 1"
+    # XYY light
+    # color mode: xy
+    - name: "XYY light"
       address: "1/0/9"
       state_address: "1/1/9"
-      brightness_address: "1/2/9"
+      brightness_address: "1/2/9"  # optional - if not set brightness will be sent over the xyy data point
+      brightness_state_address: "1/3/9"
+      xyy_address: "1/4/9"
+      xyy_state_address: "1/5/9"
+    # HS light
+    # color mode: hs
+    - name: "HS light"
+      address: "1/0/9"
+      state_address: "1/1/9"
+      brightness_address: "1/2/9"  # required for HS
+      brightness_state_address: "1/3/9"
+      hue_address: "1/4/8"
+      hue_state_address: "1/5/8"  # required for HS
+      saturation_address: "1/4/9"
+      saturation_state_address: "1/5/9"  # required for HS
+    # RGB light
+    # color mode: rgb
+    - name: "RGB light"
+      address: "1/0/9"
+      state_address: "1/1/9"
+      brightness_address: "1/2/9"  # optional for RGB lights
       brightness_state_address: "1/3/9"
       color_address: "1/4/9"
       color_state_address: "1/5/9"
-    #
+    # RGBW light
+    # color mode: rgbw
+    - name: "RGBW light"
+      address: "0/4/83"
+      state_address: "0/4/84"
+      brightness_address: "0/4/85"  # optional for RGBW lights
+      brightness_state_address: "0/4/86"
+      rgbw_address: "0/4/87"
+      rgbw_state_address: "0/4/88"
+    # RGB(W) individual object light
+    # color mode: rgb / rgbw
+    - name: "RGBW individual light"
+      address: "1/0/9"  # optional for individual color lights
+      individual_colors:
+        red:
+          brightness_address: "0/4/61"
+          brightness_state_address: "0/5/61"
+        green:
+          brightness_address: "0/4/62"
+          brightness_state_address: "0/5/62"
+        blue:
+          brightness_address: "0/4/63"
+          brightness_state_address: "0/5/63"
+        white:
+          brightness_address: "0/4/64"
+          brightness_state_address: "0/5/64"
     # tunable white light
-    - name: "Office Light 1"
+    # color mode: color_temp
+    - name: "TW light"
       address: "1/0/21"
       state_address: "1/1/21"
       brightness_address: "1/2/21"
@@ -1016,9 +1085,9 @@ knx:
       color_temperature_mode: absolute
       min_kelvin: 2550
       max_kelvin: 6200
-    #
     # actuator without dedicated state communication object
-    - name: "Cellar Light 1"
+    # color mode: onoff
+    - name: "Simple light"
       address: "1/0/5"
       state_address: "1/0/5"
 ```
@@ -1271,6 +1340,10 @@ always_callback:
   required: false
   type: boolean
   default: false
+state_class:
+  description: Sets the [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### Value Types
@@ -1441,6 +1514,7 @@ knx:
       state_address: "6/2/1"
       sync_state: every 60
       type: temperature
+      state_class: measurement
 ```
 
 ## Switch

@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Picture Elements Card"
 sidebar_label: Picture Elements
 description: "The Picture Elements card is one of the most versatile types of cards. The cards allow you to position icons or text and even services! On an image based on coordinates."
@@ -434,7 +435,7 @@ user:
 ### How to use the style object
 
 Position and style your elements using [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS). More/other keys are also possible.
-Note, the default style for most elements includes [translate](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate)(-50%, -50%), which means that the coordinates you provide will set the position of the center of the element.
+Note, the default style for most elements includes [translate](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate)(-50%, -50%), which means that the coordinates you provide will set the position of the center of the element. Use `transform: none` to disable this behavior.
 
 ```yaml
 style:
@@ -549,10 +550,10 @@ elements:
     filter: saturate(.8)
     state_filter:
       "on": brightness(120%) saturate(1.2)
-      style:
-        top: 25%
-        left: 75%
-        width: 15%
+    style:
+      top: 25%
+      left: 75%
+      width: 15%
   # Camera, red border, rounded-rectangle - show more-info on click
   - type: image
     entity: camera.driveway_camera

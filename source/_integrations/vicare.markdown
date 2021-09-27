@@ -31,15 +31,33 @@ To set it up, add the following information to your `configuration.yaml` file:
 vicare:
   username: VICARE_EMAIL
   password: VICARE_PASSWORD
+  client_id: VICARE_CLIENT_ID
 ```
+
+The above-required configuration parameters can be obtained as follows:
+1. Register and login in the [Viessmann Developer Portal](https://developer.viessmann.com).
+2. In the menu navigate to API Keys.
+3. Create a new OAuth client using the following data:
+  ```txt
+  Name: PyViCare
+  Google reCAPTCHA: Disabled
+  Redirect URIs: vicare://oauth-callback/everest
+  ```
+4. Copy the Client ID to the configuration, e.g., `client_id: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"`.
+5. Set `username`and `password` to your Viessmann Developer Portal login credentials.
+
 
 {% configuration %}
 username:
-  description: Your username for the ViCare App
+  description: Your username for the Viessmann developer portal
   required: true
   type: string
 password:
-  description: Your password for the ViCare App
+  description: Your password for the Viessmann developer portal
+  required: true
+  type: string
+client_id:
+  description: Your API key from the Viessmann developer portal
   required: true
   type: string
 name:
@@ -68,7 +86,7 @@ Unless you specify a `circuit` parameter, it will pick up the first heating circ
 
 ## Viessmann API limits
 
-Recently Viessmann has introduced a rate limit on their REST API. If you exceed one of the limits below you will be banned for 24 hours:
+The Viessmann API is rate-limited. If you exceed one of the limits below you will be banned for 24 hours:
 
 - Limit 1: 120 calls for a time window of 10 minutes
 - Limit 2: 1450 calls for a time window of 24 hours

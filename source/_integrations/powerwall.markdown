@@ -3,6 +3,7 @@ title: Tesla Powerwall
 description: Instructions on how to integrate Tesla Power Walls into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Energy
   - Sensor
 ha_release: 0.108
 ha_iot_class: Local Polling

@@ -4,7 +4,7 @@ description: "Install Home Assistant on a Raspberry Pi"
 installation_type: raspberrypi
 ---
 {% comment %}
-Included sections for this page is located under source/_includes/getting-started/installation
+Included sections for this page is located under source/_includes/installation
 {% endcomment %}
 
 {% assign board = "Raspberry Pi" %}

@@ -3,13 +3,28 @@ layout: default
 ---
 
 <article class="page">
-  {% if page.title and page.show_title != false %}
+  {% if page.title and page.show_title != false and page.layout != "landingpage"  %}
   <header>
     <h1 class="title indent">
       {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title
       }}{% endif %}
     </h1>
   </header>
+  {% if page.collection == "integrations" %}
+    {% assign active_alert = "" %}
+    {% for alert in site.data.alerts_data %}
+      {% for integration in alert.integrations %}
+        {% if integration.package == page.ha_domain %}
+          {% assign active_alert = alert.alert_url %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    {% if active_alert != "" %}
+      <div class="integration-alert">
+        <a href="{{active_alert}}" target="_blank">⚠️ There is an active alert for this integration!</a>
+      </div>
+    {% endif %}
+  {% endif %}
   <hr class="divider" />
   {% endif %}
   {{ content }}

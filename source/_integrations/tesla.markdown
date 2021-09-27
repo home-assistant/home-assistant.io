@@ -40,12 +40,6 @@ This integration provides the following platforms:
 
 {% include integrations/config_flow.md %}
 
-<div class='note warning'>
-  
-  Note: MFA on your Tesla Account is not supported at this time.
-
-</div>
-
 ## Options
 
 Tesla options are set via **Configuration** -> **Integrations** -> **Tesla** -> **Options**.

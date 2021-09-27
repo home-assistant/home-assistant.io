@@ -33,6 +33,10 @@ ha_platforms:
 ---
 
 [Wink](https://www.wink.com/) is a home automation hub that can control a whole wide range of devices on the market. Or, as they say in their own words:
+<div class="note warning">
+ The Wink integration has been marked deprecated and is pending removal in Home Assistant Core 2021.12.
+ It is considered impossible to obtain the needed API keys to use this integration. The developer portal has been taken down and support has confirmed to their users they won't be allowing new applications.
+ </div>
 
 <blockquote>
   Wink offers one, quick and simple way to connect people with the products they rely on every day in their home.

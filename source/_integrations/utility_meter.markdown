@@ -40,9 +40,13 @@ source:
   description: The entity ID of the sensor providing utility readings (energy, water, gas, heating).
   required: true
   type: string
+name:
+  description: The friendly name to use in the GUI.
+  required: false
+  type: string
 cycle:
   description: How often to reset the counter. Valid values are `quarter-hourly`, `hourly`, `daily`, `weekly`, `monthly`, `bimonthly`, `quarterly` and `yearly`. Cycle value `bimonthly` will reset the counter once in two months.
-  required: true
+  required: false
   type: string
 offset:
   description: "Cycle reset occur at the beginning of the period (0 minutes, 0h00 hours, Monday, day 1, January). This option enables the offsetting of these beginnings. Supported formats: `offset: 'HH:MM:SS'`, `offset: 'HH:MM'` and Time period dictionary (see example below)."
@@ -50,6 +54,10 @@ offset:
   default: 0
   type: time
   type: integer
+cron:
+  description: This option is *mutually exclusive* of `cycle` and `offset`. It provides an advanced method of defining when should the counter be reset. It follows common [crontab syntax](https://crontab.guru).
+  required: true
+  type: string
 net_consumption:
   description: Set this to True if you would like to treat the source as a net meter. This will allow your counter to go both positive and negative.
   required: false
@@ -127,12 +135,14 @@ Sensor `sensor.daily_energy_peak`, `sensor.daily_energy_offpeak`, `sensor.monthl
 utility_meter:
   daily_energy:
     source: sensor.energy
+    name: Daily Energy
     cycle: daily
     tariffs:
       - peak
       - offpeak
   monthly_energy:
     source: sensor.energy
+    name: Monthly Energy
     cycle: monthly
     tariffs:
       - peak
@@ -178,21 +188,27 @@ So, tracking daily and monthly consumption for each sensor, will require setting
 utility_meter:
   daily_energy_offpeak:
     source: sensor.energy_consumption_tarif_1
+    name: Daily Energy (Offpeak)
     cycle: daily
   daily_energy_peak:
     source: sensor.energy_consumption_tarif_2
+    name: Daily Energy (Peak)
     cycle: daily
   daily_gas:
     source: sensor.gas_consumption
+    name: Daily Gas
     cycle: daily
   monthly_energy_offpeak:
     source: sensor.energy_consumption_tarif_1
+    name: Monthly Energy (Offpeak)
     cycle: monthly
   monthly_energy_peak:
     source: sensor.energy_consumption_tarif_2
+    name: Monthly Energy (Peak)
     cycle: monthly
   monthly_gas:
     source: sensor.gas_consumption
+    name: Monthly Gas
     cycle: monthly
 ```
 

@@ -7,6 +7,12 @@
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
 /latest-security-alert /blog/2021/01/23/security-disclosure2/
 
+# Redirect for Energy
+/energy /home-energy-management
+/integrations/energy /docs/energy
+
+/amber https://www.crowdsupply.com/nabu-casa/home-assistant-amber
+
 # Older development pages
 /developers https://developers.home-assistant.io
 /developers/add_new_platform https://developers.home-assistant.io/docs/creating_platform_index/
@@ -714,7 +720,6 @@
 /components/sensor.freebox /integrations/freebox#sensor
 /components/sensor.fritzbox /integrations/fritzbox#sensor
 /components/sensor.fritzbox_callmonitor /integrations/fritzbox_callmonitor
-/components/sensor.fritzbox_netmonitor /integrations/fritzbox_netmonitor
 /components/sensor.geo_rss_events /integrations/geo_rss_events
 /components/sensor.github /integrations/github
 /components/sensor.gitlab_ci /integrations/gitlab_ci
@@ -914,7 +919,6 @@
 /components/sensor.worldtidesinfo /integrations/worldtidesinfo
 /components/sensor.worxlandroid /integrations/worxlandroid
 /components/sensor.wsdot /integrations/wsdot
-/components/sensor.wunderground /integrations/wunderground
 /components/sensor.xbox_live /integrations/xbox_live
 /components/sensor.xs1 /integrations/xs1#sensors
 /components/sensor.zabbix /integrations/zabbix#sensor
@@ -1358,7 +1362,6 @@
 /components/fritz /integrations/fritz
 /components/fritzbox /integrations/fritzbox
 /components/fritzbox_callmonitor /integrations/fritzbox_callmonitor
-/components/fritzbox_netmonitor /integrations/fritzbox_netmonitor
 /components/fronius /integrations/fronius
 /components/frontend /integrations/frontend
 /components/frontier_silicon /integrations/frontier_silicon
@@ -1974,7 +1977,6 @@
 /components/worldtidesinfo /integrations/worldtidesinfo
 /components/worxlandroid /integrations/worxlandroid
 /components/wsdot /integrations/wsdot
-/components/wunderground /integrations/wunderground
 /components/wunderlist /integrations/wunderlist
 /components/x10 /integrations/x10
 /components/xbox_live /integrations/xbox_live
@@ -2120,6 +2122,8 @@
 /cookbook/#infrastructure /examples/#infrastructure
 /cookbook/#automation-examples /examples
 /cookbook /examples
+/common-tasks/os/#snapshots /common-tasks/os/#backups
+/common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -2217,6 +2221,7 @@
 /components/fortigate /more-info/removed-integration 301
 /components/history_graph /more-info/removed-integration 301
 /components/hydroquebec /more-info/removed-integration 301
+/components/fritzbox_netmonitor  /more-info/removed-integration 301
 /components/linksys_ap /more-info/removed-integration 301
 /components/liveboxplaytv /more-info/removed-integration 301
 /components/lock.lockitron /more-info/removed-integration 301
@@ -2232,6 +2237,7 @@
 /components/ruter /more-info/removed-integration 301
 /components/sensor.bom /more-info/removed-integration 301
 /components/sensor.duke_energy  /more-info/removed-integration 301
+/components/sensor.fritzbox_netmonitor /more-info/removed-integration 301
 /components/sensor.gearbest /more-info/removed-integration 301
 /components/sensor.hydroquebec /more-info/removed-integration 301
 /components/sensor.linky /more-info/removed-integration 301
@@ -2306,3 +2312,7 @@
 /components/sensor.spotcrime /more-info/removed-integration 301
 /components/spotcrime /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
+/components/sensor.wunderground /more-info/removed-integration 301
+/components/wunderground /more-info/removed-integration 301
+/integrations/wunderground /more-info/removed-integration 301
+/integrations/garmin_connect /more-info/removed-integration 301

@@ -54,6 +54,10 @@ We will need a few things to get started with installing Home Assistant. Links b
 <b>Prerequisites</b>
 
 This guide assumes that you have a dedicated generic x86 PC (typically an Intel or AMD-based system) available to exclusively run Home Assistant Operating System. The system must be 64-bit capable and able to boot using UEFI. Pretty much all systems produced in the last 10 years support the UEFI boot mode.
+
+<b>Summary</b>
+
+You will need to write the HAOS (Home Assistant OS) disk image directly to your boot media, and then configure your x86 to boot from this media, using UEFI boot mode.
 </div>
 
 ### Configure the BIOS
@@ -69,15 +73,18 @@ To boot Home Assistant OS the BIOS needs to have UEFI boot mode enabled and Secu
 1. Disable Secure Boot
 ![Disable Secure Boot mode](/images/installation/intel-nuc-disable-secure-boot.jpg)
 
-As a next step, we need to write the Operating System image to the installation media. Depending on your system this can be a S-ATA hard disk, S-ATA SSD, a M.2 SSD or even a eMMC. Home Assistant Operating System has no integrated installer. You need to use your Desktop computer (e.g. by using a USB to S-ATA adapter) or boot a live operating system on your target system to install Home Assistant Operating System.
+As a next step, we need to write the Operating System image to the target boot media (Your "boot media" is the disk, SSD, or eMMC that your x86-64 hardware will boot from when it is running Home Assistant). Depending on your system this can be a S-ATA hard disk, S-ATA SSD, a M.2 SSD or even a eMMC. Home Assistant Operating System has no integrated installer. You need to use your Desktop computer (e.g. by using a USB to S-ATA adapter) or boot a live operating system on your target system to install Home Assistant Operating System, by writing the disk image directly onto the boot media for your x86 system.
 
-If you prefer to use a live operating system, follow the instructions of your Live distribution (e.g., [this Ubuntu guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Once you booted the live operating system, the following steps on how-to write the image to your installation media can be followed.
+If you prefer to use a live operating system, follow the instructions of your Live distribution (e.g., [this Ubuntu guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Once you booted the live operating system, the following steps on how to write the image to your boot media can be followed.
 
 {% endif %}
 
-### Write the image to your installation media
+### Write the image to your boot media
 
-1. Attach the installation media ({{site.installation.types[page.installation_type].installation_media}}) to your computer
+1. Attach the Home Assistant boot media ({{site.installation.types[page.installation_type].installation_media}}) to your computer
+{% if page.installation_type == 'odroid' %}
+   If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
+{% endif %}
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
 3. Select "Flash from URL"
 ![etcher_from_url](/images/installation/etcher1.png)
@@ -127,11 +134,11 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
 {% if page.installation_type == 'generic-x86-64' %}
-1. If you used your Desktop system to write to your installation media, install the installation media ({{site.installation.types[page.installation_type].installation_media}}) to the target system. Otherwise, shutdown the live operating system and make sure to remove the USB flash drive you have been using for the live system.
+1. If you used your Desktop system to write to your boot media, install the boot media ({{site.installation.types[page.installation_type].installation_media}}) into the target system. Otherwise, shutdown the live operating system and make sure to remove the USB flash drive you have been using for the live system.
 2. Make sure an ethernet cable for network is plugged in
-3. Power the system on. 
+3. Power the system on.
 {% else %}
-1. Insert the installation media ({{site.installation.types[page.installation_type].installation_media}}) you just created
+1. Insert the boot media ({{site.installation.types[page.installation_type].installation_media}}) you just created
 2. Attach a ethernet cable for network.
 3. Attach a cable for power
 {% endif %}

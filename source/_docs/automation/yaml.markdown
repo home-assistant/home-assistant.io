@@ -118,12 +118,12 @@ automation:
 
 ### Number of debug traces stored
 
-When using YAML you can configure the number of debugging traces stored for an automation. This is controlled with the `stored_traces` option under `traces`. Set `stored_traces` to the number of traces you wish to store for the particular automation. If not specified the default value of 5 will be used.
+When using YAML you can configure the number of debugging traces stored for an automation. This is controlled with the `stored_traces` option under `trace`. Set `stored_traces` to the number of traces you wish to store for the particular automation. If not specified the default value of 5 will be used.
 
 ```yaml
 automation:
   - alias: "Automation Name"
-    traces:
+    trace:
       stored_traces: 10
     trigger:
       - platform: ...

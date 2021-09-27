@@ -18,6 +18,7 @@ ha_platforms:
   - media_player
   - sensor
   - switch
+ha_zeroconf: true
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
@@ -190,6 +191,7 @@ Night Sound and Speech Enhancement modes are only supported when playing from th
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that will have their options set.
 | `buttons_enabled` | yes | Boolean to control the functioning of hardware buttons on the device.
+| `crossfade` | yes | Boolean to control crossfading between songs.
 | `night_sound` | yes | Boolean to control Night Sound mode.
 | `speech_enhance` | yes | Boolean to control Speech Enhancement mode.
 | `status_light` | yes | Boolean to control the Status (LED) Light.

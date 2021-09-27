@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Entity Card"
 sidebar_label: Entity
 description: "The Entity card gives you a quick overview of your entity's state"

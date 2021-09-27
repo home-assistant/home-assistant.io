@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Map Card"
 sidebar_label: Map
 description: "The Map card that allows you to display entities on a map"

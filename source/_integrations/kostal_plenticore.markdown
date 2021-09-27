@@ -105,23 +105,3 @@ The following sensors are available in the library:
 <div class='note'>
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
 </div>
-
-## Services
-
-### Service `kostal_plenticore.write_setting_value`
-
-Write a new value to a setting.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String that point to a setting `entity_id`.
-| `value` | no  | The new value to write to the setting.
-
-Example:
-
-Set the minimal SoC of the battery:
-
-```yaml
-entity_id: sensor.plenticore_battery_min_soc
-value: 10
-```

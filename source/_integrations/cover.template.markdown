@@ -54,12 +54,12 @@ cover:
         required: false
         type: string
       value_template:
-        description: Defines a template to get the state of the cover. Valid values are `open`/`true` or `opening`/`closing`/`closed`/`false`. [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
-        required: exclusive
+        description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `value_template` and a `position_template`](#combining_value_template_and_position_template) are specified, only `opening` and `closing` are set from the `value_template`.
+        required: false
         type: template
       position_template:
-        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
-        required: exclusive
+        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open).
+        required: false
         type: template
       icon_template:
         description: Defines a template to specify which icon to use.
@@ -137,6 +137,20 @@ forced into optimistic mode by using the [`optimistic`](#optimistic) attribute.
 There is an equivalent mode for `tilt_position` that is enabled when
 [`tilt_template`](#tilt_template) is not specified or when the
 [`tilt_optimistic`](#tilt_optimistic) attribute is used.
+
+## Combining `value_template` and `position_template`
+
+If both a [`value_template`](#value_template) and a [`position_template`](#position_template) are specified only `opening` and `closing` states are set directly from the `value_template`, the `open` and `closed` states will instead be derived from the cover position.
+
+| value_template output | result |
+| ------------- |-------------|
+| open | state defined by `position_template` |
+| close | state defined by `position_template` |
+| true | state defined by `position_template` |
+| false | state defined by `position_template` |
+| opening | state set to `opening` |
+| closing | state set to `closing` |
+| <any other output> | No change of state or position |
 
 ## Examples
 

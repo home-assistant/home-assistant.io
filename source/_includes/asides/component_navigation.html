@@ -1,6 +1,6 @@
-{% assign percentage = 100.0 | times: site.data.analytics_data.integrations[page.ha_domain] | divided_by: site.data.analytics_data.reports_integrations | round: 1 %}
+{% assign active_installations = site.data.analytics_data.integrations[page.ha_domain] | default: 0 %}
+{% assign percentage = 100.0 | times: active_installations | divided_by: site.data.analytics_data.reports_integrations | round: 1 %}
 <section class="aside-module grid__item one-whole lap-one-half">
-
   <div class='brand-logo-container section'>
     {%- if page.logo -%}
       <img src='/images/supported_brands/{{ page.logo }}' />
@@ -13,18 +13,12 @@
     {%- endif -%}
   </div>
 
-  {%- if page.ha_domain -%}
-    <div class="section">
-      <kb-alert-link integration="{{ page.ha_domain }}"></kb-alert-link>
-    </div>
-  {%- endif -%}
-
   <div class='section'>
     The {{ page.name | default: page.title }} integration was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
     and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/#integrations" target="_blank" rel="noopener">
     
     {% if percentage < 1 %}
-      {{ site.data.analytics_data.integrations[page.ha_domain] }}</a> active installations.
+      {{ active_installations }}</a> active installations.
     {% else %}
       {{ percentage | remove: ".0" }}%</a> of the active installations.
     {% endif %}
@@ -61,5 +55,3 @@
   {%- endif -%}
 
 </section>
-
-<script src="https://alerts.home-assistant.io/ce-alert-link.js"></script>

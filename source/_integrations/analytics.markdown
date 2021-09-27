@@ -74,6 +74,7 @@ This includes:
 
 - The names of all your core integrations
 - The names and versions of all your custom integrations if you have any
+- Boolean to indicate that the [`energy` integration](/integrations/energy) is configured
 
 If your system includes the Supervisor, this will also contain:
 
@@ -100,14 +101,17 @@ If your system includes the Supervisor, this will also contain:
     "version": "{{site.data.version_data.hassos['odroid-n2']}}"
   },
   "integrations": ["awesome_integration"],
-    "addons": [
-        {
-            "slug": "awesome_addon",
-            "protected": true,
-            "version": "1.0.0",
-            "auto_update": false
-        }
-    ]
+  "addons": [
+      {
+          "slug": "awesome_addon",
+          "protected": true,
+          "version": "1.0.0",
+          "auto_update": false
+      }
+  ],
+  "energy": {
+    "configured": true
+  }
 }
 ```
 

@@ -34,4 +34,6 @@ Wallet balances to report:
   description: List of currency codes to create account wallet sensors for.
 Exchange rates to report:
   description: Optional list of currencies to create exchange rate sensors for.
+Base currency for exchange rate sensors:
+  description: Currency used as the currency unit for exchange rate sensors. The default is US Dollar (USD).
 {% endconfiguration_basic %}

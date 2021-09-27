@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_release: 0.18
 ha_codeowners:
   - '@bendavid'
+  - '@thecode'
 ha_domain: webostv
 ha_platforms:
   - media_player

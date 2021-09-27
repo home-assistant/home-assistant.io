@@ -12,7 +12,7 @@ This section will provide guides to some common tasks and information which you 
 {% include common-tasks/development_version.md %}
 {% include common-tasks/configuration_check.md %}
 {% include common-tasks/file_access.md %}
-{% include common-tasks/snapshots.md %}
+{% include common-tasks/backups.md %}
 {% include common-tasks/commandline.md %}
 {% include common-tasks/lost_password.md %}
 {% include common-tasks/third-party-addons.md %}

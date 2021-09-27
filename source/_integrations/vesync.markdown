@@ -126,5 +126,17 @@ sensor:
         value_template: '{{ states.switch.vesync_switch.attributes["voltage"] | float }}'
         unit_of_measurement: "V"
 ```
+{% endraw %}
+
+Extracting air quality from a VeSync LV-PUR131S air purifier. Change the `vesync_air_purifier` to match your device's entity ID.
+
+{% raw %}
+
+```yaml
+template:
+  - sensor:
+      - name: "VeSync Air Quality"
+        state: "{{ state_attr('fan.vesync_air_purifier', 'air_quality') | title }}"
+```
 
 {% endraw %}

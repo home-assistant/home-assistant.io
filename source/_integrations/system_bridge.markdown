@@ -5,7 +5,7 @@ ha_category:
   - Sensor
   - System Monitor
 ha_release: 2021.6
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@timmo001'
@@ -80,7 +80,7 @@ Open a URL or file on the server using the default application.
 service: system_bridge.open
 data:
   bridge: "device"
-  path: "C:\image.jpg"
+  path: "C:\\image.jpg"
 ```
 
 ```yaml

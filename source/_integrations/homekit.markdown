@@ -1,6 +1,7 @@
 ---
 title: HomeKit
 description: Instructions on how to set up the HomeKit Bridge integration in Home Assistant.
+featured: true
 ha_category:
   - Voice
 ha_release: 0.64
@@ -256,6 +257,10 @@ homekit:
               type: string
               default: libopus
               available options: copy, libopus
+    devices:
+      description: Include device triggers for all matching device ids. Configuration in the UI via Options is recommended instead.
+      required: false
+      type: list                
 {% endconfiguration %}
 
 ## Setup
@@ -415,6 +420,13 @@ The following integrations are currently supported:
 | sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
 | water_heater | WaterHeater | All `water_heater` devices. |
+| device_automation | DeviceTriggerAccessory | All devices that support triggers. |
+
+# Device Triggers
+
+Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Configuration >> Integrations" %}**.
+
+Bridged device triggers are represented as a single press button on stateless programmable switches. This allows a HomeKit automation to run when a device trigger fires. Because the iOS Home app currently only shows the number of the button and not the name, users may find it easier to identify the name of the button in the `Eve for HomeKit` app.
 
 ## iOS Remote Widget
 
@@ -565,7 +577,7 @@ See [specific entity doesn't work](#specific-entity-doesnt-work)
 
 #### Accessory not responding - after restart or update
 
-See [resetting accessories](#resetting-accessories)
+See [resetting accessories](#resetting-accessories) and [Unpairing and Re-pairing](#unpairing-and-re-pairing).
 
 #### The linked battery sensor isn't recognized
 
@@ -616,3 +628,9 @@ You may use the service `homekit.reset_accessory` with one or more entity_ids to
 On earlier versions of Home Assistant, you can reset accessories by removing the entity from HomeKit (via [filter](#configure-filter)) and then re-adding the accessory.
 
 With either strategy, the accessory will behave as if it's the first time the accessory has been set up, so you will need to restore the name, group, room, scene, and/or automation settings.
+
+#### Unpairing and Re-pairing
+
+The HomeKit integration remembers a public key for each paired device. Occasionally the public key for a device pairing will be missing because of pairing failures. Suppose one or more devices show the accessory as unavailable. In that case, it may be necessary to unpair and re-pair the device to ensure the integration has the public key for each paired client. The `homekit.unpair` service will forcefully remove all pairings and allow re-pairing with the accessory. When setting up HomeKit from the UI, this avoids the sometimes time-consuming process of deleting and create a new instance.
+
+The accessory will behave as if it's the first time the accessory has been set up, so you will need to restore the name, group, room, scene, and/or automation settings.

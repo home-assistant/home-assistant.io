@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Alarm Panel Card"
 sidebar_label: Alarm Panel
 description: "The Alarm Panel card allows you to arm and disarm your alarm control panel integrations."
