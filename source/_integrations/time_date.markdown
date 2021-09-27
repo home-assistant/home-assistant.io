@@ -66,7 +66,7 @@ sensor:
     sensors:
       time_formatted:
         friendly_name: "Date and time"
-        value_template: "{{ as_timestamp(states('sensor.date_time_iso')) | timestamp_custom('%A %B %-m, %I:%M %p') }}"
+        value_template: "{{ as_timestamp(states('sensor.date_time_iso')) | timestamp_custom('%A %B %-d, %I:%M %p') }}"
         icon_template: mdi:calendar-clock
 ```
 
