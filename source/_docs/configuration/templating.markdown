@@ -486,7 +486,7 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 
 <div class='note'>
 
-The numeric functions and filters will not fail if the input is not a valid number, instead the input value will be returned with the exception of the flaot fitler which returns `0.0`. This is unwanted behavior in many cases, use `is_number` to check if the value is valid.
+The numeric functions and filters will not fail if the input is not a valid number, instead the input value will be returned with the exception of the float fitler which returns `0.0`. This is unwanted behavior in many cases, use `is_number` to check if the value is valid.
 
 `{{ float("not_a_number") }}` - renders as `"not_a_number"`
 `{{ "not_a_number" | float }}` - renders as `0.0`
