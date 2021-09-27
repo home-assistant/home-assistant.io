@@ -52,7 +52,7 @@ description:
 domain:
   description: >
     The domain name this blueprint provides a blueprint for. Currently, only
-    `automation` is supported.
+    `automation` and `script` are supported.
   type: string
   required: true
 input:
