@@ -41,7 +41,7 @@ Prices are split up into three channel types:
 
 It exposes the following sensors for each channel type:
 
-- **Price** - Your current electricity price in $AUD/kWh
+- **Price** - Your current electricity price in $/kWh
 - **Forecast** - The forecasted prices for the next 12 hours
 
 There are two additional sensors:
