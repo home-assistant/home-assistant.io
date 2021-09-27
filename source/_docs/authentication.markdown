@@ -21,7 +21,7 @@ For the moment, other user accounts will have the same access as the owner accou
 </div>
 
 <div class="note">
-If you want to manage users and you're an owner but you do not see 'Users' in your main configuration menu, make sure that `Advanced Mode` is enabled for your user in your profile. (Added <a href="https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode"> in 0.96</a>)
+If you want to manage users and you're an owner but you do not see "Users" in your main configuration menu, make sure that "Advanced Mode" is enabled for your user in your profile. 
 </div>
 
 ### Your Account Profile
