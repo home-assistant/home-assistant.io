@@ -485,7 +485,7 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 
 - `float` function will attempt to convert the input to a `float`. If that fails, return the input value.
 - `float` filter will attempt to convert the input to a `float`. If that fails, returns `0.0`.
-- `isnumeric` will returns `True` if the input can be parsed by Python's float function and its value is not inf or nan, in all other cases returns `False`. Can be used as a filter.
+- `isnumeric` will return `True` if the input can be parsed by Python's `float` function and its value is not inf or nan, in all other cases returns `False`. Can be used as a filter.
 
 - `log(value, base)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.
 - `sin(value)` will return the sine of the input. Can be used as a filter.
