@@ -70,7 +70,7 @@ Connection can be done directly to the meter via a USB to serial connector, or t
 - [SOS Solutions](https://www.sossolutions.nl/slimme-meter-kabel)
 - [AliExpress](https://nl.aliexpress.com/item/32945187155.html)
 
-Docker users have to allow Docker access to the USB to seriacl converter by adding `--device /dev/ttyUSB21:/dev/ttyUSB21` to the run command:
+Docker users have to allow Docker access to the USB to serial converter by adding `--device /dev/ttyUSB21:/dev/ttyUSB21` to the run command:
 
 ```hass
 $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /home/USERNAME/hass:/config -v /etc/localtime:/etc/localtime:ro --net=host {{ site.installation.container.base }}
