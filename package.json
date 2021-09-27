@@ -7,7 +7,7 @@
     "remark-cli": "^10.0.0",
     "remark-frontmatter": "^4.0.0",
     "remark-lint": "^9.1.0",
-    "remark-lint-fenced-code-flag": "^3.0.1",
+    "remark-lint-fenced-code-flag": "^3.1.0",
     "remark-lint-no-shell-dollars": "^3.0.1",
     "remark-stringify": "^10.0.0",
     "textlint": "^12.0.2",
