@@ -710,3 +710,9 @@ sensor:
         type: device_class
         default: None
 {% endconfiguration %}
+
+## Event `event_template_reloaded`
+
+Event `event_template_reloaded` is fired when Template entities have been reloaded and entities thus might have changed.
+
+This event has no additional data.

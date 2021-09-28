@@ -55,20 +55,6 @@ This event has no additional data.
 
 Event `scene_reloaded` is fired when scenes have been reloaded and thus might have changed.
 
-This event has no additional data.
-
-## Event `event_mqtt_reloaded`
-
-Event `event_mqtt_reloaded` is fired when Manually configured MQTT entities have been reloaded and entities thus might have changed.
-
-This event has no additional data.
-
-## Event `event_template_reloaded`
-
-Event `event_template_reloaded` is fired when Template entities have been reloaded and entities thus might have changed.
-
-This event has no additional data.
-
 ## Event `platform_discovered`
 
 Event `platform_discovered` is fired when a new platform has been discovered by the [`discovery`](/integrations/discovery/) component.
