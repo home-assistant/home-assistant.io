@@ -221,6 +221,11 @@ Supported devices:
 | Standing Fan           | zhimi.fan.sa1          | |
 | DC Pedestal Fan        | zhimi.fan.v2           | |
 | DC Pedestal Fan        | zhimi.fan.v3           | |
+| Standing Fan 1C        | dmaker.fan.1c          | |
+| Tower Fan              | dmaker.fan.p9          | |
+| Standing Fan 2         | dmaker.fan.p10         | |
+| Standing Fan Pro       | dmaker.fan.p11         | |
+| Standing Fan 3         | zhimi.fan.za5          | |
 
 ### Features
 
@@ -802,6 +807,79 @@ Switch                  | Description
 ----------------------- | -----------------------
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
+
+### Standing Fan 1C (dmaker.fan.1c)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the Buzzer
+Child Lock              | Turn on/off the Child Lock
+LED                     | Turn on/off the LED
+
+### Tower Fan/Standing Fan 2/Standing Fan Pro (dmaker.fan.p9/dmaker.fan.p10/dmaker.fan.p11)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+Oscillation Angle       | Set the oscillation angle in degrees
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the Buzzer
+Child Lock              | Turn on/off the Child Lock
+LED                     | Turn on/off the LED
+
+### Standing Fan 3 (zhimi.fan.za5)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------------
+Power Supply            | Indicates whether the power supply is connected or not
+
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+Oscillation Angle       | Set the oscillation angle in degrees
+
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the Buzzer
+Child Lock              | Turn on/off the Child Lock
+Ionizer                 | Turn on/off the Ionizer
+LED                     | Turn on/off the LED
 
 ### Platform Services
 
