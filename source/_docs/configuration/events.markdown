@@ -59,7 +59,7 @@ This event has no additional data.
 
 ## Event `event_mqtt_reloaded`
 
-Event `event_mqtt_reloaded` is fired when Manually configured Mqtt entities have been reloaded and entities thus might have changed.
+Event `event_mqtt_reloaded` is fired when Manually configured MQTT entities have been reloaded and entities thus might have changed.
 
 This event has no additional data.
 
