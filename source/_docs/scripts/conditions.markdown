@@ -65,7 +65,7 @@ condition:
       below: 20
 ```
 
-### MIXED AND and OR conditions
+### Mixed AND and OR conditions
 
 Test multiple AND and OR conditions in one condition statement. Passes if any embedded condition is valid.
 This allows you to mix several AND and OR conditions together.
