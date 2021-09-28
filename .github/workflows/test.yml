@@ -12,7 +12,7 @@ jobs:
       - name: Setting up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2.4.0
         with:
-          node-version: 12.x
+          node-version: 14.x
       - name: Setup NPM cache
         uses: actions/cache@v2.1.6
         with:
@@ -35,7 +35,7 @@ jobs:
       - name: Setting up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2.4.0
         with:
-          node-version: 12.x
+          node-version: 14.x
       - name: Setup NPM cache
         uses: actions/cache@v2.1.6
         with:
