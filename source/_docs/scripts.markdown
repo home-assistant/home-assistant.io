@@ -1,6 +1,8 @@
 ---
 title: "Script Syntax"
 description: "Documentation for the Home Assistant Script Syntax."
+toc: true
+no_toc: true
 ---
 
 Scripts are a sequence of actions that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in [automations] and [Alexa/Amazon Echo] configurations.
@@ -27,24 +29,7 @@ script:
           message: "Turned on the ceiling light!"
 ```
 
-- [Call a Service](#call-a-service)
-  - [Activate a Scene](#activate-a-scene)
-- [Variables](#variables)
-- [Test a Condition](#test-a-condition)
-- [Delay](#delay)
-- [Wait](#wait)
-  - [Wait Template](#wait-template)
-  - [Wait for Trigger](#wait-for-trigger)
-  - [Wait Timeout](#wait-timeout)
-  - [Wait Variable](#wait-variable)
-- [Fire an Event](#fire-an-event)
-  - [Raise and Consume Custom Events](#raise-and-consume-custom-events)
-- [Repeat a Group of Actions](#repeat-a-group-of-actions)
-  - [Counted Repeat](#counted-repeat)
-  - [While Loop](#while-loop)
-  - [Repeat Until](#repeat-until)
-  - [Repeat Loop Variable](#repeat-loop-variable)
-- [Choose a Group of Actions](#choose-a-group-of-actions)
+{{ page.content | markdownify | toc_only }}
 
 ## Call a Service
 
