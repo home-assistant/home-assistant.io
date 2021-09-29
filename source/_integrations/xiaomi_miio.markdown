@@ -16,6 +16,7 @@ ha_codeowners:
   - '@rytilahti'
   - '@syssi'
   - '@starkillerOG'
+  - '@bieniu'
 ha_domain: xiaomi_miio
 ha_config_flow: true
 ha_zeroconf: true
@@ -39,7 +40,7 @@ The Xiaomi Miio integration supports the following devices:
 
 - [Xiaomi Gateway](#xiaomi-gateway)
 - [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
-- [Xiaomi Air Purifier and Humidifier](#xiaomi-air-purifier-and-humidifier)
+- [Xiaomi Air Purifier, Air Humidifier and Standing Fan](#xiaomi-air-purifier-air-humidifier-and-standing-fan)
 - [Xiaomi Air Quality Monitor](#xiaomi-air-quality-monitor)
 - [Xiaomi IR Remote](#xiaomi-ir-remote)
 - [Xiaomi Mi Robot Vacuum](#xiaomi-mi-robot-vacuum)

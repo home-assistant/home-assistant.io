@@ -4,10 +4,12 @@ description: Instructions on how to integrate Tractive within Home Assistant.
 ha_category:
   - Presence Detection
 ha_release: 2021.9
-ha_iot_class: Cloud push
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - "@zhulik"
+  - '@Danielhiversen'
+  - '@zhulik'
+  - '@bieniu'
 ha_domain: tractive
 ha_platforms:
   - binary_sensor

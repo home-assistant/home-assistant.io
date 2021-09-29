@@ -46,7 +46,7 @@ name:
   type: string
 cycle:
   description: How often to reset the counter. Valid values are `quarter-hourly`, `hourly`, `daily`, `weekly`, `monthly`, `bimonthly`, `quarterly` and `yearly`. Cycle value `bimonthly` will reset the counter once in two months.
-  required: true
+  required: false
   type: string
 offset:
   description: "Cycle reset occur at the beginning of the period (0 minutes, 0h00 hours, Monday, day 1, January). This option enables the offsetting of these beginnings. Supported formats: `offset: 'HH:MM:SS'`, `offset: 'HH:MM'` and Time period dictionary (see example below)."

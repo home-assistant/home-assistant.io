@@ -120,7 +120,7 @@ json_attributes_topic:
   required: false
   type: string
 last_reset_topic:
-  description: "The MQTT topic subscribed to receive timestamps for when an accumulating sensor such as an energy meter was reset. If the sensor never resets, set it to UNIX epoch 0: `1970-01-01T00:00:00+00:00`."
+  description: "The MQTT topic subscribed to receive timestamps for when an accumulating sensor such as an energy meter was reset. If the sensor never resets, set `last_reset_topic` to same as `state_topic` and set the `last_reset_value_template` to a constant valid timstamp, for example UNIX epoch 0: `1970-01-01T00:00:00+00:00`."
   required: false
   type: string
 last_reset_value_template:

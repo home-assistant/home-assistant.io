@@ -82,6 +82,9 @@ If you prefer to use a live operating system, follow the instructions of your Li
 ### Write the image to your boot media
 
 1. Attach the Home Assistant boot media ({{site.installation.types[page.installation_type].installation_media}}) to your computer
+{% if page.installation_type == 'odroid' %}
+   If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
+{% endif %}
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
 3. Select "Flash from URL"
 ![etcher_from_url](/images/installation/etcher1.png)
@@ -133,7 +136,7 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 {% if page.installation_type == 'generic-x86-64' %}
 1. If you used your Desktop system to write to your boot media, install the boot media ({{site.installation.types[page.installation_type].installation_media}}) into the target system. Otherwise, shutdown the live operating system and make sure to remove the USB flash drive you have been using for the live system.
 2. Make sure an ethernet cable for network is plugged in
-3. Power the system on. 
+3. Power the system on.
 {% else %}
 1. Insert the boot media ({{site.installation.types[page.installation_type].installation_media}}) you just created
 2. Attach a ethernet cable for network.

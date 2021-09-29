@@ -1,6 +1,8 @@
 ---
 title: "Script Syntax"
 description: "Documentation for the Home Assistant Script Syntax."
+toc: true
+no_toc: true
 ---
 
 Scripts are a sequence of actions that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in [automations] and [Alexa/Amazon Echo] configurations.
@@ -27,24 +29,7 @@ script:
           message: "Turned on the ceiling light!"
 ```
 
-- [Call a Service](#call-a-service)
-  - [Activate a Scene](#activate-a-scene)
-- [Variables](#variables)
-- [Test a Condition](#test-a-condition)
-- [Delay](#delay)
-- [Wait](#wait)
-  - [Wait Template](#wait-template)
-  - [Wait for Trigger](#wait-for-trigger)
-  - [Wait Timeout](#wait-timeout)
-  - [Wait Variable](#wait-variable)
-- [Fire an Event](#fire-an-event)
-  - [Raise and Consume Custom Events](#raise-and-consume-custom-events)
-- [Repeat a Group of Actions](#repeat-a-group-of-actions)
-  - [Counted Repeat](#counted-repeat)
-  - [While Loop](#while-loop)
-  - [Repeat Until](#repeat-until)
-  - [Repeat Loop Variable](#repeat-loop-variable)
-- [Choose a Group of Actions](#choose-a-group-of-actions)
+{{ page.content | markdownify | toc_only }}
 
 ## Call a Service
 
@@ -92,7 +77,13 @@ The variables action allows you to set/override variables that will be accessibl
 
 ## Test a Condition
 
-While executing a script you can add a condition to stop further execution. When a condition does not return `true`, the script will stop executing. There are many different conditions which are documented at the [conditions page].
+While executing a script you can add a condition in the main sequence to stop further execution. When a condition does not return `true`, the script will stop executing. There are many different conditions which are documented at the [conditions page].
+
+<div class='note'>
+
+The `condition` action only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#test-a-condition) action, only the actions within that `choose` will stop.
+
+</div>
 
 ```yaml
 # If paulus is home, continue to execute the script below these lines

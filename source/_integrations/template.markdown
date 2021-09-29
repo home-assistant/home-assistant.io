@@ -22,6 +22,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - select
   - switch
   - vacuum
   - weather
@@ -178,8 +179,7 @@ number:
       description: Template for the number's current value.
       required: true
       type: template
-    set_value:
-      description: Defines an action to run when the number value changes.
+      description: Defines an action to run when the number value changes. The variable `value` will contain the number entered.
       required: true
       type: action
     step:
@@ -215,7 +215,7 @@ select:
       required: true
       type: action
     options:
-      description: Template for the select's available options.
+      description: Template for the select's available options. The variable `option` will contain the option selected.
       required: true
       type: template
     optimistic:
@@ -268,7 +268,7 @@ template:
 
 ## Rate limiting updates
 
-When there are entities present in the template and no triggers are defined, the template will be re-rendered when one of the entities changes states. To avoid this taking up too many resources in Home Assistant, automatic rate limiting will be automatically applied if too many states are observed.
+When there are entities present in the template and no triggers are defined, the template will be re-rendered when one of the entities changes states. To avoid this taking up too many resources in Home Assistant, rate limiting will be automatically applied if too many states are observed.
 
 <p class='note'>
 <a href='#trigger-based-template-sensors'>Define a trigger</a> to avoid a rate limit and get more control over entity updates.
@@ -415,7 +415,7 @@ template:
 
 ### Multiline Example With an `if` Test
 
-This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend.
+This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend, and shows 'standby' if the power use is less than 1000 watts.
 
 {% raw %}
 
@@ -426,7 +426,7 @@ template:
         state: >
           {% if is_state('switch.kettle', 'off') %}
             off
-          {% elif state_attr('switch.kettle', 'kwh')|float < 1000 %}
+          {% elif state_attr('switch.kettle', 'W')|float < 1000 %}
             standby
           {% elif is_state('switch.kettle', 'on') %}
             on
@@ -510,7 +510,7 @@ template:
   - binary_sensor:
       - name: My Device
         state: >
-          {{ is_state('device_tracker.my_device_nmap', 'home') or is_state('device_tracker.my_device_gps', 'home') }
+          {{ is_state('device_tracker.my_device_nmap', 'home') or is_state('device_tracker.my_device_gps', 'home') }}
         device_class: "presence"
         attributes:
           latitude: >
@@ -531,7 +531,7 @@ template:
 
 ### Change the icon when a state changes
 
-This example demonstrates how to use template to change the icon as it's state changes. This icon is referencing it's own state.
+This example demonstrates how to use template to change the icon as its state changes. This icon is referencing its own state.
 
 {% raw %}
 

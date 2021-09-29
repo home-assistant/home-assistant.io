@@ -46,7 +46,9 @@ Integration is communicating directly with the device; cloud connection is not n
 
 ## Entity naming (generation 1)
 
-The integration uses the following strategy to name its entities:
+The integration uses `Device Name` to name its entities if the device has only one relay or no relays at all.
+
+The integration uses the following strategy to name its entities if the device has more than one relay:
 
 - If `Device Name` or `Channel Name` is set in the device, the integration will use them to generate the entities' name.
 - If channel names are set, they will be used in the entity names. The device name will not be used.
@@ -208,6 +210,11 @@ In order to change it, add the following key to your `configuration.yaml`:
 shelly:
   coap_port: 12345
 ```
+
+## Additional info
+
+Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
+Please check from the device Web UI that the configured server is reachable.
 
 ## Known issues and limitations
 
