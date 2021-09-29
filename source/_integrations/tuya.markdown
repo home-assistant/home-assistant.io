@@ -26,6 +26,8 @@ ha_dhcp: true
 
 The Tuya Home Assistant integration is developed for controlling **Powered by Tuya (PBT)** devices using the [tuya-iot-python-sdk](https://github.com/tuya/tuya-iot-python-sdk) (a Python version of [Tuya Open API](https://developer.tuya.com/en/docs/iot/api-reference?id=Ka7qb7vhber64)), which is officially maintained by the Tuya Developer Team.
 
+You can find more information for this integration on [Tuya Integration Github](https://github.com/tuya/tuya-home-assistant).
+
 It applies to smart devices that you have added to the Tuya Smart or Smart Life app.
 
 ## Supported device categories
