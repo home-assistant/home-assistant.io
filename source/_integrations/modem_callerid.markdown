@@ -56,9 +56,7 @@ automation:
 
 {% endraw %}
 
-{% details %}
-
-## Setup
+## Extra instructions for the Home Assistant Core installation type
 
 To find the path of your USB modem, run:
 
@@ -73,5 +71,3 @@ sudo usermod -a -G dialout homeassistant
 ```
 
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/modem`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
-
-{% enddetails %}
