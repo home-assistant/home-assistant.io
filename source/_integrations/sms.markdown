@@ -91,7 +91,10 @@ Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/c
 ### List of modems known to NOT work
 
 - No known modems
-[List of modems that may work](https://www.asus.com/event/networks_3G4G_support/)
+
+### List of modems that may work
+
+Search in the [Gammu database](https://wammu.eu/phones/) for modems with AT connection.
 
 ### Huawei modems on Raspberry Pi (and similar) devices
 
