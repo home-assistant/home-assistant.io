@@ -486,37 +486,43 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 
 <div class='note'>
 
-The numeric functions and filters will not fail if the input is not a valid number, instead the input value will be returned with the exception of the float fitler which returns `0.0`. This is unwanted behavior in many cases, use `is_number` to check if the value is valid.
+The numeric functions and filters will not fail if the input is not a valid number, instead the input value will be returned unless a default value is specified. The `float` filter is an exception, it returns `0.0` if the input is invalid and a default value has not been specified. This is unwanted behavior in many cases, use `is_number` to check if the value is valid.
 
 {% raw %}
-`{{ float("not_a_number") }}` - renders as `"not_a_number"`
-`{{ "not_a_number" | float }}` - renders as `0.0`
-`{{ sin("not_a_number") }}` - renders as `"not_a_number"`
-`{{ "not_a_number" | sin }}` - renders as `"not_a_number"`
+
+- `{{ float("not_a_number") }}` - renders as `"not_a_number"`
+- `{{ "not_a_number" | float }}` - renders as `0.0`
+- `{{ sin("not_a_number") }}` - renders as `"not_a_number"`
+- `{{ "not_a_number" | sin }}` - renders as `"not_a_number"`
+- `{{ float("not_a_number", default="Invalid number!") }}` - renders as `"Invalid number!"`
+- `{{ "not_a_number" | float(default="Invalid number!") }}` - renders as `"Invalid number!"`
+- `{{ sin("not_a_number", default="Invalid number!") }}` - renders as `"Invalid number!"`
+- `{{ "not_a_number" | sin(default="Invalid number!") }}` - renders as `"Invalid number!"`
+
 {% endraw %}
 
 </div>
 
-- `float` function will attempt to convert the input to a `float`. If that fails, return the input value.
-- `float` filter will attempt to convert the input to a `float`. If that fails, returns `0.0`.
+- `float(value, default)` function will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted `value`.
+- `float(default)` filter will attempt to convert the input to a `float`.  If that fails, returns the `default` value, or if omitted `0.0`.
 - `is_number` will return `True` if the input can be parsed by Python's `float` function and the parsed input is not `inf` or `nan`, in all other cases returns `False`. Note that a Python `bool` will return `True` but the strings `"True"` and `"False"` will both return `False`. Can be used as a filter.
 
-- `log(value, base)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.
-- `sin(value)` will return the sine of the input. Can be used as a filter.
-- `cos(value)` will return the cosine of the input. Can be used as a filter.
-- `tan(value)` will return the tangent of the input. Can be used as a filter.
-- `asin(value)` will return the arcus sine of the input. Can be used as a filter.
-- `acos(value)` will return the arcus cosine of the input. Can be used as a filter.
-- `atan(value)` will return the arcus tangent of the input. Can be used as a filter.
-- `atan2(y, x)` will return the four quadrant arcus tangent of y / x. Can be used as a filter.
-- `sqrt(value)` will return the square root of the input. Can be used as a filter.
+- `log(value, base, default)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. If `value` or `base` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can also be used as a filter.
+- `sin(value, default)` will return the sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
+- `cos(value, default)` will return the cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
+- `tan(value, default)` will return the tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
+- `asin(value, default)` will return the arcus sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
+- `acos(value, default)` will return the arcus cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
+- `atan(value, default)` will return the arcus tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
+- `atan2(y, x, default)` will return the four quadrant arcus tangent of y / x. If `y` or `x` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
+- `sqrt(value, default)` will return the square root of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
-- Filter `round(x)` will convert the input to a number and round it to `x` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even).
-  - `round(x, "floor")` will always round down to `x` decimals
-  - `round(x, "ceil")` will always round up to `x` decimals
-  - `round(1, "half")` will always round to the nearest .5 value. `x` should be 1 for this mode
+- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted the input value. 
+  - `round(precision, "floor", default)` will always round down to `precision` decimals
+  - `round(precision, "ceil", default)` will always round up to `precision` decimals
+  - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
 - Filter `[x, y, ...] | max` will obtain the largest item in a sequence.
 - Filter `[x, y, ...] | min` will obtain the smallest item in a sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
