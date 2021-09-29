@@ -279,9 +279,9 @@ The same thing can also be expressed as a filter:
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
   - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
 - `as_datetime()` converts a string containing a timestamp to a datetime object.
-- `as_timestamp()` converts datetime object or string to UNIX timestamp. This function also be used as a filter.
+- `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted `None`. This function also be used as a filter.
 - `as_local()` converts datetime object to local time. This function also be used as a filter.
-- `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object.
+- `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, returns the `default` value, or if omitted the unprocessed input value.
 - `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g.,  if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
 - `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
@@ -294,9 +294,9 @@ The same thing can also be expressed as a filter:
 
    {% endraw %}
 
-- Filter `timestamp_local` converts an UNIX timestamp to its string representation as date/time in your local timezone.
-- Filter `timestamp_utc` converts a UNIX timestamp to its string representation representation as date/time in UTC timezone.
-- Filter `timestamp_custom(format_string, local_time=True)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
+- Filter `timestamp_local(default)` converts a UNIX timestamp to its naive string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted the unprocessed input value. If timezone information is needed in the string, use `timestamp_custom` instead.
+- Filter `timestamp_utc(default)` converts a UNIX timestamp to its naive string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted the unprocessed input value. If timezone information is needed in the string, use `timestamp_custom` instead.
+- Filter `timestamp_custom(format_string, local_time=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. If that fails, returns the `default` value, or if omitted the unprocessed input value. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
 
 <div class='note'>
 
