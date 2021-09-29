@@ -26,7 +26,7 @@ ha_dhcp: true
 
 The Tuya Home Assistant integration is developed for controlling **Powered by Tuya (PBT)** devices, which is officially maintained by the Tuya Developer Team.
 
-You can find more information for this integration on [Tuya Integration Github](https://github.com/tuya/tuya-home-assistant).
+You can find more information for this integration on [Tuya Integration Github](https://github.com/tuya/tuya-home-assistant?_source=418498f8d2819b5b1654a0c12c5325cd).
 
 It applies to smart devices that you have added to the Tuya Smart or Smart Life app.
 
@@ -50,7 +50,7 @@ You have created an account for [Tuya Smart or Smart Life app](https://developer
 
 #### Create a project
 
-1. Log in to the [Tuya IoT Platform](https://iot.tuya.com/).
+1. Log in to the [Tuya IoT Platform](https://iot.tuya.com/?_source=627739af7d7e42379954f5c26a1c1759).
 2. In the left navigation bar, click **Cloud** > **Projects**.
 3. On the page that appears, click **Create**.
 4. In the **Create Project** dialog box, configure **Project Name**, **Description**, **Industry**, and **Availability Zone**. In the **Development Method** field, select **Smart Home PaaS** from the dropdown list.
@@ -114,7 +114,7 @@ See the following table and enter your Tuya credential.
 
 | Field | Description |
 | ------- | -------- |
-| Access ID and Access Secret| Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/cloud/?_source=3a6f90da0e85f686f89c4f85c883e8f0). Find the **Access ID** and **Access Secret** on the **Project Overview** tab.|
+| Access ID and Access Secret| Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/?_source=627739af7d7e42379954f5c26a1c1759). Find the **Access ID** and **Access Secret** on the **Project Overview** tab.|
 | Mobile App | Must select the one you used to link devices on the Tuya IoT Platform. |
 | Country Code | The country you select on logging in to Tuya Smart or Smart Life app.|
 | Account | Tuya Smart or Smart Life app account. |
@@ -127,10 +127,10 @@ See the following table and enter your Tuya credential.
 |Error Code|Error Message|Troubleshooting|
 |:----|:--------|:------------------------------|
 |1004| sign invalid| Incorrect Access ID or Access Secret. Please refer to [Tuya credential table](https://github.com/tuya/tuya-home-assistant/wiki/Install-Tuya-v2?_source=d10de34623e3daca5b02e3c31528a0c4#3-enter-your-tuya-credential).
-|1106|permission deny|<ul><li> App account not linked with cloud project: On the [Tuya IoT Platform](https://iot.tuya.com/cloud/), you have linked devices by using Tuya Smart or Smart Life app in your cloud project. For more information, see [Link devices by app account](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx#title-3-Link%20devices%20by%20app%20account).</li><li> Incorrect username or password: Enter the correct account and password of the Tuya Smart or Smart Life app in the **Account** and **Password** fields. Note that the app account depends on which app (Tuya Smart or Smart Life) you used to link devices on the [Tuya IoT Platform](https://iot.tuya.com/cloud/).</li><li>Incorrect availability zone: See [Availability Zone](https://github.com/tuya/tuya-home-assistant/wiki/Tuya-IoT-Platform-Configuration-Guide-Using-Smart-Home-PaaS#region--available-zone-correspondence) and select the correct availability zone.</li><li>Incorrect countycode: Fill the [code](https://countrycode.org/) of the country you select on logging in to Tuya Smart or Smart Life app.</li></ul>|
+|1106|permission deny|<ul><li> App account not linked with cloud project: On the [Tuya IoT Platform](https://iot.tuya.com/cloud/?_source=fd9f339c3f58e01cdc0b275d5bd97a21), you have linked devices by using Tuya Smart or Smart Life app in your cloud project. For more information, see [Link devices by app account](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx&_source=7a356dd493196a01bb9021b7680a2a45#title-3-Link%20devices%20by%20app%20account).</li><li> Incorrect username or password: Enter the correct account and password of the Tuya Smart or Smart Life app in the **Account** and **Password** fields. Note that the app account depends on which app (Tuya Smart or Smart Life) you used to link devices on the [Tuya IoT Platform](https://iot.tuya.com/cloud/?_source=fd9f339c3f58e01cdc0b275d5bd97a21).</li><li>Incorrect availability zone: See [Availability Zone](https://github.com/tuya/tuya-home-assistant/wiki/Tuya-IoT-Platform-Configuration-Guide-Using-Smart-Home-PaaS#region--available-zone-correspondence) and select the correct availability zone.</li><li>Incorrect countycode: Fill the [code](https://countrycode.org/) of the country you select on logging in to Tuya Smart or Smart Life app.</li></ul>|
 |1100|param is empty| Empty parameter of username or app. Fill the parameters refer to [Tuya credential table](https://github.com/tuya/tuya-home-assistant/wiki/Install-Tuya-v2?_source=d10de34623e3daca5b02e3c31528a0c4#3-enter-your-tuya-credential).
 |2017|schema does not exist| Incorrect app selected. Select the app you used to link devices in the cloud project.|
-| 2406 | skill id invalid | Make sure that your cloud project on the [Tuya IoT Platform](https://iot.tuya.com/cloud/) should be created after May 25, 2021. Otherwise, you need to create a new project or migrate data to a new project. For more information, see [Operation on the Tuya IoT Platform](https://developer.tuya.com/en/docs/iot/migrate-from-an-older-version?id=Kamee9wtbd00b#title-3-Operation%20on%20the%20Tuya%20IoT%20Platform).|
+| 2406 | skill id invalid | Make sure that your cloud project on the [Tuya IoT Platform](https://iot.tuya.com/cloud/?_source=fd9f339c3f58e01cdc0b275d5bd97a21) should be created after May 25, 2021. Otherwise, you need to create a new project or migrate data to a new project. For more information, see [Operation on the Tuya IoT Platform](https://developer.tuya.com/en/docs/iot/migrate-from-an-older-version?id=Kamee9wtbd00b#title-3-Operation%20on%20the%20Tuya%20IoT%20Platform).|
 | 28841105 |No permissions. This project is not authorized to call this API| Some APIs are not authorized, please  [Subscribe](https://developer.tuya.com/en/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-2-Subscribe%20to%20cloud%20products) then [Authorize](https://developer.tuya.com/en/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-3-Authorize%20projects%20to%20call%20the%20cloud%20product). The following APIs must be subscribed for this tutorial: <ul><li>Authorization</li><li>Smart Home Devices Management</li><li>Smart Home Family Management</li><li>Smart Home Scene Linkage</li><li>Smart Home Data Service</li><li>Device status notification</li></ul>|
 
 ## Related Documents
