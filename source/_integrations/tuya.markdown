@@ -9,9 +9,9 @@ ha_category:
   - Scene
   - Switch
 ha_iot_class: Cloud Polling
-ha_release: 2021.9.7
+ha_release: 0.74
 ha_config_flow: true
-ha_domain: Tuya
+ha_domain: tuya
 ha_codeowners:
   - '@zlinoliver'
 ha_platforms:
@@ -24,11 +24,13 @@ ha_platforms:
 ha_dhcp: true
 ---
 
-The Tuya Home Assistant integration is developed for controlling **Powered by Tuya (PBT)** devices using the [tuya-iot-python-sdk](https://github.com/tuya/tuya-iot-python-sdk) (a Python version of [Tuya Open API](https://developer.tuya.com/en/docs/iot/api-reference?id=Ka7qb7vhber64)), which is officially maintained by the Tuya Developer Team.
+The Tuya Home Assistant integration is developed for controlling **Powered by Tuya (PBT)** devices, which is officially maintained by the Tuya Developer Team.
 
 You can find more information for this integration on [Tuya Integration Github](https://github.com/tuya/tuya-home-assistant).
 
 It applies to smart devices that you have added to the Tuya Smart or Smart Life app.
+
+{% include integrations/config_flow.md %}
 
 ## Supported device categories
 - **Climate**: Supports air conditioner, heater, thermostat.
@@ -53,14 +55,14 @@ You have created an account for [Tuya Smart or Smart Life app](https://developer
 3. On the page that appears, click **Create**.
 4. In the **Create Project** dialog box, configure **Project Name**, **Description**, **Industry**, and **Availability Zone**. In the **Development Method** field, select **Smart Home PaaS** from the dropdown list.
 	> **Note:** Select all available zones.
-
-	![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/1622030427d285b460b84.png)
-
+	
+![](../images/integrations/tuya/image_001.png)
+	
 5. Click **Create** to continue project configuration.
 6. In **Configuration Wizard**, select **Device status notification** API.
    > **Note:** **Smart Home PaaS** API has been selected as default.
-
-   ![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/1622125804d11f95a118f.png)
+   
+![](../images/integrations/tuya/image_002.png)
 
 7. Click **Authorize**.
 
@@ -68,22 +70,25 @@ You have created an account for [Tuya Smart or Smart Life app](https://developer
 
 Click the created project to enter the **Project Overview** page and get the **Authorization Key** used to make API calls.
 
-
-![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/162208268849af51b8af3.png)
+![](../images/integrations/tuya/image_003.png)
 
 #### Link devices by app account
 
 Link devices by your app account and copy the **Device ID** in the **Device List** to the clipboard for specifying `device_id` later.
 
-1. Navigate to the **Devices** tab.
-2. Click **Link Tuya App Account** > **Add App Account**.
-![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/162701375118ee3e1d0f4.png)
-3. Scan the QR code that appears using the **Tuya Smart** app or **Smart Life** app.
-![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/16220137160a864a6099d.png)
+**1.** Navigate to the **Devices** tab.
 
-4. Click **Confirm** on your **Tuya Smart** or **Smart Life** app.
-5. Navigate to the **Device List** tab. You can find the devices that have been added through your **Tuya Smart** or **Smart Life** account.
-   ![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/goat/20210407/cf3e32f2f42548188e406e45b852ef6a.png)
+**2.** Click **Link Tuya App Account** > **Add App Account**.
+![](../images/integrations/tuya/image_004.png)
+
+**3.** Scan the QR code that appears using the **Tuya Smart** app or **Smart Life** app.
+![](../images/integrations/tuya/image_005.png)
+
+**4.** Click **Confirm** on your **Tuya Smart** or **Smart Life** app.
+
+**5.** Navigate to the **Device List** tab. You can find the devices that have been added through your **Tuya Smart** or **Smart Life** account.   
+![](../images/integrations/tuya/image_006.png)
+
 </details>
 
 ### Install the Tuya Home Assistant integration
@@ -97,13 +102,13 @@ You can also get help from [Set up Home Assistant Development Environment on Ras
 #### Install the Tuya integration
 
 In **Configuration** > **Integrations** > **ADD INTEGRATION**, search for the keyword **Tuya** and select it for installation.
-![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/1627013411144507956ff.png)
+![](../images/integrations/tuya/image_007.png)
 
 #### Enter your Tuya credential
 
 In the Tuya Integration window, select **Smart Home PaaS** and click **SUBMIT**.
 
-![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/1627379701127540ff6a2.png)
+![](../images/integrations/tuya/image_008.png)
 
 See the following table and enter your Tuya credential.
 
@@ -117,7 +122,7 @@ See the following table and enter your Tuya credential.
 > **Note**: The app mentioned in the table must be the one you used to link devices on the Tuya IoT Platform.
 </details>
 
-## Errorcode and troubleshooting
+## Error codes and troubleshooting
 
 |Error Code|Error Message|Troubleshooting|
 |:----|:--------|:------------------------------|
@@ -139,6 +144,3 @@ See the following table and enter your Tuya credential.
 * [How does the Integration work](https://github.com/tuya/tuya-home-assistant/wiki/How-the-Integration-works)
 * [Set up Home Assistant on a Raspberry Pi](https://github.com/tuya/tuya-home-assistant/wiki/Set-up-Home-Assistant-on-a-Raspberry-Pi)
 * [FAQs](https://github.com/tuya/tuya-home-assistant/wiki/FAQs)
-
-
-{% include integrations/config_flow.md %}
