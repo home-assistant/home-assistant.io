@@ -11,7 +11,7 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 2021.9.7
 ha_config_flow: true
-ha_domain: tuya
+ha_domain: Tuya
 ha_codeowners:
   - '@zlinoliver'
 ha_platforms:
@@ -24,7 +24,7 @@ ha_platforms:
 ha_dhcp: true
 ---
 
-The Tuya Home Assistant integration is developed for controlling **Powered by Tuya (PBT)** devices using the [tuya-iot-python-sdk](https://github.com/tuya/tuya-iot-python-sdk) (a python version of [Tuya Open API](https://developer.tuya.com/en/docs/iot/api-reference?id=Ka7qb7vhber64)), which is officially maintained by the Tuya Developer Team.
+The Tuya Home Assistant integration is developed for controlling **Powered by Tuya (PBT)** devices using the [tuya-iot-python-sdk](https://github.com/tuya/tuya-iot-python-sdk) (a Python version of [Tuya Open API](https://developer.tuya.com/en/docs/iot/api-reference?id=Ka7qb7vhber64)), which is officially maintained by the Tuya Developer Team.
 
 It applies to smart devices that you have added to the Tuya Smart or Smart Life app.
 
@@ -94,7 +94,7 @@ You can also get help from [Set up Home Assistant Development Environment on Ras
 
 #### Install the Tuya integration
 
-In **Configuration** > **Integrations** > **ADD INTEGRATION**, search for the keyword **tuya** and select it for installation.
+In **Configuration** > **Integrations** > **ADD INTEGRATION**, search for the keyword **Tuya** and select it for installation.
 ![](https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/content-platform/hestia/1627013411144507956ff.png)
 
 #### Enter your Tuya credential
