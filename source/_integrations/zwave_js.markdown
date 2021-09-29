@@ -629,7 +629,7 @@ Node {{ node }};{{ s.name }};{{ s.entity_id }}{% endfor %}
 
 {% endraw %}
 
-## How can I add (include) a new device to my Z-Wave network?
+### How can I add (include) a new device to my Z-Wave network?
 
 1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
 2. Press `Add node`.
@@ -642,7 +642,7 @@ Node {{ node }};{{ s.name }};{{ s.entity_id }}{% endfor %}
 While adding devices, you have the option to use `secure inclusion`, this means that the traffic between the controller and the device will be encrypted. This adds additional overhead to the Z-Wave network so use this option with care. As a general rule of thumb it is advised to only securely include devices that actually NEED this kind of protection. A good example is a Z-Wave door lock.
 </div>
 
-## How can I remove (exclude) a device from my Z-Wave network?
+### How can I remove (exclude) a device from my Z-Wave network?
 
 1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
 2. Press `Remove node`.
