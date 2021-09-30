@@ -24,19 +24,17 @@ ha_platforms:
 ha_dhcp: true
 ---
 
-The Tuya Home Assistant integration is developed for controlling **Powered by Tuya (PBT)** devices, which is officially maintained by the Tuya Developer Team.
-
-It applies to smart devices that you have added to the Tuya Smart or Smart Life app.
+The Tuya integration allows integrating all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps. This integration is officially maintained by Tuya.
 
 {% include integrations/config_flow.md %}
 
 ## Supported platforms
-- **Climate**: Supports air conditioner, heater, thermostat.
-- **Cover**: Supports curtain, curtain switch.
-- **Fan**: Supports fan, air purifier, humidifier, dehumidifier.
-- **Light**: Supports light, light strip, ambient light, light string, humidifier's light, Ceiling light.
-- **Scene**: Supports smart scene.
-- **Switch**: Supports switch, socket, power strip, smart kettle, breaker, pet water feeder, air purifier, diffuser.
+- **Climate**: Air conditioner, heater, thermostat.
+- **Cover**: Curtain, curtain switch.
+- **Fan**: Fan, air purifier, humidifier, dehumidifier.
+- **Light**: Light, light strip, ambient light, light string, humidifier's light, Ceiling light.
+- **Scene**: Smart scene.
+- **Switch**: Switch, socket, power strip, smart kettle, breaker, pet water feeder, air purifier, diffuser.
 
 ## Quick installation and startup
 
@@ -48,27 +46,30 @@ You have created an account for [Tuya Smart or Smart Life app](https://developer
 
 #### Create a project
 
-1. Log in to the [Tuya IoT Platform](https://iot.tuya.com/).
-2. In the left navigation bar, click **Cloud** > **Projects**.
-3. On the page that appears, click **Create**.
-4. In the **Create Project** dialog box, configure **Project Name**, **Description**, **Industry**, and **Availability Zone**. In the **Development Method** field, select **Smart Home PaaS** from the dropdown list.
-	> **Note:** Select all available zones.
+**1.** Log in to the [Tuya IoT Platform](https://iot.tuya.com/).
+
+**2.** In the left navigation bar, click **Cloud** > **Projects**.
+
+**3.** On the page that appears, click **Create**.
+
+**4.** In the **Create Project** dialog box, configure **Project Name**, **Description**, **Industry**, and **Availability Zone**. In the **Development Method** field, select **Smart Home PaaS** from the dropdown list. Select all available zones.
+
+![](/images/integrations/tuya/image_001.png)
 	
-![](../images/integrations/tuya/image_001.png)
-	
-5. Click **Create** to continue project configuration.
-6. In **Configuration Wizard**, select **Device status notification** API.
+**5.** Click **Create** to continue project configuration.
+
+**6.** In **Configuration Wizard**, select **Device status notification** API.
    > **Note:** **Smart Home PaaS** API has been selected as default.
    
-![](../images/integrations/tuya/image_002.png)
+![](/images/integrations/tuya/image_002.png)
 
-7. Click **Authorize**.
+**7.** Click **Authorize**.
 
 #### Get authorization key
 
 Click the created project to enter the **Project Overview** page and get the **Authorization Key** used to make API calls.
 
-![](../images/integrations/tuya/image_003.png)
+![](/images/integrations/tuya/image_003.png)
 
 #### Link devices by app account
 
@@ -77,36 +78,28 @@ Link devices by your app account and copy the **Device ID** in the **Device List
 **1.** Navigate to the **Devices** tab.
 
 **2.** Click **Link Tuya App Account** > **Add App Account**.
-![](../images/integrations/tuya/image_004.png)
+![](/images/integrations/tuya/image_004.png)
 
 **3.** Scan the QR code that appears using the **Tuya Smart** app or **Smart Life** app.
-![](../images/integrations/tuya/image_005.png)
+![](/images/integrations/tuya/image_005.png)
 
 **4.** Click **Confirm** on your **Tuya Smart** or **Smart Life** app.
 
 **5.** Navigate to the **Device List** tab. You can find the devices that have been added through your **Tuya Smart** or **Smart Life** account.   
-![](../images/integrations/tuya/image_006.png)
-
-</details>
+![](/images/integrations/tuya/image_006.png)
 
 ### Install the Tuya Home Assistant integration
-
-#### Install Home Assistant
-
-Please refer to the [Home Assistant Official Installation](https://www.home-assistant.io/installation/) documentation to install **Home Assistant Core**.
-
-You can also get help from [Set up Home Assistant Development Environment on Raspberry Pi](https://developer.tuya.com/en/demo/setuphomeassistantdevenv/) in Tuya Developer Demo Center.
 
 #### Install the Tuya integration
 
 In **Configuration** > **Integrations** > **ADD INTEGRATION**, search for the keyword **Tuya** and select it for installation.
-![](../images/integrations/tuya/image_007.png)
+![](/images/integrations/tuya/image_007.png)
 
 #### Enter your Tuya credential
 
 In the Tuya Integration window, select **Smart Home PaaS** and click **SUBMIT**.
 
-![](../images/integrations/tuya/image_008.png)
+![](/images/integrations/tuya/image_008.png)
 
 See the following table and enter your Tuya credential.
 
@@ -117,8 +110,8 @@ See the following table and enter your Tuya credential.
 | Country Code | The country you select on logging in to Tuya Smart or Smart Life app.|
 | Account | Tuya Smart or Smart Life app account. |
 | Password | The password of your app account. |
-> **Note**: The app mentioned in the table must be the one you used to link devices on the Tuya IoT Platform.
-</details>
+
+<p class='note'>The app mentioned in the table must be the one you used to link devices on the Tuya IoT Platform.</p>
 
 ## Error codes and troubleshooting
 
@@ -133,6 +126,6 @@ See the following table and enter your Tuya credential.
 
 ## Related Documents
 
-### Documentation
-- [How does the Integration work](https://github.com/tuya/tuya-home-assistant/wiki/How-the-Integration-works)
+- [Supported Device Category](https://github.com/tuya/tuya-home-assistant/wiki/Supported-Device-Category?_source=f5f782752be3c4a9157ec47514d6091b)
+- [How to Develop a New Driver](https://github.com/tuya/tuya-home-assistant/wiki/How-to-Develop-a-New-Driver?_source=dbf3bf17966af48325e4328b2535eefe)
 - [FAQs](https://github.com/tuya/tuya-home-assistant/wiki/FAQs)
