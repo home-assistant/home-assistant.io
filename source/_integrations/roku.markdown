@@ -128,10 +128,6 @@ action:
       media_content_type: channel
 ```
 
-## Remote
-
-The `remote` platform allows you to send keypress commands to your device. Remote entities are automatically registered during the integration setup.
-
 ## Services
 
 ### Service `roku.search`
