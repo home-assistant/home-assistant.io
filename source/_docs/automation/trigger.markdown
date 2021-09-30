@@ -650,6 +650,31 @@ automation:
         - "18:30:00"
 ```
 
+### Specifying an offset
+
+When the time is provided using an Input Datetime or a sensor of the timestamp device class an offset can be provided. This offset will be added to (or subtracted from, when negative) the Input Datetime or sensor value.
+
+For example, this trigger fires 5 minutes before the phone alarm goes off.
+
+```yaml
+automation:
+  - trigger:
+      - platform: time
+        at:
+          entity_id: sensor.phone_next_alarm
+          offset: -00:05:00
+    action:
+      - service: light.turn_on
+        target:
+          entity_id: light.bedroom
+```
+
+<div class='note warning'>
+
+When using a positive offset the trigger might never fire. This due the Input Datetime or sensor changing before the offset is reached. For example when using a phone alarm as trigger the sensor value will change to the new alarm time when the alarm goes off which means this trigger will change to the new time as well.
+
+</div>
+
 ## Time pattern trigger
 
 With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value (when using the web interface this is required, the fields cannot be left empty).
