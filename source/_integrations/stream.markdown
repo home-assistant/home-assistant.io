@@ -26,7 +26,7 @@ stream:
 
 ## LL-HLS
 
-Beginning with Home Assistant version 2021.10, there is the option to enable LL-HLS for lower latency. Please note that LL-HLS has strict timing and network requirements that can be hard to meet, so this option may not work on all setups. As HTTP/2 is required by the LL-HLS specification, use of an HTTP/2 enabled reverse proxy is strongly recommended.
+There is the option to enable LL-HLS for lower latency. Please note that LL-HLS has strict timing and network requirements that can be hard to meet, so this option may not work on all setups. As HTTP/2 is required by the LL-HLS specification, the use of an HTTP/2 enabled reverse proxy is strongly recommended.
 To enable LL-HLS, add the following to your `configuration.yaml`:
 
 ```yaml
