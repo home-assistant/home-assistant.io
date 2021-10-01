@@ -18,7 +18,7 @@ module Jekyll
 
     def initialize(tag_name, text, tokens)
       super
-      @component, @platform = text.strip.split('.', 2)
+      @config_name = slug(text.strip)
     end
 
     def slug(key)
@@ -29,18 +29,18 @@ module Jekyll
       ((type.is_a? Array) ? type.join(' ') : type).downcase
     end
 
-    def type_link(type, component: nil)
+    def type_link(type)
       if type.include? ','
         type = type.split(',')
       end
 
       if type.is_a? Array
-        return (type.map { |t| type_link(t, component: component) }).join(' | ')
+        return (type.map { |t| type_link(t) }).join(' | ')
       end
 
       type.strip!
       if TYPE_LINKS.include? type.downcase
-        url = TYPE_LINKS[type.downcase] % {component: component}
+        url = TYPE_LINKS[type.downcase] 
         "<a href=\"%s\">%s</a>" % [url, type]
       else
         type
@@ -57,14 +57,14 @@ module Jekyll
       end
     end
 
-    def render_config_vars(vars:, component:, platform:, converter:, classes: nil, parent_type: nil)
+    def render_config_vars(vars:, converter:, config_name:, classes: nil, parent_type: nil)
       result = Array.new
       result << "<div class='#{classes}'>"
 
       result << vars.map do |key, attr|
         markup = Array.new
         # There are spaces around the "{key}", to improve double-click selection in Chrome.
-        markup << "<div class='config-vars-item'><div class='config-vars-label'><a name='#{slug(key)}' class='title-link' href='\##{slug(key)}'></a> <span class='config-vars-label-name'> #{key} </span>"
+        markup << "<div class='config-vars-item'><div class='config-vars-label'><a name='configuration-#{slug(key) + config_name}' class='title-link' href='\#configuration-#{slug(key) + config_name}'></a> <span class='config-vars-label-name'> #{key} </span>"
 
         if attr.key? 'type'
 
@@ -81,7 +81,7 @@ module Jekyll
               TYPES.include? attr['type']
           end
 
-          markup << "<span class='config-vars-type'>#{type_link(attr['type'], component: component)}</span>"
+          markup << "<span class='config-vars-type'>#{type_link(attr['type'])}</span>"
         else
           # Type is missing, which is required (unless we are in a list or template)
           raise ArgumentError, "Configuration key '#{key}' is missing a type definition" \
@@ -138,8 +138,8 @@ module Jekyll
         # Check for nested configuration variables
         if attr.key? 'keys'
           markup << render_config_vars(
-            vars: attr['keys'], component: component,
-            platform: platform, converter: converter,
+            vars: attr['keys'], converter: converter,
+            config_name: config_name,
             classes: 'nested', parent_type: attr['type'])
         end
 
@@ -151,15 +151,13 @@ module Jekyll
     end
 
     def render(context)
-      if @component.nil? and @platform.nil?
-        page = context.environments.first['page']
-        @component, @platform = page['slug'].split('.', 2)
+      if !@config_name.to_s.empty?
+        @config_name = "-" + @config_name
       end
 
       contents = super(context)
 
-      component = Liquid::Template.parse(@component).render context
-      platform  = Liquid::Template.parse(@platform).render context
+      config_name  = Liquid::Template.parse(@config_name).render context
 
       site = context.registers[:site]
       converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
@@ -168,17 +166,16 @@ module Jekyll
 
       <<~MARKUP
         <div class="config-vars">
-          <h3>
-            <a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables
+          <h3 id="configuration-variables#{config_name}">
+            <a class="title-link" href="#configuration-variables#{config_name}"></a>Configuration Variables
           </h3>
           <div class="configuration-link">
             <a href="/docs/configuration/" target="_blank">Looking for your configuration file?</a>
           </div>
           #{render_config_vars(
             vars: vars,
-            component: component,
-            platform: platform,
-            converter: converter
+            converter: converter,
+            config_name: config_name
           )}
         </div>
       MARKUP
