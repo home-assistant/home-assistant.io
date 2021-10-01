@@ -496,7 +496,7 @@ installed, make sure it's part of your manifest.
 
 The following integrations are no longer available as of this release:
 
-- **Trackr** has been removed. The API is no longer available.
+- **Trackr** has been removed. The API is no longer available and
   has therefore been removed. ([@FuzzyMistborn] - [#55917])
 - **Tesla** has been removed due to increated Tesla login security preventing
   third-parties to log in. ([@alandtse] - [#55988])
