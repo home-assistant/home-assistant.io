@@ -511,3 +511,46 @@ For reference, the XML content of endpoint shown above example is below:
 	<time0> 0</time0>
  </response>
 ```
+
+### Fetch EPEX SPOT electricity price from aWATTar
+
+EPEX SPOT: European Power Exchange
+
+[aWATTar](https://www.awattar.at/) is a provider of electricity with dynamic prices. For one of their tariffs, you pay a fixed price (e.g. 10 ct/kWh) + the current EEX price (e.g. 12 ct/kWh) (both not including tax).
+
+This example simply fetches the price for the current hour from aWATTar every 30 minutes just for simplicity. If you want to fetch it at the beginning of an hour, you need an additional trigger. Please do not rigger more often for fair use of the free-of-charge API [aWATTar API Docs](https://www.awattar.at/services/api)
+
+aWATTar will provide you with the hours that are completely in the range of your start and end parameters. Example: If you request the time from 10:05 to 12:55, you will only get the price for the single hour 11:00 to 12:00, since it is the only hour-block that fits in the range entirely.
+
+The values provided by aWATTar have the unit EUR/MWh, to convert it to ct/kWh, it is simply divided by 10.
+
+{% raw %}
+
+```yaml
+sensor:
+  - platform: rest
+    name: EPEX SPOT Prices aWATTAR
+    scan_interval: 1800
+# Fetching the single current hour
+    resource_template: https://api.awattar.at/v1/marketdata?start={{ ( utcnow().strftime("%s") | int - 3600 ) * 1000 }}&end={{ ( utcnow().strftime("%s") | int + 3600 ) * 1000 }}
+# Fetching the full forecast (24 h, does not make sense, since we only use the first hour data)
+#   resource_template: https://api.awattar.at/v1/marketdata?start={{ ( utcnow().strftime("%s") | int - 3600 ) * 1000 }}
+    method: GET
+    device_class: monetary
+    unit_of_measurement: "ct/kWh"
+    value_template: >
+      {{ value_json.data[0].marketprice / 10.0 }}
+# Following will unfortunately not work, since RESTful Sensor does not support attribute templates :-(
+#   json_attributes_template: >
+#     {
+#     {% for rec in value_json.data -%}
+#       "hour_{{ loop.index - 1 }}" : {{ rec.marketprice / 10.0 }} 
+#       {%- if not loop.last -%}
+#         ,
+#       {%- endif %}
+#     {% endfor -%}
+#     }
+      
+      
+```
+{% endraw %}
