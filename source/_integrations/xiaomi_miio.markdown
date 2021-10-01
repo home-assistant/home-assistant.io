@@ -178,7 +178,7 @@ device_tracker:
     token: YOUR_TOKEN
 ```
 
-{% configuration %}
+{% configuration remote %}
 host:
   description: The IP address of your miio device.
   required: true
@@ -1049,7 +1049,7 @@ remote:
     token: YOUR_TOKEN
 ```
 
-{% configuration %}
+{% configuration repeater %}
 host:
   description: The IP of your remote.
   required: true
