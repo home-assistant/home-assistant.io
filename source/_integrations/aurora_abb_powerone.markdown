@@ -13,17 +13,17 @@ ha_platforms:
   - sensor
 ---
 
-This implements a direct RS485 connection to a solar inverter in the 
+This implements a direct RS485 connection to a solar inverter in the
 PVI-3.0/3.6/4.2-TL-OUTD ABB series, and may work on others.
 The inverter was formerly made by PowerOne who got taken over by ABB.
 
-The TCP/IP method of communicating with inverters is supported by the 
+The TCP/IP method of communicating with inverters is supported by the
 Python library, but not by this implementation in this integration.
 
 This integration provides a single sensor which reports the live power output
 in watts.
 
-Note the PV inverter will be unresponsive to communications when in darkness, 
+Note the PV inverter will be unresponsive to communications when in darkness,
 so the value 'unknown' will be displayed during the night.
 
 ## Configuration
@@ -39,7 +39,7 @@ sensor:
 
 {% configuration %}
 device:
-  description: The serial port your RS485 adaptor is connected to.
+  description: The serial port your RS485 adapter is connected to.
   required: true
   type: string
 address:
