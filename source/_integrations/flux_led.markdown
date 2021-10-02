@@ -27,7 +27,10 @@ Examples of controllers:
 
 ### Configuration
 
-The `Flux_LED` integration can be configured in the UI or in the configuration.yaml.  Please see the configuration.yaml section for details on using the 'configuration.yaml' to configure `Flux_LED`. `Flux_LED` can be configured in the UI by navigating to Configuration -> Integrations page. An IP address of a device can be entered in the Host field or it can be left blank and `Flux_LED` will automatically scan the network for any supported devices.
+The `Flux_LED` integration can be configured in the UI or in the configuration.yaml.  Please see the configuration.yaml section for details on using the 'configuration.yaml' to configure `Flux_LED`. `
+
+% include integrations/config_flow.md %
+
 
 After the devices have been added they can be configured with different effects or modes listed below. By default `Flux_LED` will attempt to determine the device type automatically. If it does not detect the correct device type it is recommended that the mode be selected manually.
 
