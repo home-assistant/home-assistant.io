@@ -29,21 +29,20 @@ Examples of controllers:
 
 The `Flux_LED` integration can be configured in the UI.
 
-% include integrations/config_flow.md %
-
+{% include integrations/config_flow.md %}
 
 After the devices have been added they can be configured with different effects or modes listed below. By default `Flux_LED` will attempt to determine the device type automatically. If it does not detect the correct device type it is recommended that the mode be selected manually.
 
-**Brightness Mode:**
-Auto - `Flux_LED` will attempt to determine the mode of the device.
-RGB - Device supports three LED channels (R)ed, (G)reen, (B)lue
-RGBW - Device supports four LED channels (R)ed, (G)reen, (B)lue, (W)hite
-W - Device supports one LED channel (W)hite
+**Brightness Mode:**\
+**Auto** - `Flux_LED` will attempt to determine the mode of the device.\
+**RGB** - Device supports three LED channels (**R**)ed, (**G**)reen, (**B**)lue\
+**RGBW** - Device supports four LED channels (**R**)ed, (**G**)reen, (**B**)lue, (**W**)hite\
+**W** - Device supports one LED channel (**W**)hite
 
-**Custom Effect**
+**Custom Effect**\
 A list of RGB colors can be entered to create an effect. The effect speed can be adjusted using the slider underneath.
 
-**Custom Effect Tyoe**
+**Custom Effect Type**\
 This determins the transition between each color. 
 
 
