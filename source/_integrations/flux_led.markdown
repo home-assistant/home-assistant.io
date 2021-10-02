@@ -26,7 +26,6 @@ Examples of controllers:
 - [SUPERNIGHT WiFi Wireless LED Smart Controller](https://amzn.to/2WURx7w)
 
 
-The `Flux_LED` integration can be configured in the UI.
 
 {% include integrations/config_flow.md %}
 
