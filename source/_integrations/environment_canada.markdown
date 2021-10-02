@@ -101,7 +101,7 @@ The configuration snippet below adds two useful [template sensors](https://www.h
 
 Replace `NAME` with the name used to configure your integration.
 
-```yaml
+{% configuration %}
 sensor:
   - platform: template
     sensors:
@@ -143,4 +143,4 @@ sensor:
               state_attr('sensor.NAME_ending_alerts', 'alert 1')
             }}
           {% endif %}
-```
+{% endconfiguration %}
