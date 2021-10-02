@@ -48,19 +48,20 @@ You have created an account for [Tuya Smart or Smart Life app](https://developer
 
 **1.** Log in to the [Tuya IoT Platform](https://iot.tuya.com/).
 
-**2.** In the left navigation bar, click **Cloud** > **Projects**.
+**2.** In the left navigation bar, click **Cloud** > **Development**.
+<p class='note'>If this is your first time setting up a an account you will be asked to subscribe to a Cloud Development Plan. You can select the Trial Edition and "purchase" it (this is free). </p>
 
-**3.** On the page that appears, click **Create**.
+**3.** On the page that appears, click **Create Cloud Project**.
 
-**4.** In the **Create Project** dialog box, configure **Project Name**, **Description**, **Industry**, and **Availability Zone**. In the **Development Method** field, select **Smart Home PaaS** from the dropdown list. Select all available zones.
+**4.** In the **Create Project** dialog box, configure **Project Name**, **Description**, **Industry**, and **Data Center**. In the **Development Method** field, select **Smart Home** from the dropdown list. In the **Data Center** field, select all available zones.
 
 ![](/images/integrations/tuya/image_001.png)
 	
 **5.** Click **Create** to continue project configuration.
 
 **6.** In **Configuration Wizard**, select **Device status notification** API.
-   > **Note:** **Smart Home PaaS** API has been selected as default.
-   
+<p class='note'>**Smart Home PaaS** API has been selected as default.</p>
+
 ![](/images/integrations/tuya/image_002.png)
 
 **7.** Click **Authorize**.
@@ -78,14 +79,17 @@ Link devices by your app account and copy the **Device ID** in the **Device List
 **1.** Navigate to the **Devices** tab.
 
 **2.** Click **Link Tuya App Account** > **Add App Account**.
+
 ![](/images/integrations/tuya/image_004.png)
 
 **3.** Scan the QR code that appears using the **Tuya Smart** app or **Smart Life** app.
+
 ![](/images/integrations/tuya/image_005.png)
 
 **4.** Click **Confirm** on your **Tuya Smart** or **Smart Life** app.
 
-**5.** Navigate to the **Device List** tab. You can find the devices that have been added through your **Tuya Smart** or **Smart Life** account.   
+**5.** Navigate to the **All Devices** tab. You can find the devices that have been added through your **Tuya Smart** or **Smart Life** account.
+
 ![](/images/integrations/tuya/image_006.png)
 
 ### Install the Tuya Home Assistant integration
@@ -93,6 +97,7 @@ Link devices by your app account and copy the **Device ID** in the **Device List
 #### Install the Tuya integration
 
 In **Configuration** > **Integrations** > **ADD INTEGRATION**, search for the keyword **Tuya** and select it for installation.
+
 ![](/images/integrations/tuya/image_007.png)
 
 #### Enter your Tuya credential
