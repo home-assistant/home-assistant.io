@@ -518,7 +518,7 @@ EPEX SPOT: European Power Exchange
 
 [aWATTar](https://www.awattar.at/) is a provider of electricity with dynamic prices. For one of their tariffs, you pay a fixed price (e.g. 10 ct/kWh) + the current EEX price (e.g. 12 ct/kWh) (both not including tax).
 
-This example simply fetches the price for the current hour from aWATTar every 30 minutes just for simplicity. If you want to fetch it at the beginning of an hour, you need an additional trigger. Please do not rigger more often for fair use of the free-of-charge API [aWATTar API Docs](https://www.awattar.at/services/api)
+This example simply fetches the price for the current hour from aWATTar every 30 minutes just for simplicity. If you want to fetch it at the beginning of an hour, you need an additional trigger. Please do not rigger more often for fair use of the free-of-charge API [aWATTar API documentation](https://www.awattar.at/services/api)
 
 aWATTar will provide you with the hours that are completely in the range of your start and end parameters. Example: If you request the time from 10:05 to 12:55, you will only get the price for the single hour 11:00 to 12:00, since it is the only hour-block that fits in the range entirely.
 
