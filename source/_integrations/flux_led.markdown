@@ -25,7 +25,6 @@ Examples of controllers:
 - [Ledenet WiFi RGBW Controller](https://amzn.to/2WZKXNa)
 - [SUPERNIGHT WiFi Wireless LED Smart Controller](https://amzn.to/2WURx7w)
 
-### Configuration
 
 The `Flux_LED` integration can be configured in the UI.
 
