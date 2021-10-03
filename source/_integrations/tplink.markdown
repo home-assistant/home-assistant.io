@@ -33,7 +33,7 @@ The supported devices in your network are automatically discovered, but if you w
 
 ## Supported Devices
 
-This integration supports devices that are controllable with the [KASA app](https://www.tp-link.com/us/kasa-smart/kasa.html).
+This integration supports devices that are controllable with the [KASA app](https://play.google.com/store/apps/details?id=com.tplink.kasa_android).
 The following devices are known to work with this component.
 
 ### Plugs
