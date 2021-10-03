@@ -28,6 +28,20 @@ The Tuya integration allows integrating all Powered by Tuya devices you have add
 
 {% include integrations/config_flow.md %}
 
+Consult the following table and enter your Tuya credentials.
+
+| Field | Description |
+| ------- | -------- |
+| Access ID and Access Secret| Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/). Find the **Access ID** and **Access Secret** on the **Project Overview** tab.|
+| Mobile App | Must select the one you used to link devices on the Tuya IoT Platform. |
+| Country Code | The country you select on logging in to Tuya Smart or Smart Life app.|
+| Account | Tuya Smart or Smart Life app account. |
+| Password | The password of your app account. |
+
+<p class='note'>
+The app mentioned in the table must be the one you used to link devices on the Tuya IoT Platform.
+</p>
+
 ## Supported platforms
 - **Climate**: Air conditioner, heater, thermostat.
 - **Cover**: Curtain, curtain switch.
@@ -36,18 +50,18 @@ The Tuya integration allows integrating all Powered by Tuya devices you have add
 - **Scene**: Smart scene.
 - **Switch**: Switch, socket, power strip, smart kettle, breaker, pet water feeder, air purifier, diffuser.
 
-## Quick installation and startup
-
-### Configure on the Tuya IoT Platform
+## Configuration of the Tuya IoT Platform
 
 #### Prerequisites
 
 You have created an account for [Tuya Smart or Smart Life app](https://developer.tuya.com/en/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
 
+You have created an account for the [Tuya IoT Platform](https://iot.tuya.com/).
+
 #### Create a project
 
 <p class='note'>
-If you don't already have an account for the IoT Platform, you will need to sign up. The credentials of your app account will not work.
+If you haven't already signed up in Tuya IoT Platform, you will need to make an account first. You cannnot log in with your app's credentials here.
 </p>
 
 **1.** Log in to the [Tuya IoT Platform](https://iot.tuya.com/).
@@ -80,7 +94,7 @@ If this is your first time setting up an account you will be asked to subscribe 
 
 #### Get authorization key
 
-Click the created project to enter the **Project Overview** page and get the **Authorization Key** used to make API calls.
+Click the created project to enter the **Project Overview** page and get the **Authorization Key** used to make API calls. You wil need these when setting up the integration.
 
 ![](/images/integrations/tuya/image_003.png)
 
@@ -103,32 +117,6 @@ Link devices by your app account and copy the **Device ID** in the **Device List
 **5.** Navigate to the **All Devices** tab. You can find the devices that have been added through your **Tuya Smart** or **Smart Life** account.
 
 ![](/images/integrations/tuya/image_006.png)
-
-### Install the Tuya Home Assistant integration
-
-#### Install the Tuya integration
-
-In **Configuration** > **Integrations** > **ADD INTEGRATION**, search for the keyword **Tuya** and select it for installation.
-
-![](/images/integrations/tuya/image_007.png)
-
-#### Enter your Tuya credential
-
-In the Tuya Integration window, select **Smart Home PaaS** and click **SUBMIT**.
-
-![](/images/integrations/tuya/image_008.png)
-
-See the following table and enter your Tuya credential.
-
-| Field | Description |
-| ------- | -------- |
-| Access ID and Access Secret| Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/). Find the **Access ID** and **Access Secret** on the **Project Overview** tab.|
-| Mobile App | Must select the one you used to link devices on the Tuya IoT Platform. |
-| Country Code | The country you select on logging in to Tuya Smart or Smart Life app.|
-| Account | Tuya Smart or Smart Life app account. |
-| Password | The password of your app account. |
-
-<p class='note'>The app mentioned in the table must be the one you used to link devices on the Tuya IoT Platform.</p>
 
 ## Error codes and troubleshooting
 
