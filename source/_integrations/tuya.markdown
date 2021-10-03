@@ -46,13 +46,17 @@ You have created an account for [Tuya Smart or Smart Life app](https://developer
 
 #### Create a project
 
+<p class='note'>
+If you don't already have an account for the IoT Platform, you will need to sign up. The credentials of your app account will not work.
+</p>
+
 **1.** Log in to the [Tuya IoT Platform](https://iot.tuya.com/).
 
 **2.** In the left navigation bar, click **Cloud** > **Development**.
 
 <p class='note'>
 If this is your first time setting up an account you will be asked to subscribe to a Cloud Development Plan. You can select the Trial Edition.
- </p>
+</p>
 
 **3.** On the page that appears, click **Create Cloud Project**.
 
