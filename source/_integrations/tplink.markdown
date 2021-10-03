@@ -32,10 +32,6 @@ In order to activate the support, you will have to enable the integration inside
 The supported devices in your network are automatically discovered, but if you want to control devices residing in other networks you will need to configure them manually as shown below.
 
 ## Supported Devices
-
-This integration supports devices that are controllable with the [KASA app](https://play.google.com/store/apps/details?id=com.tplink.kasa_android).
-The following devices are known to work with this component.
-
 ### Plugs
 
 Plugs are type `switch` when autodiscovery has been disabled.
