@@ -56,7 +56,7 @@ If this is your first time setting up an account you will be asked to subscribe 
 
 **3.** On the page that appears, click **Create Cloud Project**.
 
-**4.** In the **Create Project** dialog box, configure **Project Name**, **Description**, **Industry**, and **Data Center**. In the **Development Method** field, select **Smart Home** from the dropdown list. In the **Data Center** field, select all available zones.
+**4.** In the **Create Project** dialog box, configure **Project Name**, **Description**, **Industry**, and **Data Center**. In the **Development Method** field, select **Smart Home** from the dropdown list. In the **Data Center** field, select the zone you are located in.
 
 ![](/images/integrations/tuya/image_001.png)
 	
