@@ -63,7 +63,12 @@ If this is your first time setting up an account you will be asked to subscribe 
 **5.** Click **Create** to continue project configuration.
 
 **6.** In **Configuration Wizard**, select **Device status notification** API.
-<p class='note'>**Smart Home PaaS** API has been selected as default.</p>
+
+<p class='note'>
+
+**Smart Home PaaS** API has been selected as default.
+
+</p>
 
 ![](/images/integrations/tuya/image_002.png)
 
