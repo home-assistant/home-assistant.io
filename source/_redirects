@@ -2215,6 +2215,8 @@
 /components/device_tracker.ubee /more-info/removed-integration 301
 /components/device_tracker.xfinity  /more-info/removed-integration 301
 /components/edp_redy /more-info/removed-integration 301
+/components/essent /more-info/removed-integration 301
+/integrations/essent /more-info/removed-integration 301
 /components/fedex /more-info/removed-integration 301
 /components/fortigate /more-info/removed-integration 301
 /components/history_graph /more-info/removed-integration 301
