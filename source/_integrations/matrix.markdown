@@ -184,7 +184,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 ### Images in notification
 
-It is possible to send images with notifications. To do so, add a list of paths in the notification `data`.
+It is possible to send images or videos with notifications. To do so, add a list of paths in the notification `data`.
 
 ```yaml
 # Example of notification with images
@@ -195,6 +195,17 @@ action:
     data:
       images:
         - /path/to/picture.jpg
+```
+
+```yaml
+# Example of notification with videos
+action:
+  service: notify.matrix_notify
+  data:
+    message: "Test with videos"
+    data:
+      videos:
+        - /path/to/video.mp4
 ```
 
 <div class='note'>
