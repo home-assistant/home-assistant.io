@@ -465,7 +465,7 @@ trigger:
 
 #### Available Trigger Data
 
-In addition to the [standard automation trigger data](docs/automation/templating/#all), the `zwave_js.value_updated` trigger platform has additional trigger data available for use.
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `zwave_js.value_updated` trigger platform has additional trigger data available for use.
 
 | Template variable            | Data                                                                                       |
 |------------------------------|--------------------------------------------------------------------------------------------|
