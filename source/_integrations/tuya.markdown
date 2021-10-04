@@ -75,7 +75,7 @@ Link devices by your app account and copy the **Device ID** in the **Device List
 
 {% configuration_basic %}
   Region:
-    description: Chose the Tuya IoT region to use.
+    description: Choose the Tuya IoT region to use.
 
   "Tuya IoT Access ID":
     description: Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/). Find the **Access ID** under [Authorization Key](#get-authorization-key) on the **Project Overview** tab.
