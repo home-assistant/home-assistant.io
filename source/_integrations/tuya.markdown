@@ -70,23 +70,23 @@ This is a separate account to the one you made for the app. You cannot log in wi
 
 **2.** Click `Link Tuya App Account` > `Add App Account`.
 
-![](/images/integrations/tuya/image_004.png)
+![](/images/integrations/tuya/image_003.png)
 
 **3.** Scan the QR code that appears using the `Tuya Smart` app or `Smart Life` app.
 
-![](/images/integrations/tuya/image_005.png)
+![](/images/integrations/tuya/image_004.png)
 
 **4.** Click `Confirm` on your `Tuya Smart` or `Smart Life` app.
 
 **5.** Navigate to the `All Devices` tab. Here you should be able to find the devices that have been added through your `Tuya Smart` or `Smart Life` account, as a confirmation everything worked.
 
-![](/images/integrations/tuya/image_006.png)
+![](/images/integrations/tuya/image_005.png)
 
 #### Get authorization key
 
 Click the created project to enter the `Project Overview` page and get the `Authorization Key` used to make API calls. You will need these for setting up the integration. in the next step.
 
-![](/images/integrations/tuya/image_003.png)
+![](/images/integrations/tuya/image_006.png)
 
 {% include integrations/config_flow.md %}
 
