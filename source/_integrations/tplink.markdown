@@ -20,7 +20,7 @@ ha_platforms:
 ha_dhcp: true
 ---
 
-The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as smart plugs and smart bulbs.
+The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as plugs, power strips, wall switches and bulbs.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -32,10 +32,6 @@ In order to activate the support, you will have to enable the integration inside
 The supported devices in your network are automatically discovered, but if you want to control devices residing in other networks you will need to configure them manually as shown below.
 
 ## Supported Devices
-
-This integration supports devices that are controllable with the [KASA app](https://www.tp-link.com/us/kasa-smart/kasa.html).
-The following devices are known to work with this component.
-
 ### Plugs
 
 Plugs are type `switch` when autodiscovery has been disabled.
