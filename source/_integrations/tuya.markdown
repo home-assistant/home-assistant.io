@@ -3,7 +3,6 @@ title: Tuya
 description: Instructions on how to setup the Tuya hub within Home Assistant.
 ha_category:
   - Climate
-  - Cover
   - Fan
   - Light
   - Scene
