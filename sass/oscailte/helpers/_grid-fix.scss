@@ -128,6 +128,11 @@
 
 @media only screen and (max-width: $palm-end) {
   .flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
     -webkit-box-direction: normal;
     -moz-box-direction: normal;
     -webkit-box-orient: vertical;
