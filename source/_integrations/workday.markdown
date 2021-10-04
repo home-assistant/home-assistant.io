@@ -97,8 +97,8 @@ binary_sensor:
     workdays: [mon, tue, wed, thu, fri]
     excludes: [sat, sun]
     add_holidays:
-      - '2020-02-24'
-      - '2020-04-25'
+      - "2020-02-24"
+      - "2020-04-25"
 ```
 
 This example excludes Saturdays, Sundays and holidays. One custom holiday is added.
