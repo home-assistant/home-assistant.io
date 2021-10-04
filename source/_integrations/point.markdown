@@ -149,5 +149,4 @@ Each Point exposes the following sensors:
 
 - **temperature**: Temperature in °C.
 - **humidity**: Percentage of humidity in the air.
-- **pressure**: Pressure in hPa.
 - **sound_level**: Sound level in dBA
