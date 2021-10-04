@@ -36,7 +36,7 @@ The Tuya integration allows integrating all Powered by Tuya devices you have add
 ### Prerequisites
 
 - You have created an account for [Tuya Smart or Smart Life app](https://developer.tuya.com/en/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
-- You have created an [Tuya IoT Platform account](https://iot.tuya.com/)
+- You have created a [Tuya IoT Platform account](https://iot.tuya.com/)
 
 ### Create a project
 
