@@ -16,6 +16,12 @@ ha_platforms:
 
 The Mullvad VPN integration pulls [Mullvad](https://mullvad.net/) VPN status information into Home Assistant.
 
+<div class='note'>
+
+This integration reports the Mullvad status of Home Assistant itself, not the status of other clients that may be connected to your Mullvad account.
+
+</div>
+
 ![](/images/screenshots/mullvad_vpn_sample_sensor_connected.png)
 
 {% include integrations/config_flow.md %}
