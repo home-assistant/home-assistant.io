@@ -81,3 +81,11 @@ table {
         }
     }
   }
+
+@media only screen and (max-width: $palm-end) {
+     .hero {
+        img {
+            margin-bottom: 0px;
+        }
+    }
+}
