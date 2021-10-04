@@ -168,13 +168,11 @@ Navigate to **Developer tools->Events**. In the section **Listen to events** add
 
 ### Device triggers
 
-To simplify using remote control devices in automations deCONZ integration exposes them as device triggers. This will expose all possible variations of button presses and rotations. Note that this is a manually curated list and will not initially be as complete as what deCONZ supports.
-
-Review [this list](https://github.com/home-assistant/core/blob/15a8f6741bdf852b6f542be61aacb4896cd9e1ff/homeassistant/components/deconz/device_trigger.py#L559) to see if your device is supported by device triggers
+To simplify using remote control devices in automations deCONZ integration exposes them as device triggers. This will expose all possible variations of button presses and rotations. Most popular brands of Zigbee remotes are supported.
 
 #### Requesting support for new device trigger
 
-Requesting support for additional devices requires the device model (can be acquired from debug logs) together with a mapping of action and button event, e.g., Hue dimmer remote model "RWL021", Short press turn on 1000.
+If you have a Zigbee remote that is not yet supported you can request support for it by creating an issue on Home Assistant Core GitHub repository. This requires the device model (can be acquired from debug logs) together with a mapping of action and button event, e.g., Hue dimmer remote model "RWL021", Short press turn on 1000.
 
 ## Examples
 
