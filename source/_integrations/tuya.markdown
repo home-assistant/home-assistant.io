@@ -26,97 +26,69 @@ ha_dhcp: true
 
 The Tuya integration allows integrating all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps. This integration is officially maintained by Tuya.
 
-{% include integrations/config_flow.md %}
-
-Consult the following table and enter your Tuya credentials.
-
-| Field | Description |
-| ------- | -------- |
-| Access ID and Access Secret| Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/). Find the **Access ID** and **Access Secret** on the **Project Overview** tab.|
-| Mobile App | Must select the one you used to link devices on the Tuya IoT Platform. |
-| Country Code | The country you select on logging in to Tuya Smart or Smart Life app.|
-| Account | Tuya Smart or Smart Life app account. |
-| Password | The password of your app account. |
-
-<p class='note'>
-The app mentioned in the table must be the one you used to link devices on the Tuya IoT Platform.
-</p>
-
 ## Supported platforms
-- **Climate**: Air conditioner, heater, thermostat.
-- **Cover**: Curtain, curtain switch.
-- **Fan**: Fan, air purifier, humidifier, dehumidifier.
-- **Light**: Light, light strip, ambient light, light string, humidifier's light, Ceiling light.
-- **Scene**: Smart scene.
-- **Switch**: Switch, socket, power strip, smart kettle, breaker, pet water feeder, air purifier, diffuser.
+
+- **Climate**: air conditioner, heater, thermostat.
+- **Cover**: curtain, curtain switch.
+- **Fan**: fan, air purifier, humidifier, dehumidifier.
+- **Light**: light, light strip, ambient light, light string, humidifier's light, ceiling light.
+- **Scene**: smart scene.
+- **Switch**: switch, socket, power strip, smart kettle, breaker, pet water feeder, air purifier, diffuser.
 
 ## Configuration of the Tuya IoT Platform
 
-#### Prerequisites
+### Prerequisites
 
-You have created an account for [Tuya Smart or Smart Life app](https://developer.tuya.com/en/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
+Your devices need to first be added in the [Tuya Smart or Smart Life app](https://developer.tuya.com/en/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
 
-You have created an account for the [Tuya IoT Platform](https://iot.tuya.com/).
+You will also need to create an account in the [Tuya IoT Platform](https://iot.tuya.com/).
+This is a separate account to the one you made for the app. You cannot log in with your app's credentials.
 
 #### Create a project
 
-<p class='note'>
-If you haven't already signed up in Tuya IoT Platform, you will need to make an account first. You cannnot log in with your app's credentials here.
-</p>
-
 **1.** Log in to the [Tuya IoT Platform](https://iot.tuya.com/).
 
-**2.** In the left navigation bar, click **Cloud** > **Development**.
+**2.** In the left navigation bar, click `Cloud` > `Development`. If this is your first time setting up an account you will be asked to subscribe to a Cloud Development Plan. You can select and "purchase" the Trial Edition.
 
-<p class='note'>
-If this is your first time setting up an account you will be asked to subscribe to a Cloud Development Plan. You can select the Trial Edition.
-</p>
+**3.** On the page that appears, click `Create Cloud Project`.
 
-**3.** On the page that appears, click **Create Cloud Project**.
-
-**4.** In the **Create Project** dialog box, configure **Project Name**, **Description**, **Industry**, and **Data Center**. In the **Development Method** field, select **Smart Home** from the dropdown list. In the **Data Center** field, select the zone you are located in.
+**4.** In the `Create Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in.
 
 ![](/images/integrations/tuya/image_001.png)
-	
-**5.** Click **Create** to continue project configuration.
 
-**6.** In **Configuration Wizard**, select **Device status notification** API.
+**5.** Click `Create` to continue project configuration.
 
-<p class='note'>
-
-**Smart Home PaaS** API has been selected as default.
-
-</p>
+**6.** In Configuration Wizard, select the `Device Status Notification` API. `Smart Home` API products should already be selected by default.
 
 ![](/images/integrations/tuya/image_002.png)
 
-**7.** Click **Authorize**.
-
-#### Get authorization key
-
-Click the created project to enter the **Project Overview** page and get the **Authorization Key** used to make API calls. You wil need these when setting up the integration.
-
-![](/images/integrations/tuya/image_003.png)
+**7.** Click `Authorize`.
 
 #### Link devices by app account
 
-Link devices by your app account and copy the **Device ID** in the **Device List** to the clipboard for specifying `device_id` later.
+**1.** Navigate to the `Devices` tab.
 
-**1.** Navigate to the **Devices** tab.
+**2.** Click `Link Tuya App Account` > `Add App Account`.
 
-**2.** Click **Link Tuya App Account** > **Add App Account**.
+![](/images/integrations/tuya/image_003.png)
+
+**3.** Scan the QR code that appears using the `Tuya Smart` app or `Smart Life` app.
 
 ![](/images/integrations/tuya/image_004.png)
 
-**3.** Scan the QR code that appears using the **Tuya Smart** app or **Smart Life** app.
+**4.** Click `Confirm` on your `Tuya Smart` or `Smart Life` app.
+
+**5.** Navigate to the `All Devices` tab. Here you should be able to find the devices that have been added through your `Tuya Smart` or `Smart Life` account, as a confirmation everything worked.
 
 ![](/images/integrations/tuya/image_005.png)
 
-**4.** Click **Confirm** on your **Tuya Smart** or **Smart Life** app.
+#### Get authorization key
 
-**5.** Navigate to the **All Devices** tab. You can find the devices that have been added through your **Tuya Smart** or **Smart Life** account.
+Click the created project to enter the `Project Overview` page and get the `Authorization Key` used to make API calls. You will need these for setting up the integration. in the next step.
 
 ![](/images/integrations/tuya/image_006.png)
+
+{% include integrations/config_flow.md %}
 
 ## Error codes and troubleshooting
 
