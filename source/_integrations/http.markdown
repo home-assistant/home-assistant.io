@@ -116,6 +116,9 @@ http:
     - 10.0.0.200      # Add the IP address of the proxy server
     - 172.30.33.0/24  # You may also provide the subnet mask
 ```
+Note: The `172.30.33.0/24` line is not an example but a mandatory line.
+
+Remember to enable WebSockets headers in your reverse proxy configuration.
 
 ## APIs
 
