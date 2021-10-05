@@ -65,7 +65,7 @@ This is a separate account to the one you made for the app. You cannot log in wi
 
 ### Get authorization key
 
-Click the created project to enter the `Project Overview` page and get the `Authorization Key` used to make API calls. You will need these for setting up the integration. in the next step.
+Click the created project to enter the `Project Overview` page and get the `Authorization Key`. You will need these for setting up the integration. in the next step.
   ![](/images/integrations/tuya/image_006.png)
 
 {% include integrations/config_flow.md %}
