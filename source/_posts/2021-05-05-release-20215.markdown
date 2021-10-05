@@ -2450,7 +2450,7 @@ their data, which is not allowed for core integrations.
 [tibber docs]: /integrations/tibber/
 [tod docs]: /integrations/tod/
 [tplink docs]: /integrations/tplink/
-[trace docs]: /integrations/trace/
+[trace docs]: /docs/automation/troubleshooting/
 [tts docs]: /integrations/tts/
 [tuya docs]: /integrations/tuya/
 [twitter docs]: /integrations/twitter/
