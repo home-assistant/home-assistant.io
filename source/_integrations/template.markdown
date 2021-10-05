@@ -148,10 +148,6 @@ binary_sensor:
   required: false
   type: map
   keys:
-    icon:
-      description: Defines a template for the icon of the sensor.
-      required: false
-      type: template
     picture:
       description: Defines a template for the entity picture of the sensor.
       required: false
@@ -236,6 +232,10 @@ select:
       description: An ID that uniquely identifies this sensor. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
       required: false
       type: string
+    icon:
+      description: Defines a template for the icon of the sensor.
+      required: false
+      type: template
     availability:
       description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the component will always be `available`.
       required: false
