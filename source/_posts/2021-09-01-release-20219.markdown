@@ -130,7 +130,7 @@ fulfilled in this release.
 For example, the [Kostal Plenticore Solar Inverter](/integrations/kostal_plenticore),
 [PVOutput](/integrations/pvoutput), [Fronius](/integrations/fronius),
 [SolaX Power](/integrations/solax), [Growatt](/integrations/growatt_server),
-[Solar-Log](/integrations/solar_log), [YouLess](/integrations/youless),
+[Solar-Log](/integrations/solarlog), [YouLess](/integrations/youless),
 [Emoncms](/integrations/emoncms), [Modbus](/integrations/modbus),
 and many more have added support for all the energy goodness.
 
@@ -2762,7 +2762,7 @@ developer blog about it:
 [gios docs]: /integrations/gios/
 [github docs]: /integrations/github/
 [goalzero docs]: /integrations/goalzero/
-[google docs]: /integrations/google/
+[google docs]: /integrations/calendar.google/
 [google_assistant docs]: /integrations/google_assistant/
 [google_maps docs]: /integrations/google_maps/
 [google_pubsub docs]: /integrations/google_pubsub/

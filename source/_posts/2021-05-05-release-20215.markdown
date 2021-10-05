@@ -2324,7 +2324,7 @@ their data, which is not allowed for core integrations.
 [geizhals docs]: /integrations/geizhals/
 [geniushub docs]: /integrations/geniushub/
 [gntp docs]: /integrations/gntp/
-[google docs]: /integrations/google/
+[google docs]: /integrations/calendar.google/
 [google_assistant docs]: /integrations/google_assistant/
 [google_cloud docs]: /integrations/google_cloud/
 [google_travel_time docs]: /integrations/google_travel_time/
