@@ -15,7 +15,7 @@ This integration is a meta-component and configures a default set of integration
 - [Configuration](/integrations/config/) (`config`)
 - [Counter](/integrations/counter/) (`counter`)
 - [DHCP Discovery](/integrations/dhcp/) (`dhcp`)
-- [Energy](/integrations/energy/) (`energy`)
+- [Energy](/docs/energy/) (`energy`)
 - [Frontend](/integrations/frontend/) (`frontend`)
 - [History](/integrations/history/) (`history`)
 - [Image](/integrations/image/) (`image`)
