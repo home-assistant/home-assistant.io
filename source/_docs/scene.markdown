@@ -27,16 +27,24 @@ scene:
         state: "on"
 ```
 
-{% configuration %}
-name:
-  description: Friendly name of scene.
-  required: true
+## How to configure your scene
+
+In the `*.yaml` file, you'll need to configure the following options in order to ensure your scene works:
+- name
+- description
+- entities
+
+```yaml
+# Configuration specs
+name: "add the name scene here"
+  description: "Add a friendly name for your scene here"
+  required: true # can be true or false
   type: string
 entities:
-  description: Entities to control and their desired state.
+  description: "add which smart objects you want to control here, and their desired state."
   required: true
   type: list
-{% endconfiguration %}
+```
 
 As you can see, there are two ways to define the states of each `entity_id`:
 
