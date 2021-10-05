@@ -32,39 +32,39 @@ There is currently support for the following device types within Home Assistant:
 
 ## Services
 
+Services accept either device IDs or entity IDs, depending on the nature of the service:
+
+* Services that require a device ID as a target:
+    * `rainmachine.pause_watering`
+    * `rainmachine.stop_all`
+    * `rainmachine.unpause_watering`
+* Services that require an entity ID as a target (note that the correct entity ID type must be provided, such as a program for a program-related service)
+    * `rainmachine.disable_program`
+    * `rainmachine.disable_zone`
+    * `rainmachine.enable_program`
+    * `rainmachine.enable_zone`
+    * `rainmachine.start_program`
+    * `rainmachine.start_zone`
+    * `rainmachine.stop_program`
+    * `rainmachine.stop_zone`
+
 ### `rainmachine.disable_program`
 
 Disable a RainMachine program. This will mark the program switch as
 `Unavailable` in the UI.
-
-| Service Data Attribute    | Optional | Description                                                 |
-|---------------------------|----------|-------------------------------------------------------------|
-| `program_id  `              |      no  | The program to disable                                      |
 
 ### `rainmachine.disable_zone`
 
 Disable a RainMachine zone. This will mark the zone switch as
 `Unavailable` in the UI.
 
-| Service Data Attribute    | Optional | Description                                                 |
-|---------------------------|----------|-------------------------------------------------------------|
-| `zone_id  `                 |      no  | The program to disable                                      |
-
 ### `rainmachine.enable_program`
 
 Enable a RainMachine program.
 
-| Service Data Attribute    | Optional | Description                                                 |
-|---------------------------|----------|-------------------------------------------------------------|
-| `program_id  `              |      no  | The program to enable                                       |
-
 ### `rainmachine.enable_zone`
 
 Enable a RainMachine zone.
-
-| Service Data Attribute    | Optional | Description                                                 |
-|---------------------------|----------|-------------------------------------------------------------|
-| `zone_id  `                 |      no  | The zone to enable                                          |
 
 ### `rainmachine.pause_watering`
 
@@ -76,19 +76,12 @@ Pause all watering activities for a number of seconds.
 
 ### `rainmachine.start_program`
 
-Start a RainMachine program.
-
-| Service Data Attribute    | Optional | Description                                                 |
-|---------------------------|----------|-------------------------------------------------------------|
-| `program_id  `              |      no  | The program to start                                        |
-
 ### `rainmachine.start_zone`
 
 Start a RainMachine zone for a set number of seconds.
 
 | Service Data Attribute    | Optional | Description                                                 |
 |---------------------------|----------|-------------------------------------------------------------|
-| `zone_id`                   |      no  | The zone to start                                           |
 | `zone_run_time`             |      yes | The number of seconds to run; defaults to 60 seconds        |
 
 ### `rainmachine.stop_all`
@@ -99,17 +92,9 @@ Stop all watering activities.
 
 Stop a RainMachine program.
 
-| Service Data Attribute    | Optional | Description                                                 |
-|---------------------------|----------|-------------------------------------------------------------|
-| `program_id  `              |      no  | The program to stop                                         |
-
 ### `rainmachine.stop_zone`
 
 Stop a RainMachine zone.
-
-| Service Data Attribute    | Optional | Description                                                 |
-|---------------------------|----------|-------------------------------------------------------------|
-| `zone_id  `                 |      no  | The zone to stop                                            |
 
 ### `rainmachine.unpause_watering`
 
