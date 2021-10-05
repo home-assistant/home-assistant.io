@@ -144,7 +144,7 @@ If your node has user codes, you can set and delete them. The format is raw hex 
 \x39 = 9
 ```
 Some non compliant device like tag readers, have implemented to use raw hex code.
-Please refer to a hex ASCII table to set your code. Example: http://www.asciitable.com/
+Please refer to a hex ASCII table to set your code. Example: https://www.asciitable.com/
 
 Here is a small Python program than will take numbers on the command line and print the correct sequence for compliant devices:
 
