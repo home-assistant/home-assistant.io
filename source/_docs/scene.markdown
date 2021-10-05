@@ -35,15 +35,16 @@ In the `*.yaml` file, you'll need to configure the following options in order to
 - entities
 
 ```yaml
-# Configuration specs
-name: "add the name scene here"
-  description: "Add a friendly name for your scene here"
-  required: true # can be true or false
+{% configuration %}
+name: 
+  description: Add a friendly name for your scene here
+  required: true
   type: string
 entities:
-  description: "add which smart objects you want to control here, and their desired state."
+  description: Add which smart objects you want to control here, and their desired state.
   required: true
   type: list
+{% endconfiguration %}
 ```
 
 As you can see, there are two ways to define the states of each `entity_id`:
