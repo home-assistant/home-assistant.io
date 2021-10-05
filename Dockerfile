@@ -16,7 +16,8 @@ RUN \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       ack \
   && echo "en_US UTF-8" > /etc/locale.gen \
-  && locale-gen en_US.UTF-8
+  && locale-gen en_US.UTF-8 \
+  &&  rm -rf /var/lib/apt/lists/*
 
 # Install the specific version of bundler we need
 COPY Gemfile.lock ./
