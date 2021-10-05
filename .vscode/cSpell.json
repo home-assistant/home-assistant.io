@@ -1,46 +1,64 @@
 // cSpell Settings
 // Contains additional words for our project
 {
-  "version": "0.1",
+  "version": "0.2",
   "language": "en",
   "words": [
     "arest",
     "automations",
+    "balloob",
     "bloomsky",
     "bluesound",
     "BTLE",
+    "codeowners",
+    "Conbee",
+    "deCONZ",
     "Denon",
     "endconfiguration",
+    "enddetails",
     "endraw",
     "Etekcity",
     "fitbit",
     "Flexit",
+    "Frenck",
     "Harman",
     "hass",
     "Hass.io",
+    "hassio",
     "HassOS",
     "hcitool",
     "heos",
     "hikvision",
+    "homeassistant",
+    "Homekit",
     "Homematic",
     "IBAN",
     "icloud",
     "kardon",
+    "ludeeus",
     "macos",
     "Modbus",
     "Mosquitto",
     "nginx",
+    "Nijhof",
+    "odroid",
     "ohmconnect",
     "Onkyo",
     "paulus",
+    "Phoscon",
+    "Schoutsen",
     "templating",
     "waqi",
-    "Webhook"
+    "Webhook",
+    "Zigbee"
   ],
   // flagWords - list of words to be always considered incorrect
   // This is useful for offensive words and common spelling errors.
   // For example "hte" should be "the"
-  "flagWords": ["hte", "asssistant"],
+  "flagWords": [
+    "hte",
+    "asssistant"
+  ],
   "enabledLanguageIds": [
     "asciidoc",
     "c",
