@@ -94,7 +94,7 @@ It is also recommended that the command `volume_up`, the command `volume_down`, 
 
 When providing `select_source` as a command, it is recommended to also provide the attributes `source`, and `source_list`. The `source` attribute is the currently select source, while the `source_list` attribute is a list of all available sources.
 
-When using `state_template`, if you use a template that depends on the current time it is recommended to use `now()`. Using now() will cause templates to be refreshed at the start of every new minute. For more information check the [time](/docs/configuration/templating/#time) section in the template documentation.
+When using `state_template`, if you use a template that depends on the current time it is recommended to use `now()`. Using `now()` will cause templates to be refreshed at the start of every new minute. For more information see the [time](/docs/configuration/templating/#time) section in the template documentation.
 
 ## Usage examples
 
