@@ -74,7 +74,7 @@ This includes:
 
 - The names of all your core integrations
 - The names and versions of all your custom integrations if you have any
-- Boolean to indicate that the [`energy` integration](/docs/energy) is configured
+- Boolean to indicate that the [`energy` integration](/integrations/energy) is configured
 
 If your system includes the Supervisor, this will also contain:
 
