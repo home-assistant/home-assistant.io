@@ -27,53 +27,50 @@ The Tuya integration allows integrating all Powered by Tuya devices you have add
 
 ## Supported platforms
 
-- **Climate**: Air conditioner, heater, thermostat.
-- **Fan**: Fan, air purifier, humidifier, dehumidifier.
-- **Light**: Light, light strip, ambient light, light string, humidifier's light, Ceiling light.
-- **Scene**: Smart scene.
-- **Switch**: Switch, socket, power strip, smart kettle, breaker, pet water feeder, air purifier, diffuser.
+- **Climate**: air conditioner, heater, thermostat.
+- **Fan**: fan, air purifier, humidifier, dehumidifier.
+- **Light**: light, light strip, ambient light, light string, humidifier's light, ceiling light.
+- **Scene**: smart scene.
+- **Switch**: switch, socket, power strip, smart kettle, breaker, pet water feeder, air purifier, diffuser.
 
-## Configure the Tuya IoT Platform
+## Configuration of the Tuya IoT Platform
 
 ### Prerequisites
 
-- You have created an account for [Tuya Smart or Smart Life app](https://developer.tuya.com/en/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
-- You have created a [Tuya IoT Platform account](https://iot.tuya.com/)
+- Your devices need to first be added in the [Tuya Smart or Smart Life app](https://developer.tuya.com/en/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
+- You will also need to create an account in the [Tuya IoT Platform](https://iot.tuya.com/).
+This is a separate account to the one you made for the app. You cannot log in with your app's credentials.
 
 ### Create a project
 
 1. Log in to the [Tuya IoT Platform](https://iot.tuya.com/).
-1. In the left navigation bar, click **Cloud** > **Projects**.
-1. On the page that appears, click **Create**.
-1. In the **Create Project** dialog box, configure **Project Name**, **Description**, **Industry**, and **Availability Zone**. In the **Development Method** field, select **Smart Home PaaS** from the dropdown list. Select all available zones.
+2. In the left navigation bar, click `Cloud` > `Development`. If this is your first time setting up an account you will be asked to subscribe to a Cloud Development Plan. You can select and "purchase" the Trial Edition.
+3. On the page that appears, click `Create Cloud Project`.
+4. In the `Create Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in.
   ![](/images/integrations/tuya/image_001.png)
-1. Click **Create** to continue project configuration.
-1. In **Configuration Wizard**, select **Device status notification** API. (**Note:** **Smart Home PaaS** API has been selected as default.)
+5. Click `Create` to continue with project configuration.
+6. In Configuration Wizard, select the `Device Status Notification` API. `Smart Home` API products should already be selected by default.
   ![](/images/integrations/tuya/image_002.png)
-1. Click **Authorize**.
-
-### Get authorization key
-
-Click the created project to enter the **Project Overview** page and get the **Authorization Key** used to make API calls.
-
-![](/images/integrations/tuya/image_003.png)
+7. Click `Authorize`.
 
 ### Link devices by app account
 
-Link devices by your app account and copy the **Device ID** in the **Device List** to the clipboard for specifying `device_id` later.
-
-1. Navigate to the **Devices** tab.
-1. Click **Link Tuya App Account** > **Add App Account**.
+1. Navigate to the `Devices` tab.
+2. Click `Link Tuya App Account` > `Add App Account`.
+  ![](/images/integrations/tuya/image_003.png)
+3. Scan the QR code that appears using the `Tuya Smart` app or `Smart Life` app.
   ![](/images/integrations/tuya/image_004.png)
-1. Scan the QR code that appears using the **Tuya Smart** app or **Smart Life** app.
-  ![](/images/integrations/tuya/image_005.png)
-1. Click **Confirm** on your **Tuya Smart** or **Smart Life** app.
-1. Navigate to the **Device List** tab. You can find the devices that have been added through your **Tuya Smart** or **Smart Life** account.
+4. Click `Confirm` on your `Tuya Smart` or `Smart Life` app.
+5. Navigate to the `All Devices` tab. Here you should be able to find the devices that have been added through your `Tuya Smart` or `Smart Life` account, as a confirmation everything worked.
+
+![](/images/integrations/tuya/image_005.png)
+
+### Get authorization key
+
+Click the created project to enter the `Project Overview` page and get the `Authorization Key`. You will need these for setting up the integration. in the next step.
   ![](/images/integrations/tuya/image_006.png)
 
 {% include integrations/config_flow.md %}
-
-![](/images/integrations/tuya/image_008.png)
 
 {% configuration_basic %}
   Region:
