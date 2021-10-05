@@ -70,7 +70,6 @@ Click the created project to enter the `Project Overview` page and get the `Auth
 
 {% include integrations/config_flow.md %}
 
-  ![](/images/integrations/tuya/image_008.png)
 {% configuration_basic %}
   Region:
     description: Choose the Tuya IoT region to use.
