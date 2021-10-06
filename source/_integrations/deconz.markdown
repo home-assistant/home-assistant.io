@@ -60,7 +60,7 @@ See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/
 
 {% include integrations/config_flow.md %}
 
-Running a stand-alone instance of deCONZ (non add-on installation) requires a pairing between the deCONZ gateway and Home Assistant. To allow Home Assistant to connect with deCONZ go to the Phoscon UI click Settings -> Gateway -> Advanced and press the "Authenticate app" button. This same information is also shown during the config flow of the deCONZ integration.
+Running a stand-alone instance of deCONZ (non add-on installation) requires a pairing between the deCONZ gateway and Home Assistant. To allow Home Assistant to connect with deCONZ go to the Phoscon **UI click Settings -> Gateway -> Advanced** and press the "Authenticate app" button. This same information is also shown during the config flow of the deCONZ integration.
 
 ## Debugging integration
 
@@ -84,7 +84,7 @@ Available services: `configure`, `deconz.device_refresh` and `deconz.remove_orph
 
 ### Service `deconz.configure`
 
-Set attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/about_rest/).
+Set the attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/about_rest/).
 
 | Service data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
