@@ -84,7 +84,7 @@ Available services: `configure`, `deconz.device_refresh` and `deconz.remove_orph
 
 ### Service `deconz.configure`
 
-Set attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/rest/).
+Set attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/about_rest/).
 
 | Service data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
