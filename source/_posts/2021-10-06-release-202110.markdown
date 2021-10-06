@@ -231,6 +231,112 @@ Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 
+{% details "Material Design Icons (MDI)" %}
+
+The Material Design Icons have been upgraded to v6, which brings in around
+400 new icons and removes and renames some others.
+
+The removed and renamed icons will keep working for this and the next release,
+Home Assistant will write a warning to the logs in case
+you are using one of the removed or renamed icons.
+
+The following icons have been removed:
+
+- `adobe-acrobat`
+- `adobe`
+- `amazon-alexa`
+- `amazon`
+- `android-auto`
+- `android-debug-bridge`
+- `bandcamp`
+- `battlenet`
+- `blogger`
+- `buffer`
+- `cash-usd-outline`
+- `cash-usd`
+- `cellphone-android` (alternative: `cellphone`)
+- `cellphone-iphone` (alternative: `cellphone`)
+- `concourse-ci`
+- `currency-usd-circle`
+- `currency-usd-circle-outline`
+- `do-not-disturb-off` (alternative: `minus-circle-off`)
+- `do-not-disturb` (alternative: `minus-circle`)
+- `douban`
+- `file-pdf` (alternative: `file-pdf-box`)
+- `file-pdf-outline` (alternative: `file-pdf-box`)
+- `file-pdf-box-outline` (alternative: `file-pdf-box`)
+- `google-photos`
+- `home-currency-usd`
+- `laptop-chromebook` (alternative: `laptop`)
+- `laptop-mac` (alternative: `laptop`)
+- `laptop-windows` (alternative: `laptop`)
+- `microsoft-edge-legacy`
+- `microsoft-yammer`
+- `pdf-box` (alternative: `file-pdf-box`)
+- `plus-one` (alternative: `numeric-positive-1`)
+- `poll-box` (alternative: `chart-box`)
+- `poll-box-outline` (alternative: `chart-box-outline`)
+- `tablet-ipad` (alternative: `tablet`)
+- `telegram`
+- `untappd`
+- `vk`
+- `xamarian-outline`
+- `xing`
+- `y-combinator`
+
+The following icons have been renamed:
+
+- `apple-airplay` to `cast-variant`
+- `application` to `application-outline`
+- `application-cog` to `application-cog-outline`
+- `application-settings` to `application-settings-outline`
+- `bolnisi-cross` to `cross-bolnisi`
+- `boom-gate-up` to `boom-gate-arrow-up`
+- `boom-gate-up-outline` to `boom-gate-arrow-up-outline`
+- `boom-gate-down` to `boom-gate-arrow-down`
+- `boom-gate-down-outline` to `boom-gate-arrow-down-outline`
+- `buddhism` to `dharmachakra`
+- `cellphone-erase` to `cellphone-remove`
+- `celtic-cross` to `cross-celtic`
+- `christianity` to `cross`
+- `christianity-outline` to `cross-outline`
+- `face` to `face-man`
+- `face-outline` to `face-man-outline`
+- `face-profile-woman` to `face-woman-profile`
+- `face-shimmer` to `face-man-shimmer`
+- `face-shimmer-outline` to `face-man-shimmer-outline`
+- `flash-circle` to `lightning-bolt-circle`
+- `floor-lamp-variant` to `floor-lamp-torchiere-variant`
+- `gif` to `file-gif-box`
+- `gradient` to `gradient-vertical`
+- `hand` to `hand-front-right`
+- `hand-left` to `hand-back-left`
+- `hand-right` to `hand-back-right`
+- `hinduism` to `om`
+- `human-greeting` to `human-greeting-variant`
+- `iframe` to `application-brackets`
+- `iframe-outline` to `application-brackets-outline`
+- `iframe-array` to `application-array`
+- `iframe-array-outline` to `application-array-outline`
+- `iframe-braces` to `application-braces`
+- `iframe-braces-outline` to `application-braces-outline`
+- `iframe-parentheses` to `application-parentheses`
+- `iframe-parentheses-outline` to `application-parentheses-outline`
+- `iframe-variable` to `application-variable`
+- `iframe-variable-outline` to `application-variable-outline`
+- `islam` to `star-crescent`
+- `judaism` to `star-david`
+- `monitor-clean` to `monitor-shimmer`
+- `pharmacy` to `mortar-pestle-plus`
+- `sparkles` to `shimmer`
+- `teach` to `human-male-board`
+- `television-clean` to `television-shimmer`
+- `text-subject` to `text-long`
+- `twitter-retweet` to `repeat-variant`
+- `voice-off` to `account-voice-off`
+
+{% enddetails %}
+
 {% details "Alexa" %}
 
 Removes the support for legacy fan speeds.
