@@ -2801,7 +2801,7 @@ The following integrations are no longer available as of this release:
 [todoist docs]: /integrations/todoist/
 [toon docs]: /integrations/toon/
 [tplink docs]: /integrations/tplink/
-[trace docs]: /docs/automation/troubleshooting/
+[trace docs]: /integrations/trace/
 [tradfri docs]: /integrations/tradfri/
 [trend docs]: /integrations/trend/
 [trigger docs]: /integrations/trigger/

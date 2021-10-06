@@ -2060,6 +2060,7 @@
 /integrations/scene.knx /integrations/knx#scene
 /integrations/sensor.knx /integrations/knx#sensor
 /integrations/switch.knx /integrations/knx#switch
+/integrations/trace /docs/automation/troubleshooting
 /integrations/weather.knx /integrations/knx#weather
 /integrations/zigbee /integrations/xbee
 /integrations/hassio /hassio
