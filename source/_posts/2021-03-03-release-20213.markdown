@@ -2534,7 +2534,7 @@ The following integrations are no longer available as of this release:
 [geniushub docs]: /integrations/geniushub/
 [gios docs]: /integrations/gios/
 [github docs]: /integrations/github/
-[google docs]: /integrations/calendar.google/
+[google docs]: /integrations/google/
 [google_assistant docs]: /integrations/google_assistant/
 [google_cloud docs]: /integrations/google_cloud/
 [greeneye_monitor docs]: /integrations/greeneye_monitor/

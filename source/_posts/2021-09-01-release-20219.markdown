@@ -2762,7 +2762,7 @@ developer blog about it:
 [gios docs]: /integrations/gios/
 [github docs]: /integrations/github/
 [goalzero docs]: /integrations/goalzero/
-[google docs]: /integrations/calendar.google/
+[google docs]: /integrations/google/
 [google_assistant docs]: /integrations/google_assistant/
 [google_maps docs]: /integrations/google_maps/
 [google_pubsub docs]: /integrations/google_pubsub/

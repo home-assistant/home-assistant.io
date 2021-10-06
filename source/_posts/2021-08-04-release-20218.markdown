@@ -2753,7 +2753,7 @@ The following integrations are no longer available as of this release:
 [glances docs]: /integrations/glances/
 [goalzero docs]: /integrations/goalzero/
 [gogogate2 docs]: /integrations/gogogate2/
-[google docs]: /integrations/calendar.google/
+[google docs]: /integrations/google/
 [google_assistant docs]: /integrations/google_assistant/
 [gree docs]: /integrations/gree/
 [group docs]: /integrations/group/
