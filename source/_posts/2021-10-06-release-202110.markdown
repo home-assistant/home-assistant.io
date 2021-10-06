@@ -223,7 +223,7 @@ The following integrations are now available via the Home Assistant UI:
 
 - [DLNA-DMR][dlna_dmr docs], done by [@chishm]
 - [Modem Caller ID][modem_callerid docs], done by [@tkdrob]
-- [NEATGEAR][netgear docs], done by [@starkillerOG]
+- [NETGEAR][netgear docs], done by [@starkillerOG]
 - [OpenGarage][opengarage docs], done by [@Danielhiversen]
 - [Sure Petcare][surepetcare docs], done by [@Danielhiversen]
 - [SwitchBot][switchbot docs], done by [@RenierM26]
