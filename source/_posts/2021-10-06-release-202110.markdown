@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2021.10.0: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2021.10.0"
-date: 2021-09-29 00:00:00
+title: "2021.10.0: Z-Wave S2 support, Tuya, secure ESPHome and 400 new icons"
+description: "Z-Wave JS S2 support, the new official Tuya integration, secure communications with ESPHome devices, and 400 new MDI icons!"
+date: 2021-10-06 00:00:00
 date_formatted: "October 6, 2021"
 author: Franck Nijhof
 author_twitter: frenck
@@ -13,26 +13,39 @@ categories:
 og_image: /images/blog/2021-10/social.png
 ---
 
-<!--<a href='/integrations/#version/2021.10'><img src='/images/blog/2021-10/social.png' style='border: 0;box-shadow: none;'></a>-->
+<a href='/integrations/#version/2021.10'><img src='/images/blog/2021-10/social.png' style='border: 0;box-shadow: none;'></a>
 
-These are the beta release notes for Home Assistant Core 2021.10 (and is thus a
-work in progress).
+October! I love this month!
 
-If you encounter any issues with the beta release, please report them on GitHub:
+For most of you (just like me), it means winter is coming. We all go back
+inside. An excellent excuse to spent a bit more time on our smart homes, right? 😃
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+It is also the month of celebrating open source by joining
+[Hacktoberfest][hacktoberfest]! If you make 4 contributions to any open-source
+project (Home Assistant, for example 😘), you'll receive a free t-shirt!
 
-Please be sure to include the beta version you are running in the issue
-description (not title), so we can classify your issue correctly.
+For the Home Assistant project, this means a busy month. However, that doesn't
+matter. It is always great to see new people contributing!
 
-Issues introduced in the beta are processed with priority.
+Meanwhile, Home Assistant turned 8 years old already! Wild! And the birthday
+announcement was even wilder (more about that below).
+
+Anyways, about this release: Z-Wave JS is stepping up its game! If you have
+a Z-Wave network and are not using Z-Wave JS yet... well... it might be time
+to bite the bullet and go for it. You won't regret it.
+
+This release also brings the new much-talked-about, Tuya integration
+supported by Tuya themselves! I'm looking forward to how that evolves!
+
+Oh, and of course, we will be live streaming the 2021.10 release party later today!
+Join us at <https://youtu.be/QWy4jWzKUEw> @ 21:00 CEST.
+
+Enjoy the release!
+
+../Frenck
+
+[hacktoberfest]: https://hacktoberfest.digitalocean.com/
+
 
 - [Home Assistant Amber](#home-assistant-amber)
 - [Z-Wave JS updates!](#z-wave-js-updates)
@@ -108,7 +121,7 @@ To avoid surprises, the wizard will exactly show what it will do,
 what it can and cannot migrate.
 
 The old and deprecated Z-Wave integration will continue to work as long
-as technically possible, but will no longer receiving updates.
+as technically possible, but will no longer receive updates.
 
 ## New Tuya integration
 
@@ -164,12 +177,6 @@ For more information on how to do that, check out the
 [noise]: http://www.noiseprotocol.org/
 
 ## Other noteworthy changes
-
-TODO:
-- Make these nice :)
-- Some might need their own chapter.
-- MDI icons might need a breaking change section?
-- Go over all commits again, likely I missed some...
 
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
