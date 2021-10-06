@@ -8,20 +8,20 @@ ha_category:
   - Light
   - Scene
   - Switch
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_release: 0.74
 ha_config_flow: true
 ha_domain: tuya
 ha_codeowners:
+  - '@Tuya'
   - '@zlinoliver'
+  - '@METISU'
 ha_platforms:
   - climate
-  - cover
   - fan
   - light
   - scene
   - switch
-ha_dhcp: true
 ---
 
 The Tuya integration allows integrating all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps. This integration is officially maintained by Tuya.

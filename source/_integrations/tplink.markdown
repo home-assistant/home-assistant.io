@@ -18,6 +18,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
+ha_quality_scale: platinum
 ---
 
 The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as smart plugs and smart bulbs.

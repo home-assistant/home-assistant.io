@@ -30,6 +30,7 @@ ha_platforms:
   - lock
   - scene
   - sensor
+  - siren
   - switch
 ---
 

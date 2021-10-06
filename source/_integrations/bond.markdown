@@ -12,6 +12,7 @@ ha_release: 0.113
 ha_domain: bond
 ha_codeowners:
   - '@prystupa'
+  - '@joshs85'
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_zeroconf: true

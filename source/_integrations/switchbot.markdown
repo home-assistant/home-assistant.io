@@ -11,8 +11,11 @@ ha_codeowners:
   - '@RenierM26'
 ha_domain: switchbot
 ha_platforms:
+  - binary_sensor
   - cover
+  - sensor
   - switch
+ha_config_flow: true
 ---
 
 The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/).

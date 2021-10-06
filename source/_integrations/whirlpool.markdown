@@ -1,15 +1,14 @@
 ---
-title: Whirlpool 6th Sense Live
+title: Whirlpool Sixth Sense
 description: Instructions on how to integrate Whirlpool 6th Sense Live appliances with Home Assistant.
 ha_category:
   - Climate
-ha_release: "2021.10"
+ha_release: '2021.10'
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@abmantis'
 ha_domain: whirlpool
-ha_zeroconf: false
 ha_platforms:
   - climate
 ---
@@ -39,4 +38,3 @@ The following services are also available:
 - [**turn on/off**](/integrations/climate#service-climateturn_on)
 - [**fan mode**](/integrations/climate#service-climateset_fan_mode) (`low`, `medium`, `high`)
 - [**swing mode**](/integrations/climate#service-climateset_swing_mode) (`off`, `horizontal`)
-

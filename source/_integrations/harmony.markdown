@@ -11,6 +11,7 @@ ha_codeowners:
   - '@bramkragten'
   - '@bdraco'
   - '@mkeesey'
+  - '@Aohzan'
 ha_domain: harmony
 ha_ssdp: true
 ha_platforms:

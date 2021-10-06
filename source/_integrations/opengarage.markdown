@@ -18,4 +18,3 @@ The `opengarage` cover platform lets you control the open-source [OpenGarage.io]
 
 
 {% include integrations/config_flow.md %}
-

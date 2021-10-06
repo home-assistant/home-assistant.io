@@ -8,7 +8,13 @@ ha_release: pre 0.7
 ha_domain: netgear
 ha_platforms:
   - device_tracker
+  - sensor
 ha_config_flow: true
+ha_codeowners:
+  - '@hacf-fr'
+  - '@Quentame'
+  - '@starkillerOG'
+ha_ssdp: true
 ---
 
 This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device.
