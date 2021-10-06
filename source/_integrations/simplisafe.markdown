@@ -38,6 +38,10 @@ There is currently support for the following device types within Home Assistant:
 
 ## Getting an Authorization Code
 
+<div class="note warning">
+Because of a technical limitation, the below instructions will not work for iOS users as-is. It is recommended that you set up the SimpliSafe integration from a desktop browser. If you must use an iOS device, please ensure that the SimpliSafe app is not installed before beginning; the app can be re-installed after the integration is set up.
+</div>
+
 Starting in 2021, SimpliSafe has moved to a new authentication mechanism via its web app. Below are instructions on retrieving the authorization code needed to finish setting the integration up.
 
 1. Initiate adding the integration via the instructions above.
