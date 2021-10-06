@@ -1,5 +1,5 @@
 ---
-title: Environment Canada Weather and Radar
+title: Environment Canada
 description: Weather data from Environment Canada.
 ha_category:
   - Weather
@@ -18,7 +18,7 @@ ha_domain: environment_canada
 ha_config_flow: true
 ---
 
-The `environment_canada` integration provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
+The Environment Canada integration provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
 
 {% include integrations/config_flow.md %}
 
