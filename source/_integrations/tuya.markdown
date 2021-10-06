@@ -44,7 +44,7 @@ This is a separate account to the one you made for the app. You cannot log in wi
 ### Create a project
 
 1. Log in to the [Tuya IoT Platform](https://iot.tuya.com/).
-2. In the left navigation bar, click `Cloud` > `Development`. If this is your first time setting up an account you will be asked to subscribe to a Cloud Development Plan. You can select and "purchase" the Trial Edition.
+2. In the left navigation bar, click `Cloud` > `Development`. If this is your first time setting up an account you will be asked to subscribe to a Cloud Development Plan. You can select and "purchase" the Trial Edition (it's free).
 3. On the page that appears, click `Create Cloud Project`.
 4. In the `Create Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in.
   ![](/images/integrations/tuya/image_001.png)
@@ -60,8 +60,8 @@ This is a separate account to the one you made for the app. You cannot log in wi
   ![](/images/integrations/tuya/image_003.png)
 3. Scan the QR code that appears using the `Tuya Smart` app or `Smart Life` app.
   ![](/images/integrations/tuya/image_004.png)
-4. Click `Confirm` on your `Tuya Smart` or `Smart Life` app.
-5. Navigate to the `All Devices` tab. Here you should be able to find the devices that have been added through your `Tuya Smart` or `Smart Life` account, as a confirmation everything worked.
+4. Click `Confirm` in the app.
+5. To confirm that everything worked, navigate to the `All Devices` tab. Here you should be able to find the devices from the app.
 
 ![](/images/integrations/tuya/image_005.png)
 
@@ -73,8 +73,8 @@ Click the created project to enter the `Project Overview` page and get the `Auth
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-  Region:
-    description: Choose the Tuya IoT region to use.
+  Country:
+    description: Choose the country you picked when signing up.
 
   "Tuya IoT Access ID":
     description: Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/). Find the **Access ID** under [Authorization Key](#get-authorization-key) on the **Project Overview** tab.
@@ -94,10 +94,10 @@ Click the created project to enter the `Project Overview` page and get the `Auth
 
 {% configuration_basic %}
 
-"1004:sign invalid":
+"1004: sign invalid":
   description: Incorrect Access ID or Access Secret. Please refer to [Tuya credential table](https://github.com/tuya/tuya-home-assistant/wiki/Install-Tuya-v2?_source=d10de34623e3daca5b02e3c31528a0c4#3-enter-your-tuya-credential).
 
-"1106:permission deny":
+"1106: permission deny":
   description: >-
     - App account not linked with cloud project: On the [Tuya IoT Platform](https://iot.tuya.com/cloud/), you have linked devices by using Tuya Smart or Smart Life app in your cloud project. For more information, see [Link devices by app account](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx&_source=7a356dd493196a01bb9021b7680a2a45#title-3-Link%20devices%20by%20app%20account).
 
@@ -105,13 +105,13 @@ Click the created project to enter the `Project Overview` page and get the `Auth
 
     - Incorrect availability zone: See [Availability Zone](https://github.com/tuya/tuya-home-assistant/wiki/Tuya-IoT-Platform-Configuration-Guide-Using-Smart-Home-PaaS#region--available-zone-correspondence) and select the correct availability zone.
 
-"1100:param is empty":
+"1100: param is empty":
   description: Empty parameter of username or app. Fill the parameters refer to [Tuya credential table](https://github.com/tuya/tuya-home-assistant/wiki/Install-Tuya-v2?_source=d10de34623e3daca5b02e3c31528a0c4#3-enter-your-tuya-credential).
 
-"2406:skill id invalid":
+"2406: skill id invalid":
   description: Make sure that your cloud project on the [Tuya IoT Platform](https://iot.tuya.com/cloud/) should be created after May 25, 2021. Otherwise, you need to create a new project or migrate data to a new project. For more information, see [Operation on the Tuya IoT Platform](https://developer.tuya.com/en/docs/iot/migrate-from-an-older-version?id=Kamee9wtbd00b#title-3-Operation%20on%20the%20Tuya%20IoT%20Platform).
 
-"28841105:No permissions. This project is not authorized to call this API":
+"28841105: No permissions. This project is not authorized to call this API":
   description: >
     Some APIs are not authorized, please [Subscribe](https://developer.tuya.com/en/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-2-Subscribe%20to%20cloud%20products) then [Authorize](https://developer.tuya.com/en/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-3-Authorize%20projects%20to%20call%20the%20cloud%20product). The following APIs must be subscribed for this tutorial:
 
