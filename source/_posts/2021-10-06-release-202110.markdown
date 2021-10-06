@@ -242,6 +242,40 @@ Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 
+{% details "Templates" %}
+
+The following template filters and functions will now log a warning instead of
+silently returning the input if the input is invalid and no default value is specified:
+
+- `acos`
+- `as_timestamp`
+- `asin`
+- `atan`
+- `atan2`
+- `cos`
+- `float`
+- `log`
+- `multiply`
+- `round`
+- `sin`
+- `sqrt`
+- `strptime`
+- `tan`
+- `timestamp_custom`
+- `timestamp_local`
+- `timestamp_utc`
+
+The `float` filter will now log a warning instead of silently returning `0` if
+the input is invalid and no default value is specified.
+
+In Home Assistant Core 2021.12 the template will fail to render if no default
+value is specified. You can specify a default value by passing to the filter like
+this: {% raw %}`{{ "abc" | float(default=0) }}`{% endraw %}.
+
+([@emontnemery] - [#56453])
+
+{% enddetails %}
+
 {% details "Material Design Icons (MDI)" %}
 
 The Material Design Icons have been upgraded to v6, which brings in around
@@ -591,39 +625,6 @@ You should update any automations and scripts that depend on these state
 attribute to use the separate sensors available for these states.
 
 ([@timmo001] - [#53892]) ([system_bridge docs])
-
-{% enddetails %}
-
-{% details "Templates" %}
-
-The following template filters and functions will now log a warning instead of
-silently returning the input if the input is invalid and no default value is specified:
-
-- `acos`
-- `as_timestamp`
-- `asin`
-- `atan`
-- `atan2`
-- `cos`
-- `float`
-- `log`
-- `multiply`
-- `round`
-- `sin`
-- `sqrt`
-- `strptime`
-- `tan`
-- `timestamp_custom`
-- `timestamp_local`
-- `timestamp_utc`
-
-The `float` filter will now log a warning instead of silently returning `0` if
-the input is invalid and no default value is specified.
-
-In Home Assistant Core 2021.12 the template will fail to render if no default
-value is specified.
-
-([@emontnemery] - [#56453])
 
 {% enddetails %}
 
