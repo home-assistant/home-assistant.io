@@ -16,7 +16,7 @@ The `Azure Event Hub` integration allows you to hook into the Home Assistant eve
 
 This assumes you already have a Azure account. Otherwise create a Free account [here](https://azure.microsoft.com/en-us/free/).
 
-You need to create a Event Hub namespace and a Event Hub in that namespace, you can follow [this guide](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create). Alternatively you can directly deploy an ARM template with the namespace and the Event Hub [from here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-event-hubs-create-event-hub-and-consumer-group/).
+You need to create a Event Hub namespace and a Event Hub in that namespace, you can follow [this guide](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create). Alternatively you can directly deploy an ARM template with the namespace and the Event Hub [from here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/event-hubs-create-event-hub-and-consumer-group).
 
 You must then create a Shared Access Policy for the Event Hub with 'Send' claims or use the RootManageAccessKey from your namespace (this key has additional claims, including managing the event hub and listening, which are not needed for this purpose), for more details on the security of Event Hubs [go here](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-authentication-and-security-model-overview).
 
