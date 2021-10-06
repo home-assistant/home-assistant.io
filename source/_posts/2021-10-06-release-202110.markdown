@@ -34,8 +34,12 @@ description (not title), so we can classify your issue correctly.
 
 Issues introduced in the beta are processed with priority.
 
+- [Home Assistant Amber](#home-assistant-amber)
 - [Z-Wave JS updates!](#z-wave-js-updates)
-- [Tuya](#tuya)
+  - [S2 is now supported](#s2-is-now-supported)
+  - [Migration wizard from the old Z-Wave integration](#migration-wizard-from-the-old-z-wave-integration)
+- [New Tuya integration](#new-tuya-integration)
+- [Updated Material Design Icons](#updated-material-design-icons)
 - [Encrypted communications support for ESPHome](#encrypted-communications-support-for-esphome)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -45,43 +49,119 @@ Issues introduced in the beta are processed with priority.
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
+## Home Assistant Amber
+
+In case you've missed it: Home Assistant turned 8 years old! 🥳  
+And to celebrate that, we've revealed the **Home Assistant Amber**!
+
+Home Assistant Amber was launched using a crowdfunding campaign, which already
+reached its funding goal! This is absolutely fantastic!
+
+And... You can still back the campaign to get your own Home Assistant Amber!
+
+<!-- markdownlint-disable-next-line MD002 -->
+### [Go to campaign on CrowdSupply &raquo;](https://www.crowdsupply.com/nabu-casa/home-assistant-amber) <!-- omit in toc -->
+
+<a href="https://www.crowdsupply.com/nabu-casa/home-assistant-amber"><img src='/images/blog/2021-09-home-assistant-amber/overview.png'></a>
+
 ## Z-Wave JS updates!
 
-- Z-Wave JS now supports Security S2!
-- Still using the old (deprecated) `zwave` integration?
-  As of this release Home Assistant helps you migrating your z-wave network to Z-Wave JS,
-  using a migration wizard.
+We have two awesome Z-Wave JS updates to share with you this release.
 
-<!--<p class='img'>
-<img src='/images/blog/2021-09/energy-month.png' alt='Screenshot of the new Energy Dashboard period selection'>
-Screenshot of the new Energy Dashboard period selection.
-</p>-->
+### S2 is now supported
 
-## Tuya
+Security is something we all care about; We don't want devices to be tempered
+with, when using things like door locks or motion sensors that trip the alarm
+system. For our Z-Wave devices, this is no different!
 
-Oh yeah! The Tuya integration has been update to the latest greatest version,
-developed and maintained by Tuya themselves!
+As of this release, Home Assistant's Z-Wave JS integration supports S2!
 
-A this point, we have support for lights, switches, scenes, fans and climate
-devices. Compared to the old integration support for covers is currently missing
-which we hope to add in a future release.
+S2 is short for Security 2, a new security standard for Z-Wave devices,
+providing different keys for each device in the network. It is
+the more secure upgrade of the previous S0 version.
+
+Besides improved security, S2 capable devices (in general) are more reliable,
+provide greater battery life and have less latency compared to S0.
+
+The Z-Wave JS integration will automatically pick the best and most optimal
+security method available.
+
+<p class='img'>
+<img src='/images/blog/2021-10/z-wave-s2.png' alt='Screenshot of Z-Wave JS pairing a new device with S2 security'>
+Automatically uses the best possible security method when adding a new Z-Wave device.
+</p>
+
+If you have existing Z-Wave devices capable of using S2 already paired with
+Home Assistant before this update, you will need to repair those to let them
+use the new S2 feature.
+
+### Migration wizard from the old Z-Wave integration
+
+Are you still using the old (and deprecated) `zwave` integration? If so, it
+might be that you have been holding back on the Z-Wave JS upgrade because of
+the work involved in migrating. Time to reconsider...
+
+Home Assistant now provides a migration wizard for users of the old Z-Wave
+integration to migrate more easily to the new Z-Wave JS integration.
+
+To avoid surprises, the wizard will exactly show what it will do,
+what it can and cannot migrate.
+
+The old and deprecated Z-Wave integration will continue to work as long
+as technically possible, but will no longer receiving updates.
+
+## New Tuya integration
+
+Oh yeah! The Tuya integration has been updated to the latest greatest version:
+developed and maintained by a team of developers at Tuya themselves!
+
+Right now, we have support for lights, switches, scenes, fans and climate
+devices. Compared to the old integration, support for covers is currently
+missing, which we hope to add in a future release. Additionally,
+the new integration now pushes updates to Home Assistant!
 
 If you ran the Tuya integration previously, you need to set it up from scratch,
-as the integration has been fully re-written and uses a different API.
+as the integration has been entirely re-written and uses a different API.
 
 For more information, please see the [Tuya integration documentation](/integrations/tuya/).
+
+## Updated Material Design Icons
+
+The [Material Design Icons][mdi] have been updated to v6!
+
+This new version of MDI is packed with nearly 400 new icons (and over 75+ icons
+have been specifically marked for Home Assistant) ❤️
+
+<p class='img'>
+<img src='/images/blog/2021-10/materialdesignicons.png' alt='Sample image showing some of the new Material Design Icons available'>
+Some really useful new MDI icons have been added in this release!
+</p>
+
+Several icons have been removed or renamed in v6, but we have ensured
+they will keep working for the upcoming two releases. Home Assistant will
+write warnings in the logs in case you are using one of the affected icons.
+The breaking changes section has more information about this.
+
+[mdi]: https://materialdesignicons.com/
 
 ## Encrypted communications support for ESPHome
 
 ESPHome and the ESPHome integration now have support for communicating
-encrypted with each other. [@OttoWinter] has been working hard adding
-this layer of encryption to the ESPHome API, which utilizes the noise protocol.
+encrypted with each other. [@OttoWinter] has been working hard to add
+this layer of encryption to the ESPHome API,
+which utilizes the [noise protocol][noise].
 
-Besides this version of Home Assistant, you'll need at least ESPHome 2021.9.0,
-and configure your ESPHome device to enable encrypted communications.
+Besides this version of Home Assistant, you'll need at least
+[ESPHome 2021.9.0][esphome], and configure your ESPHome device to enable
+encrypted communications.
+
+Awesome job [@OttoWinter]!
 
 For more information on how to do that, check out the
 [ESPHome documentation](https://esphome.io/components/api.html?#configuration-variables).
+
+[esphome]: https://esphome.io/changelog/2021.9.0.html
+[noise]: http://www.noiseprotocol.org/
 
 ## Other noteworthy changes
 
