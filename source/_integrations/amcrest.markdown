@@ -250,6 +250,15 @@ Service data attribute | Optional | Description
  `movement` | no | Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`,  `left_down`
  `travel_time` | yes |Travel time in fractional seconds. Allowed values: `0` to `1`. Default: `0.2`.
 
+#### Service `privacy_mode`
+
+If your Amcrest camera supports privacy mode, you will be able to enable and disable it.
+
+Service data attribute | Optional | Description
+-|-|-
+ `entity_id` | no| The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
+ `privacy_mode` | no | Whether to enable or disable privacy mode.
+
 #### Notes
 
 - PTZ zoom capability does not control VariFocal lens adjustments.
