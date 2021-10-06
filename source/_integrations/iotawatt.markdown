@@ -21,7 +21,7 @@ and create them as sensors in Home Assistant.
 
 ## Energy management
 
-Starting with Home Assistant 2021.10 you can use the accumulated energy sensors directly with the energy management application.
+You can use the accumulated energy sensors directly with the Home Assistant energy dashboard.
 
 If you have an energy production system such as solar panels, following these instructions:
 
@@ -36,8 +36,9 @@ You will need to configure two new IoTaWatt output sensors:
 
 Replace `(Main_In_Red + Main_In_White + Main_In_Blue)` with the correct formula for your main feed.
 
-#### If having a solar net system:
-The iotawatt team recommends that the inputs for solar reads positive which can be achieved by either changing the orientation of the CT sensor or in the IoTaWatt's input settings, check `Reverse`
+#### Using a solar net system
+
+The IoTaWatt team recommends that the inputs for solar reads positive which can be achieved by either changing the orientation of the CT sensor or in the IoTaWatt's input settings, check `Reverse`.
 
 Replace `(Main_In_Red + Main_In_White + Main_In_Blue)` with `(Main_In_Red + Main_In_White + Main_In_Blue - Solar)`
 
