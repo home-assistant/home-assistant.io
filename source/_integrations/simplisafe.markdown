@@ -36,6 +36,24 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+## Getting an Authorization Code
+
+Starting in 2021, SimpliSafe has moved to a new authentication mechanism via its web app. Below are instructions on retrieving the authorization code needed to finish setting the integration up.
+
+1. Initiate adding the integration via the instructions above.
+2. When prompted, click the link that opens the SimpliSafe web app.
+3. Input your SimpliSafe credentials. You will see "Verification Pending" – leave this browser tab open.
+4. Check your email for a message from SimpliSafe. When you have received that email, click "Verify Device" – note that this will open a second browser tab/window.
+5. After the verification is successful, return to the first browser tab/window. The browser will show an error about not being able to navigate to the page; ignore it.
+
+At this stage, take a look at the address bar and note the `code` parameter at the very end of the URL:
+
+```
+com.simplisafe.mobile://auth.simplisafe.com/ios/com.simplisafe.mobile/callback?code=<CODE>
+```
+
+Copy/paste this code parameter into Home Assistant to finish setting up the integration.
+
 ## Services
 
 Note that the `system_id` parameter required by the below service calls can be discovered
