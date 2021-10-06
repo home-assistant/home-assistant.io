@@ -122,9 +122,9 @@ We welcome the following new integrations this release:
 
 - [Airthings][airthings docs], added by [@Danielhiversen]
 - [Amberelectric][amberelectric docs], added by [@madpilot]
-- [Crownstone][crownstone docs], added by [@abmantis]
+- [Crownstone][crownstone docs], added by [@RicArch97]
 - [WattTime][watttime docs], added by [@bachya]
-- [Whirlpool][whirlpool docs], added by [@abmantis]
+- [Whirlpool Sixth Sense][whirlpool docs], added by [@abmantis]
 
 ## Integrations now available to set up from the UI
 
