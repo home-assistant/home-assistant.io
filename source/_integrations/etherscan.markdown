@@ -1,7 +1,6 @@
 ---
 title: Etherscan
 description: Instructions on how to integrate Etherscan.io data within Home Assistant.
-logo: etherscan.png
 ha_category:
   - Finance
 ha_release: 0.47

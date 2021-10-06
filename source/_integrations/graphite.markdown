@@ -1,7 +1,6 @@
 ---
 title: Graphite
 description: Instructions on how to record Home Assistant history in Graphite.
-logo: graphite.png
 ha_category:
   - History
 ha_release: 0.13

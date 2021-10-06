@@ -56,7 +56,7 @@ offset:
   type: integer
 cron:
   description: This option is *mutually exclusive* of `cycle` and `offset`. It provides an advanced method of defining when should the counter be reset. It follows common [crontab syntax](https://crontab.guru).
-  required: true
+  required: false
   type: string
 net_consumption:
   description: Set this to True if you would like to treat the source as a net meter. This will allow your counter to go both positive and negative.
