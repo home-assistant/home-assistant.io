@@ -174,27 +174,31 @@ TODO:
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- Add select entity to Logitech Harmony ([@Aohzan] - [#53943]) ([harmony docs])
-- System Bridge 2.5.0 - Additional Sensors ([@timmo001] - [#53892]) ([system_bridge docs]) (breaking-change)
-- Add input_select and select domain support for HomeKit ([@ha0y] - [#54760]) ([homekit docs])
-- Allow device_id template function to use device name as input ([@raman325] - [#55474])
-- Add support for Xiaomi Miio Air Purifier 3C ([@bieniu] - [#55484]) ([xiaomi_miio docs])
-- Improvements to the solarlog integration ([@Ernst79] - [#55405]) ([solarlog docs])
-- Add vacation mode to manual alarm_control_panel ([@mbo18] - [#55340]) ([demo docs]) ([manual docs])
-- Add services to Renault integration ([@epenet] - [#54820]) ([renault docs])
-- Add device tracker platform to Renault integration ([@epenet] - [#54745]) ([renault docs]) (breaking-change) (new-platform)
-- ADD: generalize regex_findall ([@koying] - [#54584])
-- Add is_number template filter and function ([@emontnemery] - [#56705])
-- Update icons for MDI 6 ([@bramkragten] - [#56170]) ([homematic docs]) ([coinbase docs]) ([habitica docs]) ([icloud docs]) ([jewish_calendar docs]) ([ebox docs]) ([fido docs])
-- deCONZ use siren platform ([@Kane610] - [#56397]) ([deconz docs])
-- ESPHome Noise Transport Encryption support ([@OttoWinter] - [#56216]) ([esphome docs])
-- Add binary_sensor to switchbot ([@RenierM26] - [#56415]) ([switchbot docs]) (new-platform)
-- Add sensor to switchbot platform ([@RenierM26] - [#56416]) ([switchbot docs]) (new-platform)
-- Allow gas to be in kWh (#10075) @bramkragten
-- Statistics dev tools (#10074) @bramkragten
-- Update Material Design Icons to `v6.1.95` (#10002) @goyney
-- Add state_color support to entity card (#9617) @spacegaier
-- Add refresh button to history panel (#9958) @spacegaier
+- The energy dashboard now supports gas sensors that use kWh as the unit of
+  measurement.
+- We have a new dev tool available for long-term statistics. This tool
+  can be helpful when you need to resolve issues or warnings with the statistics.
+  {% my developer_statistics badge %}
+- The Shelly team has been busy and added support for the new, next-generation,
+  Shelly devices. Also known as Gen2 or Plus devices (which are WebSocket RPC
+  based).
+- The TP-Link Kasa Smart integration had a lot of love and improvements: support
+  for new devices, configurable via the UI and device discovery. It fixes the
+  famous and disliked "unavailable" bug! Thanks [@rytilahti]!
+- [@Aohzan] adjusted the Logitech Harmony integration to have a select
+  entity to change the activity. Very handy!
+- HomeKit now supports the `select` and `input_select` entities, thanks to [@ha0y]!
+- [@Kane610] added support to deCONZ for the Siren entity.
+- The manual alarm control panel now supports vacation mode, thanks [@mbo18]!
+- [@koying] added a new template method: `regex_findall`, that can return
+  a list of all matches of a regular expression.
+- [@emontnemery] added more template goodness by adding the `is_number`
+  function and filter that can be used to quickly determine if a value is
+  a number or not.
+- The Lovelace entity card now supports setting the icon to change color when
+  the entity is active (`state_color`). Thanks, [@spacegaier]
+- The SwitchBot integration is receiving a lot of love from [@RenierM26]!
+  A bunch of new platforms, configuration via the UI, nice work!
 
 ## New Integrations
 
