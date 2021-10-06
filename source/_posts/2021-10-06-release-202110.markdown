@@ -146,73 +146,6 @@ Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 
-{% details "ReCollect Waste" %}
-
-The previously deprecated YAML configuration of the ReCollect Waste integration has been removed.
-
-ReCollect Waste is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
-
-([@bachya] - [#55426]) ([recollect_waste docs])
-
-{% enddetails %}
-
-{% details "System Bridge" %}
-
-The following additional state attributes have been removed from the existing
-sensors:
-
-- `available`
-- `filesystem`
-- `load_average`
-- `load_idle`
-- `load_system`
-- `load_user`
-- `mount`
-- `size`
-- `type`
-- `used`
-
-You should update any automations and scripts that depend on these state
-attribute to use the separate sensors available for these states.
-
-([@timmo001] - [#53892]) ([system_bridge docs])
-
-{% enddetails %}
-
-{% details "Moon" %}
-
-The Moon entity would never have a primary moon phase state. So the state of
-the moon would go from Waxing gibbous directly to Waning gibbous,
-without being Full Moon in between.
-
-Now the Moon entity will correctly have the primary moon phases: New Moon,
-First Quarter, Full Moon and Third Quarter.
-
-If you have automations relying on the state of the moon, please review them
-to check if they still behave as intended.
-
-([@stefanroelofs] - [#55518]) ([moon docs])
-
-{% enddetails %}
-
-{% details "Renault" %}
-
-The extra state attribute `last_update` has been normalized to the UTC timezone.
-
-If you have any automation or scripts that relied on this, you might need
-to adjust those to take this into account.
-
-([@epenet] - [#54745]) ([renault docs])
-
-----
-
-`sensor.charge_mode` has been moved to `select.charge_mode` (note: `unique_id` is unchanged).
-
-([@epenet] - [#55494]) ([renault docs])
-
-{% enddetails %}
-
 {% details "Alexa" %}
 
 Removes the support for legacy fan speeds.
@@ -225,24 +158,14 @@ support was added.
 
 {% enddetails %}
 
-{% details "RFXCOM RFXtrx" %}
+{% details "AVM FRITZ!Box Tools" %}
 
-The previously deprecated YAML configuration of the RFXCOM RFXtrx integration has been removed.
+In order to introduce the new `link` status binary sensor, the previous
+`connectivity` sensor has been renamed to `connection`.
 
-RFXCOM RFXtrx is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
+Please check both your Lovelace configuration and your automations to reflect this change.
 
-([@elupus] - [#54173]) ([rfxtrx docs])
-
-{% enddetails %}
-
-{% details "Network UPS Tools (NUT)" %}
-
-The extra attribute `state` is removed from all sensors, since it is already exposed as an own sensor.
-
-If you relied on this attribute for your automations or script, you might need to adjust to this change.
-
-([@mib1185] - [#56078]) ([nut docs])
+([@chemelli74] - [#55446]) ([fritz docs])
 
 {% enddetails %}
 
@@ -257,12 +180,16 @@ As a regular user of Home Assistant, this change should not affect you.
 
 {% enddetails %}
 
-{% details "UPnP/IGD" %}
+{% details "DLNA Digital Media Renderer" %}
 
-UPnP/IGD integration no longer supports the `local_ip` configuration option.
-If you still have this configured in your YAML configuration, please remove it.
+The DLNA Digital Media Renderer integration migrated to configuration via the UI. Configuring
+DLNA Digital Media Renderer via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
 
-([@StevenLooman] - [#55540]) ([upnp docs])
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+([@chishm] - [#55267]) ([dlna_dmr docs])
 
 {% enddetails %}
 
@@ -287,31 +214,20 @@ show unavailable when outside the home until ALL home hubs are rebooted.
 
 {% enddetails %}
 
-{% details "Velbus" %}
+{% details "Honeywell Lyric" %}
 
-The Velbus integration migrated to configuration via the UI. Configuring
-Velbus via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
+The polling interval of the Honeywell Lyric integration has been decreased to
+300 seconds to reduce chances of hitting API limit.
 
-The Velbus services calls will now need an `interface` parameter,
-this is to allow support for multiple Velbus connections. If you are using
-Velbus services in your automations or scripts, you may been to adjust
-those to this change.
-
-([@Cereal2nd] - [#54032]) ([velbus docs])
+([@timmo001] - [#56393]) ([lyric docs])
 
 {% enddetails %}
 
-{% details "NETGEAR" %}
+{% details "Minut Point" %}
 
-The NETGEAR integration migrated to configuration via the UI. Configuring
-NETGEAR via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
+The (non-working) pressure sensor has been removed.
 
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
-
-([@starkillerOG] - [#54479]) ([netgear docs])
+([@fredrike] - [#56934]) ([point docs])
 
 {% enddetails %}
 
@@ -328,36 +244,104 @@ and thus can be safely removed from your YAML configuration after upgrading.
 
 {% enddetails %}
 
-{% details "Sure Petcare" %}
+{% details "Moon" %}
 
-The Sure Petcare integration has previously been migrated to configuration via the UI.
-Configuring Sure Petcare via YAML configuration has now been deprecated and will be
+The Moon entity would never have a primary moon phase state. So the state of
+the moon would go from Waxing gibbous directly to Waning gibbous,
+without being Full Moon in between.
+
+Now the Moon entity will correctly have the primary moon phases: New Moon,
+First Quarter, Full Moon and Third Quarter.
+
+If you have automations relying on the state of the moon, please review them
+to check if they still behave as intended.
+
+([@stefanroelofs] - [#55518]) ([moon docs])
+
+{% enddetails %}
+
+{% details "NETGEAR" %}
+
+The NETGEAR integration migrated to configuration via the UI. Configuring
+NETGEAR via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+([@starkillerOG] - [#54479]) ([netgear docs])
+
+{% enddetails %}
+
+{% details "Network UPS Tools (NUT)" %}
+
+The extra attribute `state` is removed from all sensors, since it is already exposed as an own sensor.
+
+If you relied on this attribute for your automations or script, you might need to adjust to this change.
+
+([@mib1185] - [#56078]) ([nut docs])
+
+{% enddetails %}
+
+{% details "OpenGarage" %}
+
+The OpenGarage integration has previously been migrated to configuration via the UI.
+Configuring OpenGarage via YAML configuration has now been deprecated and will be
 removed in a future Home Assistant release.
 
 Your existing YAML configuration is automatically imported on upgrade to this release;
 and thus can be safely removed from your YAML configuration after upgrading.
 
-([@Danielhiversen] - [#56209]) ([surepetcare docs])
+([@Danielhiversen] - [#56829]) ([opengarage docs])
 
 {% enddetails %}
 
-{% details "Honeywell Lyric" %}
+{% details "Pi-hole" %}
 
-The polling interval of the Honeywell Lyric integration has been decreased to
-300 seconds to reduce chances of hitting API limit.
+The extra attribute `domains_blocked` is removed from all sensors, since it is already exposed as an own sensor.
 
-([@timmo001] - [#56393]) ([lyric docs])
+If you relied on this attribute in your automations or script, you need to adjust those to match this change.
+
+([@mib1185] - [#56076]) ([pi_hole docs])
 
 {% enddetails %}
 
-{% details "Xiaomi Miio" %}
+{% details "ReCollect Waste" %}
 
-The `model` and `mode` attributes have been removed.
-The `preset_mode` attribute is available in place of the `mode` attribute.
+The previously deprecated YAML configuration of the ReCollect Waste integration has been removed.
 
-The device model is available in the **Device info** window.
+ReCollect Waste is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
 
-([@bieniu] - [#55846]) ([xiaomi_miio docs])
+([@bachya] - [#55426]) ([recollect_waste docs])
+
+{% enddetails %}
+
+{% details "Renault" %}
+
+The extra state attribute `last_update` has been normalized to the UTC timezone.
+
+If you have any automation or scripts that relied on this, you might need
+to adjust those to take this into account.
+
+([@epenet] - [#54745]) ([renault docs])
+
+----
+
+`sensor.charge_mode` has been moved to `select.charge_mode` (note: `unique_id` is unchanged).
+
+([@epenet] - [#55494]) ([renault docs])
+
+{% enddetails %}
+
+{% details "RFXCOM RFXtrx" %}
+
+The previously deprecated YAML configuration of the RFXCOM RFXtrx integration has been removed.
+
+RFXCOM RFXtrx is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@elupus] - [#54173]) ([rfxtrx docs])
 
 {% enddetails %}
 
@@ -372,39 +356,39 @@ in previous releases and can now be safely removed from your YAML configuration 
 
 {% enddetails %}
 
-{% details "Pi-hole" %}
+{% details "Sure Petcare" %}
 
-The extra attribute `domains_blocked` is removed from all sensors, since it is already exposed as an own sensor.
-
-If you relied on this attribute in your automations or script, you need to adjust those to match this change.
-
-([@mib1185] - [#56076]) ([pi_hole docs])
-
-{% enddetails %}
-
-{% details "TP-Link Kasa Smart" %}
-
-The TP-Link Kasa Smart integration migrated to configuration via the UI. Configuring
-TP-Link Kasa Smart via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
+The Sure Petcare integration has previously been migrated to configuration via the UI.
+Configuring Sure Petcare via YAML configuration has now been deprecated and will be
+removed in a future Home Assistant release.
 
 Your existing YAML configuration is automatically imported on upgrade to this release;
 and thus can be safely removed from your YAML configuration after upgrading.
 
-([@rytilahti] - [#56701]) ([tplink docs])
+([@Danielhiversen] - [#56209]) ([surepetcare docs])
 
 {% enddetails %}
 
-{% details "DLNA Digital Media Renderer" %}
+{% details "System Bridge" %}
 
-The DLNA Digital Media Renderer integration migrated to configuration via the UI. Configuring
-DLNA Digital Media Renderer via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
+The following additional state attributes have been removed from the existing
+sensors:
 
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
+- `available`
+- `filesystem`
+- `load_average`
+- `load_idle`
+- `load_system`
+- `load_user`
+- `mount`
+- `size`
+- `type`
+- `used`
 
-([@chishm] - [#55267]) ([dlna_dmr docs])
+You should update any automations and scripts that depend on these state
+attribute to use the separate sensors available for these states.
+
+([@timmo001] - [#53892]) ([system_bridge docs])
 
 {% enddetails %}
 
@@ -441,14 +425,16 @@ value is specified.
 
 {% enddetails %}
 
-{% details "AVM FRITZ!Box Tools" %}
+{% details "TP-Link Kasa Smart" %}
 
-In order to introduce the new `link` status binary sensor, the previous
-`connectivity` sensor has been renamed to `connection`.
+The TP-Link Kasa Smart integration migrated to configuration via the UI. Configuring
+TP-Link Kasa Smart via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
 
-Please check both your Lovelace configuration and your automations to reflect this change.
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
 
-([@chemelli74] - [#55446]) ([fritz docs])
+([@rytilahti] - [#56701]) ([tplink docs])
 
 {% enddetails %}
 
@@ -460,7 +446,7 @@ more information of the migration, please check this documentation
 
 [How to Migrate the Tuya Home Assistant Integration from the Old Version](https://developer.tuya.com/en/docs/iot/migrate-from-an-older-version?id=Kamee9wtbd00b).
 
-You need to log in again to use the updated Tuya v2 integration.
+You need to log in again to use the updated Tuya integration.
 
 The cover platform is not ready for this release but will be included later.
 If you have cover devices, they will not availble for control at the moment.
@@ -469,16 +455,38 @@ If you have cover devices, they will not availble for control at the moment.
 
 {% enddetails %}
 
-{% details "OpenGarage" %}
+{% details "UPnP/IGD" %}
 
-The OpenGarage integration has previously been migrated to configuration via the UI.
-Configuring OpenGarage via YAML configuration has now been deprecated and will be
-removed in a future Home Assistant release.
+UPnP/IGD integration no longer supports the `local_ip` configuration option.
+If you still have this configured in your YAML configuration, please remove it.
 
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
+([@StevenLooman] - [#55540]) ([upnp docs])
 
-([@Danielhiversen] - [#56829]) ([opengarage docs])
+{% enddetails %}
+
+{% details "Velbus" %}
+
+The Velbus integration migrated to configuration via the UI. Configuring
+Velbus via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
+
+The Velbus services calls will now need an `interface` parameter,
+this is to allow support for multiple Velbus connections. If you are using
+Velbus services in your automations or scripts, you may been to adjust
+those to this change.
+
+([@Cereal2nd] - [#54032]) ([velbus docs])
+
+{% enddetails %}
+
+{% details "Xiaomi Miio" %}
+
+The `model` and `mode` attributes have been removed.
+The `preset_mode` attribute is available in place of the `mode` attribute.
+
+The device model is available in the **Device info** window.
+
+([@bieniu] - [#55846]) ([xiaomi_miio docs])
 
 {% enddetails %}
 
@@ -498,7 +506,7 @@ The following integrations are no longer available as of this release:
 
 - **Trackr** has been removed. The API is no longer available and
   has therefore been removed. ([@FuzzyMistborn] - [#55917])
-- **Tesla** has been removed due to increated Tesla login security preventing
+- **Tesla** has been removed due to increased Tesla login security preventing
   third-parties to log in. ([@alandtse] - [#55988])
 
 ## All changes
