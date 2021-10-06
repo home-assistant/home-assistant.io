@@ -52,7 +52,7 @@ Starting in 2021, SimpliSafe has moved to a new authentication mechanism via its
 
 At this stage, take a look at the address bar and note the `code` parameter at the very end of the URL:
 
-```
+```txt
 com.simplisafe.mobile://auth.simplisafe.com/ios/com.simplisafe.mobile/callback?code=<CODE>
 ```
 
