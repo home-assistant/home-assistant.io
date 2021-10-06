@@ -643,15 +643,15 @@ and thus can be safely removed from your YAML configuration after upgrading.
 {% details "Tuya" %}
 
 The previous Tuya API is no longer maintained by Tuya officially and the
-new integration will be officially maintained by the Tuya Developer Team, for
-more information of the migration, please check this documentation
+new integration will be officially maintained by the Tuya Developer Team.
 
-[How to Migrate the Tuya Home Assistant Integration from the Old Version](https://developer.tuya.com/en/docs/iot/migrate-from-an-older-version?id=Kamee9wtbd00b).
-
-You need to log in again to use the updated Tuya integration.
+If you used the integration before this release, you'd need to set it up
+again from scratch. To do that, remove any existing instances
+from the integration dashboard. After that, use our [documentation][tuya docs]
+for guidance on setting up the new integration.
 
 The cover platform is not ready for this release but will be included later.
-If you have cover devices, they will not availble for control at the moment.
+If you have cover devices, they will not available for control at the moment.
 
 ([@zlinoliver] - [#56820]) ([tuya docs])
 
