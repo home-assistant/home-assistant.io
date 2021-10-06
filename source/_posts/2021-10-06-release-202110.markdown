@@ -83,7 +83,7 @@ We have two awesome Z-Wave JS updates to share with you this release.
 
 ### S2 is now supported
 
-Security is something we all care about; We don't want devices to be tempered
+Security is something we all care about; We don't want devices to be tampered
 with, when using things like door locks or motion sensors that trip the alarm
 system. For our Z-Wave devices, this is no different!
 
