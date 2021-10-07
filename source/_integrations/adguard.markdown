@@ -16,9 +16,9 @@ ha_platforms:
   - switch
 ---
 
-AdGuard Home is a network-wide software for blocking ADS & tracker-blocking DNS server with parental
-control (adult content blocking) capabilities.
-The AdGuard integration allows you to control and monitor your AdGuard Home instance in Home Assistant.
+AdGuard Home is a network-wide ADS and tracker-blocking DNS server with parental
+control (adult content blocking) capabilities. The AdGuard integration allows
+you to control and monitor your AdGuard Home instance in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
