@@ -125,7 +125,7 @@ So for example, the above command `/goform/formiPhoneAppDirect.xml?VSMONI2` will
 
 <div class='note'>
 
-The denonavr platform supports the standard media player controls such as `turn_on` and `volume_up`. Thus calling the service `media_player.turn_on` is equivalent to calling `denonavr.get_command` with the command `/goform/formiPhoneAppDirect.xml?PWON`. See [media_player](/integrations/meida_player/) for more details.
+The denonavr platform supports the standard media player controls such as `turn_on` and `volume_up`. Thus calling the service `media_player.turn_on` is equivalent to calling `denonavr.get_command` with the command `/goform/formiPhoneAppDirect.xml?PWON`. See [media_player](/integrations/media_player/) for more details.
 
 </div>
 

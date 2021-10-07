@@ -206,6 +206,7 @@ Supported devices:
 | Air Purifier Super 2   | zhimi.airpurifier.sa2  | |
 | Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | |
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3  | |
+| Air Purifier 3C        | zhimi.airpurifier.mb4  | |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
 | Air Humidifier         | zhimi.humidifier.v1    | |
 | Air Humidifier CA1     | zhimi.humidifier.ca1   | |
@@ -221,6 +222,11 @@ Supported devices:
 | Standing Fan           | zhimi.fan.sa1          | |
 | DC Pedestal Fan        | zhimi.fan.v2           | |
 | DC Pedestal Fan        | zhimi.fan.v3           | |
+| Standing Fan 1C        | dmaker.fan.1c          | |
+| Tower Fan              | dmaker.fan.p9          | |
+| Standing Fan 2         | dmaker.fan.p10         | |
+| Standing Fan Pro       | dmaker.fan.p11         | |
+| Standing Fan 3         | zhimi.fan.za5          | |
 
 ### Features
 
@@ -270,8 +276,6 @@ LED                     | Turn on/off the LED
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
@@ -313,8 +317,6 @@ LED                     | Turn on/off the LED
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
@@ -351,8 +353,6 @@ LED                     | Turn on/off the LED
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
@@ -389,8 +389,6 @@ This model uses newer MiOT communication protocol.
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Fan)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `use_time`
 - Number entities
 
@@ -424,13 +422,38 @@ Switch                  | Description
 Buzzer                  | Turn on/off the buzzer
 Child Lock              | Turn on/off the child lock
 
+### Air Purifier 3C (zhimi.airpurifier.mb4)
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Favorite)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Motor Speed    | Set the favorite motor speed
+LED Brihtness           | Set the LED brightness
+
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+Filter Life Remaining   | The remaining life of the filter
+Filter Use              | Filter usage time in hours
+Motor Speed             | The current motor speed measured in rpm
+PM2.5                   | The current particulate matter 2.5 measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+
 ### Air Purifier V3 (zhimi.airpurifier.v3)
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Idle, Medium, High, Strong)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
@@ -461,8 +484,6 @@ LED                     | Turn on/off the LED
 - Power (on, off)
 - Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `use_time`
   - `extra_features`
 - Sensor entities
@@ -787,6 +808,79 @@ Switch                  | Description
 ----------------------- | -----------------------
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
+
+### Standing Fan 1C (dmaker.fan.1c)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the Buzzer
+Child Lock              | Turn on/off the Child Lock
+LED                     | Turn on/off the LED
+
+### Tower Fan/Standing Fan 2/Standing Fan Pro (dmaker.fan.p9/dmaker.fan.p10/dmaker.fan.p11)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+Oscillation Angle       | Set the oscillation angle in degrees
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the Buzzer
+Child Lock              | Turn on/off the Child Lock
+LED                     | Turn on/off the LED
+
+### Standing Fan 3 (zhimi.fan.za5)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------------
+Power Supply            | Indicates whether the power supply is connected or not
+
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+Oscillation Angle       | Set the oscillation angle in degrees
+
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the Buzzer
+Child Lock              | Turn on/off the Child Lock
+Ionizer                 | Turn on/off the Ionizer
+LED                     | Turn on/off the LED
 
 ### Platform Services
 

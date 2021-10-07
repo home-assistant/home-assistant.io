@@ -104,6 +104,11 @@ panels:
           required: false
           type: boolean
           default: true
+        code_format:
+          description: One of `number`, `text` or `no_code`. Format for the code used to arm/disarm the alarm.
+          required: false
+          type: string
+          default: number
 {% endconfiguration %}
 
 ## Considerations

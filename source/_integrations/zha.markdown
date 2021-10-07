@@ -126,7 +126,6 @@ a new pop-up asking for a radio type. In the pop-up:
 | `ezsp`  | Silicon Labs EmberZNet protocol (e.g., Elelabs, HUSBZB-1, Telegesis) |
 | `deconz` | dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II) |
 | `znp` | Texas Instruments (e.g., CC253x, CC26x2, CC13x2) |
-| `ti_cc` | Texas Instruments (legacy) |
 | `zigate` | ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi) |
 | `xbee` | Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3) |
 
@@ -163,7 +162,10 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 | [ConBee II](https://phoscon.de/en/conbee2) | USB | 1CF1:0030 |
 | [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) | USB | 10C4:8A2A |
 | [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/) | USB | 10C4:EA60 |
-| [Tube Zigbee Coordinator](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_cc2652p2.local. |
+| [Tube’s EFR32 Pro Ethernet/Serial Coordinator](https://www.tubeszb.com/) | USB| 10C4:EA60 |
+| [Tube's CC2652P2 USB-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_cc2652p2.local. |
+| [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_cc2652p2_poe.local. |
+| [Tube's EFR32 Based Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_efr32.local. |
 
 Additional devices in the [Known working Zigbee radio modules](#known-working-zigbee-radio-modules) list may be discoverable, however, only devices that have been confirmed discoverable are listed above.
 
@@ -399,7 +401,6 @@ logger:
     bellows.zigbee.application: debug
     bellows.ezsp: debug
     zigpy: debug
-    zigpy_cc: debug
     zigpy_deconz.zigbee.application: debug
     zigpy_deconz.api: debug
     zigpy_xbee.zigbee.application: debug

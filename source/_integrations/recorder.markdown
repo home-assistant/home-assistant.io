@@ -9,7 +9,7 @@ ha_domain: recorder
 ha_iot_class: Local Push
 ---
 
-The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` ](/integrations/history/) integration.
+The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history`](/integrations/history/) integration.
 
 <div class='note'>
 
@@ -232,7 +232,7 @@ The following database engines are tested when major changes are made to the rec
 - SQLite 3.32.1+
 - MariaDB 10.3+
 - MySQL 5.7+
-- PostgresSQL 12+
+- PostgreSQL 12+
 
 ## Custom database engines
 

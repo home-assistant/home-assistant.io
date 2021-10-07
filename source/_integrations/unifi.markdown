@@ -62,6 +62,12 @@ If Home Assistant and the UniFi controller are running on separate machines or V
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
 
+## Services
+
+### Service unifi.remove_clients
+
+Clean up clients on the UniFi Controller that has only been associated with the controller for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
+
 ## Switch
 
 ### Block network access for clients

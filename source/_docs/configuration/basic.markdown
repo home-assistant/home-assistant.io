@@ -57,7 +57,7 @@ temperature_unit:
   required: false
   type: string
 time_zone:
-  description: "Pick your time zone from the column **TZ** of [Wikipedia's list of tz database time zones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
+  description: "Pick your time zone from the column **TZ** of [Wikipedia's list of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
   required: false
   type: string
 currency:

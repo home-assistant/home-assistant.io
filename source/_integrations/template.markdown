@@ -178,7 +178,6 @@ number:
       description: Template for the number's current value.
       required: true
       type: template
-    set_value:
       description: Defines an action to run when the number value changes. The variable `value` will contain the number entered.
       required: true
       type: action

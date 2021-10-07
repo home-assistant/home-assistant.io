@@ -372,7 +372,6 @@
 /components/device_tracker.tomato /integrations/tomato
 /components/device_tracker.tplink /integrations/tplink
 /components/device_tracker.traccar /integrations/traccar
-/components/device_tracker.trackr /integrations/trackr
 /components/device_tracker.ubus /integrations/ubus
 /components/device_tracker.unifi /integrations/unifi
 /components/device_tracker.unifi_direct /integrations/unifi_direct
@@ -1895,7 +1894,6 @@
 /components/tplink /integrations/tplink
 /components/tplink_lte /integrations/tplink_lte
 /components/traccar /integrations/traccar
-/components/trackr /integrations/trackr
 /components/tradfri /integrations/tradfri
 /components/trafikverket_train /integrations/trafikverket_train
 /components/trafikverket_weatherstation /integrations/trafikverket_weatherstation
@@ -2313,6 +2311,11 @@
 /components/spotcrime /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /components/sensor.wunderground /more-info/removed-integration 301
+/components/tesla /more-info/removed-integration 301
+/integrations/tesla /more-info/removed-integration 301
 /components/wunderground /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
 /integrations/garmin_connect /more-info/removed-integration 301
+/components/device_tracker.trackr /more-info/removed-integration 301
+/components/trackr /more-info/removed-integration 301
+/integrations/trackr /more-info/removed-integration 301
