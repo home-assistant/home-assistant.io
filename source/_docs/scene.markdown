@@ -37,11 +37,11 @@ In the `*.yaml` file, you'll need to configure the following options in order to
 ```yaml
 {% configuration %}
 name: 
-  description: Add a friendly name for your scene here
+  description: Friendly name of scene.
   required: true
   type: string
 entities:
-  description: Add which smart objects you want to control here, and their desired state.
+  description: Entities to control and their desired state.
   required: true
   type: list
 {% endconfiguration %}
