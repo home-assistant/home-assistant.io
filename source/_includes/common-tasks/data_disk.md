@@ -20,12 +20,11 @@ The data disk feature can be used at any time: The system will move existing dat
 
 <div class='note'>
 
-  If you have been using a data disk previously with Home Assistant Operating System, use your host computer to delete all partitions *before* using as data disk again.
+  If you have been using a data disk previously with Home Assistant Operating System, you need to use your host computer to delete all partitions *before* using it as data disk again.
 
 </div>
 
 ### Using UI to move the data partition
-
 
 1. Connect the data disk to your system.
 2. Go to {% my supervisor_system title="Supervisor > System" %} in the UI.
@@ -64,4 +63,4 @@ The system will prepare the data disk and immediately reboot. The reboot will ta
 
 Using an USB attached SSD can draw quite some power. For instance on Raspberry Pi 3 the official Raspberry Pi power supply (PSU) only provides 2.5A which can be too tight. Use a more powerful power supply if you experience issues. Alternatively use a powered USB hub. Connect the Hub to one of the USB slots of your Raspberry Pi, and connect the SSD to the Hub. In this setup the power supply of the Hub will power the attached device(s).
 
-</dev>
+</div>
