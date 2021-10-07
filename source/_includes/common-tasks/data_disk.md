@@ -2,7 +2,7 @@
 
 Home Assistant Operating System supports storing most data on an external storage medium (e.g. USB attached SSD or HDD). This data disk contains not only user data but also most of the Home Assistant software as well (Core, Supervisor etc.). This means a fast data disk will make the system overall much faster.
 
-![Graphics showing the architecture of the data disk feature](/images/hassio/haos/usb-data-disk.png)
+![Graphics showing the architecture of the data disk feature](/images/haos/usb-data-disk.png)
 
 The data disk feature can be used at any time: The system will move existing data to the external data disk automatically. However, it is recommended to create and download a full <a href="#backups">Backup</a> before proceeding!
 
@@ -26,7 +26,6 @@ The data disk feature can be used at any time: The system will move existing dat
 
 ### Using UI to move the data partition
 
-With Supervisor 2021.10 and newer the data disk feature can be accessed on the frontend.
 
 1. Connect the data disk to your system.
 2. Go to {% my supervisor_system title="Supervisor > System" %} in the UI.
@@ -34,7 +33,7 @@ With Supervisor 2021.10 and newer the data disk feature can be accessed on the f
 4. Select the data disk from the list of available devices.
 5. Press "Move".
 
-![Screenshot of the "Move datadisk" feature](/images/hassio/screenshots/move-datadisk.png)
+![Screenshot of the "Move datadisk" feature](/images/screenshots/move-datadisk.png)
 
 ### Using CLI to move the data partition
 
@@ -50,13 +49,13 @@ data_disk: /dev/mmcblk1p4
 To getting a list of supported detected devices which can be used by `datadisk`:
 
 ```sh
-$ ha os datadisk list
+ha os datadisk list
 ```
 
 To initiate the move to the new data disk use the `move` command:
 
 ```sh
-$ ha os datadisk move /dev/sdx
+ha os datadisk move /dev/sdx
 ```
 
 The system will prepare the data disk and immediately reboot. The reboot will take 10 minutes or more depending on the speed of the new data disk; please be patient!
