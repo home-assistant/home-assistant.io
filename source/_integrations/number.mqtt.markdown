@@ -127,6 +127,11 @@ optimistic:
   required: false
   type: boolean
   default: "`true` if no `state_topic` defined, else `false`."
+payload_reset:
+  description: A special payload that resets the state to `None` when received on the `state_topic`.
+  required: false
+  type: string
+  default: 'None'
 qos:
   description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
   required: false
