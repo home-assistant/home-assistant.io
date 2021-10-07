@@ -1363,41 +1363,31 @@ automation:
           segments: [1, 1]
 ```
 
+### Sensors
+
+Sensor                        | Description                                                                  | Enabled by default               |
+----------------------------- | ---------------------------------------------------------------------------- | -------------------------------- |
+DnD Start                     | The timestamp when the next DnD will start                                   | False                            |
+DnD End                       | The timestamp when the current or next DnD will end                          | False                            |
+Total duration                | The total cleaning duration in seconds                                       | False                            |
+Total Clean Area              | The total cleaning area in square meters                                     | False                            |
+Total Clean Count             | The total amount of times a clean cycle has been ran                         | False                            |
+Total Dust Collection Count   | The total amount of dust that has been collected                             | False                            |
+Filter Left                   | How long the filter can be used in seconds until maintenance is required     | False                            |
+Main Brush Left               | How long the main brush can be used in seconds until maintenance is required | False                            |
+Side Brush Left               | How long the side brush can be used in seconds until maintenance is required | False                            |
+Sensor Dirty Left             | How long the sensor can  be used in seconds until maintenance is required    | False                            |
+Last Clean Area               | The last cleaned area in square meters                                       | True                             |
+Last Clean Duration           | The last clean duration in seconds                                           | True                             |
+Last Clean End                | The last clean end time as a timestamp                                       | True                             |
+Last Clean Start              | The last clean start time as a timestamp                                     | True                             |
+Mop Attached                  | If the mop is attached for vacuums that have a mop                           | True (If vacuum has a mop)       |
+Water Box Attached            | If the watter box is attached for vacuums that have a water box              | True (If vacuum has a water box) |
+Water Shortage                | If the water box is low on water                                             | True (If vacuum has a water box) |
+
 ### Attributes
 
-In addition to [all of the attributes provided by the `vacuum` component](/integrations/vacuum/#attributes),
-(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, and `params`), the `xiaomi` platform introduces specific attributes. These are:
-
-- `cleaning_time`
-- `do_not_disturb`
-- `main_brush_left`
-- `side_brush_left`
-- `filter_left`
-- `sensor_dirty_left`
-- `cleaning_count`
-- `total_cleaned_area`
-- `total_cleaning_time`
-- `clean_start`
-- `clean_end`
-- `mop_attached`
-
-The following table shows the units of measurement for each attribute:
-
-| Attribute                 | Unit of measurement | Description                                                    |
-|---------------------------|---------------------|----------------------------------------------------------------|
-| `do_not_disturb`          |                     | DND mode on / off                                              |
-| `cleaning_time`           | minutes             | Last / actual cleaning time in minutes                         |
-| `cleaned_area`            | square meter        | Last / actual cleaned area in square meters                    |
-| `main_brush_left`         | hours               | Hours left until a change of the main brush is needed          |
-| `side_brush_left`         | hours               | Hours left until a change of the side brush is needed          |
-| `filter_left`             | hours               | Hours left until a change of the filter is needed              |
-| `sensor_dirty_left`       | hours               | Hours left until the wall and cliff sensors should be cleaned  |
-| `cleaning_count`          |                     | Number of total cleaning cycles                                |
-| `total_cleaned_area`      | square meter        | Total cleaned area in square meters                            |
-| `total_cleaning_time`     | minutes             | Total cleaning time in minutes                                 |
-| `clean_start`             | datetime            | The last date/time the vacuum started cleaning (offset naive)  |
-| `clean_stop`              | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
-| `mop_attached`            |                     | A mop and water box are attached / not attached                |
+The vacuums from the `xiaomi` platform does not expose additional attributes other the ones provided by [the `vacuum` component](/integrations/vacuum/#attributes),
 
 ### Example on how to clean a specific room
 
