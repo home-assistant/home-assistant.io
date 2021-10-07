@@ -17,13 +17,13 @@ The `modem_callerid` integration uses an available modem for collecting caller I
 
 When the sensor detects a new call, its state changes to 'ring' for each ring and 'callerid' when caller id information is received. It returns to 'idle' once ringing stops. The state event includes an attribute payload that includes the time of the call, name and number.
 
-This integration also offers two services. `modem_callerid.reject_call` to pick up and then hang up the call to properly reject a call (via ATA anf ATH). `modem_callerid.hangup_call` to hang up an existing call (via ATH).
+This integration also offers a service. `modem_callerid.reject_call` to pick up and then hang up the call to properly reject a call (via ATA anf ATH).
 
 {% include integrations/config_flow.md %}
 
 ## Examples
 
-Some example automations:
+An example automation:
 
 {% raw %}
 
@@ -60,19 +60,3 @@ automation:
 ```
 
 {% endraw %}
-
-## Extra instructions for the Home Assistant Core installation type
-
-To find the path of your USB modem, run:
-
-```bash
-ls /dev/ttyACM*
-```
-
-If Home Assistant (`hass`) runs with another user (e.g., `homeassistant`) give access to the stick with:
-
-```bash
-sudo usermod -a -G dialout homeassistant
-```
-
-Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/modem`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
