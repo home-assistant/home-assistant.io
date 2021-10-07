@@ -63,7 +63,32 @@ Alternatively, you can manually configure a Plex server connection by selecting 
 
 The activity sensor provides a count of users currently watching media from the Plex server. Clicking the sensor shows details for the active users and media streams.
 
-The library sensors show a count of items in each library. Depending on the library contents, the sensor will show extra detail in its attributes. For example, a library sensor for TV shows will represent the total number of episodes in the library and its attributes will also report the number of shows and seasons it contains. The last added media item (movie, album, or episode) and a timestamp showing when it was added to its respective library are also provided.
+The library sensors show a count of items in each library. Depending on the library contents, the sensor will show extra detail in its attributes. For example, a library sensor for TV shows will represent the total number of episodes in the library and its attributes will also report the number of shows and seasons it contains.
+
+The library sensors show a count of items in each library. Depending on the library contents, the sensor will show extra detail in its attributes. For example, a library sensor for TV shows will represent the total number of episodes in the library and its attributes will also report the number of shows and seasons it contains. 
+
+In addition to the item count, the last added media item (movie, album, or episode) and a timestamp showing when it was added are also provided with each library sensor.
+
+Example automation to use the `last_added_item` attribute on library sensors to notify when new media has been added:
+```yaml
+alias: Plex - New media added
+trigger:
+  - platform: state
+    entity_id: sensor.plex_library_movies
+    id: movie
+  - platform: state
+    entity_id: sensor.plex_library_music
+    id: album
+  - platform: state
+    entity_id: sensor.plex_library_tv_shows
+    id: episode
+
+action:
+  - service: notify.mobile_app_phone
+    data:
+      title: "New {{ trigger.id }} added"
+      message: "{{ trigger.to_state.attributes.last_added_item }}"
+```
 
 <div class='note info'>
   
