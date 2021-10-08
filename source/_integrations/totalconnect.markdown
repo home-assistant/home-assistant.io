@@ -19,12 +19,6 @@ The `totalconnect` integration provides connectivity with TotalConnect alarm sys
 
 {% include integrations/config_flow.md %}
 
-To find your TotalConnect location number:
-
- - Use a web browser to log in to the TotalConnect website as the administrator.
- - Click on your location.
- - The URL shows the location number after "mylocation/" like this `https://totalconnect2.com/home/mylocation/123456`.
-
 You are highly encouraged to create a Total Connect user account specifically for Home Assistant. It should not have full administrative privileges.
 
 ## Automation example
