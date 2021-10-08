@@ -173,6 +173,36 @@ automation 3:
       target:
         # Turn off whichever entity triggered the automation.
         entity_id: "{{ trigger.entity_id }}"
+        
+automation 4:
+  trigger:
+    # Group triggers of different types for which you want to perform the same action.
+    # These two will turn the light on
+    - below: 0
+      entity_id: sun.sun
+      platform: numeric_state
+      attribute: elevation 
+      id: "on"
+    - entity_id: person.hans_gruber
+      event: enter
+      platform: zone
+      zone: zone.home
+      id: "on"
+    # And these two will turn the light off
+    - above: 0
+      entity_id: sun.sun
+      platform: numeric_state
+      attribute: elevation 
+      id: "off"
+    - entity_id: person.hans_gruber
+      event: leave
+      platform: zone
+      zone: zone.home
+      id: "off"
+  action:
+    - service: "light.turn_{{ trigger_id }}"
+      target:
+        entity_id: light.porch_light
 ```
 
 {% endraw %}
