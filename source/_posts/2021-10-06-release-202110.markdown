@@ -58,6 +58,7 @@ Enjoy the release!
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.10.1 - October 7](#release-2021101---october-7)
+- [Release 2021.10.2 - October 8](#release-2021102---october-8)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -279,6 +280,39 @@ The following integrations are now available via the Home Assistant UI:
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [yeelight docs]: /integrations/yeelight/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.10.2 - October 8
+
+- Netgear fix port and device model beeing overwritten ([@starkillerOG] - [#57277]) ([netgear docs])
+- Fix Nanoleaf light turn_off transition ([@milanmeu] - [#57305]) ([nanoleaf docs])
+- Migrate tplink hosts that were previously imported from yaml ([@bdraco] - [#57308]) ([tplink docs])
+- Upgrade aionanoleaf to 0.0.3 to fix deadlock ([@milanmeu] - [#57312]) ([nanoleaf docs])
+- Improve state of cover groups ([@emontnemery] - [#57313]) ([group docs])
+- Fix multiple upnp/ssdp issues ([@StevenLooman] - [#57314]) ([upnp docs]) ([yeelight docs]) ([dlna_dmr docs]) ([ssdp docs])
+- Guard for bad last reset ([@balloob] - [#57344]) ([sensor docs])
+
+[#57277]: https://github.com/home-assistant/core/pull/57277
+[#57305]: https://github.com/home-assistant/core/pull/57305
+[#57308]: https://github.com/home-assistant/core/pull/57308
+[#57312]: https://github.com/home-assistant/core/pull/57312
+[#57313]: https://github.com/home-assistant/core/pull/57313
+[#57314]: https://github.com/home-assistant/core/pull/57314
+[#57344]: https://github.com/home-assistant/core/pull/57344
+[@StevenLooman]: https://github.com/StevenLooman
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@milanmeu]: https://github.com/milanmeu
+[@starkillerOG]: https://github.com/starkillerOG
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[group docs]: /integrations/group/
+[nanoleaf docs]: /integrations/nanoleaf/
+[netgear docs]: /integrations/netgear/
+[sensor docs]: /integrations/sensor/
+[ssdp docs]: /integrations/ssdp/
+[tplink docs]: /integrations/tplink/
+[upnp docs]: /integrations/upnp/
+[yeelight docs]: /integrations/yeelight/
 
 ## If you need help...
 
