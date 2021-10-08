@@ -251,7 +251,7 @@ everything, however, you can leave out any feature you do not wish to use with H
   domain (such as .com or .org)* or *must use a valid domain that is a valid top private domain*. This means that you
   may need to change the URL you use to access Home Assistant in order to access your devices.
 
-    - See [Securing](https://www.home-assistant.io/docs/configuration/securing/) Home Assistant for convient solutions e.g. [Nabu Casa](https://www.nabucasa.com/) or Duck DNS.
+    - See [Securing](https://www.home-assistant.io/docs/configuration/securing/) Home Assistant for convenient solutions e.g. [Nabu Casa](https://www.nabucasa.com/) or Duck DNS.
     - There are subtle [rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) for what types of URLs are allowed, namely that they must use SSL and a publicly known hostname, though your Home Assistant ports do not need to be exposed to the internet.
     - You can use any publicly known hostname you own
     - As a hack, you can use hosts tricks to temporarily assign a public hostname to your Home Assistant IP address.
@@ -264,9 +264,9 @@ everything, however, you can leave out any feature you do not wish to use with H
 
 - *Subscriber error: Subscription misconfigured. Expected topic name to match ...* means that the topic name in the Google Cloud Console was entered incorrectly. The topic name comes from the Device Console and must start with `projects/sdm-prod/topics/`. It is easy to make the mistake of creating a new topic rather than manually entering the right topic name.
 
-- *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant susbcriber when everything is configured correctly.
+- *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
 
-- You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receivng the messages and working properly or not connected at all. Double check the `subscriber_id` matches the `Subscription Name`
+- You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all. Double check the `subscriber_id` matches the `Subscription Name`
 
 - To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 
 
