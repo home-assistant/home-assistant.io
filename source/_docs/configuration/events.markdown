@@ -1,7 +1,6 @@
 ---
 title: "Events"
 description: "Describes all there is to know about events in Home Assistant."
-redirect_from: /topics/events/
 ---
 
 The core of Home Assistant is the event bus. The event bus allows any integration to fire or listen for events. It is the core of everything. For example, any state change will be announced on the event bus as a `state_changed` event containing the previous and the new state of an entity.
@@ -45,14 +44,6 @@ Event `call_service` is fired to call a service.
 | `service`         | The service to call. Example: `turn_on`                                        |
 | `service_data`    | Dictionary with the service call parameters. Example: `{ 'brightness': 120 }`. |
 | `service_call_id` | String with a unique call id. Example: `23123-4`.                              |
-
-## Event `service_executed`
-
-Event `service_executed` is fired by the service handler to indicate the service is done.
-
-| Field             | Description                                                                               |
-| ----------------- | ----------------------------------------------------------------------------------------- |
-| `service_call_id` | String with the unique call id of the service call that was executed. Example: `23123-4`. |
 
 ## Event `automation_reloaded`
 

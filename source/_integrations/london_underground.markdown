@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.49
 ha_domain: london_underground
+ha_platforms:
+  - sensor
 ---
 
 The `london_underground` sensor will display the status of London underground lines, as well as the Overground, DLR and Tfl rail.

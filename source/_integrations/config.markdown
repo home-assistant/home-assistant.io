@@ -8,11 +8,13 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: config
+ha_platforms:
+  - scene
 ---
 
 The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -36,18 +38,18 @@ This section enables you to manage the name, location, and unit system of your H
 This section enables you to control Home Assistant from within Home Assistant. Check your configuration, reload the core, groups, scripts, automations, and the Home Assistant process itself with a single mouse click.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/server-management.png' />
+  <img src='/images/screenshots/server-management.png' />
 </p>
 
 ### Persons
 
 This section enables you to associate users with their device tracker entities using the person component.
 
-### Entity Registry
+### Entities
 
 This section enables you to override the name, change the entity ID or disable an entity in Home Assistant.
 
-### Area Registry
+### Areas
 
 This section enables you to organize entities to physical areas of your home.
 
@@ -63,6 +65,6 @@ Similar to the automation editor, this section enables you to create and modify 
 
 This section enables you to control your Z-Wave network and devices from within Home Assistant. You can add and remove devices, as well as change device specific configuration variables.
 
-### Customization
+### Customizations
 
 This section enables you to customize entities within Home Assistant. Use this to set friendly names, change icons, and modify other attributes.

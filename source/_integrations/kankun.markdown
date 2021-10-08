@@ -6,13 +6,17 @@ ha_category:
 ha_release: 0.36
 ha_iot_class: Local Polling
 ha_domain: kankun
+ha_platforms:
+  - switch
 ---
 
 The `kankun` switch platform allows you to toggle customized Kankun SP3 Wi-Fi switches. Switches are
 modified to include the [json.cgi](https://github.com/homedash/kankun-json/blob/master/cgi-bin/json.cgi)
-script to provide an HTTP API. Details of the necessary modifications can be found
-[here](http://www.homeautomationforgeeks.com/openhab_http.shtml#kankun) (be sure to install the JSON version
-of the script as linked above).
+script to provide an HTTP API.
+Details of the necessary modifications were provided on the now dead HomeAutomationForGeeks site,
+but fortunately we can still access the information via
+[archive.org link](https://web.archive.org/web/20170628063659/http://www.homeautomationforgeeks.com/openhab_http.shtml)
+(be sure to install the JSON version of the script as linked above).
 
 ## Configuration
 

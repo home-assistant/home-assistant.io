@@ -7,6 +7,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.64
 ha_domain: filesize
+ha_platforms:
+  - sensor
 ---
 
 The `filesize` sensor is for displaying the size in MB of a file.

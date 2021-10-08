@@ -7,7 +7,9 @@ date_formatted: "May 20, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-05-0.110/social.png
 ---
 
@@ -203,7 +205,7 @@ for writing automations in YAML:
 
 ```yaml
 # Example automation
-alias: Turn kitchen lights off when alarm is armed.
+alias: "Turn kitchen lights off when alarm is armed."
 trigger:
   - platform: state
     entity_id: alarm_control_panel.home_alarm
@@ -215,7 +217,8 @@ condition:
         state: disarmed
 action:
   - service: light.turn_off
-    entity_id: light.kitchen
+    target:
+      entity_id: light.kitchen
 ```
 
 ## HomeKit
@@ -631,7 +634,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Auto-level AirVisual API calls ([@bachya] - [#34903]) ([airvisual docs])
 - Fix service registration supported features check ([@chmielowiec] - [#35718])
-- Fix Prezzibenzina doing I/O in the event loop ([@bachya] - [#35881]) ([prezzibenzina docs])
+- Fix Prezzibenzina doing I/O in the event loop ([@bachya] - [#35881])
 - Update rokuecp to 0.4.1 ([@ctalkington] - [#35899]) ([roku docs])
 - Update frontend to 20200519.3 ([@bramkragten] - [#35925]) ([frontend docs])
 - Ensure homekit functions if numpy is unavailable ([@bdraco] - [#35931]) ([homekit docs])
@@ -702,7 +705,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [lutron_caseta docs]: /integrations/lutron_caseta/
 [onvif docs]: /integrations/onvif/
 [ozw docs]: /integrations/ozw/
-[prezzibenzina docs]: /integrations/prezzibenzina/
 [roku docs]: /integrations/roku/
 [rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm/
 [stream docs]: /integrations/stream/
@@ -1053,7 +1055,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump plexwebsocket to 0.0.8 ([@jjlawren] - [#35351]) ([plex docs])
 - Enable async_update for entities in NWS ([@MatthewFlamm] - [#35048]) ([nws docs])
 - Migrate ISY994 to PyISY v2 ([@shbatm] - [#35338]) ([isy994 docs]) (breaking-change)
-- Delete flapping automatic tests ([@bdraco] - [#35356]) ([automatic docs])
+- Delete flapping automatic tests ([@bdraco] - [#35356])
 - Rewrite JuiceNet for async and config flow ([@jesserockz] - [#34365]) ([juicenet docs])
 - Add modbus sensor string data_type ([@bradkeifer] - [#35269]) ([modbus docs])
 - Capitalize kane610 in codeowners since scripts are case sensitive ([@Kane610] - [#35375]) ([axis docs]) ([deconz docs]) ([unifi docs])
@@ -1732,7 +1734,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [arest docs]: /integrations/arest/
 [atag docs]: /integrations/atag/
 [august docs]: /integrations/august/
-[automatic docs]: /integrations/automatic/
 [automation docs]: /integrations/automation/
 [axis docs]: /integrations/axis/
 [basic config docs]: /docs/configuration/basic/

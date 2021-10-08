@@ -5,7 +5,9 @@ date: 2019-07-17 00:11:03
 date_formatted: "July 17, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-07-release-96/demo-sidebar.png
 ---
 

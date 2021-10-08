@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: gpsd
+ha_platforms:
+  - sensor
 ---
 
 The `gpsd` integration is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.

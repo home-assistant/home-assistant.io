@@ -19,6 +19,17 @@ ha_config_flow: true
 ha_codeowners:
   - '@andrewsayre'
 ha_domain: smartthings
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - scene
+  - sensor
+  - switch
+ha_dhcp: true
 ---
 
 SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:
@@ -49,7 +60,7 @@ The PAT is used to create a Home Assistant SmartApp in your SmartThings account 
 
 ### Webhook
 
-This integration requires an internet accessible incoming webhook to receive push updates from SmartThings. The preferred approach is to subscribe to [Home Assistant Cloud (Nabu Casa)](https://www.nabucasa.com/) and the integration will configure and use a cloudhook automatically. Alternatively, you will have to configure and setup a internet accessible webhook in Home Assistant as described below:
+This integration requires an internet accessible incoming webhook to receive push updates from SmartThings. The preferred approach is to subscribe to [Home Assistant Cloud (Nabu Casa)](https://www.nabucasa.com/) and the integration will configure and use a cloudhook automatically. Alternatively, you will have to configure and setup an internet accessible webhook in Home Assistant as described below:
 
 1. Setup [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
 1. Set the external URL in the Home Assistant [configuration](/docs/configuration/basic) to the URL that Home Assistant is available on the internet (this must start with `https://`).
@@ -64,9 +75,9 @@ After completing the prerequisite steps above you are ready to setup the integra
 1. Select the SmartThings Location to add to Home Assistant.
 1. On the window that opens:
    1. Login with your SmartThings account (if not already logged in).
-   1. Optionally change the display name and click 'Done' on the upper right of the screen.
+   1. Optionally change the display name and click 'Done' at the bottom of the screen.
    1. Authorize the integration by clicking 'Allow' on the bottom right of the screen.
-   1. Click 'Close Window' or close it manually if necessary.
+   1. Click 'Close Window' or close it manually.
 1. Back in Home Assistant click 'Finish'.
 
 <div class='note info'>
@@ -228,6 +239,7 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`energyMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Energy-Meter)                                                 | `energy`                                                  |
 | [`equivalentCarbonDioxideMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Equivalent-Carbon-Dioxide-Measurement) | `equivalentCarbonDioxideMeasurement`                      |
 | [`formaldehydeMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Formaldehyde-Measurement)                         | `formaldehydeLevel`                                       |
+| `gasMeter`                                                                                                                                                | `gasMeter`, `meterCalorific`, `meterTime`, and `meterVolume` |
 | [`illuminanceMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Illuminance-Measurement)                           | `illuminance`                                             |
 | [`infraredLevel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Infrared-Level)                                             | `infraredLevel`                                           |
 | [`lock`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Lock)                                                                | `lock`                                                    |
@@ -256,7 +268,7 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`thermostatOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Operating-State)                      | `thermostatOperatingState`                                |
 | [`thermostatSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Setpoint)                                   | `thermostatSetpoint`                                      |
 | [`threeAxis`](https://docs.smartthings.com/en/latest/capabilities-reference.html#three-axis)                                                              | `threeAxis` (as discrete sensors `X`, `Y` and `Z`)        |
-| [`tvChannel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tv-Channel)                                                     | `tvChannel`                                               |
+| [`tvChannel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tv-Channel)                                                     | `tvChannel` and `tvChannelName`                           |
 | [`tvocMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tvoc-Measurement)                                         | `tvocLevel`                                               |
 | [`ultravioletIndex`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Ultraviolet-Index)                                       | `ultravioletIndex`                                        |
 | [`voltageMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Voltage-Measurement)                                   | `voltage`                                                 |
@@ -337,7 +349,7 @@ If you have completed the checklist above and are still unable to setup the plat
 
 ### Debugging
 
-The SmartThings integration will log additional information about push updates received, events fired, and other messages when the log level is set to `debug`. Add the the relevant line below to the `configuration.yaml`:
+The SmartThings integration will log additional information about push updates received, events fired, and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml`:
 
 ```yaml
 logger:

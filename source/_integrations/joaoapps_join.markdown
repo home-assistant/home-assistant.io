@@ -4,8 +4,11 @@ description: Instructions for how to integrate the Join by Joaoapps service with
 ha_category:
   - Hub
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.24
 ha_domain: joaoapps_join
+ha_platforms:
+  - notify
 ---
 
 The `joaoapps_join` integration exposes services from
@@ -53,7 +56,7 @@ device_names:
   required: false
   type: string
 name:
-  description: The name parameter is optional but needed if you want to use multiple notification platforms.  The platform will be exposed as service `notify.<name>`. The name will defailt to `notify` if not supplied. See the [Notifications Component](/integrations/notify) for more details.
+  description: The name parameter is optional but needed if you want to use multiple notification platforms.  The platform will be exposed as service `notify.<name>`. The name will default to `notify` if not supplied. See the [Notifications Component](/integrations/notify) for more details.
   required: false
   type: string
 {% endconfiguration %}

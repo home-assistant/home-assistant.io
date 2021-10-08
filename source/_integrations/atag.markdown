@@ -11,6 +11,10 @@ ha_domain: atag
 ha_codeowners:
   - '@MatsNL'
 ha_config_flow: true
+ha_platforms:
+  - climate
+  - sensor
+  - water_heater
 ---
 
 The `Atag` integration allows Home Assistant to connect to [Atag One](https://atag-one.com) thermostats, reporting and setting its status.
@@ -20,9 +24,7 @@ The integration implements the following platforms:
 - Water Heater
 - Sensor
 
-## Configuration
-
-The Atag integration can be enabled directly from Home Assistant. Navigate to `configuration`, then `integrations` and click `add`. Click `Atag` to initiate the configuration.
+{% include integrations/config_flow.md %}
 
 {% configuration %}
 host:
@@ -55,7 +57,7 @@ This integration supports the following services (see [Climate](/integrations/cl
   - `boost` enable fireplace mode
 
 <div class='note'>
-`HVAC mode Auto` (Weather based) should not be confused with `Preset mode Auto` (Sheduled, thermostat mode).
+`HVAC mode Auto` (Weather based) should not be confused with `Preset mode Auto` (Scheduled, thermostat mode).
 Currently selection of custom timeframes in Extend, Away and boost modes is not supported. The default settings can be changed on the device.
 </div>
 

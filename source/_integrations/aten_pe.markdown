@@ -3,10 +3,13 @@ title: ATEN Rack PDU
 description: Instructions on how to integrate ATEN Rack PDUs into Home Assistant.
 ha_category:
   - Switch
+ha_iot_class: Local Polling
 ha_release: 0.103
 ha_codeowners:
   - '@mtdcr'
 ha_domain: aten_pe
+ha_platforms:
+  - switch
 ---
 
 The `aten_pe` integration lets you control [ATEN Rack PDUs](https://www.aten.com/eu/en/products/energy-intelligence-pduupsracks/rack-pdu/) from Home Assistant.

@@ -83,7 +83,7 @@ The LIRC integration fires `ir_command_received` events on the bus. You can capt
 ```yaml
 # Example configuration.yaml automation entry
 automation:
-  - alias: Off on Remote
+  - alias: "Off on Remote"
     trigger:
       platform: event
       event_type: ir_command_received
@@ -91,7 +91,8 @@ automation:
         button_name: KEY_0
     action:
       service: homeassistant.turn_off
-      entity_id: group.a_lights
+      target:
+        entity_id: group.a_lights
 ```
 
 The `button_name` data values (e.g., `KEY_0`) are set by you in the `.lircrc` file.

@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@nickw444'
 ha_domain: nsw_fuel_station
+ha_platforms:
+  - sensor
 ---
 
 The `nsw_fuel_station` sensor platform uses the [NSW Fuel Check App](https://www.fuelcheck.nsw.gov.au/app) data as a source for current fuel price data.
@@ -20,6 +22,12 @@ To get the station ID for any NSW fuel station you will need to:
 - Open the developer console of your browser (for Chrome, click View -> Developer -> Developer Tools). Click the "Network" tab in the developer console.
 - In the Fuel Check App, search for your postcode or click "Fuel Near Me".
 - In the developer console, you should see a request to `/FuelCheckApp/v1/fuel/prices/bylocation`. Open this request and preview the response. Find the station you wish to add, and copy down the `ServiceStationID` field.
+
+Alternatively:
+
+- Select a station you wish to find the ID for.
+- Select "Report this Station".
+- In the URL of the new page opened, locate `serviceStationId`.
 
 ## Configuration
 

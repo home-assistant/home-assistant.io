@@ -1,7 +1,6 @@
 ---
 title: "Troubleshooting your configuration"
 description: "Common problems with tweaking your configuration and their solutions."
-redirect_from: /getting-started/troubleshooting-configuration/
 ---
 
 It can happen that you run into trouble while configuring Home Assistant. Perhaps an integration is not showing up or is acting strangely. This page will discuss a few of the most common problems.
@@ -14,17 +13,20 @@ Whenever an integration or configuration option results in a warning, it will be
 
 When an integration does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your integration you are trying to set up.
 
-If you have incorrect entries in your configuration files you can use the configuration check command (below) to assist in identifying them. 
+If you have incorrect entries in your configuration files you can use the configuration check command (below) to assist in identifying them.
 
 ### Problems with the configuration
 
 One of the most common problems with Home Assistant is an invalid `configuration.yaml` or other configuration file.
 
-- With Home Assistant you can use the [`ha` command](/hassio/commandline/#home-assistant): `ha core check`.
-  - You can test your configuration with Home Assistant Core using the command line with: `hass --script check_config`. If you need to provide the path for your configuration you can do this using the `-c` argument like this: `hass --script check_config -c /path/to/your/config/dir`.
-  - On Docker you can use `docker exec home-assistant python -m homeassistant --script check_config --config /config` - where `home-assistant` is the name of the container.
+- Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has it's own section in the common-tasks about this:
+  - [Operating System](/common-tasks/os/#configuration-check)
+  - [Container](/common-tasks/container/#configuration-check)
+  - [Core](/common-tasks/core/#configuration-check)
+  - [Supervised](/common-tasks/supervised/#configuration-check)
+
 - The configuration files, including `configuration.yaml` must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
-- You can verify your configuration's YAML structure using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
+- You can verify your configuration's YAML structure using [this online YAML parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/).
 - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 
 `configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one component, you can append a [number or string](/getting-started/devices/#style-2-list-each-device-separately) to the name or nest them using [this style](/getting-started/devices/#style-1-collect-every-entity-under-the-parent):

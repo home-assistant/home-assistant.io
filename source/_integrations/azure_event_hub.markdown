@@ -4,6 +4,7 @@ description: Setup for Azure Event Hub integration
 ha_category:
   - History
 ha_release: 0.94
+ha_iot_class: Cloud Push
 ha_codeowners:
   - '@eavanvalkenburg'
 ha_domain: azure_event_hub
@@ -21,9 +22,9 @@ You must then create a Shared Access Policy for the Event Hub with 'Send' claims
 
 Once you have the name of your namespace, instance, Shared Access Policy and the key for that policy, you can setup the integration itself.
 
-The alternative approach is to use a connection string, this can be retrieved in the same way as the Shared Access Policy and this can also be gotten for a device in an IoT Hub (Event Hub-compatible connection string).
+The alternative approach is to use a connection string and instance name, this can be retrieved in the same way as the Shared Access Policy and this can also be gotten for a device in an IoT Hub (Event Hub-compatible connection string). In the case of IoT Hub, you need to put the Device ID as the instance name.
 
-The final thing to consider is how often you want the integration to send messages in a batch to your hub, this is set with the `send_interval`, with a default of 5 seconds. The other thing to look at is what the maximum delay you want to use, since this component runs in a asynchronous way there is no guarantee that the sending happens exactly on time, so depending on your semantics you might want messages discarded. The actual check of the time happens with `max_delay` plus `send_interval`, so that even with a long `send_interval` the semantics are the same.
+The final thing to consider is how often you want the integration to send messages in a batch to your hub, this is set with the `send_interval`, with a default of 5 seconds. The other thing to look at is what the maximum delay you want to use, since this component runs in an asynchronous way there is no guarantee that the sending happens exactly on time, so depending on your semantics you might want messages discarded. The actual check of the time happens with `max_delay` plus `send_interval`, so that even with a long `send_interval` the semantics are the same.
 
 ## Configuration
 
@@ -50,7 +51,7 @@ event_hub_namespace:
   type: string
 event_hub_instance_name:
   description: The name of your Event Hub instance.
-  required: exclusive
+  required: true
   type: string
 event_hub_sas_policy:
   description: The name of your Shared Access Policy.
@@ -118,8 +119,6 @@ Event Hubs have a retention time of at most 7 days, if you do not capture or use
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Azure Event Hub`, you can use the `filter` parameter.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 azure_event_hub:
@@ -136,8 +135,6 @@ azure_event_hub:
     exclude_entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 
@@ -165,6 +162,7 @@ This is what the configuration will look like when using a connection string dir
 # Connection string config with non-defaults for send_interval and max_delay
 azure_event_hub:
   event_hub_connection_string: CONNECTION_STRING
+  event_hub_instance_name: EVENT_HUB_INSTANCE_NAME
   send_interval: 60
   max_delay: 5
 ```

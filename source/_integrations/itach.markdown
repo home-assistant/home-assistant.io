@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Assumed State
 ha_release: 0.39
 ha_domain: itach
+ha_platforms:
+  - remote
 ---
 
 The `itach` remote platform allows you to control IR devices with a [Global Caché iTach Device](https://www.globalcache.com/products/itach/ip2irspecs) and GC-100 devices. The Global Cache IR API are similar across their product line. See API documentation links at the end of this page.

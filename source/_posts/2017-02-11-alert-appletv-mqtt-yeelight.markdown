@@ -5,7 +5,9 @@ date: 2017-02-11 08:04:05 +0000
 date_formatted: "February 11, 2017"
 author: Robbie Trencheny, Fabian Affolter
 author_twitter: robbie
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-02-0.38/social.png
 ---
 
@@ -20,7 +22,7 @@ Another Saturday, another release!
 The frontend has been completely been rewritten, optimizing for speed and lost connection recovery. Even on the slowest phones it should fly now. The frontend also now uses the new [WebSockets API][websocket-api] instead of the [EventStream API][event-stream-api].
 
 ### Custom state card UI
-A nice new feature is the possibility to create [custom state cards][custom-ui] in the frontend. Go ahead and write your own state card for [lights][light], sensors, locks, etc.
+A nice new feature is the possibility to create [custom state cards][custom-ui-cards] in the frontend. Go ahead and write your own state card for lights, sensors, locks, etc.
 
 ### MQTT discovery
 MQTT now has [discovery][mqtt-discovery] support which is different than our [`discovery`][discovery] component. Similar to the HTTP sensor and HTTP binary sensor, MQTT discovery removes the need for configuration by allowing devices to make their presence known to Home Assistant.
@@ -197,14 +199,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [apiai]: /integrations/dialogflow
 [apple-tv]: /integrations/apple_tv
 [arwn]: /integrations/arwn
-[custom-ui]: /developers/frontend_creating_custom_ui/
+[custom-ui-cards]: /developers/frontend_creating_custom_ui
 [discovery]: /integrations/discovery/
 [face-detect]: /integrations/microsoft_face_detect
 [ffmpeg-bin]: /integrations/ffmpeg_motion
 [ffmpeg]: /integrations/ffmpeg/
 [filters]: /topics/templating/#home-assistant-template-extensions
 [hue]: /integrations/hue
-[light]: /cookbook/custom_ui_by_andrey-git
 [mailgun]: /integrations/mailgun
 [media-player]: /integrations/media_player/
 [moon]: /integrations/moon

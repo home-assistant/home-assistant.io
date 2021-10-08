@@ -9,6 +9,8 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@pascallj'
 ha_domain: orangepi_gpio
+ha_platforms:
+  - binary_sensor
 ---
 
 The `orangepi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding pages.

@@ -47,11 +47,11 @@ Hacktoberfest will create a lot of work for us. In 2017 we processed 625 Pull Re
 ### Home Assistant Frontend
 
 - Take a look at the [Polymer documentation](https://www.polymer-project.org/).
-- Read the [Home Assistant Frontend documentation](https://developers.home-assistant.io/docs/en/frontend_index.html).
+- Read the [Home Assistant Frontend documentation](https://developers.home-assistant.io/docs/frontend).
 
 ### Home Assistant
 
-- Get familiar with our [Style Guidelines](https://developers.home-assistant.io/docs/en/development_guidelines.html) and the existing code.
+- Get familiar with our [Style Guidelines](https://developers.home-assistant.io/docs/development_guidelines) and the existing code.
 - Go through the [Developer documentation](https://developers.home-assistant.io).
 - Don’t forget the documentation. Changes often require an update of the documentation. Also, new integrations. You know how it works, but the users don’t.
 - [Architectural changes](https://github.com/home-assistant/architecture) need to be discussed before a change is proposed. Also, keep in mind that those kinds of Pull Request may not be reviewed during October.
@@ -59,8 +59,8 @@ Hacktoberfest will create a lot of work for us. In 2017 we processed 625 Pull Re
 
 ### Home Assistant Documentation
 
-- Make yourself familiar with [Markdown](https://developers.home-assistant.io/docs/en/documentation_index.html).
-- Understand our [Standards and Guidelines](https://developers.home-assistant.io/docs/en/documentation_standards.html).
+- Make yourself familiar with [Markdown](https://www.markdownguide.org/cheat-sheet).
+- Understand our [Standards and Guidelines](https://developers.home-assistant.io/docs/documenting/standards).
 - For small changes like typos and clarifications, use the GitHub editor functionality. 
 - For more significant changes, we highly recommended that you set up an environment to build the documentation locally before opening a Pull Request.
 - Keep an eye on the branches. `current` is for changes on the existing documentation, `next` for new features or integrations that will be available with the next release.

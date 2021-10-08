@@ -10,12 +10,13 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: statistics
+ha_platforms:
+  - sensor
 ---
 
-The `statistics` sensor platform consumes the state from other sensors. It exports the `mean` value as state and the following values as attributes: `count`, `mean`, `median`, `stdev`, `variance`, `total`, `min_value`, `max_value`, `min_age`, `max_age`, `change`, `average_change` and `change_rate`. If it's a binary sensor then only state changes are counted.
+The `statistics` sensor platform consumes the state from other sensors. It exports the `mean` value as state and the following values as attributes: `count`, `mean`, `median`, `quantiles`, `standard_deviation`, `variance`, `total`, `min_value`, `max_value`, `min_age`, `max_age`, `change`, `average_change` and `change_rate`. If the source is a binary sensor then only state changes are counted.
 
-If you are running the [recorder](/integrations/recorder/) component, on startup the data is read from the database. So after a restart of the platform, you will immediately have data available. If you're using the [history](/integrations/history/) component, this will automatically also start the `recorder` integration on startup.
-If you are *not* running the `recorder` component, it can take time till the sensor starts to work because a couple of attributes need more than one value to do the calculation.
+Assuming the [`recorder`](/integrations/recorder/) integration is running (either configured explicitly or as part of a meta-integration/dependency, e.g., [`default_config`](/integrations/default_config/), [`history`](/integrations/history/), etc.), historical sensor data is read from the database on startup and is available immediately after a restart of the platform. If the [`recorder`](/integrations/recorder/) integration is *not* running, it can take time for the sensor to start reporting data because some attribute calculations require more than one value.
 
 ## Configuration
 
@@ -31,8 +32,6 @@ sensor:
     entity_id: sensor.cpu
   - platform: statistics
     entity_id: binary_sensor.movement
-    max_age:
-      minutes: 30
 ```
 
 {% configuration %}
@@ -51,16 +50,26 @@ sampling_size:
   default: 20
   type: integer
 max_age:
-  description: Maximum age of measurements. Setting this to a time interval will cause older values to be discarded.
+  description: Maximum age of measurements. Setting this to a time interval will cause older values to be discarded. Please note that you might have to increase the [`sampling_size`](/integrations/statistics#sampling_size) parameter. If you e.g., have a sensor value updated every second you will by default only get a `max_age` of 20s. Furthermore the sensor gets `unknown` if the entity is not updated within the time interval.
   required: false
   type: time
 precision:
-  description: Defines the precision of the calculated values, through the argument of round().
+  description: Defines the precision of the calculated values, through the argument of [`round()`](/docs/configuration/templating/#numeric-functions-and-filters).
   required: false
   default: 2
   type: integer
+quantile_intervals:
+  description: Number of continuous intervals with equal probability. Value must be an integer higher than `1`. In addition, `quantiles` will be `unknown` unless the number of quantile intervals is *lower* than the number of data points (`count`). Set it to `4` for quartiles (default) or to `100` for percentiles, for example. 
+  required: false
+  default: 4
+  type: integer
+quantile_method:
+  description: Indicates whether quantiles are computed using the `exclusive` method (default) or `inclusive`. The `exclusive` method assumes the population data have more extreme values than the sample, and therefore, the part under the *i*-th of *m* sorted data points is computed as `i / (m + 1)`. The `inclusive` method assumes that the sample data includes the more extreme values from the population, and therefore, the part under the *i*-th of *m* sorted data points is computed as `(i - 1) / (m - 1)`.
+  required: false
+  default: exclusive
+  type: string
 {% endconfiguration %}
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/stats-sensor.png' />
+  <img src='/images/screenshots/stats-sensor.png' />
 </p>

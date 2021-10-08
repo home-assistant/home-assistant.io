@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.7.5
 ha_iot_class: Local Polling
 ha_domain: blinksticklight
+ha_platforms:
+  - light
 ---
 
 The `blinkstick` platform lets you control your [Blinkstick](https://www.blinkstick.com/) lights from within Home Assistant.

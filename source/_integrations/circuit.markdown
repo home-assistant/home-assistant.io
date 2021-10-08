@@ -3,10 +3,13 @@ title: Unify Circuit
 description: Instructions on how to send a notification to a Unify Circuit Conversation.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.111
 ha_codeowners:
   - '@braam'
 ha_domain: circuit
+ha_platforms:
+  - notify
 ---
 
 The `Unify Circuit` platform allows you to send notifications from Home Assistant to a conversation in [Unify Circuit](https://www.circuit.com/).

@@ -1,41 +1,147 @@
 ---
-title: AVM FRITZ!Box
+title: AVM FRITZ!Box Tools
 description: Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant.
 ha_category:
   - Presence Detection
+  - Binary Sensor
+  - Sensor
 ha_release: '0.10'
 ha_domain: fritz
+ha_config_flow: true
+ha_codeowners:
+  - '@mammuth'
+  - '@AaronDavidSchneider'
+  - '@chemelli74'
+ha_iot_class: Local Polling
+ha_platforms:
+  - binary_sensor
+  - device_tracker
+  - sensor
+  - switch
+ha_ssdp: true
 ---
 
-The `fritz` platform offers presence detection by looking at connected devices to a [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) based router.
+The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://en.avm.de/products/fritzbox/) based router.
 
-## Configuration
+There is support for the following platform types within Home Assistant:
 
-To use an FRITZ!Box router in your installation, add the following to your `configuration.yaml` file:
+- **Device tracker** - presence detection by looking at connected devices.
+- **Binary sensor** - connectivity status.
+- **Sensor** - external IP address, uptime and network monitors.
+- **Switch** - call deflection, port forward, parental control and Wi-Fi networks.
 
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: fritz
-```
-
-{% configuration %}
-host:
-  description: The IP address of your router, e.g., `192.168.1.1`. It is optional since every FRITZ!Box is also reachable by using the IP address 169.254.1.1.
-  required: false
-  type: string
-username:
-  description: The username of an user with administrative privileges, usually `admin`.
-  required: false
-  type: string
-password:
-  description: The password for your given admin account.
-  required: false
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 <div class='note'>
-It seems that it is not necessary to use the password in current generation FRITZ!Box routers because the necessary data can be retrieved anonymously.
+TR-064 needs to be enabled in the FRITZ!Box network settings for Home Assistant to login and read device info.
 </div>
 
-See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
+## Username
+
+The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24 the default username was `admin`.
+
+## Services
+
+Currently supported services are Platform specific:
+
+- `fritz.reconnect`
+- `fritz.reboot`
+
+### Platform Services
+
+#### Service `fritz.reboot`
+
+Reboot the router.
+
+</div>
+
+| Service data attribute | Optional | Description                                                                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Only act on a specific  router                                                                                 |
+
+#### Service `fritz.reconnect`
+
+Disconnect and reconnect the router to the Internet.
+If you have a dynamic IP address, most likely it will change.
+
+| Service data attribute | Optional | Description                                                                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Only act on a specific  router                                                                                 |
+
+## Integration Options
+
+It is possible to change some behaviors through the integration options.
+These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrations page.
+
+- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
+
+## Additional info
+
+### Parental control
+
+Parental control switches can be used to enable and disable internet access of individual devices. If a device has internet access it will be enabled, otherwise it will be disabled. You can also find the current blocking state of the individual devices in the UI of the FRITZ!Box under `Internet` -> `Filters` -> `Parental Controls` -> `Device Block`
+
+Parental control switches are designed for advanced users, thus they are disabled by default. You need to enable the wanted entities manually.
+
+### Device Tracker
+
+**Note 1**: All devices to be tracked, even the new detected, are disabled by default. You need to enable the wanted entities manually.
+
+**Note 2**: If you don't want to automatically track newly detected devices, disable the integration system option `Enable new added entities`.
+
+### Port Forward
+
+Due to security reasons, AVM implemented the ability to enable/disable a port forward rule only from the host involved in the rule.
+As a result, this integration will create entities only for rules that have your Home Assistant host as a destination.
+
+**Note 1**: On your FRITZ!Box, enable the setting `Permit independent port sharing for this device` for the device which runs HA (`Internet` -> `Permit Access` -> `<Name of HA device>`)
+
+**Note 2**: Only works if you have a dedicated IPv4 address (it won't work with DS-Lite)
+
+## Example Automations and Scripts
+
+
+**Script: Reconnect / get new IP**
+
+The following script can be used to easily add a reconnect button to your UI. If you want to reboot your FRITZ!Box, you can use `fritzbox_tools.reboot` instead.
+
+```yaml
+fritz_box_reconnect:
+  alias: "Reconnect FRITZ!Box"
+  sequence:
+    - service: fritz.reconnect
+      target:
+        entity_id: binary_sensor.fritz_box_7530_connectivity
+
+```
+**Automation: Reconnect / get new IP every night**
+
+```yaml
+automation:
+- alias: "System: Reconnect FRITZ!Box"
+  trigger:
+    - platform: time
+      at: "05:00:00"
+  action:
+    - service: fritz.reconnect
+      target:
+        entity_id: binary_sensor.fritzbox_x_connectivity
+
+```
+
+**Automation: Phone notification with wifi credentials when guest wifi is created**
+
+```yaml
+automation:
+  - alias: "Guests Wifi Turned On -> Send Password To Phone"
+    trigger:
+      - platform: state
+        entity_id: switch.fritzbox_x_wifi_x
+        to: "on"
+    action:
+      - service: notify.notify
+        data:
+          title: "Guest wifi is enabled"
+          message: "Password: ..."
+
+```

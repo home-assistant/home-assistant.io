@@ -7,7 +7,9 @@ date_formatted: "February 26, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-02-0.106/social.png
 ---
 
@@ -121,7 +123,7 @@ We have made some changes to Lovelace that might impact your custom card, so be 
 
 ## New Integrations
 
-- Add Salt Fiber Box device tracker ([@bjornorri] - [#30986]) ([salt docs]) (new-integration)
+- Add Salt Fiber Box device tracker ([@bjornorri] - [#30986]) (new-integration)
 - Add GDACS feed integration ([@exxamalte] - [#31235]) ([gdacs docs]) (new-integration)
 - Add Minecraft Server Integration ([@elmurato] - [#30992]) ([minecraft_server docs]) (new-integration)
 - Add MELCloud integration ([@vilppuvuorinen] - [#30712]) ([melcloud docs]) (new-integration)
@@ -487,7 +489,7 @@ Added a Coronavirus integration to help monitor the ongoing epidemic. [More info
 - Catch device not found in device automations ([@balloob] - [#31401]) ([device_automation docs])
 - Upgrade numpy to 1.18.1 ([@fabaff] - [#31411]) ([iqvia docs]) ([opencv docs]) ([tensorflow docs]) ([trend docs])
 - Update pyhomematic to 0.1.64 ([@danielperna84] - [#31406]) ([homematic docs])
-- Add Salt Fiber Box device tracker ([@bjornorri] - [#30986]) ([salt docs]) (new-integration)
+- Add Salt Fiber Box device tracker ([@bjornorri] - [#30986]) (new-integration)
 - Upgrade alpha_vantage to 2.1.3 ([@fabaff] - [#31388]) ([alpha_vantage docs])
 - Search specific train in Nederlandse Spoorwegen ([@gurbyz] - [#28898]) ([nederlandse_spoorwegen docs])
 - Enable SUPPORT_VOLUME_STEP ([@Cloudenius] - [#31023]) ([pioneer docs])
@@ -1194,7 +1196,6 @@ Added a Coronavirus integration to help monitor the ongoing epidemic. [More info
 [roku docs]: /integrations/roku/
 [rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm/
 [sabnzbd docs]: /integrations/sabnzbd/
-[salt docs]: /integrations/salt/
 [samsungtv docs]: /integrations/samsungtv/
 [scrape docs]: /integrations/scrape/
 [script docs]: /integrations/script/

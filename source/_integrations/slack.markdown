@@ -5,6 +5,11 @@ ha_category:
   - Notifications
 ha_release: pre 0.7
 ha_domain: slack
+ha_iot_class: Cloud Push
+ha_codeowners:
+  - '@bachya'
+ha_platforms:
+  - notify
 ---
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
@@ -16,7 +21,7 @@ The `slack` platform allows you to deliver notifications from Home Assistant to 
 1. Create a [new app](https://api.slack.com/apps) under your Slack.com account.
 2. Click the `OAuth & Permissions` link in the sidebar, under the Features heading.
 3. In the Scopes section, add the `chat:write` scope, `Send messages as user`. If you get a `missing_scope` error when trying to send a message, check these permissions.
-4. Scroll up to `OAuth Tokens & Redirect URLs` and click `Install App`.
+4. Scroll up to `OAuth Tokens & Redirect URLs` and click `Add to Workspace`.
 5. Copy your `OAuth Access Token` and put that key into your `configuration.yaml` file -- see below.
 
 <div class='note'>
@@ -41,7 +46,7 @@ notify:
   - name: NOTIFIER_NAME
     platform: slack
     api_key: YOUR_API_KEY
-    default_channel: '#general'
+    default_channel: "#general"
 ```
 
 {% configuration %}
@@ -64,10 +69,16 @@ username:
   type: string
   default: The user account or botname that you generated the API key as.
 icon:
-  description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/).
+  description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/). Alternatively a publicly accessible URL may be used.
   required: false
   type: string
 {% endconfiguration %}
+
+<div class='note'>
+
+Note that in order to modify your Slack bot's username and icon, you must ensure your Slack app has the `chat:write.customize` OAuth scope. See [the Slack API documentation](https://api.slack.com/methods/chat.postMessage#authorship) for more information.
+
+</div>
 
 ### Slack Service Data
 
@@ -75,6 +86,8 @@ The following attributes can be placed inside the `data` key of the service call
 
 | Attribute              | Optional | Description |
 | ---------------------- | -------- | ----------- |
+| `username`               |      yes | The username of the Slack bot.
+| `icon`                   |      yes | The icon of the Slack bot.
 | `file`                   |      yes | A file to include with the message; see below.
 | `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` (note that the `message` is required nonetheless).
 | `blocks_template`        |      yes | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).

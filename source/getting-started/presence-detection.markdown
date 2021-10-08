@@ -47,4 +47,4 @@ The map view will hide all devices that are home.
 [ha-map]: /integrations/map/
 [companion]: https://companion.home-assistant.io/
 
-### [Next step: Join the Community &raquo;](/getting-started/join-the-community/)
+{% include getting-started/next_step.html step="Join the Community" link="/getting-started/join-the-community/" %}

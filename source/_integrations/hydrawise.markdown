@@ -11,6 +11,10 @@ ha_iot_class: Cloud Polling
 ha_domain: hydrawise
 ha_codeowners:
   - '@ptcryan'
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `hydrawise` integration allows you to integrate your [Hunter Hydrawise](https://hydrawise.com) Wi-Fi irrigation controller system in Home Assistant.
@@ -69,7 +73,7 @@ monitored_conditions:
 {% endconfiguration %}
 
 <div class='note warning'>
-The Hydrawise API removed the ability to read the rain sensor status. Therefore it is no longer suppored by the Hydrawise integration to Home Assistant.
+The Hydrawise API removed the ability to read the rain sensor status. Therefore it is no longer supported by the Hydrawise integration to Home Assistant.
 </div>
 
 ## Sensor

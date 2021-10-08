@@ -17,14 +17,22 @@ When a timer finishes or gets canceled the corresponding events are fired. This 
 </div>
 
 ## Configuration
+The preferred way to configure timer helpers is via the user interface. To add one, go to Configuration -> Helpers and click the add button; next choose the “Timer” option.
 
+You can also click the following button to be redirected to the Helpers page of your Home Assistant instance.
+
+{% my helpers badge %}
+
+To be able to add Helpers via the user interface you should have default_config: in your configuration.yaml, it should already be there by default unless you removed it. If you removed default_config: from your configuration, you must add timer: to your configuration.yaml first, then you can use the UI.
+
+Timers can also be configured via configuration.yaml:
 To add a timer to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 timer:
   laundry:
-    duration: '00:01:00'
+    duration: "00:01:00"
 ```
 
 {% configuration %}
@@ -110,13 +118,7 @@ Reload `timer`'s configuration without restarting Home Assistant itself. This se
 
 ### Use the service
 
-Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose **timer** from the list of **Domains**, select the **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
-
-```json
-{
-  "entity_id": "timer.timer0"
-}
-```
+Navigate to **Developer Tools** -> **Services** and select the `timer.start` service, then click the **Fill Example Data** button. Now change the `entity_id` and `duration` and click **Call Service** button.
 
 ## Examples
 
@@ -126,27 +128,28 @@ Set a timer called `test` to a duration of 30 seconds.
 # Example configuration.yaml entry
 timer:
   test:
-    duration: '00:00:30'
+    duration: "00:00:30"
 ```
 
 ### Control a timer from the frontend
 
 ```yaml
 # Example automations.yaml entry
-- alias: Timerswitch
-  id: 'Timerstart'
+- alias: "Timerswitch"
+  id: "Timerstart"
   # Timer is started when the switch pumprun is set to on.
   trigger:
   - platform: state
     entity_id: switch.pumprun
-    to: 'on'
+    to: "on"
   action:
   - service: timer.start
-    entity_id: timer.test
+    target:
+      entity_id: timer.test
 
 # When timer is stopped, the time run out, another message is sent
-- alias: Timerstop
-  id: 'Timerstop'
+- alias: "Timerstop"
+  id: "Timerstop"
   trigger:
   - platform: event
     event_type: timer.finished
@@ -165,23 +168,27 @@ With the [`script`](/integrations/script/) integration you would be able to cont
 ```yaml
 script:
   start_timer:
-    alias: Start timer
+    alias: "Start timer"
     sequence:
       - service: timer.start
-        entity_id: timer.test
+        target:
+          entity_id: timer.test
   pause_timer:
-    alias: Pause timer
+    alias: "Pause timer"
     sequence:
       - service: timer.pause
-        entity_id: timer.test
+        target:
+          entity_id: timer.test
   cancel_timer:
-    alias: Cancel timer
+    alias: "Cancel timer"
     sequence:
       - service: timer.cancel
-        entity_id: timer.test
+        target:
+          entity_id: timer.test
   finish_timer:
-    alias: Finish timer
+    alias: "Finish timer"
     sequence:
       - service: timer.finish
-        entity_id: timer.test
+        target:
+          entity_id: timer.test
 ```

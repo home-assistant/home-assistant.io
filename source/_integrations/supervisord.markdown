@@ -6,6 +6,8 @@ ha_category:
 ha_release: '0.20'
 ha_iot_class: Local Polling
 ha_domain: supervisord
+ha_platforms:
+  - sensor
 ---
 
 The `supervisord` platform allows you to track the states of [Supervisord](http://supervisord.org/).
@@ -20,7 +22,7 @@ port=127.0.0.1:9001
 After a restart of `supervisord` you should be able to access the web interface. If needed then this could be added as an [iFrame panel](/integrations/panel_iframe/).
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/supervisor.png' />
+  <img src='/images/screenshots/supervisor.png' />
 </p>
 
 To use this sensor in your installation, add the following to your `configuration.yaml` file:

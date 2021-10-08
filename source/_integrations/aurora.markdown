@@ -3,43 +3,34 @@ title: Aurora
 description: Know when auroras might be visible at your location
 ha_category:
   - Environment
+ha_iot_class: Cloud Polling
 ha_release: 0.39
 ha_domain: aurora
+ha_codeowners:
+  - '@djtimca'
+ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `aurora` platform uses the [NOAA Aurora Forecast](https://www.swpc.noaa.gov/products/aurora-30-minute-forecast) service to let you know if an aurora might be visible at your home location in the next 30 minutes, based off of current solar flare activity.
 
 This service gives a number 0-100 representing the current likelihood of visible auroras at your latitude/longitude. By default this sensor is set up to trigger when the reported likelihood for your location is > 75. It updates every 5 minutes.
 
-You can check the attributes of the sensor to see your exact forecast.
+{% include integrations/config_flow.md %}
 
-## Configuration
+You can configure multiple locations by adding the integration multiple times.
 
-To add the aurora binary sensor to your installation, add the following to your `configuration.yaml` file:
+## Options
 
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: aurora
-```
+Once installed you can adjust the threshold for this location by clicking on the Options link on the integration.
 
-{% configuration %}
-forecast_threshold:
-  description: Provide your own threshold number above which the sensor will trigger.
-  required: false
-  type: integer
-  default: 75
-name:
-  description: The name of the sensor.
-  required: false
-  type: string
-  default: Aurora Visibility
-{% endconfiguration %}
+## Sensors
 
-## Full example
+The integration will add a two sensors for each location you configure:
 
-```yaml
-binary_sensor:
-  - platform: aurora
-    forecast_threshold: 50
-```
+|Sensor Type|Values|Description|
+|-|-|-|
+|binary_sensor|on/off|on = high chance of Aurora visibility, off = low chance of visibility|
+|sensor|% value|Percentage chance of visibility|

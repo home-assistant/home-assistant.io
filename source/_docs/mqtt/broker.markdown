@@ -16,7 +16,9 @@ The recommended setup method is to use the [Mosquitto MQTT broker add-on](https:
 
 <div class='note warning'>
 
-There is [an issue](https://github.com/rabbitmq/rabbitmq-mqtt/issues/154) with the RabbitMQ MQTT Plugin which break MQTT message retention. Don't use the RabbitMQ MQTT plugin, instead use another broker like Mosquitto.
+Neither ActiveMQ MQTT broker nor the RabbitMQ MQTT Plugin are supported, use a known working broker like Mosquitto instead.
+There are [at least two](https://issues.apache.org/jira/browse/AMQ-6360) [issues](https://issues.apache.org/jira/browse/AMQ-6575) with the ActiveMQ MQTT broker which break MQTT message retention.
+There is [an issue](https://github.com/rabbitmq/rabbitmq-mqtt/issues/154) with the RabbitMQ MQTT Plugin which breaks MQTT message retention.
 
 </div>
 
@@ -76,7 +78,7 @@ If you are running a Mosquitto instance on a different server with proper SSL en
 
 ### Public broker
 
-The Mosquitto project runs a [public broker](http://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home.
+The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home.
 
 ```yaml
 mqtt:
@@ -86,38 +88,9 @@ mqtt:
   # Optional, replace port 1883 with following if you want encryption
   # (doesn't really matter because broker is public)
   port: 8883
-  # Download certificate from http://test.mosquitto.org/ssl/mosquitto.org.crt
+  # Download certificate from https://test.mosquitto.org/ssl/mosquitto.org.crt
   certificate: /home/paulus/downloads/mosquitto.org.crt
 ```
-
-### CloudMQTT
-
-[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example [OwnTracks](/integrations/owntracks/) and give you a taste of what is possible.
-
-<div class='note'>
-Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
-</div>
-
- 1. [Create an account](https://customer.cloudmqtt.com/login) (no payment details needed)
- 2. [Create a new CloudMQTT instance](https://customer.cloudmqtt.com/subscription/create)
-    (Cute Cat is the free plan)
- 3. From the control panel, click on the _Details_ button.
- 4. Create unique users for Home Assistant and each phone to connect<br>(CloudMQTT does not allow two connections from the same user)
-      1. Under manage users, fill in username, password and click add
-      2. Under ACLs, select user, topic `#`, check 'read access' and 'write access'
- 5. Copy the instance info to your configuration.yaml:
-
-```yaml
-mqtt:
-  broker: CLOUDMQTT_SERVER
-  port: CLOUDMQTT_PORT
-  username: CLOUDMQTT_USER
-  password: CLOUDMQTT_PASSWORD
-```
-
-<div class='note'>
-Home Assistant will automatically load the correct certificate if you connect to an encrypted channel of CloudMQTT (port range 20000-30000).
-</div>
 
 <div class='note'>
 

@@ -1,0 +1,4 @@
+Contact: mailto:security@home-assistant.io
+Preferred-Languages: en
+Canonical: https://www.home-assistant.io/.well-known/security.txt
+Policy: https://www.home-assistant.io/security/
