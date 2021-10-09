@@ -37,7 +37,7 @@ For some Brother devices, `SNMPv3 read-write access and v1/v2c read-only access`
 
 ## Sensor Example
 
-You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows.  First, add the following to `configuration.yaml` under the `template:` section (Note: replace `sensor.<DEVICE_NAME>_status` with the actual name of your sensor):
+You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows.  First, add the following to `configuration.yaml` under the `template:` section (Note: replace `sensor.hl_l2340d_status` with the actual name of your sensor):
 
 {% raw %}
 
@@ -47,13 +47,13 @@ template:
     - name: 'Laser Printer Out Of Paper'
       unique_id: laser_printer_out_of_paper
       state: >
-        {{ is_state('sensor.<DEVICE_NAME>_status', 'no paper') }}
+        {{ is_state('sensor.hl_l2340d_status', 'no paper') }}
 
   - binary_sensor:
     - name: 'Later Printer Paper Jam'
       unique_id: laser_printer_paper_jam
       state: >
-        {{ is_state('sensor.<DEVICE_NAME>_status', 'paper jam') }}
+        {{ is_state('sensor.hl_l2340d_status', 'paper jam') }}
 ```
 
 {% endraw %}
