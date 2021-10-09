@@ -153,7 +153,7 @@ See details of RainMachine API Here: https://rainmachine.docs.apiary.io/#referen
 | `rain`                 | no       | Measured Rainfail (mm)                                                                                                |
 | `minrh`                | no       | Min Relative Humidity (%RH)                                                                                           |
 | `maxrh`                | no       | Max Relative Humidity (%RH)                                                                                           |
-| `condition`            | no       | Current weather condition code (WNUM)                                                                                 |
+| `condition`            | no       | Current weather condition code (WNUM). See [here][wnum reference] for options.                                        |
 | `pressure`             | no       | Barametric Pressure (kPa)                                                                                             |
 | `dewpoint`             | no       | Dew Point (°C)                                                                                                        |
 
@@ -170,3 +170,5 @@ After Home Assistant loads, new switches will be added for every enabled program
 - Zone On/Off: starts/stops a zone (using the `zone_run_time` parameter to determine how long to run for)
 
 Programs and zones are linked. While a program is running, you will see both the program and zone switches turned on; turning either one off will turn the other one off (just like in the web app).
+
+[wnum reference]: https://github.com/sprinkler/rainmachine-developer-resources/blob/d47e1ad59dee59e34094ad41636ae289275eb973/sdk-parsers/RMDataFramework/rmWeatherData.py#L13
