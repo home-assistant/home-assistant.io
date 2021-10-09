@@ -51,7 +51,7 @@ If listening for a Smart Meter’s signal is not viable due to encryption, anoth
 
 Home Assistant natively supports this type of translation via its SSOCR Integration (Seven Segment OCR). All that is needed is to feed the meter’s digital display into Home Assistant, which can be done by an IP Webcam.
 
-### Installed a Secondary Meter
+### Install a Secondary Meter
 
 If getting information from your existing meter is not possible, adding a second meter to your system is generally possible. Adding another meter has the benefit of letting you choose the exact solution that fits your needs. If placed directly after your Utilities meter, it will also provide the exact same information your Utility Meter does. This is not without drawbacks though. Meters are generally not cheap, not practical to install by yourself. And hiring a professional to do it likely costs the same, if not more, then the physical meter. But it is still a valid solution, and in some cases may be the only one.
 
