@@ -35,7 +35,7 @@ Older meters are unlikely to have an LED that flashes. In fact, many don’t eve
 
 As these analog dials often rotated based on a magnet spinning due to gas usage, a pulse counter could be constructed to count the magnetic “pulses”, or each time the magnetic made a completed rotation. In fact, many older meters were specifically designed with this in mind, and the single-digit dial is set up so that its complete rotation corresponds to the magnetic complete rotation. Some meters even had a spot under this dial to monitor magnetic pulses. 
 
-By attaching a magnetic pulse counter under this single digit dial, you can count the magnetic pulses and determine gas usage. Connecting back to Home Assistant can be done via a number of methods, such as ESPHome.
+By attaching a magnetic pulse counter under this single-digit dial, you can count the magnetic pulses and determine gas usage. Connecting back to Home Assistant can be done via a number of methods, such as ESPHome.
 
 #### Listening for Smart Meter signals
 
