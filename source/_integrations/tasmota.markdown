@@ -52,3 +52,7 @@ Tasmota Buttons, Fans, Lights, relays, Sensors, Shutters and Switches are suppor
 You must also configure each Tasmota device's MQTT settings to communicate with whatever MQTT broker you are using. Enter the broker address under host and enter a username/password combination that allows access to the broker.
 
 If using the Mosquitto Broker add-on for Home Assistant, first create a new Home Assistant user under {% my users title="Configuration > Users" %}. Then, in Tasmota > Configure MQTT under "Host" enter the address of your Home Assistant instance and under "User" and "Password" enter the Home Assistant user you just created.
+
+Add the following to the ACL file (user section or general section): `topic write tasmota/discovery/#` to give Tasmota devices required write access to the `tasmota/discovery/#` topic.
+
+
