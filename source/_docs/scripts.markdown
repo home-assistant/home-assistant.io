@@ -29,7 +29,9 @@ script:
           message: "Turned on the ceiling light!"
 ```
 
+<div class="toc">
 {{ page.content | markdownify | toc_only }}
+</div>
 
 ## Call a Service
 

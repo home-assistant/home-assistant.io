@@ -432,6 +432,39 @@ article.listing {
   }
 }
 
+div.toc {
+  position: relative;
+
+  background: #e4e8eb;
+
+  padding: 40px 12px 6px 12px;
+  margin-bottom: 24px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
+
+  p {
+    margin-bottom: 0px;
+  }
+
+  &::before {
+    font-family: "FontAwesome", sans-serif;
+    content: "\f02e"" Content " attr(data-title);
+    background-color: #b0b5b8;
+    color: white;
+    font-weight: bold;
+
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 6px 14px;
+
+    line-height: 1.5em;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
 p.note,
 div.note {
   position: relative;

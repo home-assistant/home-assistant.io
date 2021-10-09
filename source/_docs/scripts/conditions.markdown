@@ -11,7 +11,9 @@ Unlike a trigger, which is always `or`, conditions are `and` by default - all co
 
 All conditions support an optional `alias`.
 
+<div class="toc">
 {{ page.content | markdownify | toc_only }}
+</div>
 
 ## Logical conditions
 

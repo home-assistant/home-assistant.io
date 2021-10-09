@@ -1,6 +1,8 @@
 ---
 title: "Templating"
 description: "Instructions on how to use the templating feature of Home Assistant."
+toc: true
+no_toc: true
 ---
 
 This is an advanced feature of Home Assistant. You'll need a basic understanding of:
@@ -13,6 +15,10 @@ Templating is a powerful feature that allows you to control information going in
 - Formatting outgoing messages in, for example, the [notify](/integrations/notify/) platforms and [Alexa](/integrations/alexa/) component.
 - Process incoming data from sources that provide raw data, like [MQTT](/integrations/mqtt/), [`rest` sensor](/integrations/rest/) or the [`command_line` sensor](/integrations/sensor.command_line/).
 - [Automation Templating](/docs/automation/templating/).
+
+<div class="toc">
+{{ page.content | markdownify | toc_only }}
+</div>
 
 ## Building templates
 
@@ -338,7 +344,7 @@ The `to_json` filter serializes an object to a JSON string. In some cases, it ma
 
 The `from_json` filter operates similarly, but in the other direction, de-serializing a JSON string back into an object.
 
-### To/From JSON examples
+#### To/From JSON examples
 
 In this example, the special character '°' will be automatically escaped in order to produce valid JSON. The difference between the stringified object and the actual JSON is evident.
 
