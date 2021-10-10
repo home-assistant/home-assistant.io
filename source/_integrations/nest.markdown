@@ -281,9 +281,9 @@ everything, however, you can leave out any feature you do not wish to use with H
 
 {% details "How to restart thermostat" %}
 
-  - Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
-  - In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
-  - Reload the integration in Home Assistant:  Navigate to **Configuration** then **Integrations**, click `...` next to *Nest* and choose **Reload**.
+- Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
+- In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
+- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Integrations**, click `...` next to *Nest* and choose **Reload**.
 
 {% enddetails %}
 
