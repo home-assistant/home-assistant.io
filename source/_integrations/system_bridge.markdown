@@ -74,6 +74,10 @@ These sensors are also available, but are not enabled by default:
 | System Load (Per CPU)  | System load percentage for each CPU      |
 | User Load (Per CPU)    | System user load percentage for each CPU |
 
+## Media Source
+
+This integration is avaliable as a media source to be used with the media browser integration. You can browse and view media from your system to media players such as your web browser and other supported media players.
+
 ## Services
 
 ### Service `system_bridge.send_command`
