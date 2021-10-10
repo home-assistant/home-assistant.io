@@ -76,7 +76,7 @@ These sensors are also available, but are not enabled by default:
 
 ## Media Source
 
-This integration is avaliable as a media source to be used with the media browser integration. You can browse and view media from your system to media players such as your web browser and other supported media players.
+This integration is available as a media source to use with the media browser integration. You can browse and view media from your system to media players such as your web browser and other supported media players.
 
 ## Services
 
