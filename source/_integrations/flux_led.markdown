@@ -63,7 +63,7 @@ The Flux LED light offers a number of effects which are not included in other li
 
 ### Custom Effects - Service `flux_led.set_custom_effect`
 
-The `Flux_LED` integration offers a custom service to enable you to set the lights to a custom light effect. 
+The integration offers a custom service to enable you to set the lights to a custom light effect. 
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
