@@ -80,6 +80,6 @@ colors:
   - [0,255,0]
   - [0,0,255]
 speed_pct: 80
-transition: jump
+transition: "jump"
 ```
 
