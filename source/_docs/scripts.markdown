@@ -75,6 +75,39 @@ The variables action allows you to set/override variables that will be accessibl
 
 {% endraw %}
 
+### Scope of Variables
+
+Variables have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
+
+The following example will always say "There are 0 people home". Inside the `choose` sequence the `variables` action will only alter the `people` variable for that sequence.
+
+{% raw %}
+
+```yaml
+sequence:
+  # Set the people variable to a default value
+  - variables:
+      people: 0
+  # Try to increment people if Paulus is home
+  - choose:
+    - conditions:
+        - condition: state
+          entity_id: device_tracker.paulus
+          state: "home"
+      sequence:
+        # At this scope and this point of the sequence, people == 0
+        - variables:
+            people: "{{ people + 1 }}"
+        # At this scope, people will now be 1 ...
+  # ... but at this scope it will still be 0
+  # Announce the count of people home
+  - service: notify.notify
+    data:
+      message: "There are {{ people }} people home"
+```
+
+{% endraw %}
+
 ## Test a Condition
 
 While executing a script you can add a condition in the main sequence to stop further execution. When a condition does not return `true`, the script will stop executing. There are many different conditions which are documented at the [conditions page].
