@@ -1385,8 +1385,8 @@ Mop Attached**                | If the mop is attached                          
 Water Box Attached**          | If the watter box is attached                        |
 Water Shortage**              | If the water box is low on water                     |
 
-```
-* Needs to be manually enbaled once the intergarion has been added.
+```text
+* Needs to be manually enabled once the integration has been added.
 ** Only enabled if the vacuum has a mop.
 ```
 
