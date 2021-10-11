@@ -4,7 +4,7 @@ Home Assistant Operating System supports storing most data on an external storag
 
 ![Graphics showing the architecture of the data disk feature](/images/haos/usb-data-disk.png)
 
-The data disk feature can be used on an existing installation without loosing data: The system will move existing data to the external data disk automatically. However, it is recommended to create and download a full <a href="#backups">Backup</a> before proceeding!
+The data disk feature can be used on an existing installation without losing data: The system will move existing data to the external data disk automatically. However, it is recommended to create and download a full <a href="#backups">Backup</a> before proceeding!
 
 <div class='note warning'>
 
@@ -20,7 +20,7 @@ The data disk feature can be used on an existing installation without loosing da
 
 <div class='note'>
 
-  If you have been using a data disk previously with Home Assistant Operating System, you need to use your host computer to delete all partitions *before* using it as data disk again.
+  If you have been using a data disk previously with Home Assistant Operating System, you need to use your host computer to delete all partitions *before* using it as a data disk again.
 
 </div>
 
