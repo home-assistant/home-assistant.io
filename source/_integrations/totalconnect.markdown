@@ -17,9 +17,9 @@ ha_platforms:
 
 The `totalconnect` integration provides connectivity with TotalConnect alarm systems used by many alarm companies.
 
-## Setup TotalConnect User
+## Prerequisites
 
-Login to the [TotalConnect website](https://totalconnect2.com) and create a "standard" Total Connect user account specifically for use with Home Assistant. It should not have full administrative privileges.
+Log in to the [TotalConnect website](https://totalconnect2.com) and create a "standard" Total Connect user account specifically for use with Home Assistant. It should not have full administrative privileges.
 
 Give the user access to your Location. Give the user a usercode, usually a 4 digit number.
 
