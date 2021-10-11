@@ -1,7 +1,7 @@
 // cSpell Settings
 // Contains additional words for our project
 {
-  "version": "0.1",
+  "version": "0.2",
   "language": "en",
   "words": [
     "arest",
@@ -40,7 +40,10 @@
   // flagWords - list of words to be always considered incorrect
   // This is useful for offensive words and common spelling errors.
   // For example "hte" should be "the"
-  "flagWords": ["hte", "asssistant"],
+  "flagWords": [
+    "hte",
+    "asssistant"
+  ],
   "enabledLanguageIds": [
     "asciidoc",
     "c",
