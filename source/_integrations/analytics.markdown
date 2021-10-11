@@ -20,7 +20,7 @@ Home Assistant allows users to share their usage data via the analytics integrat
 
 The information sent depends on what options you opt-in to. You can opt-in during onboarding and by going to **{% my general title="Configuration >> General" %}** .
 
-**{% my general badge %}**
+{% my general badge %}
 
 When enabled, data will be sent 15 minutes after each start, and every 24h after startup. Sent data is printed to your log.
 
@@ -74,7 +74,7 @@ This includes:
 
 - The names of all your core integrations
 - The names and versions of all your custom integrations if you have any
-- Boolean to indicate that the [`energy` integration](/integrations/energy) is configured
+- Boolean to indicate that the [energy integration](/integrations/energy) is configured
 
 If your system includes the Supervisor, this will also contain:
 
