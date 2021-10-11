@@ -29,7 +29,7 @@ Examples of controllers:
 
 {% include integrations/config_flow.md %}
 
-After the devices have been added they can be configured with different effects or modes listed below. By default `Flux_LED` will attempt to determine the device type automatically. If it does not detect the correct device type it is recommended that the mode be selected manually.
+After the devices have been added they can be configured with different effects or modes listed below. By default, the integration will attempt to determine the device type automatically. If it does not detect the correct device type it is recommended that the mode be selected manually.
 
 **Brightness Mode:**\
 **Auto** - `Flux_LED` will attempt to determine the mode of the device.\
