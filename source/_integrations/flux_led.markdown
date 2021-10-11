@@ -3,14 +3,16 @@ title: Flux LED/MagicLight
 description: Instructions on how to setup Flux led/MagicHome/MagicLight within Home Assistant.
 ha_category:
   - Light
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.25
 ha_domain: flux_led
 ha_platforms:
   - light
+  - switch
 ---
 
-The Flux LED integration supports several brands of both bulbs and controllers that use the same protocol and have the HF-LPB100 chipset in common. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the MagicHome app.
+The Flux LED integration supports several brands of switches, bulbs, and controllers that use the same protocol and have the HF-LPB100 chipset in common. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the MagicHome app.
 
 This integration will provide local control over your LED lights/strips and can be configured to auto-scan your network for controllers or for you to manually configure individual lights by their IP address.
 
