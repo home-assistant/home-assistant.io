@@ -46,7 +46,7 @@ Additionally RA2 Select Main Repeater (`RR-SEL-REP2-BL`) or Lutron Caséta Smart
 - Pico Remotes as [device triggers](/integrations/device_automation/)
 - Shade Remotes as [device triggers](/integrations/device_automation/)
 
-When configured, the `lutron_caseta` integration will automatically discover the currently supported devices as setup in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g., a dimmer called 'Lamp' in a room called 'Bedroom' becomes `light.bedroom_lamp` in Home Assistant.
+When configured, the Lutron Caséta integration will automatically discover the currently supported devices as set up in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g., a dimmer called 'Lamp' in a room called 'Bedroom' becomes `light.bedroom_lamp` in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
