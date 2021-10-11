@@ -41,7 +41,7 @@ After the devices have been added they can be configured with different effects 
 A list of RGB colors can be entered to create an effect. The effect speed can be adjusted using the slider underneath.
 
 **Custom Effect Type**\
-This determins the transition between each color. 
+This determines the transition between each color. 
 
 
 ### Effects
