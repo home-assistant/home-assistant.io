@@ -57,7 +57,7 @@ It can happen that some integrations either do not work right away or stop worki
 
 #### Multiple files
 
-If you are using multiple files for your setup, make sure that the pointers are correct and the format of the files is valid. It's important to understand the different types of `!include` and how the contents of each file should be structured - more information on the various methods of splitting your configuration into multiple files can be found [here](https://www.home-assistant.io/docs/configuration/splitting_configuration).
+If you are using multiple files for your setup, make sure that the pointers are correct and the format of the files is valid. It's important to understand the different types of `!include` and how the contents of each file should be structured - more information on the various methods of splitting your configuration into multiple files can be found [here](/docs/configuration/splitting_configuration).
 
 ```yaml
 light: !include devices/lights.yaml
