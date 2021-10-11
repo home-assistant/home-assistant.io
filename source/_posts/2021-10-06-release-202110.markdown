@@ -59,6 +59,7 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.10.1 - October 7](#release-2021101---october-7)
 - [Release 2021.10.2 - October 8](#release-2021102---october-8)
+- [Release 2021.10.3 - October 10](#release-2021103---october-10)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -313,6 +314,63 @@ The following integrations are now available via the Home Assistant UI:
 [tplink docs]: /integrations/tplink/
 [upnp docs]: /integrations/upnp/
 [yeelight docs]: /integrations/yeelight/
+
+## Release 2021.10.3 - October 10
+
+- Catch errors for efergy ([@tkdrob] - [#57326]) ([efergy docs])
+- Use switch format unique ids for tplink dimmers ([@bdraco] - [#57346]) ([tplink docs])
+- Fix Shelly RGB/W supported color mode detection ([@thecode] - [#57359]) ([shelly docs])
+- Bump pynws to 1.3.2 ([@MatthewFlamm] - [#57361]) ([nws docs])
+- Bump Switchbot library ([@RenierM26] - [#57367]) ([switchbot docs])
+- Bump pyhaversion to 21.10.0 ([@ludeeus] - [#57377]) ([version docs])
+- Update frontend to 20211007.1 ([@bramkragten] - [#57385]) ([frontend docs])
+- Do all of dhcp scapy startup in the executor ([@bdraco] - [#57392]) ([dhcp docs])
+- Remove executor calls in isy994 as its fully async ([@bdraco] - [#57394]) ([isy994 docs])
+- Fix default parameter values for service opentherm_gw.set_clock ([@mvn23] - [#57397]) ([opentherm_gw docs])
+- Fix `opentherm_gw.set_clock` `time` parameter name ([@mvn23] - [#57398]) ([opentherm_gw docs])
+- Restore yeelight workaround for failing to update state after on/off ([@bdraco] - [#57400]) ([yeelight docs])
+- Fix Shelly button filter empty event ([@thecode] - [#57427]) ([shelly docs])
+- Fix Shelly button type in roller mode ([@thecode] - [#57429]) ([shelly docs])
+- Bump zeroconf to 0.36.8 ([@bdraco] - [#57451]) ([zeroconf docs])
+- Fix netgear renamed mdi icons ([@thecode] - [#57431]) ([netgear docs])
+
+[#57326]: https://github.com/home-assistant/core/pull/57326
+[#57346]: https://github.com/home-assistant/core/pull/57346
+[#57359]: https://github.com/home-assistant/core/pull/57359
+[#57361]: https://github.com/home-assistant/core/pull/57361
+[#57367]: https://github.com/home-assistant/core/pull/57367
+[#57377]: https://github.com/home-assistant/core/pull/57377
+[#57385]: https://github.com/home-assistant/core/pull/57385
+[#57392]: https://github.com/home-assistant/core/pull/57392
+[#57394]: https://github.com/home-assistant/core/pull/57394
+[#57397]: https://github.com/home-assistant/core/pull/57397
+[#57398]: https://github.com/home-assistant/core/pull/57398
+[#57400]: https://github.com/home-assistant/core/pull/57400
+[#57427]: https://github.com/home-assistant/core/pull/57427
+[#57429]: https://github.com/home-assistant/core/pull/57429
+[#57431]: https://github.com/home-assistant/core/pull/57431
+[#57451]: https://github.com/home-assistant/core/pull/57451
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@RenierM26]: https://github.com/RenierM26
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@ludeeus]: https://github.com/ludeeus
+[@mvn23]: https://github.com/mvn23
+[@thecode]: https://github.com/thecode
+[@tkdrob]: https://github.com/tkdrob
+[dhcp docs]: /integrations/dhcp/
+[efergy docs]: /integrations/efergy/
+[frontend docs]: /integrations/frontend/
+[isy994 docs]: /integrations/isy994/
+[netgear docs]: /integrations/netgear/
+[nws docs]: /integrations/nws/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[shelly docs]: /integrations/shelly/
+[switchbot docs]: /integrations/switchbot/
+[tplink docs]: /integrations/tplink/
+[version docs]: /integrations/version/
+[yeelight docs]: /integrations/yeelight/
+[zeroconf docs]: /integrations/zeroconf/
 
 ## If you need help...
 
