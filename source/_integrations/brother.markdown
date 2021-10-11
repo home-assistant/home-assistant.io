@@ -45,13 +45,11 @@ You can configure Home Assistant to alert you when the printer jams or runs out 
 template:
   - binary_sensor:
     - name: 'Laser Printer Out Of Paper'
-      unique_id: laser_printer_out_of_paper
       state: >
         {{ is_state('sensor.hl_l2340d_status', 'no paper') }}
 
   - binary_sensor:
     - name: 'Later Printer Paper Jam'
-      unique_id: laser_printer_paper_jam
       state: >
         {{ is_state('sensor.hl_l2340d_status', 'paper jam') }}
 ```
