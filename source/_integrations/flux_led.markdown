@@ -10,7 +10,7 @@ ha_platforms:
   - light
 ---
 
-The Flux Led integration supports several brands of both bulbs and controllers that use the same protocol and have the HF-LPB100 chipset in common. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the MagicHome app.
+The Flux LED integration supports several brands of both bulbs and controllers that use the same protocol and have the HF-LPB100 chipset in common. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the MagicHome app.
 
 This integration will provide local control over your LED lights/strips and can be configured to auto-scan your network for controllers or for you to manually configure individual lights by their IP address.
 
@@ -29,7 +29,7 @@ Examples of controllers:
 
 {% include integrations/config_flow.md %}
 
-After the devices have been added they can be configured with different effects listed below. These setting can be accessed by navigating to the integration settings in configuration->integrations and selecting the "Flux Led/Magic Home" configuration for the bulb or controller. 
+After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Flux Led/Magic Home" configuration for the bulb or controller. 
 
 
 **Custom Effect**\
