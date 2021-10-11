@@ -90,6 +90,7 @@ To use this notification platform in your installation, add the following to you
 notify:
   - name: NOTIFIER_NAME
     platform: ecobee
+    index: 0
 ```
 
 {% configuration %}
@@ -98,6 +99,11 @@ name:
   required: false
   default: "`notify`"
   type: string
+index:
+  description: If you have multiple thermostats, you can specify which one to send the notification to by setting an `index`. The index values assigned to the thermostats are consecutive integers, starting at 0.
+  required: false
+  default: 0
+  type: integer
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
