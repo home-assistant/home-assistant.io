@@ -15,7 +15,7 @@ ha_platforms:
 ha_zeroconf: true
 ---
 
-The Nanoleaf integration allows you to control and monitor Nanoleaf Light Panels, Canvas and Shapes.
+The Nanoleaf integration allows you to control and monitor Nanoleaf Light Panels, Canvas, Shapes and Elements.
 
 This integration does not support the Nanoleaf Remote and Essentials lights.
 
