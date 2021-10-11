@@ -49,7 +49,7 @@ This is a separate account to the one you made for the app. You cannot log in wi
 4. In the `Create Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in.
   ![](/images/integrations/tuya/image_001.png)
 5. Click `Create` to continue with project configuration.
-6. In Configuration Wizard, select the `Device Status Notification` API. `Smart Home` API products should already be selected by default.
+6. In Configuration Wizard, make sure you add `Device Status Notification` API. The list of API should look like this:
   ![](/images/integrations/tuya/image_002.png)
 7. Click `Authorize`.
 
