@@ -31,7 +31,8 @@ There are three attributes available on the SwitchBot entity to give you more in
 - `MAC address`: The BTLE MAC for the device.
 
 ### Error codes and troubleshooting
+
 {% configuration_basic %}
 "Config flow could not be loaded":
-  description: Possable conflicting custom integration if using different version of PySwitchbot try uninstalling custom intergration.
+  description: Possible custom integration conflict, using a different version of PySwitchbot; Try uninstalling the custom integration.
 {% endconfiguration_basic %}
