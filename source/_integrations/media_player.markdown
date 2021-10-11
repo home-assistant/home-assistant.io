@@ -120,7 +120,7 @@ data:
   media_content_id: "https://fake-home-assistant.io.stream/aac"
   extra:
     thumb: "https://brands.home-assistant.io/_/homeassistant/logo.png"
-    title: HomeAssitantRadio
+    title: HomeAssistantRadio
 ```
 
 #### Service `media_player.select_source`

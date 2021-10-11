@@ -415,7 +415,7 @@ These can also be combined in any combination:
 
 #### Closest examples
 
-The closest function and filter will find the closest entity to the Home Assisant location:
+The closest function and filter will find the closest entity to the Home Assistant location:
 
 {% raw %}
 
