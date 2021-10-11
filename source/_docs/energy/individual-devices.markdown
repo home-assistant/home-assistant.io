@@ -3,7 +3,7 @@ title: "Integrating individual device energy usage"
 description: "Learn how to add information about individual device energy usage to Home Assistant home energy management."
 ---
 
-Home Assistant can integrate the energy usage of individual devices into Home Assistant. That way you can see the impact of individual devices on your total enery consumption.
+Home Assistant can integrate the energy usage of individual devices into Home Assistant. That way you can see the impact of individual devices on your total energy consumption.
 
 ## Hardware
 
