@@ -677,7 +677,7 @@ automation 3:
 
 <div class='note warning'>
 
-Do not prefix numbers with a zero - using `'00'` instead of `'0'` for example will result in errors.
+Do not prefix numbers with a zero - using `'01'` instead of `'1'` for example will result in errors.
 
 </div>
 
