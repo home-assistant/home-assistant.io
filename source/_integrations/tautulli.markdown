@@ -14,13 +14,13 @@ ha_platforms:
   - sensor
 ---
 
-The `tautulli` sensor platform will monitor activity on a given [Tautulli Server][tautulli]. It will create a service with a sensor that shows the number of currently active streams as the state. If you click the sensor for more details, it will show you more statistics.
-
-{% include integrations/config_flow.md %}
+The Tautulli integration will monitor activity on a given [Tautulli Server][tautulli]. It will create a service with a sensor that shows the number of currently active streams as the state. If you click the sensor for more details, it will show you more statistics.
 
 ## Setup
 
 To find your `api_key`, open the Tautulli web interface and navigate to `Settings` and then to `Web interface`. The `api_key` will be at the bottom of that page.
+
+{% include integrations/config_flow.md %}
 
 The following stats are available by default:
 
