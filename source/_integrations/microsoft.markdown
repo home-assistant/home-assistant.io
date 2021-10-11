@@ -71,7 +71,7 @@ region:
 
 <div class='note'>
 
-Not all Azure regions support high-quality neural voices. Use [this overview]https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#neural-and-standard-voices) to determine the availability of standard and neural voices by region/endpoint.
+Not all Azure regions support high-quality neural voices. Use [this overview](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#neural-and-standard-voices) to determine the availability of standard and neural voices by region/endpoint.
 
 </div>
 
