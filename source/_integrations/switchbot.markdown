@@ -19,6 +19,25 @@ ha_config_flow: true
 ---
 
 The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/).
+## Configuration of the Switchbot Platform
+
+### Prerequisites
+
+- Bluetooth hardware on the HA system is required
+
+### Non-Essentials
+
+- [Switchbot Hub](https://www.switch-bot.com/search?type=product&q=hub) is not required
+
+### Get the BTLE MAC address
+
+1. Open the Switchbot app.
+2. open device settings
+3. click on 'Device Info'
+
+### Note
+
+- The name in the switchbot app is not transferred to HA
 
 {% include integrations/config_flow.md %}
 
@@ -35,4 +54,6 @@ There are three attributes available on the SwitchBot entity to give you more in
 {% configuration_basic %}
 "Config flow could not be loaded":
   description: Possible custom integration conflict, using a different version of PySwitchbot; Try uninstalling the custom integration.
+"No unconfigured devices found":
+  description: Make sure your devices are powered on and are in range.
 {% endconfiguration_basic %}
