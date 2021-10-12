@@ -96,7 +96,7 @@ See details of RainMachine API Here: https://rainmachine.docs.apiary.io/#referen
 | `rain`                 | no       | Measured Rainfail (mm)                                                                                                |
 | `minrh`                | no       | Min Relative Humidity (%RH)                                                                                           |
 | `maxrh`                | no       | Max Relative Humidity (%RH)                                                                                           |
-| `condition`            | no       | Current weather condition code (WNUM)                                                                                 |
+| `condition`            | no       | Current weather condition code (WNUM). See [here][wnum reference] for options.                                        |
 | `pressure`             | no       | Barametric Pressure (kPa)                                                                                             |
 | `dewpoint`             | no       | Dew Point (°C)                                                                                                        |
 
@@ -126,38 +126,6 @@ Stop a RainMachine zone.
 
 Unpause all watering activities.
 
-<<<<<<< HEAD
-=======
-### `rainmachine.push_weather_data`
-
-Push Weather Data from Home Assistant to the RainMachine device.
-
-Some key notes:
-
-* Local Weather Push service should be enabled from Settings > Weather > Developer tab for RainMachine to consider the values being sent.
-* Units must be sent in metric; no conversions are performed by the integration.
-* Note: RAIN and QPF values shouldn't be send as cumulative values; instead, they should reflect the measured/forecasted values for each hour or day. The RainMachine Mixer will sum all RAIN or QPF values in the current day to have the day total RAIN or QPF.
-
-See details of RainMachine API Here: https://rainmachine.docs.apiary.io/#reference/weather-services/parserdata/post
-
-| Service Data Attribute | Optional | Description                                                                                                           |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| `timestamp`            | no       | UNIX Timestamp for the Weather Data. If omitted, the RainMachine device's local time at the time of the call is used. |
-| `mintemp`              | no       | Minimum Temperature (°C)                                                                                              |
-| `maxtemp`              | no       | Maximum Temperature (°C)                                                                                              |
-| `temperature`          | no       | Current Temperature (°C)                                                                                              |
-| `wind`                 | no       | Wind Speed (m/s)                                                                                                      |
-| `solarrad`             | no       | Solar Radiation (MJ/m²/h)                                                                                             |
-| `et`                   | no       | Evapotranspiration (mm)                                                                                               |
-| `qpf`                  | no       | Quantitative Precipitation Forecast (mm), or QPF                                                                      |
-| `rain`                 | no       | Measured Rainfail (mm)                                                                                                |
-| `minrh`                | no       | Min Relative Humidity (%RH)                                                                                           |
-| `maxrh`                | no       | Max Relative Humidity (%RH)                                                                                           |
-| `condition`            | no       | Current weather condition code (WNUM). See [here][wnum reference] for options.                                        |
-| `pressure`             | no       | Barametric Pressure (kPa)                                                                                             |
-| `dewpoint`             | no       | Dew Point (°C)                                                                                                        |
-
->>>>>>> d8d39f28b7 (Update source/_integrations/rainmachine.markdown)
 ## Switch
 
 The `rainmachine` switch platform allows you to control programs and zones within a [RainMachine smart Wi-Fi sprinkler controller](https://www.rainmachine.com/).
