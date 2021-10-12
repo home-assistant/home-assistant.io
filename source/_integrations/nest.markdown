@@ -32,12 +32,10 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 
 <div class='note'>
-This integration supports two Nest APIs. The SDM API is the new primary API that accepts new users. The Legacy Works With Nest API is not accepting new users, but the documentation still exists at the bottom of the page so existing users can keep using it.
+This integration supports two Nest APIs: The SDM API (new) accepts new users and requires a US$5 fee. The Legacy Works With Nest API (old) does not accept new users, but the documentation is still available at the bottom of the page for existing users.
 </div>
 
-Google applies strict [Redirect URI validation
-rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) to keep your login
-credentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain* when setting up this integration. See the documentation on [Securing](/docs/configuration/securing/) or [Troubleshooting](#troubleshooting), and note that you don't actually need to enable remote access.
+Google applies strict [Redirect URI validation rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) to keep your login credentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain* when setting up this integration. See the documentation on [Securing](/docs/configuration/securing/) or [Troubleshooting](#troubleshooting), and note that you don't actually need to enable remote access.
 
 ## Overview: Supported Devices
 
@@ -66,7 +64,7 @@ For the first phase, you will turn on the API and create the necessary credentia
 
 {% details "Create a Device Access Project [Device Access Console]" %}
 
-1. First go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page.  Click on the button **[Go to the Device Access Console](https://console.nest.google.com/device-access/)**.
+1. First go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page. Click on the button **[Go to the Device Access Console](https://console.nest.google.com/device-access/)**.
     ![Screenshot of Device Access Registration](/images/integrations/nest/device_access.png)
 
 1. Check the box to "Accept the Terms of Service" and click **Continue to Payment** where you need to pay a fee (currently US$5).
@@ -86,7 +84,9 @@ For the first phase, you will turn on the API and create the necessary credentia
 
 {% enddetails %}
 
-{% details "Configure OAuth Client ID [Cloud Console]" %}
+{% details "Configure OAuth client_id and client_secret [Cloud Console]" %}
+
+By the end of this section you will have the `client_id` and `client_secret`.
 
 1. Open a new tab to the [Google API Console](https://console.developers.google.com/apis/credentials).
 
@@ -129,7 +129,9 @@ Project**. Note: This is a different type of project from the Device Access proj
 
 {% enddetails %}
 
-{% details "Link Device Access Authentication [Device Access Console]" %}
+{% details "Link Device Access project_id [Device Access Console]" %}
+
+By the end of this section you will have a `project_id` as well as the *Topic Name* needed to configure Cloud Pub/Sub.
 
 1. Now head back to the *[Device Access Console](https://console.nest.google.com/device-access/project-list)* tab and *Add your OAuth client ID* then click **Next**.
     ![Screenshot of Device Access Console OAuth client ID](/images/integrations/nest/device_access_oauth_client_id.png)
@@ -137,7 +139,8 @@ Project**. Note: This is a different type of project from the Device Access proj
 1. Enable Events by clicking on **Enable** and **Create project**.
     ![Screenshot of enabling events](/images/integrations/nest/enable_events.png)
 
-1. Take note of the *Project ID* as you will need it later. At this point you have the `project_id`, `client_id` and `client_secret` configuration options needed for Home Assistant.
+1. Take note of the *Project ID* as you will it later. At this point you have the `project_id`, `client_id` and `client_secret` configuration options needed for Home Assistant.
+1. Also Take note of the *Pub/Sub Topic* which is later entered manually as the *Topic Name* when configuring Pub/Sub in a follow up step.
 
 {% enddetails %}
 
@@ -157,7 +160,13 @@ Project**. Note: This is a different type of project from the Device Access proj
 
 The next phase is to enable the Pub/Sub API by creating a subscription that can keep Home Assistant informed of events or device changes in near real-time. See [Device Access: Events](https://developers.google.com/nest/device-access/api/events) for the full detailed instructions.
 
-{% details "Configure Cloud Pub/Sub [Cloud Console]" %}
+{% details "Configure Cloud Pub/Sub subscriber_id [Cloud Console]" %}
+
+By the end of this section you will have the `subscriber_id` needed for configuration.
+
+What is Pub/Sub? You can think of your Nest device as the publisher and your Home Assistant as the subscriber. As your Nest device publishes events like a temperature change or motion event, it notifies your Home Assistant subscriber about
+those events so it can record the new value or trigger an automation.
+
 
 1. Visit [Enable the Cloud Pub/Sub API](https://console.developers.google.com/apis/library/pubsub.googleapis.com) in the Cloud Console and click **Enable**.
 
@@ -166,7 +175,9 @@ The next phase is to enable the Pub/Sub API by creating a subscription that can 
 1. You will need to pick a *Subscription ID*.
     ![Screenshot of creating a subscription](/images/integrations/nest/create_subscription.png)
 
-1. The *Topic name* should match the topic name in your project in the [Device Access Console](https://console.nest.google.com/device-access/) and typically looks like `projects/sdm-prod/topics/EXAMPLE`. The SDM topic names do not show up by default so make sure to **Enter topic manually**.
+1. Select **Enter Topic Manually** from the topic drop down list.
+1. The *Topic name* comes from the [Device Access Console](https://console.nest.google.com/device-access/) *Topic name*
+and typically looks like `projects/sdm-prod/topics/EXAMPLE`.
     ![Screenshot of creating a topic](/images/integrations/nest/device_access_pubsub_topic.png)
 
 1. Select **Pull** as the *Delivery Type*.
@@ -175,7 +186,9 @@ The next phase is to enable the Pub/Sub API by creating a subscription that can 
 
 1. Leave the rest of the defaults and click **Create**.
 
-1. Once created, copy the *Subscription name* which you will want to hold on to as your `subscriber_id` for configuring Home Assistant. This typically looks like `projects/MY-CLOUD-ID/subscriptions/EXAMPLE`. Don't confuse *Subscription name* with *Topic name* since they look similar.
+1. Once created, copy the *Subscription name* which you will want to hold on to as your `subscriber_id` for configuring Home Assistant. This typically looks like `projects/MY-CLOUD-ID/subscriptions/EXAMPLE`.
+1. Don't confuse *Subscription name* with *Topic name* since they look similar. Remember that *Subscription name* is
+your `subscriber_id`.
 
 {% enddetails %}
 
@@ -281,9 +294,9 @@ everything, however, you can leave out any feature you do not wish to use with H
 
 {% details "How to restart thermostat" %}
 
-  - Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
-  - In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
-  - Reload the integration in Home Assistant:  Navigate to **Configuration** then **Integrations**, click `...` next to *Nest* and choose **Reload**.
+- Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
+- In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
+- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Integrations**, click `...` next to *Nest* and choose **Reload**.
 
 {% enddetails %}
 
