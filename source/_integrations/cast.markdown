@@ -52,6 +52,12 @@ Home Assistant Cast requires your Home Assistant installation to be accessible v
 
 ## Playing media
 
+<div class='note'>
+
+Chromecasts generally ignore DNS servers from DHCP and will instead use Google's DNS servers, 8.8.8.8 and 8.8.4.4. This means media URLs must either be specifying the IP-address of the server directly, e.g. `http://192.168.1.1:8123/movie.mp4`, or be publicly resolvable, e.g. `http://homeassistant.internal.mydomain.com:8123/movie.mp4` where `homeassistant.internal.mydomain.com` resolves to `129.168.1.1`. A hostname which can't be publicly resolved, e.g. `http://homeassistant.local:8123/movie.mp4` will fail to play.
+
+</div>
+
 ### Using the built in media player app (Default Media Receiver)
 
 Chromecasts can play many kinds of modern [media (image/audio/video) formats](https://developers.google.com/cast/docs/media) using the built in app Default Media Receiver. As a rule of thumb, if a Chrome browser can play a media file a Chromecast will be able to handle that too.
