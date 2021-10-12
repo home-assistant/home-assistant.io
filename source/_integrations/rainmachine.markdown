@@ -102,6 +102,8 @@ See details of RainMachine API Here: https://rainmachine.docs.apiary.io/#referen
 
 ### `rainmachine.start_program`
 
+Start a RainnMachine program.
+
 ### `rainmachine.start_zone`
 
 Start a RainMachine zone for a set number of seconds.
