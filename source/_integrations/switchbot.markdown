@@ -19,25 +19,18 @@ ha_config_flow: true
 ---
 
 The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/).
-## Configuration of the Switchbot Platform
+## Prerequisites
 
-### Prerequisites
+In order to use this integration, it is required to have working Bluetooth set up on the device running Home Assistant. A [SwitchBot Hub](https://www.switch-bot.com/search?type=product&q=hub) is not required for this integration.
 
-- Bluetooth hardware on the HA system is required
+In order to set up this integration, you need to get the BTLE MAC address of your device. You can find the address for your device using the following steps:
 
-### Non-Essentials
+1. Open the SwitchBot app.
+2. Open device settings.
+3. Click on "Device Info".
+4. Write down the BLTE MAC address of your device.
 
-- [Switchbot Hub](https://www.switch-bot.com/search?type=product&q=hub) is not required
-
-### Get the BTLE MAC address
-
-1. Open the Switchbot app.
-2. open device settings
-3. click on 'Device Info'
-
-### Note
-
-- The name in the switchbot app is not transferred to HA
+Please note, device names configured in the Switchbot app are not transferred into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
