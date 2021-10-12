@@ -1,0 +1,33 @@
+image:
+  file: Dockerfile
+
+tasks:
+  - name: Home Assistant
+    init: |
+      bundle install && npm install
+    command: |
+      bundle exec rake preview
+    env: { "DEVCONTAINER": "1" }
+
+ports:
+  - port: 4000
+    onOpen: open-browser
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: false
+    pullRequestsFromForks: false
+    addCheck: true
+    addComment: false
+    addBadge: false
+
+vscode:
+  extensions:
+    - "davidanson.vscode-markdownlint"
+    - "editorconfig.editorconfig"
+    - "mrmlnc.vscode-scss"
+    - "rebornix.Ruby"
+    - "streetsidesoftware.code-spell-checker"
+    - "yzhang.markdown-all-in-one"
