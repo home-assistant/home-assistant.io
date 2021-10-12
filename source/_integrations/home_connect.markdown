@@ -30,8 +30,11 @@ The integration will add one Home Assistant device for each connected home appli
 - A power switch
 - If the device has programs, switches for each of the individual programs will be added. Note that program options cannot be configured currently.
 - If the device has programs, a timestamp sensor for remaining time and a numeric sensor for the progress percentage.
+- If the device supports a child lock, a switch for this will be added.
 - For hood's functional light a light switch including brightness control will be added.
 - For hood's and dishwasher's ambient light a light switch including brightness and color control will be added.
+- For fridges switches for vacation mode, super mode, eco mode and a number for temperature control will be added if supported.
+- For freezers a switch for super mode and a number for temperature control will be added if supported.
 
 Note that it depends on the appliance and on API permissions which of the features are supported. A notable limitation is that oven programs cannot be started currently.
 
