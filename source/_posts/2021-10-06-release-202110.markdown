@@ -60,6 +60,7 @@ Enjoy the release!
 - [Release 2021.10.1 - October 7](#release-2021101---october-7)
 - [Release 2021.10.2 - October 8](#release-2021102---october-8)
 - [Release 2021.10.3 - October 10](#release-2021103---october-10)
+- [Release 2021.10.4 - October 11](#release-2021104---october-11)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -371,6 +372,43 @@ The following integrations are now available via the Home Assistant UI:
 [version docs]: /integrations/version/
 [yeelight docs]: /integrations/yeelight/
 [zeroconf docs]: /integrations/zeroconf/
+
+## Release 2021.10.4 - October 11
+
+- Upgrade youless library to fix missing sensor LS110 ([@gjong] - [#57366]) ([youless docs])
+- Fix Netgear orbi port in ssdp discovery ([@starkillerOG] - [#57432]) ([netgear docs])
+- Fix upnp creating derived sensors ([@StevenLooman] - [#57436]) ([upnp docs])
+- Fix referenced before assignment in modem_callerid ([@tkdrob] - [#57460]) ([modem_callerid docs])
+- Upgrade aiomusiccast to tolererate not decodable characters ([@micha91] - [#57461]) ([yamaha_musiccast docs])
+- Detect if mysql and sqlite support row_number ([@emontnemery] - [#57475]) ([recorder docs]) ([sensor docs])
+- Bump youtube-dl to 2021.06.06 ([@chpego] - [#57490]) ([media_extractor docs])
+- Simplify yeelight setup to improve reliability ([@bdraco] - [#57500]) ([yeelight docs])
+
+[#57366]: https://github.com/home-assistant/core/pull/57366
+[#57432]: https://github.com/home-assistant/core/pull/57432
+[#57436]: https://github.com/home-assistant/core/pull/57436
+[#57460]: https://github.com/home-assistant/core/pull/57460
+[#57461]: https://github.com/home-assistant/core/pull/57461
+[#57475]: https://github.com/home-assistant/core/pull/57475
+[#57490]: https://github.com/home-assistant/core/pull/57490
+[#57500]: https://github.com/home-assistant/core/pull/57500
+[@StevenLooman]: https://github.com/StevenLooman
+[@bdraco]: https://github.com/bdraco
+[@chpego]: https://github.com/chpego
+[@emontnemery]: https://github.com/emontnemery
+[@gjong]: https://github.com/gjong
+[@micha91]: https://github.com/micha91
+[@starkillerOG]: https://github.com/starkillerOG
+[@tkdrob]: https://github.com/tkdrob
+[media_extractor docs]: /integrations/media_extractor/
+[modem_callerid docs]: /integrations/modem_callerid/
+[netgear docs]: /integrations/netgear/
+[recorder docs]: /integrations/recorder/
+[sensor docs]: /integrations/sensor/
+[upnp docs]: /integrations/upnp/
+[yamaha_musiccast docs]: /integrations/yamaha_musiccast/
+[yeelight docs]: /integrations/yeelight/
+[youless docs]: /integrations/youless/
 
 ## If you need help...
 
