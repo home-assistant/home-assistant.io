@@ -8,6 +8,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Number
 ha_iot_class: Cloud Push
 ha_release: '0.110'
 ha_domain: home_connect
@@ -19,6 +20,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - number
 ---
 
 The Home Connect integration allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
