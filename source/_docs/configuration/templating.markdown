@@ -288,7 +288,7 @@ The same thing can also be expressed as a filter:
    {% raw %}
 
    ```yaml
-   # 77 minutes before curret time. 
+   # 77 minutes before current time. 
    {{ now() - timedelta( hours = 1, minutes = 17 ) }} 
    ```
 
