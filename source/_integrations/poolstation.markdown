@@ -3,7 +3,7 @@ title: Poolstation
 description: Instructions on how to integrate Poolstation devices within Home Assistant.
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_release: 2021.10
+ha_release: 2021.11
 ha_category:
   - Sensor
 ha_codeowners:
