@@ -43,10 +43,6 @@ http:
 ifttt:
   key: ["nope"]
 
-wink:
-  access_token: ["wouldn't you"]
-  refresh_token: ["like to know"]
-
 zwave:
   usb_path: "/dev/ttyUSB0"
   config_path: "/usr/local/share/python-openzwave/config"

@@ -111,7 +111,6 @@
 /components/alarm_control_panel.spc /integrations/spc
 /components/alarm_control_panel.totalconnect /integrations/totalconnect
 /components/alarm_control_panel.verisure /integrations/verisure#alarm-control-panel
-/components/alarm_control_panel.wink /integrations/wink#alarm-control-panel
 /components/alarm_control_panel.yale_smart_alarm /integrations/yale_smart_alarm
 /components/apiai /integrations/dialogflow
 /components/binary_sensor.abode /integrations/abode#binary-sensor
@@ -207,7 +206,6 @@
 /components/binary_sensor.vultr /integrations/vultr#binary-sensor
 /components/binary_sensor.w800rf32 /integrations/w800rf32#binary-sensor
 /components/binary_sensor.wemo /integrations/wemo
-/components/binary_sensor.wink /integrations/wink#binary-sensor
 /components/binary_sensor.wirelesstag /integrations/wirelesstag#binary-sensor
 /components/binary_sensor.workday /integrations/workday
 /components/binary_sensor.zha /integrations/zha
@@ -290,7 +288,6 @@
 /components/climate.velbus /integrations/velbus
 /components/climate.venstar /integrations/venstar
 /components/climate.vera /integrations/vera
-/components/climate.wink /integrations/wink#climate
 /components/climate.xs1 /integrations/xs1
 /components/climate.zhong_hong /integrations/zhong_hong
 /components/climate.zwave /integrations/zwave#climate
@@ -322,7 +319,6 @@
 /components/cover.tuya /integrations/tuya
 /components/cover.velux /integrations/velux
 /components/cover.vera /integrations/vera
-/components/cover.wink /integrations/wink#cover
 /components/cover.zwave /integrations/zwave#cover
 /components/cppm /integrations/cppm_tracker
 /components/device_tracker.actiontec /integrations/actiontec
@@ -386,7 +382,6 @@
 /components/fan.smartthings /integrations/smartthings#fan
 /components/fan.tuya /integrations/tuya
 /components/fan.wemo /integrations/wemo#fan
-/components/fan.wink /integrations/wink#fan
 /components/fan.zha /integrations/zha
 /components/fan.zwave /integrations/zwave
 /components/generic /integrations/generic
@@ -468,7 +463,6 @@
 /components/light.tuya /integrations/tuya
 /components/light.vera /integrations/vera
 /components/light.wemo /integrations/wemo
-/components/light.wink /integrations/wink#light
 /components/light.x10 /integrations/x10
 /components/light.yeelight /integrations/yeelight
 /components/light.yeelightsunflower /integrations/yeelightsunflower
@@ -491,7 +485,6 @@
 /components/lock.vera /integrations/vera
 /components/lock.verisure /integrations/verisure
 /components/lock.volvooncall /integrations/volvooncall
-/components/lock.wink /integrations/wink#lock
 /components/lock.zwave /integrations/zwave#lock
 /components/mailbox.asterisk_cdr /integrations/asterisk_cdr
 /components/mailbox.asterisk_mbox /integrations/asterisk_mbox
@@ -629,7 +622,6 @@
 /components/scene.tuya /integrations/tuya
 /components/scene.velux /integrations/velux
 /components/scene.vera /integrations/vera
-/components/scene.wink /integrations/wink
 /components/sensor.abode /integrations/abode
 /components/sensor.ads /integrations/ads#sensor
 /components/sensor.aftership /integrations/aftership
@@ -912,7 +904,6 @@
 /components/sensor.waterfurnace /integrations/waterfurnace
 /components/sensor.waze_travel_time /integrations/waze_travel_time
 /components/sensor.whois /integrations/whois
-/components/sensor.wink /integrations/wink#sensor
 /components/sensor.wirelesstag /integrations/wirelesstag#sensor
 /components/sensor.worldclock /integrations/worldclock
 /components/sensor.worldtidesinfo /integrations/worldtidesinfo
@@ -1036,7 +1027,6 @@
 /components/switch.vultr /integrations/vultr#switch
 /components/switch.wake_on_lan /integrations/wake_on_lan#switch
 /components/switch.wemo /integrations/wemo
-/components/switch.wink /integrations/wink#switch
 /components/switch.wirelesstag /integrations/wirelesstag#switch
 /components/switch.xs1 /integrations/xs1
 /components/switch.zha /integrations/zha
@@ -1060,7 +1050,6 @@
 /components/vacuum.roomba /integrations/roomba
 /components/vlc-telnet /integrations/vlc_telnet
 /components/water_heater.econet /integrations/econet
-/components/water_heater.wink /integrations/wink#water-heater
 /components/weather.buienradar /integrations/buienradar
 /components/weather.ecobee /integrations/ecobee
 /components/weather.ipma /integrations/ipma
@@ -1967,7 +1956,6 @@
 /components/websocket_api /integrations/websocket_api
 /components/wemo /integrations/wemo
 /components/whois /integrations/whois
-/components/wink /integrations/wink
 /components/wirelesstag /integrations/wirelesstag
 /components/withings /integrations/withings
 /components/workday /integrations/workday
@@ -2321,3 +2309,16 @@
 /components/device_tracker.trackr /more-info/removed-integration 301
 /components/trackr /more-info/removed-integration 301
 /integrations/trackr /more-info/removed-integration 301
+/components/alarm_control_panel.wink /more-info/removed-integration 301
+/components/binary_sensor.wink /more-info/removed-integration 301
+/components/climate.wink /more-info/removed-integration 301
+/components/cover.wink /more-info/removed-integration 301
+/components/fan.wink /more-info/removed-integration 301
+/components/light.wink /more-info/removed-integration 301
+/components/lock.wink /more-info/removed-integration 301
+/components/scene.wink /more-info/removed-integration 301
+/components/sensor.wink /more-info/removed-integration 301
+/components/switch.wink /more-info/removed-integration 301
+/components/water_heater.wink /more-info/removed-integration 301
+/components/wink /more-info/removed-integration 301
+/integrations/wink /more-info/removed-integration 301
