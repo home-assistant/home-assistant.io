@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "User Experiences and Designers"
-description: "..."
+description: "UX design for Home assistant and how to contribute."
 date: 2021-10-13 00:00:00
 date_formatted: "October 13, 2021"
 author: Matthias de Baat
