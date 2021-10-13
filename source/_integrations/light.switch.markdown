@@ -23,7 +23,15 @@ To enable this platform in your installation, add the following to your
 light:
   - platform: switch
     name: Christmas Tree Lights
-    entity_id: switch.christmas_tree_lights
+    entity_id: switch.christmas_tree_switch
+```
+
+This will create a new light entity. The entity ID for the generated light source will be based on the name defined here. So the ID of the entity defined above will be `light.christmas_tree_lights`. The new entity can then be used with a light platform service as shown in the following example:
+
+```yaml
+service: light.toggle
+target:
+  entity_id: light.christmas_tree_lights
 ```
 
 {% configuration %}
