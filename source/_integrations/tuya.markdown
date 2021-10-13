@@ -2,6 +2,7 @@
 title: Tuya
 description: Instructions on how to setup the Tuya hub within Home Assistant.
 ha_category:
+  - Binary Sensor
   - Climate
   - Fan
   - Light
@@ -14,6 +15,7 @@ ha_domain: tuya
 ha_codeowners:
   - '@zlinoliver'
 ha_platforms:
+  - binary_sensor
   - climate
   - fan
   - light
@@ -25,6 +27,7 @@ The Tuya integration allows integrating all Powered by Tuya devices you have add
 
 ## Supported platforms
 
+- **Binary Sensor**: door/window contact
 - **Climate**: air conditioner, heater, thermostat.
 - **Fan**: fan, air purifier, humidifier, dehumidifier.
 - **Light**: light, light strip, ambient light, light string, humidifier's light, ceiling light.
