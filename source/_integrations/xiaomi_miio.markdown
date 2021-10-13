@@ -541,11 +541,12 @@ LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Humidity                | The current humidity measured
-Temperature             | The current temperature measured
-Water Level             | The current water level percentage measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -------------------------------------------------------------- | ------------------
+Humidity                | The current humidity measured                                  | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
+Water Level             | The current water level percentage measured                    | True
 
 - Switch entities
 
@@ -583,11 +584,12 @@ LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor | Description
------------------------ | -----------------------
-Humidity                | The current humidity measured
-Temperature             | The current temperature measured
-Water Level             | The current water level percentage measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -------------------------------------------------------------- | ------------------
+Humidity                | The current humidity measured                                  | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
+Water Level             | The current water level percentage measured                    | True
 
 - Switch entities
 
@@ -632,12 +634,13 @@ LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Actual Speed            | The current motor speed measured in rpm
-Humidity                | The current humidity measured
-Temperature             | The current temperature measured
-Water Level             | The current water level percentage measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -------------------------------------------------------------- | ------------------
+Actual Speed            | The current motor speed measured in rpm                        | True
+Humidity                | The current humidity measured                                  | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
+Water Level             | The current water level percentage measured                    | True
 
 - Switch entities
 
@@ -681,11 +684,12 @@ LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Humidity                | The current humidity measured
-Temperature             | The current temperature measured
-Water Level             | The current water level percentage measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -------------------------------------------------------------- | ------------------
+Humidity                | The current humidity measured                                  | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
+Water Level             | The current water level percentage measured                    | True
 
 - Switch entities
 
@@ -719,10 +723,11 @@ Water Tank Empty        | Indicates whether the water tank is empty or not
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Humidity                | The current humidity measured
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -------------------------------------------------------------- | ------------------
+Humidity                | The current humidity measured                                  | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
