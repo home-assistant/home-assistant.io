@@ -25,13 +25,7 @@ The pickup sensor contains a `pickup_types` state attribute, which contains:
 * The category of each item
 * The quantity of each item
 
-This data can easily be accessed via a template:
-
-```yaml
-{{ state_attr("sensor.ridwell_pickup_1234_main_street", "pickup_types") }}
-```
-
-...which returns this JSON structure (with example data):
+For example:
 
 ```json
 {
