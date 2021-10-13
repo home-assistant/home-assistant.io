@@ -173,8 +173,9 @@ sensor:
   - platform: scrape
     resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
     name: Electricity price
-    select: ".elspot-content"
-    value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'
+    select: ".text-lg:is(span)"
+    index: 1
+    value_template: '{{ value | replace (",", ".") | float }}'
     unit_of_measurement: "öre/kWh"
 ```
 
