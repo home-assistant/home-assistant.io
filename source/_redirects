@@ -760,7 +760,6 @@
 /components/sensor.loop_energy /integrations/loopenergy
 /components/sensor.loopenergy /integrations/loopenergy
 /components/sensor.luftdaten /integrations/luftdaten#sensor
-/components/sensor.lyft /integrations/lyft
 /components/sensor.magicseaweed /integrations/magicseaweed
 /components/sensor.meteo_france /integrations/meteo_france
 /components/sensor.mfi /integrations/mfi#sensor
@@ -1518,7 +1517,6 @@
 /components/lutron /integrations/lutron
 /components/lutron_caseta /integrations/lutron_caseta
 /components/lw12wifi /integrations/lw12wifi
-/components/lyft /integrations/lyft
 /components/magicseaweed /integrations/magicseaweed
 /components/mailbox /integrations/mailbox
 /components/mailgun /integrations/mailgun
@@ -2322,3 +2320,6 @@
 /components/water_heater.wink /more-info/removed-integration 301
 /components/wink /more-info/removed-integration 301
 /integrations/wink /more-info/removed-integration 301
+/components/lyft /more-info/removed-integration 301
+/components/sensor.lyft /more-info/removed-integration 301
+/integrations/lyft /more-info/removed-integration 301
