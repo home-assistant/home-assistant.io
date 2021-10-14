@@ -9,6 +9,7 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@michaelarnauts'
 ha_domain: comfoconnect
+ha_config_flow: true
 ha_platforms:
   - fan
   - sensor
@@ -23,70 +24,7 @@ the unofficial [pycomfoconnect](https://github.com/michaelarnauts/comfoconnect) 
 
 The integration has a fan platform to view and control the ventilation speed, and a sensors platform to read out the outdoor temperature and humidity, the indoor temperature and humidity, and the extract and supply air flow (in m³ per hour).
 
-To set it up, add the following information to your `configuration.yaml` file:
-
-```yaml
-comfoconnect:
-  host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: The IP or hostname of the ComfoConnect LAN C bridge.
-  required: true
-  type: string
-name:
-  description: The name of this device as you want to see it in Home Assistant.
-  required: false
-  default: ComfoAirQ
-  type: string
-token:
-  description: The token you want to use when registering with the device. This is a random 32 char hexadecimal string.
-  required: false
-  default: "`00000000000000000000000000000001`"
-  type: string
-user_agent:
-  description: The name you want to supply when registering with the device.
-  required: false
-  default: "`Home Assistant`"
-  type: string
-pin:
-  description: The pin code to use when registering. You only need to change this if you have changed the factory default pin.
-  required: false
-  default: "`0000`"
-  type: integer
-{% endconfiguration %}
-
-To register the sensors, add the following to your `configuration.yaml` file:
-
-```yaml
-sensor:
-  - platform: comfoconnect
-    resources:
-      - air_flow_exhaust
-      - air_flow_supply
-      - bypass_state
-      - current_humidity
-      - current_rmot
-      - current_temperature
-      - days_to_replace_filter
-      - exhaust_fan_duty
-      - exhaust_fan_speed
-      - exhaust_humidity
-      - exhaust_temperature
-      - outside_humidity
-      - outside_temperature
-      - power_total
-      - power_usage
-      - preheater_power_total
-      - preheater_power_usage
-      - supply_fan_duty
-      - supply_fan_speed
-      - supply_humidity
-      - supply_temperature
-```
-
-The list above indicates all supported sensors. It is recommended to only include the ones you need.
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 Note that it's not possible to have multiple connection to the bridge at the same time. This integration will keep the connection open, and if you open the app, it will ask you to disconnect Home Assistant. If you close the app again, Home Assistant will reconnect automatically.
