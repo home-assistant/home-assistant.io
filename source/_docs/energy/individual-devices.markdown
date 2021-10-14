@@ -27,3 +27,10 @@ We recommend the Shelly brand because they have a local API that updates Home As
 <img src='/images/docs/energy/devices.png' alt='Graphic showing energy flowing from the home to individual devices.' style='border: 0;box-shadow: none; display: block; max-height: 400px; margin: 0 auto;'>
 
 _Disclaimer: Some links on this page are affiliate links._
+
+## Manual configuration
+
+Energy usage of individual devices should be set up by the device's integration automatically. However, if you do need to enable this for a manually configured energy sensor (such as a [template sensor](/integrations/template/) or [MQTT sensor](/integrations/sensor.mqtt/)), you need to make sure two things:
+
+* The sensor needs to be reporting kilowatt-hours (kWh)
+* The sensor needs to have it's `state_class` set to `total_increasing`
