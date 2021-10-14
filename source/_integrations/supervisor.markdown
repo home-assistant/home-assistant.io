@@ -1,6 +1,6 @@
 ---
 title: Supervisor
-description: Control Supervisor Addons from Home Assistant
+description: Control Supervisor Add-ons and OS from Home Assistant
 ha_category:
   - Binary Sensor
   - Sensor
@@ -12,17 +12,17 @@ ha_platforms:
   - sensor
 ---
 
-Supervisor integration allows you to monitor and control Supervisor addons and operating system from Home Assistant.
+Supervisor integration allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.
 This integration is installed automatically if you run Home Assistant OS or Supervised.
 
 ## Sensors
 
-For each installed addon Supervisor provides following sensors:
+For each installed add-on Supervisor provides following sensors:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
-| Version | False | Current version of the addon
-| Newest Version | False | Latest version of the addon currently available
+| Version | False | Current version of the add-on
+| Newest Version | False | Latest version of the add-on currently available
 
 For Home Assistant OS Supervisor provides following sensors:
 
@@ -33,11 +33,11 @@ For Home Assistant OS Supervisor provides following sensors:
 
 ## Binary Sensors
 
-For each installed addon Supervisor provides following binary sensors:
+For each installed add-on Supervisor provides following binary sensors:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
-| Update Available | False | Whether there is an update available for this addon
+| Update Available | False | Whether there is an update available for this add-on
 
 For Home Assistant OS Supervisor provides following binary sensors:
 
@@ -47,55 +47,55 @@ For Home Assistant OS Supervisor provides following binary sensors:
 
 ## Services
 
-### Service hass.addon_start
+### Service hassio.addon_start
 
-Start an addon.
-
-| Service Data Attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `addon` | no | Addon slug
-
-### Service hass.addon_stop
-
-Stop an addon.
+Start an add-on.
 
 | Service Data Attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `addon` | no | Addon slug
+| `addon` | no | Add-on slug
 
-### Service hass.addon_restart
+### Service hassio.addon_stop
 
-Restart an addon.
+Stop an add-on.
 
 | Service Data Attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `addon` | no | Addon slug
+| `addon` | no | Add-on slug
 
-### Service hass.addon_stdin
+### Service hassio.addon_restart
+
+Restart an add-on.
+
+| Service Data Attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `addon` | no | Add-on slug
+
+### Service hassio.addon_stdin
 
 Write data to add-on stdin.
 
 | Service Data Attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `addon` | no | Addon slug
+| `addon` | no | Add-on slug
 
-### Service hass.addon_update
+### Service hassio.addon_update
 
 Update add-on. This service should be used with caution since add-on updates can contain breaking changes. It is highly recommended that you review release notes/change logs before updating an add-on.
 
 | Service Data Attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `addon` | no | Addon slug
+| `addon` | no | Add-on slug
 
-### Service hass.host_reboot
+### Service hassio.host_reboot
 
 Reboot the host system.
 
-### Service hass.host_shutdown
+### Service hassio.host_shutdown
 
 Shutdown the host system.
 
-### Service hass.backup_full
+### Service hassio.backup_full
 
 Create a full backup.
 
@@ -104,18 +104,18 @@ Create a full backup.
 | `name` | yes | Name of the backup file. Default is current date and time
 | `password` | yes | Optional password for backup
 
-### Service hass.backup_partial
+### Service hassio.backup_partial
 
 Create a partial backup.
 
 | Service Data Attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `addons` | yes | List of addon slugs to backup
+| `addons` | yes | List of add-on slugs to backup
 | `folders` | yes | List of directories to backup
 | `name` | yes | Name of the backup file. Default is current date and time
 | `password` | yes | Optional password for backup
 
-### Service hass.restore_full
+### Service hassio.restore_full
 
 Restore from full backup.
 
@@ -124,7 +124,7 @@ Restore from full backup.
 | `slug` | no | Slug of backup to restore from
 | `password` | yes | Optional password for backup
 
-### Service hass.restore_partial
+### Service hassio.restore_partial
 
 Restore from partial backup.
 
@@ -132,6 +132,6 @@ Restore from partial backup.
 | ---------------------- | -------- | ----------- |
 | `homeassistant` | no | Whether to restore Home Assistant, `true` or `false`
 | `slug` | no | Slug of backup to restore from
-| `addons` | yes | List of addon slugs to restore
+| `addons` | yes | List of add-on slugs to restore
 | `folders` | yes | List of directories to restore
 | `password` | yes | Optional password for backup
