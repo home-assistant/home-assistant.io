@@ -26,6 +26,17 @@ The integration has a fan platform to view and control the ventilation speed, an
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: The IP of your ComfoConnect LAN C bridge, this is required. Home Assistant will try to autodiscover it.
+Name:
+  description: The name of this device as you want to see it in Home Assistant.
+PIN:
+  description: The pin code to use when registering. You only need to change this if you have changed the factory default pin.
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
 <div class='note'>
 Note that it's not possible to have multiple connection to the bridge at the same time. This integration will keep the connection open, and if you open the app, it will ask you to disconnect Home Assistant. If you close the app again, Home Assistant will reconnect automatically.
 </div>
