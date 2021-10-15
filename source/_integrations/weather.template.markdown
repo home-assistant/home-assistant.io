@@ -20,7 +20,7 @@ Another use case could be using temperature and humidity from one weather platfo
 
 To enable a Template Weather provider in your installation, add the following to your `configuration.yaml` file:
 
-(Note, be sure to update my_region in the forecast_template to an appropriate value for your setup).
+(Note, be sure to update my_region in the condition and forecast templates to an appropriate value for your setup).
 
 {% raw %}
 
