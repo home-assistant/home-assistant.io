@@ -61,6 +61,7 @@ Enjoy the release!
 - [Release 2021.10.2 - October 8](#release-2021102---october-8)
 - [Release 2021.10.3 - October 10](#release-2021103---october-10)
 - [Release 2021.10.4 - October 11](#release-2021104---october-11)
+- [Release 2021.10.5 - October 15](#release-2021105---october-15)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -407,6 +408,55 @@ The following integrations are now available via the Home Assistant UI:
 [sensor docs]: /integrations/sensor/
 [upnp docs]: /integrations/upnp/
 [yamaha_musiccast docs]: /integrations/yamaha_musiccast/
+[yeelight docs]: /integrations/yeelight/
+[youless docs]: /integrations/youless/
+
+## Release 2021.10.5 - October 15
+
+- Log reason for DLNA-DMR device becoming unavailable ([@chishm] - [#57516]) ([dlna_dmr docs])
+- Bump Mill library to 0.6.2 ([@Danielhiversen] - [#57533]) ([mill docs])
+- Fix Fast.com autoupdate ([@Z1ni] - [#57552]) ([fastdotcom docs])
+- Bump simplisafe-python to 11.0.7 ([@bachya] - [#57573]) ([simplisafe docs])
+- Correct detection of row_number support for MariaDB ([@emontnemery] - [#57663]) ([recorder docs])
+- Ensure Notion device name is stored as a string ([@bachya] - [#57670]) ([notion docs])
+- Bump spiderpy to 1.4.3 ([@peternijssen] - [#57675]) ([spider docs])
+- Fix Shelly humidity sensor available condition ([@thecode] - [#57721]) ([shelly docs])
+- Reconnect and retry yeelight commands after previous wifi drop out ([@bdraco] - [#57741]) ([yeelight docs])
+- Always send color/temp when switching from an effect in yeelight ([@bdraco] - [#57745]) ([yeelight docs])
+- Fix Youless state class for power total sensor ([@gjong] - [#57758]) ([youless docs])
+- Fix broken upnp derived sensors reporting b/s instead of kb/s ([@StevenLooman] - [#57681]) ([upnp docs])
+
+[#57516]: https://github.com/home-assistant/core/pull/57516
+[#57533]: https://github.com/home-assistant/core/pull/57533
+[#57552]: https://github.com/home-assistant/core/pull/57552
+[#57573]: https://github.com/home-assistant/core/pull/57573
+[#57663]: https://github.com/home-assistant/core/pull/57663
+[#57670]: https://github.com/home-assistant/core/pull/57670
+[#57675]: https://github.com/home-assistant/core/pull/57675
+[#57681]: https://github.com/home-assistant/core/pull/57681
+[#57721]: https://github.com/home-assistant/core/pull/57721
+[#57741]: https://github.com/home-assistant/core/pull/57741
+[#57745]: https://github.com/home-assistant/core/pull/57745
+[#57758]: https://github.com/home-assistant/core/pull/57758
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@StevenLooman]: https://github.com/StevenLooman
+[@Z1ni]: https://github.com/Z1ni
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@chishm]: https://github.com/chishm
+[@emontnemery]: https://github.com/emontnemery
+[@gjong]: https://github.com/gjong
+[@peternijssen]: https://github.com/peternijssen
+[@thecode]: https://github.com/thecode
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[fastdotcom docs]: /integrations/fastdotcom/
+[mill docs]: /integrations/mill/
+[notion docs]: /integrations/notion/
+[recorder docs]: /integrations/recorder/
+[shelly docs]: /integrations/shelly/
+[simplisafe docs]: /integrations/simplisafe/
+[spider docs]: /integrations/spider/
+[upnp docs]: /integrations/upnp/
 [yeelight docs]: /integrations/yeelight/
 [youless docs]: /integrations/youless/
 
