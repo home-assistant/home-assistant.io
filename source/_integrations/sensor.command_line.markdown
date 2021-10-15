@@ -54,6 +54,10 @@ json_attributes:
   description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
   required: false
   type: [string, list]
+json_attributes_path:
+  description: A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `json_attributes` in the JSON content.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Examples
