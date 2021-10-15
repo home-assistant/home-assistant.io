@@ -90,7 +90,6 @@ To use this notification platform in your installation, add the following to you
 notify:
   - name: NOTIFIER_NAME
     platform: ecobee
-    index: 0
 ```
 
 {% configuration %}
