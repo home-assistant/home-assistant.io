@@ -28,12 +28,12 @@ The `sonos` integration allows you to control your [Sonos](https://www.sonos.com
 
 Speaker-level features are exposed as `switch` entities which allow direct control and indicate if the features are currently enabled.
 
-* **All devices**: Crossfade, Status Light, Touch Controls
-* **Home theater devices**: Night Sound & Speech Enhancement
+- **All devices**: Crossfade, Status Light, Touch Controls
+- **Home theater devices**: Night Sound & Speech Enhancement
 
 <div class='note info'>
   
-The Crossfade, Status Light, and Touch Controls entities are disabled by default, but can be enabled via the Sonos integration page.
+The Crossfade, Status Light, and Touch Controls entities are disabled by default, but can be enabled via the Sonos device page.
   
 </div>
 
