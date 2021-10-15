@@ -21,15 +21,15 @@ For each installed add-on Supervisor provides following sensors:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
-| Version | False | Current version of the add-on
-| Newest Version | False | Latest version of the add-on currently available
+| Version | no | Current version of the add-on
+| Newest Version | no | Latest version of the add-on currently available
 
 For Home Assistant OS Supervisor provides following sensors:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
-| Version | False | Current version of the Home Assistant OS
-| Newest Version | False | Latest version of the Home Assistant OS currently available
+| Version | no | Current version of the Home Assistant OS
+| Newest Version | no | Latest version of the Home Assistant OS currently available
 
 ## Binary Sensors
 
@@ -37,13 +37,13 @@ For each installed add-on Supervisor provides following binary sensors:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
-| Update Available | False | Whether there is an update available for this add-on
+| Update Available | no | Whether there is an update available for this add-on
 
 For Home Assistant OS Supervisor provides following binary sensors:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
-| Update Available | False | Whether there is an update available for OS
+| Update Available | no | Whether there is an update available for OS
 
 ## Services
 
@@ -130,8 +130,8 @@ Restore from partial backup.
 
 | Service Data Attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `homeassistant` | no | Whether to restore Home Assistant, `true` or `false`
 | `slug` | no | Slug of backup to restore from
+| `homeassistant` | yes | Whether to restore Home Assistant, `true` or `false`
 | `addons` | yes | List of add-on slugs to restore
 | `folders` | yes | List of directories to restore
 | `password` | yes | Optional password for backup
