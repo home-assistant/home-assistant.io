@@ -105,6 +105,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 expire_after:
   description: Defines the number of seconds after the sensor's state expires, if it's not updated. After expiry, the sensor's state becomes `unavailable`.
   required: false

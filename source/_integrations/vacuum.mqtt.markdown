@@ -98,6 +98,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 error_template:
   description: Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum. This is required if `error_topic` is set.
   required: false
