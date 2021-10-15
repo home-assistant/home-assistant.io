@@ -62,6 +62,7 @@ This is a separate account to the one you made for the app. You cannot log in wi
   ![](/images/integrations/tuya/image_004.png)
 4. Click `Confirm` in the app.
 5. To confirm that everything worked, navigate to the `All Devices` tab. Here you should be able to find the devices from the app.
+6. If zero devices are imported, try changing the DataCenter.
 
 ![](/images/integrations/tuya/image_005.png)
 
