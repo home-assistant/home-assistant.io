@@ -525,6 +525,7 @@ The numeric functions and filters will not fail if the input is not a valid numb
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
 - Filter `[x, y, ...] | max` will obtain the largest item in a sequence.
 - Filter `[x, y, ...] | min` will obtain the smallest item in a sequence.
+- Filter `[x, y, ...] | average` will return the average value of the sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
