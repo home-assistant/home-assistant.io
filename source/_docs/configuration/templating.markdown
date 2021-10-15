@@ -278,6 +278,17 @@ The same thing can also be expressed as a filter:
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
   - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
+- `today_at(value)` converts a string containing a military time format to a datetime object with todays date in your time zone.
+
+   {% raw %}
+
+   ```yaml
+   # Is the current time past 10:15?
+   {{ now() > today_at("10:15") }} 
+   ```
+
+   {% endraw %}
+  
 - `as_datetime()` converts a string containing a timestamp to a datetime object.
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted `None`. This function also be used as a filter.
 - `as_local()` converts datetime object to local time. This function also be used as a filter.
