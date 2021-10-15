@@ -67,7 +67,7 @@ availability_topic:
   required: false
   type: string
 code:
-  description: If defined, specifies a code to enable or disable the alarm in the frontend.
+  description: If defined, specifies a code to enable or disable the alarm in the frontend. For remote code validation `REMOTE_CODE` or `REMOTE_CODE_TEXT` can configured as code to enable a numeric or text code dialog, this bypasses local code validation.
   required: false
   type: string
 code_arm_required:
