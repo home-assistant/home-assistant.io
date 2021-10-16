@@ -32,5 +32,5 @@ When using the `media_player.play_media` service, only the "music" media type is
 
 ## Home Assistant Add-on
 
-You can run a VLC Media Player on your Home Assistant installation using the a community provided [add-on](https://github.com/rodripf/hassio-local-vlc).
-Using it you can play files on the local network, Internet or files and playlist locally saved to the `/share` folder of your Home Assistant installation.
+You can run a VLC Media Player on your Home Assistant installation using the official [VLC add-on](https://github.com/home-assistant/addons/blob/master/vlc/DOCS.md).
+Using it you can play files on the local network, Internet or files and playlist locally saved to the `/share` and `/media` folder of your Home Assistant installation.
