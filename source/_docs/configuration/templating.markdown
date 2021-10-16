@@ -278,7 +278,7 @@ The same thing can also be expressed as a filter:
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
   - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
-- `today_at(value)` converts a string containing a military time format to a datetime object with todays date in your time zone.
+- `today_at(value)` converts a string containing a military time format to a datetime object with today's date in your time zone.
 
    {% raw %}
 
