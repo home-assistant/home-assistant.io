@@ -26,6 +26,9 @@ Supported devices:
 - AVR 850
 - AVR 860
 - AV 860
+- SA 10
+- SA 20
+- SA 30
 
 {% include integrations/config_flow.md %}
 
