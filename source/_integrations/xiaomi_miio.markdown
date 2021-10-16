@@ -252,15 +252,16 @@ Favorite Level          | Set the favorite level
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Humidity                | The current humidity measured
-Motor Speed             | The current motor speed measured in rpm
-PM2.5                   | The current particulate matter 2.5 measured
-Purify Volume           | The volume of purified air in qubic meter
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Purify Volume           | The volume of purified air in qubic meter                      | False
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
@@ -292,17 +293,18 @@ Volume                  | Set the volume
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Humidity                | The current humidity measured
-Illuminance             | The current illuminance measured
-Motor Speed             | The current motor speed measured in rpm
-PM2.5                   | The current particulate matter 2.5 measured
-Purify Volume           | The volume of purified air in qubic meter
-Second Motor Speed      | The current second motor speed measured in rpm
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Illuminance             | The current illuminance measured                               | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Purify Volume           | The volume of purified air in qubic meter                      | False
+Second Motor Speed      | The current second motor speed measured in rpm                 | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
@@ -329,16 +331,17 @@ Volume                  | Set the volume
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Humidity                | The current humidity measured
-Illuminance             | The current illuminance measured
-Motor Speed             | The current motor speed measured in rpm
-PM2.5                   | The current particulate matter 2.5 measured
-Second Motor Speed      | The current second motor speed measured in rpm
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Illuminance             | The current illuminance measured                               | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Second Motor Speed      | The current second motor speed measured in rpm                 | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
@@ -364,14 +367,15 @@ Favorite Level          | Set the favorite level
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Humidity                | The current humidity measured
-Motor Speed             | The current motor speed measured in rpm
-PM2.5                   | The current particulate matter 2.5 measured
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
@@ -405,15 +409,16 @@ LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Humidity                | The current humidity measured
-Motor Speed             | The current motor speed measured in rpm
-PM2.5                   | The current particulate matter 2.5 measured
-Purify Volume           | The volume of purified air in qubic meter
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Purify Volume           | The volume of purified air in qubic meter                      | False
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
@@ -435,12 +440,12 @@ LED Brihtness           | Set the LED brightness
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Motor Speed             | The current motor speed measured in rpm
-PM2.5                   | The current particulate matter 2.5 measured
+Sensor                  | Description                                  | Enabled by default
+----------------------- | -----------------------                      | -----------------------
+Filter Life Remaining   | The remaining life of the filter             | True
+Filter Use              | Filter usage time in hours                   | True
+Motor Speed             | The current motor speed measured in rpm      | True
+PM2.5                   | The current particulate matter 2.5 measured  | True
 
 - Switch entities
 
@@ -461,15 +466,16 @@ Child Lock              | Turn on/off the child lock
   - `button_pressed`
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-PM2.5                   | The current particulate matter 2.5 measured
-Illuminance             | The current illuminance measured
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Motor Speed             | The current motor speed measured in rpm
-Second Motor Speed      | The current second motor speed measured in rpm
-Purify Volume           | The volume of purified air in qubic meter
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Illuminance             | The current illuminance measured                               | True
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+Second Motor Speed      | The current second motor speed measured in rpm                 | True
+Purify Volume           | The volume of purified air in qubic meter                      | False
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
@@ -488,15 +494,16 @@ LED                     | Turn on/off the LED
   - `extra_features`
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Carbon Dioxide          | The current carbon dioxide measured in ppm
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Humidity                | The current humidity measured
-Illuminance             | The current illuminance measured
-PM2.5                   | The current particulate matter 2.5 measured
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Carbon Dioxide          | The current carbon dioxide measured in ppm                     | True
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Illuminance             | The current illuminance measured                               | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Select entities
 
