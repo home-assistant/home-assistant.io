@@ -231,17 +231,25 @@ Additionally, you can add template sensors to compute daily and monthly total us
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: template
-    sensors:
-      daily_energy:
-        friendly_name: Daily Energy
-        unit_of_measurement: kWh
-        value_template: "{{ states('sensor.daily_energy_offpeak')|float + states('sensor.daily_energy_peak')|float }}"
-      monthly_energy:
-        friendly_name: Monthly Energy
-        unit_of_measurement: kWh
-        value_template: "{{ states('sensor.monthly_energy_offpeak')|float + states('sensor.monthly_energy_peak')|float }}"
+template:
+  - sensor:
+    - name: 'Daily Energy Total'
+      device_class: energy
+      unit_of_measurement: kWh
+      state: >
+        {% set offpeak = states('sensor.daily_energy_offpeak') | float %}
+        {% set peak = states('sensor.daily_energy_peak') | float %}
+
+        {{ (offpeak + peak) }}
+
+    - name: 'Monthly Energy Total'
+      device_class: energy
+      unit_of_measurement: kWh
+      state: >
+        {% set offpeak = states('sensor.monthly_energy_offpeak') | float %}
+        {% set peak = states('sensor.monthly_energy_peak') | float %}
+
+        {{ (offpeak + peak) }}
 ```
 
 {% endraw %}
