@@ -89,7 +89,7 @@ If you prefer to use a live operating system, follow the instructions of your Li
 3. Select "Flash from URL"
 ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
 
-4. Get the URL for your {{site.installation.types[page.installation_type].board}}:
+4. Get the URL for your {{site.installation.types[page.installation_type].board}}. See [releases](https://github.com/home-assistant/operating-system/releases) page for other Pi hardware versions.
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}
