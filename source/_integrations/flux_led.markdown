@@ -4,7 +4,7 @@ description: Instructions on how to setup Flux led/MagicHome/MagicLight within H
 ha_category:
   - Light
   - Switch
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: 0.25
 ha_domain: flux_led
 ha_platforms:
