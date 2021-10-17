@@ -11,9 +11,9 @@ ha_platforms:
   - climate
 ---
 
-The `IntesisHome` climate platform lets you control [IntesisHome](https://www.intesishome.com) and [Airconwithme](https://airconwithme.com) devices. IntesisHome provides integrations with air conditioners, including Panasonic, Daikin, Fujitsu, Toshiba, LG and more.
+The `IntesisHome` climate platform lets you control [IntesisHome](https://www.intesishome.com), [Airconwithme](https://airconwithme.com) and [IntesisBox](https://www.intesisbox.com) devices. IntesisHome provides integrations with air conditioners, including Panasonic, Daikin, Fujitsu, Toshiba, LG and more.
 
-Note: IntesisHome products are a separate product line to IntesisBox. This platform does not support IntesisBox devices (which can be controlled locally using the WMP protocol).
+The platform allows for local control of IntesisBox devices using the WMP protocol, and local control of some IntesisHome models which include an embedded webserver.
 
 ## Configuration
 
@@ -21,22 +21,41 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 climate:
+#   IntesisHome example
   - platform: intesishome
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+#   IntesisHome with integrated webserver example
+  - platform: intesishome
+    device: intesishome_local
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    host: 192.168.1.50
+#   IntesisBox example
+  - platform: intesishome
+    device: IntesisBox
+    host: 192.168.1.50
+#   Airconwithme example
+  - platform: intesishome
+    device: airconwithme
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```
 
+
 {% configuration %}
 username:
   description: "Your username for [IntesisHome.com](https://accloud.intesis.com) / [Airconwithme](https://airconwithme.com)"
-  required: true
+  required: false
   type: string
 password:
   description: Your password for IntesisHome
-  required: true
+  required: false
   type: string
+host:
+  description: IP address or hostname for the IntesisBox and intesishome_local platforms.
 device:
-  description: "`IntesisHome` or `airconwithme`."
+  description: "`IntesisHome`, `airconwithme`, `IntesisBox` or `intesishome_local`"
   required: false
   default: IntesisHome
   type: string
@@ -44,7 +63,6 @@ device:
 
 This component opens a TCP connection with the IntesisHome API to receive temperature and status updates, and to issue commands.
 By default, the component will be named using the friendly device name from the IntesisHome website or application.
-If internet connectivity is lost, the device will be marked as unavailable after 5 minutes.
 
 ### Supported services
 
