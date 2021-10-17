@@ -67,7 +67,7 @@ script:
 
 ### Service `hive.boost_heating_off`
 
-You can use the service `hive.boost_heating_off` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this service.
+You can use the service `hive.boost_heating_off` to turn your heating boost off.
 
 | Service data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
