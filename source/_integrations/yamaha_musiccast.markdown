@@ -57,6 +57,35 @@ data:
   media_content_id: "presets:1"
   media_content_type: "music"
 ```
+
+## Sleep Timer services
+
+Some MusicCast devices support sleep timers. Sleep timers can be used to turn of the device after a given amount of minutes. 
+
+A sleep timer can be set to values from 30 to 120 minutes in steps of 30 minutes using the `yamaha_musiccast.set_sleep_timer` service. There is also a service `yamaha_musiccast.clear_sleep_timer` to disable the sleep timer. 
+
+The currently set sleep time is also available as state attribute `sleep_time` for sleep timer supporting devices. If the sleep timer is disabled, the value of `sleep_time` is set to 0.
+
+### Examples
+
+Set a sleep timer to 90 minutes:
+
+```yaml
+service: yamaha_musiccast.set_sleep_timer
+target:
+  entity_id: media_player.wohnzimmer_zone2
+data:
+  sleep_time: 90
+```
+
+Clear a sleep timer/disable it:
+
+```yaml
+service: yamaha_musiccast.clear_sleep_timer
+target:
+  entity_id: media_player.wohnzimmer_zone2
+```
+
 ## Troubleshooting
 
 In this section known problems and their resolution are documented.
