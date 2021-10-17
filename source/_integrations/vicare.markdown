@@ -65,10 +65,6 @@ name:
   required: false
   default: ViCare
   type: string
-circuit:
-  description: Heating circuit of your heating device if multiple exist 
-  required: false
-  type: integer
 heating_type:
   description: One of `generic`, `gas`, `heatpump` or `fuelcell`. Specifying the heating_type provides additional attributes and sensors specific for the heating system.
   required: false
@@ -81,8 +77,7 @@ scan_interval:
   type: integer
 {% endconfiguration %}
 
-Two components will be created: `climate.vicare_heating` and `water_heater.vicare_water` (for domestic hot water).
-Unless you specify a `circuit` parameter, it will pick up the first heating circuit of your installation.
+Multiple device instances might be generated depending on the number of burners and/or circuits of your installation. If there is more than a single instance all devices are suffixed with the circuit or burner ID.
 
 ## Viessmann API limits
 
