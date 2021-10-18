@@ -184,6 +184,7 @@ This integration is tested to work with the following models. If you have a diff
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
 | ?          | YLDD04YL     | Lightstrip (Color)                               |
+| `strip6`   | YLDD05YL     | Lightstrip (Color)                               |
 | `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - Wi-Fi Version!       |
 | `bslamp1`  | MJCTD02YL    | Xiaomi Mijia Bedside Lamp II                     |
 | `RGBW`     | MJDP02YL     | Mi LED smart Lamp - white and color Wi-Fi Version|
