@@ -32,7 +32,7 @@ The ODROID-N2+ will now boot into a terminal. Select `Exit to shell` from the me
 
 <div class='note'>
 
-When using the command line, the it may return the following error:
+When using the command line, the it may return the following message:
 `can't access tty; job control turned off.`
 You can safely ignore this message and proceed with the installation
 
