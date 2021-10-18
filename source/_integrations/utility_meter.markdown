@@ -237,19 +237,19 @@ template:
       device_class: energy
       unit_of_measurement: kWh
       state: >
-        {% set offpeak = states('sensor.daily_energy_offpeak') | float %}
-        {% set peak = states('sensor.daily_energy_peak') | float %}
+        {% set offpeak = states('sensor.daily_energy_offpeak') %}
+        {% set peak = states('sensor.daily_energy_peak') %}
 
-        {{ (offpeak + peak) }}
+        {{ (offpeak + peak) | float }}
 
     - name: 'Monthly Energy Total'
       device_class: energy
       unit_of_measurement: kWh
       state: >
-        {% set offpeak = states('sensor.monthly_energy_offpeak') | float %}
-        {% set peak = states('sensor.monthly_energy_peak') | float %}
+        {% set offpeak = states('sensor.monthly_energy_offpeak') %}
+        {% set peak = states('sensor.monthly_energy_peak') %}
 
-        {{ (offpeak + peak) }}
+        {{ (offpeak + peak) | float }}
 ```
 
 {% endraw %}
