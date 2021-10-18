@@ -111,3 +111,17 @@ If using separate VLANs, make sure the 238.0.0.18:32100 and 238.0.0.18:32101 por
 For some routers "IGMP snooping" on the used wireless interface needs to be disabled to let the IGMP/multicast messages through.
 
 For Ubiquiti routers/access points the "Enable multicast enhancement (IGMPv3)" should be disabled.
+
+### Bypassing UDP multicast
+
+If UDP Multicast does not work in your setup (due to network limitations), this integration can be used in locall polling mode.
+Go to Settings -> Integrations -> on the already set up Motion Blinds integration click "configure" --> disable the "Wait for push" option (disabled by default).
+
+The default update interval of the Motion Blinds integration is each 10 minutes, when UDP multicast pushes do not work, this polling intervall can be a bit high.
+To increase the polling intervall:
+Go to Settings -> Integrations -> on the already set up Motion Blinds integration click more options (three dots) and select "systemoptions" -> disable "polling for updates".
+Now create an automation with as trigger a timepattern and select your desired polling time.
+As the action select "call service" and select "update entity", select one of the motion blinds covers as entity.
+You only have to create one automation with only one motion blind cover as entity, the rest will update at the same time.
+
+
