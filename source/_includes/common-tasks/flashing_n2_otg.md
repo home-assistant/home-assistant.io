@@ -35,7 +35,13 @@ Use the following command at the console to confirm the storage device node:
 ```bash
 ls /dev/mmc*
 ```
+<div class='note'>
 
+When using the command line, the it may return the following error:
+`can't access tty; job control turned off.`
+You can safely ignore this message and proceed with the installation
+
+</div>
 Set the storage device on the ODROID-N2+ as a mass storage device using `ums` (USB Mass storage mode)
 This will configure the ODROID-N2+ and OTG to act as a memory card reader.
 
