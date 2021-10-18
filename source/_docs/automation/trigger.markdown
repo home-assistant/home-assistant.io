@@ -770,7 +770,7 @@ automation:
 
 ## Multiple Entity IDs for the same Trigger
 
-It is possible to specify multiple entities for the same trigger. To do so add multiple entities using a nested list. The trigger will fire and start, [processing](#what-are-triggers) your automation each time the trigger is true for each entity listed.
+It is possible to specify multiple entities for the same trigger. To do so add multiple entities using a nested list. The trigger will fire and start, [processing](#what-are-triggers) your automation each time the trigger is true for any entity listed.
 
 ```yaml
 automation:
