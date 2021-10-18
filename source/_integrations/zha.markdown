@@ -88,10 +88,11 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
     - Note! While not a must, [it is recommend to upgrade XBee Series 3 and S2C to newest firmware using XCTU](https://www.digi.com/resources/documentation/Digidocs/90002002/Default.htm#Tasks/t_load_zb_firmware.htm)
   - [Digi XBee Series 2 (S2)](https://www.digi.com/support/productdetail?pid=3430) modules (Note! This first have to be [flashed with Zigbee Coordinator API firmware](https://www.digi.com/support/productdetail?pid=3430))
 - ZiGate based radios (via the [zigpy-zigate](https://github.com/zigpy/zigpy-zigate) library for zigpy and require firmware 3.1d or later)
-  - [ZiGate USB-TTL](https://zigate.fr/produit/zigate-ttl/)
-  - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/)
-  - [PiZiGate](https://zigate.fr/produit/pizigate-v1-0/)
-  - [Wifi ZiGate](https://zigate.fr/produit/zigate-pack-wifi-v1-3/)
+  - [ZiGate USB](https://zigate.fr/produit/zigate-usb/)
+  - [ZiGate USB-DIN](https://zigate.fr/produit/zigatev2-usb-din/)
+  - [PiZiGate (ZiGate Raspberry Pi module)](https://zigate.fr/produit/pizigatev2/)
+  - [ZiGate-Ethernet (Ethernet gateway board for PiZiGate)](https://zigate.fr/produit/zigate-ethernet/)
+  - [ZiGate + WiFi Pack](https://zigate.fr/produit/zigatev2-pack-wifi/)
 
 #### Warning about Wi-Fi-based Zigbee-to-Serial bridges/gateways
 
