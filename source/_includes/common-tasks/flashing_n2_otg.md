@@ -30,11 +30,6 @@ The ODROID-N2+ will now boot into a terminal. Select `Exit to shell` from the me
 
 ![Exit to shell](/images/hassio/screenshots/exit-shell.png)
 
-Use the following command at the console to confirm the storage device node:
-
-```bash
-ls /dev/mmc*
-```
 <div class='note'>
 
 When using the command line, the it may return the following error:
@@ -42,6 +37,13 @@ When using the command line, the it may return the following error:
 You can safely ignore this message and proceed with the installation
 
 </div>
+
+Use the following command at the console to confirm the storage device node:
+
+```bash
+ls /dev/mmc*
+```
+
 Set the storage device on the ODROID-N2+ as a mass storage device using `ums` (USB Mass storage mode)
 This will configure the ODROID-N2+ and OTG to act as a memory card reader.
 
