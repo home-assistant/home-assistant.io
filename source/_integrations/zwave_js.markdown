@@ -717,3 +717,7 @@ to pick up those new names, either reload the integration or restart Home Assist
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow the menu:
 
 **Configuration** -> **Integrations** -> **Z-Wave JS** -> **Configure** -> **Download a dump of your network to help diagnose issues**
+
+### Interference issues
+
+A lot of users will have issues with interference if the USB stick is directly connected to the machine (proximity), if you are having issues try to use a short USB 2.0 A male to female extension cord
