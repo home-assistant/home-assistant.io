@@ -22,7 +22,7 @@ ha_quality_scale: platinum
 ---
 
 The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as plugs, power strips, wall switches and bulbs.
-In some instances it might be required to add the plug to the Kasa app before trying to add them to Home Assistant, if you cannot see your newly purchased device via the integration, please add it to the Kasa app first (do not upgrade firmware if it presents the option).
+In some instances it might be required to add the plug to the Kasa app before trying to add them to Home Assistant, if you cannot see your newly purchased device via the integration, please add it to the Kasa app first (do not upgrade the firmware if it presents the option).
 
 There is currently support for the following device types within Home Assistant:
 
