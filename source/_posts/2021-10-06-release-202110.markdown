@@ -62,6 +62,7 @@ Enjoy the release!
 - [Release 2021.10.3 - October 10](#release-2021103---october-10)
 - [Release 2021.10.4 - October 11](#release-2021104---october-11)
 - [Release 2021.10.5 - October 15](#release-2021105---october-15)
+- [Release 2021.10.6 - October 18](#release-2021106---october-18)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -459,6 +460,32 @@ The following integrations are now available via the Home Assistant UI:
 [upnp docs]: /integrations/upnp/
 [yeelight docs]: /integrations/yeelight/
 [youless docs]: /integrations/youless/
+
+## Release 2021.10.6 - October 18
+
+- Avoid setting up harmony websocket from discovery ([@bdraco] - [#57589]) ([harmony docs])
+- Fix device class for energy plugwise sensors ([@squio] - [#57803]) ([plugwise docs])
+- Prevent yeelight discovery from overloading the bulb ([@bdraco] - [#57820]) ([yeelight docs])
+- Bump bond-api to 0.1.14 ([@bdraco] - [#57874]) ([bond docs])
+- Revert "Fix bmw_conntected_drive check_control_message short description" ([@cdce8p] - [#57928]) ([bmw_connected_drive docs])
+- Fix bug that prevents multiple instances of Tile ([@bachya] - [#57942]) ([tile docs])
+
+[#57589]: https://github.com/home-assistant/core/pull/57589
+[#57803]: https://github.com/home-assistant/core/pull/57803
+[#57820]: https://github.com/home-assistant/core/pull/57820
+[#57874]: https://github.com/home-assistant/core/pull/57874
+[#57928]: https://github.com/home-assistant/core/pull/57928
+[#57942]: https://github.com/home-assistant/core/pull/57942
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@squio]: https://github.com/squio
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[bond docs]: /integrations/bond/
+[harmony docs]: /integrations/harmony/
+[plugwise docs]: /integrations/plugwise/
+[tile docs]: /integrations/tile/
+[yeelight docs]: /integrations/yeelight/
 
 ## If you need help...
 
