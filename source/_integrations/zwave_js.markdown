@@ -720,4 +720,4 @@ When trying to determine why something isn't working as you expect, or when repo
 
 ### Interference issues
 
-A lot of users will have issues with interference if the USB stick is directly connected to the machine (proximity), if you are having issues try to use a short USB 2.0 A male to female extension cord
+Many users have reported issues with interference when the USB stick was directly connected to the machine (proximity). If you are having issues try to use a short USB 2.0 A male to female extension cord.
