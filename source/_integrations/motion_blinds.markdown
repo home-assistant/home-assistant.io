@@ -124,7 +124,7 @@ Now create an automation with as trigger a time pattern and select your desired 
 As the action select "Call service" and select "Update entity", select one of the motion blinds covers as entity.
 You only have to create one automation with only one motion blind cover as entity, the rest will update at the same time.
 
-Example YAML automation for custom polling intervall (every minute):
+Example YAML automation for custom polling interval (every minute):
 ```yaml
 alias: Motion blinds polling automation
 mode: single
