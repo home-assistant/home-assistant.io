@@ -124,4 +124,15 @@ Now create an automation with as trigger a time pattern and select your desired 
 As the action select "Call service" and select "Update entity", select one of the motion blinds covers as entity.
 You only have to create one automation with only one motion blind cover as entity, the rest will update at the same time.
 
-
+Example YAML automation for custom polling intervall (every minute):
+```yaml
+alias: Motion blinds polling automation
+mode: single
+trigger:
+  - platform: time_pattern
+    minutes: "/1"
+action:
+  - service: homeassistant.update_entity
+    target:
+      entity_id: cover.motion_shade
+```
