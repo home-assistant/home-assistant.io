@@ -67,7 +67,7 @@ availability_topic:
   required: false
   type: string
 code:
-  description: If defined, specifies a code to enable or disable the alarm in the frontend. For remote code validation `REMOTE_CODE` or `REMOTE_CODE_TEXT` can configured as code to enable a numeric or text code dialog, this bypasses local code validation.
+  description: If defined, specifies a code to enable or disable the alarm in the frontend. For remote code validation `REMOTE_CODE` (numeric code) or `REMOTE_CODE_TEXT` (text code) can configured as code to enable a dialog, this bypasses local code validation. Use `command_template` to send the code to the backend. Example configurations [can be found here](./#configurations-with-remote-code-validation).
   required: false
   type: string
 code_arm_required:
@@ -211,3 +211,64 @@ value_template:
   required: false
   type: template
 {% endconfiguration %}
+
+## Examples
+
+In this section you find some real-life examples of how to use this alarm control panel.
+
+### Configuration with local code validation
+
+The example below shows a full configuration with local code validation.
+
+{% raw %}
+
+```yaml
+# Example using text based code with local validation configuration.yaml
+alarm_control_panel:
+  - platform: mqtt
+    name: "Alarm Panel With Numeric Keypad"
+    state_topic: "alarmdecoder/panel"
+    value_template: "{{value_json.state}}"
+    command_topic: "alarmdecoder/panel/set"
+    code: mys3cretc0de
+```
+
+{% endraw %}
+
+### Configurations with remote code validation
+
+The example below shows a full configuration with local code validation and `command_template`.
+
+{% raw %}
+
+```yaml
+# Example using text code with remote validation configuration.yaml
+alarm_control_panel:
+  - platform: mqtt
+    name: "Alarm Panel With Text Code Dialog"
+    state_topic: "alarmdecoder/panel"
+    value_template: "{{ value_json.state }}"
+    command_topic: "alarmdecoder/panel/set"
+    code: REMOTE_CODE_TEXT
+    command_template: "{ action: '{{ action }}', code: '{{ code }}'}"
+```
+
+```yaml
+# Example using numeric code with remote validation configuration.yaml
+alarm_control_panel:
+  - platform: mqtt
+    name: "Alarm Panel With Numeric Keypad"
+    state_topic: "alarmdecoder/panel"
+    value_template: "{{ value_json.state }}"
+    command_topic: "alarmdecoder/panel/set"
+    code: REMOTE_CODE
+    command_template: "{ action: '{{ action }}', code: '{{ code }}'}"
+```
+
+{% endraw %}
+
+<div class='note warning'>
+
+When your MQTT connection is not secured, this will send your secret code over the network unprotected!
+
+</div>
