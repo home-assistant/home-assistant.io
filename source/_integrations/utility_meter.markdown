@@ -226,7 +226,9 @@ utility_meter:
     cycle: monthly
 ```
 
-Additionally, you can add template sensors to compute daily and monthly total usage.
+Additionally, you can add template sensors to compute daily and monthly total usage. Important note, in these examples,
+we use a [float filter](https://www.home-assistant.io/docs/configuration/templating/#numeric-functions-and-filters) to
+return `Invalid Number` if `peak` or `offpeak` values returned are not numbers.
 
 {% raw %}
 
@@ -237,19 +239,17 @@ template:
       device_class: energy
       unit_of_measurement: kWh
       state: >
-        {% set offpeak = states('sensor.daily_energy_offpeak') %}
-        {% set peak = states('sensor.daily_energy_peak') %}
-
-        {{ (offpeak + peak) | float }}
+        {% set offpeak = float(states('sensor.daily_energy_offpeak'), default='Invalid Number') %}
+        {% set peak = float(states('sensor.daily_energy_peak'), default='Invalid Number') %}
+        {{ float((offpeak + peak), default='Invalid Number') }}
 
     - name: 'Monthly Energy Total'
       device_class: energy
       unit_of_measurement: kWh
       state: >
-        {% set offpeak = states('sensor.monthly_energy_offpeak') %}
-        {% set peak = states('sensor.monthly_energy_peak') %}
-
-        {{ (offpeak + peak) | float }}
+        {% set offpeak = float(states('sensor.monthly_energy_offpeak'), default='Invalid Number') %}
+        {% set peak = float(states('sensor.monthly_energy_peak'), default='Invalid Number') %}
+        {{ float((offpeak + peak), default='Invalid Number') }}
 ```
 
 {% endraw %}
