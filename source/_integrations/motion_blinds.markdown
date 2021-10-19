@@ -120,7 +120,7 @@ Go to Settings -> Integrations -> on the already set up Motion Blinds integratio
 The default update interval of the Motion Blinds integration is each 10 minutes, when UDP multicast pushes do not work, this polling intervall can be a bit high.
 To increase the polling intervall:
 Go to Settings -> Integrations -> on the already set up Motion Blinds integration click more options (three dots) and select "systemoptions" -> disable "polling for updates".
-Now create an automation with as trigger a timepattern and select your desired polling time.
+Now create an automation with as trigger a time pattern and select your desired polling time.
 As the action select "call service" and select "update entity", select one of the motion blinds covers as entity.
 You only have to create one automation with only one motion blind cover as entity, the rest will update at the same time.
 
