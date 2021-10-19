@@ -118,7 +118,7 @@ If UDP Multicast does not work in your setup (due to network limitations), this 
 Go to Settings -> Integrations -> on the already set up Motion Blinds integration click "configure" --> disable the "Wait for push" option (disabled by default).
 
 The default update interval of the Motion Blinds integration is each 10 minutes, when UDP multicast pushes do not work, this polling intervall can be a bit high.
-To increase the polling intervall:
+To increase the polling interval:
 Go to Settings -> Integrations -> on the already set up Motion Blinds integration click more options (three dots) and select "System options" -> disable "polling for updates".
 Now create an automation with as trigger a time pattern and select your desired polling time.
 As the action select "Call service" and select "Update entity", select one of the motion blinds covers as entity.
