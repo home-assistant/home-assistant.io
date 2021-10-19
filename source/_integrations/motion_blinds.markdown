@@ -114,7 +114,7 @@ For Ubiquiti routers/access points the "Enable multicast enhancement (IGMPv3)" s
 
 ### Bypassing UDP multicast
 
-If UDP Multicast does not work in your setup (due to network limitations), this integration can be used in locall polling mode.
+If UDP Multicast does not work in your setup (due to network limitations), this integration can be used in local polling mode.
 Go to Settings -> Integrations -> on the already set up Motion Blinds integration click "configure" --> disable the "Wait for push" option (disabled by default).
 
 The default update interval of the Motion Blinds integration is every 10 minutes. When UDP multicast pushes do not work, this polling interval can be a bit high.
