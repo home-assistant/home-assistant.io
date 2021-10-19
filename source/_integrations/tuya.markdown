@@ -7,12 +7,14 @@ ha_category:
   - Light
   - Scene
   - Switch
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_release: 0.74
 ha_config_flow: true
 ha_domain: tuya
 ha_codeowners:
+  - '@Tuya'
   - '@zlinoliver'
+  - '@METISU'
 ha_platforms:
   - climate
   - fan
@@ -47,7 +49,7 @@ This is a separate account to the one you made for the app. You cannot log in wi
 4. In the `Create Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in.
   ![](/images/integrations/tuya/image_001.png)
 5. Click `Create` to continue with project configuration.
-6. In Configuration Wizard, select the `Device Status Notification` API. `Smart Home` API products should already be selected by default.
+6. In Configuration Wizard, make sure you add `Device Status Notification` API. The list of API should look like this:
   ![](/images/integrations/tuya/image_002.png)
 7. Click `Authorize`.
 
@@ -60,6 +62,7 @@ This is a separate account to the one you made for the app. You cannot log in wi
   ![](/images/integrations/tuya/image_004.png)
 4. Click `Confirm` in the app.
 5. To confirm that everything worked, navigate to the `All Devices` tab. Here you should be able to find the devices from the app.
+6. If zero devices are imported, try changing the DataCenter.
 
 ![](/images/integrations/tuya/image_005.png)
 

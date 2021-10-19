@@ -141,4 +141,3 @@ sensor:
 ```
 
 {% endraw %}
-

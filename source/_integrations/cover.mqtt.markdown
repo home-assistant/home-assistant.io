@@ -341,7 +341,7 @@ cover:
     command_topic: "home-assistant/cover/set"
     position_topic: "home-assistant/cover/position"
     availability:
-      - "home-assistant/cover/availability"
+      - topic: "home-assistant/cover/availability"
     set_position_topic: "home-assistant/cover/set_position"
     qos: 0
     retain: true
