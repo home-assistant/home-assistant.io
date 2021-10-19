@@ -1,5 +1,5 @@
 ---
-title: OpenZWave (beta)
+title: OpenZWave (deprecated)
 description: Instructions on how to integrate OpenZWave with Home Assistant.
 ha_category:
   - Switch
@@ -22,14 +22,15 @@ ha_platforms:
   - switch
 ---
 
-This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT. 
-
 <div class='note warning'>
 
- As of mid-2021 this integration, as well as the upstream ozwdaemon project, are not currently maintained. If you're starting out with Z-Wave in Home Assistant, we recommend that you use [the Z-Wave JS integration](/integrations/zwave_js).
+ This integration is deprecated. We recommend using [the Z-Wave JS integration](/integrations/zwave_js).
+
+ The OpenZWave integration will no longer receive any updates. The technical dependencies may render this integration unusable in the future, at which time it may be removed.
 
 </div>
 
+This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT.
 
 ## Requirements
 
