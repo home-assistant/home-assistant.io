@@ -54,6 +54,8 @@ password:
   type: string
 host:
   description: IP address or hostname for the IntesisBox and intesishome_local platforms.
+  required: false
+  type: string
 device:
   description: "`IntesisHome`, `anywair`, `airconwithme`, `IntesisBox` or `intesishome_local`"
   required: false
