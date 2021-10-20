@@ -1,12 +1,16 @@
 ---
-title: "HERE Travel Time"
-description: "Instructions on how to add HERE travel time to Home Assistant."
-logo: HERE_logo.svg
+title: HERE Travel Time
+description: Instructions on how to add HERE travel time to Home Assistant.
 ha_category:
   - Transport
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: "0.100"
+ha_release: '0.100'
+ha_codeowners:
+  - '@eifinger'
+ha_domain: here_travel_time
+ha_platforms:
+  - sensor
 ---
 
 The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing/topics/introduction.html).
@@ -17,7 +21,7 @@ You need to register for an API key (REST & XYZ HUB API/CLI) by following the in
 
 HERE offers a Freemium Plan which includes 250,000 free Transactions per month. For the Routing API, one transaction equals one request with one starting point (no multi stop). More information can be found [here](https://developer.here.com/faqs#payment-subscription)
 
-By default HERE will deactivate your account if you exceed the free Transaction limit for the month. You can add payment details to reenable your account as described [here](https://developer.here.com/faqs)
+By default HERE will deactivate your account if you exceed the free Transaction limit for the month. You can add payment details to re-enable your account as described [here](https://developer.here.com/faqs)
 
 ### Migrate from app_code to api_key
 
@@ -87,6 +91,14 @@ traffic_mode:
   required: false
   type: boolean
   default: false
+arrival:
+  description: "Time when travel is expected to end. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. Cannot be used in combination with `departure`. Can only be used in combination with `mode: publicTransportTimeTable`"
+  required: false
+  type: time
+departure:
+  description: "Time when travel is expected to start. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. Cannot be used in combination with `arrival`. If departure is not provided each update of the sensor uses the current date and time." 
+  required: false
+  type: time
 unit_system:
   description: "You can choose between `metric` or `imperial`."
   required: false
@@ -123,9 +135,8 @@ sensor:
     route_mode: fastest
     traffic_mode: false
     unit_system: imperial
+    departure: "17:00:00"
     scan_interval: 2678400 # 1 month
-    
-
 ```
 
 ## Entity Tracking
@@ -148,14 +159,14 @@ You can also use the `homeassistant.update_entity` service to update the sensor 
 automation:
 - id: update_morning_commute_sensor
   alias: "Commute - Update morning commute sensor"
-  initial_state: 'on'
+  initial_state: "on"
   trigger:
     - platform: time_pattern
-      minutes: '/2'
+      minutes: "/2"
   condition:
     - condition: time
-      after: '08:00:00'
-      before: '11:00:00'
+      after: "08:00:00"
+      before: "11:00:00"
     - condition: time
       weekday:
         - mon
@@ -165,5 +176,6 @@ automation:
         - fri
   action:
     - service: homeassistant.update_entity
-      entity_id: sensor.morning_commute
+      target:
+        entity_id: sensor.morning_commute
 ```

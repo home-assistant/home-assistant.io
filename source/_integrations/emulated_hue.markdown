@@ -1,12 +1,12 @@
 ---
-title: "Emulated Hue Bridge"
-description: "Instructions on how to emulate a Hue Bridge within Home Assistant."
-logo: home-assistant.png
+title: Emulated Hue
+description: Instructions on how to emulate a Hue Bridge within Home Assistant.
 ha_category:
   - Hub
 ha_release: 0.27
 ha_iot_class: Local Push
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: emulated_hue
 ---
 
 <div class='note warning'>
@@ -39,6 +39,12 @@ If you added or upgraded to a newer Alexa device and devices are not found, you 
 
 [Sleep Cycle](https://www.sleepcycle.com) and [Sleep as Android](https://sleep.urbandroid.org): smart alarm clock app can use emulated_hue to turn on and off entities. Sleep Cycle only has it implemented in the iOS app, see [Sleep Cycle support](https://support.sleepcycle.com/hc/en-us/articles/207670385-Does-Sleep-Cycle-integrates-with-Phillips-Hue-). The app requires the same configuration as Google Home and does not work if the type is defined as Alexa in the configuration.
 
+</div>
+
+<div class='note'>
+  
+Logitech Harmony remotes cannot connect to this emulator via Android and iOS mobile applications because they require the physical button on the hub to be pressed. The [MyHarmony desktop software](https://support.myharmony.com/en-us/download) must be used with the original cable to connect it, then "Scan for Devices". 
+  
 </div>
 
 ### Configuration
@@ -101,7 +107,7 @@ exposed_domains:
   description: The domains that are exposed by default if `expose_by_default` is set to true.
   required: false
   type: list
-  default: [switch, light, group, input_boolean, media_player, fan]
+  default: [switch, light, group, input_boolean, media_player, fan, humidifier]
 entities:
   description: Customization for entities.
   required: false
@@ -148,17 +154,13 @@ You can verify that the `emulated_hue` integration has been loaded and is respon
 - `http://<HA IP Address>:80/description.xml` - This URL should return a descriptor file in the form of an XML file.
 - `http://<HA IP Address>:80/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
 
-Verify that the URLs above are using port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`). Both Google Home and Amazon Alexa/Echo (as of the 2019-08 firmware) require port 80.
+Verify that the URLs above are using port 80, rather than port 8300 (i.e., `http://<HA IP Address>:80/description.xml`). Both Google Home and Amazon Alexa/Echo (as of the 2019-08 firmware) require port 80.
 
 ### Platform specific instructions
 
-#### Hass.io and Docker
+#### Home Assistant Core
 
-No further actions are required
-
-#### Python venv
-
-An additional step is required to run Home Assistant as a non-root user and use port 80. 
+An additional step is required to run Home Assistant as a non-root user and use port 80.
 
 ##### Linux
 
@@ -169,20 +171,6 @@ sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin
 ```
 
 Please note that your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/docs/installation/virtualenv/), your path will be `/srv/homeassistant/bin/python3`.
-
-##### FreeBSD and FreeNAS
-
-On FreeBSD based systems, including FreeNAS, execute the following to allow `emulated_hue` to use port 80 as a non-root user:
-
-```bash
-sysctl net.inet.ip.portrange.reservedhigh=0
-```
-
-You can make this persist by adding the following to `/etc/sysctl.conf`:
-
-```bash
-net.inet.ip.portrange.reservedhigh=0
-```
 
 ### License
 

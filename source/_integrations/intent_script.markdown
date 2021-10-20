@@ -1,26 +1,30 @@
 ---
-title: "Intent Script"
-description: "Instructions on how to setup scripts to run on intents."
-logo: home-assistant.png
+title: Intent Script
+description: Instructions on how to setup scripts to run on intents.
 ha_category:
   - Intent
-ha_release: "0.50"
-ha_qa_scale: internal
+ha_release: '0.50'
+ha_quality_scale: internal
+ha_domain: intent_script
 ---
 
 The `intent_script` integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo), [Dialogflow](/integrations/dialogflow/) (Google Assistant) and [Snips](/integrations/snips/).
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
 intent_script:
   GetTemperature:  # Intent type
     speech:
-      text: We have {% raw %}{{ states.sensor.temperature }}{% endraw %} degrees
+      text: We have {{ states.sensor.temperature }} degrees
     action:
       service: notify.notify
-      data_template:
+      data:
         message: Hello from an intent!
 ```
+
+{% endraw %}
 
 Inside an intent we can define these variables:
 

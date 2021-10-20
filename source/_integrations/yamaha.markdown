@@ -1,10 +1,13 @@
 ---
-title: "Yamaha Network Receivers"
-description: "Instructions on how to integrate Yamaha Network Receivers into Home Assistant."
-logo: yamaha.png
+title: Yamaha Network Receivers
+description: Instructions on how to integrate Yamaha Network Receivers into Home Assistant.
 ha_category:
   - Media Player
 ha_release: 0.16
+ha_iot_class: Local Polling
+ha_domain: yamaha
+ha_platforms:
+  - media_player
 ---
 
 The `yamaha` platform allows you to control [Yamaha Network Receivers](https://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.
@@ -14,7 +17,9 @@ Supported devices:
 - [HTR-4065](https://www.yamaha.com/cchtr4065/)
 - [RX-V473](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v473/specs.html)
 - [RX-V573](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v573/specs.html)
+- [RX-V585](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
 - [RX-V673](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v673/specs.html)
+- [RX-V685](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
 - [RX-V773](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v773/specs.html)
 - And more
 
@@ -56,7 +61,7 @@ zone_names:
 ### Discovery notes
 
 - If the `discovery` integration is enabled, all units on the network
-  will be discovered using UPNP.
+  will be discovered using UPnP.
 - For receivers that support more than one zone, Home Assistant will
   add one media player per zone supported by the player, named "$name
   Zone 2" and "$name Zone 3".
@@ -70,7 +75,7 @@ zone_names:
 
 ### Supported operations
 
-- Media players created by yamaha support powering on/off, mute,
+- Media players created by Yamaha support powering on/off, mute,
   volume control and source selection. Playback controls, for instance
   play and stop are available for sources that supports it.
 - The `play_media` service is implemented for `NET RADIO` source
@@ -113,15 +118,17 @@ script:
     alias: "Radio Paradise Porch"
     sequence:
       - service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.living_room_stereo_zone_2
       - service: media_player.volume_set
-        data:
+        target:
           entity_id: media_player.living_room_stereo_zone_2
+        data:
           volume_level: 0.48
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.living_room_stereo_zone_2
+        data:
           media_content_type: "NET RADIO"
           media_content_id: "Bookmarks>Internet>Radio Paradise"
 
@@ -136,3 +143,21 @@ Enable or disable an output port (HDMI) on the receiver.
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
 | `port` | no | Port to enable or disable, e.g., `hdmi1`.
 | `enabled` | no | To enable set true, otherwise set to false.
+
+### Service `menu_cursor`
+
+Control the menu cursor.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
+| `cursor` | no | Name of the cursor key to press: `up`, `down`, `left`, `right`, `select`, `return`
+
+### Service `select_scene`
+
+Select a scene on the receiver.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
+| `scene` | no | Scene to select, e.g., `BD/DVD Movie Viewing`, `TV Viewing`, `NET Audio Listening` or `Radio Listening`.

@@ -5,17 +5,18 @@ g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js
 s.parentNode.insertBefore(g,s)}(document,'script'));
 </script>
 
-<script src="/javascripts/prism.js?{{ site.time | date: '%s' }}" type="text/javascript"></script>
+<script src="{{ '/javascripts/prism.js' | cache_buster }}" type="text/javascript"></script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
 <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
 <script type="text/javascript">
 docsearch({
-  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  apiKey: "{{ site.algolia.api_key }}",
   indexName: 'home-assistant',
   inputSelector: '#search',
   debug: false // Set debug to true if you want to inspect the dropdown
 });
+
 document.querySelector('.search .close').addEventListener('click', function(ev) {
   ev.preventDefault();
   document.querySelector('.search-container').style.display = 'none';

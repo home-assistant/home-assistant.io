@@ -5,12 +5,14 @@ date: 2016-06-18 18:06:00 +0000
 date_formatted: "June 18, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's time for the 0.22 release. This was a pretty rough release cycle and we had to issue two hot fixes for our core improvements. But it seems now that all is good and a lot of people have reported that their installs are faster than ever and the occasional quirks no longer occur.
 
-We are aware that our new web stack has caused issues installing Home Assistant on ARM-based platforms. This sadly includes the Raspberry Pi and Synology NAS systems. We're working on getting to a better solution. For Raspberry Pi, the [All-in-One installer] will take care of everything for you. We're working on updating our [standalone Raspberry Pi installation guide].
+We are aware that our new web stack has caused issues installing Home Assistant on ARM-based platforms. This sadly includes the Raspberry Pi and Synology NAS systems. We're working on getting to a better solution. For Raspberry Pi, the All-in-One installer will take care of everything for you. We're working on updating our [standalone Raspberry Pi installation guide].
 
 There are two cool things that I want to highlight in this release. The first is Pandora support. This is based on the CLI player called pianobar. This means that your machine running Home Assistant can be connected to the speakers and provide your house with tunes.
 
@@ -86,7 +88,6 @@ netatmo:
 [alexa]: /integrations/alexa/#working-with-scenes
 [Plex sensor]: /integrations/plex#sensor
 [Swagger.yaml format]: https://github.com/home-assistant/home-assistant/blob/dev/docs/swagger.yaml
-[All-in-One installer]: /getting-started/installation-raspberry-pi-all-in-one/
 [standalone Raspberry Pi installation guide]: /getting-started/installation-raspberry-pi/
 [Voltage sensor]: /integrations/bloomsky/#sensor
 [SNMP]: /integrations/snmp#sensor

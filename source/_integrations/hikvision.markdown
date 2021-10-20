@@ -1,11 +1,15 @@
 ---
-title: Hikvision Binary Sensor
-description: "Instructions on how to set up Hikvision camera binary sensors within Home Assistant."
-logo: hikvision.png
+title: Hikvision
+description: Instructions on how to set up Hikvision camera binary sensors within Home Assistant.
 ha_category:
   - Binary Sensor
 ha_release: 0.35
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@mezz64'
+ha_domain: hikvision
+ha_platforms:
+  - binary_sensor
 ---
 
 The Hikvision Binary Sensor is a platform that parses the event stream of a
@@ -21,7 +25,7 @@ using the "ignored" customize option detailed below.
 
 <div class='note'>
 In order for the sensors to work the hikvision user must have the 'Remote: Notify Surveillance Center/Trigger Alarm Output' permission which can be enabled from the user management section of the web interface.
-Also the 'WEB Authentication' needs to be set to 'digest/basic' in the security/authentication section.
+Also the 'WEB Authentication' needs to be set to 'digest/basic' in the security/authentication section. Ensure this is applied on each individual camera in case of using an NVR.
 </div>
 
 For example, if you configure a camera with the name "Front Porch" that has
@@ -55,7 +59,14 @@ and has been confirmed to work with the following models:
 - DS-2CD2042WD-I
 - DS-2CD2142FWD-I
 - DS-2CD2155FWD-IS
+- DS-2CD2385G1
 - IPC-D140H(-M)
+- DS-7616NI-K2 (NVR)
+
+This platform also was confirmed to work with the following Hikvison-based NVRS
+
+- N46PCK (Annke H800 4K NVR)
+- N48PAW (Annke 4K NVR)
 
 ## Configuration
 
@@ -95,7 +106,7 @@ port:
   type: integer
   default: 80
 ssl:
-  description: "`true` if you want to connect with https. Be sure to set the port also."
+  description: "`true` if you want to connect with HTTPS. Be sure to set the port also."
   required: false
   type: boolean
   default: false

@@ -5,7 +5,9 @@ date: 2017-01-28 08:04:05 +0000
 date_formatted: "January 28, 2017"
 author: Fabian Affolter et al.
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-01-0.37/social.png
 ---
 
@@ -29,12 +31,12 @@ Although the old method is not insecure, the new method is a lot more secure. Up
 ### New customization options
 [@Andrey-git] has added some great new options to the customize functionality. It is now possible to specify customizations as a wildcard for entities or for a specific domain.
 
-### Major Wink and HDMI CEC improvements
+### Major Wink and HDMI-CEC improvements
 [@w1ll1am23] did an amazing job fixing a ton of bugs and issues with the Wink integration. Biggest improvement is that it now is able to automatically refresh the authentication tokens. This means that if you have your email address and password in your `configuration.yaml` file, no `client_id` and `client_secret` are needed, and token which was generated with the generator located in the [Wink][wink] documentation.
 
 The new Wink support will cause renaming of all the binary sensors and will also create new sensors for devices that weren't previously detected or supported in the older version.
 
-Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with a lot of improvements. This update should make it easier to work with HDMI CEC and give you more control.
+Thanks to [@konikvranik] the [HDMI-CEC][cec] integration got a huge update with a lot of improvements. This update should make it easier to work with HDMI-CEC and give you more control.
 
 ### First Coffee Maker supported
 [@stu-gott] has added support for the first coffee maker in Home Assistant: [Mr. Coffee Smart Optimal Brew][coffee]. Happy brewing!
@@ -93,7 +95,7 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 - Light - Zwave: Use only supported features for devices ([@turbokongen])
 - Media player - Kodi: Support for volume stepping ([@armills])
 - Media player- roku: Use `is_screensaver`, update IDLE state, and use device name ([@robbiet480], [@xhostplus])
-- Switch - HDMI CEC: Support for devices and commands ([@konikvranik])
+- Switch - HDMI-CEC: Support for devices and commands ([@konikvranik])
 - Lock - Zwave: Improvements to Zwave lock platform ([@turbokongen])
 - TTS: Invalidate broken file cache entries ([@stu-gott])
 - Light - Hue: Improvements ([@robbiet480])

@@ -1,10 +1,11 @@
 ---
-title: "Logentries"
-description: "Send events to Logentries."
-logo: logentries.png
+title: Logentries
+description: Send events to Logentries.
 ha_category:
   - History
+ha_iot_class: Cloud Push
 ha_release: 0.13
+ha_domain: logentries
 ---
 
 The `logentries` integration makes it possible to log all state changes to [Logentries](http://logentries.com/) using Logentries Webhook endpoint.
@@ -25,4 +26,3 @@ token:
   required: true
   type: string
 {% endconfiguration %}
-

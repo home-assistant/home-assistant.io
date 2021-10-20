@@ -1,19 +1,24 @@
 ---
-title: "Deluge"
-description: "Instructions on how to integrate Deluge within Home Assistant."
-logo: deluge.png
+title: Deluge
+description: Instructions on how to integrate Deluge within Home Assistant.
 ha_category:
   - Downloading
   - Sensor
   - Switch
 ha_release: 0.57
 ha_iot_class: Local Polling
+ha_domain: deluge
+ha_platforms:
+  - sensor
+  - switch
 ---
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 - [Switch](#switch)
+
+To be able to use this integration, you have to enable the following option in deluge settings: Daemon > Allow remote controls
 
 ## Sensor
 

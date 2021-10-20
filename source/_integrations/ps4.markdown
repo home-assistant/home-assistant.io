@@ -1,12 +1,16 @@
 ---
-title: "Sony PlayStation 4"
-description: "Instructions on how to integrate a Sony PlayStation 4 into Home Assistant."
-logo: ps4.png
+title: Sony PlayStation 4
+description: Instructions on how to integrate a Sony PlayStation 4 into Home Assistant.
 ha_category:
   - Media Player
 ha_release: 0.89
 ha_config_flow: true
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@ktnrg45'
+ha_domain: ps4
+ha_platforms:
+  - media_player
 ---
 
 The `ps4` integration allows you to control a
@@ -34,17 +38,17 @@ The `ps4` integration allows you to control a
 
 ## Granting Port Access
 
-The PlayStation 4 integration requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance, you may need to allow usage of privileged ports manually.
+The PlayStation 4 integration requires the use of privileged ports during configuration to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance, you may need to allow usage of privileged ports manually.
 
 <div class='note warning'>
-  Do not run your <b>Home Assistant</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
+  Do not run your <b>Home Assistant Core</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
 </div>
 
 There are varying methods to perform this, dependent on your OS that is running Home Assistant. Specifically, your *Python Interpreter*, which runs your Home Assistant instance, needs access to the mentioned ports.
 
 <div class='note'>
 
-If your Home Assistant device is running **Hass.io** on **HassOS**, it does not require additional configuration.
+Additional configuration is only required for Home Assistant Core users **not** running on Docker.
 
 </div>
 
@@ -86,7 +90,7 @@ To find your system Python path:
   whereis python3.5.3
   ```
 
-  The output which has the directory `/bin/` is likely your system python path which should look like this `/usr/bin/python3.5`
+  The output which has the directory `/bin/` is likely your system Python path which should look like this `/usr/bin/python3.5`
 
 - If Home Assistant is installed in a virtual environment, use terminal to `cd` to the root/top directory of your environment and run:
 
@@ -114,22 +118,11 @@ When running Home Assistant using Docker, make sure that the Home Assistant cont
 
 ## Regions
 
-Some titles will have different SKUs in the PlayStation Store database, depending on your [region](https://www.playstation.com/country-selector/index.html). You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. The integration will attempt to search other databases for the correct title if it cannot be found, although it will take longer to do so and may fetch an incorrect cover.
-
-|  Available Regions                                                          | Unavailable Regions        |
-| --------------------------------------------------------------------------- | -------------------------- |
-| Argentina, Australia, Austria, Bahrain, Belgium, Brazil, Bulgaria,          | China, Japan, Philippines, |
-| Canada, Chile, Columbia, Costa Rica, Croatia, Cyprus, Czech Republic,       | Serbia, Ukraine, Vietnam   |
-| Denmark, Ecuador, El Salvador, Finland, France, Germany, Greece, Guatemala, |                            |
-| Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel,   |                            |
-| Italy, Korea, Kuwait, Lebanon, Luxembourg, Malta, Malaysia, Mexico,         |                            |
-| Middle East, Nederland, New Zealand, Nicaragua, Norway, Oman, Panama,       |                            |
-| Peru, Poland, Portugal, Qatar, Romania, Russia, Saudi Arabia, Singapore,    |                            |
-| Slovakia, Slovenia, South Africa, Spain, Sweden, Switzerland, Taiwan,       |                            |
-| Thailand, Turkey, United Arab Emirates, United Kingdom, United States       |                            |
+Some titles will have different SKUs in the PlayStation Store database, depending on your [region](https://www.playstation.com/country-selector/index.html). You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. The integration will attempt to search other databases for the correct title if it cannot be found.
 
 <div class='note'>
-  The regions which are unavailable have no database or have formatting in the database, which can not be used by the component.
+  The following regions have no database and can not be used by the integration:
+  China, Philippines, Serbia, Vietnam.
 </div>
 
 ## Media Data
@@ -163,7 +156,7 @@ When the integration retrieves data from the PlayStation Store, it stores it in 
 | ----- | ----- | ----------- |
 | `locked`             | boolean | Must be `true` or `false`
 | `media_content_type` | string  | Must be `game` or `app`
-| `media_image_url`    | string  | Any valid url for an image
+| `media_image_url`    | string  | Any valid URL for an image
 | `media_title`        | string  | The title of the game or app
 
 The data in the example shows 2 entries.
@@ -185,34 +178,35 @@ To edit, simply open the file in a text editor, find the game or app you would l
 
 Opens new application/game and closes currently running application/game. The game/app must be in the entity's source list. Games will be added automatically when you open them normally.
 
-| Service data attribute | Optional | Example                      | Description                           |
-| ---------------------- | -------- | ---------------------------- | ------------------------------------- |
-| `entity_id`            | No       | `media_player.playstation_4` | The entity id for your PlayStation 4. |
-| `source`               | No       | `Some Game` or `CUSA00123`   | The game/app you want to open. You can use the title or SKU ID. Using the SKU ID will be the most reliable.|
+| Service data attribute | Optional | Example                    | Description                           |
+| ---------------------- | -------- | -------------------------- | ------------------------------------- |
+| `entity_id`            | No       | `media_player.ps4`         | The entity id for your PlayStation 4. |
+| `source`               | No       | `Some Game` or `CUSA00123` | The game/app you want to open. You can use the title or SKU ID. Using the SKU ID will be the most reliable.|
 
 ### Service `send_command`
 
 Emulate button press on PlayStation 4. This emulates the commands available for the PS4 Second Screen App. This is not to be confused with DualShock 4 controller buttons.
 
-| Service data attribute | Optional | Example                      | Description                           |
-| ---------------------- | -------- | ---------------------------- | ------------------------------------- |
-| `entity_id`            | No       | `media_player.playstation_4` | The entity id for your PlayStation 4. |
-| `command`              | No       | `ps`                         | The command you want to send.         |
+| Service data attribute | Optional | Example            | Description                           |
+| ---------------------- | -------- | ------------------ | ------------------------------------- |
+| `entity_id`            | No       | `media_player.ps4` | The entity id for your PlayStation 4. |
+| `command`              | No       | `ps`               | The command you want to send.         |
 
 #### Available Commands
 
 Full list of supported commands.
 
-| Command  | Button Emulated  |
-| -------- | ---------------- |
-| `ps`     | PS (PlayStation) |
-| `option` | Option           |
-| `enter`  | Enter            |
-| `back`   | Back             |
-| `up`     | Swipe Up         |
-| `down`   | Swipe Down       |
-| `left`   | Swipe Left       |
-| `right`  | Swipe Right      |
+| Command   | Button Emulated    |
+| --------- | ------------------ |
+| `ps`      | PS (PlayStation)   |
+| `ps_hold` | PS Hold/Long Press |
+| `option`  | Option             |
+| `enter`   | Enter              |
+| `back`    | Back               |
+| `up`      | Swipe Up           |
+| `down`    | Swipe Down         |
+| `left`    | Swipe Left         |
+| `right`   | Swipe Right        |
 
 ## Troubleshooting
 
@@ -225,3 +219,11 @@ Be sure to include the following information:
 As well as the exact values for the following attributes found in the state of your PS4 entity.
 - media_title
 - media_content_id
+
+## Advanced Use
+
+### Ports
+
+This integration uses UDP port 1987 as the source port during runtime. During configuration, the source port will be UDP port 1988. These port assignments can be used to configure firewall rules.
+
+In the event that these ports cannot be used, the ports will fallback to a random port.

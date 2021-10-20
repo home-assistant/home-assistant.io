@@ -1,10 +1,12 @@
 ---
-title: "Device Automation"
-logo: home-assistant.png
+title: Device Automation
 ha_category:
   - Automation
-ha_qa_scale: internal
 ha_release: 0.7
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_domain: device_automation
 ---
 
 Device Automations is a plugin for the automation integration to allow other integrations to provide device specific triggers, conditions and actions.
@@ -17,7 +19,7 @@ Example:
 
 ```yaml
 - id: "123456789"
-  alias: Light turns off
+  alias: "Light turns off"
   trigger:
     - platform: device
       device_id: 7a92d5ee74014a0b86903fc669b0bcd6

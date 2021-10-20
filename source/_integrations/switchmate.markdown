@@ -1,11 +1,15 @@
 ---
-title: "Switchmate"
-description: "Instructions on how to set up Switchmate switches."
-logo: switchmate-logo-rgb.png
+title: Switchmate SimplySmart Home
+description: Instructions on how to set up Switchmate switches.
 ha_category:
   - Switch
 ha_release: 0.78
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@danielhiversen'
+ha_domain: switchmate
+ha_platforms:
+  - switch
 ---
 
 This `Switchmate` switch platform allows you to control Switchmate [devices]( https://www.mysimplysmarthome.com/products/switchmate-switches/).
@@ -17,7 +21,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 switch:
   - platform: switchmate
-    mac: 'cb:25:0b......'
+    mac: "cb:25:0b......"
 ```
 
 {% configuration %}

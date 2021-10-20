@@ -1,11 +1,13 @@
 ---
-title: "Auth"
-description: "This integration is responsible for providing the authentication endpoints."
-logo: home-assistant.png
+title: Auth
+description: This integration is responsible for providing the authentication endpoints.
 ha_category:
   - Other
 ha_release: 0.73
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_domain: auth
 ---
 
 This integration creates the endpoints for the [authentication system](/docs/authentication/) that is built into Home Assistant.

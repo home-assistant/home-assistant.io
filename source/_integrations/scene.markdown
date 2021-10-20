@@ -1,41 +1,58 @@
 ---
-title: "Scenes"
-description: "Instructions on how to setup scenes within Home Assistant."
-logo: home-assistant.png
+title: Scenes
+description: Instructions on how to setup scenes within Home Assistant.
 ha_category:
   - Organization
-ha_qa_scale: internal
 ha_release: 0.15
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_domain: scene
 ---
 
 You can create scenes that capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red.
+
+Scenes can be created and managed via the user interface using the [Scene Editor](/docs/scene/editor/). They can also be manually configured via `configuration.yaml`. Note that the entity data is not service call parameters, it's a representation of the wanted state:
 
 ```yaml
 # Example configuration.yaml entry
 scene:
   - name: Romantic
+    icon: "mdi:flower-tulip"
     entities:
-      light.tv_back_light: on
+      light.tv_back_light: "on"
       light.ceiling:
-        state: on
-        xy_color: [0.33, 0.66]
+        state: "on"
         brightness: 200
+        color_mode: "xy"
+        xy_color: [0.33, 0.66]
   - name: Movies
     entities:
       light.tv_back_light:
-        state: on
+        state: "on"
         brightness: 125
-      light.ceiling: off
+      light.ceiling: "off"
       media_player.sony_bravia_tv:
-        state: on
+        state: "on"
         source: HDMI 1
-        state: on
+  - name: Standard
+    entities:
+      light.tv_back_light:
+        state: "off"
+      light.ceiling:
+        state: "on"
+        brightness: 125
+        color_mode: "white"
 ```
 
 {% configuration %}
 name:
   description: Friendly name of scene.
   required: true
+  type: string
+icon:
+  description: Icon for the scene.
+  required: false
   type: string
 entities:
   description: Entities to control and their desired state.
@@ -60,7 +77,8 @@ automation:
     to: "home"
   action:
     service: scene.turn_on
-    entity_id: scene.romantic
+    target:
+      entity_id: scene.romantic
 ```
 
 ## Applying a scene without defining it
@@ -80,13 +98,41 @@ automation:
     data:
       entities:
         light.tv_back_light:
-          state: on
+          state: "on"
           brightness: 100
         light.ceiling: off
         media_player.sony_bravia_tv:
-          state: on
+          state: "on"
           source: HDMI 1
 ```
+
+## Using scene transitions
+
+Both the `scene.apply` and `scene.turn_on` services support setting a transition,
+which enables you to smoothen the transition to the scene.
+
+This is an example of an automation that sets a romantic scene, in which the
+light will transition to the scene in 2.5 seconds.
+
+```yaml
+# Example automation
+automation:
+  trigger:
+    platform: state
+    entity_id: device_tracker.sweetheart
+    from: "not_home"
+    to: "home"
+  action:
+    service: scene.turn_on
+    target:
+      entity_id: scene.romantic
+    data:
+      transition: 2.5
+```
+
+Transitions are currently only support by lights, which in their turn, have
+to support it as well. However, the scene itself does not have to consist of
+only lights to have a transition set.
 
 ## Reloading scenes
 
@@ -112,11 +158,11 @@ automation:
       scene_id: my_scene
       entities:
         light.tv_back_light:
-          state: on
+          state: "on"
           brightness: 100
         light.ceiling: off
         media_player.sony_bravia_tv:
-          state: on
+          state: "on"
           source: HDMI 1
 ```
 
@@ -124,12 +170,12 @@ The following example turns off some entities as soon as a window opens. The sta
 
 ```yaml
 # Example automation using snapshot
-- alias: Window opened
+- alias: "Window opened"
   trigger:
   - platform: state
     entity_id: binary_sensor.window
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   condition: []
   action:
   - service: scene.create
@@ -139,21 +185,22 @@ The following example turns off some entities as soon as a window opens. The sta
       - climate.ecobee
       - light.ceiling_lights
   - service: light.turn_off
-    data:
+    target:
       entity_id: light.ceiling_lights
   - service: climate.set_hvac_mode
-    data:
+    target:
       entity_id: climate.ecobee
-      hvac_mode: 'off'
-- alias: Window closed
+    data:
+      hvac_mode: "off"
+- alias: "Window closed"
   trigger:
   - platform: state
     entity_id: binary_sensor.window
-    from: 'on'
-    to: 'off'
+    from: "on"
+    to: "off"
   condition: []
   action:
   - service: scene.turn_on
-    data:
+    target:
       entity_id: scene.before
 ```

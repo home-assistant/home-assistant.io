@@ -5,7 +5,9 @@ date: 2017-02-25 08:04:05 +0000
 date_formatted: "February 25, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-02-0.39/social.png
 ---
 
@@ -160,7 +162,7 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Lock - Nuki: Reduce battery drain on Nuki Lock ([@pschmitt])
 - Notify - Webostv: Only try to pair notify.webostv when not paired ([@andersonshatch])
 - KNX: Fix slow status updates from the knx bus ([@keerts])
-- HDMI CEC: HDMI_CEC customization [Breaking change] ([@balloob], [@andrey-git])
+- HDMI-CEC: HDMI_CEC customization [Breaking change] ([@balloob], [@andrey-git])
 - Sensor - Moon: Remove unit of measurement ([@fabaff])
 - Z-Wave: Add initial Z-Wave config panel ([@balloob])
 - History: Allow printing the number of states returned by history and time it took to extract and add day ([@andrey-git])

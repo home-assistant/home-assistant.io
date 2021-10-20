@@ -3,7 +3,7 @@ title: "Integrations"
 description: "List of the built-in integrations of Home Assistant."
 sidebar: false
 is_homepage: true
-hide_github_edit: true
+feedback: false
 body_id: components-page
 regenerate: false
 ---
@@ -47,11 +47,11 @@ regenerate: false
       {%- for category in categories -%}
       {%- assign components_count = components | where: 'ha_category', category | size -%}
       {%- if category and category != 'Other' and components_count != 0 -%}
-      <a href='#{{ category | slugify }}' class="btn">{{ category }} ({{ components_count }})</a>
+      <a href='#{{ category | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category }} ({{ components_count }})</a>
       {%- endif -%}
       {%- endfor -%}
 
-      <a href='#other' class="btn">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
+      <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
     </div>
   </div>
   <div class="grid__item five-sixths lap-one-whole palm-one-whole">
@@ -64,17 +64,24 @@ regenerate: false
   </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.17.0/lazyload.min.js"></script>
-
+<script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  crossorigin="anonymous"></script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js" 
+    integrity="sha384-wlIoxluAn4R0ncWYWAibi4AATy1rxh4LzxfPhzhRfBwpYzbAQT7FDApW3TTf4KC+" 
+    crossorigin="anonymous"></script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.17.0/lazyload.min.js"
+    integrity="sha384-vJtpZDYI5wEvw5lJzoCEeYTiRzgoR1NmzkWtzy04p4AaQjHXAzxNqSEVlIsutpxa" 
+    crossorigin="anonymous"></script>
 {% raw %}
 <script id="component-template" type="text/x-custom-template">
   {{#components}}
   <a href="{{url}}" class="option-card">
     <div class="img-container">{{{image}}}</div>
     <div class='title'>{{title}}</div>
-    <div class='category'>{{cat}}</div>
   </a>
 {{/components}}
 {{^components}}
@@ -88,14 +95,15 @@ regenerate: false
 var allComponents = [
   {%- for component in components -%}
     {%- if component.ha_category -%}
-{%- assign sliced_version = component.ha_release | split: '.' -%}
-{%- assign minor_version = sliced_version[1]|plus: 0 -%}
-{%- assign major_version = sliced_version[0]|plus: 0 -%}
-{%- assign featured_first = true -%}
+      {%- assign sliced_version = component.ha_release | split: '.' -%}
+      {%- assign minor_version = sliced_version[1]|plus: 0 -%}
+      {%- assign major_version = sliced_version[0]|plus: 0 -%}
+      {% assign categories = "" | split: ',' %}
       {%- for ha_category in component.ha_category -%}
-{url:"{{ component.url }}", title:"{{component.title}}", cat:"{{ha_category | slugify}}", featured: {% if component.featured and featured_first %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}"},
-      {%- assign featured_first = false -%}
+        {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
+        {% assign categories = categories | push: category %}
       {%- endfor -%}
+      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}"},
     {% endif -%}
   {%- endfor -%}
   false
@@ -110,9 +118,17 @@ allComponents.pop(); // remove placeholder element at the end
 
     function init() {
       // do the lowerCase transformation once
-      for (i = 0; i < (allComponents.length); i++) {
-        allComponents[i].titleLC = allComponents[i].title.toLowerCase();
-        allComponents[i].catLC = allComponents[i].cat.toLowerCase();
+      for (i = 0; i < allComponents.length; i++) {
+        title = allComponents[i].title.toLowerCase();
+        domain = allComponents[i].domain;
+        title_normalized = title
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+        title_dedashed = title.replace(/[-_]/g, " ");
+        title_normalized_dedashed = title_normalized.replace(/[-_]/g, " ");
+
+        allComponents[i].titleLC = title;
+        allComponents[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain}`;
       }
 
       // sort the components alphabetically
@@ -145,7 +161,7 @@ allComponents.pop(); // remove placeholder element at the end
         components: [],
         image: function () {
           if (this.logo === '') {
-            return '';
+            return '<img src="https://brands.home-assistant.io/_/' + this.domain + '/logo.png" srcset="https://brands.home-assistant.io/_/' + this.domain + '/logo@2x.png 2x">';
           } else {
             return '<img data-src="/images/supported_brands/' + this.logo + '">';
           }
@@ -168,8 +184,10 @@ allComponents.pop(); // remove placeholder element at the end
           // search through title and category
           search = decodeURIComponent(hash).substring(8).toLowerCase();
           filter = function (comp) {
-            return (comp.titleLC.indexOf(search) !== -1) ||
-              (comp.catLC.indexOf(search) !== -1);
+            return (
+              comp.search.indexOf(search) !== -1 ||
+              comp.cat.find((c) => c.includes("#")) != undefined
+            );
           };
 
         } else if (hash === '#featured' || hash === '') {
@@ -190,7 +208,7 @@ allComponents.pop(); // remove placeholder element at the end
           // regular filter categories
           search = hash.substring(1);
           filter = function (comp) {
-            return comp.catLC === search;
+            return comp.cat.includes(search);
           };
         }
 
@@ -203,6 +221,13 @@ allComponents.pop(); // remove placeholder element at the end
       }
 
       rendered = Mustache.render(template, data);
+
+      // set active class on active menu item
+      jQuery('.filter-button-group a.active').removeClass('active');
+      jQuery(`.filter-button-group a[href*="${hash}"]`).addClass('active');
+      if (hash === "") {
+        jQuery('.filter-button-group a[href*="#featured"]').addClass('active');
+      }
 
       // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
       $('#componentContainer').html('').removeClass('show-items remove-items').html(rendered).addClass('show-items');
@@ -264,10 +289,13 @@ allComponents.pop(); // remove placeholder element at the end
       var text = $(this).val();
       // sanitize input
       text = text.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
-      if (typeof text === "string" && text.length !== 0) {
+      if (typeof text === "string" && text.length >= 1) {
         updateHash('#search/' + text);
-        applyFilter();
       }
+      else {
+        updateHash('#all');
+      }
+      applyFilter();
     }, 500));
 
     window.addEventListener('hashchange', applyFilter);

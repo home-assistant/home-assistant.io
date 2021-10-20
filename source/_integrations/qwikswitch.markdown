@@ -1,14 +1,22 @@
 ---
-title: "QwikSwitch QSUSB Hub"
-description: "Instructions on how to integrate the QwikSwitch QSUSB Hub into Home Assistant."
-logo: qwikswitch.png
+title: QwikSwitch QSUSB
+description: Instructions on how to integrate the QwikSwitch QSUSB Hub into Home Assistant.
 ha_category:
   - Hub
   - Binary Sensor
   - Light
   - Sensor
   - Switch
-ha_release: "0.20"
+ha_iot_class: Local Push
+ha_release: '0.20'
+ha_codeowners:
+  - '@kellerza'
+ha_domain: qwikswitch
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
+  - switch
 ---
 
 The `qwikswitch` integration is the main integration to integrate various [QwikSwitch](https://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.
@@ -46,7 +54,7 @@ button_events:
   default: TOGGLE,SCENE EXE,LEVEL
   type: string
 switches:
-  description: A list of device QS_id's that should be switches, and not lights (i.e. `['@0dev01', '@0dev02']`)
+  description: A list of device QS_id's that should be switches, and not lights (i.e., `['@0dev01', '@0dev02']`)
   required: false
   type: list
 sensors:
@@ -92,7 +100,7 @@ QwikSwitch devices (i.e., transmitter buttons) will fire events on the Home Assi
 
 ```yaml
 automation:
-  - alias: Action - Respond to A button press
+  - alias: "Action - Respond to A button press"
     trigger:
       platform: event
       event_type: qwikswitch.button.@12df34

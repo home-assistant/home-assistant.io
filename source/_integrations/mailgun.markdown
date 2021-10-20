@@ -1,17 +1,21 @@
 ---
-title: "Mailgun"
-description: "Instructions on how to add Mailgun mail notifications to Home Assistant."
-logo: mailgun.png
+title: Mailgun
+description: Instructions on how to add Mailgun mail notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.38
+ha_config_flow: true
+ha_domain: mailgun
+ha_platforms:
+  - notify
 ---
 
-To be able to receive webhooks from Mailgun, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([docs](/integrations/http/#base_url)).
+To be able to receive webhooks from Mailgun, your Home Assistant instance needs to be accessible from the web and you need to have the extern URL [configured](/docs/configuration/basic)).
 
 To set it up, go to the integrations page in the configuration screen and find Mailgun. Click on configure. Follow the instructions on the screen to configure Mailgun.
 
-You will get a URL of the following format: `https://<home-assistant-domain>/api/webhook/9940e99a26fae4dcf6fe0a478124b6b58b578ea4c55c9a584beb1c9f5057bb91`. To receive webhooks from Mailgun, you need to provide that url as a callback URL in the Webhooks tab of the Mailgun Control Panel.
+You will get a URL of the following format: `https://<home-assistant-domain>/api/webhook/9940e99a26fae4dcf6fe0a478124b6b58b578ea4c55c9a584beb1c9f5057bb91`. To receive webhooks from Mailgun, you need to provide that URL as a callback URL in the Webhooks tab of the Mailgun Control Panel.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -55,7 +59,8 @@ automation:
       action: call_service
   action:
     service: light.turn_on
-    entity_id: light.office
+    target:
+      entity_id: light.office
 ```
 
 ## Notifications
@@ -73,19 +78,11 @@ notify:
 ```
 
 {% configuration %}
-domain:
-  description: This is the domain name to be used when sending out mail.
-  required: true
-  type: string
-sandbox:
-  description: "(**Deprecated**) If a sandboxed domain is used, specify it in `domain`."
+name:
+  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME."
   required: false
-  default: false
-  type: boolean
-api_key:
-  description: This is the API Key that has been generated in your Mailgun account.
-  required: true
   type: string
+  default: notify
 recipient:
   description: The email address of the recipient.
   required: true

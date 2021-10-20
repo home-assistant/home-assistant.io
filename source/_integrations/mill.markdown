@@ -1,43 +1,28 @@
 ---
-title: "Mill heater"
-description: "Instructions on how to integrate Mill heater into Home Assistant."
-logo: mill.png
+title: Mill
+description: Instructions on how to integrate Mill heater into Home Assistant.
 ha_category:
   - Climate
 ha_release: 0.81
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@danielhiversen'
+ha_domain: mill
+ha_config_flow: true
+ha_platforms:
+  - climate
+  - sensor
 ---
 
 Integrates Mill heater into Home Assistant.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable this platform, add the following lines to your `configuration.yaml` file:
+## Integration services
 
-```yaml
-climate:
-  - platform: mill
-    username: YOUR_EMAIL_ADDRESS
-    password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Your registered Mill email.
-  required: true
-  type: string
-password:
-  description: Your Mill password.
-  required: true
-  type: string
-{% endconfiguration %}
-
-## Component services
-
-This platform supports a service to set the temperature for the room connected to heater in the Mill app:
+This integration supports a service to set the temperature for the room connected to heater in the Mill app:
 
 `mill.set_room_temperature`
-
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

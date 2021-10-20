@@ -1,7 +1,6 @@
 ---
-title: "Lutron"
-description: "Instructions on how to use Lutron devices with Home Assistant."
-logo: lutron.png
+title: Lutron
+description: Instructions on how to use Lutron devices with Home Assistant.
 ha_category:
   - Hub
   - Cover
@@ -10,6 +9,15 @@ ha_category:
   - Switch
 ha_release: 0.37
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@JonGilmore'
+ha_domain: lutron
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - scene
+  - switch
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron` integration in Home Assistant is responsible for communicating with the main hub for these systems.
@@ -20,14 +28,14 @@ Presently, there's only support for communicating with the [RadioRA 2](http://ww
 
 When configured, the `lutron` integration will automatically discover the rooms and their associated switches/dimmers as configured by the RadioRA 2 software from Lutron. Each room will be treated as a separate group.
 
-To use Lutron RadioRA 2 devices in your installation, add the following to your `configuration.yaml` file using the IP address of your RadioRA 2 main repeater:
+To use Lutron RadioRA 2 devices in your installation, you'll need to first create a username/password in your Lutron programming software. Once a telnet username/password has been programmed, add the following to your `configuration.yaml` file using the IP address of your RadioRA 2 main repeater:
 
 ``` yaml
 # Example configuration.yaml entry
 lutron:
   host: IP_ADDRESS
-  username: lutron
-  password: integration
+  username: USERNAME
+  password: PASSWORD
 ```
 
 {% configuration %}
@@ -55,13 +63,21 @@ It is recommended to assign a static IP address to your main repeater. This ensu
 
 Individual buttons on keypads are not represented as entities. Instead, they fire events called `lutron_event` whose payloads include `id` and `action` attributes.
 
-The `id` attribute includes the name of the keypad and the name of the button, normalized the same way entity names are. For example, if the keypad is called "Kitchen Keypad" and the button is called "Dinner" the event's `id` will be `kitchen_keypad_dinner`.
+The `id` attribute includes the name of the keypad and the name of the button, normalized the same way entity names are. For example, if the keypad is called "Kitchen Keypad" and the button is called "Dinner" the event's `id` will be `kitchen_keypad_dinner`. If the button has not been assigned a name by the Lutron system installer then the button will have a name of "Unknown Button". In this case the `id` will be suffixed with the underlying Lutron button number and will be of the form `kitchen_keypad_unknown_button_1`.
 
 The `action` attribute varies depending on the button type.
 
 For raise/lower buttons (dimmer buttons, shade controls, etc.) there will be two values, `pressed` and `released`, fired when the button is pressed and when it's released, respectively.
 
 For single-action buttons (scene selection, etc.), `action` will be `single`, and there will only be one event fired. This is a limitation of the Lutron controller which doesn't give Home Assistant any way of knowing when a single-action button is released.
+
+## Keypad LEDs
+
+Each full-width button on a Lutron SeeTouch, Hybrid SeeTouch, and Tabletop SeeTouch Keypad has an LED that can be controlled by Home Assistant. A service call of switch.turn_off or switch.turn_on against the appropriate LED entity will control the keypad LED.
+
+Keep in mind that the Lutron system will also control the LED state independent of Home Assistant, according to the programming of the RadioRA2 system. This also means you can query LED states to determine if a certain scene is active, since the LED will have been illuminated by the RadioRA2 repeaters. This includes the "phantom" LEDs of Main Repeater Keypad buttons; even though there is no physical button or LED, the RadioRA2 system tracks the scenes and will "light" the LED that can be queried.
+
+If a button is not programmed to control any lights or other devices in the RadioRA2 system but is given a name in the programming software, it will be available to fire events in Home Assistant. However, since there is no way to have a scene "active" on a button with no devices associated, the Main Repeater will automatically extinguish the keypad LED a few seconds after the button press. If you wish to have Home Assistant light the keypad LED after a button press, you will need to delay your service call to light the LED for several seconds, so it arrives after the Main Repeater has sent the command to turn it off.
 
 ## Scene
 
@@ -72,7 +88,7 @@ After setup, scenes will appear in Home Assistant using the area, keypad and but
 
 ## Occupancy Sensors
 
-Any configured Powr Savr occuancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for an area, rather than reporting individual sensors. Sensitivity and timeouts are controlled on the sensors themselves, not in software.
+Any configured Powr Savr occupancy sensors will be added as occupancy binary sensors. Lutron reports occupancy for an area, rather than reporting individual sensors. Sensitivity and timeouts are controlled on the sensors themselves, not in software.
 
 ## Example Automations
 

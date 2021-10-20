@@ -1,25 +1,23 @@
 ---
-title: "Twente Milieu"
-description: "Instructions on how to integrate Twente Milieu with Home Assistant."
-logo: twentemilieu.png
+title: Twente Milieu
+description: Instructions on how to integrate Twente Milieu with Home Assistant.
 ha_category:
   - Sensor
   - Environment
 ha_release: 0.97
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@frenck'
+ha_domain: twentemilieu
+ha_platforms:
+  - sensor
 ---
 
 The Twente Milieu integration allows you to track the next scheduled waste
 pickups by Twente Milieu for each of the different waste types.
 
-## Configuration via the frontend
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Twente Milieu**.
-Follow the configuration flow, after finishing, the Twente Milieu
-integration will be available.
+{% include integrations/config_flow.md %}
 
 ## Sensors
 

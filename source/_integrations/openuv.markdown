@@ -1,7 +1,6 @@
 ---
-title: "OpenUV"
-description: "Instructions on how to integrate OpenUV within Home Assistant."
-logo: openuv.jpg
+title: OpenUV
+description: Instructions on how to integrate OpenUV within Home Assistant.
 ha_category:
   - Health
   - Binary Sensor
@@ -9,9 +8,21 @@ ha_category:
 ha_release: 0.76
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@bachya'
+ha_domain: openuv
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `openuv` integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
+
+<div class='note warning'>
+The guidelines within this documentation constitute estimates and are intended to help
+informed decision making. They should not replace analysis, advice or diagnosis from a
+trained medical professional.
+</div>
 
 ## Generating an API Key
 
@@ -19,130 +30,55 @@ To generate an API key,
 [simply log in to the OpenUV website](https://www.openuv.io/auth/google).
 
 <div class='note warning'>
-
 Beginning February 1, 2019, the "Limited" plan (which is what new users are
 given by default) is limited to 50 API requests per day. Because different
 API plans and locations will have different requirements, the `openuv`
 component does not automatically query the API for new data after it initially
 loads. To request new data, the `update_data` service may be used.
-
 </div>
 
 <div class='note warning'>
-
-Each use of the `update_data` service will consume 1 or 2 API calls, depending
-on which monitored conditions are configured.
-
-If the OpenUV integration is configured through the Home Assistant UI (via the
-`Configuration >> Integrations` panel), each service call will consume 2 API
-calls from the daily quota.
-
-If the OpenUV integration is configured via `configuration.yaml`, service calls
-will consume 2 API calls if `monitored_conditions` contains both
-`uv_protection_window` and any other condition; any other scenarios will only
-consume 1 API call.
-
-Ensure that you understand these specifications when calling the `update_data`
-service.
-
+Each use of the `update_data` service will consume 2 API calls from the daily quota
+(since it performs the same tasks as back-to-back calls of the `update_uv_index_data` and
+the `update_protection_data` services).
 </div>
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To retrieve data from OpenUV, add the following to your `configuration.yaml`
-file:
+## Sensors
 
-```yaml
-openuv:
-  api_key: YOUR_OPENUV_API_KEY
-```
+| Name | Type | Value |
+|------|------|-------|
+| Current Ozone Level | Sensor | ozone level in du (Dobson Units) |
+| Current UV Index | Sensor | UV Index (numerical value) |
+| Current UV Level | Sensor | UV Level (as literal) |
+| Max UV Index | Sensor | max UV Index for the day (at solar noon) |
+| Protection Window | Binary Sensor | whether sunblock protection should be used |
 
-{% configuration %}
-api_key:
-  description: The OpenUV API key.
-  required: true
-  type: string
-binary_sensors:
-  description: The binary sensor-related configuration options.
-  required: false
-  type: map
-  keys:
-    monitored_conditions:
-      description: The conditions to create sensors from.
-      required: false
-      type: list
-      default: all
-      keys:
-        uv_protection_window:
-          description: Displays if UV protection (sunscreen, etc.) is recommended at the current date and time.
-sensors:
-  description: The sensor-related configuration options.
-  required: false
-  type: map
-  keys:
-    monitored_conditions:
-      description: The conditions to create sensors from.
-      required: false
-      type: list
-      default: all
-      keys:
-        current_ozone_level:
-          description: The current ozone level in du (Dobson Units).
-        current_uv_index:
-          description: The current UV index.
-        current_uv_level:
-          description: "The level of current UV index, which is calculated based on [UV Index Levels & Colors](https://www.openuv.io/kb/uv-index-levels-colors)."
-        max_uv_index:
-          description: The maximum UV index that will be encountered that day (at solar noon).
-        safe_exposure_time_type_1:
-          description: The approximate exposure time for skin type I.
-        safe_exposure_time_type_2:
-          description: The approximate exposure time for skin type II.
-        safe_exposure_time_type_3:
-          description: The approximate exposure time for skin type III.
-        safe_exposure_time_type_4:
-          description: The approximate exposure time for skin type IV.
-        safe_exposure_time_type_5:
-          description: The approximate exposure time for skin type V.
-        safe_exposure_time_type_6:
-          description: The approximate exposure time for skin type VI.
-{% endconfiguration %}
+### Protection Window
+
+The Protection Window binary sensor will be `on` when sunblock protection should be used.
+
+By default, this occurs anytime the UV index is above 3.5. This behavior can be
+configured via the config entry options within the UI. Two parameters are given:
+
+* `Starting UV index for the protection window`: the UV index that, when passed, indicates protection should be utilized
+* `Ending UV index for the protection window`: the UV index that, when passed, indicates protection is no longer required
+
+### The Fitzpatrick Scale
 
 The approximate number of minutes of a particular skin type can be exposed to
 the sun before burning/tanning starts is based on the
 [Fitzpatrick scale](https://en.wikipedia.org/wiki/Fitzpatrick_scale).
 
-## Full Configuration Example
+OpenUV integration provide sensors for safe exposure time (in minutes) based on skin type:
 
-To configure additional functionality, add configuration options beneath a
-`binary_sensor` and/or `sensor` key within the `openuv` section of the
-`configuration.yaml` file as below:
-
-```yaml
-openuv:
-  api_key: YOUR_OPENUV_API_KEY
-  binary_sensors:
-    monitored_conditions:
-      - uv_protection_window
-  sensors:
-    monitored_conditions:
-      - current_ozone_level
-      - current_uv_index
-      - current_uv_level
-      - max_uv_index
-      - safe_exposure_time_type_1
-      - safe_exposure_time_type_2
-      - safe_exposure_time_type_3
-      - safe_exposure_time_type_4
-      - safe_exposure_time_type_5
-      - safe_exposure_time_type_6
-```
-
-<div class='note warning'>
-The above guidelines constitute estimates and are intended to help informed
-decision making. They should not replace analysis, advice or diagnosis from a
-trained medical professional.
-</div>
+- Skin Type 1 Safe Exposure Time
+- Skin Type 2 Safe Exposure Time
+- Skin Type 3 Safe Exposure Time
+- Skin Type 4 Safe Exposure Time
+- Skin Type 5 Safe Exposure Time
+- Skin Type 6 Safe Exposure Time
 
 ## Services
 
@@ -165,10 +101,10 @@ usage is to only retrieve data during the daytime:
 
 ```yaml
 automation:
-  - alias: Update OpenUV every 30 minutes during the daytime
+  - alias: "Update OpenUV every 30 minutes during the daytime"
     trigger:
       platform: time_pattern
-      minutes: '/30'
+      minutes: "/30"
     condition:
       condition: and
       conditions:
@@ -180,27 +116,32 @@ automation:
       service: openuv.update_data
 ```
 
-Update only the sensors every 20 minutes while the sun is at least 10 degrees above the horizon:
+Update the UV index data every 20 minutes while the sun is at least 10 degrees above the horizon:
+
+{% raw %}
 
 ```yaml
 automation:
-  - alias: Update OpenUV every 20 minutes while the sun is at least 10 degrees above the horizon
+  - alias: "Update OpenUV every 20 minutes while the sun is at least 10 degrees above the horizon"
     trigger:
       platform: time_pattern
-      minutes: '/20'
+      minutes: "/20"
     condition:
       condition: numeric_state
       entity_id: sun.sun
-      value_template: '{{ state.attributes.elevation }}'
+      value_template: "{{ state.attributes.elevation }}"
       above: 10
     action:
       service: openuv.update_uv_index_data
 ```
 
+{% endraw %}
+
 Update the protection window once a day:
+
 ```yaml
 automation:
-  - alias: Update OpenUV protection window once a day
+  - alias: "Update OpenUV protection window once a day"
     trigger:
       platform: time
       at: "02:12:00"
@@ -208,16 +149,16 @@ automation:
       service: openuv.update_protection_data
 ```
 
-Another method (useful when monitoring locations other than the HASS latitude
+Another method (useful when monitoring locations other than the Home Assistant latitude
 and longitude, in locations where there is a large amount of sunlight per day,
 etc.) might be to simply query the API less often:
 
 ```yaml
 automation:
-  - alias: Update OpenUV every hour (24 of 50 calls per day)
+  - alias: "Update OpenUV every hour (24 of 50 calls per day)"
     trigger:
       platform: time_pattern
-      minutes: '/60'
+      hours: "*"
     action:
       service: openuv.update_data
 ```

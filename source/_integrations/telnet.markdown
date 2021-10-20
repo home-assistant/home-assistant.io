@@ -1,10 +1,13 @@
 ---
-title: "Telnet Switch"
-description: "Instructions on how to integrate telnet switches into Home Assistant."
+title: Telnet
+description: Instructions on how to integrate telnet switches into Home Assistant.
 ha_category:
   - Switch
 ha_release: 0.54
 ha_iot_class: Local Polling
+ha_domain: telnet
+ha_platforms:
+  - switch
 ---
 
 The `telnet` switch platform allows you to control devices with telnet commands.
@@ -12,20 +15,22 @@ The `telnet` switch platform allows you to control devices with telnet commands.
 To enable this switch, add the following lines to your `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: telnet
-  switches:
-    projector:
-      resource: THE_IP_ADDRESS
-      port: 4002
-      command_on: "PWR ON"
-      command_off: "PWR OFF"
-      command_state: "PWR?"
-      value_template: '{{ value == "PWR=01" }}'
-      timeout: 0.9
+  - platform: telnet
+    switches:
+      projector:
+        resource: THE_IP_ADDRESS
+        port: 4002
+        command_on: "PWR ON"
+        command_off: "PWR OFF"
+        command_state: "PWR?"
+        value_template: '{{ value == "PWR=01" }}'
+        timeout: 0.9
 ```
+
 {% endraw %}
 
 {% configuration %}

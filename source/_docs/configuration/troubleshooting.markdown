@@ -1,7 +1,6 @@
 ---
 title: "Troubleshooting your configuration"
 description: "Common problems with tweaking your configuration and their solutions."
-redirect_from: /getting-started/troubleshooting-configuration/
 ---
 
 It can happen that you run into trouble while configuring Home Assistant. Perhaps an integration is not showing up or is acting strangely. This page will discuss a few of the most common problems.
@@ -10,22 +9,25 @@ Before we dive into common issues, make sure you know where your configuration d
 
 Whenever an integration or configuration option results in a warning, it will be stored in `home-assistant.log` in the configuration directory. This file is reset on start of Home Assistant.
 
-### My integration does not show up
+## My integration does not show up
 
 When an integration does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your integration you are trying to set up.
 
-If you have incorrect entries in your configuration files you can use the [`check_config`](/docs/tools/check_config/) script to assist in identifying them: `hass --script check_config`. If you need to provide the path for your configuration you can do this using the `-c` argument like this: `hass --script check_config -c /path/to/your/config/dir`.
+If you have incorrect entries in your configuration files you can use the configuration check command (below) to assist in identifying them.
 
-#### Problems with the configuration
+### Problems with the configuration
 
-One of the most common problems with Home Assistant is an invalid `configuration.yaml` or other configuration file. 
- 
- - You can test your configuration using the command line with: `hass --script check_config`.
-   - On Hass.io you can use the [hassio command](/hassio/commandline/#home-assistant): `hassio homeassistant check`.
-   - On Docker you can use `docker exec home-assistant python -m homeassistant --script check_config --config /config` - where `home-assistant` is the name of the container.
- - The configuration files, including `configuration.yaml` must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
- - You can verify your configuration's yaml structure using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
- - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
+One of the most common problems with Home Assistant is an invalid `configuration.yaml` or other configuration file.
+
+- Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has it's own section in the common-tasks about this:
+  - [Operating System](/common-tasks/os/#configuration-check)
+  - [Container](/common-tasks/container/#configuration-check)
+  - [Core](/common-tasks/core/#configuration-check)
+  - [Supervised](/common-tasks/supervised/#configuration-check)
+
+- The configuration files, including `configuration.yaml` must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
+- You can verify your configuration's YAML structure using [this online YAML parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/).
+- To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 
 `configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one component, you can append a [number or string](/getting-started/devices/#style-2-list-each-device-separately) to the name or nest them using [this style](/getting-started/devices/#style-1-collect-every-entity-under-the-parent):
 
@@ -55,13 +57,14 @@ It can happen that some integrations either do not work right away or stop worki
 
 #### Multiple files
 
-If you are using multiple files for your setup, make sure that the pointers are correct and the format of the files is valid. 
+If you are using multiple files for your setup, make sure that the pointers are correct and the format of the files is valid. It's important to understand the different types of `!include` and how the contents of each file should be structured - more information on the various methods of splitting your configuration into multiple files can be found [here](/docs/configuration/splitting_configuration).
 
 ```yaml
 light: !include devices/lights.yaml
 sensor: !include devices/sensors.yaml
 ```
-Contents of `lights.yaml` (notice it does not contain `light: `):
+
+Contents of `lights.yaml` (notice it does not contain `light:`):
 
 ```yaml
 - platform: hyperion
@@ -89,8 +92,8 @@ Whenever you report an issue, be aware that we are volunteers who do not have ac
 
 The only characters valid in entity names are:
 
-* Lowercase letters
-* Numbers
-* Underscores
+- Lowercase letters
+- Numbers
+- Underscores
 
 If you create an entity with other characters then Home Assistant may not generate an error for that entity. However you will find that attempts to use that entity will generate errors (or possibly fail silently).

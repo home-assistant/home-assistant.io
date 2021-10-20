@@ -1,12 +1,14 @@
 ---
-title: "Twitter"
-description: "Instructions on how to add Twitter notifications to Home Assistant."
-logo: twitter.png
+title: Twitter
+description: Instructions on how to add Twitter notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: 0.12
+ha_domain: twitter
+ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
 ---
-
 
 The `twitter` notification platform uses [Twitter](https://twitter.com) to deliver notifications from Home Assistant.
 

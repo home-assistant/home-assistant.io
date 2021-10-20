@@ -1,18 +1,25 @@
 ---
-title: "Recorder"
-description: "Instructions on how to configure the data recorder for Home Assistant."
-logo: home-assistant.png
+title: Recorder
+description: Instructions on how to configure the data recorder for Home Assistant.
 ha_category:
-  - "History"
+  - History
 ha_release: pre 0.7
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: recorder
+ha_iot_class: Local Push
 ---
 
-The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/integrations/history/).
+The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history`](/integrations/history/) integration.
+
+<div class='note'>
+
+This integration constantly saves data. If you use the default configuration, the data will be saved on the media Home Assistant is installed on. In case of Raspberry Pi with an SD card, it might affect your system's reaction time and life expectancy of the storage medium (the SD card). It is therefore recommended to set the [commit_interval](/integrations/recorder#commit_interval) to higher value, e.g. 30s, limit the amount of stored data (e.g., by excluding devices) or store the data elsewhere (e.g., another system).
+
+</div>
 
 Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
-The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant` or '/config/' in HassIO) and called `home-assistant_v2.db`.
+The default database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
 
 To change the defaults for the `recorder` integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -28,21 +35,36 @@ recorder:
   type: map
   keys:
     db_url:
-      description: The URL that points to your database.
+      description: The URL that points to your database. Examples of these can be found [here](#custom-database-engines).
       required: false
       type: string
+    db_max_retries:
+      description: The max amount of times, the recorder retries to connect to the database.
+      required: false
+      default: 10
+      type: integer
+    db_retry_wait:
+      description: The time in seconds, that the recorder sleeps when trying to connect to the database.
+      required: false
+      default: 3
+      type: integer 
+    auto_purge:
+      description: Automatically purge the database every night at 04:12 local time. Purging keeps the database from growing indefinitely, which takes up disk space and can make Home Assistant slow. If you disable `auto_purge` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically.
+      required: false
+      default: true
+      type: boolean
     purge_keep_days:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
       default: 10
       type: integer
-    purge_interval:
-      description: How often (in days) the purge task runs. If a scheduled purge is missed (e.g., if Home Assistant was not running), the schedule will resume soon after Home Assistant restarts. You can use the [service](#service-purge) call `purge` when required without impacting the purge schedule. If this is set to `0` (zero), automatic purging is disabled.
+    commit_interval:
+      description: How often (in seconds) the events and state changes are committed to the database. The default of `1` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the logbook and history will lag. If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
       required: false
       default: 1
       type: integer
     exclude:
-      description: Configure which integrations should be excluded from recordings.
+      description: Configure which integrations should be excluded from recordings. ([Configure Filter](#configure-filter))
       required: false
       type: map
       keys:
@@ -50,17 +72,29 @@ recorder:
           description: The list of domains to be excluded from recordings.
           required: false
           type: list
+        entity_globs:
+          description: Exclude all entities matching a listed pattern from recordings (e.g., `sensor.weather_*`).
+          required: false
+          type: list
         entities:
           description: The list of entity ids to be excluded from recordings.
           required: false
           type: list
+        event_types:
+          description: The list of event types to be excluded from recordings.
+          required: false
+          type: list
     include:
-      description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded.
+      description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded. ([Configure Filter](#configure-filter))
       required: false
       type: map
       keys:
         domains:
           description: The list of domains to be included in the recordings.
+          required: false
+          type: list
+        entity_globs:
+          description: Include all entities matching a listed pattern from recordings (e.g., `sensor.weather_*`).
           required: false
           type: list
         entities:
@@ -69,7 +103,47 @@ recorder:
           type: list
 {% endconfiguration %}
 
-Defining domains and entities to `exclude` (aka. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains that do not change (like `weblink`) or rarely change (like `updater` or `automation`).
+## Configure Filter
+
+By default, no entity will be excluded. To limit which entities are being exposed to `recorder`, you can use the `include` and `exclude` parameters.
+
+```yaml
+# Example filter to include specified domains and exclude specified entities
+recorder:
+  include:
+    domains:
+      - alarm_control_panel
+      - light
+    entity_globs:
+      - binary_sensor.*_occupancy
+  exclude:
+    entities:
+      - light.kitchen_light
+```
+
+Filters are applied as follows:
+
+1. No includes or excludes - pass all entities
+2. Includes, no excludes - only include specified entities
+3. Excludes, no includes - only exclude specified entities
+4. Both includes and excludes:
+   - Include domain and/or glob patterns specified
+      - If domain is included, and entity not excluded or match exclude glob pattern, pass
+      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - If domain is not included, glob pattern does not match, and entity not included, fail
+   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
+      - If domain is excluded and entity not included, fail
+      - If entity matches exclude glob pattern and entity not included, fail
+      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
+   - Neither include or exclude specifies domains or glob patterns
+      - If entity is included, pass (as #2 above)
+      - If entity include and exclude, the entity exclude is ignored
+
+If you only want to hide events from your history, take a look at the [`history` integration](/integrations/history/). The same goes for the [logbook](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+
+### Common filtering examples
+
+Defining domains and entities to `exclude` (i.e. blocklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
 
 ```yaml
 # Example configuration.yaml entry with exclude
@@ -79,15 +153,18 @@ recorder:
   exclude:
     domains:
       - automation
-      - weblink
       - updater
+    entity_globs:
+      - sensor.weather_*
     entities:
       - sun.sun # Don't record sun data
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
+    event_types:
+      - call_service # Don't record service calls
 ```
 
-define domains and entities to record by using the `include` configuration (aka. whitelist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
+Defining domains and entities to record by using the `include` configuration (i.e. allowlist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
 
 ```yaml
 # Example configuration.yaml entry with include
@@ -111,44 +188,120 @@ recorder:
       - media_player
   exclude:
     entities:
-     - sensor.last_boot
-     - sensor.date
+      - sensor.last_boot
+      - sensor.date
+    entity_globs:
+      - sensor.weather_*
 ```
 
-If you only want to hide events from your history, take a look at the [`history` integration](/integrations/history/). The same goes for the [logbook](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+## Services
 
 ### Service `purge`
 
 Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
+Note that purging will not immediately decrease disk space usage but it will significantly slow down further growth.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)
-| `repack`               |      yes | Rewrite the entire database, possibly saving some disk space. Only supported for SQLite and requires at least as much disk space free as the database currently uses.
+| Service data attribute | Optional | Description                                                                                                                                                                                              |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                    |
+| `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
+| `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size. |
+
+### Service `purge_entities`
+
+Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains` and `entity_globs` fields. Note: leaving all three parameters empty will result in all entities being selected for purging.
+
+| Service data attribute | Optional | Description                                                                                                                                                                                              |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | A list of entity_ids that should be purged from the recorder database. |
+| `domains`               | yes      | A list of domains that should be purged from the recorder database. |
+| `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database. |
+
+### Service `disable`
+
+Call the service `recorder.disable` to stop saving events and states to the database.
+
+### Service `enable`
+
+Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
+
+## Recommended engines and minimum versions
+
+The following database engines are tested when major changes are made to the recorder. Other database engines do not have an active core maintainer at this time and may require additional work to maintain.
+
+- SQLite 3.32.1+
+- MariaDB 10.3+
+- MySQL 5.7+
+- PostgreSQL 12+
 
 ## Custom database engines
 
-| Database engine | `db_url`                                                 |
-| :---------------|:---------------------------------------------------------|
-| SQLite          | `sqlite:////PATH/TO/DB_NAME`                             |
-| MariaDB         | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                 |
-| MariaDB         | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
-| MySQL           | `mysql://SERVER_IP/DB_NAME?charset=utf8`         |
-| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
-| PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
-| PostgreSQL      | `postgresql://user:password@SERVER_IP/DB_NAME`             |
-| PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |
-| MS SQL Server   | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;` |
+Here are examples to use with the [`db_url`](#db_url) configuration option.
+
+{% configuration_basic %}
+
+SQLite:
+  description: >
+    `sqlite:////PATH/TO/DB_NAME`
+MariaDB (omit pymysql):
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
+MariaDB (omit pymysql, using TLS encryption):
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4;ssl=true`
+MariaDB (omit pymysql, Socket):
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`
+MySQL:
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
+MySQL (using TLS encryption):
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4;ssl=true`
+MySQL (Socket):
+  description: >
+    `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`
+MariaDB:
+  description: >
+    `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
+MariaDB (Socket):
+  description: >
+    `mysql+pymysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`
+PostgreSQL:
+  description: >
+    `postgresql://user:password@SERVER_IP/DB_NAME`
+PostgreSQL (Socket):
+  description: >
+    `postgresql://@/DB_NAME`
+PostgreSQL (Custom socket dir):
+  description: >
+    `postgresql://@/DB_NAME?host=/path/to/dir`
+MS SQL Server:
+  description: >
+    `mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=DRIVER`
+Oracle:
+  description: >
+    `oracle+cx_oracle://username:password@SERVER_IP:1521/DB_NAME?encoding=UTF-8&nencoding=UTF-8`
+
+{% endconfiguration_basic %}
 
 <div class='note'>
 
-Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8`.
+Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8mb4`.
 
 </div>
 
 <div class='note'>
 
-Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e. `localhost`).
+When using a MariaDB or MySQL server, adding `+pymysql` to the URL will use the pure Python MySQL library, which is slower but may be required if the C MySQL library is not available. 
+
+When using the official Docker image, the C MySQL library will always be available. `pymysql` is most commonly used with `venv` where the C MySQL library is not installed.
+
+</div>
+
+<div class='note'>
+
+Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e., `localhost`).
 
 </div>
 
@@ -166,7 +319,8 @@ If you are using the default `FULL` recovery model for MS SQL Server you will ne
 
 ### Database startup
 
-If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
+If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) you should edit the service file.
+To help facilitate this, db_max_retry and db_retry_wait variables have been added to ensure the recorder retries the connection to your database enough times, for your database to start up.
 
 ```bash
 sudo nano /etc/systemd/system/home-assistant@homeassistant.service
@@ -192,6 +346,7 @@ Not all Python bindings for the chosen database engine can be installed directly
 
 ### MariaDB and MySQL
 
+Make sure the default character set of your database server is set to `utf8mb4` (see [MariaDB documentation](https://mariadb.com/kb/en/setting-character-sets-and-collations/#example-changing-the-default-character-set-to-utf-8)).
 If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package described below.
 
 ```bash
@@ -222,6 +377,14 @@ Once Home Assistant finds the database, with the right level of permissions, all
 
 ### PostgreSQL
 
+Create the PostgreSQL database with `utf8` encoding. The PostgreSQL default encoding is `SQL_ASCII`. From the `postgres` user account;
+```bash
+createdb -E utf8 DB_NAME
+```
+Where `DB_NAME` is the name of your database
+
+If the Database in use is not `utf8`, adding `?client_encoding=utf8` to the `db_url` may solve any issue.
+
 For PostgreSQL you may have to install a few dependencies:
 
 ```bash
@@ -229,7 +392,13 @@ sudo apt-get install postgresql-server-dev-X.Y
 pip3 install psycopg2
 ```
 
-For using Unix Sockets, add the following line to your [`pg_hba.conf`](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html):
+For using Unix Sockets, first create your user from the `postgres` user account;
+```bash
+createuser USER_NAME
+```
+Where `USER_NAME` is the name of the user running the Home Assistant instance (see [securing your installation](/docs/configuration/securing/)).
+
+Then add the following line to your [`pg_hba.conf`](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html):
 
 `local  DB_NAME USER_NAME peer`
 
@@ -262,10 +431,10 @@ source /srv/homeassistant/bin/activate
 pip3 install pyodbc
 ```
 
-You will also need to install an ODBC Driver. Microsoft ODBC drivers are recommended, however FreeTDS is available for systems that are not supported by Microsoft. Instrucitons for installing the Microsoft ODBC drivers can be found [here](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
+You will also need to install an ODBC Driver. Microsoft ODBC drivers are recommended, however FreeTDS is available for systems that are not supported by Microsoft. Instructions for installing the Microsoft ODBC drivers can be found [here](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
 <div class='note'>
 
-If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={FreeTDS};Port=1433;`.
+If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8mb4&driver=FreeTDS`.
 
 </div>

@@ -1,16 +1,21 @@
 ---
-title: "Zone"
-description: "Instructions on how to set up zones within Home Assistant."
-logo: home-assistant.png
+title: Zone
+description: Instructions on how to set up zones within Home Assistant.
 ha_category:
   - Organization
-ha_qa_scale: internal
+  - Presence Detection
 ha_release: 0.69
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_domain: zone
 ---
 
 Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/getting-started/automation-trigger/#zone-trigger) or [condition](/getting-started/automation-condition/#zone-condition) inside automation setups.
 
-The `zone` integration uses YAML sequences to configure multiple zones:
+Zones can be added and managed through the user interface at **{% my zones title="Configuration -> Zones" %}**.
+
+Zones can also be configured via `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -36,7 +41,7 @@ zone:
 {% configuration %}
 name:
   description: The friendly name of the zone.
-  required: false
+  required: true
   type: string
 latitude:
   description: The latitude of the center point of the zone.
@@ -66,7 +71,7 @@ To find the latitude/longitude of a certain place you can use [Google Maps](http
 
 ## Home zone
 
-If no configuration is given, the `zone` integration will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration and name it **'Home'**.
+If no configuration is given, the `zone` integration will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration in `configuration.yaml` (see above) and name it **'Home'**. Overriding the Home zone via the UI is not supported.
 
 <div class='note'>
 
@@ -76,7 +81,7 @@ Devices that are in the zone **'Home'** will not appear on the map in the Home A
 
 ## Icons
 
-It is preferred to pick an icon to use for your zone. Pick any icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:worker`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
+It is preferred to pick an icon to use for your zone. Pick any icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
 
 ## State
 

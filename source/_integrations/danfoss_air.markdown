@@ -1,14 +1,18 @@
 ---
-title: "Danfoss Air"
-description: "How to integrate Danfoss Air HRV in Home Assistant."
+title: Danfoss Air
+description: How to integrate Danfoss Air HRV in Home Assistant.
 ha_category:
   - Climate
   - Binary Sensor
   - Sensor
   - Switch
 ha_release: 0.87
-logo: danfoss_air.png
 ha_iot_class: Local Polling
+ha_domain: danfoss_air
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `danfoss_air` integration allows you to access information from your Danfoss Air HRV unit.
@@ -38,7 +42,7 @@ host:
 
 The following binary sensor is supported.
 
-- **Bypass active:** Indicator if heat recovery is currrently bypassed.
+- **Bypass active:** Indicator if heat recovery is currently bypassed.
 
 ## Sensor
 
@@ -49,6 +53,11 @@ The following sensors are supported.
 - **Extract temperature:** Air temperature of the air extracted from the house.
 - **Exhaust temperature:** Exhausted air temperature.
 - **Remaining filter lifetime:** Remaining filter lifetime measured in percent.
+- **Humidity:** Relative humidity in percent.
+- **Fan step:** Fan step.
+- **Exhaust fan speed:** Exhausted fan speed.
+- **Supply fan speed:** Supply fan speed.
+- **Dial battery:** Dial battery level in percent.
 
 ## Switch
 

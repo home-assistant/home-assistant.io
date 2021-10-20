@@ -1,11 +1,13 @@
 ---
-title: "LaCrosse Sensor"
-description: "Instructions on how to integrate LaCrosse sensor data received from Jeelink into Home Assistant."
-logo: home-assistant.png
+title: LaCrosse
+description: Instructions on how to integrate LaCrosse sensor data received from Jeelink into Home Assistant.
 ha_category:
   - DIY
 ha_release: 0.58
 ha_iot_class: Local Polling
+ha_domain: lacrosse
+ha_platforms:
+  - sensor
 ---
 
 The `lacrosse` sensor platform is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
@@ -28,6 +30,12 @@ Or, when using Docker containers:
 ```bash
 docker exec -it <containername> pylacrosse -d /dev/ttyUSB0 scan
 ```
+
+If you are using the Home Assistant OS or Supervised installation method, these
+methods are not available for you. The use of an additional computer to figure
+out the ID is advised.
+
+For TX 29 DTH-IT sensors you can also read the ID from the display and calculate the ID as followed: `hex2dec(ID_on_display) / 4`.
 
 ## Configuration
 
@@ -96,9 +104,8 @@ sensor:
 
 ## Examples
 
-To setup a lacrosse sensor with multiple sensors, add the following to your `configuration.yaml` file:
+To setup a LaCrosse sensor with multiple sensors, add the following to your `configuration.yaml` file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -119,4 +126,3 @@ sensor:
         type: battery
         id: 72
 ```
-{% endraw %}

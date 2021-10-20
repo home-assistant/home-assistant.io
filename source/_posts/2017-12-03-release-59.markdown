@@ -5,7 +5,9 @@ date: 2017-12-03 02:00:00
 date_formatted: "December 3, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-12-0.59/components.png
 ---
 
@@ -119,7 +121,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Use new DoorBirdPy (v0.1.0) ([@Klikini] - [#10734]) ([doorbird docs])
 - Add fan and reduce I/O calls in radiotherm ([@TD22057] - [#10437]) ([climate.radiotherm docs])
 - New Hive Component / Platforms ([@Rendili] - [#9804]) ([hive docs]) ([climate.hive docs]) ([light.hive docs]) ([sensor.hive docs]) ([switch.hive docs]) (new-platform)
-- Temporarily fix yahoo weather API issue and add unit test. ([@cgtobi] - [#10737]) ([sensor.yweather docs])
+- Temporarily fix yahoo weather API issue and add unit test. ([@cgtobi] - [#10737])
 - Google assistant climate mode fix ([@braddparker] - [#10726]) ([google_assistant.smart_home docs])
 - Protect sensitive information for Amcrest cameras ([@tchellomello] - [#10569]) ([amcrest docs]) ([camera.amcrest docs]) ([sensor.amcrest docs])
 - InfluxDB send retry after IOError ([@janLo] - [#10263]) ([influxdb docs])
@@ -384,7 +386,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.tellstick docs]: /integrations/tellstick#sensor
 [sensor.whois docs]: /integrations/whois
 [sensor.wunderground docs]: /integrations/wunderground
-[sensor.yweather docs]: /integrations/yweather
 [shell_command docs]: /integrations/shell_command/
 [shopping_list docs]: /integrations/shopping_list/
 [switch.hive docs]: /integrations/hive#switch

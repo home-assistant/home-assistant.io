@@ -1,7 +1,6 @@
 ---
-title: "Intergas InComfort"
-description: "Instructions on how to integrate an Intergas Lan2RF gateway with Home Assistant."
-logo: incomfort.png
+title: Intergas InComfort/Intouch Lan2RF gateway
+description: Instructions on how to integrate an Intergas Lan2RF gateway with Home Assistant.
 ha_category:
   - Water Heater
   - Climate
@@ -9,6 +8,14 @@ ha_category:
   - Binary Sensor
 ha_release: 0.93
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@zxdavb'
+ha_domain: incomfort
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - water_heater
 ---
 
 The `incomfort` integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
@@ -27,32 +34,9 @@ In addition, there is a **Sensor** for each of CV pressure, CV temperature, and 
 
 Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's `temperature` (setpoint, target temperature) and `current_temperature` and the setpoint can be changed.
 
-## Automation
-
-To send an alert if the CV pressure is too low or too high, consider the following example:
-
-{% raw %}
-```yaml
-- alias: Low CV Pressure Alert
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.cv_pressure
-    below: 1.0
-  action:
-  - service: notify.pushbullet_notifier
-    data_template:
-      title: "Warning: Low CH Pressure"
-      message: >-
-        {{ trigger.to_state.attributes.friendly_name }}
-        is low, {{ trigger.to_state.state }} bar.
-```
-{% endraw %}
-
-Other properties are available via each device's attributes.
-
 ## Configuration
 
-To set up this integration, add one of the following to your **configuration.yaml** file:
+To set up this integration, add one of the following to your `configuration.yaml` file:
 
 The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
 
@@ -84,11 +68,36 @@ host:
   required: true
   type: string
 username:
-  description: The username of the Lan2RF gateway, if any.
+  description: "The username of the Lan2RF gateway, if any. Most likely: `admin`."
   required: inclusive
   type: string
 password:
-  description: The password of the Lan2RF gateway, if any.
+  description: "The password of the Lan2RF gateway, if any. Most likely: `intergas`."
   required: inclusive
   type: string
 {% endconfiguration %}
+
+## Automation
+
+To send an alert if the CV pressure is too low or too high, consider the following example:
+
+{% raw %}
+
+```yaml
+- alias: "Low CV Pressure Alert"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.cv_pressure
+    below: 1.0
+  action:
+  - service: notify.pushbullet_notifier
+    data:
+      title: "Warning: Low CH Pressure"
+      message: >-
+        {{ trigger.to_state.attributes.friendly_name }}
+        is low, {{ trigger.to_state.state }} bar.
+```
+
+{% endraw %}
+
+Other properties are available via each device's attributes.

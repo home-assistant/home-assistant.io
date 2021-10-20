@@ -5,7 +5,9 @@ date: 2018-10-12 00:01:00
 date_formatted: "October 12, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-10-release-80/lovelace-glance-sensor.png
 ---
 
@@ -80,7 +82,7 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [camera.blink docs]: /integrations/blink
 [cloud docs]: /integrations/cloud/
 [sensor.blink docs]: /integrations/blink
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 
 ## Release 0.80.3 - October 18
 
@@ -709,7 +711,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.tradfri docs]: /integrations/tradfri
 [switch.volvooncall docs]: /integrations/volvooncall
 [switch.xiaomi_aqara docs]: /integrations/switch.xiaomi_aqara/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tibber docs]: /integrations/tibber/
 [timer docs]: /integrations/timer/
 [tradfri docs]: /integrations/tradfri/

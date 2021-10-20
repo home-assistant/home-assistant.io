@@ -1,7 +1,6 @@
 ---
-title: "LCN"
-description: "Instructions on how to integrate LCN components with Home Assistant."
-logo: lcn.png
+title: LCN
+description: Instructions on how to integrate LCN components with Home Assistant.
 ha_category:
   - Hub
   - Binary Sensor
@@ -13,6 +12,17 @@ ha_category:
   - Switch
 ha_release: 0.85
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@alengwenus'
+ha_domain: lcn
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - scene
+  - sensor
+  - switch
 ---
 
 The `lcn` integration for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.
@@ -42,7 +52,7 @@ There is currently support for the following device types within Home Assistant:
 
 To use your LCN system in your installation, add the following lines to your `configuration.yaml` file.
 You have to specify at least one IP/port with login credentials for a PCHK host.
-Consider to store your credentials in a [secrets.yaml](/docs/configuration/secrets).
+Consider to store your credentials in a [`secrets.yaml`](/docs/configuration/secrets).
 
 ```yaml
 lcn:
@@ -181,7 +191,7 @@ climates:
       description: "Measurement unit ([VAR_UNIT](#variables-and-units))."
       required: false
       type: string
-      default: 'celsius'
+      default: "celsius"
     min_temp:
       description: "Minimum target temperature."
       required: false
@@ -300,7 +310,7 @@ sensors:
       description: "Measurement unit ([VAR_UNIT](#variables-and-units))."
       required: false
       type: string
-      default: 'native'
+      default: "native"
 
 switches:
   description: List of your switches.
@@ -400,7 +410,7 @@ The [MOTOR_PORT](#ports) values specify which hardware relay or outputs configur
 | Constant | Values |
 | -------- | ------ |
 | LED_STATE | `on`, `off`, `blink`, `flicker` |
-| LOGICOP_STATE | `not`, `or`, `and` |
+| LOGICOP_STATE | `none`, `some`, `all` |
 | KEY_STATE | `hit`, `make`, `break`, `dontsend` |
 
 ### Keys:
@@ -575,12 +585,12 @@ data:
 
 ### Service `led`
 
-Set the led status.
+Set the LED status.
 
 | Service data attribute | Optional | Description  | Values |
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
-| `state` | No | Led state as string | [LED_STATE](#states) |
+| `state` | No | LED state as string | [LED_STATE](#states) |
 
 Example:
 
@@ -617,7 +627,7 @@ data:
 ```
 
 <div class='note'>
-  Ensure that the LCN module is configured properly to provide acces to the defined variable.
+  Ensure that the LCN module is configured properly to provide access to the defined variable.
   Otherwise the module might show unexpected behaviors or return error messages.
 </div>
 

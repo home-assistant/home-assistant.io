@@ -1,14 +1,18 @@
 ---
-title: "Vivotek Camera"
-description: "Instructions on how to integrate Vivotek cameras within Home Assistant."
+title: VIVOTEK
+description: Instructions on how to integrate VIVOTEK cameras within Home Assistant.
 ha_category:
   - Camera
-logo: vivotek.jpg
 ha_release: 0.99
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@HarlemSquirrel'
+ha_domain: vivotek
+ha_platforms:
+  - camera
 ---
 
-The `vivotek` camera platform allows you to integrate a Vivotek IP camera into Home Assistant.
+The `vivotek` camera platform allows you to integrate a VIVOTEK IP camera into Home Assistant.
 
 Home Assistant will serve the images via its server, making it possible to view your IP cameras while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
@@ -33,7 +37,7 @@ ip_address:
 name:
   description: This parameter allows you to override the name of your camera.
   required: false
-  default: Vivotek Camera
+  default: VIVOTEK Camera
   type: string
 username:
   description: The username for accessing your camera.
@@ -114,8 +118,9 @@ For example, the following action in an automation would send an `hls` live stre
 ```yaml
 action:
   service: camera.play_stream
-  data:
+  target:
     entity_id: camera.yourcamera
+  data:
     media_player: media_player.chromecast
 ```
 
@@ -144,16 +149,19 @@ Take a snapshot from a camera.
 | `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.front_door_camera`. |
 | `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
 
-The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
 For example, the following action is an automation that would take a snapshot from "front_door_camera" and save it to /tmp with a timestamped filename.
 
 {% raw %}
+
 ```yaml
 action:
   service: camera.snapshot
-  data:
+  target:
     entity_id: camera.front_door_camera
+  data:
     filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
+
 {% endraw %}

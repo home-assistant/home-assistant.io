@@ -1,10 +1,15 @@
 ---
-title: "Mastodon"
-description: "Instructions on how to add Instapush notifications to Home Assistant."
-logo: mastodon.png
+title: Mastodon
+description: Instructions on how to add Instapush notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: 0.67
+ha_codeowners:
+  - '@fabaff'
+ha_domain: mastodon
+ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
 ---
 
 The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver notifications from Home Assistant.
@@ -28,6 +33,11 @@ notify:
 ```
 
 {% configuration %}
+name:
+  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME."
+  required: false
+  type: string
+  default: notify
 access_token:
   description: Your Mastodon access token.
   required: true

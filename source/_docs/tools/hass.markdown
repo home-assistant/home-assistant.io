@@ -8,7 +8,7 @@ The command-line part of Home Assistant is `hass`.
 
 ```bash
 $ hass -h
-usage: hass [-h] [--version] [-c path_to_config_dir] [--demo-mode] [--debug]
+usage: hass [-h] [--version] [-c path_to_config_dir] [--safe-mode] [--debug]
             [--open-ui] [--skip-pip] [-v] [--pid-file path_to_pid_file]
             [--log-rotate-days LOG_ROTATE_DAYS] [--log-file LOG_FILE]
             [--log-no-color] [--runner] [--script ...] [--daemon]
@@ -21,7 +21,7 @@ optional arguments:
   -c path_to_config_dir, --config path_to_config_dir
                         Directory that contains the Home Assistant
                         configuration
-  --demo-mode           Start Home Assistant in demo mode
+  --safe-mode           Start Home Assistant in safe mode
   --debug               Start Home Assistant in debug mode
   --open-ui             Open the webinterface in a browser
   --skip-pip            Skips pip install of required packages on startup

@@ -28,8 +28,8 @@
     <meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
     <meta name="twitter:image" content="{{ page.og_image | default: "/images/default-social.png" | prepend: site.url }}">
 
-        <link href="/stylesheets/prism.css?{{ site.time | date: '%s' }}" rel="stylesheet">
-        <link href="/stylesheets/screen.css?{{ site.time | date: '%s' }}" media="screen, projection, print" rel="stylesheet">
+    <link href="{{ '/stylesheets/prism.css' | cache_buster }}" rel="stylesheet">
+    <link href="{{ '/stylesheets/screen.css' | cache_buster }}" media="screen, projection, print" rel="stylesheet">
     <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{ site.title }}" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />

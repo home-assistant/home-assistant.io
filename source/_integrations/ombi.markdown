@@ -1,11 +1,15 @@
 ---
-title: "Ombi"
-description: "Instructions on how to set up the Ombi integration in Home Assistant."
-logo: ombi.png
+title: Ombi
+description: Instructions on how to set up the Ombi integration in Home Assistant.
 ha_category:
   - Sensor
-ha_release: "0.100"
+ha_release: '0.100'
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@larssont'
+ha_domain: ombi
+ha_platforms:
+  - sensor
 ---
 
 The `Ombi` integration monitors data from your [Ombi](https://ombi.io) instance.

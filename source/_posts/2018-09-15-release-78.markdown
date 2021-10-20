@@ -5,7 +5,9 @@ date: 2018-09-17 00:01:00
 date_formatted: "September 17, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-09-release-0.78/components.png
 ---
 
@@ -480,7 +482,7 @@ The configuration value type should no longer be used. ([@endor-force] - [#15935
 [switch.tahoma docs]: /integrations/tahoma
 [switch.tplink docs]: /integrations/tplink
 [tahoma docs]: /integrations/tahoma/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tts docs]: /integrations/tts/
 [upnp docs]: /integrations/upnp/
 [vacuum docs]: /integrations/vacuum/

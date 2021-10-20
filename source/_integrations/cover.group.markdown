@@ -5,8 +5,8 @@ ha_category:
   - Cover
 ha_release: 0.66
 ha_iot_class: Local Push
-logo: home-assistant.png
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: group
 ---
 
 The `group` platform can create a cover that combines several cover entities into one.
@@ -23,15 +23,19 @@ cover:
 ```
 
 {% configuration %}
-  name:
-    description: Name to use in the frontend.
-    required: false
-    type: string
-    default: "Cover Group"
-  entities:
-    description: List of all cover entities you want to control.
-    required: true
-    type: [string, list]
+entities:
+  description: List of all cover entities you want to control.
+  required: true
+  type: [string, list]
+name:
+  description: Name to use in the frontend.
+  required: false
+  type: string
+  default: "Cover Group"
+unique_id:
+  description: An ID that uniquely identifies this cover group. If two covers have the same unique ID, Home Assistant will raise an error.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Functionality

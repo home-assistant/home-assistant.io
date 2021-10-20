@@ -1,7 +1,6 @@
 ---
-title: "Genius Hub"
-description: "Instructions on how to integrate a Genius Hub with Home Assistant."
-logo: geniushub.png
+title: Genius Hub
+description: Instructions on how to integrate a Genius Hub with Home Assistant.
 ha_category:
   - Climate
   - Water Heater
@@ -10,6 +9,15 @@ ha_category:
   - Switch
 ha_release: 0.92
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@zxdavb'
+ha_domain: geniushub
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - switch
+  - water_heater
 ---
 
 The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its zones, devices, and issues.
@@ -28,31 +36,39 @@ Each zone controlled by your Genius Hub will be exposed as either a:
 
 Currently, there is no support for altering zone schedules, although entities can be switched to/from geniushub modes that utilize schedules.
 
-There are limitations due to the differences between the Genius Hub and Home Assisatnt schemas (e.g. HA has no **Footprint** mode) - see below for more details.
+There are limitations due to the differences between the Genius Hub and Home Assistant schemas (e.g.,  HA has no **Footprint** mode) - use the service handlers, below, for this functionality.
+
+### Service Handlers
+
+Home Assistant is obligated to place restrictions upon integrations such as **geniushub** to maintain compatibility with other ecosystems (e.g.,  Google Home) and so not all of the **geniushub** functionality is available via the web UI. Some of this missing functionality is exposed via integration-specific service handlers:
+
+- `set_switch_override`: change the switches on time _for a specified duration_ (up to 24h),
+- `set_zone_override`: change the zone's setpoint _for a specified duration_ (up to 24h), and
+- `set_zone_mode`: change the zone's mode to one of `off`, `timer` or (if supported by the zone) `footprint`
 
 ### Climate and Water Heater Entities
 
-Climate and Water Heater entities will report their current temperature, setpoint and mode; other properties (e.g. occupied state) are available via their state attributes (see examples below). The Genius Hub mode will be reported as/set to:
+Climate and Water Heater entities will report their current temperature, setpoint and mode; other properties (e.g.,  occupied state) are available via their state attributes (see examples below). The Genius Hub mode will be reported as/set to:
 
-GH mode | HA Operation | HA Preset
-:---: | :---: | :---:
-**Off** | Off | N/A
-**Timer** | Heat | None
-**Override** | Heat | Boost
-**Footprint** | Heat | Activity
+|    GH mode    | HA Operation | HA Preset |
+| :-----------: | :----------: | :-------: |
+|    **Off**    |     Off      |    N/A    |
+|   **Timer**   |     Heat     |   None    |
+| **Override**  |     Heat     |   Boost   |
+| **Footprint** |     Heat     | Activity  |
 
-Note that `Boost` mode may 
-
-Note that **Footprint** mode is only available to **Radiator** zones that have room sensors.
+**Footprint** mode is only available to **Radiator** zones that have room sensors.
 
 ### Switch Entities
 
-Switch entities will report back their state; other properties are available via their state attributes. Currently, HA switches do not have modes/presets, so the Home Assistant state will be reported as:
+Switch entities will report back their state; other properties are available via their state attributes. Currently, HA switches do not have modes/presets, so the Home Assistant `state` will be *reported* as:
 
 - `On` for **Override** \ **On**, and
-- `Off` otherwise (NB: the zone could still be 'on', e.g. with **Timer** mode)
+- `Off` otherwise (NB: the zone could still be 'on', e.g.,  with **Timer** mode)
 
-If you turn a Switch entity `Off` via HA, it will revert to **Timer** mode.
+Note: if you turn a Switch entity `Off` via Home Assistant's web UI, it will revert to **Timer** mode - this may not be the behavior you are expecting.
+
+Individual smart plugs are not yet exposed as switches - you can create one zone per smart plug as a work-around.
 
 ### Devices
 
@@ -70,38 +86,42 @@ There are three `Sensor` entities that will indicate the number of **Errors**, *
 Each such entity has a state attribute that will contain a list of any such issues which can be used in automations, etc. For example:
 
 {% raw %}
+
 ```yaml
-- alias: GeniusHub Error Alerts
+- alias: "GeniusHub Error Alerts"
   trigger:
     platform: numeric_state
     entity_id: sensor.geniushub_errors
     above: 0
   action:
   - service: notify.pushbullet_notifier
-    data_template:
+    data:
       title: "Genius Hub has errors"
       message: >-
         Genius Hub has the following {{ states('sensor.geniushub_errors') }} errors:
         {{ state_attr('sensor.geniushub_errors', 'error_list') }}
 ```
+
 {% endraw %}
 
 This alert may be useful to see if the CH is being turned on whilst you're on a holiday!
 
 {% raw %}
+
 ```yaml
-- alias: GeniusHub CH State Change Alert
+- alias: "GeniusHub CH State Change Alert"
   trigger:
     platform: state
     entity_id: binary_sensor.dual_channel_receiver_2_1
   action:
   - service: notify.pushbullet_notifier
-    data_template:
+    data:
       title: "Warning: CH State Change!"
       message: >-
         {{ trigger.to_state.attributes.friendly_name }} has changed
         from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}.
 ```
+
 {% endraw %}
 
 ## State Attributes
@@ -139,24 +159,28 @@ Many zone/device properties are available via the corresponding entity's state a
 This data can be accessed in automations, etc. via a value template. For example:
 
 {% raw %}
+
 ```yaml
 value_template: "{{ state_attr('water_heater.genius_zone_2', 'status').override.setpoint }}"
 ```
+
 {% endraw %}
 
 In the specific case of **Radiator** zones with room sensors:
 
 {% raw %}
+
 ```yaml
 value_template: "{{ state_attr('climate.genius_zone_12', 'status').occupied }}"
 ```
+
 {% endraw %}
 
 ## Configuration
 
-To set up this integration, add one of the following to your **configuration.yaml** file.
+To set up this integration, add one of the following to your `configuration.yaml` file.
 
-If required, you can switch between one Option and the other and, as the `unique_id` remains consistent, state history will be preserved.  This assumes that the correct MAC address is provided for Option 2, below.  If a wrong MAC address was provided for Option 1, then the MAC address can be overridden for Option 1 to maintain these links within the entity registry.
+If required, you can switch between one Option and the other and, as the `unique_id` remains consistent, state history will be preserved. This assumes that the correct MAC address is provided for Option 2, below. If a wrong MAC address was provided for Option 1, then the MAC address can be overridden for Option 1 to maintain these links within the entity registry.
 
 ### Option 1: hub hostname/address with user credentials
 
@@ -167,13 +191,13 @@ This is the recommended option.
 - Polls the hub directly (so is faster, say ~1s response time).
 - You have the option of specifying a MAC address (not recommended, see above).
 
-The hub does not have to be in the same subnet as your Home Assistant server.
+The hub does not have to be in the same subnet as your Home Assistant instance.
 
 ### Option 2: hub token only
 
-This option is recommended only if Ootion 1 does not work. The MAC address should match that written on the back of the Hub.
+This option is recommended only if Option 1 does not work. The MAC address should match that written on the back of the Hub.
 
-- Requires a **hub token** obtained from [my.geniushub.co.uk/tokens](https://my.geniushub.co.uk/tokens).
+- Requires a **hub token** obtained from [my.geniushub.co.uk](https://my.geniushub.co.uk/).
 - Uses the v1 API - which is well-documented.
 - Polls Heat Genius' own servers (so is slower, say ~5-10s response time).
 - You should use the Hub's MAC address (although any valid MAC will do).

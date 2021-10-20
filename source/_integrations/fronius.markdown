@@ -1,12 +1,16 @@
 ---
-title: "Fronius"
-description: "Instructions on how to connect your Fronius Inverter to Home Assistant."
+title: Fronius
+description: Instructions on how to connect your Fronius Inverter to Home Assistant.
 ha_category:
   - Energy
   - Sensor
-logo: fronius.png
 ha_iot_class: Local Polling
 ha_release: 0.96
+ha_codeowners:
+  - '@nielstron'
+ha_domain: fronius
+ha_platforms:
+  - sensor
 ---
 
 The `fronius` sensor polls a [Fronius](https://www.fronius.com/) solar inverter, battery system or smart meter and present the values as sensors in Home Assistant.
@@ -20,12 +24,16 @@ sensor:
   - platform: fronius
     resource: FRONIUS_URL
     monitored_conditions:
+    - sensor_type: logger_info
     - sensor_type: inverter
+      scope: system
+    - sensor_type: meter
+      device: 1
 ```
 
 {% configuration %}
 resource:
-  description: "The IP address of the Fronius device"
+  description: "The URL of the Fronius device (e.g., `http://192.0.2.0` or `http://fronius.local`)"
   required: true
   type: string
 monitored_conditions:
@@ -51,6 +59,14 @@ monitored_conditions:
 ## Monitored data
 
 Each sensor type chosen as monitored condition adds a set of sensors to Home Assistant.
+
+- `logger_info`
+
+    General information about the Fronius Datalogger. Not available on "Gen24" devices.
+
+    - The serial number and software and hardware platforms
+    - The current price of energy consumed from the grid ("cash factor")
+    - The current price of energy returned to the grid ("delivery factor")
 
 - `power_flow`
 
@@ -94,14 +110,13 @@ a list of sensors that are to be integrated can be given like below.
 ```yaml
 sensor:
   - platform: fronius
-    resource: FRONIUS_IP_ADDRESS
+    resource: FRONIUS_URL
     monitored_conditions:
+    - sensor_type: logger_info
     - sensor_type: inverter
-      device: 1
-    - sensor_type: meter
       scope: system
     - sensor_type: meter
-      device: 3
+      device: 1
     - sensor_type: storage
       device: 0
     - sensor_type: power_flow

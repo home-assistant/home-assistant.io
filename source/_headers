@@ -1,7 +1,8 @@
 /*
   Cache-Control: public, max-age: 0, s-maxage=3600, must-revalidate
   Content-Security-Policy: form-action https:
-  Feature-Policy: vibrate 'none'; geolocation 'none'; midi 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; payment 'none'
+  Feature-Policy: geolocation 'none'; midi 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; payment 'none'
+  Permissions-Policy: geolocation=(), midi=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), payment=()
   Referrer-Policy: no-referrer-when-downgrade
   X-Content-Type-Options: nosniff
   X-XSS-Protection: 1; mode=block

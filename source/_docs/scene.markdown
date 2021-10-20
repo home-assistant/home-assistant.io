@@ -10,21 +10,21 @@ You can create scenes that capture the states you want certain entities to be. F
 scene:
   - name: Romantic
     entities:
-      light.tv_back_light: on
+      light.tv_back_light: "on"
       light.ceiling:
-        state: on
+        state: "on"
         xy_color: [0.33, 0.66]
         brightness: 200
   - name: Movies
     entities:
       light.tv_back_light:
-        state: on
+        state: "on"
         brightness: 125
       light.ceiling: off
       media_player.sony_bravia_tv:
-        state: on
+        state: "on"
         source: HDMI 1
-        state: on
+        state: "on"
 ```
 
 {% configuration %}
@@ -55,7 +55,8 @@ automation:
     to: "home"
   action:
     service: scene.turn_on
-    entity_id: scene.romantic
+    target:
+      entity_id: scene.romantic
 ```
 
 ## Applying a scene without defining it
@@ -75,13 +76,41 @@ automation:
     data:
       entities:
         light.tv_back_light:
-          state: on
+          state: "on"
           brightness: 100
         light.ceiling: off
         media_player.sony_bravia_tv:
-          state: on
+          state: "on"
           source: HDMI 1
 ```
+
+## Using scene transitions
+
+Both the `scene.apply` and `scene.turn_on` services support setting a transition,
+which enables you to smoothen the transition to the scene.
+
+This is an example of an automation that sets a romantic scene, in which the
+light will transition to the scene in 2.5 seconds.
+
+```yaml
+# Example automation
+automation:
+  trigger:
+    platform: state
+    entity_id: device_tracker.sweetheart
+    from: "not_home"
+    to: "home"
+  action:
+    service: scene.turn_on
+    target:
+      entity_id: scene.romantic
+    data:
+      transition: 2.5
+```
+
+Transitions are currently only support by lights, which in their turn, have
+to support it as well. However, the scene itself does not have to consist of
+only lights to have a transition set.
 
 ## Reloading scenes
 
