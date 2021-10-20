@@ -11,10 +11,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@danielhiversen'
 ha_platforms:
+  - binary_sensor
   - cover
+  - sensor
 ---
 
-The `opengarage` cover platform lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
+The `opengarage` integration lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
 
 
 {% include integrations/config_flow.md %}
