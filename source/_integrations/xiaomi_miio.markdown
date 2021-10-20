@@ -1408,7 +1408,7 @@ Water Shortage**:
 {% endconfiguration_basic %}
 
 <div class="note">
-* Needs to be manually enabled once the integration has been added.
+* Needs to be manually enabled once the integration has been added. <br>
 ** Only enabled if the vacuum has a mop.
 </div>
 
