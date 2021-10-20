@@ -11,7 +11,7 @@ ha_domain: emulated_kasa
 ha_quality_scale: internal
 ---
 
-The Emulated Kasa integration emulates a TP-Link Kasa smart plug and announces the power usage of configured devices to any that might request it on the local network. 
+The Emulated Kasa integration emulates a TP-Link Kasa smart plug and announces the power usage of configured devices to any that might request it on the local network.
 
 For example, the [Sense Energy Monitor](/integrations/sense) can use this to identify power usage.
 

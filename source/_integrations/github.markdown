@@ -13,7 +13,7 @@ ha_codeowners:
   - '@ludeeus'
 ---
 
-The GitHub sensor allows you to monitor your favorite [GitHub](https://github.com/) repositories. Monitored information includes the amount of stargazers, forks, open issues and pull requests, the latest commit message, and more. 
+The GitHub sensor allows you to monitor your favorite [GitHub](https://github.com/) repositories. Monitored information includes the amount of stargazers, forks, open issues and pull requests, the latest commit message, and more.
 
 ## Setup
 

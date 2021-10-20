@@ -4,7 +4,7 @@ description: "Instructions on how to setup MQTT with a certificate in Home Assis
 logo: mqtt.png
 ---
 
-Using certificates will give you an additional layer of security for your MQTT communication. 
+Using certificates will give you an additional layer of security for your MQTT communication.
 
 To integrate MQTT with certificate into Home Assistant, add the following section to your `configuration.yaml` file:
 

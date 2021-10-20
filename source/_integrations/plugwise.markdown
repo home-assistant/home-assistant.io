@@ -32,10 +32,10 @@ Platforms available - depending on your Smile and setup include:
  - `binary_sensor` (for domestic hot water and secondary heater)
  - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
 
-The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
+The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App:
 
- - Open the Plugwise App and choose the 'Settings'-icon (&#9776;) and choose 'HTML-interface'. 
- - Go to the (lower) 'Settings'-icon (&#9776;) and choose 'Preferences'. 
+ - Open the Plugwise App and choose the 'Settings'-icon (&#9776;) and choose 'HTML-interface'.
+ - Go to the (lower) 'Settings'-icon (&#9776;) and choose 'Preferences'.
  - Choose 'System' then 'Networking' and your IP address will be shown.
 
 ## Entities
@@ -147,7 +147,7 @@ Adam (zone_control):
  - v3.0
  - v2.3
 
- - Devices supported are Floor, Lisa, Tom, Koen and Plug - note a Koen always comes with a Plug (the active part) 
+ - Devices supported are Floor, Lisa, Tom, Koen and Plug - note a Koen always comes with a Plug (the active part)
 
 Anna (thermostat):
 

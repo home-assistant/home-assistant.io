@@ -1,7 +1,7 @@
 ---
 title: "Template Alarm Control Panel"
 description: "Instructions on how to integrate Template Alarm Control Panels into Home Assistant."
-ha_category: 
+ha_category:
   - Alarm
 ha_release: 0.105
 ha_iot_class: "Local Push"

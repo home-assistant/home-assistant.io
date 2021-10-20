@@ -339,7 +339,7 @@ command_payload_off:
 vartype:
   description: The SNMP vartype for the `payload_on` and `payload_off` commands as defined in [RFC1902](https://tools.ietf.org/html/rfc1902.html).
   required: false
-  type: string  
+  type: string
   default: 'none'
 {% endconfiguration %}
 
@@ -402,7 +402,7 @@ switch:
     baseoid: 1.3.6.1.4.1.19865.1.2.1.4.0
     payload_on: 1
     payload_off: 0
-    
+
   - platform: snmp
     name: Enable PoE on Netgear switch port 2 using SNMP v3
     host: 192.168.0.4

@@ -20,7 +20,7 @@ The `satel_integra` integration will allow Home Assistant users who own a Satel 
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor: Reports on zone or output statuses
-- Switch: allows for setting states of selected outputs 
+- Switch: allows for setting states of selected outputs
 - Alarm Control Panel: represents the zones (in Polish: "strefa"). Reports its status, and can be used to arm/disarm the partition
 
 The module communicates via Satel's open TCP protocol published on their website. It subscribes for new events coming from alarm system and reacts to them immediately.
@@ -68,7 +68,7 @@ partitions:
     name:
       description: Name of the partition.
       required: true
-      type: string    
+      type: string
     arm_home_mode:
       description: The mode in which the partition is armed when 'arm home' is used. Possible options are `1`,`2` or `3`. For more information on what the differences are between them, please refer to Satel Integra manual.
       required: false
@@ -156,10 +156,10 @@ satel_integra:
     05:
       name: "Gate open"
     06:
-      name: "Gate close"    
+      name: "Gate close"
     14:
       name: "Garden light"
-      
+
 ```
 
 Having configured the zones and the outputs, you can use them for automation, such as to react on the movement in your bedroom.

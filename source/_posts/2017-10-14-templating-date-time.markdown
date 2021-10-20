@@ -22,7 +22,7 @@ We want it simpler, right? [Templating](/docs/configuration/templating/) offers 
   `now()` will be rendered as current time in your time zone.
 </blockquote>
 
-Hmmm, ...OK, that's a start. How to get the year? {% raw %}`{{ now() }}`{% endraw %} gives you `2017-10-14 20:27:23.700401+02:00` which is far more than we are looking for. As an user you don't want to dive into the code but there would you find the solution. You will get a [Python `datetime` object](https://docs.python.org/3.6/library/datetime.html#datetime.datetime) from {% raw %}`{{ now() }}`{% endraw %}. This means that you can access more than you think in a template: 
+Hmmm, ...OK, that's a start. How to get the year? {% raw %}`{{ now() }}`{% endraw %} gives you `2017-10-14 20:27:23.700401+02:00` which is far more than we are looking for. As an user you don't want to dive into the code but there would you find the solution. You will get a [Python `datetime` object](https://docs.python.org/3.6/library/datetime.html#datetime.datetime) from {% raw %}`{{ now() }}`{% endraw %}. This means that you can access more than you think in a template:
 
 - For the time: `now().microsecond`, `now().second`, `now().minute` and `now().hour`
 - For the date: `now().day`, `now().month` and `now().year`

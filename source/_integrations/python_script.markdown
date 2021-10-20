@@ -38,7 +38,7 @@ hass.bus.fire(name, {"wow": "from a Python script!"})
 ```
 
 - Start Home Assistant
-- Call your new {% my developer_call_service service="python_script.hello_world" %} service (with parameters) from the {% my developer_services %}. 
+- Call your new {% my developer_call_service service="python_script.hello_world" %} service (with parameters) from the {% my developer_services %}.
 
 ```yaml
 name: you

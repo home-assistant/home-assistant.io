@@ -14,17 +14,17 @@ ha_platforms:
   - sensor
 ---
 
-The `geonetnz_quakes` integration lets you use a GeoJSON feed provided by 
-New Zealand's [GeoNet](https://www.geonet.org.nz/) with information 
-about quakes in the New Zealand region that happened within the last 7 days. 
-It retrieves incidents from a feed and 
-shows information of those incidents filtered by distance to Home Assistant's 
+The `geonetnz_quakes` integration lets you use a GeoJSON feed provided by
+New Zealand's [GeoNet](https://www.geonet.org.nz/) with information
+about quakes in the New Zealand region that happened within the last 7 days.
+It retrieves incidents from a feed and
+shows information of those incidents filtered by distance to Home Assistant's
 location.
 
-Entities are generated, updated and removed automatically with each update 
-from the feed. Each entity defines latitude and longitude and will be shown 
-on the default map automatically, or on a map card by defining the source 
-`geonetnz_quakes`. The distance is available as the state of each entity, and 
+Entities are generated, updated and removed automatically with each update
+from the feed. Each entity defines latitude and longitude and will be shown
+on the default map automatically, or on a map card by defining the source
+`geonetnz_quakes`. The distance is available as the state of each entity, and
 converted to the unit (kilometers or miles) configured in Home Assistant.
 
 <p class='img'>
@@ -47,7 +47,7 @@ We acknowledge the New Zealand GeoNet project and its sponsors EQC, GNS Science 
 
 ## State Attributes
 
-The following state attributes are available for each entity in addition to 
+The following state attributes are available for each entity in addition to
 the standard ones:
 
 | Attribute   | Description |
@@ -64,8 +64,8 @@ the standard ones:
 | locality    | Distance and direction to the nearest locality. |
 | quality     | The quality of this information: best, good, caution, deleted. |
 
-Please note that the reported MMI may be lower than the minimum requested MMI. 
-This integration is passing the requested MMI value to the feed source and 
+Please note that the reported MMI may be lower than the minimum requested MMI.
+This integration is passing the requested MMI value to the feed source and
 displays all entries retrieved without further filtering by MMI.
 
 ## Sensor

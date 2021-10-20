@@ -68,8 +68,8 @@ For more information, visit the [serial API](https://www.mysensors.org/download)
  * Version 2.1 - Author unknown - example script from the Home Assistant website : https://www.home-assistant.io/integrations/climate.mysensors
  * Version 2.2 - Eric Van Bocxlaer - based on the example script from the Home Assistant website : https://www.home-assistant.io/integrations/climate.mysensors
  *                                 - https://community.home-assistant.io/t/mysensors-hvac-not-showing-up/22540
- * Version 2.3 - Eric Van Bocxlaer - correction states send back to home assistant, is expecting text values and not numeric values                               
- * 
+ * Version 2.3 - Eric Van Bocxlaer - correction states send back to home assistant, is expecting text values and not numeric values
+ *
  * DESCRIPTION
  * Heatpump controller
  */
@@ -100,7 +100,7 @@ For more information, visit the [serial API](https://www.mysensors.org/download)
 //enable soft signing
 //#define MY_SIGNING_SOFT
 //#define MY_SIGNING_REQUEST_SIGNATURES
-//#define MY_SIGNING_SOFT_RANDOMSEED_PIN A0 
+//#define MY_SIGNING_SOFT_RANDOMSEED_PIN A0
 // following hex codes are dummy hex codes, replace by your hexcodes (see the link above how to generate)
 //#define MY_SIGNING_NODE_WHITELISTING {{.nodeId = 0,.serial = {0x99,0x88,0x77,0x66,0x55,0x44,0x33,0x22,0x11}},{.nodeId = 1,.serial = {0x11,0x22,0x33,0x44,0x55,0x66,0x77,0x88,0x99}}}
 
@@ -109,9 +109,9 @@ For more information, visit the [serial API](https://www.mysensors.org/download)
 #define SENSOR_NAME "Heatpump Sensor"
 #define SENSOR_VERSION "2.3"
 
-#define CHILD_ID_HVAC 0 // Each radio node can report data for up to 254 different child sensors. You are free to choose the child id yourself. 
+#define CHILD_ID_HVAC 0 // Each radio node can report data for up to 254 different child sensors. You are free to choose the child id yourself.
                         // You should avoid using child-id 255 because it is used for things like sending in battery level and other (protocol internal) node specific information.
-                        
+
 #define IR_PIN  3  // Arduino pin tied to the IR led using Arduino PWM
 
 
@@ -182,7 +182,7 @@ void loop() {
     FAN_STATE_TXT = "Auto"; // default fan start state
     TEMP_STATE = 20; // default start temperature
     MODE_STATE_TXT = "Off"; // default mode state
-    
+
     send(msgHVACSetPointC.set(TEMP_STATE));
     send(msgHVACSpeed.set(FAN_STATE_TXT.c_str()));
     send(msgHVACFlowState.set(MODE_STATE_TXT.c_str()));
@@ -213,7 +213,7 @@ void receive(const MyMessage &message) {
       else if(recvData.equalsIgnoreCase("min")) FAN_STATE = 1;
       else if(recvData.equalsIgnoreCase("normal")) FAN_STATE = 2;
       else if(recvData.equalsIgnoreCase("max")) FAN_STATE = 3;
-      FAN_STATE_TXT = recvData;        
+      FAN_STATE_TXT = recvData;
     break;
 
     case V_HVAC_SETPOINT_COOL:

@@ -15,7 +15,7 @@ Venstar thermostats feature a local API that allows for automation without the n
 
 Currently supported and tested thermostats:
 
-- ColorTouch T7900  
+- ColorTouch T7900
 - ColorTouch T7850  (No Humidity control)
 - Explorer Mini T2000
 
@@ -32,7 +32,7 @@ The following values are supported for the preset_mode state attribute:
 - `temperature`: *Disables* the schedule and holds the set temperature indefinitely.
 - `away`: Places the thermostat in away mode
 
-Note - Please ensure that you update your thermostat to the latest firmware. Initially tested on firmware 5.10 and currently VH6.79.  
+Note - Please ensure that you update your thermostat to the latest firmware. Initially tested on firmware 5.10 and currently VH6.79.
 
 Local API mode needs to be enabled via the thermostat's *Menu > WiFi > Local API Options > Local API - ON*
 

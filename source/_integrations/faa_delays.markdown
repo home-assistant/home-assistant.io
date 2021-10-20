@@ -28,7 +28,7 @@ Data measured includes:
 ## Supported Airports
 
 The airport entered must be a valid IATA
-airport code for an airport in the US. You can find this by looking up the 
+airport code for an airport in the US. You can find this by looking up the
 FAA Identifier at [Airnav](https://airnav.com/airports/). Officially the FAA
 only supports the airports listed below, but all airports will return data.
 

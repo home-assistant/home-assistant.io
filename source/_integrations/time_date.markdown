@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-The time and date (`time_date`) integration allows one to show the current date or time in different formats. All values are based on the timezone which is set in "General Configuration". 
+The time and date (`time_date`) integration allows one to show the current date or time in different formats. All values are based on the timezone which is set in "General Configuration".
 
 To have these sensors available in your installation, add the following to your `configuration.yaml` file (each option creates a separate sensor that contains appropriate data, e.g.,  `sensor.date` for the `date` option):
 
@@ -61,7 +61,7 @@ sensor:
   - platform: time_date
     display_options:
       - 'date_time_iso'
-  # Build on the standard sensor to produce one that can be customized    
+  # Build on the standard sensor to produce one that can be customized
   - platform: template
     sensors:
       time_formatted:

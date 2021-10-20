@@ -37,7 +37,7 @@ This Hive integration uses the same username and password you use on the [Hive w
 Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press the options button*
 
 - **Scan Interval**: Update the scan interval allowing the integration to poll for data more frequently (Cannot be set lower than 30 seconds).
-  
+
 ## Services
 
 ### Service `hive.boost_heating_on`
@@ -156,7 +156,7 @@ The `hive` sensor integration exposes Hive data as a sensor.
 The platform exposes the following sensors:
 
 - Battery level for supported products
-  
+
 ### Switch
 
 The `hive` switch platform integrates your Hive plugs into Home Assistant, enabling control of your devices.

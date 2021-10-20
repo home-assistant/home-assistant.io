@@ -14,7 +14,7 @@ The `twitter` notification platform uses [Twitter](https://twitter.com) to deliv
 
 ## Setup
 
-Make sure you have a developer account registered with Twitter, then go to [Twitter Apps](https://apps.twitter.com/app/new) and create an application. If you don't have a developer account you need to apply for one, it can take some time to get approved. Visit "Keys and Access Tokens" of the application to get the details (Consumer Key, Consumer Secret, Access Token and Access Token Secret which needs to be generated). 
+Make sure you have a developer account registered with Twitter, then go to [Twitter Apps](https://apps.twitter.com/app/new) and create an application. If you don't have a developer account you need to apply for one, it can take some time to get approved. Visit "Keys and Access Tokens" of the application to get the details (Consumer Key, Consumer Secret, Access Token and Access Token Secret which needs to be generated).
 
 ## Configuration
 

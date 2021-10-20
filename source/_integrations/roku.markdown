@@ -101,7 +101,7 @@ YouTube example:
 POST http://YOUR_ROKU_IP:8060/launch/837?contentID=YOUR_YOUTUBE_VIDEOS_CONTENT_ID&MediaType=live
 ```
 
-One method of performing the GET request is to open `http://ROKU_IP:8060/query/apps` in your web browser of choice. The Roku will return an XML-formatted list of available channels, including their full name and appID. 
+One method of performing the GET request is to open `http://ROKU_IP:8060/query/apps` in your web browser of choice. The Roku will return an XML-formatted list of available channels, including their full name and appID.
 
 More details can be found on the [Roku dev pages](https://developer.roku.com/docs/developer-program/debugging/external-control-api.md)
 
@@ -116,7 +116,7 @@ action:
       source: 20197
 ```
 
-It is also possible to tune directly to specific channels if you have a Roku TV and use an OTA antenna. This service only supports `media_channel_type` of 'channel'. `media_content_id` corresponds to the TV channel, which you should see when navigating to these on your TV UI. 
+It is also possible to tune directly to specific channels if you have a Roku TV and use an OTA antenna. This service only supports `media_channel_type` of 'channel'. `media_content_id` corresponds to the TV channel, which you should see when navigating to these on your TV UI.
 
 ```yaml
 action:

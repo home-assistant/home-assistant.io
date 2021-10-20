@@ -37,7 +37,7 @@ $ curl -X GET http://IP_ADDRESS:61208/api/3/mem/free
 
 If this doesn't work, try changing the `3` to `2`, if you don't have the latest version of Glances installed.
 
-For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).  
+For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
 
 {% include integrations/config_flow.md %}
 

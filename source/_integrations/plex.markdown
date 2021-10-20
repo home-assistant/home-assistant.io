@@ -66,9 +66,9 @@ The activity sensor provides a count of users currently watching media from the 
 The library sensors show a count of items in each library. Depending on the library contents, the sensor will show extra detail in its attributes. For example, a library sensor for TV shows will represent the total number of episodes in the library and its attributes will also report the number of shows and seasons it contains.
 
 <div class='note info'>
-  
+
 The library sensors are disabled by default, but can be enabled via the Plex integration page.
-  
+
 </div>
 
 
@@ -85,12 +85,12 @@ Plays a song, album, artist, playlist, TV show/season/episode, movie, or video o
 Required fields within the `media_content_id` payloads are marked as such, others are optional.
 
 <div class='note info'>
-  
+
 Refer to these links if casting to non-Plex players:
 
 - [Chromecast](/integrations/cast/#plex)
 - [Sonos](/integrations/plex#sonos-playback)
-  
+
 </div>
 
 <div class='note warning'>

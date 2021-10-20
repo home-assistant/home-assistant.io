@@ -81,7 +81,7 @@ monitored_conditions:
       description: Amount of precipitation.
     precipitation_amountname:
       description: Amount of precipitation in thirteen variants (Swedish text).
-    
+
 {% endconfiguration %}
 
 ## Obtaining API key

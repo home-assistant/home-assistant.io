@@ -109,4 +109,4 @@ See you next edition!
 [blueprints]: https://community.home-assistant.io/c/blueprints-exchange
 [community]: https://community.home-assistant.io
 [esphome]: https://esphome.io
-[week_blueprint]: https://community.home-assistant.io/t/send-notification-if-and-when-a-network-device-loses-connectivity/317323 
+[week_blueprint]: https://community.home-assistant.io/t/send-notification-if-and-when-a-network-device-loses-connectivity/317323

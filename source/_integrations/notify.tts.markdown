@@ -13,7 +13,7 @@ The notify TTS platform lets you use the TTS integration [Service Say](/integrat
 
 In order to use this integration, you must already have a TTS platform installed and configured, and a media_player working with the TTS platform.
 
-To enable this platform in your installation, consider the following example using [google_translate](/integrations/google_translate/) and an example `media_player.living_room`. 
+To enable this platform in your installation, consider the following example using [google_translate](/integrations/google_translate/) and an example `media_player.living_room`.
 
 In your `configuration.yaml` file type:
 

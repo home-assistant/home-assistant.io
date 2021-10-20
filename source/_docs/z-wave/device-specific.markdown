@@ -1128,7 +1128,7 @@ Press circle and plus simultaneously to wake up the device.
 
 <!-- from https://products.z-wavealliance.org/products/2817 -->
 
-Once you've added the NanoMote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the NanoMote device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.  
+Once you've added the NanoMote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the NanoMote device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.
 
 ```xml
     <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
@@ -1316,7 +1316,7 @@ Let's see how this works in an automation for a Scene Master that's assigned as 
     event_data:
       node_id: 7
       scene_id: 2
-      scene_data: 3  
+      scene_data: 3
   condition: []
   action:
   - data:
@@ -1479,7 +1479,7 @@ To get the Z-Push Button 2 or the Z-Push Button 8 working in Home Assistant, you
       <Value type="int" genre="user" instance="1" index="4" label="Button 4" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
         </CommandClass>
     ```
-    
+
     - 5.3 For the Z-Push Button 8:
 
     ```xml
@@ -1508,7 +1508,7 @@ Button presses will trigger `zwave.scene_activated` with the following:
 
 <!-- from https://products.z-wavealliance.org/products/3399/ -->
 
-Once you've added the ZDB5100 to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the ZDB5100 device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.  
+Once you've added the ZDB5100 to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the ZDB5100 device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.
 
 ```xml
     <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
@@ -1727,7 +1727,7 @@ The configuration parameters will have to be added to the `zwcfg` file. Replace 
 
 <!-- from https://products.z-wavealliance.org/products/2930/ -->
 
-Once you've added the remote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the remote's device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.  
+Once you've added the remote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the remote's device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.
 
 ```xml
     <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">

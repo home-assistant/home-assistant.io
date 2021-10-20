@@ -92,7 +92,7 @@ area:
         type: float
         default: 1
       covers:
-        description: If true the detection must be fully in this box. If false any part of the detection in the box will trigger. 
+        description: If true the detection must be fully in this box. If false any part of the detection in the box will trigger.
         required: false
         type: boolean
         default: true
@@ -139,7 +139,7 @@ labels:
             type: float
             default: 1
           covers:
-            description: If true the detection must be fully in this box. If false any part of the detection in the box will trigger. 
+            description: If true the detection must be fully in this box. If false any part of the detection in the box will trigger.
             required: false
             type: boolean
             default: true

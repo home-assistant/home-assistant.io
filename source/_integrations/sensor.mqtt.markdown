@@ -226,7 +226,7 @@ The state and the attributes of the sensor by design do not update in a synchron
 
 ### Usage of `entity_id` in the template
 
-The example below shows how a simple filter, that calculates the value by adding 90% of the new value and 10% of the previous value, can be implemented in a template. 
+The example below shows how a simple filter, that calculates the value by adding 90% of the new value and 10% of the previous value, can be implemented in a template.
 
 {% raw %}
 ```yaml

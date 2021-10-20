@@ -16,7 +16,7 @@ as firmware.
 
 Because of a limitation in Tomato's API, this integration will only track wireless devices.
 
-This integration is confirmed to be working with [FreshTomato](https://freshtomato.org) 2020.8 and may also be working with [AdvancedTomato](https://advancedtomato.com/). 
+This integration is confirmed to be working with [FreshTomato](https://freshtomato.org) 2020.8 and may also be working with [AdvancedTomato](https://advancedtomato.com/).
 
 ## Setup
 

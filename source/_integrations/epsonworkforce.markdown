@@ -28,7 +28,7 @@ sensor:
      - yellow
      - magenta
      - cyan
-     - clean   
+     - clean
 ```
 
 {% configuration %}

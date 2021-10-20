@@ -66,7 +66,7 @@ name:
   default: ViCare
   type: string
 circuit:
-  description: Heating circuit of your heating device if multiple exist 
+  description: Heating circuit of your heating device if multiple exist
   required: false
   type: integer
 heating_type:
@@ -99,7 +99,7 @@ A note about the current temperature attribute: Viessmann devices with room temp
 
 ### Supported services `climate.vicare_heating`
 
-The following services of the [Climate component](/integrations/climate/) are provided by the ViCare integration: `set_temperature`, `set_hvac_mode`, `set_preset_mode` 
+The following services of the [Climate component](/integrations/climate/) are provided by the ViCare integration: `set_temperature`, `set_hvac_mode`, `set_preset_mode`
 
 #### Service `set_temperature`
 
@@ -122,8 +122,8 @@ The `climate.vicare_heating` component has the following mapping of HVAC modes t
 | ---------------------- | -------- | ----------- |
 | `off` | `ForcedReduced` | Permanently set heating to reduced temperature. Note: This will also deactivate domestic hot water
 | `heat` | `ForcedNormal` | Permanently set heating to normal temperature.
-| `auto` | `DHWandHeating` | Switches between reduced and normal temperature as by the heating schedule programmed in your device 
- 
+| `auto` | `DHWandHeating` | Switches between reduced and normal temperature as by the heating schedule programmed in your device
+
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.

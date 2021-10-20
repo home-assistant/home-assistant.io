@@ -97,7 +97,7 @@ Origin: 51.330436, 3.802043
 Destination: 51.445677, 3.749929
 Region: "EU"
 Avoid Toll Roads?: True
-Avoid Subscription Roads?: True  
+Avoid Subscription Roads?: True
 
 ## Using the live map in an iFrame
 

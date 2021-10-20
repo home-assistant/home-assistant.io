@@ -33,7 +33,7 @@ sensors:
 - Ping sensor: Reaction time in ms of your connection (how fast you get a response after you’ve sent out a request).
 - Download sensor: The download speed (Mbit/s).
 - Upload sensor: The upload speed (Mbit/s).
-  
+
 ### Service
 
 Once loaded, the integration will expose a service (`speedtestdotnet.speedtest`) that can be called to run a Speedtest.net speed test on demand. This service takes no parameters. This can be useful when auto update has been disabled in the integration options.

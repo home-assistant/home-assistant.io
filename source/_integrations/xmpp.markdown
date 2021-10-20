@@ -149,7 +149,7 @@ Number 3 sends an image from a local path.
 
 Number 4 sends a text-file, retrieved from Github, renamed to `Hass_Cheatsheet.txt` to be viewable on a mobile Android device, as most don't offer any application to view `.md` files. Optionally you can add a timeout for the HTTP upload in seconds.
 
-```yaml      
+```yaml
 # Example script.yaml entry
 4_send_jabber_message_with_file:
   alias: "Send text file via Jabber"

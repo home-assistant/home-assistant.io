@@ -9,7 +9,7 @@ ha_release: 0.63
 ha_domain: goalfeed
 ---
 
-The `goalfeed` integration lets you use your Goalfeed account to trigger events in Home Assistant whenever a NHL or MLB team scores. 
+The `goalfeed` integration lets you use your Goalfeed account to trigger events in Home Assistant whenever a NHL or MLB team scores.
 
 To use this component, enter your email address and password from your goalfeed.ca account in your `configuration.yaml` file:
 

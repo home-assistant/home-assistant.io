@@ -16,14 +16,14 @@ This release adds the following features:
  - Area `list`, `create`, `delete`, and `rename`
  - Device `list` and `assign`
  - Event `watch`
- 
+
 To get it run:
 
     $ pip3 install homeassistant-cli
-    
+
 And once you have configured some of the new things you can like:
 
-Create an area: 
+Create an area:
 
     $ hass-cli area create Attic
     -  id: 1
@@ -56,7 +56,7 @@ List devices matching a pattern:
 
 Like with `entity list` you can filter and pipe results to get interesting things.
 
-How about a inventory count? 
+How about a inventory count?
 
     $ hass-cli --no-headers --columns manufacturer,model device list | sort | uniq -c | sort -nr
     10 IKEA of Sweden      TRADFRI bulb GU10 WS 400lm
@@ -80,11 +80,11 @@ How about a inventory count?
      3 LUMI                lumi.vibration.aq1
      3 IKEA of Sweden      TRADFRI transformer 30W
      ....
-     
+
 And then my favorite feature, assign of area to a device:
 
     $ hass-cli device assign Kitchen "Kitchen Light 2"
-    
+
 or even more powerful, bulk-assign to any entity matching a certain pattern:
 
     $ hass-cli device assign --match "Kitchen" Kitchen
@@ -99,18 +99,18 @@ or even more powerful, bulk-assign to any entity matching a certain pattern:
       Successfully assigned 'Kitchen' to 'Kitchen right middle at oven'
       Successfully assigned 'Kitchen' to 'Kitchen Light 2'
       Successfully assigned 'Kitchen' to 'Kitchen Light 3'
-      .... 
-      
+      ....
+
 And finally as a little bonus feature you can now watch the event bus from the CLI:
 
-All events: 
+All events:
 
     $ hass-cli event watch
-    
+
 or specific events:
 
     $ hass-cli event watch call_service
-    
+
 At the moment the output is raw JSON, that will improve in a future release.
 
 The full change list including bugfixes from community is as follows:

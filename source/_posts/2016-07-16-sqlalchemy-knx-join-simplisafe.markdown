@@ -14,7 +14,7 @@ It's time for Home Assistant 0.24 and it's full of new integration for your Home
 
 [MapQuest] discontinued their free and direct tile access by Monday, July 11, 2016. With [CARTO] we found a very cool and suitable solution. They allow us to use their tile for the map. Thank you, [CARTO].
 
-[Roy Hooper][@rhooper] did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use **any** SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install [SQLAlchemy] and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script: 
+[Roy Hooper][@rhooper] did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use **any** SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install [SQLAlchemy] and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script:
 
 ```bash
 pip3 install SQLAlchemy
@@ -28,7 +28,7 @@ You can omit the `--config` option if you use the default configuration director
 - Config: Improved support for storing [secrets][secrets] ([@kellerza])
 - Sensor: Support for Yahoo! Weather ([@pvizeli])
 - Add scripts to command line to expose advanced options ([@balloob])
-- Alarm: [SimpliSafe][simplisafe] is now supported ([@w1ll1am23]) 
+- Alarm: [SimpliSafe][simplisafe] is now supported ([@w1ll1am23])
 - Core: Switch to SQLAlchemy for the Recorder component ([@rhooper])
 - Support for [Join by Joaoapps][join-joaoapps] added incl. [Join Notify][join-notify] ([@nkgilley])
 - Media Player: [Plex] will no longer spam the logs if server goes offline ([@dale3h])

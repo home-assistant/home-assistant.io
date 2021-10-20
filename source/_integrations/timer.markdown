@@ -80,7 +80,7 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 
 ### Service `timer.start`
 
-Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the new default for the timer until Home Assistant is restarted (which loads your default values). The duration can be specified as a number of seconds or the easier to read `01:23:45` format.  
+Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the new default for the timer until Home Assistant is restarted (which loads your default values). The duration can be specified as a number of seconds or the easier to read `01:23:45` format.
 You can also use `entity_id: all` and all active timers will be started.
 
 | Service data attribute | Optional | Description |

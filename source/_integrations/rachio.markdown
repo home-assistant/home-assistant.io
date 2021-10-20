@@ -87,7 +87,7 @@ It is not currently possible to have zones from multiple controllers in the same
 #Example sctipt to start multiple zones with individual duration for each zone.
 script:
   run_grass_zones:
-    sequence: 
+    sequence:
       - service: rachio.start_multiple_zone_schedule
         target:
           entity_id:
@@ -102,7 +102,7 @@ script:
 #Example sctipt to start multiple zones with one duration for all zones.
 script:
   run_grass_zones:
-    sequence: 
+    sequence:
       - service: rachio.start_multiple_zone_schedule
         target:
           entity_id:

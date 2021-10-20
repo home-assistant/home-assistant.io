@@ -20,7 +20,7 @@ ha_platforms:
 ---
 
 <p class='note warning'>
-  Daikin has removed their local API in newer products. They offer a cloud API accessible only under NDA, which is incompatible with open source. This affects units fitted with the BRP069C4x wifi adapter. Units listed under Supported Hardware below continue to have access to local control. Additionally the older but commonly available BRP072A42 adapter can be fitted to most if not all newer units for access to local control. 
+  Daikin has removed their local API in newer products. They offer a cloud API accessible only under NDA, which is incompatible with open source. This affects units fitted with the BRP069C4x wifi adapter. Units listed under Supported Hardware below continue to have access to local control. Additionally the older but commonly available BRP072A42 adapter can be fitted to most if not all newer units for access to local control.
 </p>
 
 The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.
@@ -43,13 +43,13 @@ There is currently support for the following device types within Home Assistant:
 <div class='note'>
 
 * The integration for BRP072Cxx and SKYFi based units need API-key / password respectively. The API-key/password can be found on a sticker under the front cover. The other models are auto detected and the API-key and password field must be left empty.
-  
+
 </div>
 
 {% include integrations/config_flow.md %}
 
 <div class='note'>
-  
+
 If your Daikin unit does not reside in the same network as your Home Assistant instance, i.e. your network is segmented, note that a couple of UDP connections are made during discovery:
 
 - From Home Assistant to the Daikin controller: `UDP:30000` => `30050`
@@ -73,9 +73,9 @@ The `daikin` climate platform integrates Daikin air conditioning systems into Ho
 Current inside temperature is displayed.
 
 <div class='note'>
-  
+
 Some models do not support setting of **fan speed** or **swing mode**.
-  
+
 </div>
 
 <div class='note'>
@@ -138,7 +138,7 @@ The European and United States controllers (Most likely the Australian controlle
 
 `http://Daikin-IP-Address/common/set_regioncode?reg=XX` Replace XX with your region code of choice.
 
-Currently known region codes: 
+Currently known region codes:
 - AU
 - EU
 - JP

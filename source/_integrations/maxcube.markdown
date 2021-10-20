@@ -71,7 +71,7 @@ maxcube:
     default: 300
 {% endconfiguration %}
 
-### Problems connecting or setting up 
+### Problems connecting or setting up
 
 Due to the connection limits of the eQ-3 MAX! Cube, Home Assistant will not be able to connect to the gateway if another application is still connected. It may result in timeout errors like _Error: timed out You will need to restart Home Assistant after fixing._ and  _The following integrations and platforms could not be set up: maxcube Please check your configuration._
 

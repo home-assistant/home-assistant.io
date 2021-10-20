@@ -74,7 +74,7 @@ switches:
           required: false
           type: string
         timeout:
-          description: How long to wait for a reply after a telnet command is sent. 
+          description: How long to wait for a reply after a telnet command is sent.
           required: false
           default: 0.2
           type: float

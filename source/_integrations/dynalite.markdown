@@ -18,7 +18,7 @@ ha_platforms:
   - switch
 ---
 
-Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light, switch, and cover platforms. 
+Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light, switch, and cover platforms.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -26,9 +26,9 @@ There is currently support for the following device types within Home Assistant:
 - Switches
 - Covers
 
-A Philips Dynalite hub connects to the Dynet network, which is composed of areas, channels, and preset. 
+A Philips Dynalite hub connects to the Dynet network, which is composed of areas, channels, and preset.
 
-A Dynalite area typically (although not necessarily) defines some physical area, such as a room. 
+A Dynalite area typically (although not necessarily) defines some physical area, such as a room.
 
 Each area can have one or more channels that correspond to the different devices they control. A channel can relate to a dimmable light, or other devices.
 
@@ -272,10 +272,10 @@ dynalite:
           room_on: 2
           room_off: 5
           channel:
-            '2': 
+            '2':
               name: Entrance Spot
               fade: 10.0
-            '3': 
+            '3':
               name: Dining Table
           preset:
             '5':

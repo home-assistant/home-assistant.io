@@ -28,7 +28,7 @@ notify:
     username: CLICKSEND_USERNAME
     api_key: CLICKSEND_API_KEY
     recipient: PHONE_NO
-    
+
 # Multiple recipients
 notify:
   - platform: clicksend

@@ -18,7 +18,7 @@ So, today, we present you: the Community Highlights, the first edition!
 
 Technically, not the first, but we rebooted this series, right?
 
-We hope you enjoy this, please let us know in the comments below!  
+We hope you enjoy this, please let us know in the comments below!
 Or join us for a little chat in our [#lounge at Discord][chat]
 
 ../Frenck

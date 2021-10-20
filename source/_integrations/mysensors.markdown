@@ -57,13 +57,13 @@ To use an Ethernet gateway, you need to configure the IP address and port of the
 
 A few options are available for all gateways:
 
-- optimistic  
+- optimistic
   If the optimistic option is selected, Home Assistant will assume any requested changes (turn on light, open cover) are applied immediately without waiting for feedback from the node.
 
-- persistence  
+- persistence
   If the persistence option is selected, Home Assistant will store detected nodes in a file. This means restarting Home Assistant will not require re-discovering of all the nodes.
 
-- versions  
+- versions
   Enter the version of MySensors that you use
 <div class='note'>
 Not all features of MySensors 2.x are supported by Home Assistant yet. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under "related components" to see what message types are currently supported.

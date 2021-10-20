@@ -108,7 +108,7 @@ The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-us
 ## Reverse proxies
 
 When using a reverse proxy, you will need to enable the `use_x_forwarded_for` and `trusted_proxies` options. Requests from reverse proxies will be blocked if these options are not set.
-  
+
 ```yaml
 http:
   use_x_forwarded_for: true

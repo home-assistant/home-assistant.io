@@ -21,7 +21,7 @@ Use cases:
 - Retrieve information for specific departure time on a specific train line.
 - Set up an alert or perform actions if your train is delayed or canceled.
 
-Data that is retrieved: 
+Data that is retrieved:
 
 - Next departure for the specific train line.
 - Canceled status.
@@ -45,7 +45,7 @@ sensor:
        from: "Stockholm Central"
        to: "Malmö C"
        time: "9:25"
-       
+
      - name: "Next train to Uppsala"
        from: "Stockholm Central"
        to: "Uppsala C"
@@ -104,20 +104,20 @@ sensor:
     to: Kristianstad C
     time: "07:28"
     weekday: [mon, tue, wed, thu, fri]
-    
+
   - name: "Train from work early"
     from: Kristianstad C
     to: Sölvesborg
     time: "16:38"
-    
+
   - name: "Train from work late"
     from: Kristianstad C
     to: Sölvesborg
     time: "17:02"
     weekday: [sat, sun]
-    
+
   - name: "Next train to Uppsala"
     from: "Stockholm Central"
     to: "Uppsala C"
-    
+
 ```

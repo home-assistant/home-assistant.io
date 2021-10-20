@@ -124,7 +124,7 @@ input_select:
 input_text:
   bedroom:
     name: Brightness
-    
+
 automation:
   - alias: "Bedroom Light - Custom"
     trigger:

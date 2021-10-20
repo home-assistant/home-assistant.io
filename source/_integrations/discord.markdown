@@ -99,7 +99,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
     message: "A message from Home Assistant"
     target: ["1234567890", "0987654321"]
     data:
-      images: 
+      images:
       - "/tmp/garage_cam"
       - "/tmp/garage.jpg"
 ```

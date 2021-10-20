@@ -47,7 +47,7 @@ iptables-save > /etc/network/iptables.rules  # your rules may be saved elsewhere
 ### System freezes
 
 On small systems (such as a Pi2), not directly supported by binaries (Python Wheels) you may run out of memory.
-Upon the first run or after an upgrade, Home Assistant uses a lot of resources to (re)compile all the integrations. 
+Upon the first run or after an upgrade, Home Assistant uses a lot of resources to (re)compile all the integrations.
 If you run out of memory and/or swap memory, your system will freeze.
 Increasing swap memory can help:
 

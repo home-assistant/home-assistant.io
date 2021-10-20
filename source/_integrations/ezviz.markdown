@@ -76,7 +76,7 @@ If you have "sleep" mode enabled on your camera, you can use this service to wak
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
 
-To enable/disable motion detection, use the Home Assistant built in services. 
+To enable/disable motion detection, use the Home Assistant built in services.
 
 ### Service `camera.enable_motion_detection'
 

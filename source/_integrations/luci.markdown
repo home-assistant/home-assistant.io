@@ -62,7 +62,7 @@ This device tracker provides a number of additional attributes for each tracked 
 
 <div class='note warning'>
 
-Some installations have [a small bug](https://github.com/openwrt/luci/issues/576). The timeout for luci RPC calls is not set and this makes the call fail. 
+Some installations have [a small bug](https://github.com/openwrt/luci/issues/576). The timeout for luci RPC calls is not set and this makes the call fail.
 If you want to locally fix your OpenWrt installation, you can apply the change manually to `/usr/lib/lua/luci/controller/rpc.lua`, or simply set a fixed timeout. The default is 3600.
 
 </div>

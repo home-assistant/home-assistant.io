@@ -53,7 +53,7 @@ RTS Record: 15 Address: FFFFFF RC: FFFF
 
 After configuring the RFLink Somfy RTS you have to add the cover to the `configuration.yaml` file like any other RFlink device.
 
-RFLink cover ID's are composed of: protocol, id, and gateway. For example: `RTS_0100F2_0`. 
+RFLink cover ID's are composed of: protocol, id, and gateway. For example: `RTS_0100F2_0`.
 
 Once the ID of a cover is known, it can be used to configure the cover in Home Assistant, for example, to add it to a different group or set a nice name.
 
@@ -166,7 +166,7 @@ cover:
         name: non_kaku_not_inverted_by_default
 ```
 
-The configuration above shows that the `type` property may be omitted. When the ID starts with `newkaku`, the component will make sure that the on and off commands are inverted. When the ID does not start with `newkaku`, the on and off commands are not inverted. 
+The configuration above shows that the `type` property may be omitted. When the ID starts with `newkaku`, the component will make sure that the on and off commands are inverted. When the ID does not start with `newkaku`, the on and off commands are not inverted.
 
 ### Device support
 

@@ -439,7 +439,7 @@ Setting `payload_close` empty or to `null` disables the close command and will n
 cover:
   - platform: mqtt
     payload_open: "on"
-    payload_close: 
+    payload_close:
     payload_stop: "on"
 ```
 
@@ -466,7 +466,7 @@ For auto discovery message the payload needs to be set to `null`, example for co
 
 ### Full configuration using `entity_id`- variable in the template
 
-The example below shows an example of how to correct the state of the blind depending if it moved up, or down. 
+The example below shows an example of how to correct the state of the blind depending if it moved up, or down.
 
 {% raw %}
 
@@ -552,7 +552,7 @@ cover:
         {% set movement = value | int - position %}
         {% set tilt = (tilt_percent / 100 * (tilt_max - tilt_min)) %}
         {% set tilt_value = min(max((tilt + movement), tilt_min), max) %}
- 
+
         {
            "position": value,
            "pos": position,
@@ -568,7 +568,7 @@ cover:
       {% set movement = (tilt_position - tilt) / 100 * tilt_max %}
       {{ position + movement }}
     payload_open: "on"
-    payload_close: 
+    payload_close:
     payload_stop: "on"
 ```
 

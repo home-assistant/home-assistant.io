@@ -65,7 +65,7 @@ To enable an entity disabled by default, go in **Configuration** -> **Integratio
 <div class='note warning'>
 
   The 1 hour rain forecast is supported for more than 75 % of metropolitan France.<br/>
-  
+
   ![Rain coverage map](/images/integrations/meteo_france/carte-couverture-du-service.png)
 
 </div>
@@ -75,7 +75,7 @@ The attributes allow to have a forecast of the rain type by 5 to 10 minutes inte
 - `forecast_time_ref` give a timestamp in ISO format UTC, corresponding to the start of the
   forecast.
 - `1_hour_forecast` is a dictionary to access the type of rain for the next hour for each periods.
-  
+
 "Type of rain" values are given by Météo-France API. Values already noted are:
 - `Temps sec`
 - `Pluie faible`

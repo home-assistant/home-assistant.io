@@ -14,7 +14,7 @@ ha_platforms:
   - sensor
 ---
 
-[PoolSense](https://www.proautomation.co/) is a smart pool monitor that publishes data to the cloud via SigFox. PoolSense eliminates the time and effort spent fixing what’s wrong with your pool water. Accurate sensors, in the PoolSense smart pool monitor, send data to a cloud server in timed intervals. 
+[PoolSense](https://www.proautomation.co/) is a smart pool monitor that publishes data to the cloud via SigFox. PoolSense eliminates the time and effort spent fixing what’s wrong with your pool water. Accurate sensors, in the PoolSense smart pool monitor, send data to a cloud server in timed intervals.
 
 There is currently support for the following information within Home Assistant:
 

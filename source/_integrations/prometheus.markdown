@@ -194,7 +194,7 @@ When looking into the metrics on the Prometheus side, there will be:
 
 - All Home Assistant domains, which can be easily found through the common **namespace** prefix, if defined.
 - The [client library](https://github.com/prometheus/client_python) provided metrics, which are a bunch of **process_\*** and also a single pseudo-metric **python_info** which contains (not as value but as labels) information about the Python version of the client, i.e., the Home Assistant Python interpreter.
-  
+
 Typically, you will only be interested in the first set of metrics.
 
 ## Metrics in unavailable or unknown states

@@ -50,7 +50,7 @@ Your phone app will now start generating a different six-digit code every thirty
 
 #### Using TOTP
 
-Once TOTP is enabled, Home Assistant requires the latest code from your phone app before you can log in. 
+Once TOTP is enabled, Home Assistant requires the latest code from your phone app before you can log in.
 
 <div class='note'>
 

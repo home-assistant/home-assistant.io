@@ -29,7 +29,7 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 - Add example custom_component react_panel showing custom panels ([@balloob])
 - Light: [MagicLight/Flux WiFi Color LED Light][flux] support ([@Danielhiversen])
 - Script: Specify a delay [using templates][script] ([@Teagan42])
-- Media player: [Russound RNET][Russound] integration ([@laf]) 
+- Media player: [Russound RNET][Russound] integration ([@laf])
 - Remote: Option specifying custom timeout when calling Home Assistant API ([@n8henrie])
 - Thermostat: Integration of [KNX] thermostats ([@open-homeautomation])
 - Thermostat: Support for HVAC mode of [Nest] devices ([@vladonemo])

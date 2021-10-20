@@ -77,12 +77,12 @@ This example implements 2 REST commands to add service calls for the missing shu
 
 ```yaml
 rest_command:
-  shuffle_on: 
+  shuffle_on:
     url: "http://YOUR_ITUNES-API_SERVER_IP:8181/shuffle"
     method: put
     content_type: "application/x-www-form-urlencoded"
     payload: "mode=songs"
-  shuffle_off: 
+  shuffle_off:
     url: "http://YOUR_ITUNES-API_SERVER_IP:8181/shuffle"
     method: put
     content_type: "application/x-www-form-urlencoded"

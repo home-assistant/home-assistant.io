@@ -386,7 +386,7 @@ climate:
 
 This will parse the incoming `"auto"` as JSON, resulting in `auto`. Obviously, in this case you could also just set `value_template: {% raw %}"{{ value_json }}"{% endraw %}`.
 
-Similarly for `*_command_topic`s, a template can be specified to render the outgoing payloads on these topics. 
+Similarly for `*_command_topic`s, a template can be specified to render the outgoing payloads on these topics.
 
 ### Example
 

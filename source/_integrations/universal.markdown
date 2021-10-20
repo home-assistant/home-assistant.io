@@ -52,7 +52,7 @@ media_player:
         data: SERVICE_DATA
       media_next_track:
         service: SERVICE
-        data: SERVICE_DATA 
+        data: SERVICE_DATA
     attributes:
       is_volume_muted: ENTITY_ID|ATTRIBUTE
       state: ENTITY_ID|ATTRIBUTE

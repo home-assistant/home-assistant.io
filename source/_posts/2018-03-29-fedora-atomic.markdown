@@ -14,13 +14,13 @@ The Hackerspace [Eastermundigen](http://www.eastermundigen.ch/) is often my real
 
 <!--more-->
 
-This blog post contains the details of the setup. They may be useful for others as well. Our new system is running Fedora 27 from [Project Atomic](http://www.projectatomic.io). We will not cover the setup of an Atomic host and the details of Project Atomic itself. For more details, have a look at [Benjamin Affolter](https://twitter.com/bliemli)'s [blog post](https://www.puzzle.ch/blog/articles/2017/09/28/atomic-host-basic-setup-and-usage) which also covers some of the basics. 
+This blog post contains the details of the setup. They may be useful for others as well. Our new system is running Fedora 27 from [Project Atomic](http://www.projectatomic.io). We will not cover the setup of an Atomic host and the details of Project Atomic itself. For more details, have a look at [Benjamin Affolter](https://twitter.com/bliemli)'s [blog post](https://www.puzzle.ch/blog/articles/2017/09/28/atomic-host-basic-setup-and-usage) which also covers some of the basics.
 
 The installation process of an Atomic host is pretty much the same as for Fedora Server or Fedora Workstation. Either create a Live USB device or use PXE to get the installation going. E.g., lauch iPXE and chainload [netboot.yxz](https://netboot.xyz/) with `chain --autofree https://boot.netboot.xyz`. Then let `anaconda` guide you through the setup.
 
 After the first boot, copy the SSH keys, use `visudo` to add users and perform the usual steps you do for a new system. We only allow SSH with keys, are enforcing the usage of `sudo`, need special network settings and a couple of other things. But those configuration settings are irrelevant for a setup in a local network.
 
-If the system is up and running then check if you are using the latest release. 
+If the system is up and running then check if you are using the latest release.
 
 ```bash
 $ sudo atomic host status
@@ -82,13 +82,13 @@ Description=Home Assistant
 Requires=docker.service
 Wants=docker.service
 After=docker.service
- 
+
 [Service]
 Restart=on-failure
 RestartSec=10
 ExecStart=/usr/bin/docker run --rm --name %p -v /opt/home-assistant:/config:Z -v /etc/localtime:/etc/localtime:ro --network host homeassistant/home-assistant
 ExecStop=-/usr/bin/docker stop -t 30 %p
- 
+
 [Install]
 WantedBy=multi-user.target
 EOF
@@ -137,5 +137,5 @@ sudo systemctl enable mosquitto.service --now
 
 Check with `$ sudo systemctl status [name].service` if there are error or the services are running.
 
-The deployment of [NGINX](https://nginx.org/en/) as webserver for static content, [grafana](https://grafana.com/) and [InfluxBD](https://www.influxdata.com/) works the same way as for Home Assistant and Mosquitto. To get a proper [traefik](https://traefik.io/) setup additional reading and work is required. 
+The deployment of [NGINX](https://nginx.org/en/) as webserver for static content, [grafana](https://grafana.com/) and [InfluxBD](https://www.influxdata.com/) works the same way as for Home Assistant and Mosquitto. To get a proper [traefik](https://traefik.io/) setup additional reading and work is required.
 

@@ -261,7 +261,7 @@ The `hangouts` platform allows you to deliver notifications from Home Assistant 
 To enable Hangouts notifications in your installation, you first need to configure the Hangouts component. Then, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry  
+# Example configuration.yaml entry
 notify:
   - name: NOTIFIER_NAME
     platform: hangouts

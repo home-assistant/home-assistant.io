@@ -211,7 +211,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - switch (on/off)
 - fan (on/off/speed percentage/preset mode)
 - light (on/off/brightness/rgb color/color temp)
-- lock 
+- lock
 - cover (on/off/set position)
 - media_player (on/off/set volume (via set volume)/source (via set input source)/control playback)
 - climate (temperature setting, hvac_mode)
@@ -267,7 +267,7 @@ The `request_sync` service may fail with a 404 if the `project_id` of the HomeGr
   1. Removing your project from the [Google Cloud API Console](https://console.cloud.google.com).
   2. Add a new project to the [Actions on Google console](https://console.actions.google.com) Here you get a new `project_id`.
   3. Run through the previously mentioned [Actions on Google console] setup instructions until the step to create a `service_account`.
-  4. Once you begin to create a new `service_account` in the [Google Cloud API Console], ensure you select the project created in  [Actions on Google console] by verifying the `project_id`.  
+  4. Once you begin to create a new `service_account` in the [Google Cloud API Console], ensure you select the project created in  [Actions on Google console] by verifying the `project_id`.
   5. Enable HomeGraph API to the new project.
 
 Verify that the Google Assistant is available on `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` If it is working it should return `405: Method Not Allowed` when opened in a browser or via curl.

@@ -38,10 +38,10 @@ notify:
     vapid_email: YOUR_EMAIL
 ```
 
-Or 
+Or
 
 ```yaml
-# Example configuration.yaml entry. 
+# Example configuration.yaml entry.
 # Warning: this option will be deprecated soon!
 notify:
   - platform: html5

@@ -242,7 +242,7 @@ Service data attribute | Optional | Description
 
 #### Service `ptz_control`
 
-If your Amcrest or Dahua camera supports PTZ, you will be able to pan, tilt or zoom your camera.  
+If your Amcrest or Dahua camera supports PTZ, you will be able to pan, tilt or zoom your camera.
 
 Service data attribute | Optional | Description
 -|-|-

@@ -10,7 +10,7 @@ Packages are configured under the core `homeassistant/packages` in the configura
 ```yaml
 homeassistant:
   ...
-  packages: 
+  packages:
     pack_1:
       ...package configuration here...
 ```
@@ -24,7 +24,7 @@ Inline example, main `configuration.yaml`:
 ```yaml
 homeassistant:
   ...
-  packages: 
+  packages:
     pack_1:
       switch:
         - platform: rest
@@ -39,7 +39,7 @@ Include example, main `configuration.yaml`:
 ```yaml
 homeassistant:
   ...
-  packages: 
+  packages:
     pack_1: !include my_package.yaml
 ```
 

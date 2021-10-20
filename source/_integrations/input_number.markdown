@@ -87,7 +87,7 @@ configuration without restarting Home Assistant itself.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
-| `decrement` | `entity_id(s)`<br>`area_id(s)` | Decrement the value of specific `input_number` entities by `step` 
+| `decrement` | `entity_id(s)`<br>`area_id(s)` | Decrement the value of specific `input_number` entities by `step`
 | `increment` | `entity_id(s)`<br>`area_id(s)` | Increment the value of specific `input_number` entities by `step`
 | `reload` | | Reload `input_number` configuration |
 | `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_number` entities
@@ -190,7 +190,7 @@ input_number:
     min: 1
     max: 30
     step: 1
-    unit_of_measurement: step  
+    unit_of_measurement: step
     icon: mdi:target
 
 # This automation script runs when a value is received via MQTT on retained topic: setTemperature
@@ -237,7 +237,7 @@ input_number:
     min: 0
     max: 6
     step: 1
-    
+
   seconds:
     name: seconds
     icon: mdi:clock-start
@@ -245,7 +245,7 @@ input_number:
     min: 0
     max: 60
     step: 10
-    
+
 automation:
  - alias: "turn something off after x time after turning it on"
    trigger:

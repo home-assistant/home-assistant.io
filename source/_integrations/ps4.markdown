@@ -128,13 +128,13 @@ Some titles will have different SKUs in the PlayStation Store database, dependin
 ## Media Data
 
 The PlayStation 4 integration will fetch information about the game or app that is currently running from your region's [PlayStation Store](https://store.playstation.com) database.
-  
+
 Occasionally, the integration may fail to get the data at all, or may get incorrect data. To correct this issue, the integration allows for manual editing via any text editor.
-  
+
 ### Formatting
 
 When the integration retrieves data from the PlayStation Store, it stores it in a JSON file named `.ps4-games.json` in the same directory as where your `configuration.yaml` file is located. The first line in the file will be `{` and the last line will be `}`. Between these lines, there will be indented entries for each game or app the integration finds. See the following example and table:
-  
+
 ```json
 {
     "CUSA00129": {
@@ -164,13 +164,13 @@ The data in the example shows 2 entries.
 Each entry will begin with the SKU ID of the title, e.g., `CUSA00000` and will have a field named `locked` with a value of `true` or `false` associated with it. The default value will be `false` for each entry. If `locked` is `true`, the integration will not overwrite the data pertaining to that game or app.
 
 The `media_image_url` value can be any valid URL. This includes the `local directory` of your Home Assistant instance. The first entry in the example directs to a file named `image.jpg` located in the `config/www/` directory.
-  
+
 ### Editing with Text Editor
 <div class='note'>
   Backup a copy of your <b>.ps4-games.json</b> file before continuing. If there are errors in the formatting, your file may be deleted.
 </div>
 
-To edit, simply open the file in a text editor, find the game or app you would like to edit, and edit the value(s) you wish to change and then save the file. The changes will appear the next time you play the game or app on your console. 
+To edit, simply open the file in a text editor, find the game or app you would like to edit, and edit the value(s) you wish to change and then save the file. The changes will appear the next time you play the game or app on your console.
 
 ## Services
 

@@ -72,7 +72,7 @@ engine:
   description: "Override the default engine. Can be either of `standard` or `neural`. See Amazon documentation for compatible regions and voices."
   required: false
   type: string
-  default: standard  
+  default: standard
 {% endconfiguration %}
 
 ## Usage

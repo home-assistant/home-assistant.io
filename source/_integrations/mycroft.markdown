@@ -32,7 +32,7 @@ host:
   description: The IP address of your Mycroft instance.
   required: true
   type: string
-{% endconfiguration %}  
+{% endconfiguration %}
 
 ## Using notifications
 
@@ -43,14 +43,14 @@ To use Mycroft for sending notifications, add the following to your `configurati
 notify:
   - platform: mycroft
     name: mycroft
-```  
+```
 
 {% configuration %}
 name:
   description: Frendly name of your Mycroft instance.
   required: true
   type: string
-{% endconfiguration %}  
+{% endconfiguration %}
 
 ## Examples
 

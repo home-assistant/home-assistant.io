@@ -20,13 +20,13 @@ Go to the [Flock.com Admin website](https://admin.flock.com/#!/webhooks) and cre
 
 <p class='img'>
   <img src='/images/integrations/flock/flock-webhook.png' />
-</p> 
+</p>
 
 You will need the last part of the URL which is the `access_token` for your room.
 
 <p class='img'>
   <img src='/images/integrations/flock/new-webhook.png' />
-</p> 
+</p>
 
 ## Configuration
 

@@ -15,7 +15,7 @@ The `eafm` integration offers integration with the [UK Environment Agency Flood 
 
 <div class='note warning'>
 
-The UK Environment Agency Flood Monitoring only provides data for England - Northern Ireland, Scotland and Wales have their own flood agencies. 
+The UK Environment Agency Flood Monitoring only provides data for England - Northern Ireland, Scotland and Wales have their own flood agencies.
 
 </div>
 

@@ -15,7 +15,7 @@ ha_platforms:
 ---
 
 The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week will count as workdays and also
-uses the Python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays. 
+uses the Python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays.
 
 ## Setup
 

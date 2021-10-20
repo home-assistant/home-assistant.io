@@ -31,7 +31,7 @@ Now type in `SayOn` in the `Message` box and you should see a box appear on the 
 
 ### Tasker Setup
 
-Open up Tasker and make sure you're in the `PROFILES` tab, then select the plus icon to create a new profile. Select `Event` -> `Plugin` -> `AutoRemote` -> `AutoRemote` and then the pencil icon to configure the AutoRemote event. Select `Message Filter` and enter in `SayOn` then go back until it asks you for a task. Select `New task` then just leave the next field blank and select the tick icon. 
+Open up Tasker and make sure you're in the `PROFILES` tab, then select the plus icon to create a new profile. Select `Event` -> `Plugin` -> `AutoRemote` -> `AutoRemote` and then the pencil icon to configure the AutoRemote event. Select `Message Filter` and enter in `SayOn` then go back until it asks you for a task. Select `New task` then just leave the next field blank and select the tick icon.
 This is where we'll configure our task, so select the plus icon to select an action. Select `Alert` -> `Say` to add a Say action. Enter `On` in the text field and go back to test your task, make sure your media volume is up then select the play icon, you should hear your device say "On".
 
 <p class='img'>
@@ -42,7 +42,7 @@ Now you can go back to the main Tasker screen and create another profile but thi
 
 ### Python Script
 
-Now it's time to set it up the script, so create a new Python script and name it `On.py` then enter this code: 
+Now it's time to set it up the script, so create a new Python script and name it `On.py` then enter this code:
 
 ```python
 import requests

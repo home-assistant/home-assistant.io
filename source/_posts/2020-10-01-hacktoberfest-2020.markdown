@@ -33,14 +33,14 @@ some help on. You can find those by filtering/searching for issues with
 the [`hacktoberfest` label][all].
 
 - **[Core Hacktoberfest issues][core]**
-  
+
   For example, help us migrate
   [unittest tests to pytest style test][testcase] functions or lend a hand with
   using as many references as possible
   in the [configuration flow translations][translations].
 
 - **[Frontend Hacktoberfest issues][frontend]**
-  
+
   We could use some help with [moving all `paper-dialogs` to `ha-dialogs`][paper].
 
 - **[Documentation Hacktoberfest issues][docs]**

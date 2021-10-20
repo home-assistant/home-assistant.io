@@ -169,7 +169,7 @@ Example of `input_select` being used in a bidirectional manner, both being set b
 
 ```yaml
 # Example configuration.yaml entry using 'input_select' in an action in an automation
-   
+
 # Define input_select
 input_select:
   thermostat_mode:
@@ -181,7 +181,7 @@ input_select:
       - "heat"
     icon: mdi:target
 
-# Automation.     
+# Automation.
  # This automation script runs when a value is received via MQTT on retained topic: thermostatMode
  # It sets the value selector on the GUI. This selector also had its own automation when the value is changed.
 - alias: "Set Thermostat Mode Selector"

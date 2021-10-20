@@ -67,7 +67,7 @@ queries:
       type: template
 {% endconfiguration %}
 
-There is no explicit configuration required for attributes. The integration will set all additional columns returned by the query as attributes. 
+There is no explicit configuration required for attributes. The integration will set all additional columns returned by the query as attributes.
 
 Note that in all cases only the first row returned will be used.
 

@@ -13,7 +13,7 @@ This article will try to explain how they all relate.
 
 The first thing to introduce is the **Internet of Things** (IoT). This refers to a new generation of devices that cannot only be controlled by humans via buttons or remotes but also provide an interface to communicate with other devices and applications. For example, an IoT-capable coffee machine could receive commands to create different types of coffee and be able to broadcast the amount of water left in its reservoir.
 
-There is no widely adopted open standard for smart device communication. This prevents a lot of devices to communicate with one another. And even if they could, most devices are not designed to manage other devices. To solve this we need a device to be able to communicate with and manage all these connected devices. This device is called a **hub**. 
+There is no widely adopted open standard for smart device communication. This prevents a lot of devices to communicate with one another. And even if they could, most devices are not designed to manage other devices. To solve this we need a device to be able to communicate with and manage all these connected devices. This device is called a **hub**.
 
 As a bare minimum a hub has to keep track of the state of each device and should be able to control them if possible. For example, it has to know which lights are on or off and offer a way to control the lights. For a sensor it only has to know the value. A hub with these capabilities offers **home control**.
 

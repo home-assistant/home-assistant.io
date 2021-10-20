@@ -48,7 +48,7 @@ port:
 
 Only the "music" media type is supported for now.
 
-This service will control any instance of VLC player on the network with the telnet interface activated. 
+This service will control any instance of VLC player on the network with the telnet interface activated.
 To activate the telnet interface on your VLC Player please read the [official VLC documentation](https://wiki.videolan.org/Documentation:Modules/telnet/). Also remember to add a firewall rule allowing inbound connections for the port used in the device running VLC.
 
 In case the VLC is running on a host with a locale other than English, you may get some errors during the volume change.

@@ -180,19 +180,19 @@ Within this delay the device registration should be completed in the App, otherw
   * Weather Sensor – basic (*HmIP-SWO-B*)
   * Weather Sensor – plus (*HmIP-SWO-PL*)
   * Weather Sensor – pro (*HmIP-SWO-PR*)
-  
+
 ## What to do, if a device is missing in Home Assistant
 
 In order for a device to be integrated into Home Assistant, it must first be implemented in the upstream library. A dump of your configuration is required for this, which is then attached to a new issue in the [upstream lib's](https://github.com/coreGreenberet/homematicip-rest-api) GitHub repository.
 
-1. Create a dump of your access point configuration in Home Assistant: 
-  Developer Tools -> Services -> Select `homematicip_cloud.dump_hap_config` -> Execute. 
+1. Create a dump of your access point configuration in Home Assistant:
+  Developer Tools -> Services -> Select `homematicip_cloud.dump_hap_config` -> Execute.
   The default dump is anonymized and is written to your configuration directory (`hmip_config_XXXX.json`).
 2. Create a [new issue](https://github.com/coreGreenberet/homematicip-rest-api/issues/new) at this GitHub repository and attach the created dump file.
 
 Please be patient, wait for the implementation and a new release of the upstream library.
 Afterward, this device can be implemented into Home Assistant.
-  
+
 ## Services
 
 Executable by all users:
@@ -212,7 +212,7 @@ Executable by administrators or within the context of an automation:
 `accesspoint_id` (SGTIN) is optional for all services and only relevant if you have multiple Homematic IP Accesspoints connected to HA. If empty, service will be called for all configured Homematic IP Access Points.
 The `accesspoint_id` (SGTIN) can be found on top of the integration page, or on the back of your Homematic IP Accesspoint.
 
-Activate eco mode with duration. 
+Activate eco mode with duration.
 
 ```yaml
 ...
@@ -223,7 +223,7 @@ action:
     accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
 ```
 
-Activate eco mode with period. 
+Activate eco mode with period.
 
 ```yaml
 ...
@@ -268,7 +268,7 @@ action:
 
 Set the active climate profile index.
 
-The index of the climate profile is 1-based. 
+The index of the climate profile is 1-based.
 You can get the required index from the native Homematic IP App.
 
 ```yaml

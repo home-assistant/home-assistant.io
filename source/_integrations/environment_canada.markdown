@@ -199,7 +199,7 @@ longitude:
   description: Part of a set of coordinates to use as the center point.
   required: inclusive
   type: float
-station: 
+station:
   description: The station code of a specific radar station to use. If provided, this station will be used and any latitude/longitude coordinates provided will be ignored. Must be in the form `XXX` or `CXXXX`.
   required: false
   type: string

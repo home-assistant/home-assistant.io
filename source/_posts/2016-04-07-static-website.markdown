@@ -11,7 +11,7 @@ og_image: /images/blog/2016-04-display/ha-display.png
 
 The frontend of Home Assistant is served with the help of a local web server. If you have [customized](/getting-started/devices/#customizing-devices-and-services) your installation you already use this functionality. The content of your folder `www` in your Home Assistant configuration directory (`.homeassistant`) is available under `/local` (eg. `https://localhost:8123/local/index.html` for an `index.html` file).
 
-But there is more you can do! You can not only host images for customization there but HTML files or even web applications including CSS and Javascript. 
+But there is more you can do! You can not only host images for customization there but HTML files or even web applications including CSS and Javascript.
 
 <p class='img'>
 <img src='/images/blog/2016-04-display/ha-display.png' />
@@ -23,6 +23,6 @@ In the past the buzz word "Smart mirror" was used a couple of times in our [chat
 
 There are plenty of ways to achieve this...[RESTful API](/developers/rest_api/), ~~Python API~~, or one of the [history components](/integrations/#history). If it is to be a web page I'm using the [MQTT Eventstream component](/integrations/mqtt_eventstream/) and [Eclipse Paho JavaScript Client](https://www.eclipse.org/paho/clients/js/).
 
-The [HBMQTT](https://pypi.org/pypi/hbmqtt) broker provides websockets support for MQTT and mqttws31.js included in web page gives you access to the MQTT messages. It's a matter of minutes. OK, it took a little longer because I'm not a Javascript guy to create the software part that will show details about your environment. The source is available at [https://github.com/fabaff/home-assistant-display](https://github.com/fabaff/home-assistant-display) and the screenshot above shows the result. I guess that every person who is familiar with Javascript would be able to reduce the amount of code and to make it more flexible. Well, it's only a prototype and showcase to include an image in this blog post. 
+The [HBMQTT](https://pypi.org/pypi/hbmqtt) broker provides websockets support for MQTT and mqttws31.js included in web page gives you access to the MQTT messages. It's a matter of minutes. OK, it took a little longer because I'm not a Javascript guy to create the software part that will show details about your environment. The source is available at [https://github.com/fabaff/home-assistant-display](https://github.com/fabaff/home-assistant-display) and the screenshot above shows the result. I guess that every person who is familiar with Javascript would be able to reduce the amount of code and to make it more flexible. Well, it's only a prototype and showcase to include an image in this blog post.
 
 I hope that this little article could give you an idea of extending Home Assistant in an unconventional way.

@@ -193,14 +193,14 @@ Start a scene blinking.
 
 ```yaml
 #script:
- 
+
 all_lights_on:
   alias: "All Lights On"
   description: "Activate two UPB scenes named interior_lights and exterior_lights"
   sequence:
     - service: scene.turn_on
       target:
-        entity_id: 
+        entity_id:
           - scene.interior_lights
           - scene.exterior_lights
 
@@ -210,7 +210,7 @@ all_lights_off:
   sequence:
     - service: upb.scene_deactivate
       target:
-        entity_id: 
+        entity_id:
           - scene.interior_lights
           - scene.exterior_lights
 

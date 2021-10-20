@@ -40,44 +40,44 @@ sqlite> SELECT sql FROM sqlite_master;
 
 -------------------------------------------------------------------------------------
 CREATE TABLE events (
-	event_id INTEGER NOT NULL, 
-	event_type VARCHAR(32), 
-	event_data TEXT, 
-	origin VARCHAR(32), 
-	time_fired DATETIME, 
-	created DATETIME, 
-	context_id VARCHAR(36), 
-	context_user_id VARCHAR(36), context_parent_id CHARACTER(36), 
+	event_id INTEGER NOT NULL,
+	event_type VARCHAR(32),
+	event_data TEXT,
+	origin VARCHAR(32),
+	time_fired DATETIME,
+	created DATETIME,
+	context_id VARCHAR(36),
+	context_user_id VARCHAR(36), context_parent_id CHARACTER(36),
 	PRIMARY KEY (event_id)
 )
 CREATE TABLE recorder_runs (
-	run_id INTEGER NOT NULL, 
-	start DATETIME, 
-	"end" DATETIME, 
-	closed_incorrect BOOLEAN, 
-	created DATETIME, 
-	PRIMARY KEY (run_id), 
+	run_id INTEGER NOT NULL,
+	start DATETIME,
+	"end" DATETIME,
+	closed_incorrect BOOLEAN,
+	created DATETIME,
+	PRIMARY KEY (run_id),
 	CHECK (closed_incorrect IN (0, 1))
 )
 CREATE TABLE schema_changes (
-	change_id INTEGER NOT NULL, 
-	schema_version INTEGER, 
-	changed DATETIME, 
+	change_id INTEGER NOT NULL,
+	schema_version INTEGER,
+	changed DATETIME,
 	PRIMARY KEY (change_id)
 )
 CREATE TABLE states (
-	state_id INTEGER NOT NULL, 
-	domain VARCHAR(64), 
-	entity_id VARCHAR(255), 
-	state VARCHAR(255), 
-	attributes TEXT, 
-	event_id INTEGER, 
-	last_changed DATETIME, 
-	last_updated DATETIME, 
-	created DATETIME, 
-	context_id VARCHAR(36), 
-	context_user_id VARCHAR(36), context_parent_id CHARACTER(36), old_state_id INTEGER, 
-	PRIMARY KEY (state_id), 
+	state_id INTEGER NOT NULL,
+	domain VARCHAR(64),
+	entity_id VARCHAR(255),
+	state VARCHAR(255),
+	attributes TEXT,
+	event_id INTEGER,
+	last_changed DATETIME,
+	last_updated DATETIME,
+	created DATETIME,
+	context_id VARCHAR(36),
+	context_user_id VARCHAR(36), context_parent_id CHARACTER(36), old_state_id INTEGER,
+	PRIMARY KEY (state_id),
 	FOREIGN KEY(event_id) REFERENCES events (event_id)
 )
 CREATE TABLE sqlite_stat1(tbl,idx,stat)

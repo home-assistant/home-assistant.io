@@ -43,7 +43,7 @@ To use your Tahoma devices in your installation, add the following to your `conf
 tahoma:
   username: "YOUR_USERNAME"
   password: "YOUR_PASSWORD"
-  exclude: 
+  exclude:
     - "BridgeHUEComponent"
     - "HueLampHUEComponent"
     - "PodComponent"

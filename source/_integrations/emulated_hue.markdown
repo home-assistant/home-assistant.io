@@ -42,9 +42,9 @@ If you added or upgraded to a newer Alexa device and devices are not found, you 
 </div>
 
 <div class='note'>
-  
-Logitech Harmony remotes cannot connect to this emulator via Android and iOS mobile applications because they require the physical button on the hub to be pressed. The [MyHarmony desktop software](https://support.myharmony.com/en-us/download) must be used with the original cable to connect it, then "Scan for Devices". 
-  
+
+Logitech Harmony remotes cannot connect to this emulator via Android and iOS mobile applications because they require the physical button on the hub to be pressed. The [MyHarmony desktop software](https://support.myharmony.com/en-us/download) must be used with the original cable to connect it, then "Scan for Devices".
+
 </div>
 
 ### Configuration

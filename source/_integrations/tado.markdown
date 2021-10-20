@@ -104,7 +104,7 @@ In this example `12345` is the `home_id` you'll need to configure.
 
 ### Finding your `home_id` alternative
 
-If the above method returns an unauthorized error. The `home_id` can also be found using Chrome developer tools. Whilst logged into https://my.tado.com/webapp, take the following steps: 
+If the above method returns an unauthorized error. The `home_id` can also be found using Chrome developer tools. Whilst logged into https://my.tado.com/webapp, take the following steps:
 
 - Select the "Network"' tab
 - Filter for "home"
@@ -119,7 +119,7 @@ In this example `12345` is the `home_id` you'll need to configure.
 
 ### Service `tado.set_climate_timer`
 
-You can use the service `tado.set_climate_timer` to set your Tado climate device, for example a radiator valve, to switch on for a set time period. 
+You can use the service `tado.set_climate_timer` to set your Tado climate device, for example a radiator valve, to switch on for a set time period.
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
@@ -129,7 +129,7 @@ You can use the service `tado.set_climate_timer` to set your Tado climate device
 
 ### Service `tado.set_water_heater_timer`
 
-You can use the service `tado.set_water_heater_timer` to set your water heater to switch on for a set time period. 
+You can use the service `tado.set_water_heater_timer` to set your water heater to switch on for a set time period.
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
@@ -177,7 +177,7 @@ automation:
       entity_id:
         - sensor.temp_sensor_room
         - sensor.tado_temperature
-    
+
     # Check if the room temp is more than 0.5 higher than the tado thermostat reading
     condition:
     - condition: template
@@ -185,7 +185,7 @@ automation:
         {% set tado_temp = states('sensor.tado_temperature')|float %}
         {% set room_temp = states('sensor.temp_sensor_room')|float %}
         {{ (tado_temp - room_temp) > 0.5 }}
-    
+
     # Work out what the new offset should be (tado temp less the room temp but add the current offset value) and turn that to a negative value for setting as the new offset
     action:
     - service: tado.set_climate_temperature_offset

@@ -51,7 +51,7 @@ Along with the event the following payload parameters are available:
 
 | Parameter | Description                                                                                                                                                                                                                                                    |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `url`  | The `url` that was requested.|                                                                                                                                      
+| `url`  | The `url` that was requested.|
 | `filename`    | The `name` of the file that was being downloaded.|
 
 #### Example Automation:

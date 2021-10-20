@@ -72,7 +72,7 @@ name:
 The hysteresis parameter can be used in this use-case to avoid frequent state changes around the maximum or the minimum of a temperature curve. We also have to utilize the [derivative sensor](/integrations/derivative/) for this use-case:
 
 ```yaml
-sensor:  
+sensor:
   - platform: derivative # will be positive for rising temperatures and negative for falling temperatures
     source: sensor.temperature
     unit_time: min
@@ -82,6 +82,6 @@ binary_sensor:
   - platform: threshold # will switch state not at 0°C/min but 0.1°C/min or -0.1°C/min depending on the current state of the sensor, respectively
     entity_id: sensor.temperature_derivative
     upper: 0
-    hysteresis: 0.1 # sensor 
+    hysteresis: 0.1 # sensor
     name: temperature rising
 ```

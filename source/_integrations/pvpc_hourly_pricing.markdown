@@ -16,8 +16,8 @@ ha_platforms:
 
 This sensor uses the official API to get the hourly price of electricity in Spain from https://www.esios.ree.es/en/pvpc.
 
-Specifically, it shows the current __active energy invoicing price (FEU)__ in €/kWh, 
-which is the energy term hourly price applied in the consumers' electrical bill 
+Specifically, it shows the current __active energy invoicing price (FEU)__ in €/kWh,
+which is the energy term hourly price applied in the consumers' electrical bill
 with a contracted power not exceeding 15 kW and which are under the PVPC
 (Voluntary Price for Small Consumer).
 
@@ -34,7 +34,7 @@ More information available at http://www.cnmc.es/en/ and http://www.omie.es/en/
 To configure PVPC Hourly Pricing, set it up via the integrations panel in the configuration screen.
 
 Set a name for the price sensor (default is `sensor.pvpc`), and select one of the two available tariffs,
-according to your geographic position in Spain: 
+according to your geographic position in Spain:
 
 - `2.0TD`, for the Peninsula, the Balearic Islands and the Canary Islands.
 - `2.0TD (Ceuta/Melilla)`, for the cities of Ceuta and Melilla.
@@ -49,7 +49,7 @@ and you can change the sensor configuration anytime by going to the integration'
 
 ### Advanced configuration
 
-PVPC Hourly Pricing allows manual configuration by adding a section to your `configuration.yaml`. 
+PVPC Hourly Pricing allows manual configuration by adding a section to your `configuration.yaml`.
 
 ```yaml
 # Set up electricity price sensors as a component:

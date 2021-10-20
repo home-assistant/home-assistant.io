@@ -22,7 +22,7 @@ Information on [how to share](#got-a-tip-for-the-next-edition).
 It has probably happened to everyone, you forget to put the wheelie bin on the
 street and now you have to wait weeks again before it can be emptied again. There
 are already various custom integrations where you can keep track of when the pick-up
-days are. But maybe the [Blueprint][week_blueprint] from 
+days are. But maybe the [Blueprint][week_blueprint] from
 [westenberg](https://community.home-assistant.io/u/westenberg), can also help you
 to get a notification every time so that you don't forget it.
 

@@ -34,7 +34,7 @@ The device item value is the last segment of the URL path, e.g., the URL
    ```
 
    The JSON response structure should resemble:
-   
+
    ```json
    {"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MzgyMjQwODE0NjIsInYiOjAsImQiOnsidWleejoic2ltcGxlbG9naW46MzM1In0sImlhdCI6wwDIyMzk5NX0.kbYzxRtbGB2ke3IBgQTVMNQprHOWJZFgQQnPK6Wyas4"}
    ```

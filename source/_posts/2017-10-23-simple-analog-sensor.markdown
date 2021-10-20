@@ -65,7 +65,7 @@ void loop() {
 
 To make it work with other boards simply use [`Serial.begin(115200);`](https://www.arduino.cc/en/Reference/Serial) and [`Serial.println(reading);`](https://www.arduino.cc/en/Serial/Println).
 
-If you connect with a tool like `minicom` to your system's serial port `/dev/ttyACM0`, then you will get the data. To use the sensor with Home Assistant the [`serial`](/integrations/serial) sensor platform needs to be set up. 
+If you connect with a tool like `minicom` to your system's serial port `/dev/ttyACM0`, then you will get the data. To use the sensor with Home Assistant the [`serial`](/integrations/serial) sensor platform needs to be set up.
 
 ```yaml
 sensor:
@@ -73,7 +73,7 @@ sensor:
     port: /dev/ttyACM0
 ```
 
-The physical sensor reads the current voltage of the pin. A [template sensor](/integrations/template) takes the reading and converts it into a measurement. The data sheet of the sensor unit usually contains details about the involved calculations. 
+The physical sensor reads the current voltage of the pin. A [template sensor](/integrations/template) takes the reading and converts it into a measurement. The data sheet of the sensor unit usually contains details about the involved calculations.
 
 {% raw %}
 ```yaml
@@ -86,6 +86,6 @@ The physical sensor reads the current voltage of the pin. A [template sensor](/i
 ```
 {% endraw %}
 
-Hide the serial sensor if you don't want to see the raw data in the frontend and you are done. The whole setup with a Digispark is not very reliable because there is no hardware USB support. As a showcase and if you don't build your automation rules around it does the sensor what it should for a very small price. 
+Hide the serial sensor if you don't want to see the raw data in the frontend and you are done. The whole setup with a Digispark is not very reliable because there is no hardware USB support. As a showcase and if you don't build your automation rules around it does the sensor what it should for a very small price.
 
 

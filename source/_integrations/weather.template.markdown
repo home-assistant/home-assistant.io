@@ -1,7 +1,7 @@
 ---
 title: "Template Weather Provider"
 description: "Instructions on how to integrate Template Weather provider into Home Assistant."
-ha_category: 
+ha_category:
   - Weather
 ha_release: 2021.3
 ha_iot_class: "Local Push"

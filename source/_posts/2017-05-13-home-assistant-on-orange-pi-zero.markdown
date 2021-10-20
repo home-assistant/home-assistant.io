@@ -9,7 +9,7 @@ categories: How-To
 og_image: /images/blog/2017-05-orangepi/social.png
 ---
 
-This blog post is about the setup of Home Assistant on an [Orange Pi Zero](http://www.orangepi.org/orangepizero/). Like the setup on a [Raspberry Pi Zero](/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/) it will only take a couple of minutes to get a fully functional super cheap (less than 18 Euro incl. casing and power supply) Home Assistant hub. The reasons to use an Orange Pi Zero beside the prize are the built-in Ethernet port and the availability. 
+This blog post is about the setup of Home Assistant on an [Orange Pi Zero](http://www.orangepi.org/orangepizero/). Like the setup on a [Raspberry Pi Zero](/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/) it will only take a couple of minutes to get a fully functional super cheap (less than 18 Euro incl. casing and power supply) Home Assistant hub. The reasons to use an Orange Pi Zero beside the prize are the built-in Ethernet port and the availability.
 
 <p class="img">
   <img src="/images/blog/2017-05-orangepi/orangie-pi-setup.png" />
@@ -24,14 +24,14 @@ If you found the IP address then use your SSH client to connect to the Orange Pi
 ```bash
 $ ssh root@192.168.0.151
 [...]
-root@192.168.0.151's password: 
+root@192.168.0.151's password:
 You are required to change your password immediately (root enforced)
   ___                               ____  _   _____
  / _ \ _ __ __ _ _ __   __ _  ___  |  _ \(_) |__  /___ _ __ ___
-| | | | '__/ _` | '_ \ / _` |/ _ \ | |_) | |   / // _ \ '__/ _ \ 
+| | | | '__/ _` | '_ \ / _` |/ _ \ | |_) | |   / // _ \ '__/ _ \
 | |_| | | | (_| | | | | (_| |  __/ |  __/| |  / /|  __/ | | (_) |
- \___/|_|  \__,_|_| |_|\__, |\___| |_|   |_| /____\___|_|  \___/ 
-                       |___/                                     
+ \___/|_|  \__,_|_| |_|\__, |\___| |_|   |_| /____\___|_|  \___/
+                       |___/
 
 Welcome to ARMBIAN 5.27.170514 nightly Ubuntu 16.04.2 LTS 4.11.0-sun8i
 System load:   0.86 0.35 0.13  	Up time:       9 min
@@ -43,9 +43,9 @@ Usage of /:    16% of 7.1G
 New to Armbian? Check the documentation first: https://docs.armbian.com
 
 Changing password for root.
-(current) UNIX password: 
-Enter new UNIX password: 
-Retype new UNIX password: 
+(current) UNIX password:
+Enter new UNIX password:
+Retype new UNIX password:
 
 You are using Armbian nightly build.
 
@@ -73,22 +73,22 @@ Adding new group `ha' (1000) ...
 Adding new user `ha' (1000) with group `ha' ...
 Creating home directory `/home/ha' ...
 Copying files from `/etc/skel' ...
-Enter new UNIX password: 
-Retype new UNIX password: 
+Enter new UNIX password:
+Retype new UNIX password:
 passwd: password updated successfully
 Changing the user information for ha
 Enter the new value, or press ENTER for the default
 	Full Name []: homeassistant
-	Room Number []: 
-	Work Phone []: 
-	Home Phone []: 
-	Other []: 
+	Room Number []:
+	Work Phone []:
+	Home Phone []:
+	Other []:
 Is the information correct? [Y/n] y
 
 Dear homeassistant, your account ha has been created and is sudo enabled.
 Please use this account for your daily work from now on.
 
-root@orangepizero:~# 
+root@orangepizero:~#
 ```
 Get the latest details about the packages.
 

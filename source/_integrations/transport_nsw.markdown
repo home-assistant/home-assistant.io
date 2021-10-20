@@ -14,7 +14,7 @@ The `transport_nsw` sensor will give you the time until the next departure from 
 
 ## Setup
 
-Prerequisite is a free API key from [Transport NSW](https://opendata.transport.nsw.gov.au/). You will need to register an account and then create a new application. You will need to add the 'Trip Planner APIs' to your application. 
+Prerequisite is a free API key from [Transport NSW](https://opendata.transport.nsw.gov.au/). You will need to register an account and then create a new application. You will need to add the 'Trip Planner APIs' to your application.
 
 In order to find your stop id, use the [Transport NSW stop finder](https://transportnsw.info/stop#/) and search for your stop. The URL will contain the stop id as a number.
 

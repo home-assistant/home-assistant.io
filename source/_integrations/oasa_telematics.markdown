@@ -25,7 +25,7 @@ sensor:
     stop_id: "YOUR_STOP_ID"
 ```
 
-The `route_id` can be obtained by looking up the "LineCode" of the route you want at this link: 
+The `route_id` can be obtained by looking up the "LineCode" of the route you want at this link:
 
 <http://telematics.oasa.gr/api/?act=webGetLines>
 
@@ -33,7 +33,7 @@ Then getting the "RouteCode" from this link:
 
 `http://telematics.oasa.gr/api/?act=webGetRoutes&p1=LINE_CODE` (Replace "LINE_CODE" with the "LineCode" you copied from the first link) find the route you need and copy the `RouteCode` field.
 
-Next, get the `stop_id` from this link: 
+Next, get the `stop_id` from this link:
 
 `http://telematics.oasa.gr/api/?act=webGetStops&p1=ROUTE_CODE` (Replace "ROUTE_CODE" with the "RouteCode" you got from the previous link) find the stop you need and copy the `StopID` field. The route must pass from this stop in order for the sensor to work.
 

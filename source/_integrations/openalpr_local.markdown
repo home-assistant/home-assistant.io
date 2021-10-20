@@ -9,7 +9,7 @@ ha_domain: openalpr_local
 ---
 
 The [OpenALPR](https://www.openalpr.com/) integration for Home Assistant allows you
-to process vehicle license plates from a camera. You can use this information to 
+to process vehicle license plates from a camera. You can use this information to
 trigger [automations](/integrations/automation/) like opening a garage door.
 
 For using the result inside an automation rule, take a look at the

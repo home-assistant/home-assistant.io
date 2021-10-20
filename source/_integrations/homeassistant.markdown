@@ -82,7 +82,7 @@ for example, a light and a switch can be toggled in a single service call.
 action:
   service: homeassistant.toggle
   target:
-    entity_id: 
+    entity_id:
       - light.living_room
       - switch.tv
 ```
@@ -109,7 +109,7 @@ action:
       - switch.tv
 ```
 
-### Service `homeassistant.turn_off` 
+### Service `homeassistant.turn_off`
 
 Generic service to toggle devices off. Same usage as the
 `light.turn_off`, `switch.turn_off`, etc. services. The difference with this

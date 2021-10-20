@@ -38,7 +38,7 @@ Sets target temperature of water heater device.
 | `temperature` | no | New target temperature for water heater
 | `operation_mode` | yes | Operation mode to set the temperature to. This defaults to current_operation mode if not set, or set incorrectly.
 
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:

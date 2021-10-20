@@ -23,7 +23,7 @@ Start the profiler for the specified number of seconds.
 | ---------------------- | -------- | ----------- |
 | `seconds` | yes | The number of seconds to run the profile. Defaults to 60.0
 
-When the profile is complete, Profiler will generate a Python `cprof` and a `callgrind.out` file in your configuration directory. The exact path to these files will appear in a persistent notification so they can be easily located and copied to your desktop. 
+When the profile is complete, Profiler will generate a Python `cprof` and a `callgrind.out` file in your configuration directory. The exact path to these files will appear in a persistent notification so they can be easily located and copied to your desktop.
 
 The `cprof` file can be viewed with:
 

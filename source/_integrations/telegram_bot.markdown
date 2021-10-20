@@ -34,7 +34,7 @@ Send a notification.
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 | `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
 
-### Service `telegram_bot.send_photo` 
+### Service `telegram_bot.send_photo`
 
 Send a photo.
 

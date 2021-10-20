@@ -105,7 +105,7 @@ notifiers:
 data:
   description: "Dictionary of extra parameters to send to the notifier."
   required: false
-  type: list  
+  type: list
 {% endconfiguration %}
 
 In this example, the garage door status (`input_boolean.garage_door`) is watched
@@ -243,7 +243,7 @@ alert:
 
 The resulting message could be `Plant Officeplant needs help (moisture low)`.
 
-### Additional parameters for notifiers 
+### Additional parameters for notifiers
 
 Some notifiers support more parameters (e.g., to set text color or action
   buttons). These can be supplied via the `data` parameter:

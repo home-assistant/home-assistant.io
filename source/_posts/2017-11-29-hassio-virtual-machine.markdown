@@ -58,18 +58,18 @@ Log in as `ha` with the given password. If your are using the default network of
 
 ```bash
 $ ssh ha@192.168.0.109
-ha@192.168.0.109's password: 
+ha@192.168.0.109's password:
 Linux hassio 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u3 (2017-08-06) x86_64
 [...]
-$ 
+$
 ```
 
 Install the requirements after you switch the user to `root`.
 
 ```bash
 $ su
-Password: 
-root@hassio:/home/ha# 
+Password:
+root@hassio:/home/ha#
 root@hassio:/home/ha# apt-get update
 root@hassio:/home/ha# apt-get install bash socat jq curl avahi-daemon \
     apt-transport-https ca-certificates
@@ -78,7 +78,7 @@ root@hassio:/home/ha# apt-get install bash socat jq curl avahi-daemon \
 We want the latest Docker release. This requires additional steps to set it up as unlike other distributions Debian is lacking behind with current packages.
 
 ```bash
-root@hassio:/home/ha# wget https://download.docker.com/linux/debian/gpg 
+root@hassio:/home/ha# wget https://download.docker.com/linux/debian/gpg
 root@hassio:/home/ha# apt-key add gpg
 OK
 root@hassio:/home/ha# echo "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee -a /etc/apt/sources.list.d/docker.list

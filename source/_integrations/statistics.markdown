@@ -59,7 +59,7 @@ precision:
   default: 2
   type: integer
 quantile_intervals:
-  description: Number of continuous intervals with equal probability. Value must be an integer higher than `1`. In addition, `quantiles` will be `unknown` unless the number of quantile intervals is *lower* than the number of data points (`count`). Set it to `4` for quartiles (default) or to `100` for percentiles, for example. 
+  description: Number of continuous intervals with equal probability. Value must be an integer higher than `1`. In addition, `quantiles` will be `unknown` unless the number of quantile intervals is *lower* than the number of data points (`count`). Set it to `4` for quartiles (default) or to `100` for percentiles, for example.
   required: false
   default: 4
   type: integer

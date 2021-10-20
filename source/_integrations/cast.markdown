@@ -99,8 +99,8 @@ target:
 data:
   media_content_type: "video/mp4"
   media_content_id: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-  extra: 
-    metadata: 
+  extra:
+    metadata:
       metadataType: 1
       title: "Big Buck Bunny"
       subtitle: "By Blender Foundation, Licensed under the Creative Commons Attribution license"
@@ -115,9 +115,9 @@ target:
   entity_id: media_player.chromecast
 data:
   media_content_type: "audio/mp3"
-  media_content_id: "http://stream.tilos.hu:8000/tilos" 
-  extra: 
-    metadata: 
+  media_content_id: "http://stream.tilos.hu:8000/tilos"
+  extra:
+    metadata:
       metadataType: 3
       title: "Radio TILOS"
       artist: "LIVE"
@@ -276,8 +276,8 @@ Example values to cast [BBC Radio 1](https://www.bbc.co.uk/sounds/play/live:bbc_
             "media_id": "bbc_radio_one",
             "is_live": true
           }'
-        extra: 
-          metadata: 
+        extra:
+          metadata:
             metadataType: 0
             title: "Radio 1"
             images:
@@ -323,8 +323,8 @@ Example values to cast [this episode](https://www.bbc.co.uk/iplayer/episode/b09w
             "app_name": "bbciplayer",
             "media_id": "b09w70r2"
           }'
-        extra: 
-          metadata: 
+        extra:
+          metadata:
             metadataType: 0
             title: "Bitz & Bob"
             subtitle: "Castle Makeover"

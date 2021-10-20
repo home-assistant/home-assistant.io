@@ -159,7 +159,7 @@ The EnOcean sensor platform currently supports the following device types:
  * [humidity sensor](#humidity-sensor)
  * [temperature sensor](#temperature-sensor)
  * [window handle](#window-handle)
- 
+
 To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -224,7 +224,7 @@ sensor:
 
 ### Temperature sensor
 
-This sensor has been tested with a generic STM-330 sensor, which is used in most indoor temperature sensor devices. 
+This sensor has been tested with a generic STM-330 sensor, which is used in most indoor temperature sensor devices.
 
 The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) are supported:
 
@@ -236,8 +236,8 @@ The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what
 - **A5-10-10** - Temp. and Humidity Sensor and Set Point
 - **A5-10-12** - Temp. and Humidity Sensor, Set Point and Occupancy Control
 
-Check the manual of your temperature sensor to figure out what EEP it uses. 
-If you do not know, make an educated guess and check the reported values. It's easiest to validate the temperature at the boundaries of the range, so maybe put the sensor into the fridge for a while. 
+Check the manual of your temperature sensor to figure out what EEP it uses.
+If you do not know, make an educated guess and check the reported values. It's easiest to validate the temperature at the boundaries of the range, so maybe put the sensor into the fridge for a while.
 
 Add the following to your `configuration.yaml` file:
 

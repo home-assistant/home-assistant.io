@@ -92,7 +92,7 @@ If you change the YAML, you can reload it by calling the `person.reload` service
 
 ### Customizing the picture for a person
 
-You can easily upload a picture in the frontend. Simply click on a person, select or drop an image in the input field, and then crop it. 
+You can easily upload a picture in the frontend. Simply click on a person, select or drop an image in the input field, and then crop it.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rOlRnwaaT7Y" frameborder="0" allowfullscreen></iframe>

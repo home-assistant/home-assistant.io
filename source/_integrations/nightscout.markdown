@@ -36,7 +36,7 @@ The state is the last reading from Nightscout, and you can see other information
   trigger:
   - platform: numeric_state
     entity_id: sensor.blood_glucose
-    below: "65" 
+    below: "65"
   condition:
     - condition: time
       after: "22:00:00"

@@ -28,7 +28,7 @@ ha_platforms:
   - switch
 ---
 
-The [Vera](https://getvera.com/) hub is a controller mainly for connecting to Z-Wave devices. 
+The [Vera](https://getvera.com/) hub is a controller mainly for connecting to Z-Wave devices.
 
 The supported Vera hubs (Edge, Plus and Secure) are no longer available and the firmware is not being actively enhanced by the vendor. New Z-Wave devices are not directly supported and so are not easy to add to the platform.
 

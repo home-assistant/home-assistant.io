@@ -14,17 +14,17 @@ ha_platforms:
   - sensor
 ---
 
-The `gdacs` integration lets you use a GeoRSS feed provided by 
-[GDACS](https://www.gdacs.org/) with information 
-about major droughts, earthquakes, floods, tropical cyclones, tsunamis and 
+The `gdacs` integration lets you use a GeoRSS feed provided by
+[GDACS](https://www.gdacs.org/) with information
+about major droughts, earthquakes, floods, tropical cyclones, tsunamis and
 volcanic activities worldwide.
-It retrieves alerts from a feed and shows information of those alerts filtered 
+It retrieves alerts from a feed and shows information of those alerts filtered
 by distance to Home Assistant's location.
 
-Entities are generated, updated and removed automatically with each update 
-from the feed. Each entity defines latitude and longitude and will be shown 
-on the default map automatically, or on a map card by defining the source 
-`gdacs`. The distance is available as the state of each entity, and 
+Entities are generated, updated and removed automatically with each update
+from the feed. Each entity defines latitude and longitude and will be shown
+on the default map automatically, or on a map card by defining the source
+`gdacs`. The distance is available as the state of each entity, and
 converted to the unit (kilometers or miles) configured in Home Assistant.
 
 <p class='img'>
@@ -35,9 +35,9 @@ The data is updated every 5 minutes.
 
 <div class='note'>
 
-The material used by this integration is provided by the [Global Disaster 
-Alert and Coordination System (GDACS)](https://www.gdacs.org/) - a cooperation 
-framework between the United Nations and the European Commission - under the 
+The material used by this integration is provided by the [Global Disaster
+Alert and Coordination System (GDACS)](https://www.gdacs.org/) - a cooperation
+framework between the United Nations and the European Commission - under the
 [Creative Commons Attribution 4.0 International (CC BY 4.0) license](http://creativecommons.org/licenses/by/4.0/).
 It has only been modified for the purpose of presenting the material in Home Assistant.
 Please refer to the [creator's disclaimer and terms of use notice](https://www.gdacs.org/About/termofuse.aspx) for more information.
@@ -48,7 +48,7 @@ Please refer to the [creator's disclaimer and terms of use notice](https://www.g
 
 ## State Attributes
 
-The following state attributes are available for each entity in addition to 
+The following state attributes are available for each entity in addition to
 the standard ones:
 
 | Attribute        | Description |

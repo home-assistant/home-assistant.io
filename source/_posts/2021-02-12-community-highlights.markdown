@@ -10,8 +10,8 @@ og_image: /images/blog/2021-02-12-community-highlights/social.png
 ---
 
 The 8th edition of the Home Assistant Community Highlights! Some interesting
-things popped up around our community, we thought was worth sharing. But first of all, 
-I would like to introduce myself and say Hello! Because it’s no longer Frenck who 
+things popped up around our community, we thought was worth sharing. But first of all,
+I would like to introduce myself and say Hello! Because it’s no longer Frenck who
 writes the community highlights, but a new person.
 
 My name is Klaas Schoute, 25 years old (almost 26 🥳) and living in the Netherlands. Currently, I’m

@@ -75,7 +75,7 @@ Not supported in [limited templates](#limited-templates).
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
-- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
+- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`.
 <div class='note warning'>
 
   Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
@@ -201,7 +201,7 @@ The same thing can also be expressed as a filter:
 {% raw %}
 
 ```text
-{{ expand(['device_tracker.paulus', 'group.child_trackers']) 
+{{ expand(['device_tracker.paulus', 'group.child_trackers'])
   | selectattr("attributes.battery", 'defined')
   | join(', ', attribute="attributes.battery") }}
 ```
@@ -288,15 +288,15 @@ The same thing can also be expressed as a filter:
    {% raw %}
 
    ```yaml
-   # 77 minutes before current time. 
-   {{ now() - timedelta( hours = 1, minutes = 17 ) }} 
+   # 77 minutes before current time.
+   {{ now() - timedelta( hours = 1, minutes = 17 ) }}
    ```
 
    {% endraw %}
 
 - Filter `timestamp_local(default)` converts a UNIX timestamp to its naive string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted the unprocessed input value. If timezone information is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_utc(default)` converts a UNIX timestamp to its naive string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted the unprocessed input value. If timezone information is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_custom(format_string, local_time=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. If that fails, returns the `default` value, or if omitted the unprocessed input value. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
+- Filter `timestamp_custom(format_string, local_time=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. If that fails, returns the `default` value, or if omitted the unprocessed input value. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
 <div class='note'>
 
@@ -455,11 +455,11 @@ The last argument of the closest function has an implicit `expand`, and can take
 {% raw %}
 
 ```text
-Closest out of given entities: 
+Closest out of given entities:
     {{ closest(['group.children', states.device_tracker]) }}
-Closest to a coordinate:  
+Closest to a coordinate:
     {{ closest(23.456, 23.456, ['group.children', states.device_tracker]) }}
-Closest to some entity: 
+Closest to some entity:
     {{ closest(states.zone.school, ['group.children', states.device_tracker]) }}
 ```
 
@@ -470,11 +470,11 @@ It will also work as a filter over an iterable group of entities or groups:
 {% raw %}
 
 ```text
-Closest out of given entities: 
+Closest out of given entities:
     {{ ['group.children', states.device_tracker] | closest }}
-Closest to a coordinate:  
+Closest to a coordinate:
     {{ ['group.children', states.device_tracker] | closest(23.456, 23.456) }}
-Closest to some entity: 
+Closest to some entity:
     {{ ['group.children', states.device_tracker] | closest(states.zone.school) }}
 ```
 
@@ -519,7 +519,7 @@ The numeric functions and filters will not fail if the input is not a valid numb
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
-- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted the input value. 
+- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted the input value.
   - `round(precision, "floor", default)` will always round down to `precision` decimals
   - `round(precision, "ceil", default)` will always round up to `precision` decimals
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode

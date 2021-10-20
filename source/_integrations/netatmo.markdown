@@ -143,7 +143,7 @@ Example:
   action:
     - data:
         message: >
-          {{ trigger.event.data["data"]["message"] }}  
+          {{ trigger.event.data["data"]["message"] }}
           at {{ trigger.event.data["data"]["home_name"] }}
         title: Netatmo event
       service: persistent_notification.create
@@ -167,7 +167,7 @@ Example:
   action:
     - data:
         message: >
-          {{ trigger.event.data["data"]["message"] }}  
+          {{ trigger.event.data["data"]["message"] }}
           at {{ trigger.event.data["data"]["home_name"] }}
         title: Netatmo event
       service: persistent_notification.create

@@ -89,8 +89,8 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 - Add the integration (see above).
     - The following only applied if you chose to close off Home Assistant from the public after setting up your Withings account.
     After authorizing finishing authorization, your browser will redirect back to `https://<MY_DOMAIN_NAME>/auth/external/callback`. Since that is no longer public,
-    your browser will return an error saying it could not connect. You can get around this by modifying the URL (in the browser) 
-    to point to your local address of Home Assistant. So your browser's URL looked like `https://<MY_DOMAIN_NAME>/auth/external/callback` 
+    your browser will return an error saying it could not connect. You can get around this by modifying the URL (in the browser)
+    to point to your local address of Home Assistant. So your browser's URL looked like `https://<MY_DOMAIN_NAME>/auth/external/callback`
     but now change it to something like `https://192.168.1.11:8123/auth/external/callback`.
 
 ## Configuration
@@ -143,7 +143,7 @@ sensor:
         unit_of_measurement: "lbs"
         value_template: "{{ (states('sensor.withings_bone_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185) | round(2, default=0) }}"
         icon_template: mdi:weight-pound
-        
+
   - platform: template
     sensors:
       withings_fat_free_mass_lbs_USER_PROFILE_NAME:
@@ -151,7 +151,7 @@ sensor:
         unit_of_measurement: "lbs"
         value_template: "{{ (states('sensor.withings_fat_free_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185) | round(2, default=0) }}"
         icon_template: mdi:weight-pound
-        
+
   - platform: template
     sensors:
       withings_fat_mass_lbs_USER_PROFILE_NAME:
@@ -159,7 +159,7 @@ sensor:
         unit_of_measurement: "lbs"
         value_template: "{{ (states('sensor.withings_fat_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185) | round(2, default=0) }}"
         icon_template: mdi:weight-pound
-        
+
   - platform: template
     sensors:
       withings_muscle_mass_lbs_USER_PROFILE_NAME:

@@ -36,7 +36,7 @@ These are the steps to take:
 1. Log in with your LaMetric device account to [developer.lametric.com](https://developer.lametric.com).
 2. Hit the Create button and choose [Notification](https://developer.lametric.com/applications/createsource).
 3. Fill in the form. You can put almost anything in the fields, they just need to be populated:
-  * App Name: Home Assistant 
+  * App Name: Home Assistant
   * Description: Home Assistant
   * Privacy Policy: `http://localhost/`
   * Check all permission boxes

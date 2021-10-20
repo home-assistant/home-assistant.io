@@ -147,7 +147,7 @@ The swiss public transport sensor will give you the next two departure times fro
 
 
 __Transmission turtle mode switch__
-<img src='/images/supported_brands/transmission.png' style='border:none; box-shadow: none; float: right;' height='50' /> The transmission platform allows you to control your [Transmission](http://www.transmissionbt.com/) client from within Home Assistant. The platform enables you switch to your 'Alternative Speed Limits' (aka 'Turtle mode') setting. 
+<img src='/images/supported_brands/transmission.png' style='border:none; box-shadow: none; float: right;' height='50' /> The transmission platform allows you to control your [Transmission](http://www.transmissionbt.com/) client from within Home Assistant. The platform enables you switch to your 'Alternative Speed Limits' (aka 'Turtle mode') setting.
 
 ```yaml
 # Example configuration.yaml entry

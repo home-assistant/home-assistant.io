@@ -91,7 +91,7 @@ automation:
 {% endraw %}
 
 To find your scanner's device ID, open Developer tools -> Events -> Listen to events and subscribe to `tag_scanned`.
-Then scan a tag on the reader and note down the `device_id` from the `data` section. 
+Then scan a tag on the reader and note down the `device_id` from the `data` section.
 
 ## Printing tags
 

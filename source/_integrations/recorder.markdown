@@ -47,7 +47,7 @@ recorder:
       description: The time in seconds, that the recorder sleeps when trying to connect to the database.
       required: false
       default: 3
-      type: integer 
+      type: integer
     auto_purge:
       description: Automatically purge the database every night at 04:12 local time. Purging keeps the database from growing indefinitely, which takes up disk space and can make Home Assistant slow. If you disable `auto_purge` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically.
       required: false
@@ -293,7 +293,7 @@ Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hos
 
 <div class='note'>
 
-When using a MariaDB or MySQL server, adding `+pymysql` to the URL will use the pure Python MySQL library, which is slower but may be required if the C MySQL library is not available. 
+When using a MariaDB or MySQL server, adding `+pymysql` to the URL will use the pure Python MySQL library, which is slower but may be required if the C MySQL library is not available.
 
 When using the official Docker image, the C MySQL library will always be available. `pymysql` is most commonly used with `venv` where the C MySQL library is not installed.
 

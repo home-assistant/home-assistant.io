@@ -53,7 +53,7 @@ The Modern Forms integration provides sensors for the following information:
 
 - Fan sleep timer time expiring
 - Light sleep timer time expiring
-  
+
 ## Switches
 
 The Modern Forms integration provides support for the following toggleable attributes of a fan:

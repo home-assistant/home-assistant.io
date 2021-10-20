@@ -30,7 +30,7 @@ device:
   description: "The path to you serial console. Get it via: `ls /dev/tty*`."
   required: true
   type: string
-name: 
+name:
   description: Default name for the plugs.
   required: false
   type: string

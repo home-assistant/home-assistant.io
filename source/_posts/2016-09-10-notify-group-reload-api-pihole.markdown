@@ -21,10 +21,10 @@ This release brings you a huge improvement of the [automation] and [group] handl
 </p>
 
 ### Raspberry Pi installation guide
-Singleboard computers are very popular to run Home Assistant. To support this fact, the [installation documentation][rpi] for the Raspberry Pi devices was re-written to get users started as quickly as possible. [@Landrash] took the lead with on this tasks with help from [@kellerza] and [@MartinHjelmare]. 
+Singleboard computers are very popular to run Home Assistant. To support this fact, the [installation documentation][rpi] for the Raspberry Pi devices was re-written to get users started as quickly as possible. [@Landrash] took the lead with on this tasks with help from [@kellerza] and [@MartinHjelmare].
 
 ### Climate and  cover
-There are countless bugfixes included in this release which will make your experience with the `climate` and the `cover` platforms better. Two week ago was the biggest merger of implementations released that ever happened in the history of Home Assistant. Thanks to [@turbokongen], [@pvizeli], [@djbanks], [@danielperna84], and others the improvements on the code and the frontend side is continuing... 
+There are countless bugfixes included in this release which will make your experience with the `climate` and the `cover` platforms better. Two week ago was the biggest merger of implementations released that ever happened in the history of Home Assistant. Thanks to [@turbokongen], [@pvizeli], [@djbanks], [@danielperna84], and others the improvements on the code and the frontend side is continuing...
 
 ### API documentation
 The [Home Assistant API Documentation](https://dev-docs.home-assistant.io/en/dev/) is a great addition to the already existing user documentation. The focus is not end-users but developers who want to get details about the code without actually browsing the code on Github.

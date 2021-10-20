@@ -28,7 +28,7 @@ sensor:
 
 {% configuration %}
 meter_number:
-  description: The meter number of your smart meter with Orange and Rockland Utility. 
+  description: The meter number of your smart meter with Orange and Rockland Utility.
   required: true
   type: string
 {% endconfiguration %}

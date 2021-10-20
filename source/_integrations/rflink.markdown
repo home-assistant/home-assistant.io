@@ -69,7 +69,7 @@ tcp_keepalive_idle_timer:
   description: Time in seconds to wait since last data packet was seen before a TCP KEEPALIVE is sent. Value of 0 will disable this feature.
   required: false
   default: 3600
-  type: integer 
+  type: integer
 {% endconfiguration %}
 
 ### Full example

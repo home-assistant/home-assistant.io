@@ -5,7 +5,7 @@ sidebar_label: Panel
 description: "The panel view shows 1 card in the fullwidth of the screen."
 ---
 
-In this view the first card is rendered full-width, other cards in the view will not be rendered. 
+In this view the first card is rendered full-width, other cards in the view will not be rendered.
 
 This view doesn't have support for badges.
 

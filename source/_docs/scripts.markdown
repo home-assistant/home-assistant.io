@@ -61,7 +61,7 @@ The variables action allows you to set/override variables that will be accessibl
 ```yaml
 - alias: "Set variables"
   variables:
-    entities: 
+    entities:
       - light.kitchen
       - light.living_room
     brightness: 100

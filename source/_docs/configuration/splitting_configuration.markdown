@@ -116,7 +116,7 @@ with `light-switches.yaml` containing:
 - platform: switch
   name: "Patio Lights"
   entity_id: switch.patio_lights
-  
+
 - platform: switch
   name: "Floor Lamp"
   entity_id: switch.floor_lamp_plug

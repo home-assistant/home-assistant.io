@@ -38,7 +38,7 @@ There is currently support for the following device types within Home Assistant:
 - **Sensor** - Elk-M1 counters, keypads, panel, settings, and zones are represented as `sensor` entities.
 - **Switch** - Elk-M1 outputs are represented as `switch` entities.
 
-The implementation follows the Elk Products ElkM1 "ASCII Protocol & Interface 
+The implementation follows the Elk Products ElkM1 "ASCII Protocol & Interface
 Specification, Revision 1.84" document. This document can be found on the Internet.
 
 ## ElkM1 Configuration and Version
@@ -512,7 +512,7 @@ is to clear all the bypassed zones in a given alarm panel (area).
 
 ### Service `elkm1.sensor_zone_trigger`
 
-Cause a zone on the panel to trigger. This command creates a virtual momentary 
+Cause a zone on the panel to trigger. This command creates a virtual momentary
 open condition on the zone as if the EOL hardwired loop had been physically opened.
 
 | Service data attribute | Optional | Description |

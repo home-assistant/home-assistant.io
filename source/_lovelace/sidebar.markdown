@@ -31,7 +31,7 @@ Alternatively, the position of the card can be configured using YAML with the `v
 
 ```yaml
 type: entities
-entities: 
+entities:
   - media_player.lounge_room
 view_layout:
   position: sidebar

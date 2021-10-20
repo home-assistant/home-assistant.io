@@ -12,7 +12,7 @@ This integration allows you to track and control various light bulbs. Read the i
 
 ### Default turn-on values
 
-To set the default color, brightness and transition values when the light is turned on, create a custom `light_profiles.csv`, normally located in the default configuration folder where you find `configuration.yaml`. 
+To set the default color, brightness and transition values when the light is turned on, create a custom `light_profiles.csv`, normally located in the default configuration folder where you find `configuration.yaml`.
 
 The `light_profiles.csv` has to have a header. The format of the header is:
 

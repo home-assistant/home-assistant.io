@@ -41,7 +41,7 @@ Below is an example script which sends an actionable notification and uses [scri
           title: "Moderately Hungry"
 - alias: "Wait for a response"
   wait_for_trigger:
-    # We wait for specific actions because we don't want to run for 
+    # We wait for specific actions because we don't want to run for
     # any action, only for a response to the one we just sent
     - platform: event
       event_type: mobile_app_notification_action

@@ -213,7 +213,7 @@ Description:
 
 ### Example: writing a float32 type register
 
-To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal). 
+To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal).
 
 ```yaml
 service: modbus.write_register
@@ -269,7 +269,7 @@ slave:
 
 ### Configuring data_type and struct
 
-Climate and Sensor share setup of data_type and struct. 
+Climate and Sensor share setup of data_type and struct.
 
 ```yaml
 # Example configuration.yaml entry for platform common parameters
@@ -689,7 +689,7 @@ fans:
       type: map
       keys:
         address:
-          description: Address to read from. 
+          description: Address to read from.
           required: false
           default: write address
           type: integer
@@ -778,7 +778,7 @@ lights:
       type: map
       keys:
         address:
-          description: Address to read from. 
+          description: Address to read from.
           required: false
           default: write address
           type: integer

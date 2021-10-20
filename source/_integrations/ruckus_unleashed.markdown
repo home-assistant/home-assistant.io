@@ -29,7 +29,7 @@ You will have to create a user on the device which is a **Monitoring Admin**. Lo
 
  - [Create a new role](https://docs.ruckuswireless.com/unleashed/200.1.9.12/t-ConfigUserRoles.html).
    - Check **Allow Unleashed Administration**.
-   - Select the **Monitoring Admin (Monitoring and viewing operation status only)** radio button. 
+   - Select the **Monitoring Admin (Monitoring and viewing operation status only)** radio button.
  - [Create a new user](https://docs.ruckuswireless.com/unleashed/200.1.9.12/t-AddingNewUsersInternal.html) with the new role.
 
 ## Troubleshooting

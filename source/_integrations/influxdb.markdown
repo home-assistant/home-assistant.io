@@ -116,7 +116,7 @@ measurement_attr:
   default: unit_of_measurement
 default_measurement:
   type: string
-  description: Measurement name to use when the measurement_attr state attribute does not exist, e.g. when an entity doesn't have a unit. 
+  description: Measurement name to use when the measurement_attr state attribute does not exist, e.g. when an entity doesn't have a unit.
   required: false
   default: uses the entity id of the entity
 override_measurement:
@@ -196,7 +196,7 @@ component_config_domain:
       type: [string, list]
       description: The list of attribute names to ignore when reporting to InfluxDB. Will be merged with the default `ignore_attributes` list when processing a state change event for a particular entity.
       required: false
-component_config_glob: 
+component_config_glob:
   type: string
   required: false
   description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
@@ -338,20 +338,20 @@ sensor:
         measurement: '"°C"'
 ```
 
-Note that 2.xx installations of InfluxDB only support queries in their Flux language. While this language was available in 1.xx installations, it was not the default and not used in the API so you may not be aware of it. You can learn more about it from their [documentation](https://v2.docs.influxdata.com/v2.0/reference/flux/) or by using the query builder in the UI. 
+Note that 2.xx installations of InfluxDB only support queries in their Flux language. While this language was available in 1.xx installations, it was not the default and not used in the API so you may not be aware of it. You can learn more about it from their [documentation](https://v2.docs.influxdata.com/v2.0/reference/flux/) or by using the query builder in the UI.
 
 You will need to construct your queries in this language in sensors for 2.xx installations, it looks like this:
 
 ```yaml
 # Example configuration.yaml entry
-sensor: 
+sensor:
   - platform: influxdb
     api_version: 2
     organization: RANDOM_16_DIGIT_HEX_ID
     token: GENERATED_AUTH_TOKEN
-    queries_flux: 
+    queries_flux:
       - group_function: mean
-        imports: 
+        imports:
           - strings
         name: "Mean humidity reported from past day"
         query: >
@@ -583,7 +583,7 @@ This is a lot more tables compared to 1.xx queries, where you essentially had on
 
 ### Sensors
 
-For sensors with a unit of measurement defined the unit of measurement is used as the measurement name and entries are tagged with the second part of the `entity_id`. Therefore you need to add a WHERE clause to the query to filter out values. 
+For sensors with a unit of measurement defined the unit of measurement is used as the measurement name and entries are tagged with the second part of the `entity_id`. Therefore you need to add a WHERE clause to the query to filter out values.
 
 For example a query on a `%` battery for `sensor.multi_sensor_battery_level`:
 

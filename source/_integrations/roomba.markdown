@@ -26,7 +26,7 @@ The `roomba` integration allows you to control your [iRobot Roomba](https://www.
 </p>
 
 <div class='note'>
-  
+
 This integration has been tested and confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 960, Roomba 890, and Braava jet m6 models, but should also work fine with any Wi-Fi enabled Roomba or Braava like the 690. For auto-discovery, you will need to initiate a Roomba reboot. For example, by holding the clean button for up to 20 seconds on an i7 or 980. [More information about rebooting your robot](https://homesupport.irobot.com/app/answers/detail/a_id/9087/~/rebooting-or-resetting-your-robot).
 
 </div>
@@ -58,7 +58,7 @@ docker exec -it CONTAINER_NAME_OR_ID python -c 'import roombapy.entry_points; ro
 ```
 
 <div class='note'>
-  
+
 The command to retrieve the credentials does not need any additional software to be installed because it uses the built-in [roombapy](https://github.com/pschmitt/roombapy) package and [password](https://github.com/pschmitt/roombapy/blob/1.6.1/roomba/entry_points.py#L20) function deployed with Home Assistant.
 
 </div>

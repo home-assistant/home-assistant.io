@@ -22,7 +22,7 @@ Every 1-wire device has a (globally) unique ID that identifies the device on the
 
 Different families have different functionality and can measure different quantities.
 
-Each 1-wire component data sheet describes the different properties the component provides. The [owfs software](https://github.com/owfs/owfs) adds some extra tools to make it easier for DIY implementers to use the component. 
+Each 1-wire component data sheet describes the different properties the component provides. The [owfs software](https://github.com/owfs/owfs) adds some extra tools to make it easier for DIY implementers to use the component.
 
 ### Supported devices:
 
@@ -46,7 +46,7 @@ Each 1-wire component data sheet describes the different properties the componen
 | 3B     | [DS1825](https://datasheets.maximintegrated.com/en/ds/DS1825.pdf)            | Temperature                     |
 | 42     | [DS28EA00](https://datasheets.maximintegrated.com/en/ds/DS28EA00.pdf)        | Temperature                     |
 | 7E     | [EDS00xx](https://www.embeddeddatasystems.com/assets/images/supportFiles/manuals/EN-UserMan%20%20OW-ENV%20Sensor%20v13.pdf)        | Temperature/Humidity/Barometric pressure/Light <sup>[6](#note_6)</sup>|
-| EF     | [HobbyBoard](https://hobbyboards.com/)                                       | Temperature, Humidity, Moisture, Wetness <sup>[3](#note_3)</sup> |  
+| EF     | [HobbyBoard](https://hobbyboards.com/)                                       | Temperature, Humidity, Moisture, Wetness <sup>[3](#note_3)</sup> |
 
 #### Switches:
 
@@ -74,7 +74,7 @@ Notes:
 
 - <a name="note_4">Some sensors are disabled by default</a> to avoid overloading the bus. These can be activated by opening the integrations page in your configuration, listing your 1-Wire integration devices and updating the entity.
 
-- <a name="note_5">Bridge devices have no sensors</a>. The `aux` and `main` branches are searched for additional 1-wire devices during discovery.  
+- <a name="note_5">Bridge devices have no sensors</a>. The `aux` and `main` branches are searched for additional 1-wire devices during discovery.
 
 - <a name="note_6">Multisensors manufactured by Embedded Data Systems</a>. Currently only EDS0066 (temperature/barometric pressure) and EDS0068 (temperature/humidity/barometric pressure/light) are supported.
 
@@ -144,7 +144,7 @@ Each sensor also exposes some additional attributes.
 ```alpha
 device_file: /28.FF5C68521604/temperature              << Device path in owfs file system (or on Rpi system directory)
 raw_value: 31.9375                                     << The raw measurement numbers as red from device. Not rounded.
-unit_of_measurement: °C                              
+unit_of_measurement: °C
 friendly_name: 28.FF5C68521604 Temperature
 ```
 

@@ -32,7 +32,7 @@ sensor:
 
 <div class="note">
 
-- The `region_name` can either be a so called `warncell id` (integer) or a `warncell name` (string). It is heavily advised to use `warncell id` because `warncell name` is not unique in some cases.  
+- The `region_name` can either be a so called `warncell id` (integer) or a `warncell name` (string). It is heavily advised to use `warncell id` because `warncell name` is not unique in some cases.
 A list of valid warncell ids and names can be found at [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html).
 - Some of the warncells are outdated but still listed. If setup fails search the list for a similar sounding warncell.
 - If you selected a `warncell name` and the name is not unique `" (not unique used ID)!"` will be added to the reported `region_name`.

@@ -33,7 +33,7 @@ For each speaker with a battery, a `sensor` showing the current battery charge l
 
 <div class='note'>
 
-The battery sensors rely on working change events or updates will be delayed. S1 battery sensors **require** working events to report any data. See more details in [Advanced use](#advanced-use). 
+The battery sensors rely on working change events or updates will be delayed. S1 battery sensors **require** working events to report any data. See more details in [Advanced use](#advanced-use).
 
 </div>
 

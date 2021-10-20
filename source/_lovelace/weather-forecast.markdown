@@ -32,7 +32,7 @@ Theme:
 <div class="note">
 
   This card works only with platforms that define a `weather` entity.
-  
+
   E.g., it works with [OpenWeatherMap](https://www.home-assistant.io/integrations/openweathermap/#weather) but not [OpenWeatherMap Sensor](https://www.home-assistant.io/integrations/openweathermap/#sensor)
 
 </div>

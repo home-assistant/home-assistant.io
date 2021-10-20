@@ -86,7 +86,7 @@ device_config / device_config_domain / device_config_glob:
       description: Inverts the percentage of the position for the cover domain. This will invert the position and state reporting.
       required: false
       type: boolean
-      default: false  
+      default: false
 {% endconfiguration %}
 
 ### Network Key

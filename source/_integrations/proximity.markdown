@@ -43,7 +43,7 @@ To enable this integration in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 proximity:
-  home: 
+  home:
     ignored_zones:
       - work
     devices:

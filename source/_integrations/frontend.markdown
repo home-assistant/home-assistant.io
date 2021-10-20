@@ -92,7 +92,7 @@ frontend:
       modes:
         light:
           secondary-text-color: olive
-        dark:  
+        dark:
           secondary-text-color: slategray
 ```
 

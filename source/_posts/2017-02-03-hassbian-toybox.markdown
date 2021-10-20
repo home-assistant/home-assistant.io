@@ -7,13 +7,13 @@ author: Fredrik Lindqvist
 categories: Technology
 ---
 
-Tonight I'm happy to announce a new release of the our Raspberry Pi image, **HASSbian 1.1 - The Toy-box.**  
+Tonight I'm happy to announce a new release of the our Raspberry Pi image, **HASSbian 1.1 - The Toy-box.**
 Why Toy-box you wonder? Because it encompass the changes pretty well.
 
 Changes from previous image are big and small but lets start with the interesting things.
 
 ### Hassbian-scripts
-A set of script written to add extra functionality to your Raspberry Pi installation. 
+A set of script written to add extra functionality to your Raspberry Pi installation.
 This scripts are run as the `pi` user and installs a set of tools or packages.
 Currently includes:
  - Install Libcec. Adds local [HDMI-CEC support][cec].
@@ -32,26 +32,26 @@ To use any of the hassbian-scripts, execute the following command as the `pi` us
 sudo ./hassbian-scripts/install_libcec.sh
 ```
 
-For more information about these scripts have a look a the [hassbian-scripts repository][hassbian-repo]. 
+For more information about these scripts have a look a the [hassbian-scripts repository][hassbian-repo].
 
 ### Spring cleaning
 With this image there also quite a bit of cleaning of the base system and the script that generates our Raspberry Pi image.
  - Update pi-gen. Our build script has been upgraded to follow the Raspbian image closer. This image is basically a Raspbian lite image with Home Assistant, dependencies and a small set of changes to the base system.
  - Removed Mosquitto. Not as bad as it sounds since it's installation has been move to one of our new hassbian-scripts.
  - Added rng-tools. Let's your HASSbian installation use the hardware support in the Raspberry Pi for entropy generation.
- - Added avahi-daemon package. Your Raspberry Pi should now be available at [hassbian.local][hassbian-avahi]. 
+ - Added avahi-daemon package. Your Raspberry Pi should now be available at [hassbian.local][hassbian-avahi].
  - Added htop. User friendly interactive process monitor.
  - Added tmux. A great terminal multiplexer that makes working with the command line over ssh easier.
  - Added the `homeassistant` user to the `dialout` group. Simplifies use of hardware such as ZWave USB controllers that requires this permission.
- 
+
 ### On the horizon
 There's of course more on the horizon and there's even more plans and wishes for how this image will function in the future.
 On the close horizon from [@Landrash][landrash-github] there a few more script in the works and for tellstick, emulated_hue and for controlling Home Assistant.
 
 To follow discussions about the development of the HASSbian image or to contribute join our [Discord chat server][discord].
- 
+
 To get started with the new image, check out the installation instructions in the getting started section.
- 
+
 [cec]: /integrations/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
 [hassbian-avahi]: https://hassbian.local

@@ -58,7 +58,7 @@ If you have an existing `configuration.yaml` completing the UI configuration wil
 
 If you want to retain `configuration.yaml` and need to re-import any changes or updates you will need to delete the entry in **Configuration** -> **Integrations** -> **Configured** and repeat the UI configuration for that device.
 
-</div>  
+</div>
 
 Once configuration is completed you'll see a Konnected.io entry in **Configuration** -> **Integrations** => **Configured**.  If you imported settings from `configuration.yaml` you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings, you'll need to utilize the settings UI to configure zone behavior.
 
@@ -66,7 +66,7 @@ Once configuration is completed you'll see a Konnected.io entry in **Configurati
 
 The settings for each panel can be accessed by selecting the entry in **Configuration** -> **Integrations** => **Configured** and then clicking on the gear icon in the upper right corner. You can reconfigure these settings at any time and once completed the settings will be immediately applied.
 
-The settings UI starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary Sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that, you'll be prompted, for each zone that is not disabled, to configure details of the zones' behavior. All zones will allow entry of a Name. Additional fields depend on how you configured the general behavior of the zone.  
+The settings UI starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary Sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that, you'll be prompted, for each zone that is not disabled, to configure details of the zones' behavior. All zones will allow entry of a Name. Additional fields depend on how you configured the general behavior of the zone.
 **Note some zones do not support all behaviors. The UI will reflect specific options available to each zone.**
 
 ##### Binary Sensor:
@@ -97,7 +97,7 @@ The settings UI starts by having you configure the general behavior of each zone
 
 **Times to repeat (optional):** The number of times to repeat the pulse each time the switch is activated.
 
-**Configure additional states for this zone:** Selecting "No" will complete configuration for the zone and proceed to options for the next zone. Select "Yes" if you need to create additional output states for this zone.  
+**Configure additional states for this zone:** Selecting "No" will complete configuration for the zone and proceed to options for the next zone. Select "Yes" if you need to create additional output states for this zone.
 
 #### Using Settings UI to Configure Additional Panel Behavior
 
@@ -322,7 +322,7 @@ Unique IDs are internally generated as follows:
 
 **DS18B20 Sensors**: `{sensor-serial-number}`
 
-\* Switches are identified by a unique hash including the pin number, `momentary`, `pause`, and `repeat` values. If these values are modified, a new entity will be created and the old entity must be removed manually from the _Entity Registry_.  
+\* Switches are identified by a unique hash including the pin number, `momentary`, `pause`, and `repeat` values. If these values are modified, a new entity will be created and the old entity must be removed manually from the _Entity Registry_.
 
 ## Pin Mapping
 

@@ -260,7 +260,7 @@ homekit:
     devices:
       description: Include device triggers for all matching device ids. Configuration in the UI via Options is recommended instead.
       required: false
-      type: list                
+      type: list
 {% endconfiguration %}
 
 ## Setup
@@ -542,7 +542,7 @@ Configure the network mode as `networkbridge`. Otherwise the Home Assistant Brid
 #### Pairing hangs - zeroconf error
 
 Pairing eventually fails, you might see and an error message `NonUniqueNameException`, you likely need to enable `default_interface: true` in the `zeroconf` integration configuration and set a unique name such as `name: MyHASS42`.
-  
+
 If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file in order to able to successfully pair again. See [Errors during pairing](#errors-during-pairing).
 
 #### Pairing hangs - only works with debug configuration
@@ -598,7 +598,7 @@ The volume and play/pause controls will show up on the Remote app or Control Cen
 
 Ensure that the [`ffmpeg`](/integrations/ffmpeg) integration is configured correctly. Verify that your stream is directly playable with `ffplay <stream_source>` or [VLC Media Player](https://www.videolan.org/). If you have changed your camera's entity configuration, you may need to [reset the accessory](#resetting-accessories).
 
-#### Cameras streaming is unstable or slow 
+#### Cameras streaming is unstable or slow
 
 If your camera supports native H.264 streams, Home Assistant can avoid converting the video stream, which is an expensive operation. To enable native H.264 streaming when configured via YAML, change the `video_codec` to `copy`. To allow native H.264 streaming when via the UI, go to **Configuration** >> **Integrations** in the UI, click **Options** for your HomeKit Bridge, and check the box for your camera on the `Cameras that support native H.264 streams` screen.
 

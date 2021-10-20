@@ -66,7 +66,7 @@ Update charge schedule on vehicle.
   | ---------------------- | -------- | ----------- | ------- |
   | `vehicle`| yes | device_id of the vehicle |
   | `schedules` | yes | Schedule details. Can be a single schedule or a list of schedules | see [example below](#schedule_example) |
-  
+
 Notes:
 
 - `schedules` can be in the form `{'id':1,...}` when updating a single schedules, or in the form `[{'id':1,...},{'id':2,...},...]` when updating multiple schedules within the same call
@@ -78,15 +78,15 @@ Notes:
 
 ```yaml
 [
-  { 
-    'id': 1, 
-    'activated': true, 
-    'monday': {'startTime':'T12:00Z', 'duration':15} 
-  }, 
-  { 
-    'id': 2, 
-    'activated': false, 
-    'monday': {'startTime':'T12:00Z', 'duration':240} 
+  {
+    'id': 1,
+    'activated': true,
+    'monday': {'startTime':'T12:00Z', 'duration':15}
+  },
+  {
+    'id': 2,
+    'activated': false,
+    'monday': {'startTime':'T12:00Z', 'duration':240}
   },
 ]
 ```

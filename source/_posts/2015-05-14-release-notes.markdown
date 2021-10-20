@@ -83,7 +83,7 @@ notify:
 ```
 
 __XMPP__
-<img src='/images/supported_brands/xmpp.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Fabaff](https://github.com/fabaff) has contributed support for Jabber/XMPP. This will allow you send messages from Home Assistant to anyone on Jabber/XMPP. 
+<img src='/images/supported_brands/xmpp.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Fabaff](https://github.com/fabaff) has contributed support for Jabber/XMPP. This will allow you send messages from Home Assistant to anyone on Jabber/XMPP.
 
 ```yaml
 # Example configuration.yaml entry

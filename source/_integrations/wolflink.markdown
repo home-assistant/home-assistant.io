@@ -15,7 +15,7 @@ ha_platforms:
 
 The `wolflink` integration uses the [Wolf Smart-Set](https://www.wolf-smartset.com/) web service as a source to fetch your heating system status.
 
-Currently, integration can collect information such as temperature, pressure and heating state. 
+Currently, integration can collect information such as temperature, pressure and heating state.
 
 Remember that to integrate your heating device with Home Assistant, you need to have a WOLF LinkHome device connected to your heating device.
 

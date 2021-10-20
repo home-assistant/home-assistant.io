@@ -71,7 +71,7 @@ trv:
   type: map
   keys:
     proxy_ip:
-      description: IP address of a proxy for TRV integration. 
+      description: IP address of a proxy for TRV integration.
       required: false
       type: string
       default: "127.0.0.1"
@@ -84,12 +84,12 @@ trv:
       description: List of TRVs you wish to configure
       required: false
       type: map
-      keys: 
-        name: 
+      keys:
+        name:
           description: Name of the TRV
           required: true
           type: string
-        serial: 
+        serial:
           description: Serial Number of the TRV
           required: true
           type: string

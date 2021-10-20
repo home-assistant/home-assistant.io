@@ -10,16 +10,16 @@ ha_codeowners:
 ha_domain: qld_bushfire
 ---
 
-The `qld_bushfire` platform lets you integrate a 
-[GeoRSS feed](https://www.ruralfire.qld.gov.au/map/Pages/default.aspx) 
-containing bushfire alerts for Queensland. It retrieves alerts from a feed 
-and shows information of those alerts filtered by distance to Home Assistant's 
+The `qld_bushfire` platform lets you integrate a
+[GeoRSS feed](https://www.ruralfire.qld.gov.au/map/Pages/default.aspx)
+containing bushfire alerts for Queensland. It retrieves alerts from a feed
+and shows information of those alerts filtered by distance to Home Assistant's
 location.
 
-Entities are generated, updated and removed automatically with each update 
-from the feed. Each entity defines latitude and longitude and will be shown 
-on the default map automatically, or on a map card by defining the source 
-`qld_bushfire`. The distance in kilometers is available as the state 
+Entities are generated, updated and removed automatically with each update
+from the feed. Each entity defines latitude and longitude and will be shown
+on the default map automatically, or on a map card by defining the source
+`qld_bushfire`. The distance in kilometers is available as the state
 of each entity.
 
 <p class='img'>
@@ -38,7 +38,7 @@ Please refer to the [creator's copyright notice](https://www.qfes.qld.gov.au/Pag
 
 ## Configuration
 
-To integrate the Queensland Bushfire Alert feed, add the following lines to 
+To integrate the Queensland Bushfire Alert feed, add the following lines to
 your `configuration.yaml`.
 
 ```yaml
@@ -72,7 +72,7 @@ longitude:
 
 ## State Attributes
 
-The following state attributes are available for each entity in addition to 
+The following state attributes are available for each entity in addition to
 the standard ones:
 
 | Attribute        | Description |

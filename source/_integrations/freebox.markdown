@@ -60,7 +60,7 @@ port:
 {% endconfiguration %}
 
 <div class='note warning'>
-  
+
   If you change your Freebox router for a new one, go into your Home Assistant configuration `.storage` folder and delete the "freebox" folder, then add the integration again.
 
 </div>

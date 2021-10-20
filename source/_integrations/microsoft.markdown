@@ -79,8 +79,8 @@ Not all Azure regions support high-quality neural voices. Use [this overview](ht
 
 If you set the language to anything other than the default `en-us`, you will need to specify a matching voice type as well.
 
-</div> 
- 
+</div>
+
 ## Full configuration example
 
 A full configuration sample including optional variables:

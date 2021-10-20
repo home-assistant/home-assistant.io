@@ -43,9 +43,9 @@ When creating the user, it is possible to deny access to all locations and appli
 
 ### If you utilize 2-Step Verification or Two Factor Authentication (2FA) with your Synology NAS
 
-If you have the "Enforce 2-step verification for the following users" option checked under **Control Panel > User > Advanced > 2-Step Verification**, you'll need to configure the 2-step verification/one-time password (OTP) for the user you just created before the credentials for this user will work with Home Assistant. 
+If you have the "Enforce 2-step verification for the following users" option checked under **Control Panel > User > Advanced > 2-Step Verification**, you'll need to configure the 2-step verification/one-time password (OTP) for the user you just created before the credentials for this user will work with Home Assistant.
 
-Make sure to log out of your "normal" user's account and then login with the separate user you created specifically for Home Assistant. DSM will walk you through the process of setting up the one-time password for this user which you'll then be able to use in Home Assistant's frontend configuration screen. 
+Make sure to log out of your "normal" user's account and then login with the separate user you created specifically for Home Assistant. DSM will walk you through the process of setting up the one-time password for this user which you'll then be able to use in Home Assistant's frontend configuration screen.
 
 <div class='note'>
 If you denied access to all locations and applications it is normal to receive a message indicating you do not have access to DSM when trying to login with this separate user. As noted above, you do not need access to the DSM and Home Assistant will still be able to read statistics from your NAS.
@@ -61,7 +61,7 @@ There are also combined CPU load sensors. These report the total CPU load for th
 
 ### Memory Utilisation sensors
 
-Entities reporting the current and combined memory and swap utilization of the NAS. These sensors include the total installed amount, the currently free amount and the % of memory used. 
+Entities reporting the current and combined memory and swap utilization of the NAS. These sensors include the total installed amount, the currently free amount and the % of memory used.
 
 ### Network sensors
 

@@ -278,8 +278,8 @@ When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow 
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Name(s) of Android TV / Fire TV entities.
 
-1. Call the `androidtv.learn_sendevent` service. 
-2. Within 8 seconds, hit a single button on your Android TV / Fire TV remote. 
+1. Call the `androidtv.learn_sendevent` service.
+2. Within 8 seconds, hit a single button on your Android TV / Fire TV remote.
 3. After 8 seconds, a persistent notification will appear that contains the equivalent command that can be sent via the `androidtv.adb_command` service. This command can also be found in the `adb_response` attribute of the media player in Home Assistant, and it will be logged at the INFO level.
 
 As an example, a service call in a [script](/docs/scripts) could be changed from this:
@@ -306,7 +306,7 @@ to this:
 
 ### `androidtv.download` and `androidtv.upload`
 
-You can use the `androidtv.download` service to download a file from your Android TV / Fire TV device to your Home Assistant instance. 
+You can use the `androidtv.download` service to download a file from your Android TV / Fire TV device to your Home Assistant instance.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

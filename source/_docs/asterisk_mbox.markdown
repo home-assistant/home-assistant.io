@@ -44,7 +44,7 @@ Before beginning make sure that you have the following:
 
    ```ini
    [default]
-   host = IP_ADDRESS 
+   host = IP_ADDRESS
    port = PORT
    password = PASSWORD
    mbox_path = PATH_TO_VOICEMAIL_FILES

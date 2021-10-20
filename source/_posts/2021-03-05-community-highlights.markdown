@@ -21,7 +21,7 @@ Information on [how to share](#got-a-tip-for-the-next-edition).
 ## Blueprint of the week
 
 Do you have an IP camera in Home Assistant instance and do you no longer want to miss
-who is at the door? Then you could try the camera snapshot Blueprint from 
+who is at the door? Then you could try the camera snapshot Blueprint from
 [vorion](https://community.home-assistant.io/u/vorion). You can also indicate to which
 device you would like to receive a notification with a photo.
 [Try it out!](https://community.home-assistant.io/t/send-camera-snapshot-notification-on-motion/254565)

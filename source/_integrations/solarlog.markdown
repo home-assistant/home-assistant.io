@@ -16,7 +16,7 @@ ha_platforms:
 
 The `solarlog` integration uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.
 
-Before being able to use the integration, you have to activate the open JSON interface on your Solar-Log device. This can be activated from the Configuration | System | Access control menu of your Solar-Log device. 
+Before being able to use the integration, you have to activate the open JSON interface on your Solar-Log device. This can be activated from the Configuration | System | Access control menu of your Solar-Log device.
 When activating the interface, a red warning triangle with security information and risks is displayed.
 
 The `solarlog` integration uses the default host address "http://solar-log" if you don't specify a host. If your device isn't accessible on this address, use its IP Address instead.
@@ -70,7 +70,7 @@ The following sensors are available in the library:
 | alternator_loss       | W      | Altenator loss (equals to power_dc - power_ac) |
 | capacity              | %      | Capacity (equals to power_dc / total power) |
 | efficiency            | %      | Efficiency (equals to power_ac / power_dc) |
-| power_available       | W      | Available power (equals to power_ac - consumption_ac) | 
+| power_available       | W      | Available power (equals to power_ac - consumption_ac) |
 | usage                 | %      | Usage (equals to consumption_ac / power_ac) |
 
 <div class='note'>

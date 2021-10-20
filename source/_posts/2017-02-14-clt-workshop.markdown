@@ -9,7 +9,7 @@ categories: Community
 og_image: /images/blog/2017-02-workshop/social.png
 ---
 
-There will be a Home Assistant Workshop at the [Chemnitzer Linux-Tage 2017][clt]. First I will cover the installation, the setup, and the configuration process. The second part will be all about automation. Last but not least, we will talk about the integration of a new platform/component. 
+There will be a Home Assistant Workshop at the [Chemnitzer Linux-Tage 2017][clt]. First I will cover the installation, the setup, and the configuration process. The second part will be all about automation. Last but not least, we will talk about the integration of a new platform/component.
 
 Check the Workshop [overview][overview] to get the details.
 

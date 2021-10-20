@@ -42,7 +42,7 @@ After you created an account at [Machinebox](https://machinebox.io/account), you
 
 If you only require face detection (number of faces) you can disable face recognition by adding `-e "MB_FACEBOX_DISABLE_RECOGNITION=true"` in the `docker run` command.
 
-If your host machine does not support [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) and you experience issues running the `machinebox/facebox` image there is an alternative image without AVX support available at `machinebox/facebox_noavx`(*HINT*: This image is currently not supported by machinebox and should only be used if necessary) 
+If your host machine does not support [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) and you experience issues running the `machinebox/facebox` image there is an alternative image without AVX support available at `machinebox/facebox_noavx`(*HINT*: This image is currently not supported by machinebox and should only be used if necessary)
 
 ## Configuration
 

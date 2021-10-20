@@ -137,7 +137,7 @@ fan:
 ## Converting from speeds to percentage
 
 When converting a fan with 3 speeds from the old fan entity model, the following percentages can be used:
- 
+
 0 - `off`
 33 - `low`
 66 - `medium`

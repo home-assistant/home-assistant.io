@@ -81,18 +81,18 @@ The biggest change is that most operations, by default now use
 "table" mode. i.e., instead of getting a yaml or json dump you get a more concise view:
 
     $ hass-cli entity list winter
-    ENTITY                           DESCRIPTION                STATE    
-    timer.timer_winter_garden                                   idle     
-    group.winter_garden_lights       Winter Garden Lights       off      
-    group.winter_garden_motionview   winter garden              off      
-    light.winter_garden_light_2      Winter Garden Light 2      off      
-    light.winter_garden_light_5      Winter Garden Light 5      off      
-    light.winter_garden_light_1      Winter Garden Light 1      off      
-    light.winter_garden_light_3      Winter Garden Light 3      off      
-    light.winter_garden_light_4      Winter Garden Light 4      off      
-    media_player.winter_garden       Winter Garden              paused   
-    sensor.lightlevel_winter_garden  Winter Garden Motion       1.0      
-    sensor.temperature_winter_garden Winter Garden Temperature  5.0      
+    ENTITY                           DESCRIPTION                STATE
+    timer.timer_winter_garden                                   idle
+    group.winter_garden_lights       Winter Garden Lights       off
+    group.winter_garden_motionview   winter garden              off
+    light.winter_garden_light_2      Winter Garden Light 2      off
+    light.winter_garden_light_5      Winter Garden Light 5      off
+    light.winter_garden_light_1      Winter Garden Light 1      off
+    light.winter_garden_light_3      Winter Garden Light 3      off
+    light.winter_garden_light_4      Winter Garden Light 4      off
+    media_player.winter_garden       Winter Garden              paused
+    sensor.lightlevel_winter_garden  Winter Garden Motion       1.0
+    sensor.temperature_winter_garden Winter Garden Temperature  5.0
 
 On top of better tables you can also use `--sort-by` to sort by an attribute and you can use `--columns` to control which attributes to show.
 

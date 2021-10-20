@@ -74,7 +74,7 @@ Find the name of your stop in the list and the "id" is the one you are looking f
 ## Direction
 
 If you use the `direction` filter it's important to put correct final destination(s) or else the sensor will not work at all.
-The `direction` has to be the final destination(s) for the `Departure type` - ***NOT the stop where you want to get off***. 
+The `direction` has to be the final destination(s) for the `Departure type` - ***NOT the stop where you want to get off***.
 
 - Replace YOUR_STOP_ID with the id for your stop and go to [http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID](http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID)
 - The values under `finalStop` is the ones you need to put under `direction`. Make sure you use the exact name and insert all possible finalstops.
@@ -104,7 +104,7 @@ sensor:
 
 ## Route
 
-If you use the `route` filter it's important to put correct route name(s) or else the sensor will not work at all. 
+If you use the `route` filter it's important to put correct route name(s) or else the sensor will not work at all.
 
 - Replace YOUR_STOP_ID with the id for your stop and go to [http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID](http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID)
 - The values under `Departure name` is the ones you need to put under `route`. Make sure you use the exact name.

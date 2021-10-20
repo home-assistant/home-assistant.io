@@ -131,11 +131,11 @@ knx:
       address: "1/1/1" # this is the address that will be sent to
       state_address: "8/8/8"  # this is the address GroupValueRead requests are sent to
     - name: "Switch with passive addresses"
-      address: 
+      address:
         - "1/1/1" # this is the address that will be sent to
         - "1/1/2" # this and following are passive addresses
         - "1/1/3"
-      state_address: 
+      state_address:
         - "8/8/8" # this is the address GroupValueRead requests are sent to
         - "8/8/2" # this and following are passive addresses
         - "8/8/3"
@@ -195,7 +195,7 @@ local_ip:
 
 ```yaml
 knx:
-  event_filter: 
+  event_filter:
     - "1/0/*"
     - "6/2,3,4-6/*"
 ```
@@ -441,7 +441,7 @@ automation:
       attribute: counter
       above: 0
       below: 2
-    condition: 
+    condition:
       - condition: state
         entity_id: binary_sensor.cover_abstell
         state: "on"

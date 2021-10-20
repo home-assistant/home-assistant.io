@@ -61,7 +61,7 @@ Hacktoberfest will create a lot of work for us. In 2017 we processed 625 Pull Re
 
 - Make yourself familiar with [Markdown](https://www.markdownguide.org/cheat-sheet).
 - Understand our [Standards and Guidelines](https://developers.home-assistant.io/docs/documenting/standards).
-- For small changes like typos and clarifications, use the GitHub editor functionality. 
+- For small changes like typos and clarifications, use the GitHub editor functionality.
 - For more significant changes, we highly recommended that you set up an environment to build the documentation locally before opening a Pull Request.
 - Keep an eye on the branches. `current` is for changes on the existing documentation, `next` for new features or integrations that will be available with the next release.
 

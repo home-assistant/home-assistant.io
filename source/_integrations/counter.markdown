@@ -152,9 +152,9 @@ automation:
     service: counter.increment
     target:
       entity_id: counter.error_counter
-    
+
 counter:
   error_counter:
     name: Errors
-    icon: mdi:alert  
+    icon: mdi:alert
 ```

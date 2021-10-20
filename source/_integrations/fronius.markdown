@@ -72,7 +72,7 @@ Each sensor type chosen as monitored condition adds a set of sensors to Home Ass
 
     Cumulative data such as the energy produced in the current day or year and overall produced energy.
     Also, live values such as:
-    
+
     - Power fed to the grid (if positive) or taken from the grid (if negative).
     - Power load as a generator (if positive) or consumer (if negative).
     - Battery charging power (if positive) or discharging power (if negative) and information about backup or standby mode.
@@ -90,7 +90,7 @@ Each sensor type chosen as monitored condition adds a set of sensors to Home Ass
 
     Detailed information about power, current and voltage, if supported split among the phases.
     The data is only shown when choosing device scope.
-    
+
 - `storage`
 
     Detailed information about current, voltage, state, cycle count, capacity and more about installed batteries.
@@ -104,7 +104,7 @@ when the Fronius devices begins providing the needed data.
 
 ## Examples
 
-When including more of the components that one Fronius device offers, 
+When including more of the components that one Fronius device offers,
 a list of sensors that are to be integrated can be given like below.
 
 ```yaml

@@ -46,7 +46,7 @@ password:
   required: true
   type: string
 counter_id:
-  description: The Tout Sur Mon Eau counter id. 
+  description: The Tout Sur Mon Eau counter id.
   required: true
   type: integer
 {% endconfiguration %}

@@ -19,7 +19,7 @@ Do you want to share something for the next edition? Information on [how to shar
 ## Apexcharts Card
 
 Would you like to map data in graphs? Then you should definitely try the new
-[ApexCharts card](https://github.com/RomRider/apexcharts-card) from [RomRider](https://github.com/RomRider), 
+[ApexCharts card](https://github.com/RomRider/apexcharts-card) from [RomRider](https://github.com/RomRider),
 the graphs in this card are based on the ApexChartsJS and that looks pretty cool.
 
 <div style="margin:0 auto; text-align:center">
@@ -34,7 +34,7 @@ the graphs in this card are based on the ApexChartsJS and that looks pretty cool
   />
 </a>
 
-If you would like to stay informed of the developments, you could also follow 
+If you would like to stay informed of the developments, you could also follow
 [this topic](https://community.home-assistant.io/t/apexcharts-card-a-highly-customizable-graph-card/272877) on our forum.
 
 ## Home Assistant switch panel

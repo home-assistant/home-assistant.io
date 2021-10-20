@@ -22,7 +22,7 @@ The `monoprice` platform allows you to control [Monoprice 6-Zone Amplifier](http
 ## Configuration notes
 
 If you are using an IP232 module instead of a direct serial connection, then use `socket://<host>:<port>` in the port setting.
-  
+
 Sources can also be later edited from the integration options (gear icon in the top right when selecting the integration). Note that editing sources will remove the snapshot you may have saved.
 
 ## Zone Management

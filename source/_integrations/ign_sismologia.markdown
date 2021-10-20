@@ -10,16 +10,16 @@ ha_codeowners:
 ha_domain: ign_sismologia
 ---
 
-The `ign_sismologia` platform lets you integrate a GeoRSS feed provided by the 
-Spanish [Instituto Geográfico Nacional](https://www.ign.es/) with information 
-about seismic events like earthquakes on the Iberian Peninsula and Canary 
-Islands. It retrieves incidents from a feed and shows information of those 
+The `ign_sismologia` platform lets you integrate a GeoRSS feed provided by the
+Spanish [Instituto Geográfico Nacional](https://www.ign.es/) with information
+about seismic events like earthquakes on the Iberian Peninsula and Canary
+Islands. It retrieves incidents from a feed and shows information of those
 incidents filtered by distance to Home Assistant's location.
 
-Entities are generated, updated and removed automatically with each update 
-from the feed. Each entity defines latitude and longitude and will be shown 
-on the default map automatically, or on a map card by defining the source 
-`ign_sismologia`. The distance in kilometers is available as the state 
+Entities are generated, updated and removed automatically with each update
+from the feed. Each entity defines latitude and longitude and will be shown
+on the default map automatically, or on a map card by defining the source
+`ign_sismologia`. The distance in kilometers is available as the state
 of each entity.
 
 <p class='img'>
@@ -64,7 +64,7 @@ longitude:
 
 ## State Attributes
 
-The following state attributes are available for each entity in addition to 
+The following state attributes are available for each entity in addition to
 the standard ones:
 
 | Attribute          | Description |

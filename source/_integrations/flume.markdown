@@ -17,7 +17,7 @@ ha_platforms:
 
 The `flume` sensor will show you the current [flume](https://portal.flumewater.com) status for the given Device ID.
 
-Flume monitors the real-time status of your home water meter. Allowing the end-user to detect small leaks, gain real-time information on household water consumption, set water goals and budgets, and receive push notifications when suspicious water activities occur. 
+Flume monitors the real-time status of your home water meter. Allowing the end-user to detect small leaks, gain real-time information on household water consumption, set water goals and budgets, and receive push notifications when suspicious water activities occur.
 
 {% include integrations/config_flow.md %}
 

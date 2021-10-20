@@ -29,7 +29,7 @@ Please note that UPnP or NAT-PMP needs to be enabled on your router for this int
 
 {% include integrations/config_flow.md %}
 
-## Manual configuration 
+## Manual configuration
 
 Alternatively, you can use YAML by adding the following section to your `configuration.yaml` file:
 

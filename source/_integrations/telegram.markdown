@@ -87,7 +87,7 @@ notify:
   - platform: telegram
     name: NOTIFIER_NAME
     chat_id: CHAT_ID_1
-    
+
   # It is possible to add multiple notifiers by using another chat_id
   # the example belows shows an additional notifier which sends messages to the bot which is added to a group
   - platform: telegram

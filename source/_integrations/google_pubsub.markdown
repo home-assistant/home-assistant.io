@@ -19,7 +19,7 @@ Create a Google Pub/Sub topic in the [Google Cloud API Console](https://console.
 Next, you need to create a Service Account key in the [Google Cloud API Console](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
 
 - Choose a new "New Service Account", give it a name and leave the key type as JSON
-- Select the role: Pub/Sub Publisher 
+- Select the role: Pub/Sub Publisher
 
 This will download the Service Account JSON key to your machine. Do NOT share this with anyone. Place this file in your Home Assistant configuration folder.
 

@@ -144,7 +144,7 @@ automation:
         message: >
           Paulus just changed from {{ trigger.from_state.state }}
           to {{ trigger.to_state.state }}
-          
+
           This was triggered by {{ trigger.id }}
 
 automation 2:

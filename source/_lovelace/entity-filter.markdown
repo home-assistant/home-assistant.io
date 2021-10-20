@@ -140,7 +140,7 @@ state_filter:
   - operator: "=="
     value: home
   - operator: "=="
-    value: work    
+    value: work
 card:
   type: glance
   title: Who's at work or home

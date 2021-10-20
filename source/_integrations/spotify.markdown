@@ -41,7 +41,7 @@ The Spotify media player integration allows you to control [Spotify](https://www
 
 <div class='note'>
   Your Home Assistant instance does not need to be exposed to the internet. It works just fine with local IP addresses.
-</div>  
+</div>
 
 
 Add the following to your `configuration.yaml` file:
@@ -86,7 +86,7 @@ modification to the `configuration.yaml` file is needed. Multiple Spotify
 accounts can be linked to a _single_ Spotify application. You will have to add those accounts into the **Users and Access** section of your application in the Spotify Developer Portal.
 
 To add an additional Spotify account to Home Assistant, go to the Spotify website and log out, then repeat _only_ the steps
-in the [Configuration](#configuration) section. 
+in the [Configuration](#configuration) section.
 
 ## Playing Spotify playlists
 

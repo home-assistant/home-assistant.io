@@ -16,9 +16,9 @@ ha_platforms:
   - light
 ---
 
-If your home is fitted with [SmartHab](https://smarthab.fr/index.php/home-en)'s 
-devices and you have access to their app-based services, you will be able 
-to control your lights and shutters with the SmartHab integration for Home 
+If your home is fitted with [SmartHab](https://smarthab.fr/index.php/home-en)'s
+devices and you have access to their app-based services, you will be able
+to control your lights and shutters with the SmartHab integration for Home
 Assistant.
 
 {% include integrations/config_flow.md %}

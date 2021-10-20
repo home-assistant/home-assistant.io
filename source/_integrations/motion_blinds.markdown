@@ -22,7 +22,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Dooya](http://www.dooya.com/)
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
-- [Smart Home](https://www.smart-home.hu) 
+- [Smart Home](https://www.smart-home.hu)
 
 {% include integrations/config_flow.md %}
 

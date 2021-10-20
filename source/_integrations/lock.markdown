@@ -17,7 +17,7 @@ Keeps track which locks are in your environment, their state and allows you to c
 
 A lock integration provides the following services:
 
-#### Service `lock.lock` 
+#### Service `lock.lock`
 
 Lock your door, the attribute should appear under a 'data' attribute for the service.
 
@@ -34,7 +34,7 @@ action:
     entity_id: lock.my_place
 ```
 
-#### Service `lock.unlock` 
+#### Service `lock.unlock`
 
 Unlock your door, the attribute should appear under a 'data' attribute for the service.
 

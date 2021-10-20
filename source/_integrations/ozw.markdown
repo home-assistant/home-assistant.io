@@ -22,7 +22,7 @@ ha_platforms:
   - switch
 ---
 
-This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT. 
+This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT.
 
 <div class='note warning'>
 

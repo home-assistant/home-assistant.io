@@ -50,7 +50,7 @@ automation:
   trigger:
     - platform: state
       entity_id: sensor.office_occupancy
-      to: "on" 
+      to: "on"
   action:
     - service: notify.notify
       data:

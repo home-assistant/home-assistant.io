@@ -46,7 +46,7 @@ not be activated yet.
 The integration creates a weather entity as well as sensors for supported weather conditions.
 Selecting a `onecall` forecast mode with the free tier leverages the One Call API, resulting in updates every 5 minutes and is recommended for both hourly and daily forecast.
 
-A `sensor` entity will be created for each supported condition. Their ids will follow the format: 
+A `sensor` entity will be created for each supported condition. Their ids will follow the format:
 
 `sensor.<integration name>_<monitored condition>`
 
@@ -89,7 +89,7 @@ The time period these sensors use depends on the forecast mode selected when con
 </div>
 
 | Condition                            | Description                                                                                                                                                    |
-| :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
+| :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `forecast_cloud_coverage`         | Cloudiness, %.                                                                                                                    |
 | `forecast_condition`                 | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition) for the forecast's time period. |
 | `forecast_precipitation`             | Combined Rain and Snow volume for the forecast's time period, mm.                                                                                              |

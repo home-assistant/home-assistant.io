@@ -79,7 +79,7 @@ If you have multiple IFTTT users you can specify multiple IFTTT keys with:
 ```yaml
 # Example configuration.yaml entry
 ifttt:
-  key: 
+  key:
     YOUR_KEY_NAME1: YOUR_API_KEY1
     YOUR_KEY_NAME2: YOUR_API_KEY2
 ```

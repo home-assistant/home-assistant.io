@@ -14,6 +14,6 @@ ha_platforms:
   - binary_sensor
 ---
 
-The `rpi_power` integration allows you to detect [bad power supply](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md) on Raspberry Pi. 
+The `rpi_power` integration allows you to detect [bad power supply](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md) on Raspberry Pi.
 
 {% include integrations/config_flow.md %}

@@ -209,7 +209,7 @@ command_off=0x7
 INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Found possible matching deviceid 22670e.
 ```
 
-This automatic guess should work most of the time, but there is no guarantee on that. You should activate it only when you want to configure your new devices and leave it off otherwise. 
+This automatic guess should work most of the time, but there is no guarantee on that. You should activate it only when you want to configure your new devices and leave it off otherwise.
 
 #### Replace device
 
@@ -245,7 +245,7 @@ sub_type: 1
 type_string: 'ARC'
 id_string': 'C3'
 data: '0710010143030170'
-values': 
+values':
   Command: "On"
   Rssi numeric': 7
 ```

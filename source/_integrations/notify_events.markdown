@@ -15,9 +15,9 @@ ha_platforms:
 
 ## Description
 
-The [Notify.Events service](https://notify.events/) is a platform for the **notify** component. 
+The [Notify.Events service](https://notify.events/) is a platform for the **notify** component.
 
-This platform allows you to quickly configure the distribution of messages between different recipients, no matter how they are used to receiving notifications: 
+This platform allows you to quickly configure the distribution of messages between different recipients, no matter how they are used to receiving notifications:
 
 - [Telegram](https://telegram.org/)
 - [Viber](https://viber.com/)
@@ -34,7 +34,7 @@ You can find a full supported messenger list [here](https://notify.events/featur
 ## Setting up
 
 To start getting notifications, you need to follow those simple steps:
- 
+
 1. SignUp to [Notify.Events](https://notify.events/) and create a Channel
 2. Add **Home Assistant** source to this channel and get your **token**
 3. Add the Notify.Events integration to your installation by adding the following to your `configuration.yaml` file:

@@ -11,7 +11,7 @@ ha_platforms:
 ---
 
 The `systemmonitor` sensor platform allows you to monitor disk usage,
-memory usage, CPU usage, and running processes. 
+memory usage, CPU usage, and running processes.
 
 To add this platform to your installation,
 add the following to your `configuration.yaml` file:

@@ -207,7 +207,7 @@ the overrides section:
 Now when you compile your CSS, inuit.css will know to ignore its preset value
 (that is what `!default` is for) in favour of your own. By doing things this way
 you can change the values that inuit.css uses without having to modify inuit.css
-itself, thus leaving it free to be updated. 
+itself, thus leaving it free to be updated.
 
 In this file you will also see your feature switches needed to turn objects and
 abstractions on and off. Feature switches are only preset for objects and
@@ -243,7 +243,7 @@ to create another directory in `css/` called `ui/`, leaving you with:
             inuit.css/
             ui/
             _vars.scss
-            style.scss 
+            style.scss
             watch
         index.html
 

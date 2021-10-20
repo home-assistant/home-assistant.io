@@ -69,8 +69,8 @@ logger:
     glances_api: fatal
 ```
 
-The log entries are in the form  
-*timestamp* *log-level* *thread* [**namespace**] *message*  
+The log entries are in the form
+*timestamp* *log-level* *thread* [**namespace**] *message*
 where **namespace** is the *<component_namespace>* currently logging.
 
 {% configuration %}

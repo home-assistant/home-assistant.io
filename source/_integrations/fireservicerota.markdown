@@ -153,12 +153,12 @@ automation:
         entity_id: switch.incident_response
 
   - alias: "Cast FireServiceRota dashboard to Nest Hub"
-    trigger: 
+    trigger:
       platform: homeassistant
       event: start
     action:
       service: cast.show_lovelace_view
-      data: 
+      data:
         entity_id: media_player.nest_hub_bedroom
         view_path: fsr
 ```
@@ -207,7 +207,7 @@ views:
 
 ### Screenshot
 
-<img src='/images/integrations/fireservicerota/dashboard.png' alt='Example of a FireServiceRota dashboard' class="no-shadow"/> 
+<img src='/images/integrations/fireservicerota/dashboard.png' alt='Example of a FireServiceRota dashboard' class="no-shadow"/>
 
 This screenshot shows what a FireServiceRota dashboard can look like.
 

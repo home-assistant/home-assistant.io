@@ -60,7 +60,7 @@ stopbits:
   required: false
   default: 1
   type: float
-xonxoff: 
+xonxoff:
   description: Enable software flow control.
   required: false
   default: False
@@ -114,7 +114,7 @@ void loop() {
 
   serializeJson(jsonBuffer, Serial);
   Serial.println();
-  
+
   delay(1000);
 }
 ```

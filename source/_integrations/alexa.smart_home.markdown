@@ -796,7 +796,7 @@ The following table lists the possible friendly name synonyms available for a In
 
 ### Light
 
-Control lights with _"turn on"_ and _"turn off"_ utterances, adjust brightness, color, and temperature. 
+Control lights with _"turn on"_ and _"turn off"_ utterances, adjust brightness, color, and temperature.
 
 - _"Alexa, turn on the bathroom light."_
 - _"Alexa, turn off the patio light."_
@@ -938,11 +938,11 @@ Support _"turn on"_ and _"turn off"_ utterances.
 
 ### Timer
 
-Start a timer with using the _"turn on"_ utterance. 
+Start a timer with using the _"turn on"_ utterance.
 
 - _"Alexa, turn on the laundry."_
 
-Cancel a timer using the _"turn off"_ utterance. 
+Cancel a timer using the _"turn off"_ utterance.
 
 - _"Alexa, turn off the laundry."_
 
