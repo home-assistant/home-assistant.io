@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: lookin
 ha_config_flow: true
 ha_platforms:
+  - climate
   - sensor
 ---
 
