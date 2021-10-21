@@ -73,6 +73,10 @@ To boot Home Assistant OS the BIOS needs to have UEFI boot mode enabled and Secu
 1. Disable Secure Boot
 ![Disable Secure Boot mode](/images/installation/intel-nuc-disable-secure-boot.jpg)
 
+1. Change Power:Secondary Power Settings:After Power Failure to "Power On" or "Last State".
+
+1. Press F10 to save BIOS settings.
+
 As a next step, we need to write the Operating System image to the target boot media (Your "boot media" is the disk, SSD, or eMMC that your x86-64 hardware will boot from when it is running Home Assistant). Depending on your system this can be a S-ATA hard disk, S-ATA SSD, a M.2 SSD or even a eMMC. Home Assistant Operating System has no integrated installer. You need to use your Desktop computer (e.g. by using a USB to S-ATA adapter) or boot a live operating system on your target system to install Home Assistant Operating System, by writing the disk image directly onto the boot media for your x86 system.
 
 If you prefer to use a live operating system, follow the instructions of your Live distribution (e.g., [this Ubuntu guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Once you booted the live operating system, the following steps on how to write the image to your boot media can be followed.
