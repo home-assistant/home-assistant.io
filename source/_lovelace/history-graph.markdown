@@ -59,7 +59,9 @@ name:
   type: string
 {% endconfiguration %}
 
-## Example
+Changing the units used to generate the graphs requires changing the entities' unit_of_measurement property, as it can't be overridden on the history-graph card. For more details, see [Customizing Entities](/docs/configuration/customizing-devices/#unit_of_measurement).
+
+## Examples
 
 Alternatively, the card can be configured using YAML:
 
@@ -70,4 +72,16 @@ entities:
   - sensor.outside_temperature
   - entity: media_player.lounge_room
     name: Main player
+```
+
+```yaml
+type: history-graph
+title: 'Temperatures in the last 48 hours'
+hours_to_show: 48
+entities:
+  - sensor.outside_temperature
+  - entity: sensor.lounge_temperature
+    name: Lounge
+  - entity: sensor.attic_temperature
+    name: Attic
 ```
