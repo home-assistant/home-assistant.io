@@ -81,7 +81,7 @@ hours_to_show: 48
 entities:
   - sensor.outside_temperature
   - entity: sensor.lounge_temperature
-    name: Lounge
+    name: "Lounge"
   - entity: sensor.attic_temperature
     name: "Attic"
 ```
