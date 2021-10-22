@@ -81,7 +81,8 @@ Push Weather Data from Home Assistant to the RainMachine device.
 
 Local Weather Push service should be enabled from Settings > Weather > Developer tab for RainMachine to consider the values being sent. Units must be sent in metric; no conversions are performed by the integration. Note: RAIN and QPF values shouldn't be sent as cumulative values but the measured/forecasted values for each hour or day. The RainMachine Mixer will sum all RAIN or QPF values in the current day to have the day total RAIN or QPF.
 
-See details of RainMachine API Here: https://rainmachine.docs.apiary.io/#reference/weather-services/parserdata/post
+See details of RainMachine API here: 
+<https://rainmachine.docs.apiary.io/#reference/weather-services/parserdata/post>
 
 | Service Data Attribute | Optional | Description                                                                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
