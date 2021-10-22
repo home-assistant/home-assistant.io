@@ -227,7 +227,7 @@ utility_meter:
 ```
 
 Additionally, you can add template sensors to compute daily and monthly total usage. Important note, in these examples,
-we use a [float filter](https://www.home-assistant.io/docs/configuration/templating/#numeric-functions-and-filters) to
+we use a [float filter](/docs/configuration/templating/#numeric-functions-and-filters) to
 return `Invalid Number` if `peak` or `offpeak` values returned are not numbers.
 
 {% raw %}
