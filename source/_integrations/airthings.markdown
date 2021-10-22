@@ -18,7 +18,6 @@ Integrates Airthings sensors into Home Assistant.
 
 [Airthings](https://www.airthings.com/) provide different sensors for measuring the air quality. The focus specially on Radon sensors.
 
-
 Login [here](https://dashboard.airthings.com/integrations/api-integration) to find your credentials.
 
 {% include integrations/config_flow.md %}
