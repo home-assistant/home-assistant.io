@@ -59,8 +59,6 @@ name:
   type: string
 {% endconfiguration %}
 
-Changing the units used to generate the graphs requires changing the entities' unit_of_measurement property, as it can't be overridden on the history-graph card. For more details, see [Customizing Entities](/docs/configuration/customizing-devices/#unit_of_measurement).
-
 ## Examples
 
 Alternatively, the card can be configured using YAML:
@@ -73,6 +71,8 @@ entities:
   - entity: media_player.lounge_room
     name: Main player
 ```
+
+Or with longer time frame, and multiple entities (as long as they share the same unit_of_measurement) in one graph:
 
 ```yaml
 type: history-graph
