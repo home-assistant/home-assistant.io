@@ -83,5 +83,5 @@ entities:
   - entity: sensor.lounge_temperature
     name: Lounge
   - entity: sensor.attic_temperature
-    name: Attic
+    name: "Attic"
 ```
