@@ -1377,30 +1377,47 @@ automation:
 
 ### Sensors
 
-Sensor                        | Description                                          |
------------------------------ | -----------------------------------------------------|
-DnD Start*                    | The timestamp when the next DnD will start           |
-DnD End*                      | The timestamp when the current or next DnD will end  |
-Total duration*               | The total cleaning duration in seconds               |
-Total Clean Area*             | The total cleaning area in square meters             |
-Total Clean Count*            | The total amount of times a clean cycle has been ran |
-Total Dust Collection Count*  | The total amount of dust that has been collected     |
-Filter Left*                  | How long the filter can be used in seconds           |
-Main Brush Left*              | How long the main brush can be used in seconds       |
-Side Brush Left*              | How long the side brush can be used in seconds       |
-Sensor Dirty Left*            | How long the sensor can  be used in seconds          |
-Last Clean Area               | The last cleaned area in square meters               |
-Last Clean Duration           | The last clean duration in seconds                   |
-Last Clean End                | The last clean end time as a timestamp               |
-Last Clean Start              | The last clean start time as a timestamp             |
-Mop Attached**                | If the mop is attached                               |
-Water Box Attached**          | If the watter box is attached                        |
-Water Shortage**              | If the water box is low on water                     |
+{% configuration_basic %}
 
-```text
-* Needs to be manually enabled once the integration has been added.
+DnD Start*:
+  description: The timestamp when the next DnD will start
+DnD End*:
+  description: The timestamp when the current or next DnD will end
+Total duration*:
+  description: The total cleaning duration in seconds
+Total Clean Area*:
+  description: The total cleaning area in square meters
+Total Clean Count*:
+  description: The total amount of times a clean cycle has been ran
+Total Dust Collection Count*:
+  description: The total amount of dust that has been collected
+Filter Left*:
+  description: How long the filter can be used in seconds
+Main Brush Left*:
+  description: How long the main brush can be used in seconds
+Sensor Dirty Left*:
+  description: How long the sensor can  be used in seconds
+Last Clean Area*:
+  description: The last cleaned area in square meters
+Last Clean Duration*:
+  description: The last clean duration in seconds
+Last Clean End*:
+  description: The last clean end time as a timestamp
+Last Clean Start*:
+  description: The last clean start time as a timestamp
+Mop Attached**:
+  description: If the mop is attached
+Water Box Attached**:
+  description: If the watter box is attached
+Water Shortage**:
+  description: If the water box is low on water
+
+{% endconfiguration_basic %}
+
+<div class="note">
+* Needs to be manually enabled once the integration has been added. <br>
 ** Only enabled if the vacuum has a mop.
-```
+</div>
 
 ### Attributes
 
