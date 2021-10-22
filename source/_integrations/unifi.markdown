@@ -32,6 +32,10 @@ There is currently support for the following device types within Home Assistant:
 
 The user needs administrator privileges in order to control switches.
 
+### Users with 2FA
+
+To access the integration with a user with 2-factor authentication (2FA), in the password field enter "your-password|your-current-2fa-token".
+
 ### Extra configuration of the integration
 
 All configuration options are offered from the front end. Enter what UniFi integration you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
