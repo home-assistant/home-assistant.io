@@ -97,15 +97,15 @@ when the Fronius devices begins providing the needed data.
 ## Finding out devices IDs
 
 To find out the device ID of the inverter visit the URL:
-http://FRONIUS_IP/solar_api/v1/GetPowerFlowRealtimeData.fcgi
+`http://FRONIUS_IP/solar_api/v1/GetPowerFlowRealtimeData.fcgi`
 In the returned JSON, under the key Body > Data > Inverters you should see your inverters listed with IDs starting from 1.
 
 To find out the device ID of the meter visit the URL:
-http://FRONIUS_IP/solar_api/v1/GetMeterRealtimeData.cgi?Scope=System
+`http://FRONIUS_IP/solar_api/v1/GetMeterRealtimeData.cgi?Scope=System`
 In the returned JSON, under the key Body > Data you should see your meters listed with IDs starting from 0.
 
 To find out which API version your system runs, visit the URL:
-http://FRONIUS_IP/solar_api/GetAPIVersion.cgi
+`http://FRONIUS_IP/solar_api/GetAPIVersion.cgi`
 
 ## Examples
 
@@ -128,4 +128,4 @@ sensor:
 
 ## Note
 
-Fronius often provides firmware updates for the datamanager interfaces and the devices in their system, it's recommended to check and apply them regurarly. This integration relies on functionality present in rather recent firmware.
+Fronius often provides firmware updates for the datamanager interfaces and the devices in their system, it's recommended to check and apply them regularly. This integration relies on functionality present in rather recent firmware.
