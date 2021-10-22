@@ -82,6 +82,10 @@ sensor:
     scan_interval: 25
 ```
 
+## Directions for enabling I2C interface on the Home Assistant Operating System
+
+Follow the instructions here to [enable I2C here.](/hassio/enable_i2c/).
+
 ## Directions for installing smbus support on Raspberry Pi
 
 Enable I2c interface with the Raspberry Pi configuration utility:
