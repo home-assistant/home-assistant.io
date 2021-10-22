@@ -237,33 +237,43 @@ The same thing can also be expressed as a filter:
 
 - `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
+- `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter.
+- `area_devices(area_name_or_id)` returns the list of device IDs tied to a given area ID or name. Can also be used as a filter.
 
 #### Areas examples
 
 {% raw %}
 
 ```text
-{{ area_id('Living Room') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+{{ area_id('Living Room') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
 ```
 
 ```text
-{{ area_id('my_device_id') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+{{ area_id('my_device_id') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
 ```
 
 ```text
-{{ area_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+{{ area_id('sensor.sony') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
 ```
 
 ```text
-{{ area_name('deadbeefdeadbeefdeadbeefdeadbeef') }}  # Living Room
+{{ area_name('deadbeefdeadbeefdeadbeefdeadbeef') }}  # 'Living Room'
 ```
 
 ```text
-{{ area_name('my_device_id') }}  # Living Room
+{{ area_name('my_device_id') }}  # 'Living Room'
 ```
 
 ```text
-{{ area_name('sensor.sony') }}  # Living Room
+{{ area_name('sensor.sony') }}  # 'Living Room'
+```
+
+```text
+{{ area_entities('deadbeefdeadbeefdeadbeefdeadbeef') }}  # ['sensor.sony']
+```
+
+```text
+{{ area_devices('Living Room') }}  # ['my_device_id']
 ```
 
 {% endraw %}
