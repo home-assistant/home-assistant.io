@@ -76,7 +76,7 @@ entities:
 
 ```yaml
 type: history-graph
-title: 'Temperatures in the last 48 hours'
+title: "Temperatures in the last 48 hours"
 hours_to_show: 48
 entities:
   - sensor.outside_temperature
