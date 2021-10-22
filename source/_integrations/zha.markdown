@@ -211,7 +211,7 @@ Note: `cluster_id: 25` may also be `cluster_id: 0x0019`. The two are synonymous.
 
 ### Defining Zigbee channel to use
 
-Zigbee network channel changes 15 will be used by default by ZHA but the Zigbee network channel can be changed via YAML, however note that changing Zigbee network channel changes requires repairing all already devices paired to ZHA.
+ZHA prefers to use Zigbee channel 15 by default. You can change this using YAML configuration, however, note that changing the channel requires repairing all devices.
 
 ```yaml
 zha:
