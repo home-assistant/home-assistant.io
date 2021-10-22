@@ -65,7 +65,11 @@ name:
   type: string
   default: REST Sensor
 device_class:
-  description: Sets the [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
+state_class:
+  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
   required: false
   type: string
 value_template:
