@@ -222,7 +222,7 @@ zha:
       channels: [15, 20, 25]  # Channel mask
 ```
 
-Tip: Reference this for channel selection [Zigbee and WiFi coexistence (using non-overlapping frequency-bands)](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
+This is a good reference for channel selection [Zigbee and Wifi Coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence)
 
 ### Modifying the device type
 
