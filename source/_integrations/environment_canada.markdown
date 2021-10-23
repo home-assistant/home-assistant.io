@@ -100,10 +100,10 @@ sensor:
   - platform: template
     sensors:
       feels_like:
-        friendly_name: "Feels Like"
+        name: "Feels Like"
         device_class: temperature
         unit_of_measurement: "°C"
-        value_template: >
+        state: >
           {% if not is_state('sensor.NAME_humidex', 'unknown') %}
             {{ states('sensor.NAME_humidex') }}
           {% elif not is_state('sensor.NAME_wind_chill', 'unknown') %}
