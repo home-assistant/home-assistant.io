@@ -29,7 +29,7 @@ In order to set up this integration, you need to get the BTLE MAC address of you
 1. Open the SwitchBot app.
 2. Open device settings.
 3. Click on "Device Info".
-4. Write down the BLTE MAC address of your device.
+4. Write down the BTLE MAC address of your device.
 
 Please note, device names configured in the SwitchBot app are not transferred into Home Assistant.
 
