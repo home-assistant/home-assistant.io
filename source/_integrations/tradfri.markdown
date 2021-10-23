@@ -10,6 +10,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Fan
 ha_domain: tradfri
 ha_homekit: true
 ha_platforms:
@@ -17,6 +18,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - fan
 ha_codeowners:
   - '@janiversen'
 ---
