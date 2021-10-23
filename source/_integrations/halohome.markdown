@@ -16,7 +16,7 @@ Integrates [HALO Home](https://www.cooperlighting.com/global/brands/halo-home) s
 
 ## Configuration
 
-To integrate with HALO Home, just add your login credentials to `configuration.yaml` file:
+To integrate with HALO Home, just add HALO Home login credentials to `configuration.yaml`:
 
 ```yaml
 light:
