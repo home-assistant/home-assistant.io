@@ -10,6 +10,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Fan
 ha_domain: tradfri
 ha_homekit: true
 ha_platforms:
@@ -17,6 +18,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - fan
 ha_codeowners:
   - '@janiversen'
 ---
@@ -80,4 +82,3 @@ Do not use the `api_key` variable in `configuration.yaml`. The API key is only n
 ## Known limitations
 
 - The TRÅDFRI Shortcut button, Remotes and motion sensor only send information about their battery status, no events, to Home Assistant and thus can't be used to automate with. If you want to automate with these devices, you need to use something like [ZHA](/integrations/zha/).
-
