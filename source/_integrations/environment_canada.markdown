@@ -96,21 +96,19 @@ Replace `NAME` with the name used to configure your integration.
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: template
-    sensors:
-      feels_like:
-        name: "Feels Like"
-        device_class: temperature
-        unit_of_measurement: "°C"
-        state: >
-          {% if not is_state('sensor.NAME_humidex', 'unknown') %}
-            {{ states('sensor.NAME_humidex') }}
-          {% elif not is_state('sensor.NAME_wind_chill', 'unknown') %}
-            {{ states('sensor.NAME_wind_chill') }}
-          {% else %}
-            {{ states('sensor.NAME_temperature') | round(0) }}
-          {% endif %}
+template:
+  - sensor:
+    - name: "Feels Like"
+      device_class: temperature
+      unit_of_measurement: "°C"
+      state: >
+        {% if not is_state('sensor.NAME_humidex', 'unknown') %}
+          {{ states('sensor.NAME_humidex') }}
+        {% elif not is_state('sensor.NAME_wind_chill', 'unknown') %}
+          {{ states('sensor.NAME_wind_chill') }}
+        {% else %}
+          {{ states('sensor.NAME_temperature') | round(0) }}
+        {% endif %}
 ```
 
 {% endraw %}
