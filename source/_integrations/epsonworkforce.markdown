@@ -61,6 +61,7 @@ Supported devices:
 
 Tested devices:
 
+- Epson WF2630
 - Epson WF2660
 - Epson WF3540
 - Epson WF3620
