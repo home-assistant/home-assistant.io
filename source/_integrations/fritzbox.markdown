@@ -66,16 +66,24 @@ There are several attributes that can be useful for automations and templates.
 | `holiday_mode` | The state of the holiday mode (only available since Fritz!OS 7).
 | `summer_mode` | The state of the summer mode (only available since Fritz!OS 7).
 | `window_open` | The state of the window open detection (only available since Fritz!OS 7).
-| `nextchange_endperiod` | The end of the current scheduled period (only available on Thermostats, only available since Fritz!OS 7).
-| `nextchange_preset_mode` | The next scheduled preset mode (only available on Thermostats, only available since Fritz!OS 7).
-| `nextchange_temperature` | The next scheduled temperature (only available on Thermostats, only available since Fritz!OS 7).
-| `temperature_comfort` | The configured comfort temperature (only available on Thermostats, only available since Fritz!OS 7).
-| `temperature_eco` | the configured eco temperature (only available on Thermostats, only available since Fritz!OS 7).
-| `scheduled_mode` | The current scheduled preset mode (only available on Thermostats, only available since Fritz!OS 7).
 
 ## Sensors
 
 To get AVM FRITZ!DECT sensors (e.g.,  FRITZ!DECT Repeater 100) follow the [configuration instructions](#configuration) above.
+
+Currently there are multiple sensors defined, the availability depends on the reported Features of the connected HanFun Device
+
+- Battery
+- Comfort Temperature
+- Current Scheduled Preset
+- Eco Temperature
+- Humidity
+- Next Scheduled Change Time
+- Next Scheduled Preset
+- Next Scheduled Temperature
+- Power Consumption
+- Temperature
+- Total Energy
 
 ### Attributes
 
