@@ -71,7 +71,7 @@ There are several attributes that can be useful for automations and templates.
 
 To get AVM FRITZ!DECT sensors (e.g.,  FRITZ!DECT Repeater 100) follow the [configuration instructions](#configuration) above.
 
-Currently there are multiple sensors defined, the availability depends on the reported Features of the connected HanFun Device
+There are multiple sensors defined, the availability depends on the features of the connected FRITZ!DECT devices
 
 - Battery
 - Comfort Temperature
