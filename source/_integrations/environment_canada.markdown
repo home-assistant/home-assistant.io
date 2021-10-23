@@ -89,7 +89,7 @@ The alert sensors use the number of current alerts as their state, with an attri
 
 ## Template Sensors
 
-The configuration snippet below adds a useful [template sensors](https://www.home-assistant.io/integrations/template/) showing the current "feels like" temperature among air temperature, humidex, and wind chill.
+The configuration snippet below adds a useful [template sensors](/integrations/template/) showing the current "feels like" temperature among air temperature, humidex, and wind chill.
 
 Replace `NAME` with the name used to configure your integration.
 
