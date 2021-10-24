@@ -32,12 +32,6 @@ Speaker-level features are exposed as `switch` entities which allow direct contr
 - **All devices**: Crossfade, Status Light, Touch Controls
 - **Home theater devices**: Night Sound & Speech Enhancement
 
-<div class='note info'>
-  
-The Crossfade, Status Light, and Touch Controls entities are disabled by default, but can be enabled via the Sonos device page.
-  
-</div>
-
 ## Battery support
 
 Battery sensors are fully supported for the `Sonos Roam` and `Sonos Move` devices on S2 firmware. `Sonos Move` speakers still on S1 firmware are supported but may update infrequently.
