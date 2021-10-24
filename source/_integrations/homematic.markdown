@@ -493,7 +493,7 @@ binary_sensor:
           - sensor.office_voltage
           - sensor.time
         value_template: >-
-          {{ as_timestamp(now()) - as_timestamp(state_attr('sensor.office_voltage', 'last_changed')) < 600 }}
+          {{(as_timestamp(now())-as_timestamp(states.sensor.office_voltage.last_changed)) < 600}}
 
 automation:
   - alias: "Homematic Reconnect"
