@@ -1143,6 +1143,11 @@ knx:
       type: temperature
       min: 20
       max: 24.5
+    - name: "Temperature custom step size"
+      address: "0/0/4"
+      respond_to_read: true
+      type: temperature
+      step: 0.2
 ```
 
 {% configuration %}
@@ -1158,6 +1163,11 @@ state_address:
   description: Group address for retrieving the state from the KNX bus.
   required: false
   type: [string, list]
+step:
+  description: Step size for the given device.
+  required: false
+  type: float
+  default: 1.0
 type:
   description: Any supported type of [KNX Sensor](#sensor) representing a numeric value (e.g., "percent" or "temperature").
   required: true
