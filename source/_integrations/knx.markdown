@@ -1143,6 +1143,8 @@ knx:
       type: temperature
       min: 20
       max: 24.5
+      step: 0.1
+      mode: slider
 ```
 
 {% configuration %}
@@ -1175,6 +1177,15 @@ max:
   description: Maximum value that can be sent. Defaults to the `type` DPT maximum value.
   required: false
   type: float
+step:
+  description: Step value. Defaults to the step size defined for the DPT in the KNX specifications.
+  required: false
+  type: float
+mode:
+  description: Specifies the mode used in the UI. `auto`, `box` or `slider` are valid.
+  required: false
+  type: string
+  default: auto
 {% endconfiguration %}
 
 ## Scene
