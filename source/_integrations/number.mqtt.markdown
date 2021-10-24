@@ -164,6 +164,10 @@ unique_id:
   description: An ID that uniquely identifies this Number. If two Numbers have the same unique ID Home Assistant will raise an exception.
   required: false
   type: string
+unit_of_measurement:
+  description: Defines the unit of measurement of the sensor, if any.
+  required: false
+  type: string
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
   required: false
