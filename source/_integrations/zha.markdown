@@ -53,6 +53,12 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
+<div class="note warning">
+
+Remotes use [Events](/docs/events/), they do not create entities! You can subscribe to `zha_event` event type in [Developer Tools/Events](/docs/tools/dev-tools/).
+
+</div>
+
 There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created. As well as support for binding/unbinding (i.e. bind a remote to a lightbulb or group).
 
 ## Compatible hardware
