@@ -2052,6 +2052,7 @@
 /docs/z-wave/device-specific/#raspberry-pi-3-procedure /docs/z-wave/controllers/#raspberry-pi-3-procedure
 /docs/z-wave/device-specific/#raspberry-pi-4-procedure /docs/z-wave/controllers/#raspberry-pi-4-procedure
 /docs/z-wave/entities /integrations/zwave/#device-support
+/docs/z-wave/events /integrations/zwave/#events
 /docs/z-wave/installation /integrations/zwave/#detailed-installation-instructions
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
