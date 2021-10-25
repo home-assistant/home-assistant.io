@@ -63,6 +63,7 @@ The full list of supported binary sensor device classes is below
 - **power**: `on` means power detected, `off` means no power
 - **presence**: `on` means home, `off` means away
 - **problem**: `on` means problem detected, `off` means no problem (OK)
+- **running**: `on` means running, `off` means not running
 - **safety**: `on` means unsafe, `off` means safe
 - **smoke**: `on` means smoke detected, `off` means no smoke (clear)
 - **sound**: `on` means sound detected, `off` means no sound (clear)
