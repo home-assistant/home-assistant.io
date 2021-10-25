@@ -54,7 +54,7 @@ template:
   - sensor:
     - name: edimax_current_power
       unit_of_measurement: "W"
-      state: "{{ state_attr('switch.edimax_smart_plug',  'current_power_w') | replace('None', 0) }}
+      state: "{{ state_attr('switch.edimax_smart_plug',  'current_power_w') | replace('None', 0) }}"
       
     - name: edimax_total_power
       unit_of_measurement: "kWh"
