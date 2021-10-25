@@ -45,7 +45,7 @@ Run it in Terminal.
 sudo docker run --restart always -d --name homeassistant -v /PATH_TO_YOUR_CONFIG:/config --device=/PATH_TO_YOUR_USB_STICK -e TZ=Australia/Melbourne --net=host {{ site.installation.container.base }}:stable
 ```
 
-Complete the remainder of the Z-Wave configuration by [following the instructions here.](/docs/z-wave/#getting-started)
+Complete the remainder of the Z-Wave configuration by [following the instructions here.](/integrations/zwave_js)
 
 Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:
 
