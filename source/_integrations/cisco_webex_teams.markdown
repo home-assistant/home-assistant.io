@@ -22,9 +22,8 @@ You also need to specify the `room_id` that you wish to post messages into. The 
 
 1. Logging in at [Cisco Webex for Developers](https://developer.webex.com/) and navigate to `Documentation`>`API Reference`>`Messages` and select List Messages, or
 2. Log into the web client at [teams.webex.com](https://teams.webex.com/),
-
-* select the room (or create a new room),
-* then copying the room ID from the URL.
+    * select the room (or create a new room),
+    * then copying the room ID from the URL.
 
 **Note: you must add the bot email (in the format `mybot@webex.bot`) as a participant to the room specified above.**
 
