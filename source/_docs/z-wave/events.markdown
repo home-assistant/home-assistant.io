@@ -114,4 +114,4 @@ automation
 
 The *entity_id* and *scene_id* of all triggered events can be seen in the console output.
 
-For more information on HomeSeer devices and similar devices, please see the [device specific page](/docs/z-wave/device-specific/#homeseer-switches).
+For more information on HomeSeer devices and similar devices, please see the [device specific page](/integrations/zwave/#homeseer-switches).

@@ -68,7 +68,7 @@ Polling needs to be enabled per device, you can control this through the *pollin
 
 ## Central Scene support
 
-The Central Scene command class isn't yet supported in OpenZWave (there is [work in progress](https://github.com/OpenZWave/open-zwave/pull/1125) to provide it it), though Home Assistant has introduced some support with [change 9178](https://github.com/home-assistant/home-assistant/pull/9178) which was part of 0.53 and [documented here](/docs/z-wave/device-specific/#homeseer-switches).
+The Central Scene command class isn't yet supported in OpenZWave (there is [work in progress](https://github.com/OpenZWave/open-zwave/pull/1125) to provide it it), though Home Assistant has introduced some support with [change 9178](https://github.com/home-assistant/home-assistant/pull/9178) which was part of 0.53 and [documented here](/integrations/zwave/#homeseer-switches).
 
 ## Supported Devices
 
