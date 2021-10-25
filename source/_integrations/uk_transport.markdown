@@ -84,27 +84,22 @@ Attributes can be accessed using the [template sensor](/integrations/template) a
 
 ```yaml
 # Example configuration.yaml entry for a template sensor to access the attributes of the next departing train.
-- platform: template
-  sensors:
-    next_train_status:
-      friendly_name: "Next train status"
-      value_template: >- 
+template:
+  - sensor:
+    - name: next_train_status
+      state: >- 
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].status}}
-    next_trains_origin:
-      friendly_name: "Next train origin"
-      value_template: >-
+    - name: next_trains_origin
+      state: >-
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].origin_name}}
-    next_trains_estimated:
-      friendly_name: "Next train estimated"
-      value_template: >- 
+    - name: next_trains_estimated
+      state: >- 
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].estimated}}
-    next_trains_scheduled:
-      friendly_name: "Next train scheduled"
-      value_template: >-
+    - name: next_trains_scheduled
+      state: >-
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].scheduled}}
-    next_trains_platform:
-      friendly_name: "Next train platform"
-      value_template: >-
+    - name: next_trains_platform
+      state: >-
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].platform}}
 ```
 
@@ -141,20 +136,16 @@ And the template sensor for viewing the next bus attributes.
 
 ```yaml
 # Example configuration.yaml entry for a template sensor to access the attributes of the next departing bus.
-- platform: template
-  sensors:
-    next_bus_route:
-      friendly_name: "Next bus route"
-      value_template: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].route}}"
-    next_bus_direction:
-      friendly_name: "Next bus direction"
-      value_template: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].direction}}"
-    next_bus_scheduled:
-      friendly_name: "Next bus scheduled"
-      value_template: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].scheduled}}"
-    next_bus_estimated:
-      friendly_name: "Next bus estimated"
-      value_template: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].estimated}}"
+template:
+  - sensor:
+    - name: next_bus_route
+      state: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].route}}"
+    - name: next_bus_direction
+      state: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].direction}}"
+    - name: next_bus_scheduled
+      state: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].scheduled}}"
+    - name: next_bus_estimated
+      state: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].estimated}}"
 ```
 
 {% endraw %}
