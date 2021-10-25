@@ -26,89 +26,6 @@ Home Assistant stores logs from Z-Wave in `OZW_log.txt` in the Home Assistant co
 
 ### Specific Devices
 
-### Aeotec Z-Stick
-
-It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system. If you don't like this behavior it can be turned off.
-
-Use the following example commands from a terminal session on your Pi where your Z-Wave stick is connected.
-
-**Note:** You should only do this when Home Assistant has been stopped.
-
-Turn off "Disco lights":
-
-```bash
-echo -e -n "\x01\x08\x00\xF2\x51\x01\x00\x05\x01\x51" > /dev/serial/by-id/usb-0658_0200-if00
-```
-
-Turn on "Disco lights":
-
-```bash
-echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-0658_0200-if00
-```
-
-If the above two commands give errors about not having that device, you should try replacing the `/dev/serial/by-id/usb-0658_0200-if00` with `/dev/ttyACM0` or `/dev/ttyACM1` (depending on which tty your Aeotec stick is addressed to).
-
-On some systems, such as macOS, you need to pipe the output of the `echo` command, rather than redirecting to the serial device, to something like `cu` (replacing `/dev/zstick` acccordingly) to properly set the baud rate to 115200 bps:
-
-```bash
-echo -e -n "...turn on/off string from examples above..." | cu -l /dev/zstick -s 115200
-```
-
-### Razberry Board
-
-You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
-
-For both processes below you will need to insert your SD card into your PC and open the `/boot/config.txt` file with your favorite text editor.
-
-#### Raspberry Pi 4 procedure
-
-Add the following parameters to the bottom of the `/boot/config.txt` file.
-
-```text
-dtoverlay=disable-bt
-enable_uart=1
-```
-
-Reboot your Pi 4 without the Razberry Z-Wave hat first. Then shutdown, add the hat back, and boot again.
-
-#### Raspberry Pi 3 procedure
-
-Add the following parameters to the bottom of the `/boot/config.txt` file.
-
-```text
-dtoverlay=disable-bt
-```
-
-Reboot your Pi 3.
-
-For Home Assistant OS this should be everything you need to do. You should now be able to use Razberry Z-Wave from `/dev/ttyAMA0`.
-
-For other operating systems such as Raspberry Pi OS you will also have to run the following command:
-
-```bash
-sudo systemctl disable hciuart
-```
-
-You should also check the README for details on the overlays. You might find it in `/boot/overlays/README` on your SD-card. If it is not there you can find [the official version here](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README).
-
-<div class='note'>
-
-  It is possible to keep a limited Bluetooth functionality while using Razberry Z-Wave. Check `boot/overlays/README` on `miniuart-bt`.
-
-</div>
-
-<div class='note'>
-
-  `disable-bt` was previously known as `pi3-disable-bt`. If your OS is old, you might need to use this instead.
-
-</div>
-
-<div class='note'>
-
-  If you've installed the Z-Way software, you'll need to ensure you disable it before you install Home Assistant or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`.
-
-</div>
-
 ### Aeon Minimote
 
 Here's a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into `automation.yaml`.
@@ -1128,7 +1045,7 @@ Press circle and plus simultaneously to wake up the device.
 
 <!-- from https://products.z-wavealliance.org/products/2817 -->
 
-Once you've added the NanoMote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the NanoMote device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.  
+Once you've added the NanoMote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the NanoMote device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.
 
 ```xml
     <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
@@ -1316,7 +1233,7 @@ Let's see how this works in an automation for a Scene Master that's assigned as 
     event_data:
       node_id: 7
       scene_id: 2
-      scene_data: 3  
+      scene_data: 3
   condition: []
   action:
   - data:
@@ -1479,7 +1396,7 @@ To get the Z-Push Button 2 or the Z-Push Button 8 working in Home Assistant, you
       <Value type="int" genre="user" instance="1" index="4" label="Button 4" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
         </CommandClass>
     ```
-    
+
     - 5.3 For the Z-Push Button 8:
 
     ```xml
@@ -1508,7 +1425,7 @@ Button presses will trigger `zwave.scene_activated` with the following:
 
 <!-- from https://products.z-wavealliance.org/products/3399/ -->
 
-Once you've added the ZDB5100 to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the ZDB5100 device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.  
+Once you've added the ZDB5100 to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the ZDB5100 device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.
 
 ```xml
     <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
@@ -1727,7 +1644,7 @@ The configuration parameters will have to be added to the `zwcfg` file. Replace 
 
 <!-- from https://products.z-wavealliance.org/products/2930/ -->
 
-Once you've added the remote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the remote's device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.  
+Once you've added the remote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the remote's device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.
 
 ```xml
     <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
