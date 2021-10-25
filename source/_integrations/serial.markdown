@@ -143,13 +143,13 @@ template:
   sensor:
     - name:  my_temperature_sensor
       unit_of_measurement: "°C"
-      state: "{{ states('sensor.serial_sensor').split(',')[1] | float }}"
+      state: "{{ states('sensor.serial_sensor').split(',')[1] | float(default=0) }}"
     - name: my_humidity_sensor
       unit_of_measurement: "%"
-      state: "{{ states('sensor.serial_sensor').split(',')[2] | float }}"
+      state: "{{ states('sensor.serial_sensor').split(',')[2] | float(default=0) }}"
     - name: my_barometer
       unit_of_measurement: "mbar"
-      state: "{{ states('sensor.serial_sensor').split(',')[4] | float }}"
+      state: "{{ states('sensor.serial_sensor').split(',')[4] | float(default=0) }}"
 ```
 
 {% endraw %}
