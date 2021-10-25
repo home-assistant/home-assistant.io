@@ -2036,6 +2036,7 @@
 /docs/ecosystem/notebooks/stats https://data.home-assistant.io
 /docs/frontend/mobile https://companion.home-assistant.io
 /docs/script/editor /docs/scripts/editor
+/docs/z-wave/adding /integrations/zwave/#adding-and-removing-devices
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io

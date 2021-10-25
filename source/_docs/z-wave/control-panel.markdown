@@ -16,10 +16,10 @@ This Z-Wave integration is deprecated and has been replaced with a [new implemen
 
 ## Z-Wave Network Management
 
-Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices from your network.
+Here is where you [include and exclude](/integrations/zwave/#adding-removing-devices) Z-Wave devices from your network.
 
 * **Add Node** puts the controller into inclusion mode, so you can include (add) a device to your Z-Wave network
-* **Add Node Secure** puts the controller into secure inclusion mode (this requires that you've created a [security key](/docs/z-wave/adding#sdding-security-devices))
+* **Add Node Secure** puts the controller into secure inclusion mode (this requires that you've created a [security key](/integrations/zwave/#network-key))
 * **Remove Node** puts the controller into exclusion mode, so you can exclude (remove) a device. Note that you can exclude a non-secure device that's been added to another network
 * **Cancel Command** cancels any of the above
 
