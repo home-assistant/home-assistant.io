@@ -2108,10 +2108,10 @@
 /getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml
 /getting-started/z-wave /docs/z-wave
-/getting-started/z-wave-devices /docs/z-wave/devices
+/getting-started/z-wave-devices /docs/z-wave
 /getting-started/z-wave-installation /docs/z-wave/#getting-started
-/getting-started/z-wave-panel /integrations/zwave/#control-panel
-/getting-started/z-wave-device-specific /docs/z-wave/device-specific
+/getting-started/z-wave-panel /docs/z-wave
+/getting-started/z-wave-device-specific /docs/z-wave
 /hassio/zwave /docs/z-wave
 /topics/events /docs/configuration/events
 /topics/packages /docs/configuration/packages
