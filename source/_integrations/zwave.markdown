@@ -649,6 +649,34 @@ Here is where you [include and exclude](/integrations/zwave/#adding-removing-dev
 - **Test Network** tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".
 - **Save Configuration** Saves the current cache of the network to `zwcfg_[home_id].xml`.
 
+#### Query Stage
+
+When the Z-Wave mesh is first started, the controller will go through all the following stages for every device on the mesh. This is a slow process, and to complete requires that the devices be awake. While devices that are mains or USB powered are always awake, battery-powered devices spend most of their time asleep. Because of this, you can expect that after startup your battery powered devices will spend time in `Initializing (CacheLoad)` - how long depends on the device.
+
+Your devices will still function normally while marked as `Initializing`.
+
+| Stage                 | Description                                                            |
+| --------------------- | ---------------------------------------------------------------------- |
+| None                  | Query process hasn't started for this node                             |
+| ProtocolInfo          | Retrieve protocol information                                          |
+| Probe                 | Ping device to see if alive                                            |
+| WakeUp                | Start wake up process if a sleeping node                               |
+| ManufacturerSpecific1 | Retrieve manufacturer name and product ids if ProtocolInfo lets us     |
+| NodeInfo              | Retrieve info about supported, controlled command classes              |
+| NodePlusInfo          | Retrieve Z-Wave+ info and update device classes                        |
+| SecurityReport        | Retrieve a list of Command Classes that require Security               |
+| ManufacturerSpecific2 | Retrieve manufacturer name and product ids                             |
+| Versions              | Retrieve version information                                           |
+| Instances             | Retrieve information about multiple command class instances            |
+| Static                | Retrieve static information (doesn't change)                           |
+| CacheLoad             | Ping a device upon restarting with cached configuration for the device |
+| Associations          | Retrieve information about associations                                |
+| Neighbors             | Retrieve node neighbor list                                            |
+| Session               | Retrieve session information (changes infrequently)                    |
+| Dynamic               | Retrieve dynamic information (changes frequently)                      |
+| Configuration         | Retrieve configurable parameter information (only done on request)     |
+| Complete              | Query process is completed for this node                               |
+
 ### Z-Wave Node Management
 
 - **Refresh Node** refreshes the information on the node and its entities. If used on a battery powered device, the device will first need to wake for this to work.

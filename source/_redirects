@@ -2054,6 +2054,7 @@
 /docs/z-wave/entities /integrations/zwave/#device-support
 /docs/z-wave/events /integrations/zwave/#events
 /docs/z-wave/installation /integrations/zwave/#detailed-installation-instructions
+/docs/z-wave/query-stage /integrations/zwave/#query-stage
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io
