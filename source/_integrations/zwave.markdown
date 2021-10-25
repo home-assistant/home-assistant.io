@@ -678,6 +678,20 @@ If you want to only retrieve some lines at the end of the log, you can specify t
 Select **Load** to open a new window with the static log.
 Select **Tail** to open a new window with a tailing log with the last specified lines of the log. This is a self updating window.
 
+## Instant Status
+
+Older designs of Z-Wave devices may not support *Instant Status* (the *Hail* command class), because of a patent that was held by Lutron Electronics. Some manufacturers paid to use it, others didn't and so those devices may not report on changes. That patent expired in 2016, so new designs should support this.
+
+As long as your device lists Hail or Association in its Controlled Command Classes, then you'll get instant status updates. Devices that list Central Scene in their Controlled Command Classes in theory will also work this way, once OpenZWave supports the Central Scene class. You can check your device on the [Z-Wave alliance](https://products.z-wavealliance.org/) site, looking at the **Command Classes** link, then at the **Controlled Command Classes** section.
+
+## Polling
+
+Where a device doesn't send updates on status changes to the controller, you can work around this by using a thing called Polling. That causes the controller to ask the device to provide an update on all its sensors and states. This will cause a lot of traffic on the network, and if you poll too many devices too quickly, you can effectively break your Z-Wave network. Polling should only be used where there is no other choice, and you should use as large a polling interval as possible. Ideally you should replace the device.
+
+For example, with `polling_interval=60000` (which is the default) if you have 10 devices that are being polled at every interval, and each polling takes one second (request/response round trip), then it will take 10 seconds to complete the polling list. This only leaves 50 seconds left for normal traffic. The more devices you poll, and the shorter the interval, the less bandwidth that's available for normal traffic.
+
+Polling needs to be enabled per device, you can control this through the *polling intensity* (interval) of the device. See the [Node Management](/integrations/zwave/#z-wave-node-management) documentation for details.
+
 ## Device specific information
 
 ### Aeon Minimote

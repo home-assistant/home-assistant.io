@@ -2039,6 +2039,8 @@
 /docs/z-wave/adding /integrations/zwave/#adding-and-removing-devices
 /docs/z-wave/control-panel /integrations/zwave/#control-panel
 /docs/z-wave/controllers/#aeotec-stick /docs/z-wave/controllers/#aeotec-z-stick
+/docs/z-wave/devices/#instant-status /integrations/zwave/#instant-status
+/docs/z-wave/devices/#polling /integrations/zwave/#polling
 /docs/z-wave/device-specific /integrations/zwave/#device-specific-information
 /docs/z-wave/device-specific/#device-categories /integrations/zwave/#device-support
 /docs/z-wave/device-specific/#motion-or-alarm-sensors /integrations/zwave/#binary-sensor
