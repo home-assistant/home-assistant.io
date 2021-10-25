@@ -50,10 +50,10 @@ template:
 - sensor
   - name: total_pv_power
     unit_of_measurement: "W"
-    state: "{{ (states('sensor.pv1_power') | float) + (states('sensor.pv2_power') | float) }}"
+    state: "{{ (states('sensor.pv1_power') | float) + (states('sensor.pv2_power') | float(default=0)) }}"
   - name: load_power
     unit_of_measurement: "W"
-    state: "{{ (states('sensor.power_now') | float) - (states('sensor.exported_power') | float) }}"
+    state: "{{ (states('sensor.power_now') | float) - (states('sensor.exported_power') | float(default=0)) }}"
 ```
 
 {% endraw %}
