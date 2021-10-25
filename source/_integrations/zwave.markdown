@@ -608,7 +608,7 @@ Configurations using `udev` can experience race conditions in creating device pa
 
 ### Adding Devices
 
-To add a [Z-Wave device](/docs/z-wave/devices/):
+To add a [Z-Wave device](/integrations/zwave/#device-support):
 
 1. Go to the [Z-Wave control panel](/integrations/zwave/#control-panel).
 2. Click **Add Node** in the *Z-Wave Network Management* card, or **Add Node Secure** for secure devices like locks. This puts your [Z-Wave controller](/docs/z-wave/controllers/) in "inclusion" mode.
@@ -629,7 +629,7 @@ Secure devices require additional bandwidth; too many secure devices can slow do
 
 ### Removing Devices
 
-To remove a [Z-Wave device](/docs/z-wave/devices/):
+To remove a [Z-Wave device](/integrations/zwave/#device-support):
 
 1. Go to the [Z-Wave control panel](/integrations/zwave/#control-panel).
 2. Click **Remove Node** in the *Z-Wave Network Management* card. This puts your [Z-Wave controller](/docs/z-wave/controllers/) in "exclusion" mode.
@@ -753,7 +753,7 @@ Your devices will still function normally while marked as `Initializing`.
 - **node_id** The unique node ID of this node
 - **node_name** The base name of this node, this is used to build the entity ID of all entities of this node
 - **product_name** The product name of the device, as supplied by OpenZWave
-- **query_stage** The query stage for this device (see [here](/docs/z-wave/query-stage/) for details)
+- **query_stage** The query stage for this device (see [here](/integrations/zwave/#query-stage) for details)
 - **receivedCnt** The number of messages received from the device
 - **receivedDups** The number of duplicate messages received from the device
 - **receivedTS** The date and time the last message was received from the devices
@@ -775,7 +775,7 @@ This is a dropdown where you can select all the entities of this node. Once sele
 - **Refresh Entity** to refresh just that entity's values
 - **Entity Information** to display the attributes of that entity (e.g., its friendly name, the ID of the node, etc)
 
-Here you can mark a device as requiring polling so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/devices/#polling), since excessive polling can break your Z-Wave network.
+Here you can mark a device as requiring polling so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/integrations/zwave/#polling), since excessive polling can break your Z-Wave network.
 
 The **Polling intensity** says how many poll intervals this device is polled on. For example, if you set 2 then it's polled on every second interval.
 
