@@ -2038,6 +2038,7 @@
 /docs/script/editor /docs/scripts/editor
 /docs/z-wave/adding /integrations/zwave/#adding-and-removing-devices
 /docs/z-wave/control-panel /integrations/zwave/#control-panel
+/docs/z-wave/installation /integrations/zwave/#detailed-installation-instructions
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io
@@ -2091,7 +2092,7 @@
 /getting-started/yaml /docs/configuration/yaml
 /getting-started/z-wave /docs/z-wave
 /getting-started/z-wave-devices /docs/z-wave/devices
-/getting-started/z-wave-installation /docs/z-wave/installation
+/getting-started/z-wave-installation /docs/z-wave/#getting-started
 /getting-started/z-wave-panel /integrations/zwave/#control-panel
 /getting-started/z-wave-device-specific /docs/z-wave/device-specific
 /hassio/zwave /docs/z-wave

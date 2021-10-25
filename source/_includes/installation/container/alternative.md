@@ -39,13 +39,13 @@ Adjust the following Terminal command as follows :
 - Replace `/PATH_TO_YOUR_USB_STICK` matches the path for your USB stick (e.g., `/dev/ttyACM0` for most Synology users)
 - Replace "Australia/Melbourne" with [your timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
-Run it in Terminal.  
+Run it in Terminal.
 
 ```bash
 sudo docker run --restart always -d --name homeassistant -v /PATH_TO_YOUR_CONFIG:/config --device=/PATH_TO_YOUR_USB_STICK -e TZ=Australia/Melbourne --net=host {{ site.installation.container.base }}:stable
 ```
 
-Complete the remainder of the Z-Wave configuration by [following the instructions here.](/docs/z-wave/installation)
+Complete the remainder of the Z-Wave configuration by [following the instructions here.](/docs/z-wave/#getting-started)
 
 Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:
 
@@ -100,16 +100,16 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB stick with Home Assista
 - Find USB devices attached. Type command:
   `ls /dev/tty*`
   The above command should show you any USB devices plugged into your NAS. If you have more than one, you may get multiple items returned. Like : `ttyACM0`
-  
+
 - Run Docker command:
 
   ```bash
   docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London --device /dev/ttyACM0 {{ site.installation.container.base }}:stable
   ```
-  
+
   `-v` is your configuration path
   `-e` is set timezone
-  
+
 - Edit `configuration.yaml`
 
 ```yaml
@@ -127,10 +127,10 @@ That will tell Home Assistant where to look for our Z-Wave radio.
   ```bash
   docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus {{ site.installation.container.base }}:stable
   ```
-  
+
   First `-v` is your configuration path
   `-e` is set timezone
-  
+
 - Edit the `configuration.yaml` file
 
 ```yaml

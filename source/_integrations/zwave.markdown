@@ -513,7 +513,7 @@ You can use the **Remove Failed Node** button to remove a failed device (e.g., b
 
 The Z-Wave control panel is available via **Configuration** &rarr; **Integrations** &rarr; **Z-Wave** &rarr; **Configure**.
 
-- **No Z-Wave integration?** Follow the [set up instructions](/docs/z-wave/installation/) to enable it.
+- **No Z-Wave integration?** Follow the [set up instructions](/integrations/zwave/#detailed-installation-instructions) to enable it.
 - **Missing the *Configuration* button?** See the [configuration documentation](/integrations/config/) for instructions on enabling it.
 
 ### Z-Wave Network Management
