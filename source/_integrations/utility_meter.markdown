@@ -227,8 +227,8 @@ utility_meter:
 ```
 
 Additionally, you can add template sensors to compute daily and monthly total usage. Important note, in these examples,
-we use a [float filter](/docs/configuration/templating/#numeric-functions-and-filters) to
-return `Invalid Number` if `peak` or `offpeak` values returned are not numbers.
+we use the `is_number()` [function](/docs/configuration/templating/#numeric-functions-and-filters) to verify the values
+returned from the sensors are numeric. If this evalutes to false the template sensor is set to: `Invalid Number`.
 
 {% raw %}
 
@@ -239,17 +239,21 @@ template:
       device_class: energy
       unit_of_measurement: kWh
       state: >
-        {% set offpeak = float(states('sensor.daily_energy_offpeak'), default='Invalid Number') %}
-        {% set peak = float(states('sensor.daily_energy_peak'), default='Invalid Number') %}
-        {{ float((offpeak + peak), default='Invalid Number') }}
+        {% if is_number(states('sensor.daily_energy_offpeak')) and is_number(states('sensor.daily_energy_peak')) %}
+          {{ (states('sensor.daily_energy_offpeak') + states('sensor.daily_energy_peak')) | float }}
+        {% else %}
+          Invalid Number
+        {% endif %}
 
     - name: 'Monthly Energy Total'
       device_class: energy
       unit_of_measurement: kWh
       state: >
-        {% set offpeak = float(states('sensor.monthly_energy_offpeak'), default='Invalid Number') %}
-        {% set peak = float(states('sensor.monthly_energy_peak'), default='Invalid Number') %}
-        {{ float((offpeak + peak), default='Invalid Number') }}
+        {% if is_number(states('sensor.monthly_energy_offpeak')) and is_number(states('sensor.monthly_energy_peak')) %}
+          {{ (states('sensor.monthly_energy_offpeak') + states('sensor.monthly_energy_peak')) | float }}
+        {% else %}
+          Invalid Number
+        {% endif %}
 ```
 
 {% endraw %}
