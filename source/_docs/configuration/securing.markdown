@@ -16,7 +16,8 @@ Here's the summary of what you *must* do to secure your Home Assistant system:
 
 If you want secure remote access, the easiest option is to use [Home Assistant cloud](/cloud/) by which you also [support](https://www.nabucasa.com/about) the founders of Home Assistant. 
 
-Other options are to use TLS/SSL via the add-ons [Duck DNS integrating Let's Encrypt](/integrations/duckdns/) or [Let’s Encrypt](https://community.home-assistant.io/t/installing-tls-ssl-using-lets-encrypt/196975). 
+Another option is to use TLS/SSL via the add-on [Duck DNS](/integrations/duckdns/) integrating Let's Encrypt.
+
 To expose your instance to the internet, use a [VPN](https://pivpn.io), or an [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/). Make sure to expose the used port in your router. 
 
 ### Extras for manual installations
