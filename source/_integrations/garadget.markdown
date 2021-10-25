@@ -81,19 +81,15 @@ cover:
         access_token: !secret garadget_access_token
         name: Garage door
 
-sensor:
-  - platform: template
-    sensors:
-      garage_door_status:
-        friendly_name: "State of the door"
-        value_template: "{{ states('cover.garage_door') }}"
-      garage_door_time_in_state:
-        friendly_name: "Since"
-        value_template: "{{ state_attr('cover.garage_door', 'time_in_state') }}"
-      garage_door_wifi_signal_strength:
-        friendly_name: "WiFi strength"
-        value_template: "{{ state_attr('cover.garage_door', 'wifi_signal_strength') }}"
-        unit_of_measurement: "dB"
+template:
+  - sensor:
+    - name: garage_door_status
+      state: "{{ states('cover.garage_door') }}"
+    - name: garage_door_time_in_state
+      state: "{{ state_attr('cover.garage_door', 'time_in_state') }}"
+    - name: garage_door_wifi_signal_strength
+      state: "{{ state_attr('cover.garage_door', 'wifi_signal_strength') }}"
+      unit_of_measurement: "dB"
 
 group:
   garage_door:
