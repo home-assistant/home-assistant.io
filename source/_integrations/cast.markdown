@@ -44,6 +44,7 @@ cast_downstairs_on_kitchen:
         view_path: downstairs
       service: cast.show_lovelace_view
 ```
+
 <div class='note'>
 
 Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `external_url` in your [configuration](/docs/configuration/basic).
@@ -145,7 +146,7 @@ Optional:
 
 - `media_type`: Media type, e.g. `video/mp4`, `audio/mp3`, `image/jpeg`, defaults to `video/mp4`.
 
-#### Example:
+#### Example
 
 ```yaml
 'cast_bubbleupnp_to_my_chromecast':
@@ -178,7 +179,7 @@ Optional:
 - `enqueue`: Enqueue only
 - `playlist_id`: Play video with `media_id` from this playlist
 
-#### Example:
+#### Example
 
 ```yaml
 'cast_youtube_to_my_chromecast':
@@ -201,16 +202,18 @@ Optional:
 #### Media parameters
 
 Mandatory:
+
 - `app_name`: `supla`
 - `media_id`: Supla item ID
 
-
 Optional:
+
 - `is_live`: Item is a livestream
 
-#### Example:
+#### Example
 
 Example values to cast the item at <https://www.supla.fi/audio/3601824>
+
 ```yaml
 'cast_supla_to_my_chromecast':
   alias: "Cast supla to My Chromecast"
@@ -258,7 +261,7 @@ Optional:
 
 - `is_live`: Item is a live stream
 
-#### Example:
+#### Example
 
 Example values to cast [BBC Radio 1](https://www.bbc.co.uk/sounds/play/live:bbc_radio_one)
 
@@ -290,8 +293,10 @@ This app doesn't retrieve its own metadata, so if you want the cast interface or
 
 Note: Media ID is NOT the 8 digit alphanumeric in the URL, it can be found by right-clicking the playing video. E.g., [this episode](https://www.bbc.co.uk/iplayer/episode/b09w7fd9/bitz-bob-series-1-1-castle-makeover) shows:
 
-    2908kbps | dash (mf_cloudfront_dash_https)
-    b09w70r2 | 960x540
+|     |     |
+| --- | --- |
+| 2908kbps | dash (mf_cloudfront_dash_https) |
+| b09w70r2 | 960x540 |
 
 With b09w70r2 being the `media_id`
 
@@ -306,7 +311,7 @@ Optional:
 
 - `is_live`: Item is a live stream
 
-#### Example:
+#### Example
 
 Example values to cast [this episode](https://www.bbc.co.uk/iplayer/episode/b09w7fd9/bitz-bob-series-1-1-castle-makeover)
 
