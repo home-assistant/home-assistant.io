@@ -100,10 +100,9 @@ As a result, this integration will create entities only for rules that have your
 
 ## Example Automations and Scripts
 
+### Script: Reconnect / get new IP
 
-**Script: Reconnect / get new IP**
-
-The following script can be used to easily add a reconnect button to your UI. If you want to reboot your FRITZ!Box, you can use `fritzbox_tools.reboot` instead.
+The following script can be used to easily add a reconnect button to your UI. If you want to reboot your FRITZ!Box, you can use `fritz.reboot` instead.
 
 ```yaml
 fritz_box_reconnect:
@@ -111,37 +110,38 @@ fritz_box_reconnect:
   sequence:
     - service: fritz.reconnect
       target:
-        entity_id: binary_sensor.fritz_box_7530_connectivity
+        entity_id: binary_sensor.fritzbox_7530_connection
 
 ```
-**Automation: Reconnect / get new IP every night**
+
+### Automation: Reconnect / get new IP every night
 
 ```yaml
 automation:
-- alias: "System: Reconnect FRITZ!Box"
+- alias: "System - Reconnect FRITZ!Box"
   trigger:
     - platform: time
       at: "05:00:00"
   action:
     - service: fritz.reconnect
       target:
-        entity_id: binary_sensor.fritzbox_x_connectivity
+        entity_id: binary_sensor.fritzbox_7530_connection
 
 ```
 
-**Automation: Phone notification with wifi credentials when guest wifi is created**
+### Automation: Phone notification with Wi-fi credentials when guest Wi-fi is created
 
 ```yaml
 automation:
-  - alias: "Guests Wifi Turned On -> Send Password To Phone"
+  - alias: "Guests Wi-fi Turned On -> Send Password To Phone"
     trigger:
       - platform: state
-        entity_id: switch.fritzbox_x_wifi_x
+        entity_id: switch.fritzbox_7530_wifi_myssid
         to: "on"
     action:
       - service: notify.notify
         data:
-          title: "Guest wifi is enabled"
+          title: "Guest Wi-Fi is enabled"
           message: "Password: ..."
 
 ```

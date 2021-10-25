@@ -1,6 +1,7 @@
 ---
 title: HomeKit
 description: Instructions on how to set up the HomeKit Bridge integration in Home Assistant.
+featured: true
 ha_category:
   - Voice
 ha_release: 0.64
@@ -256,6 +257,10 @@ homekit:
               type: string
               default: libopus
               available options: copy, libopus
+    devices:
+      description: Include device triggers for all matching device ids. Configuration in the UI via Options is recommended instead.
+      required: false
+      type: list                
 {% endconfiguration %}
 
 ## Setup
@@ -392,6 +397,7 @@ The following integrations are currently supported:
 | --------- | --------- | ----------- |
 | alarm_control_panel | SecuritySystem | All security systems. |
 | automation / input_boolean / remote / scene / script / vacuum | Switch | All represented as switches. |
+| input_select / select | Switch | Represented as a power strip with buttons for each option. |
 | binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
 | camera | Camera | All camera devices. **HomeKit Secure Video is not supported at this time.** |
 | climate | Thermostat | All climate devices. |
@@ -415,6 +421,13 @@ The following integrations are currently supported:
 | sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
 | water_heater | WaterHeater | All `water_heater` devices. |
+| device_automation | DeviceTriggerAccessory | All devices that support triggers. |
+
+# Device Triggers
+
+Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Configuration >> Integrations" %}**.
+
+Bridged device triggers are represented as a single press button on stateless programmable switches. This allows a HomeKit automation to run when a device trigger fires. Because the iOS Home app currently only shows the number of the button and not the name, users may find it easier to identify the name of the button in the `Eve for HomeKit` app.
 
 ## iOS Remote Widget
 

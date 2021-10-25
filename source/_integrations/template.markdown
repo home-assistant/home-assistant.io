@@ -19,7 +19,9 @@ ha_platforms:
   - fan
   - light
   - lock
+  - number
   - sensor
+  - select
   - switch
   - vacuum
   - weather
@@ -27,7 +29,7 @@ ha_platforms:
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Sensors and binary (on/off) sensors are covered on this page. For other types, please see the specific pages:
+Sensors, binary (on/off) sensors, numbers and selects are covered on this page. For other types, please see the specific pages:
 
 - [Alarm Control Panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
@@ -38,7 +40,7 @@ Sensors and binary (on/off) sensors are covered on this page. For other types, p
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
-Sensor and binary sensor template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensors and/or binary sensor entities and can contain an optional update trigger.
+Sensor, binary sensor, number and select template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
@@ -59,7 +61,7 @@ template:
           {% set bedroom = states('sensor.bedroom_temperature') | float %}
           {% set kitchen = states('sensor.kitchen_temperature') | float %}
 
-          {{ ((bedroom + kitchen) / 2) | round(1) }}
+          {{ ((bedroom + kitchen) / 2) | round(1, default=0) }}
 ```
 
 {% endraw %}
@@ -84,8 +86,8 @@ template:
         minutes: 0
     sensor:
       # Keep track how many days have past since a date
-      - name: Not smoking
-        state: '{{ ( ( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round }}'
+      - name: "Not smoking"
+        state: '{{ ( ( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(default=0) }}'
         unit_of_measurement: "Days"
 ```
 
@@ -145,14 +147,6 @@ binary_sensor:
   required: false
   type: map
   keys:
-    name:
-      description: Defines a template to get the name of the sensor.
-      required: false
-      type: template
-    unique_id:
-      description: An ID that uniquely identifies this sensor. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
-      required: false
-      type: string
     icon:
       description: Defines a template for the icon of the sensor.
       required: false
@@ -170,16 +164,82 @@ binary_sensor:
           description: The attribute and corresponding template.
           required: true
           type: template
-    availability:
-      description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the component will always be `available`.
-      required: false
-      type: template
-      default: true
     device_class:
       description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
       required: false
       type: device_class
       default: None
+number:
+  description: List of numbers
+  required: true
+  type: map
+  keys:
+    state:
+      description: Template for the number's current value.
+      required: true
+      type: template
+      description: Defines an action to run when the number value changes. The variable `value` will contain the number entered.
+      required: true
+      type: action
+    step:
+      description: Template for the number's increment/decrement step.
+      required: true
+      type: template
+    min:
+      description: Template for the number's minimum value.
+      required: false
+      type: template
+      default: 0.0
+    max:
+      description: Template for the number's maximum value.
+      required: false
+      type: template
+      default: 100.0
+    optimistic:
+      description: Flag that defines if number works in optimistic mode.
+      required: false
+      type: boolean
+      default: false
+select:
+  description: List of selects
+  required: true
+  type: map
+  keys:
+    state:
+      description: Template for the select's current value.
+      required: true
+      type: template
+    select_option:
+      description: Defines an action to run to select an option from the `options` list.
+      required: true
+      type: action
+    options:
+      description: Template for the select's available options. The variable `option` will contain the option selected.
+      required: true
+      type: template
+    optimistic:
+      description: Flag that defines if select works in optimistic mode.
+      required: false
+      type: boolean
+      default: false
+"[all sensor, binary sensor, number, select entities]":
+  description: Fields that can be used above for sensors, binary sensors, numbers, and selects.
+  required: false
+  type: map
+  keys:
+    name:
+      description: Defines a template to get the name of the sensor.
+      required: false
+      type: template
+    unique_id:
+      description: An ID that uniquely identifies this sensor. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+      required: false
+      type: string
+    availability:
+      description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the component will always be `available`.
+      required: false
+      type: template
+      default: true
 
 {% endconfiguration %}
 
@@ -207,7 +267,7 @@ template:
 
 ## Rate limiting updates
 
-When there are entities present in the template and no triggers are defined, the template will be re-rendered when one of the entities changes states. To avoid this taking up too many resources in Home Assistant, automatic rate limiting will be automatically applied if too many states are observed.
+When there are entities present in the template and no triggers are defined, the template will be re-rendered when one of the entities changes states. To avoid this taking up too many resources in Home Assistant, rate limiting will be automatically applied if too many states are observed.
 
 <p class='note'>
 <a href='#trigger-based-template-sensors'>Define a trigger</a> to avoid a rate limit and get more control over entity updates.
@@ -354,7 +414,7 @@ template:
 
 ### Multiline Example With an `if` Test
 
-This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend.
+This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend, and shows 'standby' if the power use is less than 1000 watts.
 
 {% raw %}
 
@@ -365,7 +425,7 @@ template:
         state: >
           {% if is_state('switch.kettle', 'off') %}
             off
-          {% elif state_attr('switch.kettle', 'kwh')|float < 1000 %}
+          {% elif state_attr('switch.kettle', 'W')|float < 1000 %}
             standby
           {% elif is_state('switch.kettle', 'on') %}
             on
@@ -449,7 +509,7 @@ template:
   - binary_sensor:
       - name: My Device
         state: >
-          {{ is_state('device_tracker.my_device_nmap', 'home') or is_state('device_tracker.my_device_gps', 'home') }
+          {{ is_state('device_tracker.my_device_nmap', 'home') or is_state('device_tracker.my_device_gps', 'home') }}
         device_class: "presence"
         attributes:
           latitude: >
@@ -470,7 +530,7 @@ template:
 
 ### Change the icon when a state changes
 
-This example demonstrates how to use template to change the icon as it's state changes. This icon is referencing it's own state.
+This example demonstrates how to use template to change the icon as its state changes. This icon is referencing its own state.
 
 {% raw %}
 

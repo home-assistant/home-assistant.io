@@ -18,7 +18,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_quality_scale: silver
+ha_quality_scale: gold
 ---
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit). The integration adheres strictly to the [protocol specification](https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf).
@@ -51,6 +51,11 @@ delay:
   description: "Time to delay sending messages in seconds after connecting. Some Modbus devices need a delay of typically 1-2 seconds after established connection to prepare the communication. If a device does not respond to messages after connecting, this parameter might help. Remark: the delay is solely between connect and the first message."
   required: false
   default: 0
+  type: integer
+message_wait_milliseconds:
+  description: Time to wait in milliseconds between requests.
+  required: false
+  default: 30 for serial connection, 0 for everything else.
   type: integer
 name:
   description: Name for this hub. Must be unique, so it is required when setting up multiple instances.
@@ -176,7 +181,7 @@ Remark: `name:`is required for multiple connections, because it needs to be uniq
 
 ## Modbus services
 
-The Modbus integration provides two generic services in addition to the platform-specific services.
+The Modbus integration provides two generic write services in addition to the platform-specific services.
 
 | Service | Description |
 | ------- | ----------- |
@@ -188,10 +193,36 @@ Description:
 | Attribute | Description |
 | --------- | ----------- |
 | hub       | Hub name (defaults to 'modbus_hub' when omitted) |
-| unit      | Slave address (1-255, defaults to 0) |
+| unit      | Slave address (0-255) |
 | address   | Address of the Register (e.g. 138) |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F |
+
+The Modbus integration also provides communication stop/restart services. These services will not do any reconfiguring, but simply stop/start the modbus communication layer.
+
+| Service | Description |
+| ------- | ----------- |
+| modbus.stop | Stop communication |
+| modbus.restart | Restart communication (Stop first if running) |
+
+Description:
+
+| Attribute | Description |
+| --------- | ----------- |
+| hub       | Hub name (defaults to 'modbus_hub' when omitted) |
+
+### Example: writing a float32 type register
+
+To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal). 
+
+```yaml
+service: modbus.write_register
+data:
+  address: <target register address>
+  unit: <target slave address>
+  hub: <hub name>
+  value: [0x4120, 0x0000]
+```
 
 # configure Modbus platforms
 
@@ -215,6 +246,11 @@ modbus:
 ```
 
 {% configuration %}
+lazy_error_count:
+  description: Number of messages with error received before setting entity to unavailable. This parameter can be used to prevent spontaneous errors to ruin statistic graphs.
+  required: false
+  type: integer
+  default: 0
 name:
   description: Name for the platform entity which must be unique within the platform.
   required: true
@@ -842,6 +878,10 @@ sensors:
       description: Unit to attach to value.
       required: false
       type: integer
+    state_class:
+      description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+      required: false
+      type: string
 {% endconfiguration %}
 
 <div class='note'>
@@ -866,6 +906,7 @@ modbus:
         address: 0
         input_type: holding
         unit_of_measurement: °C
+        state_class: measurement
         count: 1
         scale: 0.1
         offset: 0
@@ -983,8 +1024,9 @@ and restart Home Assistant, reproduce the problem, and include the log in the is
 
 ## Building on top of Modbus
 
- - [Modbus Binary Sensor](/integrations/binary_sensor.modbus/)
- - [Modbus Climate](/integrations/climate.modbus/)
- - [Modbus Cover](/integrations/cover.modbus/)
- - [Modbus Sensor](/integrations/sensor.modbus/)
- - [Modbus Switch](/integrations/switch.modbus/)
+ - [Modbus Binary Sensor](#configuring-platform-binary_sensor)
+ - [Modbus Climate](#configuring-platform-climate)
+ - [Modbus Cover](#configuring-platform-cover)
+ - [Modbus Fan](#configuring-platform-fan)
+ - [Modbus Sensor](#configuring-platform-sensor)
+ - [Modbus Switch](#configuring-platform-switch)

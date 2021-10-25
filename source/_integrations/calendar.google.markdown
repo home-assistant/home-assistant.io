@@ -87,7 +87,7 @@ The next time you run or restart Home Assistant, you should find a new notificat
 
 ## Calendar Configuration
 
-With every restart all calendars of the configured Google account will get pulled and added to the `google_calendars.yaml` and preconfigured as a single entity. By setting the 'track' variable to `true` the calendar will get monitored for new events which can be used for automations and its content is shown on the 'Calendar' dashboard (mind 'max_results' is set to 5 by default).
+With every restart all calendars of the configured Google account will get pulled and added to the `google_calendars.yaml` and preconfigured as a single entity. By setting the 'track' variable to `true` the calendar will get monitored for new events which can be used for automations and its content is shown on the 'Calendar' dashboard.
 
 A basic entry for a single calendar looks like:
 
@@ -97,7 +97,6 @@ A basic entry for a single calendar looks like:
   - device_id: test_everything
     name: Give me everything
     track: true
-    max_results: 10
 ```
 
 From this, we will get a binary sensor `calendar.test_everything` triggered by any event on the calendar and will show the next 10 events on the 'Calendar' dashboard.
@@ -172,11 +171,6 @@ entities:
       required: false
       type: boolean
       default: true
-    max_results:
-      description: "Max number of entries to retrieve"
-      required: false
-      type: integer
-      default: 5
 {% endconfiguration %}
 
 

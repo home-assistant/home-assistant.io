@@ -30,12 +30,13 @@ This is done with the `target` key.
 A `target` is a map that contains at least one of the following: `area_id`, `device_id`, `entity_id`.
 Each of these can be a list.
 
-When the service is called, the areas and devices will be resolved to entities.
+The following example uses a single service call to turn on the lights in the
+living room area, 2 additional light devices and 2 additional light entities:
 
 ```yaml
-service: homeassistant.turn_on
+service: light.turn_on
 target:
-  area_id: livingroom
+  area_id: living_room
   device_id:
     - ff22a1889a6149c5ab6327a8236ae704
     - 52c050ca1a744e238ad94d170651f96b

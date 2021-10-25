@@ -112,7 +112,7 @@ color_temp_command_topic:
   required: false
   type: string
 color_temp_state_topic:
-  description: "The MQTT topic subscribed to receive color temperature state updates. If the light also supports setting colors, also define a `white_value_state_topic`. "
+  description: "The MQTT topic subscribed to receive color temperature state updates."
   required: false
   type: string
 color_temp_value_template:
@@ -904,7 +904,7 @@ name:
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
-  type: string
+  type: boolean
   default: "`true` if no state topic or state template is defined, else `false`."
 payload_available:
   description: The payload that represents the available state.

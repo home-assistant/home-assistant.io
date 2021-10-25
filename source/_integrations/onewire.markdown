@@ -131,18 +131,6 @@ The device IDs begin with `28-`.
 
 {% include integrations/config_flow.md %}
 
-### Configuration Example
-
-When `onewire` is added to Home Assistant, it will generate an ID for the sensor. You can specify a friendly name for the sensor with the name configuration option.
-
-```yaml
-# Named sensor configuration.yaml entry
-sensor:
-  - platform: onewire
-    names:
-      GENERATED_ID: FRIENDLY_NAME
-```
-
 ### Entities and attributes
 
 Upon startup of the platform, the 1-wire bus is searched for available 1-wire devices. On Bridge devices, the `aux` and `main` branches are recursively searched. For each device that this platform handles (see list of supported devices above), the platform adds one sensor for each physical quantity it measures. The name of the sensor is the device ID with the physical quantity it measures appended. Unsupported sensors are noted with a warning message in the log.

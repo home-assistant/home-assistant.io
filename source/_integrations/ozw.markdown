@@ -61,7 +61,7 @@ will try to migrate the entity IDs, names, icons and areas of the entities and
 devices of your Z-Wave integration to your OpenZWave integration. At the end of
 the migration, the Z-Wave integration configuration entry will be removed.
 
-Make sure you take necessary backups, eg a Supervisor snapshot, before migrating
+Make sure you take necessary backups, eg a Supervisor backup, before migrating
 to be able to restore the Z-Wave integration. The wizard may not be able to
 migrate all entity and device information. It will show you what entity and
 device information failed to migrate.

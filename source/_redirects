@@ -11,6 +11,8 @@
 /energy /home-energy-management
 /integrations/energy /docs/energy
 
+/amber https://www.crowdsupply.com/nabu-casa/home-assistant-amber
+
 # Older development pages
 /developers https://developers.home-assistant.io
 /developers/add_new_platform https://developers.home-assistant.io/docs/creating_platform_index/
@@ -370,7 +372,6 @@
 /components/device_tracker.tomato /integrations/tomato
 /components/device_tracker.tplink /integrations/tplink
 /components/device_tracker.traccar /integrations/traccar
-/components/device_tracker.trackr /integrations/trackr
 /components/device_tracker.ubus /integrations/ubus
 /components/device_tracker.unifi /integrations/unifi
 /components/device_tracker.unifi_direct /integrations/unifi_direct
@@ -1077,6 +1078,7 @@
 /integrations/climate.modbus /integrations/modbus
 /integrations/cover.modbus /integrations/modbus
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio
+/integrations/google /integrations/calendar.google
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio
 /integrations/lovelace /lovelace
 /integrations/remote.xiaomi_miio /integrations/xiaomi_miio
@@ -1893,7 +1895,6 @@
 /components/tplink /integrations/tplink
 /components/tplink_lte /integrations/tplink_lte
 /components/traccar /integrations/traccar
-/components/trackr /integrations/trackr
 /components/tradfri /integrations/tradfri
 /components/trafikverket_train /integrations/trafikverket_train
 /components/trafikverket_weatherstation /integrations/trafikverket_weatherstation
@@ -2057,6 +2058,7 @@
 /integrations/scene.knx /integrations/knx#scene
 /integrations/sensor.knx /integrations/knx#sensor
 /integrations/switch.knx /integrations/knx#switch
+/integrations/trace /docs/automation/troubleshooting
 /integrations/weather.knx /integrations/knx#weather
 /integrations/zigbee /integrations/xbee
 /integrations/hassio /hassio
@@ -2120,6 +2122,9 @@
 /cookbook/#infrastructure /examples/#infrastructure
 /cookbook/#automation-examples /examples
 /cookbook /examples
+/common-tasks/os/#snapshots /common-tasks/os/#backups
+/common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
+/more-info/unsupported/container /more-info/unsupported/software
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -2309,6 +2314,11 @@
 /components/spotcrime /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /components/sensor.wunderground /more-info/removed-integration 301
+/components/tesla /more-info/removed-integration 301
+/integrations/tesla /more-info/removed-integration 301
 /components/wunderground /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
 /integrations/garmin_connect /more-info/removed-integration 301
+/components/device_tracker.trackr /more-info/removed-integration 301
+/components/trackr /more-info/removed-integration 301
+/integrations/trackr /more-info/removed-integration 301

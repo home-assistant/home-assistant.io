@@ -22,6 +22,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Dooya](http://www.dooya.com/)
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
+- [Smart Home](https://www.smart-home.hu) 
 
 {% include integrations/config_flow.md %}
 
@@ -108,3 +109,5 @@ Please make sure the motion gateway and the device running Home Assistant are on
 If using separate VLANs, make sure the 238.0.0.18:32100 and 238.0.0.18:32101 ports are open for communication between those VLANs (not tested or confirmed to work).
 
 For some routers "IGMP snooping" on the used wireless interface needs to be disabled to let the IGMP/multicast messages through.
+
+For Ubiquiti routers/access points the "Enable multicast enhancement (IGMPv3)" should be disabled.

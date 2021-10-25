@@ -134,11 +134,6 @@ min_humidity:
   required: false
   type: integer
   default: 0
-modes:
-  description: List of available modes this humidifier is capable of running at. Common examples include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto` and `baby`. These examples offer built-in translations but other custom modes are allowed as well.
-  required: false
-  type: [list]
-  default: []
 name:
   description: The name of the humidifier.
   required: false
