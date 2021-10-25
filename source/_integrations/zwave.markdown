@@ -60,8 +60,6 @@ There is currently support for the following device types within Home Assistant:
 
 ### Climate
 
-To get your Z-Wave thermostat or HVAC unit working with Home Assistant, follow the instructions for the general [Z-Wave component](/getting-started/z-wave/).
-
 <div class='note'>
 
 Thermostats with support for fan modes or different operating modes, will be handled like a HVAC device and will also be detected as one.
@@ -129,8 +127,6 @@ hvac_mode: Heat
 
 Z-Wave garage doors, blinds, and roller shutters are supported as cover in Home Assistant.
 
-To get your Z-Wave covers working with Home Assistant, follow the instructions for the general [Z-Wave component](#configuration).
-
 If you discover that you need to [invert the operation](#invert_openclose_buttons) of open/close for a particular device, you may change this behavior in your Z-Wave section of your `configuration.yaml` file as follows, in addition you can also [invert percent position](#invert_percent):
 
 ```yaml
@@ -142,8 +138,6 @@ zwave:
 ```
 
 ### Lock
-
-To get your Z-Wave locks working with Home Assistant, follow the instructions for the general [Z-Wave component](#configuration).
 
 Z-Wave locks will expose three services under the lock domain to manage usercodes if the lock supports it:
 
