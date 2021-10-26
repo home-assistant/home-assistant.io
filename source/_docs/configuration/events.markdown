@@ -55,8 +55,6 @@ This event has no additional data.
 
 Event `scene_reloaded` is fired when scenes have been reloaded and thus might have changed.
 
-This event has no additional data.
-
 ## Event `platform_discovered`
 
 Event `platform_discovered` is fired when a new platform has been discovered by the [`discovery`](/integrations/discovery/) component.
