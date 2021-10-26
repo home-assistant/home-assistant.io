@@ -29,19 +29,21 @@ scene:
 
 ## How to configure your scene
 
-In the `*.yaml` file, you'll need to configure the following options in order to ensure your scene works:
-- name
-- description
-- entities
+In the scene you define in your YAML files, please ensure you use
+all required parameters as listed below.
 
 ```yaml
 {% configuration %}
 name: 
-  description: Friendly name of scene.
+  description: Friendly name of the scene.
+  required: true
+  type: string
+description:
+  description: Description of the scene.
   required: true
   type: string
 entities:
-  description: Entities to control, and their desired state.
+  description: Entities to control and their desired state.
   required: true
   type: list
 {% endconfiguration %}
