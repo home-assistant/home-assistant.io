@@ -127,4 +127,4 @@ In the table below you can see the number of usable pins for sensors per device.
 | H6 (Lite 2, One Plus) | 3/17 |
 | H6 (PI 3) | 8/17 |
 | A64 (Win Plus) | 18/28 |
-| RK3399 (PI4, PI4B) | 21/28 |
+| RK3399 (PI4, PI4B) | 28/28 |
