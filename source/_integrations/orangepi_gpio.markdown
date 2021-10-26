@@ -79,6 +79,8 @@ As this platform supports different types of GPIO pinouts for difference Orange 
 | `zeroplus2` | Supports the Orange Pi Zero Plus 2 |
 | `duo` | Supports the NanoPi Duo |
 | `neocore2` | Supports the NanoPi Neocore 2 |
+| `pi4` | Supports the Orange pi 4 |
+| `pi4B` | Supports the Orange pi 4B |
 
 ## Additional steps
 
@@ -101,6 +103,8 @@ Home Assistant will now be able to control your GPIO pins.
 This integration uses interrupts to catch changes on your pins. However, it depends on the Allwinner chipset which pin banks support external interrupts. There is also a great difference between Orange Pi models which pins are routed to the GPIO connector. Therefore it greatly differs between devices which pins you can use for your sensors.
 
 You can find the pinouts of all the supported Orange Pi devices [here](https://pascalroeleven.nl/2020/04/13/orange-pi-gpio-pinouts/). The pinouts for the [NanoPi Duo](http://wiki.friendlyarm.com/wiki/index.php/NanoPi_Duo) and [NanoPi NEO Core2](http://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO_Core2) can be found on the [FriendlyARM wiki](http://wiki.friendlyarm.com/). For example: If a pin is named PA01, the pin bank is PA. If this pin bank is in the following table after your chipset, this particular pin is supported.
+
+For the orange pi4 and pi4B, using the Rockchip RK3399 chip, a manual and technical doc can be found [here](https://drive.google.com/drive/folders/1QMU5n-7fCx28cQPH_lu2L0wrFWeC3G45).
 
 | Chipset | Pin banks which support external interrupts |
 | ------- | ------------------------------------------- |
