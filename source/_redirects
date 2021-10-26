@@ -1065,7 +1065,6 @@
 /integrations/climate.modbus /integrations/modbus
 /integrations/cover.modbus /integrations/modbus
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio
-/integrations/google /integrations/calendar.google
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio
 /integrations/lovelace /lovelace
 /integrations/remote.xiaomi_miio /integrations/xiaomi_miio
@@ -2045,6 +2044,7 @@
 /integrations/trace /docs/automation/troubleshooting
 /integrations/weather.knx /integrations/knx#weather
 /integrations/zigbee /integrations/xbee
+/integrations/calendar.google /integrations/google
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
 /getting-started/automation-create-first /getting-started/automation
