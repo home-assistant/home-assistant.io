@@ -46,7 +46,7 @@ round:
   default: 3
   type: integer
 unit_prefix:
-  description: Metric unit to prefix the derivative result ([Wikipedia](https://en.wikipedia.org/wiki/Unit_prefix)). Available symbols are "n" (1e-9), "µ" (1e-6), "m" (1e-3), "k" (1e3), "M" (1e6), "G" (1e9), "T" (1e12).
+  description: Metric/Bytes unit to prefix the derivative result ([Wikipedia](https://en.wikipedia.org/wiki/Unit_prefix)). Available symbols are "n" (1e-9), "µ" (1e-6), "m" (1e-3), "k" (1e3), "Ki" (2^10), "M" (1e6), "Mi" (2^20), "G" (1e9), "Gi" (2^30), "T" (1e12), "Ti" (2^40).
   required: false
   default: None
   type: string
