@@ -61,7 +61,7 @@ template:
       state: "{{ state_attr('sensor.pvoutput', 'power_generation') | float(default=0) }}"
       unit_of_measurement: "W"
     - name: Energy Generation
-      state: "{{ "%0.2f"|format(state_attr('sensor.pvoutput', 'energy_generation') | float(default=0) / 1000) }}"
+      state: "{{ '%0.2f' | format(state_attr('sensor.pvoutput', 'energy_generation') | float(default=0) / 1000) }}" 
       unit_of_measurement: "kWh"
 ```
 
