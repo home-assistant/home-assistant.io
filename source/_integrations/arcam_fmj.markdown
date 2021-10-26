@@ -34,19 +34,16 @@ Supported devices:
 
 ## Power state
 
-Arcam FMJ receivers turn off their network port when in standby, the component will try to
-reconnect to the receiver every 5 seconds. This mean powering on the first zone is not
-possible over the builtin network connection. Two options for complete power control
-exists: IR or Serial gateway.
+Arcam FMJ receivers turn off their network port when in standby, the component will try to reconnect to the receiver every 5 seconds. This means powering on the first zone is not possible over the built-in network connection. Two options for complete power control exists: IR or Serial gateway.
 
 ### IR command
 
 Use an IR blaster to send a command to turn the device on using these discrete codes:
 
- - Zone 1: Protocol: RC5 Device: 16 Function: 123
- - Zone 2: Protocol: RC5 Device: 23 Function: 123
+- Zone 1: Protocol: RC5 Device: 16 Function: 123
+- Zone 2: Protocol: RC5 Device: 23 Function: 123
 
-Turn on sometime requires two IR codes to be sent. You can generate the raw, broadlink or other IR format string using [irgen](https://github.com/elupus/irgen) tool like: 
+Turn on sometime requires two IR codes to be sent. You can generate the raw, broadlink or other IR format string using [irgen](https://github.com/elupus/irgen) tool like:
 
 ```shell
 irgen -i rc5 -d 16 0 123 -o broadlink_base64 -r 2

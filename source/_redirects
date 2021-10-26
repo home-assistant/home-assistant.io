@@ -2108,6 +2108,7 @@
 /cookbook /examples
 /common-tasks/os/#snapshots /common-tasks/os/#backups
 /common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
+/more-info/unsupported/container /more-info/unsupported/software
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
