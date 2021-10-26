@@ -54,11 +54,11 @@ template:
   - sensor:
     - name: Edimax Current power consumption
       unit_of_measurement: "W"
-      state: "{{ state_attr('switch.edimax_smart_plug',  'current_power_w') | replace('None', 0) }}"
+      state: "{{ state_attr('switch.edimax_smart_plug', 'current_power_w') | float(default=0) }}"
       
     - name: Edimax Accumulated daily power consumption
       unit_of_measurement: "kWh"
-      state: "{{ state_attr('switch.edimax_smart_plug',  'today_energy_kwh') | replace('None', 0) }}"
+      state: "{{ state_attr('switch.edimax_smart_plug', 'today_energy_kwh') | float(default=0) }}"
 ```
 
 {% endraw %}
