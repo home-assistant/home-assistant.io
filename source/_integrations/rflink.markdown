@@ -91,7 +91,7 @@ TCP mode allows you to connect to an RFLink device over a TCP/IP network. This i
 To expose the USB/serial interface over TCP on a different host (Linux) the following command can be used:
 
 ```bash
-socat /dev/ttyACM0,b57600 TCP-LISTEN:1234,reuseaddr
+socat /dev/ttyACM0,b57600,rawer TCP-LISTEN:1234,reuseaddr
 ```
 
 Other methods of exposing the serial interface over TCP are possible (eg: ESP8266 or using Arduino Wifi shield). Essentially the serial stream should be directly mapped to the TCP stream.

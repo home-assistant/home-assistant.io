@@ -9,7 +9,7 @@ ha_domain: recorder
 ha_iot_class: Local Push
 ---
 
-The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` ](/integrations/history/) integration.
+The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history`](/integrations/history/) integration.
 
 <div class='note'>
 
@@ -35,7 +35,7 @@ recorder:
   type: map
   keys:
     db_url:
-      description: The URL that points to your database.
+      description: The URL that points to your database. Examples of these can be found [here](#custom-database-engines).
       required: false
       type: string
     db_max_retries:
@@ -232,27 +232,58 @@ The following database engines are tested when major changes are made to the rec
 - SQLite 3.32.1+
 - MariaDB 10.3+
 - MySQL 5.7+
-- PostgresSQL 12+
+- PostgreSQL 12+
 
 ## Custom database engines
 
-| Database engine                | `db_url`                                                                                                  |
-| :----------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| SQLite                         | `sqlite:////PATH/TO/DB_NAME`                                                                              |
-| MariaDB (omit pymysql)         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`                                                 |
-| MariaDB (omit pymysql, Socket) | `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`         |
-| MySQL                          | `mysql://SERVER_IP/DB_NAME?charset=utf8mb4`                                                               |
-| MySQL                          | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`                                                 |
-| MySQL (Socket)                 | `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`         |
-| MariaDB                        | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8mb4`                                                       |
-| MariaDB                        | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`                                         |
-| MariaDB (Socket)               | `mysql+pymysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4` |
-| PostgreSQL                     | `postgresql://SERVER_IP/DB_NAME`                                                                          |
-| PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                                            |
-| PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                                  |
-| PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                                |
-| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=DRIVER`                      |
-| Oracle                         | `oracle+cx_oracle://username:password@SERVER_IP:1521/DB_NAME?encoding=UTF-8&nencoding=UTF-8`              |
+Here are examples to use with the [`db_url`](#db_url) configuration option.
+
+{% configuration_basic %}
+
+SQLite:
+  description: >
+    `sqlite:////PATH/TO/DB_NAME`
+MariaDB (omit pymysql):
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
+MariaDB (omit pymysql, using TLS encryption):
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4;ssl=true`
+MariaDB (omit pymysql, Socket):
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`
+MySQL:
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
+MySQL (using TLS encryption):
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4;ssl=true`
+MySQL (Socket):
+  description: >
+    `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`
+MariaDB:
+  description: >
+    `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
+MariaDB (Socket):
+  description: >
+    `mysql+pymysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`
+PostgreSQL:
+  description: >
+    `postgresql://user:password@SERVER_IP/DB_NAME`
+PostgreSQL (Socket):
+  description: >
+    `postgresql://@/DB_NAME`
+PostgreSQL (Custom socket dir):
+  description: >
+    `postgresql://@/DB_NAME?host=/path/to/dir`
+MS SQL Server:
+  description: >
+    `mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=DRIVER`
+Oracle:
+  description: >
+    `oracle+cx_oracle://username:password@SERVER_IP:1521/DB_NAME?encoding=UTF-8&nencoding=UTF-8`
+
+{% endconfiguration_basic %}
 
 <div class='note'>
 
@@ -315,6 +346,7 @@ Not all Python bindings for the chosen database engine can be installed directly
 
 ### MariaDB and MySQL
 
+Make sure the default character set of your database server is set to `utf8mb4` (see [MariaDB documentation](https://mariadb.com/kb/en/setting-character-sets-and-collations/#example-changing-the-default-character-set-to-utf-8)).
 If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package described below.
 
 ```bash

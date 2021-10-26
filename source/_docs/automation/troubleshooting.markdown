@@ -3,7 +3,7 @@ title: "Troubleshooting Automations"
 description: "Tips on how to troubleshoot your automations."
 ---
 
-When an automation is run, all steps are recorded and a trace is made. From the UI choose **Configuration** which is located in the sidebar, then click on **Automation** to go to the automation editor or click this button directly: {% my automation badge %}
+When an automation is run, all steps are recorded and a trace is made. From the UI choose **Configuration** which is located in the sidebar, then click on **Automation** to go to the automation editor or click this button directly: {% my automations badge %}
 
 Click on the clock icon next to an automation to enter the debugging screen. Alternatively, click on **Show trace** directly from a Logbook automation entry.
 
@@ -39,7 +39,7 @@ It is also useful to go to **{% my server_controls title="Configuration -> Serve
 
 If your automation uses templates in any part, you can do the following to make sure it works as expected:
 
-1. Go to **{% my developer_templates title="Developer tools -> Template" %}** tab.
+1. Go to **{% my developer_template title="Developer tools -> Template" %}** tab.
 2. Create all variables (sources) required for your template as described at the end of [this](https://www.home-assistant.io/docs/configuration/templating/#processing-incoming-data) paragraph.
 3. Copy your template code and paste it in Template editor straight after your variables.
 4. If necessary, change your sources' value and check if the template works as you want and does not generate any errors.

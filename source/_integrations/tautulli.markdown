@@ -71,7 +71,7 @@ monitored_users:
   required: false
   type: list
 monitored_conditions:
-  description: A list of attributes to expose for each Tautulli user you monitor, every key in the `session` [section here][tautulliapi] can be used.
+  description: A list of attributes to expose for each Tautulli user you monitor, every key in the `session` [section here](https://github.com/Tautulli/Tautulli/wiki/Tautulli-API-Reference#get_activity) can be used.
   required: false
   type: list
 {% endconfiguration %}
@@ -93,4 +93,3 @@ sensor:
 ```
 
 [tautulli]: https://tautulli.com
-[tautulliapi]: https://github.com/Tautulli/Tautulli/wiki/Tautulli-API-Reference#get_activity

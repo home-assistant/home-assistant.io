@@ -38,7 +38,7 @@ There is currently support for the following device types within Home Assistant:
 
 ### Extra configuration of the integration
 
-Configuration of Netatmo public weather stations is offered from the front end. Enter the Netatmo integration and press the cogwheel.
+Configuration of Netatmo public weather stations is offered from the front end. Enter the Netatmo integration and press the "CONFIGURE", then set "Area name" for new area.
 
 In the dialog, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
 

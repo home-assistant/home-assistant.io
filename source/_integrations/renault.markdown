@@ -10,13 +10,14 @@ ha_category:
 ha_release: 2021.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_codeowners: '@epenet'
+ha_codeowners:
+  - '@epenet'
 ha_domain: renault
 ha_platforms:
   - binary_sensor
   - device_tracker
-  - select
   - sensor
+  - select
 ---
 
 The Renault integration offers integration with the **MyRenault** cloud service and provides sensors such as charger state and temperature.
@@ -97,4 +98,3 @@ Start charge on vehicle.
   | Service data attribute | Required | Description |
   | ---------------------- | -------- | ----------- |
   | `vehicle`| yes | device_id of the vehicle |
-

@@ -78,7 +78,7 @@ If you are running a Mosquitto instance on a different server with proper SSL en
 
 ### Public broker
 
-The Mosquitto project runs a [public broker](http://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home.
+The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home.
 
 ```yaml
 mqtt:
@@ -88,7 +88,7 @@ mqtt:
   # Optional, replace port 1883 with following if you want encryption
   # (doesn't really matter because broker is public)
   port: 8883
-  # Download certificate from http://test.mosquitto.org/ssl/mosquitto.org.crt
+  # Download certificate from https://test.mosquitto.org/ssl/mosquitto.org.crt
   certificate: /home/paulus/downloads/mosquitto.org.crt
 ```
 

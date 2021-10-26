@@ -4,13 +4,13 @@
     "dockerfile": "../Dockerfile",
     "context": "..",
     "args": {
-      "VARIANT": "2.6",
-      "NODE_VERSION": "12.1",
+      "VARIANT": "2.7",
+      "NODE_VERSION": "14"
     }
   },
   "appPort": [4000],
   "postCreateCommand": "bundle install && npm install",
-  "containerEnv": {"DEVCONTAINER": "true"},
+  "containerEnv": { "DEVCONTAINER": "true" },
   "extensions": [
     "davidanson.vscode-markdownlint",
     "editorconfig.editorconfig",
@@ -25,6 +25,6 @@
     "errorLens.gutterIconsEnabled": true,
     "errorLens.addAnnotationTextPrefixes": false,
     "errorLens.enabledDiagnosticLevels": ["error", "warning"],
-    "terminal.integrated.shell.linux": "/usr/bin/zsh",
+    "terminal.integrated.shell.linux": "/usr/bin/zsh"
   }
 }

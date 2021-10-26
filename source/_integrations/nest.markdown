@@ -32,12 +32,10 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 
 <div class='note'>
-This integration supports two Nest APIs. The SDM API is the new primary API that accepts new users. The Legacy Works With Nest API is not accepting new users, but the documentation still exists at the bottom of the page so existing users can keep using it.
+This integration supports two Nest APIs: The SDM API (new) accepts new users and requires a US$5 fee. The Legacy Works With Nest API (old) does not accept new users, but the documentation is still available at the bottom of the page for existing users.
 </div>
 
-Google applies strict [Redirect URI validation
-rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) to keep your login
-credentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain* when setting up this integration. See the documentation on [Securing](/docs/configuration/securing/) or [Troubleshooting](#troubleshooting), and note that you don't actually need to enable remote access.
+Google applies strict [Redirect URI validation rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) to keep your login credentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain* when setting up this integration. See the documentation on [Securing](/docs/configuration/securing/) or [Troubleshooting](#troubleshooting), and note that you don't actually need to enable remote access.
 
 ## Overview: Supported Devices
 
@@ -51,7 +49,7 @@ Home Assistant is integrated with the following devices through the SDM API:
 - Display, Camera, and Doorbell Devices
   - The camera live stream is available as a `camera` entity
   - Device Triggers for use in automations such as Person detected, Motion detected and Doorbell pressed
-  - Example devices: All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max
+  - Example devices: All wired & battery Google Nest Cam models, wired & battery Nest Doorbells, and Google Nest Hub Max.
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
@@ -64,7 +62,9 @@ The full detailed instructions for account setup are available in the [Device Ac
 
 For the first phase, you will turn on the API and create the necessary credentials to have Home Assistant talk to the Nest API.
 
-1. First go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page. Click on the button **Go to the Device Access Console**.
+{% details "Create a Device Access Project [Device Access Console]" %}
+
+1. First go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page. Click on the button **[Go to the Device Access Console](https://console.nest.google.com/device-access/)**.
     ![Screenshot of Device Access Registration](/images/integrations/nest/device_access.png)
 
 1. Check the box to "Accept the Terms of Service" and click **Continue to Payment** where you need to pay a fee (currently US$5).
@@ -80,7 +80,15 @@ For the first phase, you will turn on the API and create the necessary credentia
 1. Give your Device Access project a name and click **Next**.
     ![Screenshot of naming a project](/images/integrations/nest/project_name.png)
 
-1. Next you will be asked for an *OAuth client ID*. It is a good idea to go create that now. Open a new tab to the [Google API Console](https://console.developers.google.com/apis/credentials).
+1. Next you will be asked for an *OAuth client ID*. It is a good idea to go create that now following instructions in the next section in a new browser tab.
+
+{% enddetails %}
+
+{% details "Configure OAuth client_id and client_secret [Cloud Console]" %}
+
+By the end of this section you will have the `client_id` and `client_secret`.
+
+1. Open a new tab to the [Google API Console](https://console.developers.google.com/apis/credentials).
 
 1. If this is your first time here, you likely need to create a new Google API project. Click **Create Project** then **New
 Project**. Note: This is a different type of project from the Device Access project you are also creating.
@@ -119,13 +127,24 @@ Project**. Note: This is a different type of project from the Device Access proj
 1. You should now be presented with an *OAuth client created* message. Take note of *Your Client ID* and *Your Client Secret* as these are needed for Home Assistant set up.
     ![Screenshot of OAuth Client ID and Client Secret](/images/integrations/nest/oauth_created.png)
 
-1. Now head back to the *Device Access Console* tab and *Add your OAuth client ID* then click **Next**.
+{% enddetails %}
+
+{% details "Link Device Access project_id [Device Access Console]" %}
+
+By the end of this section you will have a `project_id` as well as the *Topic Name* needed to configure Cloud Pub/Sub.
+
+1. Now head back to the *[Device Access Console](https://console.nest.google.com/device-access/project-list)* tab and *Add your OAuth client ID* then click **Next**.
     ![Screenshot of Device Access Console OAuth client ID](/images/integrations/nest/device_access_oauth_client_id.png)
 
 1. Enable Events by clicking on **Enable** and **Create project**.
     ![Screenshot of enabling events](/images/integrations/nest/enable_events.png)
 
-1. Take note of the *Project ID* as you will need it later. At this point you have the `project_id`, `client_id` and `client_secret` configuration options needed for Home Assistant.
+1. Take note of the *Project ID* as you will it later. At this point you have the `project_id`, `client_id` and `client_secret` configuration options needed for Home Assistant.
+1. Also Take note of the *Pub/Sub Topic* which is later entered manually as the *Topic Name* when configuring Pub/Sub in a follow up step.
+
+{% enddetails %}
+
+{% details "Enable Device Access APIs [Cloud Console]" %}
 
 1. Go back to the [Google Cloud Console: API & Services](https://console.developers.google.com/apis/dashboard)
 
@@ -135,9 +154,19 @@ Project**. Note: This is a different type of project from the Device Access proj
 1. Search for **Smart Device management** and enable the API.
     ![Screenshot of Search for SDM API](/images/integrations/nest/enable_sdm_api.png)
 
+{% enddetails %}
+
 ## Pub/Sub subscriber setup
 
 The next phase is to enable the Pub/Sub API by creating a subscription that can keep Home Assistant informed of events or device changes in near real-time. See [Device Access: Events](https://developers.google.com/nest/device-access/api/events) for the full detailed instructions.
+
+{% details "Configure Cloud Pub/Sub subscriber_id [Cloud Console]" %}
+
+By the end of this section you will have the `subscriber_id` needed for configuration.
+
+What is Pub/Sub? You can think of your Nest device as the publisher and your Home Assistant as the subscriber. As your Nest device publishes events like a temperature change or motion event, it notifies your Home Assistant subscriber about
+those events so it can record the new value or trigger an automation.
+
 
 1. Visit [Enable the Cloud Pub/Sub API](https://console.developers.google.com/apis/library/pubsub.googleapis.com) in the Cloud Console and click **Enable**.
 
@@ -146,7 +175,9 @@ The next phase is to enable the Pub/Sub API by creating a subscription that can 
 1. You will need to pick a *Subscription ID*.
     ![Screenshot of creating a subscription](/images/integrations/nest/create_subscription.png)
 
-1. The *Topic name* should match the topic name in your project in the [Device Access Console](https://console.nest.google.com/device-access/) and typically looks like `projects/sdm-prod/topics/EXAMPLE`. The SDM topic names do not show up by default so make sure to **Enter topic manually**.
+1. Select **Enter Topic Manually** from the topic drop down list.
+1. The *Topic name* comes from the [Device Access Console](https://console.nest.google.com/device-access/) *Topic name*
+and typically looks like `projects/sdm-prod/topics/EXAMPLE`.
     ![Screenshot of creating a topic](/images/integrations/nest/device_access_pubsub_topic.png)
 
 1. Select **Pull** as the *Delivery Type*.
@@ -155,11 +186,15 @@ The next phase is to enable the Pub/Sub API by creating a subscription that can 
 
 1. Leave the rest of the defaults and click **Create**.
 
-1. Once created, copy the *Subscription name* which you will want to hold on to as your `subscriber_id` for configuring Home Assistant. This typically looks like `projects/MY-CLOUD-ID/subscriptions/EXAMPLE`. Don't confuse *Subscription name* with *Topic name* since they look similar.
+1. Once created, copy the *Subscription name* which you will want to hold on to as your `subscriber_id` for configuring Home Assistant. This typically looks like `projects/MY-CLOUD-ID/subscriptions/EXAMPLE`.
+1. Don't confuse *Subscription name* with *Topic name* since they look similar. Remember that *Subscription name* is
+your `subscriber_id`.
+
+{% enddetails %}
 
 ## Configuration
 
-Congratulations, you now should have everything you need to configure Home Assistant. Edit your `configuration.yaml` file and populate a `nest` entry in the format of the example [Configuration](#configuration) below.
+You now should have everything needed to configure Nest in Home Assistant. Edit your `configuration.yaml` file and populate a `nest` entry in the format of the example configuration below.
 
 ```yaml
 # Example configuration.yaml entry
@@ -193,9 +228,25 @@ subscriber_id:
 
 ## Device Setup
 
-Once your developer account is set up and you have a valid `nest` entry in `configuration.yaml`, you need to connect devices with the following steps:
+Once `configuration.yaml` has a valid `nest` entry, you need to add Nest to your Home Assistant instance via the user interface by using this My button:
 
-1. Using your externally accessible address from the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Click **Add Integration** then locate 'Nest'.
+{% my config_flow_start badge domain=page.ha_domain %}
+
+{% details "Manual configuration steps" %}
+
+1. Browse to your Home Assistant instance using.
+1. In the sidebar click on _**{% my config icon %}**_.
+1. From the configuration menu select: _**{% my integrations icon %}**_.
+1. In the bottom right, click on the
+  _**{% my config_flow_start icon domain=page.ha_domain %}**_ button.
+1. From the list, search and select _**"Nest"**_ and follow the instructions.
+
+{% enddetails %}
+
+The Nest integration setup will walk you through the steps of authorizing
+your Home Assistant to access your account and Nest devices.
+
+{% details "OAuth and Device Authorization steps" %}
 
 1. You should get redirected to Google to choose an account. This should be the same developer account you configured above.
 
@@ -220,6 +271,7 @@ everything, however, you can leave out any feature you do not wish to use with H
 1. If all went well, you are ready to go!
     ![Screenshot of success](/images/integrations/nest/finished.png)
 
+{% enddetails %}
 
 ## Troubleshooting
 
@@ -227,34 +279,56 @@ everything, however, you can leave out any feature you do not wish to use with H
 
 - Check **Configuration** then **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
 
-- *Reauthentication required often*: If you are frequently getting logged out, this means your authentication token was revoked by Google. This most likely reason is the *OAuth Consent Screen* is set to *Testing* by default which expires the token after 7 days. Follow the steps above to set it to *Production* to resolve this and reauthorize your integration one more time to get a new token. You may also see this as the error message *invalid_grant: Token has been expired or revoked*.  See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for more reasons on why your token may have expired. 
+- *Reauthentication required often*: If you are frequently getting logged out, this means your authentication token was revoked by Google likely due to a misconfiguration.
+
+{% details "Details about reauthentication issues" %}
+
+- This most likely reason is the *OAuth Consent Screen* is set to *Testing* by default which expires the token after 7 days.
+- Follow the steps above to set it to *Production* to resolve this and reauthorize your integration one more time to get a new token.
+- You may also see this as the error message *invalid_grant: Token has been expired or revoked*.
+- See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for more reasons on why your token may have expired. 
+
+{% enddetails %}
 
 - *Thermostat does not appear or is unavailable* happens due to a bug where the SDM API does return the devices. A common fix get the API to work again is to:
-    - Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
-    - In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
-    - Reload the integration in Home Assistant:  Navigate to **Configuration** then **Integrations**, click `...` next to *Nest* and choose **Reload**.
+
+{% details "How to restart thermostat" %}
+
+- Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
+- In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
+- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Integrations**, click `...` next to *Nest* and choose **Reload**.
+
+{% enddetails %}
 
 - *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double-check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you may want to walk through the Google instructions and issue commands directly against the API until you successfully get back the devices.
 
 - *Error 400: redirect_uri_mismatch* means that your OAuth Client ID is not configured to match your Home Assistant URL.
 
-    - To resolve this, copy and paste the redirect URI in the error message (`https://<your_home_assistant_url>:<port>/auth/external/callback`).
+{% details "Details about resolving redirect_uri_mismatch" %}
 
-      ![Screenshot of success](/images/integrations/nest/redirect_uri_mismatch.png)
+- To resolve this, copy and paste the redirect URI in the error message (`https://<your_home_assistant_url>:<port>/auth/external/callback`).
 
-    - Go back to the [API Console](https://console.developers.google.com/apis/credentials) and select your *OAuth 2.0 Client ID*.
-    - Add the URL to the list of *Authorized redirect URIs* and click **Save** and start the flow over.
+  ![Screenshot of success](/images/integrations/nest/redirect_uri_mismatch.png)
 
-      ![Screenshot of success](/images/integrations/nest/redirect_uris_fix.png)
+- Go back to the [API Console](https://console.developers.google.com/apis/credentials) and select your *OAuth 2.0 Client ID*.
+- Add the URL to the list of *Authorized redirect URIs* and click **Save** and start the flow over.
+
+  ![Screenshot of success](/images/integrations/nest/redirect_uris_fix.png)
+
+{% enddetails %}
 
 - When configuring the OAuth Client ID redirect URI, you may see an error such as *must end with a public top-level
   domain (such as .com or .org)* or *must use a valid domain that is a valid top private domain*. This means that you
   may need to change the URL you use to access Home Assistant in order to access your devices.
 
-    - See [Securing](https://www.home-assistant.io/docs/configuration/securing/) Home Assistant for convient solutions e.g. [Nabu Casa](https://www.nabucasa.com/) or Duck DNS.
-    - There are subtle [rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) for what types of URLs are allowed, namely that they must use SSL and a publicly known hostname, though your Home Assistant ports do not need to be exposed to the internet.
-    - You can use any publicly known hostname you own
-    - As a hack, you can use hosts tricks to temporarily assign a public hostname to your Home Assistant IP address.
+{% details "Details about URL configuration" %}
+
+- See [Securing](https://www.home-assistant.io/docs/configuration/securing/) Home Assistant for convenient solutions e.g. [Nabu Casa](https://www.nabucasa.com/) or Duck DNS.
+- There are subtle [rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) for what types of URLs are allowed, namely that they must use SSL and a publicly known hostname, though your Home Assistant ports do not need to be exposed to the internet.
+- You can use any publicly known hostname you own
+- As a hack, you can use hosts tricks to temporarily assign a public hostname to your Home Assistant IP address.
+
+{% enddetails %}
 
 - *Error 403: access_denied* means that you need to visit the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) and add your Google Account as a *Test User*.
 
@@ -264,9 +338,9 @@ everything, however, you can leave out any feature you do not wish to use with H
 
 - *Subscriber error: Subscription misconfigured. Expected topic name to match ...* means that the topic name in the Google Cloud Console was entered incorrectly. The topic name comes from the Device Console and must start with `projects/sdm-prod/topics/`. It is easy to make the mistake of creating a new topic rather than manually entering the right topic name.
 
-- *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant susbcriber when everything is configured correctly.
+- *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
 
-- You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receivng the messages and working properly or not connected at all. Double check the `subscriber_id` matches the `Subscription Name`
+- You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all. Double check the `subscriber_id` matches the `Subscription Name`
 
 - To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 
 
@@ -291,9 +365,11 @@ logger:
 
 ## Camera
 
-All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max expose a [CameraLiveStream](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) via the SDM API, which returns a RTSP live stream which can be viewed from Home Assistant.
+All Google Nest Cam models, Google Nest Doorbell models, Google Nest Hub Max expose a [CameraLiveStream](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) via the SDM API.
 
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
+
+Cameras either support an `RTSP` stream served via `HLS` by Home Assistant, or support a `WebRTC` stream. See the [Nest SDM API: CameraLiveStream Schema](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) for details on which camera devices support which types of streams. WebRTC cameras do not support image previews or stream recording in Home Assistant as the stream communication is client-side, directly from the browser to the device.
 
 ## Climate
 
@@ -322,7 +398,7 @@ All Google Nest Cam models and the Google Nest Hello Video Doorbell support devi
 - **Motion detected**
 - **Person detected**
 - **Sound detected**
-- **Doorbell pressed** *for Google Nest Hello Video Doorbell only*
+- **Doorbell pressed** *for Doorbell only*
 
 The lower level Pub/Sub subscriber receives events in real time and internally fires `nest_event` events within Home Assistant:
 
@@ -333,7 +409,7 @@ The lower level Pub/Sub subscriber receives events in real time and internally f
 | Sound detected | [CameraSound](https://developers.google.com/nest/device-access/traits/device/camera-sound#events) | `sound_detected` |
 | Doorbell pressed | [DoorbellChime](https://developers.google.com/nest/device-access/traits/device/doorbell-chime#events) | `doorbell_chime` |
 
-### Example
+## Example
 
 This automation will trigger when a `nest_event` event type with a type of `camera_motion` is received from the specified `device_id`.
 
@@ -364,8 +440,7 @@ This section contains instructions for the Legacy [Works with Nest](https://deve
 New users are not currently able to set up a Works With Nest Developer account. The documentation is preserved here for existing users of the API.
 </div>
 
-<details>
-<summary>Click here to expand documentation for the Legacy Works with Nest API</summary>
+{% details "Legacy Works with Nest Configuration Steps" %}
 
 The Nest integration is the main integration to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
 
@@ -377,7 +452,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Sensor](#sensor)
 
-### Setting up developer account
+**Setting up developer account**
 
 
 1. Visit [Nest Developers](https://developers.nest.com/), and sign in. Create an account if you don't have one already.
@@ -399,7 +474,7 @@ There is currently support for the following device types within Home Assistant:
 
 Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
 
-## Configuration
+**Configuration**
 
 ```yaml
 # Example configuration.yaml entry
@@ -433,7 +508,7 @@ structure:
   type: list
 {% endconfiguration %}
 
-### Service `set_away_mode`
+**Service `set_away_mode`**
 
 You can use the service `nest/set_away_mode` to set the structure(s) to "Home" or "Away".
 
@@ -466,7 +541,7 @@ script:
             - Apartment
 ```
 
-### Service `set_eta`
+**Service `set_eta`**
 
 You can use the service `nest/set_eta` to set or update the estimated time of arrival window. Calling this service will automatically set the structure(s) to "Away". Structures must have an associated Nest thermostat in order to use ETA function.
 
@@ -504,7 +579,7 @@ script:
             - Apartment
 ```
 
-### Service `cancel_eta`
+**Service `cancel_eta`**
 
 You can use the service `nest/cancel_eta` to cancel an existing estimated time of arrival window. Structures must have an associated Nest thermostat in order to use ETA function.
 
@@ -537,13 +612,13 @@ script:
             - Apartment
 ```
 
-### Troubleshooting
+**Troubleshooting**
 
 - For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external URL.
 
 - If you're getting [rickrolled](https://www.youtube.com/watch?v=dQw4w9WgXcQ) by the Legacy API instead of being able to see your Nest cameras, you may not have set up your developer account's permissions correctly. Go back through and make sure you've selected read/write under every category that it's an option.
 
-## Platforms
+**Platforms**
 
 <div class='note'>
 
@@ -551,7 +626,7 @@ You must have the [Nest component](/integrations/nest/) configured to use the pl
 
 </div>
 
-### Binary Sensor
+**Binary Sensor**
 
 The `nest` binary sensor platform lets you monitor various states of your [Nest](https://nest.com) devices.
 
@@ -561,7 +636,7 @@ You must have the [Nest component](/integrations/nest/) configured to use these 
 
 </div>
 
-#### Configuration
+**Configuration**
 
 To enable binary sensors and customize which sensors are setup, you can extend the [Nest component](/integrations/nest/) configuration in your `configuration.yaml` file with the following settings:
 
@@ -601,7 +676,7 @@ The following conditions are available by device:
   - person\_detected
   - sound\_detected
 
-### Camera
+**Camera**
 
 The `nest` platform allows you to watch still frames from a video stream (not live stream) of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.
 
@@ -613,7 +688,7 @@ The Legacy API integration allows you to watch still frames from a video stream 
 
 Nest Camera supports the `camera.turn_on` and `camera.turn_off` services since the 0.75 release.
 
-### Climate
+**Climate**
 
 The `nest` climate platform lets you control a thermostat from [Nest](https://nest.com).
 
@@ -625,7 +700,7 @@ Please note due to limitations with the European Nest Thermostat E, integration 
   <img src='/images/screenshots/nest-thermostat-card.png' />
 </p>
 
-### Sensor
+**Sensor**
 
 The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.
 
@@ -635,7 +710,7 @@ The sensors will be setup if the `nest` integration is configured and the requir
 
 </div>
 
-#### Configuration
+**Configuration**
 
 To enable sensors and customize which sensors are setup, you can extend the [Nest component](/integrations/nest/) configuration in your `configuration.yaml` file with the following settings:
 
@@ -675,7 +750,7 @@ The following conditions are available by device:
   - `color_status`: `gray`, `green`, `yellow` or `red`. Indicates device status by color in the Nest app UI. It is an aggregate condition for battery+smoke+CO states, and reflects the actual color indicators displayed in the Nest app.
 - Nest Camera: none
 
-### Security State
+**Security State**
 
 <div class='note warning'>
 
@@ -701,4 +776,4 @@ A `deter` state is re-evaluated after several minutes and relaxed to `ok` if no 
 
 The `security_state` automatically switches to `ok` when the structure state is `home`.
 
-</details>
+{% enddetails %}

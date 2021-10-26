@@ -7,7 +7,7 @@ feedback: false
 The documentation covers beginner to advanced topics around the installation, setup, configuration, and usage of Home Assistant.
 
 <div class="text-center hass-option-cards" markdown="0">
-  <a class='option-card' href='/hassio/'>
+  <a class='option-card' href='/getting-started/'>
     <div class='img-container'>
       <img src='https://brands.home-assistant.io/homeassistant/icon.png' />
     </div>
