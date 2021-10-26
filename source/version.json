@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% assign recent_release_post = site.categories['Release-Notes'].first %}{
+{% assign recent_release_post = site.categories['Core'].first %}{
   "current_version": "{{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}",
   "release_date": "{{ site.date_released | date_to_xmlschema }}",
   "release_notes": "{{ site.url }}{{ recent_release_post.url }}",

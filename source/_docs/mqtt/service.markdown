@@ -6,14 +6,14 @@ logo: mqtt.png
 
 The MQTT integration will register the service `mqtt.publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload.
 
-### Service `mqtt.publish`
+## Service `mqtt.publish`
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `topic` | no | Topic to publish payload to.
 | `payload` | yes | Payload to publish.
 | `payload_template` | yes | Template to render as payload value. Ignored if payload given.
-| `qos` | yes | Quality of Service to use.
+| `qos` | yes | Quality of Service to use. (default: 0)
 | `retain` | yes | If message should have the retain flag set. (default: false)
 
 <div class='note'>
@@ -26,10 +26,12 @@ payload: on
 ```
 
 {% raw %}
+
 ```yaml
 topic: home-assistant/light/1/state
-payload_template: {{ states('device_tracker.paulus') }}
+payload_template: "{{ states('device_tracker.paulus') }}"
 ```
+
 {% endraw %}
 
 `payload` must be a string. If you want to send JSON then you need to format/escape it properly. Like:

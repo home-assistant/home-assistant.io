@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: serial
+ha_platforms:
+  - sensor
 ---
 
 The `serial` sensor platform is using the data provided by a device connected to the serial port of the system where Home Assistant is running. With [`ser2net`](http://ser2net.sourceforge.net/) and [`socat`](http://www.dest-unreach.org/socat/) would it also work for sensors connected to a remote system.
@@ -84,9 +86,11 @@ value_template:
 ### TMP36
 
 {% raw %}
+
 ```yaml
 "{{ (((states('sensor.serial_sensor') | float * 5 / 1024 ) - 0.5) * 100) | round(1) }}"
 ```
+
 {% endraw %}
 
 ## Examples
@@ -127,6 +131,7 @@ $,24.3,51,12.8,1029.76,0.0,0.00,*
 To parse this into individual sensors, split using the comma delimiter and then create a template sensor for each item of interest.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -149,6 +154,7 @@ sensor:
         unit_of_measurement: "mbar"
         value_template: "{{ states('sensor.serial_sensor').split(',')[4] | float }}"
 ```
+
 {% endraw %}
 
 ### Digispark USB Development Board

@@ -7,12 +7,22 @@ ha_category:
   - Climate
   - Cover
   - Light
+  - Lock
   - Sensor
   - Scene
   - Switch
 ha_release: 0.83
 ha_iot_class: Local Push
 ha_domain: fibaro
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - lock
+  - scene
+  - sensor
+  - switch
 ---
 
 The [Fibaro](https://fibaro.com/) hub is a controller mainly connecting to Z-Wave devices.
@@ -23,6 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - Cover
 - Climate
 - Light
+- Lock
 - Sensor
 - Scene
 - Switch
@@ -86,4 +97,4 @@ device_config:
 
 ### Using Z-Wave devices in automation
 
-If you want to use a Z-Wave device from the Fibaro controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under the <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> icon of the Developer Tools section. Look for entities that contain 'fibaro_id' in their attributes, and you'll find the entity id on the left.
+If you want to use a Z-Wave device from the Fibaro controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under **Developer Tools** -> **States**. Look for entities that contain 'fibaro_id' in their attributes, and you'll find the entity id on the left.

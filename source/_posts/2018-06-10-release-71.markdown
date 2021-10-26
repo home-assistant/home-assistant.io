@@ -5,7 +5,9 @@ date: 2018-06-08 00:01:00
 date_formatted: "June 8, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-06-0.71/components.png
 ---
 
@@ -53,7 +55,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## Breaking Changes
 
-- BOM sensor: `'Wind Direction kt'` to `'Wind Speed kt'` (fixes #14535) ([@fabaff] - [#14541]) ([sensor.bom docs]) (breaking change)
+- BOM sensor: `'Wind Direction kt'` to `'Wind Speed kt'` (fixes #14535) ([@fabaff] - [#14541]) (breaking change)
 - Removed attribute current_time from Raincloudy sensors to avoid being triggered by recorder component ([@tchellomello] - [#14584]) ([raincloud docs]) ([switch.raincloud docs]) (breaking change)
 - Remove Notify My Android component as it shut down on May 24 ([@cgarwood] - [#14594]) ([notify docs]) (breaking change)
 - CoinMarketCap sensor: It is no longer possible to query a ticker by the name of the currency (i.e., bitcoin). The API instead uses IDs (integers) for these tickers (i.e., bitcoin -> 1). Rounding of decimals is now configurable, because it made no sense to round to 2 decimals if display_currency was set to BTC, some values showed up as 0.00. (#14437) ([@kotlarz] - [#14604]) ([sensor.coinmarketcap docs]) (breaking change)
@@ -74,7 +76,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade keyring to 12.2.1 ([@fabaff] - [#14521])
 - Upgrade restrictedpython to 4.0b4 ([@fabaff] - [#14537]) ([python_script docs])
 - Bump pyvera version (improve stability of poll loop). ([@pavoni] - [#14540]) ([vera docs])
-- Fix sensor name (fixes #14535) ([@fabaff] - [#14541]) ([sensor.bom docs]) (breaking change)
+- Fix sensor name (fixes #14535) ([@fabaff] - [#14541]) (breaking change)
 - Add support to ignore a xiaomi aqara gateway ([@ileler] - [#14428]) ([xiaomi_aqara docs])
 - Pushed to version 0.7.2 of denonavr ([@scarface-4711] - [#14551]) ([media_player.denonavr docs])
 - Add auto discovery for nanoleaf aurora lights ([@Oro] - [#14301]) ([light.nanoleaf_aurora docs])
@@ -375,7 +377,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [raincloud docs]: /integrations/raincloud/
 [rainmachine docs]: /integrations/rainmachine/
 [sensor.bitcoin docs]: /integrations/bitcoin
-[sensor.bom docs]: /integrations/bom#sensor
 [sensor.coinmarketcap docs]: /integrations/coinmarketcap
 [sensor.deconz docs]: /integrations/deconz#sensor
 [sensor.gitter docs]: /integrations/gitter

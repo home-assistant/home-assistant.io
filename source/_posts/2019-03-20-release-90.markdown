@@ -5,7 +5,9 @@ date: 2019-03-20 00:11:03
 date_formatted: "March 20, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-03-release-90/remote.png
 ---
 

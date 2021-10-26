@@ -5,7 +5,9 @@ date: 2016-03-12 10:55:00 -0800
 date_formatted: "March 12, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Two weeks has past so here is 0.15! We have been focussing a lot on quality. Making sure the system is more stable and reliable. I usually try to highlight one cool thing in the release notes but this release has 4 exciting announcements!
@@ -25,6 +27,8 @@ Besides bug fixes, this release also brings:
  - Device Tracker: [OwnTracks] will allow filtering inaccurate GPS locations ([@HydrelioxGitHub])
  - Binary Sensor: Wemo Motion now supported ([@pavoni], [@ryanlaux])
 
+{% raw %}
+
 ```yaml
 # Example using templates for service and data in service call.
 # Works for automation, Alexa, universal media player, template switch.
@@ -33,15 +37,17 @@ automation:
       - platform: state
         entity_id: switch.bathroom
     action:
-      service_template: >
-        {% raw %}{% if is_state('switch.bathroom', 'on') %}
+      service: >
+        {% if is_state('switch.bathroom', 'on') %}
           switch.turn_on
         {% else %}
           switch.turn_off
-        {% endif %}{% endraw %}
-      data_template:
-        entity_id: switch.{% raw %}{{ states('input_select.is') }}{% endraw %}
+        {% endif %}
+      target:
+        entity_id: switch.{{ states('input_select.is') }}
 ```
+
+{% endraw %}
 
 ### Breaking Changes
 

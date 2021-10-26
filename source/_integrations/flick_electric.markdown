@@ -9,18 +9,13 @@ ha_codeowners:
   - '@ZephireNZ'
 ha_domain: flick_electric
 ha_config_flow: true
+ha_platforms:
+  - sensor
 ---
 
 [Flick Electric Co](https://www.flickelectric.co.nz/) is a power company in New Zealand, based around a transparent pricing model where each component of pricing is provided. This integration uses the mobile app's API from Flick Electric Co to get the current power price as well as each of the components price.
 
-## Configuration
-
-This integration can be configured via the Home Assistant frontend.
-
-- Go to **Configuration** -> **Integrations**.
-- Click on the `+` in the bottom right corner to add a new integration.
-- Search and select the **Flick Electric** integration form the list.
-- Follow the instruction on screen to add the sensor.
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 

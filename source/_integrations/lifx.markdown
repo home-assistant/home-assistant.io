@@ -7,13 +7,16 @@ ha_iot_class: Local Polling
 ha_release: 0.81
 ha_config_flow: true
 ha_domain: lifx
+ha_homekit: true
+ha_platforms:
+  - light
 ---
 
 The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.
 
 _Please note, the `lifx` integration does not support Windows. The `lifx_legacy` light platform (supporting basic functionality) can be used instead._
 
-You can configure the LIFX integration by going to the integrations page inside the configuration panel.
+{% include integrations/config_flow.md %}
 
 ## Set state
 
@@ -32,20 +35,21 @@ Change the light to a new state.
 | `zones` | List of integers for the zone numbers to affect (each LIFX Z strip has 8 zones, starting at 0).
 | `infrared` | Automatic infrared level (0..255) when light brightness is low (for compatible bulbs).
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
-| `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`]({{site_root}}/integrations/light/#service-lightturn_on) to specify the new state.
+| `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`](/integrations/light/#service-lightturn_on) to specify the new state.
 
 ## Light effects
 
-The LIFX platform supports several light effects. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`]({{site_root}}/integrations/light/#service-lightturn_on) service, for example like this:
+The LIFX platform supports several light effects. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
 ```yaml
 automation:
-  - alias: ...
+  - alias: "..."
     trigger:
       # ...
     action:
       - service: light.turn_on
-        data:
+        target:
           entity_id: light.office, light.kitchen
+        data:
           effect: lifx_effect_pulse
 ```
 
@@ -53,11 +57,12 @@ However, if you want to fully control a light effect, you have to use its dedica
 ```yaml
 script:
   colorloop_start:
-    alias: 'Start colorloop'
+    alias: "Start colorloop"
     sequence:
       - service: lifx.effect_colorloop
-        data:
+        target:
           entity_id: group.livingroom
+        data:
           brightness: 255
           period: 10
           spread: 30

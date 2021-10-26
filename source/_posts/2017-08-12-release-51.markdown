@@ -5,7 +5,9 @@ date: 2017-08-12 00:11:05
 date_formatted: "August 12, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-08-0.51/components.png
 ---
 
@@ -119,12 +121,12 @@ vacuum:
 - use updated osram lightify 1.0.6 component, including bugfix allowing more than 27 devices ([@tfriedel] - [#8774]) ([light.osramlightify docs])
 - flux_led: support for property "available" ([@pezinek] - [#8764]) ([light.flux_led docs])
 - New component: bluesound ([@thrawnarn] - [#7192]) ([media_player.bluesound docs]) (new-platform)
-- Add 'forecast' ability to yr weather sensor ([@tinloaf] - [#8650]) ([sensor.yr docs])
+- Add 'forecast' ability to yr weather sensor ([@tinloaf] - [#8650])
 - Feature alexa launch request ([@steverhoades] - [#8730]) ([alexa docs])
 - Fixes UnboundLocalError: local variable 'setting' referenced before assignment ([@syssi] - [#8782]) ([climate.tado docs])
 - Upgrade pyasn1 to 0.3.1 and pyasn1-modules to 0.0.10 ([@fabaff] - [#8787]) ([notify.xmpp docs])
 - Upgrade sphinx-autodoc-typehints to 1.2.1 ([@fabaff] - [#8783])
-- Improvements (configuration and validation) ([@fabaff] - [#8785]) ([sensor.yr docs])
+- Improvements (configuration and validation) ([@fabaff] - [#8785])
 - Fix referencing unset variable in tado climate component (causes update to fail when tado zone is in manual mode) ([@luukd] - [#8723]) ([climate.tado docs])
 - mqtt switch: add voluptuous for availability topic ([@abmantis] - [#8797]) ([switch.mqtt docs])
 - Add mochad light component ([@mtreinish] - [#8476]) ([light.mochad docs]) (new-platform)
@@ -433,7 +435,6 @@ vacuum:
 [sensor.synologydsm docs]: /integrations/synologydsm
 [sensor.systemmonitor docs]: /integrations/systemmonitor
 [sensor.vasttrafik docs]: /integrations/vasttrafik
-[sensor.yr docs]: /integrations/yr
 [sensor.zamg docs]: /integrations/zamg#sensor
 [switch.command_line docs]: /integrations/switch.command_line/
 [switch.mqtt docs]: /integrations/switch.mqtt/

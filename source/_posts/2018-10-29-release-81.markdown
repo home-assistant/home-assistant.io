@@ -5,7 +5,9 @@ date: 2018-10-26 00:01:00
 date_formatted: "October 26, 2018"
 author: Tinkerer
 author_twitter: Dubh_Ad
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-10-release-81/social.png
 ---
 
@@ -347,7 +349,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Homekit component cleanup ([@cdce8p] - [#17627]) ([homekit docs])
 - Use cached robot serial for Neato update ([@dshokouhi] - [#17633]) ([vacuum.neato docs])
 - deCONZ - Add support for Xiaomi window covers ([@Kane610] - [#17337]) ([deconz docs]) ([cover.deconz docs])
-- Fix linky sensor login error ([@Debaru] - [#17110]) ([sensor.linky docs])
+- Fix linky sensor login error ([@Debaru] - [#17110])
 - Fix mqtt light brightness slider ([@thinkl33t] - [#17075]) ([light.mqtt docs])
 - Add opentherm_gw binary sensor support ([@mvn23] - [#17625]) ([opentherm_gw docs]) ([binary_sensor.opentherm_gw docs]) (new-platform)
 - Upgrade dsmr_parser to 0.12 ([@raymondelooff] - [#17634]) ([sensor.dsmr docs])

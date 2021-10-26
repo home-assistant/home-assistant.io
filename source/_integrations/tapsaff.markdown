@@ -6,6 +6,10 @@ ha_category:
 ha_release: 0.47
 ha_iot_class: Local Polling
 ha_domain: tapsaff
+ha_codeowners:
+  - '@bazwilliams'
+ha_platforms:
+  - binary_sensor
 ---
 
 The `tapsaff` binary sensor provides the 'Taps Aff' status for a given location within the UK using [Taps Aff](https://www.taps-aff.co.uk/).

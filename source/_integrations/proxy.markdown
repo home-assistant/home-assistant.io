@@ -5,6 +5,8 @@ ha_category:
   - Camera
 ha_release: 0.65
 ha_domain: proxy
+ha_platforms:
+  - camera
 ---
 
 The `proxy` camera platform allows you to pass another camera's output through post-processing routines and generate a new camera with the post-processed output.
@@ -114,5 +116,7 @@ camera:
     mode: crop
     max_image_width: 480
     max_image_height: 320
+    max_stream_width: 480
+    max_stream_height: 320
     image_left: 100
 ```

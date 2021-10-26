@@ -12,6 +12,17 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ha_domain: verisure
+ha_codeowners:
+  - '@frenck'
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - camera
+  - lock
+  - sensor
+  - switch
+ha_config_flow: true
+ha_dhcp: true
 ---
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.
@@ -25,75 +36,20 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 - Binary Sensor (Door & Window)
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To integrate Verisure with Home Assistant, add the following section to your `configuration.yaml` file:
+## 2 Factor Authentication Prerequisite
 
-```yaml
-# Example configuration.yaml entry
-verisure:
-  username: USERNAME
-  password: PASSWORD
-```
+Verisure added 2FA rules to Verisure My Pages that aren't supported through their third-party API integration. If you have 2FA enabled, which is forced by default, you might not be able to use this integration. Here is the suggested way to deactivate 2FA (if it's allowed in your region).
 
-{% configuration %}
-username:
-  description: The username to Verisure mypages.
-  required: true
-  type: string
-password:
-  description: The password to Verisure mypages.
-  required: true
-  type: string
-alarm:
-  description: Set to `true` to show alarm, `false` to disable.
-  required: false
-  type: boolean
-  default: true
-hygrometers:
-  description: Set to `true` to show hygrometers, `false` to disable.
-  required: false
-  type: boolean
-  default: true
-smartplugs:
-  description: Set to `true` to show smartplugs, `false` to disable.
-  required: false
-  type: boolean
-  default: true
-locks:
-  description: Set to `true` to show locks, `false` to disable.
-  required: false
-  type: boolean
-  default: true
-default_lock_code:
-  description: Code that will be used to lock or unlock, if none is supplied.
-  required: false
-  type: string
-thermometers:
-  description: Set to `true` to show thermometers, `false` to disable.
-  required: false
-  type: boolean
-  default: true
-mouse:
-  description: Set to `true` to show mouse detectors, `false` to disable.
-  required: false
-  type: boolean
-  default: true
-door_window:
-  description: Set to `true` to show mouse detectors, `false` to disable.
-  required: false
-  type: boolean
-  default: true
-code_digits:
-  description: Number of digits in PIN code.
-  required: false
-  type: integer
-  default: 4
-giid:
-  description: The GIID of your installation (If you have more then one alarm system). To find the GIID for your systems run `python verisure.py` EMAIL PASSWORD installations'.
-  required: false
-  type: string
-{% endconfiguration %}
+You can deactivate 2FA for your admin account and use that for Home Assistant but this isn't recommended. The steps below sets up a specific Home Assistant user and gives it restricted access.
+
+1. Log in to Verisure My Pages as your admin user and create a new admin user for Home Assistant.
+2. Log in as your newly created Home Assistant user, you'll be prompted to set up 2FA, do that and then log out. This will make sure the options below are available.
+3. Log in as the Home Assistant user, browse to Account and subscription -> Account -> Login Credentials -> Disable 2FA.<div class='note warning'>This will only be available if the user is admin and has logged in once with 2FA, logged out and in again.</div>
+4. Log in as your administrator again and change the Home Assistant user to a restricted user.
+5. Change Home Assistant Verisure config to the new user credentials in Home Assistant.
+6. Restart Home Assistant.
 
 ## Alarm Control Panel
 
@@ -103,20 +59,24 @@ The requirement is that you have setup your Verisure hub first, with the instruc
 
 The `changed_by` attribute enables one to be able to take different actions depending on who armed/disarmed the alarm in [automation](/getting-started/automation/).
 
+{% raw %}
+
 ```yaml
 automation:
-  - alias: Alarm status changed
+  - alias: "Alarm status changed"
     trigger:
       - platform: state
         entity_id: alarm_control_panel.alarm_1
     action:
       - service: notify.notify
-        data_template:
+        data:
           message: >
-            {% raw %}Alarm changed from {{ trigger.from_state.state }}
+            Alarm changed from {{ trigger.from_state.state }}
             to {{ trigger.to_state.state }}
-            by {{ trigger.to_state.attributes.changed_by }}{% endraw %}
+            by {{ trigger.to_state.attributes.changed_by }}
 ```
+
+{% endraw %}
 
 ## Services
 

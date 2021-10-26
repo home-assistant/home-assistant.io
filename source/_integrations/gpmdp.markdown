@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: '0.20'
 ha_domain: gpmdp
+ha_platforms:
+  - media_player
 ---
 
 The `gpmdp` media player platform allows you to control a [GPMDP](https://www.googleplaymusicdesktopplayer.com/) instance running on a computer from Home Assistant.

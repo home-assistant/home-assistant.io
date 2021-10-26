@@ -1,12 +1,9 @@
 ---
 title: "Automating Home Assistant"
 description: "A quick intro on getting your first automation going."
-redirect_from:
- - /getting-started/automation-create-first/
- - /getting-started/automation-2/
 ---
 
-Once your devices are set up, it's time to put the cherry on the pie: automation. In this guide we're going to create a simple automation rule to **turn on the lights when the sun sets**.
+Once your devices are set up, it's time to put the cherry on the pie: automation. In this guide we're going to create a simple automation rule to **turn on the lights when the sun sets**. Of course, this assumes that you have set up an integration that provides a light at this point.
 
 In the user interface, click Configuration in the sidebar, then click Automation. You will now see the automation screen from which you can manage all the automations in Home Assistant.
 
@@ -46,10 +43,14 @@ A new automation with the action set up to turn on the lights.
 
 Click the orange button to save the automation. Now wait till it's 30 minutes until the sun sets and see your automation magic!
 
-Further reading on automations:
+{% include getting-started/next_step.html step="Presence detection" link="/getting-started/presence-detection/" %}
+
+If after completing this getting started, you are interested in reading more
+about automations, we recommend the following page.
 
 - [Triggers](/docs/automation/trigger/)
 - [Conditions](/docs/automation/condition/)
 - [Actions](/docs/automation/action/)
 
-### [Next step: Presence detection &raquo;](/getting-started/presence-detection/)
+Please note, these pages require a bit more experience with Home Assistant
+than you probably have at this point of this tutorial.

@@ -8,6 +8,9 @@ ha_category:
 ha_release: 0.94
 ha_iot_class: Local Push
 ha_domain: remote_rpi_gpio
+ha_platforms:
+  - binary_sensor
+  - switch
 ---
 
 The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. For the platform configurations, please check their corresponding sections.

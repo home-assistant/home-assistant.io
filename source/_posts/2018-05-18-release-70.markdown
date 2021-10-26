@@ -5,7 +5,9 @@ date: 2018-05-27 00:01:00
 date_formatted: "May 27, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's time for release 0.70. It's a little later than expected because of a major overhaul of how our frontend is build. It should not have any impact on how the frontend looks or behaves. Thanks to all the people running the beta who helped test this. Right now it looks like Firefox is still having some issues running the Hass.io panel. We're working on releasing a fix for that soon.
@@ -88,7 +90,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Gogogate2 0.1.1 ([@dlbroadfoot] - [#14294]) ([cover.gogogate2 docs])
 - Snips: Added slot values for siteId and probability ([@tschmidty69] - [#14315]) ([snips docs])
 - Add help for conversation/process service ([@stephanerosi] - [#14323])
-- Fix BOM weather '-' value ([@nickw444] - [#14042]) ([sensor.bom docs]) ([weather.bom docs])
+- Fix BOM weather '-' value ([@nickw444] - [#14042])
 - Make sure zwave nodes/entities enter the registry is proper state. ([@andrey-git] - [#14251]) ([zwave docs])
 - Improving icloud device tracker ([@evgeniy-khatko] - [#14078]) ([device_tracker docs])
 - Adds useful attributes to RainMachine programs and zones ([@bachya] - [#14087]) ([switch.rainmachine docs])
@@ -404,7 +406,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [qwikswitch docs]: /integrations/qwikswitch/
 [sabnzbd docs]: /integrations/sabnzbd/
 [sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
-[sensor.bom docs]: /integrations/bom#sensor
 [sensor.buienradar docs]: /integrations/sensor.buienradar/
 [sensor.darksky docs]: /integrations/darksky
 [sensor.fints docs]: /integrations/fints
@@ -435,7 +436,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [telegram_bot docs]: /integrations/telegram_bot/
 [tts docs]: /integrations/tts/
 [updater docs]: /integrations/updater/
-[weather.bom docs]: /integrations/bom
 [websocket_api docs]: /integrations/websocket_api/
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [zha docs]: /integrations/zha/

@@ -46,6 +46,10 @@
 @media only screen and (min-width: $desk-start) {
   #components-page {
     .filter-button-group {
+      .active {
+        font-weight: bold;
+      }
+
       .featured {
         margin: 12px 0;
       }

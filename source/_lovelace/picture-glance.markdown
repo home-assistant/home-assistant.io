@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Picture Glance Card"
 sidebar_label: Picture Glance
 description: "The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog."
@@ -14,7 +15,7 @@ The Picture Glance card shows an image and corresponding entity states as an ico
 {% configuration %}
 type:
   required: true
-  description: picture-glance
+  description: "`picture-glance`"
   type: string
 entities:
   required: true
@@ -52,7 +53,7 @@ state_filter:
   type: map
 aspect_ratio:
   required: false
-  description: "Forces the height of the image to be a ratio of the width. You may enter a value such as: `16x9`, `16:9`, `1.78`."
+  description: 'Forces the height of the image to be a ratio of the width. Valid formats: Height percentage value (`23%`) or ratio expressed with colon or "x" separator (`16:9` or `16x9`). For a ratio, the second element can be omitted and will default to "1" (`1.78` equals `1.78:1`).'
   type: string
 entity:
   required: false
@@ -60,12 +61,12 @@ entity:
   type: string
 show_state:
   required: false
-  description: Show entity state-text.
+  description: Show entity state text.
   type: boolean
-  default: true
+  default: false
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 tap_action:
   required: false
@@ -88,19 +89,19 @@ If you define entities as objects instead of strings, you can add more customiza
 {% configuration %}
 entity:
   required: true
-  description: Home Assistant entity ID.
+  description: Entity ID.
   type: string
 attribute:
   required: false
-  description: Attribute of the entity to display instead of the state
+  description: Attribute of the entity to display instead of the state.
   type: string
 prefix:
   required: false
-  description: Prefix to display before the attribute's value
+  description: Prefix to display before the attribute's value.
   type: string
 suffix:
   required: false
-  description: Suffix to display after the attribute's value
+  description: Suffix to display after the attribute's value.
   type: string
 icon:
   required: false
@@ -108,7 +109,7 @@ icon:
   type: string
 show_state:
   required: false
-  description: Show entity state-text.
+  description: Show entity state text.
   type: boolean
   default: true
 tap_action:
@@ -130,7 +131,7 @@ double_tap_action:
 {% configuration badges %}
 user:
   required: true
-  description: User id that can see the view tab.
+  description: User ID that can see the view tab.
   type: string
 {% endconfiguration %}
 

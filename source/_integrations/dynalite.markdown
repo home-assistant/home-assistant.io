@@ -12,6 +12,10 @@ ha_codeowners:
   - '@ziv1234'
 ha_config_flow: true
 ha_domain: dynalite
+ha_platforms:
+  - cover
+  - light
+  - switch
 ---
 
 Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light, switch, and cover platforms. 
@@ -28,7 +32,7 @@ A Dynalite area typically (although not necessarily) defines some physical area,
 
 Each area can have one or more channels that correspond to the different devices they control. A channel can relate to a dimmable light, or other devices.
 
-Additionally, each area can have one or more presets that determine the behavior of all the channels, and sometimes trigger additional actions. Typically, preset 1 in an area means 'on', and preset '4' means off. Additional presets could be used for scenes and dimming.
+Additionally, each area can have one or more presets that determine the behavior of all the channels, and sometimes trigger additional actions. Typically, preset '1' in an area means 'on', and preset '4' means 'off'. Additional presets could be used for scenes and dimming.
 
 ## Configuration
 
@@ -98,7 +102,6 @@ area:
           description: "Type of template to use for the area. Supported values are: `room` and `time_cover`. They are described in detail below in the **template** section. If the template parameters are different than defaults, they can be overridden in this section as well."
           require: false
           type: string
-          default: No template
         TEMPLATE_PARAMS:
           description: "This can be any of the settings of the template. For example, for template `room`: `room_on` and `room_off` are possible options."
           required: false
@@ -129,6 +132,10 @@ area:
                   required: false
                   type: float
                   default: 2.0
+                level:
+                  description: Level of the channels when the preset is selected, between 0 and 1.
+                  required: false
+                  type: float
         nodefault:
           description: Do not use the default presets defined globally, but only the specific ones defined for this area.
           required: false
@@ -179,6 +186,10 @@ preset:
           required: false
           type: float
           default: 2.0
+        level:
+          description: Level of the channels when the preset is selected, between 0 and 1.
+          required: false
+          type: float
 template:
   description: Set the default parameters for the templates.
   required: false
@@ -223,7 +234,6 @@ template:
           description: Channel that monitors the cover.
           required: false
           type: integer
-          default: No channel
         duration:
           description: Time in seconds it takes to open or close the cover.
           required: false
@@ -278,16 +288,16 @@ dynalite:
           template: time_cover
       preset:
         '1':
-          name: 'On'
+          name: "On"
         '4':
-          name: 'Off'
+          name: "Off"
       template:
         room:
           room_on: 1
           room_off: 4
 ```
 
-## Initial configuration and discovery
+## Initial Configuration and Discovery
 
 Maybe the most difficult thing about a Dynalite system is finding out the areas and channel mapping. If you have them or have access to the Dynalite software and your configuration files, this could be easy,
 but in the likely case that your system was installed by an integrator, you will have to discover them on your own.
@@ -297,3 +307,58 @@ This is where the `autodiscover` option comes handy. If it is on, the component 
 For example, you would go to your kitchen light and turn it on. Now you log into Home Assistant and see what the channel was. If there was more than one discovered (e.g., someone turned off the living room lights), you can try one, turn it on and off in Home Assistant and see which light it affects.
 
 The initial process can be a bit time consuming and tedious, but it only has to be done once. Once you are done configuring, it is better to set `autodiscover` to `false`, since there are many "fake" channels and areas that the system uses for internal communication and you do not want to have visible.
+
+## Services
+
+### Service `dynalite.request_area_preset`
+
+Send a command on the Dynalite network asking an area to report its currently selected preset. Normally, channel 1 (default) is used, but in some implementation, specific areas will need other channels.
+
+<div class='note'>
+
+This does not return the area preset. It sends a network command asking the area to report its preset. Once it reports, that will be caught and handled by the system.
+
+</div>
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `host` | yes | Which gateway to send the command to. If not specified, sends to all configured gateways.
+| `area` | no | Area for the requested channel.
+| `channel` | no | Which channel to request.
+
+### Service `dynalite.request_channel_level`
+
+Send a command on the Dynalite network asking a specific channel in an area to report its current level.
+
+<div class='note'>
+
+This does not return the channel level. It sends a network command asking the channel to report its level. Once it reports, that will be caught and handled by the system.
+
+</div>
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `host` | yes | Which gateway to send the command to. If not specified, sends to all configured gateways.
+| `area` | no | Which area to request the preset for.
+| `channel` | yes | Which channel to use. If not specified, uses the area configuration or system default.
+
+## Events
+
+### Event `dynalite_preset`
+
+Event `dynalite_preset` is fired every time a preset is selected in a given Dynalite area.
+
+| Field       | Description                                                                                         |
+| ----------- | --------------------------------------------------------------------------------------------------- |
+| `host`      | Host IP of the Dynalite gateway                                                                     |
+| `area`      | Area number where preset was selected                                                               |
+| `preset`    | The specific preset that was selected                                                               |
+
+### Event `dynalite_packet`
+
+Event `dynalite_packet` is fired whenever there is a packet on the Dynalite network.
+
+| Field       | Description                                                                                         |
+| ----------- | --------------------------------------------------------------------------------------------------- |
+| `host`      | Host IP of the Dynalite gateway                                                                     |
+| `packet`    | List of integers representing the 8-byte packet, including the checksum                             |

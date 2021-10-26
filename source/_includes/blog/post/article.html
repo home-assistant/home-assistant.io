@@ -24,7 +24,8 @@
 
 {% if index %}
   <div class="entry-content clearfix">
-    {{ post.excerpt }}
+    {% assign blog_post_link = 'href="' | append: post.url | append:"#" %}
+    {{ post.excerpt | replace: 'href="#', blog_post_link }}
     {% if post.content contains site.excerpt_separator %}
       <a class="btn pull-right" href="{{ post.url }}#read-more">{{ site.excerpt_link }}</a>
     {% endif %}

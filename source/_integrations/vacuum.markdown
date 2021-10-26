@@ -3,13 +3,14 @@ title: Vacuum
 description: Instructions on how to setup and use vacuum's in Home Assistant.
 ha_release: 0.51
 ha_domain: vacuum
+ha_quality_scale: internal
 ---
 
 The `vacuum` integration enables the ability to control home cleaning robots within Home Assistant.
 
 ## Configuration
 
-To use this integration in your installation, add a `vacuum` platform to your `configuration.yaml` file, like the [Xiaomi](/integrations/vacuum.xiaomi_miio/).
+To use this integration in your installation, add a `vacuum` platform to your `configuration.yaml` file, like the [Xiaomi](/integrations/xiaomi_miio#xiaomi-mi-robot-vacuum).
 
 ```yaml
 # Example configuration.yaml entry
@@ -43,7 +44,7 @@ Stop the current cleaning task and return to the dock. For the Xiaomi Vacuum, Ro
 
 #### Service `vacuum.start_pause`
 
-Start, pause or resume a cleaning task.
+Start, pause or resume a cleaning task. For the Xiaomi Vacuum, Roomba, and Neato use `vacuum.start` and `vacuum.pause` instead.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|

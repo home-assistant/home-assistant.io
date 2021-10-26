@@ -40,7 +40,7 @@ Many things! However, here is a list of things that I am most enthusiastic about
  - Accessibility. We want to make Hass.io run on as many devices as possible, making it very easy for people to get started with a private home.
  - Integrate Mozilla's [Web Things API] to make it easier to interact with other home automation platforms. The introduced device management makes it perfectly aligned with the Web Things data model.
  - Cloud Transparency. We want to make it visible what data is being shared with Amazon Alexa and Google Home clouds.
- - Better Z-Wave. Our current integration has room for improvement. The owner of Z-Wave has announced a [public SDK](http://zwavepublic.com/), which we should explore to integrate with Home Assistant.
+ - Better Z-Wave. Our current integration has room for improvement. The owner of Z-Wave has announced a public SDK, which we should explore to integrate with Home Assistant.
 
 ## What we need to achieve this goal
 

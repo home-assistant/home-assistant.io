@@ -8,9 +8,17 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@JeffLIrion'
 ha_domain: androidtv
+ha_platforms:
+  - media_player
 ---
 
 The `androidtv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
+
+<div class='note'>
+
+When setting up this integration, it is recommended that you do NOT use an ADB server and instead use the built-in Python ADB implementation. This simplifies the setup and makes it easier to troubleshoot issues. If there are stability issues with this approach, then you may wish to try using an ADB server. See the [ADB Setup](#adb-setup) section for more information.
+
+</div>
 
 ## Device preparation
 
@@ -35,12 +43,6 @@ media_player:
   - platform: androidtv
     name: Android TV 1
     host: 192.168.0.111
-
-  # Use an ADB server for sending ADB commands
-  - platform: androidtv
-    name: Android TV 2
-    host: 192.168.0.222
-    adb_server_ip: 127.0.0.1
 ```
 
 {% configuration %}
@@ -185,7 +187,7 @@ Prior to Home Assistant 0.101, this approach did not work well for newer devices
 
 The second option is to use an ADB server to connect to your Android TV and Fire TV devices.
 
-For Home Assistant users, you can install the [Android Debug Bridge](https://github.com/hassio-addons/addon-adb/blob/master/README.md) add-on. Using this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Android TV / Fire TV device and report back to Home Assistant. To use this option, add the `adb_server_ip` option to your configuration. If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
+Using this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Android TV / Fire TV device and report back to Home Assistant. To use this option, add the `adb_server_ip` option to your configuration. If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
 
 ## ADB Troubleshooting
 
@@ -215,16 +217,18 @@ You can launch an app on your device using the `media_player.select_source` comm
 start_netflix:
   sequence:
   - service: media_player.select_source
-    data:
+    target:
       entity_id: media_player.fire_tv_living_room
-      source: 'com.netflix.ninja'
+    data:
+      source: "com.netflix.ninja"
 
 stop_netflix:
   sequence:
   - service: media_player.select_source
-    data:
+    target:
       entity_id: media_player.fire_tv_living_room
-      source: '!com.netflix.ninja'
+    data:
+      source: "!com.netflix.ninja"
 ```
 
 ### `androidtv.adb_command`
@@ -241,8 +245,9 @@ In an [action](/getting-started/automation-action/) of your [automation setup](/
 ```yaml
 action:
   service: androidtv.adb_command
-  data:
+  target:
     entity_id: media_player.androidtv_tv_living_room
+  data:
     command: "HOME"
 ```
 
@@ -265,9 +270,43 @@ You can also use the command `GET_PROPERTIES` to retrieve the properties used by
 
 A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e6875e1db5c089b1e3ddeb7dba0f304).
 
+### `androidtv.learn_sendevent` (for faster ADB commands)
+
+When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow to respond. The problem isn't ADB, but rather the Android command `input` that is used to perform those actions. A faster way to send these commands is using the Android `sendevent` command. The challenge is that these commands are device-specific. To assist users in learning commands for their device, the Android TV integration provides the `androidtv.learn_sendevent` service. Its usage is as follows:
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |       no | Name(s) of Android TV / Fire TV entities.
+
+1. Call the `androidtv.learn_sendevent` service.
+2. Within 8 seconds, hit a single button on your Android TV / Fire TV remote.
+3. After 8 seconds, a persistent notification will appear that contains the equivalent command that can be sent via the `androidtv.adb_command` service. This command can also be found in the `adb_response` attribute of the media player in Home Assistant, and it will be logged at the INFO level.
+
+As an example, a service call in a [script](/docs/scripts) could be changed from this:
+
+```yaml
+# Send the "UP" command (slow)
+- service: androidtv.adb_command
+  target:
+    entity_id: media_player.fire_tv_living_room
+  data:
+    command: UP
+```
+
+to this:
+
+```yaml
+# Send the "UP" command using `sendevent` (faster)
+- service: androidtv.adb_command
+  target:
+    entity_id: media_player.fire_tv_living_room
+  data:
+    command: "sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 0 && sendevent /dev/input/event4 0 0 0"
+```
+
 ### `androidtv.download` and `androidtv.upload`
 
-You can use the `androidtv.download` service to download a file from your Android TV / Fire TV device to your Home Assistant instance. 
+You can use the `androidtv.download` service to download a file from your Android TV / Fire TV device to your Home Assistant instance.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -289,13 +328,13 @@ The Android TV integration works by polling the Android TV / Fire TV device at a
 
 The solution to this problem is the `state_detection_rules` configuration parameter, which allows you to provide your own rules for state detection.  The keys are app IDs, and the values are lists of rules that are evaluated in order.  Valid rules are:
 
-* `'standby'`, `'playing'`, `'paused'`, `'idle'`, or `'off'`
-  * If this is not a map, then this state will always be reported when this app is the current app
-  * If this is a map, then its entries are conditions that will be checked.  If all of the conditions are true, then this state will be reported.  Valid conditions pertain to 3 properties (see the example configuration above):
+- `'standby'`, `'playing'`, `'paused'`, `'idle'`, or `'off'`
+  - If this is not a map, then this state will always be reported when this app is the current app
+  - If this is a map, then its entries are conditions that will be checked.  If all of the conditions are true, then this state will be reported.  Valid conditions pertain to 3 properties (see the example configuration above):
     1. ``'media_session_state'``
     2. ``'audio_state'``
     3. ``'wake_lock_size'``
-* `'media_session_state'` = try to use the `media_session_state` property to determine the state
-* `'audio_state'` = try to use the `audio_state` property to determine the state
+- `'media_session_state'` = try to use the `media_session_state` property to determine the state
+- `'audio_state'` = try to use the `audio_state` property to determine the state
 
 To determine what these rules should be, you can use the `androidtv.adb_command` service with the command `GET_PROPERTIES`, as described in the [androidtv.adb_command](#androidtvadb_command) section.

@@ -3,6 +3,7 @@ title: RSS Feed Template
 description: Use this integration to generate RSS feeds showing your latest data.
 ha_category:
   - Front End
+ha_iot_class: Local Push
 ha_release: 0.44
 ha_quality_scale: internal
 ha_domain: rss_feed_template
@@ -12,6 +13,8 @@ The `rss_feed_template` integration can export any information from Home Assista
 
 For example, on Android, the app "Simple RSS Widget" can be used to display temperatures on the home screen.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 rss_feed_template:
@@ -19,11 +22,13 @@ rss_feed_template:
   # Example: https://localhost:8123/api/rss_template/garden
   garden:
     requires_api_password: false
-    title: "Garden {% raw %}{{ as_timestamp(now())|timestamp_custom('%H:%M', True) }}{% endraw %}"
+    title: "Garden {{ as_timestamp(now())|timestamp_custom('%H:%M', True) }}"
     items:
     - title: "Outside temperature"
-      description: "{% raw %}{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states('sensor.temp_outside')}} °C{% endif %}{% endraw %}"
+      description: "{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states('sensor.temp_outside')}} °C{% endif %}"
 ```
+
+{% endraw %}
 
 {% configuration %}
 requires_api_password:

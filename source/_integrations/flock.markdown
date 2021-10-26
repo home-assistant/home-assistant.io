@@ -3,10 +3,13 @@ title: Flock
 description: Instructions on how to add Flock notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.71
 ha_codeowners:
   - '@fabaff'
 ha_domain: flock
+ha_platforms:
+  - notify
 ---
 
 The `flock` platform uses [Flock.com](https://flock.com) to deliver notifications from Home Assistant.
@@ -16,13 +19,13 @@ The `flock` platform uses [Flock.com](https://flock.com) to deliver notification
 Go to the [Flock.com Admin website](https://admin.flock.com/#!/webhooks) and create a new "Incoming Webhooks". Choose a channel to send the notifications from Home Assistant to, specify a name and press *Save and Generate URL*.
 
 <p class='img'>
-  <img src='{{site_root}}/images/integrations/flock/flock-webhook.png' />
+  <img src='/images/integrations/flock/flock-webhook.png' />
 </p> 
 
 You will need the last part of the URL which is the `access_token` for your room.
 
 <p class='img'>
-  <img src='{{site_root}}/images/integrations/flock/new-webhook.png' />
+  <img src='/images/integrations/flock/new-webhook.png' />
 </p> 
 
 ## Configuration

@@ -3,10 +3,13 @@ title: Signal Messenger
 description: Instructions on how to integrate Signal Messenger within Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.104
 ha_codeowners:
   - '@bbernhard'
 ha_domain: signal_messenger
+ha_platforms:
+  - notify
 ---
 
 The `signal_messenger` integration uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
@@ -63,7 +66,7 @@ recipients:
 
 ## Examples
 
-A few examples on how to use this integration.
+A few examples on how to use this integration as actions in automations.
 
 ### Text message
 

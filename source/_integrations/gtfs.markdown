@@ -5,9 +5,9 @@ ha_category:
   - Transport
 ha_iot_class: Local Polling
 ha_release: 0.17
-ha_codeowners:
-  - '@robbiet480'
 ha_domain: gtfs
+ha_platforms:
+  - sensor
 ---
 
 The `gtfs` sensor will give you the next departure time and associated data from your public transit station/stop. The data comes from your chosen public transit authority and is formatted as [General Transit Feed Specification](https://developers.google.com/transit/gtfs/) data, commonly known as GTFS.

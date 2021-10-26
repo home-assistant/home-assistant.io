@@ -7,7 +7,9 @@ date_formatted: "April 8, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-04-0.108/social.png
 ---
 
@@ -651,7 +653,7 @@ These integrations have been removed. The websites for both have changed, causin
 - Type hint improvements ([@scop] - [#32905]) ([directv docs]) ([directv docs]) ([gtfs docs]) ([here_travel_time docs]) ([remote docs]) ([switch docs]) ([switcher_kis docs]) ([vizio docs]) ([zone docs])
 - Small tweaks ([@dshokouhi] - [#32946]) ([obihai docs])
 - Resolve unexpected exception caused by sinch error_code being a string ([@bendikrb] - [#32929]) ([sinch docs])
-- Bump pyubee to 0.10 to support more Ubee routers ([@mzdrale] - [#32934]) ([ubee docs])
+- Bump pyubee to 0.10 to support more Ubee routers ([@mzdrale] - [#32934])
 - Add support for homekit valve accessories to homekit_controller ([@Jc2k] - [#32937]) ([homekit_controller docs])
 - Remove deprecated features from MQTT platforms ([@emontnemery] - [#32909]) ([mqtt docs]) (breaking change)
 - Add pending to template alarm ([@MatthewFlamm] - [#31614]) ([template docs])
@@ -1450,7 +1452,6 @@ These integrations have been removed. The websites for both have changed, causin
 [tplink docs]: /integrations/tplink/
 [tts docs]: /integrations/tts/
 [twentemilieu docs]: /integrations/twentemilieu/
-[ubee docs]: /integrations/ubee/
 [unifi docs]: /integrations/unifi/
 [velbus docs]: /integrations/velbus/
 [version docs]: /integrations/version/

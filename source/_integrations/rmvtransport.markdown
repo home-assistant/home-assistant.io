@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@cgtobi'
 ha_domain: rmvtransport
+ha_platforms:
+  - sensor
 ---
 
 The `rvmtransport` sensor will give you the departure time of the next bus, tram, subway or train at the next station or stop in the Rhein-Main area public transport network. Additional details such as the line number and destination are present in the attributes.
@@ -101,13 +103,13 @@ sensor:
           - 'Bus'
           - 'S'
       - station: 3006907
-        products: 'Bus'
+        products: "Bus"
         destinations: ['Wiesbaden Dernsches Gelände', 'Mainz Hauptbahnhof']
         name: Destination
       - station: 3006904
-        lines: 'S8'
+        lines: "S8"
         max_journeys: 5
-        products: 'S'
+        products: "S"
 ```
 
 The first sensor will return S-Bahn, bus, RB and RE trains departures from Frankfurt Hauptbahnhof to Frankfurt Airport or Stadium that are at least 5 minutes away.

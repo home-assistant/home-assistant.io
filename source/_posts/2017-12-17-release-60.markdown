@@ -5,7 +5,9 @@ date: 2017-12-17 02:00:00
 date_formatted: "December 17, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-12-0.60/components.png
 ---
 
@@ -29,7 +31,7 @@ Yahoo! has discontinued their financial service. To fill this gap we have now th
 
 ## New Platforms
 
-- Add iAlarm support ([@RyuzakiKK] - [#10878]) ([alarm_control_panel.ialarm docs]) (new-platform)
+- Add iAlarm support ([@RyuzakiKK] - [#10878]) (new-platform)
 - Add Alpha Vantage sensor ([@fabaff] - [#10873]) ([sensor.alpha_vantage docs]) (new-platform)
 - Add ADS component ([@stlehmann] - [#10142]) ([ads docs]) ([binary_sensor.ads docs]) ([light.ads docs]) ([sensor.ads docs]) ([switch.ads docs]) (new-platform)
 - Gearbest sensor ([@HerrHofrat] - [#10556]) (new-platform)
@@ -85,7 +87,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Unpacking RESTful sensor JSON results into attributes. ([@nickovs] - [#10753]) ([sensor.rest docs])
 - Bump dev to 0.60.0.dev0 ([@fabaff] - [#10912])
 - Update eliqonline.py ([@molobrakos] - [#10914]) ([sensor.eliqonline docs])
-- Add iAlarm support ([@RyuzakiKK] - [#10878]) ([alarm_control_panel.ialarm docs]) (new-platform)
+- Add iAlarm support ([@RyuzakiKK] - [#10878]) (new-platform)
 - Correction of Samsung Power OFF behaviour ([@RiRomain] - [#10907]) ([media_player.samsungtv docs])
 - Add Alpha Vantage sensor ([@fabaff] - [#10873]) ([sensor.alpha_vantage docs]) (new-platform)
 - Don't repeat getting receiver name on each update / pushed to denonavr 0.5.5 ([@scarface-4711] - [#10915]) ([media_player.denonavr docs])
@@ -141,7 +143,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Report availability for TP-Link smart bulbs ([@DanNixon] - [#10976]) ([light.tplink docs])
 - Fix incorrect comment. ([@emosenkis] - [#11111])
 - Update Warrant ([@balloob] - [#11101]) ([cloud docs])
-- Fixed typo in automation.py ([@ryanm101] - [#11116]) ([config.automation docs])
+- Fixed typo in automation.py ([@ryanm101] - [#11116]) ([config docs])
 - Add media position properties ([@pschmitt] - [#10076])
 - update pyripple ([@nkgilley] - [#11122]) ([sensor.ripple docs])
 - Skip HASS emulated Hue bridges from detection. ([@andreacampi] - [#11128]) ([hue docs])
@@ -300,7 +302,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ziotibia81]: https://github.com/ziotibia81
 [ads docs]: /integrations/ads/
 [alarm_control_panel.egardia docs]: /integrations/egardia
-[alarm_control_panel.ialarm docs]: /integrations/ialarm
 [alarm_control_panel.manual docs]: /integrations/manual
 [alarm_control_panel.manual_mqtt docs]: /integrations/manual_mqtt/
 [alarm_control_panel.totalconnect docs]: /integrations/totalconnect
@@ -316,7 +317,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.tado docs]: /integrations/tado
 [cloud docs]: /integrations/cloud/
 [cloud.const docs]: /integrations/cloud/
-[config.automation docs]: /integrations/config.automation/
+[config docs]: /integrations/config
 [cover.tellstick docs]: /integrations/tellstick#cover
 [device_tracker docs]: /integrations/device_tracker/
 [device_tracker.meraki docs]: /integrations/meraki

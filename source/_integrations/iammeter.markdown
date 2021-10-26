@@ -9,9 +9,17 @@ ha_iot_class: Local Polling
 ha_domain: iammeter
 ha_codeowners:
   - '@lewei50'
+ha_platforms:
+  - sensor
 ---
 
 `iammeter` provides real-time readings of single-phase (WEM3080, WEM3162) and three-phase (WEM3080T) meters from [IAMMETER](https://www.iammeter.com) over Wi-Fi.
+
+Example Lovelace Dashboard:
+
+<p class='img'>
+  <img src='/images/integrations/iammeter/demo.jpg' />
+</p>
 
 ## Configuration
 
@@ -52,7 +60,7 @@ Sensors available in the library:
 | wem3080_voltage       | V    | Voltage.                                     |
 | wem3080_current       | A    | current.                                           |
 | wem3080_power         | W    | active power.                                    |
-| wem3080_importenergy  | kWh  | Energy consumption from gird |
+| wem3080_importenergy  | kWh  | Energy consumption from grid |
 | wem3080_exportgrid    | kWh  | Energy export to grid    |
 
 ### Three-phase energy meter (WEM3080T)

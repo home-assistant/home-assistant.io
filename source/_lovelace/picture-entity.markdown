@@ -1,4 +1,5 @@
 ---
+type: card
 title: Picture Entity Card
 sidebar_label: Picture Entity
 description: The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of camera entities.
@@ -14,7 +15,7 @@ The Picture Entity card displays an entity in the form of an image. Instead of i
 {% configuration %}
 type:
   required: true
-  description: picture-entity
+  description: "`picture-entity`"
   type: string
 entity:
   required: true
@@ -31,7 +32,7 @@ camera_view:
   type: string
 image:
   required: false
-  description: URL of an image.
+  description: URL of an image. To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
   type: string
 state_image:
   required: false
@@ -43,7 +44,7 @@ state_filter:
   type: map
 aspect_ratio:
   required: false
-  description: "Forces the height of the image to be a ratio of the width. You may enter a value such as: `16x9`, `16:9`, `1.78`."
+  description: 'Forces the height of the image to be a ratio of the width. Valid formats: Height percentage value (`23%`) or ratio expressed with colon or "x" separator (`16:9` or `16x9`). For a ratio, the second element can be omitted and will default to "1" (`1.78` equals `1.78:1`).'
   type: string
 name:
   required: false
@@ -61,7 +62,7 @@ show_state:
   default: true
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 tap_action:
   required: false
@@ -125,4 +126,4 @@ tap_action:
 
 {% endraw %}
 
-The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `whitelist_external_dirs` ([documentation](/docs/configuration/basic/)).
+The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `allowlist_external_dirs` ([documentation](/docs/configuration/basic/)).

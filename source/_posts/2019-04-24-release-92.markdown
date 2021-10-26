@@ -5,7 +5,9 @@ date: 2019-04-24 00:11:03
 date_formatted: "April 24, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-04-release-92/components.png
 ---
 
@@ -43,7 +45,7 @@ Finally, if you are still receiving a message that your configuration contains e
 - Add N26 component ([@markusressel] - [#22684]) ([n26 docs]) (new-integration) (new-platform)
 - Add OASA Telematics greek public transport sensor component ([@panosmz] - [#22196]) ([oasa_telematics docs]) (new-platform)
 - Initial Fibaro HC Climate support ([@pbalogh77] - [#20256]) ([fibaro docs]) (new-platform)
-- Camera component for BOM integration ([@maddenp] - [#22816]) ([bom docs]) (new-platform)
+- Camera component for BOM integration ([@maddenp] - [#22816]) (new-platform)
 - Add amcrest binary_sensors ([@pnbruckner] - [#22703]) ([amcrest docs]) (new-platform)
 - Binary sensors for netgear_lte ([@amelchio] - [#22902]) ([netgear_lte docs]) (new-platform)
 - Add ESPHome climate support ([@OttoWinter] - [#22859]) ([esphome docs]) (new-platform)
@@ -241,7 +243,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Axis component reflect device availability ([@Kane610] - [#22401]) ([axis docs])
 - throw `PlatformNotReady` if unable to connect ([@aav7fl] - [#22515]) ([androidtv docs])
 - Ring camera improvements ([@Yarikx] - [#22526]) ([ring docs])
-- upgrade pylinky to 0.3.3 ([@royto] - [#22544]) ([linky docs])
+- upgrade pylinky to 0.3.3 ([@royto] - [#22544])
 - Move core services.yaml file to Home Assistant integration ([@balloob] - [#22489])
 - Change HEOS component library and add basic config flow ([@andrewsayre] - [#22517]) ([heos docs])
 - Add command_template and value_template for MQTT alarm ([@JumpMaster] - [#21438]) ([mqtt docs])
@@ -369,7 +371,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Somfy MyLink support for Covers ([@bendews] - [#22514]) ([somfy_mylink docs]) (new-integration) (new-platform)
 - Fix ZHA Light color conversion. ([@Adminiuga] - [#22909]) ([zha docs])
 - Added features to Concord232 Alarm Panel ([@AZDane] - [#22892]) ([concord232 docs])
-- Camera component for BOM integration ([@maddenp] - [#22816]) ([bom docs]) (new-platform)
+- Camera component for BOM integration ([@maddenp] - [#22816]) (new-platform)
 - Add 'Assumed State' property to Somfy MyLink covers ([@bendews] - [#22922]) ([somfy_mylink docs])
 - Logi Circle public API refactor and config flow ([@evanjd] - [#20624]) ([logi_circle docs]) (breaking change)
 - Add amcrest binary_sensors ([@pnbruckner] - [#22703]) ([amcrest docs]) (new-platform)
@@ -405,7 +407,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Catch connection reset ([@balloob] - [#22982]) ([websocket_api docs])
 - Stream support for Netatmo cameras ([@cgtobi] - [#22952]) ([netatmo docs])
 - Google Assistant: Migrate light setting trait to use HSV color spectrum ([@balloob] - [#22980]) ([google_assistant docs]) (breaking change)
-- Bump pyubee version to support more models and detect model automatically ([@mzdrale] - [#22450]) ([ubee docs])
+- Bump pyubee version to support more models and detect model automatically ([@mzdrale] - [#22450])
 - Load requirements and dependencies from manifests. Fallback to current `REQUIREMENTS` and `DEPENDENCIES` ([@rohankapoorcom] - [#22717]) (breaking change)
 - Add device HmIP-MIOB to Homematic IP Cloud ([@SukramJ] - [#22975]) ([homematicip_cloud docs])
 - Prevent the projector to toogle on/off ([@stbkde] - [#22985]) ([epson docs])
@@ -970,7 +972,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor docs]: /integrations/binary_sensor/
 [bloomsky docs]: /integrations/bloomsky/
 [bluetooth_le_tracker docs]: /integrations/bluetooth_le_tracker/
-[bom docs]: /integrations/bom/
 [broadlink docs]: /integrations/broadlink/
 [caldav docs]: /integrations/caldav/
 [camera docs]: /integrations/camera/
@@ -1082,7 +1083,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [trend docs]: /integrations/trend/
 [tts docs]: /integrations/tts/
 [twilio docs]: /integrations/twilio/
-[ubee docs]: /integrations/ubee/
 [version docs]: /integrations/version/
 [water_heater docs]: /integrations/water_heater/
 [websocket_api docs]: /integrations/websocket_api/

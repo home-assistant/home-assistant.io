@@ -6,6 +6,8 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: generic_thermostat
+ha_platforms:
+  - climate
 ---
 
 The `generic_thermostat` climate platform is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler than the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter than the target temperature, the air conditioning will be turned on and turned off when required temperature is reached. One Generic Thermostat entity can only control one switch. If you need to activate two switches, one for a heater and one for an air conditioner, you will need two Generic Thermostat entities.
@@ -24,6 +26,10 @@ name:
   description: Name of thermostat.
   required: true
   default: Generic Thermostat
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this thermostat. Set this to a unique value to allow customization through the UI.
+  required: false
   type: string
 heater:
   description: "`entity_id` for heater switch, must be a toggle device. Becomes air conditioning switch when `ac_mode` is set to `true`."
@@ -79,10 +85,10 @@ away_temp:
   required: false
   type: float
 precision:
-  description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`."
+  description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`. This value is also used as the step size for setting the target temperature."
   required: false
   type: float
-  default: "`0.5` for Celsius and `1.0` for Fahrenheit."
+  default: "`0.1` for Celsius and `1.0` for Fahrenheit."
 {% endconfiguration %}
 
 Time for `min_cycle_duration` and `keep_alive` must be set as "hh:mm:ss" or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`. Alternatively, it can be an integer that represents time in seconds.

@@ -10,9 +10,17 @@ ha_category:
   - Light
   - Sensor
   - Switch
-ha_codeowners:
-  - '@ggravlingen'
+  - Fan
 ha_domain: tradfri
+ha_homekit: true
+ha_platforms:
+  - cover
+  - light
+  - sensor
+  - switch
+  - fan
+ha_codeowners:
+  - '@janiversen'
 ---
 
 The `tradfri` integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it. Home Assistant will automatically discover the gateway's presence on your local network if `discovery:` is present in your `configuration.yaml` file.
@@ -70,3 +78,7 @@ Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf
 ### Setting the `api_key`
 
 Do not use the `api_key` variable in `configuration.yaml`. The API key is only needed once at initial setup and will be stored.
+
+## Known limitations
+
+- The TRÅDFRI Shortcut button, Remotes and motion sensor only send information about their battery status, no events, to Home Assistant and thus can't be used to automate with. If you want to automate with these devices, you need to use something like [ZHA](/integrations/zha/).

@@ -8,6 +8,8 @@ ha_release: 0.55
 ha_codeowners:
   - '@exxamalte'
 ha_domain: geo_rss_events
+ha_platforms:
+  - sensor
 ---
 
 The `geo_rss_events` sensor retrieves events from a GeoRSS feed and shows information of those events filtered by distance to Home Assistant's location and grouped by category.
@@ -15,7 +17,7 @@ The `geo_rss_events` sensor retrieves events from a GeoRSS feed and shows inform
 This sensor is particularly useful if events occur unexpectedly in the vicinity of the home while the GeoRSS feed also contains many events representing distant unrelated entries. Typical examples are bush fires alerts or earthquakes.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/geo-rss-incidents-group-screenshot.png' />
+  <img src='/images/screenshots/geo-rss-incidents-group-screenshot.png' />
 </p>
 
 The reference point for comparing the distance is by default defined by `latitude` and `longitude` in the basic configuration.
@@ -34,7 +36,7 @@ sensor:
   - platform: geo_rss_events
     name: NSW Fire Service
     url: https://www.rfs.nsw.gov.au/feeds/majorIncidents.xml
-    unit_of_measurement: 'Incidents'
+    unit_of_measurement: "Incidents"
     categories:
       - 'Emergency Warning'
       - 'Watch and Act'
@@ -87,11 +89,11 @@ sensor:
   - platform: geo_rss_events
     name: Qld Fire and Emergency Services
     url: https://www.qfes.qld.gov.au/data/alerts/bushfireAlert.xml
-    unit_of_measurement: 'Alerts'
+    unit_of_measurement: "Alerts"
   - platform: geo_rss_events
     name: Tas Fire Service
     url: http://www.fire.tas.gov.au/Show?pageId=colBushfireSummariesRss
-    unit_of_measurement: 'Alerts'
+    unit_of_measurement: "Alerts"
   - platform: geo_rss_events
     name: WA Department of Fire and Emergency Services
     url: https://www.emergency.wa.gov.au/data/incident_FCAD.rss

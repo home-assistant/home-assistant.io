@@ -7,7 +7,9 @@ date_formatted: "August 7, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-08-0.97/components.png
 ---
 
@@ -71,7 +73,7 @@ We wrote about how we use Azure DevOps to automate the development of Home Assis
 - Add support for recording history to Apache Kafka ([@bachya] - [#25085]) ([apache_kafka docs]) (new-integration)
 - Rename RitAssist to FleetGO ([@depl0y] - [#25093]) ([fleetgo docs]) ([ritassist docs]) (breaking change) (new-integration)
 - Add Twente Milieu integration ([@frenck] - [#25129]) ([twentemilieu docs]) (new-integration)
-- Add Fortigate integration ([@kifeo] - [#24908]) ([fortigate docs]) (new-integration)
+- Add Fortigate integration ([@kifeo] - [#24908]) (new-integration)
 - Add support for Rainforest Eagle-200 ([@gtdiehl] - [#24919]) ([rainforest_eagle docs]) (new-integration)
 - Add Elgato Avea integration ([@pattyland] - [#24281]) ([avea docs]) (new-integration) (new-platform)
 - Suez water ([@ooii] - [#23844]) ([suez_water docs]) (new-integration)
@@ -263,7 +265,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add spotify service to allow to play music from playlist ([@lealoureiro] - [#24991]) ([spotify docs])
 - Add travel time attribution/coordinates ([@ljmerza] - [#24956]) ([google_travel_time docs])
 - Upgrade youtube_dl to 2019.07.16 ([@fabaff] - [#25173]) ([media_extractor docs])
-- Add Fortigate integration ([@kifeo] - [#24908]) ([fortigate docs]) (new-integration)
+- Add Fortigate integration ([@kifeo] - [#24908]) (new-integration)
 - Upgrade discord.py to 1.2.3 ([@fabaff] - [#25174]) ([discord docs])
 - Upgrade ruamel.yaml to 0.15.99 ([@fabaff] - [#25175])
 - Upgrade Mastodon.py to 1.4.5 ([@fabaff] - [#25176]) ([mastodon docs])
@@ -748,7 +750,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [fan docs]: /integrations/fan/
 [fleetgo docs]: /integrations/fleetgo/
 [flux_led docs]: /integrations/flux_led/
-[fortigate docs]: /integrations/fortigate/
 [fortios docs]: /integrations/fortios/
 [geniushub docs]: /integrations/geniushub/
 [google cal docs]: /integrations/calendar.google/
