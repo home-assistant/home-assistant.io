@@ -27,7 +27,7 @@ The Octoprint integration will attempt to register itself via the [application k
 
 ## Binary Sensor
 
-The `octoprint` binary sensor platform let you monitor:
+The OctoPrint integration provides the following binary sensors:
 
 - Printing
 - Print Error
