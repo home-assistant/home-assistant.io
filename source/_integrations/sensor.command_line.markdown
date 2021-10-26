@@ -66,7 +66,7 @@ If you are using [Home Assistant operating system](https://github.com/home-assis
 
 </div>
 
-With a `0` exit code, the output (stdout) of the command is used as `value`. In case a command results in a non `0` exit code or is terminated by the `command_timeout`, the result is only logged to Home Assistant log and the sensors value is not updated.
+With a `0` exit code, the output (stdout) of the command is used as `value`. In case a command results in a non `0` exit code or is terminated by the `command_timeout`, the result is only logged to Home Assistant log and the value of the sensor is not updated.
 
 ## Examples
 
