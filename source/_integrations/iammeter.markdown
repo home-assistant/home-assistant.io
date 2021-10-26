@@ -72,21 +72,21 @@ Sensors available in the library:
 | wem3080t_power_a        | W    | A phase active power  |
 | wem3080t_importenergy_a | kWh  | A phase import energy |
 | wem3080t_exportgrid_a   | kWh  | A phase export energy |
-| wem3080t_frequency_a    | kWh  | A phase frequency     |
-| wem3080t_pf_a           | kWh  | A phase power factor  |
+| wem3080t_frequency_a    | hz   | A phase frequency     |
+| wem3080t_pf_a           |      | A phase power factor  |
 |                       |      |                |
 | wem3080t_voltage_b      | V    | B phase voltage       |
 | wem3080t_current_b      | A    | B phase current       |
 | wem3080t_power_b        | W    | B phase active power  |
 | wem3080t_importenergy_b | kWh  | B phase import energy |
 | wem3080t_exportgrid_b   | kWh  | B phase export energy |
-| wem3080t_frequency_b    | kWh  | B phase frequency     |
-| wem3080t_pf_b           | kWh | B phase power factor  |
+| wem3080t_frequency_b    | hz   | B phase frequency     |
+| wem3080t_pf_b           |      | B phase power factor  |
 |                       |      |                |
 | wem3080t_voltage_c      | V    | C phase voltage       |
 | wem3080t_current_c      | A    | C phase current |
 | wem3080t_power_c        | W    | C phase active power |
 | wem3080t_importenergy_c | kWh  | C phase import energy |
 | wem3080t_exportgrid_c   | kWh  | C phase export energy |
-| wem3080t_frequency_c    | kWh  | C phase frequency |
-| wem3080t_pf_c           | kWh  | C phase power factor |
+| wem3080t_frequency_c    | hz   | C phase frequency |
+| wem3080t_pf_c           |      | C phase power factor |
