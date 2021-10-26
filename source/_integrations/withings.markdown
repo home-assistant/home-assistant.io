@@ -129,30 +129,50 @@ In a text editor, replace ```USER_PROFILE_NAME``` in the template sensors below 
 # Example configuration.yaml entry
 template:
   - sensor:
-    - name: withings_weight_lbs_USER_PROFILE_NAME
+    - name: Withings weight lbs USER_PROFILE_NAME
       unit_of_measurement: "lbs"
-      state: "{{ (states('sensor.withings_weight_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185) | round(2, default=0) }}"
-      icon: mdi:weight-pound
+      state: >-
+        {{
+          (states('sensor.withings_weight_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185)
+          | round(2, default=0)
+        }}
+      icon: "mdi:weight-pound"
 
-    - name: withings_bone_mass_lbs_USER_PROFILE_NAME
+    - name: Withings bone mass lbs USER_PROFILE_NAME
       unit_of_measurement: "lbs"
-      state: "{{ (states('sensor.withings_bone_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185) | round(2, default=0) }}"
-      icon: mdi:weight-pound
+      state: >-
+        {{
+          (states('sensor.withings_bone_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185)
+          | round(2, default=0)
+        }}
+      icon: "mdi:weight-pound"
 
-    - name: withings_fat_free_mass_lbs_USER_PROFILE_NAME
+    - name: Withings fat free mass lbs USER_PROFILE_NAME
       unit_of_measurement: "lbs"
-      state: "{{ (states('sensor.withings_fat_free_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185) | round(2, default=0) }}"
-      icon: mdi:weight-pound
+      state: >- 
+        {{
+          (states('sensor.withings_fat_free_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185)
+          | round(2, default=0)
+         }}
+      icon: "mdi:weight-pound"
 
-    - name: withings_fat_mass_lbs_USER_PROFILE_NAME
+    - name: Withings fat mass lbs USER_PROFILE_NAME
       unit_of_measurement: "lbs"
-      state: "{{ (states('sensor.withings_fat_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185) | round(2, default=0) }}"
-      icon: mdi:weight-pound
+      state: >-
+        {{
+          (states('sensor.withings_fat_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185)
+          | round(2, default=0)
+        }}
+      icon: "mdi:weight-pound"
 
-    - name: withings_muscle_mass_lbs_USER_PROFILE_NAME
+    - name: Withings muscle mass lbs USER_PROFILE_NAME
       unit_of_measurement: "lbs"
-      state: "{{ (states('sensor.withings_muscle_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185) | round(2, default=0) }}"
-      icon: mdi:weight-pound
+      state: >-
+        {{
+          (states('sensor.withings_muscle_mass_kg_USER_PROFILE_NAME') | float(0) * 2.20462262185)
+          | round(2, default=0)
+        }}
+      icon: "mdi:weight-pound"
 ```
 
 {% endraw %}
