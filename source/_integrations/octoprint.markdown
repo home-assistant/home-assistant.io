@@ -34,7 +34,7 @@ The OctoPrint integration provides the following binary sensors:
 
 ## Sensor
 
-The `octoprint` sensor platform let you monitor various states of your 3D printer and its print jobs.
+The OctoPrint integration lets you monitor various states of your 3D printer and its print jobs.
 Supported sensors:
 
 - Current Printer State
