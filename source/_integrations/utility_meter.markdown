@@ -55,8 +55,8 @@ offset:
   type: time
   type: integer
 cron:
-  description: This option is *mutually exclusive* of `cycle` and `offset`. It provides an advanced method of defining when should the counter be reset. It follows common [crontab syntax](https://crontab.guru).
-  required: false
+  description: This option is *mutually exclusive* of `cycle` and `offset`. It provides an advanced method of defining when should the counter be reset. It follows common [crontab syntax](https://crontab.guru) but extended to support more advanced scheduling. See the [croniter](https://github.com/taichino/croniter) library.
+  required: true
   type: string
 net_consumption:
   description: Set this to True if you would like to treat the source as a net meter. This will allow your counter to go both positive and negative.
@@ -170,6 +170,20 @@ automation:
     - service: utility_meter.next_tariff
       target:
         entity_id: utility_meter.monthly_energy
+```
+
+Assuming your utility provider cycle is offset from the last day of the month
+
+- cycles at 17h00 on the last day of the month
+
+a cron(extended syntax used for last day of month) based utility meter can be used:
+
+```yaml
+utility_meter:
+  monthly_energy:
+    source: sensor.energy
+    name: Monthly Energy
+    cron: "0 17 L * *"
 ```
 
 ## Advanced Configuration for DSMR users
