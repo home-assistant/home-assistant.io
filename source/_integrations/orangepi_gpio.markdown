@@ -123,3 +123,7 @@ In the table below you can see the number of usable pins for sensors per device.
 | H6 (Lite 2, One Plus) | 3/17 |
 | H6 (PI 3) | 8/17 |
 | A64 (Win Plus) | 18/28 |
+<<<<<<< HEAD
+=======
+| RK3399 (PI4, PI4B) | 28/28 |
+>>>>>>> a97ba2fb98... Update source/_integrations/orangepi_gpio.markdown
