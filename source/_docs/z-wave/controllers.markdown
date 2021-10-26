@@ -40,31 +40,7 @@ There are [known compatibility issues](https://www.raspberrypi.org/forums/viewto
 
 </div>
 
-It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system. If you don't like this behavior it can be turned off.
-
-Use the following example commands from a terminal session on your Pi where your Z-Wave stick is connected.
-
-**Note:** You should only do this when Home Assistant has been stopped.
-
-Turn off "Disco lights":
-
-```bash
-echo -e -n "\x01\x08\x00\xF2\x51\x01\x00\x05\x01\x51" > /dev/serial/by-id/usb-0658_0200-if00
-```
-
-Turn on "Disco lights":
-
-```bash
-echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-0658_0200-if00
-```
-
-If the above two commands give errors about not having that device, you should try replacing the `/dev/serial/by-id/usb-0658_0200-if00` with `/dev/ttyACM0` or `/dev/ttyACM1` (depending on which tty your Aeotec stick is addressed to).
-
-On some systems, such as macOS, you need to pipe the output of the `echo` command, rather than redirecting to the serial device, to something like `cu` (replacing `/dev/zstick` acccordingly) to properly set the baud rate to 115200 bps:
-
-```bash
-echo -e -n "...turn on/off string from examples above..." | cu -l /dev/zstick -s 115200
-```
+It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system.
 
 ### Razberry Board
 
