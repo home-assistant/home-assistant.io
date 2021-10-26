@@ -41,7 +41,7 @@ name:
   required: true
   type: string
 entities:
-  description: Entities to control and their desired state.
+  description: Entities to control, and their desired state.
   required: true
   type: list
 {% endconfiguration %}
