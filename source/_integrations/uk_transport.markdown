@@ -98,7 +98,7 @@ template:
     - name: Next train scheduled
       state: >-
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].scheduled}}
-    - name: Next trains platform
+    - name: Next train platform
       state: >-
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].platform}}
 ```
