@@ -6,7 +6,7 @@ ha_category:
   - Energy
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_release: 2021.09
+ha_release: 2021.11
 ha_codeowners:
   - "@mletenay"
 ha_domain: goodwe
@@ -16,12 +16,12 @@ ha_platforms:
 
 The `goodwe` integration will poll a [GoodWe](http://www.goodwe.com/) solar inverter over the local network and present its runtime values as sensors in Home Assistant.
 
-It works with GoodWe ET, EH, BT, BH, ES, EM, DT, D-NS, XS and BP families of inverters. Different inverter families/models expose different sets of sensors, the newer models have usually broader support.
+It works with GoodWe ET, EH, BT, BH, ES, EM, DT, MS, D-NS, XS and BP families of inverters. Different inverter families/models expose different sets of sensors, the newer models have usually broader support.
 
 <div class='note'>
-It may work on other inverters as well, as long as they listen on UDP port 8899 and respond to one of supported communication protocols. In general, if you can communicate with the inverter via official mobile applications (PvMaster, SolarGo), it is very likely the integration will work too.
+If you can't communicate with the inverter despite your model is listed above, it is possible you have old ARM firmware version. You should ask manufacturer support to upgrade your ARM firmware (not just inverter firmware) to be able to communicate with the inveter via UDP.
 
-If you can't communicate with the inverter despite your model is listed above, it is possible your inverter has old ARM firmware version. (Usually the version has to be at least v13). You should ask manufacturer support to upgrade your ARM firmware (not the inverter firmware) to be able to communicate with it over local network.
+It may work on other inverter families as well, as long as they listen on UDP port 8899 and respond to one of supported communication protocols. In general, if you can communicate with the inverter via official mobile applications (PvMaster, SolarGo), it is very likely the integration will work too.
 
 </div>
 
@@ -51,8 +51,8 @@ sensor:
         friendly_name: "Energy Buy"
         unit_of_measurement: 'W'
         value_template: >-
-          {% if states('sensor.goodwe_pgrid')|float < 0 %}
-            {{ states('sensor.goodwe_pgrid')|float * -1 }}
+          {% if states("sensor.goodwe_pgrid") | float < 0 %}
+            {{ states("sensor.goodwe_pgrid") | float * -1 }}
           {% else %}
             {{ 0 }}
           {% endif %}
@@ -61,8 +61,8 @@ sensor:
         friendly_name: "Energy Sell"
         unit_of_measurement: 'W'
         value_template: >-
-          {% if states('sensor.goodwe_pgrid')|float > 0 %}
-            {{ states('sensor.goodwe_pgrid')|float }}
+          {% if states("sensor.goodwe_pgrid") | float > 0 %}
+            {{ states("sensor.goodwe_pgrid") | float }}
           {% else %}
             {{ 0 }}
           {% endif %}
