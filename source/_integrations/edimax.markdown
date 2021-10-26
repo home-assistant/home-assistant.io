@@ -52,11 +52,11 @@ Starting with [version 2 of the firmware](https://www.edimax.com/edimax/download
 ```yaml
 template:
   - sensor:
-    - name: edimax_current_power
+    - name: Edimax Current power consumption
       unit_of_measurement: "W"
       state: "{{ state_attr('switch.edimax_smart_plug',  'current_power_w') | replace('None', 0) }}"
       
-    - name: edimax_total_power
+    - name: Edimax Accumulated daily power consumption
       unit_of_measurement: "kWh"
       state: "{{ state_attr('switch.edimax_smart_plug',  'today_energy_kwh') | replace('None', 0) }}"
 ```
