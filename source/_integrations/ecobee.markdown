@@ -98,6 +98,11 @@ name:
   required: false
   default: "`notify`"
   type: string
+index:
+  description: If you have multiple thermostats, you can specify which one to send the notification to by setting an `index`. The index values assigned to the thermostats are consecutive integers, starting at 0.
+  required: false
+  default: 0
+  type: integer
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
