@@ -50,6 +50,7 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [How to achieve smart home nirvana (or, home automation without subscription)](https://arstechnica.com/information-technology/2021/03/how-to-achieve-smart-home-nirvana-or-home-automation-without-subscription/) - March 2021
 - [Why I use Home Assistant for open source home automation](https://opensource.com/article/20/11/home-assistant) - November 2020
 - [Home Assistant, the Python IoT hub](https://lwn.net/Articles/822350/) - June 2020
 - [Thomas-Krenn-Award 2020: Dino, Teckids und Home Assistant](https://www.thomas-krenn.com/de/tkmag/allgemein/gewinner-thomas-krenn-award-2020/) - June 2020

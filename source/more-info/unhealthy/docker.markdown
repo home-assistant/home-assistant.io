@@ -7,7 +7,7 @@ Docker is at the core of most operations that the Supervisor does, it is importa
 
 The Supervisor will be marked as unhealthy if any of these requirements are not met:
 
-- [Running containers known to cause issues](/more-info/unsupported/container)
+- [Running unsupported software](/more-info/unsupported/software)
 - [Running an unsupported Docker version](/more-info/unsupported/docker_version)
 - [Running the Supervisor under LXC](/more-info/unsupported/lxc)
 - [Not running the Supervisor as privileged](/more-info/unsupported/privileged)

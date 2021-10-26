@@ -22,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 - [Media Player](#media-player)
 - [Notifications](#notifications)
 
-To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](https://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
+To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 
 Once basic configuration is added to your `configuration.yaml` file. A notification should be visible in the frontend's **Notification** section. Follow the instructions and accept the pairing request on your TV.
 

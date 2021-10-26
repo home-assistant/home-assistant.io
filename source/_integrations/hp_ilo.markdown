@@ -114,6 +114,7 @@ sensor:
         value_template: '{{ ilo_data.temperature["01-Inlet Ambient"].currentreading[0] }}'
       - name: Server Health
         sensor_type: server_health
+        value_template: '{{ ilo_data.health_at_a_glance }}'
 ```
 
 {% endraw %}

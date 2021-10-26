@@ -50,4 +50,3 @@ device_class:
   required: true
   type: string
 {% endconfiguration %}
-
