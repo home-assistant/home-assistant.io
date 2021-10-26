@@ -106,8 +106,9 @@ By default, the Plex integration will create Media Player entities for all local
 Play media hosted on a Plex server on a Plex client or other supported device.
 
 Required fields within the `media_content_id` payloads are marked as such, others are optional. There are special parameters that can be added to any query:
-* `shuffle`: Shuffles the playback order of the media. Accepts `1` or `true` to enable.
-* `allow_multiple`: A search must find one specific item to succeed. This parameter accepts multiple matches in a search and enqueues all found items for playback. Accepts `1` or `true` to enable.
+
+- `shuffle`: Shuffles the playback order of the media. Accepts `1` or `true` to enable.
+- `allow_multiple`: A search must find one specific item to succeed. This parameter accepts multiple matches in a search and enqueues all found items for playback. Accepts `1` or `true` to enable.
 
 Simplified examples are provided for [music](#music), [TV episodes](#tv-episode), and [movies](#movie). See [advanced searches](#advanced-searches) for complex/smart search capabilities.
 
