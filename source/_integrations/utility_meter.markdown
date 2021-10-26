@@ -228,7 +228,7 @@ utility_meter:
 
 Additionally, you can add template sensors to compute daily and monthly total usage. Important note, in these examples,
 we use the `is_number()` [function](/docs/configuration/templating/#numeric-functions-and-filters) to verify the values
-returned from the sensors are numeric. If this evalutes to false no value it returned.
+returned from the sensors are numeric. If this evalutes to false, `None` is returned.
 
 {% raw %}
 
@@ -241,6 +241,8 @@ template:
       state: >
         {% if is_number(states('sensor.daily_energy_offpeak')) and is_number(states('sensor.daily_energy_peak')) %}
           {{ (states('sensor.daily_energy_offpeak') + states('sensor.daily_energy_peak')) | float }}
+        {% else %}
+          None
         {% endif %}
 
     - name: 'Monthly Energy Total'
@@ -249,6 +251,8 @@ template:
       state: >
         {% if is_number(states('sensor.monthly_energy_offpeak')) and is_number(states('sensor.monthly_energy_peak')) %}
           {{ (states('sensor.monthly_energy_offpeak') + states('sensor.monthly_energy_peak')) | float }}
+        {% else %}
+          None
         {% endif %}
 ```
 
