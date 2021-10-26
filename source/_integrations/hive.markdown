@@ -28,6 +28,11 @@ ha_config_flow: true
 The Hive integration for Home Assistant allows you to interact with supported devices and services offered by
 [hivehome.com](https://www.hivehome.com)
 
+<div class='note'>
+Please note  that Hive shut down it's North American Servers on November 30th, 2021.
+[Shutdown Notice](https://www.hivehome.com/us/support)
+</div>
+
 This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant, 2FA authentication is also supported. Once configured Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
 
 {% include integrations/config_flow.md %}
