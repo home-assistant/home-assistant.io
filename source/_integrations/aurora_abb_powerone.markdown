@@ -31,39 +31,3 @@ The RS485 connection can be made using a low-cost USB-RS485 converter. It works 
 ## Configuration
 
 Configuration should be done via the user interface. The inverter will need to be on (i.e. in daylight) and connected correctly in order to do the first-time setup. Normally it is sufficient to select the correct serial port and leave the default address `2`.
-
-Configuration via `configuration.yaml` is now deprecated but does still work.
-
-Add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: aurora_abb_powerone
-    device: "SERIAL_PORT"
-```
-
-{% configuration %}
-device:
-  description: The serial port your RS485 adapter is connected to.
-  required: true
-  type: string
-address:
-  description: The address of the inverter - only need to set this if you have changed your inverter away from the default address of 2.
-  required: false
-  type: integer
-  default: 2
-name:
-  description: Name of the sensor to use in the frontend.
-  required: false
-  default: Solar PV
-  type: string
-{% endconfiguration %}
-
-```yaml
-# Example configuration.yaml entry for aurora_abb_powerone platform
-sensor:
-  - platform: aurora_abb_powerone
-    address: 2
-    device: "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0"
-```
