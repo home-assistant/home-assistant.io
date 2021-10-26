@@ -51,17 +51,17 @@ sensor:
     api_key: YOUR_API_KEY
 template:
   - sensor:
-    - name: power_consumption
-        state: "{% if is_state_attr('sensor.pvoutput', 'power_consumption', 'NaN') %}0{% else %}{{ state_attr('sensor.pvoutput', 'power_consumption') }}{% endif %}"
-        unit_of_measurement: "W"
-    - name: energy_consumption
-        state: '{{ "%0.1f"|format(state_attr("sensor.pvoutput", "energy_consumption")|float/1000) }}'
-        unit_of_measurement: "kWh"
-    - name: power_generation
-        state: '{% if is_state_attr("sensor.pvoutput", "power_generation", "NaN") %}0{% else %}{{ state_attr("sensor.pvoutput", "power_generation") }}{% endif %}'
-        unit_of_measurement: "W"
-    - name: energy_generation
-        state: '{% if is_state_attr("sensor.pvoutput", "energy_generation", "NaN") %}0{% else %}{{ "%0.2f"|format(state_attr("sensor.pvoutput", "energy_generation")|float/1000) }}{% endif %}'
+    - name: Power Consumption
+      state: {{ state_attr('sensor.pvoutput', 'power_consumption') | float(default=0) }}
+      unit_of_measurement: "W"
+    - name: Energy Consumption
+      state: {{ "%0.1f"|format(state_attr("sensor.pvoutput", "energy_consumption")|float(default=0) / 1000) }}
+      unit_of_measurement: "kWh"
+    - name: Power Generation
+      state: {{ state_attr("sensor.pvoutput", "power_generation") | float(default=0) }}
+      unit_of_measurement: "W"
+    - name: Energy Generation
+      state: {{ "%0.2f"|format(state_attr("sensor.pvoutput", "energy_generation") | float(default=0) / 1000) }}
         unit_of_measurement: "kWh"
 ```
 
