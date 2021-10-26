@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.72
 ha_iot_class: Local Polling
 ha_domain: xiaomi
+ha_platforms:
+  - camera
+  - device_tracker
 ---
 
 The `Xiaomi` camera platform allows you to utilize Xiaomi Cameras within Home Assistant.
@@ -18,6 +21,7 @@ In order to integrate the camera with Home Assistant, it is necessary to install
 
 * [Yi 720p](https://github.com/fritz-smh/yi-hack)
 * [Yi Home 17CN / 27US / 47US / 1080p Home / Dome / 1080p Dome](https://github.com/shadow-1/yi-hack-v3)
+* [Recent Yi 1080p Home / 1080p Dome](https://github.com/roleoroleo/yi-hack-MStar)
 * [Xiaofang 1080p Camera](https://github.com/samtap/fang-hacks)
 
 Once installed, please ensure that you have enabled FTP.
@@ -35,7 +39,7 @@ Raspbian users: Don't forget to install `ffmpeg` support on your platform, other
 </div>
 
 <div class='note warning'>
-The live stream writing by the camera is not a supported format when the hass reads through FTP for Yi 720p and Xiaofang Cameras, so this platform retrives the video which was saved 1 minute earlier.
+The live stream writing by the camera is not a supported format when the hass reads through FTP for Yi 720p and Xiaofang Cameras, so this platform retrieves the video which was saved 1 minute earlier.
 </div>
 
 <div class='note warning'>
@@ -50,8 +54,8 @@ To enable the platform, add the following lines to your`configuration.yaml` file
 camera:
   - platform: xiaomi
     name: Camera
-    host: '192.168.1.100'
-    model: 'yi'
+    host: "192.168.1.100"
+    model: "yi"
     password: YOUR_PASSWORD
 ```
 
@@ -104,11 +108,11 @@ One particularly useful adjustment deals with video size. Since Yi videos are fa
 camera:
   - platform: xiaomi
     name: My Camera
-    host: '192.168.1.100'
-    model: 'xiaofang'
+    host: "192.168.1.100"
+    model: "xiaofang"
     password: YOUR_PASSWORD
     path: /home/camera/feed
-    ffmpeg_arguments: '-vf scale=800:450'
+    ffmpeg_arguments: "-vf scale=800:450"
 ```
 ## Hostname template
 
@@ -119,7 +123,7 @@ camera:
   - platform: xiaomi
     name: Front Camera
     host: "{{ states.device_tracker.front_camera.attributes.ip }}"
-    model: 'yi'
+    model: "yi"
     password: 1234
     path: /tmp/sd/record
 ```

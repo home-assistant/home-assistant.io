@@ -5,7 +5,9 @@ date: 2018-11-09 00:01:00
 date_formatted: "November 9, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-11-release-82/lovelace-edit.png
 ---
 
@@ -214,7 +216,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Mill service ([@Danielhiversen] - [#17971]) ([climate.mill docs])
 - Refactor Alexa API, fix thermostats ([@bitglue] - [#17969]) ([alexa docs])
 - Upgrade aiofreepybox ([@stilllman] - [#17989]) ([device_tracker docs])
-- Reverse out change #14234 BOM Weather throttle fix ([@nickw444] - [#17468]) ([sensor.bom docs])
+- Reverse out change #14234 BOM Weather throttle fix ([@nickw444] - [#17468])
 - RFC: Static templates match no entities, not all ([@amelchio] - [#17991])
 - Switch mailgun webhooks to the new Mailgun webhook api ([@rohankapoorcom] - [#17919]) ([mailgun docs])
 - Change hebrew date at sunset ([@tsvi] - [#17449]) ([sensor.jewish_calendar docs])
@@ -645,7 +647,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [route53 docs]: /integrations/route53/
 [rpi_pfio docs]: /integrations/rpi_pfio/
 [scene.deconz docs]: /integrations/deconz#scene
-[sensor.bom docs]: /integrations/bom#sensor
 [sensor.darksky docs]: /integrations/darksky
 [sensor.deconz docs]: /integrations/deconz#sensor
 [sensor.dte_energy_bridge docs]: /integrations/dte_energy_bridge

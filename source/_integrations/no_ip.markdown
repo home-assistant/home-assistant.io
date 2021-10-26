@@ -3,6 +3,7 @@ title: No-IP.com
 description: Keep your computer registered with the NO-IP.com dynamic DNS.
 ha_category:
   - Network
+ha_iot_class: Cloud Polling
 ha_release: 0.57
 ha_codeowners:
   - '@fabaff'

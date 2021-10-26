@@ -177,7 +177,7 @@ variables required for the library to compile without failing. These variables
 are preset because Sass will error without them, however they are **not** set in
 stone, and you are encouranged to override and experiment with them.
 
-It is tempting to modify their vaules in the inuit.css submodule but this is
+It is tempting to modify their values in the inuit.css submodule but this is
 **not** the correct method for modifying inuit.css, and in doing so you will
 prevent yourself from being able to update inuit.css’ core library. The correct
 procedure is to redefine that variable in `_vars.scss` found in the inuit.css

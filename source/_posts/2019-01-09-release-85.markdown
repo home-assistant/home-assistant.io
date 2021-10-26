@@ -5,7 +5,9 @@ date: 2019-01-09 00:01:00
 date_formatted: "January 9, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-01-release-85/components.png
 ---
 
@@ -37,7 +39,7 @@ This release also features native support for [ESPHome](https://esphomelib.com/e
 - Add native ESPHome API component ([@OttoWinter] - [#19334]) (new-platform)
 - Add GTT Sensor ([@eliseomartelli] - [#18449]) ([sensor.gtt docs]) (new-platform)
 - Add openSenseMap air pollutants platform ([@fabaff] - [#19357]) ([air_pollutants docs]) (new-platform)
-- Add Prezzibenzina (Italian Fuel Price) Sensor ([@eliseomartelli] - [#19297]) ([sensor.prezzibenzina docs]) (new-platform)
+- Add Prezzibenzina (Italian Fuel Price) Sensor ([@eliseomartelli] - [#19297]) (new-platform)
 - Add sensor platform for SolarEdge Monitoring API ([@GidoHakvoort] - [#18846]) ([sensor.solaredge docs]) (new-platform)
 - Add Mythic Beasts DNSAPI Component ([@thinkl33t] - [#18333]) ([mythicbeastsdns docs]) (new-platform)
 - Add new sensor platform to expose Islamic prayer times ([@uchagani] - [#19444]) ([sensor.islamic_prayer_times docs]) (new-platform)
@@ -125,7 +127,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - update edp_redy version ([@abmantis] - [#19078])
 - Update Google Assistant services description and request sync timeout ([@edif30] - [#19113])
 - Fixed doorbird config without events (empty list) ([@basschipper] - [#19121]) ([doorbird docs])
-- Add code support for iAlarm ([@RyuzakiKK] - [#19124]) ([alarm_control_panel.ialarm docs])
+- Add code support for iAlarm ([@RyuzakiKK] - [#19124])
 - Upgrade youtube_dl to 2018.12.03 ([@fabaff] - [#19139]) ([media_extractor docs])
 - Upgrade mypy to 0.650 ([@scop] - [#19150])
 - Update geizhals dependency ([@tinloaf] - [#19152]) ([sensor.geizhals docs])
@@ -205,7 +207,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add native ESPHome API service call feature ([@OttoWinter] - [#19401]) ([esphome docs])
 - Upgade colorlog to 4.0.2 ([@fabaff] - [#19390])
 - Provide charging indicator for mychevy ([@sdague] - [#19348]) ([mychevy docs]) ([sensor.mychevy docs])
-- Add GTT Sensor ([@eliseomartelli] - [#18449]) ([sensor.gtt docs]) (new-platform)
+- Add GTT Sensor ([@eliseomartelli] - [#18449]) (new-platform)
 - Upgrade volvooncall to 0.8.7 ([@molobrakos] - [#19398]) ([volvooncall docs])
 - Cast lametric cycles parameter to int ([@deftdawg] - [#19370]) ([notify docs])
 - Satel integra monitor outputs ([@c-soft] - [#19149]) ([satel_integra docs]) ([binary_sensor.satel_integra docs])
@@ -215,7 +217,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add openSenseMap air pollutants platform ([@fabaff] - [#19357]) ([air_pollutants docs]) (new-platform)
 - Optionally disable ssl verification for mjpeg ([@rohankapoorcom] - [#19277]) ([zoneminder docs]) ([camera.mjpeg docs]) ([camera.zoneminder docs])
 - Use string foratting ([@fabaff] - [#19427]) ([sensor.brottsplatskartan docs])
-- Add Prezzibenzina (Italian Fuel Price) Sensor ([@eliseomartelli] - [#19297]) ([sensor.prezzibenzina docs]) (new-platform)
+- Add Prezzibenzina (Italian Fuel Price) Sensor ([@eliseomartelli] - [#19297]) (new-platform)
 - Upgrade sqlalchemy to 1.2.15 ([@fabaff] - [#19383]) ([sensor.sql docs])
 - Upgrade requests to 2.21.0 ([@fabaff] - [#19385])
 - Miscellaneous ESPHome cleanups ([@OttoWinter] - [#19425]) ([esphome docs]) ([binary_sensor.esphome docs]) ([switch.esphome docs])
@@ -718,7 +720,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [ads docs]: /integrations/ads/
 [air_pollutants docs]: /integrations/air_quality
 [air_quality docs]: /integrations/air_quality/
-[alarm_control_panel.ialarm docs]: /integrations/ialarm
 [alarm_control_panel.mqtt docs]: /integrations/alarm_control_panel.mqtt/
 [alarm_control_panel.ness_alarm docs]: /integrations/ness_alarm
 [alarm_control_panel.nx584 docs]: /integrations/nx584
@@ -846,7 +847,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.geo_rss_events docs]: /integrations/geo_rss_events
 [sensor.glances docs]: /integrations/glances
 [sensor.gtfs docs]: /integrations/gtfs
-[sensor.gtt docs]: /integrations/gtt
 [sensor.homematic docs]: /integrations/homematic
 [sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
 [sensor.huawei_lte docs]: /integrations/huawei_lte#sensor
@@ -862,7 +862,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.openweathermap docs]: /integrations/openweathermap#sensor
 [sensor.plum_lightpad docs]: /integrations/plum_lightpad
 [sensor.point docs]: /integrations/point#sensor
-[sensor.prezzibenzina docs]: /integrations/prezzibenzina
 [sensor.scrape docs]: /integrations/scrape
 [sensor.seventeentrack docs]: /integrations/seventeentrack
 [sensor.solaredge docs]: /integrations/solaredge

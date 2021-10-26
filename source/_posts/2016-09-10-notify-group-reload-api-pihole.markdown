@@ -5,7 +5,9 @@ date: 2016-09-10 08:00:00 +0200
 date_formatted: "September 10, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's already time for 0.28 thanks to our super short release cycles. Now, it' official...we hit 4000 stars on Github. That's amazing. Sorry, not as amazing as all the stuff that was going on for 0.27 but still pretty awesome.
@@ -15,7 +17,7 @@ It's already time for 0.28 thanks to our super short release cycles. Now, it' of
 This release brings you a huge improvement of the [automation] and [group] handling. Both can be reloaded without a Home Assistant restart by calling their new reload services. The automations can be controlled directly from the frontend.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/automation-switches.png' />
+  <img src='/images/screenshots/automation-switches.png' />
 </p>
 
 ### Raspberry Pi installation guide
@@ -32,7 +34,7 @@ The validation of the configuration is still on-going. Approximately 80 % is don
 
 ### All changes
 
-<img src='/images/supported_brands/xbox-live.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/automatic.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/pi_hole.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
+<img src='/images/supported_brands/xbox-live.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://brands.home-assistant.io/automatic/icon.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/pi_hole.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
 - Light: Added bitfield to Flux LED since we are supporting effects ([@tchellomello])
 - Device tracker: [Owntracks] waypoint import ([@pavoni])
@@ -43,7 +45,7 @@ The validation of the configuration is still on-going. Approximately 80 % is don
 - Device tracker: Allow 'None' MAC addresses to be loaded from `known_devices` file ([@kellerza])
 - Cover: Bugfixes ([@turbokongen], [@danielperna84])
 - Sensor: Support for displaying details about [crypto currencies][Coinmarketcap] ([@fabaff])
-- Device tracker: Support for [automatic] to track your vehicles ([@Teagan42])
+- Device tracker: Support for automatic to track your vehicles ([@Teagan42])
 - Devie tracker: Add exclude option to [Nmap] device tracker ([@danieljkemp])
 - Device tracker: Improved login errors for Asus device tracker ([@kellerza])
 - Sensor: Support for displaying the status of [Xbox] Live accounts ([@mKerix])
@@ -146,7 +148,6 @@ The validation of the configuration is still on-going. Approximately 80 % is don
 [mqtt-fan]: /integrations/fan.mqtt/
 [Xbox]: /integrations/xbox_live
 [Nmap]: /integrations/nmap_tracker
-[automatic]: /integrations/automatic
 [Owntracks]: /integrations/owntracks
 [OpenweatherMap]: /integrations/openweathermap#sensor
 [OctoPrint]: /integrations/octoprint/

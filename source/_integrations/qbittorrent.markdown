@@ -6,6 +6,10 @@ ha_category:
 ha_release: 0.84
 ha_iot_class: Local Polling
 ha_domain: qbittorrent
+ha_codeowners:
+  - '@geoffreylagaisse'
+ha_platforms:
+  - sensor
 ---
 
 The `qbittorrent` platform allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.
@@ -22,7 +26,7 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 sensor:
   - platform: qbittorrent
-    url: 'http://<hostname>:<port>'
+    url: "http://<hostname>:<port>"
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```
@@ -45,3 +49,11 @@ password:
   required: true
   type: string
 {% endconfiguration %}
+
+## Sensors
+
+The qBittorrent integration will add the following sensors:
+
+- `sensor.qbittorrent_status`: The status of qBittorrent - `up_down`, `seeding`, `downloading` or `idle`.
+- `sensor.qbittorrent_up_speed`: The current total upload speed in kB/s.
+- `sensor.qbittorrent_down_speed`: The current total download speed in kB/s.

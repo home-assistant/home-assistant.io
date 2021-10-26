@@ -1,14 +1,16 @@
 ---
-title: "Notify.Events"
-description: "Instructions on how to integrate Notify.Events service with your Home Assistant notifications."
+title: Notify.Events
+description: Instructions on how to integrate Notify.Events service with your Home Assistant notifications.
 ha_release: 0.112
 ha_category:
   - Notifications
-ha_quality_scale: platinum
 ha_domain: notify_events
 ha_codeowners:
   - '@matrozov'
   - '@papajojo'
+ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
 ---
 
 ## Description
@@ -80,15 +82,15 @@ Now you can use the `notify.events` service inside your Home Assistant to:
 ```yaml
 - service: notify.events
   data:
-    message: 'Backyard motion detected!'
+    message: "Backyard motion detected!"
     data:
-      level: 'warning'
-      priority: 'high'
+      level: "warning"
+      priority: "high"
       images:
-        - name: 'local_photo.jpg'
-          path: '/tmp/backyard_cam/motion.jpg'
-        - name: 'remote_photo.jpg'
-          url: 'https://i.ibb.co/Jt1845X/motion.jpg'
+        - name: "local_photo.jpg"
+          path: "/tmp/backyard_cam/motion.jpg"
+        - name: "remote_photo.jpg"
+          url: "https://i.ibb.co/Jt1845X/motion.jpg"
 ```
 
 ### Message optional parameters
@@ -102,6 +104,7 @@ The following attributes can be placed inside `data` for extended functionality.
 | `priority` | For recipients which supports priority, the message will be highlighted accordingly.<br>Available values: `lowest`, `low`, `normal`, `high`, `highest`.
 | `images`   | Array of images to attach (see item properties below).
 | `files`    | Array of files to attach (see item properties below).
+| `token`    | Notify.Events channel token (in case you want to override the channel to get this message to).
 
 Every item of images and files has the following properties:
 

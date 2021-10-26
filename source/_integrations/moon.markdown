@@ -9,6 +9,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: moon
+ha_platforms:
+  - sensor
 ---
 
 The `moon` integration tracks the phases of the moon.

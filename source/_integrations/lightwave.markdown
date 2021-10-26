@@ -1,7 +1,6 @@
 ---
 title: Lightwave
 description: Instructions on how to integrate Lightwave devices with Home Assistant.
-logo: lightwave.png
 ha_category:
   - Hub
   - Light
@@ -9,6 +8,11 @@ ha_category:
 ha_release: 0.84
 ha_iot_class: Assumed State
 ha_domain: lightwave
+ha_platforms:
+  - climate
+  - light
+  - sensor
+  - switch
 ---
 
 The `lightwave` integration links Home Assistant with your Lightwave WiFi link for controlling Lightwave lights, switches and TRVs.
@@ -66,12 +70,12 @@ trv:
   required: false
   type: map
   keys:
-    trv_proxy_ip:
+    proxy_ip:
       description: IP address of a proxy for TRV integration. 
       required: false
       type: string
       default: "127.0.0.1"
-    trv_proxy_port:
+    proxy_port:
       description: IP port address of a proxy for TRV integration.
       required: false
       type: integer
@@ -112,8 +116,8 @@ lightwave:
     R99D1:
       name: Bedroom Light
   trv:
-      trv_proxy_ip: 127.0.0.1       # Proxy address, do not change unless running on a different server
-      trv_proxy_port: 7878          # Do not change, unless a port clash
+      proxy_ip: 127.0.0.1       # Proxy address, do not change unless running on a different server
+      proxy_port: 7878          # Do not change, unless a port clash
       trvs:
         R1Dh:                       # The ID of the TRV.
           name: Bedroom TRV

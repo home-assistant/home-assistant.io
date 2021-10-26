@@ -4,8 +4,10 @@ description: Instructions on how to integrate IP cameras within Home Assistant.
 ha_category:
   - Camera
 ha_release: pre 0.7
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mjpeg
+ha_platforms:
+  - camera
 ---
 
 The `mjpeg` camera platform allows you to integrate IP cameras which are capable
@@ -78,4 +80,14 @@ camera:
     username: BLUE_IRIS_USERNAME
     password: BLUE_IRIS_PASSWORD
     authentication: basic
+```
+
+Example of using a DCS-933L Wireless N Network Camera from D-Link:
+
+```yaml
+camera:
+  - platform: mjpeg
+    name: "YOUR_FRIENDLY_NAME"
+    still_image_url: "http://USER:PASSWORD@IP_CAM:PORT/image/jpeg.cgi"
+    mjpeg_url: "http://USER:PASSWORD@IP_CAM:PORT/video/mjpg.cgi"
 ```

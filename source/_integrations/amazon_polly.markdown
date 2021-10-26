@@ -4,9 +4,10 @@ description: Instructions on how to setup Amazon Polly with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.37
-ha_codeowners:
-  - '@robbiet480'
 ha_domain: amazon_polly
+ha_iot_class: Cloud Push
+ha_platforms:
+  - tts
 ---
 
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
@@ -48,10 +49,6 @@ region_name:
   required: false
   type: [string, list]
   default: us-east-1
-name:
-  description: "Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`."
-  required: false
-  type: string
 text_type:
   description: "Specify wherever to use text (default) or ssml markup by default."
   required: false
@@ -84,15 +81,15 @@ Say to all `media_player` device entities:
 
 ```yaml
 - service: tts.amazon_polly_say
-  data_template:
-    message: '<speak>Hello from Amazon Polly</speak>'
+  data:
+    message: "<speak>Hello from Amazon Polly</speak>"
 ```
 
 or
 
 ```yaml
 - service: tts.amazon_polly_say
-  data_template:
+  data:
     message: >
       <speak>
           Hello from Amazon Polly
@@ -103,7 +100,7 @@ Say to the `media_player.living_room` device entity:
 
 ```yaml
 - service: tts.amazon_polly_say
-  data_template:
+  target:
     entity_id: media_player.living_room
     message: >
       <speak>
@@ -115,7 +112,7 @@ Say with break:
 
 ```yaml
 - service: tts.amazon_polly_say
-  data_template:
+  data:
     message: >
       <speak>
           Hello from

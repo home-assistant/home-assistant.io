@@ -7,7 +7,9 @@ date_formatted: "September 18, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-09-0.99/components.png
 ---
 
@@ -107,7 +109,7 @@ Home Assistant had a booth this year at the [CEDIA home tech trade show](https:/
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hanging out at <a href="https://twitter.com/CEDIAExpo?ref_src=twsrc%5Etfw">@CEDIAExpo</a> in innovation alley <a href="https://t.co/9SnUXo11oA">pic.twitter.com/9SnUXo11oA</a></p>&mdash; Home Assistant (@home_assistant) <a href="https://twitter.com/home_assistant/status/1172559987979292673?ref_src=twsrc%5Etfw">September 13, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-We also had some great drinks in the evenings with companies that integrate with Home Assistant. In this picture [Konnected.io](/integrations/konnected) and [Senic](/integrations/nuimo_controller/).
+We also had some great drinks in the evenings with companies that integrate with Home Assistant. In this picture [Konnected.io](/integrations/konnected) and Senic.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Beers after CEDIA with <a href="https://twitter.com/balloob?ref_src=twsrc%5Etfw">@balloob</a> from Home Assistant and teams from Senic and Neeo. <a href="https://t.co/c6Ag4DeEtU">pic.twitter.com/c6Ag4DeEtU</a></p>&mdash; Konnected.io (@Konnected_io) <a href="https://twitter.com/Konnected_io/status/1172689994059661318?ref_src=twsrc%5Etfw">September 14, 2019</a>
 </blockquote>
@@ -254,7 +256,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   ([@SukramJ] - [#26449]) ([homematicip_cloud docs])
 
-- **Linky** - This platform has been moved to an integration. - ([@Quentame] - [#26076]) ([linky docs])
+- **Linky** - This platform has been moved to an integration. - ([@Quentame] - [#26076])
 
   New example configuration entry:
 
@@ -371,7 +373,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - IGN Sismologia icon for geolocation entities ([@exxamalte] - [#26408]) ([ign_sismologia docs])
 - Migrate legacy typehints in core to PEP-526 ([@frenck] - [#26403]) ([device_tracker docs])
 - Add X10 devices as ISY994 switches ([@taylorsilva] - [#26342]) ([isy994 docs])
-- Add config flow to linky ([@Quentame] - [#26076]) ([linky docs]) (breaking change)
+- Add config flow to linky ([@Quentame] - [#26076]) (breaking change)
 - Correct file permissions in slide integration ([@frenck] - [#26390]) ([slide docs])
 - Use literal string interpolation in honeywell ([@zxdavb] - [#26386]) ([honeywell docs])
 - Initial commit ([@zxdavb] - [#26385]) ([geniushub docs])
@@ -397,7 +399,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Unify device_state_attributes handling for Homematic IP Cloud ([@SukramJ] - [#26449]) ([homematicip_cloud docs]) (breaking change)
 - Add yeelight nightlight support via separate light entity ([@zewelor] - [#26224]) ([yeelight docs])
 - Add set scene service calls to yeelight ([@zewelor] - [#26255]) ([yeelight docs])
-- Add device_info to Linky integration ([@Quentame] - [#26477]) ([linky docs])
+- Add device_info to Linky integration ([@Quentame] - [#26477])
 - Update radiotherm climate attributes ([@dieselrabbit] - [#26465]) ([radiotherm docs]) (breaking change)
 - Add Viessmann ViCare Climate platform ([@oischinger] - [#26151]) ([vicare docs]) (new-integration)
 - Add new integration for Jandy iAqualink pool control ([@flz] - [#26034]) ([iaqualink docs]) (new-integration)

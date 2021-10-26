@@ -1,8 +1,6 @@
 ---
 title: "Authentication"
 description: "Guide on authentication in Home Assistant."
-redirect_from:
-  - /integrations/auth/
 ---
 
 Our authentication system secures access to Home Assistant.
@@ -22,17 +20,19 @@ When you start Home Assistant for the first time the _owner_ user account is cre
 For the moment, other user accounts will have the same access as the owner account. In the future, non-owner accounts will be able to have restrictions applied.
 </div>
 
+<div class="note">
+If you want to manage users and you're an owner but you do not see "Users" in your main configuration menu, make sure that "Advanced Mode" is enabled for your user in your profile. 
+</div>
+
 ### Your Account Profile
 
-Once you're logged in, you can see the details of your account at the _Profile_ page by clicking on the circular badge next to the Home Assistant title in the sidebar. 
+Once you're logged in, you can see the details of your account at the _Profile_ page by clicking on the circular at the very bottom of the sidebar. 
 
 <img src='/images/docs/authentication/profile.png' alt='Screenshot of the profile page' style='border: 0;box-shadow: none;'>
 
 You can:
 
-* Change the language you prefer Home Assistant to use.
-* Change your password. 
-* Select the [theme](/integrations/frontend/#defining-themes) for the interface of Home Assistant.
+* Change your password.
 * Enable or disable [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 * Delete _Refresh Tokens_. These are created when you log in from a device. Delete them if you want to force the device to log out.
 * Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) so scripts can securely interact with Home Assistant. 

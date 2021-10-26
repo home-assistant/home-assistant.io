@@ -43,6 +43,11 @@ code:
   description: The code for the alarm control panel.
   required: false
   type: string
+code_arm_required:
+  description: If true, the code is required to arm the alarm.
+  required: false
+  type: boolean
+  default: true
 event_arm_away:
   description: IFTTT webhook event to call when the state is set to armed away.
   required: false
@@ -83,6 +88,7 @@ Next, you will need to set up the required IFTTT applets as listed below.
 This platform supports the services `alarm_disarm`, `alarm_arm_away`, `alarm_arm_home` and `alarm_arm_night`. For each of these services, an IFTTT webhook will be triggered.
 
 For this system to operate correctly, the following IFTTT applets have to be setup. Obviously, if your alarm device does not support some states, no applets have to be provided for those.
+
 * **IF** Webhook event `YOUR_DISARM_EVENT` is called, **THEN** disarm the alarm system.
 * **IF** Webhook event `YOUR_ARM_HOME_EVENT` is called, **THEN** set the alarm system to armed home.
 * **IF** Webhook event `YOUR_ARM_NIGHT_EVENT` is called, **THEN** set the alarm system to armed away.

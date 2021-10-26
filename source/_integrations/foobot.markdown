@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_domain: foobot
+ha_platforms:
+  - sensor
 ---
 
 The `foobot` sensor platform will fetch air quality data from your or yours [Foobot device(s)](https://foobot.io/features/).

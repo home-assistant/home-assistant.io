@@ -4,7 +4,10 @@ description: Instructions on how to add Pushover notifications to Home Assistant
 ha_category:
   - Notifications
 ha_release: pre 0.7
+ha_iot_class: Cloud Push
 ha_domain: pushover
+ha_platforms:
+  - notify
 ---
 
 The [Pushover service](https://pushover.net/) is a platform for the notify component. This allows integrations to send messages to the user using Pushover.
@@ -89,7 +92,7 @@ alexa:
     LocateIntent:
       action:
         service: notify.notify
-        data_template:
+        data:
           message: "The location of {{ User }} has been queried via Alexa."
         data:
           title: "Home Assistant"

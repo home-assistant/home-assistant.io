@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.8
 ha_iot_class: Cloud Polling
 ha_domain: gitlab_ci
+ha_platforms:
+  - sensor
 ---
 
 The `gitlab_ci` sensor platform integrates results reported by CI/CD Pipeline Jobs in [GitLab](https://gitlab.com/).

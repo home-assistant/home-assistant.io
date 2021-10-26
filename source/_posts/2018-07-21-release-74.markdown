@@ -5,7 +5,9 @@ date: 2018-07-20 00:01:00
 date_formatted: "July 20, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-07-0.74/paulus_guido.jpg
 ---
 

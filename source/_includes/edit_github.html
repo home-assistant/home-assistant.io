@@ -1,4 +1,0 @@
-{% assign url_parts = page.url | split: '/' %}
-{% if page.hide_github_edit != true %}
-<div class='edit-github'><a target="_blank" rel="noopener noreferrer" href='{{ site.NLY_REPOSITORY_URL }}/tree/{{ site.NLY_HEAD }}/source/{{ page.path }}'>Edit this page on GitHub</a></div>
-{% endif %}

@@ -9,13 +9,15 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fbradyirl'
 ha_domain: enigma2
+ha_platforms:
+  - media_player
 ---
 
 The `enigma2` platform allows you to control a Linux based set-top box which is running [Enigma2](https://github.com/oe-alliance/oe-alliance-enigma2) with the OpenWebif plugin installed.
 
 [OpenWebif](https://github.com/E2OpenPlugins/e2openplugin-OpenWebif) is an open source web interface for Enigma2 based set-top boxes.
 
-Enigma2 devices should be discovered automatically by using the [the discovery component](/integrations/discovery/).
+Enigma2 devices should be discovered automatically by using [the discovery component](/integrations/discovery/).
 
 To manually add a set-top box to your installation, add the following to your `configuration.yaml` file:
 

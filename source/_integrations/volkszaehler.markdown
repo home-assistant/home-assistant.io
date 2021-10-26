@@ -6,6 +6,10 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.78
 ha_domain: volkszaehler
+ha_codeowners:
+  - '@fabaff'
+ha_platforms:
+  - sensor
 ---
 
 The `volkszaehler` sensor platform is consuming the system information provided by the [Volkszaehler](https://wiki.volkszaehler.org/) API.
@@ -64,7 +68,7 @@ monitored_conditions:
 sensor:
   - platform: volkszaehler
     host: demo.volkszaehler.org
-    uuid: '57acbef0-88a9-11e4-934f-6b0f9ecd95a8'
+    uuid: "57acbef0-88a9-11e4-934f-6b0f9ecd95a8"
     monitored_conditions:
       - average
       - consumption

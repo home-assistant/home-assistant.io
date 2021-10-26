@@ -5,7 +5,9 @@ date: 2017-07-02 00:02:05 +0000
 date_formatted: "July 2, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-07-0.48/components.png
 ---
 
@@ -79,7 +81,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ```yaml
 homeassistant:
-  whitelist_external_dirs:
+  allowlist_external_dirs:
     - /tmp
     - /home/kenji/data
 ```
@@ -426,7 +428,7 @@ light:
 [binary_sensor.arest docs]: /integrations/arest#binary-sensor
 [binary_sensor.digital_ocean docs]: /integrations/digital_ocean#binary-sensor
 [binary_sensor.modbus docs]: /integrations/binary_sensor.modbus/
-[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [binary_sensor.verisure docs]: /integrations/verisure
 [calendar.google docs]: /integrations/calendar.google/
 [camera.arlo docs]: /integrations/arlo#camera

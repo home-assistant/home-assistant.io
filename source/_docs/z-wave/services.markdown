@@ -3,6 +3,12 @@ title: "Z-Wave Services"
 description: "Services exposed by the Z-Wave component."
 ---
 
+<div class='note'>
+
+This Z-Wave integration is deprecated and replaced with a [new implementation based on Z-Wave JS](/integrations/zwave_js); it's currently in beta, and you can [try it now](/integrations/zwave_js/).
+
+</div>
+
 The `zwave` integration exposes multiple services to help maintain the network. All of these are available through the Z-Wave control panel.
 
 | Service                | Description                                                                                                                                                                                                                                          |

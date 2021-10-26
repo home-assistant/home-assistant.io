@@ -14,6 +14,9 @@ The `input_number` integration allows the user to define values that can be cont
 
 The preferred way to configure an input number is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Number** option.
 
+To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+If you removed `default_config:` from you configuration, you must add `input_number:` to your `configuration.yaml` first, then you can use the UI.
+
 Input numbers can also be configured via `configuration.yaml`:
 
 ```yaml
@@ -110,6 +113,7 @@ scene:
 Here's an example of `input_number` being used as a trigger in an automation.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry using 'input_number' as a trigger in an automation
 input_number:
@@ -120,22 +124,24 @@ input_number:
     max: 254
     step: 1
 automation:
-  - alias: Bedroom Light - Adjust Brightness
+  - alias: "Bedroom Light - Adjust Brightness"
     trigger:
       platform: state
       entity_id: input_number.bedroom_brightness
     action:
       - service: light.turn_on
-        # Note the use of 'data_template:' below rather than the normal 'data:' if you weren't using an input variable
-        data_template:
+        target:
           entity_id: light.bedroom
+        data:
           brightness: "{{ trigger.to_state.state | int }}"
 ```
+
 {% endraw %}
 
 Another code example using `input_number`, this time being used in an action in an automation.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry using 'input_number' in an action in an automation
 input_select:
@@ -148,7 +154,7 @@ input_select:
       - Reading
       - Relax
       - 'OFF'
-    initial: 'Select'
+    initial: "Select"
 input_number:
   bedroom_brightness:
     name: Brightness
@@ -157,23 +163,25 @@ input_number:
     max: 254
     step: 1
 automation:
-  - alias: Bedroom Light - Custom
+  - alias: "Bedroom Light - Custom"
     trigger:
       platform: state
       entity_id: input_select.scene_bedroom
       to: CUSTOM
     action:
       - service: light.turn_on
-        # Again, note the use of 'data_template:' rather than the normal 'data:' if you weren't using an input variable.
-        data_template:
+        target:
           entity_id: light.bedroom
+        data:
           brightness: "{{ states('input_number.bedroom_brightness') | int }}"
 ```
+
 {% endraw %}
 
 Example of `input_number` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry using 'input_number' in an action in an automation
 input_number:
@@ -188,34 +196,37 @@ input_number:
 # This automation script runs when a value is received via MQTT on retained topic: setTemperature
 # It sets the value slider on the GUI. This slides also had its own automation when the value is changed.
 automation:
-  - alias: Set temp slider
+  - alias: "Set temp slider"
     trigger:
       platform: mqtt
-      topic: 'setTemperature'
+      topic: "setTemperature"
     action:
       service: input_number.set_value
-      data_template:
+      target:
         entity_id: input_number.target_temp
+      data:
         value: "{{ trigger.payload }}"
 
 # This second automation script runs when the target temperature slider is moved.
 # It publishes its value to the same MQTT topic it is also subscribed to.
-  - alias: Temp slider moved
+  - alias: "Temp slider moved"
     trigger:
       platform: state
       entity_id: input_number.target_temp
     action:
       service: mqtt.publish
-      data_template:
-        topic: 'setTemperature'
+      data:
+        topic: "setTemperature"
         retain: true
         payload: "{{ states('input_number.target_temp') | int }}"
 ```
+
 {% endraw %}
 
 Here's an example of `input_number` being used as a delay in an automation.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry using 'input_number' as a delay in an automation
 input_number:
@@ -236,14 +247,16 @@ input_number:
     step: 10
     
 automation:
- - alias: turn something off after x time after turning it on
+ - alias: "turn something off after x time after turning it on"
    trigger:
      platform: state
      entity_id: switch.something
-     to: 'on'
+     to: "on"
    action:
-     - delay: '00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}'
+     - delay: "00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}"
      - service: switch.turn_off
-       entity_id: switch.something
+       target:
+         entity_id: switch.something
 ```
+
 {% endraw %}

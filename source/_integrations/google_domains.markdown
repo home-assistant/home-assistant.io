@@ -5,6 +5,7 @@ ha_category:
   - Network
 ha_release: 0.57
 ha_domain: google_domains
+ha_iot_class: Cloud Polling
 ---
 
 With the Google Domains integration you can keep your Google Domains record up to date.

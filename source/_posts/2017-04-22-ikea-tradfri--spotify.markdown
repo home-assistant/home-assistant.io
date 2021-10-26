@@ -5,7 +5,9 @@ date: 2017-04-22 01:04:05 +0000
 date_formatted: "April 22, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-04-0.43/components.png
 ---
 
@@ -72,13 +74,13 @@ sensor:
      - station: Hauptbahnhof
        name: Hbf
        destinations: ['München Flughafen Terminal','Markt Schwaben']
-       products: 'S-Bahn'
+       products: "S-Bahn"
        timeoffset: 2
      - station: Sendlinger Tor
        lines: ['U2','U8']
      - station: Scheidplatz
        products: ['U-Bahn']
-       directions: '1'
+       directions: "1"
 ```
 
 ## If you need help...

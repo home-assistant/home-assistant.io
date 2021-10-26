@@ -8,6 +8,9 @@ ha_category:
 ha_release: 0.36
 ha_iot_class: Local Push
 ha_domain: bbb_gpio
+ha_platforms:
+  - binary_sensor
+  - switch
 ---
 
 The `bbb_gpio` integration is the base for all [BeagleBone Black](https://beagleboard.org/black) related GPIO platforms in Home Assistant.
@@ -17,7 +20,7 @@ There is no setup needed for the integration itself.
 
 The `bbb_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [BeagleBone Black](https://beagleboard.org/black).
 
-## Configuration
+### Configuration
 
 To use your BeagleBone Black's GPIO in your installation, add the following to your `configuration.yaml` file:
 
@@ -70,7 +73,7 @@ For more details about the GPIO layout, visit the [article](https://elinux.org/B
 
 The `bbb_gpio` switch platform allows you to control the GPIOs of your [BeagleBone Black](https://beagleboard.org/black).
 
-## Configuration
+### Configuration
 
 To use your BeagleBone Black's GPIO in your installation, add the following to your `configuration.yaml` file:
 

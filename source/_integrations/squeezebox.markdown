@@ -8,41 +8,18 @@ ha_iot_class: Local Polling
 ha_domain: squeezebox
 ha_codeowners:
   - '@rajlaud'
+ha_config_flow: true
+ha_dhcp: true
+ha_platforms:
+  - media_player
 ---
 
-The `squeezebox` platform allows you to control a [Logitech Squeezebox](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29) music player from Home Assistant. This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like [SoftSqueeze](http://softsqueeze.sourceforge.net/), [SqueezePlayer](https://play.google.com/store/apps/details?id=de.bluegaspode.squeezeplayer) and [SqueezeSlave](https://forums.slimdevices.com/showthread.php?93607-ANNOUNCE-Squeezeslave-1-2-released).
+The Squeezebox integration allows you to control a [Logitech Squeezebox](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29) music player from Home Assistant. This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like [Squeezelite](https://github.com/ralph-irving/squeezelite), [SoftSqueeze](http://softsqueeze.sourceforge.net/), [SqueezePlayer](https://play.google.com/store/apps/details?id=de.bluegaspode.squeezeplayer) and [SqueezeSlave](https://forums.slimdevices.com/showthread.php?93607-ANNOUNCE-Squeezeslave-1-2-released).
 
-To add your Squeezebox player to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: squeezebox
-    host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: The host name or address of the Logitech Media Server, e.g., 192.168.1.21.
-  required: true
-  type: string
-port:
-  description: The web interface port to Logitech Media Server.
-  required: false
-  default: 9000
-  type: integer
-username:
-  description: The username, if password protection is enabled.
-  required: false
-  type: string
-password:
-  description: The password, if password protection is enabled.
-  required: false
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 <div class='note'>
-This platform now uses the web interface of the Logitech Media Server to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser. Originally, this platform used the telnet interface, which defaults to 9090. If you previously specified the port in your configuration file, you will likely need to update it.
+This platform uses the web interface of the Logitech Media Server to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser. Originally, this platform used the telnet interface, which defaults to 9090. If you previously specified the port in your configuration file, you will likely need to update it.
 </div>
 
 The Logitech Transporter which have two digital inputs can be activated using a script. The following example turns on the Transporter and activates the toslink input interface:
@@ -52,10 +29,12 @@ The Logitech Transporter which have two digital inputs can be activated using a 
 transporter_toslink:
   sequence:
     - service: homeassistant.turn_on
-      entity_id: media_player.transporter
-    - service: media_player.play_media
-      data:
+      target:
         entity_id: media_player.transporter
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.transporter
+      data:
         media_content_id: "source:toslink"
         media_content_type: "music"
 ```

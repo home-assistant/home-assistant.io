@@ -7,6 +7,8 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.79
 ha_domain: geo_json_events
+ha_codeowners:
+  - '@exxamalte'
 ---
 
 The `geo_json_events` platform lets you integrate GeoJSON feeds. It retrieves events from a feed and shows information of those events filtered by distance to Home Assistant's location.
@@ -70,5 +72,5 @@ geo_location:
   - platform: geo_json_events
     url: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson
     radius: 250
-    entity_namespace: 'usgs_earthquakes'
+    entity_namespace: "usgs_earthquakes"
 ```

@@ -5,7 +5,9 @@ date: 2019-03-06 00:11:03
 date_formatted: "March 6, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-03-release-89/components.png
 ---
 
@@ -13,7 +15,7 @@ og_image: /images/blog/2019-03-release-89/components.png
 
 It's time for release 0.89. It's another great new release with some cool new features, bug fixes and improvements. The first cool new feature is that yet another car is integrated into Home Assistant: the Nissan Leaf. Both deConz and SmartThings integrations keep expanding to cover more devices.
 
-This release introduces a new mobile app component. [@robbiet480], who also works on the iOS app, has taken the best parts of the Home Assistant iOS app component and turned it into a standardized API that any mobile app can build upon. This will allow any mobile apps to integrate with Home Assistant with a great user experience. If you are a mobile app developer, please check the updated [app integration docs](https://developers.home-assistant.io/docs/en/app_integration_index.html). We will be fine tuning the API in upcoming releases. Feedback is welcome.
+This release introduces a new mobile app component. [@robbiet480], who also works on the iOS app, has taken the best parts of the Home Assistant iOS app component and turned it into a standardized API that any mobile app can build upon. This will allow any mobile apps to integrate with Home Assistant with a great user experience. If you are a mobile app developer, please check the updated [app integration docs](https://developers.home-assistant.io/docs/api/native-app-integration/). We will be fine tuning the API in upcoming releases. Feedback is welcome.
 
 ## Noteworthy Breaking Changes
 
@@ -274,7 +276,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add ADB server functionality to Fire TV ([@JeffLIrion] - [#21221]) ([media_player.firetv docs]) (breaking change)
 - Upgrade pytest to 4.3.0 ([@scop] - [#21412])
 - Upgrade mypy to 0.670 ([@scop] - [#20934])
-- Update pylinky ([@tiste] - [#21416]) ([sensor.linky docs])
+- Update pylinky ([@tiste] - [#21416])
 - Mark water_heater as significant domain ([@elupus] - [#21390]) ([history docs])
 - Add power and energy attributes to SmartThings switch ([@andrewsayre] - [#21375]) ([smartthings docs]) (new-feature)
 - Add SmartThings Cover platform and add cover device classes ([@andrewsayre] - [#21192]) ([cover docs]) ([smartthings docs]) (breaking change) (new-platform)

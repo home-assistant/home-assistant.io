@@ -7,7 +7,9 @@ date_formatted: "April 29, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-04-0.109/social.png
 ---
 
@@ -803,7 +805,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 - Use UNIT_PERCENTAGE constant ([@springstan] - [#34054]) ([abode docs]) ([august docs]) ([garmin_connect docs]) ([nexia docs]) ([nut docs]) ([powerwall docs])
 - Handle incorrect config for Nederlandse Spoorwegen integration ([@YarmoM] - [#31623]) ([nederlandse_spoorwegen docs])
 - Restore ability to change the scan interval in the NUT ([@bdraco] - [#33996]) ([nut docs])
-- Do not use POWER_WATT for West wind direction ([@Quentame] - [#34069]) ([bom docs]) ([homematicip_cloud docs])
+- Do not use POWER_WATT for West wind direction ([@Quentame] - [#34069]) ([homematicip_cloud docs])
 - Upgrade certifi to >=2020.4.5.1 ([@fabaff] - [#34080])
 - Upgrade importlib-metadata to 1.6.0 ([@fabaff] - [#34081])
 - Upgrade keyring to 21.2.0 ([@fabaff] - [#34084])
@@ -820,7 +822,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 - deCONZ support for new device trigger for Feller EDIZIOdue Friends of hue Switch ([@bqstony] - [#33478]) ([deconz docs])
 - Use UNIT_UV_INDEX constant ([@springstan] - [#34055]) ([metoffice docs]) ([openuv docs]) ([rfxtrx docs]) ([tellduslive docs]) (breaking change)
 - Add and use UNIT_CONDUCTIVITY constant ([@springstan] - [#34107]) ([miflora docs]) ([mysensors docs]) ([plant docs])
-- Use LENGTH_METERS constant ([@springstan] - [#34110]) ([bom docs]) ([darksky docs]) ([garmin_connect docs]) ([isy994 docs]) ([mysensors docs]) ([proximity docs]) ([zamg docs])
+- Use LENGTH_METERS constant ([@springstan] - [#34110]) ([darksky docs]) ([garmin_connect docs]) ([isy994 docs]) ([mysensors docs]) ([proximity docs]) ([zamg docs])
 - Add and use frequency constants ([@springstan] - [#34113])
 - Fixed uncaught exceptions for demo ([@ziv1234] - [#34117]) ([demo docs])
 - Don't do http requests to determine Cast device details ([@emontnemery] - [#34082]) ([cast docs])
@@ -1694,7 +1696,6 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [blink docs]: /integrations/blink/
 [bloomsky docs]: /integrations/bloomsky/
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
-[bom docs]: /integrations/bom/
 [braviatv docs]: /integrations/braviatv/
 [broadlink docs]: /integrations/broadlink/
 [brother docs]: /integrations/brother/

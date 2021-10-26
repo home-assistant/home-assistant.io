@@ -81,7 +81,7 @@ binary_sensor:
     sensors:
       on_tester:
         value_template: "{{ states.input_boolean.on_off.state == 'on' }}"
-        friendly_name: 'Movement'
+        friendly_name: "Movement"
         device_class: motion
 ```
 
@@ -89,14 +89,15 @@ binary_sensor:
 
 ## MQTT Discovery
 
-This is a section for advanced users as it will require to run a separate script. Instead of adding `demo` platforms to the configuration this setup make use of [MQTT discovery](/docs/mqtt/discovery/) and the [embedded MQTT broker](/docs/mqtt/broker/#embedded-broker). Simply add MQTT to your `configuration.yaml` file with `discovery:`
+This is a section for advanced users as it will require to run a separate script. Instead of adding `demo` platforms to the configuration this setup make use of [MQTT discovery](/docs/mqtt/discovery/). Simply add MQTT to your `configuration.yaml` file with `discovery:`
 
 ```yaml
 mqtt:
+  host: YOUR_MQTT_HOST
   discovery: true
 ```
 
-Download the [sample script](https://github.com/home-assistant/home-assistant-dev-helper/blob/master/ha-mqtt-demo.py). It depends on [paho-mqtt](https://pypi.python.org/pypi/paho-mqtt). If you run the script inside your [Home Assistant's virtual environment](/docs/installation/virtualenv/) then you are good to go as the dependency should be present if you have used MQTT before. Otherwise, install it with `$ pip3 install paho-mqtt`. The same applies to the embedded broker.
+Download the [sample script](https://github.com/home-assistant/home-assistant-dev-helper/blob/master/ha-mqtt-demo.py). It depends on [paho-mqtt](https://pypi.python.org/pypi/paho-mqtt). If you run the script inside your [Home Assistant's virtual environment](/docs/installation/virtualenv/) then you are good to go as the dependency should be present if you have used MQTT before. Otherwise, install it with `$ pip3 install paho-mqtt`.
 
 ```bash
 (ha)[ha-demo]$ python3 ha-mqtt-demo.py
