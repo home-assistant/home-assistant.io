@@ -23,7 +23,7 @@ This integration creates the inverter as a device with two sensors, reporting li
 Note the PV inverter will be unresponsive to communications when in darkness, 
 so the sensors will report 'Unavailable' during the night.
 
-The RS485 connection can be made using a low cost USB-RS485 converter.  It works using a 2-wire interface but an interface with a separate ground reference may be more reliable.
+The RS485 connection can be made using a low-cost USB-RS485 converter. It works using a 2-wire interface but an interface with a separate ground reference may be more reliable.
 
 ## Configuration
 
