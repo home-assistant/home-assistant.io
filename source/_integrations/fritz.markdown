@@ -46,14 +46,13 @@ Currently supported services are Platform specific:
 
 - `fritz.reconnect`
 - `fritz.reboot`
+- `fritz.cleanup`
 
 ### Platform Services
 
 #### Service `fritz.reboot`
 
 Reboot the router.
-
-</div>
 
 | Service data attribute | Optional | Description                                                                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
@@ -63,6 +62,15 @@ Reboot the router.
 
 Disconnect and reconnect the router to the Internet.
 If you have a dynamic IP address, most likely it will change.
+
+| Service data attribute | Optional | Description                                                                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Only act on a specific  router                                                                                 |
+
+#### Service `fritz.cleanup`
+
+Remove all stale devices from HomeAssistant.
+A device is identified as stale when it's still present on HomeAssistant but not on the Fritz!box.
 
 | Service data attribute | Optional | Description                                                                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
