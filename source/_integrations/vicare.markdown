@@ -136,7 +136,7 @@ Set the mode for the climate device as defined by Viessmann (see [set_hvac_mode]
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
-| `vicare_mode` | no | New value of ViCare mode. For supported values see the `modes` attribute of the climate entity.
+| `vicare_mode` | no | New value of ViCare mode. For supported values see the `vicare_modes` attribute of the climate entity.
 
 #### Service `set_preset_mode`
 
