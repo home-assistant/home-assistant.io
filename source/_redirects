@@ -340,7 +340,6 @@
 /components/device_tracker.gpslogger /integrations/gpslogger
 /components/device_tracker.hitron_coda /integrations/hitron_coda
 /components/device_tracker.huawei_lte /integrations/huawei_lte
-/components/device_tracker.huawei_router /integrations/huawei_router
 /components/device_tracker.icloud /integrations/icloud
 /components/device_tracker.keenetic_ndms2 /integrations/keenetic_ndms2
 /components/device_tracker.linksys_ap /integrations/linksys_ap
@@ -1416,7 +1415,6 @@
 /components/http /integrations/http
 /components/htu21d /integrations/htu21d
 /components/huawei_lte /integrations/huawei_lte
-/components/huawei_router /integrations/huawei_router
 /components/hue /integrations/hue
 /components/hunterdouglas_powerview /integrations/hunterdouglas_powerview
 /components/hydrawise /integrations/hydrawise
@@ -2348,3 +2346,6 @@
 /components/lock.nello /more-info/removed-integration 301
 /components/nello /more-info/removed-integration 301
 /integrations/nello /more-info/removed-integration 301
+/components/device_tracker.huawei_router /more-info/removed-integration 301
+/integrations/huawei_router /more-info/removed-integration 301
+
