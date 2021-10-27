@@ -23,6 +23,8 @@ For each installed add-on Supervisor provides following sensors:
 | ------- | ------------------ | ----------- |
 | Version | no | Current version of the add-on
 | Newest Version | no | Latest version of the add-on currently available
+| CPU Percent| no | The CPU Percent usage of the add-on
+| Memory Percent| no | The Memory (RAM) Percent usage of the add-on
 
 For Home Assistant OS Supervisor provides following sensors:
 
@@ -38,6 +40,7 @@ For each installed add-on Supervisor provides following binary sensors:
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
 | Update Available | no | Whether there is an update available for this add-on
+| Running | no | Whether the add-on is running or not.
 
 For Home Assistant OS Supervisor provides following binary sensors:
 
