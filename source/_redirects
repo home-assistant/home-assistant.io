@@ -340,7 +340,6 @@
 /components/device_tracker.gpslogger /integrations/gpslogger
 /components/device_tracker.hitron_coda /integrations/hitron_coda
 /components/device_tracker.huawei_lte /integrations/huawei_lte
-/components/device_tracker.huawei_router /integrations/huawei_router
 /components/device_tracker.icloud /integrations/icloud
 /components/device_tracker.keenetic_ndms2 /integrations/keenetic_ndms2
 /components/device_tracker.linksys_ap /integrations/linksys_ap
@@ -1065,7 +1064,6 @@
 /integrations/climate.modbus /integrations/modbus
 /integrations/cover.modbus /integrations/modbus
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio
-/integrations/google /integrations/calendar.google
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio
 /integrations/lovelace /lovelace
 /integrations/remote.xiaomi_miio /integrations/xiaomi_miio
@@ -1417,7 +1415,6 @@
 /components/http /integrations/http
 /components/htu21d /integrations/htu21d
 /components/huawei_lte /integrations/huawei_lte
-/components/huawei_router /integrations/huawei_router
 /components/hue /integrations/hue
 /components/hunterdouglas_powerview /integrations/hunterdouglas_powerview
 /components/hydrawise /integrations/hydrawise
@@ -2021,6 +2018,27 @@
 /docs/ecosystem/notebooks/stats https://data.home-assistant.io
 /docs/frontend/mobile https://companion.home-assistant.io
 /docs/script/editor /docs/scripts/editor
+/docs/z-wave /integrations/zwave_js
+/docs/z-wave/adding /integrations/zwave/#adding-and-removing-devices
+/docs/z-wave/control-panel /integrations/zwave/#control-panel
+/docs/z-wave/controllers/#aeotec-stick /docs/z-wave/controllers/#aeotec-z-stick
+/docs/z-wave/devices /integrations/zwave/#device-support
+/docs/z-wave/devices/#instant-status /integrations/zwave/#instant-status
+/docs/z-wave/devices/#polling /integrations/zwave/#polling
+/docs/z-wave/device-specific /integrations/zwave/#device-specific-information
+/docs/z-wave/device-specific/#device-categories /integrations/zwave/#device-support
+/docs/z-wave/device-specific/#motion-or-alarm-sensors /integrations/zwave/#binary-sensor
+/docs/z-wave/device-specific/#locks-and-other-secure-devices /integrations/zwave/#lock
+/docs/z-wave/device-specific/#specific-devices /integrations/zwave/#device-specific-information
+/docs/z-wave/device-specific/#aeotec-z-stick /docs/z-wave/controllers/#aeotec-z-stick
+/docs/z-wave/device-specific/#razberry-board /docs/z-wave/controllers/#razberry-board
+/docs/z-wave/device-specific/#raspberry-pi-3-procedure /docs/z-wave/controllers/#raspberry-pi-3-procedure
+/docs/z-wave/device-specific/#raspberry-pi-4-procedure /docs/z-wave/controllers/#raspberry-pi-4-procedure
+/docs/z-wave/entities /integrations/zwave/#device-support
+/docs/z-wave/events /integrations/zwave/#events
+/docs/z-wave/installation /integrations/zwave/#detailed-installation-instructions
+/docs/z-wave/query-stage /integrations/zwave/#query-stage
+/docs/z-wave/services /integrations/zwave/#services
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io
@@ -2045,6 +2063,7 @@
 /integrations/trace /docs/automation/troubleshooting
 /integrations/weather.knx /integrations/knx#weather
 /integrations/zigbee /integrations/xbee
+/integrations/calendar.google /integrations/google
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
 /getting-started/automation-create-first /getting-started/automation
@@ -2071,12 +2090,12 @@
 /getting-started/troubleshooting-configuration /docs/troubleshooting
 /getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml
-/getting-started/z-wave /docs/z-wave
-/getting-started/z-wave-devices /docs/z-wave/devices
-/getting-started/z-wave-installation /docs/z-wave/installation
-/getting-started/z-wave-panel /docs/z-wave/control-panel
-/getting-started/z-wave-device-specific /docs/z-wave/device-specific
-/hassio/zwave /docs/z-wave
+/getting-started/z-wave /integrations/zwave_js
+/getting-started/z-wave-devices /integrations/zwave_js
+/getting-started/z-wave-installation /integrations/zwave_js
+/getting-started/z-wave-panel /integrations/zwave_js
+/getting-started/z-wave-device-specific /integrations/zwave_js
+/hassio/zwave /integrations/zwave_js
 /topics/events /docs/configuration/events
 /topics/packages /docs/configuration/packages
 /topics/platform_options /docs/configuration/platform_options
@@ -2327,3 +2346,6 @@
 /components/lock.nello /more-info/removed-integration 301
 /components/nello /more-info/removed-integration 301
 /integrations/nello /more-info/removed-integration 301
+/components/device_tracker.huawei_router /more-info/removed-integration 301
+/integrations/huawei_router /more-info/removed-integration 301
+

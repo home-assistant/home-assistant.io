@@ -20,6 +20,7 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@mib1185'
+  - '@flabbamann'
 ---
 
 The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ!DECT](https://en.avm.de/products/fritzdect/) devices like switches, sensors and thermostats.
@@ -41,7 +42,9 @@ There is currently support for the following device types within Home Assistant:
 - [FRITZ!Box 7430](https://en.avm.de/service/fritzbox/fritzbox-7430/overview/)
 - [FRITZ!DECT 200](https://en.avm.de/products/fritzdect/fritzdect-200/)
 - [FRITZ!DECT 301](https://en.avm.de/products/fritzdect/fritzdect-301/)
+- [FRITZ!DECT 500](https://en.avm.de/products/fritzdect/fritzdect-500/)
 - [Eurotronic Comet DECT](https://eurotronic.org/produkte/elektronische-heizkoerperthermostate/sparmatic-comet/)
+- [Magenta SmartHome LED E27](https://www.smarthome.de/geraete/smarthome-led-lampe-e27-farbig-weiss)
 
 {% include integrations/config_flow.md %}
 
