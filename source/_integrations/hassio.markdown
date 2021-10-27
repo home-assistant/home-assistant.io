@@ -5,7 +5,7 @@ ha_category:
   - Binary Sensor
   - Sensor
 ha_iot_class: Local Polling
-ha_release: 2021.4
+ha_release: 0.42
 ha_domain: hassio
 ha_platforms:
   - binary_sensor
