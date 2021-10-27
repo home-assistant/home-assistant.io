@@ -70,6 +70,10 @@ tariffs:
   type: list
 {% endconfiguration %}
 
+<p class='note warning'>
+When using the `offset` configuration parameter, the defined period must not be longer then 28 days.
+</p>
+
 ### Time period dictionary example
 
 ```yaml
