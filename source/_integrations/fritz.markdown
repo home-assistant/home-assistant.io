@@ -69,8 +69,8 @@ If you have a dynamic IP address, most likely it will change.
 
 #### Service `fritz.cleanup`
 
-Remove all stale devices from HomeAssistant.
-A device is identified as stale when it's still present on HomeAssistant but not on the Fritz!box.
+Remove all stale devices from Home Assistant.
+A device is identified as stale when it's still present on HomeAssistant but not on the FRITZ!box.
 
 | Service data attribute | Optional | Description                                                                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
