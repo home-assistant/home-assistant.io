@@ -73,7 +73,7 @@ region:
 
 Not all Azure regions support high-quality neural voices. Use [this overview](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#neural-and-standard-voices) to determine the availability of standard and neural voices by region/endpoint.
  
-New users ([any newly created Azure Speech resource after August 31st 2021](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech#migrate-to-neural-voice)) can only use neural voices.  Existing resources can continue using standard voices through August 31st, 2024.
+New users ([any newly created Azure Speech resource after August 31st, 2021](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech#migrate-to-neural-voice)) can only use neural voices. Existing resources can continue using standard voices through August 31st, 2024.
 
 </div>
 
