@@ -18,3 +18,12 @@ The SRP Energy integration shows information from SRP hourly energy usage report
 You need a username, password, and account ID which you can create at [SRP](https://www.srpnet.com).
 
 {% include integrations/config_flow.md %}
+
+## Sensors
+
+The following sensors are available.
+
+| Name                    | Unit | Description   |
+|-------------------------|------|:-------------------------------------------|
+| SRP Energy Costs        | $    | Energy cost from the beginning of the month. |
+| SRP Energy Usage        | kWh  | Energy usage from the beginning of the month. |
