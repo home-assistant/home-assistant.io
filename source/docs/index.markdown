@@ -19,12 +19,6 @@ The documentation covers beginner to advanced topics around the installation, se
     </div>
     <div class='title'>Configuration</div>
   </a>
-  <a class='option-card' href='/docs/z-wave/'>
-    <div class='img-container'>
-      <img src='https://brands.home-assistant.io/zwave/icon.png' />
-    </div>
-    <div class='title'>Z-Wave</div>
-  </a>
   <a class='option-card' href='/docs/mqtt/'>
     <div class='img-container'>
       <img src='https://brands.home-assistant.io/mqtt/icon.png' />
