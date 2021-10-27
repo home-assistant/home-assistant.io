@@ -44,49 +44,47 @@ The Buienradar integration will set up separate sensor entities with more detail
 
 The following entities will be created:
 
-| Entity                                | Description |
-| ------------------------------------- | ----------- |
-| Station name                          | The name of the selected meteo-station |
-| Barometer forecast                    | A numeric barometric forecast (1 to 7) |
-| Barometer forecast name               | A textual representation of the barometer forecast (eg: Thunderstorms, Stable, etc.) |
-| Condition code                        | A symbol and a unique code identifying the current weather condition (`[a..z]`) |
-| Condition                             | A symbol and the current weather condition (`clear`, `cloudy`, `fog`, `rainy`, `snowy` or `lightning`) |
-| Condition detailed                    | A symbol and detailed current weather condition (`clear`, `partlycloudy`, `cloudy`, `partlycloudy-fog`, `partlycloudy-light-rain`, `partlycloudy-rain`, `light-rain`, `rainy`, `snowy-rainy`, `partlycloudy-light-snow`, `partlycloudy-snow`, `light-snow`, `snowy`, `partlycloudy-lightning` or `lightning`) |
-| Condition exact                       | A symbol with the full current weather condition (in English) |
-| Symbol                                | A symbol for the current weather with the full current condition (in Dutch) |
-| Feel temperature                      | The current wind chill factor (in [°C](https://en.wikipedia.org/wiki/Celsius)) |
-| Humidity                              | The relative humidity (in %) |
-| Temperature                           | The current temperature (in [°C](https://en.wikipedia.org/wiki/Celsius)) |
-| Ground temperature                    | The current ground temperature (in [°C](https://en.wikipedia.org/wiki/Celsius)) |
-| Wind speed                            | The wind speed (in [km/h](https://en.wikipedia.org/wiki/Kilometres_per_hour)) |
-| Wind force                            | The wind speed/force (in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale)) |
-| Wind direction                        | Where the wind is coming from: N (North), Z (south), NO (North-East), etc. |
-| Wind azimuth                          | Where the wind is coming from in degrees, with true north at 0° and progressing clockwise |
-| Pressure                              | The sea-level air pressure (in [hPa](https://en.wikipedia.org/wiki/Hectopascal)) |
-| Visibility                            | Visibility (in [m](https://en.wikipedia.org/wiki/Metre)) |
-| Wind gust                             | The wind speed of wind gusts ([km/h](https://en.wikipedia.org/wiki/Kilometres_per_hour)) |
-| Precipitation                         | The amount of precipitation/rain (in mm/h) |
-| Precipitation forecast average        | The average expected precipitation/rain within the given time-frame (in mm/h) |
-| Precipitation forecast total          | The total expected precipitation/rain in mm within the given time-frame. The total expected rain in the configured time-frame will be equal to _precipitation_forecast_total_/_timeframe_ mm/min. So, with time-frame configured to 30 minutes and a value of 5, the expected rain is 5 mm in 30 minutes, which is the same as 10 mm/h. If time-frame is set to 90 minutes and a value of 5, the expected rain is 5 mm in 90 minutes, which is equal to 3.3 mm/h. |
-| Irradiance                            | Sun intensity in Watt per square meter ([W/m2](https://en.wikipedia.org/wiki/W/m2)) |
-| Rain last 24h                         | The rain over the last 24 hours (in [mm](https://en.wikipedia.org/wiki/Millimeter)) |
-| Rain last hour                        | The rain over the last hour (in [mm](https://en.wikipedia.org/wiki/Millimeter)) |
-| Temperature n days ahead              | The forecasted temperature n days ahead (in [°C](https://en.wikipedia.org/wiki/Celsius)) |
-| Minimum temperature n days ahead      | The forecasted minimum temperature n days ahead (in [°C](https://en.wikipedia.org/wiki/Celsius)) |
-| Rain chance n days ahead              | The forecasted chance for rain n days ahead (in %) |
-| Sun chance n days ahead               | The forecasted chance for sun n days ahead (in %) |
-| Rain n days ahead                     | The forecasted amount of rain (in [mm](https://en.wikipedia.org/wiki/Millimeter)) n days ahead; the average of `Minimum rain n days ahead` and `Maximum rain n days ahead` |
-| Minimum rain n days ahead             | The minimum forecasted amount of rain (in [mm](https://en.wikipedia.org/wiki/Millimeter)) n days ahead |
-| Maximum rain n days ahead             | The maximum forecasted amount of rain (in [mm](https://en.wikipedia.org/wiki/Millimeter)) n days ahead |
-| Wind azimuth n days ahead             | Where the wind is coming from in degrees, with true north at 0° and progressing clockwise for n days ahead (derived from `Wind direction n days ahead`) |
-| Wind direction n days ahead           | Where the wind will be coming from n days ahead: N (North), Z (south), NO (North-East), etc. |
-| Wind force n days ahead               | The expected wind force (in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale)) n days ahead |
-| Wind speed n days ahead               | The expected wind speed (in [m/s](https://en.wikipedia.org/wiki/M/s)) n days ahead (derived from `Wind force n days ahead`) |
-| Condition code n days ahead           | Symbol and condition code of the expected condition n days ahead |
-| Condition n days ahead                | Symbol and expected condition n days ahead |
-| Detailed condition n days ahead       | Symbol and detailed expected condition n days ahead |
-| Full condition (english) n days ahead | Symbol and full expected condition n days ahead (in English) |
-| Full condition (dutch) n days ahead   | Symbol and full expected condition n days ahead (in Dutch) |
+- **Station name**: The name of the selected meteo-station
+- **Barometer forecast**: A numeric barometric forecast (1 to 7)
+- **Barometer forecast name**: A textual representation of the barometer forecast (eg: Thunderstorms, Stable, etc.)
+- **Condition code**: A symbol and a unique code identifying the current weather condition (`[a..z]`)
+- **Condition**: A symbol and the current weather condition (`clear`, `cloudy`, `fog`, `rainy`, `snowy` or `lightning`)
+- **Condition detailed**: A symbol and detailed current weather condition (`clear`, `partlycloudy`, `cloudy`, `partlycloudy-fog`, `partlycloudy-light-rain`, `partlycloudy-rain`, `light-rain`, `rainy`, `snowy-rainy`, `partlycloudy-light-snow`, `partlycloudy-snow`, `light-snow`, `snowy`, `partlycloudy-lightning` or `lightning`)
+- **Condition exact**: A symbol with the full current weather condition (in English)
+- **Symbol**: A symbol for the current weather with the full current condition (in Dutch)
+- **Feel temperature**: The current wind chill factor (in [°C](https://en.wikipedia.org/wiki/Celsius))
+- **Humidity**: The relative humidity (in %)
+- **Temperature**: The current temperature (in [°C](https://en.wikipedia.org/wiki/Celsius))
+- **Ground temperature**: The current ground temperature (in [°C](https://en.wikipedia.org/wiki/Celsius))
+- **Wind speed**: The wind speed (in [km/h](https://en.wikipedia.org/wiki/Kilometres_per_hour))
+- **Wind force**: The wind speed/force (in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale))
+- **Wind direction**: Where the wind is coming from: N (North), Z (south), NO (North-East), etc.
+- **Wind azimuth**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise
+- **Pressure**: The sea-level air pressure (in [hPa](https://en.wikipedia.org/wiki/Hectopascal))
+- **Visibility**: Visibility (in [m](https://en.wikipedia.org/wiki/Metre))
+- **Wind gust**: The wind speed of wind gusts ([km/h](https://en.wikipedia.org/wiki/Kilometres_per_hour))
+- **Precipitation**: The amount of precipitation/rain (in mm/h)
+- **Precipitation forecast average**: The average expected precipitation/rain within the given time-frame (in mm/h)
+- **Precipitation forecast total**: The total expected precipitation/rain in mm within the given time-frame. The total expected rain in the configured time-frame will be equal to _precipitation_forecast_total_/_timeframe_ mm/min. So, with time-frame configured to 30 minutes and a value of 5, the expected rain is 5 mm in 30 minutes, which is the same as 10 mm/h. If time-frame is set to 90 minutes and a value of 5, the expected rain is 5 mm in 90 minutes, which is equal to 3.3 mm/h.
+- **Irradiance**: Sun intensity in Watt per square meter ([W/m2](https://en.wikipedia.org/wiki/W/m2))
+- **Rain last 24h**: The rain over the last 24 hours (in [mm](https://en.wikipedia.org/wiki/Millimeter))
+- **Rain last hour**: The rain over the last hour (in [mm](https://en.wikipedia.org/wiki/Millimeter))
+- **Temperature n days ahead**: The forecasted temperature n days ahead (in [°C](https://en.wikipedia.org/wiki/Celsius))
+- **Minimum temperature n days ahead**: The forecasted minimum temperature n days ahead (in [°C](https://en.wikipedia.org/wiki/Celsius))
+- **Rain chance n days ahead**: The forecasted chance for rain n days ahead (in %)
+- **Sun chance n days ahead**: The forecasted chance for sun n days ahead (in %)
+- **Rain n days ahead**: The forecasted amount of rain (in [mm](https://en.wikipedia.org/wiki/Millimeter)) n days ahead; the average of `Minimum rain n days ahead` and `Maximum rain n days ahead`
+- **Minimum rain n days ahead**: The minimum forecasted amount of rain (in [mm](https://en.wikipedia.org/wiki/Millimeter)) n days ahead
+- **Maximum rain n days ahead**: The maximum forecasted amount of rain (in [mm](https://en.wikipedia.org/wiki/Millimeter)) n days ahead
+- **Wind azimuth n days ahead**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise for n days ahead (derived from `Wind direction n days ahead`)
+- **Wind direction n days ahead**: Where the wind will be coming from n days ahead: N (North), Z (south), NO (North-East), etc.
+- **Wind force n days ahead**: The expected wind force (in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale)) n days ahead
+- **Wind speed n days ahead**: The expected wind speed (in [m/s](https://en.wikipedia.org/wiki/M/s)) n days ahead (derived from `Wind force n days ahead`)
+- **Condition code n days ahead**: Symbol and condition code of the expected condition n days ahead
+- **Condition n days ahead**: Symbol and expected condition n days ahead
+- **Detailed condition n days ahead**: Symbol and detailed expected condition n days ahead
+- **Full condition (english) n days ahead**: Symbol and full expected condition n days ahead (in English)
+- **Full condition (dutch) n days ahead**: Symbol and full expected condition n days ahead (in Dutch)
 
 {% include integrations/option_flow.md %}
 
