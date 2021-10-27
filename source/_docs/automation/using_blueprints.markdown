@@ -49,7 +49,7 @@ In that case, to pull in the latest blueprint changes, you need to import the bl
 1. Change the blueprint name, for example, append `-v2` to its path.
 1. Select "Import blueprint" to import it.
 
-If you have automations based on a previous bleuprint revision, do not delete the already existing blueprint, because the automations based on it will stop working.
+If you have automations based on a previous blueprint revision, do not delete the already existing blueprint, because the automations based on it will stop working.
 
 ## Finding new blueprints
 
