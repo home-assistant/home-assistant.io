@@ -15,7 +15,7 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - climate
-  - Light
+  - light
   - sensor
   - switch
 ha_codeowners:

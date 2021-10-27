@@ -24,7 +24,6 @@ ha_codeowners:
   - '@Tuya'
   - '@zlinoliver'
   - '@METISU'
-  - '@tsutsuku'
   - '@frenck'
 ha_platforms:
   - binary_sensor
@@ -36,11 +35,12 @@ ha_platforms:
   - light
   - number
   - scene
-  - select
   - sensor
+  - select
   - siren
   - switch
   - vacuum
+ha_dhcp: true
 ---
 
 The Tuya integration integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps. Tuya officially maintains this integration.

@@ -13,6 +13,7 @@ ha_domain: nanoleaf
 ha_platforms:
   - light
 ha_zeroconf: true
+ha_ssdp: true
 ---
 
 The Nanoleaf integration allows you to control and monitor Nanoleaf Light Panels, Canvas, Shapes and Elements.
