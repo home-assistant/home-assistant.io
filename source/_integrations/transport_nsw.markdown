@@ -91,7 +91,7 @@ The sensor returns n/a if no stop event is found within the next 24h. A `templat
 # Sample template sensor
 template
   - sensor:
-    - name: Bus monitor 199
+    - name: "Bus monitor 199"
       state: >-
         {% if is_state_attr('sensor.bus', 'due', 'n/a') %}
           No schedule found
