@@ -1,12 +1,21 @@
 ---
 title: Tuya
-description: Instructions on how to setup the Tuya hub within Home Assistant.
+description: Instructions on how to set up the Tuya hub within Home Assistant.
 ha_category:
+  - Binary Sensor
+  - Camera
   - Climate
+  - Cover
+  - Doorbell
   - Fan
+  - Humidifier
   - Light
+  - Number
   - Scene
+  - Select
+  - Siren
   - Switch
+  - Vacuum
 ha_iot_class: Cloud Push
 ha_release: 0.74
 ha_config_flow: true
@@ -16,31 +25,35 @@ ha_codeowners:
   - '@zlinoliver'
   - '@METISU'
   - '@tsutsuku'
+  - '@frenck'
 ha_platforms:
+  - binary_sensor
+  - camera
   - climate
+  - cover
   - fan
+  - humidifier
   - light
+  - number
   - scene
+  - select
+  - sensor
+  - siren
   - switch
+  - vacuum
 ---
 
-The Tuya integration allows integrating all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps. This integration is officially maintained by Tuya.
+The Tuya integration integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps. Tuya officially maintains this integration.
 
-## Supported platforms
-
-- **Climate**: air conditioner, heater, thermostat.
-- **Fan**: fan, air purifier, humidifier, dehumidifier.
-- **Light**: light, light strip, ambient light, light string, humidifier's light, ceiling light.
-- **Scene**: smart scene.
-- **Switch**: switch, socket, power strip, smart kettle, breaker, pet water feeder, air purifier, diffuser.
+All Home Assistant platforms are supported by the Tuya integration, except the lock and remote platform.
 
 ## Configuration of the Tuya IoT Platform
 
 ### Prerequisites
 
-- Your devices need to first be added in the [Tuya Smart or Smart Life app](https://developer.tuya.com/en/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
+- Your devices need first to be added in the [Tuya Smart or Smart Life app](https://developer.tuya.com/en/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
 - You will also need to create an account in the [Tuya IoT Platform](https://iot.tuya.com/).
-This is a separate account to the one you made for the app. You cannot log in with your app's credentials.
+This is a separate account from the one you made for the app. You cannot log in with your app's credentials.
 
 ### Create a project
 
@@ -49,7 +62,7 @@ This is a separate account to the one you made for the app. You cannot log in wi
 3. On the page that appears, click `Create Cloud Project`.
 4. In the `Create Cloud Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in.
   ![](/images/integrations/tuya/image_001.png)
-5. Click `Create` to continue with project configuration.
+5. Click `Create` to continue with the project configuration.
 6. In Configuration Wizard, make sure you add `Device Status Notification` API. The list of API should look like this:
   ![](/images/integrations/tuya/image_002.png)
 7. Click `Authorize`.
