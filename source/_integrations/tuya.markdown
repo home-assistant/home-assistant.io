@@ -70,7 +70,8 @@ This is a separate account to the one you made for the app. You cannot log in wi
 ### Get authorization key
 
 Click the created project to enter the `Project Overview` page and get the `Authorization Key`. You will need these for setting up the integration. in the next step.
-  ![](/images/integrations/tuya/image_006.png)
+
+![](/images/integrations/tuya/image_006.png)
 
 {% include integrations/config_flow.md %}
 
@@ -97,7 +98,7 @@ Click the created project to enter the `Project Overview` page and get the `Auth
 {% configuration_basic %}
 
 "1004: sign invalid":
-  description: Incorrect Access ID or Access Secret. Please refer to [Tuya credential table](https://github.com/tuya/tuya-home-assistant/wiki/Install-Tuya-v2?_source=d10de34623e3daca5b02e3c31528a0c4#3-enter-your-tuya-credential).
+  description: Incorrect Access ID or Access Secret. Please refer to [Install Tuya Integration](https://github.com/tuya/tuya-home-assistant/blob/master/docs/install.md).
 
 "1106: permission deny":
   description: >
@@ -105,10 +106,10 @@ Click the created project to enter the `Project Overview` page and get the `Auth
 
     - Incorrect username or password: Enter the correct account and password of the Tuya Smart or Smart Life app in the **Account** and **Password** fields. Note that the app account depends on which app (Tuya Smart or Smart Life) you used to link devices on the [Tuya IoT Platform](https://iot.tuya.com/cloud/).
 
-    - Incorrect availability zone: See [Availability Zone](https://github.com/tuya/tuya-home-assistant/wiki/Tuya-IoT-Platform-Configuration-Guide-Using-Smart-Home-PaaS#region--available-zone-correspondence) and select the correct availability zone.
+    - Incorrect country. You must select the region of your account of the Tuya Smart app or Smart Life app.
 
 "1100: param is empty":
-  description: Empty parameter of username or app. Fill the parameters refer to [Tuya credential table](https://github.com/tuya/tuya-home-assistant/wiki/Install-Tuya-v2?_source=d10de34623e3daca5b02e3c31528a0c4#3-enter-your-tuya-credential).
+  description: Empty parameter of username or app. Fill the parameters refer to [Install Tuya Integration](https://github.com/tuya/tuya-home-assistant/blob/master/docs/install.md).
 
 "2406: skill id invalid":
   description: >
