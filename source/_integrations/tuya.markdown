@@ -98,7 +98,7 @@ Click the created project to enter the `Project Overview` page and get the `Auth
 {% configuration_basic %}
 
 "1004: sign invalid":
-  description: Incorrect Access ID or Access Secret. Please refer to [Install Tuya Integration](https://github.com/tuya/tuya-home-assistant/blob/master/docs/install.md).
+  description: Incorrect Access ID or Access Secret. Please refer to the **Configuration** part above.
 
 "1106: permission deny":
   description: >
@@ -109,7 +109,7 @@ Click the created project to enter the `Project Overview` page and get the `Auth
     - Incorrect country. You must select the region of your account of the Tuya Smart app or Smart Life app.
 
 "1100: param is empty":
-  description: Empty parameter of username or app. Fill the parameters refer to [Install Tuya Integration](https://github.com/tuya/tuya-home-assistant/blob/master/docs/install.md).
+  description: Empty parameter of username or app. Please fill the parameters refer to the **Configuration** part above.
 
 "2406: skill id invalid":
   description: >
