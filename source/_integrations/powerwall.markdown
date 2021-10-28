@@ -37,32 +37,26 @@ The following binary sensors are added for each Powerwall:
 - Powerwall Connected to Tesla
 - Powerwall Status
 
-
 ### Sensor
 
 The following sensors are added for each Powerwall:
 
-| Name                    | Unit | Description                         |
-|-------------------------|------|:------------------------------------|
-| Powerwall Battery Now   | kW   | Battery usage                       |
-| Powerwall Charge        | %    | Powerwall percent charge remaining  |
-| Powerwall Generator Now | kW   | Generator usage (if applicable)     |
-| Powerwall Load Now      | kW   | Load usage                          |
-| Powerwall Solar Now     | kW   | Solar usage (if applicable)         |
-| Powerwall Site Now      | kW   | Site usage                          |
-
+- Powerwall Battery Now - Usage in kW
+- Powerwall Charge - Percent charge remaining in %
+- Powerwall Generator Now - Usage in kW (if applicable)
+- Powerwall Load Now - Load usage in kW
+- Powerwall Solar Now - Solar usage in kW (if applicable)
+- Powerwall Site Now - Site usage in kW
 
 The following sensors show the direction of energy:
 
-| Name                       | Unit | Description                         |
-|----------------------------|------|:------------------------------------|
-| Powerwall Solar Export     | kWh  | Amount of solar energy exported     |
-| Powerwall Solar Import     | kWh  | Amount of solar energy imported     |
-| Powerwall Site Export      | kWh  | Amount of site energy exported      |
-| Powerwall Site Import      | kWh  | Amount of site energy imported      |
-| Powerwall Battery Export   | kWh  | Amount of battery energy exported   |
-| Powerwall Battery Import   | kWh  | Amount of battery energy imported   |
-| Powerwall Load Export      | kWh  | Amount of load energy exported      |
-| Powerwall Load Import      | kWh  | Amount of load energy imported      |
-| Powerwall Generator Export | kWh  | Amount of generator energy exported |
-| Powerwall Generator Import | kWh  | Amount of generator energy imported |
+- Powerwall Solar Export - Solar energy exported in kWh
+- Powerwall Solar Import - Solar energy imported in kWh
+- Powerwall Site Export - Site energy exported in kWh
+- Powerwall Site Import - Site energy imported in kWh
+- Powerwall Battery Export - Battery energy exported in kWh
+- Powerwall Battery Import - Battery energy imported in kWh
+- Powerwall Load Export - Load energy exported in kWh
+- Powerwall Load Import - Load energy imported in kWh
+- Powerwall Generator Export - Generator energy exported in kWh
+- Powerwall Generator Import - Generator energy imported in kWh
