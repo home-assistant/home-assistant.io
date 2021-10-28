@@ -112,8 +112,6 @@ With this service the properties of the counter can be changed while running.
 | `initial`              |     yes  | Set new value for initial. |
 | `value`                |     yes  | Set the counters state to the given value. |
 
-
-
 ### Use the service
 
 Select the **Services** tab from within **Developer Tools**. Choose **counter** from the list of **Domains**, select the **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
