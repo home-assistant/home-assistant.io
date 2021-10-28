@@ -89,7 +89,7 @@ The sensor returns n/a if no stop event is found within the next 24h. A `templat
 
 ```yaml
 # Sample template sensor
-template
+template:
   - sensor:
     - name: "Bus monitor 199"
       state: >-
