@@ -31,19 +31,38 @@ There is currently support for the following device types within Home Assistant:
 
 The following binary sensors are added for each Powerwall:
 
-- Powerwall Status
-- Powerwall Connected to Tesla
+- Grid Service Active
 - Grid Status
+- Powerwall Charging
+- Powerwall Connected to Tesla
+- Powerwall Status
+
 
 ### Sensor
 
 The following sensors are added for each Powerwall:
 
-- Powerwall Charge
-- Powerwall Site Now
-- Powerwall Load Now
-- Powerwall Battery Now
-- Powerwall Frequency Now (if applicable)
-- Powerwall Busway Now (if applicable)
-- Powerwall Solar Now (if applicable)
-- Powerwall Generator Now (if applicable)
+| Name                    | Unit | Description                         |
+|-------------------------|------|:------------------------------------|
+| Powerwall Battery Now   | kW   | Battery usage                       |
+| Powerwall Charge        | %    | Powerwall percent charge remaining  |
+| Powerwall Generator Now | kW   | Generator usage (if applicable)     |
+| Powerwall Load Now      | kW   | Load usage                          |
+| Powerwall Solar Now     | kW   | Solar usage (if applicable)         |
+| Powerwall Site Now      | kW   | Site usage                          |
+
+
+The following sensors show the direction of energy:
+
+| Name                       | Unit | Description                         |
+|----------------------------|------|:------------------------------------|
+| Powerwall Solar Export     | kWh  | Amount of solar energy exported     |
+| Powerwall Solar Import     | kWh  | Amount of solar energy imported     |
+| Powerwall Site Export      | kWh  | Amount of site energy exported      |
+| Powerwall Site Import      | kWh  | Amount of site energy imported      |
+| Powerwall Battery Export   | kWh  | Amount of battery energy exported   |
+| Powerwall Battery Import   | kWh  | Amount of battery energy imported   |
+| Powerwall Load Export      | kWh  | Amount of load energy exported      |
+| Powerwall Load Import      | kWh  | Amount of load energy imported      |
+| Powerwall Generator Export | kWh  | Amount of generator energy exported |
+| Powerwall Generator Import | kWh  | Amount of generator energy imported |
