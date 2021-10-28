@@ -54,7 +54,9 @@ If WLED has 2 or more segments, each segment gets its own light entity in
 Home Assistant. Additionally, a master light entity is created. This master
 entity controls the strip power and overall brightness applied to all segments.
 
-## Selects
+Additionally, select and number entities described below will be created for each segment.
+
+## Select Entities
 
 This integration provides selects for the following information from WLED:
 
@@ -62,7 +64,14 @@ This integration provides selects for the following information from WLED:
 - Preset
 - Color palette (per segment, disabled by default).
 
-## Sensors
+## Number Entities
+
+This integration provides `number` entities to control the following, segment-specific settings:
+
+- Intensity
+- Speed
+
+## Sensor Entities
 
 This integration provides sensors for the following information from WLED:
 
