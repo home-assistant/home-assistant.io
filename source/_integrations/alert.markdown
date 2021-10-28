@@ -161,7 +161,7 @@ conjunction with a `Template Binary Sensor`. The following example does that.
 template:
   - binary_sensor:
       - name: "Motion Battery is Low"
-        state: "{{ state_attr('sensor.motion', 'battery') | float < 15 }}"
+        state: "{{ state_attr('sensor.motion', 'battery') | float(default=0) < 15 }}"
         device_class: battery
 
 alert:
