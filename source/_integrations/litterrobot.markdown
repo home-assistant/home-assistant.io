@@ -27,14 +27,15 @@ The Feeder-Robot is not currently supported by this integration.
 
 The following entities are created for this component and identified by a single device per Litter-Robot unit:
 
-| Entity                | Domain   | Description                                                                      |
-| --------------------- | -------- | -------------------------------------------------------------------------------- |
-| Litter Box            | `vacuum` | Main entity that represents a Litter-Robot unit.                                 |
-| Night Light Mode      | `switch` | When turned on, automatically turns on the night light in darker settings.       |
-| Panel Lockout         | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
-| Sleep Mode Start Time | `sensor` | When sleep mode is enabled, displays the current or next sleep mode start time.  |
-| Sleep Mode End Time   | `sensor` | When sleep mode is enabled, displays the current or last sleep mode end time.    |
-| Waste Drawer          | `sensor` | Displays the current waste drawer level.                                         |
+| Entity                        | Domain   | Description                                                                      |
+| ----------------------------- | -------- | -------------------------------------------------------------------------------- |
+| Litter Box                    | `vacuum` | Main entity that represents a Litter-Robot unit.                                 |
+| Night Light Mode              | `switch` | When turned on, automatically turns on the night light in darker settings.       |
+| Panel Lockout                 | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
+| Sleep Mode Start Time         | `sensor` | When sleep mode is enabled, displays the current or next sleep mode start time.  |
+| Sleep Mode End Time           | `sensor` | When sleep mode is enabled, displays the current or last sleep mode end time.    |
+| Waste Drawer                  | `sensor` | Displays the current waste drawer level.                                         |
+| Clean Cycle Wait Time Minutes | `select` | View and select the clean cycle wait time for the Litter-Robot unit.             |
 
 ## Additional Attributes
 
