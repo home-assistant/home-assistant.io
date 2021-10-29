@@ -105,7 +105,6 @@ Or, if you want a simple binary sensor that becomes `On` when the filter needs t
 template:
   - binary_sensor:
     - name: "Vacuum Filter"
-      friendly_name: "Vacuum Filter"
       device_class: problem
       state: "{{ state_attr('vacuum.my_vacuum_id', 'component_filter') <= 5 }}"
 ```
