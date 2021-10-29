@@ -220,9 +220,9 @@ Most devices have, besides their state, additional attributes like their battery
 
 ```yaml
 template:
-- sensor
-  - name: "Bedroom valve"
-    state: "{{ state_attr('climate.leq123456', 'level') }}"
+  - sensor
+    - name: "Bedroom valve"
+      state: "{{ state_attr('climate.leq123456', 'level') }}"
 ```
 
 {% endraw %}
