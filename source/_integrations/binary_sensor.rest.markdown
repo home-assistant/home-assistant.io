@@ -124,7 +124,11 @@ password:
 headers:
   description: The headers for the requests.
   required: false
-  type: [list, string]
+  type: [list, template]
+params:
+  description: The query params for the requests.
+  required: false
+  type: [list, template]
 {% endconfiguration %}
 
 ## Examples

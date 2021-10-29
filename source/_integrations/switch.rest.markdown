@@ -74,7 +74,11 @@ password:
 headers:
   description: The headers for the request.
   required: false
-  type: [string, list]
+  type: [list, template]
+params:
+  description: The query params for the requests.
+  required: false
+  type: [list, template]
 verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
