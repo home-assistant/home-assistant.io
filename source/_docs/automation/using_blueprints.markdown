@@ -3,22 +3,21 @@ title: "Using Automation Blueprints"
 description: "How to create automations based off blueprints."
 ---
 
-Automation blueprints are pre-made automations that you can easily add to your Home Assistant instance. Each blueprint can be added as many times as you want.
+Automation blueprints are pre-made automations that you can add to your Home Assistant instance. Each blueprint can be used in an automation as many times as you want.
+
+To use an automation based on a blueprint, you only need to configure the automation. What needs to be configured differs on each blueprint.
 
 ## Finding new blueprints
 
-The Home Assistant Community forums have a specific tag for blueprints. This tag is used to collect all blueprints.
+The Home Assistant Community forum has a specific category to collect all blueprints.
 
-[Find blueprints in the Home Assistant forums.][blueprint-forums]
+[Find blueprints in the Home Assistant forum.][blueprint-forums]
 
 [blueprint-forums]: /get-blueprints
 
 ## Importing blueprints
 
-Home Assistant can import blueprints from:
-
-- The Home Assistant forum
-- GitHub repos and GitHub gists
+Home Assistant can import blueprints from the [Home Assistant forum][blueprint-forums], files from GitHub repos, and GitHub gists.
 
 To import a blueprint:
 
@@ -37,13 +36,11 @@ To import a blueprint:
 
 The blueprint can now be used for creating automations.
 
-<div class='note warning'>
+<div class='note'>
 If you delete a blueprint, all existing automations based on it will stop working.
 </div>
 
 ## Creating an automation based on a blueprint
-
-Automations based on a blueprint only need to be configured to be used. What needs to be configured differs on each blueprint.
 
 To create an automation based on a blueprint:
 
@@ -55,11 +52,13 @@ To create an automation based on a blueprint:
 
 Done! If you want to revisit the configuration values, you can find the automation by going to **{% my config %}** and then **{% my automations %}**.
 
-## Updating blueprints
+## Keeping blueprints up to date
 
 Blueprints created by the community may go through multiple revisions. Sometimes a user creates a blueprint,
-the community provides feedback, and new functionality is added. In that case, to pull in the latest blueprint
-changes, you can update the blueprint by manually editing its YAML content:
+the community provides feedback, and new functionality is added.
+
+While there's no built-in functionality to update a blueprint, you can manually edit
+its YAML content to keep it up to date:
 
 1. Navigate to the blueprints directory (`/blueprints/automation/`).
    The location of this diectory depends on the installation method and it's
