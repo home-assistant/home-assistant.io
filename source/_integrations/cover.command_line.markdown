@@ -38,21 +38,21 @@ covers:
           description: The command to open the cover.
           required: true
           default: true
-          type: string
+          type: template
         command_close:
           description: The action to close the cover.
           required: true
           default: true
-          type: string
+          type: template
         command_stop:
           description: The action to stop the cover.
           required: true
           default: true
-          type: string
+          type: template
         command_state:
           description: If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a `0` the indicates the cover is fully closed, whereas a 100 indicates the cover is fully open.
           required: false
-          type: string
+          type: template
         value_template:
           description: if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example configuration above will allow you to translate that into the valid state `100`.
           required: false

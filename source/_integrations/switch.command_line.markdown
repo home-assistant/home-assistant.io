@@ -39,19 +39,19 @@ switches:
         command_on:
           description: The action to take for on.
           required: true
-          type: string
+          type: template
         command_off:
           description: The action to take for off.
           required: true
-          type: string
+          type: template
         command_state:
           description: "If given, this command will be run. Returning a result code `0` will indicate that the switch is on."
           required: false
-          type: string
+          type: template
         value_template:
           description: "If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on."
           required: false
-          type: string
+          type: template
         friendly_name:
           description: The name used to display the switch in the frontend.
           required: false

@@ -38,7 +38,7 @@ It's highly recommended to enclose the command in single quotes `'` as it ensure
 command:
   description: The action to take to get the value.
   required: true
-  type: string
+  type: template
 name:
   description: Let you overwrite the name of the device.
   required: false
@@ -61,7 +61,7 @@ payload_off:
 value_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
   required: false
-  type: string
+  type: template
 scan_interval:
   description: Defines number of seconds for polling interval.
   required: false
