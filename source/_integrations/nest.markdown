@@ -184,6 +184,8 @@ and typically looks like `projects/sdm-prod/topics/EXAMPLE`.
 
 1. Lower the message retention duration to be something short (e.g., 10 minutes or under an hour) to avoid a large backlog of updates when Home Assistant is turned off.
 
+1. Select **Never expire** as the *Expiry Period*
+
 1. Leave the rest of the defaults and click **Create**.
 
 1. Once created, copy the *Subscription name* which you will want to hold on to as your `subscriber_id` for configuring Home Assistant. This typically looks like `projects/MY-CLOUD-ID/subscriptions/EXAMPLE`.
