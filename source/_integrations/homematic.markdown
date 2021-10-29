@@ -485,7 +485,7 @@ template:
   - binary_sensor:
     - name: "Homematic is sending updates"
       state: >-
-        {{ as_timestamp(now()) - as_timestamp(state_attr('sensor.office_voltage', 'last_changed'), 601) < 600 }}
+        {{ now() - as_timestamp(state_attr('sensor.office_voltage', 'last_changed'), 601) < 600 }}
 
 automation:
   - alias: "Homematic Reconnect"
@@ -521,7 +521,7 @@ automation:
      {% raw %}
 
      ```yaml
-     template
+     template:
        - sensor:
          - name: "v last reboot"
            state: "{{ state_attr('homematic.ccu2', 'V_Last_Reboot') or '01.01.1970 00:00:00' }}"
