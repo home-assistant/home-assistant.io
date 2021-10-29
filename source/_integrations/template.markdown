@@ -210,11 +210,11 @@ select:
       required: true
       type: template
     select_option:
-      description: Defines an action to run to select an option from the `options` list.
+      description: Defines an action to run to select an option from the `options` list. The variable `option` will contain the option selected.
       required: true
       type: action
     options:
-      description: Template for the select's available options. The variable `option` will contain the option selected.
+      description: Template for the select's available options.
       required: true
       type: template
     optimistic:
