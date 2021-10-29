@@ -127,10 +127,12 @@ For configuration of the garadget as a MQTT cover:
 cover:
   - platform: mqtt
     name: "Garage Door"
+    device_class: "garage"
     command_topic: "garadget/device_name/command"
     state_topic: "garadget/device_name/status"
     payload_open: "open"
     payload_close: "close"
+    payload_stop: "stop"
     value_template: "{{ value_json.status }}"
 ```
 
