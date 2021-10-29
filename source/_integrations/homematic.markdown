@@ -219,13 +219,10 @@ Most devices have, besides their state, additional attributes like their battery
 {% raw %}
 
 ```yaml
-sensor:
-- platform: template
-  sensors:
-    bedroom_valve:
-      value_template: "{{ state_attr('climate.leq123456', 'level') }}"
-      entity_id: climate.leq123456
-      friendly_name: "Bedroom valve"
+template:
+- sensor
+  - name: "Bedroom valve"
+    state: "{{ state_attr('climate.leq123456', 'level') }}"
 ```
 
 {% endraw %}
@@ -484,16 +481,11 @@ When the connection to your Homematic CCU or Homegear is lost, Home Assistant wi
 {% raw %}
 
 ```yaml
-binary_sensor:
-  - platform: template
-    sensors:
-      homematic_up:
-        friendly_name: "Homematic is sending updates"
-        entity_id:
-          - sensor.office_voltage
-          - sensor.time
-        value_template: >-
-          {{ as_timestamp(now()) - as_timestamp(state_attr('sensor.office_voltage', 'last_changed')) < 600 }}
+template:
+  - binary_sensor:
+    - name: "Homematic is sending updates"
+      state: >-
+        {{ as_timestamp(now()) - as_timestamp(state_attr('sensor.office_voltage', 'last_changed'), 601) < 600 }}
 
 automation:
   - alias: "Homematic Reconnect"
@@ -529,12 +521,11 @@ automation:
      {% raw %}
 
      ```yaml
-     - platform: template
-       sensors:
-         v_last_reboot:
-           value_template: "{{ state_attr('homematic.ccu2', 'V_Last_Reboot') or '01.01.1970 00:00:00' }}"
-           icon_template: "mdi:clock"
-           entity_id: homematic.ccu2
+     template
+       - sensor:
+         - name: "v last reboot"
+           state: "{{ state_attr('homematic.ccu2', 'V_Last_Reboot') or '01.01.1970 00:00:00' }}"
+           icon: "mdi:clock"
      ```
 
      {% endraw %}
