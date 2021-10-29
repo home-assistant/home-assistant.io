@@ -119,6 +119,7 @@ Supported abbreviations:
     'dock_tpl':            'docked_template',
     'err_t':               'error_topic',
     'err_tpl':             'error_template',
+    'f_name':              'friendly_name',
     'fanspd_t':            'fan_speed_topic',
     'fanspd_tpl':          'fan_speed_template',
     'fanspd_lst':          'fan_speed_list',
