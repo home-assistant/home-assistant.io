@@ -87,6 +87,17 @@ By default, the radar entity uses the rain layer from 1 April to 30 November and
 
 The alert sensors use the number of current alerts as their state, with an attribute containing the title of each alert.
 
+## Services
+
+### Service `environment_canada.set_radar_type`
+
+Set the type of radar that is displayed by the camera. Valid values are `Rain`, `Snow`, and `Auto` where auto displays the rain radar from April to November and snow radar otherwise.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | Camera entity to set.
+| `value` | no | `Rain`, `Snow`, or `Auto`
+
 ## Template Sensors
 
 The configuration snippet below adds a useful [template sensors](/integrations/template/) showing the current "feels like" temperature among air temperature, humidex, and wind chill.
