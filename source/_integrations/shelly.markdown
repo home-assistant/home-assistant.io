@@ -77,6 +77,11 @@ The integration uses the following strategy to name its entities:
 - If `Channel Name` is set in the device, the integration will use it to generate the entities' name, e.g. `Kitchen Light`
 - If `Channel Name` is set to the default value, the integration will use the `Device ID` and default channel name to generate the entities' name, e.g. `ShellyPro4PM-9808D1D8B912 switch_0`.
 
+## Binary input sensors
+Depending on how a device's button type is configured, the integration will create binary sensors corresponding to those inputs. Starting with version 2021.10.4 of Home Assistant, these binary sensors will not be created when the button type is `momentary` or `momentary_on_release`.
+
+For generation 2 hardware it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the input mode is set to `switch`. When the input is of type `button` you need to use events for your automations.
+
 ## Events
 
 If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events under the type `shelly.click` when the switch is used. You can use these events in your automations.
