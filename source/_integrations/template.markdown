@@ -178,7 +178,7 @@ number:
       description: Template for the number's current value.
       required: true
       type: template
-      description: Defines an action to run when the number value changes. The variable `value` will contain the number entered.
+      description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
       required: true
       type: action
     step:
@@ -210,11 +210,11 @@ select:
       required: true
       type: template
     select_option:
-      description: Defines an action to run to select an option from the `options` list.
+      description: Defines actions to run to select an option from the `options` list. The variable `option` will contain the option selected.
       required: true
       type: action
     options:
-      description: Template for the select's available options. The variable `option` will contain the option selected.
+      description: Template for the select's available options.
       required: true
       type: template
     optimistic:
