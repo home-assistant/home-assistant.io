@@ -301,7 +301,7 @@ correctly associate media with the camera from which that media was captured.
 
 ## Example Lovelace Card
 
-A lovelace card with icons that will call the `action` service to send action commands to motionEye.
+A Lovelace card with icons that will call the `action` service to send action commands to motionEye.
 
 ```yaml
 - type: picture-glance
