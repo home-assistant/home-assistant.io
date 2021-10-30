@@ -23,7 +23,7 @@ The ADS (automation device specification) describes a device-independent and fie
 
 There is currently support for the following device types within Home Assistant:
 
-- [Configuration](#configuration)
+- [Network Configuration](#network-configuration)
 - [Service](#service)
 - [Binary Sensor](#binary-sensor)
 - [Light](#light)
@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Cover](#cover)
 
-## Configuration
+## Network Configuration
 
 To enable ADS, add the following lines to your `configuration.yaml` file:
 
@@ -41,6 +41,7 @@ ads:
   device: "127.0.0.1.1.1"
   port: 801
 
+# some example devices
   switches:
     - name: Test Switch
       adsvar: .global_bool
@@ -87,8 +88,7 @@ Service parameters:
 
 The `ads` binary sensor platform can be used to monitor a boolean value on your ADS device.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
-file:
+To use your ADS device, you have to add a `binary_sensors` section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -120,8 +120,7 @@ device_class:
 
 The `ads` light platform allows you to control your connected ADS lights.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
-file:
+To use your ADS device, you have to add a `lights` section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -154,8 +153,7 @@ name:
 
 The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
-file:
+To use your ADS device, you have to add a `sensors` section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -197,8 +195,7 @@ The *factor* can be used to implement fixed decimals. E.g., set *factor* to 100 
 
 The `ads` switch platform accesses a boolean variable on the connected ADS device. The variable is identified by its name.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
-file:
+To use your ADS device, you have to add a `switches` section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -226,8 +223,7 @@ name:
 
 The `ads` cover platform allows you to control your connected ADS covers.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
-file:
+To use your ADS device, you have to add a `covers` section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
