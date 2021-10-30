@@ -159,6 +159,8 @@ binary_sensor:
 
 The REST sensor supports HTTP authentication and template-enabled customized headers.
 
+{% raw %}
+
 ```yaml
 binary_sensor:
   - platform: rest
@@ -171,6 +173,9 @@ binary_sensor:
       Content-Type: application/json
       X-Custom-Header: '{{ states("input_text.the_custom_header") }}'
 ```
+
+{% endraw %}
+
 
 The headers will contain all relevant details. This will also give
 you the ability to access endpoints that are protected by tokens.

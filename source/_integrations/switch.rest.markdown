@@ -101,6 +101,7 @@ This example shows a switch that uses a [template](/topics/templating/) to allow
 ```
 
 {% raw %}
+
 ```yaml
 switch:
   - platform: rest
@@ -113,6 +114,7 @@ switch:
       X-Custom-Header: '{{ states("input_text.the_custom_header") }}'
     verify_ssl: true
 ```
+
 {% endraw %}
 
 `body_on` and `body_off` can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template `{% raw %}'{"rem_temp":{{states('sensor.bedroom_temp')}}}'{% endraw %}`.
