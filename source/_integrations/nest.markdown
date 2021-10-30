@@ -78,7 +78,7 @@ Project**. Note: This is a different type of project from the Device Access proj
 
 1. From the API Library search for [Smart Device management](https://console.cloud.google.com/apis/library/smartdevicemanagement.googleapis.com) and click **Enable**.
 
-![Screenshot of Search for SDM API](/images/integrations/nest/enable_sdm_api.png)
+    ![Screenshot of Search for SDM API](/images/integrations/nest/enable_sdm_api.png)
 
 1. From the API Library search for [Cloud Pub/Sub API](https://console.developers.google.com/apis/library/pubsub.googleapis.com) in the Cloud Console and click **Enable**.
 
@@ -107,7 +107,7 @@ your cloud project.
 
 1. Navigate back to the *OAuth consent screen* and click **Publish App** to set the *Publishing status* is **In Production**.
 
-1. Make sure the status is not *Testing*.
+1. Make sure the status is not *Testing*, or you may get logged out every 7 days.
 
 1. The warning says your *app will be available to any user with a Google Account* which refers to the fields you entered on the *App Information* screen if someone finds the URL. This does not expose your Google Account or Nest data.
     ![Screenshot of OAuth consent screen production status](/images/integrations/nest/oauth_consent_production_status.png)
@@ -291,7 +291,7 @@ everything, however, you can leave out any feature you do not wish to use with H
 
 - Check **Configuration** then **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
 
-- *Reauthentication required often*: If you are frequently getting logged out, this means your authentication token was revoked by Google likely due to a misconfiguration.
+- *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiugration or your authentication token was revoked by Google for some other reason.
 
 {% details "Details about reauthentication issues" %}
 
