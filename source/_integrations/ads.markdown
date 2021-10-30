@@ -23,6 +23,8 @@ The ADS (automation device specification) describes a device-independent and fie
 
 There is currently support for the following device types within Home Assistant:
 
+- [Configuration](#configuration)
+- [Service](#service)
 - [Binary Sensor](#binary-sensor)
 - [Light](#light)
 - [Sensor](#sensor)
@@ -38,6 +40,14 @@ To enable ADS, add the following lines to your `configuration.yaml` file:
 ads:
   device: "127.0.0.1.1.1"
   port: 801
+
+  switches:
+    - name: Test Switch
+      adsvar: .global_bool
+
+  binary_sensors:
+    - name: Binary test sensor
+      adsvar: .boolean1
 ```
 
 {% configuration %}
@@ -82,9 +92,13 @@ file:
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: ads
-    adsvar: .boolean1
+ads:
+  device: "127.0.0.1.1.1"
+  port: 801
+
+  binary_sensors:
+    - name: Binary test sensor
+      adsvar: .boolean1
 ```
 
 {% configuration %}
@@ -111,10 +125,14 @@ file:
 
 ```yaml
 # Example configuration.yaml entry
-light:
-  - platform: ads
-    adsvar: GVL.enable_light
-    adsvar_brightness: GVL.brightness
+ads:
+  device: "127.0.0.1.1.1"
+  port: 801
+
+  lights:
+    - name: Light
+      adsvar: GVL.enable_light
+      adsvar_brightness: GVL.brightness
 ```
 
 {% configuration %}
@@ -141,11 +159,15 @@ file:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: ads
-    adsvar: GVL.temperature
-    unit_of_measurement: "°C"
-    adstype: int
+ads:
+  device: "127.0.0.1.1.1"
+  port: 801
+
+  sensors:
+    - name: Outdoor temp.
+      adsvar: GVL.temperature
+      unit_of_measurement: "°C"
+      adstype: int
 ```
 
 {% configuration %}
@@ -180,9 +202,13 @@ file:
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: ads
-    adsvar: .global_bool
+ads:
+  device: "127.0.0.1.1.1"
+  port: 801
+
+  switches:
+    - name: Test Switch
+      adsvar: .global_bool
 ```
 
 {% configuration %}
@@ -205,13 +231,17 @@ file:
 
 ```yaml
 # Example configuration.yaml entry
-cover:
-  - platform: ads
-    name: Curtain master bed room
-    adsvar_open: covers.master_bed_room_open
-    adsvar_close: covers.master_bed_room_close
-    adsvar_stop: covers.master_bed_room_stop
-    device_class: curtain
+ads:
+  device: "127.0.0.1.1.1"
+  port: 801
+
+  covers:
+    - name: ads
+      name: Curtain master bed room
+      adsvar_open: covers.master_bed_room_open
+      adsvar_close: covers.master_bed_room_close
+      adsvar_stop: covers.master_bed_room_stop
+      device_class: curtain
 ```
 
 {% configuration %}
