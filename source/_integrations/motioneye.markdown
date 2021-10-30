@@ -55,11 +55,6 @@ Steam URL template:
   description: A [jinja2](https://jinja.palletsprojects.com/) template that is used to override the standard MJPEG stream URL (e.g. for use with reverse proxies). See [Camera MJPEG Streams](#streams) below. This option is only shown to users who have [advanced mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode) enabled.
 {% endconfiguration_basic %}
 
-* **Configure motionEye webhooks to report events to Home Assistant** [default=`True`]:
-  
-* **Overwrite unrecognized webhooks** [default=`False`]: 
-* [**Advanced**]: **Steam URL template** [default=`None`]: 
-
 ## Usage
 
 ### Entities
@@ -76,6 +71,7 @@ Steam URL template:
 
 
 <a name="streams"></a>
+
 #### Camera MJPEG Streams
 
 In order for the MJPEG streams to function they need to be accessible at
@@ -132,6 +128,7 @@ http://motioneye/video/{{ id }}
 {% endraw %}
 
 <a name="events"></a>
+
 ### Events
 
 On receipt of a motion or file stored callbacks, events will be fired which can be used
@@ -244,6 +241,7 @@ Parameters:
 Note: This is a thin wrapper on the [`motioneye.action` call](#action).
 
 <a name="action"></a>
+
 ### motioneye.action
 
 Trigger a motionEye action (see [MotionEye Action Buttons](https://github.com/ccrisan/motioneye/wiki/Action-Buttons)).
@@ -382,6 +380,7 @@ must be switched on for this automation to work (controllable via `switch.<name>
 ```
 
 <a name="automation-movies"></a>
+
 ### Automatically play stored movies
 
 An automation to cast stored movie clips to a TV as they arrive.
