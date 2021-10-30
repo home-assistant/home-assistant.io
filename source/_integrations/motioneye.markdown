@@ -21,37 +21,44 @@ and visualization of multiple types of cameras.
 
 {% include integrations/config_flow.md %}
 
-## Configuration Variables
+{% configuration_basic %}
+url:
+  description: The URL of the motionEye server itself -- **not** the URL for the camera stream(s) that it makes available.
+  required: true
+  type: string
+admin_username:
+  description: The username of the motionEye administrative account, used for changing camera settings.
+  required: true
+  type: string
+admin_password:
+  description: The password of the motionEye administrative account.
+  required: true
+  type: string
+surveillance_username:
+  description: The username of the motionEye surveillance user, used to authenticate video streams.
+  required: true
+  type: string
+surveillance_password:
+  description: The password of the motionEye surveillance account.
+  required: true
+  type: string
+{% endconfiguration_basic %}
 
-| Variable              | Description                                                                              |
-| --------------------- | ---------------------------------------------------------------------------------------- |
-| url                   | The URL of the motionEye server itself -- **not** the URL for the camera stream(s) that it makes available.|
-| admin_username        | The username of the motionEye administrative account, used for changing camera settings. |
-| admin_password        | The password of the motionEye administrative account.                                    |
-| surveillance_username | The username of the motionEye surveillance user, used to authenticate video streams.     |
-| surveillance_password | The password of the motionEye surveillance account.                                      |
+{% include integrations/option_flow.md %}
 
-<a name="options"></a>
-
-## Options
-
-```
-Home Assistant > Configuration > Integrations > motionEye > Options
-```
+{% configuration_basic %}
+Configure motionEye webhooks to report events to Home Assistant:
+  description: Whether or not motionEye webhooks should be configured to callback into Home Assistant. If this option is disabled, no motion detected or file stored events will be generated unless the webhooks are manually configured.
+Overwrite unrecognized webhooks:
+  description: Whether or not to overwrite webhooks that are already configured and are not recognized as belonging to this integration (web hooks are deemed to belong to this integration if they contain `src=hass-motioneye` in the query string).
+Steam URL template:
+  description: A [jinja2](https://jinja.palletsprojects.com/) template that is used to override the standard MJPEG stream URL (e.g. for use with reverse proxies). See [Camera MJPEG Streams](#streams) below. This option is only shown to users who have [advanced mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode) enabled.
+{% endconfiguration_basic %}
 
 * **Configure motionEye webhooks to report events to Home Assistant** [default=`True`]:
-  Whether or not motionEye webhooks should be configured to callback into Home
-  Assistant. If this option is disabled, no motion detected or file stored events will
-  be generated unless the webhooks are manually configured.
-* **Overwrite unrecognized webhooks** [default=`False`]: Whether or not to overwrite
-  webhooks that are already configured and are not recognized as belonging to this
-  integration (web hooks are deemed to belong to this integration if they contain
-  `src=hass-motioneye` in the query string).
-* [**Advanced**]: **Steam URL template** [default=`None`]: A [jinja2](https://jinja.palletsprojects.com/)
-  template that is used to override the standard MJPEG stream URL (e.g. for use with reverse
-  proxies). See [Camera MJPEG Streams](#streams) below. This option is only shown to
-  users who have [advanced
-  mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode) enabled.
+  
+* **Overwrite unrecognized webhooks** [default=`False`]: 
+* [**Advanced**]: **Steam URL template** [default=`None`]: 
 
 ## Usage
 
@@ -102,22 +109,27 @@ The below are useful examples of how this option may be set.
 
 Use the camera name in the stream URL:
 
+{% raw %}
 ```
 http://motioneye/video/{{ name }}
 ```
+{% endraw %}
 
 Use the camera name in the stream URL, converting it to lowercase first:
 
+{% raw %}
 ```
 http://motioneye/video/{{ name|lower }}
 ```
+{% endraw %}
 
 Use the camera id in the stream URL:
 
+{% raw %}
 ```
 http://motioneye/video/{{ id }}
 ```
-
+{% endraw %}
 
 <a name="events"></a>
 ### Events
