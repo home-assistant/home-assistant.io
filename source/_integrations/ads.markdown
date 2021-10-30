@@ -191,6 +191,10 @@ device_class:
   description: Sets the [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+state_class:
+  description: The [state class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  required: false
+  type: string
 {% endconfiguration %}
 
 The *factor* can be used to implement fixed decimals. E.g., set *factor* to 100 if you want to display a fixed decimal value with two decimals. A variable value of `123` will be displayed as `1.23`.
