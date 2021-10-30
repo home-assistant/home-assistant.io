@@ -58,12 +58,12 @@ limits:
       description: Minimum value of the graph Y-axis.
       type: float
       required: false
-      default: "`0` if the entity `unit_of_measurement` is `%`, otherwise minimum value of sample"
+      default: The minimum sample among the displayed values.
     max:
       description: Maximum value of the graph Y-axis.
       type: float
       required: false
-      default: "`100` if the entity `unit_of_measurement` is `%`, otherwise maximum value of sample"
+      default: The maximum sample among the displayed values.
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
