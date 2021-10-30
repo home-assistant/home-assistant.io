@@ -157,7 +157,7 @@ binary_sensor:
 
 ### Accessing an HTTP authentication protected endpoint
 
-The REST sensor supports HTTP authentication and customized headers.
+The REST sensor supports HTTP authentication and template-enabled customized headers.
 
 ```yaml
 binary_sensor:
@@ -169,6 +169,7 @@ binary_sensor:
     headers:
       User-Agent: Home Assistant
       Content-Type: application/json
+      X-Custom-Header: '{{ states("input_text.the_custom_header") }}'
 ```
 
 The headers will contain all relevant details. This will also give

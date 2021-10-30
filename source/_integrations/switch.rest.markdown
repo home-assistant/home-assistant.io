@@ -110,6 +110,7 @@ switch:
     is_on_template: "{{ value_json.is_active }}"
     headers:
       Content-Type: application/json
+      X-Custom-Header: '{{ states("input_text.the_custom_header") }}'
     verify_ssl: true
 ```
 {% endraw %}
