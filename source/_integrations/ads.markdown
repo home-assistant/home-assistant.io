@@ -187,6 +187,10 @@ factor:
   description: A factor that divides the stored value before displaying in Home Assistant.
   default: 1
   type: integer
+device_class:
+  description: Sets the [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 The *factor* can be used to implement fixed decimals. E.g., set *factor* to 100 if you want to display a fixed decimal value with two decimals. A variable value of `123` will be displayed as `1.23`.
@@ -216,6 +220,10 @@ adsvar:
 name:
   required: false
   description: An identifier for the switch in the frontend.
+  type: string
+device_class:
+  description: Sets the [class of the device](/integrations/switch/), changing the device state and icon that is displayed on the frontend.
+  required: false
   type: string
 {% endconfiguration %}
 
