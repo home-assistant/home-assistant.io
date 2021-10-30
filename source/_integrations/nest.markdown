@@ -105,8 +105,7 @@ your cloud project.
 1. On the *Test Users* step, you need to add your Google Account (e.g., your @gmail.com address) to the list. Click *Save* on your test account then **Save and Continue** to finish the consent flow.
     ![Screenshot of OAuth consent screen test users](/images/integrations/nest/oauth_consent_test_users.png)
 
-1. Navigate back to the *OAuth consent screen* and click **Publish App** to set the *Publishing status* is **In
-Production**.
+1. Navigate back to the *OAuth consent screen* and click **Publish App** to set the *Publishing status* is **In Production**.
 
 1. Make sure the status is not *Testing*.
 
