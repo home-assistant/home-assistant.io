@@ -39,6 +39,14 @@ Service data attribute | Optional | Description
 `entity_id` | no | Entity ID of automation to trigger. Can be a list. `none` or `all` are also accepted.
 `skip_condition` | yes | Whether or not the condition will be skipped (defaults to true).
 
+## Service {% my developer_call_service service="automation.stop" %}
+
+This service will stop any currently active actions of the automation.
+
+Service data attribute | Optional | Description
+-|-|-
+`entity_id` | no | Entity ID of automation to turn on. Can be a list. `none` or `all` are also accepted.
+
 ## Service {% my developer_call_service service="automation.reload" %}
 
 _This service is only required if you create/edit automations in YAML. Automations via the UI do this automatically._
