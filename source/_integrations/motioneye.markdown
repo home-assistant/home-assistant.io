@@ -103,28 +103,22 @@ and/or when the stream ports are otherwise not accessible to Home Assistant
 
 The below are useful examples of how this option may be set.
 
-Use the camera name in the stream URL:
+**Use the camera name in the stream URL**:
 
 {% raw %}
-```
 http://motioneye/video/{{ name }}
-```
 {% endraw %}
 
-Use the camera name in the stream URL, converting it to lowercase first:
+**Use the camera name in the stream URL, converting it to lowercase first**:
 
 {% raw %}
-```
 http://motioneye/video/{{ name|lower }}
-```
 {% endraw %}
 
-Use the camera id in the stream URL:
+**Use the camera id in the stream URL**:
 
 {% raw %}
-```
 http://motioneye/video/{{ id }}
-```
 {% endraw %}
 
 <a name="events"></a>
