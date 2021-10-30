@@ -164,6 +164,7 @@ Supported abbreviations:
     'mode_stat_t':         'mode_state_topic',
     'modes':               'modes',
     'name':                'name',
+    'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
     'opt':                 'optimistic',
@@ -481,3 +482,19 @@ If the device supports gps coordinates then they can be sent to Home Assistant b
   "gps_accuracy": 1.2
  }
 ```
+
+### Used object_id to generate the entity id
+
+The entity identifier is generated from the device name. If you defined an object_id then it will be used instead.
+- Configuration topic: `homeassistant/sensor/devive1/config`
+- Example configuration payload:
+
+```json
+{
+  "name":"My Super Device",
+  "object_id":"device1",
+  "state_topic": "homeassistant/sensor/devive1/state",
+ }
+```
+This example should build the entity_id `sensor.device1` instead of `sensor.my_super_device`
+
