@@ -444,8 +444,7 @@ The action in this section uses the [Android Companion App](https://companion.ho
 
 # Legacy Works With Nest API
 
-This section contains instructions for the Legacy [Works with Nest](https://developers.nest.com/) API, which is no
-longer accepting new users. However, the documentation is still here below for existing users.
+This section contains instructions for the Legacy [Works with Nest](https://developers.nest.com/) API.
 
 <div class='note warning'>
 New users are not currently able to set up a Works With Nest Developer account. The documentation is preserved here for existing users of the API.
