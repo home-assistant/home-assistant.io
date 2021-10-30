@@ -102,6 +102,5 @@ Use "ha [command] --help" for more information about a command.
 {% if page.installation == "os" %}
 ### Console access
 
-You can also access the Home Assistant Operating System via a directly connected keyboard and monitor, the console. To log in to the physical console the username is `root`, with no password.
-
+You can also access the Home Assistant Operating System via a directly connected keyboard and monitor, the console.
 {% endif %}
