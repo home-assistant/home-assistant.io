@@ -214,7 +214,6 @@ source/_integrations/homematic.markdown @pvizeli @danielperna84
 source/_integrations/honeywell.markdown @rdfurman
 source/_integrations/http.markdown @home-assistant/core
 source/_integrations/huawei_lte.markdown @scop @fphammerle
-source/_integrations/huawei_router.markdown @abmantis
 source/_integrations/hue.markdown @balloob @frenck
 source/_integrations/huisbaasje.markdown @denniss17
 source/_integrations/humidifier.markdown @home-assistant/core @Shulyaka

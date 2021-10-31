@@ -62,6 +62,7 @@ and has been confirmed to work with the following models:
 - DS-2CD2385G1
 - IPC-D140H(-M)
 - DS-7616NI-K2 (NVR)
+- ERI-K104-PR (NVR)
 
 This platform also was confirmed to work with the following Hikvison-based NVRS
 
@@ -154,6 +155,12 @@ Supported sensor/event types are:
 - PIR Alarm
 - Face Detection
 - Scene Change Detection
+- I/O
+- Unattended Baggage
+- Attended Baggage
+- Recording Failure
+- Exiting Region
+- Entering Region
 
 ## Examples
 

@@ -37,6 +37,7 @@ The following integrations are automatically discovered by the SSDP integration:
  - [Keenetic NDMS2 Router](/integrations/keenetic_ndms2/)
  - [Konnected.io](/integrations/konnected/)
  - [Logitech Harmony](/integrations/harmony/)
+ - [OctoPrint](/integrations/octoprint/)
  - [Philips Hue](/integrations/hue/)
  - [Roku](/integrations/roku/)
  - [Samsung SyncThru Printer](/integrations/syncthru/)

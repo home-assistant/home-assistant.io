@@ -49,7 +49,7 @@ Home Assistant is integrated with the following devices through the SDM API:
 - Display, Camera, and Doorbell Devices
   - The camera live stream is available as a `camera` entity
   - Device Triggers for use in automations such as Person detected, Motion detected and Doorbell pressed
-  - Example devices: All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max
+  - Example devices: All wired & battery Google Nest Cam models, wired & battery Nest Doorbells, and Google Nest Hub Max.
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
@@ -365,9 +365,11 @@ logger:
 
 ## Camera
 
-All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max expose a [CameraLiveStream](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) via the SDM API, which returns a RTSP live stream which can be viewed from Home Assistant.
+All Google Nest Cam models, Google Nest Doorbell models, Google Nest Hub Max expose a [CameraLiveStream](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) via the SDM API.
 
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
+
+Cameras either support an `RTSP` stream served via `HLS` by Home Assistant, or support a `WebRTC` stream. See the [Nest SDM API: CameraLiveStream Schema](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) for details on which camera devices support which types of streams. WebRTC cameras do not support image previews or stream recording in Home Assistant as the stream communication is client-side, directly from the browser to the device.
 
 ## Climate
 

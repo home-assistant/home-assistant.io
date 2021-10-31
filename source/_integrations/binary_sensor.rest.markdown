@@ -86,7 +86,7 @@ name:
   type: string
   default: REST Binary Sensor
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 value_template:

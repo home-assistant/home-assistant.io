@@ -23,7 +23,8 @@ There is currently support for the following device types within Home Assistant:
 
 The following air conditioners are confirmed to be working, but other models that use the 6th Sense Live application may also work:
 
-- SPIW312A2WF
+- SPIW309A2WF/SPIW312A2WF
+- SPIW409A2WF
 
 {% include integrations/config_flow.md %}
 

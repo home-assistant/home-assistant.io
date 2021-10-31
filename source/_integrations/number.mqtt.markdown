@@ -59,6 +59,10 @@ device:
   required: false
   type: map
   keys:
+    configuration_url:
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      required: false
+      type: string
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
       required: false
@@ -158,6 +162,10 @@ step:
   default: 1
 unique_id:
   description: An ID that uniquely identifies this Number. If two Numbers have the same unique ID Home Assistant will raise an exception.
+  required: false
+  type: string
+unit_of_measurement:
+  description: Defines the unit of measurement of the sensor, if any.
   required: false
   type: string
 value_template:
