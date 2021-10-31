@@ -17,6 +17,12 @@ This integration constantly saves data. If you use the default configuration, th
 
 </div>
 
+<div class='note'>
+
+This integration does not affect the data, that is calculated and stored in the database by the [`statistics`](/integrations/statistics/) integration.
+
+</div>
+
 Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
 The default database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
