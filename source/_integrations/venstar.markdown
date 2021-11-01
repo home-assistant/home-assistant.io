@@ -3,11 +3,13 @@ title: Venstar
 description: Instructions for how to integrate Venstar WiFi thermostats within Home Assistant.
 ha_category:
   - Climate
+  - Sensor
 ha_release: 0.62
 ha_iot_class: Local Polling
 ha_domain: venstar
 ha_platforms:
   - climate
+  - sensor
 ---
 
 The `venstar` climate platform allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.
@@ -26,6 +28,7 @@ Currently supported functionality:
 - Reading and setting the humidity level and limits (T7900 only)
 - Turning on away preset
 - Turning on hold mode preset
+- Remote temperature sensors
 
 The following values are supported for the preset_mode state attribute:
 - `none`: *Enables* the scheduling functionality.
