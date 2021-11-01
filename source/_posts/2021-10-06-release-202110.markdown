@@ -490,15 +490,15 @@ The following integrations are now available via the Home Assistant UI:
 
 ## Release 2021.10.7 - November 1
 
-- Fix Tuya documentation URL ([@ludeeus] - #57889)
-- Fix netgear NoneType and discovery ([@starkillerOG] - #57904)
-- Abort keenetic SSDP discovery if the unique id is already setup or ignored ([@foxel] - #58009)
-- Fix Yamaha MusicCast media_stop ([@micha91] - #58024)
-- Sleep between device requests to detect socket closes ([@chishm] - #58087)
-- Fix template sensor when name template doesn't render ([@emontnemery] - #58088)
-- Bump pymazda to 0.2.2 ([@bdr99] - #58113)
-- Abort Fritz config flow for configured hostnames ([@chemelli74] - #58140)
-- Fix find_next_time_expression_time ([@OttoWinter] - #58894)
+- Fix Tuya documentation URL ([@ludeeus] - [#57889])
+- Fix netgear NoneType and discovery ([@starkillerOG] - [#57904])
+- Abort keenetic SSDP discovery if the unique id is already setup or ignored ([@foxel] - [#58009])
+- Fix Yamaha MusicCast media_stop ([@micha91] - [#58024])
+- Sleep between device requests to detect socket closes ([@chishm] - [#58087])
+- Fix template sensor when name template doesn't render ([@emontnemery] - [#58088])
+- Bump pymazda to 0.2.2 ([@bdr99] - [#58113])
+- Abort Fritz config flow for configured hostnames ([@chemelli74] - [#58140])
+- Fix find_next_time_expression_time ([@OttoWinter] - [#58894])
 
 [#57889]: https://github.com/home-assistant/core/pull/57889
 [#57904]: https://github.com/home-assistant/core/pull/57904
