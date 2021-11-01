@@ -14,8 +14,7 @@ ha_zeroconf: true
 ---
 
 The HomeKit integration allows you to make your Home Assistant entities available in Apple HomeKit,
-so they can be controlled from Apple's Home app and Siri. 
-This allows you to control devices with Siri that do not natively support HomeKit.
+so they can be controlled from Apple's Home app and Siri; even if those devices do not natively support HomeKit.
 
 Please make sure that you have read the [considerations](#considerations) listed below to save you
 some trouble later. However, if you do encounter issues, check out the
@@ -91,7 +90,7 @@ homekit:
       type: integer
       default: 21063
     name:
-      description: This needs to be unique for each instance of Home Assistant using the integration on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.
+      description: Needs to be unique for each instance of Home Assistant using the integration on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.
       required: false
       type: string
       default: '`Home Assistant Bridge`'
@@ -291,7 +290,7 @@ After the setup is completed, you should be able to control your Home Assistant 
 
 ## Move Home Assistant install
 
-If you would like to retain your HomeKit pairing when moving to a new Home Assistant device or installation, besides copying the configuration files you also need to copy the `.storage/homekit.*` file inside your configuration directory. Keep in mind that the file/folder is usually hidden by default, depending on your operating system.
+If you would like to retain your HomeKit pairing when moving to a new Home Assistant device or installation, besides copying the configuration files you also need to copy the `.storage/homekit.*` file inside your configuration directory. Keep in mind that the folder is usually hidden by default, depending on your operating system.
 
 Before you copy it, make sure to stop the old and new Home Assistant instances first entirely, otherwise it won't work.
 
@@ -372,7 +371,7 @@ Filters are applied as follows:
 
 The `advertise_ip` option can be used to run this integration even inside an ephemeral Docker container with network isolation enabled, e.g., not using the host network.
 
-You may need to set `default_interface` to `true` in the `zeroconf` integration.
+You may need to set the default network interfaces Home Assistant uses, in its [network configuration](/integrations/network).
 
 To use `advertise_ip`, add the option to your `homekit` configuration:
 
@@ -625,7 +624,7 @@ HomeKit camera snapshots tie up the HomeKit connection during snapshots. To avoi
 
 #### Resetting accessories
 
-You may use the service `homekit.reset_accessory` with one or more `entity_id`s to reset accessories whose configuration may have changed. This can be useful when changing a media player's device class to `tv`, linking a battery, or whenever Home Assistant adds support for new HomeKit features to existing entities.
+You may use the service `homekit.reset_accessory` with one or more entity IDs to reset accessories whose configuration may have changed. This can be useful when changing a media player's device class to `tv`, linking a battery, or whenever Home Assistant adds support for new HomeKit features to existing entities.
 
 On earlier versions of Home Assistant, you can reset accessories by removing the entity from HomeKit (via [filter](#configure-filter)) and then re-adding the accessory.
 
