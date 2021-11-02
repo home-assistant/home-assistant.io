@@ -13,6 +13,7 @@ ha_category:
   - Number
   - Scene
   - Select
+  - Sensor
   - Siren
   - Switch
   - Vacuum
@@ -43,9 +44,26 @@ ha_platforms:
   - vacuum
 ---
 
-The Tuya integration integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps. Tuya officially maintains this integration.
+The Tuya integration allows integrating all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps. This integration is officially maintained by Tuya.
 
 All Home Assistant platforms are supported by the Tuya integration, except the lock and remote platform.
+
+## Supported platforms
+
+- **Climate**: air conditioner, heater, thermostat.
+- **Fan**: fan, air purifier, humidifier, dehumidifier.
+- **Light**: light, light strip, ambient light, light string, humidifier's light, ceiling light, ceiling fan light, ambient light, motion sensor light, dimmer switch, dimmer, solar light, remote control.
+- **Scene**: smart scene.
+- **Switch**: switch, socket, power strip, smart kettle, breaker, pet water feeder, air purifier, diffuser, circuit breaker, garage door opener, smart camera, siren alarm, light, ceiling light, solar light, smart electricity meter.
+- **Sensor**: temperature and humidity sensor, door window sensor, smoke detector, gas detector, pir detector, water detector, pm2.5 sensor, emergency button, luminance sensor, vibration sensor, co2 detector, co detector, formaldehyde detector, methane detector, volatile organic compound sensor, pressure sensor, solar light, smart electricity meter.
+- **Binary Sensor**: garage door opener, door window sensor, smoke detector, gas detector, pir detector, water detector, human presence sensor, emergency button, vibration sensor.
+- **Number**: human presence sensor, siren alarm, vibration sensor, dimmer switch, dimmer, coffee maker.
+- **Vacuum**: robot vacuum.
+- **Humidifier**: dehumidifier.
+- **Cover**: curtain, curtain switch, curtain robot.
+- **Camera**: smart camera.
+- **Siren**: smart camera, siren alarm.
+- **Select**: dimmer switch, coffee maker.
 
 ## Configuration of the Tuya IoT Platform
 
@@ -83,7 +101,8 @@ This is a separate account from the one you made for the app. You cannot log in 
 ### Get authorization key
 
 Click the created project to enter the `Project Overview` page and get the `Authorization Key`. You will need these for setting up the integration. in the next step.
-  ![](/images/integrations/tuya/image_006.png)
+
+![](/images/integrations/tuya/image_006.png)
 
 {% include integrations/config_flow.md %}
 
@@ -110,7 +129,7 @@ Click the created project to enter the `Project Overview` page and get the `Auth
 {% configuration_basic %}
 
 "1004: sign invalid":
-  description: Incorrect Access ID or Access Secret. Please refer to [Tuya credential table](https://github.com/tuya/tuya-home-assistant/wiki/Install-Tuya-v2?_source=d10de34623e3daca5b02e3c31528a0c4#3-enter-your-tuya-credential).
+  description: Incorrect Access ID or Access Secret. Please refer to the **Configuration** part above.
 
 "1106: permission deny":
   description: >
@@ -118,14 +137,14 @@ Click the created project to enter the `Project Overview` page and get the `Auth
 
     - Incorrect username or password: Enter the correct account and password of the Tuya Smart or Smart Life app in the **Account** and **Password** fields. Note that the app account depends on which app (Tuya Smart or Smart Life) you used to link devices on the [Tuya IoT Platform](https://iot.tuya.com/cloud/).
 
-    - Incorrect availability zone: See [Availability Zone](https://github.com/tuya/tuya-home-assistant/wiki/Tuya-IoT-Platform-Configuration-Guide-Using-Smart-Home-PaaS#region--available-zone-correspondence) and select the correct availability zone.
+    - Incorrect country. You must select the region of your account of the Tuya Smart app or Smart Life app.
 
 "1100: param is empty":
-  description: Empty parameter of username or app. Fill the parameters refer to [Tuya credential table](https://github.com/tuya/tuya-home-assistant/wiki/Install-Tuya-v2?_source=d10de34623e3daca5b02e3c31528a0c4#3-enter-your-tuya-credential).
+  description: Empty parameter of username or app. Please fill the parameters refer to the **Configuration** part above.
 
 "2406: skill id invalid":
   description: >
-    - Make sure you use the **Tuya Smart** or **SmartLife** app account to log in. Also, choose the right data center endpoint related to your country region. For more details, please check [Country Regions and Data Center](https://github.com/tuya/tuya-home-assistant/blob/master/docs/regions_dataCenters.md). 
+    - Make sure you use the **Tuya Smart** or **SmartLife** app account to log in. Also, choose the right data center endpoint related to your country region. For more details, please check [Country Regions and Data Center](https://github.com/tuya/tuya-home-assistant/blob/main/docs/regions_dataCenters.md). 
     
     - Your cloud project on the [Tuya IoT Development Platform](https://iot.tuya.com) should be created after May 25, 2021. Otherwise, you need to create a new project. 
 
@@ -148,7 +167,7 @@ Click the created project to enter the `Project Overview` page and get the `Auth
 ## Related Documents
 
 - [Tuya Integration Documentation Page](https://github.com/tuya/tuya-home-assistant)
-- [Supported Tuya Device Category](https://github.com/tuya/tuya-home-assistant/blob/master/docs/supported_devices.md)
-- [Error Code and Troubleshooting](https://github.com/tuya/tuya-home-assistant/blob/master/docs/error_code.md)
-- [Countries/Regions and Tuya Data Center](https://github.com/tuya/tuya-home-assistant/blob/master/docs/regions_dataCenters.md)
-- [FAQs](https://github.com/tuya/tuya-home-assistant/blob/master/docs/faq.md)
+- [Supported Tuya Device Category](https://github.com/tuya/tuya-home-assistant/blob/main/docs/supported_devices.md)
+- [Error Code and Troubleshooting](https://github.com/tuya/tuya-home-assistant/blob/main/docs/error_code.md)
+- [Countries/Regions and Tuya Data Center](https://github.com/tuya/tuya-home-assistant/blob/main/docs/regions_dataCenters.md)
+- [FAQs](https://github.com/tuya/tuya-home-assistant/blob/main/docs/faq.md)
