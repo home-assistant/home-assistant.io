@@ -40,3 +40,15 @@ template:
 ```
 
 {% endraw %}
+
+
+## Energy Dashboard Configuration
+
+As of Home Assistant 2021.11 the SolarEdge intergration can natively populate the [Energy Dashboard](https://www.home-assistant.io/docs/energy/) without additional setup.
+
+To monitor your solar system you can utilise `sensor.solaredge_lifetime_energy` for solar production:
+
+If you have a [consumption meter](https://www.solaredge.com/products/metering-and-sensors) in your SolarEdge system you can utilise `sensor.solaredge_imported_energy` and `sensor.solaredge_exported_energy` for energy to and from the grid:
+
+![Screenshot 2021-11-02 21 25 31](https://user-images.githubusercontent.com/79175134/139829667-cfe116f1-c3a7-4c53-8278-6c1d5e7f42d0.png)
+
