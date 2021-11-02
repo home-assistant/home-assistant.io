@@ -48,23 +48,6 @@ The Tuya integration allows integrating all Powered by Tuya devices you have add
 
 All Home Assistant platforms are supported by the Tuya integration, except the lock and remote platform.
 
-## Supported platforms
-
-- **Climate**: air conditioner, heater, thermostat.
-- **Fan**: fan, air purifier, humidifier, dehumidifier.
-- **Light**: light, light strip, ambient light, light string, humidifier's light, ceiling light, ceiling fan light, ambient light, motion sensor light, dimmer switch, dimmer, solar light, remote control.
-- **Scene**: smart scene.
-- **Switch**: switch, socket, power strip, smart kettle, breaker, pet water feeder, air purifier, diffuser, circuit breaker, garage door opener, smart camera, siren alarm, light, ceiling light, solar light, smart electricity meter.
-- **Sensor**: temperature and humidity sensor, door window sensor, smoke detector, gas detector, pir detector, water detector, pm2.5 sensor, emergency button, luminance sensor, vibration sensor, co2 detector, co detector, formaldehyde detector, methane detector, volatile organic compound sensor, pressure sensor, solar light, smart electricity meter.
-- **Binary Sensor**: garage door opener, door window sensor, smoke detector, gas detector, pir detector, water detector, human presence sensor, emergency button, vibration sensor.
-- **Number**: human presence sensor, siren alarm, vibration sensor, dimmer switch, dimmer, coffee maker.
-- **Vacuum**: robot vacuum.
-- **Humidifier**: dehumidifier.
-- **Cover**: curtain, curtain switch, curtain robot.
-- **Camera**: smart camera.
-- **Siren**: smart camera, siren alarm.
-- **Select**: dimmer switch, coffee maker.
-
 ## Configuration of the Tuya IoT Platform
 
 ### Prerequisites
