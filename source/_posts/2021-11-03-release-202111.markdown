@@ -44,6 +44,10 @@ This release... a long-time wishlist item of mine is in: The icon picker! 😍
 So cool to see this happening, it is amazing, beautiful, super helpful,
 and it also supports third-party icon sets! 🤩
 
+Oh, to spoil some inside information, you might want to block your
+agenda for the Home Assistant State of the Union 2021 on Saturday 11 December,
+8 pm (CEST)!
+
 Enjoy the release!
 
 ../Frenck
@@ -82,7 +86,7 @@ upgrade!
 ## Visit devices and services
 
 Your device has a web interface, but you don't remember the (IP) address it
-has on your network... So you start guessing a couple of addresses; And end upi
+has on your network... So you start guessing a couple of addresses; And end up
 checking your router, looking it up in an app, or scanning the network...
 Sounds familiar? Annoying, right?
 
@@ -90,8 +94,8 @@ Well, as of today, integrations can provide the URLs to devices or services
 where the device can be managed or configured.
 
 <p class='img'>
-<img src='/images/blog/2021-11/visit-device.png' alt='Screenshot of WLED that now a button that links to the WLED web interface of the device directly'>
-Screenshot of WLED that now a button that links to the WLED web interface of the device directly.
+<img src='/images/blog/2021-11/visit-device.png' alt='Screenshot of WLED that now has a button that links to the WLED web interface of the device directly'>
+Screenshot of WLED that now has a button that links to the WLED web interface of the device directly.
 </p>
 
 If an integration provides a single web interface to configure multiple devices,
@@ -154,7 +158,7 @@ diagnostic entities), we now do the following:
 - Non-primary entities are, by default, not exposed to Amazon Alexa or
   Google Assistant. You, of course, still can expose them, but by default,
   we don't send them to these voice assistants.
-- None-primary entities are not called by service calls that target the device
+- Non-primary entities are not called by service calls that target the device
   or area the device is in. They are only called if explicitly called by their
   entity ID.
 
@@ -206,10 +210,10 @@ the official API instead of a soon-to-be-removed API. Sadly, this update did
 not live up to our standards, for which we want to apologize.
 
 Tuya had initially planned to deprecate the old API in December, giving users
-only last and this release to migrate. That’s not a lot of time, so we
-decided to move forward with releasing the updated integration. Tuya pushed
-back the timeline for sun setting the old API with 6 months; but it was too
-late for us to change course and ship the old integration.
+2 months to migrate. That’s not a lot of time, so we decided to move forward
+with releasing the updated integration. Tuya pushed back the timeline for
+sunsetting the old API with 6 months; but it was too late for us to change course
+and ship the old integration.
 
 The updated Tuya integration had some bugs and also was missing some features
 compared to the previous integration and various available custom components.
@@ -225,8 +229,9 @@ done; We have done everything we can to provide a solid base this release.
 As a final note: Some people complained about that this integration relies
 on the cloud. We have always supported integrations with both local and
 cloud APIs. Integrations with cloud APIs allow people to adopt Home Assistant
-without having to replace all devices in their house. Using devices that require
-the cloud, or are fully local, is a choice everyone should make for themselves.
+without having to replace all devices in their house. Although we recommend
+local, using devices that require the cloud, or are fully local,
+is a choice everyone should make for themselves.
 
 ## Some nice new template filters
 
@@ -246,8 +251,8 @@ really helpful if you need to compare against another DateTime. For example:
 
 {% endraw %}
 
-Next up is [@raman325], who added the `area_entities` and `area_devices` filter
-and function that allows you to get all devices or entities that are in an area.
+Next up is [@raman325], who added the `area_entities` and `area_devices` filters
+and functions which allow you to get all devices or entities that are in an area.
 The methods return a list, which you can loop on.
 
 {% raw %}
@@ -301,6 +306,9 @@ noteworthy changes this release:
   Thanks, [@rytilahti]!
 - OpenGarage has seens lots of updates and love from [@Danielhiversen], adding
   lots of sensors in the process.
+- With the recent improvements made to the VLC media player integration and
+  add-on, there is now a way to get TTS working by connecting some speakers to
+  your Blue, ODROID or Raspberry Pi. Thanks, [@mib1185] & [@MartinHjelmare]!
 
 Adding support for long-term statistics is a much requested feature; This
 release adds support for long-term statistics to the following integrations:
