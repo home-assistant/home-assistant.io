@@ -409,7 +409,7 @@ We now support the following databases:
 All other databases and database versions are now deprecated.
 
 If your used or configured database doesn't match any of the above requirements,
-a warning will be logged. As of Home Assistant 20221.1, the recorder will
+a warning will be logged. As of Home Assistant 2022.1, the recorder will
 no longer connect to an unsupported database.
 
 ([@emontnemery] - [#58161]) ([recorder docs])
@@ -429,7 +429,8 @@ will be rejected in Home Assistant Core 2022.2.
 Python 3.8 has been deprecated because Python 3.10 has been released.
 Support will be dropped in Home Assistant 2022.1.
 
-Support for Python 3.10 hasn't completed yet. It is advised to upgrade
+Support for Python 3.10 hasn't completed yet, however we aim to complete
+that before the 3.8 deprecation period has ended. It is advised to upgrade
 to Python 3.9 at this point.
 
 If you run Home Assistant OS, Supervised or the Container installation type:
@@ -439,50 +440,25 @@ No action is required from your end, we will take of this for you.
 
 {% enddetails %}
 
-{% details "Tuya" %}
+{% details "Aurora ABB Solar PV" %}
 
-During the implementation of the improvement we made to the Tuya integration
-this release, it is possible for some entities to show up as a duplicate.
-This is especially noticable for lights that are provided by the Tuya integration.
+The Aurora ABB Solar PV integration migrated to configuration via the UI.
+Configuring Aurora ABB Solar PV via YAML configuration has been deprecated
+and will be removed in a future Home Assistant release.
 
-The cause is that we've stabalized and corrected the unique ID of these
-devices and entities.
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration after upgrading.
 
-The old entities can be removed and you'll have to adjust automations
-and script using the previous entities.
-
-We appologize for the inconcienvence this might cause. This change will
-allow us to provide proper and automatic migrations of these type of changes
-for the future.
+([@davet2001] - [#36300]) ([aurora_abb_powerone docs])
 
 {% enddetails %}
 
-{% details "Flux LED/MagicLight" %}
+{% details "AVM FRITZ!Box Tools" %}
 
-The Flux LED integration has been migrated to configuration via the UI.
-Configuring Flux LED via YAML configuration has now been deprecated and will be
-removed in a future Home Assistant release.
+AVM FRITZ!Box Tools services now ask for a `device_id` and no more for a `entity_id`.
+Please review your automation and scripts accordly.
 
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
-
-([@icemanch] - [#56354]) ([flux_led docs])
-
-{% enddetails %}
-
-{% details "Xiaomi Miio" %}
-
-Attributes from the vacuum entities have been replaced with sensors.
-
-This means that all your references to these attributes must be replaced with
-its sensor in your automations, scripts and dashboards.
-
-Some sensors have been disabled by default and need manual enablement,
-once the integration has been set up. For example, the attribute
-`mop_attached: true` has now been replaced with
-`binary_sensor.<NAME>_mop_attached`.
-
-([@OGKevin] - [#54990]) ([xiaomi_miio docs])
+([@chemelli74] - [#58005]) ([fritz docs])
 
 {% enddetails %}
 
@@ -500,16 +476,203 @@ Once it has been migrated, it can be safely removed from your YAML configuration
 
 {% enddetails %}
 
-{% details "Stookalert" %}
+{% details "Efergy" %}
 
-The Stookalert integration has been migrated to configuration via the UI.
-Configuring Stookalert via YAML configuration has now been deprecated and will be
+The Efergy integration has been migrated to configuration via the UI.
+Configuring Efergy via YAML configuration has now been deprecated and will be
 removed in a future Home Assistant release.
 
 Your existing YAML configuration is automatically imported on upgrade to this release;
 and thus can be safely removed from your YAML configuration after upgrading.
 
-([@frenck] - [#57119]) ([stookalert docs])
+Additionally, the following sensor names have changed:
+
+- Energy Usage is now Power Usage.
+- Any configured energy period, for example, monthly was Energy Consumed is now Monthly Consumption.
+- Any configured cost period, for example, monthly was Energy Cost is now Monthly Energy Cost.
+- Per-Device Usage is now Power Usage with the sensor id trailing.
+
+([@tkdrob] - [#56890]) ([efergy docs])
+
+{% enddetails %}
+
+{% details "Environment Canada" %}
+
+The Environment Canada integration has been migrated to configuration via the UI.
+Configuring Environment Canada via YAML configuration has now been deprecated and will be
+removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+Additionally, non-loop radar images are no longer supported; Sensor entities
+now have the location of the station as a part of the sensor's entity name.
+
+([@gwww] - [#57127]) ([environment_canada docs])
+
+{% enddetails %}
+
+{% details "Flux LED/MagicLight" %}
+
+The Flux LED integration has been migrated to configuration via the UI.
+Configuring Flux LED via YAML configuration has now been deprecated and will be
+removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+([@icemanch] - [#56354]) ([flux_led docs])
+
+{% enddetails %}
+
+{% details "HomeKit" %}
+
+The previously deprecated HomeKit configuration options `safe_mode`,
+`zeroconf_default_interface`, and `auto_start` have now been removed.
+
+If stil have these options in your YAML configuraion, you must be remove them
+from your YAML configuration.
+
+([@bdraco] - [#58320])
+
+{% enddetails %}
+
+{% details "Input Select / Dropdown Helper" %}
+
+When the option list of a Dropdown helper / `input_select` is updated,
+it will try to maintain the currently selected option, if the selected
+option also is present in the new options provided; otherwise it will
+reset to the first option from the newly provided list.
+
+Previously, when a new list of options was provided, it would always
+reset to the first item of the list.
+
+([@frenck] - [#53334]) ([input_select docs])
+
+{% enddetails %}
+
+{% details "IQVIA" %}
+
+Previously, IQVIA supported long-term statistics for the `Asthma Index: Tomorrow`
+sensor. This is incorrect: long-term statistics are meant for actual,
+current measurements (not future forecasts). Therefore, long-term statistics
+support has been removed for this sensor.
+
+([@bachya] - [#57687]) ([iqvia docs])
+
+{% enddetails %}
+
+{% details "Itho Daalderop Spider" %}
+
+The Itho Daalderop Spider integration previously migrated to configuration via the UI.
+Configuring Itho Daalderop Spider via YAML configuration has now been deprecated
+and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration has been automatically imported;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+([@peternijssen] - [#57974]) ([spider docs])
+
+{% enddetails %}
+
+{% details "Microsoft Text-to-Speech (TTS)" %}
+
+
+The default voice is changed to `JennyNeural`; The previous default `ZiraRUS`
+(Standard Voice) is no longer supported in eastus or any other region that
+has rolled out GA neural voices as Standard voices become deprecated.
+
+([@tylergibson] - [#58499]) ([microsoft docs])
+
+{% enddetails %}
+
+{% details "OctoPrint" %}
+
+The OctoPrint integration migrated to configuration via the UI. Configuring
+OctoPrint via YAML configuration has been deprecated and will be removed in
+a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration after upgrading.
+
+The following sensors have been removed:
+
+- `sensor.<printer>_time_remaining`
+- `sensor.<printer>_time_elapsed`
+
+The following sensors have been added:
+
+- `sensor.octoprint_start_time`
+- `sensor.octoprint_estimated_finish_time`
+
+([@rfleming71] - [#58040]) ([octoprint docs])
+
+{% enddetails %}
+
+{% details "OpenGarage" %}
+
+The attributes (`wifi_signal ` and `distance_sensor`) for OpenGarage covers
+are removed and replaced by individual sensors sensors.
+
+Also, `door_state ` is removed as an attribute, but you can use the state
+directly instead.
+
+Please update any automations or scripts that depend on the removed attributes.
+
+([@Danielhiversen] - [#57976]) ([opengarage docs])
+
+{% enddetails %}
+
+{% details "OpenZWave" %}
+
+The OpenZWave (`ozw`) integration is being marked as deprecated. The upstream
+project is not currently being maintained, and has not reached stable status.
+
+We recommend transitioning to the [Z-Wave JS integration](/integrations/zwave_js).
+
+While the integration is not currently slated for removal, it will no longer
+be receiving updates and may be removed at a later date.
+
+See the [Z-Wave JS migration documentation](/integrations/zwave_js/#migrating-from-previous-z-wave-implementations)
+for more information.
+
+{% enddetails %}
+
+{% details "Pentair ScreenLogic" %}
+
+Screenlogic lights have moved to the light platform. The switches that
+previously represented these lights will need to manually be deleted in
+`Configuration >> Entities`. If you are using these switch entities in
+your automation or scripts, you will need to update those to use the new
+light entities instead.
+
+The state is now refreshed with a short delay to ensure the toggles
+do not flip/flop between states as the controller takes ~600ms to make the change.
+
+([@bdraco] - [#55467]) ([screenlogic docs])
+
+{% enddetails %}
+
+{% details "Phone Modem" %}
+
+The sensor state attributes of `modem_callerid` integration are now only
+populated when the values are known.
+
+If you use these attributes in your automations or scripts, you'll need to
+adjust those to be able to handle missing attributes.
+
+([@tkdrob] - [#57774]) ([modem_callerid docs])
+
+{% enddetails %}
+
+{% details "Rainforest Eagle" %}
+
+The previously deprecated YAML configuration of the Rainforest Eagle integration has been removed.
+
+Rainforest Eagle is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@frenck] - [#57636]) ([rainforest_eagle docs])
 
 {% enddetails %}
 
@@ -543,50 +706,71 @@ Additionally, services are restricted to only the targets that apply:
 
 {% enddetails %}
 
-{% details "Efergy" %}
+{% details "Renault" %}
 
-The Efergy integration has been migrated to configuration via the UI.
-Configuring Efergy via YAML configuration has now been deprecated and will be
+The `last_update` state attribute has been moved to a stand-alone entity
+(and dropped from battery and location entities). If you used this attribute
+in your scripts or automations; you'll need to adjust those to this change.
+
+([@epenet] - [#57750]) ([renault docs])
+
+{% enddetails %}
+
+{% details "SimpliSafe" %}
+
+SimpliSafe requires a new web-based authentication method. When starting up,
+Home Assistant will automatically prompt you to re-authorize your instance.
+
+([@bachya] - [#57212]) ([simplisafe docs])
+
+{% enddetails %}
+
+{% details "SolarEdge" %}
+
+The SolarEdge integration now provides unique IDs for its entities, so the
+entities are now visible and customizable in the Home Assistant frontend.
+
+Some names have been corrected as they had incorrect descriptions. This may
+cause some of your entity IDs provided by SolarEdge to have changed this release.
+
+In case you have been using these entities in your automations, scripts, or
+dashboards, you can either rename those entity IDs to the old entity ID
+or adjust the places you've used them accordingly.
+
+Additionally, if sensor you used disappeared, it might have been disabled by
+default during upgrade. Please be sure to check the if the entity is
+enabled in that case.
+
+([@terminet85] - [#55902]) - ([@purcell-lab] - [#58773])
+
+{% enddetails %}
+
+{% details "Sonos" %}
+
+The `sonos.set_option` service has been removed and replaced with
+individual `switch` entities which both control the features and display
+if currently enabled.
+
+The `night_sound` and `speech_enhance` attributes on the
+Sonos `media_player` entities are also removed.
+
+If you are using those in your automation or scripts, you'll need to replacet
+hese with the new `switch` entities.
+
+([@jjlawren] - [#54502]) ([sonos docs])
+
+{% enddetails %}
+
+{% details "Stookalert" %}
+
+The Stookalert integration has been migrated to configuration via the UI.
+Configuring Stookalert via YAML configuration has now been deprecated and will be
 removed in a future Home Assistant release.
 
 Your existing YAML configuration is automatically imported on upgrade to this release;
 and thus can be safely removed from your YAML configuration after upgrading.
 
-Additionally, the following sensor names have changed:
-
-- Energy Usage is now Power Usage.
-- Any configured energy period for example monthly was Energy Consumed is now Monthly Consumption.
-- Any configured cost period for example monthly was Energy Cost is now Monthly Energy Cost.
-- Per-Device Usage is now Power Usage with the sensor id trailing.
-
-([@tkdrob] - [#56890]) ([efergy docs])
-
-{% enddetails %}
-
-{% details "Environment Canada" %}
-
-The Environment Canada integration has been migrated to configuration via the UI.
-Configuring Environment Canada via YAML configuration has now been deprecated and will be
-removed in a future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
-
-Additionally, non-loop radar images are no longer supported; Sensor entities
-now have the location of the station as a part of the sensor's entity name.
-
-([@gwww] - [#57127]) ([environment_canada docs])
-
-{% enddetails %}
-
-{% details "Rainforest Eagle" %}
-
-The previously deprecated YAML configuration of the Rainforest Eagle integration has been removed.
-
-Rainforest Eagle is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
-
-([@frenck] - [#57636]) ([rainforest_eagle docs])
+([@frenck] - [#57119]) ([stookalert docs])
 
 {% enddetails %}
 
@@ -623,17 +807,6 @@ data:
 
 {% enddetails %}
 
-{% details "IQVIA" %}
-
-Previously, IQVIA supported long-term statistics for the `Asthma Index: Tomorrow`
-sensor. This is incorrect: long-term statistics are meant for actual,
-current measurements (not future forecasts). Therefore, long-term statistics
-support has been removed for this sensor.
-
-([@bachya] - [#57687]) ([iqvia docs])
-
-{% enddetails %}
-
 {% details "UptimeRobot" %}
 
 The previously deprecated YAML configuration of the UptimeRobot integration has been removed.
@@ -645,164 +818,12 @@ in previous releases and can now be safely removed from your YAML configuration 
 
 {% enddetails %}
 
-{% details "Renault" %}
+{% details "Utility Meter" %}
 
-The `last_update` state attribute has been moved to a stand-alone entity
-(and dropped from battery and location entities). If you used this attribute
-in your scripts or automations; you'll need to adjust those to this change.
+The `offset` parameter for `utility_meter` sensors is now limited to at most
+27 days. If you used more then 27 days you must now migrate to `cron`.
 
-([@epenet] - [#57750]) ([renault docs])
-
-{% enddetails %}
-
-{% details "VLC media player Telnet" %}
-
-The VLC media player Telnet integration migrated to configuration via the UI.
-Configuring VLC media player Telnet via YAML configuration has been deprecated
-and will be removed in a future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this
-release; and thus can be safely removed from your YAML configuration after upgrading.
-
-([@MartinHjelmare] - [#57513]) ([vlc_telnet docs])
-
-{% enddetails %}
-
-{% details "Phone Modem" %}
-
-The sensor state attributes of `modem_callerid` integration are now only
-populated when the values are known.
-
-If you use these attributes in your automations or scripts, you'll need to
-adjust those to be able to handle missing attributes.
-
-([@tkdrob] - [#57774]) ([modem_callerid docs])
-
-{% enddetails %}
-
-{% details "Itho Daalderop Spider" %}
-
-The Itho Daalderop Spider integration previously migrated to configuration via the UI.
-Configuring Itho Daalderop Spider via YAML configuration has now been deprecated
-and will be removed in a future Home Assistant release.
-
-Your existing YAML configuration has been automatically imported;
-and thus can be safely removed from your YAML configuration after upgrading.
-
-([@peternijssen] - [#57974]) ([spider docs])
-
-{% enddetails %}
-
-{% details "OpenGarage" %}
-
-The attributes (`wifi_signal ` and `distance_sensor`) for OpenGarage covers
-are removed and replaced by individual sensors sensors.
-
-Also, `door_state ` is removed as an attribute, but you can use the state
-directly instead.
-
-Please update any automations or scripts that depend on the removed attributes.
-
-([@Danielhiversen] - [#57976]) ([opengarage docs])
-
-{% enddetails %}
-
-{% details "OpenZWave" %}
-
-The OpenZWave (`ozw`) integration is being marked as deprecated. The upstream
-project is not currently being maintained, and has not reached stable status.
-
-We recommend transitioning to the [Z-Wave JS integration](/integrations/zwave_js).
-
-While the integration is not currently slated for removal, it will no longer
-be receiving updates and may be removed at a later date.
-
-See the [Z-Wave JS migration documentation](/integrations/zwave_js/#migrating-from-previous-z-wave-implementations)
-for more information.
-
-{% enddetails %}
-
-{% details "SimpliSafe" %}
-
-SimpliSafe requires a new web-based authentication method. When starting up,
-Home Assistant will automatically prompt you to re-authorize your instance.
-
-([@bachya] - [#57212]) ([simplisafe docs])
-
-{% enddetails %}
-
-{% details "Pentair ScreenLogic" %}
-
-Screenlogic lights have moved to the light platform. The switches that
-previously represented these lights will need to manually be deleted in
-`Configuration >> Entities`. If you are using these switch entities in
-your automation or scripts, you will need to update those to use the new
-light entities instead.
-
-The state is now refreshed with a short delay to ensure the toggles
-do not flip/flop between states as the controller takes ~600ms to make the change.
-
-([@bdraco] - [#55467]) ([screenlogic docs])
-
-{% enddetails %}
-
-{% details "AVM FRITZ!Box Tools" %}
-
-AVM FRITZ!Box Tools services now ask for a `device_id` and no more for a `entity_id`.
-Please review your automation and scripts accordly.
-
-([@chemelli74] - [#58005]) ([fritz docs])
-
-{% enddetails %}
-
-{% details "OctoPrint" %}
-
-The OctoPrint integration migrated to configuration via the UI. Configuring
-OctoPrint via YAML configuration has been deprecated and will be removed in
-a future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this
-release; and thus can be safely removed from your YAML configuration after upgrading.
-
-The following sensors have been removed:
-
-- `sensor.<printer>_time_remaining`
-- `sensor.<printer>_time_elapsed`
-
-The following sensors have been added:
-
-- `sensor.octoprint_start_time`
-- `sensor.octoprint_estimated_finish_time`
-
-([@rfleming71] - [#58040]) ([octoprint docs])
-
-{% enddetails %}
-
-{% details "Sonos" %}
-
-The `sonos.set_option` service has been removed and replaced with
-individual `switch` entities which both control the features and display
-if currently enabled.
-
-The `night_sound` and `speech_enhance` attributes on the
-Sonos `media_player` entities are also removed.
-
-If you are using those in your automation or scripts, you'll need to replacet
-hese with the new `switch` entities.
-
-([@jjlawren] - [#54502]) ([sonos docs])
-
-{% enddetails %}
-
-{% details "HomeKit" %}
-
-The previously deprecated HomeKit configuration options `safe_mode`,
-`zeroconf_default_interface`, and `auto_start` have now been removed.
-
-If stil have these options in your YAML configuraion, you must be remove them
-from your YAML configuration.
-
-([@bdraco] - [#58320])
+([@dgomes] - [#55625]) ([utility_meter docs])
 
 {% enddetails %}
 
@@ -822,30 +843,32 @@ importing your YAML configuration into the UI.
 
 {% enddetails %}
 
-{% details "Aurora ABB Solar PV" %}
+{% details "VLC media player Telnet" %}
 
-The Aurora ABB Solar PV integration migrated to configuration via the UI.
-Configuring Aurora ABB Solar PV via YAML configuration has been deprecated
+The VLC media player Telnet integration migrated to configuration via the UI.
+Configuring VLC media player Telnet via YAML configuration has been deprecated
 and will be removed in a future Home Assistant release.
 
 Your existing YAML configuration is automatically imported on upgrade to this
 release; and thus can be safely removed from your YAML configuration after upgrading.
 
-([@davet2001] - [#36300]) ([aurora_abb_powerone docs])
+([@MartinHjelmare] - [#57513]) ([vlc_telnet docs])
 
 {% enddetails %}
 
-{% details "Input Select / Dropdown Helper" %}
+{% details "Xiaomi Miio" %}
 
-When the option list of a Dropdown helper / `input_select` is updated,
-it will try to maintain the currently selected option, if the selected
-option also is present in the new options provided; otherwise it will
-reset to the first option from the newly provided list.
+Attributes from the vacuum entities have been replaced with sensors.
 
-Previously, when a new list of options was provided, it would always
-reset to the first item of the list.
+This means that all your references to these attributes must be replaced with
+its sensor in your automations, scripts and dashboards.
 
-([@frenck] - [#53334]) ([input_select docs])
+Some sensors have been disabled by default and need manual enablement,
+once the integration has been set up. For example, the attribute
+`mop_attached: true` has now been replaced with
+`binary_sensor.<NAME>_mop_attached`.
+
+([@OGKevin] - [#54990]) ([xiaomi_miio docs])
 
 {% enddetails %}
 
@@ -855,42 +878,6 @@ The option to override the Yeelight model will only appear if the detected
 model is not in the database. Otherwise, it will be hidden.
 
 ([@bdraco] - [#56967]) ([yeelight docs])
-
-{% enddetails %}
-
-{% details "Microsoft Text-to-Speech (TTS)" %}
-
-
-The default voice is changed to `JennyNeural`; The previous default `ZiraRUS`
-(Standard Voice) is no longer supported in eastus or any other region that
-has rolled out GA neural voices as Standard voices become deprecated.
-
-([@tylergibson] - [#58499]) ([microsoft docs])
-
-{% enddetails %}
-
-{% details "Utility Meter" %}
-
-The `offset` parameter for `utility_meter` sensors is now limited to at most
-27 days. If you used more then 27 days you must now migrate to `cron`.
-
-([@dgomes] - [#55625]) ([utility_meter docs])
-
-{% enddetails %}
-
-{% details "SolarEdge" %}
-
-The SolarEdge integration now provides unique IDs for its entities, so the
-entities are now visible and customizable in the Home Assistant frontend.
-
-Some names have been corrected as they had incorrect descriptions. This may
-cause some of your entity IDs provided by SolarEdge to have changed this release.
-
-In case you have been using these entities in your automations, scripts, or
-dashboards, you can either rename those entity IDs to the old entity ID
-or adjust the places you've used them accordingly.
-
-([@terminet85] - [#55902])
 
 {% enddetails %}
 
