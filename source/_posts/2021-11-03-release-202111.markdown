@@ -276,51 +276,50 @@ to it.
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-Raw list of changes (candidates) that need to be processed for this section:
+- Debug traces of automations and scripts are now stored! So you no longer
+  lose them when you restart Home Assistant. Thanks [@emontnemery]
+- [@frenck] adjusted the number entity and it can now be displayed as a slider
+  instead of an input box. Home Assistant will automatically figure out which
+  is the best to use.
+- Add support for fan groups! Thanks [@bdraco]!
+- Thanks to [@ludeeus], the Supervisor integration now has binary sensors that
+  can tell you which add-on is running or not.
+- [@allenporter] blew our minds this release by adding initial support for
+  WebRTC streams and cameras to Home Assistant.
+- But had a good reason, he added support for Nest Battery Cameras
+  and Nest battery Doorbell Cameras to Home Assistant! Thanks [@allenporter]!
+- When you log in to Home Assistant, there is now a "Keep me logged in"
+  checkbox! Awesome [@MartinTuroci](http://github.com/MartinTuroci)
+- [@goyney](https://github.com/goyney) updated the Material Design Icon to
+  version v6.4.95 ensuring we have all the latest icons available in our new
+  beautiful icon picker.
+- Sure PetCare now supports the Felaqua devices, thanks [@benleb]!
+- The MQTT number platform now has support for providing a unit of measurement
+  and resetting the number field (by [@frenck] and [@emontnemery]).
+- The Broadlink integration added sensors for voltage, current, overload,
+  and total consumption. Thanks [@felipediel]!
+- WLED now has the much requested sliders for speed & intensity controls.
+  Thanks, [@rytilahti]!
+- OpenGarage has seens lots of updates and love from [@Danielhiversen], adding
+  lots of sensors in the process.
 
-- ZHA support for additional entities on ElectricalMeasurement ZCL cluster ([@Adminiuga] - [#56909]) ([zha docs])
-- Allow resetting an MQTT number ([@emontnemery] - [#57161]) ([mqtt docs])
-- Enable template icons for template selects ([@JeffLIrion] - [#57092]) ([template docs])
-- Add Sure Petcare Felaqua device ([@benleb] - [#56823]) ([surepetcare docs])
-- Add energy management for efergy ([@tkdrob] - [#57472]) ([efergy docs])
-- Search for areas, devices and entities in script choose actions ([@emontnemery] - [#57554])
-- Add Nest WebRTC and support Nest Battery Camera and Nest Battery Doorbell ([@allenporter] - [#57299]) ([camera docs]) ([nest docs])
-- Add tamper device class for binary sensor ([@frenck] - [#57632]) ([binary_sensor docs])
-- Use separate weather condition for clear night in MetOffice forecasts ([@avee87] - [#55135]) ([metoffice docs])
-- Add to the Broadlink integration support for voltage, current, overload and total consumption sensors ([@felipediel] - [#53628]) ([broadlink docs])
-- Open garage sensor ([@Danielhiversen] - [#57976]) ([opengarage docs]) (breaking-change) (new-platform)
-- Add more sensors to Opengarage ([@Danielhiversen] - [#58042]) ([opengarage docs])
-- OpenGarage binary sensor ([@Danielhiversen] - [#58030]) ([opengarage docs]) (new-platform)
-- Store automation and script traces ([@emontnemery] - [#56894]) ([automation docs]) ([script docs]) ([trace docs])
-- Add auto slider/box mode to number entity ([@frenck] - [#57737]) ([demo docs]) ([number docs])
-- Support for Fritz!DECT 500 lightbulbs ([@flabbamann] - [#52830]) ([fritzbox docs]) (new-platform)
-- Expose Sonos features as switch entities ([@jjlawren] - [#54502]) ([sonos docs]) (breaking-change)
-- Configurable mode for KNX number entity ([@farmio] - [#58268]) ([knx docs])
-- feat: Add unit of measurement to KNX number platform ([@marvin-w] - [#58353]) ([knx docs])
-- Add support for unit of measurement in MQTT number platform ([@frenck] - [#58343]) ([mqtt docs])
-- Add binary sensor to add-ons to show if they are running ([@ludeeus] - [#58120]) ([hassio docs])
-- Add speed & intensity controls to wled ([@rytilahti] - [#56862]) ([wled docs])
-- Add support for fan groups ([@bdraco] - [#57941]) ([group docs]) (new-platform)
+Adding support for long-term statistics is a much requested feature; This
+release adds support for long-term statistics to the following integrations:
 
-* Add WebRTC stream player (#10193) @allenporter
-* Stack gas and solar sources (#10244) @bramkragten
-* Update MDI to v6.3.95 (#10313) @goyney
-* Update MDI to v6.4.95 (#10389) @goyney
-* Hide script/sun from generated Lovelace (#10418) @balloob
-* Add "Keep me logged in" checkbox within login flow (#10226) @MartinTuroci
-
-- Add statistics support to nest sensors ([@allenporter] - [#57393]) ([nest docs])
-- Add state_class to EnOcean sensors ([@davidlb] - [#57666]) ([enocean docs])
-- Support device and state classes for WAQI sensor ([@davidlb] - [#57762]) ([waqi docs])
-- Add long-term statistics for AEMET sensors ([@Noltari] - [#57844]) ([aemet docs])
-- Add long-term statistics for Tado sensors ([@Noltari] - [#58111]) ([tado docs])
-- Enable long-term statistics for OpenWeatherMap sensors ([@dkt01] - [#57781]) ([openweathermap docs])
-- Gogogate2 add statistics ([@thomas-svrts] - [#58178]) ([gogogate2 docs])
-- Fix plugwise longterm statistics ([@bouwew] - [#58127]) ([plugwise docs])
-- Add statistics support to Huisbaasje ([@dennisschroer] - [#54651]) ([huisbaasje docs])
-- Add state_class support to Rest ([@koying] - [#58026]) ([rest docs])
-- Add long-term statistics for Ondilo ICO ([@TheNogl] - [#58290]) ([ondilo_ico docs])
-- Add device_class and state_class as optional attributes to the scrape sensor, to support statistics ([@lukas-hetzenecker] - [#58164]) ([scrape docs])
+- AEMET (thanks [@Noltari])
+- Efery (thanks [@tkdrob])
+- EnOcean (thanks [@davidlb])
+- Gogogate2 (thanks [@thomas-svrts])
+- Huisbaasje (thanks [@dennisschroer])
+- Nest (thanks [@allenporter])
+- Ondilo ICO (thanks [@TheNogl])
+- OpenWeatherMap (thanks [@dkt01])
+- Plugwise (thanks [@bouwew])
+- REST (thanks [@koying])
+- Scrape sensor (thanks [@lukas-hetzenecker])
+- Tado (thanks [@Noltari])
+- Tado sensors (thanks [#58111])
+- WAQI (thanks [@davidlb])
 
 ## New Integrations
 
