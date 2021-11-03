@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2021.11.0: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2021.11.0"
-date: 2021-10-27 00:00:00
+title: "2021.11: Icon picker, device links and entity categories"
+description: "This release adds a beautiful icon picker, quick links to visit a device or service web interface, and new organization categories for entities!"
+date: 2021-11-03 00:00:00
 date_formatted: "November 3, 2021"
 author: Franck Nijhof
 author_twitter: frenck
@@ -15,8 +15,8 @@ og_image: /images/blog/2021-11/social.png
 
 <a href='/integrations/#version/2021.11'><img src='/images/blog/2021-11/social.png' style='border: 0;box-shadow: none;'></a>
 
-Point eleven (`.11`), which means its November! 🥶 (or 🏖 depending on where
-you are in this world of course.)
+Point eleven (`.11`), which means it is November! 🥶 (or 🏖 depending on where
+you are in this world, of course.)
 
 It also means: This is the second last release of the year...
 
@@ -61,7 +61,6 @@ Enjoy the release!
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
-
 
 ## Daylight saving time bug
 
