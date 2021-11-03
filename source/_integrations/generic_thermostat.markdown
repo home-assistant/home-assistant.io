@@ -93,7 +93,7 @@ target_temp_step:
   description: "The desired step size for setting the target temperature. Supported values are `0.1`, `0.5` and `1.0`."
   required: false
   type: float
-  default: "equal to `precision`"
+  default: "equal to `precision`."
 {% endconfiguration %}
 
 Time for `min_cycle_duration` and `keep_alive` must be set as "hh:mm:ss" or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`. Alternatively, it can be an integer that represents time in seconds.
