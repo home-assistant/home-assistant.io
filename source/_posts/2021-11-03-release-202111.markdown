@@ -67,44 +67,29 @@ upgrade!
 
 ## Visit devices and services
 
+Your device has a web interface, but you don't remember the (IP) address it
+has on your network... So you start guessing a couple of addresses; And end upi
+checking your router, looking it up in an app, or scanning the network...
+Sounds familiar? Annoying, right?
 
-Some integrations that added support for this already (TODO: make nice...):
+Well, as of today, integrations can provide the URLs to devices or services
+where the device can be managed or configured.
 
-- Add service configuration URL to Stookalert ([@frenck] - [#57697]) ([stookalert docs])
-- Add device configuration URL to Plugwise ([@frenck] - [#57696]) ([plugwise docs])
-- Add service configuration URL to Spotify ([@frenck] - [#57701]) ([spotify docs])
-- Add configuration url to Synology DSM ([@mib1185] - [#57704]) ([synology_dsm docs])
-- Add configuration_url to Uptime Robot ([@ludeeus] - [#57709]) ([uptimerobot docs])
-- Add service configuration URL to Verisure ([@frenck] - [#57713]) ([verisure docs])
-- Add service configuration URL to Speedtest.net ([@frenck] - [#57715]) ([speedtestdotnet docs])
-- Add device configuration URL to WLED ([@frenck] - [#57692]) ([wled docs])
-- Add service configuration URL to MQTT ([@frenck] - [#57731]) ([mqtt docs])
-- Add configuration url to Pi hole ([@mib1185] - [#57718]) ([pi_hole docs])
-- Add configuration_url to gogogate2 ([@bdraco] - [#57739]) ([gogogate2 docs])
-- Add configuration url to nexia ([@bdraco] - [#57740]) ([nexia docs])
-- Add configuration url to rachio ([@bdraco] - [#57738]) ([rachio docs])
-- Add configuration URL to RainMachine ([@bachya] - [#57732]) ([rainmachine docs])
-- Add configuration_url to Sense ([@bdraco] - [#57814]) ([sense docs])
-- Add configuration URL to Efergy ([@tkdrob] - [#57839]) ([efergy docs])
-- Add configuration url to Tasmota ([@emontnemery] - [#57957]) ([tasmota docs])
-- Add configuration url to Juicenet ([@jesserockz] - [#57999]) ([juicenet docs])
-- Add configuration_url and entity_category to Fritz ([@chemelli74] - [#58004]) ([fritz docs])
-- Add configuration url to Airthings ([@Danielhiversen] - [#58041]) ([airthings docs])
-- Add configuration url to Tractive ([@Danielhiversen] - [#58038]) ([tractive docs])
-- Add configuration url to Surepetcare ([@Danielhiversen] - [#58039]) ([surepetcare docs])
-- Add configuration url to Sonarr ([@jesserockz] - [#58085]) ([sonarr docs])
-- Add `configuration_url` to Denon AVR integration ([@bieniu] - [#58116]) ([denonavr docs])
-- Add `configuration_url` to Sonos devices ([@jjlawren] - [#58148]) ([sonos docs])
-- Add `configuration_url` to Plex integration ([@jjlawren] - [#58149]) ([plex docs])
-- Add support for device configuration URL to Axis devices ([@Kane610] - [#58176]) ([axis docs])
-- Add `configuration_url` to AsusWrt integration ([@bieniu] - [#58172]) ([asuswrt docs])
-- Add `configuration_url` to Netatmo devices ([@cgtobi] - [#58160]) ([netatmo docs])
-- Add support for device configuration URL to UniFi Controller ([@Kane610] - [#58237]) ([unifi docs])
-- Pull configuration_url from library in gogogate2 ([@bdraco] - [#58318]) ([gogogate2 docs])
-- Fix configuration url in gogogate2 ([@bdraco] - [#58365]) ([gogogate2 docs])
-- Add configuration_url to isy994 ([@bdraco] - [#58372]) ([isy994 docs])
-- Add state_class/entity_category to Verisure ([@frenck] - [#58403]) ([verisure docs])
+<p class='img'>
+<img src='/images/blog/2021-11/visit-device.png' alt='Screenshot of WLED that now a button that links to the WLED web interface of the device directly'>
+Screenshot of WLED that now a button that links to the WLED web interface of the device directly.
+</p>
 
+If an integration provides a single web interface to configure multiple devices,
+it can even deep-link to the specific device page for that device.
+
+Over **50!** integrations have already added support for this feature, which is
+fantastic! Just to name a few integrations: MQTT, Tasmota, WLED, Synology, Plex,
+Netatmo, Pi-hole, RainMachine, Plugwise, Sure Petcare, Axis, UniFi Controller,
+FRITZ!Box, and many more!
+
+If you are a custom integration developer, you can add support for this feature
+too; [Read all about it on our developer blog](https://developers.home-assistant.io/blog/2021/10/26/config-entity#device-configuration-url).
 
 ## Entity categorization
 
