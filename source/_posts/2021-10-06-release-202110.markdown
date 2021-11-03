@@ -329,7 +329,7 @@ The following integrations are now available via the Home Assistant UI:
 - Bump pyhaversion to 21.10.0 ([@ludeeus] - [#57377]) ([version docs])
 - Update frontend to 20211007.1 ([@bramkragten] - [#57385]) ([frontend docs])
 - Do all of dhcp scapy startup in the executor ([@bdraco] - [#57392]) ([dhcp docs])
-- Remove executor calls in isy994 as its fully async ([@bdraco] - [#57394]) ([isy994 docs])
+- Remove executor calls in isy994 as it's fully async ([@bdraco] - [#57394]) ([isy994 docs])
 - Fix default parameter values for service opentherm_gw.set_clock ([@mvn23] - [#57397]) ([opentherm_gw docs])
 - Fix `opentherm_gw.set_clock` `time` parameter name ([@mvn23] - [#57398]) ([opentherm_gw docs])
 - Restore yeelight workaround for failing to update state after on/off ([@bdraco] - [#57400]) ([yeelight docs])

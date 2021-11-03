@@ -579,7 +579,7 @@ interface:
   required: false
   type: string
 value:
-  description: This is the value that is set on the device. Its device specific.
+  description: This is the value that is set on the device. It's device specific.
   required: true
   type: string
 {% endconfiguration %}

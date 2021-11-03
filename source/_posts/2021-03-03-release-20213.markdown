@@ -1595,7 +1595,7 @@ The following integrations are no longer available as of this release:
 - Updated frontend to 20210225.0 ([@bramkragten] - [#47059]) ([frontend docs]) (beta fix)
 - Revert CORS changes for my home assistant ([@bramkragten] - [#47064]) ([api docs]) ([http docs]) (beta fix)
 - Ensure hue options show the defaults when the config options have not yet been saved ([@bdraco] - [#47067]) ([hue docs]) (breaking-change) (beta fix)
-- catch ValueError when unique ID update fails because its taken and remove the duplicate entity ([@raman325] - [#47072]) ([zwave_js docs]) (beta fix)
+- catch ValueError when unique ID update fails because it's taken and remove the duplicate entity ([@raman325] - [#47072]) ([zwave_js docs]) (beta fix)
 - Bump Z-Wave JS Server Python to 0.20.0 ([@balloob] - [#47076]) ([zwave_js docs]) (beta fix)
 - Add support for v6 features to philips js integration ([@elupus] - [#46422]) ([philips_js docs]) (beta fix)
 - Add support for Shelly SHBTN-2 device triggers ([@CurrentThread] - [#46644]) ([shelly docs]) (beta fix)
