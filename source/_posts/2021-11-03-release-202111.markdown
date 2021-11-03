@@ -53,7 +53,7 @@ Enjoy the release!
 - [Entity categorization](#entity-categorization)
 - [The icon picker](#the-icon-picker)
 - [Tuya update](#tuya-update)
-- [Some nice new template things](#some-nice-new-template-things)
+- [Some nice new template filters](#some-nice-new-template-filters)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -121,7 +121,7 @@ its physical button. Now, if I had this device in my living room area and
 turned off all switches in my living room, it would turn off the switch and
 the child lock! This is not what we want, right?
 
-To resolve issues like these (and more), we introduce entity categories.
+To resolve issues like these (and more), we introduce: Entity categories.
 
 Entities without a category are now considered primary entities: The entities
 we daily use and expect from a device, i.e., the power on/off switch.
@@ -229,11 +229,47 @@ cloud APIs. Integrations with cloud APIs allow people to adopt Home Assistant
 without having to replace all devices in their house. Using devices that require
 the cloud, or are fully local, is a choice everyone should make for themselves.
 
-## Some nice new template things
+## Some nice new template filters
 
-- Add datetime_today template method ([@Petro31] - [#57435])
-- Add area_entities and area_devices template functions/filters ([@raman325] - [#55228])
-- Add average template function and filter ([@Petro31] - [#57727])
+For some of our more advanced users, this release has some helpful template
+improvements included as well!
+
+Let's start with the new `today_at` filter/function that [@Petro31] added. It
+allows you to quickly get a DateTime at a certain time of today. This can be
+really helpful if you need to compare against another DateTime. For example:
+
+{% raw %}
+
+```yaml
+# Is the current time past 10:15?
+{{ now() > today_at("10:15") }} 
+```
+
+{% endraw %}
+
+Next up is [@raman325], who added the `area_entities` and `area_devices` filter
+and function that allows you to get all devices or entities that are in an area.
+The methods return a list, which you can loop on.
+
+{% raw %}
+
+```yaml
+{{ area_entities('Living Room') }}  # ['light.ceiling', 'media_player.tv', ...]
+```
+
+{% endraw %}
+
+Lastly, [@Petro31] added another one: the `average` filter and function. It does
+what you think it does... It calculates the average of a list of items you pass
+to it.
+
+{% raw %}
+
+```yaml
+{{ [1, 2, 3, 4, 5] | average }} # Result: 3
+```
+
+{% endraw %}
 
 ## Other noteworthy changes
 
