@@ -1739,11 +1739,14 @@ The following integrations are no longer available as of this release:
 - Extend Tuya Dimmer (tgq) support ([@frenck] - [#58951]) ([tuya docs]) (beta fix)
 - Add support for IoT Switches (tdq) in Tuya ([@frenck] - [#58952]) ([tuya docs]) (beta fix)
 - Add device configuration URL to Solar-Log ([@Ernst79] - [#58954]) ([solarlog docs]) (beta fix)
-- Fix unique_id of derived sent-sensors ([@kodsnutten] - [#58298]) ([upnp docs]) (beta fix)
+- Fix unique_id of derived sent-sensors ([@kodsnutten] - [#58298]) ([upnp docs]) (breaking-change) (beta fix)
 - Aurora abb energy metering ([@davet2001] - [#58454]) ([aurora_abb_powerone docs]) (beta fix)
 - Aurora abb defer unique_id assignment during yaml import ([@davet2001] - [#58887]) ([aurora_abb_powerone docs]) (beta fix)
 - Add missing ZMW currency ([@tkdrob] - [#58959]) (beta fix)
 - Fix broken ViCare burner & compressor sensors ([@oischinger] - [#58962]) ([vicare docs]) (beta fix)
+- Bump pyMill to 0.7.4 ([@Danielhiversen] - [#58977]) ([mill docs]) (beta fix)
+- Fix battery_is_charging sensor on system bridge ([@arksega] - [#58980]) ([system_bridge docs]) (beta fix)
+- Update frontend to 20211103.0 ([@bramkragten] - [#58988]) ([frontend docs]) (beta fix)
 
 {% enddetails %}
 
@@ -2599,6 +2602,9 @@ The following integrations are no longer available as of this release:
 [#58954]: https://github.com/home-assistant/core/pull/58954
 [#58959]: https://github.com/home-assistant/core/pull/58959
 [#58962]: https://github.com/home-assistant/core/pull/58962
+[#58977]: https://github.com/home-assistant/core/pull/58977
+[#58980]: https://github.com/home-assistant/core/pull/58980
+[#58988]: https://github.com/home-assistant/core/pull/58988
 [@ANMalko]: https://github.com/ANMalko
 [@Adminiuga]: https://github.com/Adminiuga
 [@Bre77]: https://github.com/Bre77
@@ -2637,6 +2643,7 @@ The following integrations are no longer available as of this release:
 [@allenporter]: https://github.com/allenporter
 [@ammgws]: https://github.com/ammgws
 [@andre-richter]: https://github.com/andre-richter
+[@arksega]: https://github.com/arksega
 [@asansano]: https://github.com/asansano
 [@austinmroczek]: https://github.com/austinmroczek
 [@avee87]: https://github.com/avee87
