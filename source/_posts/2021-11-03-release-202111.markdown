@@ -46,7 +46,7 @@ and it also supports third-party icon sets! 🤩
 
 Oh, to spoil some inside information, you might want to block your
 agenda for the Home Assistant State of the Union 2021 on Saturday 11 December,
-8 pm (CEST)!
+8 pm (CET)!
 
 Enjoy the release!
 
