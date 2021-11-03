@@ -1032,7 +1032,7 @@ modbus:
 The `reporting` and `include_used_components` configuration options have now
 been deprecated, the `updater` integration will no longer report any analytics.
 
-The analytics has moved to it's own integration.
+The analytics has moved to its own integration.
 See the [`analytics` integration](/integrations/analytics) for more details on
 how to configure it.
 

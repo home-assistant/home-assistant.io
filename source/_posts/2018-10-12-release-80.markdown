@@ -169,7 +169,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## All changes
 
 - Add mode (daily/hourly) to darksky ([@randellhodges] - [#16719]) ([weather docs]) ([weather.darksky docs]) ([weather.openweathermap docs])
-- Extract lovelace to it's own component ([@balloob] - [#16816]) ([frontend docs]) ([lovelace docs])
+- Extract lovelace to its own component ([@balloob] - [#16816]) ([frontend docs]) ([lovelace docs])
 - Remove discovered MQTT alarm_control_panel device when discovery topic is cleared ([@emontnemery] - [#16825]) ([alarm_control_panel.mqtt docs])
 - Remove discovered MQTT light device when discovery topic is cleared ([@emontnemery] - [#16824]) ([light.mqtt docs])
 - Add unique_id to homematic_cloud ([@sander76] - [#16828]) ([homematicip_cloud docs])

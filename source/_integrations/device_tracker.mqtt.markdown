@@ -210,7 +210,7 @@ value_template:
 
 ## Discovery Example
 
-You can use the discovery protocol to create a new device tracker and set it's state using the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
+You can use the discovery protocol to create a new device tracker and set its state using the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
 To create the device_tracker:
 
