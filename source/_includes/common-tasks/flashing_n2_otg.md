@@ -37,13 +37,21 @@ After The ODROID-N2+ is set to SPI boot mode and powered on, it boots into a ter
 
    ![Exit to shell](/images/hassio/screenshots/exit-shell.png)
 
-1. Use the following command at the console to confirm the storage device node:
+<div class='note'>
+
+When using the command line, it may return the following message:
+`can't access tty; job control turned off.`
+You can safely ignore this message and proceed with the installation
+
+</div>
+
+2. Use the following command at the console to confirm the storage device node:
 
    ```bash
    ls /dev/mmc*
    ```
 
-1. Set the storage device on the ODROID-N2+ as a mass storage device using the `ums` command (USB Mass storage mode).
+3. Set the storage device on the ODROID-N2+ as a mass storage device using the `ums` command (USB Mass storage mode).
 This will configure the ODROID-N2+ and OTG to act as a memory card reader:
 
    ```bash
