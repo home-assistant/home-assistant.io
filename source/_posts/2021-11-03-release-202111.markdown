@@ -224,11 +224,10 @@ Tuya has a lot of devices and variations, so there is still work left to be
 done; We have done everything we can to provide a solid base this release.
 
 As a final note: Some people complained about that this integration relies
-on the cloud. We have always supported integration with both local and
+on the cloud. We have always supported integrations with both local and
 cloud APIs. Integrations with cloud APIs allow people to adopt Home Assistant
-without having to replace all devices in their house. If one uses devices
-that require the cloud, or are fully local, is a choice everyone should make
-for themselves.
+without having to replace all devices in their house. Using devices that require
+the cloud, or are fully local, is a choice everyone should make for themselves.
 
 ## Some nice new template things
 
