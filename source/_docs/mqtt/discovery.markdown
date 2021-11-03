@@ -290,6 +290,7 @@ Supported abbreviations:
 Supported abbreviations for device registry configuration:
 
 ```txt
+    'cu':                  'configuration_url'
     'cns':                 'connections',
     'ids':                 'identifiers',
     'name':                'name',

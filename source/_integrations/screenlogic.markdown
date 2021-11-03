@@ -17,6 +17,7 @@ ha_domain: screenlogic
 ha_platforms:
   - binary_sensor
   - climate
+  - light
   - sensor
   - switch
 ---

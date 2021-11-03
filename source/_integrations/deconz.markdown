@@ -29,6 +29,7 @@ ha_platforms:
   - fan
   - light
   - lock
+  - number
   - scene
   - sensor
   - siren

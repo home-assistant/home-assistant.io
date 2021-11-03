@@ -40,6 +40,10 @@ name:
   required: false
   type: string
   default: REST Switch
+device_class:
+  description: Sets the [class of the device](/integrations/switch/#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 timeout:
   description: Timeout for the request.
   required: false

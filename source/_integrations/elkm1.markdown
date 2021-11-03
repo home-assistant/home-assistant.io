@@ -58,6 +58,15 @@ Force arm away and stay are available in 5.3.0 or higher.
 
 Many features will work with lower versions of the ElkM1. Check the "ElkM1 RS232 Protocol" manual for details.
 
+### ELK-M1XEP Version
+
+The ELK-M1XEP is the Ethernet controller board for the ElkM1. If connecting the integration
+in secure mode the version of the ELK-M1XEP determines which secure protocol is supported.
+ELK-M1XEP versions less than 2.0.46 support TLS 1.0, while version 2.0.46 and above support
+TLS 1.2. When adding the ElkM1 integration in the user interface use `secure` for TLS 1.0 and
+use `TLS 1.2` for TLS 1.2. Note that ELK-M1XEP does not support auto-negotiation of the 
+version of the TLS protocol, the user must specify the TLS version to connect.
+
 ### Global Setting 35
 
 The ElkM1 integration tracks the user number and name of the last user name to
@@ -150,15 +159,15 @@ elkm1:
 
 {% configuration %}
 host:
-  description: Connection string to Elk of the form `<method>://<address>[:port]`. `<method>` is `elk` for non-secure connection, `elks` for secure connection, and `serial` for serial port connection. `<address>` is IP address or domain or for `serial` the serial port that the Elk is connected to. Optional `<port>` is the port to connect to on the Elk, defaulting to 2101 for `elk` and 2601 for `elks`. For `serial` method, _address_ is the path to the tty _/dev/ttyS1_ for example and `[:baud]` is the baud rate to connect with (Elk systems default to 115200 baud, but this can be changed during Elk system configuration).  You may have multiple host sections for connecting multiple controllers.
+  description: Connection string to Elk of the form `<method>://<address>[:port]`. `<method>` is `elk` for non-secure connection, `elks` for secure TLS 1.0 connection, `elksv1_2` for secure TLS 1.2 connection, and `serial` for serial port connection. `<address>` is IP address or domain or for `serial` the serial port that the Elk is connected to. Optional `<port>` is the port to connect to on the Elk, defaulting to 2101 for `elk` and 2601 for `elks` and `elksv1_2`. For `serial` method, _address_ is the path to the tty _/dev/ttyS1_ for example and `[:baud]` is the baud rate to connect with (Elk systems default to 115200 baud, but this can be changed during Elk system configuration). See ELK-M1XEP section above for information on selecting the appropriate secure version. You may have multiple host sections for connecting multiple controllers.
   required: true
   type: string
 username:
-  description: Username to login to Elk. Only required if using `elks` connection method.
+  description: Username to login to Elk. Required if using a secure connection method.
   required: false
   type: string
 password:
-  description: Password to login to Elk. Only required if using `elks` connection method.
+  description: Password to login to Elk. Required if using a secure connection method.
   required: false
   type: string
 prefix:

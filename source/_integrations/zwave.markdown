@@ -33,7 +33,7 @@ ha_platforms:
 
 This integration is deprecated. We recommend using [the Z-Wave JS integration](/integrations/zwave_js).
 
-The Z-Wave integration will no longer receive any updates. It will not be removed unless it becomes incompatible with a future version of Python.
+The Z-Wave integration will no longer receive any updates. The technical dependencies may render this integration unusable in the future at which time it may be removed.
 
 </div>
 

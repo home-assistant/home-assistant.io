@@ -10,9 +10,11 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
   - '@felipediel'
+  - '@L-I-Am'
 ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
+  - light
   - remote
   - sensor
   - switch
