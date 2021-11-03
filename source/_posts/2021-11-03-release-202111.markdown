@@ -136,9 +136,16 @@ that target the device or area the device is in. They are only called if
 expliclity called by entity ID. For example, if you turn on all your switches
 in an area, it won't affect switches that provided a configuration entity.
 
-For custom integration developers, there is a blog post about this on our dev blog:
 
-<https://developers.home-assistant.io/blog/2021/10/26/config-entity#entity-categories>
+Just like the previous visit device or service feature, this new organization
+capability has been adopted by a lot of our maintainers: 60+ integrations!
+To name a few: Sonos, Z-Wave JS, Shelly, SwitchBot, deCONZ, Neato, Netatmo,
+August, MQTT, Hue, Roomba, Tibber, AirVisual, KNX, motionEye, and many more.
+Oh, and soon, we can add ESPHome to that list!
+
+If you are a custom integration developer, you can add support for this feature
+too; [Read all about it on our developer blog](https://developers.home-assistant.io/blog/2021/10/26/config-entity#entity-categories).
+
 
 Related PRs:
 
@@ -148,66 +155,35 @@ Related PRs:
 - Don't expose config or diagnostic entities to Google Assistant ([@emontnemery] - [#57669]) ([google_assistant docs]) (breaking-change)
 - Don't expose config or diagnostic entities to cloud ([@emontnemery] - [#57771]) ([cloud docs]) (breaking-change)
 
-Integrations that added support already:
 
-- Add entity category to WLED ([@balloob] - [#57693]) ([wled docs])
-- Add support for entity categories to NUT entities ([@mib1185] - [#57689]) ([nut docs])
-- Add support for entity categories to Synology DSM entities ([@mib1185] - [#57690]) ([synology_dsm docs])
-- Add url to CO2signal ([@balloob] - [#57703]) ([co2signal docs])
-- Add entity category to Shelly ([@bieniu] - [#57705]) ([shelly docs])
-- Add entity category to Xiaomi Miio ([@bieniu] - [#57719]) ([xiaomi_miio docs])
-- Add entity category to Tractive ([@bieniu] - [#57720]) ([tractive docs])
-- Add entity category to Brother ([@bieniu] - [#57728]) ([brother docs])
-- Add entity category to cloud ([@balloob] - [#57747]) ([cloud docs])
-- Add entity category to Nettigo Air Monitor entities ([@bieniu] - [#57698]) ([nam docs])
-- Add support for entity categories to MQTT entities ([@emontnemery] - [#57656]) ([mqtt docs])
-- Add support for device configuration URL to Nettigo Air Monitor integration ([@bieniu] - [#57695]) ([nam docs])
-- Add category diagnostic to Tibber signal sensor ([@Danielhiversen] - [#57840]) ([tibber docs])
-- Add category diagnostic to Surepetcare battery sensor ([@Danielhiversen] - [#57852]) ([surepetcare docs])
-- Add category diagnostic to Switchbot battery and signal sensor ([@Danielhiversen] - [#57854]) ([switchbot docs])
-- Airthings entity category diagnostic ([@Danielhiversen] - [#57850]) ([airthings docs])
-- Add category diagnostic to Surepetcare binary sensor ([@Danielhiversen] - [#57908]) ([surepetcare docs])
-- Mark Tasmota status sensors as diagnostic sensors ([@emontnemery] - [#57958]) ([tasmota docs])
-- Add entity category to Hue ([@balloob] - [#58011]) ([hue docs])
-- Add entity category and state class to mobile app ([@balloob] - [#58012]) ([mobile_app docs])
-- Assign entity category diagnostics to deCONZ battery sensors ([@Kane610] - [#58077]) ([deconz docs])
-- Assign entity category diagnostics to deCONZ tampering sensors ([@Kane610] - [#58112]) ([deconz docs])
-- Add entity categories for appropriate SimpliSafe entities ([@bachya] - [#58108]) ([simplisafe docs])
-- Add entity categories for appropriate RainMachine entities ([@bachya] - [#58107]) ([rainmachine docs])
-- Add entity categories for appropriate Notion entities ([@bachya] - [#58105]) ([notion docs])
-- Add entity categories for appropriate Guardian entities ([@bachya] - [#58104]) ([guardian docs])
-- Add entity categories for appropriate Ambient PWS entities ([@bachya] - [#58100]) ([ambient_station docs])
-- Add entity categories for appropriate AirVisual entities ([@bachya] - [#58102]) ([airvisual docs])
-- Add entity categories to goalzero ([@tkdrob] - [#57906]) ([goalzero docs])
-- Fjaraskupan entity categories ([@elupus] - [#57846]) ([fjaraskupan docs])
-- Set Sonos alarm and battery entity categories ([@jjlawren] - [#58340]) ([sonos docs])
-- Add support for entity category for necessary KNX platforms ([@marvin-w] - [#58357]) ([knx docs])
-- Add entity category to MyQ ([@balloob] - [#58377]) ([myq docs])
-- Add entity category to august ([@bdraco] - [#58359]) ([august docs])
-- Add entity category to roomba ([@bdraco] - [#58362]) ([roomba docs])
-- Add entity category to gogogate2 ([@bdraco] - [#58366]) ([gogogate2 docs])
-- Add entity category to elkm1 ([@bdraco] - [#58364]) ([elkm1 docs])
-- Add entity category to Neato ([@chemelli74] - [#58367]) ([neato docs])
-- Add entity categories to Netatmo ([@cgtobi] - [#58383]) ([netatmo docs])
-- Add entity category to nut battery ([@bdraco] - [#58363]) ([nut docs])
-- Add entity category to hunterdouglas_powerview ([@bdraco] - [#58368]) ([hunterdouglas_powerview docs])
-- Add entity category to MotionEye ([@chemelli74] - [#58370]) ([motioneye docs])
-- Add entity category to Advantage Air ([@Bre77] - [#58371]) ([advantage_air docs])
-- Add state_class/entity_category to Verisure ([@frenck] - [#58403]) ([verisure docs])
-- Add zwave_js sensor entity categories ([@MartinHjelmare] - [#58416]) ([zwave_js docs]) (breaking-change)
-- Set entity_category for node status sensor ([@raman325] - [#58434]) ([zwave_js docs])
-- Add entity category to UniFi sensors and switches ([@Kane610] - [#58484]) ([unifi docs])
-- Move WLED palette to config entity category ([@frenck] - [#58517]) ([wled docs])
-- Add entity categories to esphome ([@jesserockz] - [#58495]) ([esphome docs])
+## The icon picker
 
-## Icon picker in the UI!
+Adding nice and matching icons to your entities, makes all the difference for
+how your Home Assistant interface looks and feels.
 
-Yes... This is what we all have been waiting for!!!
+Finding those icons was somewhat clumsy. You'd go to the
+[Material Design Icons](https://materialdesignicons.com/) website to find one,
+remember its code and add the `mdi:<code>` to your entity. Not a great
+experience, especially with the number of icons available your browser doesn't
+always like that website.
 
-So, no image or gif yet... but all I can say, try changing an icon of an entity...
-and you'll see what this is about :)
+Thanks to the great work of [@piitaya](https://github.com/piitaya), we now have
+a beautiful, super easy, smart and fast icon picker! Yes, you can now search
+and choose icons, straight from the Home Assistant interface.
 
-* Icon Picker (#10161) @piitaya
+<p class='img'>
+<img src='/images/blog/2021-11/icon-picker.gif' alt='Screen capture showing the new icon picker in action'>
+Screen capture showing the new icon picker in action.
+</p>
+
+When you start typing, it not only looks for icons that match the MDI code, it
+also looks for aliases and categories of the icons. That way, you'll always
+find the icon you're looking for.
+
+Third-party custom icon sets can also utilize this feature; however, the author
+of that set needs to add compatibility for it. For example, the
+[Hue icons](https://github.com/arallsopp/hass-hue-icons) by [arallsopp](https://github.com/arallsopp)
+added support for this feature already.
 
 ## Tuya update
 
