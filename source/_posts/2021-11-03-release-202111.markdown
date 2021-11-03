@@ -30,7 +30,7 @@ And, there is more! Something that isn't really visible. In the background,
 an army of contributors are improving a tremendous amount of Home
 Assistant code, which improves stability, readability, and maintainability  of
 our project's codebase. As a matter of fact, because of this incredible work,
-counted by the number of contributions, this release might just a well be one
+counted by the number of contributions, this release might just as well be one
 of the biggest ever. Work, you generally don't notice, but is still done.
 Weird huh? Another group of heroes! ❤️
 
@@ -118,8 +118,8 @@ clutter on a generated dashboard, unused entities exposed to voice assistants,
 or turn on/off things in areas as a side-effect. Let me try to explain the
 latter issue with an example.
 
-Let consider a wallplug. It can be turned on/off using a switch entity,
-however, my wallplug also has a switch to enable a child lock that controls
+Let's consider a wall plug. It can be turned on/off using a switch entity,
+however, my wall plug also has a switch to enable a child lock that controls
 its physical button. Now, if I had this device in my living room area and
 turned off all switches in my living room, it would turn off the switch and
 the child lock! This is not what we want, right?
@@ -304,7 +304,7 @@ noteworthy changes this release:
   and total consumption. Thanks [@felipediel]!
 - WLED now has the much requested sliders for speed & intensity controls.
   Thanks, [@rytilahti]!
-- OpenGarage has seens lots of updates and love from [@Danielhiversen], adding
+- OpenGarage has seen lots of updates and love from [@Danielhiversen], adding
   lots of sensors in the process.
 - With the recent improvements made to the VLC media player integration and
   add-on, there is now a way to get TTS working by connecting some speakers to
@@ -336,7 +336,7 @@ We welcome the following new integration this release:
 
 ## Integrations now available to set up from the UI
 
-The following integrationsare now available via the Home Assistant UI:
+The following integrations are now available via the Home Assistant UI:
 
 - [Aurora ABB Solar PV][aurora_abb_powerone docs], done by [@davet2001]
 - [Efergy][efergy docs], done by [@tkdrob]
@@ -412,7 +412,7 @@ no longer connect to an unsupported database.
 It is no longer possible to filter out `state_changed` events from the
 recorder's `event_types` exclude filter.
 
-A warning will be logged in Home Assistant Core 2022.11 and the configuration
+A warning will be logged in Home Assistant Core 2021.11 and the configuration
 will be rejected in Home Assistant Core 2022.2.
 
 {% enddetails %}
@@ -427,7 +427,7 @@ that before the 3.8 deprecation period has ended. It is advised to upgrade
 to Python 3.9 at this point.
 
 If you run Home Assistant OS, Supervised or the Container installation type:
-No action is required from your end, we will take of this for you.
+No action is required from your end, we will take care of this for you.
 
 ([@balloob] - [#57079])
 
@@ -448,8 +448,8 @@ release; and thus can be safely removed from your YAML configuration after upgra
 
 {% details "AVM FRITZ!Box Tools" %}
 
-AVM FRITZ!Box Tools services now ask for a `device_id` and no more for a `entity_id`.
-Please review your automation and scripts accordly.
+AVM FRITZ!Box Tools services now ask for a `device_id` and no longer for an `entity_id`.
+Please review your automation and scripts accordingly.
 
 ([@chemelli74] - [#58005]) ([fritz docs])
 
@@ -523,7 +523,7 @@ and thus can be safely removed from your YAML configuration after upgrading.
 The previously deprecated HomeKit configuration options `safe_mode`,
 `zeroconf_default_interface`, and `auto_start` have now been removed.
 
-If stil have these options in your YAML configuraion, you must be remove them
+If you still have these options in your YAML configuration, you must be remove them
 from your YAML configuration.
 
 ([@bdraco] - [#58320])
@@ -605,9 +605,9 @@ The following sensors have been added:
 {% details "OpenGarage" %}
 
 The attributes (`wifi_signal ` and `distance_sensor`) for OpenGarage covers
-are removed and replaced by individual sensors sensors.
+are removed and replaced by individual sensors.
 
-Also, `door_state ` is removed as an attribute, but you can use the state
+Also, `door_state` is removed as an attribute, but you can use the state
 directly instead.
 
 Please update any automations or scripts that depend on the removed attributes.
@@ -730,8 +730,8 @@ In case you have been using these entities in your automations, scripts, or
 dashboards, you can either rename those entity IDs to the old entity ID
 or adjust the places you've used them accordingly.
 
-Additionally, if sensor you used disappeared, it might have been disabled by
-default during upgrade. Please be sure to check the if the entity is
+Additionally, if a sensor you used disappeared, it might have been disabled by
+default during upgrade. Please be sure to check if the entity is
 enabled in that case.
 
 ([@terminet85] - [#55902]) - ([@purcell-lab] - [#58773])
@@ -747,8 +747,8 @@ if currently enabled.
 The `night_sound` and `speech_enhance` attributes on the
 Sonos `media_player` entities are also removed.
 
-If you are using those in your automation or scripts, you'll need to replacet
-hese with the new `switch` entities.
+If you are using those in your automations or scripts, you'll need to replace
+these with the new `switch` entities.
 
 ([@jjlawren] - [#54502]) ([sonos docs])
 
@@ -773,7 +773,7 @@ The 2021.09 release deprecated the usage of "snapshot" in the Supervisor (`hassi
 integration and was scheduled to be removed in 2021.11, that is now.
 
 Old services and service data that contained "snapshot" has now been removed,
-you need to update your configuration if you use any of these to continue to use it.
+and you need to update your configuration if you use any of these to continue to use it.
 
 Old service name | New service name
 -- | --
@@ -880,7 +880,7 @@ The following integrations are no longer available as of this release:
 
 - **Essent** has been removed. The API is no longer usable for this integration
   and has therefore been removed. ([@TheLastProject] - [#56991])
-- **Lyft** has been previously deprecated and now removed. API key are no longer
+- **Lyft** has been previously deprecated and now removed. API keys are no longer
   being provided. ([@frenck] - [#57638])
 - **Nello** has been removed. The services are no longer available,
   and have been offline for over 6 months. ([@pattyland] - [#57926])
