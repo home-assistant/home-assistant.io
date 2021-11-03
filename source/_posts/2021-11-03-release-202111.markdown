@@ -229,10 +229,6 @@ for themselves.
 - Add area_entities and area_devices template functions/filters ([@raman325] - [#55228])
 - Add average template function and filter ([@Petro31] - [#57727])
 
-## Offsetting an input_datetime based trigger
-
-- Add offset support to time trigger ([@RobertMe] - [#56838]) ([homeassistant docs])
-
 ## Other noteworthy changes
 
 There is much more juice in this release; here are some of the other
@@ -296,7 +292,7 @@ The following integrationsare now available via the Home Assistant UI:
 
 - [Aurora ABB Solar PV][aurora_abb_powerone docs], done by [@davet2001]
 - [Efergy][efergy docs], done by [@tkdrob]
-- [Flux LED][flux_led docs], done by [@icemanch]
+- [Flux LED][flux_led docs], done by [@icemanch] and [@bdraco]
 - [OctoPrint][octoprint docs], done by [@rfleming71]
 - [Stookalert][stookalert docs], done by [@frenck]
 - [Venstar][venstar docs], done by [@garbled1]
