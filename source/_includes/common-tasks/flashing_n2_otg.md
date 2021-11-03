@@ -35,6 +35,8 @@ After The ODROID-N2+ is set to SPI boot mode and powered on, it boots into a ter
 
 1. Select `Exit to shell` from the menu.
 
+   ![Exit to shell](/images/hassio/screenshots/exit-shell.png)
+
 <div class='note'>
 
 When using the command line, it may return the following message:
@@ -42,8 +44,6 @@ When using the command line, it may return the following message:
 You can safely ignore this message and proceed with the installation
 
 </div>
-
-   ![Exit to shell](/images/hassio/screenshots/exit-shell.png)
 
 1. Use the following command at the console to confirm the storage device node:
 
