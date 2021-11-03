@@ -48,23 +48,24 @@ Issues introduced in the beta are processed with priority.
 
 ## Visit devices and services
 
-Maybe you recognize this: Your device has a web interface, but you don't
-remember the IP or address it has on your network...
+## Daylight Saving Time Bug
 
-So you start checking your router, or look it up in an app, scan the network
-guess a couple of times... annoying, right?
+If you have already transitioned daylight saving time (DST), you might have
+experienced it already. If you have not switched yet, this message is extra
+important for you.
 
-Well, as of today, integrations can provide web URLs to devices or services
-where the device can be managed or configured.
+Last weekend we experienced a bug with daylight saving time transitioning,
+causing Home Assistant to crash or have higher CPU loads than usual.
+If you experience this, restarting Home Assistant will resolve this issue.
 
-<p class='img'>
-<img src='https://developers.home-assistant.io/assets/images/configuration_url-f3d04264244ce659ddf3c5b8added0a8.png' alt='Screenshot of (TODO)'>
-Screenshot of (TODO).
-</p>
+This release has a more permanent fix for the issue, preventing it from
+happening. If you can't upgrade to 2021.11 right now, we have also published
+Home Assistant 2021.10.7, which has the same bugfix included.
 
-For custom integration developers, there is a blog post about this on our dev blog:
+So if you still have to transition to a new summer/winter time, be sure to
+upgrade!
 
-<https://developers.home-assistant.io/blog/2021/10/26/config-entity#device-configuration-url>
+## Visit devices and services
 
 
 Some integrations that added support for this already (TODO: make nice...):
