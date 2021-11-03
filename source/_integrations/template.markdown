@@ -178,7 +178,7 @@ number:
       description: Template for the number's current value.
       required: true
       type: template
-      description: Defines an action to run when the number value changes. The variable `value` will contain the number entered.
+      description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
       required: true
       type: action
     step:
@@ -210,11 +210,11 @@ select:
       required: true
       type: template
     select_option:
-      description: Defines an action to run to select an option from the `options` list.
+      description: Defines actions to run to select an option from the `options` list. The variable `option` will contain the option selected.
       required: true
       type: action
     options:
-      description: Template for the select's available options. The variable `option` will contain the option selected.
+      description: Template for the select's available options.
       required: true
       type: template
     optimistic:
@@ -236,7 +236,7 @@ select:
       required: false
       type: string
     availability:
-      description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the component will always be `available`.
+      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns either of `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"` or a non-zero number, the entity is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
       required: false
       type: template
       default: true
@@ -599,7 +599,7 @@ sensors:
           required: true
           type: template
         availability_template:
-          description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+          description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns either of `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"` or a non-zero number, the entity is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
           required: false
           type: template
           default: true
@@ -709,3 +709,9 @@ sensor:
         type: device_class
         default: None
 {% endconfiguration %}
+
+## Event `event_template_reloaded`
+
+Event `event_template_reloaded` is fired when Template entities have been reloaded and entities thus might have changed.
+
+This event has no additional data.

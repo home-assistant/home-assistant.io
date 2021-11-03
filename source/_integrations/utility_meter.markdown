@@ -55,8 +55,8 @@ offset:
   type: time
   type: integer
 cron:
-  description: This option is *mutually exclusive* of `cycle` and `offset`. It provides an advanced method of defining when should the counter be reset. It follows common [crontab syntax](https://crontab.guru).
-  required: false
+  description: This option is *mutually exclusive* of `cycle` and `offset`. It provides an advanced method of defining when should the counter be reset. It follows common [crontab syntax](https://crontab.guru) but extended to support more advanced scheduling. See the [croniter](https://github.com/kiorky/croniter) library.
+  required: true
   type: string
 net_consumption:
   description: Set this to True if you would like to treat the source as a net meter. This will allow your counter to go both positive and negative.
@@ -172,6 +172,20 @@ automation:
         entity_id: utility_meter.monthly_energy
 ```
 
+Assuming your utility provider cycle is offset from the last day of the month
+
+- cycles at 17h00 on the last day of the month
+
+a cron(extended syntax used for last day of month) based utility meter can be used:
+
+```yaml
+utility_meter:
+  monthly_energy:
+    source: sensor.energy
+    name: Monthly Energy
+    cron: "0 17 L * *"
+```
+
 ## Advanced Configuration for DSMR users
 
 When using the [DSMR component](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` component.
@@ -212,22 +226,34 @@ utility_meter:
     cycle: monthly
 ```
 
-Additionally, you can add template sensors to compute daily and monthly total usage.
+Additionally, you can add template sensors to compute daily and monthly total usage. Important note, in these examples,
+we use the `is_number()` [function](/docs/configuration/templating/#numeric-functions-and-filters) to verify the values
+returned from the sensors are numeric. If this evalutes to false, `None` is returned.
 
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: template
-    sensors:
-      daily_energy:
-        friendly_name: Daily Energy
-        unit_of_measurement: kWh
-        value_template: "{{ states('sensor.daily_energy_offpeak')|float + states('sensor.daily_energy_peak')|float }}"
-      monthly_energy:
-        friendly_name: Monthly Energy
-        unit_of_measurement: kWh
-        value_template: "{{ states('sensor.monthly_energy_offpeak')|float + states('sensor.monthly_energy_peak')|float }}"
+template:
+  - sensor:
+    - name: 'Daily Energy Total'
+      device_class: energy
+      unit_of_measurement: kWh
+      state: >
+        {% if is_number(states('sensor.daily_energy_offpeak')) and is_number(states('sensor.daily_energy_peak')) %}
+          {{ (states('sensor.daily_energy_offpeak') + states('sensor.daily_energy_peak')) | float }}
+        {% else %}
+          None
+        {% endif %}
+
+    - name: 'Monthly Energy Total'
+      device_class: energy
+      unit_of_measurement: kWh
+      state: >
+        {% if is_number(states('sensor.monthly_energy_offpeak')) and is_number(states('sensor.monthly_energy_peak')) %}
+          {{ (states('sensor.monthly_energy_offpeak') + states('sensor.monthly_energy_peak')) | float }}
+        {% else %}
+          None
+        {% endif %}
 ```
 
 {% endraw %}

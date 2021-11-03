@@ -23,7 +23,7 @@ Using this integration, customers can go a step further - setting up devices to 
 
 To use this integration, you will need to generate an API key.
 
-1. Login to your Amber account at: https://app.amber.com.au
+1. Login to your Amber account at: <https://app.amber.com.au>
 2. Click _Settings_
 3. Enable _Developer Mode_
 4. Click _Generate API Key_

@@ -114,7 +114,7 @@ Calling this service will change the tracked power state of any bond light but n
 
 ### Service `bond.set_light_brightness_tracked_state`
 
-Sets the tracked brightness state of a bond light 
+Sets the tracked brightness state of a bond light
 Calling this service will change the tracked brightness state of any bond light but not transmit any signal to make the device change its state.
 
 | Service data attribute | Optional | Description |

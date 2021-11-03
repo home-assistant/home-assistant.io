@@ -43,20 +43,19 @@ input_select:
       - Work
       - Parents
 
-sensor:
-  - platform: template
-    sensors:
-       dest_address:
-         value_template: >-
-            {%- if is_state("input_select.destination", "Home")  -%}
-              725 5th Ave, New York, NY 10022, USA
-            {%- elif is_state("input_select.destination", "Work")  -%}
-              767 5th Ave, New York, NY 10153, USA
-            {%- elif is_state("input_select.destination", "Parents")  -%}
-              178 Broadway, Brooklyn, NY 11211, USA
-            {%- else -%}
-              Unknown
-            {%- endif %}
+template:
+  - sensor:
+     - name: "Destination address"
+       state: >-
+          {%- if is_state("input_select.destination", "Home")  -%}
+            725 5th Ave, New York, NY 10022, USA
+          {%- elif is_state("input_select.destination", "Work")  -%}
+            767 5th Ave, New York, NY 10153, USA
+          {%- elif is_state("input_select.destination", "Parents")  -%}
+            178 Broadway, Brooklyn, NY 11211, USA
+          {%- else -%}
+            Unknown
+          {%- endif %}
 
 ```
 
