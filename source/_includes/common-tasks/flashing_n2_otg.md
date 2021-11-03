@@ -45,13 +45,13 @@ You can safely ignore this message and proceed with the installation
 
 </div>
 
-1. Use the following command at the console to confirm the storage device node:
+2. Use the following command at the console to confirm the storage device node:
 
    ```bash
    ls /dev/mmc*
    ```
 
-2. Set the storage device on the ODROID-N2+ as a mass storage device using the `ums` command (USB Mass storage mode).
+3. Set the storage device on the ODROID-N2+ as a mass storage device using the `ums` command (USB Mass storage mode).
 This will configure the ODROID-N2+ and OTG to act as a memory card reader:
 
    ```bash
