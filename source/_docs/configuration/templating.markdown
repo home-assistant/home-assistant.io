@@ -75,7 +75,8 @@ Not supported in [limited templates](#limited-templates).
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
-- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
+- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`.
+
 <div class='note warning'>
 
   Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
@@ -215,6 +216,8 @@ The same thing can also be expressed as a filter:
 - `is_device_attr(device_or_entity_id, attr_name, attr_value)` returns whether the value of `attr_name` for the given device or entity ID matches `attr_value`. Not supported in [limited templates](#limited-templates).
 - `device_id(entity_id)` returns the device ID for a given entity ID or device name. Can also be used as a filter.
 
+Device IDs are automatically generated when you add a new device, and may look like this: `deadbeefdeadbeefdeadbeefdeadbeef`.
+
 #### Devices examples
 
 {% raw %}
@@ -238,24 +241,31 @@ The same thing can also be expressed as a filter:
 - `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
 
+<div class='note'>
+
+Recent versions of Home Assistant generate the area ID from the area name. So Living Room becomes `living_room`.
+Before the area IDs were automatically generated and may look like this: `deadbeefdeadbeefdeadbeefdeadbeef`.
+
+</div>
+
 #### Areas examples
 
 {% raw %}
 
 ```text
-{{ area_id('Living Room') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+{{ area_id('Living Room') }}  # living_room
 ```
 
 ```text
-{{ area_id('my_device_id') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+{{ area_id('my_device_id') }}  # living_room
 ```
 
 ```text
-{{ area_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+{{ area_id('sensor.sony') }}  # living_room
 ```
 
 ```text
-{{ area_name('deadbeefdeadbeefdeadbeefdeadbeef') }}  # Living Room
+{{ area_name('living_room') }}  # Living Room
 ```
 
 ```text
@@ -338,7 +348,7 @@ The `to_json` filter serializes an object to a JSON string. In some cases, it ma
 
 The `from_json` filter operates similarly, but in the other direction, de-serializing a JSON string back into an object.
 
-### To/From JSON examples
+#### To/From JSON examples
 
 In this example, the special character '°' will be automatically escaped in order to produce valid JSON. The difference between the stringified object and the actual JSON is evident.
 
@@ -400,6 +410,7 @@ Not supported in [limited templates](#limited-templates).
 If only one location is passed in, Home Assistant will measure the distance from home.
 
 {% raw %}
+
 ```text
 
 Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
@@ -519,7 +530,7 @@ The numeric functions and filters will not fail if the input is not a valid numb
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
-- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted the input value. 
+- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted the input value.
   - `round(precision, "floor", default)` will always round down to `precision` decimals
   - `round(precision, "ceil", default)` will always round up to `precision` decimals
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
