@@ -15,29 +15,46 @@ og_image: /images/blog/2021-11/social.png
 
 <a href='/integrations/#version/2021.11'><img src='/images/blog/2021-11/social.png' style='border: 0;box-shadow: none;'></a>
 
-These are the beta release notes for Home Assistant Core 2021.11 (and is thus a
-work in progress).
+Point eleven (`.11`), which means its November! 🥶 (or 🏖 depending on where
+you are in this world of course.)
 
-If you encounter any issues with the beta release, please report them on GitHub:
+It also means: This is the second last release of the year...
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+Hacktoberfest is over! In the month October, people
+contribute to projects (like Home Assistant) to celebrate open source.
+I've seen lots of new faces and new contributors this month. To those I want
+to say: Welcome! Thanks for contributing your free spare time; Thanks for
+being a hero! ❤️
 
-Please be sure to include the beta version you are running in the issue
-description (not title), so we can classify your issue correctly.
+And, there is more! Something that isn't really visible. In the background,
+an army of contributors are improving a tremendous amount of Home
+Assistant code, which improves stability, readability, and maintainability  of
+our project's codebase. As a matter of fact, because of this incredible work,
+counted by the number of contributions, this release might just a well be one
+of the biggest ever. Work, you generally don't notice, but is still done.
+Weird huh? Another group of heroes! ❤️
 
-Issues introduced in the beta are processed with priority.
+For me personally, this has been a crazy month. After the last release, I was
+sad to read about issues people had with the new Tuya integration. I went to
+different stores, bought many Tuya devices, and spent a lot of time improving
+the experience by extending device support. Hopefully, I've been able to do
+enough to make the Tuya integration acceptable.
 
+This release... a long-time wishlist item of mine is in: The icon picker! 😍
+So cool to see this happening, it is amazing, beautiful, super helpful,
+and it also supports third-party icon sets! 🤩
+
+Enjoy the release!
+
+../Frenck
+
+
+- [Daylight Saving Time Bug](#daylight-saving-time-bug)
 - [Visit devices and services](#visit-devices-and-services)
 - [Entity categorization](#entity-categorization)
-- [Icon picker in the UI!](#icon-picker-in-the-ui)
+- [The icon picker](#the-icon-picker)
 - [Tuya update](#tuya-update)
+- [Some nice new template things](#some-nice-new-template-things)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -46,7 +63,6 @@ Issues introduced in the beta are processed with priority.
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-## Visit devices and services
 
 ## Daylight Saving Time Bug
 
