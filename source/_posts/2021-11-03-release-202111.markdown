@@ -836,6 +836,38 @@ importing your YAML configuration into the UI.
 
 {% enddetails %}
 
+{% details "Viessmann ViCare" %}
+
+Due to upstream library updates, a breaking change was introduced that required
+changes to `sensor` and `binary_sensor` entities.
+
+Circuit, Burner and Compressor have been separated out from the "main" device.
+Multiple circuits and burners now allow "duplicate sensors", we've added the
+circuit or burner number as suffix.
+
+Most of you should not see a difference, but complex installations
+(with more than one circuit and/or burner), will have multiple entities,
+suffixed with their burner or entity IDs.
+
+For example, if you have two circuits instead of a single `climate.vicare`
+entity you will now instead have two entities:
+
+- `climate.vicare_1`
+- `climate.vicare_2`
+
+This will provide you more control, but requires you to adapt your existing
+scripts and automations to use the new entity IDs.
+
+The same has been done for `sensor`, `binary_sensor` and `water_heater` entities.
+
+Also, note that binary sensors might be created twice since the unique IDs for
+those entities have changed. Please remove the old disabled `binary_sensor`
+entities, in case you encounter this.
+
+([@oischinger] - [#57700]) ([vicare docs])
+
+{% enddetails %}
+
 {% details "VLC media player Telnet" %}
 
 The VLC media player Telnet integration migrated to configuration via the UI.
