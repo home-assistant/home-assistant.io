@@ -195,73 +195,33 @@ and you'll see what this is about :)
 
 ## Tuya update
 
-Tuya got a lot of updates this release. Many things has been fixed, many
-additions made. All platforms have been added and supported (except for lock & remote).
+Our previous release included an update to the Tuya integration, making it use
+the official API instead of a soon-to-be-removed API. Sadly, this update did
+not live up to our standards, for which we want to apologize.
 
-This section needs some more information :)
+Tuya had initially planned to deprecate the old API in December, giving users
+only last and this release to migrate. That’s not a lot of time, so we
+decided to move forward with releasing the updated integration. Tuya pushed
+back the timeline for sun setting the old API with 6 months; but it was too
+late for us to change course and ship the old integration.
 
-Raw list of changes below:
+The updated Tuya integration had some bugs and also was missing some features
+compared to the previous integration and various available custom components.
+This caused some users to have a poor experience. To make up for this, [@frenck]
+spent a good chunk of time on bringing the Tuya integration up to the latest
+standards and adding [a ton of new features and bug fixes](https://github.com/home-assistant/core/pulls?q=is%3Apr+sort%3Aupdated-desc+author%3Afrenck+label%3A%22integration%3A+tuya%22+is%3Aclosed).
 
-- Tweaks to Tuya base entity ([@frenck] - [#57526]) ([tuya docs])
-- Use Tuya endpoints values from upstream library ([@frenck] - [#57537]) ([tuya docs])
-- Refactor Tuya device handling ([@frenck] - [#57545]) ([tuya docs])
-- Replace all Tuya device property constants with an Enum ([@frenck] - [#57559]) ([tuya docs])
-- Refactor Tuya climate platform ([@frenck] - [#57609]) ([climate docs]) ([tuya docs])
-- Use EntityDescription in Tuya Switch platform ([@frenck] - [#57581]) ([tuya docs])
-- Add binary sensor platform to Tuya ([@frenck] - [#57623]) ([tuya docs]) (new-platform)
-- Use classmethod in Tuya TypeData classes ([@frenck] - [#57627]) ([tuya docs])
-- Prettify Tuya entity class names ([@frenck] - [#57629]) ([tuya docs])
-- Add select platform to Tuya ([@frenck] - [#57674]) ([tuya docs])
-- Add sensor platform to Tuya ([@frenck] - [#57668]) ([tuya docs]) (new-platform)
-- Port unmerged fixes from tuya_v2 ([@pabigot] - [#57624]) ([tuya docs])
-- Add number platform to Tuya ([@frenck] - [#57672]) ([tuya docs])
-- Fix platform typo in Tuya const ([@ludeeus] - [#57716]) ([tuya docs])
-- Centralize entity naming for Tuya entities ([@frenck] - [#57755]) ([tuya docs])
-- Move Tuya value scaling into IntegerTypeData ([@frenck] - [#57757]) ([tuya docs])
-- Renamed variables in Tuya ([@frenck] - [#57759]) ([tuya docs])
-- Add PIR Detector (pir) device support to Tuya ([@frenck] - [#57784]) ([tuya docs])
-- Add Emergency Button (sos) device support to Tuya ([@frenck] - [#57794]) ([tuya docs])
-- Add siren platform to Tuya ([@frenck] - [#57780]) ([tuya docs])
-- Add Luminance Sensor (ldcg) device support to Tuya ([@frenck] - [#57797]) ([tuya docs])
-- Add myself as codeowner for Tuya ([@frenck] - [#57837]) ([tuya docs])
-- Add support for 'freeze' mode in Tuya thermostats (wk) ([@frenck] - [#57851]) ([tuya docs])
-- Add camera platform to Tuya ([@frenck] - [#57865]) ([tuya docs]) (new-platform)
-- Tuya tweaks to entity category, registry enabled, icons & device classes ([@frenck] - [#57949]) ([tuya docs])
-- Add unit/device_class validation and normalization to Tuya ([@frenck] - [#57913]) ([tuya docs])
-- Add Vibration Sensor (zd) device support to Tuya ([@frenck] - [#57795]) ([tuya docs])
-- Remove device category filtering from Tuya init ([@frenck] - [#58019]) ([tuya docs])
-- Add humidifier platform to Tuya ([@frenck] - [#58025]) ([tuya docs])
-- Add cover platform to Tuya ([@frenck] - [#58045]) ([tuya docs]) (new-platform)
-- Refactor Tuya light platform ([@frenck] - [#57980]) ([tuya docs])
-- Add vacuum platform to Tuya ([@frenck] - [#57996]) ([tuya docs]) (new-platform)
-- Add Water Detector (sj) device support to Tuya ([@frenck] - [#58049]) ([tuya docs])
-- Add Human Presence Sensor (hps) device support to Tuya ([@frenck] - [#58054]) ([tuya docs])
-- Add CO2 Detector (co2bj) device support to Tuya ([@frenck] - [#58093]) ([tuya docs])
-- Complete Ceiling Light (xdd) device support for Tuya ([@frenck] - [#58095]) ([tuya docs])
-- Complete Switch/Socket/Power Strip device support for Tuya ([@frenck] - [#58106]) ([tuya docs])
-- Add Formaldehyde Detector (jqbj) device support to Tuya ([@frenck] - [#58118]) ([tuya docs])
-- Add Dimmer Switch (tgkg) device support to Tuya ([@frenck] - [#58134]) ([tuya docs])
-- Clean up self references from Tuya climate platform constructor ([@frenck] - [#58051]) ([tuya docs])
-- Fix registration UI to work for Israel devices ([@tomer-w] - [#58192]) ([tuya docs])
-- Add Smoke Detector (ywbj) device support to Tuya ([@regevbr] - [#58170]) ([tuya docs])
-- Ensure all devices show up in Tuya ([@frenck] - [#58280]) ([tuya docs])
-- Add CO Detector (cobj) device support to Tuya ([@frenck] - [#58292]) ([tuya docs])
-- Add Gas Detector (rqbj) device support to Tuya ([@frenck] - [#58293]) ([tuya docs])
-- Add Pressure Sensor (ylcg) device support to Tuya ([@frenck] - [#58294]) ([tuya docs])
-- Complete Heater (qn) device support to Tuya ([@frenck] - [#58296]) ([tuya docs])
-- Add product ID to model for Tuya ([@frenck] - [#58235]) ([tuya docs])
-- Add support for min/max dimmer brightness in Tuya ([@frenck] - [#58165]) ([tuya docs])
-- Complete Smart Camera (sp) device support to Tuya ([@frenck] - [#58301]) ([tuya docs])
-- Add switch platform to Tuya Light (dj) devices ([@fOmey] - [#58196]) ([tuya docs])
-- Complete Solar Light (tyndj) device support to Tuya ([@frenck] - [#58302]) ([tuya docs])
-- Add VOC Sensor (voc) device support to Tuya ([@frenck] - [#58332]) ([tuya docs])
-- Add Methane Detector (jwbj) device support to Tuya ([@frenck] - [#58328]) ([tuya docs])
-- Add PM2.5 Sensor (pm25) device support to Tuya ([@frenck] - [#58329]) ([tuya docs])
-- Add Temperature and Humidity Sensor (wsdcg) device support to Tuya ([@frenck] - [#58335]) ([tuya docs])
-- Add Smart Kettle (bh) device support to Tuya ([@frenck] - [#58347]) ([tuya docs])
-- Complete Air Conditioner (kt) device support for Tuya ([@frenck] - [#58417]) ([tuya docs])
-- Fix endpoints issues for Tuya Integration ([@zlinoliver] - [#58411]) ([tuya docs])
-- Extend Tuya Humidifier ([@alexanv1] - [#58260]) ([tuya docs])
+Almost all Home Assistant entity platforms are supported now, including
+(binary) sensors, covers, vacuums, and even cameras! However, be aware that
+Tuya has a lot of devices and variations, so there is still work left to be
+done; We have done everything we can to provide a solid base this release.
+
+As a final note: Some people complained about that this integration relies
+on the cloud. We have always supported integration with both local and
+cloud APIs. Integrations with cloud APIs allow people to adopt Home Assistant
+without having to replace all devices in their house. If one uses devices
+that require the cloud, or are fully local, is a choice everyone should make
+for themselves.
 
 ## Some nice new template things
 
