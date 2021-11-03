@@ -48,8 +48,7 @@ Enjoy the release!
 
 ../Frenck
 
-
-- [Daylight Saving Time Bug](#daylight-saving-time-bug)
+- [Daylight saving time bug](#daylight-saving-time-bug)
 - [Visit devices and services](#visit-devices-and-services)
 - [Entity categorization](#entity-categorization)
 - [The icon picker](#the-icon-picker)
@@ -64,7 +63,7 @@ Enjoy the release!
 - [All changes](#all-changes)
 
 
-## Daylight Saving Time Bug
+## Daylight saving time bug
 
 If you have already transitioned daylight saving time (DST), you might have
 experienced it already. If you have not switched yet, this message is extra
@@ -109,52 +108,68 @@ too; [Read all about it on our developer blog](https://developers.home-assistant
 
 ## Entity categorization
 
-TODO: Make this nice and understandable.
+Since we introduced the concept of devices, we have been seeing more and
+more entities being created, which is great! It means we can automate on a lot
+more device features. However, this does impose other issues, like:
+clutter on a generated dashboard, unused entities exposed to voice assistants,
+or turn on/off things in areas as a side-effect. Let me try to explain the
+latter issue with an example.
 
-Entities can now have a category: Primary entity (that either controls or is a sensor),
-configuration entity that changes a setting/configuration option of the device; and diagnostic
-entities that provide information about the device itself.
+Let consider a wallplug. It can be turned on/off using a switch entity,
+however, my wallplug also has a switch to enable a child lock that controls
+its physical button. Now, if I had this device in my living room area and
+turned off all switches in my living room, it would turn off the switch and
+the child lock! This is not what we want, right?
 
-Take a light bulb for example. The light entity itself is a primary entity. However, the
-select entity that provides the power on behavior configuration of the bulb, is a configuration
-option of the device and thus a configuration entity. While the sensor providing the signal
-strength of the light bulb is a diagnostic entity.
+To resolve issues like these (and more), we introduce entity categories.
 
-This is now shown in de device page:
+Entities without a category are now considered primary entities: The entities
+we daily use and expect from a device, i.e., the power on/off switch.
+Furthermore, entities can be categorized as configuration or diagnostic entities.
+A configuration entity provides a setting/configuration option for the device,
+while a diagnostic entity provides information about the device.
+
+Take a light bulb as an example. The light entity itself is a primary entity.
+However, the select entity that provides the power on behavior configuration of
+the bulb is a setting of the device and thus a configuration entity. While the
+sensor providing the signal strength of the light bulb is a diagnostic entity.
+
+Another, more visual example, from the device page of a Sonos Move speaker:
 
 <p class='img'>
-<img src='https://developers.home-assistant.io/assets/images/entity_categories-f405c90a55eedabedbe316466b808b6e.png' alt='Screenshot of (TODO)'>
-Screenshot of (TODO).
+<img src='/images/blog/2021-11/entity-categories.png' alt='Screenshot of the Sonos device page that now has entities categorized'>
+Screenshot of the Sonos device page that now has entities categorized.
 </p>
 
-Entities that are marked as non-primary (so, either configuration or diagnostic)
-are not exposed to Amazon Alexa or Google Assistant (by default, can be changed).
-They also are not shown on generated Lovelace dashboards.
+In the above screen, you can see the Sonos speaker itself is a primary control
+entity, while the entities that provide device configuration options and
+entities that provide diagnostic information about the device itself are now
+separated nicely.
 
-Additionaly, these non-primary entities are not called by service calls
-that target the device or area the device is in. They are only called if
-expliclity called by entity ID. For example, if you turn on all your switches
-in an area, it won't affect switches that provided a configuration entity.
+With entities that are non-primary (so are either configuration or
+diagnostic entities), we now do the following:
 
+- Non-primary entities are hidden from generated Lovelace dashboards. This
+  reduces the clutter and makes the generated dashboards more useful for daily
+  use.
+- Non-primary entities are, by default, not exposed to Amazon Alexa or
+  Google Assistant. You, of course, still can expose them, but by default,
+  we don't send them to these voice assistants.
+- None-primary entities are not called by service calls that target the device
+  or area the device is in. They are only called if explicitly called by their
+  entity ID.
 
-Just like the previous visit device or service feature, this new organization
-capability has been adopted by a lot of our maintainers: 60+ integrations!
+Please note, the above-listed points are breaking changes, also listed in
+the breaking changes section of these release notes.
+
+Like the previous visit device or service feature, this new organization
+capability has been adopted by many of our maintainers: 60+ integrations!
 To name a few: Sonos, Z-Wave JS, Shelly, SwitchBot, deCONZ, Neato, Netatmo,
 August, MQTT, Hue, Roomba, Tibber, AirVisual, KNX, motionEye, and many more.
 Oh, and soon, we can add ESPHome to that list!
 
 If you are a custom integration developer, you can add support for this feature
 too; [Read all about it on our developer blog](https://developers.home-assistant.io/blog/2021/10/26/config-entity#entity-categories).
-
-
-Related PRs:
-
-- Initial support for entity category (#10266) @balloob (frontend)
-- Don't add indirectly referenced config entities to service calls ([@emontnemery] - [#57671]) ([homekit docs]) ([homeassistant docs]) (breaking-change)
-- Don't expose config or diagnostic entities to Amazon Alexa by default ([@emontnemery] - [#57770]) ([alexa docs])
-- Don't expose config or diagnostic entities to Google Assistant ([@emontnemery] - [#57669]) ([google_assistant docs]) (breaking-change)
-- Don't expose config or diagnostic entities to cloud ([@emontnemery] - [#57771]) ([cloud docs]) (breaking-change)
-
 
 ## The icon picker
 
@@ -312,6 +327,9 @@ the specific device or area the device or entity is in.
 
 If you need to make a service call to these entities, you will need to call
 them by their entity ID explicitly.
+
+Please note: This does not apply to entity groups, as groups are explicitly
+based on entities (unlike areas) and thus still work as before.
 
 ([@emontnemery] - [#57671])
 
