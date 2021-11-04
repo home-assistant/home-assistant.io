@@ -118,7 +118,7 @@ your cloud project.
 
 By the end of this section you will have the `client_id` and `client_secret` which are needed for later steps.
 
-The steps below use *Desktop App* auth since your Home Assistant instance is not a public website. *Web App* auth is no longer recommended to avoid needing to configure SSL and follow strict url validation rules.
+The steps below use *Desktop App* auth since your Home Assistant instance is not a public website. *Web App* auth is no longer recommended to avoid needing to configure SSL and follow strict URL validation rules.
 
 1. Navigate to the [Credentials](https://console.cloud.google.com/apis/credentials) page and click **Create Credentials**.
 
