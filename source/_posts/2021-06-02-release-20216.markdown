@@ -955,7 +955,7 @@ The following integrations are no longer available as of this release:
 - Clean up config entry handlers decorator from config flows ([@frenck] - [#49932])
 - Reduce homekit executor calls at start ([@bdraco] - [#49925]) ([homekit docs])
 - Use device registry CONNECTION_* constants ([@scop] - [#49923]) ([deconz docs]) ([mqtt docs]) ([point docs]) ([sonos docs]) ([tasmota docs])
-- Avoid writing esphome data if it's already up to date on disk ([@bdraco] - [#49933]) ([esphome docs])
+- Avoid writing esphome data if its already up to date on disk ([@bdraco] - [#49933]) ([esphome docs])
 - Repair elgato types ([@dermotduffy] - [#49936]) ([elgato docs])
 - Clean up connection classes in integrations A-C ([@frenck] - [#49888])
 - Clean up connection classes in integrations D-G ([@frenck] - [#49890])
