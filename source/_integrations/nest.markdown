@@ -67,8 +67,7 @@ By the end of this section you will have a Cloud Project with the necessary APIs
 1. Go to the [Google Cloud Console](https://console.developers.google.com/apis/credentials).
 
 1. If this is your first time here, you likely need to create a new Google API project. Click **Create Project** then **New
-Project**. Note: This is a different type of project from the Device Access project you are also creating.
-
+Project**. Note: This is a different type of *project* from the Device Access project you are also creating.
     ![Screenshot of APIs and Services Cloud Console with no existing project](/images/integrations/nest/api_project_needed.png)
 
 1. Give your API Project a name then click **Create**. Note: You can ignore the *Project ID* here as Home Assistant does not need it.
@@ -121,11 +120,9 @@ By the end of this section you will have the `client_id` and `client_secret` whi
 The steps below use *Desktop App* auth since your Home Assistant instance is not a public website. *Web App* auth is no longer recommended to avoid needing to configure SSL and follow strict URL validation rules.
 
 1. Navigate to the [Credentials](https://console.cloud.google.com/apis/credentials) page and click **Create Credentials**.
-
     ![Screenshot of APIs and Services Cloud Console](/images/integrations/nest/create_credentials.png)
 
 1. From the drop-down list select *OAuth client ID*.
-
     ![Screenshot of OAuth client ID selection](/images/integrations/nest/oauth_client_id.png)
 
 1. Enter *Desktop App* for the Application type.
@@ -278,7 +275,7 @@ In this section you will authorize Home Assistant to access your account by gene
 
     ![Screenshot of Nest permissions authorization](/images/integrations/nest/oauth_approve.png)
 
-1. You will get redirected back to another account selection page.
+1. You will get redirected to another account selection page.
 
 1. You may see a warning screen that says *Google hasn't verified this app* since you just set up an un-verified developer workflow. Click *Continue* to proceed.
 
@@ -346,7 +343,7 @@ In this section you will authorize Home Assistant to access your account by gene
 
 - You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all. Double check the `subscriber_id` matches the `Subscription Name`
 
-- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble:
+- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 
 
 ```yaml
 
