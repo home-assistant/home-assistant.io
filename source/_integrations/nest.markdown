@@ -261,9 +261,10 @@ your Home Assistant to access your account and Nest devices.
 
 In this section you will authorize Home Assistant to access your account by generating an *Authentication Token*.
 
-1. Choose **OAuth for Apps** since you created *Desktop App* credentials above in the Google Cloud Console. ote that *Oauth for Web* still exists if you previously created *Web Application* credentials and want to keep using them.
+1. Choose **OAuth for Apps** since you created *Desktop App* credentials above in the Google Cloud Console.  Note that *OAuth for Web* still exists if you previously created *Web Application* credentials and want to keep using them.
 
     ![Screenshot of Integration setup on OAuth type step](/images/integrations/nest/integration_oauth_type.png)
+
 
 1. Click the link to **authorize your account**.
 
