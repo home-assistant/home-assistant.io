@@ -32,7 +32,7 @@ Because the state of an button entity in Home Assistant is a timestamp, it
 means we can use it in our automations. For example:
 
 ```yaml
-trigger;
+trigger:
   - platform: state
     entity_id: button.my_buton
 action:
