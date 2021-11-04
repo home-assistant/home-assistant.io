@@ -28,7 +28,7 @@ Every button entity does keep track of the timestamp of when the last time
 the button entity has been pressed in the Home Assistant UI or pressed via
 a service call.
 
-Because the state of an button entity in Home Assistant is a timestamp, it
+Because the state of a button entity in Home Assistant is a timestamp, it
 means we can use it in our automations. For example:
 
 ```yaml
