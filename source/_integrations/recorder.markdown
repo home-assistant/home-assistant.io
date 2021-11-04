@@ -25,7 +25,7 @@ The supported database solutions are:
 - [MariaDB](https://mariadb.org/) ≥ 10.3
 - [MySQL](https://www.mysql.com/) ≥ 8.0
 - [PostgreSQL](https://www.postgresql.org/) ≥ 12
-- [SQLite](https://www.sqlite.org/) ≥ 3.32.1
+- [SQLite](https://www.sqlite.org/) ≥ 3.31.0
 
 Although SQLAlchemy supports additional database solutions, it will behave differently on different databases, and features relied on by the recorder may work differently, or not at all, in different databases.
 
