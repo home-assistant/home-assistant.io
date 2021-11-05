@@ -20,6 +20,8 @@ The Kaleidescape integration allows for the automation of Kaleidescape movie pla
 - A change in aspect ratio controls a masking system.
 - A change in video resolution controls a lens system or video scaler.
 
+![Screenshot of Media Player](/images/integrations/kaleidescape/media_player.png)
+
 ## Supported Models
 
 This integration is intended for the automation of Kaleidescape players with a movie zone. These players will automatically have a respective Home Assistant media player added. Any music zone in a player is ignored at this time.
@@ -368,42 +370,6 @@ attribute: screen_mask_bottom_mask_abs
 | Value | Description |
 | ----- | ----------- |
 | `<int between 0 and 1000>` | Position value in tenths of a percent |
-
-### screen_mask2
-
-This message provides masking information based on aspect ratio and overscan area. This information depends on the calibration parameters entered in the Calibrate Masking Overscan and Calibrate Masking pages of the Kaleidescape settings. See the `GET_SCREEN_MASK2` section of [Kaleidescape System Control Protocol Reference Manual](https://www.kaleidescape.com/wp-content/uploads/Kaleidescape-System-Control-Protocol-Reference-Manual.pdf) for more detail.
-
-#### Attribute: screen_mask2_top_mask_abs
-
-#### Attribute: screen_mask2_bottom_mask_abs
-
-Provides the position for the top and bottom masks in absolute terms, relative to the aspect ratio and accounting for overscan as set in on the Calibrate Masking Overscan section of the Kaleidescape Settings page.
-
-These are a number between 0 and 1000, in tenths of a percent of the screen height. For example, a `screen_mask2_top_mask_abs` value of 0200, means that the corresponding mask should be located 20% from the top of the screen.
-
-```yaml
-attribute: screen_mask2_top_mask_abs
-attribute: screen_mask2_bottom_mask_abs
-```
-
-| Value | Description |
-| ----- | ----------- |
-| `<int between 0 and 1000>` | Position value in tenths of a percent |
-
-#### Attribute: screen_mask2_top_calibrated
-
-#### Attribute: screen_mask2_bottom_calibrated
-
-Provides the masking positions calculated by the movie zone based on values entered in the Calibrate Masking section of the Kaleidescape Settings page. These are numbers between 0 and 99999.
-
-```yaml
-attribute: screen_mask2_top_calibrated
-attribute: screen_mask2_bottom_calibrated
-```
-
-| Value | Description |
-| ----- | ----------- |
-| `<int between 0 and 10000>` | Position value |
 
 ### cinemascape
 
