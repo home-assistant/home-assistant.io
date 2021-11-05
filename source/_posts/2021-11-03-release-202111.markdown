@@ -61,6 +61,7 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.11.1 - November 5](#release-2021111---november-5)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -246,7 +247,7 @@ really helpful if you need to compare against another DateTime. For example:
 
 ```yaml
 # Is the current time past 10:15?
-{{ now() > today_at("10:15") }} 
+{{ now() > today_at("10:15") }}
 ```
 
 {% endraw %}
@@ -345,6 +346,59 @@ The following integrations are now available via the Home Assistant UI:
 - [Stookalert][stookalert docs], done by [@frenck]
 - [Venstar][venstar docs], done by [@garbled1]
 - [VLC Media Player Telnet][vlc_telnet docs], done by [@MartinHjelmare]
+
+## Release 2021.11.1 - November 5
+
+- Swap sharkiq vacuum is_docked with is_charging ([@tomgie] - [#58975]) ([sharkiq docs])
+- Fix mop attribute for unified mop and water box in Xiaomi Miio ([@OGKevin] - [#58990]) ([xiaomi_miio docs])
+- Fix timedelta-based sensors for xiaomi_miio ([@rytilahti] - [#58995]) ([xiaomi_miio docs])
+- Bump aiopvpc to 2.2.1 ([@azogue] - [#59008]) ([pvpc_hourly_pricing docs])
+- Accept all roborock vacuum models for xiaomi_miio ([@rytilahti] - [#59018]) ([xiaomi_miio docs])
+- Fix Nut resources option migration ([@ollo69] - [#59020]) ([nut docs])
+- Environment Canada config_flow fix ([@gwww] - [#59029]) ([environment_canada docs])
+- Bump velbus-aio to 2021.11.0 ([@Cereal2nd] - [#59040]) ([velbus docs])
+- Constrain urllib3 to >=1.26.5 ([@frenck] - [#59043])
+- Correct migration to recorder schema 22 ([@emontnemery] - [#59048]) ([recorder docs])
+- Increase time to authorize OctoPrint ([@frenck] - [#59051]) ([octoprint docs])
+- Remove use_time sensor from mjjsq humidifers ([@rytilahti] - [#59066]) ([xiaomi_miio docs])
+- Change minimum supported SQLite version to 3.31.0 ([@emontnemery] - [#59073]) ([recorder docs])
+- Correct rescheduling of ExternalStatisticsTask ([@emontnemery] - [#59076]) ([recorder docs])
+- Bump flux_led to 0.24.14 ([@bdraco] - [#59121]) ([flux_led docs])
+
+[#58975]: https://github.com/home-assistant/core/pull/58975
+[#58990]: https://github.com/home-assistant/core/pull/58990
+[#58995]: https://github.com/home-assistant/core/pull/58995
+[#59008]: https://github.com/home-assistant/core/pull/59008
+[#59018]: https://github.com/home-assistant/core/pull/59018
+[#59020]: https://github.com/home-assistant/core/pull/59020
+[#59029]: https://github.com/home-assistant/core/pull/59029
+[#59040]: https://github.com/home-assistant/core/pull/59040
+[#59043]: https://github.com/home-assistant/core/pull/59043
+[#59048]: https://github.com/home-assistant/core/pull/59048
+[#59051]: https://github.com/home-assistant/core/pull/59051
+[#59066]: https://github.com/home-assistant/core/pull/59066
+[#59073]: https://github.com/home-assistant/core/pull/59073
+[#59076]: https://github.com/home-assistant/core/pull/59076
+[#59121]: https://github.com/home-assistant/core/pull/59121
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@OGKevin]: https://github.com/OGKevin
+[@azogue]: https://github.com/azogue
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gwww]: https://github.com/gwww
+[@ollo69]: https://github.com/ollo69
+[@rytilahti]: https://github.com/rytilahti
+[@tomgie]: https://github.com/tomgie
+[environment_canada docs]: /integrations/environment_canada/
+[flux_led docs]: /integrations/flux_led/
+[nut docs]: /integrations/nut/
+[octoprint docs]: /integrations/octoprint/
+[pvpc_hourly_pricing docs]: /integrations/pvpc_hourly_pricing/
+[recorder docs]: /integrations/recorder/
+[sharkiq docs]: /integrations/sharkiq/
+[velbus docs]: /integrations/velbus/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
 
 ## If you need help...
 
