@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: speedtestdotnet
 ha_platforms:
   - sensor
+  - button
 ---
 
 The Speedtest.net integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
@@ -36,7 +37,7 @@ sensors:
   
 ### Service
 
-Once loaded, the integration will expose a service (`speedtestdotnet.speedtest`) that can be called to run a Speedtest.net speed test on demand. This service takes no parameters. This can be useful when auto update has been disabled in the integration options.
+Once loaded, the integration will expose a service (`speedtestdotnet.speedtest`) that can be called to run a Speedtest.net speed test on demand. This service takes no parameters. This can be useful when auto update has been disabled in the integration options. There is also a button on device page available, which can be used to run the test on demand.
 
 ```yaml
 action:
