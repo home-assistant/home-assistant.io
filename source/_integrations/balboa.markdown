@@ -1,27 +1,42 @@
 ---
 title: "Balboa Spa"
-description: "Instructions on how to configure Balboa Spa integration."
+description: "Instructions on how to integrate Balboa Spa WiFi within Home Assistant."
 ha_category:
-  - Binary Sensor
   - Climate
-  - Fan
-  - Switch
-ha_release: 0.104
+ha_release: 2021.12
 ha_iot_class: Local Push
+ha_domain: balboa
+ha_platforms:
+  - climate
+ha_codeowners:
+  - '@garbled1'
+ha_config_flow: true
 ---
 
 This integration adds "local push" support for [Balboa](http://www.balboawatergroup.com/) Spa WiFi Modules to be used within Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
 - Climate
-- Fan
-- Switch
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-Home Assistant offers Balboa Spa integration through **Configuration** -> **Integrations** -> **Balboa Spa**. Simply enter `host` when prompted.
+{% configuration_basic %}
+host:
+  description: Hostname or IP address of your Balboa Spa Wifi Device, e.g., 192.168.1.58
+  required: true
+  type: string
+name:
+  description: Name of your spa
+  required: true
+  type: string
+  default: Spa
+sync_time:
+  description: Sync the Spa's internal clock with Home Assistant daily
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration_basic %}
 
 ## Known limitations
 
