@@ -29,11 +29,6 @@ This integration provides the following platforms:
 - Selectors - to change the charge mode.
 - Sensors - such as battery level, outside temperature, odometer, estimated range, and charging rate.
 
-## Prerequisites
-
-You need two API keys: one for Gigya and one for Kamereon and they shouldn't be confused with your API credentials. Instructions can be found at [https://github.com/jamesremuscat/pyze#obtaining-api-keys].
-
-
 {% include integrations/config_flow.md %}
 
 All vehicles linked to the account should then get added as devices, with sensors added as linked entity.

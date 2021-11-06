@@ -76,7 +76,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
   - [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee Ember 3581 USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/walthowd/husbzb-firmware))
   - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)/[POPP ZB-Stick](https://shop.zwave.eu/detail/index/sArticle/2496) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
   - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
-  - Bitron Video/Smabit BV AV2010/10 USB-Stick with Silicon Labs Ember 3587
+  - [Bitron Video/Smabit BV AV2010/10 USB-Stick](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/) with Silicon Labs Ember 3587
   - Telegesis ETRX357USB/ETRX357USB-LR/ETRX357USB-LRS+8M (Note! These first have to be [flashed with other EmberZNet firmware](https://github.com/walthowd/husbzb-firmware))
 - Texas Instruments based radios (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
   - [CC2652P/CC2652R/CC2652RB USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
