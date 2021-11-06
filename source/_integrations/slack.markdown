@@ -186,7 +186,7 @@ data:
 Send a message to a channel that mentions (@username, highlights a users name in yellow) a user. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
 
 ```yaml
-message: "<@U12345> you're appointment starts soon"
+message: "<@U12345> your appointment starts soon"
 target: "#general"
 title: "Reminder"
 data:
