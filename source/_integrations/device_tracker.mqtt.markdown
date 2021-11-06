@@ -223,3 +223,25 @@ To set the state of the device tracker to "home":
 ```bash
 mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m 'home'
 ```
+
+## Entity management
+
+This integration stores its registry of entities in `known_devices.yaml`. If [MQTT discovery](/docs/mqtt/discovery/) is disabled new entities created via `configuration.yaml` will not be tracked by default and must be manually enabled. New keys in this file will be initially created upon receipt of a valid mqtt message on the configured topic, not upon loading of the integration. Entities are enabled or disabled by setting 'track:' to 'true' or 'false'
+
+```yaml
+# An enabled entity: device_tracker.paulus_oneplus 
+paulus_oneplus:
+  name: paulus_oneplus
+  mac:
+  icon:
+  picture:
+  track: true
+
+# A disabled entity: device_tracker.annetherese_n4 
+annetherese_n4:
+  name: annetherese_n4
+  mac:
+  icon:
+  picture:
+  track: false
+ ```
