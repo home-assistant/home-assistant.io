@@ -7,9 +7,21 @@ description: "An overview of the energy cards that are available."
 
 This is a list of all the cards used in the energy dashboard, you can also place them anywhere you want in your Lovelace dashboard.
 
-At the moment there are no configuration options available for these cards, you can configure them on the energy {% my config_energy title="energy configuration page" %}.
+At the moment there are no configuration options available for these cards, you can configure them on the {% my config_energy title="energy configuration page" %}.
 
-They will always show the data of today when used outside the energy dashboard.
+## Energy date picker
+
+<p class='img'>
+  <img src='/images/lovelace/energy/date-selection.png' alt='Screenshot of the energy date selection card'>
+  Screenshot of the Energy date selection card.
+</p>
+
+This card will allow you to pick what data to show. Changing it in this card will influence the data in all other cards.
+
+#### Example
+```yaml
+type: energy-date-selection
+```
 
 ## Energy usage graph
 
@@ -40,6 +52,21 @@ The solar production graph card shows the amount of energy your solar panels hav
 type: energy-solar-graph
 ```
 
+## Gas consumption graph
+
+<p class='img'>
+  <img src='/images/lovelace/energy/gas-graph.png' alt='Screenshot of the gas consumption graph card'>
+  Screenshot of the gas consumption graph card.
+</p>
+
+The gas consumption graph card shows the amount of gas consumed per source.
+
+#### Example
+
+```yaml
+type: energy-gas-graph
+```
+
 ## Energy distribution
 
 <p class='img'>
@@ -48,11 +75,15 @@ type: energy-solar-graph
 </p>
 
 The energy distribution card shows how the energy flowed, from the grid to your house, from your solar panels to your house and/or back to the grid.
+
 If setup, it will also tell you how many kWh of the energy you got from the grid was produced without using fossil fuels.
+
+If you set `link_dashboard` to `true`, the card will include a link to the energy dashboard.
 
 #### Example
 ```yaml
 type: energy-distribution
+link_dashboard: true
 ```
 
 ## Energy sources table

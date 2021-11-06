@@ -11,6 +11,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - camera
+  - switch
 ---
 
 The motionEye integration allows you to integrate your

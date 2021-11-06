@@ -52,7 +52,7 @@ description:
 domain:
   description: >
     The domain name this blueprint provides a blueprint for. Currently, only
-    `automation` is supported.
+    `automation` and `script` are supported.
   type: string
   required: true
 input:
@@ -121,7 +121,7 @@ A blueprint can have as many inputs as you like.
 
 The inputs are available as custom YAML tags, but not as template variables.
 To use a blueprint input in a template, it first needs to be exposed as either
-a [script level variable](/integrations/script/#-configuration-variables) or in 
+a [script level variable](/integrations/script/#configuration-variables) or in 
 a [variable script step](/docs/scripts/#variables).
 
 ```yaml

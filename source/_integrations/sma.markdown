@@ -22,7 +22,7 @@ The integration uses the web interface of the device. Before you start, make sur
 
 ## Sensors
 
-The SMA WebConnect module supports a wide variety of sensors, but not all of these have been mapped in the `pysma` library. Currently available sensors can be found below. Feel free to submit additional sensors to be added as standard sensors to the [pysma library](https://github.com/rklomp/pysma/blob/dev/pysma/definitions.py).
+The SMA WebConnect module supports a wide variety of sensors, but not all of these have been mapped in the `pysma` library. Currently available sensors can be found below. Feel free to submit additional sensors to be added as standard sensors to the [pysma library](https://github.com/rklomp/pysma/blob/master/pysma/definitions.py).
 
 ### Solar Inverter
 
@@ -46,7 +46,7 @@ The SMA WebConnect module supports a wide variety of sensors, but not all of the
 | power_l1 | W | Power for phase 1 |
 | power_l2 | W | Power for phase 2 |
 | power_l3 | W | Power for phase 3 |
-| total_yield | kWh | Total power yield from a solar installation |
+| total_yield | kWh | Total energy yield from a solar installation |
 | daily_yield | Wh | The solar plant's yield for today |
 | pv_gen_meter | kWh | Total kWh generated to date |
 
@@ -66,8 +66,8 @@ The SMA WebConnect module supports a wide variety of sensors, but not all of the
 | metering_power_supplied | W | Power supplied |
 | metering_power_absorbed | W | Power absorbed |
 | metering_frequency | Hz | Grid frequency |
-| metering_total_yield | kWh | Total power from the grid |
-| metering_total_absorbed | kWh | Total power supplied to the grid |
+| metering_total_yield | kWh | Total energy supplied to the grid |
+| metering_total_absorbed | kWh | Total energy from the grid |
 | metering_current_l1 | A | Current for phase 1 |
 | metering_current_l2 | A | Current for phase 2 |
 | metering_current_l3 | A | Current for phase 3 |

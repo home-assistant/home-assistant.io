@@ -13,6 +13,8 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_codeowners:
+  - '@sergeymaysak'
 ---
 
 The `wirelesstag` implementation allows you to integrate your [wirelesstag.net](https://wirelesstag.net/) sensors tags in Home Assistant.

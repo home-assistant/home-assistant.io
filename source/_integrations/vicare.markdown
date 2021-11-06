@@ -43,7 +43,7 @@ The above-required configuration parameters can be obtained as follows:
   Google reCAPTCHA: Disabled
   Redirect URIs: vicare://oauth-callback/everest
   ```
-4. Copy the Client ID to the configuration, e.g., `client_id="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"`.
+4. Copy the Client ID to the configuration, e.g., `client_id: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"`.
 5. Set `username`and `password` to your Viessmann Developer Portal login credentials.
 
 
@@ -65,10 +65,6 @@ name:
   required: false
   default: ViCare
   type: string
-circuit:
-  description: Heating circuit of your heating device if multiple exist 
-  required: false
-  type: integer
 heating_type:
   description: One of `generic`, `gas`, `heatpump` or `fuelcell`. Specifying the heating_type provides additional attributes and sensors specific for the heating system.
   required: false
@@ -81,8 +77,7 @@ scan_interval:
   type: integer
 {% endconfiguration %}
 
-Two components will be created: `climate.vicare_heating` and `water_heater.vicare_water` (for domestic hot water).
-Unless you specify a `circuit` parameter, it will pick up the first heating circuit of your installation.
+Multiple device instances might be generated depending on the number of burners and/or circuits of your installation. If there is more than a single instance all devices are suffixed with the circuit or burner ID.
 
 ## Viessmann API limits
 
@@ -136,7 +131,7 @@ Set the mode for the climate device as defined by Viessmann (see [set_hvac_mode]
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
-| `vicare_mode` | no | New value of ViCare mode, one of: "dhw", "dhwAndHeating", "dhwAndHeatingCooling", "forcedReduced", "forcedNormal" or "standby"
+| `vicare_mode` | no | New value of ViCare mode. For supported values see the `vicare_modes` attribute of the climate entity.
 
 #### Service `set_preset_mode`
 

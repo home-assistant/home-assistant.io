@@ -11,7 +11,6 @@ categories:
 - Release-Notes
 - Core
 og_image: /images/blog/2021-03/social.png
-feedback: true
 ---
 
 <a href='/integrations/#version/2021.3'><img src='/images/blog/2021-03/social.png' style='border: 0;box-shadow: none;'></a>

@@ -25,7 +25,7 @@ Note that indentation is an important part of specifying relationships using YAM
 
 Getting the right indentation can be tricky if you're not using an editor with a fixed width font. Tabs are not allowed to be used for indentation. Convention is to use 2 spaces for each level of indentation.
 
-You can use the online service [YAMLLint](http://www.yamllint.com/) to check if your YAML syntax is correct before loading it into Home Assistant which will save you some time. If you do so, be aware that this is a third-party service and is not maintained by the Home Assistant community.
+You can use the online service [YAML Validator](https://codebeautify.org/yaml-validator/) to check if your YAML syntax is correct before loading it into Home Assistant which will save you some time. If you do so, be aware that this is a third-party service and is not maintained by the Home Assistant community.
 
 <div class='note'>
 

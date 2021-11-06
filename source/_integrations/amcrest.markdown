@@ -13,6 +13,8 @@ ha_platforms:
   - binary_sensor
   - camera
   - sensor
+ha_codeowners:
+  - '@flacjacket'
 ---
 
 The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell in Home Assistant.

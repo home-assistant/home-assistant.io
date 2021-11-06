@@ -112,7 +112,7 @@ color_temp_command_topic:
   required: false
   type: string
 color_temp_state_topic:
-  description: "The MQTT topic subscribed to receive color temperature state updates. If the light also supports setting colors, also define a `white_value_state_topic`. "
+  description: "The MQTT topic subscribed to receive color temperature state updates."
   required: false
   type: string
 color_temp_value_template:
@@ -128,6 +128,10 @@ device:
   required: false
   type: map
   keys:
+    configuration_url:
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      required: false
+      type: string
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -165,6 +169,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 effect_command_topic:
   description: "The MQTT topic to publish commands to change the light's effect state."
   required: false
@@ -497,6 +506,10 @@ device:
   required: false
   type: map
   keys:
+    configuration_url:
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      required: false
+      type: string
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -526,6 +539,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 effect:
   description: Flag that defines if the light supports effects.
   required: false
@@ -835,6 +853,10 @@ device:
   required: false
   type: map
   keys:
+    configuration_url:
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      required: false
+      type: string
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -864,6 +886,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 effect_list:
   description: List of possible effects.
   required: false
@@ -904,7 +931,7 @@ name:
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
-  type: string
+  type: boolean
   default: "`true` if no state topic or state template is defined, else `false`."
 payload_available:
   description: The payload that represents the available state.

@@ -5,7 +5,11 @@ sidebar_label: Statistics Graph
 description: "The Statistics Graph card allows you to display a graph with statistics data for each of the entities listed."
 ---
 
-The Statistics Graph card allows you to display a graph of statistics data for each of the entities listed. To learn more about statistics and what is supported, check out the [statistics](/integrations/statistics/) documentation.
+The Statistics Graph card allows you to display a graph of statistics data for each of the entities listed.
+
+Statistics are gathered every hour for sensors that support it. It will either keep the `min`, `max` and `mean` of a sensors value for a specific hour, or the `sum` for a metered entity.
+
+If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_statistics_graph_line.png' alt='Screenshot of the statistics graph card for power entities'>
@@ -37,7 +41,7 @@ chart_type:
   required: false
   description: If the chart should be rendered as a `bar` or a `line` chart.
   type: string
-state_types:
+stat_types:
   required: false
   description: The stat types to render. `min`, `max`, `mean`, `sum`
   type: list

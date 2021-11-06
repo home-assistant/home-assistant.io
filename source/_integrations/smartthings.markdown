@@ -63,7 +63,7 @@ The PAT is used to create a Home Assistant SmartApp in your SmartThings account 
 This integration requires an internet accessible incoming webhook to receive push updates from SmartThings. The preferred approach is to subscribe to [Home Assistant Cloud (Nabu Casa)](https://www.nabucasa.com/) and the integration will configure and use a cloudhook automatically. Alternatively, you will have to configure and setup an internet accessible webhook in Home Assistant as described below:
 
 1. Setup [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
-1. Set the external URL in the Home Assistant [configuration](/docs/configuration/basic) to the URL that Home Assistant is available on the internet (this must start with `https://`).
+1. Set the external URL in the Home Assistant [configuration](/docs/configuration/basic) to the URL that Home Assistant is available on the internet (this must start with `https://`). This must be port 443. If you do not use Nabu Casa you must configure your network to allow TCP traffic from the internet on port 443 to reach the IP address of the device running Home Assistant.
 
 ## Setup instructions
 

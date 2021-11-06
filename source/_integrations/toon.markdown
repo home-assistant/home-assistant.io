@@ -10,8 +10,6 @@ ha_category:
 ha_release: 0.56
 ha_iot_class: Cloud Push
 ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
 ha_domain: toon
 ha_dhcp: true
 ha_platforms:

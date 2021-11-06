@@ -15,7 +15,7 @@ og_image: /images/blog/2019-08-home-assistant-cast/social.png
 
 Home automation itself has never been a goal of Home Assistant. Instead, it's a tool that allows us to have technology improve our life, and that of the people around us. I wrote about this [3,5 years ago](https://www.home-assistant.io/blog/2016/01/19/perfect-home-automation/), and it's been our guiding principle in building out Home Assistant.
 
-Today we're introducing Home Assistant Cast to help with this. With Home Assistant Cast, people in your house can have quick access to see the state of your house and it's residents, and quickly adjust the most important settings. This is achieved by running on Chromecast powered screens that you already have throughout your house: your Google Nest Hubs and TVs.
+Today we're introducing Home Assistant Cast to help with this. With Home Assistant Cast, people in your house can have quick access to see the state of your house and its residents, and quickly adjust the most important settings. This is achieved by running on Chromecast powered screens that you already have throughout your house: your Google Nest Hubs and TVs.
 
 You can launch Home Assistant Cast by going to [**the Home Assistant Cast launcher website**](https://cast.home-assistant.io). It works with any version of Home Assistant released in the last year. Home Assistant Cast can show any Lovelace view, including support for custom cards and themes. Got no Lovelace configuration? Don't worry, we'll generate a view and show that instead.
 

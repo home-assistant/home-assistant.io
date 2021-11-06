@@ -62,12 +62,11 @@ sensor:
     display_options:
       - 'date_time_iso'
   # Build on the standard sensor to produce one that can be customized    
-  - platform: template
-    sensors:
-      time_formatted:
-        friendly_name: "Date and time"
-        value_template: "{{ as_timestamp(states('sensor.date_time_iso')) | timestamp_custom('%A %B %-m, %I:%M %p') }}"
-        icon_template: mdi:calendar-clock
+template:
+  - sensor:
+      - name: "Date and time"
+        state: "{{ as_timestamp(states('sensor.date_time_iso')) | timestamp_custom('%A %B %-d, %I:%M %p') }}"
+        icon: "mdi:calendar-clock"
 ```
 
 {% endraw %}

@@ -120,7 +120,7 @@ data:
   media_content_id: "https://fake-home-assistant.io.stream/aac"
   extra:
     thumb: "https://brands.home-assistant.io/_/homeassistant/logo.png"
-    title: HomeAssitantRadio
+    title: HomeAssistantRadio
 ```
 
 #### Service `media_player.select_source`
@@ -176,3 +176,4 @@ The way media players are displayed in the frontend can be modified in the [cust
 
 - `tv`: Device is a television type device.
 - `speaker`: Device is speaker or stereo type device.
+- `receiver`: Device is audio video receiver type device taking audio and outputting to speakers and video to some display.

@@ -19,17 +19,17 @@ If you have incorrect entries in your configuration files you can use the config
 
 One of the most common problems with Home Assistant is an invalid `configuration.yaml` or other configuration file.
 
-- Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has it's own section in the common-tasks about this:
+- Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has its own section in the common-tasks about this:
   - [Operating System](/common-tasks/os/#configuration-check)
   - [Container](/common-tasks/container/#configuration-check)
   - [Core](/common-tasks/core/#configuration-check)
   - [Supervised](/common-tasks/supervised/#configuration-check)
 
 - The configuration files, including `configuration.yaml` must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
-- You can verify your configuration's YAML structure using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
-- To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
+- You can verify your configuration's YAML structure using [this online YAML parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/).
+- To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltproject.io/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 
-`configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one component, you can append a [number or string](/getting-started/devices/#style-2-list-each-device-separately) to the name or nest them using [this style](/getting-started/devices/#style-1-collect-every-entity-under-the-parent):
+`configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one component, you can append a [number or string](/docs/configuration/devices/#style-2-list-each-entity-separately) to the name or nest them using [this style](/docs/configuration/devices/#style-1-collect-every-entity-under-the-parent):
 
 ```yaml
 sensor:
@@ -49,15 +49,15 @@ If you find any errors or want to expand the documentation, please [let us know]
 
 Almost all integrations have external dependencies to communicate with your devices and services. Sometimes Home Assistant is unable to install the necessary dependencies. If this is the case, it should show up in `home-assistant.log`.
 
-The first step is trying to restart Home Assistant and see if the problem persists. If it does, look at the log to see what the error is. If you can't figure it out, please [report it](https://github.com/home-assistant/home-assistant/issues) so we can investigate what is going on.
+The first step is trying to restart Home Assistant and see if the problem persists. If it does, look at the log to see what the error is. If you can't figure it out, please [report it](https://github.com/home-assistant/core/issues) so we can investigate what is going on.
 
 #### Problems with integrations
 
-It can happen that some integrations either do not work right away or stop working after Home Assistant has been running for a while. If this happens to you, please [report it](https://github.com/home-assistant/home-assistant/issues) so that we can have a look.
+It can happen that some integrations either do not work right away or stop working after Home Assistant has been running for a while. If this happens to you, please [report it](https://github.com/home-assistant/core/issues) so that we can have a look.
 
 #### Multiple files
 
-If you are using multiple files for your setup, make sure that the pointers are correct and the format of the files is valid.
+If you are using multiple files for your setup, make sure that the pointers are correct and the format of the files is valid. It's important to understand the different types of `!include` and how the contents of each file should be structured - more information on the various methods of splitting your configuration into multiple files can be found [here](/docs/configuration/splitting_configuration).
 
 ```yaml
 light: !include devices/lights.yaml

@@ -232,6 +232,7 @@ Supported abbreviations:
     'spd_rng_min':         'speed_range_min',
     'spd_rng_max':         'speed_range_max',
     'src_type':            'source_type',
+    'stat_cla':            'state_class',
     'stat_clsd':           'state_closed',
     'stat_closing':        'state_closing',
     'stat_off':            'state_off',
@@ -289,6 +290,7 @@ Supported abbreviations:
 Supported abbreviations for device registry configuration:
 
 ```txt
+    'cu':                  'configuration_url'
     'cns':                 'connections',
     'ids':                 'identifiers',
     'name':                'name',
@@ -302,7 +304,8 @@ Supported abbreviations for device registry configuration:
 
 The following software has built-in support for MQTT discovery:
 
-- [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
+- [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
+- [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
@@ -311,6 +314,8 @@ The following software has built-in support for MQTT discovery:
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
+- [Teleinfo MQTT](https://github.com/fmartinou/teleinfo-mqtt) (starting with 3.0.0)
+- [What's up Docker?](https://github.com/fmartinou/whats-up-docker) (starting with 3.5.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)

@@ -75,7 +75,6 @@ In this section you find some real-life examples of how to use this sensor.
 
 ### Full configuration
 
-
 {% raw %}
 
 ```yaml
