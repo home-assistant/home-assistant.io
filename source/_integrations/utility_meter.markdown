@@ -55,7 +55,7 @@ offset:
   type: time
   type: integer
 cron:
-  description: This option is *mutually exclusive* of `cycle` and `offset`. It provides an advanced method of defining when should the counter be reset. It follows common [crontab syntax](https://crontab.guru) but extended to support more advanced scheduling. See the [croniter](https://github.com/taichino/croniter) library.
+  description: This option is *mutually exclusive* of `cycle` and `offset`. It provides an advanced method of defining when should the counter be reset. It follows common [crontab syntax](https://crontab.guru) but extended to support more advanced scheduling. See the [croniter](https://github.com/kiorky/croniter) library.
   required: true
   type: string
 net_consumption:
