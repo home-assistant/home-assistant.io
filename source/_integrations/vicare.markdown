@@ -66,10 +66,9 @@ name:
   default: ViCare
   type: string
 heating_type:
-  description: One of `generic`, `gas`, `heatpump` or `fuelcell`. Specifying the heating_type provides additional attributes and sensors specific for the heating system.
-  required: false
+  description: One of `auto`, `gas`, `heatpump` or `fuelcell`. Specifying the heating_type provides additional attributes and sensors specific for the heating system.
+  required: true
   type: string
-  default: generic
 scan_interval:
   description: The update frequency of this component in seconds. See [Viessmann API limits](#viessmann-api-limits)
   default: 60
