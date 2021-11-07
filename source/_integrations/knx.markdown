@@ -314,7 +314,7 @@ remove:
   type: boolean
   default: false
 type:
-  description: If set, the payload will be decoded as given DPT in the event data `value` key. Knx sensor types are valid values [KNX Sensor](#sensor) (e.g., "2byte_float" or "1byte_signed").
+  description: If set, the payload will be decoded as given DPT in the event data `value` key. KNX sensor types are valid values [KNX Sensor](#sensor) (e.g., "2byte_float" or "1byte_signed").
   type: [string, integer]
   required: false
 {% endconfiguration %}
