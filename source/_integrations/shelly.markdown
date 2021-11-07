@@ -20,6 +20,7 @@ ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - button
   - cover
   - light
   - sensor
@@ -58,7 +59,7 @@ The integration uses the following strategy to name its entities if the device h
 Examples:
 
 | Device Name | Channel Name   | Entity Name                     |
-| ----------- | -------------- | --------------------------------|
+| ----------- | -------------- | ------------------------------- |
 | `Not set`   | `Not Set`      | shellyswitch25-ABC123 Channel 1 |
 | `Not set`   | Kids Room Bulb | Kids Room Bulb                  |
 | Kitchen     | `Not Set`      | Kitchen Channel 1               |
@@ -152,7 +153,7 @@ You can also create automations using YAML, for example:
 ### Possible values for `click_type`
 
 | Shelly input event | Click Type    |
-| ------------------ | --------------|
+| ------------------ | ------------- |
 | `S`                | `single`      |
 | `SS`               | `double`      |
 | `SSS`              | `triple`      |
@@ -198,6 +199,29 @@ Firmware 1.11 or later is required.
 The firmware limits the transition time to 5 seconds.
 
 </div>
+
+## Device services
+
+The integration offers device services, which can be triggered by a configuration entity (_button_) or a service call.
+
+### OTA update
+
+It is possible to trigger a so called OTA firmware update of your devices, where you can select between the stable (_default_) and the beta channel.
+
+#### Device configuration entities
+
+- **Button** OTA Update
+  - triggers the OTA update process on device
+- **Switch** OTA Update beta channel
+  - enables the beta channel, so OTA update will install newest available beta firmware on your device
+
+#### Service call
+
+| Service Data Attribute | Required | Description                                               |
+| ---------------------- | -------- | --------------------------------------------------------- |
+| `area_id`              | no       | Area ID (_or list of area IDs_) to select the devices     |
+| `device_id`            | no       | Device ID (_or list of device IDs_) to select the devices |
+| `beta`                 | no       | Enables (`true`) the beta channel (_if available_)        |
 
 ## CoAP port (generation 1)
 
