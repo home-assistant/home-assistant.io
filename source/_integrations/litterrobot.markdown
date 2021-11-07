@@ -2,6 +2,10 @@
 title: Litter-Robot
 description: Instructions on how to integrate a Litter-Robot Wi-Fi-enabled, automatic, self-cleaning litter box to Home Assistant.
 ha_category:
+  - Button
+  - Select
+  - Sensor
+  - Switch
   - Vacuum
 ha_iot_class: Cloud Polling
 ha_release: 2021.3
@@ -10,6 +14,8 @@ ha_codeowners:
   - '@natekspencer'
 ha_domain: litterrobot
 ha_platforms:
+  - button
+  - select
   - sensor
   - switch
   - vacuum
