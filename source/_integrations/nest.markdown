@@ -65,7 +65,7 @@ For the first phase, you will turn on the API and create the necessary credentia
 By the end of this section you will have a Cloud Project with the necessary APIs enabled
 
 1. Go to the [Google Cloud Console](https://console.developers.google.com/apis/credentials).
-`
+
 1. If this is your first time here, you likely need to create a new Google Cloud project. Click **Create Project** then **New
 Project**.
     ![Screenshot of APIs and Services Cloud Console with no existing project](/images/integrations/nest/api_project_needed.png)
