@@ -592,6 +592,10 @@ name:
   required: false
   type: string
   default: MQTT JSON Light
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
@@ -932,6 +936,10 @@ name:
   required: false
   type: string
   default: MQTT Template Light
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
