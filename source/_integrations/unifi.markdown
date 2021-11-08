@@ -82,11 +82,9 @@ Clean up clients on the UniFi Controller that has only been associated with the 
 
 Allow control of network access to clients configured in the integration options by adding MAC addresses. Items in this list will have a Home Assistant switch created, using the UniFi Device name, allowing for blocking and unblocking.
 
-### Control clients powered by POE
+### Control Power-over-Ethernet ports
 
-Entities appear automatically for each connected POE client. If no POE client device is in operation, no entity will be visible. Note: UniFi infrastructure devices such as access points and other switches are not (yet) supported, even if they are powered over ethernet themselves.
-
-Note that POE control actually configures the network port of the switch which the client is connected to.
+Entities appear for each Power-over-Ethernet port reported by UniFi devices. When toggling the state of the port, the PoE mode of the port is reset to "auto".
 
 ### Control DPI Traffic Restrictions
 
