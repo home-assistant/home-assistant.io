@@ -5,7 +5,7 @@ ha_category:
   - Meter
   - Switch
 ha_iot_class: Cloud Push
-ha_release: 
+ha_release: 0.1
 ha_config_flow: true
 ha_domain: vconnex
 ha_codeowners:
