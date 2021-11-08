@@ -13,12 +13,14 @@ ha_platforms:
   - sensor
 ---
 
-`iammeter` provides real-time readings of single-phase (WEM3080, WEM3162) and three-phase (WEM3080T) meters from [IAMMETER](https://www.iammeter.com) over Wi-Fi.
+`IAMMETER` provides real-time readings of single-phase (WEM3080) and three-phase (WEM3080T) meters from [IAMMETER](https://www.iammeter.com/docs/homeassistant) over Wi-Fi.
+[Monitor your solar PV system with IAMMETER energy monitor in Home Assistant](https://community.home-assistant.io/t/monitor-your-solar-pv-system-in-home-assistant-energy-dashboard-vs-energy-management/342710)
 
 Example Lovelace Dashboard:
 
 <p class='img'>
-  <img src='/images/integrations/iammeter/demo.jpg' />
+  ![IAMMETER energy monitor in Home Assistant](https://iammeterglobal.oss-ap-southeast-1.aliyuncs.com/img/image-20211108143148254.png)
+  ![monitor the solar pv system in Home Assistant](https://iammeterglobal.oss-ap-southeast-1.aliyuncs.com/img/image-20211108143245427.png)
 </p>
 
 ## Configuration
@@ -72,7 +74,7 @@ Sensors available in the library:
 | wem3080t_power_a        | W    | A phase active power  |
 | wem3080t_importenergy_a | kWh  | A phase import energy |
 | wem3080t_exportgrid_a   | kWh  | A phase export energy |
-| wem3080t_frequency_a    | hz   | A phase frequency     |
+| wem3080t_frequency_a    | Hz   | A phase frequency     |
 | wem3080t_pf_a           |      | A phase power factor  |
 |                       |      |                |
 | wem3080t_voltage_b      | V    | B phase voltage       |
@@ -80,7 +82,7 @@ Sensors available in the library:
 | wem3080t_power_b        | W    | B phase active power  |
 | wem3080t_importenergy_b | kWh  | B phase import energy |
 | wem3080t_exportgrid_b   | kWh  | B phase export energy |
-| wem3080t_frequency_b    | hz   | B phase frequency     |
+| wem3080t_frequency_b    | Hz   | B phase frequency     |
 | wem3080t_pf_b           |      | B phase power factor  |
 |                       |      |                |
 | wem3080t_voltage_c      | V    | C phase voltage       |
@@ -88,5 +90,5 @@ Sensors available in the library:
 | wem3080t_power_c        | W    | C phase active power |
 | wem3080t_importenergy_c | kWh  | C phase import energy |
 | wem3080t_exportgrid_c   | kWh  | C phase export energy |
-| wem3080t_frequency_c    | hz   | C phase frequency |
+| wem3080t_frequency_c    | Hz   | C phase frequency |
 | wem3080t_pf_c           |      | C phase power factor |
