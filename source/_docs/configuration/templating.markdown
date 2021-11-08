@@ -357,6 +357,8 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 
 The `to_json` filter serializes an object to a JSON string. In some cases, it may be necessary to format a JSON string for use with a webhook, as a parameter for command-line utilities or any number of other applications. This can be complicated in a template, especially when dealing with escaping special characters. Using the `to_json` filter, this is handled automatically.
 
+Similarly to the Python equivalent, the filter accepts an `ensure_ascii` parameter, defaulting to `True`. If `ensure_ascii` is `True`, the output is guaranteed to have all incoming non-ASCII characters escaped. If `ensure_ascii` is false, these characters will be output as-is.
+
 The `from_json` filter operates similarly, but in the other direction, de-serializing a JSON string back into an object.
 
 ### To/From JSON examples
@@ -370,7 +372,7 @@ In this example, the special character '°' will be automatically escaped in ord
 ```text
 {% set temp = {'temperature': 25, 'unit': '°C'} %}
 stringified object: {{ temp }}
-object|to_json: {{ temp|to_json }}
+object|to_json: {{ temp|to_json(ensure_ascii=False) }}
 ```
 
 {% endraw %}
