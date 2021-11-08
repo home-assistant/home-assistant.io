@@ -529,6 +529,7 @@ source/_integrations/trafikverket_weatherstation.markdown @endor-force
 source/_integrations/transmission.markdown @engrbm87 @JPHutchins
 source/_integrations/tts.markdown @pvizeli
 source/_integrations/tuya.markdown @Tuya @zlinoliver @METISU @frenck
+source/_integrations/vconnex.markdown
 source/_integrations/twentemilieu.markdown @frenck
 source/_integrations/twinkly.markdown @dr1rrb
 source/_integrations/ubus.markdown @noltari
