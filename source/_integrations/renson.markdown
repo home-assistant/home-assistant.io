@@ -1,3 +1,4 @@
+The integration can be configured using the UI and this is the required method to configure the integration.
 ---
 title: Renson
 description: Instructions on how to integrate Renson Endura Delta sensors into Home Assistant.
