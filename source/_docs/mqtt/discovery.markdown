@@ -10,6 +10,7 @@ Supported by MQTT discovery:
 
 - [Alarm control panels](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensors](/integrations/binary_sensor.mqtt/)
+- [Buttons](/integrations/button.mqtt/)
 - [Cameras](/integrations/camera.mqtt/)
 - [Covers](/integrations/cover.mqtt/)
 - [Device Trackers](/integrations/device_tracker.mqtt/)
