@@ -483,7 +483,7 @@ If the device supports gps coordinates then they can be sent to Home Assistant b
  }
 ```
 
-### Used object_id to generate the entity id
+### Use object_id to influence the entity id
 
 
 The entity id is automatically generated from the entity's name. All MQTT entity components optionally support providing an `object_id` which will be used instead if provided.
