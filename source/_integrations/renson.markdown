@@ -1,5 +1,5 @@
 ---
-title: Renson Endura Delta
+title: Renson
 description: Instructions on how to integrate Renson Endura Delta sensors into Home Assistant.
 ha_category:
   - Sensor
@@ -30,7 +30,7 @@ To enable Integration Sensor in your installation, add the following to your `co
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: reson_endura_delta
+  - platform: renson
     host: HOST
 ```
 
