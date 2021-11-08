@@ -488,14 +488,14 @@ If the device supports gps coordinates then they can be sent to Home Assistant b
 
 The entity id is automatically generated from the entity's name. All MQTT entity components optionally support providing an `object_id` which will be used instead if provided.
 
-- Configuration topic: `homeassistant/sensor/devive1/config`
+- Configuration topic: `homeassistant/sensor/device1/config`
 - Example configuration payload:
 
 ```json
 {
   "name":"My Super Device",
   "object_id":"device1",
-  "state_topic": "homeassistant/sensor/devive1/state",
+  "state_topic": "homeassistant/sensor/device1/state",
  }
 ```
 
