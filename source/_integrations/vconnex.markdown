@@ -39,7 +39,6 @@ Integrate Vconnex devices into Home Assistant.
 ### GET AUTHORIZATION KEY
 
 Click the created project to enter the Project page and get the Authorization Key. You will need these for setting up the integration. in the next step.
-    
     ![](/images/integrations/vconnex/detail.png)
 
 {% include integrations/config_flow.md %}
