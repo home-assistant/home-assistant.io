@@ -1,6 +1,6 @@
 ---
 title: Dyson
-description: Instructions on how to integrate Dyson into Home Assistant.
+description: "Instructions on how to integrate Dyson into Home Assistant. NOTE: Dyson integration has been broken since 2021.2 (see https://github.com/home-assistant/core/issues/46400), there are 3rd party components that can connect with Dyson devices in HACS"
 ha_category:
   - Hub
   - Climate
