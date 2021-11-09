@@ -54,6 +54,10 @@ availability_mode:
    required: false
    type: string
    default: latest
+command_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic`.
+  required: false
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the selected option.
   required: true
@@ -123,6 +127,10 @@ json_attributes_topic:
   type: string
 name:
   description: The name of the Select.
+  required: false
+  type: string
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
   required: false
   type: string
 optimistic:

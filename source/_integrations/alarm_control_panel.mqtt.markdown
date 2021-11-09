@@ -157,6 +157,10 @@ name:
   required: false
   type: string
   default: MQTT Alarm
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 payload_arm_away:
   description: The payload to set armed-away mode on your Alarm Panel.
   required: false

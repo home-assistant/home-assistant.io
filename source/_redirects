@@ -738,7 +738,6 @@
 /components/sensor.influxdb /integrations/influxdb#sensor
 /components/sensor.insteon /integrations/insteon
 /components/sensor.integration /integrations/integration
-/components/sensor.iota /integrations/iota#sensor
 /components/sensor.iperf3 /integrations/iperf3
 /components/sensor.irish_rail_transport /integrations/irish_rail_transport
 /components/sensor.islamic_prayer_times /integrations/islamic_prayer_times
@@ -1440,7 +1439,6 @@
 /components/integration /integrations/integration
 /components/intent_script /integrations/intent_script
 /components/ios /integrations/ios
-/components/iota /integrations/iota
 /components/iperf3 /integrations/iperf3
 /components/ipma /integrations/ipma
 /components/iqvia /integrations/iqvia
@@ -2348,4 +2346,7 @@
 /integrations/nello /more-info/removed-integration 301
 /components/device_tracker.huawei_router /more-info/removed-integration 301
 /integrations/huawei_router /more-info/removed-integration 301
+/components/sensor.iota /more-info/removed-integration 301
+/components/iota /more-info/removed-integration 301
+/integrations/iota /more-info/removed-integration 301
 
