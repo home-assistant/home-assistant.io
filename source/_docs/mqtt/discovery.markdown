@@ -164,7 +164,6 @@ Supported abbreviations:
     'mode_stat_t':         'mode_state_topic',
     'modes':               'modes',
     'name':                'name',
-    'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
     'opt':                 'optimistic',
@@ -482,22 +481,3 @@ If the device supports gps coordinates then they can be sent to Home Assistant b
   "gps_accuracy": 1.2
  }
 ```
-
-### Use object_id to influence the entity id
-
-
-The entity id is automatically generated from the entity's name. All MQTT entity components optionally support providing an `object_id` which will be used instead if provided.
-
-- Configuration topic: `homeassistant/sensor/device1/config`
-- Example configuration payload:
-
-```json
-{
-  "name":"My Super Device",
-  "object_id":"device1",
-  "state_topic": "homeassistant/sensor/device1/state",
- }
-```
-
-In the example above, the the entity_id will be `sensor.device1` instead of `sensor.my_super_device`.
-

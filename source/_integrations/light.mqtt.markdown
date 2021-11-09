@@ -230,10 +230,6 @@ name:
   required: false
   type: string
   default: MQTT Light
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 on_command_type:
   description: "Defines when on the payload_on is sent. Using `last` (the default) will send any style (brightness, color, etc) topics first and then a `payload_on` to the `command_topic`. Using `first` will send the `payload_on` and then any style topics. Using `brightness` will only send brightness commands instead of the `payload_on` to turn the light on."
   required: false
@@ -592,10 +588,6 @@ name:
   required: false
   type: string
   default: MQTT JSON Light
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
@@ -936,10 +928,6 @@ name:
   required: false
   type: string
   default: MQTT Template Light
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
