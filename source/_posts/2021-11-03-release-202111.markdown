@@ -62,6 +62,7 @@ Enjoy the release!
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.11.1 - November 5](#release-2021111---november-5)
+- [Release 2021.11.2 - November 9](#release-2021112---november-9)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -399,6 +400,78 @@ The following integrations are now available via the Home Assistant UI:
 [sharkiq docs]: /integrations/sharkiq/
 [velbus docs]: /integrations/velbus/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
+
+## Release 2021.11.2 - November 9
+
+- Bump total_connect_client to 2021.11.2 ([@austinmroczek] - [#58818]) ([totalconnect docs])
+- Adjust frag_duration setting in stream ([@uvjustin] - [#59135]) ([stream docs])
+- Bump flux_led to 0.24.15 ([@bdraco] - [#59159]) ([flux_led docs])
+- Bump aioguardian to 2021.11.0 ([@bachya] - [#59161]) ([guardian docs])
+- Guard against flaky SimpliSafe API calls ([@bachya] - [#59175]) ([simplisafe docs])
+- Guard against missing data in ReCollect Waste ([@bachya] - [#59177]) ([recollect_waste docs])
+- Change ReCollect Waste device class to date ([@bachya] - [#59180]) ([recollect_waste docs])
+- bump aioshelly to 1.0.4 ([@mib1185] - [#59209]) ([shelly docs])
+- Bump flux_led to 0.24.17 ([@bdraco] - [#59211]) ([flux_led docs])
+- Fix tradfri group reachable access ([@janiversen] - [#59217]) ([tradfri docs])
+- Increase timeout for fetching camera data on Synology DSM ([@mib1185] - [#59237]) ([synology_dsm docs])
+- Add Battery sensor regardless if the battery_percent_remaining attribute is supported or not ([@Adminiuga] - [#59264]) ([zha docs])
+- Fix condition for fritz integration ([@chemelli74] - [#59281]) ([fritz docs])
+- Remove illuminance sensor ([@bieniu] - [#59305]) ([xiaomi_miio docs])
+- Revert "Use DeviceInfo in shelly (#58520)" ([@thecode] - [#59315]) ([shelly docs])
+- Support generic xiaomi_miio vacuums ([@OGKevin] - [#59317]) ([xiaomi_miio docs])
+- Bump paho-mqtt to 1.6.1 ([@emontnemery] - [#59339]) ([mqtt docs]) ([shiftr docs])
+- Bump velbusaio to 2021.11.6 ([@Cereal2nd] - [#59353]) ([velbus docs])
+- Update frontend to 20211108.0 ([@bramkragten] - [#59364]) ([frontend docs])
+
+[#58818]: https://github.com/home-assistant/core/pull/58818
+[#59135]: https://github.com/home-assistant/core/pull/59135
+[#59159]: https://github.com/home-assistant/core/pull/59159
+[#59161]: https://github.com/home-assistant/core/pull/59161
+[#59175]: https://github.com/home-assistant/core/pull/59175
+[#59177]: https://github.com/home-assistant/core/pull/59177
+[#59180]: https://github.com/home-assistant/core/pull/59180
+[#59209]: https://github.com/home-assistant/core/pull/59209
+[#59211]: https://github.com/home-assistant/core/pull/59211
+[#59217]: https://github.com/home-assistant/core/pull/59217
+[#59237]: https://github.com/home-assistant/core/pull/59237
+[#59264]: https://github.com/home-assistant/core/pull/59264
+[#59281]: https://github.com/home-assistant/core/pull/59281
+[#59305]: https://github.com/home-assistant/core/pull/59305
+[#59315]: https://github.com/home-assistant/core/pull/59315
+[#59317]: https://github.com/home-assistant/core/pull/59317
+[#59339]: https://github.com/home-assistant/core/pull/59339
+[#59353]: https://github.com/home-assistant/core/pull/59353
+[#59364]: https://github.com/home-assistant/core/pull/59364
+[@Adminiuga]: https://github.com/Adminiuga
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@OGKevin]: https://github.com/OGKevin
+[@austinmroczek]: https://github.com/austinmroczek
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@emontnemery]: https://github.com/emontnemery
+[@janiversen]: https://github.com/janiversen
+[@mib1185]: https://github.com/mib1185
+[@thecode]: https://github.com/thecode
+[@uvjustin]: https://github.com/uvjustin
+[flux_led docs]: /integrations/flux_led/
+[fritz docs]: /integrations/fritz/
+[frontend docs]: /integrations/frontend/
+[guardian docs]: /integrations/guardian/
+[mqtt docs]: /integrations/mqtt/
+[recollect_waste docs]: /integrations/recollect_waste/
+[shelly docs]: /integrations/shelly/
+[shiftr docs]: /integrations/shiftr/
+[simplisafe docs]: /integrations/simplisafe/
+[stream docs]: /integrations/stream/
+[synology_dsm docs]: /integrations/synology_dsm/
+[totalconnect docs]: /integrations/totalconnect/
+[tradfri docs]: /integrations/tradfri/
+[velbus docs]: /integrations/velbus/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zha docs]: /integrations/zha/
 
 ## If you need help...
 
