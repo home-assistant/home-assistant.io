@@ -195,25 +195,37 @@ local_ip:
 
 ```yaml
 knx:
-  event_filter: 
-    - "1/0/*"
-    - "6/2,3,4-6/*"
+  event:
+    - address:
+        - "0/1/*"
+    - address:
+        - "1/2/*"
+        - "1/3/2-4"
+      type: "2byte_unsigned"
+    - address:
+        - "3/4/5"
+      type: "2byte_float"
 ```
 
 {% configuration %}
-event_filter:
-  description: Defines a list of patterns for filtering KNX group addresses. Telegrams with destination addresses matching this pattern are sent to the Home Assistant event bus as `knx_event`.
-  required: false
+address:
+  description: Defines a list of patterns for matching KNX group addresses. Telegrams with destination addresses matching one of the patterns are sent to the Home Assistant event bus as `knx_event`.
+  required: true
   type: [list, string]
+type:
+  description: Telegram payloads in `knx_event` events will be decoded using the configured type (DPT) for the addresses in the same block. The decoded value will be written to the event data `value` key. If not configured the `value` key will be `None` - the `data` key will still hold the raw payload (use this for DPT 1, 2, 3). All sensor types are valid types - see [KNX Sensor](#sensor) (e.g., "2byte_float" or "1byte_signed").
+  type: [string, integer]
+  required: false
 {% endconfiguration %}
 
-Every telegram that matches the filter with its destination field will be announced on the event bus as a `knx_event` event containing data attributes
+Every telegram that matches an address pattern with its destination field will be announced on the event bus as a `knx_event` event containing data attributes
 
 - `data` contains the raw payload data (e.g., 1 or "[12, 55]").
 - `destination` the KNX group address the telegram is sent to as string (e.g., "1/2/3).
 - `direction` the direction of the telegram as string ("Incoming" / "Outgoing").
 - `source` the KNX individual address of the sender as string (e.g., "1.2.3").
 - `telegramtype` the APCI service of the telegram. "GroupValueWrite", "GroupValueRead" or "GroupValueResponse" generate a knx_event.
+- `value` contains the decoded payload value if `type` is configured for the address. Will be `None` for "GroupValueRead" telegrams.
 
 ## Services
 
@@ -289,7 +301,7 @@ automation:
 
 ### Register Event
 
-The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses matching the `event_filter` attribute in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
+The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses configured in the `event` key in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
 
 {% configuration %}
 address:
@@ -301,6 +313,10 @@ remove:
   required: false
   type: boolean
   default: false
+type:
+  description: If set, the payload will be decoded as given DPT in the event data `value` key. KNX sensor types are valid values [KNX Sensor](#sensor) (e.g., "2byte_float" or "1byte_signed").
+  type: [string, integer]
+  required: false
 {% endconfiguration %}
 
 ### Register Exposure
