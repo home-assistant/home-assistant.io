@@ -9,7 +9,7 @@
 
 # Redirect for Energy
 /energy /home-energy-management
-/integrations/energy /docs/energy
+/integrations/energy /docs/energy forced=true
 
 /amber https://www.crowdsupply.com/nabu-casa/home-assistant-amber
 
