@@ -565,7 +565,7 @@ payload_length:
 value:
   description: The value that shall be sent encoded by `type`.
   required: false
-  type: [int, float, string]
+  type: [integer, float, string]
 type:
   description: A type from the [value types table](/integrations/knx/#value-types) to encode the configured `value`.
   required: false
