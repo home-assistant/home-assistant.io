@@ -515,6 +515,12 @@ There is no automatic migration wizard for the `ozw` integration. Please follow 
 
 2) Remove the Z-Wave integration from Home Assistant: Configuration --> Integrations --> Z-Wave (or OpenZWave) --> Press the three dots and click Delete.
 
+    <div class='note info'>
+
+    If you have configured Z-Wave manually, make sure to also remove the `zwave:` section from your `configuration.yaml`.
+
+    </div>
+ 
 3) If you were running the OpenZWave beta, make sure to stop (or even remove) the OpenZWave add-on, also make sure it doesn't start automatically at startup.
 
 4) Restart your Home Assistant host. This step is important to make sure that your Z-Wave stick is released by the operating system.
