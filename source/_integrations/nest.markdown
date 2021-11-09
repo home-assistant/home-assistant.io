@@ -94,7 +94,6 @@ your cloud project.
 1. Go to the [Google API Console](https://console.developers.google.com/apis/credentials).
 
 1. Click [OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent) and configure it.
-    ![Screenshot of OAuth consent screen creation](/images/integrations/nest/oauth_consent_create.png)
 
 1. Select **External** (the only choice if you are not a G-Suite user) then click **Create**. While you are here, you may click the *Let us know what you think* to give Google's OAuth team any feedback about your experience configuring credentials for self-hosted software. They make regular improvements to this flow and appear to value feedback.
     ![Screenshot of OAuth consent screen creation](/images/integrations/nest/oauth_consent_create.png)
@@ -108,10 +107,11 @@ your cloud project.
 
 1. Navigate back to the *OAuth consent screen* and click **Publish App** to set the *Publishing status* is **In Production**.
 
-1. Make sure the status is not *Testing*, or you may get logged out every 7 days.
+    ![Screenshot of OAuth consent screen production status](/images/integrations/nest/oauth_consent_production_status.png)
 
 1. The warning says your *app will be available to any user with a Google Account* which refers to the fields you entered on the *App Information* screen if someone finds the URL. This does not expose your Google Account or Nest data.
-    ![Screenshot of OAuth consent screen production status](/images/integrations/nest/oauth_consent_production_status.png)
+
+1. Make sure the status is not *Testing*, or you will get logged out every 7 days.
 
 {% enddetails %}
 
@@ -130,9 +130,6 @@ The steps below use *Desktop App* auth since your Home Assistant instance is not
 1. Enter *Desktop App* for the Application type.
 
 1. Pick a name for your credential.
-
-1. Add **Authorized redirect URIs** for your Home Assistant URL, including the OAuth callback path e.g., `https://<your_home_assistant_url>:<port>/auth/external/callback`. See [Troubleshooting](#troubleshooting) below for more details on the subtle requirements for what kinds of URLs work here.
-    ![Screenshot of creating OAuth credentials](/images/integrations/nest/oauth_redirect_uri.png)
 
 1. You should now be presented with an *OAuth client created* message. Take note of *Your Client ID* and *Your Client
 Secret* as these are needed in later steps.
@@ -157,7 +154,6 @@ configure Pub/Sub.
     </div>
 
 1. Now the [Device Access Console](https://console.nest.google.com/device-access/project-list) should be visible. Click on **Create project**.
-    ![Screenshot of creating a project](/images/integrations/nest/create_project.png)
 
 1. Give your Device Access project a name and click **Next**.
     ![Screenshot of naming a project](/images/integrations/nest/project_name.png)
