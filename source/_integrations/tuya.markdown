@@ -126,7 +126,7 @@ Click the created project to enter the `Project Overview` page and get the `Auth
 
 "2406: skill id invalid":
   description: >
-    - Make sure you use the **Tuya Smart** or **SmartLife** app account to log in. Also, choose the right data center endpoint related to your country region. For more details, please check [Country Regions and Data Center](https://github.com/tuya/tuya-home-assistant/blob/master/docs/regions_dataCenters.md). 
+    - Make sure you use the **Tuya Smart** or **SmartLife** app account to log in. Also, choose the right data center endpoint related to your country region. For more details, please check [Country Regions and Data Center](https://github.com/tuya/tuya-home-assistant/blob/main/docs/regions_dataCenters.md). 
     
     - Your cloud project on the [Tuya IoT Development Platform](https://iot.tuya.com) should be created after May 25, 2021. Otherwise, you need to create a new project. 
 
@@ -149,7 +149,7 @@ Click the created project to enter the `Project Overview` page and get the `Auth
 ## Related Documents
 
 - [Tuya Integration Documentation Page](https://github.com/tuya/tuya-home-assistant)
-- [Supported Tuya Device Category](https://github.com/tuya/tuya-home-assistant/blob/master/docs/supported_devices.md)
-- [Error Code and Troubleshooting](https://github.com/tuya/tuya-home-assistant/blob/master/docs/error_code.md)
-- [Countries/Regions and Tuya Data Center](https://github.com/tuya/tuya-home-assistant/blob/master/docs/regions_dataCenters.md)
-- [FAQs](https://github.com/tuya/tuya-home-assistant/blob/master/docs/faq.md)
+- [Supported Tuya Device Category](https://github.com/tuya/tuya-home-assistant/blob/main/docs/supported_devices.md)
+- [Error Code and Troubleshooting](https://github.com/tuya/tuya-home-assistant/blob/main/docs/error_code.md)
+- [Countries/Regions and Tuya Data Center](https://github.com/tuya/tuya-home-assistant/blob/main/docs/regions_dataCenters.md)
+- [FAQs](https://github.com/tuya/tuya-home-assistant/blob/main/docs/faq.md)
