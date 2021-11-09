@@ -12,7 +12,7 @@ The `mqtt` button platform lets you send an MQTT message when the button is pres
 
 ## Configuration
 
-```button
+```yaml
 # Example configuration.yaml entry
 button:
   - platform: mqtt
