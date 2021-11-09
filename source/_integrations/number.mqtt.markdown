@@ -131,6 +131,10 @@ name:
   description: The name of the Number.
   required: false
   type: string
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 optimistic:
   description: Flag that defines if number works in optimistic mode.
   required: false

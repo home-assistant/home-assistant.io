@@ -140,6 +140,10 @@ name:
   required: false
   type: string
   default: MQTT Vacuum
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -395,6 +399,10 @@ name:
   required: false
   type: string
   default: MQTT Vacuum
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 payload_available:
   description: The payload that represents the available state.
   required: false
