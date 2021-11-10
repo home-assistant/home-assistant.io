@@ -111,6 +111,7 @@ current_minor_version: 10
 current_patch_version: 7
 date_released: 2021-11-01
 
+
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
 # Major release:
