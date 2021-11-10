@@ -3,6 +3,7 @@ title: Legrand Home+ Control
 description: Instructions on how to integrate Legrand Home+ Control into Home Assistant.
 ha_category:
   - Switch
+  - Cover
 ha_release: 2021.4
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -11,6 +12,7 @@ ha_config_flow: true
 ha_domain: home_plus_control
 ha_platforms:
   - switch
+  - cover
 ---
 
 The Home+ Control integration platform allows you to control a range of Legrand in-wall switches and power outlets that have smart home functionality thanks to their "with Netatmo" capabilities.
@@ -21,14 +23,14 @@ The devices that this API can manage are offered in different designs across dif
 
 This Home+ Control integration for Home Assistant currently has support for the following devices:
 
-- Light switches
-- Power outlets
-
-In both cases, the devices are modeled as on/off switches within Home Assistant.
+- Light switches (on/off switches within Home Assistant)
+- Power outlets (on/off switches within Home Assistant)
+- Covers
 
 This integration has been tested to work with the following range of Legrand products
 
 - Valena Next™ with Netatmo
+- iDiamant™ with Netatmo
 
 This integration has also been tested to work with the following range of BTicino products
 
@@ -83,8 +85,9 @@ Within the context of the Home+ Control API you may come across the following te
 - *Module*: This is the term used to represent a generic device within the *plant*, i.e., a light, a plug, a remote, etc.
 - *Light*: This is the term used to represent a light switch (or a micro-module). It is not modeled as your usual light entity because there are no brightness, color, etc. controls. It is modeled as an on/off switch.
 - *Plug*: This is the term used to represent a power outlet.
+- *Automations*: This the term used to represent covers.
 
-Other devices that are mentioned in the API, but that are not currently supported by this integration are: *remotes* (wireless switches), *heaters* and *automations*.
+Other devices that are mentioned in the API, but that are not currently supported by this integration are: *remotes* (wireless switches), *heaters*.
 
 ## API Limitations
 
