@@ -172,3 +172,23 @@ data:
           *Average Rating*
           1.0
 ```
+
+Send a message directly to a user by setting the target to their member ID. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
+
+```yaml
+message: "Hello there!"
+target: "U12345"
+title: "Hi"
+data:
+  blocks: []
+```
+
+Send a message to a channel that mentions (@username, highlights a users name in yellow) a user. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
+
+```yaml
+message: "<@U12345> your appointment starts soon"
+target: "#general"
+title: "Reminder"
+data:
+  blocks: []
+```

@@ -537,7 +537,7 @@ configuration method. Please see the cast documentation on how to set this up.
   <summary><b>Cloudflare</b></summary>
   <p>
 
-Cloudflare is now available exclusively via the Integrations UI. This means its
+Cloudflare is now available exclusively via the Integrations UI. This means it's
 no longer configured in YAML. Existing configurations are not imported as API
 Tokens are now used to authenticate. Refer to integration documentation on how
 to setup via UI.

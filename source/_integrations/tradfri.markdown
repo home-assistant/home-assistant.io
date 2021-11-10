@@ -15,10 +15,10 @@ ha_domain: tradfri
 ha_homekit: true
 ha_platforms:
   - cover
+  - fan
   - light
   - sensor
   - switch
-  - fan
 ha_codeowners:
   - '@janiversen'
 ---
