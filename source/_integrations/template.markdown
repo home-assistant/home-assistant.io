@@ -117,7 +117,7 @@ sensor:
       type: string
       default: None
     state_class:
-      description: "Defines the state class of the sensor, if any. Only possible value currently is `measurement`. Set this if your template sensor represents a measurement of the current value (so not a daily aggregate etc)."
+      description: "Defines the state class of the sensor, if any. Only possible value currently is `measurement`. Set this if your template sensor represents a measurement of the current value (so not a daily aggregate etc). This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value." 
       required: false
       type: string
       default: None
@@ -673,7 +673,7 @@ sensor:
         required: false
         type: string
       unit_of_measurement:
-        description: "Defines the units of measurement of the sensor, if any. This will also display the value based on the user profile Number Format setting and also influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
+        description: "Defines the units of measurement of the sensor, if any. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
         required: false
         type: string
         default: None
