@@ -14,13 +14,12 @@ ha_platforms:
 ---
 
 `IAMMETER` provides real-time readings of single-phase (WEM3080) and three-phase (WEM3080T) meters from [IAMMETER](https://www.iammeter.com/docs/homeassistant) over Wi-Fi.
-[Monitor your solar PV system with IAMMETER energy monitor in Home Assistant](https://community.home-assistant.io/t/monitor-your-solar-pv-system-in-home-assistant-energy-dashboard-vs-energy-management/342710)
 
 Example Lovelace Dashboard:
 
 <p class='img'>
-  ![IAMMETER energy monitor in Home Assistant](https://iammeterglobal.oss-ap-southeast-1.aliyuncs.com/img/image-20211108143148254.png)
-  ![monitor the solar pv system in Home Assistant](https://iammeterglobal.oss-ap-southeast-1.aliyuncs.com/img/image-20211108143245427.png)
+<img src='/images/integrations/iammeter/energy-monitor-Home Assistant.png' />
+<img src='/images/integrations/iammeter/solar-pv-monitoring-home-assistant.png' />
 </p>
 
 ## Configuration
