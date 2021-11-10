@@ -13,7 +13,9 @@ ha_platforms:
   - binary_sensor
 ---
 
-The Uptime Kuma integration exposes the Uptime Kuma `/metrics` endpoint information in Home Assistant.
+Uptime Kuma is a self-hosted monitoring tool like "Uptime Robot" that is used to monitor the status of almost any network connected service.
+
+For information about how to setup your own Uptime Kuma instance, visit the [GitHub page](https://github.com/louislam/uptime-kuma).
 
 ![](/images/screenshots/uptime_kuma_sensor_history.png)
 
