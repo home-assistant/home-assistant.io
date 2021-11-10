@@ -131,6 +131,7 @@ The Toon integration provides the following sensors:
 - Gas Cost Today
 - Gas Meter
 - Gas Usage Today
+- Humidity*
 - Max Solar Power Production Today (only with solar module)
 - Solar Energy Produced Today (only with solar module)
 - Solar Power Production to Grid (only with solar module)
