@@ -74,7 +74,7 @@ homeassistant:
 
 {% configuration %}
 trusted_networks:
-  description: A list of IP address or IP network you want to whitelisted. It accepts both IPv4 and IPv6 IP address or network
+  description: A list of IP addresses or networks you want whitelisted. It accepts both IPv4 and IPv6.
   required: true
   type: list
 trusted_users:
@@ -139,6 +139,8 @@ homeassistant:
 ```
 
 Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, then you can change to use Home Assistant Authentication Provider to login, if you access your Home Assistant instance from outside network.
+
+Setting `trusted_networks` to  `0.0.0.0/0` or `::/0` allows `allow_bypass_login` to be enabled without needing to define a specific list of addresses. This is useful in the case of an authentication proxy (e.g. [authelia](https://www.authelia.com/)) fronting home assistant.
 
 ### Command Line
 
