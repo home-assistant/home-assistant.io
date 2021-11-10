@@ -13,7 +13,7 @@ ha_platforms:
   - binary_sensor
 ---
 
-Uptime Kuma is a self-hosted monitoring tool like "Uptime Robot" that is used to monitor the status of almost any network connected service.
+Uptime Kuma is a self-hosted monitoring tool like "[UptimeRobot](/integrations/uptimerobot)" that is used to monitor the status of almost any network-connected service.
 
 For information about how to setup your own Uptime Kuma instance, visit the [GitHub page](https://github.com/louislam/uptime-kuma).
 
