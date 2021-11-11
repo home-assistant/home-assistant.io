@@ -14,7 +14,7 @@ ha_platforms:
   - sensor
 ---
 
-The Tautulli integration will monitor activity on a given [Tautulli Server][tautulli]. It will create a service with a sensor that shows the number of currently active streams as the state. If you click the sensor for more details, it will show you more statistics.
+The Tautulli integration will monitor activity on a given [Tautulli Server][tautulli]. It will create a sensor that shows the number of currently active streams as the state. If you click the sensor for more details, it will show you more statistics.
 
 ## Setup
 
