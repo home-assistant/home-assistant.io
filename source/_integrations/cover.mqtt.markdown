@@ -141,6 +141,10 @@ name:
   required: false
   type: string
   default: MQTT Cover
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 optimistic:
   description: Flag that defines if switch works in optimistic mode.
   required: false

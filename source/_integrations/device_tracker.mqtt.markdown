@@ -165,6 +165,10 @@ name:
   description: The name of the MQTT device_tracker.
   required: false
   type: string
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -210,7 +214,7 @@ value_template:
 
 ## Discovery Example
 
-You can use the discovery protocol to create a new device tracker and set it's state using the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
+You can use the discovery protocol to create a new device tracker and set its state using the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
 To create the device_tracker:
 

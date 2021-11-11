@@ -187,7 +187,7 @@ If you have issues checkout `home-assistant.log` in the configuration directory 
 
 ## Debugging configuration files
 
-If you have many configuration files, Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has it's own section in the common-tasks about this:
+If you have many configuration files, Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has its own section in the common-tasks about this:
 
 - [Operating System](/common-tasks/os/#configuration-check)
 - [Container](/common-tasks/container/#configuration-check)

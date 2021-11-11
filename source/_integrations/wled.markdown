@@ -15,6 +15,7 @@ ha_domain: wled
 ha_zeroconf: true
 ha_platforms:
   - light
+  - number
   - sensor
   - select
   - switch

@@ -4,6 +4,7 @@ description: Instructions on how to integrate KNX components with Home Assistant
 ha_category:
   - Hub
   - Binary Sensor
+  - Button
   - Climate
   - Cover
   - Fan
@@ -25,6 +26,7 @@ ha_domain: knx
 ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - fan
@@ -51,6 +53,7 @@ Please note, the KNX platform does not support KNX Secure.
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
+- [Button](#button)
 - [Climate](#climate)
 - [Cover](#cover)
 - [Fan](#fan)
@@ -505,6 +508,73 @@ action:
   description: Specify a list of actions analog to the [automation rules](/docs/automation/action/).
   required: false
   type: list
+{% endconfiguration %}
+
+## Button
+
+The KNX button platform allows to send concurrent predefined values via the frontend or a platform service. When a user presses the button, the assigned generic raw payload is sent to the KNX bus.
+
+<div class='note'>
+
+Telegrams received on the KNX bus for the group address of a button are not reflected in a new button state. Use `knx_event` if you want to automate on a specific payload received on a group address.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  button:
+    - name: "DPT 1 - True button"
+      address: "0/0/1"
+    - name: "100% button"
+      address: "0/0/2"
+      payload: 0xFF
+      payload_length: 1
+    - name: "Temperature button"
+      address: "0/0/3"
+      value: 21.5
+      type: temperature
+```
+
+<div class='note'>
+
+When `type` is used `value` is required, `payload` is invalid.
+When `payload_length` is used `value` is invalid.
+
+</div>
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address to send to.
+  required: true
+  type: [string, list]
+payload:
+  description: The raw payload that shall be sent.
+  required: false
+  type: integer
+  default: 1
+payload_length:
+  description: The length of the payload data in the telegram. Use `0` for DPT 1, 2 or 3.
+  required: false
+  type: integer
+  default: 0
+value:
+  description: The value that shall be sent encoded by `type`.
+  required: false
+  type: [integer, float, string]
+type:
+  description: A type from the [value types table](/integrations/knx/#value-types) to encode the configured `value`.
+  required: false
+  type: [string, integer]
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Climate

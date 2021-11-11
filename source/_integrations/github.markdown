@@ -38,7 +38,7 @@ access_token:
   required: true
   type: string
 url:
-  description: If you are using a GitHub Enterprise server, add it's URL here. For example, `https://mygithubserver.com`
+  description: If you are using a GitHub Enterprise server, add its URL here. For example, `https://mygithubserver.com`
   required: false
   type: string
 repositories:

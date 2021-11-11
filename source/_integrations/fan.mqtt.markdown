@@ -132,6 +132,10 @@ name:
   required: false
   type: string
   default: MQTT Fan
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 optimistic:
   description: Flag that defines if fan works in optimistic mode
   required: false

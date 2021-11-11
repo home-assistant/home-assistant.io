@@ -551,7 +551,7 @@ modbus:
         scan_interval: 10
 ```
 
-### Example: Modbus cover controlled by a coil, it's state is read from the register
+### Example: Modbus cover controlled by a coil, its state is read from the register
 
 This example shows a configuration for a Modbus cover controlled using a coil. Actual cover state is read from the `status_register`. We've also specified register values to match with the states open/opening/closed/closing. The cover state is polled from Modbus every 10 seconds.
 
@@ -597,7 +597,7 @@ modbus:
         state_closed: 4
 ```
 
-### Example: Modbus cover controlled by a holding register, it's state is read from the status register
+### Example: Modbus cover controlled by a holding register, its state is read from the status register
 
 This example shows a configuration for a Modbus cover controlled using a holding register. However, cover state is read from a `status_register`. In this case, we've specified only values for `state_open` and `state_closed`, for the rest, default values are used. The cover state is polled from Modbus every 10 seconds.
 

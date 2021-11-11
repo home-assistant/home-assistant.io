@@ -12,8 +12,8 @@ ha_platforms:
 ha_release: 0.95
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@michaeldavie'
   - '@gwww'
+  - '@michaeldavie'
 ha_domain: environment_canada
 ha_config_flow: true
 ---
