@@ -535,6 +535,7 @@ source/_integrations/uptimerobot.markdown @ludeeus
 source/_integrations/usb.markdown @bdraco
 source/_integrations/usgs_earthquakes_feed.markdown @exxamalte
 source/_integrations/utility_meter.markdown @dgomes
+source/_integrations/vconnex.markdown @Vconnex
 source/_integrations/velbus.markdown @Cereal2nd @brefra
 source/_integrations/velux.markdown @Julius2342
 source/_integrations/vera.markdown @pavoni
