@@ -11,18 +11,17 @@ ha_codeowners:
   - '@lewei50'
 ha_platforms:
   - sensor
+
 ---
 
-`IAMMETER` provides real-time readings of single-phase (WEM3080) and three-phase (WEM3080T) meters from [IAMMETER](https://www.iammeter.com/docs/homeassistant) over Wi-Fi.
+`IAMMETER` provides real-time readings of single-phase energy meter([WEM3080](https://www.iammeter.com/products/single-phase-meter)) and three-phase energy meter ([WEM3080T](https://www.iammeter.com/products/three-phase-meter)) from [IAMMETER](https://www.iammeter.com/docs/homeassistant) over Wi-Fi.
 
-Example Lovelace Dashboard:
 
-<p class='img'>
-<img src='/images/integrations/iammeter/energy-monitor-Home Assistant.png' />
-<img src='/images/integrations/iammeter/solar-pv-monitoring-home-assistant.png' />
-</p>
 
-## Configuration
+
+
+
+# Configuration
 
 To use this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -50,32 +49,32 @@ name:
   default: IamMeter
 {% endconfiguration %}
 
-## Sensors
+# Sensors
 
 Sensors available in the library:
 
-### Single-phase energy meter (WEM3080/WEM3162)
+## Single-phase energy meter (WEM3080/WEM3162)
 
-| name               | Unit | Description                                           |
-|--------------------|------|:-----------------------------------------------------------------------------|
-| wem3080_voltage       | V    | Voltage.                                     |
-| wem3080_current       | A    | current.                                           |
-| wem3080_power         | W    | active power.                                    |
-| wem3080_importenergy  | kWh  | Energy consumption from grid |
-| wem3080_exportgrid    | kWh  | Energy export to grid    |
+| name                 | Unit | Description                  |
+| -------------------- | ---- | :--------------------------- |
+| wem3080_voltage      | V    | Voltage.                     |
+| wem3080_current      | A    | current.                     |
+| wem3080_power        | W    | active power.                |
+| wem3080_importenergy | kWh  | Energy consumption from grid |
+| wem3080_exportgrid   | kWh  | Energy export to grid        |
 
-### Three-phase energy meter (WEM3080T)
+## Three-phase energy meter (WEM3080T)
 
-| name               | Unit | Description                                           |
-|--------------------|------|:-----------------------------------------------------------------------------|
+| name                    | Unit | Description           |
+| ----------------------- | ---- | :-------------------- |
 | wem3080t_voltage_a      | V    | A phase voltage       |
-| wem3080t_current_a      | A    | A phase current |
+| wem3080t_current_a      | A    | A phase current       |
 | wem3080t_power_a        | W    | A phase active power  |
 | wem3080t_importenergy_a | kWh  | A phase import energy |
 | wem3080t_exportgrid_a   | kWh  | A phase export energy |
 | wem3080t_frequency_a    | Hz   | A phase frequency     |
 | wem3080t_pf_a           |      | A phase power factor  |
-|                       |      |                |
+|                         |      |                       |
 | wem3080t_voltage_b      | V    | B phase voltage       |
 | wem3080t_current_b      | A    | B phase current       |
 | wem3080t_power_b        | W    | B phase active power  |
@@ -83,11 +82,11 @@ Sensors available in the library:
 | wem3080t_exportgrid_b   | kWh  | B phase export energy |
 | wem3080t_frequency_b    | Hz   | B phase frequency     |
 | wem3080t_pf_b           |      | B phase power factor  |
-|                       |      |                |
+|                         |      |                       |
 | wem3080t_voltage_c      | V    | C phase voltage       |
-| wem3080t_current_c      | A    | C phase current |
-| wem3080t_power_c        | W    | C phase active power |
+| wem3080t_current_c      | A    | C phase current       |
+| wem3080t_power_c        | W    | C phase active power  |
 | wem3080t_importenergy_c | kWh  | C phase import energy |
 | wem3080t_exportgrid_c   | kWh  | C phase export energy |
-| wem3080t_frequency_c    | Hz   | C phase frequency |
-| wem3080t_pf_c           |      | C phase power factor |
+| wem3080t_frequency_c    | Hz   | C phase frequency     |
+| wem3080t_pf_c           |      | C phase power factor  |
