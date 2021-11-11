@@ -429,8 +429,9 @@ For example:
 {% raw %}
 
 ```yaml
-- while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
-  sequence:
+- repeat:
+    while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
+    sequence:
     - ...
 ```
 
@@ -479,8 +480,9 @@ For example:
 {% raw %}
 
 ```yaml
-- until: "{{ is_state('device_tracker.iphone', 'home') }}"
-  sequence:
+- repeat:
+    until: "{{ is_state('device_tracker.iphone', 'home') }}"
+    sequence:
     - ...
 ```
 {% endraw %}
