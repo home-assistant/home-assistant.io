@@ -29,6 +29,7 @@ ha_platforms:
   - fan
   - light
   - lock
+  - number
   - scene
   - sensor
   - siren
@@ -37,7 +38,6 @@ ha_platforms:
 
 [deCONZ](https://www.dresden-elektronik.de/funk/software/deconz.html) by [dresden elektronik](https://www.dresden-elektronik.de) is a software that communicates with ConBee/RaspBee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
 
-[deCONZ REST API](https://dresden-elektronik.github.io/deconz-rest-doc/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -63,7 +63,7 @@ See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/
 
 {% include integrations/config_flow.md %}
 
-Running a stand-alone instance of deCONZ (non add-on installation) requires a pairing between the deCONZ gateway and Home Assistant. To allow Home Assistant to connect with deCONZ go to the Phoscon UI click Settings -> Gateway -> Advanced and press the "Authenticate app" button. This same information is also shown during the config flow of the deCONZ integration.
+Running a stand-alone instance of deCONZ (non add-on installation) requires a pairing between the deCONZ gateway and Home Assistant. To allow Home Assistant to connect with deCONZ go to the Phoscon **UI click Settings -> Gateway -> Advanced** and press the "Authenticate app" button. This same information is also shown during the config flow of the deCONZ integration.
 
 ## Debugging integration
 
@@ -91,7 +91,7 @@ Available services: `configure`, `deconz.device_refresh` and `deconz.remove_orph
 
 ### Service `deconz.configure`
 
-Set attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/rest/).
+Set the attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/about_rest/).
 
 | Service data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |

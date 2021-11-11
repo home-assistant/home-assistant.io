@@ -1,11 +1,13 @@
 ---
-title: "Google Calendar Event"
-description: "Instructions on how to use Google Calendars in Home Assistant."
+title: Google Calendars
+description: Instructions on how to use Google Calendars in Home Assistant.
 ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
 ha_release: 0.33
 ha_domain: google
+ha_platforms:
+  - calendar
 ---
 
 The `google` calendar platform allows you to connect to your
@@ -34,9 +36,8 @@ Generate a Client ID and Client Secret on
 1. You will then be automatically taken to the OAuth consent screen, you do not need to add any scopes here so click `SAVE AND CONTINUE` to move to the `Test users` page. You will need to add the Gmail address you will be using with this integration as a test user before you will be allowed to use the API. Once you have added your email address under `Test users` click `SAVE AND CONTINUE` which will take to the 'Summary' page (you do not need to do anything here).
 1. Click Credentials in the menu on the left hand side of the screen, then click `+ Create credentials` (at the top of the screen), then select `OAuth client ID`.
 1. Set the Application type to `TV and Limited Input` and give this credential set a name (like "Home Assistant Credentials") then click 'Create'.
-1. You will then be presented with a pop-up saying 'OAuth client created' showing `Your Client ID` and `Your Client Secret`. Make a note of these (for example, copy and paste them into a text editor) as you will need to put these in your `configuration.yaml` file shortly. Once you have noted these strings, click `OK`. If you need to find these credentials again at any point then simply nagivate to `APIs & Services` > `Credentials` and you will see `Home Assistant Credentials` (or whatever you named them in the previous step) under `OAuth 2.0 Clident IDs`. To view both the `Client ID` and `Client secret`, click on the pencil icon, this will take you to the settings page for these credentials and the information will be on the right hand side of the page.
+1. You will then be presented with a pop-up saying 'OAuth client created' showing `Your Client ID` and `Your Client Secret`. Make a note of these (for example, copy and paste them into a text editor) as you will need to put these in your `configuration.yaml` file shortly. Once you have noted these strings, click `OK`. If you need to find these credentials again at any point then simply navigate to `APIs & Services` > `Credentials` and you will see `Home Assistant Credentials` (or whatever you named them in the previous step) under `OAuth 2.0 Clident IDs`. To view both the `Client ID` and `Client secret`, click on the pencil icon, this will take you to the settings page for these credentials and the information will be on the right hand side of the page.
 1. We need to double check that the "Google Calendar API" has been automatically enabled. To do this, select `Library` from the menu, then search for "Google Calendar API". If it is enabled you will see `API Enabled` with a green tick next to it. If it is not enabled, then enable it.
-
 
 If you will later be adding more scopes than just the "Google Calendar API" to the OAuth for this application, you will need to delete your token file under your Home Assistant Profile. You will lose your refresh token due to the re-authenticating to add more API access. It's recommended to use different authorizations for different pieces of Google.
 
@@ -173,17 +174,15 @@ entities:
       default: true
 {% endconfiguration %}
 
-
-
 ### Sensor attributes
 
- - **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset in the title in minutes is reached. So the title `Very important meeting #Important !!-10` would trigger this attribute to be `on` 10 minutes before the event starts.
- - **all_day**: `true`/`false` if this is an all day event. Will be `false` if there is no event found.
- - **message**: The event title with the `search` and `offset` values extracted. So in the above example for **offset_reached** the **message** would be set to `Very important meeting`
- - **description**: The event description.
- - **location**: The event Location.
- - **start_time**: Start time of event.
- - **end_time**: End time of event.
+- **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset in the title in minutes is reached. So the title `Very important meeting #Important !!-10` would trigger this attribute to be `on` 10 minutes before the event starts.
+- **all_day**: `true`/`false` if this is an all day event. Will be `false` if there is no event found.
+- **message**: The event title with the `search` and `offset` values extracted. So in the above example for **offset_reached** the **message** would be set to `Very important meeting`
+- **description**: The event description.
+- **location**: The event Location.
+- **start_time**: Start time of event.
+- **end_time**: End time of event.
 
 ### Service `google.add_event`
 

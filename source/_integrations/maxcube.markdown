@@ -1,7 +1,6 @@
 ---
 title: eQ-3 MAX!
 description: Instructions on how to integrate eQ-3 MAX! components with Home Assistant via eQ-3 MAX! Cube.
-logo: maxcube.png
 ha_category:
   - Climate
   - Binary Sensor

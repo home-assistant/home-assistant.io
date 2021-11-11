@@ -36,4 +36,3 @@ The following stats are available by default:
 - WAN bandwidth
 
 [tautulli]: https://tautulli.com
-[tautulliapi]: https://github.com/Tautulli/Tautulli/wiki/Tautulli-API-Reference#get_activity

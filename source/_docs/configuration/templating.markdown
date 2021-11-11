@@ -237,33 +237,43 @@ The same thing can also be expressed as a filter:
 
 - `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
+- `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter.
+- `area_devices(area_name_or_id)` returns the list of device IDs tied to a given area ID or name. Can also be used as a filter.
 
 #### Areas examples
 
 {% raw %}
 
 ```text
-{{ area_id('Living Room') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+{{ area_id('Living Room') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
 ```
 
 ```text
-{{ area_id('my_device_id') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+{{ area_id('my_device_id') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
 ```
 
 ```text
-{{ area_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+{{ area_id('sensor.sony') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
 ```
 
 ```text
-{{ area_name('deadbeefdeadbeefdeadbeefdeadbeef') }}  # Living Room
+{{ area_name('deadbeefdeadbeefdeadbeefdeadbeef') }}  # 'Living Room'
 ```
 
 ```text
-{{ area_name('my_device_id') }}  # Living Room
+{{ area_name('my_device_id') }}  # 'Living Room'
 ```
 
 ```text
-{{ area_name('sensor.sony') }}  # Living Room
+{{ area_name('sensor.sony') }}  # 'Living Room'
+```
+
+```text
+{{ area_entities('deadbeefdeadbeefdeadbeefdeadbeef') }}  # ['sensor.sony']
+```
+
+```text
+{{ area_devices('Living Room') }}  # ['my_device_id']
 ```
 
 {% endraw %}
@@ -278,6 +288,17 @@ The same thing can also be expressed as a filter:
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
   - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
+- `today_at(value)` converts a string containing a military time format to a datetime object with today's date in your time zone.
+
+   {% raw %}
+
+   ```yaml
+   # Is the current time past 10:15?
+   {{ now() > today_at("10:15") }} 
+   ```
+
+   {% endraw %}
+
 - `as_datetime()` converts a string containing a timestamp to a datetime object.
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted `None`. This function also be used as a filter.
 - `as_local()` converts datetime object to local time. This function also be used as a filter.
@@ -288,7 +309,7 @@ The same thing can also be expressed as a filter:
    {% raw %}
 
    ```yaml
-   # 77 minutes before curret time. 
+   # 77 minutes before current time. 
    {{ now() - timedelta( hours = 1, minutes = 17 ) }} 
    ```
 
@@ -336,6 +357,8 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 
 The `to_json` filter serializes an object to a JSON string. In some cases, it may be necessary to format a JSON string for use with a webhook, as a parameter for command-line utilities or any number of other applications. This can be complicated in a template, especially when dealing with escaping special characters. Using the `to_json` filter, this is handled automatically.
 
+Similarly to the Python equivalent, the filter accepts an `ensure_ascii` parameter, defaulting to `True`. If `ensure_ascii` is `True`, the output is guaranteed to have all incoming non-ASCII characters escaped. If `ensure_ascii` is false, these characters will be output as-is.
+
 The `from_json` filter operates similarly, but in the other direction, de-serializing a JSON string back into an object.
 
 ### To/From JSON examples
@@ -349,7 +372,7 @@ In this example, the special character '°' will be automatically escaped in ord
 ```text
 {% set temp = {'temperature': 25, 'unit': '°C'} %}
 stringified object: {{ temp }}
-object|to_json: {{ temp|to_json }}
+object|to_json: {{ temp|to_json(ensure_ascii=False) }}
 ```
 
 {% endraw %}
@@ -415,7 +438,7 @@ These can also be combined in any combination:
 
 #### Closest examples
 
-The closest function and filter will find the closest entity to the Home Assisant location:
+The closest function and filter will find the closest entity to the Home Assistant location:
 
 {% raw %}
 
@@ -525,6 +548,7 @@ The numeric functions and filters will not fail if the input is not a valid numb
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
 - Filter `[x, y, ...] | max` will obtain the largest item in a sequence.
 - Filter `[x, y, ...] | min` will obtain the smallest item in a sequence.
+- Filter `[x, y, ...] | average` will return the average value of the sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.

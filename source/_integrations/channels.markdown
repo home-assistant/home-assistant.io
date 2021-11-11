@@ -14,6 +14,8 @@ The Channels platform allows you to control [Channels](https://getchannels.com/)
 
 Your favorite channels will appear as sources in the Source List in Home Assistant.
 
+## Configuration
+
 To add Channels to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -48,7 +50,6 @@ Seek forward by the number of seconds currently set in settings on the instance 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String that points at `entity_id` of Channels app.
-
 
 ### Service `seek_backward`
 

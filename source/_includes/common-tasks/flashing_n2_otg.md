@@ -14,34 +14,49 @@ To flash your eMMC using Petitboot and OTG-USB, you will need the following item
 
 #### Enabling SPI boot mode
 
-Remove the case of your ODROID-N2+
+To enable the SPI boot mode:
 
-![Photo of the removed case](/images/hassio/screenshots/case-removed.jpg)
+1. Power off the ODROID-N2+ by unplugging the power cable.
+1. Remove the case.
 
-Next, locate the toggle for boot mode and switch it from MMC to SPI.
+   ![Photo of the removed case](/images/hassio/screenshots/case-removed.jpg)
 
-![Photo of the SPI toggle switch](/images/hassio/screenshots/toggle_spi.jpg)
+1. Locate the toggle for boot mode and switch it from MMC to SPI.
 
-Connect a USB keyboard and HDMI connected monitor to your ODROID-N2+, and then connect power.
+   ![Photo of the SPI toggle switch](/images/hassio/screenshots/toggle_spi.jpg)
+   
+1. Connect the ODROID-N2+ directly to your computer via the USB-OTG port located on the front of the board.
+1. Connect a USB keyboard and a monitor (using HDMI) to your ODROID-N2+.
+1. Plug in the power cable to power on the ODROID-N2+.
 
 #### Enabling USB drive mode
 
-The ODROID-N2+ will now boot into a terminal. Select `Exit to shell` from the menu.
+After The ODROID-N2+ is set to SPI boot mode and powered on, it boots into a terminal. To enable the USB drive mode:
 
-![Exit to shell](/images/hassio/screenshots/exit-shell.png)
+1. Select `Exit to shell` from the menu.
 
-Use the following command at the console to confirm the storage device node:
+   ![Exit to shell](/images/hassio/screenshots/exit-shell.png)
 
-```bash
-ls /dev/mmc*
-```
+<div class='note'>
 
-Set the storage device on the ODROID-N2+ as a mass storage device using `ums` (USB Mass storage mode)
-This will configure the ODROID-N2+ and OTG to act as a memory card reader.
+When using the command line, it may return the following message:
+`can't access tty; job control turned off.`
+You can safely ignore this message and proceed with the installation
 
-```bash
-ums /dev/mmcblk0
-```
+</div>
+
+2. Use the following command at the console to confirm the storage device node:
+
+   ```bash
+   ls /dev/mmc*
+   ```
+
+3. Set the storage device on the ODROID-N2+ as a mass storage device using the `ums` command (USB Mass storage mode).
+This will configure the ODROID-N2+ and OTG to act as a memory card reader:
+
+   ```bash
+   ums /dev/mmcblk0
+   ```
 
 #### Flashing Home Assistant
 

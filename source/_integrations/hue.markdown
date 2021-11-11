@@ -19,6 +19,7 @@ ha_platforms:
   - binary_sensor
   - light
   - sensor
+ha_zeroconf: true
 ---
 
 The Philips Hue integration allows you to control and monitor the lights and motion sensors connected to your Hue bridge.

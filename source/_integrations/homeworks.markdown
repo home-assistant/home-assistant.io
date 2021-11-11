@@ -42,7 +42,7 @@ homeworks:
 
 {% configuration %}
 host:
-  description: The IP address of the ethernet to serial adapter.  It is assumed that the adaptor has been preconfigured.
+  description: The IP address of the ethernet to serial adapter.  It is assumed that the adapter has been preconfigured.
   required: true
   type: string
 port:

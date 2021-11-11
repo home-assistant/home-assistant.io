@@ -37,7 +37,7 @@
 - topic: Home Assistant Core
   description: Home Assistant Core is a Python program. It can be run on various operating systems and is the basis for Home Assistant. When people are talking about Home Assistant Core they usually refer to a standalone installation method that can be installed using a Virtual Environment or Docker. Home Assistant Core does not use the Home Assistant Supervisor.
 - topic: Home Assistant Supervised (Previously Hass.io)
-  description: "[Home Assistant](/hassio/) is a full UI managed home automation ecosystem that runs Home Assistant, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor."
+  description: "Home Assistant Supervised is a full UI managed home automation ecosystem that runs Home Assistant, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor."
 - topic: Home Assistant Supervisor
   description: "The Home Assistant Supervisor is a program that manages a Home Assistant installation, taking care of installing and updating Home Assistant, add-ons, itself and, if used, updating the Home Assistant Operating System."
 - topic: Home Assistant Operating System

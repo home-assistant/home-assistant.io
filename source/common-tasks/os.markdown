@@ -16,6 +16,7 @@ This section will provide guides to some common tasks and information which you 
 {% include common-tasks/commandline.md %}
 {% include common-tasks/lost_password.md %}
 {% include common-tasks/third-party-addons.md %}
+{% include common-tasks/data_disk.md %}
 {% include common-tasks/flashing_n2_otg.md %}
 {% include common-tasks/enable_i2c.md %}
 

@@ -49,3 +49,11 @@ password:
   required: true
   type: string
 {% endconfiguration %}
+
+## Sensors
+
+The qBittorrent integration will add the following sensors:
+
+- `sensor.qbittorrent_status`: The status of qBittorrent - `up_down`, `seeding`, `downloading` or `idle`.
+- `sensor.qbittorrent_up_speed`: The current total upload speed in kB/s.
+- `sensor.qbittorrent_down_speed`: The current total download speed in kB/s.

@@ -30,6 +30,10 @@ This integration has been tested to work with the following range of Legrand pro
 
 - Valena Next™ with Netatmo
 
+This integration has also been tested to work with the following range of BTicino products
+
+- Living Now (Light switches)
+
 ## Authentication
 
 Before you are able to configure the Legrand Home + Control integration into Home Assistant, you must register with the *Works with Legrand* platform.

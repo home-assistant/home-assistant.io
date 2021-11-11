@@ -144,7 +144,7 @@ Assuming you have only the owner created though onboarding process, no other use
 
 The Command Line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
 
-This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/efficiosoft/ldap-auth-sh), for instance. Please note, this will only work when using the Home Assistant Core installation type.
+This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/bob1de/ldap-auth-sh), for instance. Please note, this will only work when using the Home Assistant Core installation type.
 
 Here is a configuration example:
 
@@ -202,6 +202,6 @@ If you don't specify any `auth_providers` section in the `configuration.yaml` fi
 
 <div class='note warning'>
 
-[Issue 16441](https://github.com/home-assistant/home-assistant/issues/16441): the legacy API password auth provider, won't be automatically configured if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.
+[Issue 16441](https://github.com/home-assistant/core/issues/16441): the legacy API password auth provider, won't be automatically configured if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.
 
 </div>

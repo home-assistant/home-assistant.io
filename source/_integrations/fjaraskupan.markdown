@@ -15,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - fan
   - light
+  - number
   - sensor
 ---
 

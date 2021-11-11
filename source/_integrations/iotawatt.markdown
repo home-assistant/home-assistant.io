@@ -13,6 +13,7 @@ ha_codeowners:
 ha_platforms:
   - sensor
 ---
+
 Integration for the [IoTaWatt](https://www.iotawatt.com/) Open WiFi Electricity Monitor. It
 will collect data from the Current Transformer Clamps (Input CTs) and any Outputs that are defined on the IoTaWatt
 and create them as sensors in Home Assistant.
