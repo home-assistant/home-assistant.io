@@ -31,6 +31,6 @@ If you can't see your integration listed there, you will need to restart Home As
 
 ## Migrating to a new system
 
-The preferred way of migrating to a new system is by {% my supervisor_snapshots title="making a backup" %}.
+The preferred way of migrating to a new system is by {% my supervisor_backups title="making a backup" %}.
 
 If you run the container or core installation methods, you will need to manually make a backup of your configuration folder. Be aware that some of the files you need start with `.`, which is hidden by default from both `ls` (in SSH), in Windows Explorer, and macOS Finder. You'll need to ensure that you're viewing all files before you copy them.
