@@ -239,3 +239,4 @@ Please check from the device Web UI that the configured server is reachable.
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Device authentication for generation 2 devices is not supported
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
+- Battery-powered devices are not supported by the OTA update service, yet
