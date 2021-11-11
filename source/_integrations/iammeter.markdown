@@ -14,9 +14,9 @@ ha_platforms:
 
 ---
 
-`IAMMETER` provides real-time readings of single-phase energy meter([WEM3080](https://www.iammeter.com/products/single-phase-meter)) and three-phase energy meter ([WEM3080T](https://www.iammeter.com/products/three-phase-meter)) from [IAMMETER](https://www.iammeter.com/docs/homeassistant) over Wi-Fi.
 
 
+[IAMMETER](https://www.iammeter.com/) provides both bi-directional single-phase energy meters ([WEM3080](https://www.iammeter.com/products/single-phase-meter)) and bidirectional three-phase energy meters  ([WEM3080T](https://www.iammeter.com/products/three-phase-meter))  that can be integrated into Home Assistant.
 
 
 
