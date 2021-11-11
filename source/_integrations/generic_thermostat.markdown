@@ -80,8 +80,32 @@ initial_hvac_mode:
   description: Set the initial HVAC mode. Valid values are `off`, `heat` or `cool`. Value has to be double quoted. If this parameter is not set, it is preferable to set a *keep_alive* value. This is helpful to align any discrepancies between *generic_thermostat* and *heater* state.
   required: false
   type: string
+eco_temp:
+  description: "Set the temperature used by `preset_mode: eco`."
+  required: false
+  type: float
 away_temp:
-  description: "Set the temperature used by `preset_mode: away`. If this is not specified, the preset mode feature will not be available."
+  description: "Set the temperature used by `preset_mode: away`."
+  required: false
+  type: float
+boost_temp:
+  description: "Set the temperature used by `preset_mode: boost`."
+  required: false
+  type: float
+comfort_temp:
+  description: "Set the temperature used by `preset_mode: comfort`."
+  required: false
+  type: float
+home_temp:
+  description: "Set the temperature used by `preset_mode: home`."
+  required: false
+  type: float
+sleep_temp:
+  description: "Set the temperature used by `preset_mode: sleep`."
+  required: false
+  type: float
+activity_temp:
+  description: "Set the temperature used by `preset_mode: activity`."
   required: false
   type: float
 precision:
