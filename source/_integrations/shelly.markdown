@@ -202,7 +202,7 @@ The firmware limits the transition time to 5 seconds.
 
 ## Device services
 
-The integration offers device services, which can be triggered by a configuration entity (_button_) or a service call.
+The integration offers device services, which can be triggered by a configuration (_button_) entity.
 
 ### OTA update
 
@@ -214,14 +214,6 @@ It is possible to trigger a so called OTA firmware update of your devices, where
   - triggers the OTA update process on device
 - **Switch** OTA Update beta channel
   - enables the beta channel, so OTA update will install newest available beta firmware on your device
-
-#### Service call
-
-| Service Data Attribute | Required | Description                                               |
-| ---------------------- | -------- | --------------------------------------------------------- |
-| `area_id`              | no       | Area ID (_or list of area IDs_) to select the devices     |
-| `device_id`            | no       | Device ID (_or list of device IDs_) to select the devices |
-| `beta`                 | no       | Enables (`true`) the beta channel (_if available_)        |
 
 ## CoAP port (generation 1)
 
