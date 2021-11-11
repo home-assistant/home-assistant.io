@@ -278,8 +278,8 @@ When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow 
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Name(s) of Android TV / Fire TV entities.
 
-1. Call the `androidtv.learn_sendevent` service. 
-2. Within 8 seconds, hit a single button on your Android TV / Fire TV remote. 
+1. Call the `androidtv.learn_sendevent` service.
+2. Within 8 seconds, hit a single button on your Android TV / Fire TV remote.
 3. After 8 seconds, a persistent notification will appear that contains the equivalent command that can be sent via the `androidtv.adb_command` service. This command can also be found in the `adb_response` attribute of the media player in Home Assistant, and it will be logged at the INFO level.
 
 As an example, a service call in a [script](/docs/scripts) could be changed from this:
@@ -306,7 +306,7 @@ to this:
 
 ### `androidtv.download` and `androidtv.upload`
 
-You can use the `androidtv.download` service to download a file from your Android TV / Fire TV device to your Home Assistant instance. 
+You can use the `androidtv.download` service to download a file from your Android TV / Fire TV device to your Home Assistant instance.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -328,13 +328,13 @@ The Android TV integration works by polling the Android TV / Fire TV device at a
 
 The solution to this problem is the `state_detection_rules` configuration parameter, which allows you to provide your own rules for state detection.  The keys are app IDs, and the values are lists of rules that are evaluated in order.  Valid rules are:
 
-* `'standby'`, `'playing'`, `'paused'`, `'idle'`, or `'off'`
-  * If this is not a map, then this state will always be reported when this app is the current app
-  * If this is a map, then its entries are conditions that will be checked.  If all of the conditions are true, then this state will be reported.  Valid conditions pertain to 3 properties (see the example configuration above):
+- `'standby'`, `'playing'`, `'paused'`, `'idle'`, or `'off'`
+  - If this is not a map, then this state will always be reported when this app is the current app
+  - If this is a map, then its entries are conditions that will be checked.  If all of the conditions are true, then this state will be reported.  Valid conditions pertain to 3 properties (see the example configuration above):
     1. ``'media_session_state'``
     2. ``'audio_state'``
     3. ``'wake_lock_size'``
-* `'media_session_state'` = try to use the `media_session_state` property to determine the state
-* `'audio_state'` = try to use the `audio_state` property to determine the state
+- `'media_session_state'` = try to use the `media_session_state` property to determine the state
+- `'audio_state'` = try to use the `audio_state` property to determine the state
 
 To determine what these rules should be, you can use the `androidtv.adb_command` service with the command `GET_PROPERTIES`, as described in the [androidtv.adb_command](#androidtvadb_command) section.

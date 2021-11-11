@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2021.10.0: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2021.10.0"
-date: 2021-09-29 00:00:00
+title: "2021.10.0: Z-Wave S2 support, Tuya, secure ESPHome and 400 new icons"
+description: "Z-Wave JS S2 support, the new official Tuya integration, secure communications with ESPHome devices, and 400 new MDI icons!"
+date: 2021-10-06 00:00:00
 date_formatted: "October 6, 2021"
 author: Franck Nijhof
 author_twitter: frenck
@@ -13,108 +13,206 @@ categories:
 og_image: /images/blog/2021-10/social.png
 ---
 
-<!--<a href='/integrations/#version/2021.10'><img src='/images/blog/2021-10/social.png' style='border: 0;box-shadow: none;'></a>-->
+<a href='/integrations/#version/2021.10'><img src='/images/blog/2021-10/social.png' style='border: 0;box-shadow: none;'></a>
 
-These are the beta release notes for Home Assistant Core 2021.10 (and is thus a
-work in progress).
+October! I love this month!
 
-If you encounter any issues with the beta release, please report them on GitHub:
+For most of you (just like me), it means winter is coming. We all go back
+inside. An excellent excuse to spent a bit more time on our smart homes, right? 😃
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+It is also the month of celebrating open source by joining
+[Hacktoberfest][hacktoberfest]! If you make 4 contributions to any open-source
+project (Home Assistant, for example 😘), you'll receive a free t-shirt!
 
-Please be sure to include the beta version you are running in the issue
-description (not title), so we can classify your issue correctly.
+For the Home Assistant project, this means a busy month. However, that doesn't
+matter. It is always great to see new people contributing!
 
-Issues introduced in the beta are processed with priority.
+Meanwhile, Home Assistant turned 8 years old already! Wild! And the birthday
+announcement was even wilder (more about that below).
 
+Anyways, about this release: Z-Wave JS is stepping up its game! If you have
+a Z-Wave network and are not using Z-Wave JS yet... well... it might be time
+to bite the bullet and go for it. You won't regret it.
+
+This release also brings the new much-talked-about, Tuya integration
+supported by Tuya themselves! I'm looking forward to how that evolves!
+
+Oh, and of course, we will be live streaming the 2021.10 release party later today!
+Join us at <https://youtu.be/QWy4jWzKUEw> @ 21:00 CEST.
+
+Enjoy the release!
+
+../Frenck
+
+[hacktoberfest]: https://hacktoberfest.digitalocean.com/
+
+
+- [Home Assistant Amber](#home-assistant-amber)
 - [Z-Wave JS updates!](#z-wave-js-updates)
-- [Tuya](#tuya)
+  - [S2 is now supported](#s2-is-now-supported)
+  - [Migration wizard from the old Z-Wave integration](#migration-wizard-from-the-old-z-wave-integration)
+- [New Tuya integration](#new-tuya-integration)
+- [Updated Material Design Icons](#updated-material-design-icons)
 - [Encrypted communications support for ESPHome](#encrypted-communications-support-for-esphome)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.10.1 - October 7](#release-2021101---october-7)
+- [Release 2021.10.2 - October 8](#release-2021102---october-8)
+- [Release 2021.10.3 - October 10](#release-2021103---october-10)
+- [Release 2021.10.4 - October 11](#release-2021104---october-11)
+- [Release 2021.10.5 - October 15](#release-2021105---october-15)
+- [Release 2021.10.6 - October 18](#release-2021106---october-18)
+- [Release 2021.10.7 - November 1](#release-2021107---november-1)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
+## Home Assistant Amber
+
+In case you've missed it: Home Assistant turned 8 years old! 🥳
+And to celebrate that, we've revealed the **Home Assistant Amber**!
+
+Home Assistant Amber was launched using a crowdfunding campaign, which already
+reached its funding goal! This is absolutely fantastic!
+
+And... You can still back the campaign to get your own Home Assistant Amber!
+
+<!-- markdownlint-disable-next-line MD002 -->
+### [Go to campaign on CrowdSupply &raquo;](https://www.crowdsupply.com/nabu-casa/home-assistant-amber) <!-- omit in toc -->
+
+<a href="https://www.crowdsupply.com/nabu-casa/home-assistant-amber"><img src='/images/blog/2021-09-home-assistant-amber/overview.png'></a>
+
 ## Z-Wave JS updates!
 
-- Z-Wave JS now supports Security S2!
-- Still using the old (deprecated) `zwave` integration?
-  As of this release Home Assistant helps you migrating your z-wave network to Z-Wave JS,
-  using a migration wizard.
+We have two awesome Z-Wave JS updates to share with you this release.
 
-<!--<p class='img'>
-<img src='/images/blog/2021-09/energy-month.png' alt='Screenshot of the new Energy Dashboard period selection'>
-Screenshot of the new Energy Dashboard period selection.
-</p>-->
+### S2 is now supported
 
-## Tuya
+Security is something we all care about; We don't want devices to be tampered
+with, when using things like door locks or motion sensors that trip the alarm
+system. For our Z-Wave devices, this is no different!
 
-Oh yeah! The Tuya integration has been update to the latest greatest version,
-developed and maintained by Tuya themselves!
+As of this release, Home Assistant's Z-Wave JS integration supports S2!
 
-A this point, we have support for lights, switches, scenes, fans and climate
-devices. Compared to the old integration support for covers is currently missing
-which we hope to add in a future release.
+S2 is short for Security 2, a new security standard for Z-Wave devices,
+providing different keys for each device in the network. It is
+the more secure upgrade of the previous S0 version.
+
+Besides improved security, S2 capable devices (in general) are more reliable,
+provide greater battery life and have less latency compared to S0.
+
+The Z-Wave JS integration will automatically pick the best and most optimal
+security method available.
+
+<p class='img'>
+<img src='/images/blog/2021-10/z-wave-s2.png' alt='Screenshot of Z-Wave JS pairing a new device with S2 security'>
+Automatically uses the best possible security method when adding a new Z-Wave device.
+</p>
+
+If you have existing Z-Wave devices capable of using S2 already paired with
+Home Assistant before this update, you will need to repair those to let them
+use the new S2 feature.
+
+### Migration wizard from the old Z-Wave integration
+
+Are you still using the old (and deprecated) `zwave` integration? If so, it
+might be that you have been holding back on the Z-Wave JS upgrade because of
+the work involved in migrating. Time to reconsider...
+
+Home Assistant now provides a migration wizard for users of the old Z-Wave
+integration to migrate more easily to the new Z-Wave JS integration.
+
+To avoid surprises, the wizard will exactly show what it will do,
+what it can and cannot migrate.
+
+The old and deprecated Z-Wave integration will continue to work as long
+as technically possible, but will no longer receive updates.
+
+## New Tuya integration
+
+Oh yeah! The Tuya integration has been updated to the latest greatest version:
+developed and maintained by a team of developers at Tuya themselves!
+
+Right now, we have support for lights, switches, scenes, fans and climate
+devices. Compared to the old integration, support for covers is currently
+missing, which we hope to add in a future release. Additionally,
+the new integration now pushes updates to Home Assistant!
 
 If you ran the Tuya integration previously, you need to set it up from scratch,
-as the integration has been fully re-written and uses a different API.
+as the integration has been entirely re-written and uses a different API.
 
 For more information, please see the [Tuya integration documentation](/integrations/tuya/).
+
+## Updated Material Design Icons
+
+The [Material Design Icons][mdi] have been updated to v6!
+
+This new version of MDI is packed with nearly 400 new icons (and over 75+ icons
+have been specifically marked for Home Assistant) ❤️
+
+<p class='img'>
+<img src='/images/blog/2021-10/materialdesignicons.png' alt='Sample image showing some of the new Material Design Icons available'>
+Some really useful new MDI icons have been added in this release!
+</p>
+
+Several icons have been removed or renamed in v6, but we have ensured
+they will keep working for the upcoming two releases. Home Assistant will
+write warnings in the logs in case you are using one of the affected icons.
+The breaking changes section has more information about this.
+
+[mdi]: https://materialdesignicons.com/
 
 ## Encrypted communications support for ESPHome
 
 ESPHome and the ESPHome integration now have support for communicating
-encrypted with each other. [@OttoWinter] has been working hard adding
-this layer of encryption to the ESPHome API, which utilizes the noise protocol.
+encrypted with each other. [@OttoWinter] has been working hard to add
+this layer of encryption to the ESPHome API,
+which utilizes the [noise protocol][noise].
 
-Besides this version of Home Assistant, you'll need at least ESPHome 2021.9.0,
-and configure your ESPHome device to enable encrypted communications.
+Besides this version of Home Assistant, you'll need at least
+[ESPHome 2021.9.0][esphome], and configure your ESPHome device to enable
+encrypted communications.
+
+Awesome job [@OttoWinter]!
 
 For more information on how to do that, check out the
 [ESPHome documentation](https://esphome.io/components/api.html?#configuration-variables).
 
-## Other noteworthy changes
+[esphome]: https://esphome.io/changelog/2021.9.0.html
+[noise]: http://www.noiseprotocol.org/
 
-TODO:
-- Make these nice :)
-- Some might need their own chapter.
-- MDI icons might need a breaking change section?
-- Go over all commits again, likely I missed some...
+## Other noteworthy changes
 
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- Add select entity to Logitech Harmony ([@Aohzan] - [#53943]) ([harmony docs])
-- System Bridge 2.5.0 - Additional Sensors ([@timmo001] - [#53892]) ([system_bridge docs]) (breaking-change)
-- Add input_select and select domain support for HomeKit ([@ha0y] - [#54760]) ([homekit docs])
-- Allow device_id template function to use device name as input ([@raman325] - [#55474])
-- Add support for Xiaomi Miio Air Purifier 3C ([@bieniu] - [#55484]) ([xiaomi_miio docs])
-- Improvements to the solarlog integration ([@Ernst79] - [#55405]) ([solarlog docs])
-- Add vacation mode to manual alarm_control_panel ([@mbo18] - [#55340]) ([demo docs]) ([manual docs])
-- Add services to Renault integration ([@epenet] - [#54820]) ([renault docs])
-- Add device tracker platform to Renault integration ([@epenet] - [#54745]) ([renault docs]) (breaking-change) (new-platform)
-- ADD: generalize regex_findall ([@koying] - [#54584])
-- Add is_number template filter and function ([@emontnemery] - [#56705])
-- Update icons for MDI 6 ([@bramkragten] - [#56170]) ([homematic docs]) ([coinbase docs]) ([habitica docs]) ([icloud docs]) ([jewish_calendar docs]) ([ebox docs]) ([fido docs])
-- deCONZ use siren platform ([@Kane610] - [#56397]) ([deconz docs])
-- ESPHome Noise Transport Encryption support ([@OttoWinter] - [#56216]) ([esphome docs])
-- Add binary_sensor to switchbot ([@RenierM26] - [#56415]) ([switchbot docs]) (new-platform)
-- Add sensor to switchbot platform ([@RenierM26] - [#56416]) ([switchbot docs]) (new-platform)
-- Allow gas to be in kWh (#10075) @bramkragten
-- Statistics dev tools (#10074) @bramkragten
-- Update Material Design Icons to `v6.1.95` (#10002) @goyney
-- Add state_color support to entity card (#9617) @spacegaier
-- Add refresh button to history panel (#9958) @spacegaier
+- The energy dashboard now supports gas sensors that use kWh as the unit of
+  measurement.
+- We have a new dev tool available for long-term statistics. This tool
+  can be helpful when you need to resolve issues or warnings with the statistics.
+  {% my developer_statistics badge %}
+- The Shelly team has been busy and added support for the new, next-generation,
+  Shelly devices. Also known as Gen2 or Plus devices (which are WebSocket RPC
+  based).
+- The TP-Link Kasa Smart integration had a lot of love and improvements: support
+  for new devices, configurable via the UI and device discovery. It fixes the
+  famous and disliked "unavailable" bug! Thanks [@rytilahti]!
+- [@Aohzan] adjusted the Logitech Harmony integration to have a select
+  entity to change the activity. Very handy!
+- HomeKit now supports the `select` and `input_select` entities, thanks to [@ha0y]!
+- [@Kane610] added support to deCONZ for the Siren entity.
+- The manual alarm control panel now supports vacation mode, thanks [@mbo18]!
+- [@koying] added a new template method: `regex_findall`, that can return
+  a list of all matches of a regular expression.
+- [@emontnemery] added more template goodness by adding the `is_number`
+  function and filter that can be used to quickly determine if a value is
+  a number or not.
+- The Lovelace entity card now supports setting the icon to change color when
+  the entity is active (`state_color`). Thanks, [@spacegaier]
+- The SwitchBot integration is receiving a lot of love from [@RenierM26]!
+  A bunch of new platforms, configuration via the UI, nice work!
 
 ## New Integrations
 
@@ -122,15 +220,304 @@ We welcome the following new integrations this release:
 
 - [Airthings][airthings docs], added by [@Danielhiversen]
 - [Amberelectric][amberelectric docs], added by [@madpilot]
-- [Crownstone][crownstone docs], added by [@abmantis]
+- [Crownstone][crownstone docs], added by [@RicArch97]
 - [WattTime][watttime docs], added by [@bachya]
-- [Whirlpool][whirlpool docs], added by [@abmantis]
+- [Whirlpool Sixth Sense][whirlpool docs], added by [@abmantis]
 
 ## Integrations now available to set up from the UI
 
 The following integrations are now available via the Home Assistant UI:
 
-- [Lorem][lorem docs], done by [@frenck]
+- [DLNA-DMR][dlna_dmr docs], done by [@chishm]
+- [Modem Caller ID][modem_callerid docs], done by [@tkdrob]
+- [Netgear][netgear docs], done by [@starkillerOG]
+- [OpenGarage][opengarage docs], done by [@Danielhiversen]
+- [Sure Petcare][surepetcare docs], done by [@Danielhiversen]
+- [SwitchBot][switchbot docs], done by [@RenierM26]
+
+## Release 2021.10.1 - October 7
+
+- Recreate the powerwall session/object when attempting relogin ([@bdraco] - [#56935]) ([powerwall docs])
+- Update led brightness select state only if valid data is available, Xiaomi Miio integration ([@bieniu] - [#57197]) ([xiaomi_miio docs])
+- Convert val to str when needed while calling zwave_js.set_value ([@raman325] - [#57216]) ([zwave_js docs])
+- Discover tplink devices periodically ([@bdraco] - [#57221]) ([tplink docs])
+- Correct SQL query generated by get_metadata_with_session ([@emontnemery] - [#57225]) ([recorder docs])
+- Fix netgear config flow import ([@MartinHjelmare] - [#57253]) ([netgear docs])
+- Validate initial value for input_datetime ([@emontnemery] - [#57256]) ([input_datetime docs])
+- Bump Mill library to 0.6.1 ([@Danielhiversen] - [#57261]) ([mill docs])
+- Fix RGB only (no color temp) devices with tplink ([@bdraco] - [#57267]) ([tplink docs])
+- Update frontend to 20211007.0 ([@bramkragten] - [#57268]) ([frontend docs])
+- Fix transition handling for tplink lights ([@rytilahti] - [#57272]) ([tplink docs])
+- Bump HAP-python to 4.30 ([@bdraco] - [#57284]) ([homekit docs])
+- Stopgap fix for inconsistent upstream API of tplink dimmers ([@rytilahti] - [#57285]) ([tplink docs])
+- Bump yeelight to 0.7.7 ([@bdraco] - [#57290]) ([yeelight docs])
+
+[#56935]: https://github.com/home-assistant/core/pull/56935
+[#57197]: https://github.com/home-assistant/core/pull/57197
+[#57216]: https://github.com/home-assistant/core/pull/57216
+[#57221]: https://github.com/home-assistant/core/pull/57221
+[#57225]: https://github.com/home-assistant/core/pull/57225
+[#57253]: https://github.com/home-assistant/core/pull/57253
+[#57256]: https://github.com/home-assistant/core/pull/57256
+[#57261]: https://github.com/home-assistant/core/pull/57261
+[#57267]: https://github.com/home-assistant/core/pull/57267
+[#57268]: https://github.com/home-assistant/core/pull/57268
+[#57272]: https://github.com/home-assistant/core/pull/57272
+[#57284]: https://github.com/home-assistant/core/pull/57284
+[#57285]: https://github.com/home-assistant/core/pull/57285
+[#57290]: https://github.com/home-assistant/core/pull/57290
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@raman325]: https://github.com/raman325
+[@rytilahti]: https://github.com/rytilahti
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[input_datetime docs]: /integrations/input_datetime/
+[mill docs]: /integrations/mill/
+[netgear docs]: /integrations/netgear/
+[powerwall docs]: /integrations/powerwall/
+[recorder docs]: /integrations/recorder/
+[tplink docs]: /integrations/tplink/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[yeelight docs]: /integrations/yeelight/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.10.2 - October 8
+
+- Netgear fix port and device model beeing overwritten ([@starkillerOG] - [#57277]) ([netgear docs])
+- Fix Nanoleaf light turn_off transition ([@milanmeu] - [#57305]) ([nanoleaf docs])
+- Migrate tplink hosts that were previously imported from yaml ([@bdraco] - [#57308]) ([tplink docs])
+- Upgrade aionanoleaf to 0.0.3 to fix deadlock ([@milanmeu] - [#57312]) ([nanoleaf docs])
+- Improve state of cover groups ([@emontnemery] - [#57313]) ([group docs])
+- Fix multiple upnp/ssdp issues ([@StevenLooman] - [#57314]) ([upnp docs]) ([yeelight docs]) ([dlna_dmr docs]) ([ssdp docs])
+- Guard for bad last reset ([@balloob] - [#57344]) ([sensor docs])
+
+[#57277]: https://github.com/home-assistant/core/pull/57277
+[#57305]: https://github.com/home-assistant/core/pull/57305
+[#57308]: https://github.com/home-assistant/core/pull/57308
+[#57312]: https://github.com/home-assistant/core/pull/57312
+[#57313]: https://github.com/home-assistant/core/pull/57313
+[#57314]: https://github.com/home-assistant/core/pull/57314
+[#57344]: https://github.com/home-assistant/core/pull/57344
+[@StevenLooman]: https://github.com/StevenLooman
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@milanmeu]: https://github.com/milanmeu
+[@starkillerOG]: https://github.com/starkillerOG
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[group docs]: /integrations/group/
+[nanoleaf docs]: /integrations/nanoleaf/
+[netgear docs]: /integrations/netgear/
+[sensor docs]: /integrations/sensor/
+[ssdp docs]: /integrations/ssdp/
+[tplink docs]: /integrations/tplink/
+[upnp docs]: /integrations/upnp/
+[yeelight docs]: /integrations/yeelight/
+
+## Release 2021.10.3 - October 10
+
+- Catch errors for efergy ([@tkdrob] - [#57326]) ([efergy docs])
+- Use switch format unique ids for tplink dimmers ([@bdraco] - [#57346]) ([tplink docs])
+- Fix Shelly RGB/W supported color mode detection ([@thecode] - [#57359]) ([shelly docs])
+- Bump pynws to 1.3.2 ([@MatthewFlamm] - [#57361]) ([nws docs])
+- Bump Switchbot library ([@RenierM26] - [#57367]) ([switchbot docs])
+- Bump pyhaversion to 21.10.0 ([@ludeeus] - [#57377]) ([version docs])
+- Update frontend to 20211007.1 ([@bramkragten] - [#57385]) ([frontend docs])
+- Do all of dhcp scapy startup in the executor ([@bdraco] - [#57392]) ([dhcp docs])
+- Remove executor calls in isy994 as its fully async ([@bdraco] - [#57394]) ([isy994 docs])
+- Fix default parameter values for service opentherm_gw.set_clock ([@mvn23] - [#57397]) ([opentherm_gw docs])
+- Fix `opentherm_gw.set_clock` `time` parameter name ([@mvn23] - [#57398]) ([opentherm_gw docs])
+- Restore yeelight workaround for failing to update state after on/off ([@bdraco] - [#57400]) ([yeelight docs])
+- Fix Shelly button filter empty event ([@thecode] - [#57427]) ([shelly docs])
+- Fix Shelly button type in roller mode ([@thecode] - [#57429]) ([shelly docs])
+- Bump zeroconf to 0.36.8 ([@bdraco] - [#57451]) ([zeroconf docs])
+- Fix netgear renamed mdi icons ([@thecode] - [#57431]) ([netgear docs])
+
+[#57326]: https://github.com/home-assistant/core/pull/57326
+[#57346]: https://github.com/home-assistant/core/pull/57346
+[#57359]: https://github.com/home-assistant/core/pull/57359
+[#57361]: https://github.com/home-assistant/core/pull/57361
+[#57367]: https://github.com/home-assistant/core/pull/57367
+[#57377]: https://github.com/home-assistant/core/pull/57377
+[#57385]: https://github.com/home-assistant/core/pull/57385
+[#57392]: https://github.com/home-assistant/core/pull/57392
+[#57394]: https://github.com/home-assistant/core/pull/57394
+[#57397]: https://github.com/home-assistant/core/pull/57397
+[#57398]: https://github.com/home-assistant/core/pull/57398
+[#57400]: https://github.com/home-assistant/core/pull/57400
+[#57427]: https://github.com/home-assistant/core/pull/57427
+[#57429]: https://github.com/home-assistant/core/pull/57429
+[#57431]: https://github.com/home-assistant/core/pull/57431
+[#57451]: https://github.com/home-assistant/core/pull/57451
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@RenierM26]: https://github.com/RenierM26
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@ludeeus]: https://github.com/ludeeus
+[@mvn23]: https://github.com/mvn23
+[@thecode]: https://github.com/thecode
+[@tkdrob]: https://github.com/tkdrob
+[dhcp docs]: /integrations/dhcp/
+[efergy docs]: /integrations/efergy/
+[frontend docs]: /integrations/frontend/
+[isy994 docs]: /integrations/isy994/
+[netgear docs]: /integrations/netgear/
+[nws docs]: /integrations/nws/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[shelly docs]: /integrations/shelly/
+[switchbot docs]: /integrations/switchbot/
+[tplink docs]: /integrations/tplink/
+[version docs]: /integrations/version/
+[yeelight docs]: /integrations/yeelight/
+[zeroconf docs]: /integrations/zeroconf/
+
+## Release 2021.10.4 - October 11
+
+- Upgrade youless library to fix missing sensor LS110 ([@gjong] - [#57366]) ([youless docs])
+- Fix Netgear orbi port in ssdp discovery ([@starkillerOG] - [#57432]) ([netgear docs])
+- Fix upnp creating derived sensors ([@StevenLooman] - [#57436]) ([upnp docs])
+- Fix referenced before assignment in modem_callerid ([@tkdrob] - [#57460]) ([modem_callerid docs])
+- Upgrade aiomusiccast to tolererate not decodable characters ([@micha91] - [#57461]) ([yamaha_musiccast docs])
+- Detect if mysql and sqlite support row_number ([@emontnemery] - [#57475]) ([recorder docs]) ([sensor docs])
+- Bump youtube-dl to 2021.06.06 ([@chpego] - [#57490]) ([media_extractor docs])
+- Simplify yeelight setup to improve reliability ([@bdraco] - [#57500]) ([yeelight docs])
+
+[#57366]: https://github.com/home-assistant/core/pull/57366
+[#57432]: https://github.com/home-assistant/core/pull/57432
+[#57436]: https://github.com/home-assistant/core/pull/57436
+[#57460]: https://github.com/home-assistant/core/pull/57460
+[#57461]: https://github.com/home-assistant/core/pull/57461
+[#57475]: https://github.com/home-assistant/core/pull/57475
+[#57490]: https://github.com/home-assistant/core/pull/57490
+[#57500]: https://github.com/home-assistant/core/pull/57500
+[@StevenLooman]: https://github.com/StevenLooman
+[@bdraco]: https://github.com/bdraco
+[@chpego]: https://github.com/chpego
+[@emontnemery]: https://github.com/emontnemery
+[@gjong]: https://github.com/gjong
+[@micha91]: https://github.com/micha91
+[@starkillerOG]: https://github.com/starkillerOG
+[@tkdrob]: https://github.com/tkdrob
+[media_extractor docs]: /integrations/media_extractor/
+[modem_callerid docs]: /integrations/modem_callerid/
+[netgear docs]: /integrations/netgear/
+[recorder docs]: /integrations/recorder/
+[sensor docs]: /integrations/sensor/
+[upnp docs]: /integrations/upnp/
+[yamaha_musiccast docs]: /integrations/yamaha_musiccast/
+[yeelight docs]: /integrations/yeelight/
+[youless docs]: /integrations/youless/
+
+## Release 2021.10.5 - October 15
+
+- Log reason for DLNA-DMR device becoming unavailable ([@chishm] - [#57516]) ([dlna_dmr docs])
+- Bump Mill library to 0.6.2 ([@Danielhiversen] - [#57533]) ([mill docs])
+- Fix Fast.com autoupdate ([@Z1ni] - [#57552]) ([fastdotcom docs])
+- Bump simplisafe-python to 11.0.7 ([@bachya] - [#57573]) ([simplisafe docs])
+- Correct detection of row_number support for MariaDB ([@emontnemery] - [#57663]) ([recorder docs])
+- Ensure Notion device name is stored as a string ([@bachya] - [#57670]) ([notion docs])
+- Bump spiderpy to 1.4.3 ([@peternijssen] - [#57675]) ([spider docs])
+- Fix Shelly humidity sensor available condition ([@thecode] - [#57721]) ([shelly docs])
+- Reconnect and retry yeelight commands after previous wifi drop out ([@bdraco] - [#57741]) ([yeelight docs])
+- Always send color/temp when switching from an effect in yeelight ([@bdraco] - [#57745]) ([yeelight docs])
+- Fix Youless state class for power total sensor ([@gjong] - [#57758]) ([youless docs])
+- Fix broken upnp derived sensors reporting b/s instead of kb/s ([@StevenLooman] - [#57681]) ([upnp docs])
+
+[#57516]: https://github.com/home-assistant/core/pull/57516
+[#57533]: https://github.com/home-assistant/core/pull/57533
+[#57552]: https://github.com/home-assistant/core/pull/57552
+[#57573]: https://github.com/home-assistant/core/pull/57573
+[#57663]: https://github.com/home-assistant/core/pull/57663
+[#57670]: https://github.com/home-assistant/core/pull/57670
+[#57675]: https://github.com/home-assistant/core/pull/57675
+[#57681]: https://github.com/home-assistant/core/pull/57681
+[#57721]: https://github.com/home-assistant/core/pull/57721
+[#57741]: https://github.com/home-assistant/core/pull/57741
+[#57745]: https://github.com/home-assistant/core/pull/57745
+[#57758]: https://github.com/home-assistant/core/pull/57758
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@StevenLooman]: https://github.com/StevenLooman
+[@Z1ni]: https://github.com/Z1ni
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@chishm]: https://github.com/chishm
+[@emontnemery]: https://github.com/emontnemery
+[@gjong]: https://github.com/gjong
+[@peternijssen]: https://github.com/peternijssen
+[@thecode]: https://github.com/thecode
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[fastdotcom docs]: /integrations/fastdotcom/
+[mill docs]: /integrations/mill/
+[notion docs]: /integrations/notion/
+[recorder docs]: /integrations/recorder/
+[shelly docs]: /integrations/shelly/
+[simplisafe docs]: /integrations/simplisafe/
+[spider docs]: /integrations/spider/
+[upnp docs]: /integrations/upnp/
+[yeelight docs]: /integrations/yeelight/
+[youless docs]: /integrations/youless/
+
+## Release 2021.10.6 - October 18
+
+- Avoid setting up harmony websocket from discovery ([@bdraco] - [#57589]) ([harmony docs])
+- Fix device class for energy plugwise sensors ([@squio] - [#57803]) ([plugwise docs])
+- Prevent yeelight discovery from overloading the bulb ([@bdraco] - [#57820]) ([yeelight docs])
+- Bump bond-api to 0.1.14 ([@bdraco] - [#57874]) ([bond docs])
+- Revert "Fix bmw_conntected_drive check_control_message short description" ([@cdce8p] - [#57928]) ([bmw_connected_drive docs])
+- Fix bug that prevents multiple instances of Tile ([@bachya] - [#57942]) ([tile docs])
+
+[#57589]: https://github.com/home-assistant/core/pull/57589
+[#57803]: https://github.com/home-assistant/core/pull/57803
+[#57820]: https://github.com/home-assistant/core/pull/57820
+[#57874]: https://github.com/home-assistant/core/pull/57874
+[#57928]: https://github.com/home-assistant/core/pull/57928
+[#57942]: https://github.com/home-assistant/core/pull/57942
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@squio]: https://github.com/squio
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[bond docs]: /integrations/bond/
+[harmony docs]: /integrations/harmony/
+[plugwise docs]: /integrations/plugwise/
+[tile docs]: /integrations/tile/
+[yeelight docs]: /integrations/yeelight/
+
+## Release 2021.10.7 - November 1
+
+- Fix Tuya documentation URL ([@ludeeus] - [#57889])
+- Fix netgear NoneType and discovery ([@starkillerOG] - [#57904])
+- Abort keenetic SSDP discovery if the unique id is already setup or ignored ([@foxel] - [#58009])
+- Fix Yamaha MusicCast media_stop ([@micha91] - [#58024])
+- Sleep between device requests to detect socket closes ([@chishm] - [#58087])
+- Fix template sensor when name template doesn't render ([@emontnemery] - [#58088])
+- Bump pymazda to 0.2.2 ([@bdr99] - [#58113])
+- Abort Fritz config flow for configured hostnames ([@chemelli74] - [#58140])
+- Fix find_next_time_expression_time ([@OttoWinter] - [#58894])
+
+[#57889]: https://github.com/home-assistant/core/pull/57889
+[#57904]: https://github.com/home-assistant/core/pull/57904
+[#58009]: https://github.com/home-assistant/core/pull/58009
+[#58024]: https://github.com/home-assistant/core/pull/58024
+[#58087]: https://github.com/home-assistant/core/pull/58087
+[#58088]: https://github.com/home-assistant/core/pull/58088
+[#58113]: https://github.com/home-assistant/core/pull/58113
+[#58140]: https://github.com/home-assistant/core/pull/58140
+[#58894]: https://github.com/home-assistant/core/pull/58894
+[@ludeeus]: https://github.com/ludeeus
+[@starkillerOG]: https://github.com/starkillerOG
+[@foxel]: https://github.com/foxel
+[@micha91]: https://github.com/micha91
+[@chishm]: https://github.com/chishm
+[@emontnemery]: https://github.com/emontnemery
+[@bdr99]: https://github.com/bdr99
+[@chemelli74]: https://github.com/chemelli74
+[@OttoWinter]: https://github.com/OttoWinter
 
 ## If you need help...
 
@@ -145,268 +532,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
-
-{% details "ReCollect Waste" %}
-
-The previously deprecated YAML configuration of the ReCollect Waste integration has been removed.
-
-ReCollect Waste is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
-
-([@bachya] - [#55426]) ([recollect_waste docs])
-
-{% enddetails %}
-
-{% details "System Bridge" %}
-
-The following additional state attributes have been removed from the existing
-sensors:
-
-- `available`
-- `filesystem`
-- `load_average`
-- `load_idle`
-- `load_system`
-- `load_user`
-- `mount`
-- `size`
-- `type`
-- `used`
-
-You should update any automations and scripts that depend on these state
-attribute to use the separate sensors available for these states.
-
-([@timmo001] - [#53892]) ([system_bridge docs])
-
-{% enddetails %}
-
-{% details "Moon" %}
-
-The Moon entity would never have a primary moon phase state. So the state of
-the moon would go from Waxing gibbous directly to Waning gibbous,
-without being Full Moon in between.
-
-Now the Moon entity will correctly have the primary moon phases: New Moon,
-First Quarter, Full Moon and Third Quarter.
-
-If you have automations relying on the state of the moon, please review them
-to check if they still behave as intended.
-
-([@stefanroelofs] - [#55518]) ([moon docs])
-
-{% enddetails %}
-
-{% details "Renault" %}
-
-The extra state attribute `last_update` has been normalized to the UTC timezone.
-
-If you have any automation or scripts that relied on this, you might need
-to adjust those to take this into account.
-
-([@epenet] - [#54745]) ([renault docs])
-
-----
-
-`sensor.charge_mode` has been moved to `select.charge_mode` (note: `unique_id` is unchanged).
-
-([@epenet] - [#55494]) ([renault docs])
-
-{% enddetails %}
-
-{% details "Alexa" %}
-
-Removes the support for legacy fan speeds.
-
-Using `speeds` ('off', 'low', 'medium' or 'high') for the `fan` platform became
-deprecated with Home Assistant Core 2021.07, while preset modes and percentage
-support was added.
-
-([@jbouwh] - [#55174]) ([alexa docs])
-
-{% enddetails %}
-
-{% details "RFXCOM RFXtrx" %}
-
-The previously deprecated YAML configuration of the RFXCOM RFXtrx integration has been removed.
-
-RFXCOM RFXtrx is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
-
-([@elupus] - [#54173]) ([rfxtrx docs])
-
-{% enddetails %}
-
-{% details "Network UPS Tools (NUT)" %}
-
-The extra attribute `state` is removed from all sensors, since it is already exposed as an own sensor.
-
-If you relied on this attribute for your automations or script, you might need to adjust to this change.
-
-([@mib1185] - [#56078]) ([nut docs])
-
-{% enddetails %}
-
-{% details "Discovery API" %}
-
-The API endpoint `/api/discovery_info` now only return blank values.
-This endpoint is scheduled to be removed in Home Assistant Core 2022.1.
-
-As a regular user of Home Assistant, this change should not affect you.
-
-([@ludeeus] - [#56097]) ([api docs])
-
-{% enddetails %}
-
-{% details "UPnP/IGD" %}
-
-UPnP/IGD integration no longer supports the `local_ip` configuration option.
-If you still have this configured in your YAML configuration, please remove it.
-
-([@StevenLooman] - [#55540]) ([upnp docs])
-
-{% enddetails %}
-
-{% details "HomeKit" %}
-
-When an iOS device wakes up it has to refresh all the A records
-for each paired accessory. When there are many paired accessories
-this can result in HomeKit timing out before it can refresh
-all the records and declaring some accessories unavailable.
-
-We now use the same server name for all HomeKit bridges and accessories
-on a single Home Assistant instance. This allows the system to avoid
-doing multiple lookups since it only needs to find one A record when
-waking from sleep.
-
-iOS devices and Home Hubs (Apple TVs / HomePods / iPads) may cache
-the server name even if it expires and may require
-a reboot to see the new name. If this is the case, accessories may
-show unavailable when outside the home until ALL home hubs are rebooted.
-
-([@bdraco] - [#55860])
-
-{% enddetails %}
-
-{% details "Velbus" %}
-
-The Velbus integration migrated to configuration via the UI. Configuring
-Velbus via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
-
-The Velbus services calls will now need an `interface` parameter,
-this is to allow support for multiple Velbus connections. If you are using
-Velbus services in your automations or scripts, you may been to adjust
-those to this change.
-
-([@Cereal2nd] - [#54032]) ([velbus docs])
-
-{% enddetails %}
-
-{% details "NETGEAR" %}
-
-The NETGEAR integration migrated to configuration via the UI. Configuring
-NETGEAR via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
-
-([@starkillerOG] - [#54479]) ([netgear docs])
-
-{% enddetails %}
-
-{% details "Modem Caller ID" %}
-
-The Modem Caller ID integration migrated to configuration via the UI. Configuring
-Modem Caller ID via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
-
-([@tkdrob] - [#46677]) ([modem_callerid docs])
-
-{% enddetails %}
-
-{% details "Sure Petcare" %}
-
-The Sure Petcare integration has previously been migrated to configuration via the UI.
-Configuring Sure Petcare via YAML configuration has now been deprecated and will be
-removed in a future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
-
-([@Danielhiversen] - [#56209]) ([surepetcare docs])
-
-{% enddetails %}
-
-{% details "Honeywell Lyric" %}
-
-The polling interval of the Honeywell Lyric integration has been decreased to
-300 seconds to reduce chances of hitting API limit.
-
-([@timmo001] - [#56393]) ([lyric docs])
-
-{% enddetails %}
-
-{% details "Xiaomi Miio" %}
-
-The `model` and `mode` attributes have been removed.
-The `preset_mode` attribute is available in place of the `mode` attribute.
-
-The device model is available in the **Device info** window.
-
-([@bieniu] - [#55846]) ([xiaomi_miio docs])
-
-{% enddetails %}
-
-{% details "Speedtest.net" %}
-
-The previously deprecated YAML configuration of the Speedtest.net integration has been removed.
-
-Speedtest.net is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
-
-([@engrbm87] - [#55642]) ([speedtestdotnet docs])
-
-{% enddetails %}
-
-{% details "Pi-hole" %}
-
-The extra attribute `domains_blocked` is removed from all sensors, since it is already exposed as an own sensor.
-
-If you relied on this attribute in your automations or script, you need to adjust those to match this change.
-
-([@mib1185] - [#56076]) ([pi_hole docs])
-
-{% enddetails %}
-
-{% details "TP-Link Kasa Smart" %}
-
-The TP-Link Kasa Smart integration migrated to configuration via the UI. Configuring
-TP-Link Kasa Smart via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
-
-([@rytilahti] - [#56701]) ([tplink docs])
-
-{% enddetails %}
-
-{% details "DLNA Digital Media Renderer" %}
-
-The DLNA Digital Media Renderer integration migrated to configuration via the UI. Configuring
-DLNA Digital Media Renderer via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this release;
-and thus can be safely removed from your YAML configuration after upgrading.
-
-([@chishm] - [#55267]) ([dlna_dmr docs])
-
-{% enddetails %}
 
 {% details "Templates" %}
 
@@ -435,9 +560,128 @@ The `float` filter will now log a warning instead of silently returning `0` if
 the input is invalid and no default value is specified.
 
 In Home Assistant Core 2021.12 the template will fail to render if no default
-value is specified.
+value is specified. You can specify a default value by passing to the filter like
+this: {% raw %}`{{ "abc" | float(default=0) }}`{% endraw %}.
 
 ([@emontnemery] - [#56453])
+
+{% enddetails %}
+
+{% details "Material Design Icons (MDI)" %}
+
+The Material Design Icons have been upgraded to v6, which brings in around
+400 new icons and removes and renames some others.
+
+The removed and renamed icons will keep working for this and the next release,
+Home Assistant will write a warning to the logs in case
+you are using one of the removed or renamed icons.
+
+The following icons have been removed:
+
+- `adobe-acrobat`
+- `adobe`
+- `amazon-alexa`
+- `amazon`
+- `android-auto`
+- `android-debug-bridge`
+- `bandcamp`
+- `battlenet`
+- `blogger`
+- `buffer`
+- `cash-usd-outline`
+- `cash-usd`
+- `cellphone-android` (alternative: `cellphone`)
+- `cellphone-iphone` (alternative: `cellphone`)
+- `concourse-ci`
+- `currency-usd-circle`
+- `currency-usd-circle-outline`
+- `do-not-disturb-off` (alternative: `minus-circle-off`)
+- `do-not-disturb` (alternative: `minus-circle`)
+- `douban`
+- `file-pdf` (alternative: `file-pdf-box`)
+- `file-pdf-outline` (alternative: `file-pdf-box`)
+- `file-pdf-box-outline` (alternative: `file-pdf-box`)
+- `google-photos`
+- `home-currency-usd`
+- `laptop-chromebook` (alternative: `laptop`)
+- `laptop-mac` (alternative: `laptop`)
+- `laptop-windows` (alternative: `laptop`)
+- `microsoft-edge-legacy`
+- `microsoft-yammer`
+- `pdf-box` (alternative: `file-pdf-box`)
+- `plus-one` (alternative: `numeric-positive-1`)
+- `poll-box` (alternative: `chart-box`)
+- `poll-box-outline` (alternative: `chart-box-outline`)
+- `tablet-ipad` (alternative: `tablet`)
+- `telegram`
+- `untappd`
+- `vk`
+- `xamarian-outline`
+- `xing`
+- `y-combinator`
+
+The following icons have been renamed:
+
+- `apple-airplay` to `cast-variant`
+- `application` to `application-outline`
+- `application-cog` to `application-cog-outline`
+- `application-settings` to `application-settings-outline`
+- `bolnisi-cross` to `cross-bolnisi`
+- `boom-gate-up` to `boom-gate-arrow-up`
+- `boom-gate-up-outline` to `boom-gate-arrow-up-outline`
+- `boom-gate-down` to `boom-gate-arrow-down`
+- `boom-gate-down-outline` to `boom-gate-arrow-down-outline`
+- `buddhism` to `dharmachakra`
+- `cellphone-erase` to `cellphone-remove`
+- `celtic-cross` to `cross-celtic`
+- `christianity` to `cross`
+- `christianity-outline` to `cross-outline`
+- `face` to `face-man`
+- `face-outline` to `face-man-outline`
+- `face-profile-woman` to `face-woman-profile`
+- `face-shimmer` to `face-man-shimmer`
+- `face-shimmer-outline` to `face-man-shimmer-outline`
+- `flash-circle` to `lightning-bolt-circle`
+- `floor-lamp-variant` to `floor-lamp-torchiere-variant`
+- `gif` to `file-gif-box`
+- `gradient` to `gradient-vertical`
+- `hand` to `hand-front-right`
+- `hand-left` to `hand-back-left`
+- `hand-right` to `hand-back-right`
+- `hinduism` to `om`
+- `human-greeting` to `human-greeting-variant`
+- `iframe` to `application-brackets`
+- `iframe-outline` to `application-brackets-outline`
+- `iframe-array` to `application-array`
+- `iframe-array-outline` to `application-array-outline`
+- `iframe-braces` to `application-braces`
+- `iframe-braces-outline` to `application-braces-outline`
+- `iframe-parentheses` to `application-parentheses`
+- `iframe-parentheses-outline` to `application-parentheses-outline`
+- `iframe-variable` to `application-variable`
+- `iframe-variable-outline` to `application-variable-outline`
+- `islam` to `star-crescent`
+- `judaism` to `star-david`
+- `monitor-clean` to `monitor-shimmer`
+- `pharmacy` to `mortar-pestle-plus`
+- `sparkles` to `shimmer`
+- `teach` to `human-male-board`
+- `television-clean` to `television-shimmer`
+- `text-subject` to `text-long`
+- `twitter-retweet` to `repeat-variant`
+- `voice-off` to `account-voice-off`
+
+{% enddetails %}
+
+{% details "Alexa" %}
+
+Removes the support for legacy fan speeds.
+
+Using `speeds` ('off', 'low', 'medium' or 'high') for the `fan` platform became
+deprecated with Home Assistant Core 2021.07, while preset modes and percentage
+support was added.
+
+([@jbouwh] - [#55174]) ([alexa docs])
 
 {% enddetails %}
 
@@ -452,20 +696,117 @@ Please check both your Lovelace configuration and your automations to reflect th
 
 {% enddetails %}
 
-{% details "Tuya" %}
+{% details "Discovery API" %}
 
-The previous Tuya API is no longer maintained by Tuya officially and the
-new integration will be officially maintained by the Tuya Developer Team, for
-more information of the migration, please check this documentation
+The API endpoint `/api/discovery_info` now only return blank values.
+This endpoint is scheduled to be removed in Home Assistant Core 2022.1.
 
-[How to Migrate the Tuya Home Assistant Integration from the Old Version](https://developer.tuya.com/en/docs/iot/migrate-from-an-older-version?id=Kamee9wtbd00b).
+As a regular user of Home Assistant, this change should not affect you.
 
-You need to log in again to use the updated Tuya v2 integration.
+([@ludeeus] - [#56097]) ([api docs])
 
-The cover platform is not ready for this release but will be included later.
-If you have cover devices, they will not availble for control at the moment.
+{% enddetails %}
 
-([@zlinoliver] - [#56820]) ([tuya docs])
+{% details "DLNA Digital Media Renderer" %}
+
+The DLNA Digital Media Renderer integration migrated to configuration via the UI. Configuring
+DLNA Digital Media Renderer via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+([@chishm] - [#55267]) ([dlna_dmr docs])
+
+{% enddetails %}
+
+{% details "HomeKit" %}
+
+When an iOS device wakes up it has to refresh all the A records
+for each paired accessory. When there are many paired accessories
+this can result in HomeKit timing out before it can refresh
+all the records and declaring some accessories unavailable.
+
+We now use the same server name for all HomeKit bridges and accessories
+on a single Home Assistant instance. This allows the system to avoid
+doing multiple lookups since it only needs to find one A record when
+waking from sleep.
+
+iOS devices and Home Hubs (Apple TVs / HomePods / iPads) may cache
+the server name even if it expires and may require
+a reboot to see the new name. If this is the case, accessories may
+show unavailable when outside the home until ALL home hubs are rebooted.
+
+([@bdraco] - [#55860])
+
+{% enddetails %}
+
+{% details "Honeywell Lyric" %}
+
+The polling interval of the Honeywell Lyric integration has been decreased to
+300 seconds to reduce chances of hitting API limit.
+
+([@timmo001] - [#56393]) ([lyric docs])
+
+{% enddetails %}
+
+{% details "Minut Point" %}
+
+The (non-working) pressure sensor has been removed.
+
+([@fredrike] - [#56934]) ([point docs])
+
+{% enddetails %}
+
+{% details "Modem Caller ID" %}
+
+The Modem Caller ID integration migrated to configuration via the UI. Configuring
+Modem Caller ID via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+([@tkdrob] - [#46677]) ([modem_callerid docs])
+
+{% enddetails %}
+
+{% details "Moon" %}
+
+The Moon entity would never have a primary moon phase state. So the state of
+the moon would go from Waxing gibbous directly to Waning gibbous,
+without being Full Moon in between.
+
+Now the Moon entity will correctly have the primary moon phases: New Moon,
+First Quarter, Full Moon and Third Quarter.
+
+If you have automations relying on the state of the moon, please review them
+to check if they still behave as intended.
+
+([@stefanroelofs] - [#55518]) ([moon docs])
+
+{% enddetails %}
+
+{% details "NETGEAR" %}
+
+The NETGEAR integration migrated to configuration via the UI. Configuring
+NETGEAR via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+([@starkillerOG] - [#54479]) ([netgear docs])
+
+{% enddetails %}
+
+{% details "Network UPS Tools (NUT)" %}
+
+The extra attribute `state` is removed from all sensors, since it is already exposed as an own sensor.
+
+If you relied on this attribute for your automations or script, you might need to adjust to this change.
+
+([@mib1185] - [#56078]) ([nut docs])
 
 {% enddetails %}
 
@@ -479,6 +820,167 @@ Your existing YAML configuration is automatically imported on upgrade to this re
 and thus can be safely removed from your YAML configuration after upgrading.
 
 ([@Danielhiversen] - [#56829]) ([opengarage docs])
+
+{% enddetails %}
+
+{% details "Pi-hole" %}
+
+The extra attribute `domains_blocked` is removed from all sensors, since it is already exposed as an own sensor.
+
+If you relied on this attribute in your automations or script, you need to adjust those to match this change.
+
+([@mib1185] - [#56076]) ([pi_hole docs])
+
+{% enddetails %}
+
+{% details "ReCollect Waste" %}
+
+The previously deprecated YAML configuration of the ReCollect Waste integration has been removed.
+
+ReCollect Waste is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@bachya] - [#55426]) ([recollect_waste docs])
+
+{% enddetails %}
+
+{% details "Renault" %}
+
+The extra state attribute `last_update` has been normalized to the UTC timezone.
+
+If you have any automation or scripts that relied on this, you might need
+to adjust those to take this into account.
+
+([@epenet] - [#54745]) ([renault docs])
+
+----
+
+`sensor.charge_mode` has been moved to `select.charge_mode` (note: `unique_id` is unchanged).
+
+([@epenet] - [#55494]) ([renault docs])
+
+{% enddetails %}
+
+{% details "RFXCOM RFXtrx" %}
+
+The previously deprecated YAML configuration of the RFXCOM RFXtrx integration has been removed.
+
+RFXCOM RFXtrx is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@elupus] - [#54173]) ([rfxtrx docs])
+
+{% enddetails %}
+
+{% details "Speedtest.net" %}
+
+The previously deprecated YAML configuration of the Speedtest.net integration has been removed.
+
+Speedtest.net is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@engrbm87] - [#55642]) ([speedtestdotnet docs])
+
+{% enddetails %}
+
+{% details "Sure Petcare" %}
+
+The Sure Petcare integration has previously been migrated to configuration via the UI.
+Configuring Sure Petcare via YAML configuration has now been deprecated and will be
+removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+([@Danielhiversen] - [#56209]) ([surepetcare docs])
+
+{% enddetails %}
+
+{% details "System Bridge" %}
+
+The following additional state attributes have been removed from the existing
+sensors:
+
+- `available`
+- `filesystem`
+- `load_average`
+- `load_idle`
+- `load_system`
+- `load_user`
+- `mount`
+- `size`
+- `type`
+- `used`
+
+You should update any automations and scripts that depend on these state
+attribute to use the separate sensors available for these states.
+
+([@timmo001] - [#53892]) ([system_bridge docs])
+
+{% enddetails %}
+
+{% details "TP-Link Kasa Smart" %}
+
+The TP-Link Kasa Smart integration migrated to configuration via the UI. Configuring
+TP-Link Kasa Smart via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this release;
+and thus can be safely removed from your YAML configuration after upgrading.
+
+([@rytilahti] - [#56701]) ([tplink docs])
+
+{% enddetails %}
+
+{% details "Tuya" %}
+
+The previous Tuya API is no longer maintained by Tuya officially and the
+new integration will be officially maintained by the Tuya Developer Team.
+
+If you used the integration before this release, you'd need to set it up
+again from scratch. To do that, remove any existing instances
+from the integration dashboard. After that, use our [documentation][tuya docs]
+for guidance on setting up the new integration.
+
+The cover platform is not ready for this release but will be included later.
+If you have cover devices, they will not available for control at the moment.
+
+([@zlinoliver] - [#56820]) ([tuya docs])
+
+{% enddetails %}
+
+{% details "UPnP/IGD" %}
+
+UPnP/IGD integration no longer supports the `local_ip` configuration option.
+If you still have this configured in your YAML configuration, please remove it.
+
+([@StevenLooman] - [#55540]) ([upnp docs])
+
+{% enddetails %}
+
+{% details "Velbus" %}
+
+The Velbus integration migrated to configuration via the UI. Configuring
+Velbus via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
+
+The Velbus services calls will now need an `interface` parameter,
+this is to allow support for multiple Velbus connections. If you are using
+Velbus services in your automations or scripts, you may been to adjust
+those to this change.
+
+([@Cereal2nd] - [#54032]) ([velbus docs])
+
+{% enddetails %}
+
+{% details "Xiaomi Miio" %}
+
+The `model` and `mode` attributes have been removed.
+The `preset_mode` attribute is available in place of the `mode` attribute.
+
+The device model is available in the **Device info** window.
+
+([@bieniu] - [#55846]) ([xiaomi_miio docs])
 
 {% enddetails %}
 
@@ -498,7 +1000,7 @@ The following integrations are no longer available as of this release:
 
 - **Trackr** has been removed. The API is no longer available and
   has therefore been removed. ([@FuzzyMistborn] - [#55917])
-- **Tesla** has been removed due to increated Tesla login security preventing
+- **Tesla** has been removed due to increased Tesla login security preventing
   third-parties to log in. ([@alandtse] - [#55988])
 
 ## All changes
@@ -617,7 +1119,7 @@ The following integrations are no longer available as of this release:
 - ADD: generalize regex_findall ([@koying] - [#54584])
 - Protect Huawei LTE against None ltedl/ulfreq ([@scop] - [#54411]) ([huawei_lte docs])
 - Optimize ZHA ZCL attribute reporting configuration ([@Adminiuga] - [#55796]) ([zha docs])
-- Update to denonavr version 0.10.9 ([@scarface-4711] - [#55805]) ([denonavr docs])
+- Update to denonavr version 0.10.9 ([@ol-iver] - [#55805]) ([denonavr docs])
 - Drop logger service fields because keys are dynamic ([@balloob] - [#55750]) ([logger docs])
 - ZHA: Added support for ZigBee Simple Sensor device and Binary Input c… ([@wsowa] - [#55819]) ([zha docs])
 - Bump envoy_reader API to 0.20.0 ([@gtdiehl] - [#55822]) ([enphase_envoy docs])
@@ -1082,6 +1584,77 @@ The following integrations are no longer available as of this release:
 - Surepetcare reauthorize ([@Danielhiversen] - [#56402]) ([surepetcare docs])
 - Optimize statistics generation ([@emontnemery] - [#56821]) ([recorder docs]) ([history docs]) ([sensor docs])
 - Add locking state to surepetcare locks ([@Danielhiversen] - [#56830]) ([surepetcare docs])
+- Add strings for new zwave_js config flow keys ([@raman325] - [#56844]) ([zwave_js docs]) (beta fix)
+- Upgrade aionanoleaf to 0.0.2 ([@milanmeu] - [#56845]) ([nanoleaf docs]) (beta fix)
+- Correct database migration to schema version 22 ([@emontnemery] - [#56848]) ([recorder docs]) (beta fix)
+- Adjust state class of solarlog yield and consumption sensors ([@emontnemery] - [#56824]) ([solarlog docs]) (beta fix)
+- Handle missing serial extended parameters in crownstone ([@RicArch97] - [#56864]) ([crownstone docs]) (beta fix)
+- Opengarage bug fix ([@Danielhiversen] - [#56869]) ([opengarage docs]) (beta fix)
+- Fix check_control_message short description ([@cdce8p] - [#56876]) ([bmw_connected_drive docs]) (beta fix)
+- Bump aioesphomeapi from 9.1.0 to 9.1.2 ([@OttoWinter] - [#56879]) ([esphome docs]) (beta fix)
+- Fix bmw_connected_drive battery icon ([@cdce8p] - [#56884]) ([bmw_connected_drive docs]) (beta fix)
+- Revert fritz pref_disable_new_entities handling ([@chemelli74] - [#56891]) ([fritz docs]) (beta fix)
+- Use native unit of measurement in deCONZ sensors ([@Kane610] - [#56897]) ([deconz docs]) (beta fix)
+- CLIPGenericFlag should be deCONZ sensor not binary sensor ([@Kane610] - [#56901]) ([deconz docs]) (beta fix)
+- Fix vicare binary sensor ([@crazyfx1] - [#56912]) ([vicare docs]) (beta fix)
+- Set unique id while SSDP discovery of Synology DSM ([@mib1185] - [#56914]) ([synology_dsm docs]) (beta fix)
+- Address beta review comments for WattTime ([@bachya] - [#56919]) ([watttime docs]) (beta fix)
+- Bump pynws: fix unit code bug ([@MatthewFlamm] - [#56923]) ([nws docs]) (beta fix)
+- Fix Switchbot unsupported SB types ([@RenierM26] - [#56928]) ([switchbot docs]) (beta fix)
+- Fix `Unable to serialize to JSON` error in Xiaomi Miio ([@bieniu] - [#56929]) ([xiaomi_miio docs]) (beta fix)
+- Add DHCP support for TPLink KL430, KP115 ([@bdraco] - [#56932]) ([tplink docs]) (beta fix)
+- Update pypoint to use v5 of backend API ([@fredrike] - [#56934]) ([point docs]) (breaking-change) (beta fix)
+- Bump PyFlume to 0.6.5 to fix compat with new JWT ([@bdraco] - [#56936]) ([flume docs]) (beta fix)
+- Add sleep_period to log for easier debugging ([@chemelli74] - [#56949]) ([shelly docs]) (beta fix)
+- Add dhcp discovery for TPLink EP10 ([@bdraco] - [#56955]) ([tplink docs]) (beta fix)
+- Update frontend to 20211002.0 ([@bramkragten] - [#56963]) ([frontend docs]) (beta fix)
+- Disable discovery for dlna_dmr until it is more selective ([@chishm] - [#56950]) ([dlna_dmr docs]) (beta fix)
+- Fix Tuya v2 fan percentage ([@zlinoliver] - [#56954]) ([tuya docs]) (beta fix)
+- Fix yeelight state when controlled outside of Home Assistant ([@bdraco] - [#56964]) ([yeelight docs]) (beta fix)
+- Fix incorrect handling of hass.data in WattTime setup ([@bachya] - [#56971]) ([watttime docs]) (beta fix)
+- Bump aioshelly to 1.0.2 ([@thecode] - [#56980]) ([shelly docs]) (beta fix)
+- Fix upnp invalid key in ssdp discovery_info ([@StevenLooman] - [#56986]) ([upnp docs]) (beta fix)
+- Bump async-upnp-client to 0.22.5 ([@StevenLooman] - [#56989]) ([upnp docs]) ([yeelight docs]) ([dlna_dmr docs]) ([ssdp docs]) (beta fix)
+- Use pycarwings2.12 for Nissan Leaf integration ([@filcole] - [#56996]) ([nissan_leaf docs]) (beta fix)
+- Round tplink energy sensors to prevent insignificant updates ([@bdraco] - [#56999]) ([tplink docs]) (beta fix)
+- Bump yeelight to 0.7.6 ([@bdraco] - [#57009]) ([yeelight docs]) (beta fix)
+- Ignore utility_meter restore state if state is invalid ([@dgomes] - [#57010]) ([utility_meter docs]) (beta fix)
+- Bump pyatmo to v6.1.0 ([@cgtobi] - [#57014]) ([netatmo docs]) (beta fix)
+- Meteofrance fix #56975 ([@oncleben31] - [#57016]) ([meteo_france docs]) (beta fix)
+- Fix camera tests ([@cgtobi] - [#57020]) ([netatmo docs]) (beta fix)
+- Add DHCP support for TPLink KP400 ([@bdraco] - [#57023]) ([tplink docs]) (beta fix)
+- Shorten album titles when browsing artist ([@jjlawren] - [#57027]) ([plex docs]) (beta fix)
+- Evict purged states from recorder's old_state cache ([@emontnemery] - [#56877]) ([recorder docs]) (beta fix)
+- Fix Tuya v2 login issue ([@zlinoliver] - [#56973]) ([tuya docs]) (beta fix)
+- Mark auth voluptuous schema fields as required ([@balloob] - [#57003]) (beta fix)
+- Bump zwave-js-server-python to 0.31.2 ([@raman325] - [#57007]) ([zwave_js docs]) (beta fix)
+- Universal media player: consider unknown as inactive child state ([@koying] - [#57029]) ([universal docs]) (beta fix)
+- ESPHome fix zeroconf add_listener issue ([@OttoWinter] - [#57031]) ([esphome docs]) (beta fix)
+- Bump aioesphomeapi from 9.1.2 to 9.1.4 ([@OttoWinter] - [#57036]) ([esphome docs]) (beta fix)
+- Prevent opening of sockets in watttime tests ([@emontnemery] - [#57040]) ([watttime docs]) (beta fix)
+- Rewrite tuya config flow ([@ludeeus] - [#57043]) ([tuya docs]) (beta fix)
+- Improve sensor statistics validation ([@emontnemery] - [#56892]) ([sensor docs]) (beta fix)
+- Update esphome reconnect logic to use newer RecordUpdateListener logic ([@bdraco] - [#57057]) ([esphome docs]) (beta fix)
+- Fix: Shelly Gen2 - filter unsupported sensors ([@thecode] - [#57065]) ([shelly docs]) (beta fix)
+- Update frontend to 20211004.0 ([@bramkragten] - [#57073]) ([frontend docs]) (beta fix)
+- Fix energy gas price validation ([@balloob] - [#57075]) ([energy docs]) (beta fix)
+- Fix Growatt login invalid auth response ([@indykoning] - [#57071]) ([growatt_server docs]) (beta fix)
+- Prevent Tuya from accidentally logging credentials in debug mode ([@frenck] - [#57100]) ([tuya docs]) (beta fix)
+- Small code styling tweaks for Tuya ([@frenck] - [#57102]) ([tuya docs]) (beta fix)
+- Remove Python shebang line from Tuya integration files ([@frenck] - [#57103]) ([tuya docs]) (beta fix)
+- Bump aioesphomeapi from 9.1.4 to 9.1.5 ([@OttoWinter] - [#57106]) ([esphome docs]) (beta fix)
+- Update Tuya code owners ([@balloob] - [#57078]) ([tuya docs]) (beta fix)
+- Bump tuya-iot-py-sdk to 0.5.0 ([@frenck] - [#57110]) ([tuya docs]) (beta fix)
+- Update tesla_powerwall to 0.3.11 ([@jrester] - [#57112]) ([powerwall docs]) (beta fix)
+- Bump aiohue to 2.6.3 ([@balloob] - [#57125]) ([hue docs]) (beta fix)
+- Fix yeelight connection when bulb stops responding to SSDP ([@bdraco] - [#57138]) ([yeelight docs]) (beta fix)
+- Reinstate asking for country in Tuya flow ([@balloob] - [#57142]) ([tuya docs]) (beta fix)
+- Bump zwave-js-server-python to 0.31.3 ([@raman325] - [#57143]) ([zwave_js docs]) (beta fix)
+- Updated amberelectic attributes to reflect unit change to $/kWh ([@mindmelting] - [#57109]) ([amberelectric docs]) (beta fix)
+- Fix Fritz shutdown race condition ([@chemelli74] - [#57148]) ([fritz docs]) (beta fix)
+- Fix SamsungTV shutdown race condition ([@chemelli74] - [#57149]) ([samsungtv docs]) (beta fix)
+- Guard upnp create device ([@balloob] - [#57156]) ([upnp docs]) (beta fix)
+- Bump netdisco to 3.0.0 ([@balloob] - [#56903]) ([discovery docs]) (beta fix)
 
 {% enddetails %}
 
@@ -1655,6 +2228,7 @@ The following integrations are no longer available as of this release:
 [#56814]: https://github.com/home-assistant/core/pull/56814
 [#56820]: https://github.com/home-assistant/core/pull/56820
 [#56821]: https://github.com/home-assistant/core/pull/56821
+[#56824]: https://github.com/home-assistant/core/pull/56824
 [#56825]: https://github.com/home-assistant/core/pull/56825
 [#56826]: https://github.com/home-assistant/core/pull/56826
 [#56827]: https://github.com/home-assistant/core/pull/56827
@@ -1662,6 +2236,76 @@ The following integrations are no longer available as of this release:
 [#56829]: https://github.com/home-assistant/core/pull/56829
 [#56830]: https://github.com/home-assistant/core/pull/56830
 [#56833]: https://github.com/home-assistant/core/pull/56833
+[#56844]: https://github.com/home-assistant/core/pull/56844
+[#56845]: https://github.com/home-assistant/core/pull/56845
+[#56848]: https://github.com/home-assistant/core/pull/56848
+[#56864]: https://github.com/home-assistant/core/pull/56864
+[#56869]: https://github.com/home-assistant/core/pull/56869
+[#56876]: https://github.com/home-assistant/core/pull/56876
+[#56877]: https://github.com/home-assistant/core/pull/56877
+[#56879]: https://github.com/home-assistant/core/pull/56879
+[#56884]: https://github.com/home-assistant/core/pull/56884
+[#56891]: https://github.com/home-assistant/core/pull/56891
+[#56892]: https://github.com/home-assistant/core/pull/56892
+[#56897]: https://github.com/home-assistant/core/pull/56897
+[#56901]: https://github.com/home-assistant/core/pull/56901
+[#56903]: https://github.com/home-assistant/core/pull/56903
+[#56912]: https://github.com/home-assistant/core/pull/56912
+[#56914]: https://github.com/home-assistant/core/pull/56914
+[#56919]: https://github.com/home-assistant/core/pull/56919
+[#56923]: https://github.com/home-assistant/core/pull/56923
+[#56928]: https://github.com/home-assistant/core/pull/56928
+[#56929]: https://github.com/home-assistant/core/pull/56929
+[#56932]: https://github.com/home-assistant/core/pull/56932
+[#56934]: https://github.com/home-assistant/core/pull/56934
+[#56936]: https://github.com/home-assistant/core/pull/56936
+[#56949]: https://github.com/home-assistant/core/pull/56949
+[#56950]: https://github.com/home-assistant/core/pull/56950
+[#56954]: https://github.com/home-assistant/core/pull/56954
+[#56955]: https://github.com/home-assistant/core/pull/56955
+[#56963]: https://github.com/home-assistant/core/pull/56963
+[#56964]: https://github.com/home-assistant/core/pull/56964
+[#56971]: https://github.com/home-assistant/core/pull/56971
+[#56973]: https://github.com/home-assistant/core/pull/56973
+[#56980]: https://github.com/home-assistant/core/pull/56980
+[#56986]: https://github.com/home-assistant/core/pull/56986
+[#56989]: https://github.com/home-assistant/core/pull/56989
+[#56996]: https://github.com/home-assistant/core/pull/56996
+[#56999]: https://github.com/home-assistant/core/pull/56999
+[#57003]: https://github.com/home-assistant/core/pull/57003
+[#57007]: https://github.com/home-assistant/core/pull/57007
+[#57009]: https://github.com/home-assistant/core/pull/57009
+[#57010]: https://github.com/home-assistant/core/pull/57010
+[#57014]: https://github.com/home-assistant/core/pull/57014
+[#57016]: https://github.com/home-assistant/core/pull/57016
+[#57020]: https://github.com/home-assistant/core/pull/57020
+[#57023]: https://github.com/home-assistant/core/pull/57023
+[#57027]: https://github.com/home-assistant/core/pull/57027
+[#57029]: https://github.com/home-assistant/core/pull/57029
+[#57031]: https://github.com/home-assistant/core/pull/57031
+[#57036]: https://github.com/home-assistant/core/pull/57036
+[#57040]: https://github.com/home-assistant/core/pull/57040
+[#57043]: https://github.com/home-assistant/core/pull/57043
+[#57057]: https://github.com/home-assistant/core/pull/57057
+[#57065]: https://github.com/home-assistant/core/pull/57065
+[#57071]: https://github.com/home-assistant/core/pull/57071
+[#57073]: https://github.com/home-assistant/core/pull/57073
+[#57075]: https://github.com/home-assistant/core/pull/57075
+[#57078]: https://github.com/home-assistant/core/pull/57078
+[#57100]: https://github.com/home-assistant/core/pull/57100
+[#57102]: https://github.com/home-assistant/core/pull/57102
+[#57103]: https://github.com/home-assistant/core/pull/57103
+[#57106]: https://github.com/home-assistant/core/pull/57106
+[#57109]: https://github.com/home-assistant/core/pull/57109
+[#57110]: https://github.com/home-assistant/core/pull/57110
+[#57112]: https://github.com/home-assistant/core/pull/57112
+[#57125]: https://github.com/home-assistant/core/pull/57125
+[#57138]: https://github.com/home-assistant/core/pull/57138
+[#57142]: https://github.com/home-assistant/core/pull/57142
+[#57143]: https://github.com/home-assistant/core/pull/57143
+[#57148]: https://github.com/home-assistant/core/pull/57148
+[#57149]: https://github.com/home-assistant/core/pull/57149
+[#57156]: https://github.com/home-assistant/core/pull/57156
 [@Adi146]: https://github.com/Adi146
 [@Adminiuga]: https://github.com/Adminiuga
 [@Aohzan]: https://github.com/Aohzan
@@ -1714,6 +2358,7 @@ The following integrations are no longer available as of this release:
 [@chemelli74]: https://github.com/chemelli74
 [@chishm]: https://github.com/chishm
 [@cnico]: https://github.com/cnico
+[@crazyfx1]: https://github.com/crazyfx1
 [@ctalkington]: https://github.com/ctalkington
 [@deosrc]: https://github.com/deosrc
 [@dgomes]: https://github.com/dgomes
@@ -1730,12 +2375,15 @@ The following integrations are no longer available as of this release:
 [@esev]: https://github.com/esev
 [@fabaff]: https://github.com/fabaff
 [@farmio]: https://github.com/farmio
+[@filcole]: https://github.com/filcole
 [@flacjacket]: https://github.com/flacjacket
+[@fredrike]: https://github.com/fredrike
 [@frenck]: https://github.com/frenck
 [@gjong]: https://github.com/gjong
 [@gtdiehl]: https://github.com/gtdiehl
 [@ha0y]: https://github.com/ha0y
 [@hungnguyenm]: https://github.com/hungnguyenm
+[@indykoning]: https://github.com/indykoning
 [@inverse]: https://github.com/inverse
 [@janiversen]: https://github.com/janiversen
 [@jbouwh]: https://github.com/jbouwh
@@ -1744,6 +2392,7 @@ The following integrations are no longer available as of this release:
 [@jloehr]: https://github.com/jloehr
 [@joaophi]: https://github.com/joaophi
 [@joshs85]: https://github.com/joshs85
+[@jrester]: https://github.com/jrester
 [@jyavenard]: https://github.com/jyavenard
 [@k1rd3rf]: https://github.com/k1rd3rf
 [@koying]: https://github.com/koying
@@ -1759,9 +2408,12 @@ The following integrations are no longer available as of this release:
 [@mib1185]: https://github.com/mib1185
 [@michaelarnauts]: https://github.com/michaelarnauts
 [@milanmeu]: https://github.com/milanmeu
+[@mindmelting]: https://github.com/mindmelting
 [@nielstron]: https://github.com/nielstron
 [@niklasastrom]: https://github.com/niklasastrom
 [@ocalvo]: https://github.com/ocalvo
+[@ol-iver]: https://github.com/ol-iver
+[@oncleben31]: https://github.com/oncleben31
 [@oxan]: https://github.com/oxan
 [@popoviciri]: https://github.com/popoviciri
 [@puddly]: https://github.com/puddly
@@ -1771,7 +2423,6 @@ The following integrations are no longer available as of this release:
 [@regevbr]: https://github.com/regevbr
 [@roelvanderark]: https://github.com/roelvanderark
 [@rytilahti]: https://github.com/rytilahti
-[@scarface-4711]: https://github.com/scarface-4711
 [@scop]: https://github.com/scop
 [@spacegaier]: https://github.com/spacegaier
 [@starkillerOG]: https://github.com/starkillerOG
@@ -1805,6 +2456,7 @@ The following integrations are no longer available as of this release:
 [asuswrt docs]: /integrations/asuswrt/
 [august docs]: /integrations/august/
 [awair docs]: /integrations/awair/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [bond docs]: /integrations/bond/
 [bosch_shc docs]: /integrations/bosch_shc/
 [broadlink docs]: /integrations/broadlink/
@@ -1906,6 +2558,7 @@ The following integrations are no longer available as of this release:
 [lyric docs]: /integrations/lyric/
 [manual docs]: /integrations/manual/
 [melcloud docs]: /integrations/melcloud/
+[meteo_france docs]: /integrations/meteo_france/
 [meteoalarm docs]: /integrations/meteoalarm/
 [meteoclimatic docs]: /integrations/meteoclimatic/
 [miflora docs]: /integrations/miflora/
@@ -1922,6 +2575,7 @@ The following integrations are no longer available as of this release:
 [netgear docs]: /integrations/netgear/
 [network docs]: /integrations/network/
 [nightscout docs]: /integrations/nightscout/
+[nissan_leaf docs]: /integrations/nissan_leaf/
 [notify docs]: /integrations/notify/
 [notion docs]: /integrations/notion/
 [nut docs]: /integrations/nut/
@@ -1941,7 +2595,9 @@ The following integrations are no longer available as of this release:
 [ping docs]: /integrations/ping/
 [plaato docs]: /integrations/plaato/
 [plex docs]: /integrations/plex/
+[point docs]: /integrations/point/
 [poolsense docs]: /integrations/poolsense/
+[powerwall docs]: /integrations/powerwall/
 [proxy docs]: /integrations/proxy/
 [ps4 docs]: /integrations/ps4/
 [qbittorrent docs]: /integrations/qbittorrent/
@@ -2011,6 +2667,7 @@ The following integrations are no longer available as of this release:
 [twentemilieu docs]: /integrations/twentemilieu/
 [twitter docs]: /integrations/twitter/
 [unifi docs]: /integrations/unifi/
+[universal docs]: /integrations/universal/
 [updater docs]: /integrations/updater/
 [upnp docs]: /integrations/upnp/
 [usb docs]: /integrations/usb/

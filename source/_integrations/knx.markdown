@@ -424,6 +424,11 @@ context_timeout:
   required: false
   type: float
   default: None
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ### Support for automations
@@ -724,6 +729,11 @@ max_temp:
   description: Override the maximum temperature.
   required: false
   type: float
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Cover
@@ -810,6 +820,11 @@ device_class:
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Fan
@@ -855,6 +870,11 @@ max_step:
   description: The maximum amount of steps for a step-controlled fan. If set, the integration will convert percentages to steps automatically.
   required: false
   type: integer
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Light
@@ -998,6 +1018,11 @@ max_kelvin:
   required: false
   type: integer
   default: 6000
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 Many KNX devices can change their state internally without a message to the switch address on the KNX bus, e.g., if you configure a scene or a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given `state_address` (in most cases from the light actuator), it will overwrite the state of the object.
@@ -1143,6 +1168,8 @@ knx:
       type: temperature
       min: 20
       max: 24.5
+      step: 0.1
+      mode: slider
 ```
 
 {% configuration %}
@@ -1175,6 +1202,20 @@ max:
   description: Maximum value that can be sent. Defaults to the `type` DPT maximum value.
   required: false
   type: float
+step:
+  description: Step value. Defaults to the step size defined for the DPT in the KNX specifications.
+  required: false
+  type: float
+mode:
+  description: Specifies the mode used in the UI. `auto`, `box` or `slider` are valid.
+  required: false
+  type: string
+  default: auto
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Scene
@@ -1203,6 +1244,11 @@ name:
   description: A name for this device used within Home Assistant.
   required: false
   type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Select
@@ -1288,6 +1334,11 @@ sync_state:
   required: false
   type: [boolean, string, integer]
   default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Sensor
@@ -1344,6 +1395,11 @@ state_class:
   description: Sets the [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
   required: false
   type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ### Value Types
@@ -1552,6 +1608,11 @@ respond_to_read:
   required: false
   type: boolean
   default: false
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
@@ -1648,6 +1709,11 @@ sync_state:
   required: false
   type: boolean
   default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Troubleshooting / Common issues

@@ -87,7 +87,7 @@ If you prefer to use a live operating system, follow the instructions of your Li
 {% endif %}
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
 3. Select "Flash from URL"
-![etcher_from_url](/images/installation/etcher1.png)
+![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
 
 4. Get the URL for your {{site.installation.types[page.installation_type].board}}:
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
@@ -121,15 +121,15 @@ If you prefer to use a live operating system, follow the instructions of your Li
 _Select and copy the URL or use the "copy" button that appear when you hover it._
 
 1. Paste the URL for your {{site.installation.types[page.installation_type].board}} into Balena Etcher and click "OK"
-![etcher_from_url_paste](/images/installation/etcher2.png)
+![Screenshot of the Etcher software showing the URL bar with a URL pasted in.](/images/installation/etcher2.png)
 6. Balena Etcher will now download the image, when that is done click "Select target"
-![etcher_select_target](/images/installation/etcher3.png)
+![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
 7. Select the {{site.installation.types[page.installation_type].installation_media}} you want to use for your {{site.installation.types[page.installation_type].board}}
-![etcher_select_target](/images/installation/etcher4.png)
+![Screenshot of the Etcher software showing teh targets available.](/images/installation/etcher4.png)
 8. Click on "Flash!" to start writing the image
-![etcher_select_target](/images/installation/etcher5.png)
+![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
 9. When Balena Etcher is finished writing the image you will get this confirmation
-![etcher_select_target](/images/installation/etcher6.png)
+![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
 

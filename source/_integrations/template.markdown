@@ -8,9 +8,9 @@ ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
-  - '@home-assistant/core'
   - '@PhracturedBlue'
   - '@tetienne'
+  - '@home-assistant/core'
 ha_domain: template
 ha_platforms:
   - alarm_control_panel
@@ -20,7 +20,6 @@ ha_platforms:
   - light
   - lock
   - number
-  - select
   - sensor
   - select
   - switch
@@ -62,7 +61,7 @@ template:
           {% set bedroom = states('sensor.bedroom_temperature') | float %}
           {% set kitchen = states('sensor.kitchen_temperature') | float %}
 
-          {{ ((bedroom + kitchen) / 2) | round(1) }}
+          {{ ((bedroom + kitchen) / 2) | round(1, default=0) }}
 ```
 
 {% endraw %}
@@ -87,8 +86,8 @@ template:
         minutes: 0
     sensor:
       # Keep track how many days have past since a date
-      - name: Not smoking
-        state: '{{ ( ( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round }}'
+      - name: "Not smoking"
+        state: '{{ ( ( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(default=0) }}'
         unit_of_measurement: "Days"
 ```
 
@@ -148,10 +147,6 @@ binary_sensor:
   required: false
   type: map
   keys:
-    icon:
-      description: Defines a template for the icon of the sensor.
-      required: false
-      type: template
     picture:
       description: Defines a template for the entity picture of the sensor.
       required: false
@@ -179,7 +174,7 @@ number:
       description: Template for the number's current value.
       required: true
       type: template
-      description: Defines an action to run when the number value changes. The variable `value` will contain the number entered.
+      description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
       required: true
       type: action
     step:
@@ -211,11 +206,11 @@ select:
       required: true
       type: template
     select_option:
-      description: Defines an action to run to select an option from the `options` list.
+      description: Defines actions to run to select an option from the `options` list. The variable `option` will contain the option selected.
       required: true
       type: action
     options:
-      description: Template for the select's available options. The variable `option` will contain the option selected.
+      description: Template for the select's available options.
       required: true
       type: template
     optimistic:
@@ -229,15 +224,19 @@ select:
   type: map
   keys:
     name:
-      description: Defines a template to get the name of the sensor.
+      description: Defines a template to get the name of the entity.
       required: false
       type: template
     unique_id:
-      description: An ID that uniquely identifies this sensor. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+      description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
       required: false
       type: string
+    icon:
+      description: Defines a template for the icon of the entity.
+      required: false
+      type: template
     availability:
-      description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the component will always be `available`.
+      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns either of `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"` or a non-zero number, the entity is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
       required: false
       type: template
       default: true
@@ -311,7 +310,7 @@ If the template accesses every state on the system, a rate limit of one update p
 
 ### Startup
 
-If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use `is_state()` function in your template. For example, you would replace {% raw %}`{{ states.cover.source.state == 'open' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
+If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use `is_state()` function in your template. For example, you would replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
 
 {% raw %}
 
@@ -600,7 +599,7 @@ sensors:
           required: true
           type: template
         availability_template:
-          description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+          description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns either of `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"` or a non-zero number, the entity is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
           required: false
           type: template
           default: true
@@ -710,3 +709,9 @@ sensor:
         type: device_class
         default: None
 {% endconfiguration %}
+
+## Event `event_template_reloaded`
+
+Event `event_template_reloaded` is fired when Template entities have been reloaded and entities thus might have changed.
+
+This event has no additional data.

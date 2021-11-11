@@ -269,7 +269,7 @@ Calling this service forces Z-Wave JS to try to reach a node. This can be used t
 | `device_id`            	| no        	| Device ID (or list of device IDs) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 | `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 
-This service can be used in tandem with the node status sensor (disabled by default) to track the node's status and fire the command when needed. Here's an example automation that would ping a node when the node status sensor state has changed to dead and remained dead for 30 minutes. Note that this may be useful for some devices but will definitely not be useful for all. In cases where it is not useful, all you will be doing is generating additional traffic on your Z-Wave network which could slow down communication.
+This service can be used in tandem with the node status sensor to track the node's status and fire the command when needed. Here's an example automation that would ping a node when the node status sensor state has changed to dead and remained dead for 30 minutes. Note that this may be useful for some devices but will definitely not be useful for all. In cases where it is not useful, all you will be doing is generating additional traffic on your Z-Wave network which could slow down communication.
 
 ```yaml
 trigger:
@@ -465,7 +465,7 @@ trigger:
 
 #### Available Trigger Data
 
-In addition to the [standard automation trigger data](docs/automation/templating/#all), the `zwave_js.value_updated` trigger platform has additional trigger data available for use.
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `zwave_js.value_updated` trigger platform has additional trigger data available for use.
 
 | Template variable            | Data                                                                                       |
 |------------------------------|--------------------------------------------------------------------------------------------|
@@ -486,19 +486,24 @@ In addition to the [standard automation trigger data](docs/automation/templating
 ## Current Limitations
 
 - While support for the most common devices is working, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
-- There currently is no migration path available from any of the other Z-Wave implementations in Home Assistant. Your Z-Wave network is however stored on your stick so migrating will only require you to redo your device and entity naming.
 
 You can keep track of the Roadmap for the Z-Wave JS integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).
 
 ## Migrating from previous Z-Wave implementations
 
-If you are currently running on the [`zwave`](/integrations/zwave/) or [`ozw`](/integrations/ozw/) Z-Wave integration and it works fine, there is **no need to switch over at this time** to Z-Wave JS. It is important to know is that most development focus currently goes to Z-Wave JS. The previous implementations are still provided as-is. They will **NOT be removed** without proper notice but in time there *might* come technical dependencies that render one or both of those integrations unusable.
-
 If you're new to Home Assistant, use Z-Wave JS.
 
-The `zwave` integration has been marked as deprecated and will no longer receive any updates like new device files. The `ozw` integration will receive new device files if they are provided by upstream.
+The `zwave` and `ozw` integrations have been marked as deprecated and will no longer receive any updates.
 
-It is perfectly doable to switch over from one of the above mentioned previous integrations to the new Z-Wave JS integration. The good news is that your entire Z-Wave network is **stored on your stick** so you will not have to run through your house to recreate your network. That said, we currently do not provide a full-fledged, worry-free, click-a-button, migration from old to new. We're exploring options to provide this in the future. This means that if you want to switch over now, *you* will be the migration wizard.
+It is perfectly doable to switch over from one of the above mentioned previous integrations to the new Z-Wave JS integration. The good news is that your entire Z-Wave network is **stored on your stick** so you will not have to run through your house to recreate your network.
+
+If you are currently running the [`zwave`](/integrations/zwave/) or [`ozw`](/integrations/ozw/) Z-Wave integration we recommend you to migrate to Z-Wave JS. All development focus now goes to Z-Wave JS. The previous implementations are provided as-is. They will not be removed without proper notice but in time there might come technical dependencies that render one or both of those integrations unusable.
+
+### Automatic migration wizard
+
+For the `zwave` integration there is a migration wizard that will help you set up the Z-Wave JS integration, remove the `zwave` integration and migrate the entities and devices that can be mapped from the `zwave` integration to the Z-Wave JS integration. Some entities may not be able to migrate automatically and you will need to rename the corresponding available Z-Wave JS entities manually, after the migration. Before completing the migration you will be shown a list of entities that could not be migrated automatically, and you'll have the option to abort or continue with the migration. The migration wizard is available from the `zwave` integration configuration panel in the GUI.
+
+There is no automatic migration wizard for the `ozw` integration. Please follow the manual migration path below if you want to migrate from `ozw` to Z-Wave JS.
 
 ### In a nutshell this is what the migration path looks like
 
@@ -510,6 +515,12 @@ It is perfectly doable to switch over from one of the above mentioned previous i
 
 2) Remove the Z-Wave integration from Home Assistant: Configuration --> Integrations --> Z-Wave (or OpenZWave) --> Press the three dots and click Delete.
 
+    <div class='note info'>
+
+    If you have configured Z-Wave manually, make sure to also remove the `zwave:` section from your `configuration.yaml`.
+
+    </div>
+ 
 3) If you were running the OpenZWave beta, make sure to stop (or even remove) the OpenZWave add-on, also make sure it doesn't start automatically at startup.
 
 4) Restart your Home Assistant host. This step is important to make sure that your Z-Wave stick is released by the operating system.
@@ -714,3 +725,7 @@ to pick up those new names, either reload the integration or restart Home Assist
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow the menu:
 
 **Configuration** -> **Integrations** -> **Z-Wave JS** -> **Configure** -> **Download a dump of your network to help diagnose issues**
+
+### Interference issues
+
+Many users have reported issues with interference when the USB stick was directly connected to the machine (proximity). If you are having issues try to use a short USB 2.0 A male to female extension cord.

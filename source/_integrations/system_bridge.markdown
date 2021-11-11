@@ -41,6 +41,10 @@ This integration provides the following sensors:
 | Name                   | Description                                         |
 | ---------------------- | --------------------------------------------------- |
 | Battery                | Battery level of the device                         |
+| Displays Connected     | Number of displays connected                        |
+| Display Resolution X   | Display resolution (across)                         |
+| Display Resolution Y   | Display resolution (down)                           |
+| Display Refresh Rate   | Display refresh rate                                |
 | CPU Speed              | The current CPU speed                               |
 | Filesystem(s)          | Space used for each drive letter / filesystem mount |
 | GPU Memory Free        | GPU memory free in GB                               |

@@ -11,7 +11,9 @@ ha_iot_class: Local Push
 ha_release: 0.113
 ha_domain: bond
 ha_codeowners:
+  - '@bdraco'
   - '@prystupa'
+  - '@joshs85'
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_zeroconf: true
@@ -113,7 +115,7 @@ Calling this service will change the tracked power state of any bond light but n
 
 ### Service `bond.set_light_brightness_tracked_state`
 
-Sets the tracked brightness state of a bond light 
+Sets the tracked brightness state of a bond light
 Calling this service will change the tracked brightness state of any bond light but not transmit any signal to make the device change its state.
 
 | Service data attribute | Optional | Description |

@@ -21,7 +21,6 @@ The `Preload stream` option will start the camera feed on Home Assistant startup
   Example showing the Preload Stream option in the camera dialog.
 </p>
 
-
 ### Services
 
 Once loaded, the `camera` platform will expose services that can be called to perform various actions.

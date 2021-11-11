@@ -323,6 +323,15 @@ condition:
   after_offset: "-01:00:00"
 ```
 
+This is an example of 1 hour offset after sunset.
+
+```yaml
+condition:
+  - condition: sun
+    after: sunset
+    before: sunrise
+```
+
 This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`.
 
 ```yaml
