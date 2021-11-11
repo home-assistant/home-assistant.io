@@ -63,6 +63,7 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.11.1 - November 5](#release-2021111---november-5)
 - [Release 2021.11.2 - November 9](#release-2021112---november-9)
+- [Release 2021.11.3 - November 11](#release-2021113---november-11)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -472,6 +473,39 @@ The following integrations are now available via the Home Assistant UI:
 [velbus docs]: /integrations/velbus/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [zha docs]: /integrations/zha/
+
+## Release 2021.11.3 - November 11
+
+- Fix rpi_camera setup hanging on initialization ([@enegaard] - [#59316]) ([rpi_camera docs])
+- Fix state of sense net_production sensor ([@kbickar] - [#59391]) ([sense docs]) ([emulated_kasa docs])
+- Update frontend to 20211109.0 ([@bramkragten] - [#59451]) ([frontend docs])
+- Fix zeroconf with sonos v1 firmware ([@bdraco] - [#59460]) ([sonos docs])
+- Ignore None state in state_change_event ([@dgomes] - [#59485]) ([integration docs])
+- Fix wirelesstag switch arm/disarm ([@sergeymaysak] - [#59515]) ([wirelesstag docs])
+- Remove incomplete segment on stream restart ([@uvjustin] - [#59532]) ([stream docs])
+
+[#59316]: https://github.com/home-assistant/core/pull/59316
+[#59391]: https://github.com/home-assistant/core/pull/59391
+[#59451]: https://github.com/home-assistant/core/pull/59451
+[#59460]: https://github.com/home-assistant/core/pull/59460
+[#59485]: https://github.com/home-assistant/core/pull/59485
+[#59515]: https://github.com/home-assistant/core/pull/59515
+[#59532]: https://github.com/home-assistant/core/pull/59532
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@dgomes]: https://github.com/dgomes
+[@enegaard]: https://github.com/enegaard
+[@kbickar]: https://github.com/kbickar
+[@sergeymaysak]: https://github.com/sergeymaysak
+[@uvjustin]: https://github.com/uvjustin
+[emulated_kasa docs]: /integrations/emulated_kasa/
+[frontend docs]: /integrations/frontend/
+[integration docs]: /integrations/integration/
+[rpi_camera docs]: /integrations/rpi_camera/
+[sense docs]: /integrations/sense/
+[sonos docs]: /integrations/sonos/
+[stream docs]: /integrations/stream/
+[wirelesstag docs]: /integrations/wirelesstag/
 
 ## If you need help...
 
