@@ -39,7 +39,7 @@ template:
   - binary_sensor:
     - name: "Flume Flow Status"
       state: >-
-        {{ states.sensor.flume_sensor.state != "0" }}
+        {{ states('sensor.flume_sensor') != "0" }}
 ```
 
 {% endraw %}
