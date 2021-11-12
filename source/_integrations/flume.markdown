@@ -35,13 +35,11 @@ The following YAML creates a binary sensor. This requires the default sensor to 
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: template
-    sensors:
-      flume_status:
-        friendly_name: "Flume Flow Status"
-        value_template: >-
-          {{ states.sensor.flume_sensor.state != "0" }}
+template:
+  - binary_sensor:
+    - name: "Flume Flow Status"
+      state: >-
+        {{ states('sensor.flume_sensor') != "0" }}
 ```
 
 {% endraw %}
