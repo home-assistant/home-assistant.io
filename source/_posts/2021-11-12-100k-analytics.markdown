@@ -71,7 +71,7 @@ This data is integrated in the Home Assistant website when users navigate the va
 
 ![dublin-bus-stats](/images/blog/2021-11-analytics/dublin-bus-stats.png)
 
-However more interesting is off course the most popular integrations. I'm always surprised how high MQTT is on this list and very happy to see ESPHome doing so well.
+However, more interesting is of course the most popular integrations. I'm always surprised how high MQTT is on this list and very happy to see ESPHome doing so well.
 
 | Rank | Integration | Installations
 | - | - | -
