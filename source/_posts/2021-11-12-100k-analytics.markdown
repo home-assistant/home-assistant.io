@@ -14,9 +14,11 @@ og_image: /images/blog/2021-11-analytics/social.png
 
 <img src='/images/blog/2021-11-analytics/social.png' style='border: 0;box-shadow: none;'>
 
-Today we have reached a major milestone for [Home Assistant Analytics][analytics]: we passed 100 000 tracked installations!
+Today we have reached a major milestone for [Home Assistant Analytics][analytics]: 100,000 users have opted in to be included!
 
-This is a big deal because we only launched Home Assistant Analytics last April and it is opt-in. We promoted it in the release blog post and during live streams, but have never nagged existing users in the interface. New users did get asked to opt-in as part of onboarding.
+This is a big deal because it's not enabled by default, users have to opt-in, and we only launched Home Assistant Analytics last April. We promoted it in the release blog post and during live streams, but have never nagged existing users in the interface. New users did get asked to opt-in as part of onboarding.
+
+The 100,000 installations are not the total number of Home Assistant users. The truth here is that we don't know the total number of installations because Home Assistant is private by design. Our estimate is that there are 4-5x more installations than people that opt-in to analytics.
 
 _For the latest version of the graphs in this post, visit [Home Assistant Analytics][analytics]_
 
@@ -26,7 +28,7 @@ _For the latest version of the graphs in this post, visit [Home Assistant Analyt
 
 ## Why we collect data
 
-It's good to start off with why we allow users to opt-in to share their data with us. One reason is that manufacturers of IoT products live in their own world in which we have no presence. They don't see us at CES or other trade shows, but instead see it's open source and so assume it's a small user base. They will not allocate resources to add a local API to satisfy a small number of people.
+It's good to start off with why we allow users to opt-in to share their data with us. One reason is that manufacturers of IoT products live in their own world in which we have little presence. We don't have stands at CES or other trade shows. Instead, manufacturers see it's open source and assume it's a small user base, not big enough to convince them to allocate resources to add an API necessary for integrating.
 
 With the data collected by Home Assistant Analytics we can show that providing an API can expand their market around the globe.
 
@@ -47,7 +49,7 @@ The board breakdown below only applies to the operating system installation type
 
 ## Tracking updates
 
-For example, we have spent a lot of time on making sure that it is easy to update both Home Assistant Core and Home Assistant Operating System. Ease of updates are important because when critical bugs or security issues arise, users should feel confident to hit the update button.
+We have spent a lot of time on making sure that it is easy to update both Home Assistant Core and Home Assistant Operating System. Ease of updates are important because when critical bugs or security issues arise, users should feel confident to hit the update button.
 
 Home Assistant can be updated using a single click in the interface and will automatically roll back if the update fails or the system fails to come online afterwards. This gives our users the confidence to update and we see this reflected in the speed at which our users update when a new monthly releases drops:
 
