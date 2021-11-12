@@ -32,7 +32,7 @@ It's good to start off with why we allow users to opt-in to share some data with
 
 Manufacturers of IoT products live in their own world in which we have little presence. We don't have stands at CES or other trade shows. Instead, manufacturers see we're open source and assume it's a small user base. They assume the ability to integrate with Home Assistant and other platforms is not profitable enough to allocate resources to add the necessary APIs to integrate.
 
-With the data collected by Home Assistant Analytics we can show that providing an API can expand their market around the globe.
+With the data collected by Home Assistant Analytics, we can show that providing an API can expand their market around the globe.
 
 <p class='img'>
 <img src='/images/blog/2021-11-analytics/onboarding-analytics.png'>
@@ -41,7 +41,7 @@ Screenshot of analytics during Home Assistant onboarding
 
 ## How people run Home Assistant
 
-The collected data is also used to give us, the Home Assistant developers, insight in how Home Assistant is installed and what we should improve. As you can see in our installation breakdown, the operating system installation type is by far the most popular. This makes sense because it is our recommended installation type and the easiest to use. It gives the full Home Assistant experience and can be fully managed via the user interface. No text editors, Linux experience or computer science degree necessary.
+The collected data is also used to give us, the Home Assistant developers, insight into how Home Assistant is installed and what we should improve. As you can see in our installation breakdown, the operating system installation type is by far the most popular. This makes sense because it is our recommended installation type and the easiest to use. It gives the full Home Assistant experience and can be fully managed via the user interface. No text editors, Linux experience, or computer science degree necessary.
 
 ![Pie chart of installation types. Operating System has 66.9%. Container has 17.9%. Supervised has 10.2%. Core has 5%.](/images/blog/2021-11-analytics/installation-types.png)
 
@@ -51,9 +51,9 @@ The board breakdown below only applies to the operating system installation type
 
 ## Tracking updates
 
-We have spent a lot of time on making sure that it is easy to update both Home Assistant Core and Home Assistant Operating System. Ease of updates are important because when critical bugs or security issues arise, users should feel confident to hit the update button.
+We have spent a lot of time making sure that it is easy to update both Home Assistant Core and Home Assistant Operating System. Ease of updates is important because when critical bugs or security issues arise, users should feel confident to hit the update button.
 
-Home Assistant can be updated using a single click in the interface and will automatically roll back if the update fails or the system fails to come online afterwards. This gives our users the confidence to update and we see this reflected in the speed at which our users update when a new monthly releases drops:
+Home Assistant can be updated using a single click in the interface and will automatically roll back if the update fails or the system fails to come online afterward. This gives our users the confidence to update and we see this reflected in the speed at which our users update when a new monthly release drops:
 
 ![version-history](/images/blog/2021-11-analytics/version-history.png)
 
@@ -71,7 +71,7 @@ As you can see on our map we have a global reach. Some countries only see a few 
 
 There are multiple levels of analytics that users can opt-in to. The basic level is how you run Home Assistant but you can also share what integrations you use.
 
-This data is integrated in the Home Assistant website when users navigate the various integrations. It sometimes highlights certain integrations that serve their purpose but don't have a big audience, like the integration for the [Dublin bus schedule](/integrations/dublin_bus_transport/):
+This data is integrated into the Home Assistant website when users navigate the various integrations. It sometimes highlights certain integrations that serve their purpose but don't have a big audience, like the integration for the [Dublin bus schedule](/integrations/dublin_bus_transport/):
 
 ![dublin-bus-stats](/images/blog/2021-11-analytics/dublin-bus-stats.png)
 
