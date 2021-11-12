@@ -47,7 +47,7 @@ The collected data is also used to give us, the Home Assistant developers, insig
 
 The board breakdown below only applies to the operating system installation type. The Raspberry Pi family of devices is by far the most popular way of running Home Assistant, followed by running it in a virtual machine. Running Home Assistant in a virtual machine is popular because it is our recommended approach for people that already have a server at home.
 
-![Pie chart showing what boards are used. Raspberry Pi 4 has 35.2%. Virtual Machine has 32.9%.](/images/blog/2021-11-analytics/board-breakdown.png)
+![Pie chart showing what boards are used. Raspberry Pi 4 has 38.8% (32 and 64 bit combined). Virtual Machine has 32.9%.](/images/blog/2021-11-analytics/board-breakdown.png)
 
 ## Tracking updates
 
