@@ -90,7 +90,7 @@ However, more interesting is of course the most popular integrations. I'm always
 | 9 | <img src='https://brands.home-assistant.io/_/system_monitor/icon.png' height='32' style='border: 0; box-shadow: 0'> [System Monitor](/integrations/system_monitor/) |	12110 (15.0 %)
 | 10 | <img src='https://brands.home-assistant.io/_/spotify/icon.png' height='32' style='border: 0; box-shadow: 0'> [Spotify](/integrations/spotify/) | 11533 (14.3 %)
 
-_For the full list, see [Home Assistant Analytics](analytics-integrations)._
+_For the full list, see [Home Assistant Analytics][analytics-integrations]._
 
 We see that integrations that offer automated discovery do very well. This makes sense because once discovered we'll prompt the user to set them up:
 
