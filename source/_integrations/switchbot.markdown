@@ -45,10 +45,10 @@ There are three attributes available on the SwitchBot entity to give you more in
 
 ## SwitchBot Options
 
-There are four options that can be configured for the Switchbot entities. Setting any of these options will apply to all of your switchbot devices.
+There are four options that can be configured for the SwitchBot entities. Setting any of these options will apply to all of your switchBot devices.
 
 - `Time between updates (seconds)`: Increase/Decrease the update interval for the device. (Could impact battery life)
-- `Retry count`: How many times to retry sending commands and retry polling your Switchbot devices.
+- `Retry count`: How many times to retry sending commands and retry polling your SwitchBot devices.
 - `Timeout between retries`: How long to wait before retries.
 - `How long to scan for advertisement data`: Bluetooth LE uses advertisement data for device statuses and/or attributes. This setting spesifies how long the scan should run.
 
