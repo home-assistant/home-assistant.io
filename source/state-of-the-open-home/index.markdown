@@ -11,7 +11,7 @@ og_image: /images/state-of-the-open-home/social.png
 Where: YouTube<br>
 When: Saturday, December 11, at 11am PST / 8pm CET
 
-For over 8 years we've been working on the open home. We envision the open home as one where you, the user, is in control of the technology, your data and who can access it. At the State of the Open Home 2021 we will present on the progress we made this year in making the open home a viable choice for everyone.
+For over 8 years we've been working on the open home. We envision the open home as one where you are in control of the technology, your data and who can access it. At the State of the Open Home 2021 we will present on the progress we made this year in making the open home a viable choice for everyone.
 
 The event is hosted by Nabu Casa, Home Assistant & ESPHome and we'll be joined by our friends from WLED and Z-Wave JS to talk about our work on making this vision a reality.
 
