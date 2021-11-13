@@ -22,6 +22,8 @@ There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 
+If it seems counters for some entities are not being logged to influxdb, note that by default state objects are logged under their unit, not the entity name. This behavior is controlled via the [`measurement_attr`](https://www.home-assistant.io/integrations/influxdb/#measurement_attr) option.
+
 <div class='note'>
 
 The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
