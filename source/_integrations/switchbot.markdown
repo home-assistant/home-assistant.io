@@ -45,7 +45,7 @@ There are three attributes available on the SwitchBot entity to give you more in
 
 ## SwitchBot Options
 
-There are four options that can be configured for the SwitchBot entities. Setting any of these options will apply to all of your switchBot devices.
+There are four options that can be configured for the SwitchBot entities. Setting any of these options will apply to all of your SwitchBot devices.
 
 - `Time between updates (seconds)`: Increase/Decrease the update interval for the device. (Could impact battery life)
 - `Retry count`: How many times to retry sending commands and retry polling your SwitchBot devices.
