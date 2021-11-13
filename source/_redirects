@@ -160,7 +160,6 @@
 /components/binary_sensor.linode /integrations/linode#binary-sensor
 /components/binary_sensor.lupusec /integrations/lupusec
 /components/binary_sensor.maxcube /integrations/maxcube
-/components/binary_sensor.mychevy /integrations/mychevy
 /components/binary_sensor.mystrom /integrations/mystrom#binary-sensor
 /components/binary_sensor.ness_alarm /integrations/ness_alarm
 /components/binary_sensor.nest /integrations/nest#binary-sensor
@@ -769,7 +768,6 @@
 /components/sensor.moon /integrations/moon
 /components/sensor.mqtt_room /integrations/mqtt_room
 /components/sensor.mvglive /integrations/mvglive
-/components/sensor.mychevy /integrations/mychevy
 /components/sensor.nederlandse_spoorwegen /integrations/nederlandse_spoorwegen
 /components/sensor.nest /integrations/nest#sensor
 /components/sensor.netatmo /integrations/netatmo#sensor
@@ -1561,7 +1559,6 @@
 /components/mqtt_room /integrations/mqtt_room
 /components/mqtt_statestream /integrations/mqtt_statestream
 /components/mvglive /integrations/mvglive
-/components/mychevy /integrations/mychevy
 /components/mycroft /integrations/mycroft
 /components/myq /integrations/myq
 /components/mysensors /integrations/mysensors
@@ -2349,4 +2346,3 @@
 /components/sensor.iota /more-info/removed-integration 301
 /components/iota /more-info/removed-integration 301
 /integrations/iota /more-info/removed-integration 301
-
