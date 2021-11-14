@@ -117,7 +117,7 @@ knx:
 
 Connection specific settings are now part of the config flow.
 
-If `route back` is enabled the KNXnet/IP Server shall use the IP address and the port number from the IP package received as the target IP address or port number for the response to the KNXnet/IP Client (for NAT / Docker).
+Use `route back` if your tunneling server is located on a different network.
 
 ## Events
 
