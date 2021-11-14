@@ -1,5 +1,5 @@
 ---
-title: Ubiquiti UniFi
+title: UniFi Network
 description: Instructions on how to configure UniFi integration with UniFi Controller by Ubiquiti.
 ha_category:
   - Hub
@@ -20,7 +20,7 @@ ha_platforms:
   - switch
 ---
 
-[UniFi](https://www.ui.com/software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
+[UniFi Network](https://www.ui.com/software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -32,17 +32,21 @@ There is currently support for the following device types within Home Assistant:
 
 The user needs administrator privileges in order to control switches.
 
+### Understanding UniFi Naming
+
+Network management has always been Ubiquiti's main product and so UniFi for a while was always synonymous with their Network Controller application. However, UniFi has started branching and releasing other apps, like Protect, Talk and Access. [This post on the UniFi community](https://community.ui.com/questions/Clarifying-UniFi-Hardware-and-Software-Terminology/2557963a-e79d-4157-a78c-36d3f7b383fb) explains it pretty well. **This main UniFi Integration is _only_ for UniFi Network application. It will not interface with devices for other applications like Protect, Talk, Access.**
+
 ### Extra configuration of the integration
 
-All configuration options are offered from the front end. Enter what UniFi integration you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
+All configuration options are offered from the front end. Enter what UniFi Network integration you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
 
 ### Configuring Users
 
-The UniFi controller allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi device tracker. If you want blocking of network access or POE control as well you would need to have 'admin' permissions.
+The UniFi Network controller allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi Network device tracker. If you want blocking of network access or POE control as well you would need to have 'admin' permissions.
 
 ### UniFi OS
 
-For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. Note the Dream Machine Pro and Cloud Key Gen2 plus updated to UniFi OS needs the port to be 443. 
+For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. Note the Dream Machine Pro and Cloud Key Gen2 plus updated to UniFi OS needs the port to be 443.
 
 ### Conflicts with MQTT
 
@@ -52,13 +56,13 @@ It is recommended that you run the UniFi controller in a dedicated virtual machi
 
 ## Presence detection
 
-This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi](https://unifi-network.ui.com/) controller. By default devices are marked as away 300 seconds after they were last seen.
+This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://unifi-network.ui.com/) controller. By default devices are marked as away 300 seconds after they were last seen.
 
 ### Troubleshooting and Time Synchronization
 
 Presence detection depends on accurate time configuration between Home Assistant and the UniFi controller.
 
-If Home Assistant and the UniFi controller are running on separate machines or VMs ensure that all clocks are synchronized. Failing to have synchronized clocks will lead to Home Assistant failing to mark a device as home.
+If Home Assistant and the UniFi Network controller are running on separate machines or VMs ensure that all clocks are synchronized. Failing to have synchronized clocks will lead to Home Assistant failing to mark a device as home.
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
 
@@ -74,7 +78,7 @@ Try to get a wireless client to reconnect to the network.
 
 ### Service unifi.remove_clients
 
-Clean up clients on the UniFi Controller that has only been associated with the controller for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
+Clean up clients on the UniFi Network Controller that has only been associated with the controller for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
 
 ## Switch
 
@@ -104,7 +108,7 @@ Get entities reporting uptime per network client.
 
 ## Debugging integration
 
-If you have problems with UniFi or the integration you can add debug prints to the log.
+If you have problems with UniFi Network or the integration you can add debug prints to the log.
 
 ```yaml
 logger:
