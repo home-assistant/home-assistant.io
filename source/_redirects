@@ -2346,3 +2346,7 @@
 /components/sensor.iota /more-info/removed-integration 301
 /components/iota /more-info/removed-integration 301
 /integrations/iota /more-info/removed-integration 301
+/components/mychevy /more-info/removed-integration 301
+/integrations/mychevy /more-info/removed-integration 301
+/components/binary_sensor.mychevy /more-info/removed-integration 301
+/components/sensor.mychevy /more-info/removed-integration 301
