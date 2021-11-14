@@ -115,7 +115,7 @@ knx:
 
 ## Connection
 
-Connection specific settings are now part of the config flow.
+Connection parameters are set up when adding the integration and can be changed from the `Integrations` panel.
 
 Use `route back` if your tunneling server is located on a different network.
 
