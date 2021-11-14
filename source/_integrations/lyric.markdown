@@ -28,7 +28,7 @@ To set up this component, you **must** first need to set up a developer account 
    1. App Name: You can use any name here.
    1. Callback URL: This needs to be the URL of your Home Assistant instance + `/auth/external/callback`. For example: `http://192.168.1.123:8123/auth/external/callback`.
 
-Once your app is created, copy the `Consumer Key` and `Consumer Secret`. These will be your `client_id` and `client_secret` to add to your `configuration,yaml`:
+Once your app is created, copy the `Consumer Key` and `Consumer Secret`. These will be your `client_id` and `client_secret` to add to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
