@@ -19,7 +19,7 @@ Integrates Mill heater into Home Assistant.
 {% include integrations/config_flow.md %}
 
 You can configure it for cloud access or local access.
-Local ascces requires Generation 3 heaters (Sold from Autumn 2021)
+Local access requires Generation 3 heaters (Sold from Autumn 2021)
 
 ## Integration services
 
