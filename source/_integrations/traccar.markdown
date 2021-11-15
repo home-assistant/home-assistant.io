@@ -3,6 +3,7 @@ title: Traccar
 description: Instructions how to use Traccar GPS tracker to track devices in Home Assistant.
 ha_release: 0.83
 ha_category:
+  - Car
   - Presence Detection
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -70,7 +71,7 @@ max_accuracy:
   type: integer
   default: 0
 skip_accuracy_filter_on:
-  description: Skip filter position by "max_accuracy filter" if any of specified attributes are pressent on the traccar message.
+  description: Skip filter position by "max_accuracy filter" if any of specified attributes are present on the traccar message.
   required: false
   type: list
 monitored_conditions:

@@ -27,5 +27,5 @@ Assistant.
   To prevent being automatically logged out of your SmartHab mobile app, you
   might want to create a secondary user in the app's settings and grant it
   access to your home. You can then configure the integration using this account's
-  credentials. This is also more secure, as this user should be less priviledged.
+  credentials. This is also more secure, as this user should be less privileged.
 </div>

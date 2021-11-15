@@ -40,6 +40,10 @@ name:
   required: false
   type: string
   default: REST Switch
+device_class:
+  description: Sets the [class of the device](/integrations/switch/#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 timeout:
   description: Timeout for the request.
   required: false
@@ -70,7 +74,11 @@ password:
 headers:
   description: The headers for the request.
   required: false
-  type: [string, list]
+  type: [list, template]
+params:
+  description: The query params for the requests.
+  required: false
+  type: [list, template]
 verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
@@ -93,6 +101,7 @@ This example shows a switch that uses a [template](/topics/templating/) to allow
 ```
 
 {% raw %}
+
 ```yaml
 switch:
   - platform: rest
@@ -102,8 +111,10 @@ switch:
     is_on_template: "{{ value_json.is_active }}"
     headers:
       Content-Type: application/json
+      X-Custom-Header: '{{ states("input_text.the_custom_header") }}'
     verify_ssl: true
 ```
+
 {% endraw %}
 
 `body_on` and `body_off` can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template `{% raw %}'{"rem_temp":{{states('sensor.bedroom_temp')}}}'{% endraw %}`.

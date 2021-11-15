@@ -84,7 +84,7 @@ media_content_id: "Awesome Music"
 
 #### Play Quick Select
 
-You can play a HEOS Quick Select by nubmer or name with the `media_player.play_media` service. Example service data payload:
+You can play a HEOS Quick Select by number or name with the `media_player.play_media` service. Example service data payload:
 
 ```yaml
 entity_id: media_player.office

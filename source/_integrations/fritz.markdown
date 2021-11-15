@@ -46,14 +46,13 @@ Currently supported services are Platform specific:
 
 - `fritz.reconnect`
 - `fritz.reboot`
+- `fritz.cleanup`
 
 ### Platform Services
 
 #### Service `fritz.reboot`
 
 Reboot the router.
-
-</div>
 
 | Service data attribute | Optional | Description                                                                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
@@ -63,6 +62,15 @@ Reboot the router.
 
 Disconnect and reconnect the router to the Internet.
 If you have a dynamic IP address, most likely it will change.
+
+| Service data attribute | Optional | Description                                                                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Only act on a specific  router                                                                                 |
+
+#### Service `fritz.cleanup`
+
+Remove all stale devices from Home Assistant.
+A device is identified as stale when it's still present on Home Assistant but not on the FRITZ!Box.
 
 | Service data attribute | Optional | Description                                                                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
@@ -79,6 +87,8 @@ These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrat
 
 ### Parental control
 
+Parental control switches can be used to enable and disable internet access of individual devices. If a device has internet access it will be enabled, otherwise it will be disabled. You can also find the current blocking state of the individual devices in the UI of the FRITZ!Box under `Internet` -> `Filters` -> `Parental Controls` -> `Device Block`
+
 Parental control switches are designed for advanced users, thus they are disabled by default. You need to enable the wanted entities manually.
 
 ### Device Tracker
@@ -91,3 +101,55 @@ Parental control switches are designed for advanced users, thus they are disable
 
 Due to security reasons, AVM implemented the ability to enable/disable a port forward rule only from the host involved in the rule.
 As a result, this integration will create entities only for rules that have your Home Assistant host as a destination.
+
+**Note 1**: On your FRITZ!Box, enable the setting `Permit independent port sharing for this device` for the device which runs HA (`Internet` -> `Permit Access` -> `<Name of HA device>`)
+
+**Note 2**: Only works if you have a dedicated IPv4 address (it won't work with DS-Lite)
+
+## Example Automations and Scripts
+
+### Script: Reconnect / get new IP
+
+The following script can be used to easily add a reconnect button to your UI. If you want to reboot your FRITZ!Box, you can use `fritz.reboot` instead.
+
+```yaml
+fritz_box_reconnect:
+  alias: "Reconnect FRITZ!Box"
+  sequence:
+    - service: fritz.reconnect
+      target:
+        entity_id: binary_sensor.fritzbox_7530_connection
+
+```
+
+### Automation: Reconnect / get new IP every night
+
+```yaml
+automation:
+- alias: "System - Reconnect FRITZ!Box"
+  trigger:
+    - platform: time
+      at: "05:00:00"
+  action:
+    - service: fritz.reconnect
+      target:
+        entity_id: binary_sensor.fritzbox_7530_connection
+
+```
+
+### Automation: Phone notification with Wi-fi credentials when guest Wi-fi is created
+
+```yaml
+automation:
+  - alias: "Guests Wi-fi Turned On -> Send Password To Phone"
+    trigger:
+      - platform: state
+        entity_id: switch.fritzbox_7530_wifi_myssid
+        to: "on"
+    action:
+      - service: notify.notify
+        data:
+          title: "Guest Wi-Fi is enabled"
+          message: "Password: ..."
+
+```

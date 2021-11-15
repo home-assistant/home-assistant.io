@@ -19,4 +19,4 @@ system_health:
 
 System Health integration data can be viewed at **Configuration** -> **Info**.
 
-Data includes information about your system architecture, operating system and version, Home Assistant installation type and version, Python version, frontend version, the number of [Lovelace Dashboards and Views](/lovelace/dashboards-and-views/) you have, and more.
+Data includes information about your system architecture, operating system and version, Home Assistant installation type and version, Python version, frontend version, the number of Lovelace [Dashboards](/lovelace/dashboards/) and [Views](/lovelace/views/) you have, and more.

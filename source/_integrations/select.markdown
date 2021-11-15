@@ -16,7 +16,7 @@ a limited set of selectable options for the entity.
 
 ### Services
 
-The Number entities registers the following services:
+The Select entities registers the following services:
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |

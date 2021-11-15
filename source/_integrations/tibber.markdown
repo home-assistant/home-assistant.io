@@ -35,7 +35,6 @@ Go to [developer.tibber.com/settings/accesstoken](https://developer.tibber.com/s
 
 Tibber can send a notification by calling the [`notify` service](/integrations/notify/). It will send a notification to all devices registered in the Tibber account.
 
-The requirement is that you have setup the [`tibber` component](#setup).
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 ### Send message
@@ -53,7 +52,6 @@ action:
 The `tibber` sensor provides the current electricity price if you are a [Tibber](https://tibber.com/) customer.
 If you have a Tibber Pulse it will also show the electricity consumption in real time.
 
-The requirement is that you have setup the [`tibber` component](#setup). The sensor will show once the transfer date to tibber has been confirmed.
 
 ## Examples
 

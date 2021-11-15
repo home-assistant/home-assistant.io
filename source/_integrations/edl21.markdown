@@ -24,6 +24,7 @@ Compatible transceivers:
 Tested smart meters:
 
 - APATOR Norax 3D (enable InF Mode as described in manual to retrieve full data)
+- DZG DWS76 (enable InF as described in manual to retrieve full data)
 - Iskraemeco MT175 (ISKRA MT175-D2A51-V22-K0t)
 
 ## Configuration

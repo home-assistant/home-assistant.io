@@ -31,15 +31,33 @@ To set it up, add the following information to your `configuration.yaml` file:
 vicare:
   username: VICARE_EMAIL
   password: VICARE_PASSWORD
+  client_id: VICARE_CLIENT_ID
 ```
+
+The above-required configuration parameters can be obtained as follows:
+1. Register and login in the [Viessmann Developer Portal](https://developer.viessmann.com).
+2. In the menu navigate to API Keys.
+3. Create a new OAuth client using the following data:
+  ```txt
+  Name: PyViCare
+  Google reCAPTCHA: Disabled
+  Redirect URIs: vicare://oauth-callback/everest
+  ```
+4. Copy the Client ID to the configuration, e.g., `client_id: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"`.
+5. Set `username`and `password` to your Viessmann Developer Portal login credentials.
+
 
 {% configuration %}
 username:
-  description: Your username for the ViCare App
+  description: Your username for the Viessmann developer portal
   required: true
   type: string
 password:
-  description: Your password for the ViCare App
+  description: Your password for the Viessmann developer portal
+  required: true
+  type: string
+client_id:
+  description: Your API key from the Viessmann developer portal
   required: true
   type: string
 name:
@@ -47,10 +65,6 @@ name:
   required: false
   default: ViCare
   type: string
-circuit:
-  description: Heating circuit of your heating device if multiple exist 
-  required: false
-  type: integer
 heating_type:
   description: One of `generic`, `gas`, `heatpump` or `fuelcell`. Specifying the heating_type provides additional attributes and sensors specific for the heating system.
   required: false
@@ -63,12 +77,11 @@ scan_interval:
   type: integer
 {% endconfiguration %}
 
-Two components will be created: `climate.vicare_heating` and `water_heater.vicare_water` (for domestic hot water).
-Unless you specify a `circuit` parameter, it will pick up the first heating circuit of your installation.
+Multiple device instances might be generated depending on the number of burners and/or circuits of your installation. If there is more than a single instance all devices are suffixed with the circuit or burner ID.
 
 ## Viessmann API limits
 
-Recently Viessmann has introduced a rate limit on their REST API. If you exceed one of the limits below you will be banned for 24 hours:
+The Viessmann API is rate-limited. If you exceed one of the limits below you will be banned for 24 hours:
 
 - Limit 1: 120 calls for a time window of 10 minutes
 - Limit 2: 1450 calls for a time window of 24 hours
@@ -118,7 +131,7 @@ Set the mode for the climate device as defined by Viessmann (see [set_hvac_mode]
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
-| `vicare_mode` | no | New value of ViCare mode, one of: "dhw", "dhwAndHeating", "dhwAndHeatingCooling", "forcedReduced", "forcedNormal" or "standby"
+| `vicare_mode` | no | New value of ViCare mode. For supported values see the `vicare_modes` attribute of the climate entity.
 
 #### Service `set_preset_mode`
 

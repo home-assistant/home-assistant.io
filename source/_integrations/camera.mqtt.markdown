@@ -57,6 +57,10 @@ device:
   required: false
   type: map
   keys:
+    configuration_url:
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      required: false
+      type: string
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
       required: false
@@ -94,6 +98,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -108,6 +117,10 @@ json_attributes_topic:
   type: string
 name:
   description: The name of the camera.
+  required: false
+  type: string
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
   required: false
   type: string
 topic:

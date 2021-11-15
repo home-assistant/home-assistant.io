@@ -20,7 +20,7 @@ Home Assistant allows users to share their usage data via the analytics integrat
 
 The information sent depends on what options you opt-in to. You can opt-in during onboarding and by going to **{% my general title="Configuration >> General" %}** .
 
-**{% my general badge %}**
+{% my general badge %}
 
 When enabled, data will be sent 15 minutes after each start, and every 24h after startup. Sent data is printed to your log.
 
@@ -74,6 +74,7 @@ This includes:
 
 - The names of all your core integrations
 - The names and versions of all your custom integrations if you have any
+- Boolean to indicate that the [energy integration](/integrations/energy) is configured
 
 If your system includes the Supervisor, this will also contain:
 
@@ -100,14 +101,17 @@ If your system includes the Supervisor, this will also contain:
     "version": "{{site.data.version_data.hassos['odroid-n2']}}"
   },
   "integrations": ["awesome_integration"],
-    "addons": [
-        {
-            "slug": "awesome_addon",
-            "protected": true,
-            "version": "1.0.0",
-            "auto_update": false
-        }
-    ]
+  "addons": [
+      {
+          "slug": "awesome_addon",
+          "protected": true,
+          "version": "1.0.0",
+          "auto_update": false
+      }
+  ],
+  "energy": {
+    "configured": true
+  }
 }
 ```
 
@@ -158,7 +162,7 @@ If your system includes the Supervisor, this will also contain:
 
 If enabled, a crash report will be collected when an unexpected error occurs and uploaded to [Sentry](https://sentry.io). These reports will help fix bugs and improve performance and stability.
 
-Crash reports are only visible to the Home Assistant Core developers. This feature is currently limited to the Supervisor.
+Crash reports are only visible to the Home Assistant Core developers. This feature is currently limited to the [Supervisor](/docs/glossary/#home-assistant-supervisor) and [OS-Agent](https://github.com/home-assistant/os-agent).
 
 ## Data storage & processing
 

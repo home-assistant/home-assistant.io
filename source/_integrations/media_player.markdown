@@ -106,8 +106,8 @@ metadata:
 
 Documentation:
 
-- [Google Dev Documentaion MediaData](https://developers.google.com/cast/docs/reference/messages#MediaData)
-- [Google Dev Documentaion MediaInformation](https://developers.google.com/cast/docs/reference/web_receiver/cast.framework.messages.MediaInformation)
+- [Google Dev Documentation MediaData](https://developers.google.com/cast/docs/reference/messages#MediaData)
+- [Google Dev Documentation MediaInformation](https://developers.google.com/cast/docs/reference/web_receiver/cast.framework.messages.MediaInformation)
 
 
 Example of calling media_player service with title and image set:
@@ -120,7 +120,7 @@ data:
   media_content_id: "https://fake-home-assistant.io.stream/aac"
   extra:
     thumb: "https://brands.home-assistant.io/_/homeassistant/logo.png"
-    title: HomeAssitantRadio
+    title: HomeAssistantRadio
 ```
 
 #### Service `media_player.select_source`
@@ -176,3 +176,4 @@ The way media players are displayed in the frontend can be modified in the [cust
 
 - `tv`: Device is a television type device.
 - `speaker`: Device is speaker or stereo type device.
+- `receiver`: Device is audio video receiver type device taking audio and outputting to speakers and video to some display.

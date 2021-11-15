@@ -12,6 +12,7 @@ ha_domain: switcher_kis
 ha_platforms:
   - sensor
   - switch
+ha_config_flow: true
 ---
 
 This `Switcher` integration allows you to control your [Switcher Devices](https://www.switcher.co.il/).
@@ -23,6 +24,8 @@ Supported devices:
 - Switcher V2 (Espressif chipset - from firmware 3.21)
 - Switcher V2 (Qualcomm chipset - from firmware 72.32)
 - Switcher V4
+
+If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
 
 {% include integrations/config_flow.md %}
 

@@ -11,10 +11,12 @@ ha_codeowners:
   - '@bramkragten'
   - '@bdraco'
   - '@mkeesey'
+  - '@Aohzan'
 ha_domain: harmony
 ha_ssdp: true
 ha_platforms:
   - remote
+  - select
   - switch
 ---
 
@@ -183,15 +185,14 @@ Template sensors can be utilized to display current activity in the frontend.
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: template
-    sensors:
-      family_room:
-        value_template: '{{ state_attr("remote.family_room", "current_activity") }}'
-        friendly_name: "Family Room"
-      bedroom:
-        value_template: '{{ state_attr("remote.bedroom", "current_activity") }}'
-        friendly_name: "bedroom"
+template:
+  - sensor:
+    - name: 'Family Room Harmony Remote'
+      state: >
+        {{ state_attr('remote.family_room', 'current_activity') }}
+    - name: 'Bedroom Harmony Remote'
+      state: >
+        {{ state_attr('remote.bedroom', 'current_activity') }}
 ```
 
 {% endraw %}

@@ -10,6 +10,7 @@ Supported by MQTT discovery:
 
 - [Alarm control panels](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensors](/integrations/binary_sensor.mqtt/)
+- [Buttons](/integrations/button.mqtt/)
 - [Cameras](/integrations/camera.mqtt/)
 - [Covers](/integrations/cover.mqtt/)
 - [Device Trackers](/integrations/device_tracker.mqtt/)
@@ -164,6 +165,7 @@ Supported abbreviations:
     'mode_stat_t':         'mode_state_topic',
     'modes':               'modes',
     'name':                'name',
+    'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
     'opt':                 'optimistic',
@@ -232,6 +234,7 @@ Supported abbreviations:
     'spd_rng_min':         'speed_range_min',
     'spd_rng_max':         'speed_range_max',
     'src_type':            'source_type',
+    'stat_cla':            'state_class',
     'stat_clsd':           'state_closed',
     'stat_closing':        'state_closing',
     'stat_off':            'state_off',
@@ -289,6 +292,7 @@ Supported abbreviations:
 Supported abbreviations for device registry configuration:
 
 ```txt
+    'cu':                  'configuration_url'
     'cns':                 'connections',
     'ids':                 'identifiers',
     'name':                'name',
@@ -302,7 +306,8 @@ Supported abbreviations for device registry configuration:
 
 The following software has built-in support for MQTT discovery:
 
-- [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
+- [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
+- [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
@@ -311,6 +316,8 @@ The following software has built-in support for MQTT discovery:
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
+- [Teleinfo MQTT](https://github.com/fmartinou/teleinfo-mqtt) (starting with 3.0.0)
+- [What's up Docker?](https://github.com/fmartinou/whats-up-docker) (starting with 3.5.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
@@ -464,7 +471,7 @@ Setting up a device tracker:
 - State topic: `homeassistant/device_tracker/paulus/state`
 - Example state payload: `home` or `not_home` or `location name`
 
-If the device supports gps co-ordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
+If the device supports gps coordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
 
 - Attributes topic: `homeassistant/device_tracker/paulus/attributes`
 - Example attributes payload:
@@ -476,3 +483,22 @@ If the device supports gps co-ordinates then they can be sent to Home Assistant 
   "gps_accuracy": 1.2
  }
 ```
+
+### Use object_id to influence the entity id
+
+
+The entity id is automatically generated from the entity's name. All MQTT entity components optionally support providing an `object_id` which will be used instead if provided.
+
+- Configuration topic: `homeassistant/sensor/device1/config`
+- Example configuration payload:
+
+```json
+{
+  "name":"My Super Device",
+  "object_id":"device1",
+  "state_topic": "homeassistant/sensor/device1/state",
+ }
+```
+
+In the example above, the the entity_id will be `sensor.device1` instead of `sensor.my_super_device`.
+

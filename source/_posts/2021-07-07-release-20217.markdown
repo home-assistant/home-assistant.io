@@ -11,7 +11,6 @@ categories:
 - Release-Notes
 - Core
 og_image: /images/blog/2021-07/social.png
-feedback: true
 ---
 
 <a href='/integrations/#version/2021.7'><img src='/images/blog/2021-07/social.png' style='border: 0;box-shadow: none;'></a>
@@ -53,6 +52,7 @@ Alright, that's it! Enjoy the release!
 - [Release 2021.7.1 - July 8](#release-202171---july-8)
 - [Release 2021.7.2 - July 12](#release-202172---july-12)
 - [Release 2021.7.3 - July 16](#release-202173---july-16)
+- [Release 2021.7.4 - July 21](#release-202174---july-21)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -519,6 +519,58 @@ The following integrations are now available via the Home Assistant UI:
 [sia docs]: /integrations/sia/
 [sma docs]: /integrations/sma/
 [zha docs]: /integrations/zha/
+
+## Release 2021.7.4 - July 21
+
+- Allow pymodbus to reconnect in running system (not startup) ([@janiversen] - [#53020]) ([modbus docs])
+- Fix groups reporting incorrect supported color modes ([@Kane610] - [#53088]) ([deconz docs])
+- Handle all WeMo ensure_long_press_virtual_device exceptions ([@esev] - [#53094]) ([wemo docs])
+- Fix remote rpi gpio input type ([@jgriff2] - [#53108]) ([remote_rpi_gpio docs])
+- More restrictive state updates of UniFi uptime sensor ([@Kane610] - [#53111]) ([unifi docs])
+- Bump simplisafe-python to 11.0.2 ([@bachya] - [#53121]) ([simplisafe docs])
+- Bump nexia to 0.9.10 to fix asair login ([@bdraco] - [#53122]) ([nexia docs])
+- Bump surepy to 0.7.0 ([@benleb] - [#53123]) ([surepetcare docs])
+- Upgrade pysonos to 0.0.53 ([@amelchio] - [#53137]) ([sonos docs])
+- Correctly detect is not home ([@balloob] - [#53279]) ([device_tracker docs])
+- Upgrade to async-upnp-client==0.19.1 ([@StevenLooman] - [#53288]) ([dlna_dmr docs]) ([ssdp docs]) ([upnp docs])
+- Fix homekit locks not being created from when setup from the UI ([@bdraco] - [#53301]) ([homekit docs])
+
+[#53020]: https://github.com/home-assistant/core/pull/53020
+[#53088]: https://github.com/home-assistant/core/pull/53088
+[#53094]: https://github.com/home-assistant/core/pull/53094
+[#53108]: https://github.com/home-assistant/core/pull/53108
+[#53111]: https://github.com/home-assistant/core/pull/53111
+[#53121]: https://github.com/home-assistant/core/pull/53121
+[#53122]: https://github.com/home-assistant/core/pull/53122
+[#53123]: https://github.com/home-assistant/core/pull/53123
+[#53137]: https://github.com/home-assistant/core/pull/53137
+[#53279]: https://github.com/home-assistant/core/pull/53279
+[#53288]: https://github.com/home-assistant/core/pull/53288
+[#53301]: https://github.com/home-assistant/core/pull/53301
+[@Kane610]: https://github.com/Kane610
+[@StevenLooman]: https://github.com/StevenLooman
+[@amelchio]: https://github.com/amelchio
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@benleb]: https://github.com/benleb
+[@esev]: https://github.com/esev
+[@janiversen]: https://github.com/janiversen
+[@jgriff2]: https://github.com/jgriff2
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[homekit docs]: /integrations/homekit/
+[modbus docs]: /integrations/modbus/
+[nexia docs]: /integrations/nexia/
+[remote_rpi_gpio docs]: /integrations/remote_rpi_gpio/
+[simplisafe docs]: /integrations/simplisafe/
+[sonos docs]: /integrations/sonos/
+[ssdp docs]: /integrations/ssdp/
+[surepetcare docs]: /integrations/surepetcare/
+[unifi docs]: /integrations/unifi/
+[upnp docs]: /integrations/upnp/
+[wemo docs]: /integrations/wemo/
 
 ## If you need help...
 

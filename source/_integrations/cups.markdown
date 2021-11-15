@@ -12,7 +12,7 @@ ha_platforms:
   - sensor
 ---
 
-The `cups` sensor platform is using the open source printing system [CUPS](https://www.cups.org/) to show details about your printers, including the ink levels. It can obtain the informations using a CUPS server or communicating directly with the printer with the Internet Printing Protocol.
+The `cups` sensor platform is using the open source printing system [CUPS](https://www.cups.org/) to show details about your printers, including the ink levels. It can obtain the information using a CUPS server or communicating directly with the printer with the Internet Printing Protocol.
 
 ## Setup
 

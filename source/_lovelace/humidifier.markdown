@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Humidifier Card"
 sidebar_label: Humidifier
 description: "The Humidifier card gives control of your humidifier entity, allowing you to change the target humidity and mode of the entity."

@@ -27,6 +27,8 @@ ha_platforms:
   - number
   - remote
   - sensor
+  - select
+  - siren
   - stt
   - switch
   - tts
@@ -60,7 +62,6 @@ Available demo platforms:
 - [Switch](/integrations/switch/) (`switch`)
 - [Text-to-speech](/integrations/tts/) (`tts`)
 - [Weather](/integrations/weather/) (`weather`)
-
 
 To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
 

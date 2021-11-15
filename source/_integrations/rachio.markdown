@@ -144,6 +144,14 @@ This service will not be available if only a Generation 1 controller is on the a
 | ---------------------- | -------- | ----------- |
 | `devices` | yes | Name of the controller(s) to resume. If not given, will resume all paused controllers on the account.
 
+### Service `rachio.stop_watering`
+
+Stops all currently running schedules.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `devices` | yes | Name of the controller(s) to stop. If not given, will stop all running controllers on the account.
+
 ## Examples
 
 In this section, you find some real-life examples of how to use this switch.

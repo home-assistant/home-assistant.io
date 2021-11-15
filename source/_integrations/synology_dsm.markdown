@@ -28,7 +28,7 @@ The Synology DSM sensor platform provides access to various statistics from your
 
 This sensor will wake up your Synology NAS if it's in hibernation mode.
 
-You can change the scan interal within the configuration options (default is 15 min).
+You can change the scan interval within the configuration options (default is 15 min).
 
 Having cameras or the Home mode toggle from [Surveillance Station](https://www.synology.com/en-us/surveillance) will fetch every 30 seconds. Disable those entities if you don't want your NAS to be fetch as frequently.
 

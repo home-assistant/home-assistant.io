@@ -86,12 +86,12 @@ home_mode_name:
   required: false
   type: string
 away_mode_name:
-  description: "Arlo base station does not have a built-in away mode. You can map one of your custom modes to Home Assistant's away mode by setting the name of the custom mode in this configuration variable. The name of the custom mode should match eactly as you set it up in the Arlo app."
+  description: "Arlo base station does not have a built-in away mode. You can map one of your custom modes to Home Assistant's away mode by setting the name of the custom mode in this configuration variable. The name of the custom mode should match exactly as you set it up in the Arlo app."
   required: false
   type: string
   default: "`Armed` mode in Arlo"
 night_mode_name:
-  description: "Arlo base station does not have a built-in night mode. You can map one of your custom modes to Home Assistant's night mode by setting the name of the custom mode in this configuration variable. The name of the custom mode should match eactly as you set it up in the Arlo app."
+  description: "Arlo base station does not have a built-in night mode. You can map one of your custom modes to Home Assistant's night mode by setting the name of the custom mode in this configuration variable. The name of the custom mode should match exactly as you set it up in the Arlo app."
   required: false
   type: string
   default: "`Armed` mode in Arlo"

@@ -60,7 +60,7 @@ display_options:
     pressure:
       description: Pressure
 name:
-  description: Change the name of te sensor, for in the frontend.
+  description: Change the name of the sensor, for in the frontend.
   required: false
   type: string
 is_hat_attached:
