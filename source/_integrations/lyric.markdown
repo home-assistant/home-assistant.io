@@ -21,7 +21,7 @@ The Honeywell Lyric integration integrates the Lyric thermostat platform into Ho
 
 ## Setup
 
-To set up this component, you **must** first need to set up a developer account with Honeywell:
+To set up this component, you first **must** set up a developer account with Honeywell:
 
 1. Go to the [developer site](https://developer.honeywellhome.com) and register with an account.
 1. Next, create a [new app](https://developer.honeywellhome.com/user/me/apps/add) via the `My Apps` section.
