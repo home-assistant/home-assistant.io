@@ -132,3 +132,25 @@ data:
   bridge: "device"
   path: "steam://rungameid/814380"
 ```
+
+### Service `system_bridge.send_keypress`
+
+Send a keypress to the server.
+
+```yaml
+service: system_bridge.send_keypress
+data:
+  bridge: "device"
+  key: "a"
+```
+
+### Service `system_bridge.send_text`
+
+Sends text for the server to type.
+
+```yaml
+service: system_bridge.send_text
+data:
+  bridge: "device"
+  text: "Hello"
+```
