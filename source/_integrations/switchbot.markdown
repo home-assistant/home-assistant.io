@@ -43,6 +43,15 @@ There are three attributes available on the SwitchBot entity to give you more in
 - `Switch mode`: Specifies the mode of the SwitchBot. If `true` the the SwitchBot is in Pull/Retract mode for toggle switches otherwise the bot is in momentary switch mode.
 - `MAC address`: The BTLE MAC for the device.
 
+## SwitchBot Options
+
+There are four options that can be configured for the SwitchBot entities. Setting any of these options will apply to all of your SwitchBot devices.
+
+- `Time between updates (seconds)`: Increase/Decrease the update interval for the device. (Could impact battery life)
+- `Retry count`: How many times to retry sending commands and retry polling your SwitchBot devices.
+- `Timeout between retries`: How long to wait before retries.
+- `How long to scan for advertisement data`: Bluetooth LE uses advertisement data for device statuses and/or attributes. This setting spesifies how long the scan should run.
+
 ### Error codes and troubleshooting
 
 {% configuration_basic %}
