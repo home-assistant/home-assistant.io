@@ -14,9 +14,7 @@ ha_domain: jellyfin
 The Jellyfin integration exposes a [Jellyfin](https://jellyfin.org/) server as a Media Source in Home Assistant.
 Support is currently limited to music libraries only. Other libraries will not appear in the Media Browser. This integration has been tested with Jellyfin server version 10.6.4, but should support older versions as well.
 
-## Configuration
-
-The Jellyfin integration is configured through the Home Assistant user interface. In the Configuration page, select Integrations and click on the `+` button and choose Jellyfin.
+{% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 URL:
