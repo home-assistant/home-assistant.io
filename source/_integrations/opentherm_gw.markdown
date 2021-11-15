@@ -552,6 +552,6 @@ Possible LED modes and their meaning are listed here:
 * H. Central heating is on.
 * W. Hot water is on.
 * C. Comfort mode (Domestic Hot Water Enable) is on.
-* X. Transmission error has been detected.
+* E. Transmission error has been detected.
 * M. Boiler requires maintenance.
 * P. Raised power mode active on thermostat interface.
