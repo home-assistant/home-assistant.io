@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-The `ridwell` integration allows users to track waste recycling pickups scheduled with [Ridwell](https://www.ridwell.com).
+The Ridwell integration allows users to track waste recycling pickups scheduled with [Ridwell](https://www.ridwell.com).
 
 {% include integrations/config_flow.md %}
 
