@@ -3,7 +3,7 @@ title: Ridwell
 description: Instructions on how to set up the Ridwell
 ha_category:
   - Sensor
-ha_release: 2021.11.0
+ha_release: 2021.12
 ha_iot_class: Cloud Polling
 ha_domain: ridwell
 ha_codeowners:
