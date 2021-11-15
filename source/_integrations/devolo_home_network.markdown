@@ -15,11 +15,7 @@ ha_quality_scale: platinum
 
 The devolo Home Network integration allows you to monitor your PLC network.
 
-## Configuration
-
-Menu: **Configuration** -> **Integrations**.
-
-devolo Home Network devices are automatically discovered. If not, add them via the add integration menu. In this case you need to know the IP address of the device.
+{% include integrations/config_flow.md %}
 
 ## Device Types
 
