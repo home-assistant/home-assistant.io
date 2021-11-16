@@ -59,6 +59,11 @@ customize:
       description: List of hardware and webOS App inputs.
       required: false
       type: list
+    force_volume_step_only:
+      description: Forces volume stepping control only.
+      required: false
+      type: boolean
+      default: false
 {% endconfiguration %}
 
 ### Full configuration example
@@ -80,6 +85,7 @@ webostv:
       - youtube
       - makotv
       - netflix
+    force_volume_step_only: true
 
 media_player:
 
@@ -186,6 +192,14 @@ To change the sound output, the following service is available:
 | ---------------------- | -------- | --------------------------------------- |
 | `entity_id`            | no       | Target a specific webostv media player. |
 | `sound_output`         | no       | Name of the sound output to switch to.  |
+
+#### Force volume stepping only
+
+It is not possible to get or set the specific volume level with some types of external speaker connections (such as the ones connected via HMDI ARC), only to increase or decrese it.
+
+While the TV is off, it can't report the correct volume control features and that might cause problems with other integrations (such as Alexa).
+
+To avoid this problem, one can force to only use volume stepping, by using the `force_volume_step_only` setting.
 
 ### Generic commands and buttons
 
