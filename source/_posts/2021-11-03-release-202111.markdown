@@ -64,6 +64,7 @@ Enjoy the release!
 - [Release 2021.11.1 - November 5](#release-2021111---november-5)
 - [Release 2021.11.2 - November 9](#release-2021112---november-9)
 - [Release 2021.11.3 - November 11](#release-2021113---november-11)
+- [Release 2021.11.4 - November 15](#release-2021114---november-15)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -506,6 +507,61 @@ The following integrations are now available via the Home Assistant UI:
 [sonos docs]: /integrations/sonos/
 [stream docs]: /integrations/stream/
 [wirelesstag docs]: /integrations/wirelesstag/
+
+## Release 2021.11.4 - November 15
+
+- Air visual : robustness at startup when evaluate time interval ([@jugla] - [#59544]) ([airvisual docs])
+- Override api url in norway_air ([@ludeeus] - [#59573]) ([norway_air docs]) ([met docs])
+- Fix firmware status check for Fritz ([@chemelli74] - [#59578]) ([fritz docs])
+- Always use a step size of 1 for z-wave js fans ([@mkowalchuk] - [#59622]) ([zwave_js docs])
+- Fix favorite RPM max value in Xiaomi Miio ([@bieniu] - [#59631]) ([xiaomi_miio docs])
+- Bump zeroconf to 0.36.12 ([@bdraco] - [#59133]) ([zeroconf docs])
+- Bump zeroconf to 0.36.13 ([@bdraco] - [#59644]) ([zeroconf docs])
+- Bump greecliamate to 0.12.4 ([@cmroche] - [#59645]) ([gree docs])
+- Ensure flux_led bulbs turn on even if brightness is 0 ([@bdraco] - [#59661])
+- Update aiolookin to 0.0.4 version ([@ANMalko] - [#59684]) ([lookin docs])
+- Fix bug in AirVisual re-auth ([@bachya] - [#59685]) ([airvisual docs])
+- Bump greeclimate to 0.12.5 ([@cmroche] - [#59730]) ([gree docs])
+- Bump flux_led to 0.24.21 ([@bdraco] - [#59662]) ([flux_led docs])
+- Bump flux_led to 0.24.24 ([@bdraco] - [#59740]) ([flux_led docs])
+- Fix invalid string syntax in French OwnTracks config flow ([@spacegaier] - [#59752]) ([owntracks docs])
+
+[#59133]: https://github.com/home-assistant/core/pull/59133
+[#59544]: https://github.com/home-assistant/core/pull/59544
+[#59573]: https://github.com/home-assistant/core/pull/59573
+[#59578]: https://github.com/home-assistant/core/pull/59578
+[#59622]: https://github.com/home-assistant/core/pull/59622
+[#59631]: https://github.com/home-assistant/core/pull/59631
+[#59644]: https://github.com/home-assistant/core/pull/59644
+[#59645]: https://github.com/home-assistant/core/pull/59645
+[#59661]: https://github.com/home-assistant/core/pull/59661
+[#59662]: https://github.com/home-assistant/core/pull/59662
+[#59684]: https://github.com/home-assistant/core/pull/59684
+[#59685]: https://github.com/home-assistant/core/pull/59685
+[#59730]: https://github.com/home-assistant/core/pull/59730
+[#59740]: https://github.com/home-assistant/core/pull/59740
+[#59752]: https://github.com/home-assistant/core/pull/59752
+[@ANMalko]: https://github.com/ANMalko
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@chemelli74]: https://github.com/chemelli74
+[@cmroche]: https://github.com/cmroche
+[@jugla]: https://github.com/jugla
+[@ludeeus]: https://github.com/ludeeus
+[@mkowalchuk]: https://github.com/mkowalchuk
+[@spacegaier]: https://github.com/spacegaier
+[airvisual docs]: /integrations/airvisual/
+[flux_led docs]: /integrations/flux_led/
+[fritz docs]: /integrations/fritz/
+[gree docs]: /integrations/gree/
+[lookin docs]: /integrations/lookin/
+[met docs]: /integrations/met/
+[norway_air docs]: /integrations/norway_air/
+[owntracks docs]: /integrations/owntracks/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zeroconf docs]: /integrations/zeroconf/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
