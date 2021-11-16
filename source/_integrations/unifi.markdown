@@ -34,7 +34,7 @@ The user needs administrator privileges in order to control switches.
 
 ### Understanding UniFi Naming
 
-Network management has always been Ubiquiti's main product and so UniFi for a while was always synonymous with their Network Controller application. However, UniFi has started branching and releasing other apps, like Protect, Talk and Access. [This post on the UniFi community](https://community.ui.com/questions/Clarifying-UniFi-Hardware-and-Software-Terminology/2557963a-e79d-4157-a78c-36d3f7b383fb) explains it pretty well. **This main UniFi Integration is _only_ for UniFi Network application. It will not interface with devices for other applications like Protect, Talk, Access.**
+Network management has always been Ubiquiti's main product and so UniFi for a while was always synonymous with their Network Controller application. However, UniFi has started branching and releasing other apps, like Protect, Talk and Access. [This post on the UniFi community](https://community.ui.com/questions/Clarifying-UniFi-Hardware-and-Software-Terminology/2557963a-e79d-4157-a78c-36d3f7b383fb) explains it pretty well. **This main UniFi Integration is _only_ for UniFi Network application.**
 
 ### Extra configuration of the integration
 
