@@ -891,7 +891,6 @@ Switch                  | Description
 Buzzer                  | Turn on/off the Buzzer
 Child Lock              | Turn on/off the Child Lock
 Ionizer                 | Turn on/off the Ionizer
-LED                     | Turn on/off the LED
 
 ### Platform Services
 
