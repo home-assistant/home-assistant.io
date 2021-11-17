@@ -119,7 +119,7 @@ binary_sensor:
     payload_off: "fail"
 ```
 
-Consider to use the [`ping` sensor ](/integrations/ping#binary-sensor) as an alternative to the samples above.
+Consider to use the [ping sensor](/integrations/ping#binary-sensor) as an alternative to the samples above.
 
 ### Check if a system service is running
 

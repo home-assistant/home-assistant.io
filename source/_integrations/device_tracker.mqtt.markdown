@@ -113,6 +113,10 @@ device:
   required: false
   type: map
   keys:
+    configuration_url:
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      required: false
+      type: string
     connections:
       description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
       required: false
@@ -206,7 +210,7 @@ value_template:
 
 ## Discovery Example
 
-You can use the discovery protocol to create a new device tracker and set it's state using the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
+You can use the discovery protocol to create a new device tracker and set its state using the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
 To create the device_tracker:
 

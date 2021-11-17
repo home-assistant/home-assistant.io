@@ -63,7 +63,6 @@ Available demo platforms:
 - [Text-to-speech](/integrations/tts/) (`tts`)
 - [Weather](/integrations/weather/) (`weather`)
 
-
 To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml

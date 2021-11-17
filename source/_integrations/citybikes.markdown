@@ -52,7 +52,6 @@ stations:
   type: list
 {% endconfiguration %}
 
-
 ## Example
 
 Additional configuration samples:

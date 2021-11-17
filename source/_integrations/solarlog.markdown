@@ -35,11 +35,10 @@ In case you would like to convert the values, for example, to Wh instead of the 
 
 ```yaml
 # Example configuration.yaml entry for sensor template platform
-sensor:
-  - platform: template
-    sensors:
-      solarlog_yield_day_template:
-        value_template: "{{ (states('sensor.solarlog_yield_day') | float * 1000) | round(0) }}"
+template:
+  - sensor:
+    - name: "Solarlog yield day"
+      state: "{{ (states('sensor.solarlog_yield_day') | float(default=0) * 1000) | round(0,default=0) }}"
 ```
 
 {% endraw %}
