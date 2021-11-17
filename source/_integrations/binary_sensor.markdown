@@ -68,6 +68,7 @@ The full list of supported binary sensor device classes is below
 - **smoke**: `on` means smoke detected, `off` means no smoke (clear)
 - **sound**: `on` means sound detected, `off` means no sound (clear)
 - **tamper**: `on` means tampering detected, `off` means no tampering (clear)
+- **update**: `on` means update available, `off` means up-to-date
 - **vibration**: `on` means vibration detected, `off` means no vibration (clear)
 - **window**: `on` means open, `off` means closed
 
