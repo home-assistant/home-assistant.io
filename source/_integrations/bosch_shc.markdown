@@ -3,6 +3,9 @@ title: Bosch SHC
 description: Integrate Bosch SHC.
 ha_category:
   - Binary Sensor
+  - Cover
+  - Hub
+  - Sensor
 ha_release: 2021.6
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -11,6 +14,7 @@ ha_codeowners:
 ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
+  - cover
   - sensor
 ha_zeroconf: true
 ---
