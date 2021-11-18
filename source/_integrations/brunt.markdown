@@ -10,27 +10,16 @@ ha_codeowners:
 ha_domain: brunt
 ha_platforms:
   - cover
+ha_config_flow: true
 ---
 
 The `brunt` platform allows one to control Blind Engines by [Brunt](https://www.brunt.co). To use this sensor, you need a Brunt App Account. All Brunt Blind devices registered to your account are automatically added to your Home Assistant with the names given them through the Brunt app.
 
 ## Configuration
 
-To enable this integration, add the following lines to your `configuration.yaml`:
+{% include integrations/config_flow.md %}
 
-```yaml
-cover:
-  - platform: brunt
-    username: BRUNT_USERNAME
-    password: BRUNT_PASSWORD
-```
-
-{% configuration %}
-name:
-  description: Cover name
-  required: false
-  default: "brunt blind engine"
-  type: string
+{% configuration_basic %}
 username:
   description: Account username of your Brunt app
   required: true
@@ -39,7 +28,7 @@ password:
   description: Account password of your Brunt app
   required: true
   type: string
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 <div class='note warning'>
 This integration is not affiliated with Brunt and retrieves data from the endpoints of the mobile application. Use at your own risk.
