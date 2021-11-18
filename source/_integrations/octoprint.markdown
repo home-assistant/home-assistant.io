@@ -84,3 +84,29 @@ camera:
     still_image_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=snapshot
     mjpeg_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=stream
 ```
+
+## Services
+
+### Service `octoprint.pause_job`
+
+This service instructs the OctoPrint server to pause the current job.
+
+| Service Data Attribute | Required | Description |
+| ---------------------- | -------- | --------------------------------|
+| `device_id`            | yes      | The OctoPrint device to pause |
+
+### Service `octoprint.resume_job`
+
+This service instructs the OctoPrint server to resume a paused job.
+
+| Service Data Attribute | Required | Description |
+| ---------------------- | -------- | --------------------------------|
+| `device_id`            | yes      | The OctoPrint device to unpause |
+
+### Service `octoprint.stop_job`
+
+This service instructs the OctoPrint server to stop the current job.
+
+| Service Data Attribute | Required | Description |
+| ---------------------- | -------- | --------------------------------|
+| `device_id`            | yes      | The OctoPrint device to stop |
