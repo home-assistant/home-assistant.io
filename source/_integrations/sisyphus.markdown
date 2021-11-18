@@ -1,7 +1,6 @@
 ---
 title: Sisyphus
 description: Instructions on how to integrate your Sisyphus Kinetic Art Table within Home Assistant.
-logo: sisyphus.png
 ha_category:
   - Hub
   - Light
@@ -10,6 +9,10 @@ ha_release: 0.75
 ha_iot_class: Local Push
 ha_codeowners:
   - '@jkeljo'
+ha_domain: sisyphus
+ha_platforms:
+  - light
+  - media_player
 ---
 
 The [Sisyphus](https://sisyphus-industries.com/) integration for Home Assistant allows you to observe and control your Sisyphus Kinetic Art Table.
@@ -34,9 +37,9 @@ Auto-detection can be a little slow, so if your table has a fixed IP address or 
 # This will skip auto-detection and add only the listed tables
 sisyphus:
   - name: 'TABLE_NAME'
-    host: 'TABLE_IP_OR_HOSTNAME'
+    host: "TABLE_IP_OR_HOSTNAME"
   - name: 'ANOTHER_TABLE_NAME'
-    host: 'ANOTHER_TABLE_IP_OR_HOSTNAME'
+    host: "ANOTHER_TABLE_IP_OR_HOSTNAME"
 ```
 
 {% configuration %}

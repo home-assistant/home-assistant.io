@@ -1,11 +1,11 @@
 ---
 title: Lock
 description: Instructions on how to setup your locks with Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Lock
 ha_release: 0.9
 ha_quality_scale: internal
+ha_domain: lock
 ---
 
 Keeps track which locks are in your environment, their state and allows you to control them.
@@ -30,7 +30,7 @@ Lock your door, the attribute should appear under a 'data' attribute for the ser
 ```yaml
 action:
   service: lock.lock
-  data:
+  target:
     entity_id: lock.my_place
 ```
 
@@ -47,7 +47,7 @@ Unlock your door, the attribute should appear under a 'data' attribute for the s
 ```yaml
 action:
   service: lock.unlock
-  data:
+  target:
     entity_id: lock.my_place
 ```
 

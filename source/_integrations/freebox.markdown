@@ -1,7 +1,6 @@
 ---
 title: Freebox
 description: Instructions on how to integrate Freebox routers into Home Assistant.
-logo: freebox.svg
 ha_category:
   - Network
   - Presence Detection
@@ -10,22 +9,38 @@ ha_category:
 ha_release: 0.85
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@snoof85'
+  - '@hacf-fr'
+  - '@Quentame'
+ha_config_flow: true
+ha_domain: freebox
+ha_platforms:
+  - device_tracker
+  - sensor
+  - switch
+ha_zeroconf: true
 ---
 
 The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/).
 
 There is currently support for the following device types within Home Assistant:
 
-* [Sensor](#sensor) with traffic metrics
+* [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space and missed calls
 * [Device tracker](#presence-detection) for connected devices
 * [Switch](#switch) to control Wi-Fi
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-If you have enabled the [discovery component](/integrations/discovery/),
-your Freebox should be detected automatically. Otherwise, you can set it
-up manually in your `configuration.yaml` file:
+You can find out your Freebox host and port by opening this address <http://mafreebox.freebox.fr/api_version> in your browser.
+The returned JSON should contain an `api_domain` (`host`) and a `https_port` (`port`).
+Please consult the [API documentation](https://dev.freebox.fr/sdk/os/) for more information.
+
+### Via the frontend
+
+Menu: **Configuration** -> **Integrations**. Search for "Freebox", add your host and port, click submit.
+
+If you add the integration for the first time, follow the instructions in the [Initial setup](#initial-setup) section.
+
+### Via the configuration file
 
 ```yaml
 freebox:
@@ -44,41 +59,36 @@ port:
   type: string
 {% endconfiguration %}
 
-You can find out your Freebox host and port by opening the address <http://mafreebox.freebox.fr/api_version> in your browser. The
-returned JSON should contain an `api_domain` (`host`) and a `https_port` (`port`).
-Please consult the [API documentation](https://dev.freebox.fr/sdk/os/) for more information.
-
 <div class='note warning'>
   
-If you change your Freebox router for a new one, you need to delete the `freebox.conf` file located in your Home Assistant configuration directory to make the association again.
+  If you change your Freebox router for a new one, go into your Home Assistant configuration `.storage` folder and delete the "freebox" folder, then add the integration again.
 
 </div>
 
 ### Initial setup
 
 <div class='note warning'>
-You must have set a password for your Freebox router web administration page. Enable the option "Permettre les nouvelles demandes d'associations" and check that the option "Accès à distance sécurisé à Freebox OS" is active in "Gestion des ports" > "Connexions entrantes".
+
+  You must have set a password for your Freebox router web administration page. Enable the option "Permettre les nouvelles demandes d'associations" and check that the option "Accès à distance sécurisé à Freebox OS" is active in "Gestion des ports" > "Connexions entrantes".
+
 </div>
 
-The first time Home Assistant will connect to your Freebox, you will need to
-authorize it by pressing the right arrow on the facade of the Freebox when
-prompted to do so.
+The first time Home Assistant will connect to your Freebox, you will need to authorize it by pressing the right arrow on the facade of the Freebox when prompted to do so.
 
-To make the Wi-Fi switch and the reboot service working you will have to add "Modification des réglages de la Freebox
-" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+To make the Wi-Fi switch and the reboot service working you will have to add "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
 ### Supported routers
 
 Only the routers with Freebox OS are supported:
 
+* Freebox V8 also known as Freebox Pop
 * Freebox V7 also known as Freebox Delta
 * Freebox V6 also known as Freebox Revolution
 * Freebox mini 4k
 
 ## Presence Detection
 
-This platform offers presence detection by keeping track of the
-devices connected to a [Freebox](https://www.free.fr/) router.
+This platform offers presence detection by keeping track of the devices connected to a [Freebox](https://www.free.fr/) router.
 
 ### Notes
 
@@ -93,8 +103,12 @@ refreshes the devices states.
 
 ## Sensor
 
-This platform offers you sensors to monitor a Freebox router. The monitored conditions are
-instant upload and download rates in KB/s.
+This platform offers you sensors to monitor a Freebox router.
+The monitored metrics are:
+* Internal temperature
+* Upload and download rates (in KB/s)
+* Free partition space of used disks
+* Number of missed calls
 
 ## Service
 

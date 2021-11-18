@@ -1,10 +1,11 @@
 ---
 title: Keyboard
 description: Instructions on how to simulate key presses with Home Assistant.
-logo: keyboard.png
 ha_category:
   - Automation
 ha_release: pre 0.7
+ha_domain: keyboard
+ha_iot_class: Local Push
 ---
 
 The `keyboard` integration simulates key presses on the host machine. It currently offers the following Buttons as a Service (BaaS):

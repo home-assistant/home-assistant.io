@@ -1,7 +1,6 @@
 ---
 title: Raspberry Pi GPIO
 description: Instructions on how to integrate the GPIO capability of a Raspberry Pi into Home Assistant.
-logo: raspberry-pi.png
 ha_category:
   - DIY
   - Binary Sensor
@@ -9,6 +8,11 @@ ha_category:
   - Switch
 ha_release: pre 0.7
 ha_iot_class: Local Push
+ha_domain: rpi_gpio
+ha_platforms:
+  - binary_sensor
+  - cover
+  - switch
 ---
 
 The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding pages.
@@ -133,14 +137,14 @@ cover:
   - platform: rpi_gpio
     relay_time: 0.2
     invert_relay: false
-    state_pull_mode: 'UP'
+    state_pull_mode: "UP"
     invert_state: true
     covers:
       - relay_pin: 10
         state_pin: 11
       - relay_pin: 12
         state_pin: 13
-        name: 'Right door'
+        name: "Right door"
 ```
 
 ## Remote Raspberry Pi Cover

@@ -1,37 +1,42 @@
 ---
+type: card
 title: "Plant Status Card"
 sidebar_label: Plant Status
-description: "The Plant card gives you an easy way of viewing the status of your plants"
+description: "The Plant Status card is for all the lovely botanists out there."
 ---
 
-A card for all the lovely botanists out there.
+The Plant Status card is for all the lovely botanists out there.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_plant_card.png' alt='Screenshot of the plant status card'>
 Screenshot of the plant status card.
 </p>
 
+To add the Plant Status card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Plant Status** from the card picker. All options for this card can be configured via the user interface.
+
 {% configuration %}
 type:
   required: true
-  description: plant-status
+  description: "`plant-status`"
   type: string
 entity:
   required: true
-  description: "Entity id of `plant` domain"
+  description: Entity ID of `plant` domain.
   type: string
 name:
   required: false
-  description: Overwrites Friendly Name
+  description: Overwrites friendly name.
   type: string
-  default: Entity Name
+  default: Entity name
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 {% endconfiguration %}
 
 ## Example
+
+Alternatively, the card can be configured using YAML:
 
 ```yaml
 type: plant-status

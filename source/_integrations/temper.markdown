@@ -5,6 +5,9 @@ ha_category:
   - DIY
 ha_iot_class: Local Push
 ha_release: pre 0.7
+ha_domain: temper
+ha_platforms:
+  - sensor
 ---
 
 This `temper` sensor platform allows you to get the current temperature from a TEMPer device.

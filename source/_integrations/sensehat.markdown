@@ -1,13 +1,16 @@
 ---
 title: Sense HAT
 description: Instructions on how to setup Sense HAT LED lights within Home Assistant.
-logo: sense-hat.png
 ha_category:
   - DIY
   - Light
   - Sensor
 ha_iot_class: Assumed State
 ha_release: 0.44
+ha_domain: sensehat
+ha_platforms:
+  - light
+  - sensor
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -57,7 +60,7 @@ display_options:
     pressure:
       description: Pressure
 name:
-  description: Change the name of te sensor, for in the frontend.
+  description: Change the name of the sensor, for in the frontend.
   required: false
   type: string
 is_hat_attached:
@@ -87,14 +90,14 @@ sensor:
   - platform: template
     sensors:
       sensehat_temperature:
-        value_template: '{{ states('sensor.temperature') | round(1) }}'
-        unit_of_measurement: '°C'
+        value_template: "{{ states('sensor.temperature') | round(1) }}"
+        unit_of_measurement: "°C"
       sensehat_pressure:
-        value_template: '{{ states('sensor.pressure') | round(1) }}'
-        unit_of_measurement: 'mb'
+        value_template: "{{ states('sensor.pressure') | round(1) }}"
+        unit_of_measurement: "mb"
       sensehat_humidity:
-        value_template: '{{ states('sensor.humidity') | round(1) }}'
-        unit_of_measurement: '%'
+        value_template: "{{ states('sensor.humidity') | round(1) }}"
+        unit_of_measurement: "%"
 ```
 
 {% endraw %}
@@ -182,7 +185,7 @@ sudo reboot
 ```
 
 Unfortunately enabling the SenseHAT Sensor integration for a Virtual Environment install of Home Assistant fails with errors.
-_(The Raspberry Pi All-In-One installer run Home Assistant in an virtual environment)._
+_(The Raspberry Pi All-In-One installer run Home Assistant in a virtual environment)._
 These issues have been discussed in the repository issue [#5093](https://github.com/home-assistant/home-assistant/issues/5093)
 
 This fix has been tested with a clean install of:
@@ -191,6 +194,6 @@ This fix has been tested with a clean install of:
 
 and
 
-* [Home Assistant 0.37.1](/getting-started/installation-raspberry-pi-all-in-one/)
+* Home Assistant 0.37.1
 
 For setting up the Sense HAT's RGB LED matrix as lights within Home Assistant, please see the [Sense HAT light component](#light).

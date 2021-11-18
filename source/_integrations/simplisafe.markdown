@@ -1,14 +1,20 @@
 ---
 title: SimpliSafe
 description: Instructions on how to integrate SimpliSafe into Home Assistant.
-logo: simplisafe.png
 ha_release: 0.81
+ha_iot_class: Cloud Polling
 ha_category:
   - Alarm
   - Lock
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'
+ha_domain: simplisafe
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - lock
+  - sensor
 ---
 
 The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
@@ -16,40 +22,53 @@ The `simplisafe` integration integrates [SimpliSafe home security](https://simpl
 There is currently support for the following device types within Home Assistant:
 
 - **Alarm Control Panel**: reports on the current alarm status and can be used to arm and disarm the system.
-- **Lock**: Reports on `Door Locks` and can be used to lock and unlock a lock.
+- **CO Detector**: reports on the carbon monoxide sensor status*.
+- **Entry Sensor**: reports on the current entry sensor status*.
+- **Freeze Sensor**: reports on the freeze sensor temperature*.
+- **Glass Break Sensor**: reports on the glass breakage sensor status*.
+- **Lock**: reports on `Door Locks` and can be used to lock and unlock a lock.
+- **Motion Sensor**: reports on motion detected*.
+- **Siren**: reports on the siren status*.
+- **Smoke Detector**: reports on the smoke sensor status*.
+- **Water Sensor**: reports on water sensor status*.
 
-## Configuration
+* Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
 
-To enable this component, add the following lines to your `configuration.yaml`:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-simplisafe:
-  accounts:
-    - username: user@email.com
-      password: password123
+## Getting an Authorization Code
+
+<div class="note warning">
+Because of a technical limitation, the below instructions will not work for iOS users as-is. It is recommended that you set up the SimpliSafe integration from a desktop browser. If you must use an iOS device, please ensure that the SimpliSafe app is not installed before beginning; the app can be re-installed after the integration is set up.
+</div>
+
+Starting in 2021, SimpliSafe has moved to a new authentication mechanism via its web app. Below are instructions on retrieving the authorization code needed to finish setting the integration up.
+
+1. Initiate adding the integration via the instructions above.
+2. When prompted, click the link that opens the SimpliSafe web app.
+3. Input your SimpliSafe credentials. You will see "Verification Pending" – leave this browser tab open.
+4. Check your email for a message from SimpliSafe. When you have received that email, click "Verify Device" – note that this will open a second browser tab/window.
+5. After the verification is successful, return to the first browser tab/window. The browser will show an error about not being able to navigate to the page; ignore it.
+
+At this stage, take a look at the address bar and note the `code` parameter at the very end of the URL:
+
+```txt
+com.simplisafe.mobile://auth.simplisafe.com/ios/com.simplisafe.mobile/callback?code=<CODE>
 ```
 
-{% configuration %}
-username:
-  description: The email address of a SimpliSafe account.
-  required: true
-  type: string
-password:
-  description: The password of a SimpliSafe account.
-  required: true
-  type: string
-code:
-  description: A code to enable or disable the alarm in the frontend.
-  required: false
-  type: string
-{% endconfiguration %}
+Copy/paste this code parameter into Home Assistant to finish setting up the integration.
 
 ## Services
 
 Note that the `system_id` parameter required by the below service calls can be discovered
 by looking at the device state attributes for the integration's `alarm_control_panel`
 entity.
+
+### `simplisafe.clear_notifications`
+
+Clear any existing notifications within the SimpliSafe cloud; this will mark existing
+notifications as "read" in the SimpliSafe web and mobile apps, as well as prevent them
+from triggering future `SIMPLISAFE_NOTIFICATION` events.
 
 ### `simplisafe.remove_pin`
 
@@ -110,29 +129,53 @@ following keys:
 * `system_id`: the system ID to which the event belongs
 * `timestamp`: the UTC datetime at which the event was received
 
-For example, when the system is armed by "remote" means (via the web app, etc.), a
+For example, when someone rings the doorbell, a
 `SIMPLISAFE_EVENT` event will fire with the following event data:
 
 ```python
 {
-    "changed_by": "",
-    "event_type": "armed_home",
-    "info": "System Armed (Home) by Remote Management",
-    "sensor_name": "",
-    "sensor_serial": "",
-    "sensor_type": "remote",
-    "system_id": 123456,
-    "timestamp": datetime.datetime(2020, 2, 13, 23, 1, 13, tzinfo=<UTC>),
+    "event_type": "SIMPLISAFE_EVENT",
+    "data": {
+        "last_event_changed_by": "",
+        "last_event_type": "doorbell_detected",
+        "last_event_info": "Someone is at your \"Front Door\"",
+        "last_event_sensor_name": "Front Door",
+        "last_event_sensor_serial": "",
+        "last_event_sensor_type": "doorbell",
+        "system_id": [systemid],
+        "last_event_timestamp": "2021-01-28T22:01:32+00:00"
+    },
+    "origin": "LOCAL",
+    "time_fired": "2021-01-28T22:01:37.478539+00:00",
+    "context": {
+        "id": "[id]",
+        "parent_id": null,
+        "user_id": null
+    }
 }
 ```
 
-`event_type`, being one of the key fields automations might be built from, can have the
-following values:
+`last_event_type` can have the following values:
 
+* `automatic_test`
 * `camera_motion_detected`
 * `doorbell_detected`
-* `entry_detected`
-* `motion_detected`
+* `device_test`
+* `secret_alert_triggered`
+* `sensor_paired_and_named`
+* `user_initiated_test`
+
+To build an automation using one of these, use `SIMPLISAFE_EVENT`
+as an event trigger, with `last_event_type` as the `event_data`.
+For example, the following will trigger when the doorbell rings:
+
+```yaml
+trigger:
+  - platform: event
+    event_type: SIMPLISAFE_EVENT
+    event_data:
+        last_event_type: doorbell_detected
+```
 
 ### `SIMPLISAFE_NOTIFICATION`
 
@@ -144,3 +187,8 @@ event data that contains the following keys:
 * `code`: The SimpliSafe code for the notification
 * `message`: The actual text of the notification
 * `timestamp`: The UTC timestamp of the notification
+
+Note that when Home Assistant restarts, `SIMPLISAFE_NOTIFICATION` events will fire once
+again for any notifications still active in the SimpliSafe web and mobile apps. To
+prevent this, either (a) clear them in the web/mobile app or (b) utilize the 
+`simplisafe.clear_notifications` service described above.

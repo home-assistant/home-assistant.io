@@ -7,7 +7,9 @@ date_formatted: "August 7, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2019-08-0.97/components.png
 ---
 
@@ -71,7 +73,7 @@ We wrote about how we use Azure DevOps to automate the development of Home Assis
 - Add support for recording history to Apache Kafka ([@bachya] - [#25085]) ([apache_kafka docs]) (new-integration)
 - Rename RitAssist to FleetGO ([@depl0y] - [#25093]) ([fleetgo docs]) ([ritassist docs]) (breaking change) (new-integration)
 - Add Twente Milieu integration ([@frenck] - [#25129]) ([twentemilieu docs]) (new-integration)
-- Add Fortigate integration ([@kifeo] - [#24908]) ([fortigate docs]) (new-integration)
+- Add Fortigate integration ([@kifeo] - [#24908]) (new-integration)
 - Add support for Rainforest Eagle-200 ([@gtdiehl] - [#24919]) ([rainforest_eagle docs]) (new-integration)
 - Add Elgato Avea integration ([@pattyland] - [#24281]) ([avea docs]) (new-integration) (new-platform)
 - Suez water ([@ooii] - [#23844]) ([suez_water docs]) (new-integration)
@@ -245,7 +247,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for multiple N26 accounts ([@gorynychzmey] - [#25086]) ([n26 docs]) (breaking change)
 - Bump insteonplm to 0.16.3 ([@teharris1] - [#25108]) ([insteon docs])
 - Use more compatible samsungtv TV key ([@escoand] - [#25083]) ([samsungtv docs])
-- Add additional WWLLN test ([@bachya] - [#25111]) ([wwlln docs])
+- Add additional WWLLN test ([@bachya] - [#25111])
 - Splunk component filter support ([@asleeis] - [#25071]) ([splunk docs])
 - Add more public rain sensors ([@cgtobi] - [#25117]) ([netatmo docs])
 - PS4 handle no connection/ fix spamming of logs when device is off ([@ktnrg45] - [#25091]) ([ps4 docs])
@@ -263,7 +265,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add spotify service to allow to play music from playlist ([@lealoureiro] - [#24991]) ([spotify docs])
 - Add travel time attribution/coordinates ([@ljmerza] - [#24956]) ([google_travel_time docs])
 - Upgrade youtube_dl to 2019.07.16 ([@fabaff] - [#25173]) ([media_extractor docs])
-- Add Fortigate integration ([@kifeo] - [#24908]) ([fortigate docs]) (new-integration)
+- Add Fortigate integration ([@kifeo] - [#24908]) (new-integration)
 - Upgrade discord.py to 1.2.3 ([@fabaff] - [#25174]) ([discord docs])
 - Upgrade ruamel.yaml to 0.15.99 ([@fabaff] - [#25175])
 - Upgrade Mastodon.py to 1.4.5 ([@fabaff] - [#25176]) ([mastodon docs])
@@ -298,7 +300,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix util.ruamel_yaml type errors ([@scop] - [#25338])
 - Mypy config improvements ([@scop] - [#25340])
 - Update Google Maps Location Tracker to use locationsharinglib==4.0.2 ([@shbatm] - [#25316]) ([google_maps docs]) (breaking change)
-- Automatically expand WWLLN window to 1 hour (if necessary) ([@bachya] - [#25357]) ([wwlln docs])
+- Automatically expand WWLLN window to 1 hour (if necessary) ([@bachya] - [#25357])
 - Type check all helpers ([@scop] - [#25373])
 - Optional and Union simplifications ([@scop] - [#25365])
 - Add add_torrent service to Transmission ([@postlund] - [#25144]) ([transmission docs])
@@ -360,7 +362,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Roombalocate ([@Anglac] - [#25508]) ([roomba docs])
 - deCONZ - cleanup sensor attributes ([@Kane610] - [#25540]) ([deconz docs])
 - Update to buienradar json api; and additional monitored_conditions ([@mjj4791] - [#24463]) ([buienradar docs]) (breaking change)
-- Fix bug with WWLLN update interval ([@bachya] - [#25498]) ([wwlln docs])
+- Fix bug with WWLLN update interval ([@bachya] - [#25498])
 - Fix WinkAC mode API calls to correct methods ([@cameronrmorris] - [#25545]) ([wink docs])
 - Bump env_canada to 0.0.19 ([@michaeldavie] - [#25548]) ([environment_canada docs])
 - Tibber, off peak values ([@Danielhiversen] - [#25320]) ([tibber docs])
@@ -748,7 +750,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [fan docs]: /integrations/fan/
 [fleetgo docs]: /integrations/fleetgo/
 [flux_led docs]: /integrations/flux_led/
-[fortigate docs]: /integrations/fortigate/
 [fortios docs]: /integrations/fortios/
 [geniushub docs]: /integrations/geniushub/
 [google cal docs]: /integrations/calendar.google/
@@ -839,7 +840,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vesync docs]: /integrations/vesync/
 [wink docs]: /integrations/wink/
 [workday docs]: /integrations/workday/
-[wwlln docs]: /integrations/wwlln/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [zha docs]: /integrations/zha/
 [zwave docs]: /integrations/zwave/

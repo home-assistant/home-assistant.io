@@ -1,21 +1,23 @@
 ---
-title: Orangepi GPIO
+title: Orange Pi GPIO
 description: Instructions on how to integrate the GPIO capability of a Orange Pi into Home Assistant.
 ha_category:
   - DIY
   - Binary Sensor
 ha_release: 0.93
 ha_iot_class: Local Push
-logo: orange-pi.png
 ha_codeowners:
   - '@pascallj'
+ha_domain: orangepi_gpio
+ha_platforms:
+  - binary_sensor
 ---
 
 The `orangepi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding pages.
 
-## Binary Sensor
+This integration provides the following platforms:
 
-The `orangepi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your Orange Pi or NanoPi.
+- Binary sensor: The `orangepi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your Orange Pi or NanoPi.
 
 ## Configuration
 
@@ -77,8 +79,11 @@ As this platform supports different types of GPIO pinouts for difference Orange 
 | `zeroplus2` | Supports the Orange Pi Zero Plus 2 |
 | `duo` | Supports the NanoPi Duo |
 | `neocore2` | Supports the NanoPi Neocore 2 |
+| `pi4` | Supports the Orange pi 4 |
+| `pi4B` | Supports the Orange pi 4B |
 
 ## Additional steps
+
 This integration uses the `SYSFS` filesystem to get control of the GPIOs. Therefore an operating system with `CONFIG_GPIO_SYSFS` is required. As far as I know, most out-of-the-box distributions still enable this by default.
 
 As of Linux 4.8 sysfs-gpio is marked as obsolete. However as of today, the alternative GPIO character device is not widely used. Therefore we will use this until the new character device is more widely supported.
@@ -92,3 +97,34 @@ SUBSYSTEM=="gpio*", PROGRAM="/bin/sh -c 'find -L /sys/class/gpio/ -maxdepth 2 -e
 ```
 
 Home Assistant will now be able to control your GPIO pins.
+
+## Limitations
+
+This integration uses interrupts to catch changes on your pins. However, it depends on the Allwinner chipset which pin banks support external interrupts. There is also a great difference between Orange Pi models which pins are routed to the GPIO connector. Therefore it greatly differs between devices which pins you can use for your sensors.
+
+You can find the pinouts of all the supported Orange Pi devices [here](https://pascalroeleven.nl/2020/04/13/orange-pi-gpio-pinouts/). The pinouts for the [NanoPi Duo](http://wiki.friendlyarm.com/wiki/index.php/NanoPi_Duo) and [NanoPi NEO Core2](http://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO_Core2) can be found on the [FriendlyARM wiki](http://wiki.friendlyarm.com/). For example: If a pin is named PA01, the pin bank is PA. If this pin bank is in the following table after your chipset, this particular pin is supported.
+
+For the orange pi4 and pi4B, using the Rockchip RK3399 chip, a manual and technical doc can be found [here](https://drive.google.com/drive/folders/1QMU5n-7fCx28cQPH_lu2L0wrFWeC3G45).
+
+| Chipset | Pin banks which support external interrupts |
+| ------- | ------------------------------------------- |
+| H2+ | PA, PG, PL |
+| H3 | PA, PG, PL |
+| H5 | PA, PF, PG, PL |
+| H6 | PF, PG, PH, PL, PM |
+| A64 | PB, PG, PH, PL |
+
+In the table below you can see the number of usable pins for sensors per device.
+
+| Device | Usable pins |
+| ----- | ----------- |
+| H2+ (R1, Zero) | 17/17 |
+| H3 (Lite, One, PC, PC Plus, Plus 2E) | 21/28 |
+| H5 (Zero Plus) | 17/17 |
+| H5 (Zero Plus 2) | 15/17 |
+| H5 (PC 2) | 22/28 |
+| H5 (Prime) | 17/28 |
+| H6 (Lite 2, One Plus) | 3/17 |
+| H6 (PI 3) | 8/17 |
+| A64 (Win Plus) | 18/28 |
+| RK3399 (PI4, PI4B) | 28/28 |

@@ -1,7 +1,6 @@
 ---
 title: Ring
 description: Instructions on how to integrate your Ring.com devices within Home Assistant.
-logo: ring.png
 ha_category:
   - Doorbell
   - Binary Sensor
@@ -14,9 +13,17 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@balloob'
+ha_domain: ring
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - light
+  - sensor
+  - switch
 ---
 
-The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant.
+The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. Due to recent authentication changes of Ring, you will need to run at least Home Assistant 0.104.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -29,33 +36,7 @@ There is currently support for the following device types within Home Assistant:
 This component does NOT allow for live viewing of your Ring camera within Home Assistant.
 </p>
 
-## Configuration
-
-Go to the integrations page in your configuration and click on new integration -> Ring.
-
-## YAML configuration
-
-YAML configuration is around for people that prefer YAML, but it's not preferred! The YAML method does not work with two-factor authentication and it requires you to store your username/password. The normal method only requires you to enter username/password once.
-
-To enable device linked in your [Ring.com](https://ring.com/) account, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-ring:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: The username for accessing your Ring account.
-  required: true
-  type: string
-password:
-  description: The password for accessing your Ring account.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Binary Sensor
 
@@ -78,17 +59,25 @@ downloader:
   download_dir: downloads
 ```
 
-Then you can use the following `action` in your automation (this will save the video file under `<config>/downloads/ring_<camera_name>/`):
+Then you can use the following automation, with the entities from your system, which will save the video file under `<config>/downloads/ring_<camera_name>/`:
 
 {% raw %}
+
 ```yaml
-action:
+automation:
+  alias: "Save the video when the doorbell is pushed"
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.front_doorbell_ding
+    to: "on"
+  action:
   - service: downloader.download_file
-    data_template:
+    data:
       url: "{{ state_attr('camera.front_door', 'video_url') }}"
       subdir: "{{state_attr('camera.front_door', 'friendly_name')}}"
       filename: "{{state_attr('camera.front_door', 'friendly_name')}}"
 ```
+
 {% endraw %}
 
 If you want to use `python_script`, enable it your `configuration.yaml` file first:

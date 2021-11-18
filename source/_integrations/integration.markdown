@@ -4,12 +4,15 @@ description: Instructions on how to integrate Integration Sensor into Home Assis
 ha_category:
   - Utility
   - Energy
+  - Sensor
 ha_release: 0.87
 ha_iot_class: Local Push
-logo: integral.png
 ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
+ha_domain: integration
+ha_platforms:
+  - sensor
 ---
 
 The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. The integration sensors is updated upon changes of the **source**. Fast sampling source sensors provide better results. In this implementation, the default is the Trapezoidal method, but Left and Right methods can optionally be used.
@@ -50,18 +53,16 @@ unit_time:
   required: false
   default: h
   type: string
-unit:
-  description: Unit of measurement to be used for the integration.
-  required: false
-  type: string
 method:
-  description: Riemann sum method to be used. Available methods are `trapezoidal`, `left` and `right`."
+  description: "Riemann sum method to be used. Available methods are `trapezoidal`, `left` and `right`."
   required: false
   type: string
   default: trapezoidal
 {% endconfiguration %}
 
-In case you have an appliance which produces spikey consumption (like an on/off electrical boiler) you should opt for the `left` method to get accurate readings. If `unit` is set then `unit_prefix` and `unit_time` are ignored.
+In case you have an appliance which produces spikey consumption (like an on/off electrical boiler) you should opt for the `left` method to get accurate readings.
+
+The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation. 
 
 ## Energy
 
@@ -78,4 +79,4 @@ sensor:
     round: 2
 ```
 
-This configuration will provide you with `sensor.energy_spent` who will have your energy in kWh.
+This configuration will provide you with `sensor.energy_spent` which will have your energy in kWh.

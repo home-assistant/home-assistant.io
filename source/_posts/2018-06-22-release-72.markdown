@@ -5,13 +5,15 @@ date: 2018-06-22 00:01:00
 date_formatted: "June 22, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-06-release-0.72/lovelace.png
 ---
 
 I am super excited about this release as it brings some great examples of how we are refining the system to become more customizable and, at the same time, user friendly. The first thing that I am really excited about is a new experimental user interface that we call Lovelace. Check [this awesome rundown](https://gist.github.com/ciotlosm/9508388876edf92c4c1f3579e740fbd5) of all the features by [@ciotlosm]. The TL;DR: a faster, more customizable and more extensible UI with the same look and feel as the old one.
 
-Be aware, this _is_ experimental, so things will change. However, we felt like we didn't want to keep this away from you any longer. Check the [Lovelace UI docs](https://developers.home-assistant.io/docs/en/lovelace_index.html) on how to get started. Make sure to share your creations!
+Be aware, this _is_ experimental, so things will change. However, we felt like we didn't want to keep this away from you any longer. Check the [Lovelace UI docs](/lovelace) on how to get started. Make sure to share your creations!
 
 Thanks to all the people that have been hanging out in the #beta channel on [Discord](https://discord.gg/c5DvZ4e) helping development, finding and squashing bugs and making suggestions. Especially thanks to [@c727] for all his development work and [@arsaboo] for being the first guinea pig.
 
@@ -114,7 +116,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Freebox device tracker ([@stilllman] - [#12727]) ([device_tracker.freebox docs]) (new-platform)
 - Migrate entity registry to using websocket ([@balloob] - [#14830]) ([config docs])
 - Route themes and translations over websocket ([@balloob] - [#14828]) ([frontend docs]) ([websocket_api docs])
-- Feature/gearbest library update (Closes: #14813) ([@HerrHofrat] - [#14833]) ([sensor.gearbest docs])
+- Feature/gearbest library update (Closes: #14813) ([@HerrHofrat] - [#14833])
 - Ignore the mistaken long_both_click event of the 86sw (Closes: #14802) ([@syssi] - [#14808]) ([binary_sensor.xiaomi_aqara docs])
 - Fix non awaited test ([@balloob] - [#14854])
 - Update Hue flow title ([@balloob] - [#14852]) ([hue docs])
@@ -464,7 +466,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.airvisual docs]: /integrations/airvisual
 [sensor.arlo docs]: /integrations/arlo#sensor
 [sensor.eight_sleep docs]: /integrations/eight_sleep
-[sensor.gearbest docs]: /integrations/gearbest
 [sensor.glances docs]: /integrations/glances
 [sensor.hive docs]: /integrations/hive#sensor
 [sensor.homematic docs]: /integrations/homematic

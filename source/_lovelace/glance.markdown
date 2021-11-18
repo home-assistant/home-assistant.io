@@ -1,20 +1,23 @@
 ---
+type: card
 title: "Glance Card"
 sidebar_label: Glance
-description: "The Glance card allows you to see a list of entities at a glance."
+description: "The Glance card is useful to group multiple sensors in a compact overview."
 ---
 
-Glance cards are very compact. Very useful to group together multiple sensors for a quick and easy overview. Keep in mind that this can be used together with [entity-filter](/lovelace/entity-filter/) cards to create dynamic cards.
+The Glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/lovelace/entity-filter/) cards to create dynamic cards.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_glance_card.png' alt='Screenshot of the glance card'>
-Screenshot of the glance card.
+Screenshot of the Glance card.
 </p>
+
+To add the Glance card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Glance** from the card picker.
 
 {% configuration %}
 type:
   required: true
-  description: glance
+  description: "`glance`"
   type: string
 entities:
   required: true
@@ -22,7 +25,7 @@ entities:
   type: list
 title:
   required: false
-  description: Card title
+  description: Card title.
   type: string
 show_name:
   required: false
@@ -36,12 +39,12 @@ show_icon:
   default: "true"
 show_state:
   required: false
-  description: Show entity state-text.
+  description: Show entity state text.
   type: boolean
   default: "true"
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 columns:
   required: false
@@ -49,7 +52,7 @@ columns:
   type: integer
 state_color:
   required: false
-  description: Set to `true` to have icons colored when entity is active
+  description: Set to `true` to have icons colored when entity is active.
   type: boolean
   default: true
 {% endconfiguration %}
@@ -61,7 +64,7 @@ If you define entities as objects instead of strings, you can add more customiza
 {% configuration %}
 entity:
   required: true
-  description: Home Assistant entity ID.
+  description: Entity ID.
   type: string
 name:
   required: false
@@ -82,128 +85,21 @@ show_last_changed:
   default: false
 show_state:
   required: false
-  description: Show entity state-text.
+  description: Show entity state text.
   type: boolean
   default: true
 tap_action:
   required: false
-  description: Action to take on tap
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
-      type: [boolean, map]
-      default: "false"
 hold_action:
   required: false
-  description: Action to take on tap-and-hold
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
-      type: [boolean, map]
-      default: "false"
 double_tap_action:
   required: false
-  description: Action to take on double tap
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
-      type: [boolean, map]
-      default: "false"
-{% endconfiguration %}
-
-## Options For Confirmation
-
-If you define confirmation as an object instead of boolean, you can add more customization and configurations:
-{% configuration %}
-text:
-  required: false
-  description: Text to present in the confirmation dialog.
-  type: string
-exemptions:
-  required: false
-  description: "List of `exemption` objects. See below"
-  type: list
 {% endconfiguration %}
 
 ## Options For Exemptions
@@ -211,7 +107,7 @@ exemptions:
 {% configuration badges %}
 user:
   required: true
-  description: User id that can see the view tab.
+  description: User ID that can see the view tab.
   type: string
 {% endconfiguration %}
 

@@ -1,11 +1,13 @@
 ---
 title: openSenseMap
 description: Instructions on how to setup openSenseMap sensors in Home Assistant.
-logo: opensensemap.png
 ha_category:
   - Health
 ha_release: 0.85
 ha_iot_class: Cloud Polling
+ha_domain: opensensemap
+ha_platforms:
+  - air_quality
 ---
 
 The `opensensemap` air quality platform will query the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor air quality sensor station.

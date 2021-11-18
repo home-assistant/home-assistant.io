@@ -1,11 +1,13 @@
 ---
 title: Opple
 description: Instructions on how to integrate Opple lights into Home Assistant.
-logo: opple.png
 ha_category:
   - Light
 ha_release: '0.80'
 ha_iot_class: Local Polling
+ha_domain: opple
+ha_platforms:
+  - light
 ---
 
 The `opple` light platform allows you to control the state of your Opple smart light.

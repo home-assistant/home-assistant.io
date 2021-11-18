@@ -5,8 +5,8 @@ ha_category:
   - Light
 ha_release: 0.65
 ha_iot_class: Local Push
-logo: home-assistant.png
 ha_quality_scale: internal
+ha_domain: group
 ---
 
 The group light platform lets you combine multiple lights into one entity. All child lights of a light group can still be used as usual, but controlling the state of the grouped light will forward the command to each child light.
@@ -26,14 +26,18 @@ light:
 ```
 
 {% configuration %}
-  name:
-    description: The name of the light group. Defaults to "Light Group".
-    required: false
-    type: string
-  entities:
-    description: A list of entities to be included in the light group.
-    required: true
-    type: [string, list]
+entities:
+  description: A list of entities to be included in the light group.
+  required: true
+  type: [string, list]
+name:
+  description: The name of the light group. Defaults to "Light Group".
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this light group. If two lights have the same unique ID, Home Assistant will raise an error.
+  required: false
+  type: string
 {% endconfiguration %}
 
 <p class='img'>
@@ -50,10 +54,11 @@ Here's an example of a script using the above light group.
 ```yaml
 script:
   turn_on_kitchen_lights:
-    alias: Kitchen lights on
+    alias: "Kitchen lights on"
     sequence:
       service: light.turn_on
-      data:
+      target:
         entity_id: light.kitchen_lights
+      data:
         brightness: 100
 ```

@@ -4,6 +4,8 @@ description: Instructions on how to set up Speech-to-Text (STT) with Home Assist
 ha_release: '0.102'
 ha_codeowners:
   - '@pvizeli'
+ha_domain: stt
+ha_quality_scale: internal
 ---
 
 Speech-to-Text (STT) allows you to stream speech data to the STT API and get text back.

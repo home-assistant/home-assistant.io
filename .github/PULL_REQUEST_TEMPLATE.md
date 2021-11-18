@@ -18,6 +18,7 @@
 - [ ] Spelling, grammar or other readability improvements (`current` branch).
 - [ ] Adjusted missing or incorrect information in the current documentation (`current` branch).
 - [ ] Added documentation for a new integration I'm adding to Home Assistant (`next` branch).
+  - [ ] I've opened up a PR to add logo's and icons in [Brands repository](https://github.com/home-assistant/brands).
 - [ ] Added documentation for a new feature I'm adding to Home Assistant (`next` branch).
 - [ ] Removed stale or deprecated documentation.
 
@@ -27,8 +28,9 @@
     Please be sure to fill out additional details, if applicable.
 -->
 
-- Link to parent pull request in the codebase:
-- This PR fixes or closes issue:
+- Link to parent pull request in the codebase: 
+- Link to parent pull request in the Brands repository: 
+- This PR fixes or closes issue: 
 
 ## Checklist
 <!--
@@ -43,4 +45,4 @@
   - I made a change that is related to an upcoming version of Home Assistant and used the `next` branch.
 - [ ] The documentation follows the Home Assistant documentation [standards][].
 
-[standards]: https://developers.home-assistant.io/docs/documentation_standards.html
+[standards]: https://developers.home-assistant.io/docs/documenting/standards

@@ -1,11 +1,13 @@
 ---
 title: VLC media player
 description: Instructions on how to integrate VLC media player into Home Assistant.
-logo: videolan.png
 ha_category:
   - Media Player
 ha_release: 0.35
 ha_iot_class: Local Polling
+ha_domain: vlc
+ha_platforms:
+  - media_player
 ---
 
 The `vlc` platform allows you to control [VLC media player](https://www.videolan.org/vlc/index.html).
@@ -50,7 +52,7 @@ A full configuration for VLC could look like the one below:
 media_player:
   - platform: vlc
     name: speaker_1
-    arguments: '--alsa-audio-device=hw:1,0'
+    arguments: "--alsa-audio-device=hw:1,0"
 ```
 
 ## Additional configuration on macOS
@@ -61,7 +63,7 @@ On macOS `python-vlc` won’t find the VLC plugin directory unless you add this 
 export VLC_PLUGIN_PATH=$VLC_PLUGIN_PATH:/Applications/VLC.app/Contents/MacOS/plugins
 ```
 
-## Additional configuration for Raspberry Pi
+## Additional configuration on Linux
 
 You need to add the `homeassistant` user to the `audio` group:
 

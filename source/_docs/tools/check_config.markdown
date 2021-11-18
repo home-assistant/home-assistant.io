@@ -6,7 +6,7 @@ description: "Script to perform a check of the current configuration"
 Test any changes to your `configuration.yaml` file before launching Home Assistant. This script allows you to test changes without the need to restart Home Assistant.
 
 ```bash
-$ hass --script check_config
+hass --script check_config
 ```
 
 The script has further options like checking configuration files which are not located in the default directory or showing your secrets for debugging.
@@ -28,4 +28,3 @@ optional arguments:
   -f, --files           Show used configuration files
   -s, --secrets         Show secret information
 ```
-

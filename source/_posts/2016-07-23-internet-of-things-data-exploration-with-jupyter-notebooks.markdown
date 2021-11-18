@@ -30,7 +30,7 @@ _TL; DR: Use [this Jupyter Notebook][nb-prev] to visualize of your data_
 [Pandas]: http://pandas.pydata.org/
 [matplotlib]: http://matplotlib.org/
 [Jupyter notebook]: https://jupyter.org/
-[nb-prev]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-1/DataExploration-1.ipynb
+[nb-prev]: https://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/other/DataExploration-1/DataExploration-1.ipynb
 
 <!--more-->
 

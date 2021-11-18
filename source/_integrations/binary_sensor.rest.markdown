@@ -1,11 +1,11 @@
 ---
 title: "RESTful Binary Sensor"
 description: "Instructions on how to integrate REST binary sensors into Home Assistant."
-logo: restful.png
 ha_category:
   - Binary Sensor
 ha_release: "0.10"
 ha_iot_class: Local Polling
+ha_domain: rest
 ---
 
 The `rest` binary sensor platform is consuming a given endpoint which is exposed
@@ -13,6 +13,8 @@ by a
 [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer)
 of a device, an application, or a web service.
 The binary sensor has support for GET and POST requests.
+
+_Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
 
 The JSON messages can contain different values like `1`, `"1"`,
 `TRUE`, `true`, `on`, or `open`. If the value is nested then use a
@@ -50,12 +52,29 @@ binary_sensor:
     method: POST
 ```
 
+or a template based request:
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: rest
+    resource_template: "http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}"
+```
+
+{% endraw %}
+
 {% configuration %}
 resource:
   description: The resource or endpoint that contains the value.
   required: true
   type: string
   default: string
+resource_template:
+  description: The resource or endpoint that contains the value with template support.
+  required: false
+  type: template
 method:
   description: The method of the request.
   required: false
@@ -67,7 +86,7 @@ name:
   type: string
   default: REST Binary Sensor
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 value_template:
@@ -105,12 +124,12 @@ password:
 headers:
   description: The headers for the requests.
   required: false
-  type: [list, string]
+  type: [list, template]
+params:
+  description: The query params for the requests.
+  required: false
+  type: [list, template]
 {% endconfiguration %}
-
-<div class='note warning'>
-Make sure that the URL exactly matches your endpoint or resource.
-</div>
 
 ## Examples
 
@@ -122,6 +141,8 @@ Instead of using an [aREST](/integrations/arest#binary-sensor) binary sensor,
 you could retrieve the value of a device supporting
 aREST directly with a REST binary sensor.
 
+{% raw %}
+
 ```yaml
 binary_sensor:
   - platform: rest
@@ -129,12 +150,16 @@ binary_sensor:
     method: GET
     name: Light
     device_class: light
-    value_template: {% raw %}'{{ value_json.return_value }}'{% endraw %}
+    value_template: '{{ value_json.return_value }}'
 ```
+
+{% endraw %}
 
 ### Accessing an HTTP authentication protected endpoint
 
-The REST sensor supports HTTP authentication and customized headers.
+The REST sensor supports HTTP authentication and template-enabled customized headers.
+
+{% raw %}
 
 ```yaml
 binary_sensor:
@@ -146,7 +171,11 @@ binary_sensor:
     headers:
       User-Agent: Home Assistant
       Content-Type: application/json
+      X-Custom-Header: '{{ states("input_text.the_custom_header") }}'
 ```
+
+{% endraw %}
+
 
 The headers will contain all relevant details. This will also give
 you the ability to access endpoints that are protected by tokens.

@@ -1,7 +1,6 @@
 ---
 title: Melnor RainCloud
 description: Instructions on how to integrate your Melnor Raincloud sprinkler system within Home Assistant.
-logo: raincloud.jpg
 ha_category:
   - Irrigation
   - Binary Sensor
@@ -11,6 +10,11 @@ ha_release: 0.55
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@vanstinator'
+ha_domain: raincloud
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `raincloud` integration allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.

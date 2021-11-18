@@ -1,10 +1,13 @@
 ---
 title: DD-WRT
 description: Instructions on how to integrate DD-WRT based routers into Home Assistant.
-logo: ddwrt.png
 ha_category:
   - Presence Detection
+ha_iot_class: Local Polling
 ha_release: pre 0.7
+ha_domain: ddwrt
+ha_platforms:
+  - device_tracker
 ---
 
 This platform offers presence detection by looking at connected devices to a [DD-WRT](https://dd-wrt.com/) based router.
@@ -26,7 +29,7 @@ host:
   required: true
   type: string
 username:
-  description: The username of an user with administrative privileges, usually `admin`.
+  description: The username of a user with administrative privileges, usually `admin`.
   required: true
   type: string
 password:

@@ -1,11 +1,13 @@
 ---
 title: HTU21D(F) Sensor
 description: Instructions on how to integrate a HTU21D Temperature and humidity sensor into Home Assistant.
-logo: raspberry-pi.png
 ha_category:
   - DIY
 ha_release: 0.48
 ha_iot_class: Local Push
+ha_domain: htu21d
+ha_platforms:
+  - sensor
 ---
 
 The `htu21d` sensor platform allows you to read the temperature and humidity from a [HTU21D sensor](https://cdn-shop.adafruit.com/datasheets/1899_HTU21D.pdf) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins).
@@ -93,10 +95,11 @@ $ sudo reboot
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 
 ```bash
-$ /usr/sbin/i2cdetect -y 1
+/usr/sbin/i2cdetect -y 1
 ```
 
 It will output a table like this:
+
 ```text
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:          -- -- -- -- -- -- -- -- -- -- -- -- --

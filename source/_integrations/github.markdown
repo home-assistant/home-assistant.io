@@ -1,18 +1,23 @@
 ---
 title: GitHub
 description: How to integrate the GitHub sensor into Home Assistant.
-logo: github.png
 ha_category:
   - Sensor
 ha_release: 0.88
 ha_iot_class: Cloud Polling
+ha_domain: github
+ha_platforms:
+  - sensor
+ha_codeowners:
+  - '@timmo001'
+  - '@ludeeus'
 ---
 
-The GitHub sensor integrates data from [GitHub](https://github.com/) to monitor your favorite repositories.
+The GitHub sensor allows you to monitor your favorite [GitHub](https://github.com/) repositories. Monitored information includes the amount of stargazers, forks, open issues and pull requests, the latest commit message, and more. 
 
 ## Setup
 
-To set up this sensor you will need a [personal access token](https://github.com/settings/tokens). You will need to check the `repo` scope for the sensor to function.
+To set up this sensor you will need a GitHub [personal access token](https://github.com/settings/tokens). You will need to check the `repo` scope for the sensor to function.
 
 ## Configuration
 
@@ -24,7 +29,7 @@ sensor:
   - platform: github
     access_token: !secret github_access_token
     repositories:
-      - path: 'home-assistant/home-assistant'
+      - path: 'home-assistant/core'
 ```
 
 {% configuration %}
@@ -33,7 +38,7 @@ access_token:
   required: true
   type: string
 url:
-  description: If you are using a GitHub Enterprise server, add it's URL here. For example, `https://mygithubserver.com`
+  description: If you are using a GitHub Enterprise server, add its URL here. For example, `https://mygithubserver.com`
   required: false
   type: string
 repositories:
@@ -42,7 +47,7 @@ repositories:
   type: list
   keys:
     path:
-      description: Path to the repository. For Home Assistant this will be `home-assistant/home-assistant`
+      description: Path to the repository. For Home Assistant this will be `home-assistant/core`
       required: true
       type: string
     name:

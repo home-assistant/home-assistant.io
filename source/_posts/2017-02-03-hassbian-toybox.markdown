@@ -19,7 +19,7 @@ Currently includes:
  - Install Libcec. Adds local [HDMI-CEC support][cec].
  - Install Mossquitto. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.
  - Install OpenZWave. Installs OpenZWave and prepares for using a USB or GPIO ZWave controller.
- - Install Samba. Installs the Samba packages and shares your configuration over smb to be available to edit on any computer without the need for separate file transfer software. This share is unsecured and it's usage is not recommended if your installation is publicly available.
+ - Install Samba. Installs the Samba packages and shares your configuration over smb to be available to edit on any computer without the need for separate file transfer software. This share is unsecured and its usage is not recommended if your installation is publicly available.
 
 All of these scripts are available in the directory `/home/pi/hassbian-scripts/`. This directory is actually a cloned git repository that's cloned on first boot and can be updated to the latest release with ease after.
 To update the hassbian-scripts directory execute the following command as the `pi` user.
@@ -50,11 +50,10 @@ On the close horizon from [@Landrash][landrash-github] there a few more script i
 
 To follow discussions about the development of the HASSbian image or to contribute join our [Discord chat server][discord].
  
-To get started with the new image, check out the installation instructions in the [getting started section][gs-image].
+To get started with the new image, check out the installation instructions in the getting started section.
  
 [cec]: /integrations/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
 [hassbian-avahi]: https://hassbian.local
 [landrash-github]: https://github.com/Landrash
-[gs-image]: /docs/installation/hassbian/installation/
 [discord]: https://discord.gg/8X8DTH4

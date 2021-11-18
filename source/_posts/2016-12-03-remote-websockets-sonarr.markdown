@@ -5,7 +5,9 @@ date: 2016-12-03 08:04:05 +0000
 date_formatted: "December 3, 2016"
 author: Fabian Affolter et al.
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2016-12-0.34/social.png
 ---
 
@@ -13,7 +15,7 @@ Here we go... 0.34. Let's call it the "Santa Claus" release. Rudolph was faster 
 
 ### GPSLogger
 
-The work of [@dainok] let's you use your Android device, with the Geolocation feature enabled, to track itself using GPS or WiFi networks with the [GPSLogger](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) app. GPSLogger can use multiple sources: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.
+The work of [@dainok] let's you use your Android device, with the Geolocation feature enabled, to track itself using GPS or WiFi networks with the [GPSLogger](https://github.com/mendhak/gpslogger/releases) app. GPSLogger can use multiple sources: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.
 
 ###  Remote component
 
@@ -214,7 +216,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [homematic]: /integrations/homematic/
 [nest-cam]: /integrations/nest#camera
 [nest]: /integrations/nest/
-[nginx]: /ecosystem/nginx/
+[nginx]: /docs/ecosystem/nginx
 [nut]: /integrations/nut
 [philips]: /integrations/philips_js
 [remote]: /integrations/remote/

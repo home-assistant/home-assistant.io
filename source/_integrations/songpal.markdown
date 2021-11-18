@@ -1,13 +1,19 @@
 ---
 title: Sony Songpal
 description: Instructions on how to integrate Sony Songpal devices into Home Assistant.
-logo: sony.png
 ha_category:
   - Media Player
 ha_iot_class: Local Push
 ha_release: 0.65
+ha_config_flow: true
+ha_quality_scale: gold
 ha_codeowners:
   - '@rytilahti'
+  - '@shenxn'
+ha_domain: songpal
+ha_ssdp: true
+ha_platforms:
+  - media_player
 ---
 
 The `songpal` platform allows you to control Sony's Songpal ("[Audio Control API](https://developer.sony.com/develop/audio-control-api/)") compatible devices such as soundbars, AV receivers and wireless speakers from Home Assistant.
@@ -19,31 +25,11 @@ If the platform works with your non-listed device, or you encounter bugs, please
 A few notes:
 
 - The quick start-up mode has to be enabled in order to turn the device on.
-- Supports currently only one output terminal, i.e. the volume control works only on the first volume controller as reported by the backend library.
+- Supports currently only one output terminal, i.e., the volume control works only on the first volume controller as reported by the backend library.
 - Some devices, e.g., HT-XT3, do not support decreasing the volume step-by-step correctly.
 - Feel free to improve the available services!
 
-## Configuration
-
-The platform will be loaded automatically by discovery component. If you want to manually configure it, add the following to your `configuration.yaml` file:
-
-```yaml
-media_player:
-  - platform: songpal
-    name: my soundbar
-    endpoint: http://IP_ADDRESS:10000/sony
-```
-
-{% configuration %}
-name:
-  description: The name to display for this device.
-  required: false
-  type: string
-endpoint:
-  description: API endpoint of the device.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 See [python-songpal's documentation](https://github.com/rytilahti/python-songpal#locating-the-endpoint) how to get your API endpoint.
 
@@ -57,6 +43,6 @@ For a list of available settings and their values use [`songpal sound`](https://
 
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
-| `entity_id`            |      yes | Target entity, leave unset for all devices       |
+| `entity_id`            |      yes | Target entity. To target all songpal devices, use `all` |
 | `name`                 |       no | Configuration variable, e.g., `nightmode`         |
 | `value`                |       no | New configuration value, e.g., `on`               |

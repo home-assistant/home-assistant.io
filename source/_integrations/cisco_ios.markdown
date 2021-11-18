@@ -1,12 +1,15 @@
 ---
 title: Cisco IOS
 description: Instructions on how to integrate Cisco IOS routers into Home Assistant.
-logo: cisco.png
 ha_category:
   - Presence Detection
 ha_release: 0.33
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@fbradyirl'
+ha_domain: cisco_ios
+ha_platforms:
+  - device_tracker
 ---
 
 This is a presence detection scanner for [Cisco IOS](https://www.cisco.com/) devices.
@@ -62,7 +65,7 @@ host:
   required: true
   type: string
 username:
-  description: The username of an user with administrative privileges.
+  description: The username of a user with administrative privileges.
   required: true
   type: string
 password:

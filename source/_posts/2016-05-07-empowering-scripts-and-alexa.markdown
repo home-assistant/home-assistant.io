@@ -5,7 +5,9 @@ date: 2016-05-07 11:06:00 -0700
 date_formatted: "May 7, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 This release is big. Until now, our automations and scripts have been very static. Starting today it should all be a bit more dynamic.
@@ -19,7 +21,7 @@ automation:
     topic: some/notify/topic
   action:
     service: notify.notify
-    data_template:
+    data:
       message: {{ trigger.payload }}
 
 automation 2:
@@ -28,7 +30,7 @@ automation 2:
     entity_id: light.hue
   action:
     service: notify.notify
-    data_template:
+    data:
       message: {{ trigger.to_state.name }} is now {{ trigger.to_state.state }}
 ```
 

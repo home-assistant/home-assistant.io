@@ -1,11 +1,14 @@
 ---
 title: Google Cloud Platform
 description: Google Cloud Platform integration.
-logo: google_cloud.png
 ha_category: Text-to-speech
 ha_release: 0.95
+ha_iot_class: Cloud Push
 ha_codeowners:
   - '@lufton'
+ha_domain: google_cloud
+ha_platforms:
+  - tts
 ---
 
 The `google_cloud` platform allows you to use [Google Cloud Platform](https://cloud.google.com/) API and integrate them into Home Assistant.
@@ -74,17 +77,17 @@ key_file:
   required: false
   type: string
 language:
-  description: "Default language of the voice, e.g. `en-US`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices). Also there are extra not documented but supported languages (see dropdown [here](https://cloud.google.com/text-to-speech/#streaming_demo_section))."
+  description: "Default language of the voice, e.g.,  `en-US`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices). Also there are extra not documented but supported languages (see dropdown [here](https://cloud.google.com/text-to-speech/#streaming_demo_section))."
   required: false
   type: string
   default: en-US
 gender:
-  description: "Default gender of the voice, e.g. `male`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices)."
+  description: "Default gender of the voice, e.g.,  `male`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices)."
   required: false
   type: string
   default: neutral
 voice:
-  description: "Default voice name, e.g. `en-US-Wavenet-F`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices). **Important! This parameter will override `language` and `gender` parameters if set**."
+  description: "Default voice name, e.g.,  `en-US-Wavenet-F`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices). **Important! This parameter will override `language` and `gender` parameters if set**."
   required: false
   type: string
 encoding:
@@ -112,6 +115,11 @@ profiles:
   required: false
   type: list
   default: "[]"
+text_type:
+  description: "Default text type. Supported text types are `text` and `ssml`. Read more on what is that and how to use SSML [here](https://cloud.google.com/text-to-speech/docs/ssml)."
+  required: false
+  type: string
+  default: "text"
 {% endconfiguration %}
 
 ### Full configuration example
@@ -130,6 +138,7 @@ tts:
     speed: 0.9
     pitch: -2.5
     gain: -5.0
+    text_type: ssml
     profiles:
       - telephony-class-application
       - wearable-class-device

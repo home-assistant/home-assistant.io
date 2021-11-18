@@ -1,13 +1,14 @@
 ---
 title: Sun
 description: Instructions on how to track the sun within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Environment
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_codeowners:
   - '@Swamp-Ig'
+ha_iot_class: Calculated
+ha_domain: sun
 ---
 
 The sun integration will use your current location to track if the sun is above or
@@ -19,7 +20,7 @@ below the horizon. The sun can be used within automation as
 
 ## Configuration
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry

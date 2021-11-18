@@ -1,7 +1,6 @@
 ---
 title: Ecovacs
 description: Instructions on how to integrate Ecovacs vacuums within Home Assistant.
-logo: ecovacs.png
 ha_category:
   - Hub
   - Vacuum
@@ -9,6 +8,9 @@ ha_iot_class: Cloud Push
 ha_release: 0.77
 ha_codeowners:
   - '@OverloadUT'
+ha_domain: ecovacs
+ha_platforms:
+  - vacuum
 ---
 
 The `ecovacs` integration is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
@@ -50,6 +52,8 @@ continent:
 
 Note: For some countries, you will need to set `continent` to `ww` (meaning worldwide.) There is unfortunately no way to know the correct settings other than guessing and checking. See the [sucks library protocol documentation](https://github.com/wpietri/sucks/blob/master/protocol.md) for more information about what has been figured out about the Ecovacs servers.
 
+Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
+
 ### Stability and Reporting Bugs
 
 The library that talks to the Ecovacs servers is in a very early state and still under development. As such, it is likely that not all regions and devices will work at the current time.
@@ -66,7 +70,7 @@ logger:
     sucks: debug
 ```
 
-Warning: doing this will cause your authentication token to visible in your log files. Be sure to remove any tokens and other authentication details from your log before posting them in an issue.
+**Warning**: doing this will cause your authentication token to be visible in your log files. Be sure to remove any tokens and other authentication details from your log before posting them in an issue.
 
 
 ## Vacuum
@@ -80,31 +84,31 @@ The remaining lifespan of components on your Deebot vacuum will be reported as a
 Here's an example of how to extract the filter's lifespan to its own sensor using a [template sensor](/integrations/template):
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: template
-    sensors:
-      vacuum_filter:
-        friendly_name: "Vacuum Filter Remaining Lifespan"
-        unit_of_measurement: '%'
-        value_template: "{{ state_attr('vacuum.my_vacuum_id', 'component_filter') }}"
+template:
+  - sensor:
+    - name: "Vacuum Filter Remaining Lifespan"
+      unit_of_measurement: "%"
+      state: "{{ state_attr('vacuum.my_vacuum_id', 'component_filter') }}"
 ```
+
 {% endraw %}
 
 Or, if you want a simple binary sensor that becomes `On` when the filter needs to be replaced (5% or less):
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: template
-    sensors:
-      vacuum_filter_replace:
-        friendly_name: "Vacuum Filter"
-        device_class: problem
-        value_template: "{{ state_attr('vacuum.my_vacuum_id', 'component_filter') <= 5 }}"
+template:
+  - binary_sensor:
+    - name: "Vacuum Filter"
+      device_class: problem
+      state: "{{ state_attr('vacuum.my_vacuum_id', 'component_filter') <= 5 }}"
 ```
+
 {% endraw %}
 
 ### Handling Errors

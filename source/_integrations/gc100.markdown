@@ -7,7 +7,10 @@ ha_category:
   - Switch
 ha_release: 0.57
 ha_iot_class: Local Polling
-logo: global-cache.png
+ha_domain: gc100
+ha_platforms:
+  - binary_sensor
+  - switch
 ---
 
 The Global Caché [GC-100](https://www.globalcache.com/products/gc-100/) can be integrated into Home Assistant. GC-100 is a TCP-controllable
