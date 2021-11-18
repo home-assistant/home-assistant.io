@@ -1,4 +1,5 @@
 ---
+type: card
 title: Conditional Card
 sidebar_label: Conditional
 description: The Conditional card displays another card based on entity states.

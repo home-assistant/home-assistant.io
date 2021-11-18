@@ -1,4 +1,5 @@
 ---
+type: card
 title: "History Graph Card"
 sidebar_label: History Graph
 description: "The History Graph card allows you to display a graph for each of the entities listed."
@@ -29,7 +30,7 @@ entities:
   type: list
 hours_to_show:
   required: false
-  description: Hours to show. Minimum is 1 hour, maximum of 80 hours.
+  description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
   type: integer
   default: 24
 refresh_interval:
@@ -58,7 +59,7 @@ name:
   type: string
 {% endconfiguration %}
 
-## Example
+## Examples
 
 Alternatively, the card can be configured using YAML:
 
@@ -69,4 +70,18 @@ entities:
   - sensor.outside_temperature
   - entity: media_player.lounge_room
     name: Main player
+```
+
+Or with longer time frame, and multiple entities (as long as they share the same unit_of_measurement) in one graph:
+
+```yaml
+type: history-graph
+title: "Temperatures in the last 48 hours"
+hours_to_show: 48
+entities:
+  - sensor.outside_temperature
+  - entity: sensor.lounge_temperature
+    name: "Lounge"
+  - entity: sensor.attic_temperature
+    name: "Attic"
 ```

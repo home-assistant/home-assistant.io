@@ -8,13 +8,14 @@ ha_release: 2021.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@frenck"
+  - '@frenck'
 ha_domain: ambee
 ha_platforms:
   - sensor
+ha_quality_scale: platinum
 ---
 
-The Ambee integration integrations the [Ambee](https://www.getambee.com/) API
+The Ambee integration integrates the [Ambee](https://www.getambee.com/) API
 platform with Home Assistant.
 
 Ambee fuses the power of thousands of on-ground sensor data and hundreds of
@@ -35,7 +36,8 @@ your API key as well.
 [Sign up for an Ambee account](https://api-dashboard.getambee.com/#/signup).
 Once you have completed the sign up and logged in for the first time, the
 API token will be displayed on the top of your
-[Ambee dashboard](https://api-dashboard.getambee.com/#/).
+[Ambee dashboard](https://api-dashboard.getambee.com/#/). Make sure you select
+both the Air Quality API and the Pollen API.
 
 {% include integrations/config_flow.md %}
 

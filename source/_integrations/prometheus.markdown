@@ -173,6 +173,23 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
       - targets: ['HOSTNAME:8123']
 ```
 
+The format to configure the bearer token has changed in Prometheus 2.26, so if you have a newer version, you can use this configuration sample:
+
+```yaml
+# Example Prometheus scrape_configs entry (For version 2.26+
+  - job_name: "hass"
+    scrape_interval: 60s
+    metrics_path: /api/prometheus
+
+    # Long-Lived Access Token
+    authorization:
+      credentials: "your.longlived.token"
+
+    scheme: https
+    static_configs:
+      - targets: ['HOSTNAME:8123']
+```
+
 When looking into the metrics on the Prometheus side, there will be:
 
 - All Home Assistant domains, which can be easily found through the common **namespace** prefix, if defined.

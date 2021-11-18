@@ -21,6 +21,7 @@ sensor:
     from: NAME_OF_START_STATION
     to: NAME_OF_FINAL_STATION
 ```
+
 {% configuration %}
 from:
   description: The name of the start station.

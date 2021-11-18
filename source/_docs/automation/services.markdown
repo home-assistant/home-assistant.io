@@ -19,7 +19,7 @@ This service disables the automation's triggers, and optionally stops any curren
 
 Service data attribute | Optional | Description
 -|-|-
-`entity_id` | no | Entity ID of automation to turn on. Can be a list. `none` or `all` are also accepted.
+`entity_id` | no | Entity ID of automation to turn off. Can be a list. `none` or `all` are also accepted.
 `stop_actions` | yes | Stop any currently active actions (defaults to true).
 
 ## Service {% my developer_call_service service="automation.toggle" %}

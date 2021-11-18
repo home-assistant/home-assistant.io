@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
+  - sensor
 ha_zeroconf: true
 ---
 

@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Glance Card"
 sidebar_label: Glance
 description: "The Glance card is useful to group multiple sensors in a compact overview."

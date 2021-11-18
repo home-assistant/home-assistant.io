@@ -126,7 +126,7 @@ switch:
 
 {% configuration %}
 pins:
-  description: List of of pins to use.
+  description: List of pins to use.
   required: true
   type: map
   keys:

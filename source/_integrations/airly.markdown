@@ -11,7 +11,6 @@ ha_codeowners:
 ha_domain: airly
 ha_quality_scale: platinum
 ha_platforms:
-  - air_quality
   - sensor
 ---
 

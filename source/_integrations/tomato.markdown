@@ -60,7 +60,7 @@ verify_ssl:
   type: [string, boolean]
   default: true
 username:
-  description: "The username of an user with administrative privileges, usually *admin*."
+  description: "The username of a user with administrative privileges, usually *admin*."
   required: true
   type: string
 password:

@@ -9,6 +9,7 @@ ha_release: 0.44
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@mezz64'
+  - '@raman325'
 ha_domain: eight_sleep
 ha_platforms:
   - binary_sensor

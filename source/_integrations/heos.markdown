@@ -84,7 +84,7 @@ media_content_id: "Awesome Music"
 
 #### Play Quick Select
 
-You can play a HEOS Quick Select by nubmer or name with the `media_player.play_media` service. Example service data payload:
+You can play a HEOS Quick Select by number or name with the `media_player.play_media` service. Example service data payload:
 
 ```yaml
 entity_id: media_player.office
@@ -123,7 +123,7 @@ media_content_id: "http://path.to/stream.mp3"
 
 ### Debugging
 
-The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the the relevant line below to the `configuration.yaml` to enable debug logging:
+The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml` to enable debug logging:
 
 ```yaml
 logger:

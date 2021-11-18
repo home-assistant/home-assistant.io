@@ -63,3 +63,12 @@ This service allows you to temporarily suppress a maintenance reminder on a hot 
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | no | The entity to update. | binary_sensor.jacuzzi_j_335_refresh_water_reminder
 | `days` | no | The number of days to snooze the reminder (minimum 10). | 10
+
+### Service `smarttub.reset_reminder`
+
+This service allows you to reset a maintenance reminder on a hot tub.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | no | The entity to update. | binary_sensor.jacuzzi_j_335_refresh_water_reminder
+| `days` | no | The number of days when reminder should trigger next (minimum 30). | 180

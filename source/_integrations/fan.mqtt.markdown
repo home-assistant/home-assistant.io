@@ -65,10 +65,14 @@ command_topic:
   required: true
   type: string
 device:
-  description: "Information about the device this fan is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set."
+  description: "Information about the device this fan is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
+    configuration_url:
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      required: false
+      type: string
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -106,6 +110,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -123,6 +132,10 @@ name:
   required: false
   type: string
   default: MQTT Fan
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 optimistic:
   description: Flag that defines if fan works in optimistic mode
   required: false
@@ -197,7 +210,7 @@ percentage_state_topic:
   required: false
   type: string
 percentage_value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from fan percentage speed.
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the `percentage` value from the payload received on `percentage_state_topic`.
   required: false
   type: string
 preset_mode_command_template:
@@ -209,11 +222,11 @@ preset_mode_command_topic:
   required: false
   type: string
 preset_mode_state_topic:
-  description: The MQTT topic to publish commands to change the preset mode.
+  description: The MQTT topic subscribed to receive fan speed based on presets.
   required: false
   type: string
 preset_mode_value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the preset_mode payload.
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the `preset_mode` value from the payload received on `preset_mode_state_topic`.
   required: false
   type: string
 preset_modes:
@@ -231,16 +244,16 @@ retain:
   required: false
   type: boolean
   default: true
-speed_range_min:
-  description: The minimum of numeric output range (`off` not included, so `speed_range_min` - 1 represents 0%). The number of speeds within the speed_range / 100 will determine the `percentage_step`.
-  required: false
-  type: integer
-  default: 1
 speed_range_max:
-  description: The maximum of numeric output range (representing 100%). The number of speeds within the speed_range / 100 will determine the `percentage_step`.
+  description: The maximum of numeric output range (representing 100 %). The number of speeds within the `speed_range` / `100` will determine the `percentage_step`.
   required: false
   type: integer
   default: 100
+speed_range_min:
+  description: The minimum of numeric output range (`off` not included, so `speed_range_min` - `1` represents 0 %). The number of speeds within the speed_range / 100 will determine the `percentage_step`.
+  required: false
+  type: integer
+  default: 1
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
@@ -298,13 +311,14 @@ fan:
     speed_range_max: 10
 ```
 
-{% raw %}
+### Configuration using command templates
 
 This example demonstrates how to use command templates with JSON output.
 
+{% raw %}
+
 ```yaml
-# Example configuration.yaml
-# Example using command templates
+# Example configuration.yaml with command templates
 fan:
   - platform: mqtt
     name: "Bedroom Fan"

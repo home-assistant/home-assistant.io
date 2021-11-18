@@ -82,6 +82,12 @@ commands:
       default: empty
 {% endconfiguration %}
 
+<div class="note">
+
+In order to prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
+
+</div>
+
 ### Event Data
 
 If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
@@ -190,3 +196,17 @@ action:
       images:
         - /path/to/picture.jpg
 ```
+
+<div class='note'>
+
+If you need to include a file from an external folder in your notifications, you will have to [list the source folder as allowed](/docs/configuration/basic/).
+
+```yaml
+configuration.yaml
+...
+homeassistant:
+  allowlist_external_dirs:
+    - /tmp
+```
+
+</div>

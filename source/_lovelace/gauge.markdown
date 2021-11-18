@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Gauge Card"
 sidebar_label: Gauge
 description: "The Gauge card is a basic card that allows visually seeing sensor data."
@@ -9,6 +10,11 @@ The Gauge card is a basic card that allows visually seeing sensor data.
 <p class='img'>
 <img src='/images/lovelace/lovelace_gauge_card.gif' alt='Screenshot of the Gauge card'>
 Screenshot of the Gauge card.
+</p>
+
+<p class='img'>
+<img src='/images/lovelace/lovelace_gauge_needle_card.png' alt='Screenshot of the Gauge card in needle mode'>
+Screenshot of the Gauge card in needle mode.
 </p>
 
 To add the Gauge card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Gauge** from the card picker. All options for this card can be configured via the user interface.
@@ -39,11 +45,6 @@ unit:
   description: Unit of measurement given to data.
   type: string
   default: Unit of measurement given by entity
-icon:
-  required: false
-  description: Overwrites icon.
-  type: string
-  default: Entity domain icon
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
@@ -58,6 +59,11 @@ max:
   description: Maximum value for graph.
   type: integer
   default: 100
+needle:
+  required: false
+  description: Show the gauge as a needle gauge.
+  type: boolean
+  default: false
 severity:
   required: false
   description: Allows setting of colors for different numbers.

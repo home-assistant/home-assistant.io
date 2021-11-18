@@ -4,6 +4,7 @@ description: Instructions on how to integrate KNX components with Home Assistant
 ha_category:
   - Hub
   - Binary Sensor
+  - Button
   - Climate
   - Cover
   - Fan
@@ -25,6 +26,7 @@ ha_domain: knx
 ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - fan
@@ -32,8 +34,8 @@ ha_platforms:
   - notify
   - number
   - scene
-  - select
   - sensor
+  - select
   - switch
   - weather
 ---
@@ -51,6 +53,7 @@ Please note, the KNX platform does not support KNX Secure.
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
+- [Button](#button)
 - [Climate](#climate)
 - [Cover](#cover)
 - [Fan](#fan)
@@ -195,25 +198,37 @@ local_ip:
 
 ```yaml
 knx:
-  event_filter: 
-    - "1/0/*"
-    - "6/2,3,4-6/*"
+  event:
+    - address:
+        - "0/1/*"
+    - address:
+        - "1/2/*"
+        - "1/3/2-4"
+      type: "2byte_unsigned"
+    - address:
+        - "3/4/5"
+      type: "2byte_float"
 ```
 
 {% configuration %}
-event_filter:
-  description: Defines a list of patterns for filtering KNX group addresses. Telegrams with destination addresses matching this pattern are sent to the Home Assistant event bus as `knx_event`.
-  required: false
+address:
+  description: Defines a list of patterns for matching KNX group addresses. Telegrams with destination addresses matching one of the patterns are sent to the Home Assistant event bus as `knx_event`.
+  required: true
   type: [list, string]
+type:
+  description: Telegram payloads in `knx_event` events will be decoded using the configured type (DPT) for the addresses in the same block. The decoded value will be written to the event data `value` key. If not configured the `value` key will be `None` - the `data` key will still hold the raw payload (use this for DPT 1, 2, 3). All sensor types are valid types - see [KNX Sensor](#sensor) (e.g., "2byte_float" or "1byte_signed").
+  type: [string, integer]
+  required: false
 {% endconfiguration %}
 
-Every telegram that matches the filter with its destination field will be announced on the event bus as a `knx_event` event containing data attributes
+Every telegram that matches an address pattern with its destination field will be announced on the event bus as a `knx_event` event containing data attributes
 
 - `data` contains the raw payload data (e.g., 1 or "[12, 55]").
 - `destination` the KNX group address the telegram is sent to as string (e.g., "1/2/3).
 - `direction` the direction of the telegram as string ("Incoming" / "Outgoing").
 - `source` the KNX individual address of the sender as string (e.g., "1.2.3").
 - `telegramtype` the APCI service of the telegram. "GroupValueWrite", "GroupValueRead" or "GroupValueResponse" generate a knx_event.
+- `value` contains the decoded payload value if `type` is configured for the address. Will be `None` for "GroupValueRead" telegrams.
 
 ## Services
 
@@ -289,7 +304,7 @@ automation:
 
 ### Register Event
 
-The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses matching the `event_filter` attribute in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
+The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses configured in the `event` key in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
 
 {% configuration %}
 address:
@@ -301,6 +316,10 @@ remove:
   required: false
   type: boolean
   default: false
+type:
+  description: If set, the payload will be decoded as given DPT in the event data `value` key. KNX sensor types are valid values [KNX Sensor](#sensor) (e.g., "2byte_float" or "1byte_signed").
+  type: [string, integer]
+  required: false
 {% endconfiguration %}
 
 ### Register Exposure
@@ -424,6 +443,11 @@ context_timeout:
   required: false
   type: float
   default: None
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ### Support for automations
@@ -484,6 +508,73 @@ action:
   description: Specify a list of actions analog to the [automation rules](/docs/automation/action/).
   required: false
   type: list
+{% endconfiguration %}
+
+## Button
+
+The KNX button platform allows to send concurrent predefined values via the frontend or a platform service. When a user presses the button, the assigned generic raw payload is sent to the KNX bus.
+
+<div class='note'>
+
+Telegrams received on the KNX bus for the group address of a button are not reflected in a new button state. Use `knx_event` if you want to automate on a specific payload received on a group address.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  button:
+    - name: "DPT 1 - True button"
+      address: "0/0/1"
+    - name: "100% button"
+      address: "0/0/2"
+      payload: 0xFF
+      payload_length: 1
+    - name: "Temperature button"
+      address: "0/0/3"
+      value: 21.5
+      type: temperature
+```
+
+<div class='note'>
+
+When `type` is used `value` is required, `payload` is invalid.
+When `payload_length` is used `value` is invalid.
+
+</div>
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address to send to.
+  required: true
+  type: [string, list]
+payload:
+  description: The raw payload that shall be sent.
+  required: false
+  type: integer
+  default: 1
+payload_length:
+  description: The length of the payload data in the telegram. Use `0` for DPT 1, 2 or 3.
+  required: false
+  type: integer
+  default: 0
+value:
+  description: The value that shall be sent encoded by `type`.
+  required: false
+  type: [integer, float, string]
+type:
+  description: A type from the [value types table](/integrations/knx/#value-types) to encode the configured `value`.
+  required: false
+  type: [string, integer]
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Climate
@@ -575,8 +666,8 @@ The following values are valid for the Home Assistant [Climate](/integrations/cl
 
 - `Off` (maps internally to `HVAC_MODE_OFF` within Home Assistant)
 - `Auto` (maps internally to `HVAC_MODE_AUTO` within Home Assistant)
-- `Heat` (maps internally to `HVAC_MDOE_HEAT` within Home Assistant)
-- `Cool` (maps internally to `HVAC_MDOE_COOL` within Home Assistant)
+- `Heat` (maps internally to `HVAC_MODE_HEAT` within Home Assistant)
+- `Cool` (maps internally to `HVAC_MODE_COOL` within Home Assistant)
 - `Fan only` (maps internally to `HVAC_MODE_FAN_ONLY` within Home Assistant)
 - `Dry` (maps internally to `HVAC_MODE_DRY` within Home Assistant)
 
@@ -634,6 +725,14 @@ setpoint_shift_max:
   required: false
   default: 6
   type: float
+active_state_address:
+  description: KNX address for reading current activity. `0` is idle, `1` is active. *DPT 1*
+  required: false
+  type: [string, list]
+command_value_state_address:
+  description: KNX address for reading current command value in percent. `0` sets the climate entity to idle if `active_state_address` is not set. *DPT 5.001*
+  required: false
+  type: [string, list]
 operation_mode_address:
   description: KNX address for setting operation mode (Frost protection/night/comfort). *DPT 20.102*
   required: false
@@ -690,6 +789,11 @@ controller_modes:
   description: Overrides the supported controller modes. Provide the supported `hvac_mode` values for your device.
   required: false
   type: list
+default_controller_mode:
+  description: Overrides the default controller mode. Any Home Assistant `hvac_mode` can be configured. This can, for example, be set to "cool" for cooling-only devices.
+  required: false
+  default: "heat"
+  type: string
 on_off_address:
   description: KNX address for switching the climate device on/off. *DPT 1*
   required: false
@@ -711,6 +815,11 @@ max_temp:
   description: Override the maximum temperature.
   required: false
   type: float
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Cover
@@ -797,6 +906,11 @@ device_class:
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Fan
@@ -842,6 +956,11 @@ max_step:
   description: The maximum amount of steps for a step-controlled fan. If set, the integration will convert percentages to steps automatically.
   required: false
   type: integer
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Light
@@ -898,6 +1017,22 @@ rgbw_address:
   type: [string, list]
 rgbw_state_address:
   description: KNX group address for retrieving the RGBW color of the light. *DPT 251.600*
+  required: false
+  type: [string, list]
+hue_address:
+  description: KNX group address for setting the hue of the light color in degrees. *DPT 5.003*
+  required: false
+  type: [string, list]
+hue_state_address:
+  description: KNX group address for retrieving the hue of the light color in degrees. *DPT 5.003*
+  required: false
+  type: [string, list]
+saturation_address:
+  description: KNX group address for setting the saturation of the light color in percent. *DPT 5.001*
+  required: false
+  type: [string, list]
+saturation_state_address:
+  description: KNX group address for retrieving the saturation of the light color in percent. *DPT 5.001*
   required: false
   type: [string, list]
 xyy_address:
@@ -969,9 +1104,14 @@ max_kelvin:
   required: false
   type: integer
   default: 6000
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
-Many KNX devices can change their state internally without a message to the switch address on the KNX bus, e.g., if you configure a scene or a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given `state_address` (in most cases from the light actuator), it will overwrite the state of the switch object.
+Many KNX devices can change their state internally without a message to the switch address on the KNX bus, e.g., if you configure a scene or a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given `state_address` (in most cases from the light actuator), it will overwrite the state of the object.
 
 For switching/light actuators that are only controlled by a single group address and don't have dedicated state communication objects you can set `state_address` to the same value as `address`.
 
@@ -983,23 +1123,70 @@ For switching/light actuators that are only controlled by a single group address
 knx:
   light:
     # dimmable light
-    - name: "Bedroom Light 1"
+    # color mode: brightness
+    - name: "Dimmable light"
       address: "1/0/9"
       state_address: "1/1/9"
       brightness_address: "1/2/9"
       brightness_state_address: "1/3/9"
-    #
-    # RGB light
-    - name: "Bathroom Light 1"
+    # XYY light
+    # color mode: xy
+    - name: "XYY light"
       address: "1/0/9"
       state_address: "1/1/9"
-      brightness_address: "1/2/9"
+      brightness_address: "1/2/9"  # optional - if not set brightness will be sent over the xyy data point
+      brightness_state_address: "1/3/9"
+      xyy_address: "1/4/9"
+      xyy_state_address: "1/5/9"
+    # HS light
+    # color mode: hs
+    - name: "HS light"
+      address: "1/0/9"
+      state_address: "1/1/9"
+      brightness_address: "1/2/9"  # required for HS
+      brightness_state_address: "1/3/9"
+      hue_address: "1/4/8"
+      hue_state_address: "1/5/8"  # required for HS
+      saturation_address: "1/4/9"
+      saturation_state_address: "1/5/9"  # required for HS
+    # RGB light
+    # color mode: rgb
+    - name: "RGB light"
+      address: "1/0/9"
+      state_address: "1/1/9"
+      brightness_address: "1/2/9"  # optional for RGB lights
       brightness_state_address: "1/3/9"
       color_address: "1/4/9"
       color_state_address: "1/5/9"
-    #
+    # RGBW light
+    # color mode: rgbw
+    - name: "RGBW light"
+      address: "0/4/83"
+      state_address: "0/4/84"
+      brightness_address: "0/4/85"  # optional for RGBW lights
+      brightness_state_address: "0/4/86"
+      rgbw_address: "0/4/87"
+      rgbw_state_address: "0/4/88"
+    # RGB(W) individual object light
+    # color mode: rgb / rgbw
+    - name: "RGBW individual light"
+      address: "1/0/9"  # optional for individual color lights
+      individual_colors:
+        red:
+          brightness_address: "0/4/61"
+          brightness_state_address: "0/5/61"
+        green:
+          brightness_address: "0/4/62"
+          brightness_state_address: "0/5/62"
+        blue:
+          brightness_address: "0/4/63"
+          brightness_state_address: "0/5/63"
+        white:
+          brightness_address: "0/4/64"
+          brightness_state_address: "0/5/64"
     # tunable white light
-    - name: "Office Light 1"
+    # color mode: color_temp
+    - name: "TW light"
       address: "1/0/21"
       state_address: "1/1/21"
       brightness_address: "1/2/21"
@@ -1009,9 +1196,9 @@ knx:
       color_temperature_mode: absolute
       min_kelvin: 2550
       max_kelvin: 6200
-    #
     # actuator without dedicated state communication object
-    - name: "Cellar Light 1"
+    # color mode: onoff
+    - name: "Simple light"
       address: "1/0/5"
       state_address: "1/0/5"
 ```
@@ -1067,6 +1254,8 @@ knx:
       type: temperature
       min: 20
       max: 24.5
+      step: 0.1
+      mode: slider
 ```
 
 {% configuration %}
@@ -1099,6 +1288,20 @@ max:
   description: Maximum value that can be sent. Defaults to the `type` DPT maximum value.
   required: false
   type: float
+step:
+  description: Step value. Defaults to the step size defined for the DPT in the KNX specifications.
+  required: false
+  type: float
+mode:
+  description: Specifies the mode used in the UI. `auto`, `box` or `slider` are valid.
+  required: false
+  type: string
+  default: auto
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Scene
@@ -1127,6 +1330,11 @@ name:
   description: A name for this device used within Home Assistant.
   required: false
   type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Select
@@ -1212,6 +1420,11 @@ sync_state:
   required: false
   type: [boolean, string, integer]
   default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Sensor
@@ -1247,7 +1460,7 @@ state_address:
   required: true
   type: [string, list]
 type:
-  description: A type from the value types table below must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
+  description: A type from the [value types table](/integrations/knx/#value-types) below must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
   required: true
   type: [string, integer]
 name:
@@ -1264,6 +1477,15 @@ always_callback:
   required: false
   type: boolean
   default: false
+state_class:
+  description: Sets the [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  required: false
+  type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ### Value Types
@@ -1434,6 +1656,7 @@ knx:
       state_address: "6/2/1"
       sync_state: every 60
       type: temperature
+      state_class: measurement
 ```
 
 ## Switch
@@ -1466,10 +1689,22 @@ invert:
   required: false
   type: boolean
   default: false
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
-Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
-For switching actuators that are only controlled by a single group address and can't change their state internally, you don't have to configure the state address.
+The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
+
+Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+Switches having a `state_address` configured request their current state from the KNX bus.
 
 ## Weather
 
@@ -1560,6 +1795,11 @@ sync_state:
   required: false
   type: boolean
   default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Troubleshooting / Common issues

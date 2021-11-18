@@ -69,7 +69,7 @@ entities:
       type: string
     icon:
       required: false
-      description: Override the entity icon. You can use any icon from [MaterialDesignIcons.com](http://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
+      description: Override the entity icon. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
       type: string
     image:
       required: false
@@ -109,7 +109,7 @@ detail:
   default: 1
 hours_to_show:
   required: false
-  description: Hours to show in graph
+  description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
   type: integer
   default: 24
 {% endconfiguration %}

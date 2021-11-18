@@ -47,7 +47,7 @@ scan_interval:
   description: the frequency (in seconds) between data updates.
   required: false
   type: integer
-  default: 1800
+  default: 600
 sensors:
   description: The sensor-related configuration options.
   required: false

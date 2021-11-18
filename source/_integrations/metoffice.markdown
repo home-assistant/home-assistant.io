@@ -18,25 +18,25 @@ The `metoffice` weather platform uses the Met Office's [DataPoint API](https://w
 
 {% include integrations/config_flow.md %}
 
-
 ## Entities
 
-A number of weather entities are created for each entry created in the configuration by location: one weather entity with a summary of the 3-hourly forecasts and twelve sensor entities for individual reporting on each of the individual measurements. The time supplied for each forecast is the start time for the forecast.
+This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast, and twelve sensor entities for individual reporting on each of the individual measurements, for both 3-hourly and daily updates (to a grand total of 26 entities available). Note that only one of the two summary entities and the 3-hourly sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration. The time supplied for each forecast is the start time for the forecast.
 
-|Entity|Description|Enabled by default|
-|------|-----------|------------------|
-|weather.met_office_**site name**|Weather entity with state of the current weather condition and attributes of temperature, humidity, wind speed and visibility.|Yes.|
-|sensor.**site name**_feels_like_temperature|Sensor entity giving the current forecast 'feels like' temperature.|No.|
-|sensor.**site name**_humidity|Sensor entity giving the current forecast humidity.|No.|
-|sensor.**site name**_probability_of_precipitation|Sensor entity giving the current forecast chance of rain.|Yes.|
-|sensor.**site name**_station_name|Sensor entity giving the current forecast time interval since midnight UTC.|No.|
-|sensor.**site name**_temperature|Sensor entity giving the current forecast temperature.|Yes.|
-|sensor.**site name**_uv_index|Sensor entity giving the current forecast UV index.|No.|
-|sensor.**site name**_visibility|Sensor entity giving the current forecast visibility classification.|No.|
-|sensor.**site name**_visibility_distance|Sensor entity giving the current forecast visibility distance (as a range).|No.|
-|sensor.**site name**_weather|Sensor entity giving the current forecast weather conditions.|Yes.|
-|sensor.**site name**_wind_direction|Sensor entity giving the current forecast wind direction.|No.|
-|sensor.**site name**_wind_gust|Sensor entity giving the current forecast maximum wind gust.|No.|
-|sensor.**site name**_speed|Sensor entity giving the current forecast wind speed.|Yes.|
+The available sensor entities:
+
+- "feels like" temperature
+- humidity
+- probability of precipitation
+- station name
+- temperature
+- UV index
+- visibility
+- visibility distance
+- weather
+- wind direction
+- wind gust
+- wind speed
+
+Only probability of precipitation, temperature, weather and wind speed are enabled by default.
 
 Details about the API are available in the [DataPoint API documentation](https://www.metoffice.gov.uk/services/data/datapoint/api-reference). The [DataPoint](https://github.com/EJEP/datapoint-python) library is used to retrieve data.

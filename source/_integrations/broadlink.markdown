@@ -10,9 +10,11 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
   - '@felipediel'
+  - '@L-I-Am'
 ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
+  - light
   - remote
   - sensor
   - switch
@@ -29,7 +31,7 @@ The Broadlink integration allows you to control and monitor Broadlink universal 
 
 {% include integrations/config_flow.md %}
 
-### Entities and subdomains
+## Entities and subdomains
 
 There is no more need to set up platforms, except for custom IR/RF switches. Once the device is configured, all entities will be created automatically.
 
@@ -48,7 +50,6 @@ The `remote` entities allow you to learn and send codes with universal remotes. 
 ### Learning commands
 
 Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#Learned%20codes%20storage%20location). They can be sent with the `remote.send_command` service later.
-
 
 | Service data attribute | Optional | Description                           |
 | ---------------------- | -------- | ------------------------------------- |

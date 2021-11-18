@@ -12,6 +12,7 @@ ha_quality_scale: platinum
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
+  - camera
   - light
   - switch
 ---

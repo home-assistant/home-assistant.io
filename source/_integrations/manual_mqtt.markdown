@@ -20,6 +20,7 @@ The integration will accept the following commands from your Alarm Panel via the
 - `ARM_HOME`
 - `ARM_AWAY`
 - `ARM_NIGHT`
+- `ARM_VACATION`
 
 When the state of the manual alarm changes, Home Assistant will publish one of the following states to the `state_topic`:
 
@@ -27,6 +28,7 @@ When the state of the manual alarm changes, Home Assistant will publish one of t
 - 'armed_home'
 - 'armed_away'
 - 'armed_night'
+- 'armed_vacation'
 - 'pending'
 - 'triggered'
 
@@ -90,7 +92,7 @@ disarm_after_trigger:
   required: false
   type: boolean
   default: false
-armed_home/armed_away/armed_night/disarmed/triggered:
+armed_home/armed_away/armed_night/armed_vacation/disarmed/triggered:
   description: State specific settings
   required: false
   type: list
@@ -147,6 +149,11 @@ payload_arm_night:
   required: false
   type: string
   default: ARM_NIGHT
+payload_arm_vacation:
+  description: The payload to set armed-vacation mode on this Alarm Panel.
+  required: false
+  type: string
+  default: ARM_VACATION
 {% endconfiguration %}
 
 ## Examples
@@ -188,6 +195,7 @@ To change the state of the alarm, publish one of the following messages to the `
  - `ARM_HOME`
  - `ARM_AWAY`
  - `ARM_NIGHT`
+ - `ARM_VACATION`
 
 To receive state updates from HA, subscribe to the `state_topic`. Home Assistant will publish a new message whenever the state changes:
 
@@ -195,5 +203,6 @@ To receive state updates from HA, subscribe to the `state_topic`. Home Assistant
  - `armed_home`
  - `armed_away`
  - `armed_night`
+ - `armed_vacation`
  - `pending`
  - `triggered`

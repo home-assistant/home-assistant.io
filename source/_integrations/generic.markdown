@@ -1,5 +1,5 @@
 ---
-title: Generic
+title: Generic Camera
 description: Instructions on how to integrate IP cameras within Home Assistant.
 ha_category:
   - Camera

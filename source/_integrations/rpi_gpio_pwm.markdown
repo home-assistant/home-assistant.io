@@ -103,7 +103,7 @@ light:
         type: rgbw
 ```
 
-### RGB LED connected to the GPIO pins of an remote Raspberry Pi.
+### RGB LED connected to the GPIO pins of a remote Raspberry Pi.
 
 On the Raspberry Pi the pigpio daemon is running on the default port 6666.
 

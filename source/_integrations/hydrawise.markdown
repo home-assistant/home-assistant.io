@@ -73,7 +73,7 @@ monitored_conditions:
 {% endconfiguration %}
 
 <div class='note warning'>
-The Hydrawise API removed the ability to read the rain sensor status. Therefore it is no longer suppored by the Hydrawise integration to Home Assistant.
+The Hydrawise API removed the ability to read the rain sensor status. Therefore it is no longer supported by the Hydrawise integration to Home Assistant.
 </div>
 
 ## Sensor

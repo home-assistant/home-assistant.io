@@ -5,8 +5,6 @@ ha_category:
   - Postal Service
 ha_release: 0.83
 ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@bachya'
 ha_domain: seventeentrack
 ha_platforms:
   - sensor
@@ -16,7 +14,7 @@ The `seventeentrack` sensor platform allows users to get package data tied to th
 
 <div class='note warning'>
 
-Although the 17track.net website states that account passwords cannot be longer than 16 characters, users can technically set long-than-16-character passwords. These passwords **will not** work with the used API. Therefore, please ensure that your 17track.net password does not exceed 16 characters.
+Although the 17track.net website states that account passwords cannot be longer than 16 characters, users can technically set longer-than-16-character passwords. These passwords **will not** work with the used API. Therefore, please ensure that your 17track.net password does not exceed 16 characters.
 
 </div>
 
@@ -57,7 +55,7 @@ show_delivered:
 
 ### Lovelace summary card
 
-Use the following templated Markdown card to list all packages in transit along their status:
+Use the following templated Markdown card to list all packages in transit along with their status:
 
 {% raw %}
 

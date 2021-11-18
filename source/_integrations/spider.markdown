@@ -13,6 +13,7 @@ ha_domain: spider
 ha_config_flow: true
 ha_platforms:
   - climate
+  - sensor
   - switch
 ---
 

@@ -4,39 +4,24 @@ description: Instructions on how to integrate the Sure Petcare cat and pet flaps
 ha_category:
   - Binary Sensor
   - Sensor
+  - Lock
 ha_release: 0.104
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@benleb'
+  - '@danielhiversen'
 ha_domain: surepetcare
+ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - lock
   - sensor
 ---
 
 The `surepetcare` component allows you to get information on your Sure Petcare Connect Pet or Cat Flap.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add a flap, feeder or pet, add the following to your `configuration.yaml` file. The Hubs a flap or feeder is connected to, will be discovered automatically.
-
-```yaml
-# Example configuration.yaml entry
-surepetcare:
-  username: YOUR_SURE_PETCARE_LOGIN
-  password: YOUR_SURE_PETCARE_PASSWORD
-```
-
-{% configuration %}
-  username:
-    description: The Sure Petcare Username/Email
-    required: true
-    type: string
-  password:
-    description: The Sure Petcare Password
-    required: true
-    type: string
-{% endconfiguration %}
 
 ## Services
 
@@ -55,3 +40,17 @@ This service lets you change the locking state of a flap.
 - `locked_in` - flap is 'in only' - pets can come in but not go back out.
 - `locked_out` - flap is 'out only' - pets can go out, but not back in.
 - `locked_all` - flap is locked both ways.
+
+### Service `surepetcare.set_pet_location`
+
+This service lets you set the pet location.
+
+| Service data attribute | Required | Type | Description |
+| ---------------------- | -------- | -------- | ----------- |
+| `name` | yes | string | Pet name
+| `location` | yes | string | Pet location
+
+`location` should be one of:
+
+- `Inside` - Pet is inside.
+- `Outside` - Pet is outside.

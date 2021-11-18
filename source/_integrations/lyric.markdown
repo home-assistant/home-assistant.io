@@ -17,7 +17,7 @@ ha_platforms:
 ha_dhcp: true
 ---
 
-The Honeywell Lyric component integrates the Lyric thermostat platform into Home Assistant.
+The Honeywell Lyric integration integrates the Lyric thermostat platform into Home Assistant.
 
 ## Setup
 
