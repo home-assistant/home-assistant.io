@@ -7,6 +7,7 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.42
 ha_domain: hassio
+ha_quality_scale: internal
 ha_platforms:
   - binary_sensor
   - sensor
