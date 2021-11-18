@@ -28,19 +28,26 @@ The following statistical characteristics are provided for the collected source 
 
 | Identifier | Description |
 | ---------- | ----------- |
+| `age_coverage_ratio` | Percentage of the configured age of sensor readings considered (`max_age`) covered in-between the oldest and newest stored values. A low number can indicate an unwanted mismatch between the configured limits and the source sensor behavior. The sensor turns `Unknown` if `max_age` isn't specified.
+| `buffer_usage_ratio` | Percentage of the configured buffer size (`sampling_size`) used by the stored source sensor measurements. A low number can indicate an unwanted mismatch between the configured limits and the source sensor behavior.
 | `count` | The number of stored source sensor readings. This number is limited by `sampling_size` and can be low within the bounds of `max_age`.
 | `total` | The sum of all source sensor measurements within the given time and sampling size limits.
 | `mean` | The average value computed for all measurements. Be aware that this does not take into account uneven time intervals between measurements.
 | `median` | The [median](https://en.wikipedia.org/wiki/Mode_(statistics)#Comparison_of_mean,_median_and_mode) value computed for all measurements.
-| `standard_deviation` | The [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of an assumed normal distribution from all measurements. 
+| `standard_deviation` | The [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of an assumed normal distribution from all measurements.
 | `variance` | The [variance](https://en.wikipedia.org/wiki/Standard_deviation) of an assumed normal distribution from all measurements.
 | `min_value` | The smallest value among the number of measurements.
 | `max_value` | The biggest value among the number of measurements.
+| `distance_absolute` | The difference between the extreme values of measurements. Equals `max_value` minus `min_value`.
 | `min_age` | The timestamp of the oldest measurement stored.
 | `max_age` | The timestamp of the newest measurement stored.
+| `age_range` | The duration in seconds between the oldest and newest measurement stored.
 | `change` | The difference between the oldest and newest measurement stored.
 | `average_change` | The difference between the oldest and newest measurement stored, divided by the number of in-between measurements (n-1).
 | `change_rate` | The difference between the oldest and newest measurement stored, divided by seconds between them.
+| `distance_95_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 95% of all stored values fall into a range of returned size.
+| `distance_99_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 99% of all stored values fall into a range of returned size.
+| `noisiness` | A simplified version of a signal-to-noise ratio. A high value indicates a quickly changing source sensor value, a small value will be seen for a steady source sensor. The absolute change between consecutive stored values is summed up and divided by the number of intervals.
 | `quantiles` | Quantiles divide the range of a normal probability distribution of all considered source sensor measurements into continuous intervals with equal probabilities. Check the configuration parameters `quantile_intervals` and `quantile_method` for further details.
 
 ## Configuration
@@ -95,7 +102,7 @@ precision:
   default: 2
   type: integer
 quantile_intervals:
-  description: Number of continuous intervals with equal probability. Value must be an integer higher than `1`. In addition, `quantiles` will be `unknown` unless the number of quantile intervals is *lower* than the number of data points (`count`). Set it to `4` for quartiles (default) or to `100` for percentiles, for example. 
+  description: Number of continuous intervals with equal probability. Value must be an integer higher than `1`. In addition, `quantiles` will be `unknown` unless the number of quantile intervals is *lower* than the number of data points (`count`). Set it to `4` for quartiles (default) or to `100` for percentiles, for example.
   required: false
   default: 4
   type: integer
