@@ -11,7 +11,7 @@ ha_category:
   - Water Heater
   - Energy
 ha_release: '2021.12'
-ha_domain: luxtronik2
+ha_domain: luxtronik
 ha_config_flow: true
 ha_codeowners:
   - '@benpru'
@@ -38,11 +38,11 @@ There is support for the following platform types within Home Assistant:
 
 Currently supported services are Platform specific:
 
-- `luxtronik2.write`
+- `luxtronik.write`
 
 ### Platform Services
 
-#### Service `luxtronik2.write`
+#### Service `luxtronik.write`
 
 Write a parameter value to heatpump.
 
