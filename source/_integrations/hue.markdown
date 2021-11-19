@@ -36,7 +36,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Lights for Hue zones and rooms
 
-The Hue concept is based on Rooms and zones. Altough the underlying Hue lights are exposed directly to Home Assistant it might also be useful to interact with the `grouped lights` of the Hue ecosystem, for example to turn all lights in a Hue group on/off at the same time.
+The Hue concept is based on Rooms and zones. Although the underlying Hue lights are exposed directly to Home Assistant it might also be useful to interact with the `grouped lights` of the Hue ecosystem, for example to turn all lights in a Hue group on/off at the same time.
 
 Home Assistant creates lights for each Hue zone/room automatically but disables them by default.
 If you'd like to use those `grouped lights`, you can enable them from Configuration --> Integrations --> Hue --> entities.
@@ -52,7 +52,7 @@ Hue remotes such as the Dimmer Switch are stateless devices, meaning that they d
 
 ## Support for legacy (V1) Hue bridges
 
-Philips/Signify released a new version of their Hue bridge (square shape) and their legacy/V1 bridge (round shape) is now end of life and no longer supported by them. Home Assistant will continue to support the V1 Hue bridge as long as it is technically possible, altough with a few limitations:
+Philips/Signify released a new version of their Hue bridge (square shape) and their legacy/V1 bridge (round shape) is now end of life and no longer supported by them. Home Assistant will continue to support the V1 Hue bridge as long as it is technically possible, although with a few limitations:
 
 - Scene entities are not automatically created for V1 bridges. To call a Hue scene on a V1 bridge from Home Assistant we provide a service call to call a Hue scene by name.
 - State updates for devices/entities on a V1 bridges are not received instantly but polled on interval.
