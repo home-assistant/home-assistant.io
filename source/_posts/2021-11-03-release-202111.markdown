@@ -65,6 +65,7 @@ Enjoy the release!
 - [Release 2021.11.2 - November 9](#release-2021112---november-9)
 - [Release 2021.11.3 - November 11](#release-2021113---november-11)
 - [Release 2021.11.4 - November 15](#release-2021114---november-15)
+- [Release 2021.11.5 - November 19](#release-2021115---november-19)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -562,6 +563,47 @@ The following integrations are now available via the Home Assistant UI:
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [zeroconf docs]: /integrations/zeroconf/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.11.5 - November 19
+
+- Use source list property instead of the attribute in Denon AVR integration ([@bieniu] - [#59768]) ([denonavr docs])
+- Fix typo in attribute for Fritz ([@chemelli74] - [#59791]) ([fritz docs])
+- Fix Netgear init error on orbi models ([@starkillerOG] - [#59799]) ([netgear docs])
+- Bump velbusaio to 2021.11.7 ([@Cereal2nd] - [#59817]) ([velbus docs])
+- Fix invalid string syntax in OwnTracks config flow translations ([@spacegaier] - [#59838]) ([owntracks docs])
+- Strip out deleted entities when configuring homekit ([@bdraco] - [#59844]) ([homekit docs])
+- Bugfix in Tuya Number value scaling ([@PlusPlus-ua] - [#59903]) ([tuya docs])
+- Fix Tuya back scaling in Climate and Humidifer entities ([@frenck] - [#59909]) ([tuya docs])
+- Store: copy pending data ([@balloob] - [#59934])
+- Remove test_check_package_version_does_not_match ([@emontnemery] - [#59785])
+
+[#59768]: https://github.com/home-assistant/core/pull/59768
+[#59785]: https://github.com/home-assistant/core/pull/59785
+[#59791]: https://github.com/home-assistant/core/pull/59791
+[#59799]: https://github.com/home-assistant/core/pull/59799
+[#59817]: https://github.com/home-assistant/core/pull/59817
+[#59838]: https://github.com/home-assistant/core/pull/59838
+[#59844]: https://github.com/home-assistant/core/pull/59844
+[#59903]: https://github.com/home-assistant/core/pull/59903
+[#59909]: https://github.com/home-assistant/core/pull/59909
+[#59934]: https://github.com/home-assistant/core/pull/59934
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@PlusPlus-ua]: https://github.com/PlusPlus-ua
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@chemelli74]: https://github.com/chemelli74
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@spacegaier]: https://github.com/spacegaier
+[@starkillerOG]: https://github.com/starkillerOG
+[denonavr docs]: /integrations/denonavr/
+[fritz docs]: /integrations/fritz/
+[homekit docs]: /integrations/homekit/
+[netgear docs]: /integrations/netgear/
+[owntracks docs]: /integrations/owntracks/
+[tuya docs]: /integrations/tuya/
+[velbus docs]: /integrations/velbus/
 
 ## If you need help...
 
