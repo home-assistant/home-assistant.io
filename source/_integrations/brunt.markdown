@@ -19,17 +19,6 @@ The `brunt` platform allows one to control Blind Engines by [Brunt](https://www.
 
 {% include integrations/config_flow.md %}
 
-{% configuration_basic %}
-username:
-  description: Account username of your Brunt app
-  required: true
-  type: string
-password:
-  description: Account password of your Brunt app
-  required: true
-  type: string
-{% endconfiguration_basic %}
-
 <div class='note warning'>
 This integration is not affiliated with Brunt and retrieves data from the endpoints of the mobile application. Use at your own risk.
 </div>
