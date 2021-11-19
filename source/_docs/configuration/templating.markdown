@@ -278,6 +278,25 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+### Integrations
+
+- `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
+- `integration_entities(title)` if you have multiple instances set-up for an integration, you can also use the title you've set for the integration in Settings --> Integrations. For example to only target a specific device bridge.
+
+#### Integrations examples
+
+{% raw %}
+
+```text
+{{ integration_entities('hue') }}  # ['light.hue_light_upstairs', 'light.hue_light_downstairs']
+```
+
+```text
+{{ integration_entities('Hue bridge downstairs') }}  # ['light.hue_light_downstairs']
+```
+
+{% endraw %}
+
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
