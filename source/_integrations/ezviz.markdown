@@ -37,7 +37,7 @@ If your Ezviz camera supports warning sounds, you can use this service to set th
 | Service data attribute | Description |
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
-| `level` | 	Set the sound level to 0 for Soft, 1 for Intensive or 2 to disable |
+| `level` | Set the sound level to 0 for Soft, 1 for Intensive or 2 to disable |
 
 ### Service `ezviz.ptz`
 
@@ -46,8 +46,24 @@ If your Ezviz camera supports PTZ, you will be able to pan or tilt your camera.
 | Service data attribute | Description |
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
-| `direction` | 	Direction of the movement. Allowed values: `up`, `down`, `left`, `right` |
+| `direction` | Direction of the movement. Allowed values: `up`, `down`, `left`, `right` |
 | `speed` | (Optional) Speed to in which to move the camera. Allowed values: int from 1 to 9. Default: 5 |
+
+### Service `ezviz.ptz_absolute`
+
+If your Ezviz camera supports Panoramas and PTZ, you will be able to pan your camera using coordinates.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
+| `x` | The X coordinate to move to. Allowed values: float from 0 to 1. Default: 0.5 |
+| `y` | The Y coordinate to move to. Allowed values: float from 0 to 1. Default: 0.5 |
+
+<div class="note info">
+
+The Y coordinate may not be used by Ezviz, this is not a Home Assistant error.
+
+</div>
 
 ### Service `ezviz.set_alarm_detection_sensibility`
 
@@ -76,7 +92,7 @@ If you have "sleep" mode enabled on your camera, you can use this service to wak
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
 
-To enable/disable motion detection, use the Home Assistant built in services. 
+To enable/disable motion detection, use the Home Assistant built in services.
 
 ### Service `camera.enable_motion_detection'
 
