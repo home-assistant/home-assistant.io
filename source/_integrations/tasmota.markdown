@@ -37,7 +37,7 @@ This integration allows you to control [Tasmota](https://tasmota.github.io/docs/
 
 Tasmota Buttons, Fans, Lights, relays, Sensors, Shutters and Switches are supported.
 
-- Tasmota Buttons will be added as Home Assistant `automation triggers` when `SetOption73` is enabled. No `binary_sensor` entity will be created. You can find the available `automation triggers` on the device screen. ![automation triggers](integrations/tasmota/tasmota_button_automations.png)
+- Tasmota Buttons will be added as Home Assistant `automation triggers` when `SetOption73` is enabled. No `binary_sensor` entity will be created. You can find the available `automation triggers` on the device screen. ![automation triggers](/images/integrations/tasmota/tasmota_button_automations.png)
 - Tasmota Lights will be added as Home Assistant `light` entities. Single channel Dimmers, RGB lights, RGB lights with Color Temperature control and RGB lights with White control are supported.
 - Tasmota Relays will be added as Home Assistant `switch` entities, if `SetOption30 0`. If `SetOption30 1`, relays will be added as `light` entities.
 - Tasmota Sensors will be added as Home Assistant `sensor` entities.
@@ -45,7 +45,7 @@ Tasmota Buttons, Fans, Lights, relays, Sensors, Shutters and Switches are suppor
 - Tasmota Switches will be added as either Home Assistant `binary_sensor` entities or `automation triggers` depending on the `switchmode` used when `SetOption114` is enabled.
 - The fan functionality in Tasmota devices with module configured as iFan02 or iFan03 will be added as Home Assistant `fan` entities. Tuya fans are not supported.
 - The integration will also create up to eight Status Sensors, each one with a different information. Please note all the Status Sensors are disabled by default.
-  ![iot](integrations/tasmota/tasmota_status_sensors.png)
+  ![iot](/images/integrations/tasmota/tasmota_status_sensors.png)
 
 {% include integrations/config_flow.md %}
 
