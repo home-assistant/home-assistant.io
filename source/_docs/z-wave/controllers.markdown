@@ -10,8 +10,8 @@ You need to have a compatible Z-Wave stick or module installed. The following de
 - 700 series controllers
    - Aeotec Z-Stick 7
    - Zooz ZST10 700
-
    - Silicon Labs SLUSB7000A
+
 - 500 series controllers
   - Aeotec Z-Stick Gen5 (see note below)
   - Everspring USB stick - Gen 5
