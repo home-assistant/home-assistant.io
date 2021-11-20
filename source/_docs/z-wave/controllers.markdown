@@ -5,7 +5,7 @@ description: "Extended instructions how to setup Z-Wave."
 
 ## Supported Z-Wave USB Sticks & Hardware Modules
 
-You need to have a compatible Z-Wave stick or module installed. This needs to be a *static controller*, which most Z-Wave sticks and modules will be, and not a *bridge* device. The following devices have been confirmed to work with Z-Wave JS:
+You need to have a compatible Z-Wave stick or module installed. The following devices have been confirmed to work with Z-Wave JS:
 
 - 700 series controllers
    - Aeotec Z-Stick 7
