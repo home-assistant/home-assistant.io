@@ -14,9 +14,9 @@ ha_platforms:
   - sensor
 ---
 
-The `statistics` sensor platform observes the state of a source sensor and provides statistical characteristics about its recent past. This integration can be quite useful in automations, e.g., to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffee over a day gets too high.
+The `statistics` sensor platform observes the state of a source sensor and provides statistical characteristics about its recent past. This integration can be useful in automations, e.g., to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffee over a day gets too high.
 
-The created sensor presents one characteristic as its state (the `mean` value by default) and many more as attributes. The time period and/or number of recent state changes to be considered is defined as part of the sensor configuration. The sensor and its characteristics update with every source sensor update.
+The sensor update with every source sensor update. The statistical characteristic by the state of this sensor can be configured for each sensor and is the `mean` of source sensor values by default. The time period and/or number of recent state changes to be considered is also defined as part of the sensor configuration.
 
 Both `sensor` and `binary_sensor` are supported as source sensor. In the case of a binary sensor only the state changes are counted.
 
@@ -24,12 +24,10 @@ Assuming the [`recorder`](/integrations/recorder/) integration is running, histo
 
 ## Characteristics
 
-The following statistical characteristics are provided for the collected source sensor. Pay close attention to the right configuration of `sampling_size` and `max_age`, as most characterists are directly related to the count of samples or the age of processed samples.
+The following statistical characteristics are available. Pay close attention to the right configuration of `sampling_size` and `max_age`, as most characterists are directly related to the count of samples or the age of processed samples.
 
-| Identifier | Description |
+| State Characteristic | Description |
 | ---------- | ----------- |
-| `age_coverage_ratio` | Percentage of the configured age of sensor readings considered (`max_age`) covered in-between the oldest and newest stored values. A low number can indicate an unwanted mismatch between the configured limits and the source sensor behavior. The sensor turns `Unknown` if `max_age` isn't specified.
-| `buffer_usage_ratio` | Percentage of the configured buffer size (`sampling_size`) used by the stored source sensor measurements. A low number can indicate an unwanted mismatch between the configured limits and the source sensor behavior.
 | `count` | The number of stored source sensor readings. This number is limited by `sampling_size` and can be low within the bounds of `max_age`.
 | `total` | The sum of all source sensor measurements within the given time and sampling size limits.
 | `mean` | The average value computed for all measurements. Be aware that this does not take into account uneven time intervals between measurements.
@@ -41,7 +39,6 @@ The following statistical characteristics are provided for the collected source 
 | `distance_absolute` | The difference between the extreme values of measurements. Equals `max_value` minus `min_value`.
 | `min_age` | The timestamp of the oldest measurement stored.
 | `max_age` | The timestamp of the newest measurement stored.
-| `age_range` | The duration in seconds between the oldest and newest measurement stored.
 | `change` | The difference between the oldest and newest measurement stored.
 | `average_change` | The difference between the oldest and newest measurement stored, divided by the number of in-between measurements (n-1).
 | `change_rate` | The difference between the oldest and newest measurement stored, divided by seconds between them.
@@ -50,26 +47,38 @@ The following statistical characteristics are provided for the collected source 
 | `noisiness` | A simplified version of a signal-to-noise ratio. A high value indicates a quickly changing source sensor value, a small value will be seen for a steady source sensor. The absolute change between consecutive stored values is summed up and divided by the number of intervals.
 | `quantiles` | Quantiles divide the range of a normal probability distribution of all considered source sensor measurements into continuous intervals with equal probabilities. Check the configuration parameters `quantile_intervals` and `quantile_method` for further details.
 
+## Attributes
+
+A statistics sensor presents the following attributes for context about its internal status.
+
+| Attribute | Description |
+| ---------- | ----------- |
+| `age_coverage_ratio` | Only when `max_age` is defined. Ratio (0.0-1.0) of the configured age of source sensor measurements considered (time period `max_age`) covered in-between the oldest and newest stored values. A low number can indicate an unwanted mismatch between the configured limits and the source sensor behavior. The value 1.0 represents at least two values covering the full time period. Value 0 is the result of only one measurement considered. The sensor turns `Unknown` if no measurements are stored.
+| `buffer_usage_ratio` | Ratio (0.0-1.0) of the configured buffer size (`sampling_size`) used by the stored source sensor measurements. A low number can indicate an unwanted mismatch between the configured limits and the source sensor behavior. The value 1.0 represents a full buffer, value 0 stands for an empty one.
+| `source_value_valid` | True/False indication whether the source sensor supplies valid values to the statistics sensor.
+
 ## Configuration
 
-Define a statistics sensor by adding the following lines to your `configuration.yaml`:
+Define a statistics sensor by adding lines similar to the following examples to your `configuration.yaml`:
 
 ```yaml
 sensor:
   - platform: statistics
-    name: Bathroom humidity mean over last 24 hours
-    entity_id: sensor.bathroom_humidity
-    max_age:
-      hours: 24
+    entity_id: binary_sensor.movement
+
   - platform: statistics
-    name: Bathroom humidity change over 5 minutes
+    name: Bathroom humidity mean (over last few measurements)
     entity_id: sensor.bathroom_humidity
-    max_age:
-      minutes: 5
+
+  - platform: statistics
+    name: Bathroom humidity change over the last 10 minutes
+    entity_id: sensor.bathroom_humidity
     state_characteristic: change
     precision: 1
-  - platform: statistics
-    entity_id: binary_sensor.movement
+    max_age:
+      minutes: 10
+    sampling_size: 50
+
 ```
 
 {% configuration %}
@@ -83,7 +92,7 @@ name:
   default: Stats
   type: string
 state_characteristic:
-  description: The characteristic that should be used as the state of the statistics sensor (see above). All other characteristics are provided as attributes.
+  description: The characteristic that should be used as the state of the statistics sensor (see table above).
   required: false
   default: mean
   type: string
