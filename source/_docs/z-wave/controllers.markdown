@@ -5,18 +5,30 @@ description: "Extended instructions how to setup Z-Wave."
 
 ## Supported Z-Wave USB Sticks & Hardware Modules
 
-You need to have a compatible Z-Wave stick or module installed. This needs to be a *static controller*, which most Z-Wave sticks and modules will be, and not a *bridge* device. The following devices have been confirmed to work:
+You need to have a compatible Z-Wave stick or module installed. This needs to be a *static controller*, which most Z-Wave sticks and modules will be, and not a *bridge* device. The following devices have been confirmed to work with Z-Wave JS:
 
-- Aeotec Z-Stick Gen5 (see note below)
-- Everspring USB stick - Gen 5
-- GoControl HUSBZB-1 stick
-- Sigma Designs UZB stick
-- Silicon Labs SLUSB7000A
-- Vision USB stick - Gen5
-- ZWave.me Razberry Board
-- ZWave.me UZB1 stick
+- 700 series controllers
+   - Aeotec Z-Stick 7
+   - Zooz ZST10 700
 
-We recommend that you purchase a [Z-Wave Plus](https://z-wavealliance.org/z-wave_plus_certification/) controller, to take advantage of the improvements this provides.
+   - Silicon Labs SLUSB7000A
+- 500 series controllers
+  - Aeotec Z-Stick Gen5 (see note below)
+  - Everspring USB stick - Gen 5
+  - GoControl HUSBZB-1 stick
+  - Sigma Designs UZB stick
+  - Vision USB stick - Gen5
+  - ZWave.me UZB1 stick
+
+- Razberry Pi Shields
+  - Aeotec Z-Pi 7 (700 series)
+  - ZWave.me Razberry Board (500 series)
+
+If you are just starting out, we recommend that you purchase a 700 series controller to take advantage of the latest improvements. At the very least, you should purchase a [Z-Wave Plus](https://z-wavealliance.org/z-wave_plus_certification/) controller.
+
+<div class='note'>
+  Not all of the above devices are supported by the deprecated Z-Wave integration.
+</div>
 
 <div class='note'>
   If you're using Home Assistant OS, Supervised, or Container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
