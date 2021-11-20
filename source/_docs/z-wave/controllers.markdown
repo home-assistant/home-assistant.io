@@ -20,7 +20,7 @@ You need to have a compatible Z-Wave stick or module installed. The following de
   - Vision USB stick - Gen5
   - ZWave.me UZB1 stick
 
-- Razberry Pi Shields
+- Rasberry Pi Modules
   - Aeotec Z-Pi 7 (700 series)
   - ZWave.me Razberry Board (500 series)
 
