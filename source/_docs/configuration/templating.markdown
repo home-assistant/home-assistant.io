@@ -281,7 +281,7 @@ The same thing can also be expressed as a filter:
 ### Integrations
 
 - `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
-- `integration_entities(title)` if you have multiple instances set-up for an integration, you can also use the title you've set for the integration in Settings --> Integrations. For example to only target a specific device bridge.
+- `integration_entities(title)` if you have multiple instances set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific device bridge.
 
 #### Integrations examples
 
