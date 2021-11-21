@@ -16,7 +16,7 @@ ha_platforms:
 
 The `statistics` sensor platform observes the state of a source sensor and provides statistical characteristics about its recent past. This integration can be useful in automations, e.g., to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffee over a day gets too high.
 
-The sensor update with every source sensor update. The statistical characteristic by the state of this sensor can be configured for each sensor and is the `mean` of source sensor values by default. The time period and/or number of recent state changes to be considered is also defined as part of the sensor configuration.
+The statistics sensor updates with every source sensor update. The value of the sensor represents one statistical characteristic, with `mean` being the default. The time period and/or number of recent state that should be considered is an important factor here. Check the configuration section below for options.
 
 Both `sensor` and `binary_sensor` are supported as source sensor. In the case of a binary sensor only the state changes are counted.
 
@@ -58,7 +58,7 @@ A statistics sensor presents the following attributes for context about its inte
 | --------- | ----------- |
 | `age_coverage_ratio` | Only when `max_age` is defined. Ratio (0.0-1.0) of the configured age of source sensor measurements considered (time period `max_age`) covered in-between the oldest and newest stored values. A low number can indicate an unwanted mismatch between the configured limits and the source sensor behavior. The value 1.0 represents at least two values covering the full time period. Value 0 is the result of only one measurement considered. The sensor turns `Unknown` if no measurements are stored.
 | `buffer_usage_ratio` | Ratio (0.0-1.0) of the configured buffer size (`sampling_size`) used by the stored source sensor measurements. A low number can indicate an unwanted mismatch between the configured limits and the source sensor behavior. The value 1.0 represents a full buffer, value 0 stands for an empty one.
-| `source_value_valid` | True/False indication whether the source sensor supplies valid values to the statistics sensor.
+| `source_value_valid` | True/false indication whether the source sensor supplies valid values to the statistics sensor (judged by the last value received).
 
 ## Configuration
 
