@@ -12,7 +12,6 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
 
  * [Bluesound speakers](/integrations/bluesound)
  * [Bose Soundtouch speakers](/integrations/soundtouch)
- * [DLNA DMR enabled devices](/integrations/dlna_dmr)
  * [Enigma2 media player](/integrations/enigma2)
  * [Frontier Silicon internet radios](/integrations/frontier_silicon)
  * [LG Soundbars](/integrations/lg_soundbar)
@@ -31,8 +30,6 @@ discovery:
   ignore:
     - yamaha
     - logitech_mediaserver
-  enable:
-    - dlna_dmr
 ```
 
 {% configuration discovery %}
@@ -59,10 +56,6 @@ Valid values for ignore are:
  * `sabnzbd`: SABnzbd downloader
  * `tellstick`: Telldus Live
  * `yamaha`: Yamaha media player
-
-Valid values for enable are:
-
- * `dlna_dmr`: DLNA DMR enabled devices
 
 ## Troubleshooting
 
