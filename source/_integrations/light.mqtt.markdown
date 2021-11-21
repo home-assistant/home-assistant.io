@@ -775,7 +775,12 @@ light:
 The `mqtt` light platform with template schema lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
 It is format-agnostic so you can use any data format you want (i.e., string, JSON), just configure it with templating.
 
-This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and effects.
+This schema supports on/off, brightness, RGB colors, XY colors, white color temperature, transitions, short/long flashing and effects. Following units and value ranges are passed to/obtained from the system.
+* RGB colors, values from a range: 0 - 255
+* Brightness, value from a range: 0 - 255
+* White color temperature: Mireds.
+
+If a connected device works with other units/ranges, use [Template](/docs/configuration/templating/#processing-incoming-data) to convert them. See see example section below.
 
 ## Template schema - Configuration
 
@@ -833,7 +838,7 @@ brightness_template:
   required: false
   type: string
 color_temp_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract color temperature from the state payload value."
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract white color temperature from the state payload value."
   required: false
   type: string
 command_off_template:
@@ -841,7 +846,7 @@ command_off_template:
   required: true
   type: string
 command_on_template:
-  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `red`, `green`, `blue`, `flash`, `transition` and `effect`."
+  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `flash`, `transition` and `effect`."
   required: true
   type: string
 command_topic:
@@ -1040,6 +1045,47 @@ light:
     green_template: '{{ value_json.color[1] }}'
     blue_template: '{{ value_json.color[2] }}'
     effect_template: '{{ value_json.effect }}'
+```
+
+{% endraw %}
+
+### CCT light (brightnes and temperature)
+
+This example comes from configuration of Shelly RGBW Bulb working in White mode. 
+Max_mireds and min_mireds set white color temperature boundaries to 3000K - 6500K. Notice the same limits are applied in `command_on_template`, but in Kelvin units this time. It's due to conversion from Mireds to Kelvin which causes exceeding boundary values accepted by the device.
+Add the following to your `configuration.yaml` file:
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: mqtt
+    schema: template
+    name: "Bulb-white"
+    command_topic: "shellies/bulb/color/0/set"
+    state_topic: "shellies/bulb/color/0/status"
+    availability_topic: "shellies/bulb/online"
+    command_on_template: >
+      {"turn": "on", "mode": "white"
+      {%- if brightness is defined -%}
+      , "brightness": {{brightness | float | multiply(0.39215686) | round(0)}}
+      {%- endif -%}
+      {%- if color_temp is defined -%}
+      , "temp": {{ [[(1000000 / color_temp | float) | round(0), 3000] | max, 6500] | min }}
+      {%- endif -%}
+      }
+    command_off_template: '{"turn":"off", "mode": "white"}'
+    state_template: "{% if value_json.ison and value_json.mode == 'white' %}on{% else %}off{% endif %}"
+    brightness_template: "{{ value_json.brightness | float | multiply(2.55) | round(0) }}"
+    color_temp_template: "{{ (1000000 / value_json.temp | float) | round(0) }}"
+    payload_available: "true"
+    payload_not_available: "false"
+    max_mireds: 334
+    min_mireds: 153
+    qos: 1
+    retain: false
+    optimistic: false  
 ```
 
 {% endraw %}
