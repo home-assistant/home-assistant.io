@@ -28,7 +28,7 @@ The following statistical characteristics are available. Pay close attention to 
 
 | State Characteristic | Description |
 | -------------------- | ----------- |
-| `average_linear` | The average value of stored measurements under consideration of the time distances between them. A linear interpolation is applied per measurement pair. Good suited to observe a source sensor with non-periodic sensor updates and when continuous behaviour is represented by the measurements (e.g. outside temperature).
+| `average_linear` | The average value of stored measurements under consideration of the time distances between them. A linear interpolation is applied per measurement pair. Good suited to observe a source sensor with non-periodic sensor updates and when continuous behavior is represented by the measurements (e.g. outside temperature).
 | `average_step` | The average value of stored measurements under consideration of the time distances between them. LOCF (last observation carried forward weighting) is applied, meaning, that the old value is assumed between two measurements. The resulting step function represents well the behavior of non-continuous behavior, like the set temperature of a boiler.
 | `average_timeless` | The average value of stored measurements. This method assumes that all measurements are equally spaced and, therefore, time is ignored and a simple average of values is computed. Equal to `mean`.
 | `change_sample` | The average change per sample. The difference between the oldest and newest measurement is divided by the number of in-between measurements (n-1).
