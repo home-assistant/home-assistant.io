@@ -77,6 +77,8 @@ entity_id: switch.ac
 
 {% endraw %}
 
+Please note that templates can not be used in most standard Lovelace cards (the exception being the Markdown card).
+
 ### Using the Services Developer Tool
 
 You can use the Services Developer Tool to test data to pass in a service call.
