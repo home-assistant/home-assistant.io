@@ -775,12 +775,7 @@ light:
 The `mqtt` light platform with template schema lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
 It is format-agnostic so you can use any data format you want (i.e., string, JSON), just configure it with templating.
 
-This schema supports on/off, brightness, RGB colors, XY colors, white color temperature, transitions, short/long flashing and effects. Following units and value ranges are passed to/obtained from the system.
-* RGB colors, values from a range: 0 - 255
-* Brightness, value from a range: 0 - 255
-* White color temperature: Mireds.
-
-If a connected device works with other units/ranges, use [Template](/docs/configuration/templating/#processing-incoming-data) to convert them. See see example section below.
+This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and effects.
 
 ## Template schema - Configuration
 
@@ -830,15 +825,15 @@ availability_topic:
   required: false
   type: string
 blue_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract blue color from the state payload value."
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract blue color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: string
 brightness_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract brightness from the state payload value."
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract brightness from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: string
 color_temp_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract white color temperature from the state payload value."
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract color temperature from the state payload value. Expected result of the template is an integer representing mired units."
   required: false
   type: string
 command_off_template:
@@ -846,7 +841,7 @@ command_off_template:
   required: true
   type: string
 command_on_template:
-  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `flash`, `transition` and `effect`."
+  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `color_temp` is provided as integer representing mired units."
   required: true
   type: string
 command_topic:
@@ -954,7 +949,7 @@ qos:
   type: integer
   default: 0
 red_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract red color from the state payload value."
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract red color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: string
 schema:
@@ -1051,8 +1046,9 @@ light:
 
 ### CCT light (brightnes and temperature)
 
-This example comes from configuration of Shelly RGBW Bulb working in White mode. 
-Max_mireds and min_mireds set white color temperature boundaries to 3000K - 6500K. Notice the same limits are applied in `command_on_template`, but in Kelvin units this time. It's due to conversion from Mireds to Kelvin which causes exceeding boundary values accepted by the device.
+This example comes from a configuration of Shelly RGBW Bulb working in White mode. 
+`max_mireds` and `min_mireds` set color temperature boundaries to 3000K - 6500K. Notice the same limits are applied in `command_on_template`, but in kelvin units this time. It's due to conversion from mired to kelvin which causes exceeding boundary values accepted by the device.
+The code also ensures bi-directional conversion of brightness scale between 0-100 (required by the device) and 0-255 (required by Home Assistant).
 Add the following to your `configuration.yaml` file:
 
 {% raw %}
