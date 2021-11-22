@@ -123,6 +123,26 @@ The following is an example implementation of an automation:
       entity_id: media_player.amplifier
 ```
 
+## Selecting apps, channels, or favorites
+
+Apps, channels, and favorites are exposed as media content to the integration. You can see which ones are available by clicking the media button in the media player more info card for your TV. To capture the `content_id` for the one you want to use in an automation or script, turn your logging on to debug level and tail the log while choosing the media content in the media player more info card. You will find a log message that looks like this when you choose the media:
+
+```txt
+2021-11-22 01:45:14 DEBUG (MainThread) [homeassistant.core] Bus:Handling <Event call_service[L]: domain=media_player, service=play_media, service_data=entity_id=media_player.philips936_tv, media_content_id=com.amazon.ignition.IgnitionActivity-com.amazon.amazonvideo.livingroom, media_content_type=app>
+```
+
+Then you can turn that into a service call for the script or automation like the following, which can then open the app/channel/favorite automatically.
+
+```yaml
+service: media_player.play_media
+data:
+  media_content_id: com.amazon.ignition.IgnitionActivity-com.amazon.amazonvideo.livingroom
+  media_content_type: app
+target:
+  entity_id:
+    - media_player.philips936_tv
+```
+
 ## Troubleshooting
 
 If you change your advertised IP or ports, you will have to re-add the emulated Roku in your app.
