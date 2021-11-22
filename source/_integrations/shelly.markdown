@@ -202,11 +202,11 @@ The firmware limits the transition time to 5 seconds.
 
 ## Device services
 
-The integration offers device services, which can be triggered by a configuration button.
+The integration offers device services which can be triggered by a configuration button.
 
 ### OTA update
 
-It is possible to trigger a so called OTA firmware update of your devices.
+Trigger device OTA firmware update.
 
 #### Buttons
 
