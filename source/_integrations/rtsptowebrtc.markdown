@@ -1,5 +1,5 @@
 ---
-title: WebRTC
+title: RTSPtoWebRTC
 description: Instructions on how to integrate RTSPtoWebRTC server within Home Assistant.
 ha_category:
   - Other
@@ -8,16 +8,16 @@ ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@allenporter'
-ha_domain: webrtc
+ha_domain: rtsptowebrtc
 ---
 
-The `webrtc` integration allows other integrations to provide WebRTC live streams. The integration initiates a connection to a [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
+The `rtsptowebrtc` integration allows other integrations to provide WebRTC live streams. The integration initiates a connection to a [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
 
-Other integrations may use `webrtc` with a `camera` to make WebRTC streams available in the fronted. This integration does not add any camera devices itself.
+Other integrations may use `rtsptowebrtc` with a `camera` to make WebRTC streams available in the fronted. This integration does not add any camera devices itself.
 
 ## Configuration
 
-You need an existing [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) server to configure the `webrtc` integration.  The integration needs to know the URL to your server, e.g. `https://example.com:80083`.
+You need an existing [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) server to configure the `rtsptowebrtc`. The integraton is configured with the URL to your server, e.g. `https://example.com:8083.
 
 {% my config_flow_start badge domain=page.ha_domain %}
 
@@ -28,13 +28,13 @@ You need an existing [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) serv
 1. From the configuration menu select: _**{% my integrations icon %}**_.
 1. In the bottom right, click on the
   _**{% my config_flow_start icon domain=page.ha_domain %}**_ button.
-1. From the list, search and select _**"WebRTC"**_ and follow the instructions.
+1. From the list, search and select _**"RTSPtoWebRTC"**_ and follow the instructions.
 
 {% enddetails %}
 
 ## Technical Details
 
-A camera integration must explicitly integration with `webrtc`, and must set a camera attribute `frontend_stream_type` of `STREAM_TYPE_WEBRTC` to instruct the frontend to use WebRTC streams.
+A camera integration must explicitly integration with `rtsptowebrtc`, and must set a camera attribute `frontend_stream_type` of `STREAM_TYPE_WEBRTC` to instruct the frontend to use WebRTC streams.
 
 <!-- Note: This documentation will be updated as support for other integrations is added, or if it is integrated directly into camera in future PRs. -->
 
