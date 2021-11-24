@@ -1,15 +1,16 @@
 ---
 title: Fronius
 description: Instructions on how to connect your Fronius SolarAPI devices to Home Assistant.
+ha_release: 0.96
 ha_category:
   - Energy
   - Sensor
-ha_iot_class: Local Polling
-ha_release: 0.96
 ha_codeowners:
   - '@nielstron'
   - '@farmio'
+ha_config_flow: true
 ha_domain: fronius
+ha_iot_class: Local Polling
 ha_platforms:
   - sensor
 ---
