@@ -12,16 +12,15 @@ ha_codeowners:
 ha_platforms:
   - sensor
 
+
 ---
 
 
 
-[IAMMETER](https://www.iammeter.com/) provides both bi-directional single-phase energy meters ([WEM3080](https://www.iammeter.com/products/single-phase-meter)) and bidirectional three-phase energy meters  ([WEM3080T](https://www.iammeter.com/products/three-phase-meter))  that can be integrated into Home Assistant.
+[IAMMETER](https://www.iammeter.com/) provides both a bi-directional single-phase energy meter([WEM3080](https://www.iammeter.com/products/single-phase-meter)) and a bi-directional three-phase energy monitor ([WEM3080T](https://www.iammeter.com/products/three-phase-meter)). Both of them can be integrated into Home Assistant.
 
 
-
-
-# Configuration
+## Configuration
 
 To use this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -49,11 +48,11 @@ name:
   default: IamMeter
 {% endconfiguration %}
 
-# Sensors
+## Sensors
 
 Sensors available in the library:
 
-## Single-phase energy meter (WEM3080/WEM3162)
+### Single-phase energy meter (WEM3080/WEM3162)
 
 | name                 | Unit | Description                  |
 | -------------------- | ---- | :--------------------------- |
@@ -63,7 +62,7 @@ Sensors available in the library:
 | wem3080_importenergy | kWh  | Energy consumption from grid |
 | wem3080_exportgrid   | kWh  | Energy export to grid        |
 
-## Three-phase energy meter (WEM3080T)
+### Three-phase energy meter (WEM3080T)
 
 | name                    | Unit | Description           |
 | ----------------------- | ---- | :-------------------- |
