@@ -139,7 +139,7 @@ optimistic:
   type: boolean
   default: "`true` if no `state_topic` defined, else `false`."
 options:
-  description: List of options that can be selected.
+  description: List of options that can be selected. An empty list or a list with a single item is allowed.
   required: true
   type: list
 qos:
