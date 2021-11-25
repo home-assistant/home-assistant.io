@@ -12,6 +12,7 @@ ha_codeowners:
   - '@MatthiasLohr'
 ha_iot_class: "Local Polling"
 ha_platforms:
+  - binary_sensor
   - button
   - climate
   - light
@@ -28,6 +29,6 @@ The integration allows for:
 - Setting the target temperature and target humidity
 - Controlling the fan (used for drying and cooling down the sauna)
 - Controlling the sauna lights (on/off, mode selection)
-- Checking diagnostic information (water level, tank temperature)
+- Checking diagnostic information (water level, tank temperature, water in/out valves)
 
 {% include integrations/config_flow.md %}
