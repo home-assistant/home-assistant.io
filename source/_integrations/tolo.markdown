@@ -4,6 +4,8 @@ description: Control your TOLO Sauna and TOLO Steam Bath with Home Assistant.
 ha_release: "2021.12"
 ha_category:
   - Climate
+  - Health
+  - Light
 ha_domain: tolo
 ha_config_flow: true
 ha_codeowners:
