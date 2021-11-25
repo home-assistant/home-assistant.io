@@ -18,6 +18,10 @@ When a `state_topic` is not available, the lock will work in optimistic mode. In
 
 Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect lock operation.
 
+A simple lock only supports commands for lock and unlock. If in addition an open command is needed (e.g. to open the bolt in addition to the latch) a definition of `payload_open` is required in the configuration. In optimistic mode on an `payload_open` command the lock is in the unlocked state.
+
+payload_open:
+
 To enable MQTT locks in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -157,6 +161,11 @@ payload_unlock:
   required: false
   type: string
   default: UNLOCK
+payload_open:
+  description: The payload that requesta an open command. Only available if `payload_open` is explicitly specified.
+  required: false
+  type: string
+  default: OPEN
 qos:
   description: The maximum QoS level of the state topic.
   required: false
