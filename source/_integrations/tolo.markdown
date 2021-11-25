@@ -10,6 +10,7 @@ ha_codeowners:
   - '@MatthiasLohr'
 ha_iot_class: "Local Polling"
 ha_platforms:
+  - button
   - climate
   - light
   - sensor
