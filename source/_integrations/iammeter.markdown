@@ -11,8 +11,6 @@ ha_codeowners:
   - '@lewei50'
 ha_platforms:
   - sensor
-
-
 ---
 
 
