@@ -74,6 +74,20 @@ There are several attributes that can be useful for automations and templates.
 
 To get AVM FRITZ!DECT sensors (e.g.,  FRITZ!DECT Repeater 100) follow the [configuration instructions](#configuration) above.
 
+There are multiple sensors defined, the availability depends on the features of the connected FRITZ!DECT devices
+
+- Battery
+- Comfort Temperature
+- Current Scheduled Preset
+- Eco Temperature
+- Humidity
+- Next Scheduled Change Time
+- Next Scheduled Preset
+- Next Scheduled Temperature
+- Power Consumption
+- Temperature
+- Total Energy
+
 ### Attributes
 
 There are several attributes that can be useful for automations and templates.
