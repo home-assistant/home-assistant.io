@@ -12,6 +12,7 @@ ha_iot_class: "Local Polling"
 ha_platforms:
   - climate
   - light
+  - select
   - sensor
 ha_dhcp: true
 ---
