@@ -125,20 +125,6 @@ group.all_switches              8018
 
 ### Delete
 
-If you don't want to keep certain entities, you can delete them permanently:
-
-To do so, it is best to use the services provided by the recorder: https://www.home-assistant.io/integrations/recorder/#service-purge_entities
-
-Deleting data directly from the database might lead to a corrupted database, since the database isn't meant to be consumed like that:
-
-```bash
-sqlite> DELETE FROM states WHERE entity_id="sensor.cpu";
-```
-
-The `VACUUM` command cleans your database.
-
-```bash
-sqlite> VACUUM;
-```
+If you don't want to keep certain entities, you can delete them permanently by using the services provided by the recorder: https://www.home-assistant.io/integrations/recorder/#service-purge_entities
 
 For a more interactive way of working with the database, check the [Data Science Portal](https://data.home-assistant.io/).
