@@ -900,7 +900,7 @@ effect_template:
   required: false
   type: string
 green_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract green color from the state payload value."
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract green color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: string
 icon:
