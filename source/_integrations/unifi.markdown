@@ -38,7 +38,7 @@ All configuration options are offered from the front end. Enter what UniFi Netwo
 
 ### Configuring Users
 
-The UniFi Network controller allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi Network device tracker. If you want blocking of network access or POE control as well you would need to have 'admin' permissions.
+The UniFi Network application allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi Network device tracker. If you want blocking of network access or POE control as well you would need to have 'admin' permissions.
 
 ### UniFi OS
 
@@ -52,13 +52,13 @@ It is recommended that you run the UniFi controller in a dedicated virtual machi
 
 ## Presence detection
 
-This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://unifi-network.ui.com/) controller. By default devices are marked as away 300 seconds after they were last seen.
+This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://unifi-network.ui.com/) application. By default devices are marked as away 300 seconds after they were last seen.
 
 ### Troubleshooting and Time Synchronization
 
 Presence detection depends on accurate time configuration between Home Assistant and the UniFi controller.
 
-If Home Assistant and the UniFi Network controller are running on separate machines or VMs ensure that all clocks are synchronized. Failing to have synchronized clocks will lead to Home Assistant failing to mark a device as home.
+If Home Assistant and the UniFi Network application are running on separate machines or VMs ensure that all clocks are synchronized. Failing to have synchronized clocks will lead to Home Assistant failing to mark a device as home.
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
 
@@ -74,7 +74,7 @@ Try to get a wireless client to reconnect to the network.
 
 ### Service unifi.remove_clients
 
-Clean up clients on the UniFi Network Controller that has only been associated with the controller for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
+Clean up clients on the UniFi Network application that has only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
 
 ## Switch
 
@@ -104,7 +104,7 @@ Get entities reporting uptime per network client.
 
 ## Debugging integration
 
-If you have problems with UniFi Network or the integration you can add debug prints to the log.
+If you have problems with the UniFi Network application or integration you can add debug prints to the log.
 
 ```yaml
 logger:
