@@ -140,17 +140,17 @@ The track element is set to being half transparent, so the final color will also
 
 `primary-text-color` Text color below dial (value and name) plus needle color (if gauge is in needle mode)
 
-#### Dial & Severity
+#### Dial colors
 
-`success-color` Used for the "green" severity level
+`gauge-color` Used in the coding to control what color the gauge value is rendered with, but cannot be set via theme since its value will dynamically be set (either to `info-color` or to the matching severity variable if the severity color mode is used). To control the used colors, adjust the following variables.
 
-`warning-color` Used for the "yellow" severity level
+`success-color` Dial color for the "green" severity level
 
-`error-color` Used for the "red" severity level
+`warning-color` Dial color for the "yellow" severity level
 
-`info-color` Used if not in severity mode as a neutral color for the dial
+`error-color` Dial color for the "red" severity level
 
-`gauge-color` Used in the coding to control what color the gauge value is rendered with, but cannot be set via theme since its value will dynamically be set (either fixed to `info-color` or to the matching severity if that option is used)
+`info-color` Static dial color if not in severity color mode
 
 ## Setting Themes
 
