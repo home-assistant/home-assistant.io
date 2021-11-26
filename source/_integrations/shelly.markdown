@@ -199,6 +199,15 @@ The firmware limits the transition time to 5 seconds.
 
 </div>
 
+### Reboot
+
+Trigger reboot of device.
+
+#### Buttons
+
+- Reboot (_disabled by default_)
+  - triggers the reboot
+
 ## CoAP port (generation 1)
 
 In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
