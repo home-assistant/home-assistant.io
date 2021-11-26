@@ -36,6 +36,10 @@ unique_id:
   description: An ID that uniquely identifies this cover group. If two covers have the same unique ID, Home Assistant will raise an error.
   required: false
   type: string
+device_class:
+  description: Sets the [device class](/integrations/cover/) of this cover group, changing the device state and icon that is displayed in the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Functionality
