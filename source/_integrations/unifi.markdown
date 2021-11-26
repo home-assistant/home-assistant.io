@@ -1,6 +1,6 @@
 ---
 title: UniFi Network
-description: Instructions on how to configure UniFi integration with UniFi Network application by Ubiquiti.
+description: Instructions on how to configure UniFi Network integration with UniFi Network application by Ubiquiti.
 ha_category:
   - Hub
   - Presence Detection
@@ -46,9 +46,9 @@ For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti
 
 ### Conflicts with MQTT
 
-The UniFi controller can either be a dedicated hardware device (UniFi's cloud key), or as software on any Linux system. If you run the UniFi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
+The UniFi Network application can either be a UniFi OS console device (like the Cloud Key), or as software on any Linux system. If you run the UniFi Network application on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
 
-It is recommended that you run the UniFi controller in a dedicated virtual machine to avoid that situation.
+It is recommended that you run the UniFi Network application in a dedicated virtual machine to avoid that situation.
 
 ## Presence detection
 
@@ -56,7 +56,7 @@ This platform allows you to detect presence by looking at devices connected to a
 
 ### Troubleshooting and Time Synchronization
 
-Presence detection depends on accurate time configuration between Home Assistant and the UniFi controller.
+Presence detection depends on accurate time configuration between Home Assistant and the UniFi Network application.
 
 If Home Assistant and the UniFi Network application are running on separate machines or VMs ensure that all clocks are synchronized. Failing to have synchronized clocks will lead to Home Assistant failing to mark a device as home.
 
@@ -70,7 +70,7 @@ Try to get a wireless client to reconnect to the network.
 
 | Service data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `device_id`            | No       | String representing a device ID related to a UniFi integration.             |
+| `device_id`            | No       | String representing a device ID related to a UniFi Network integration.     |
 
 ### Service unifi.remove_clients
 
