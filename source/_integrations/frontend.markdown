@@ -116,6 +116,42 @@ For more details about splitting up the configuration into multiple files, see [
 
 Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
 
+## Theme variables
+
+<div class='note warning'>
+This list is incomplete and should only serve as a starting point. We try to extend this list and keep it up-to-date, but the definitive list of supported variables is the frontend code itself.
+</div>
+
+### Switch / Toggle
+
+For the switch / toggle there are always two variables, one for the on / checked state and one for the off / unchecked state.
+
+The track element is set to being half transparent, so the final color will also be impacted by the color behind the track.
+
+`switch-checked-color` / `switch-unchecked-color` Set both the color of the round button element and the track behind it. If you want to control them separately, use the variables below instead.
+
+`switch-checked-button-color` / `switch-unchecked-button-color` Color of the round button element
+
+`switch-checked-track-color` / `switch-unchecked-track-color`  Color of the track behind the round button element
+
+### Gauge
+
+`primary-background-color` Background color of the dial (rounded arch)
+
+`primary-text-color` Text color below dial (value and name) plus needle color (if gauge is in needle mode)
+
+#### Dial & Severity
+
+`success-color` Used for the "green" severity level
+
+`warning-color` Used for the "yellow" severity level
+
+`error-color` Used for the "red" severity level
+
+`info-color` Used if not in severity mode as a neutral color for the dial
+
+`gauge-color` Used in the coding to control what color the gauge value is rendered with, but cannot be set via theme since its value will dynamically be set (either fixed to `info-color` or to the matching severity if that option is used)
+
 ## Setting Themes
 
 There are two themes-related services:
