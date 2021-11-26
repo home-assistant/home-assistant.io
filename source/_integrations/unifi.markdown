@@ -1,6 +1,6 @@
 ---
 title: UniFi Network
-description: Instructions on how to configure UniFi integration with UniFi Network Application by Ubiquiti.
+description: Instructions on how to configure UniFi integration with UniFi Network application by Ubiquiti.
 ha_category:
   - Hub
   - Presence Detection
@@ -120,4 +120,4 @@ logger:
 
 ### Understanding UniFi Naming (UniFi Controller vs. UniFi Network Application)
 
-Network management has always been Ubiquiti's main product and so UniFi for a while was always synonymous with their "UniFi Controller" application. However, UniFi has started branching and releasing other apps, like Protect, Talk and Access. As a result, Ubiquiti has started rebranding "UniFi Controller" as the "UniFi Network Application". [This post on the UniFi community](https://community.ui.com/questions/Clarifying-UniFi-Hardware-and-Software-Terminology/2557963a-e79d-4157-a78c-36d3f7b383fb) explains it pretty well. **This main UniFi Integration is _only_ for the UniFi Network application.**
+Network management has always been Ubiquiti's main product and so UniFi for a while was always synonymous with their "UniFi Controller" application. However, UniFi has started branching and releasing other apps, like Protect, Talk and Access. As a result, Ubiquiti has started rebranding "UniFi Controller" as the "UniFi Network" application. [This post on the UniFi community](https://community.ui.com/questions/Clarifying-UniFi-Hardware-and-Software-Terminology/2557963a-e79d-4157-a78c-36d3f7b383fb) explains it pretty well. **This main UniFi Integration is _only_ for the UniFi Network application.**
