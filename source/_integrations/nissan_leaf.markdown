@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: nissan_leaf
 ha_platforms:
   - binary_sensor
+  - button
   - sensor
   - switch
 ---
@@ -18,7 +19,7 @@ The `nissan_leaf` integration offers integration with the [NissanConnect EV](htt
 
 * sensors for the battery status, range and charging status
 * a switch to start and stop the climate control
-* services to request updates from the car and to request the car starts charging.
+* buttons to request updates from the car and to request the car starts charging.
 
 ## Configuration
 
@@ -82,17 +83,17 @@ nissan_leaf:
 
 ## Starting a Charge
 
-You can use the `nissan_leaf.start_charge` service to send a request to the Nissan servers to start a charge. The car must be plugged in!  The service requires you to provide the vehicle identification number (VIN) as a parameter. You can see the VIN on the attributes of all the entities created by this component.
+You can use the `button.press` service to send a request to the Nissan servers to start a charge. The car must be plugged in!
 
 ```yaml
-- service: nissan_leaf.start_charge
-  data:
-    vin: "1HGBH41JXMN109186"             # replace
+- service: button.press
+  target:
+    entity_id: button.start_NICKNAME_charging   # replace
 ```
 
 ## Updating on-demand using Automation
 
-You can also use the `nissan_leaf.update` service to request an on-demand update. To update almost exclusively via the service set the `update_interval` to a high value in the integration configuration.  The service requests the VIN number as described above.
+You can also use the `nissan_leaf.update` service to request an on-demand update. To update almost exclusively via the service set the `update_interval` to a high value in the integration configuration.
 
 ```yaml
 - id: update_when_driver_not_home
@@ -106,17 +107,17 @@ You can also use the `nissan_leaf.update` service to request an on-demand update
       entity_id: device_tracker.drivername   # replace
       state: "not_home"
   action:
-    - service: nissan_leaf.update
-      data:
-        vin: "1HGBH41JXMN109186"             # replace
+    - service: button.press
+      target:
+        entity_id: button.update_NICKNAME   # replace
 ```
 
 ## Hints
 
 * The update interval has a minimum of two minutes.
-* Requesting updates uses a small amount of power from the 12 V battery. The 12 V battery charges from the main traction battery when the car is not plugged in. If the car is left plugged in for a long time, or if the main traction battery is very low then the 12 V battery may gradually discharge. A low update interval may cause the 12 V battery to become flat.  When the 12 V battery is flat the car will not start. _Do not set the update interval too low.  Use at your own risk._
+* Requesting updates uses a small amount of energy from the 12 V battery. The 12 V battery charges from the main traction battery when the car is not plugged in. If the car is left plugged in for a long time, or if the main traction battery is very low then the 12 V battery may gradually discharge. A low update interval may cause the 12 V battery to become flat.  When the 12 V battery is flat the car will not start. _Do not set the update interval too low.  Use at your own risk._
 * This integration communicates with the Nissan Servers which then communicate with the car. The communication between the car and the Nissan Servers is very slow, and takes up to five minutes to get information from the car, therefore the default polling interval is set to one hour to not overwhelm the connection.
-* Responses from the Nissan servers are received separately for the battery/range, climate control and location. The `updated_on` attribute will show the last time the data was retrieved from the server. There are separate attributes for when the `next_update` is scheduled, and to indicate if `update_in_progress`. The `nissan_leaf.update` service will reset the `next_update` attribute.
+* Responses from the Nissan servers are received separately for the battery/range, climate control and location. The `updated_on` attribute will show the last time the data was retrieved from the server. There are separate attributes for when the `next_update` is scheduled, and to indicate if `update_in_progress`. The `update` button will reset the `next_update` attribute.
 * The Nissan APIs do not allow charging to be stopped remotely.
 * The Nissan servers have a history of being unstable, therefore please confirm that the official Nissan Leaf app/website is working correctly before reporting bugs.
 * In the UK the cut-off for Carwings was the 16 plate 24 kWh and the 65 plate 30 kWh. Cars after this have NissanConnect.
@@ -129,6 +130,8 @@ logger:
   default: critical
   logs:
     homeassistant.components.nissan_leaf: debug
+    homeassistant.components.binary_sensor.nissan_leaf: debug
+    homeassistant.components.button.nissan_leaf: debug
     homeassistant.components.sensor.nissan_leaf: debug
     homeassistant.components.switch.nissan_leaf: debug
 ```
