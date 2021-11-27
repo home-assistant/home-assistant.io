@@ -47,6 +47,10 @@ name:
   required: false
   type: string
   default: Binary sensor Ping [hostname]
+unique_id:
+  description: An ID that uniquely identifies this ping sensor. If two ping sensors have the same unique ID, Home Assistant will raise an error.
+  required: false
+  type: string
 {% endconfiguration %}
 
 The sensor exposes the different round trip times values measured by `ping` as attributes:
