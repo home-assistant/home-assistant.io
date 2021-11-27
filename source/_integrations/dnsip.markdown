@@ -38,6 +38,10 @@ name:
   required: false
   default: "`myip` or hostname without dots if specified"
   type: string
+unique_id:
+  description: An ID that uniquely identifies this entity. If two DNS IP entities have the same unique ID, Home Assistant will raise an error.
+  required: false
+  type: string
 resolver:
   description: The DNS server to target the query at.
   required: false
