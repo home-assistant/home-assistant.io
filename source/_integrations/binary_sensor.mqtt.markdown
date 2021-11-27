@@ -174,7 +174,7 @@ qos:
   type: integer
   default: 0
 state_encoding:
-  description: The encoding of the payload received at `state_topic`. Set to `""` to enable disable decoding.
+  description: The encoding of the payload received at `state_topic`. Set to `""` to disable decoding.
   required: false
   type: string
   default: "utf-8"
