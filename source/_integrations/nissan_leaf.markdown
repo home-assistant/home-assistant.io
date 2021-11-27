@@ -93,7 +93,7 @@ You can use the `button.press` service to send a request to the Nissan servers t
 
 ## Updating on-demand using Automation
 
-You can also use the `nissan_leaf.update` service to request an on-demand update. To update almost exclusively via the service set the `update_interval` to a high value in the integration configuration.
+You can also use the `button.press` service to request an on-demand update. To update almost exclusively via the service set the `update_interval` to a high value in the integration configuration.
 
 ```yaml
 - id: update_when_driver_not_home
