@@ -161,6 +161,11 @@ state_class:
   required: false
   type: string
   default: None
+state_encoding:
+  description: The encoding of the payload received at `state_topic`. Set to `""` to enable disable decoding.
+  required: false
+  type: string
+  default: "utf-8"
 state_topic:
   description: The MQTT topic subscribed to receive sensor values.
   required: true
