@@ -1,7 +1,6 @@
 ---
 title: GeoJSON
 description: Instructions on how to integrate GeoJSON feeds into Home Assistant.
-logo: geo_location.png
 ha_category:
   - Geolocation
 ha_iot_class: Cloud Polling
