@@ -545,6 +545,8 @@ The numeric functions and filters will not fail if the input is not a valid numb
 
 </div>
 
+- `int(value, default, base=10, little_endian=False)` function will attempt to convert the the input to a `int` using the built-in jinja2 filter, optional a `base` parameter can be given. If that fails it returns the `default` value. If a value is a `bytes` object, the input will be translated to an integer (base=10 only) in Big-endian style (the first byte is contains the most significant bit). Set `little_endian` to `True` to parse `bytes` object in Little-endian style.
+- `int(default, base=10, little_endian=False)` filter will attempt to convert the the input to a `int` using the built-in jinja2 filter, optional a `base` parameter can be given. If that fails it returns the `default` value, or if omitted `value`. If a value is a `bytes` object, the input will be translated to an integer (base=10 only) in Big-endian style (the first byte is contains the most significant bit). Set `little_endian` to `True` to parse `bytes` object in Little-endian style.
 - `float(value, default)` function will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted `value`.
 - `float(default)` filter will attempt to convert the input to a `float`.  If that fails, returns the `default` value, or if omitted `0.0`.
 - `is_number` will return `True` if the input can be parsed by Python's `float` function and the parsed input is not `inf` or `nan`, in all other cases returns `False`. Note that a Python `bool` will return `True` but the strings `"True"` and `"False"` will both return `False`. Can be used as a filter.
