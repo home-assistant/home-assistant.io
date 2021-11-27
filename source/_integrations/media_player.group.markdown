@@ -17,6 +17,7 @@ To enable this platform in your installation, add the following to your `configu
 # Example configuration.yaml entry
 media_player:
   - platform: group
+    icon: mdi:speaker-multiple
     entities:
       - media_player.kitchen_tv
       - media_player.livivng_room_tv
@@ -29,6 +30,10 @@ entities:
   type: [string, list]
 name:
   description: The name of the media player group. Defaults to "Media Group".
+  required: false
+  type: string
+icon:
+  description: The icon for the media player group. Defaults to "mdi:cast".
   required: false
   type: string
 unique_id:
