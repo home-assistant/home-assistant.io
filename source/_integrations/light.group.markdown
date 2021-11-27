@@ -18,6 +18,7 @@ To enable this platform in your installation, add the following to your `configu
 light:
   - platform: group
     name: Kitchen Lights
+    icon: mdi:silverware
     entities:
       - light.kitchen_ceiling_lights
       - light.kitchen_under_cabinet_lights
@@ -32,6 +33,10 @@ entities:
   type: [string, list]
 name:
   description: The name of the light group. Defaults to "Light Group".
+  required: false
+  type: string
+icon:
+  description: The icon for the light group. Defaults to "mdi:lightbulb-group".
   required: false
   type: string
 unique_id:
