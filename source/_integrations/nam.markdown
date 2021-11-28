@@ -10,6 +10,7 @@ ha_codeowners:
   - '@bieniu'
 ha_domain: nam
 ha_platforms:
+  - button
   - sensor
 ha_quality_scale: platinum
 ha_zeroconf: true
