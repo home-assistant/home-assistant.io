@@ -43,7 +43,7 @@ This integration allows to visualize the covid numbers provided by the [Robert K
 |`sensor.NAME_hospitalizationIncidenceOld` | float | Hospitalization incidence for people older than 80 |
 
 ## Configuration
-Open the `Configuration` of your Home-Assistant instance and select `Integrations`.
+Open the `Configuration` of your Home Assistant instance and select `Integrations`.
 Add a new integration, search and select `rki covid`.
 A dialog appears to select a district or state to monitor.
 After submitting the dialog, the newly added sensor entity is available.
