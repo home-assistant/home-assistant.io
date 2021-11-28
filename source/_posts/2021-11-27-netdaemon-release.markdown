@@ -15,7 +15,7 @@ og_image: /images/blog/2021-11-NetDaemon/NetDaemonLogo.png
 
 Great news for Home Assistant users who's preferred way of coding is C#: [NetDaemon](https://netdaemon.xyz/) has just released a new version of their open source platform that allows you to use C# 10 for .Net 6 to write your applications or automations for Home Assistant.
 
-This new release includes a new API called [`HassModel`](https://netdaemon.xyz/docs/hass_model/hass_model) which makes it easier than ever to interact with Home Assistant from .Net. It generates strong typed interfaces based on the entities in your own Home Assistant instance, their attributes and all available services and their parameters. Intellisense can be used to discover all your entities and available services directly from your IDE.
+This release includes a new API called [`HassModel`](https://netdaemon.xyz/docs/hass_model/hass_model) which makes it easier than ever to interact with Home Assistant from .Net. It generates strong typed interfaces based on the entities in your own Home Assistant instance, their attributes and all available services and their parameters. Intellisense can be used to discover all your entities and available services directly from your IDE.
 
 [Check out the documentation and how to get started with NetDaemon](https://netdaemon.xyz/)
 
