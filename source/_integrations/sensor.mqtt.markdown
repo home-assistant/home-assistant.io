@@ -101,6 +101,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payload received at `state_topic`. Set to `""` to disable decoding.
+  required: false
+  type: string
+  default: "utf-8"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -161,11 +166,6 @@ state_class:
   required: false
   type: string
   default: None
-state_encoding:
-  description: The encoding of the payload received at `state_topic`. Set to `""` to disable decoding.
-  required: false
-  type: string
-  default: "utf-8"
 state_topic:
   description: The MQTT topic subscribed to receive sensor values.
   required: true
