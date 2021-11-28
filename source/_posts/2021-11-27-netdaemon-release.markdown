@@ -20,3 +20,5 @@ This new release also includes a new API called [`HassModel`](https://netdaemon.
 Besides the new API we also made it easier to create apps in NetDaemon. A NetDaemon app can now consist of just a single .Net class that is decorated with a `[NetDaemonApp]` attribute. and a constructor that wires up event handlers. Your apps will be loaded when NetDaemon starts, Typically using the NetDaemon docker container that you can install as a Home Assistant addon.
 
 [Check out the documentation and how to get started with NetDaemon](https://netdaemon.xyz/)
+
+_This project is not affiliated with Home Assistant, but leverages the [Home Assistant open API](https://developers.home-assistant.io/docs/api/websocket)._
