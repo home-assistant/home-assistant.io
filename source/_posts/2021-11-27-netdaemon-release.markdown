@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "New NetDaemon Release"
+title: "New NetDaemon Release: Use C# to automate Home Assistant"
 description: "NetDaemon just released a new version of their .Net platform for Home Assistant"
 date: 2021-11-27 00:00:00
 date_formatted: "November 27, 2021"
