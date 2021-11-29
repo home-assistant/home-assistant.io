@@ -58,7 +58,7 @@ Replace x.y.z with the desired version like `--version {{current_version}}`
 
 You can get a better description of the CLI capabilities by typing `ha help`:
 
-```bash
+```txt
 The Home Assistant CLI is a small and simple command line utility that allows
 you to control and configure different aspects of Home Assistant
 
@@ -69,6 +69,7 @@ Available Commands:
   addons         Install, update, remove and configure Home Assistant add-ons
   audio          Audio device handling.
   authentication Authentication for Home Assistant users.
+  backups        Create, restore and remove backups
   banner         Prints the CLI Home Assistant banner along with some useful information
   cli            Get information, update or configure the Home Assistant cli backend
   core           Provides control of the Home Assistant Core
@@ -84,7 +85,6 @@ Available Commands:
   observer       Get information, update or configure the Home Assistant observer
   os             Operating System specific for updating, info and configuration imports
   resolution     Resolution center of Supervisor, show issues and suggest solutions
-  backups        Create, restore and remove backups
   supervisor     Monitor, control and configure the Home Assistant Supervisor
 
 Flags:
