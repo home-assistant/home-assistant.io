@@ -79,7 +79,9 @@ switch: !include switch.yaml
 device_tracker: !include device_tracker.yaml
 ```
 
-Nesting `!include`s (having an `!include` within a file that is itself `!include`d) isn't going to work. You can, however, have multiple top-level `!include`s for a given integration, if you give a different label to each one:
+Nesting `!include`s (having an `!include` within a file that is itself `!include`d) will also work.
+
+You can, as well, have multiple top-level `!include`s for a given integration, if you give a different label to each one:
 
 ```yaml
 light:
@@ -197,6 +199,8 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 ## Advanced Usage
 
 We offer four advanced options to include whole directories at once. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
+
+This will allow you to `!include` files with `.yml` extensions from within the `.yaml` files; without those `.yml` files being imported by the following commands themselves.
 
 - `!include_dir_list` will return the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
 - `!include_dir_named` will return the content of a directory as a dictionary which maps filename => content of file.
