@@ -14,6 +14,6 @@ ha_platforms:
   - binary_sensor
 ---
 
-The `tesla_wall_connector` integration allows you to integrate your [Tesla Wall Connector](https://www.tesla.com/support/home-charging-installation/wall-connector) into Home Assistant.
+The Tesla Wall Connector integration allows you to integrate your [Tesla Wall Connector](https://www.tesla.com/support/home-charging-installation/wall-connector) into Home Assistant.
 
 {% include integrations/config_flow.md %}
