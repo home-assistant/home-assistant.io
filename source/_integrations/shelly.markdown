@@ -221,7 +221,7 @@ Trigger reboot of device.
 
 #### Buttons
 
-- Reboot (_disabled by default_)
+- Reboot
   - triggers the reboot
 ## CoAP port (generation 1)
 
