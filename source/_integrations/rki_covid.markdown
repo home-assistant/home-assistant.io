@@ -46,29 +46,9 @@ This integration allows to visualize the covid numbers provided by the [Robert K
 Open the `Configuration` of your Home Assistant instance and select `Integrations`.
 Add a new integration, search and select `rki covid`.
 A dialog appears to select a district or state to monitor.
-After submitting the dialog, the newly added sensor entity is available.
+After submitting the dialog, the newly added sensor entities are available.
 
 **Hint:** Repeat the process to add multiple districts or states.
-
-Districts can also be configured via `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: rki_covid
-    districts:
-     - name: 'SK Augsburg'
-     - name: 'SK Berlin Mitte'
-     - name: 'BL Bayern'
-     - name: 'LK München'
-```
-
-{% configuration %}
-name:
-  description: The friendly name of the district.
-  required: true
-  type: string
-{% endconfiguration %}
 
 ![Integration used within the lovelace](/images/integrations/rki_covid/lovelace_graph.png)
 
