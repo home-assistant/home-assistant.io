@@ -58,6 +58,11 @@ cron:
   description: This option is *mutually exclusive* of `cycle` and `offset`. It provides an advanced method of defining when should the counter be reset. It follows common [crontab syntax](https://crontab.guru) but extended to support more advanced scheduling. See the [croniter](https://github.com/kiorky/croniter) library.
   required: true
   type: string
+delta_values:
+  description: Set this to True if the source values are delta values since the last reading instead of absolute values. When this option is enabled, each new value received will be added as-is to the utility meter instead of adding the _difference_ between the new value and previous value. For example, you should enable this when the source sensor returns readings like "1", "0.5", "0.75" versus "1", "1.5", "2.25".
+  required: false
+  default: false
+  type: boolean
 net_consumption:
   description: Set this to True if you would like to treat the source as a net meter. This will allow your counter to go both positive and negative.
   required: false
