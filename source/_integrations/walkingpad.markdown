@@ -16,7 +16,7 @@ The `walkingpad` integration allows you to control your WalkingPad treadmill wit
 - A1
 - A1 Pro
 
-## "International" version with bluetooth connection
+## "International" version with Bluetooth connection
 
 Before configuring "International" version of WalkingPad you need a Bluetooth backend. Depending on your operating system, you may have to configure the proper Bluetooth backend for your system:
 
@@ -26,7 +26,7 @@ Before configuring "International" version of WalkingPad you need a Bluetooth ba
   - Preferred solution: Install the `bluepy` library (via pip). When using a virtual environment, make sure to install the library in the right one.
   - Fallback solution: Install `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth`, `bluez-deprecated`
 
-Integration will automatically discover available devices bia bluetooth.
+Integration will automatically discover available devices bia Bluetooth.
 
 ## "Chinese" version with WiFi connection
 
