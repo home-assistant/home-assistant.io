@@ -278,6 +278,25 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+### Integrations
+
+- `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
+- `integration_entities(title)` if you have multiple instances set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific device bridge.
+
+#### Integrations examples
+
+{% raw %}
+
+```text
+{{ integration_entities('hue') }}  # ['light.hue_light_upstairs', 'light.hue_light_downstairs']
+```
+
+```text
+{{ integration_entities('Hue bridge downstairs') }}  # ['light.hue_light_downstairs']
+```
+
+{% endraw %}
+
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
@@ -299,7 +318,7 @@ The same thing can also be expressed as a filter:
 
    {% endraw %}
 
-- `as_datetime()` converts a string containing a timestamp to a datetime object.
+- `as_datetime()` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object.
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted `None`. This function also be used as a filter.
 - `as_local()` converts datetime object to local time. This function also be used as a filter.
 - `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, returns the `default` value, or if omitted the unprocessed input value.
@@ -315,8 +334,8 @@ The same thing can also be expressed as a filter:
 
    {% endraw %}
 
-- Filter `timestamp_local(default)` converts a UNIX timestamp to its naive string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted the unprocessed input value. If timezone information is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_utc(default)` converts a UNIX timestamp to its naive string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted the unprocessed input value. If timezone information is needed in the string, use `timestamp_custom` instead.
+- Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted the unprocessed input value. If a custom string format is needed in the string, use `timestamp_custom` instead.
+- Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted the unprocessed input value. If a custom string format is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_custom(format_string, local_time=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. If that fails, returns the `default` value, or if omitted the unprocessed input value. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
 
 <div class='note'>

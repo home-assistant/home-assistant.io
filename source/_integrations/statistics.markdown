@@ -67,21 +67,22 @@ Define a statistics sensor by adding lines similar to the following examples to 
 ```yaml
 sensor:
   - platform: statistics
-    entity_id: binary_sensor.movement
-
-  - platform: statistics
-    name: Bathroom humidity mean (over last few measurements)
+    name: "Bathroom humidity mean over last 24 hours"
     entity_id: sensor.bathroom_humidity
+    max_age:
+      hours: 24
 
   - platform: statistics
-    name: Bathroom humidity change over the last 10 minutes
+    name: "Bathroom humidity change over 5 minutes"
     entity_id: sensor.bathroom_humidity
     state_characteristic: change
-    precision: 1
     max_age:
-      minutes: 10
+      minutes: 5
     sampling_size: 50
+    precision: 1
 
+  - platform: statistics
+    entity_id: binary_sensor.movement
 ```
 
 {% configuration %}
