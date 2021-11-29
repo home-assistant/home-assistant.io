@@ -215,6 +215,14 @@ Trigger device OTA firmware update.
 - OTA Update Beta (_disabled by default_)
   - triggers the OTA update process for latest beta version
 
+### Reboot
+
+Trigger reboot of device.
+
+#### Buttons
+
+- Reboot
+  - triggers the reboot
 ## CoAP port (generation 1)
 
 In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
