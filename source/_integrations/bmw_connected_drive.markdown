@@ -39,7 +39,7 @@ This integration provides the following platforms:
 - Device tracker: The location of your car.
 - Lock: Control the lock of your car.
 - Sensors: Mileage, remaining range, remaining fuel, charging time remaining (electric cars), charging status (electric cars), remaining range electric (electric cars).
-- Notifications: Send messages or Points of Interest (POI) to your car.
+- Notifications: Send Points of Interest (POI) to your car.
 - Services: Turn on air condition, sound the horn, flash the lights, update the vehicle location and update the state. More details can be found [here](/integrations/bmw_connected_drive/#services).
 
 ## Configuration
@@ -95,23 +95,12 @@ bmw_connected_drive:
 
 ## Notifications
 
-The `bmw_connected_drive` integration offers a notification service. Using this service you can send messages or Points of Interest (POI) to your vehicle. In your vehicle you can select this POI and the navigation will automatically start using the POI as a destination.
+The `bmw_connected_drive` integration offers a notification service. Using this service you can send Points of Interest (POI) to your vehicle. In your vehicle you can select this POI and the navigation will automatically start using the POI as a destination.
 The name of the service is `notify.bmw_connected_drive_<your_vehicle>`.
 
 ### Examples
 
 A few examples on how to use the notification service.
-
-#### Send a text message to your vehicle
-
-```yaml
-...
-action:
-  service: notify.bmw_connected_drive_<your_vehicle>
-  data:
-    title: Message from Home Assistant # optional, will default to "Home Assistant" when left empty
-    message: The text of the message you want to send to your vehicle
-```
 
 #### Send a Point of Interest to your vehicle
 

@@ -7,8 +7,8 @@ ha_release: 2021.6
 ha_iot_class: Cloud Polling
 ha_domain: wallbox
 ha_platforms:
-  - sensor
   - number
+  - sensor
 ha_config_flow: true
 ha_codeowners:
   - '@hesselonline'

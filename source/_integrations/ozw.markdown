@@ -54,19 +54,6 @@ This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave
 The secure network key is set in the settings for the ozwdaemon and
 not in the integration configuration.
 
-## Migrate from Z-Wave integration
-
-To migrate to the OpenZWave integration from the Z-Wave integration there's a
-wizard in the frontend configuration panel of the Z-Wave integration. The wizard
-will try to migrate the entity IDs, names, icons and areas of the entities and
-devices of your Z-Wave integration to your OpenZWave integration. At the end of
-the migration, the Z-Wave integration configuration entry will be removed.
-
-Make sure you take necessary backups, eg a Supervisor backup, before migrating
-to be able to restore the Z-Wave integration. The wizard may not be able to
-migrate all entity and device information. It will show you what entity and
-device information failed to migrate.
-
 ## Services
 
 ### Service `ozw.add_node`
@@ -131,11 +118,11 @@ This service will set the specified configuration parameter to the value specifi
 allow device-specific configurations. Example of this would be setting notification
 LED colors on switches.
 
-| Service Data Attribute | Required | Description                                                                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                              |
-| `node_id`              | yes      | Node id of the device to set configuration parameter to (integer).                                              |
-| `parameter`            | yes      | Parameter number to set (integer).                                                                              |
+| Service Data Attribute | Required | Description                                                                                                                                                                         |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                                                                                                  |
+| `node_id`              | yes      | Node id of the device to set configuration parameter to (integer).                                                                                                                  |
+| `parameter`            | yes      | Parameter number to set (integer).                                                                                                                                                  |
 | `value`                | yes      | Value to set for parameter. (String or integer value for list, string or boolean for bool parameters, list of dicts for bitset parameters (see example below), integer for others). |
 
 

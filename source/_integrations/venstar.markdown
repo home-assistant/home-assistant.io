@@ -12,6 +12,9 @@ ha_platforms:
   - binary_sensor
   - climate
   - sensor
+ha_codeowners:
+  - '@garbled1'
+ha_config_flow: true
 ---
 
 The `venstar` climate platform allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.

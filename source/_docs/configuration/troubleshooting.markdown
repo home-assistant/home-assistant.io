@@ -19,7 +19,7 @@ If you have incorrect entries in your configuration files you can use the config
 
 One of the most common problems with Home Assistant is an invalid `configuration.yaml` or other configuration file.
 
-- Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has it's own section in the common-tasks about this:
+- Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has its own section in the common-tasks about this:
   - [Operating System](/common-tasks/os/#configuration-check)
   - [Container](/common-tasks/container/#configuration-check)
   - [Core](/common-tasks/core/#configuration-check)

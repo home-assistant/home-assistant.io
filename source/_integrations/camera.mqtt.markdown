@@ -119,6 +119,10 @@ name:
   description: The name of the camera.
   required: false
   type: string
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 topic:
   description: The MQTT topic to subscribe to.
   required: true

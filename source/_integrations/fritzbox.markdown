@@ -15,7 +15,7 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - climate
-  - Light
+  - light
   - sensor
   - switch
 ha_codeowners:
@@ -73,6 +73,20 @@ There are several attributes that can be useful for automations and templates.
 ## Sensors
 
 To get AVM FRITZ!DECT sensors (e.g.,  FRITZ!DECT Repeater 100) follow the [configuration instructions](#configuration) above.
+
+There are multiple sensors defined, the availability depends on the features of the connected FRITZ!DECT devices
+
+- Battery
+- Comfort Temperature
+- Current Scheduled Preset
+- Eco Temperature
+- Humidity
+- Next Scheduled Change Time
+- Next Scheduled Preset
+- Next Scheduled Temperature
+- Power Consumption
+- Temperature
+- Total Energy
 
 ### Attributes
 

@@ -876,6 +876,7 @@ Power Supply            | Indicates whether the power supply is connected or not
 Number                  | Description
 ----------------------- | -----------------------
 Delay Off Countdown     | Set the delay off countdown in minutes
+LED Brightness          | Set the LED brightness
 Oscillation Angle       | Set the oscillation angle in degrees
 
 - Sensor entities

@@ -1,5 +1,5 @@
 ---
-title: Supervisor
+title: Home Assistant Supervisor
 description: Control Supervisor Add-ons and OS from Home Assistant
 ha_category:
   - Binary Sensor
@@ -10,6 +10,8 @@ ha_domain: hassio
 ha_platforms:
   - binary_sensor
   - sensor
+ha_codeowners:
+  - '@home-assistant/supervisor'
 ---
 
 Supervisor integration allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.

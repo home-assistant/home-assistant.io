@@ -11,6 +11,7 @@ ha_iot_class: Local Push
 ha_release: 0.113
 ha_domain: bond
 ha_codeowners:
+  - '@bdraco'
   - '@prystupa'
   - '@joshs85'
 ha_config_flow: true
