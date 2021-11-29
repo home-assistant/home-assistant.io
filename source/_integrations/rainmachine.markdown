@@ -10,7 +10,7 @@ ha_release: 0.69
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@bachya"
+  - '@bachya'
 ha_domain: rainmachine
 ha_platforms:
   - binary_sensor
@@ -42,32 +42,10 @@ Services accept either device IDs or entity IDs, depending on the nature of the 
   - `rainmachine.stop_all`
   - `rainmachine.unpause_watering`
 - Services that require an entity ID as a target (note that the correct entity ID type must be provided, such as a program for a program-related service)
-  - `rainmachine.disable_program`
-  - `rainmachine.disable_zone`
-  - `rainmachine.enable_program`
-  - `rainmachine.enable_zone`
   - `rainmachine.start_program`
   - `rainmachine.start_zone`
   - `rainmachine.stop_program`
   - `rainmachine.stop_zone`
-
-### `rainmachine.disable_program`
-
-Disable a RainMachine program. This will mark the program switch as
-`Unavailable` in the UI.
-
-### `rainmachine.disable_zone`
-
-Disable a RainMachine zone. This will mark the zone switch as
-`Unavailable` in the UI.
-
-### `rainmachine.enable_program`
-
-Enable a RainMachine program.
-
-### `rainmachine.enable_zone`
-
-Enable a RainMachine zone.
 
 ### `rainmachine.pause_watering`
 

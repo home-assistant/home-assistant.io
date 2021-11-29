@@ -20,6 +20,7 @@ ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - button
   - cover
   - light
   - sensor
@@ -58,7 +59,7 @@ The integration uses the following strategy to name its entities if the device h
 Examples:
 
 | Device Name | Channel Name   | Entity Name                     |
-| ----------- | -------------- | --------------------------------|
+| ----------- | -------------- | ------------------------------- |
 | `Not set`   | `Not Set`      | shellyswitch25-ABC123 Channel 1 |
 | `Not set`   | Kids Room Bulb | Kids Room Bulb                  |
 | Kitchen     | `Not Set`      | Kitchen Channel 1               |
@@ -152,7 +153,7 @@ You can also create automations using YAML, for example:
 ### Possible values for `click_type`
 
 | Shelly input event | Click Type    |
-| ------------------ | --------------|
+| ------------------ | ------------- |
 | `S`                | `single`      |
 | `SS`               | `double`      |
 | `SSS`              | `triple`      |
@@ -199,6 +200,21 @@ The firmware limits the transition time to 5 seconds.
 
 </div>
 
+## Device services
+
+The integration offers device services which can be triggered by a configuration button.
+
+### OTA update
+
+Trigger device OTA firmware update.
+
+#### Buttons
+
+- OTA Update
+  - triggers the OTA update process for latest stable version
+- OTA Update Beta (_disabled by default_)
+  - triggers the OTA update process for latest beta version
+
 ### Reboot
 
 Trigger reboot of device.
@@ -207,7 +223,6 @@ Trigger reboot of device.
 
 - Reboot (_disabled by default_)
   - triggers the reboot
-
 ## CoAP port (generation 1)
 
 In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
@@ -232,3 +247,4 @@ Please check from the device Web UI that the configured server is reachable.
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Device authentication for generation 2 devices is not supported
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
+- OTA update service does not support battery-powered devices

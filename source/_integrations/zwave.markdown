@@ -785,7 +785,7 @@ Renaming Z-Wave entities is done with the same [customization options](/docs/con
 
 #### Node Values
 
-Contains a list of available values of the selected node, and it's instances.
+Contains a list of available values of the selected node, and its instances.
 
 #### Node group associations
 

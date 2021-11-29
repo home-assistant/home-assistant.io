@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - climate
   - sensor
+ha_zeroconf: true
 ---
 
 Integrates LOOKin devices into Home Assistant.

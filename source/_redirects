@@ -9,7 +9,7 @@
 
 # Redirect for Energy
 /energy /home-energy-management
-/integrations/energy /docs/energy
+/integrations/energy /docs/energy 301!
 
 /amber https://www.crowdsupply.com/nabu-casa/home-assistant-amber
 
@@ -160,7 +160,6 @@
 /components/binary_sensor.linode /integrations/linode#binary-sensor
 /components/binary_sensor.lupusec /integrations/lupusec
 /components/binary_sensor.maxcube /integrations/maxcube
-/components/binary_sensor.mychevy /integrations/mychevy
 /components/binary_sensor.mystrom /integrations/mystrom#binary-sensor
 /components/binary_sensor.ness_alarm /integrations/ness_alarm
 /components/binary_sensor.nest /integrations/nest#binary-sensor
@@ -738,7 +737,6 @@
 /components/sensor.influxdb /integrations/influxdb#sensor
 /components/sensor.insteon /integrations/insteon
 /components/sensor.integration /integrations/integration
-/components/sensor.iota /integrations/iota#sensor
 /components/sensor.iperf3 /integrations/iperf3
 /components/sensor.irish_rail_transport /integrations/irish_rail_transport
 /components/sensor.islamic_prayer_times /integrations/islamic_prayer_times
@@ -770,7 +768,6 @@
 /components/sensor.moon /integrations/moon
 /components/sensor.mqtt_room /integrations/mqtt_room
 /components/sensor.mvglive /integrations/mvglive
-/components/sensor.mychevy /integrations/mychevy
 /components/sensor.nederlandse_spoorwegen /integrations/nederlandse_spoorwegen
 /components/sensor.nest /integrations/nest#sensor
 /components/sensor.netatmo /integrations/netatmo#sensor
@@ -1440,7 +1437,6 @@
 /components/integration /integrations/integration
 /components/intent_script /integrations/intent_script
 /components/ios /integrations/ios
-/components/iota /integrations/iota
 /components/iperf3 /integrations/iperf3
 /components/ipma /integrations/ipma
 /components/iqvia /integrations/iqvia
@@ -1563,7 +1559,6 @@
 /components/mqtt_room /integrations/mqtt_room
 /components/mqtt_statestream /integrations/mqtt_statestream
 /components/mvglive /integrations/mvglive
-/components/mychevy /integrations/mychevy
 /components/mycroft /integrations/mycroft
 /components/myq /integrations/myq
 /components/mysensors /integrations/mysensors
@@ -2348,4 +2343,10 @@
 /integrations/nello /more-info/removed-integration 301
 /components/device_tracker.huawei_router /more-info/removed-integration 301
 /integrations/huawei_router /more-info/removed-integration 301
-
+/components/sensor.iota /more-info/removed-integration 301
+/components/iota /more-info/removed-integration 301
+/integrations/iota /more-info/removed-integration 301
+/components/mychevy /more-info/removed-integration 301
+/integrations/mychevy /more-info/removed-integration 301
+/components/binary_sensor.mychevy /more-info/removed-integration 301
+/components/sensor.mychevy /more-info/removed-integration 301

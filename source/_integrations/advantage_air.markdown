@@ -14,6 +14,7 @@ ha_platforms:
   - climate
   - cover
   - sensor
+  - select
   - switch
 ---
 

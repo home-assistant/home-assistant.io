@@ -7,7 +7,7 @@ ha_iot_class: Local Polling
 ha_release: 0.7.2
 ha_domain: denonavr
 ha_codeowners:
-  - '@scarface-4711'
+  - '@ol-iver'
   - '@starkillerOG'
 ha_config_flow: true
 ha_ssdp: true

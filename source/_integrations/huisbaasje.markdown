@@ -8,7 +8,7 @@ ha_release: 2021.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@denniss17'
+  - '@dennisschroer'
 ha_domain: huisbaasje
 ha_platforms:
   - sensor

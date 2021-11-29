@@ -140,6 +140,10 @@ name:
   required: false
   type: string
   default: MQTT Binary Sensor
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 off_delay:
   description: "For sensors that only send `on` state updates (like PIRs), this variable sets a delay in seconds after which the sensor's state will be updated back to `off`."
   required: false

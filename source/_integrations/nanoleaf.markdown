@@ -2,6 +2,7 @@
 title: Nanoleaf
 description: Instructions how to integrate Nanoleaf Panels into Home Assistant.
 ha_category:
+  - Button
   - Light
 ha_codeowners:
   - '@milanmeu'
@@ -11,8 +12,10 @@ ha_iot_class: Local Polling
 ha_release: 0.67
 ha_domain: nanoleaf
 ha_platforms:
+  - button
   - light
 ha_zeroconf: true
+ha_ssdp: true
 ---
 
 The Nanoleaf integration allows you to control and monitor Nanoleaf Light Panels, Canvas, Shapes and Elements.
