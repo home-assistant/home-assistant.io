@@ -26,9 +26,12 @@ host:
   description: "Hostname or IP address of your Balboa Spa Wifi Device, e.g., `192.168.1.58`."
   required: true
   type: string
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
 sync_time:
   description: Sync the Spa's internal clock with Home Assistant daily
-  required: false
   type: boolean
   default: false
 {% endconfiguration_basic %}
