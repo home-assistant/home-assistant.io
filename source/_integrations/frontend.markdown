@@ -119,7 +119,7 @@ Check our [community forums](https://community.home-assistant.io/c/projects/them
 ## Theme variables
 
 <div class='note warning'>
-This list is incomplete and should only serve as a starting point. We try to extend this list and keep it up-to-date, but the definitive list of supported variables is the frontend code itself.
+This list is incomplete and should only serve as a starting point. We try to extend this list and keep it up-to-date, but the definitive list of supported variables is the [frontend code](https://github.com/home-assistant/frontend) itself.
 </div>
 
 ### Switch / Toggle
