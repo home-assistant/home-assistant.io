@@ -66,7 +66,7 @@ name:
   default: ViCare
   type: string
 heating_type:
-  description: One of `generic`, `gas`, `heatpump` or `fuelcell`. Specifying the heating_type provides additional attributes and sensors specific for the heating system.
+  description: One of `auto`, `gas`, `oil`, `pellets`, `heatpump` or `fuelcell`. Specifying the heating_type provides additional attributes and sensors specific for the heating system.
   required: false
   type: string
   default: generic
