@@ -13,7 +13,7 @@ ha_codeowners:
 ha_config_flow: true
 ---
 
-This integration adds "local push" support for [Balboa](http://www.balboawatergroup.com/) Spa WiFi Modules to be used within Home Assistant.
+This integration adds support for [Balboa](http://www.balboawatergroup.com/) Spa WiFi Modules to be used within Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -23,7 +23,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% configuration_basic %}
 host:
-  description: Hostname or IP address of your Balboa Spa Wifi Device, e.g., 192.168.1.58
+  description: "Hostname or IP address of your Balboa Spa Wifi Device, e.g., `192.168.1.58`."
   required: true
   type: string
 sync_time:
