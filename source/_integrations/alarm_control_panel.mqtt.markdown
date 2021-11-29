@@ -80,6 +80,11 @@ code_disarm_required:
   required: false
   type: boolean
   default: true
+code_trigger_required:
+  description: If true the code is required to trigger the alarm. If false the code is not validated.
+  required: false
+  type: boolean
+  default: true
 command_template:
   description: "The [template](/docs/configuration/templating/#processing-incoming-data) used for the command payload. Available variables: `action` and `code`."
   required: false
@@ -201,6 +206,11 @@ payload_not_available:
   required: false
   type: string
   default: offline
+payload_trigger:
+  description: The payload to trigger the alarm on your Alarm Panel.
+  required: false
+  type: string
+  default: TRIGGER
 qos:
   description: The maximum QoS level of the state topic.
   required: false
