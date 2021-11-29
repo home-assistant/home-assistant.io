@@ -24,7 +24,7 @@ Assuming the [`recorder`](/integrations/recorder/) integration is running, histo
 
 ## Characteristics
 
-The following statistical characteristics are provided for the collected source sensor. Pay close attention to the right configuration of `sampling_size` and `max_age`, as most characterists are directly related to the count of samples or the age of processed samples.
+The following statistical characteristics are provided for the collected source sensor. Pay close attention to the right configuration of `sampling_size` and `max_age`, as most characteristics are directly related to the count of samples or the age of processed samples.
 
 | Identifier | Description |
 | ---------- | ----------- |
@@ -50,12 +50,12 @@ Define a statistics sensor by adding the following lines to your `configuration.
 ```yaml
 sensor:
   - platform: statistics
-    name: Bathroom humidity mean over last 24 hours
+    name: "Bathroom humidity mean over last 24 hours"
     entity_id: sensor.bathroom_humidity
     max_age:
       hours: 24
   - platform: statistics
-    name: Bathroom humidity change over 5 minutes
+    name: "Bathroom humidity change over 5 minutes"
     entity_id: sensor.bathroom_humidity
     max_age:
       minutes: 5
