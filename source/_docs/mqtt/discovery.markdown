@@ -86,6 +86,7 @@ Supported abbreviations:
     'avty'                 'availability',
     'avty_mode':           'availability_mode',
     'avty_t':              'availability_topic',
+    'avty_tpl':            'availability_template',
     'away_mode_cmd_t':     'away_mode_command_topic',
     'away_mode_stat_tpl':  'away_mode_state_template',
     'away_mode_stat_t':    'away_mode_state_topic',
