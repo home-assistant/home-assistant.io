@@ -117,7 +117,7 @@ sensor:
       type: string
       default: None
     state_class:
-      description: "Defines the state class of the sensor, if any. Only possible value currently is `measurement`. Set this if your template sensor represents a measurement of the current value (so not a daily aggregate etc)."
+      description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
       required: false
       type: string
       default: None
@@ -236,7 +236,7 @@ select:
       required: false
       type: template
     availability:
-      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns either of `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"` or a non-zero number, the entity is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
       required: false
       type: template
       default: true
@@ -599,7 +599,7 @@ sensors:
           required: true
           type: template
         availability_template:
-          description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns either of `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"` or a non-zero number, the entity is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+          description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
           required: false
           type: template
           default: true

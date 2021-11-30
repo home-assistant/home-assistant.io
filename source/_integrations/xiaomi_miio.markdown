@@ -500,7 +500,6 @@ Carbon Dioxide          | The current carbon dioxide measured in ppm            
 Filter Life Remaining   | The remaining life of the filter                               | True
 Filter Use              | Filter usage time in hours                                     | True
 Humidity                | The current humidity measured                                  | True
-Illuminance             | The current illuminance measured                               | True
 PM2.5                   | The current particulate matter 2.5 measured                    | True
 Temperature             | The current temperature measured                               | True
 Use Time                | The accumulative number of seconds the device has been in use  | False
@@ -893,7 +892,6 @@ Switch                  | Description
 Buzzer                  | Turn on/off the Buzzer
 Child Lock              | Turn on/off the Child Lock
 Ionizer                 | Turn on/off the Ionizer
-LED                     | Turn on/off the LED
 
 ### Platform Services
 

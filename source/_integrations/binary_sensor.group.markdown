@@ -46,7 +46,7 @@ all:
   type: boolean
   default: false
 device_class:
-  description: The type of the group (/integrations/binary_sensor).
-  required: true
+  description: Sets the [device class](/integrations/binary_sensor/) of this binary sensor group, changing the device state and icon that is displayed in the frontend.
+  required: false
   type: string
 {% endconfiguration %}

@@ -53,7 +53,7 @@ The `remote` entities allow you to learn and send codes with universal remotes. 
 
 ### Learning commands
 
-Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#Learned%20codes%20storage%20location). They can be sent with the `remote.send_command` service later.
+Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` service later.
 
 | Service data attribute | Optional | Description                           |
 | ---------------------- | -------- | ------------------------------------- |
@@ -157,7 +157,7 @@ When the LED blinks for the first time, press the button you want to learn. Then
 
 #### Learned codes storage location
 
-The learned codes are stored in `/configuration/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#Setting%20up%20custom%20IR/RF%20switches) or to send them as [base64 codes](#Sending%20a%20base64%20code), but beware: the files in the .storage folder _should never be edited manually_.
+The learned codes are stored in `/configuration/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#setting-up-custom-irrf-switches) or to send them as [base64 codes](#sending-a-base64-code), but beware: the files in the .storage folder _should never be edited manually_.
 
 ### Sending commands
 

@@ -71,5 +71,7 @@ There is currently support for the following device types within Home Assistant:
 - KL125
 - KL130
 - KB130
+- KL400
+- KL430
 
 Other bulbs may also work, but with limited color temperature range (2700-5000). If you find a bulb isn't reaching the full-color temperature boundaries, submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
