@@ -119,6 +119,7 @@ Supported abbreviations:
     'dev_cla':             'device_class',
     'dock_t':              'docked_topic',
     'dock_tpl':            'docked_template',
+    'e':                   'encoding',
     'err_t':               'error_topic',
     'err_tpl':             'error_template',
     'fanspd_t':            'fan_speed_topic',
