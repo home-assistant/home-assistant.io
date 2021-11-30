@@ -52,7 +52,7 @@ surveillance_password:
 Configure motionEye webhooks to report events to Home Assistant:
   description: Whether or not motionEye webhooks should be configured to callback into Home Assistant. If this option is disabled, no motion detected or file stored events will be generated unless the webhooks are manually configured.
 Overwrite unrecognized webhooks:
-  description: Whether or not to overwrite webhooks that are already configured and are not recognized as belonging to this integration (web hooks are deemed to belong to this integration if they contain `src=hass-motioneye` in the query string).
+  description: Whether or not to overwrite webhooks that are already configured and are not recognized as belonging to this integration (webhooks are deemed to belong to this integration if they contain `src=hass-motioneye` in the query string).
 Steam URL template:
   description: A [jinja2](https://jinja.palletsprojects.com/) template that is used to override the standard MJPEG stream URL (e.g. for use with reverse proxies). See [Camera MJPEG Streams](#streams) below. This option is only shown to users who have [advanced mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode) enabled.
 {% endconfiguration_basic %}
@@ -68,7 +68,7 @@ Steam URL template:
 | `sensor`        | An "action sensor" that shows the number of configured [actions](https://github.com/ccrisan/motioneye/wiki/Action-Buttons) for this device. The names of the available actions are viewable in the `actions`  attribute of the sensor entity. |
 
 **Note**:
-   * If the video streaming switch is turned off, the camera entity, and services that operate on that camera, will become unavailable. The rest  of the integration will continue to function.  
+   * If the video streaming switch is turned off, the camera entity, and services that operate on that camera, will become unavailable. The rest of the integration will continue to function.
    * As cameras are added or removed to motionEye, devices/entities are automatically added or removed from Home Assistant.
 
 
@@ -132,24 +132,24 @@ in automations (etc).
 
 #### Data in events
 
-   * The event data includes the Home Assistant `device_id` for this motionEye
-     camera device, and the Home Assistant device `name`.
-   * Event data also includes as many [Motion Conversion
-     Specifiers](https://motion-project.github.io/motion_config.html#conversion_specifiers)
-     as make sense for that event type.
-   * Any additional `&key=value` pairs added manually to the motionEye webhook
-     (in the motionEye UI) will automatically propagate to the event data. If
-     you manually tweak the web hook, remove the `src=hass-motioneye` parameter
-     or the web hook will be overwritten.
-   * For file storage events, the integration will automatically add
-     `media_content_id` (an identifier that can be used to play the media in a
-     Home Assistant media player) and `file_url` (a raw URL to the media). See
-     [example automation](#automation-movies) below for an illustration of how
-     this can be used.
-   * `file_type` will be less than 8 if the media stored is an image, otherwise
-     it is a movie/video. See [the motion
-     source](https://github.com/Motion-Project/motion/blob/master/src/motion.h#L177)
-     for more details.
+* The event data includes the Home Assistant `device_id` for this motionEye
+  camera device and the Home Assistant device `name`.
+* Event data also includes as many [Motion Conversion
+  Specifiers](https://motion-project.github.io/motion_config.html#conversion_specifiers)
+  as make sense for that event type.
+* Any additional `&key=value` pairs added manually to the motionEye webhook
+  (in the motionEye UI) will automatically propagate to the event data. If
+  you manually tweak the webhook, remove the `src=hass-motioneye` parameter
+  or the webhook will be overwritten.
+* For file storage events, the integration will automatically add
+  `media_content_id` (an identifier that can be used to play the media in a
+  Home Assistant media player) and `file_url` (a raw URL to the media). See
+  [example automation](#automation-movies) below for an illustration of how
+  this can be used.
+* `file_type` will be less than 8 if the media stored is an image, otherwise,
+  it is a movie/video. See [the motion
+  source](https://github.com/Motion-Project/motion/blob/master/src/motion.h#L177)
+  for more details.
 
 
 #### Example motion detected event
@@ -264,9 +264,10 @@ Parameters:
 | `custom_left_text` `custom_right_text` | Custom text to show on the left or right, if the `custom-text` value is selected.                                                                                           |
 
 **Note**:
-   * Calling this service triggers a reset of the motionEye cameras which will pause the
-     stream / recordings / motion detection (etc).
-   * Ensure the `Text Overlay` switch is turned on to actually display the configured text overlays.
+
+* Calling this service triggers a reset of the motionEye cameras which will pause the
+  stream / recordings / motion detection (etc).
+* Ensure the `Text Overlay` switch is turned on to actually display the configured text overlays.
 
 #### Example:
 
@@ -287,7 +288,7 @@ Browser".
 
 ### Manually Configured Root Directories
 
-Whlst this integration allows drilling down into the media for each camera separately,
+Whilst this integration allows drilling down into the media for each camera separately,
 underneath motionEye is using the directory structure to associate media items to each
 individual camera. Thus if multiple cameras are manually configured to share the same
 root directory, motionEye will return the _combination_ of the media items when any one
@@ -301,13 +302,13 @@ A Lovelace card with icons that will call the `action` service to send action co
 
 ```yaml
 - type: picture-glance
-  title: Living Room
+  title: "Living Room"
   camera_image: camera.living_room
   camera_view: live
   entities:
       - entity: camera.living_room
       - entity: camera.living_room
-        icon: 'mdi:arrow-left'
+        icon: "mdi:arrow-left"
         tap_action:
           action: call-service
           service: motioneye.action
@@ -315,7 +316,7 @@ A Lovelace card with icons that will call the `action` service to send action co
             action: left
             entity_id: camera.living_room
       - entity: camera.living_room
-        icon: 'mdi:arrow-right'
+        icon: "mdi:arrow-right"
         tap_action:
           action: call-service
           service: motioneye.action
@@ -323,7 +324,7 @@ A Lovelace card with icons that will call the `action` service to send action co
             action: right
             entity_id: camera.living_room
       - entity: camera.living_room
-        icon: 'mdi:arrow-up'
+        icon: "mdi:arrow-up"
         tap_action:
           action: call-service
           service: motioneye.action
@@ -331,7 +332,7 @@ A Lovelace card with icons that will call the `action` service to send action co
             action: up
             entity_id: camera.living_room
       - entity: camera.living_room
-        icon: 'mdi:arrow-down'
+        icon: "mdi:arrow-down"
         tap_action:
           action: call-service
           service: motioneye.action
@@ -348,31 +349,31 @@ A simple automation to set text overlay indicating the alarm armed status. Text 
 must be switched on for this automation to work (controllable via `switch.<name>_text_overlay`).
 
 ```yaml
-- alias: 'Set camera text overlay to armed'
+- alias: "Set camera text overlay to armed"
   trigger:
-    platform: state
-    entity_id: alarm_control_panel.home_alarm
-    to: 'armed_away'
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: "armed_away"
   action:
     - service: motioneye.set_text_overlay
       target:
         entity_id: camera.living_room
       data:
         left_text: custom-text
-        custom_left_text: Alarm is ARMED
+        custom_left_text: "Alarm is ARMED"
 
-- alias: 'Set camera text overlay to disarmed'
+- alias: "Set camera text overlay to disarmed"
   trigger:
-    platform: state
-    entity_id: alarm_control_panel.home_alarm
-    to: 'disarmed'
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: "disarmed"
   action:
     - service: motioneye.set_text_overlay
       target:
         entity_id: camera.living_room
       data:
         left_text: custom-text
-        custom_left_text: Alarm is disarmed
+        custom_left_text: "Alarm is disarmed"
 ```
 
 <a name="automation-movies"></a>
@@ -382,13 +383,13 @@ must be switched on for this automation to work (controllable via `switch.<name>
 An automation to cast stored movie clips to a TV as they arrive.
 
 ```yaml
-- alias: 'Cast motionEye movie clips'
+- alias: "Cast motionEye movie clips"
   trigger:
-    platform: event
-    event_type: 'motioneye.file_stored'
-    event_data:
-      # Only cast video.
-      file_type: '8'
+    - platform: event
+      event_type: motioneye.file_stored
+      event_data:
+        # Only cast video.
+        file_type: "8"
   action:
     - service: media_player.play_media
       target:
