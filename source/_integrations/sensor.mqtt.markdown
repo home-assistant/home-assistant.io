@@ -110,7 +110,7 @@ enabled_by_default:
   type: boolean
   default: true
 encoding:
-  description: The encoding of the payload received at `state_topic`. Set to `""` to disable decoding.
+  description: The encoding of the payload received at `state_topic` and availability topics `availability_topic` and `topic`. Set to `""` to disable decoding.
   required: false
   type: string
   default: "utf-8"
