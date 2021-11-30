@@ -23,17 +23,17 @@ Showing weather information provided by [Trafikverket](https://www.trafikverket.
 
 {% include integrations/config_flow.md %}
 
-## Monitored conditions can be one of many of
-- air_temp: Air temperature.
-- road_temp: The temperature in the road.
-- humidity: Relative humidity.
-- precipitation: Type of precipitation (Swedish text).
-- wind_direction: Wind direction in degrees.
-- wind_direction_text: Rough wind direction in twelve variants (Swedish text).
-- wind_speed: Average wind speed during the last 10 minutes.
-- wind_speed_max: Maximum wind speed measured during the last 30 minutes.
-- precipitation_amount: Amount of precipitation.
-- precipitation_amountname: Amount of precipitation in thirteen variants (Swedish text).
+## Entities provided by the integration is
+- Air temperature.
+- Road temperature.
+- Relative humidity.
+- Type of precipitation (Swedish text).
+- Wind direction in degrees.
+- Rough wind direction in twelve variants (Swedish text).
+- Average wind speed during the last 10 minutes.
+- Maximum wind speed measured during the last 30 minutes.
+- Amount of precipitation.
+- Amount of precipitation in thirteen variants (Swedish text).
 
 ## Obtaining API key
 
