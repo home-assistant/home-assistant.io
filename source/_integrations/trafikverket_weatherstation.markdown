@@ -15,11 +15,15 @@ ha_platforms:
 
 Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden.
 
-## Potential use cases:
+## Potential use cases
 
 - Get weather data in general.
 - You live near a weather station and want to know the current weather conditions at home.
 - Setup automations for your car heating system. If the road is frozen along the way to work, you might want the car heating system to start earlier.
+
+## Prerequisites
+
+Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obtain the API key.
 
 {% include integrations/config_flow.md %}
 
@@ -34,10 +38,6 @@ Showing weather information provided by [Trafikverket](https://www.trafikverket.
 - Maximum wind speed measured during the last 30 minutes.
 - Amount of precipitation.
 - Amount of precipitation in thirteen variants (Swedish text).
-
-## Obtaining API key
-
-Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obtain the API key.
 
 ## Weather stations
 
