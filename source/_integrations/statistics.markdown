@@ -18,13 +18,17 @@ The `statistics` sensor platform observes the state of a source sensor and provi
 
 The statistics sensor updates with every source sensor update. The value of the sensor represents one statistical characteristic, with `mean` being the default. The time period and/or number of recent state that should be considered is an important factor here. Check the configuration section below for options.
 
-Both `sensor` and `binary_sensor` are supported as source sensor. In the case of a binary sensor only the state changes are counted.
+Both `sensor` and `binary_sensor` are supported as source sensor. A number of characteristics is supported by each, please check below.
 
 Assuming the [`recorder`](/integrations/recorder/) integration is running, historical sensor data is read from the database on startup and is available immediately after a restart of the platform. If the [`recorder`](/integrations/recorder/) integration is *not* running, it can take some time for the sensor to start reporting data because some characteristics calculations require more than one source sensor value.
 
 ## Characteristics
 
 The following statistical characteristics are available. Pay close attention to the right configuration of `sampling_size` and `max_age`, as most characterists are directly related to the count of samples or the age of processed samples.
+
+### Numeric Source Sensor
+
+The following characteristics are supported for `sensor` source sensors:
 
 | State Characteristic | Description |
 | -------------------- | ----------- |
@@ -50,6 +54,17 @@ The following statistical characteristics are available. Pay close attention to 
 | `value_min` | The smallest value among the number of measurements.
 | `variance` | The [variance](https://en.wikipedia.org/wiki/Standard_deviation) of an assumed normal distribution from all measurements.
 
+### Binary Source Sensor
+
+The following characteristic are supported for `binary_sensor` source sensors:
+
+| State Characteristic | Description |
+| -------------------- | ----------- |
+| `average_step` | A percentage of time across all stored measurements, in which the binary source sensor was "On". If over the course of one hour, movement was detected for 6 minutes, the `average_step` is 10%.
+| `average_timeless` | The percentage of stored measurements, for which the binary source sensor was "On". Time in on/off states is ignored. If over the course of one hour, a single movement was detected, the `average_timeless` is 33.3% (assuming the stored measurements "Off", "On", "Off"). Equal to `mean`.
+| `count` | The number of stored source sensor readings. This number is limited by `sampling_size` and can be low within the bounds of `max_age`.
+| `mean` | The percentage of stored measurements, for which the binary source sensor was "On". Time in on/off states is ignored. If over the course of one hour, a single movement was detected, the `average_timeless` is 33.3% (assuming the stored measurements "Off", "On", "Off").
+
 ## Attributes
 
 A statistics sensor presents the following attributes for context about its internal status.
@@ -69,6 +84,7 @@ sensor:
   - platform: statistics
     name: "Bathroom humidity mean over last 24 hours"
     entity_id: sensor.bathroom_humidity
+    state_characteristic: mean
     max_age:
       hours: 24
 
@@ -83,6 +99,7 @@ sensor:
 
   - platform: statistics
     entity_id: binary_sensor.movement
+    state_characteristic: count
 ```
 
 {% configuration %}
@@ -96,9 +113,9 @@ name:
   default: Stats
   type: string
 state_characteristic:
-  description: The characteristic that should be used as the state of the statistics sensor (see table above).
+  description: The characteristic that should be used as the state of the statistics sensor (see table above). **Beware** that this parameter will become mandatory in a future version. Include in your configuration. If currently omitted, the default characteristic for a `sensor` source sensor is "mean", for a `binary_sensor` "count".
   required: false
-  default: mean
+  default: mean / count
   type: string
 sampling_size:
   description: Maximum number of source sensor measurements stored. Be sure to choose a reasonably high number if the limit should be driven by `max_age` instead.
@@ -125,7 +142,3 @@ quantile_method:
   default: exclusive
   type: string
 {% endconfiguration %}
-
-<p class='img'>
-  <img src='/images/screenshots/stats-sensor.png' />
-</p>
