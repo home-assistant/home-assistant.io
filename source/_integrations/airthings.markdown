@@ -20,7 +20,9 @@ Integrates Airthings sensors into Home Assistant.
 
 Requires Airthings hardware and a valid Airthings Dashboard login.
 
-### Airthings API setup (needed to acquire the required ID and Secret for the Home Assistant Airthings Integration).
+## Prerequisites
+
+Airthings API setup (needed to acquire the required ID and Secret for the Home Assistant Airthings Integration).
 
 1. Login [here](https://dashboard.airthings.com/integrations/api-integration) to find your credentials.
 
