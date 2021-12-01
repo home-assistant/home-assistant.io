@@ -37,4 +37,25 @@ Currently supported services are:
 
 ### Integration Disconnecting
 
-If the integration frequently disconnects and you have an ad blocker runner like [Pi-hole](https://pi-hole.net/) or [AdGuard](https://adguard.com) add `ads-field.aylanetworks.com` to the Allow list . This domain is needed for the connection and can be part of the automatic blocking because of `ads` being part of the subdomain.
+There is currently a bug in the shark library that causes a frequent disconnect but will continue to work after a restart. [Discussion](https://github.com/home-assistant/core/issues/44775)
+
+This automation is a work around:
+```
+alias: Shark Robot not responding
+description: ''
+trigger:
+  - platform: state
+    entity_id: vacuum.shark
+    to: unavailable
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+condition: []
+action:
+  - service: homeassistant.reload_config_entry
+    data:
+      entry_id: vacuum.shark
+mode: single
+```
