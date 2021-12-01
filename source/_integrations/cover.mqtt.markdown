@@ -42,6 +42,10 @@ availability:
   required: false
   type: list
   keys:
+    availability_template:
+      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
     payload_available:
       description: The payload that represents the available state.
       required: false
@@ -61,6 +65,10 @@ availability_mode:
   required: false
   type: string
   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
 availability_topic:
   description: "The MQTT topic subscribed to to receive birth and LWT messages from the MQTT cover device. If an `availability` topic is not defined, the cover availability state will always be `available`. If an `availability` topic is defined, the cover availability state will be `unavailable` by default. Must not be used together with `availability`."
   required: false
