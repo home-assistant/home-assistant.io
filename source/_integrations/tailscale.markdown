@@ -3,6 +3,7 @@ title: Tailscale
 description: Instructions on how to integrate Tailscale within Home Assistant.
 ha_category:
   - Binary Sensor
+  - Sensor
   - Network
 ha_release: 2021.12
 ha_iot_class: Cloud Polling
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: tailscale
 ha_platforms:
   - binary_sensor
+  - sensor
 ha_quality_scale: platinum
 ---
 
