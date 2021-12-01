@@ -25,24 +25,15 @@ Requires Airthings hardware and a valid Airthings Dashboard login.
 Airthings API setup (needed to acquire the required ID and Secret for the Home Assistant Airthings Integration).
 
 1. Login [here](https://dashboard.airthings.com/integrations/api-integration) to find your credentials.
-
-2. Select [Integrations](https://dashboard.airthings.com/integrations/api-integration) from the left side-bar
-
-3. Click on "Request API Client" in order to set up an api connection.
-
-4. Name your api connection ie. "Home Assistant Integration"
-
+2. Select [Integrations](https://dashboard.airthings.com/integrations/api-integration) from the left side-bar.
+3. Click on "Request API Client" in order to set up an API connection.
+4. Name your API connection ie. "Home Assistant Integration".
 5. Give the connection an accurate description.
-
-6. Select a Resource Scope
-
-7. Select an access Type ie. Confidential
-
-8. Select a flow type
-
-9. Set enable to "on"
-
-10. Save the settings
+6. Select a Resource Scope.
+7. Select an access Type, i.e., Confidential.
+8. Select a flow type.
+9. Set enable to "on".
+10. Save the settings.
 
 Upon saving the settings, you will be presented with a generated id and secret.
 
