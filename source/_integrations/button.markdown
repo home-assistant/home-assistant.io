@@ -52,3 +52,12 @@ This service can be called to trigger a button press for that entity.
   target:
     entity_id: button.my_button
 ```
+
+## Device Class
+
+The way these buttons are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/).
+The following device classes are supported for buttons:
+
+- **None**: Generic button. This is the default and doesn't need to be set.
+- **restart**: The button restarts the device.
+- **update**: The button updates the software of the device.
