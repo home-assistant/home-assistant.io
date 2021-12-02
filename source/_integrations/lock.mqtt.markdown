@@ -147,7 +147,7 @@ payload_available:
   type: string
   default: online
 payload_lock:
-  description: The payload that represents enabled/locked state.
+  description: The payload sent to the lock to lock it.
   required: false
   type: string
   default: LOCK
@@ -157,12 +157,12 @@ payload_not_available:
   type: string
   default: offline
 payload_unlock:
-  description: The payload that represents disabled/unlocked state.
+  description: The payload sent to the lock to unlock it.
   required: false
   type: string
   default: UNLOCK
 payload_open:
-  description: The payload sent to the lock to `open` it.
+  description: The payload sent to the lock to open it.
   required: false
   type: string
   default: OPEN
@@ -177,7 +177,7 @@ retain:
   type: boolean
   default: false
 state_locked:
-  description: The value that represents the lock to be in locked state
+  description: The payload sent to by the lock when it's locked.
   required: false
   type: string
   default: LOCKED
@@ -186,7 +186,7 @@ state_topic:
   required: false
   type: string
 state_unlocked:
-  description: The value that represents the lock to be in unlocked state
+  description: The payload sent to by the lock when it's unlocked.
   required: false
   type: string
   default: UNLOCKED
