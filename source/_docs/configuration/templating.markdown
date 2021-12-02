@@ -574,6 +574,26 @@ The numeric functions and filters will not fail if the input is not a valid numb
 - Filter `value_one|bitwise_or(value_two, little_endian=False)` perform a bitwise or(\|) operation with two values. If a value is a `bytes` object, it will be translated to an integer in Big-endian style (the first byte is contains the most significant bit). Set `little_endian` to `True` to parse `bytes` object in Little-endian style.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
 
+### Functions and filters to process raw data
+
+These functions are used to process raw value's in a `bytes` format to values in a native python type or vice-versa.
+The `pack` and `unpack` functions can also be use as a filter. The make use of the Python 3 `struct` library.
+See: https://docs.python.org/3/library/struct.html
+
+- Filter `value | pack(format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or the `format_string` is invalid.
+- Function `pack(value, format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or the `format_string` is invalid.
+- Filter `value | unpack(format_string, offset=0)` will try to convert a `bytes` object into a native python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or the `format_string` is invalid.
+- Function `unpack(value, format_string, offset=0)` will try to convert a `bytes` object into a native python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or the `format_string` is invalid.
+
+{% raw %}
+
+- `{{ 0xDEADBEEF | pack(">I") }}` - renders as `b"\xde\xad\xbe\xef"`
+- `{{ pack(0xDEADBEEF, ">I") }}` - renders as `b"\xde\xad\xbe\xef"`
+- `{{ 0xDEADBEEF | pack(">I") | unpack("">I") }}` - renders as `0xDEADBEEF`
+- `{{ 0xDEADBEEF | pack(">I") | unpack("">H", offset=2) }}` - renders as `0xBEEF`
+
+{% endraw %}
+
 ### String filters
 
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
