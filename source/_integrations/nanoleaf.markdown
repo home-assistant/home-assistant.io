@@ -8,7 +8,7 @@ ha_codeowners:
   - '@milanmeu'
 ha_config_flow: true
 ha_homekit: true
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: 0.67
 ha_domain: nanoleaf
 ha_platforms:
