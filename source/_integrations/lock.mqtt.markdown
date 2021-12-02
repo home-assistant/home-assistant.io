@@ -18,7 +18,7 @@ When a `state_topic` is not available, the lock will work in optimistic mode. In
 
 Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect lock operation.
 
-It's mandatory for locks to support `lock` and `unlock`. A lock may optionally support `open`, (e.g. to open the bolt in addition to the latch), in this case `payload_open` is required in the configuration. If the lock is i optimistic mode, it will change states to `unlocked` when handling the `open` command.
+It's mandatory for locks to support `lock` and `unlock`. A lock may optionally support `open`, (e.g. to open the bolt in addition to the latch), in this case, `payload_open` is required in the configuration. If the lock is in optimistic mode, it will change states to `unlocked` when handling the `open` command.
 
 payload_open:
 
