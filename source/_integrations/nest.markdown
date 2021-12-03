@@ -31,6 +31,8 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Sensor](#sensor)
 
+Cameras and Doorbells support [Automation and Device Triggers](#automation-and-device-triggers) and a [Media Source](#media-source) for viewing recent events.
+
 <div class='note'>
 The Nest Smart Device Management (SDM) API *requires a US$5 fee*.
 </div>
@@ -338,6 +340,8 @@ Given a camera named `Front Yard` then the camera is created with a name such as
 
 Cameras either support an `RTSP` stream served via `HLS` by Home Assistant, or support a `WebRTC` stream. See the [Nest SDM API: CameraLiveStream Schema](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) for details on which camera devices support which types of streams. WebRTC cameras do not support image previews or stream recording in Home Assistant as the stream communication is client-side, directly from the browser to the device.
 
+See [Automation and Device Triggers](#automation-and-device-triggers) and [Media Source](#media-source) below for additional camera features.
+
 ## Climate
 
 All Google Nest Thermostat models are exposed as a `climate` entity that use the [Thermostat Traits](https://developers.google.com/nest/device-access/traits/device/thermostat-hvac) in the SDM API. State changes to the thermostat are reported to Home Assistant through the Cloud Pubsub subscriber.
@@ -398,6 +402,14 @@ action:
 ```
 
 The action in this section uses the [Android Companion App](https://companion.home-assistant.io/docs/notifications/notifications-basic/) and the camera proxy to send a notification with a snapshot from the camera.
+
+## Media Source
+
+The Nest [Media Source](/integrations/media-source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
+
+See [Device Access: Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for details on Image Support for various devices in the API. Not all cameras support event snapshots, and the Nest Doorbell battery camera supports 10-frame video clips for events.
+
+The Nest media source only displays the most recent event for each camera at the moment.
 
 ## Manual Pub/Sub subscription
 
