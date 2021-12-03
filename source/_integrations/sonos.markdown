@@ -25,12 +25,13 @@ The `sonos` integration allows you to control your [Sonos](https://www.sonos.com
 
 {% include integrations/config_flow.md %}
 
-## Feature controls
+## Feature controls & sensors
 
-Speaker-level features are exposed as `switch` entities which allow direct control and indicate if the features are currently enabled.
+Speaker-level features are exposed as `number` or `switch` entities which report current values and allow direct control.
 
-- **All devices**: Crossfade, Status Light, Touch Controls
-- **Home theater devices**: Night Sound & Speech Enhancement
+- **All devices**: Bass, Treble, Crossfade, Status Light, Touch Controls
+- **Home theater devices**: Night Sound, Speech Enhancement, Surround Enabled, Audio Input Format (read-only)
+- **When paired with a sub**: Subwoofer Enabled
 
 ## Battery support
 
