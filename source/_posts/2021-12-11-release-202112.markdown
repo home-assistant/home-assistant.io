@@ -278,6 +278,7 @@ We welcome the following new integration this release:
 
 The following integrations are now available via the Home Assistant UI:
 
+- [Fronius][fronius docs], done by [@farmio]
 - [KNX][knx docs], done by [@marvin-w]
 - [Trafikverket Weather Station][trafikverket_weatherstation docs], done by [@gjohansson-ST]
 - [Viessmann ViCare][vicare docs], done by [@oischinger]
