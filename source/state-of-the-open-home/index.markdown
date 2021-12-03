@@ -13,7 +13,7 @@ When: Saturday, December 11, at 11am PST / 8pm CET
 
 For over 8 years we've been working on the open home. We envision the open home as one where you are in control of the technology, your data and who can access it. At the State of the Open Home 2021 we will present on the progress we made this year in making the open home a viable choice for everyone.
 
-The event is hosted by Nabu Casa, Home Assistant & ESPHome and we'll be joined by our friends from WLED and Z-Wave JS to talk about our work on making this vision a reality.
+The event is hosted by Nabu Casa, Home Assistant & ESPHome and we'll be joined by our friends from WLED, Z-Wave JS, Stanford's OVAL lab and Northeastern University to talk about our work on making this vision a reality.
 
 To be notified when the live stream is online, [visit YouTube](https://www.youtube.com/watch?v=6ZMXE5PXPqU) and click “Set Reminder”.
 
