@@ -66,13 +66,9 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Weather](#weather)
 
+{% include integrations/config_flow.md %}
+
 ## Basic Configuration
-
-To use your KNX devices from Home Assistant, add the following lines to your `configuration.yaml` file:
-
-```yaml
-knx:
-```
 
 In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main `configuration.yaml` file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files. See [Splitting up the configuration](/docs/configuration/splitting_configuration/).
 
@@ -89,33 +85,6 @@ knx:
 
 Please see the dedicated platform sections below about how to configure them correctly.
 
-{% configuration %}
-individual_address:
-  description: The KNX individual address (IA) that shall be used for routing or if a tunneling server doesn't assign an IA at connection.
-  required: false
-  type: string
-  default: "15.15.250"
-multicast_group:
-  description: The multicast group to use for automatic interface discovery and routing communication.
-  required: false
-  type: string
-  default: "224.0.23.12"
-multicast_port:
-  description: The port for multicast communication.
-  required: false
-  type: integer
-  default: 3671
-rate_limit:
-  description: Defines the maximum number of telegrams to be sent to the bus per second (range 1-100).
-  required: false
-  default: 20
-  type: integer
-state_updater:
-  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home Assistant. Set this option to False to prevent this behavior.
-  required: false
-  default: true
-  type: boolean
-{% endconfiguration %}
 
 ### Group addresses
 
@@ -146,53 +115,9 @@ knx:
 
 ## Connection
 
-Under normal conditions no connection configuration should be needed. The integration will auto-detect KNX/IP interfaces and connect to one. This requires multicast communication to work in your environment.
+Connection parameters are set up when adding the integration and can be changed from the `Integrations` panel.
 
-### Tunneling
-
-If you want to connect to a specific tunneling server or if the auto detection of the KNX/IP device does not work the IP or/and port of the tunneling device can be configurated.
-
-```yaml
-knx:
-  tunneling:
-    host: "192.168.2.23"
-```
-
-{% configuration %}
-host:
-  description: IP address of the KNX/IP tunneling device.
-  type: string
-  required: true
-port:
-  description: Port of the KNX/IP tunneling device.
-  type: integer
-  required: false
-local_ip:
-  description: IP address of the local interface.
-  type: string
-  required: false
-route_back:
-  description: When True the KNXnet/IP Server shall use the IP address and the port number from the IP package received as the target IP address or port number for the response to the KNXnet/IP Client (for NAT / Docker).
-  type: boolean
-  default: false
-  required: false
-{% endconfiguration %}
-
-### Routing
-
-Explicit connection via KNX/IP routing. This requires multicast communication to work in your environment.
-
-```yaml
-knx:
-  routing:
-```
-
-{% configuration %}
-local_ip:
-  description: The local IP address of the interface that shall be used to send multicast packets. If omitted the default multicast interface is used.
-  type: string
-  required: false
-{% endconfiguration %}
+Use `route back` if your tunneling server is located on a different network.
 
 ## Events
 

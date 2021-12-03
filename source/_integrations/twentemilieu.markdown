@@ -27,3 +27,4 @@ This integration provides sensors for the following waste pickup dates from Twen
 - Next organic waste pickup date.
 - Next paper waste pickup date.
 - Next non-recyclable waste pickup date.
+- Next Christmas Tree pickup date.

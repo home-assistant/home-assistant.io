@@ -36,7 +36,7 @@ Similar to {% my entities title="Configuration -> Entities" %}, but more lightwe
   Filter for entities in Quick Bar's entity filter mode
 </p>
 
-Once launched, start typing your entity id (or ["bits and pieces" of your entity id](#search-by-bits-and-pieces-rather-than-complete-substring)) to get back a filtered list of entities. Clicking on an entity (or hitting `enter` when the desired entity is highlighted) will open the "More Info" dialog for that entity.
+Once launched, start typing your entity id (or ["bits and pieces" of your entity id](#search-by-bits-and-pieces-rather-than-an-exact-substring)) to get back a filtered list of entities. Clicking on an entity (or hitting `enter` when the desired entity is highlighted) will open the "More Info" dialog for that entity.
 
 This is helpful when, say, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to Developer Tools.
 
@@ -55,6 +55,7 @@ Run various commands from anywhere without having to navigate to another view.
 
 Type | Available |
 | ------------- | ------------- |
+| Navigate | All entries in the sidebar and settings |
 | Reload | All currently-supported "Reload {domain}" services.<br />*(E.g., "Reload Scripts")* |
 | Server | Restart/Stop |
 

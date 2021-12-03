@@ -339,7 +339,7 @@ sensor:
         entity_id: sensor.owm_report
       owm_temp:
         friendly_name: "Outside temp"
-        value_template: "{{ state_attr(['sensor.owm_report', 'main')['temp'] - 273.15 }}"
+        value_template: "{{ state_attr('sensor.owm_report', 'main')['temp'] - 273.15 }}"
         unit_of_measurement: "°C"
         entity_id: sensor.owm_report
       owm_pressure:

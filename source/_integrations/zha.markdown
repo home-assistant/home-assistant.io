@@ -10,6 +10,7 @@ ha_category:
   - Light
   - Lock
   - Sensor
+  - Siren
   - Switch
   - Cover
   - Number
@@ -32,6 +33,7 @@ ha_platforms:
   - lock
   - number
   - sensor
+  - siren
   - switch
 ha_zeroconf: true
 ---
@@ -141,7 +143,7 @@ radio type. In the pop-up:
 Most devices need at the very least the serial device path, like `/dev/ttyUSB0`, but it is recommended to use
 device path from `/dev/serial/by-id` folder,
 e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`  
-A list of available device paths can be found in **Supervisor** > **System** > **Host System** > **dot menu** > **Hardware**.
+A list of available device paths can be found in {% my supervisor_logs title="Configuration > Add-ons & Backups > System" %} > **Host** > **dot menu** > **Hardware**.
 
 Press `Submit`. The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
 
@@ -160,6 +162,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 
 | Device | Discovery Method | Identifier |
 | -------| ---------------- | ---------- |
+| [Bitron Video/SMaBiT BV AV2010/10](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/) | USB | 10C4:8B34 |
 | [ConBee II](https://phoscon.de/en/conbee2) | USB | 1CF1:0030 |
 | [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) | USB | 10C4:8A2A |
 | [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/) | USB | 10C4:EA60 |

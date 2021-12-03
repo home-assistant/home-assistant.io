@@ -23,7 +23,6 @@ ha_codeowners:
 ha_domain: homekit_controller
 ha_zeroconf: true
 ha_platforms:
-  - air_quality
   - alarm_control_panel
   - binary_sensor
   - camera
@@ -182,3 +181,7 @@ In these cases, HomeKit Controller will skip polling to avoid a buildup of back 
 ### I can't see any events generated for "stateless" accessories
 
 This is expected. The only way to use stateless accessories like some doorbells, buttons or remotes with Home Assistant is through device automations. Home Assistant doesn't create duplicate events for device automation triggers, so for example you won't be able to watch them with the events developer tools.
+
+### Home Assistant can't see my Homebridge device(s)
+
+In your Homebridge settings/config, make sure you are using `ciao` and not `Bonjour-HAP`. `Bonjour-HAP` is no longer recommended by `homebridge` and is considered broken/unsupported.

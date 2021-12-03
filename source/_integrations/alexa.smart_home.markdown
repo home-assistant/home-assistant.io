@@ -284,7 +284,6 @@ alexa:
           type: string
         filter:
           description: Filter domains and entities for Alexa. ([Configure Filter](#configure-filter))
-          required: true
           type: map
           keys:
             include_domains:

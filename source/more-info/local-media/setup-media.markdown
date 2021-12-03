@@ -4,7 +4,7 @@ description: "More information on how to set up local media sources in Home Assi
 ---
 
 In order to use the media browser with Home Assistant, it needs to know where to
-find you local media.
+find your local media.
 
 ## Home Assistant OS and Supervised
 

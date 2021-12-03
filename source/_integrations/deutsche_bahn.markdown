@@ -49,12 +49,10 @@ This sensor stores a lot of attributes which can be accessed by other sensors, e
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  platform: template
-  sensors:
-    next_departure:
-      value_template: "{{ state_attr('sensor.munich_to_ulm', 'next') }}"
-      friendly_name: "Next departure"
+template:
+  - sensor:
+    - name : "Next departure"
+      state: "{{ state_attr('sensor.munich_to_ulm', 'next') }}"
 ```
 
 {% endraw %}

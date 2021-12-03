@@ -64,15 +64,15 @@ For the first phase, you will turn on the API and create the necessary credentia
 
 {% details "Create and configure Cloud Project [Cloud Console]" %}
 
-By the end of this section you will have a Cloud Project with the necessary APIs enabled.
+By the end of this section you will have a Cloud Project with the necessary APIs enabled
 
 1. Go to the [Google Cloud Console](https://console.developers.google.com/apis/credentials).
 
-1. If this is your first time here, you likely need to create a new Google API project. Click **Create Project** then **New
-Project**. Note: This is a different type of *project* from the Device Access project you are also creating.
+1. If this is your first time here, you likely need to create a new Google Cloud project. Click **Create Project** then **New
+Project**.
     ![Screenshot of APIs and Services Cloud Console with no existing project](/images/integrations/nest/api_project_needed.png)
 
-1. Give your API Project a name then click **Create**. Note: You can ignore the *Project ID* here as Home Assistant does not need it.
+1. Give your Cloud Project a name then click **Create**.
 
 1. Go to [APIs & Services > Library](https://console.cloud.google.com/apis/library) where you can enable APIs.
 
@@ -137,7 +137,7 @@ Secret* as these are needed in later steps.
 
 {% enddetails %}
 
-{% details "Create a Device Access Project [Device Access Console]" %}
+{% details "Create a Device Access project_id [Device Access Console]" %}
 
 Now that you have authentication configured, you will create a Nest Device Access Project which *requires a US$5 fee*.
 Once completed, you will have a device access `project_id` needed for later steps and the *Topic Name* needed to
@@ -170,41 +170,6 @@ configure Pub/Sub.
 
 {% enddetails %}
 
-## Pub/Sub subscriber setup
-
-The next phase is to enable the Pub/Sub API by creating a subscription that can keep Home Assistant informed of events or device changes in near real-time. See [Device Access: Events](https://developers.google.com/nest/device-access/api/events) for the full detailed instructions.
-
-{% details "Configure Cloud Pub/Sub subscriber_id [Cloud Console]" %}
-
-By the end of this section you will have the `subscriber_id` needed for configuration.
-
-What is Pub/Sub? You can think of your Nest device as the publisher and your Home Assistant as the subscriber. As your Nest device publishes events like a temperature change or motion event, it notifies your Home Assistant subscriber about
-those events so it can record the new value or trigger an automation.
-
-1. Go to the [Google Cloud Platform: Pub/Sub: Subscriptions](https://console.cloud.google.com/cloudpubsub/subscription/list) page and click **Create Subscription**.
-
-1. You will need to pick a *Subscription ID*.
-    ![Screenshot of creating a subscription](/images/integrations/nest/create_subscription.png)
-
-1. Select **Enter Topic Manually** from the topic drop down list.
-1. The *Topic name* comes from the [Device Access Console](https://console.nest.google.com/device-access/) *Topic name*
-and typically looks like `projects/sdm-prod/topics/EXAMPLE`.
-    ![Screenshot of creating a topic](/images/integrations/nest/device_access_pubsub_topic.png)
-
-1. Select **Pull** as the *Delivery Type*.
-
-1. Lower the message retention duration to be something short (e.g., 10 minutes or under an hour) to avoid a large backlog of updates when Home Assistant is turned off.
-
-1. Select **Never expire** as the *Expiry Period* to prevent the subscription you're creating being removed if for example your Home Assistant or the integration is offline for a while.
-
-1. Leave the rest of the defaults and click **Create**.
-
-1. Once created, copy the *Subscription name* which you will want to hold on to as your `subscriber_id` for configuring Home Assistant. This typically looks like `projects/MY-CLOUD-ID/subscriptions/EXAMPLE`.
-1. Don't confuse *Subscription name* with *Topic name* since they look similar. Remember that *Subscription name* is
-your `subscriber_id`.
-
-{% enddetails %}
-
 ## Configuration
 
 You now should have everything needed to configure Nest in Home Assistant. Edit your `configuration.yaml` file and populate a `nest` entry in the format of the example configuration below.
@@ -214,10 +179,8 @@ You now should have everything needed to configure Nest in Home Assistant. Edit 
 nest:
   client_id: CLIENT_ID
   client_secret: CLIENT_SECRET
-  # "Project ID" in the Device Access Console
+  # "Project ID" in the Device Access Console (not Cloud Project ID!)
   project_id: PROJECT_ID
-  # Provide the full path exactly as shown under "Subscription name" in Google Cloud Console
-  subscriber_id: projects/project-label-22ee1/subscriptions/SUBSCRIBER_ID
 ```
 
 {% configuration %}
@@ -234,7 +197,7 @@ project_id:
   required: false
   type: string
 subscriber_id:
-  description: Full path for the Pub/sub Subscription ID used to receive events. This is required to use the SDM API. Enter this exactly as it appears under "Subscription name" in the [Pub/Sub console](https://console.cloud.google.com/cloudpubsub/subscription/list).
+  description: Recommended to leave blank, and let the integration manage this for you. If you want to use your subscription, enter the full path for the Pub/sub Subscription name.
   type: string
   required: false
 {% endconfiguration %}
@@ -299,6 +262,10 @@ In this section you will authorize Home Assistant to access your account by gene
 
     ![Screenshot of Integration setup on Link Accounts step](/images/integrations/nest/integration_access_token.png)
 
+1. The next step is to enter the *Cloud Project ID* to enable a subscription to receive updates from devices. This is not the same as the *Device Access Project ID* above! Visit the [Cloud Console](https://console.cloud.google.com/home/dashboard) and copy the *Project ID*.
+
+    ![Screenshot of success](/images/integrations/nest/console_project_id.png)
+
 1. If all went well, you are ready to go!
 
     ![Screenshot of success](/images/integrations/nest/finished.png)
@@ -338,13 +305,11 @@ In this section you will authorize Home Assistant to access your account by gene
 
 - *Error: invalid_client no application name* means the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) has not been fully configured for the project. Enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
 
-- *Subscriber error: Subscription misconfigured. Expected subscriber_id to match...* means that the `configuration.yaml` has an incorrect `subscriber_id` field. Re-enter the *Subscription Name* which looks like `projects/project-label-22ee1/subscriptions/SUBSCRIBER_ID`. Make sure this is not the *Topic name*.
+- *Subscriber error* means that `configuration.yaml` has an incorrect `subscriber_id` or the subscription is misconfiugred. It is recommended to delete this from the configuration, then delete and re-add the integration to let it create a subscription for you.
 
-- *Subscriber error: Subscription misconfigured. Expected topic name to match ...* means that the topic name in the Google Cloud Console was entered incorrectly. The topic name comes from the Device Console and must start with `projects/sdm-prod/topics/`. It is easy to make the mistake of creating a new topic rather than manually entering the right topic name.
+- *Not receiving updates* typically means a problem with the subscriber configuration. Make sure to check the logs for any error messages. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
 
-- *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
-
-- You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all. Double check the `subscriber_id` matches the `Subscription Name`
+- You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all.
 
 - To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 
 
@@ -445,6 +410,12 @@ The Nest [Media Source](/integrations/media-source) platform allows you to brows
 See [Device Access: Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for details on Image Support for various devices in the API. Not all cameras support event snapshots, and the Nest Doorbell battery camera supports 10-frame video clips for events.
 
 The Nest media source only displays the most recent event for each camera at the moment.
+
+## Manual Pub/Sub subscription
+
+It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `susbcriber_id` in the configuration.
+
+See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
 
 # Legacy Works With Nest API
 

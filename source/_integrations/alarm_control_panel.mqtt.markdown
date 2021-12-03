@@ -57,11 +57,19 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -77,6 +85,11 @@ code_arm_required:
   default: true
 code_disarm_required:
   description: If true the code is required to disarm the alarm. If false the code is not validated.
+  required: false
+  type: boolean
+  default: true
+code_trigger_required:
+  description: If true the code is required to trigger the alarm. If false the code is not validated.
   required: false
   type: boolean
   default: true
@@ -201,6 +214,11 @@ payload_not_available:
   required: false
   type: string
   default: offline
+payload_trigger:
+  description: The payload to trigger the alarm on your Alarm Panel.
+  required: false
+  type: string
+  default: TRIGGER
 qos:
   description: The maximum QoS level of the state topic.
   required: false
