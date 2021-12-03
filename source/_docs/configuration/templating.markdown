@@ -577,7 +577,7 @@ The numeric functions and filters will not fail if the input is not a valid numb
 ### Functions and filters to process raw data
 
 These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
-The `pack` and `unpack` functions can also be use as a filter. The make use of the Python 3 `struct` library.
+The `pack` and `unpack` functions can also be used as a filter. They make use of the Python 3 `struct` library.
 See: https://docs.python.org/3/library/struct.html
 
 - Filter `value | pack(format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or the `format_string` is invalid.
