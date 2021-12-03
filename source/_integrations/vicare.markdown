@@ -13,6 +13,7 @@ ha_platforms:
   - climate
   - sensor
   - water_heater
+ha_dhcp: true
 ---
 
 The `ViCare` integration lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.

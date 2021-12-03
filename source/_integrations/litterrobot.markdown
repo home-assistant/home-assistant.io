@@ -15,8 +15,8 @@ ha_codeowners:
 ha_domain: litterrobot
 ha_platforms:
   - button
-  - select
   - sensor
+  - select
   - switch
   - vacuum
 ---

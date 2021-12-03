@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - camera
   - sensor
+  - switch
 ha_codeowners:
   - '@flacjacket'
 ---

@@ -9,6 +9,7 @@ ha_release: 0.25
 ha_domain: flux_led
 ha_platforms:
   - light
+  - number
   - switch
 ha_codeowners:
   - '@icemanch'

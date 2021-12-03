@@ -38,6 +38,7 @@ ha_platforms:
   - select
   - switch
   - weather
+ha_config_flow: true
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.
