@@ -600,6 +600,8 @@ using the My BMW API:
 - `lastchargingendresult`
 - `maxelectricrange`
 
+Attributes of `binary_sensor.doors` and `binary_sensor.windows` do not start with `door`/`window` anymore.
+
 `notify` requires a location attribute at `data.location`, as the MyBMW API
 only supports sending POI and not messages.
 
