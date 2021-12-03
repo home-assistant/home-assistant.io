@@ -78,8 +78,7 @@ ffmpeg -i YOUR_INPUT -vn -filter:a silencedetect=n=-30dB:d=1 -f null -
 
 #### Unresponsive after a while
 
-If the noise sensor becomes unresponsive, make sure you have `extra_arguments: -nostats` in the configuration, see [Issue 32](https://github.com/home-assistant-libs/ha-ffmpeg/issues/32#issuecomment-727569153) for details.  
-
+If the noise sensor becomes unresponsive, make sure you have `extra_arguments: -nostats` in the configuration.  
 
 ```yaml
 # Example configuration.yaml entry
