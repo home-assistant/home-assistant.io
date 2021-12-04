@@ -55,6 +55,10 @@ and [Xiaomi IR Remote](#xiaomi-ir-remote).
 
 Please read the linked sections for those devices for more information.
 
+<div class='note'>
+  Devices need to be set up using the Mi Home app and not vendor-specific apps (e.g. Roborock).
+</div>
+
 {% include integrations/config_flow.md %}
 
 It is recommend to supply your Xiaomi cloud credentials during configuration
@@ -63,13 +67,6 @@ you used in the Xiaomi Home App (where you initially setup the device). There ar
 6 servers: `cn`, `de`, `i2`, `ru`, `sg` and `us`; please see
 [this page](https://www.openhab.org/addons/bindings/miio/#country-servers) for
 the server to use for each country.
-
-_Note: Roborock vacuums must be set up using the Mi Home app and not the Roborock app to use this integration. Additionally, if the following devices and Home Assistant are on different subnets/VLANs, [additional configuration](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets) on your router is required._
-
-* _RoboRock S7 (aka roborock.vacuum.a15)_
-* _Xiaomi Zhimi Humidifier (aka zhimi.humidifier.v1)_
-* _Xiaomi Smartmi Evaporative Humidifier 2 (aka zhimi.humidifier.ca1)_
-* _Xiaomi IR Remote (aka chuangmi_ir)_
 
 ## Xiaomi Gateway
 
