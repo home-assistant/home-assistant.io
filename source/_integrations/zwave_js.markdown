@@ -37,7 +37,7 @@ ha_platforms:
 
 This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're new to Home Assistant, use Z-Wave JS. The `zwave` and `ozw` integrations have been marked as deprecated and will no longer receive any updates. See [our migration instructions](#migrating-from-previous-integrations) to migrate from a prior integration.
 
-To Run Z-Wave JS you will need a [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules), a running Z-Wave JS server (using only **one** of the addons or installation methods described below), and the Z-Wave JS integration.
+To Run Z-Wave JS you will need a [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules), a running Z-Wave JS server (using only **one** of the add-ons or installation methods described below), and the Z-Wave JS integration.
 
 {% include integrations/config_flow.md %}
 
@@ -535,25 +535,25 @@ There are multiple ways to run this server:
 
 _This option is only available for Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations._
 
-This add-on can only be configured via the built-in Z-Wave JS control panel in Home Assistant. While that control panel gains new features with every release, some advanced configurations still require the Z-Wave JS to MQTT UI.
+This add-on can only be configured via the built-in Z-Wave JS control panel in Home Assistant. While that control panel gains new features with every release, some advanced configurations still require the Zwavejs2Mqtt UI.
 
-**Option 2: The Z-Wave JS to MQTT add-on installed available from the community add-on store**
+**Option 2: The Zwavejs2Mqtt add-on installed available from the community add-on store**
 
 _This option is only available for Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations._
 
-This add-on includes the Z-Wave JS Server as part of the Z-Wave JS 2 MQTT application. Despite the name, MQTT is not required to run this add-on and both provide the same Z-Wave JS driver.
+This add-on includes the Z-Wave JS Server as part of the Zwavejs2Mqtt application. Despite the name, MQTT is not required to run this add-on and both provide the same Z-Wave JS driver.
 
-The Z-Wave network can be configured via the built-in Z-Wave JS control panel in Home Assistant and via the Z-Wave JS control panel built into Z-Wave JS 2 MQTT. It provides you with a full-fledged, attractive and feature-complete UI to manage your Z-Wave nodes and settings.
+The Z-Wave network can be configured via the built-in Z-Wave JS control panel in Home Assistant and via the Z-Wave JS control panel built into Zwavejs2Mqtt. It provides you with a full-fledged, attractive and feature-complete UI to manage your Z-Wave nodes and settings.
 
-**Option 3: The Z-Wave JS to MQTT Docker container**
+**Option 3: The Zwavejs2Mqtt Docker container**
 
-This is the recommended approach if you're running Home Assistant Container. See the [Z-Wave JS to MQTT documentation](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) for instructions.
+This is the recommended approach if you're running Home Assistant Container. See the [Zwavejs2Mqtt documentation](https://zwave-js.github.io/Zwavejs2Mqtt/#/getting-started/quick-start) for instructions.
 
-This method provides the same server application and UI as the Z-Wave JS to MQTT add-on. After installing the Docker image, make sure you enable the WS Server in the Home Assistant section of Settings page.
+This method provides the same server application and UI as the Zwavejs2Mqtt add-on. After installing the Docker image, make sure you enable the WS Server in the Home Assistant section of Settings page.
 
 **Option 4: Run the Z-Wave server yourself**
 
-This is considered a very advanced use case. In this case you run the Z-Wave JS Server or zwavejs2mqtt NodeJS application directly. Installation and maintaining this is out of scope for this document. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt) GitHub repository for information.
+This is considered a very advanced use case. In this case you run the Z-Wave JS Server or Zwavejs2Mqtt NodeJS application directly. Installation and maintaining this is out of scope for this document. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [Zwavejs2Mqtt](https://github.com/zwave-js/zwavejs2mqtt) GitHub repository for information.
 
 <div class='note info'>
 
@@ -565,7 +565,7 @@ Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--
 
 **Network keys** are used to connect securely to compatible devices. The network keys consists of 32 hexadecimal characters, for example `2232666D100F795E5BB17F0A1BB7A146` (do not use this one, pick a random one). Without network keys security enabled devices cannot be added securely and will not function correctly. You must provide these network keys in the configuration part of the Z-Wave JS Server.
 
-For new installations, unique default keys will be auto generated for you by the Z-Wave JS addon. You can also generate those network keys in Settings section of Z-Wave JS to MQTT.
+For new installations, unique default keys will be auto generated for you by the Z-Wave JS add-on. You can also generate those network keys in Settings section of Zwavejs2Mqtt.
 
 If migrating from the `zwave` or `ozw` integrations, your network key from those integration should be entered as the S0 network key. Those integrations did not support S2 security, so you will not yet have S2 network keys to configure.
 
@@ -577,9 +577,9 @@ Make sure that you keep a backup of these keys in a safe place. You will need to
 
 Once you have the Z-Wave server up and running, you need to install and configure the integration in Home Assistant (as described above).
 
-If you're running full Home Assistant with supervisor, you will be presented with a dialog that asks if you want to use the Z-Wave JS Supervisor add-on. You **must** uncheck this box if you are running the Z-Wave JS server in any manner other than the official Z-Wave JS add-on, including using Z-Wave JS to MQTT addon.
+If you're running full Home Assistant with supervisor, you will be presented with a dialog that asks if you want to use the Z-Wave JS Supervisor add-on. You **must** uncheck this box if you are running the Z-Wave JS server in any manner other than the official Z-Wave JS add-on, including using Zwavejs2Mqtt add-on.
 
-If you're not running the supervisor or you've unchecked the above mentioned box, you will be asked to enter a websocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (docker) IP/hostname here. For example for the Z-Wave JS to MQTT add-on this is `ws://a0d7b954-zwavejs2mqtt:3000`.
+If you're not running the supervisor or you've unchecked the above mentioned box, you will be asked to enter a websocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (docker) IP/hostname here. For example for the Zwavejs2Mqtt add-on this is `ws://a0d7b954-zwavejs2mqtt:3000`.
 
 ## Frequently Asked Questions
 
@@ -631,44 +631,44 @@ Node {{ node }};{{ s.name }};{{ s.entity_id }}{% endfor %}
 
 {% endraw %}
 
-#### Can I switch between the Official Z-Wave JS add-on and Z-Wave JS to MQTT?
+#### Can I switch between the Official Z-Wave JS add-on and Zwavejs2Mqtt?
 
 You can, but you cannot run them both at the same time. Only one of them can be active at the same time.
 
-#### How do I switch between the Official Z-Wave JS add-on and Z-Wave JS to MQTT?
+#### How do I switch between the Official Z-Wave JS add-on and Zwavejs2Mqtt?
 
 Switching is easy and does not require renaming your devices.
 
-1. Note your network security keys from your current addon, then uninstall that addon. **Do not remove the Z-Wave JS integration or you will lose all device and entity naming.**
+1. Note your network security keys from your current add-on, then uninstall that add-on. **Do not remove the Z-Wave JS integration or you will lose all device and entity naming.**
 
 2. Install and configure the new add-on, including setting those network security keys.
 
 3. Re-add the Z-Wave integration to Home Assistant (_without_ removing it first). Add the the new/updated WebSocket URL. You may receive a popup stating that this Z-Wave network is already configured, but "under the hood" the WebSocket URL will be adjusted.
 
-#### What's the benefit of using Z-Wave JS to MQTT over the official Add-On?
+#### What's the benefit of using Zwavejs2Mqtt over the official Add-On?
 
 The official add-on provides the Z-Wave Server in it's bare minimum variant, just enough to serve the Home Assistant integration.
 
-The Z-Wave JS to MQTT project includes the Z-Wave JS Server for convenience but also provides a Z-Wave Control panel and the ability (hence its name) to serve your Z-Wave network to MQTT. You can leave the MQTT Gateway disabled and only use the Control panel but you can even have the MQTT features enabled at the same time. For example to interact with Z-Wave from other devices, while the Home Assistant integration still works (as long as you keep the WS Server enabled in zwavejs2mqtt).
+The Zwavejs2Mqtt project includes the Z-Wave JS Server for convenience but also provides a Z-Wave Control panel and the ability (hence its name) to serve your Z-Wave network to MQTT. You can leave the MQTT Gateway disabled and only use the Control panel but you can even have the MQTT features enabled at the same time. For example to interact with Z-Wave from other devices, while the Home Assistant integration still works (as long as you keep the WS Server enabled in Zwavejs2Mqtt).
 
-#### Z-Wave JS to MQTT seems to provide discovery of Home Assistant devices on its own too, now I'm confused
+#### Zwavejs2Mqtt seems to provide discovery of Home Assistant devices on its own too, now I'm confused
 
-Correct, the Z-Wave JS to MQTT project existed before Home Assistant had plans to move to the Z-Wave JS Driver. You should use the integration for device discovery and _not_ the MQTT discovery provided by Z-Wave JS to MQTT.
+Correct, the Zwavejs2Mqtt project existed before Home Assistant had plans to move to the Z-Wave JS Driver. You should use the integration for device discovery and _not_ the MQTT discovery provided by Zwavejs2Mqtt.
 
-#### Can I run Z-Wave JS to MQTT only for the control panel and nothing else?
+#### Can I run Zwavejs2Mqtt only for the control panel and nothing else?
 
-Sure, in the settings of zwavejs2mqtt, make sure to enable "WS Server" and disable "Gateway".
+Sure, in the settings of Zwavejs2Mqtt, make sure to enable "WS Server" and disable "Gateway".
 
-#### How do I use my OZW network key in Z-Wave JS to MQTT?
+#### How do I use my OZW network key in Zwavejs2Mqtt?
 
-You can use your existing network key in zwavejs2mqtt but you need to slightly adjust it.
-The OZW looks like this: `0x01, 0x02, 0x03 etc.` while the network key format accepted in zwavejs2mqtt looks like this `0102030405 etc.`. You can simply edit your existing key and remove the `"0x"` part and the `", "` part so it becomes one large string of numbers.
+You can use your existing network key in Zwavejs2Mqtt but you need to slightly adjust it.
+The OZW looks like this: `0x01, 0x02, 0x03 etc.` while the network key format accepted in Zwavejs2Mqtt looks like this `0102030405 etc.`. You can simply edit your existing key and remove the `"0x"` part and the `", "` part so it becomes one large string of numbers.
 
-#### Should I name my devices in Home Assistant, or in Z-Wave JS to MQTT?
+#### Should I name my devices in Home Assistant, or in Zwavejs2Mqtt?
 
-Ultimately, this is a personal decision. If you provide a name or location for a device in the Z-Wave JS to MQTT UI, that name will be imported into Home Assistant when the integration is reloaded or Home Assistant is restarted. Any entity names, however, will not change if the device has already been setup by Home Assistant. Names set in Z-Wave JS to MQTT _will not_ overwrite changes that have already been made in Home Assistant.
+Ultimately, this is a personal decision. If you provide a name or location for a device in the Zwavejs2Mqtt UI, that name will be imported into Home Assistant when the integration is reloaded or Home Assistant is restarted. Any entity names, however, will not change if the device has already been setup by Home Assistant. Names set in Zwavejs2Mqtt _will not_ overwrite changes that have already been made in Home Assistant.
 
-Names set in Home Assistant will not import into Z-Wave JS to MQTT.
+Names set in Home Assistant will not import into Zwavejs2Mqtt.
 
 ### Using Z-Wave JS
 
@@ -736,9 +736,9 @@ Your device might not send automatic status updates to the controller. While the
 
 Z-Wave JS does not automatically poll devices on a regular basis. Polling can quickly lead to network congestion and should be used very sparingly and only where necessary.
 
-- We provide a `zwave_js.refresh_value` service to allow you to manually poll a value, for example from an automation that only polls a device when there is motion in that same room. If you **really** need polling, you can enable this in zwavejs2mqtt but not in the official add-on.
+- We provide a `zwave_js.refresh_value` service to allow you to manually poll a value, for example from an automation that only polls a device when there is motion in that same room. If you **really** need polling, you can enable this in Zwavejs2Mqtt but not in the official add-on.
 
-- Z-Wave JS to MQTT allows you to configure scheduled polling on a per-value basis, which you can use to keep certain values updated. It also allows you to poll individual values on-demand from your automations, which should be preferred over blindly polling all the time if possible.
+- Zwavejs2Mqtt allows you to configure scheduled polling on a per-value basis, which you can use to keep certain values updated. It also allows you to poll individual values on-demand from your automations, which should be preferred over blindly polling all the time if possible.
 
 <div class='note warning'>
 Polling should only be used as a last resort. You must use it with care and accept the negative impact on your network. Z-Wave is a very low speed network and poll requests can easily flood your network and slow down your commands.
