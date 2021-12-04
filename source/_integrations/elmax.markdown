@@ -6,7 +6,6 @@ ha_category:
 ha_release: 2021.12
 ha_iot_class: Cloud Poll
 ha_config_flow: true
-ha_quality_scale: internal
 ha_codeowners:
   - '@albertogeniola'
 ha_domain: elmax
