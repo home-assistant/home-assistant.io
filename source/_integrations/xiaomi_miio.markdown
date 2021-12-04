@@ -64,6 +64,13 @@ you used in the Xiaomi Home App (where you initially setup the device). There ar
 [this page](https://www.openhab.org/addons/bindings/miio/#country-servers) for
 the server to use for each country.
 
+_Note: Roborock vacuums must be set up using the Mi Home app and not the Roborock app to use this integration. Additionally, if the following devices and Home Assistant are on different subnets/VLANs, [additional configuration](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets) on your router is required._
+
+* _RoboRock S7 (aka roborock.vacuum.a15)_
+* _Xiaomi Zhimi Humidifier (aka zhimi.humidifier.v1)_
+* _Xiaomi Smartmi Evaporative Humidifier 2 (aka zhimi.humidifier.ca1)_
+* _Xiaomi IR Remote (aka chuangmi_ir)_
+
 ## Xiaomi Gateway
 
 The `xiaomi_miio` gateway integration allows you to control the gateway and its connected subdevices.
