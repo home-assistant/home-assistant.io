@@ -3,7 +3,7 @@ title: ELMAX
 description: Instructions on how to integrate Elmax panels within Home Assistant.
 ha_category:
   - Switch
-ha_release: 2021.12
+ha_release: 2022.01
 ha_iot_class: Cloud Poll
 ha_config_flow: true
 ha_codeowners:
