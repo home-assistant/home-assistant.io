@@ -30,7 +30,7 @@ Sensors will be created for all those data.
 
 {% configuration_basic %}
 Update interval:
-  description: Update interval in minutes how often to get data from Ondilo. See [Ondilo Customer API reference](https://interop.ondilo.com/docs/api/customer/v1/) for details, especially quotas. Reload the integration after changing or restart Home-Assistant. Required and defaults to 60.
+  description: Update interval in minutes how often to get data from Ondilo. See [Ondilo Customer API reference](https://interop.ondilo.com/docs/api/customer/v1/) for details, especially quotas. Reload the integration after changing or restart Home Assistant. Required and defaults to 60.
 {% endconfiguration_basic %}
 
 ## Known limitations
