@@ -665,7 +665,7 @@ The OZW looks like this: `0x01, 0x02, 0x03 etc.` while the network key format ac
 
 #### Should I name my devices in Home Assistant, or in Zwavejs2Mqtt?
 
-Ultimately, this is a personal decision. If you provide a name or location for a device in the Zwavejs2Mqtt UI, that name will be imported into Home Assistant when the integration is reloaded or Home Assistant is restarted. Any entity names, however, will not change if the device has already been setup by Home Assistant. Names set in Zwavejs2Mqtt _will not_ overwrite changes that have already been made in Home Assistant.
+Ultimately, this is a personal decision. If you provide a name or location for a device in the Zwavejs2Mqtt UI, that name will be imported into Home Assistant when the integration is reloaded or Home Assistant is restarted. Any entity names, however, will not change if the device has already been set up by Home Assistant. Names set in Zwavejs2Mqtt _will not_ overwrite changes that have already been made in Home Assistant.
 
 Names set in Home Assistant will not import into Zwavejs2Mqtt.
 
