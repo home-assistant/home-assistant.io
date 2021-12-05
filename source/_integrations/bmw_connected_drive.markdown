@@ -154,6 +154,19 @@ The service `bmw_connected_drive.light_flash` flashes the lights of the vehicle.
 
 The service `bmw_connected_drive.find_vehicle` requests the vehicle to update the GPS location. This can be used for older vehicles which don't automatically send the updated GPS location. The vehicle is identified via the parameter `vin`.
 
+<div class="note warning">
+
+  Using this service will **send your Home Assistant location to BMW**, as this is required by the API (like sharing your mobile phone's location with the MyBMW app for vehicle tracking).
+  If you do not want this, trigger the `vehicle_finder` service from your phone and it should update in Home Assistant within 5 minutes.
+
+</div>
+
+<div class="note">
+
+  On some older cars (non i3/i8 series produced before 7/2014) this service will fail in getting your vehicles position, if the vehicle is more than 1.5 km away from the location of your Home Assistant instance. This is a limitation of the BMW API.
+
+</div>
+
 ### Update the state
 
 The service `bmw_connected_drive.update_state` fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles.
