@@ -612,7 +612,6 @@ Some Z-Wave USB sticks can be auto-discovered, which can simplify the Z-Wave JS 
 
 Additional devices may be discoverable, however only devices that have been confirmed discoverable are listed above.
 
-
 #### Is there a way to easily export a dump of all my current Z-Wave nodes before I migrate?
 
 You can run the script below in the Developer Tools to get a full oversight of your nodes and their entities.
