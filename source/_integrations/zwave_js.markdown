@@ -35,7 +35,7 @@ ha_platforms:
   - switch
 ---
 
-This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're new to Home Assistant, use Z-Wave JS. The `zwave` and `ozw` integrations have been marked as deprecated and will no longer receive any updates. See [our migration instructions](#migrating-from-previous-integrations) to migrate from a prior integration.
+This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're new to Home Assistant, use Z-Wave JS. The `zwave` and `ozw` integrations have been marked as deprecated and will no longer receive any updates. See [our migration instructions](#migrating-from-previous-z-wave-implementations) to migrate from a prior integration.
 
 To Run Z-Wave JS you will need a [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules), a running Z-Wave JS server (using only **one** of the add-ons or installation methods described below), and the Z-Wave JS integration.
 
@@ -460,7 +460,7 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | `trigger.current_value`      | The current value for this Z-Wave value (translated to a state name when possible).        |
 | `trigger.current_value_raw`  | The raw current value for this Z-Wave value (the key of the state when a state is named).  |
 
-## Migrating from previous integrations
+## Migrating from previous Z-Wave implementations
 
 It is easy to switch over from `zwave` or `ozw` integrations to the new Z-Wave JS integration. Your entire Z-Wave network is **stored on your stick** so you will not have to recreate your network. A few things, such as how you receive [central scene events](#events) will work differently than they did before.
 
@@ -535,7 +535,7 @@ There are multiple ways to run this server:
 
 _This option is only available for Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations._
 
-This add-on can only be configured via the built-in Z-Wave JS control panel in Home Assistant. While that control panel gains new features with every release, some advanced configurations still require the Zwavejs2Mqtt UI.
+This add-on can only be configured via the built-in Z-Wave JS control panel in Home Assistant.
 
 **Option 2: The Zwavejs2Mqtt add-on installed available from the community add-on store**
 
@@ -543,7 +543,7 @@ _This option is only available for Home Assistant OS (the recommended installati
 
 This add-on includes the Z-Wave JS Server as part of the Zwavejs2Mqtt application. Despite the name, MQTT is not required to run this add-on and both provide the same Z-Wave JS driver.
 
-The Z-Wave network can be configured via the built-in Z-Wave JS control panel in Home Assistant and via the Z-Wave JS control panel built into Zwavejs2Mqtt. It provides you with a full-fledged, attractive and feature-complete UI to manage your Z-Wave nodes and settings.
+The Z-Wave network can be configured via the built-in Z-Wave JS control panel in Home Assistant and alternatively via the Z-Wave JS control panel built into Zwavejs2Mqtt. It provides you with a full-fledged, attractive and feature-complete UI to manage your Z-Wave nodes and settings, which may support more advanced use cases as development continues on the Z-Wave JS control panel.
 
 **Option 3: The Zwavejs2Mqtt Docker container**
 
@@ -641,7 +641,7 @@ Switching is easy and does not require renaming your devices.
 
 2. Install and configure the new add-on, including setting those network security keys.
 
-3. Re-add the Z-Wave integration to Home Assistant (_without_ removing it first). Add the the new/updated WebSocket URL. You may receive a popup stating that this Z-Wave network is already configured, but "under the hood" the WebSocket URL will be adjusted.
+3. Reconfigure the Z-Wave integration in Home Assistant by clicking "Configure" for Z-Wave JS on the Integrations page, then select "Re-Configure Server". Add the the new/updated WebSocket URL.
 
 #### What's the benefit of using Zwavejs2Mqtt over the official Add-On?
 
@@ -723,10 +723,6 @@ The first generation Gen5 controller has a known bug when plugged into a Pi 4 an
 Entities will be created only after the node is ready (interview is completed). Also, note that some devices (like button remotes) do not create any entities but will only provide events when a button is pressed. See the events section on how to handle those events in your automations.
 
 If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), create an issue about your problem on the GitHub issue tracker.
-
-#### I get a lot of sensor entities for my device that I'm probably never going to use
-
-The integration will add as many usable entities for you as possible from the information it retrieves from your Z-Wave devices. Entities that you don't want/like, can be disabled within the Home Assistant interface.
 
 #### My device does not automatically update its status in HA if I control it manually
 
