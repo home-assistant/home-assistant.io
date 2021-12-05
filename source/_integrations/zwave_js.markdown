@@ -578,7 +578,7 @@ Make sure that you keep a backup of these keys in a safe place. You will need to
 
 Once you have the Z-Wave server up and running, you need to install and configure the integration in Home Assistant (as described above).
 
-If you're running full Home Assistant with supervisor, you will be presented with a dialog that asks if you want to use the Z-Wave JS Supervisor add-on. You **must** uncheck this box if you are running the Z-Wave JS server in any manner other than the official Z-Wave JS add-on, including using Zwavejs2Mqtt add-on.
+If you're running full Home Assistant with supervisor, you will be presented with a dialog that asks if you want to use the Z-Wave JS Supervisor add-on. You **must** uncheck this box if you are running the Z-Wave JS server in any manner other than the official Z-Wave JS add-on, including using Z-Wave JS to MQTT add-on.
 
 If you're not running the supervisor or you've unchecked the above mentioned box, you will be asked to enter a websocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (docker) IP/hostname here. For example for the Zwavejs2Mqtt add-on this is `ws://a0d7b954-zwavejs2mqtt:3000`.
 
