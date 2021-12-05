@@ -84,3 +84,38 @@ colors:
 speed_pct: 80
 transition: "jump"
 ```
+
+### Set Zones - Service `flux_led.set_zones`
+
+The Address v3 (0xA3) models allow setting a color effect per zone. The length of each zone is the number of pixels per segment divided by the number of colors.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | The entity_id of the LED light to set the effect on. |
+| `colors` | List of colors for each zone (RGB). (Max 2048 Colors) |
+| `speed_pct` | The speed of the effect in % (0-100. Default 50) |
+| `effect` | The effect you would like. Valid options are `static`, `running_water`, `strobe`, `jump`, or `breathing`. (Default `static`) |
+
+```yaml
+#Example Service Call
+service: flux_led.set_zones
+target:
+  entity_id:
+    - light.addressable_v3_8e2f7f
+    - light.addressable_v3_8ebdeb
+data:
+  colors:
+    - - 255
+      - 0
+      - 0
+    - - 0
+      - 255
+      - 0
+    - - 0
+      - 0
+      - 255
+    - - 255
+      - 255
+      - 255
+  speed_pct: 80
+```
