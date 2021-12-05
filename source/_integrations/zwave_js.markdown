@@ -689,7 +689,7 @@ If your device is included using S2 security, you may be prompted to enter a PIN
 
 #### Should I use `Secure Inclusion`?
 
-That depends. There are two generations of Z-Wave security, S0 and S2. 
+That depends. There are two generations of Z-Wave security, S0, and S2. 
 
 S0 security imposes significant additional traffic on your mesh and is recommended only for devices that require security, such as door locks.
 
