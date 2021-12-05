@@ -537,7 +537,7 @@ _This option is only available for Home Assistant OS (the recommended installati
 
 This add-on can only be configured via the built-in Z-Wave JS control panel in Home Assistant.
 
-**Option 2: The Zwavejs2Mqtt add-on installed available from the community add-on store**
+**Option 2: The Zwavejs2Mqtt (aka "Z-Wave JS to MQTT") add-on installed available from the community add-on store**
 
 _This option is only available for Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations._
 
