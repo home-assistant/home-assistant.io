@@ -35,7 +35,7 @@ ha_platforms:
   - switch
 ---
 
-This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're new to Home Assistant, use Z-Wave JS. The `zwave` and `ozw` integrations have been marked as deprecated and will no longer receive any updates. See [our migration instructions](#migrating-from-previous-z-wave-implementations) to migrate from a prior integration.
+This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're new to Home Assistant, use Z-Wave JS. If you're migrating from the deprecated `zwave` or `ozw` integrations, see [our migration instructions](#migrating-from-previous-z-wave-implementations).
 
 To Run Z-Wave JS you will need a [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules), a running Z-Wave JS server (using only **one** of the add-ons or installation methods described below), and the Z-Wave JS integration.
 
@@ -462,7 +462,7 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 ## Migrating from previous Z-Wave implementations
 
-It is easy to switch over from `zwave` or `ozw` integrations to the new Z-Wave JS integration. Your entire Z-Wave network is **stored on your stick** so you will not have to recreate your network. A few things, such as how you receive [central scene events](#events) will work differently than they did before.
+If you are switching from the `zwave` or `ozw` integrations to the new Z-Wave JS integration, you will not need to recreate your entire network, as the network is **stored on your stick**. A few things, such as how you receive [central scene events](#events) will work differently than they did before.
 
 ### Automatic migration wizard
 
@@ -474,7 +474,7 @@ There is no automatic migration wizard for the `ozw` integration. Please follow 
 
 ### Manual migration path
 
-1) Make a **backup** of your Home Assistant configuration. If you're running the supervisor this is very easy to do by creating a backup. You should do this so you'll be able to quickly revert if you encounter unexpected problems.
+1) Make a **backup** of your Home Assistant configuration. You should do this so you'll be able to quickly revert if you encounter unexpected problems.
 
   <div class='note info'>Write down/copy your Z-Wave network key somewhere, you are going to need it later.</div>
 
@@ -636,7 +636,7 @@ You can, but you cannot run them both at the same time. Only one of them can be 
 
 #### How do I switch between the Official Z-Wave JS add-on and Zwavejs2Mqtt?
 
-Switching is easy and does not require renaming your devices.
+Switching does not require renaming your devices.
 
 1. Note your network security keys from your current add-on, then uninstall that add-on. **Do not remove the Z-Wave JS integration or you will lose all device and entity naming.**
 
