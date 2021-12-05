@@ -87,7 +87,7 @@ transition: "jump"
 
 ### Set Zones - Service `flux_led.set_zones`
 
-The Address v3 (0xA3) models allow setting a color effect per zone. The length of each zone is the number of pixels per segment divided by the number of colors.
+The Addressable v3 (0xA3) models allow setting a color effect per zone. The length of each zone is the number of pixels per segment divided by the number of colors.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
