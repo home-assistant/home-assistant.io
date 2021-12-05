@@ -471,6 +471,7 @@ If you are using the `zwave` integration, there is a migration wizard that will 
 Some entities may not be able to migrate automatically and you will need to rename the corresponding available Z-Wave JS entities manually. Before completing the migration you will be shown a list of entities that could not be migrated automatically, and you'll have the option to abort or continue with the migration.
 
 There is no automatic migration wizard for the `ozw` integration. Please follow the manual migration path below if you want to migrate from `ozw` to Z-Wave JS.
+
 ### Manual migration path
 
 1) Make a **backup** of your Home Assistant configuration. If you're running the supervisor this is very easy to do by creating a backup. You should do this so you'll be able to quickly revert if you encounter unexpected problems.
