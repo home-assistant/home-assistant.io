@@ -646,7 +646,7 @@ Switching is easy and does not require renaming your devices.
 
 #### What's the benefit of using Zwavejs2Mqtt over the official Add-On?
 
-The official add-on provides the Z-Wave Server in it's bare minimum variant, just enough to serve the Home Assistant integration.
+The official add-on provides the Z-Wave Server in its bare minimum variant, just enough to serve the Home Assistant integration.
 
 The Zwavejs2Mqtt project includes the Z-Wave JS Server for convenience but also provides a Z-Wave Control panel and the ability (hence its name) to serve your Z-Wave network to MQTT. You can leave the MQTT Gateway disabled and only use the Control panel but you can even have the MQTT features enabled at the same time. For example to interact with Z-Wave from other devices, while the Home Assistant integration still works (as long as you keep the WS Server enabled in Zwavejs2Mqtt).
 
