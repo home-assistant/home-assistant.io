@@ -466,7 +466,7 @@ It is easy to switch over from `zwave` or `ozw` integrations to the new Z-Wave J
 
 ### Automatic migration wizard
 
-If you are using the `zwave` integration, there is a migration wizard that will help you setup the Z-Wave JS integration, remove the `zwave` integration and migrate the entities and devices that can be mapped from the `zwave` integration to the Z-Wave JS integration. The migration wizard is available from the `zwave` integration configuration panel in the GUI.
+If you are using the `zwave` integration, there is a migration wizard that will help you set up the Z-Wave JS integration, remove the `zwave` integration and migrate the entities and devices that can be mapped from the `zwave` integration to the Z-Wave JS integration. The migration wizard is available from the `zwave` integration configuration panel in the GUI.
 
 Some entities may not be able to migrate automatically and you will need to rename the corresponding available Z-Wave JS entities manually. Before completing the migration you will be shown a list of entities that could not be migrated automatically, and you'll have the option to abort or continue with the migration.
 
