@@ -5,7 +5,10 @@ ha_category:
   - Notifications
 ha_iot_class: Cloud Push
 ha_release: 0.37
+ha_config_flow: true
 ha_domain: discord
+ha_codeowners:
+  - '@tkdrob'
 ha_platforms:
   - notify
 ---
@@ -18,28 +21,11 @@ Retrieve the **Client ID** from the information section and the (hidden) **Token
 
 When setting up the application you can use this [icon](/images/favicon-192x192-full.png).
 
+{% include integrations/config_flow.md %}
+
 ## Configuration
 
 To use Discord notifications, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-notify:
-  - platform: discord
-    token: YOUR_DISCORD_BOT_TOKEN
-```
-
-{% configuration %}
-name:
-  description: The notifier will bind to the service `notify.NAME`.
-  required: false
-  type: string
-  default: notify
-token:
-  description: Your bot's token.
-  required: true
-  type: string
-{% endconfiguration %}
 
 ## Setting up the bot
 
