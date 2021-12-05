@@ -544,7 +544,7 @@ _This option is only available for Home Assistant OS (the recommended installati
 
 This add-on includes the Z-Wave JS Server as part of the Zwavejs2Mqtt application. Despite the name, MQTT is not required to run this add-on and both provide the same Z-Wave JS driver.
 
-The Z-Wave network can be configured via the built-in Z-Wave JS control panel in Home Assistant and alternatively via the Z-Wave JS control panel built into Zwavejs2Mqtt. It provides you with a full-fledged, attractive and feature-complete UI to manage your Z-Wave nodes and settings, which may support more advanced use cases as development continues on the Z-Wave JS control panel.
+The Z-Wave network can be configured via the built-in Z-Wave JS control panel in Home Assistant and alternatively via the Z-Wave JS control panel built into Zwavejs2Mqtt. It provides you with a full-fledged, attractive, and feature-complete UI to manage your Z-Wave nodes and settings, which may support more advanced use cases as development continues on the Z-Wave JS control panel.
 
 **Option 3: The Zwavejs2Mqtt Docker container**
 
