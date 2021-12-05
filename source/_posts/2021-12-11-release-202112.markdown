@@ -605,6 +605,8 @@ Attributes of `binary_sensor.doors` and `binary_sensor.windows` do not start wit
 `notify` requires a location attribute at `data.location`, as the MyBMW API
 only supports sending POI and not messages.
 
+The `find_vehicle` service will **always** send the location of your HA instance to BMW.
+
 ([@rikroe] - [#59881]) ([bmw_connected_drive docs])
 
 {% enddetails %}
