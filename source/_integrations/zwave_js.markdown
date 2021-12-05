@@ -566,7 +566,7 @@ Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--
 
 **Network keys** are used to connect securely to compatible devices. The network keys consists of 32 hexadecimal characters, for example `2232666D100F795E5BB17F0A1BB7A146` (do not use this one, pick a random one). Without network keys security enabled devices cannot be added securely and will not function correctly. You must provide these network keys in the configuration part of the Z-Wave JS Server.
 
-For new installations, unique default keys will be auto generated for you by the Z-Wave JS add-on. You can also generate those network keys in Settings section of Zwavejs2Mqtt.
+For new installations, unique default keys will be auto-generated for you by the Z-Wave JS add-on. You can also generate those network keys in the Settings section of Zwavejs2Mqtt.
 
 If migrating from the `zwave` or `ozw` integrations, your network key from those integration should be entered as the S0 network key. Those integrations did not support S2 security, so you will not yet have S2 network keys to configure.
 
