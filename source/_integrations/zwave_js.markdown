@@ -612,7 +612,6 @@ Some Z-Wave USB sticks can be auto-discovered, which can simplify the Z-Wave JS 
 
 Additional devices may be discoverable, however only devices that have been confirmed discoverable are listed above.
 
-700 series USB sticks are not presently auto-discoverable by the integration.
 
 #### Is there a way to easily export a dump of all my current Z-Wave nodes before I migrate?
 
