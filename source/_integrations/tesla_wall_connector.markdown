@@ -4,6 +4,7 @@ description: Instructions on how to integrate Tesla Wall Connector (Gen 3) into 
 ha_category:
   - Binary Sensor
   - Sensor
+  - Energy
 ha_release: 2021.12
 ha_iot_class: Local Polling
 ha_config_flow: true
