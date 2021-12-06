@@ -23,10 +23,6 @@ When setting up the application you can use this [icon](/images/favicon-192x192-
 
 {% include integrations/config_flow.md %}
 
-## Configuration
-
-To use Discord notifications, add the following to your `configuration.yaml` file:
-
 ## Setting up the bot
 
 Bots can send messages to servers and users or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
