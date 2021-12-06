@@ -49,9 +49,8 @@ This determines the transition between each color.
 
 The following models have been tested with integration.
 
-|-------------------------------------|---------------------------------|
 | Model | Description                 | Notes                           |
-|-------------------------------------|---------------------------------|
+| ----- | --------------------------- | ------------------------------- |
 | 0x04  | UFO Controller RGBW         |                                 |
 | 0x06  | Controller RGBW             |                                 |
 | 0x07  | Controller RGBCW            |                                 |
@@ -77,9 +76,8 @@ The following models have been tested with integration.
 
 The following models have not been tested with integration but may work.
 
-|-------------------------------------|---------------------------------|
 | Model | Description                 | Notes                           |
-|-------------------------------------|---------------------------------|
+| ----- | --------------------------- | ------------------------------- |
 | 0x09  | Ceiling Light CCT           |                                 |
 | 0x10  | Christmas Light             |                                 |
 | 0x16  | Magnetic Light CCT          |                                 |
