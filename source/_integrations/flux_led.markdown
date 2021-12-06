@@ -45,6 +45,53 @@ A list of RGB colors can be entered to create an effect. The effect speed can be
 **Custom Effect Type**\
 This determines the transition between each color. 
 
+### Supported Models
+
+The following models have been tested with integration.
+
+| Model | Description                 | Notes                           |
+| ----- | --------------------------- | ------------------------------- |
+| 0x04  | UFO Controller RGBW         |                                 |
+| 0x06  | Controller RGBW             |                                 |
+| 0x07  | Controller RGBCW            |                                 |
+| 0x08  | Controller RGB with MIC     |                                 |
+| 0x09  | Switch 1c                   |                                 |
+| 0x0E  | Floor Lamp RGBCW            |                                 |
+| 0x1C  | Table Light CCT             |                                 |
+| 0x21  | Bulb Dimmable               |                                 |
+| 0x25  | Controller RGB/WW/CW        | Supports RGB,RGBW,RGBWW,CW,DIM  |
+| 0x33  | Controller RGB              |                                 |
+| 0x35  | Bulb RGBCW                  |                                 |
+| 0x41  | Controller Dimmable         |                                 |
+| 0x44  | Bulb RGBW                   |                                 |
+| 0x54  | Downlight RGBW              |                                 |
+| 0x93  | Switch 1c                   |                                 |
+| 0x94  | Switch 1c Watt              |                                 |
+| 0x97  | Socket 1c                   |                                 |
+| 0xA1  | Addressable v1              |                                 |
+| 0xA2  | Addressable v2              |                                 |
+| 0xA3  | Addressable v3              |                                 |
+
+### Unsupported Models
+
+The following models have not been tested with integration but may work.
+
+| Model | Description                 | Notes                           |
+| ----- | --------------------------- | ------------------------------- |
+| 0x09  | Ceiling Light CCT           |                                 |
+| 0x10  | Christmas Light             |                                 |
+| 0x16  | Magnetic Light CCT          |                                 |
+| 0x17  | Magnetic Light Dimmable     |                                 |
+| 0x19  | Socket 2 USB                |                                 |
+| 0x1A  | Christmas Light             |                                 |
+| 0x18  | Plant Light                 |                                 |
+| 0x1B  | Spray Light                 |                                 |
+| 0x52  | Bulb CCT                    | May be discontinued             |
+| 0x95  | Switch 2c                   |                                 |
+| 0x96  | Switch 4c                   |                                 |
+| 0xD1  | Digital Light               |                                 |
+| 0xE1  | Ceiling Light               |                                 |
+| 0xE2  | Ceiling Light Assist        |                                 |
 
 ### Effects
 
