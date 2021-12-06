@@ -87,7 +87,7 @@ transition: "jump"
 
 ### Set Zones - Service `flux_led.set_zones`
 
-The Addressable v3 (0xA3) models allow setting a color effect per zone. The length of each zone is the number of pixels per segment divided by the number of colors. If the device is turned off, setting the zones will not turn it on. A seperate call to `light.turn_on` is needed to turn on the device.
+The Addressable v3 (0xA3) models allow setting a color effect per zone. The length of each zone is the number of pixels per segment divided by the number of colors. If the device is turned off, setting the zones will not turn it on. A separate call to `light.turn_on` is needed to turn on the device.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
