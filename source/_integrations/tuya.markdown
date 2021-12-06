@@ -54,6 +54,7 @@ All Home Assistant platforms are supported by the Tuya integration, except the l
 - Your devices need first to be added in the [Tuya Smart or Smart Life app](https://developer.tuya.com/en/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
 - You will also need to create an account in the [Tuya IoT Platform](https://iot.tuya.com/).
 This is a separate account from the one you made for the app. You cannot log in with your app's credentials.
+- To find your country code and data center go to the list on the developer site, [here](https://developer.tuya.com/en/docs/iot/oem-app-data-center-distributed?id=Kafi0ku9l07qb)
 
 ### Create a project
 
