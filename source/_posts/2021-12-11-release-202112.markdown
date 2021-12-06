@@ -828,6 +828,26 @@ The following icons have been renamed:
 
 {% enddetails %}
 
+{% details "Hue" %}
+
+*Events for Hue remotes/switches*
+Philips/Signify streamlined the events that are emitted for remotes/switches, these are now no longer device specific but more generic.
+This means that if you're relying on the `hue_event` to trigger events emitted by these devices, the event_data will now be a slightly bit different.
+To easily identify what events get emitted by your Hue remotes, Open Developer Tools and subscribe to the `hue_event`.
+
+*Light entities for Hue rooms/zones*
+Entities for Hue groups (zones/rooms) will be imported but by default in a disabled state.
+The Integration option to enable Hue groups has been phased out in favor of the default Home Assistant functionality to enable/disable entities.
+To enable any (new) light entities for Hue groups: Open settings --> integrations --> Hue --> Entities --> Click one of the disabled entities and enable it.
+Existing Hue group lights will be migrated as enabled entities.
+
+*Entities for Hue scenes*
+If you create any scenes for your Hue zones/rooms, these will now be automatically imported to Home Assistant as scene entity, including support for the new Hue Dynamic Scenes. You can disable any scene entities you don't like to use in Home Assistant (or delete them in the Hue app).
+
+([@marcelveldt] - [#58996]) ([hue docs])
+
+{% enddetails %}
+
 ## Updates for custom integration developers
 
 If you are a custom integration developer, we have some updates in this
@@ -958,25 +978,6 @@ Dataclasses provided by discovery type:
 - SSDP: `SsdpServiceInfo` ([#59931])
 
 ([@epenet])
-
-{% enddetails %}
-
-{% details "Hue" %}
-
-*Events for Hue remotes/switches*
-Philips/Signify streamlined the events that are emitted for remotes/switches, these are now no longer device specific but more generic.
-This means that if you're relying on the `hue_event` to trigger events emitted by these devices, the event_data will now be a slightly bit different.
-To easily identify what events get emitted by your Hue remotes, Open Developer Tools and subscribe to the `hue_event`.
-
-*Light entities for Hue rooms/zones*
-Entities for Hue groups (zones/rooms) will be imported but by default in a disabled state.
-The Integration option to enable Hue groups has been phased out in favor of the default Home Assistant functionality to enable/disable entities.
-To enable any light entities for Hue groups: Open settings --> integrations --> Hue --> Entities --> Click one of the disabled entities and enable it.
-
-*Entities for Hue scenes*
-If you create any scenes for your Hue zones/rooms, these will now be automatically imported to Home Assistant as scene entity, including support for the new Hue Dynamic Scenes. You can disable any scene entities you don't like to use in Home Assistant (or delete them in the Hue app).
-
-([@marcelveldt]) ([hue docs])
 
 {% enddetails %}
 
