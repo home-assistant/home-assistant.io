@@ -60,6 +60,11 @@ The Supervisor panel and menubar item have been removed and merged into
 the configuration panel. All OS, Core & Add-on updates are now shown in the
 configuration panel as well.
 
+If you are using our Android or iOS/macOS Companion apps, the sidebar menu
+item has also been moved to the brand new configuration panel!
+
+So, as of this release, all configuration related things, as in a single place 🤘
+
 [![Open your Home Assistant instance and show your configuration panel.](https://my.home-assistant.io/badges/config.svg)](https://my.home-assistant.io/redirect/config/)
 
 ## The button entity
@@ -159,8 +164,9 @@ noteworthy changes this release:
 - The Hue integration got a overhaul and now fully supports the V2 protocol.
   Amazing job, thanks [@marcelveldt]!
 
-- Update MDI to v6.5.95 (#10618) @goyney
-- change switch icon to mdiToggleSwitch (#10475) @Mariusthvdb
+TODO/Process: 
+- Update MDI to v6.5.95 (#10618) [@goyney]
+- change switch icon to mdiToggleSwitch (#10475) [@Mariusthvdb]
 - Add UNIX timestamp detection to `as_datetime` template filter ([@jbouwh] - [#60126])
 - Add template filters pack and unpack ([@jbouwh] - [#60836])
 
@@ -258,7 +264,6 @@ Integrations adding entity categories:
 - Add entity categorisation to AVM Fritz!Smarthome devices ([@mib1185] - [#59287]) ([fritzbox docs])
 - Add entity_category to Rituals Entities ([@milanmeu] - [#59756]) ([rituals_perfume_genie docs])
 
-
 ## New Integrations
 
 We welcome the following new integration this release:
@@ -279,10 +284,12 @@ We welcome the following new integration this release:
 The following integrations are now available via the Home Assistant UI:
 
 - [Fronius][fronius docs], done by [@farmio]
-- [KNX][knx docs], done by [@marvin-w]
 - [Trafikverket Weather Station][trafikverket_weatherstation docs], done by [@gjohansson-ST]
 - [Viessmann ViCare][vicare docs], done by [@oischinger]
 
+Additionally, [KNX][knx docs] can now partially be set up via the UI. The
+connection is done via the UI, the entities are configuration in YAML; just
+like before. Done by [@marvin-w].
 
 ## If you need help...
 
@@ -308,10 +315,19 @@ entity is shown, you can now change that by editing the entity in the UI.
 
 {% enddetails %}
 
-{% details "Supervisor Menu" %}
+{% details "Add-ons, Backups & Supervisor" %}
 
 The Supervisor panel has been merged into the configuration panel; therefore
 the separate menu item has been removed from the sidebar.
+
+----
+
+The binary_sensor with "running" `device_class` that was provided for the
+Home Assistant Operating System device did not work and has now been removed,
+if you have added this to templates and/or automation remove it from
+your configuration.
+
+([@ludeeus] - [#60597]) ([hassio docs])
 
 {% enddetails %}
 
@@ -662,17 +678,6 @@ graphs and automations. These should be used instead.
 
 {% enddetails %}
 
-{% details "Supervisor" %}
-
-The binary_sensor with "running" `device_class` that was provided for the
-Home Assistant Operating System device did not work and has now been removed,
-if you have added this to templates and/or automation remove it from
-your configuration.
-
-([@ludeeus] - [#60597]) ([hassio docs])
-
-{% enddetails %}
-
 {% details "Trafikverket Weather Station" %}
 
 The Trafikverket Weather Station integration migrated to configuration via the
@@ -848,8 +853,8 @@ function needs to be adjusted accordingly.
 
 {% details "homeassistant.const.HTTP_* removed" %}
 
-The `homeassistant.const.HTTP_*` HTTP status constants have been removed,
-use stdlib `http.HTTPStatus` instead.
+The, previously deprecated, `homeassistant.const.HTTP_*` HTTP status constants
+have been removed, use stdlib `http.HTTPStatus` instead.
 
 ([@scop] - [#58380])
 
