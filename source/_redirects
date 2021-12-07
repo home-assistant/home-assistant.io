@@ -755,8 +755,6 @@
 /components/sensor.logi_circle /integrations/logi_circle#sensor
 /components/sensor.london_air /integrations/london_air
 /components/sensor.london_underground /integrations/london_underground
-/components/sensor.loop_energy /integrations/loopenergy
-/components/sensor.loopenergy /integrations/loopenergy
 /components/sensor.luftdaten /integrations/luftdaten#sensor
 /components/sensor.magicseaweed /integrations/magicseaweed
 /components/sensor.meteo_france /integrations/meteo_france
@@ -1505,7 +1503,6 @@
 /components/logi_circle /integrations/logi_circle
 /components/london_air /integrations/london_air
 /components/london_underground /integrations/london_underground
-/components/loopenergy /integrations/loopenergy
 /components/luci /integrations/luci
 /components/luftdaten /integrations/luftdaten
 /components/lupusec /integrations/lupusec
@@ -2354,3 +2351,5 @@
 /components/sensor.mychevy /more-info/removed-integration 301
 /integrations/loopenergy /more-info/removed-integration 301
 /components/loopenergy /more-info/removed-integration 301
+/components/sensor.loop_energy /more-info/removed-integration 301
+/components/sensor.loopenergy /more-info/removed-integration 301
