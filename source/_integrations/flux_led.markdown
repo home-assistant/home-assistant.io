@@ -1,6 +1,6 @@
 ---
-title: Flux LED/MagicHome
-description: Instructions on how to setup Flux led/MagicHome/MagicLight within Home Assistant.
+title: Magic Home
+description: Instructions on how to setup Magic Home within Home Assistant.
 ha_category:
   - Light
   - Switch
@@ -17,13 +17,13 @@ ha_config_flow: true
 ha_dhcp: true
 ---
 
-The Flux LED integration supports several brands of switches, bulbs, and controllers that use the same protocol and have the HF-LPB100 chipset in common. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the MagicHome app.
+The Magic Home integration supports several brands of switches, bulbs, and controllers that use the same protocol. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the Magic Home app.
 
 This integration will provide local control over your LED lights/strips and can be configured to auto-scan your network for controllers or for you to manually configure individual lights by their IP address.
 
 Example of bulbs:
 
-- [Flux Smart Lighting](https://www.fluxsmartlighting.com/)
+- [Smart Lighting](https://www.fluxsmartlighting.com/)
 - [Flux WiFi Smart LED Light Bulb4](https://amzn.to/2X0dVwu)
 - [WIFI smart LED light Bulb1](https://amzn.to/2J2fksr)
 
@@ -32,11 +32,54 @@ Examples of controllers:
 - [Ledenet WiFi RGBW Controller](https://amzn.to/2WZKXNa)
 - [SUPERNIGHT WiFi Wireless LED Smart Controller](https://amzn.to/2WURx7w)
 
+These devices have been sold under at least the following brands:
 
+- Allkeys
+- Apobob
+- Arlux
+- Aubric
+- BERENNIS
+- BHGY
+- Bunpeon
+- Comoyda
+- dalattin
+- DARKPROOF
+- Daybetter
+- deerdance
+- Flux LED
+- FVTLED
+- GEYUEYA Home
+- GIDEALED
+- GIDERWEL
+- GMK
+- Goldwin
+- Hakkatronics
+- HaoDeng
+- HDDFL
+- INDARUN
+- iNextStation
+- LEDENET
+- Lytworx
+- Magic Hue
+- Magic Light
+- Miheal
+- Mowelai
+- Nexlux
+- OBSESS
+- Offdarks
+- PHOPOLLO
+- Sumaote
+- SuperlightingLED
+- Svipear
+- Vanance
+- Yetaida
+- YHW
+- Zengge
+- Zombber
 
 {% include integrations/config_flow.md %}
 
-After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Flux Led/Magic Home" configuration for the bulb or controller. 
+After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
 
 
 **Custom Effect**\
@@ -48,7 +91,7 @@ This determines the transition between each color.
 
 ### Effects
 
-The Flux LED light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the `light.turn_on` command.
+The Magic Home light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the `light.turn_on` command.
 
 | Effect Name                                                                                                  | Description                                                        |
 |--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
