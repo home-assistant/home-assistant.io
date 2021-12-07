@@ -34,47 +34,65 @@ Examples of controllers:
 
 These devices have been sold under at least the following brands:
 
-- Allkeys
+- Aislan
+- [Allkeys](http://allkeystech.com/)
 - Apobob
-- Arlux
+- [Arilux](https://www.ariluxworldwide.com/)
 - Aubric
 - BERENNIS
 - BHGY
+- [Brizled](https://www.brizled.com/)
 - Bunpeon
+- [Chichin](https://chichinlighting.com/)
 - Comoyda
 - dalattin
+- [DALS RGBW / Armacost Lighting](https://www.armacostlighting.com/)
 - DARKPROOF
-- Daybetter
+- [Daybetter](https://www.daybetter.com/)
 - deerdance
-- Flux LED
-- FVTLED
+- DIAMOND
+- [Diode Dynamics](https://www.diodedynamics.com/)
+- [Flux LED](https://www.fluxsmartlighting.com/)
+- [FVTLED](https://fvtled.com/)
+- [GEV LIG](https://www.gev.de/)
 - GEYUEYA Home
 - GIDEALED
-- GIDERWEL
+- [GIDERWEL](https://giderwel.com/)
 - GMK
 - Goldwin
 - Hakkatronics
-- HaoDeng
+- [HaoDeng](http://www.zengge.com/appkzd)
 - HDDFL
+- illume RGBW
 - INDARUN
 - iNextStation
 - LEDENET
 - Lytworx
-- Magic Hue
+- Magic Ambient
+- [Magic Home](http://www.zengge.com/appkzd)
+- [Magic Hue](http://www.magichue.com/)
 - Magic Light
 - Miheal
 - Mowelai
+- MyLED
 - Nexlux
 - OBSESS
 - Offdarks
+- PH LED
 - PHOPOLLO
+- Pin Stadium (Pinball Lights)
+- POV Lamp
+- Rimikon
+- SMFX
 - Sumaote
+- Superhome
 - SuperlightingLED
 - Svipear
+- Tommox
 - Vanance
 - Yetaida
 - YHW
-- Zengge
+- [Zengge](http://www.zengge.com/sy)
 - Zombber
 
 {% include integrations/config_flow.md %}
