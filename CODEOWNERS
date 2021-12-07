@@ -273,7 +273,6 @@ source/_integrations/local_ip.markdown @issacg
 source/_integrations/logger.markdown @home-assistant/core
 source/_integrations/logi_circle.markdown @evanjd
 source/_integrations/lookin.markdown @ANMalko
-source/_integrations/loopenergy.markdown @pavoni
 source/_integrations/luci.markdown @mzdrale
 source/_integrations/luftdaten.markdown @fabaff
 source/_integrations/lupusec.markdown @majuss
