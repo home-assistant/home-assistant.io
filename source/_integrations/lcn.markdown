@@ -547,7 +547,7 @@ in the LCN integration. These commands are directly passed to Home Assistant and
 Within LCN-PRO program the *send keys* command (only "A-C former command" is supported) to a key. For the target address
 manually enter the PCHK host id (default: 4). Select the keys and key actions as desired.
 
-When a *send keys* command is received, the LCN integration will fire a [send keys event](#event-lcn_sendkeys) for each
+When a *send keys* command is received, the LCN integration will fire a [send keys event](#event-lcn_send_keys) for each
 key configured. These events can be used to trigger an automation.
 Alternatively you can use the corresponding [device triggers](#device-triggers).
 
@@ -655,9 +655,9 @@ automation:
         code: 123abc
 ```
 
-### Event: `lcn_sendkeys`
+### Event: `lcn_send_keys`
 
-The `lcn_sendkeys` event is fired if the PCHK host receives a *send keys* command.
+The `lcn_send_keys` event is fired if the PCHK host receives a *send keys* command.
 
 | Special payload | Description  | Values |
 | --------------- | -----------  | ------ |
@@ -673,7 +673,7 @@ key `a1`.
 automation:
   trigger:
     - platform: event
-      event_type: lcn_sendkeys
+      event_type: lcn_send_keys
       event_data:
         key: a1
         action: hit
