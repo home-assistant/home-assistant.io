@@ -40,7 +40,7 @@ Ondilo has rate limits for using their API too, see [here](https://interop.ondil
 [homeassistant.update_entity](https://www.home-assistant.io/integrations/homeassistant/#service-homeassistantupdate_entity) service just accepts entities as input while this integration always gets all data for all pools you have even if you only update just one entity! So it is enough to configure an automation with just one entity to update everything!
 </div>
 
-Configuring the automation with all entities (normally 6 per pool) is not nessecary and will result in multiple queries which then may result in hitting the rate limit and getting inconsistent updates.
+Configuring the automation with all entities (normally 6 per pool) is not necessary and will result in multiple queries which then may result in hitting the rate limit and getting inconsistent updates.
 
 ## Known limitations
 
