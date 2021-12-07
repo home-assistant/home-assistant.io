@@ -46,7 +46,7 @@ These devices have been sold under at least the following brands:
 - [Chichin](https://chichinlighting.com/)
 - Comoyda
 - dalattin
-- [DALS RGBW / Armacost Lighting](https://www.armacostlighting.com/)
+- [DALS RGBW / Armacost Lighting / MyLED](https://www.armacostlighting.com/)
 - DARKPROOF
 - [Daybetter](https://www.daybetter.com/)
 - deerdance
@@ -71,22 +71,21 @@ These devices have been sold under at least the following brands:
 - Magic Ambient
 - [Magic Home](http://www.zengge.com/appkzd)
 - [Magic Hue](http://www.magichue.com/)
-- Magic Light
+- [Magic Light](https://www.magiclightbulbs.com/)
 - Miheal
 - Mowelai
-- MyLED
 - Nexlux
 - OBSESS
-- Offdarks
+- [Offdarks](http://offdarks.net)
 - PH LED
 - PHOPOLLO
-- Pin Stadium (Pinball Lights)
+- [Pin Stadium Pinball Lights](https://pinstadium.com/)
 - POV Lamp
-- Rimikon
+- [Rimikon](https://www.rimikon.com/)
 - SMFX
-- Sumaote
-- Superhome
-- SuperlightingLED
+- [Sumaote](https://fvtled.com/)
+- [Superhome](https://superhome.com.cy/)
+- [SuperlightingLED](https://www.superlightingled.com/)
 - Svipear
 - Tommox
 - Vanance
