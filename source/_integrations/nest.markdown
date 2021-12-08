@@ -292,6 +292,8 @@ In this section you will authorize Home Assistant to access your account by gene
 
 {% enddetails %}
 
+- *Error 400: redirect_uri_mismatch*: This means you have an existing *Web Application* credential. It is recommended to delete the existing OAuth Client id and create a new *Desktop App* credential using the instructions above. This has the advantage of not requiring SSL or a public DNS name.
+
 - *Thermostat does not appear or is unavailable* happens due to a bug where the SDM API does return the devices. A common fix get the API to work again is to:
 
 {% details "How to restart thermostat" %}
