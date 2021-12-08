@@ -209,65 +209,50 @@ a mention for it in the release notes.
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- The Hue integration got a overhaul and now fully supports the V2 protocol.
+- The Hue integration now only uses the v2 API when talking to compatible hubs.
+  This means that all light updates and remote presses are instantly available
+  in Home Assistant, and scenes are now also natively supported.
   Amazing job, thanks [@marcelveldt]!
-
-TODO/Process: 
-- Update MDI to v6.5.95 (#10618) [@goyney]
-- change switch icon to mdiToggleSwitch (#10475) [@Mariusthvdb]
-- Add UNIX timestamp detection to `as_datetime` template filter ([@jbouwh] - [#60126])
-- Add template filters pack and unpack ([@jbouwh] - [#60836])
-
-- Support reverse proxying of motionEye streams ([@dermotduffy] - [#53440]) ([motioneye docs])
-- Add motionEye sensor platform ([@dermotduffy] - [#53415]) ([motioneye docs]) (new-platform)
-- Add motionEye services ([@dermotduffy] - [#53411]) ([motioneye docs])
-- Add WLED reverse effect switch ([@frenck] - [#59778]) ([wled docs])
-- Add binary sensor platform to WLED ([@frenck] - [#59798]) ([wled docs]) (new-platform)
-- Add WLED Live Override controls ([@frenck] - [#59783]) ([wled docs])
-- Adding newly supported language codes to Google TTS ([@hmmbob] - [#58607]) ([google_cloud docs])
-- Add a Preset mode for Honeywell permanent hold ([@schreyack] - [#58060]) ([honeywell docs])
-- Add 'delta_values' option to utility_meter ([@eddyg] - [#54964]) ([utility_meter docs])
-- Add support for Levoit Core 400S air purifier to VeSync integration ([@jparchem] - [#57126]) ([vesync docs])
-- Add select platform to Litter-Robot integration ([@natekspencer] - [#58323]) ([litterrobot docs])
-- Add REST sensor/binary_sensor/switch templated headers & params ([@koying] - [#54426]) ([rest docs])
-- Update Mill library, add support for generation 3 heaters. #58536 ([@Danielhiversen] - [#58738]) ([mill docs])
-- Change zone HVAC mode in Advantage Air ([@Bre77] - [#52816]) ([advantage_air docs]) (breaking-change)
-- Add Nut device explicitly to the device registry ([@ollo69] - [#59525]) ([nut docs])
-- Add System Bridge keyboard services ([@timmo001] - [#53893]) ([system_bridge docs])
-- Add TP-Link LED control for Kasa plugs and strips ([@XaF] - [#59621]) ([tplink docs])
-- Add unique id's to Vallox entities ([@viiru-] - [#58459]) ([vallox docs])
-- Add Hive Alarm Support ([@KJonline] - [#59670]) ([hive docs]) (new-platform)
-- Add sensors to venstar integration ([@garbled1] - [#58851]) ([venstar docs]) (new-platform)
-- Add input_number state to prometheus metrics ([@alim4r] - [#56507]) ([prometheus docs])
-- Add cover platform to bosch_shc integration ([@tschamm] - [#51443]) ([bosch_shc docs]) (new-platform)
-- Add config and options flow to KNX integration ([@marvin-w] - [#59377]) ([knx docs]) (breaking-change)
-- Add support for HEOS groups ([@klada] - [#32568]) ([heos docs])
-- Add climate platform to Shelly ([@chemelli74] - [#59712]) ([shelly docs]) (new-platform)
-- Add pi_hole entity "available_updates" ([@andreasbrett] - [#56181]) ([pi_hole docs])
-- Rewrite Fronius integration ([@farmio] - [#59686]) ([fronius docs]) (breaking-change)
-- Support numeric sensors with no unit_of_measurement in prometheus ([@alim4r] - [#60157]) ([prometheus docs])
-- Add Notifications for Android TV icon support ([@redahb] - [#60159]) ([nfandroidtv docs]) (breaking-change)
-- Add support for flux_led 0xA2 devices ([@bdraco] - [#60361]) ([flux_led docs])
-- Use mysensors child description as entity name ([@bcelary] - [#60420]) ([mysensors docs])
-- Add Yamaha MusicCast number entities ([@micha91] - [#60093]) ([yamaha_musiccast docs])
-- Add sensors to Tesla Wall Connector Integration ([@einarhauks] - [#60507]) ([tesla_wall_connector docs]) (new-platform)
-- Support unit of measurement in ESPHome numbers ([@jesserockz] - [#60591]) ([esphome docs])
-- Binary sensor platform for the Balboa Spa ([@garbled1] - [#60409]) ([balboa docs]) (new-platform)
-- Add mode to ESPHome numbers ([@jesserockz] - [#60653]) ([esphome docs])
-- Add more Tractive sensors ([@Danielhiversen] - [#55170]) ([tractive docs])
-- Add support for Nanoleaf push updates ([@milanmeu] - [#60708]) ([nanoleaf docs])
-- Add binary characteristics, add deprecation warning for optional state_characteristic parameter ([@ThomDietrich] - [#60402]) ([statistics docs]) (breaking-change)
-
-MQTT:
-
-- Add command_template to mqtt select platform ([@jbouwh] - [#58934]) ([mqtt docs])
-- Add device_class to MQTT switch ([@koying] - [#58931]) ([mqtt docs])
-- Add MQTT object_id option ([@Smeagolworms4] - [#58728]) ([mqtt docs]) ([humidifier docs])
-- Add command_template to MQTT number platform ([@jbouwh] - [#58949]) ([mqtt docs])
-- Allow MQTT selects to have a single or no options ([@emontnemery] - [#60281]) ([mqtt docs])
-- Add 'trigger' support for MQTT Alarm Control Panel ([@XaF] - [#60525]) ([mqtt docs])
-- Add missing MQTT lock.open ([@Hypnos3] - [#60022]) ([mqtt docs])
-- Add mqtt sensor configurable state encoding for sensor and binary_sensor platform ([@jbouwh] - [#60447]) ([mqtt docs])
+- [@farmio] completely rewrote the Fronius integration adding support
+  for all the latest and greatest Home Assistant has to offer. Nice!
+- Besides support for the new button entity, ESPHome now also support
+  setting the mode and unit of measurement on number entities.
+  Thanks, [@jesserockz]!
+- Magic Home (Flux LED) got lots of love from [@bdraco], adding support
+  for new devices and features along the way.
+- [@jbouwh] improved the `as_datetime` template method, which now supports
+  the UNIX timestamps as well.
+- The motionEye integration added sensors and service, thank you [@dermotduffy].
+- WLED devices can now be restarted and upgraded from Home Assistant.
+- [@chemelli74] added the climate platform support for Shelly, and
+  [@mib1185] added support for rebooting and upgrading Shelly devices.
+- Entities provided by the Vallox integration now have unique IDs
+  and can be adjusted from the UI. Thanks [@viiru-]!
+- The Pi-hole integration now has a binary sensor to indicate an update is
+  available, added by [@andreasbrett].
+- System Bridge has two new services for sending keyboard events to
+  the remote machine, added by [@timmo001].
+- [@klada] added support for media player groups to Denon HEOS.
+- The REST platform now support templates for its headers and query
+  parameters. Thanks, [@koying].
+- Mill now supports its 3rd generation heaters, thanks [@Danielhiversen]
+- [@hmmbob] added support for `ms-MY`, `nl-BE`, `pa-IN` to Google TTS.
+- Nanoleaf now pushes updates into Home Assistant, thanks [@milanmeu].
+- [@micha91] extended Yamaha MusicCast with number entities for controlling
+  equalizers, dialogue volume/lift and the display brightness.
+- The Levoit Core 400S air purifier is now supported by the VeSync integration,
+  thanks for that [@jparchem].
+- The state of number helpers is now exposed to Prometheus. Nice, [@alim4r]!
+- [@tschamm] added support for shutter controls to Bosch SHC.
+- Notifications for Android TV can now send notification with custom icons;
+  Awesome adding [@redahb]!
+- MQTT has seen multiple improvements this release:
+  - The select and number platforms now now have `command_template` support ([@jbouwh])
+  - Switches now support `device_class` ([@koying])
+  - MQTT platforms can now set the `object_id` option ([@Smeagolworms4])
+  - Selects can now have a single or no options ([@emontnemery])
+  - Added 'trigger' support for Alarm Control Panels ([@XaF])
+  - Added `lock.open` support ([@Hypnos3])
 
 This release adds support for long-term statistics to the following integrations:
 
@@ -278,39 +263,15 @@ This release adds support for long-term statistics to the following integrations
 - HomeMatic (thanks [@chriss158])
 - Wallbox (thanks [@hesselonline])
 
-Integrations adding visit device/service URLs:
+And the following integrations now have entity categories:
 
-- Add configuration URL to Spider ([@peternijssen] - [#59171]) ([spider docs])
-- System Bridge - Add configuration URL ([@timmo001] - [#59320]) ([system_bridge docs])
-- Add configuration URL for Ambient PWS ([@bachya] - [#59616]) ([ambient_station docs])
-- Add configuration_url to deCONZ device when entry source is addon ([@Kane610] - [#59598]) ([deconz docs])
-- Add smartthings configuration_url ([@tkdrob] - [#58676]) ([smartthings docs])
-- Add configuration url to august ([@bdraco] - [#60013]) ([august docs])
-- Add `configuration_url` to SMA integration ([@rklomp] - [#59638]) ([sma docs])
-- Add harmony configuration url ([@bdraco] - [#60014]) ([harmony docs])
-- Add configuration_url to AdGuard Home integration ([@mdawsonuk] - [#60356]) ([adguard docs])
-- Add configuration_url to Waze Travel Time ([@mdawsonuk] - [#60376]) ([waze_travel_time docs])
-- Added configuration_url for Met Eireann integration ([@mdawsonuk] - [#60380]) ([met_eireann docs])
-- Added configuration_url to Met.no integration ([@mdawsonuk] - [#60378]) ([met docs])
-- Add configuration_url to Nanoleaf integration ([@mdawsonuk] - [#60372]) ([nanoleaf docs])
-- Add configuration_url to AccuWeather integration ([@mdawsonuk] - [#60381]) ([accuweather docs])
-- Add configuration_url to lutron_caseta ([@bdraco] - [#60015]) ([lutron_caseta docs])
-- Add configuration_url to bond ([@bdraco] - [#60523]) ([bond docs])
-- Add wiffi device configuration url support ([@mampfes] - [#60367]) ([wiffi docs])
-- Add configuration URL for SimpliSafe ([@bachya] - [#60860]) ([simplisafe docs])
-- Add configuration_url to Forecast.Solar integration ([@mdawsonuk] - [#60384]) ([forecast_solar docs])
-- Add configuration_url to integration ([@klaasnicolaas] - [#60565]) ([p1_monitor docs])
-
-Integrations adding entity categories:
-
-- Add zwave_js select entity category ([@MartinHjelmare] - [#59157]) ([zwave_js docs]) (breaking-change)
-- Add zwave_js binary sensor entity category ([@MartinHjelmare] - [#58703]) ([zwave_js docs]) (breaking-change)
-- Use entity_category in litterrobot ([@natekspencer] - [#59074]) ([litterrobot docs])
-- Use entity category and state class in devolo Home Network ([@Shutgun] - [#59071]) ([devolo_home_network docs])
-- Add category diagnostic to Switchbot 'calibrated' binary sensor ([@DCSBL] - [#59409]) ([switchbot docs])
-- Add entity categories to most NUT entities ([@drthanwho] - [#58798]) ([nut docs])
-- Add entity categorisation to AVM Fritz!Smarthome devices ([@mib1185] - [#59287]) ([fritzbox docs])
-- Add entity_category to Rituals Entities ([@milanmeu] - [#59756]) ([rituals_perfume_genie docs])
+- AVM FRITZ!SmartHome (thanks, [@mib1185])
+- devolo Home Network (thanks, [@Shutgun])
+- Litter-Robot (thanks, [@natekspencer])
+- Network UPS Tools (thanks, [@drthanwho])
+- Rituals Perfume Genie (thanks, [@milanmeu])
+- Switchbot (thanks, [@DCSBL])
+- Z-Wave JS (thanks, [@MartinHjelmare])
 
 ## New Integrations
 
