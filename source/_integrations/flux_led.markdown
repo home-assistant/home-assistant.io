@@ -1,6 +1,6 @@
 ---
-title: Flux LED/MagicHome
-description: Instructions on how to setup Flux led/MagicHome/MagicLight within Home Assistant.
+title: Magic Home
+description: Instructions on how to setup Magic Home within Home Assistant.
 ha_category:
   - Light
   - Switch
@@ -17,7 +17,7 @@ ha_config_flow: true
 ha_dhcp: true
 ---
 
-The Flux LED integration supports several brands of switches, bulbs, and controllers that use the same protocol and have the HF-LPB100 chipset in common. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the MagicHome app.
+The Magic Home integration supports several brands of switches, bulbs, and controllers that use the same protocol. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the Magic Home app.
 
 This integration will provide local control over your LED lights/strips and can be configured to auto-scan your network for controllers or for you to manually configure individual lights by their IP address.
 
@@ -32,11 +32,71 @@ Examples of controllers:
 - [Ledenet WiFi RGBW Controller](https://amzn.to/2WZKXNa)
 - [SUPERNIGHT WiFi Wireless LED Smart Controller](https://amzn.to/2WURx7w)
 
+These devices have been sold under at least the following brands:
 
+- Aislan
+- [Allkeys](http://allkeystech.com/)
+- Apobob
+- [Arilux](https://www.ariluxworldwide.com/)
+- Aubric
+- BERENNIS
+- BHGY
+- [Brizled](https://www.brizled.com/)
+- Bunpeon
+- [Chichin](https://chichinlighting.com/)
+- Comoyda
+- dalattin
+- [DALS RGBW / Armacost Lighting / MyLED](https://www.armacostlighting.com/)
+- DARKPROOF
+- [Daybetter](https://www.daybetter.com/)
+- deerdance
+- DIAMOND
+- [Diode Dynamics](https://www.diodedynamics.com/)
+- [Flux LED](https://www.fluxsmartlighting.com/)
+- [FVTLED](https://fvtled.com/)
+- [GEV LIG](https://www.gev.de/)
+- GEYUEYA Home
+- GIDEALED
+- [GIDERWEL](https://giderwel.com/)
+- GMK
+- Goldwin
+- Hakkatronics
+- [HaoDeng](http://www.zengge.com/appkzd)
+- HDDFL
+- illume RGBW
+- INDARUN
+- iNextStation
+- LEDENET
+- Lytworx
+- Magic Ambient
+- [Magic Home](http://www.zengge.com/appkzd)
+- [Magic Hue](http://www.magichue.com/)
+- [Magic Light](https://www.magiclightbulbs.com/)
+- Miheal
+- Mowelai
+- Nexlux
+- OBSESS
+- [Offdarks](http://offdarks.net)
+- PH LED
+- PHOPOLLO
+- [Pin Stadium Pinball Lights](https://pinstadium.com/)
+- POV Lamp
+- [Rimikon](https://www.rimikon.com/)
+- SMFX
+- [Sumaote](https://fvtled.com/)
+- [Superhome](https://superhome.com.cy/)
+- [SuperlightingLED](https://www.superlightingled.com/)
+- Svipear
+- Tommox
+- Vanance
+- Yetaida
+- YHW
+- [Zengge](http://www.zengge.com/sy)
+- Zombber
 
 {% include integrations/config_flow.md %}
 
-After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Flux Led/Magic Home" configuration for the bulb or controller. 
+After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
 
 
 **Custom Effect**\
@@ -48,7 +108,7 @@ This determines the transition between each color.
 
 ### Effects
 
-The Flux LED light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the `light.turn_on` command.
+The Magic Home light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the `light.turn_on` command.
 
 | Effect Name                                                                                                  | Description                                                        |
 |--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
