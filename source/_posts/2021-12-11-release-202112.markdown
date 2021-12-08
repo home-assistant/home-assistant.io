@@ -193,13 +193,16 @@ automation:
 The above example will only trigger if the volume level of the living room
 media player changes.
 
-## Cast issues
+## Cast issues resolved
 
-You might be aware of issues with using the Google Cast features in Home Assistant.
-These have been resolved!
+You might be aware of issues with using the Google Cast features
+in Home Assistant. For example, casting a Lovelace dashboard didn't
+work as reliable as it should have been.
 
-- Cast fixes (#10598) @bramkragten
-- Update Lovelace Cast app ID (#10592) @bramkragten
+We have some good news, these casting issues have been resolved!
+
+Although a bugfix, we think the impact was big enough to warrant
+a mention for it in the release notes.
 
 ## Other noteworthy changes
 
