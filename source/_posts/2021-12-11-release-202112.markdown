@@ -72,34 +72,35 @@ All configuration related items, neatly organized in a single place 🤘
 
 ## The button entity
 
-Introducing a new revolutionary entity: the button entity.
-Yes, it's a button. What can you do with it? Click it!
+Introducing a new entity: the button entity.
+Yes, it's a button. What can you do with it? Press it!
 
-Support has been added to Google Assistant, Alexa, HomeKit & MQTT as well.
+We already have a switch entity in Home Assistant, but a switch has a state;
+switches are either on or off. A button, however, is a push-button, like a
+stateless or momentary switch.
 
-Implementations in this release:
+Button entities can be provided by integrations and can be used for things like:
 
-- Add Button platform to KNX integration ([@farmio] - [#59082]) ([knx docs])
-- Add button entity platform (restart button) to WLED ([@frenck] - [#59086]) ([wled docs])
-- Add button support to Google Assistant ([@frenck] - [#60158]) ([google_assistant docs])
-- Add button platform to Elgato ([@frenck] - [#59628]) ([elgato docs])
-- Add WLED firmware upgrade button ([@frenck] - [#59793]) ([wled docs])
-- Add button entities to Renault ([@epenet] - [#59383]) ([renault docs]) (breaking-change)
-- Add button to litterrobot ([@natekspencer] - [#59734]) ([litterrobot docs]) (breaking-change)
-- Add button support to HomeKit ([@frenck] - [#60165]) ([homekit docs])
-- Add Button platform to Nanoleaf ([@milanmeu] - [#60169]) ([nanoleaf docs])
-- Add tolo button platform ([@MatthiasLohr] - [#60345]) ([tolo docs])
-- Esphome/button ([@jesserockz] - [#60522]) ([esphome docs])
-- Add button platform to Tuya ([@frenck] - [#60304]) ([tuya docs])
-- Add button to trigger ota firmware update for Shelly devices ([@mib1185] - [#58757]) ([shelly docs])
-- Add `button` platform to NAM integration ([@bieniu] - [#60410]) ([nam docs])
-- Add reboot button to Shelly devices ([@mib1185] - [#60417]) ([shelly docs])
-- Add button support to Alexa ([@frenck] - [#60163]) ([alexa docs])
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2021-12/buttons.png' alt='Examples use cases of button entities'>
+Examples use cases of button entities.
+</p>
 
-<!--<p class='img'>
-<img src='/images/blog/2021-11/visit-device.png' alt='Screenshot of WLED that now has a button that links to the WLED web interface of the device directly'>
-Screenshot of WLED that now has a button that links to the WLED web interface of the device directly.
-</p>-->
+All things that can be triggered from Home Assistant, but are not really have
+on or off state.
+
+We have added support for this button entity to Google Assistant, Alexa and
+HomeKit; allowing you to "press" those buttons from your favorite voice
+assistant.
+
+For this release, MQTT & KNX added support for providing buttons. The Shelly,
+WLED, Elgato, Litter-Robot, TOLO Sauna, Tuya, Renault and NAM integrations
+have added button entities.
+
+Additionally, [ESPHome 2021.12](https://esphome.io/changelog/2021.12.0.html)
+has added full support for buttons too! Besides adding a restart button,
+you can now create button entities from ESPHome to trigger something on
+your DIY project from Home Assistant.
 
 ## Local only users
 
