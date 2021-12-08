@@ -102,12 +102,6 @@ has added full support for buttons too! Besides adding a restart button,
 you can now create button entities from ESPHome to trigger something on
 your DIY project from Home Assistant.
 
-## Local only users
-
-This features allows you to mark users in your home as "local only".
-
-- Add local only users ([@balloob] - [#57598]) ([config docs]) ([auth docs])
-
 ## Redesigned area panel and the area Lovelace card
 
 The area panel has been redesigned. Instead of a list of areas, it now
@@ -131,6 +125,19 @@ Screenshot of a new area Lovelace card.
 </p>
 
 [@zsarnett]: https://github.com/zsarnett
+
+## Users that can only login from the local network
+
+This new feature allows you to make users that can only login from the local
+network and not from the internet or cloud.
+
+This can be useful if you have users that are not always at your home or
+a dedicated user for a wall tablet that never needs to be able to login
+remotely.
+
+<img class="no-shadow" src='/images/blog/2021-12/local-only-user.png' alt='Screenshot of user configuration in Home Assistant with local only enabled.'>
+
+{% my people badge %}
 
 ## Z-Wave JS SmartStart and entity categories
 
