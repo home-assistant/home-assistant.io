@@ -180,20 +180,21 @@ In this section, you will find some real-life examples of how to use this featur
 
 ### Full configuration
 
-The example below shows a full configuration for a switch.
+The example below shows a full configuration for a button.
 
 ```yaml
 # Example configuration.yaml entry
-switch:
+button:
   - platform: mqtt
     unique_id: bedroom_switch_reboot_btn
-    name: "Reboot Bedroom Switch"
+    name: "Restart Bedroom Switch"
     state_topic: "home/bedroom/switch1"
     command_topic: "home/bedroom/switch1/commands"
     availability:
       - topic: "home/bedroom/switch1/available"
-    payload_press: "reboot"
+    payload_press: "restart"
     qos: 0
     retain: false
     entity_category: "config"
+    device_class: "restart"
 ```
