@@ -210,6 +210,7 @@ your `subscriber_id`.
 
 You now should have everything needed to configure Nest in Home Assistant. Edit your `configuration.yaml` file and populate a `nest` entry in the format of the example configuration below.
 
+
 ```yaml
 # Example configuration.yaml entry
 nest:
@@ -220,6 +221,8 @@ nest:
   # Provide the full path exactly as shown under "Subscription name" in Google Cloud Console
   subscriber_id: projects/project-label-22ee1/subscriptions/SUBSCRIBER_ID
 ```
+
+Then make sure to restart Home Assistant under _**Server Controls**_.  {% my server_controls badge %}
 
 {% configuration %}
 client_id:
@@ -248,7 +251,7 @@ Once `configuration.yaml` has a valid `nest` entry, you need to add Nest to your
 
 {% details "Manual configuration steps" %}
 
-1. Browse to your Home Assistant instance using.
+1. Browse to your Home Assistant instance.
 1. In the sidebar click on _**{% my config icon %}**_.
 1. From the configuration menu select: _**{% my integrations icon %}**_.
 1. In the bottom right, click on the
@@ -264,8 +267,7 @@ your Home Assistant to access your account and Nest devices.
 
 1. You should get redirected to Google to choose an account. This should be the same developer account you configured above.
 
-1. The *Google Nest permissions* screen will allow you to choose which devices to configure. You likely want to enable
-everything, however, you can leave out any feature you do not wish to use with Home Assistant.
+1. The *Google Nest permissions* screen will allow you to choose which devices to configure. You likely want to enable everything, however, you can leave out any feature you do not wish to use with Home Assistant. You can select devices from multiple homes using the drop down.
 
     ![Screenshot of Nest permissions authorization](/images/integrations/nest/oauth_approve.png)
 
