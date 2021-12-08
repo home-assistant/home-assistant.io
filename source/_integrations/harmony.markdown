@@ -32,7 +32,7 @@ Supported units:
 
 {% include integrations/config_flow.md %}
 
-Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Configuration** >> **Integrations** >> **Your Logitech Harmony Hub**
+Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Configuration** >> **Devices & Services** >> **Your Logitech Harmony Hub**
 
 ### Configuration file
 

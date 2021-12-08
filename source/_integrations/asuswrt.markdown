@@ -28,7 +28,7 @@ There is currently support for the following device types within Home Assistant:
 
 To add your ASUSWRT devices into your Home Assistant installation, go to:
 
-**Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **ASUSWRT**.
+**Configuration** -> **Devices & Services** in the UI, click the button with `+` sign and from the list of integrations select **ASUSWRT**.
 
 <div class='note warning'>
 

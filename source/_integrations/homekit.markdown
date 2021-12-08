@@ -306,7 +306,7 @@ The HomeKit Accessory Protocol Specification only allows a maximum of 150 unique
 
 ### Multiple HomeKit instances
 
-If you create a HomeKit integration via the UI (i.e., **Configuration** >> **Integrations**), it must be configured via the UI **only**. While the UI only offers limited configuration options at the moment, any attempt to configure a HomeKit instance created in the UI via the `configuration.yaml` file will result in another instance of HomeKit running on a different port.
+If you create a HomeKit integration via the UI (i.e., **Configuration** >> **Devices & Services**), it must be configured via the UI **only**. While the UI only offers limited configuration options at the moment, any attempt to configure a HomeKit instance created in the UI via the `configuration.yaml` file will result in another instance of HomeKit running on a different port.
 
 It is recommended to only edit a HomeKit instance in the UI that was created in the UI, and likewise, only edit a HomeKit instance in YAML that was created in YAML.
 
@@ -479,15 +479,15 @@ The following home hubs have been reported to have trouble with a large number o
 
 ### Resetting when created via YAML
 
- 1. Delete the `HomeKit` integration in the **{% my integrations %}** screen.
+ 1. Delete the `HomeKit` integration in the **{% my integrations %}** panel.
  2. **Restart** Home Assistant.
  3. The configuration will be automatically reimported from YAML.
  4. [Pair the bridge or accessory](#setup).
 
-### Resetting when created via the **Integrations** screen
+### Resetting when created via the **Integrations** panel
 
- 1. Delete the `HomeKit` integration in the **Integrations** screen.
- 2. Recreate the `HomeKit` integration in the **Integrations** screen.
+ 1. Delete the `HomeKit` integration in the **Integrations** panel.
+ 2. Recreate the `HomeKit` integration in the **Integrations** panel.
  3. [Pair the bridge or accessory](#setup).
 
 ### Errors during pairing
@@ -600,7 +600,7 @@ Ensure that the [`ffmpeg`](/integrations/ffmpeg) integration is configured corre
 
 #### Camera streaming is unstable or slow 
 
-If your camera supports native H.264 streams, Home Assistant can avoid converting the video stream, which is an expensive operation. To enable native H.264 streaming when configured via YAML, change the `video_codec` to `copy`. To allow native H.264 streaming when setting up HomeKit via the UI, go to **Configuration** >> **Integrations** in the UI, click **Options** for your HomeKit Bridge, and check the box for your camera on the `Cameras that support native H.264 streams` screen.
+If your camera supports native H.264 streams, Home Assistant can avoid converting the video stream, which is an expensive operation. To enable native H.264 streaming when configured via YAML, change the `video_codec` to `copy`. To allow native H.264 streaming when setting up HomeKit via the UI, go to **Configuration** >> **Devices & Services** in the UI, click **Options** for your HomeKit Bridge, and check the box for your camera on the `Cameras that support native H.264 streams` screen.
 
 #### Multiple camera streams
 
