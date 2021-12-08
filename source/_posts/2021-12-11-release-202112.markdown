@@ -51,21 +51,24 @@ Issues introduced in the beta are processed with priority.
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-## Brand new configuration menu
+## Brand new configuration panel
 
-The configuration panel has been revamped. Things are more compact,
-categorized and a bit of added color.
+The configuration panel has been revamped. Everything is more compact and
+categorized. A bit of added color so you can recognize the item you need more
+quickly.
 
-The Supervisor panel and menubar item have been removed and merged into
-the configuration panel. All OS, Core & Add-on updates are now shown in the
-configuration panel as well.
+<img class="no-shadow" src='/images/blog/2021-12/configuration-menu.png' alt='Screenshot of the new areas panel'>
 
-If you are using our Android or iOS/macOS Companion apps, the sidebar menu
-item has also been moved to the brand new configuration panel!
+The Supervisor panel and its sidebar item has been removed and the panel
+has been merged into the configuration panel now. All OS, Core & Add-on
+updates are now shown in the top of the configuration panel.
 
-So, as of this release, all configuration related things, as in a single place 🤘
+If you are using our Android, iOS, or macOS Companion apps, the sidebar menu
+item to configure those has also been moved into the configuration panel.
 
-[![Open your Home Assistant instance and show your configuration panel.](https://my.home-assistant.io/badges/config.svg)](https://my.home-assistant.io/redirect/config/)
+All configuration related items, neatly organized in a single place 🤘
+
+{% my config badge %}
 
 ## The button entity
 
