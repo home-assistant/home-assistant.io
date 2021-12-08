@@ -338,9 +338,7 @@ A program, named *status*, is required under the program device directory. A pro
 
 The *status* program requires that you create a state variable with the name of your choice. Note that you must use a state variable, not an integer variable. This variable will store the actual status of the new device and will be updated by the *action* program.
 
-<p class='img'>
-  <img src='/images/isy994/isy994_SwitchVariableExample.png' />
-</p>
+![Screenshot of switch variable](/images/isy994/isy994_switch_variable_example.png)
 
 The IF clause of the *status* program in the device directory is what indicates the state of the device:
 
