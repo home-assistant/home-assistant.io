@@ -62,7 +62,7 @@ You can host your device on another computer by setting up ser2net and example c
 
 ## Settings options
 
-To configure options for RFXtrx integration go to **Configuration** >> **Integrations** and press **Options** on the RFXtrx card.
+To configure options for RFXtrx integration go to **Configuration** >> **Devices & Services** and press **Options** on the RFXtrx card.
 
 <img src='/images/integrations/rfxtrx/options.png' />
 
