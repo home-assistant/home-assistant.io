@@ -40,7 +40,7 @@ Issues introduced in the beta are processed with priority.
 - [Users that can only login from the local network](#users-that-can-only-login-from-the-local-network)
 - [Z-Wave JS SmartStart and entity categories](#z-wave-js-smartstart-and-entity-categories)
 - [Blueprint scripts](#blueprint-scripts)
-- [Triggering automations on any, but only state changes](#triggering-automations-on-any-but-only-state-changes)
+- [Triggering on any, but only state changes](#triggering-on-any-but-only-state-changes)
 - [Cast issues](#cast-issues)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -157,14 +157,14 @@ the same as with automations, except... well, it provides a script instead.
 This can be helpful to provide blueprints for configurable bits, that can
 be re-used in other automations.
 
-## Triggering automations on any, but only state changes
+## Triggering on any, but only state changes
 
-Up until now, writing automations that trigger on any state changes,
+Up until now, writing automations that trigger on any state change of an entity,
 but not on any attribute changes, was nearly impossible without adding
 additional conditions.
 
 We have now added a way to trigger on any state change, regardless of the state,
-without trigggering on state attribute changes. If you set `from` or `to` but
+without trigggering on attribute changes. If you set `from` or `to`, and
 leave it empty, it will match any state, but ignores attributes.
 
 ```yaml
@@ -176,10 +176,10 @@ automation:
 ```
 
 The above example will only trigger if the state of the living room media
-player changes, and not when any of its attributes change.
+player changes, but not if any of its attributes change.
 
-The same syntax is also supported for attributes. So, if you want to trigger
-on all changes of a specific attribute, you can use a similar syntax:
+The same syntax is also supported for attributes. To trigger on all changes of
+a specific attribute, you can use a similar syntax:
 
 ```yaml
 automation:
@@ -880,18 +880,21 @@ The following icons have been renamed:
 
 {% details "Hue" %}
 
-### Events for Hue remotes/switches
+**Events for Hue remotes/switches**
+
 Philips/Signify streamlined the events that are emitted for remotes/switches, these are now no longer device specific but more generic.
 This means that if you're relying on the `hue_event` to trigger events emitted by these devices, the event_data will now be a slightly bit different.
 To easily identify what events get emitted by your Hue remotes, Open Developer Tools and subscribe to the `hue_event`.
 
-### Light entities for Hue rooms/zones
+**Light entities for Hue rooms/zones**
+
 Entities for Hue groups (zones/rooms) will be imported but by default in a disabled state.
 The Integration option to enable Hue groups has been phased out in favor of the default Home Assistant functionality to enable/disable entities.
 To enable any (new) light entities for Hue groups: Open settings --> integrations --> Hue --> Entities --> Click one of the disabled entities and enable it.
 Existing Hue group lights will be migrated as enabled entities.
 
-### Entities for Hue scenes
+**Entities for Hue scenes**
+
 If you create any scenes for your Hue zones/rooms, these will now be automatically imported to Home Assistant as scene entity, including support for the new Hue Dynamic Scenes. You can disable any scene entities you don't like to use in Home Assistant (or delete them in the Hue app).
 
 ([@marcelveldt] - [#58996]) ([hue docs])
