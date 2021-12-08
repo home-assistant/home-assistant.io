@@ -34,10 +34,10 @@ version field (not title), so we can classify your issue correctly.
 
 Issues introduced in the beta are processed with priority.
 
-- [Brand new configuration menu](#brand-new-configuration-menu)
+- [Brand new configuration panel](#brand-new-configuration-panel)
 - [The button entity](#the-button-entity)
-- [Local only users](#local-only-users)
-- [Revamped area panel and the area card](#revamped-area-panel-and-the-area-card)
+- [Redesigned area panel and the area Lovelace card](#redesigned-area-panel-and-the-area-lovelace-card)
+- [Users that can only login from the local network](#users-that-can-only-login-from-the-local-network)
 - [Z-Wave JS SmartStart and entity categories](#z-wave-js-smartstart-and-entity-categories)
 - [Blueprint scripts](#blueprint-scripts)
 - [Triggering automations on any, but only state changes](#triggering-automations-on-any-but-only-state-changes)
@@ -159,7 +159,13 @@ be re-used in other automations.
 
 ## Triggering automations on any, but only state changes
 
-Allow automations to trigger on all state changes, ignoring attributes by setting the `from` or `to` filter to `None`:
+Up until now, writing automations that trigger on any state changes,
+but not on any attribute changes, was nearly impossible without adding
+additional conditions.
+
+We have now added a way to trigger on any state change, regardless of the state,
+without trigggering on state attribute changes. If you set `from` or `to` but
+leave it empty, it will match any state, but ignores attributes.
 
 ```yaml
 automation:
@@ -169,10 +175,23 @@ automation:
       to: ~
 ```
 
-The same syntax is also supported for attributes.
+The above example will only trigger if the state of the living room media
+player changes, and not when any of its attributes change.
 
-- Allow triggering on all state changes, ignoring attributes ([@emontnemery] - [#59713]) ([homeassistant docs])
+The same syntax is also supported for attributes. So, if you want to trigger
+on all changes of a specific attribute, you can use a similar syntax:
 
+```yaml
+automation:
+  trigger:
+    - platform: state
+      entity_id: media_player.living_room
+      attribute: volume_level
+      to: ~
+```
+
+The above example will only trigger if the volume level of the living room
+media player changes.
 
 ## Cast issues
 
