@@ -340,6 +340,117 @@ your configuration.
 
 {% enddetails %}
 
+{% details "Advantage Air" %}
+
+The HVAC mode for zone climate entities was set to `FAN` or `OFF`, because the
+actual HVAC mode is set for the entire ducted AC system. However, using FAN
+means the Google Home app wont let you set a target temperature,
+so it has been changed `AUTO` instead.
+
+([@Bre77] - [#52816]) ([advantage_air docs])
+
+{% enddetails %}
+
+{% details "BMW ConnectedDrive" %}
+
+The following services/sensors have been removed due to not being available
+using the My BMW API:
+ 
+- `alltrips_*`
+- `lasttrips_*`
+- `chargingconnectiontype`
+- `charginginductivepositioning`
+- `lastchargingendreason`
+- `lastchargingendresult`
+- `maxelectricrange`
+
+`notify` requires a location attribute at `data.location`, as the MyBMW API
+only supports sending POI and not messages.
+
+([@rikroe] - [#59881]) ([bmw_connected_drive docs])
+
+{% enddetails %}
+
+{% details "Brunt Blind Engine" %}
+
+The Brunt integration migrated the connection settings to configuration via
+the UI. Configuring the connection to the Brunt API via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing connection YAML configuration is automatically imported on upgrade
+to this release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+Additionally, the Brunt integration can now be reloaded via the Integrations
+screen in the frontend and will also reload if a Brunt device is removed
+from your account.
+
+([@eavanvalkenburg] - [#49714]) ([brunt docs])
+
+{% enddetails %}
+
+{% details "Fronius" %}
+
+The Fronius integration migrated to configuration via the UI. Configuring
+Fronius via YAML configuration has been deprecated and will be removed in a
+future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration after
+upgrading.
+
+This change will remove manual configuration of Fronius device IDs.
+Connected SolarNet devices will be detected automatically on startup.
+
+([@farmio] - [#59686]) ([fronius docs])
+
+{% enddetails %}
+
+{% details "Guardian" %}
+
+Guardian services have been reorganized and now utilize a Home Assistant
+selector (device ID) instead of using a Guardian entity.
+
+([@bachya] - [#58632]) ([guardian docs])
+
+{% enddetails %}
+
+{% details "HomeKit Controller" %}
+
+This release removes the air quality from HomeKit Controller as the platform
+as a whole is now deprecated.
+
+Starting from September, the air quality values have been broken out as their
+own sensors, making them easier to incorporate in your dashboard widgets,
+graphs and automations. These should be used instead.
+
+([@Jc2k] - [#60480]) ([homekit_controller docs])
+
+{% enddetails %}
+
+{% details "Hue" %}
+
+**Events for Hue remotes/switches**
+
+Philips/Signify streamlined the events that are emitted for remotes/switches, these are now no longer device specific but more generic.
+This means that if you're relying on the `hue_event` to trigger events emitted by these devices, the event_data will now be a slightly bit different.
+To easily identify what events get emitted by your Hue remotes, Open Developer Tools and subscribe to the `hue_event`.
+
+**Light entities for Hue rooms/zones**
+
+Entities for Hue groups (zones/rooms) will be imported but by default in a disabled state.
+The Integration option to enable Hue groups has been phased out in favor of the default Home Assistant functionality to enable/disable entities.
+To enable any (new) light entities for Hue groups: Open settings --> integrations --> Hue --> Entities --> Click one of the disabled entities and enable it.
+Existing Hue group lights will be migrated as enabled entities.
+
+**Entities for Hue scenes**
+
+If you create any scenes for your Hue zones/rooms, these will now be automatically imported to Home Assistant as scene entity, including support for the new Hue Dynamic Scenes. You can disable any scene entities you don't like to use in Home Assistant (or delete them in the Hue app).
+
+([@marcelveldt] - [#58996]) ([hue docs])
+
+{% enddetails %}
+
 {% details "KNX" %}
 
 The KNX integration migrated the connection settings to configuration via the
@@ -374,143 +485,6 @@ future version of Home Assistant. Please use the new `event` config key instead.
 
 {% enddetails %}
 
-{% details "WLED" %}
-
-The `led_count` and `max_power` attributes have been removed from the sensor
-entity that provides the estimated current of the WLED device. These have been
-replaced by their own sensor entities.
-
-If you have been using the attributes in your automation or scripts, you'll
-need to adjust those to reflect these changes.
-
-([@frenck] - [#58839]) ([wled docs])
-
-----
-
-The `speed`, `palette` name, `intensity`, and `reverse` effect indicator
-attributes have been removed from the WLED light entities.
-They all have been replaced by their own, dedicated, number and switch entities.
-
-If you rely on these attributes in your automations or scripts, you'll
-need to adjust those to this change.
-
-([@frenck] - [#60535]) ([wled docs])
-
-----
-
-The `wled.effect` and `wled.preset` services have been removed.
-For both services, full replacements are available as normal entities in
-Home Assistant.
-
-If you are still using these services in your automation or script, please
-replace them with service calls to their native entities instead.
-
-([@frenck] - [#60537]) ([wled docs])
-
-{% enddetails %}
-
-{% details "MQTT" %}
-
-The following previously deprecated MQTT fan options are no longer supported
-and have been removed:
-
-- `payload_high_speed`
-- `payload_low_speed`
-- `payload_medium_speed`
-- `speed_command_topic`
-- `speed_list`
-- `speed_state_topic`
-- `speed_value_template`
-
-([@jbouwh] - [#58992]) ([mqtt docs])
-
-{% enddetails %}
-
-{% details "Z-Wave JS" %}
-
-Some entities have been marked as configuration entities, e.g., default
-tone of siren devices and protection mode of smart plugs.
-
-Configuration entities:
-
-- Are not included in a service call targeting a whole device or area.
-- Are, by default, not exposed to Google Assistant or Alexa.
-- Are shown on a separate card on the device configuration page.
-- Do not show up on the automatically generated Lovelace Dashboards.
-
-([@MartinHjelmare] - [#59157] [#58703] [#59474]) ([zwave_js docs])
-
-----
-
-- Add zwave_js speed configurations for GE/Jasco 12730 and 14287 fans ([@mkowalchuk] - [#60517]) ([zwave_js docs]) (breaking-change)
-
-
-{% enddetails %}
-
-{% details "Advantage Air" %}
-
-The HVAC mode for zone climate entities was set to `FAN` or `OFF`, because the
-actual HVAC mode is set for the entire ducted AC system. However, using FAN
-means the Google Home app wont let you set a target temperature,
-so it has been changed `AUTO` instead.
-
-([@Bre77] - [#52816]) ([advantage_air docs])
-
-{% enddetails %}
-
-{% details "Phone Modem" %}
-
-The previously deprecated YAML configuration of the Phone Modem integration
-has been removed. Phone Modem is now configured via the UI, any existing YAML
-configuration has been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@tkdrob] - [#59526]) ([modem_callerid docs])
-
-{% enddetails %}
-
-{% details "Twente Milieu" %}
-
-Due to the modernization of the Twente Milieu integration; the
-`twentemilieu.update` service has been removed.
-
-You can now use the `homeassistant.update_entity` service with the
-Twente Milieu integration as a replacement for the removed service.
-
-([@frenck] - [#59632]) ([twentemilieu docs])
-
-{% enddetails %}
-
-{% details "Renault" %}
-
-The `renault.charge_start` service is deprecated and replaced by a dedicated
-start charge `button` entity; please use that entity to start
-the charge instead.
-
-([@epenet] - [#59383]) ([renault docs])
-
-{% enddetails %}
-
-{% details "Litter-Robot" %}
-
-The `litterrobot.reset_waste_drawer` and `litterrobot.set_wait_time` services
-are deprecated and replaced by a dedicated `button` entities; please use
-please use those instead.
-
-([@natekspencer] - [#59734]) ([litterrobot docs])
-
-{% enddetails %}
-
-{% details "SMA Solar" %}
-
-Previously when the inverter was not supplying any power the sensors showed as
-`Unknown`. These sensors will now show the value of `0`. Making it more useful
-for graphs or calculations.
-
-([@rklomp] - [#59848]) ([sma docs])
-
-{% enddetails %}
-
 {% details "Kostal Plenticore" %}
 
 The "Battery Strategy" sensor has been removed from the Kostal Plenticore
@@ -521,223 +495,13 @@ the battery charging settings from Home Assistant.
 
 {% enddetails %}
 
-{% details "Brunt Blind Engine" %}
+{% details "Litter-Robot" %}
 
-The Brunt integration migrated the connection settings to configuration via
-the UI. Configuring the connection to the Brunt API via YAML configuration
-has been deprecated and will be removed in a future Home Assistant release.
+The `litterrobot.reset_waste_drawer` and `litterrobot.set_wait_time` services
+are deprecated and replaced by a dedicated `button` entities; please use
+please use those instead.
 
-Your existing connection YAML configuration is automatically imported on upgrade
-to this release; and thus can be safely removed from your YAML configuration
-after upgrading.
-
-Additionally, the Brunt integration can now be reloaded via the Integrations
-screen in the frontend and will also reload if a Brunt device is removed
-from your account.
-
-([@eavanvalkenburg] - [#49714]) ([brunt docs])
-
-{% enddetails %}
-
-{% details "RainMachine" %}
-
-The `rainmachine.disable_program`, `rainmachine.enable_program`,
-`rainmachine.disable_zone`, and `rainmachine.enable_zone` services have been
-removed.
-
-Instead, new configuration switches related to each entity can be used to
-enable/disable the program/zone.
-
-([@bachya] - [#59617]) ([rainmachine docs])
-
-{% enddetails %}
-
-{% details "Yamaha MusicCast" %}
-
-Until now, there was only one Home Assistant device created for a Yamaha
-MusicCast device and the media player entities of all zones were part of
-this device.
-
-As of this release every zones media player will be located in its own
-Home Assistant device. For single zone devices, nothing will change and
-all your automations, scripts, scenes etc. should work in the same way as
-before.
-
-For multi zone devices for every non main zone (e.g., zone2 or zone3)
-a new device will be created. The media_player of the main zone will remain
-in the original device with all its properties, scripts, automations and scenes,
-which were configured for it.
-
-For other zones you will have to set the area of the newly generated devicesfor
-the various zones manually. If you created scripts, automations or scenes with
-the device as a target and want them to work for non main zones, you will have
-to add the newly added devices as a target to your script/automation/scene.
-
-If you used the media player entity as target, everything should still work
-like before.
-
-([@micha91] - [#58285]) ([yamaha_musiccast docs])
-
-{% enddetails %}
-
-{% details "Fronius" %}
-
-The Fronius integration migrated to configuration via the UI. Configuring
-Fronius via YAML configuration has been deprecated and will be removed in a
-future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this
-release; and thus can be safely removed from your YAML configuration after
-upgrading.
-
-This change will remove manual configuration of Fronius device IDs.
-Connected SolarNet devices will be detected automatically on startup.
-
-([@farmio] - [#59686]) ([fronius docs])
-
-{% enddetails %}
-
-{% details "Templates: `timestamp_local` and `timestamp_utc`" %}
-
-The `timestamp_local` and `timestamp_utc` template functions/filters have
-changed their output format. The timestamp is now formatted to iso standards
-and contains timezone information.
-
-Previously a timestamp from these would look like: `2016-07-21 16:39:04`.
-Now it is formatted as: `2016-07-21T16:39:04+01:00`.
-
-This change may break templates that need a specific format, in those cases,
-you can use the `timestamp_custom` template filter instead.
-
-([@jbouwh] - [#60269])
-
-{% enddetails %}
-
-{% details "BMW ConnectedDrive" %}
-
-The following services/sensors have been removed due to not being available
-using the My BMW API:
- 
-- `alltrips_*`
-- `lasttrips_*`
-- `chargingconnectiontype`
-- `charginginductivepositioning`
-- `lastchargingendreason`
-- `lastchargingendresult`
-- `maxelectricrange`
-
-`notify` requires a location attribute at `data.location`, as the MyBMW API
-only supports sending POI and not messages.
-
-([@rikroe] - [#59881]) ([bmw_connected_drive docs])
-
-{% enddetails %}
-
-{% details "Notifications for Android TV" %}
-
-The Notifications for Android TV integration allows you to send custom
-notifications to Android TV devices. By sending a `file` along with the
-notification, this allows you to send image files that will show up above
-the notification.
-
-Now that support for icons has been added in the same way as images, the `file`
-option has been renamed to `image` as to properly identify what you're sending
-with the notification.
-
-As such, code and automations that use the `file` option for an image have to
-refer to `image` from now on.
-
-([@redahb] - [#60159]) ([nfandroidtv docs])
-
-{% enddetails %}
-
-{% details "Sonos" %}
-
-The `sonos.set_option` service has been removed along with the `bass_level`
-and `treble_level` attributes on `media_player` entities.
-
-Controls for bass and treble adjustments have been moved to
-dedicated `number` entities
-
-([@jjlawren] - [#60498]) ([sonos docs])
-
-{% enddetails %}
-
-{% details "Velbus" %}
-
-The previously deprecated YAML configuration of the RVelbus integration has been removed.
-
-Velbus is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
-
-([@Cereal2nd] - [#60411]) ([velbus docs])
-
-{% enddetails %}
-
-{% details "HomeKit Controller" %}
-
-This release removes the air quality from HomeKit Controller as the platform
-as a whole is now deprecated.
-
-Starting from September, the air quality values have been broken out as their
-own sensors, making them easier to incorporate in your dashboard widgets,
-graphs and automations. These should be used instead.
-
-([@Jc2k] - [#60480]) ([homekit_controller docs])
-
-{% enddetails %}
-
-{% details "Trafikverket Weather Station" %}
-
-The Trafikverket Weather Station integration migrated to configuration via the
-UI. Configuring Trafikverket Weather Station via YAML configuration has been
-deprecated and will be removed in a future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this
-release; and thus can be safely removed from your YAML configuration after upgrading.
-
-([@gjohansson-ST] - [#60078]) ([trafikverket_weatherstation docs])
-
-{% enddetails %}
-
-{% details "SimpliSafe" %}
-
-SimpliSafe services have been reorganized and now utilize a Home Assistant
-selector (device ID) instead of using a SimpliSafe system ID.
-
-([@bachya] - [#58722]) ([simplisafe docs])
-
-{% enddetails %}
-
-{% details "Guardian" %}
-
-Guardian services have been reorganized and now utilize a Home Assistant
-selector (device ID) instead of using a Guardian entity.
-
-([@bachya] - [#58632]) ([guardian docs])
-
-{% enddetails %}
-
-{% details "Pentair ScreenLogic" %}
-
-Screenlogic SCG levels have moved to the number platform to support setting of
-the values. The sensor entities that previously represented these values will
-need to be manually deleted in `Configuration -> Entities`.
-
-([@dieselrabbit] - [#60872]) ([screenlogic docs])
-
-{% enddetails %}
-
-{% details "Viessmann ViCare" %}
-
-The Viessmann ViCare integration migrated to configuration via the
-UI. Configuring Viessmann ViCare via YAML configuration has been
-deprecated and will be removed in a future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this
-release; and thus can be safely removed from your YAML configuration after upgrading.
-
-([@oischinger] - [#56691]) ([vicare docs])
+([@natekspencer] - [#59734]) ([litterrobot docs])
 
 {% enddetails %}
 
@@ -842,26 +606,262 @@ The following icons have been renamed:
 
 {% enddetails %}
 
-{% details "Hue" %}
+{% details "MQTT" %}
 
-**Events for Hue remotes/switches**
+The following previously deprecated MQTT fan options are no longer supported
+and have been removed:
 
-Philips/Signify streamlined the events that are emitted for remotes/switches, these are now no longer device specific but more generic.
-This means that if you're relying on the `hue_event` to trigger events emitted by these devices, the event_data will now be a slightly bit different.
-To easily identify what events get emitted by your Hue remotes, Open Developer Tools and subscribe to the `hue_event`.
+- `payload_high_speed`
+- `payload_low_speed`
+- `payload_medium_speed`
+- `speed_command_topic`
+- `speed_list`
+- `speed_state_topic`
+- `speed_value_template`
 
-**Light entities for Hue rooms/zones**
+([@jbouwh] - [#58992]) ([mqtt docs])
 
-Entities for Hue groups (zones/rooms) will be imported but by default in a disabled state.
-The Integration option to enable Hue groups has been phased out in favor of the default Home Assistant functionality to enable/disable entities.
-To enable any (new) light entities for Hue groups: Open settings --> integrations --> Hue --> Entities --> Click one of the disabled entities and enable it.
-Existing Hue group lights will be migrated as enabled entities.
+{% enddetails %}
 
-**Entities for Hue scenes**
+{% details "Notifications for Android TV" %}
 
-If you create any scenes for your Hue zones/rooms, these will now be automatically imported to Home Assistant as scene entity, including support for the new Hue Dynamic Scenes. You can disable any scene entities you don't like to use in Home Assistant (or delete them in the Hue app).
+The Notifications for Android TV integration allows you to send custom
+notifications to Android TV devices. By sending a `file` along with the
+notification, this allows you to send image files that will show up above
+the notification.
 
-([@marcelveldt] - [#58996]) ([hue docs])
+Now that support for icons has been added in the same way as images, the `file`
+option has been renamed to `image` as to properly identify what you're sending
+with the notification.
+
+As such, code and automations that use the `file` option for an image have to
+refer to `image` from now on.
+
+([@redahb] - [#60159]) ([nfandroidtv docs])
+
+{% enddetails %}
+
+{% details "Pentair ScreenLogic" %}
+
+Screenlogic SCG levels have moved to the number platform to support setting of
+the values. The sensor entities that previously represented these values will
+need to be manually deleted in `Configuration -> Entities`.
+
+([@dieselrabbit] - [#60872]) ([screenlogic docs])
+
+{% enddetails %}
+
+{% details "Phone Modem" %}
+
+The previously deprecated YAML configuration of the Phone Modem integration
+has been removed. Phone Modem is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@tkdrob] - [#59526]) ([modem_callerid docs])
+
+{% enddetails %}
+
+{% details "RainMachine" %}
+
+The `rainmachine.disable_program`, `rainmachine.enable_program`,
+`rainmachine.disable_zone`, and `rainmachine.enable_zone` services have been
+removed.
+
+Instead, new configuration switches related to each entity can be used to
+enable/disable the program/zone.
+
+([@bachya] - [#59617]) ([rainmachine docs])
+
+{% enddetails %}
+
+{% details "Renault" %}
+
+The `renault.charge_start` service is deprecated and replaced by a dedicated
+start charge `button` entity; please use that entity to start
+the charge instead.
+
+([@epenet] - [#59383]) ([renault docs])
+
+{% enddetails %}
+
+{% details "SimpliSafe" %}
+
+SimpliSafe services have been reorganized and now utilize a Home Assistant
+selector (device ID) instead of using a SimpliSafe system ID.
+
+([@bachya] - [#58722]) ([simplisafe docs])
+
+{% enddetails %}
+
+{% details "SMA Solar" %}
+
+Previously when the inverter was not supplying any power the sensors showed as
+`Unknown`. These sensors will now show the value of `0`. Making it more useful
+for graphs or calculations.
+
+([@rklomp] - [#59848]) ([sma docs])
+
+{% enddetails %}
+
+{% details "Sonos" %}
+
+The `sonos.set_option` service has been removed along with the `bass_level`
+and `treble_level` attributes on `media_player` entities.
+
+Controls for bass and treble adjustments have been moved to
+dedicated `number` entities
+
+([@jjlawren] - [#60498]) ([sonos docs])
+
+{% enddetails %}
+
+{% details "Templates: `timestamp_local` and `timestamp_utc`" %}
+
+The `timestamp_local` and `timestamp_utc` template functions/filters have
+changed their output format. The timestamp is now formatted to iso standards
+and contains timezone information.
+
+Previously a timestamp from these would look like: `2016-07-21 16:39:04`.
+Now it is formatted as: `2016-07-21T16:39:04+01:00`.
+
+This change may break templates that need a specific format, in those cases,
+you can use the `timestamp_custom` template filter instead.
+
+([@jbouwh] - [#60269])
+
+{% enddetails %}
+
+{% details "Trafikverket Weather Station" %}
+
+The Trafikverket Weather Station integration migrated to configuration via the
+UI. Configuring Trafikverket Weather Station via YAML configuration has been
+deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration after upgrading.
+
+([@gjohansson-ST] - [#60078]) ([trafikverket_weatherstation docs])
+
+{% enddetails %}
+
+{% details "Twente Milieu" %}
+
+Due to the modernization of the Twente Milieu integration; the
+`twentemilieu.update` service has been removed.
+
+You can now use the `homeassistant.update_entity` service with the
+Twente Milieu integration as a replacement for the removed service.
+
+([@frenck] - [#59632]) ([twentemilieu docs])
+
+{% enddetails %}
+
+{% details "Velbus" %}
+
+The previously deprecated YAML configuration of the RVelbus integration has been removed.
+
+Velbus is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@Cereal2nd] - [#60411]) ([velbus docs])
+
+{% enddetails %}
+
+{% details "Viessmann ViCare" %}
+
+The Viessmann ViCare integration migrated to configuration via the
+UI. Configuring Viessmann ViCare via YAML configuration has been
+deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration after upgrading.
+
+([@oischinger] - [#56691]) ([vicare docs])
+
+{% enddetails %}
+
+{% details "WLED" %}
+
+The `led_count` and `max_power` attributes have been removed from the sensor
+entity that provides the estimated current of the WLED device. These have been
+replaced by their own sensor entities.
+
+If you have been using the attributes in your automation or scripts, you'll
+need to adjust those to reflect these changes.
+
+([@frenck] - [#58839]) ([wled docs])
+
+----
+
+The `speed`, `palette` name, `intensity`, and `reverse` effect indicator
+attributes have been removed from the WLED light entities.
+They all have been replaced by their own, dedicated, number and switch entities.
+
+If you rely on these attributes in your automations or scripts, you'll
+need to adjust those to this change.
+
+([@frenck] - [#60535]) ([wled docs])
+
+----
+
+The `wled.effect` and `wled.preset` services have been removed.
+For both services, full replacements are available as normal entities in
+Home Assistant.
+
+If you are still using these services in your automation or script, please
+replace them with service calls to their native entities instead.
+
+([@frenck] - [#60537]) ([wled docs])
+
+{% enddetails %}
+
+{% details "Yamaha MusicCast" %}
+
+Until now, there was only one Home Assistant device created for a Yamaha
+MusicCast device and the media player entities of all zones were part of
+this device.
+
+As of this release every zones media player will be located in its own
+Home Assistant device. For single zone devices, nothing will change and
+all your automations, scripts, scenes etc. should work in the same way as
+before.
+
+For multi zone devices for every non main zone (e.g., zone2 or zone3)
+a new device will be created. The media_player of the main zone will remain
+in the original device with all its properties, scripts, automations and scenes,
+which were configured for it.
+
+For other zones you will have to set the area of the newly generated devicesfor
+the various zones manually. If you created scripts, automations or scenes with
+the device as a target and want them to work for non main zones, you will have
+to add the newly added devices as a target to your script/automation/scene.
+
+If you used the media player entity as target, everything should still work
+like before.
+
+([@micha91] - [#58285]) ([yamaha_musiccast docs])
+
+{% enddetails %}
+
+{% details "Z-Wave JS" %}
+
+Some entities have been marked as configuration entities, e.g., default
+tone of siren devices and protection mode of smart plugs.
+
+Configuration entities:
+
+- Are not included in a service call targeting a whole device or area.
+- Are, by default, not exposed to Google Assistant or Alexa.
+- Are shown on a separate card on the device configuration page.
+- Do not show up on the automatically generated Lovelace Dashboards.
+
+([@MartinHjelmare] - [#59157] [#58703] [#59474]) ([zwave_js docs])
+
+----
+
+- Add zwave_js speed configurations for GE/Jasco 12730 and 14287 fans ([@mkowalchuk] - [#60517]) ([zwave_js docs]) (breaking-change)
+
 
 {% enddetails %}
 
