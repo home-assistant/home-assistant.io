@@ -107,14 +107,29 @@ This features allows you to mark users in your home as "local only".
 
 - Add local only users ([@balloob] - [#57598]) ([config docs]) ([auth docs])
 
-## Revamped area panel and the area card
+## Redesigned area panel and the area Lovelace card
 
-The area panel now looks different... nice cards instead of a table/listing.
-But there is more! Those area cards, are actually available in Lovelace as well.
+The area panel has been redesigned. Instead of a list of areas, it now
+shows a card for each area. The card shows a picture of the area.
 
-Oh! You can now add pictures to your areas too!
+Wait, a picture? Yes! You can now upload a picture for your area straight
+from the Home Assistant frontend. So, you can make it look, something like this:
 
-[![Open your Home Assistant instance and show your areas.](https://my.home-assistant.io/badges/areas.svg)](https://my.home-assistant.io/redirect/areas/)
+<img class="no-shadow" src='/images/blog/2021-12/areas-panel.png' alt='Screenshot of the new areas panel'>
+
+{% my areas badge %}
+
+But that is not all, [@zsarnett] created a brand new area Lovelace card.
+This card will use the picture you've uploaded for your area and it
+automatically populates with entities of devices you have assigned
+to that specific area.
+
+<p class='img'>
+<img src='/images/blog/2021-12/area-card.png' alt='Screenshot of a new area Lovelace card'>
+Screenshot of a new area Lovelace card.
+</p>
+
+[@zsarnett]: https://github.com/zsarnett
 
 ## Z-Wave JS SmartStart and entity categories
 
