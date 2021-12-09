@@ -268,7 +268,7 @@ alarm_control_panel:
 
 ### Configurations with remote code validation
 
-The example below shows a full configuration with local code validation and `command_template`.
+The example below shows a full configuration with remote code validation and `command_template`.
 
 {% raw %}
 
