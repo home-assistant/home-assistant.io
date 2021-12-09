@@ -35,7 +35,7 @@ ha_platforms:
   - switch
 ---
 
-This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're new to Home Assistant, use Z-Wave JS. If you're migrating from the deprecated `zwave` or `ozw` integrations, see [our migration instructions](#migrating-from-previous-z-wave-implementations).
+This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're migrating from the deprecated `zwave` or `ozw` integrations, see [our migration instructions](#migrating-from-previous-z-wave-implementations).
 
 To Run Z-Wave JS you will need a [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules), a running Z-Wave JS server (using only **one** of the add-ons or installation methods described below), and the Z-Wave JS integration.
 
