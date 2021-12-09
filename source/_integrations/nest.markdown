@@ -27,34 +27,19 @@ The `nest` integration allows you to integrate your [Google Nest](https://store.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Camera](#camera)
 - [Climate](#climate)
 - [Sensor](#sensor)
+- [Camera](#camera)
 
 Cameras and Doorbells support [Automation and Device Triggers](#automation-and-device-triggers) and a [Media Source](#media-source) for viewing recent events.
+
+thers device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
+
+You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
 <div class='note'>
 The Nest Smart Device Management (SDM) API *requires a US$5 fee*.
 </div>
-
-## Overview: Supported Devices
-
-Home Assistant is integrated with the following devices through the SDM API:
-
-- Thermostat Devices
-  - Every thermostat is exposed as a `climate` entity
-  - A Temperature `sensor` entity. Note: Additional Nest Temperature Sensors are not supported by the SDM API.
-  - A Humidity `sensor` entity.
-  - Example devices: All Google Nest Thermostat models
-- Display, Camera, and Doorbell Devices
-  - The camera live stream is available as a `camera` entity
-  - Device Triggers for use in automations such as Person detected, Motion detected and Doorbell pressed
-  - Example devices: All wired & battery Google Nest Cam models, wired & battery Nest Doorbells, and Google Nest Hub Max.
-
-You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
-
-Others devices like Smoke and CO Alarms or Security systems are not currently
-supported by the SDM API.
 
 The full detailed instructions for account setup are available in the [Device Access Registration](https://developers.google.com/nest/device-access/registration) Quick Start Guide. The instructions below are included to make this complex setup process a bit easier to follow.
 
@@ -337,16 +322,6 @@ logger:
     google.cloud.pubsub_v1: debug
 ```
 
-## Camera
-
-All Google Nest Cam models, Google Nest Doorbell models, Google Nest Hub Max expose a [CameraLiveStream](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) via the SDM API.
-
-Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
-
-Cameras either support an `RTSP` stream served via `HLS` by Home Assistant, or support a `WebRTC` stream. See the [Nest SDM API: CameraLiveStream Schema](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) for details on which camera devices support which types of streams. WebRTC cameras do not support image previews or stream recording in Home Assistant as the stream communication is client-side, directly from the browser to the device.
-
-See [Automation and Device Triggers](#automation-and-device-triggers) and [Media Source](#media-source) below for additional camera features.
-
 ## Climate
 
 All Google Nest Thermostat models are exposed as a `climate` entity that use the [Thermostat Traits](https://developers.google.com/nest/device-access/traits/device/thermostat-hvac) in the SDM API. State changes to the thermostat are reported to Home Assistant through the Cloud Pubsub subscriber.
@@ -362,28 +337,35 @@ All Google Nest Thermostat models have traits exposed from the SDM API. The init
 
 Given a thermostat named `Upstairs` then sensors are created with names such as `sensor.upstairs_temperature` or `sensor.upstairs_humidity`.
 
+
+## Camera
+
+Home Assistant supports all SDM API features, but different Cameras and Doorbells models have different inherent capabilities. Every camera has one of two different live stream :
+
+  * An `RTSP` live stream served via `HLS` by Home Assistant Core. These cameras support server side stream recording and live image previews. [Low Latency HLS](/integrations/stream#ll-hls) is a great option to enable to reduce stream latency.
+  * A `WebRTC` live stream with direct browser to camera communication with super low latency. These cameras *do not support* server side stream recording and live image previews.
+
+All cameras do support triggers for events like motion, however only some support capturing snapshots for events.
+
+See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for a complete list of Google Nest devices and models supported by the SDM API.
+
+| Device | Live Stream | Triggers | Trigger Image Support |
+| ------ | :---------: | :------: | :--------------------: |
+| Nest Cam (indoor, wired)<br>Nest Cam (outdoor, battery) | WebRTC | Motion<br>Person | N/A |
+| Nest Cam Indoor<br>Nest Cam IQ Indoor<br>Nest Cam IQ Outdoor<br>Nest Cam Outdoor | RTSP<br>Recording | Motion<br>Person<br>Sound | Snapshot (jpg) |
+| Nest Cam with floodlight | WebRTC | Motion<br>Person | N/A |
+| Nest Doorbell (battery) | WebRTC | Motion<br>Person<br>Chime | Clip Preview (mp4) |
+| Nest Doorbell (wired) | RTSP<br>Recording | Motion<br>Person<br>Sound<br>Chime | Snapshot (jpg) |
+| Nest Hub Max | RTSP<br>Recording | Motion<br>Person<br>Sound<br><sub><sup>*Note: Nest SDM API [reported issue](https://github.com/home-assistant/core/issues/58482) is not sending events*</sup></sub> | Snapshot (jpg) |
+
+Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
+
 ## Automation and Device Triggers
 
 The Nest integration makes [device triggers](/docs/automation/trigger/#device-triggers) available to enable automation
 in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
 
 ![Screenshot Device Triggers](/images/integrations/nest/device_triggers.png)
-
-All Google Nest Cam models and the Google Nest Hello Video Doorbell support device triggers:
-
-- **Motion detected**
-- **Person detected**
-- **Sound detected**
-- **Doorbell pressed** *for Doorbell only*
-
-The lower level Pub/Sub subscriber receives events in real time and internally fires `nest_event` events within Home Assistant:
-
-| Device Trigger | Pub/Sub Event | `nest_event` |
-| -------------- | ----- | ------------- |
-| Motion detected | [CameraMotion](https://developers.google.com/nest/device-access/traits/device/camera-motion#events) | `motion_detected` |
-| Person detected | [CameraPerson](https://developers.google.com/nest/device-access/traits/device/camera-person#events) | `person_detected` |
-| Sound detected | [CameraSound](https://developers.google.com/nest/device-access/traits/device/camera-sound#events) | `sound_detected` |
-| Doorbell pressed | [DoorbellChime](https://developers.google.com/nest/device-access/traits/device/doorbell-chime#events) | `doorbell_chime` |
 
 ## Example
 
