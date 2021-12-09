@@ -174,6 +174,7 @@ configure Pub/Sub.
 
 You now should have everything needed to configure Nest in Home Assistant. Edit your `configuration.yaml` file and populate a `nest` entry in the format of the example configuration below.
 
+
 ```yaml
 # Example configuration.yaml entry
 nest:
@@ -182,6 +183,8 @@ nest:
   # "Project ID" in the Device Access Console (not Cloud Project ID!)
   project_id: PROJECT_ID
 ```
+
+Then make sure to restart Home Assistant under _**Server Controls**_.  {% my server_controls badge %}
 
 {% configuration %}
 client_id:
@@ -210,7 +213,7 @@ Once `configuration.yaml` has a valid `nest` entry, you need to add Nest to your
 
 {% details "Manual configuration steps" %}
 
-1. Browse to your Home Assistant instance using.
+1. Browse to your Home Assistant instance.
 1. In the sidebar click on _**{% my config icon %}**_.
 1. From the configuration menu select: _**{% my integrations icon %}**_.
 1. In the bottom right, click on the
