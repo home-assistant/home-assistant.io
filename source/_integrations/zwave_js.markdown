@@ -717,7 +717,7 @@ The combination of these two steps corrects a large number of reported difficult
 
 #### I have an Aeotec Gen5 controller, and it isn't detected on my Raspberry Pi 4?
 
-The first-generation Gen5 controller has a known bug when plugged into a Pi 4 and possibly other systems. Aeotec released the Gen5+ stick to correct this bug. Gen5 users can plus their sticks into a USB 2.0 hub in order to overcome the issue.
+The first-generation Gen5 controller has a known bug when plugged into a Pi 4 and possibly other systems. Aeotec released the Gen5+ stick to correct this bug. Gen5 users can plug their sticks into a USB 2.0 hub in order to overcome the issue.
 
 #### I do not see any entities created for my device in Home Assistant
 
