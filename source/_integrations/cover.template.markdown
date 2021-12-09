@@ -231,11 +231,11 @@ cover:
             modus: "stop"
         set_cover_position:
           service: script.cover_group_position
-          data:
+          data_template:
             position: "{{position}}"
         set_cover_tilt_position:
           service: script.cover_group_tilt_position
-          data:
+          data_template:
             tilt: "{{tilt}}"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
@@ -273,7 +273,7 @@ script:
           entity_id:
             - cover.bedroom
             - cover.livingroom
-        data:
+        data_template:
           position: "{{position}}"
 
 automation:
