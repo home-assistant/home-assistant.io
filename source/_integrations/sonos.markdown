@@ -273,3 +273,89 @@ sonos:
   media_player:
     advertise_addr: 192.0.2.1
 ```
+
+## Control shuffle and repeat with a switch
+
+To have more visibility if the Sonos is shuffling or repeating items, you can also create one or multiple template switches to see the current status and also toggle these settings.
+
+```yaml
+# Example configuration.yaml entry to create a shuffle switch
+switch:
+  - platform: template
+      switches:
+        sonos_livingroom_shuffle:
+          friendly_name: Sonos livingroom shuffle
+          unique_id: sonos_livingroom_shuffle
+          icon_template: >-
+            {% if is_state_attr('media_player.sonos_livingroom', 'shuffle', true) %}
+                mdi:shuffle
+            {% else %}
+              mdi:shuffle-disabled
+            {% endif %}
+          value_template: >-
+            {% if is_state_attr('media_player.sonos_livingroom', 'shuffle', true) %}
+              on
+            {% else %}
+              off
+            {% endif %}
+          availability_template: >-
+            {% if is_state('media_player.sonos_livingroom', 'unavailable') %}
+              unavailable
+            {% else %}
+              true
+            {% endif %}
+          turn_on:
+            service: media_player.shuffle_set
+            data:
+              shuffle: true
+            target:
+              entity_id: media_player.sonos_livingroom
+          turn_off:
+            service: media_player.shuffle_set
+            data:
+              shuffle: false
+            target:
+              entity_id: media_player.sonos_livingroom
+```
+
+```yaml
+# Example configuration.yaml entry to create a repeat all switch
+switch:
+  - platform: template
+      switches:
+        sonos_livingroom_repeat_all:
+          friendly_name: Sonos livingroom repeat all
+          unique_id: sonos_livingroom_repeat_all
+          icon_template: >-
+            {% if is_state_attr('media_player.sonos_livingroom', 'repeat', 'all') %}
+              mdi:repeat
+            {% else %}
+              mdi:repeat-off
+            {% endif %}
+          value_template: >-
+            {% if is_state_attr('media_player.sonos_livingroom', 'repeat', 'all') %}
+              on
+            {% else %}
+              off
+            {% endif %}
+          availability_template: >-
+            {% if is_state('media_player.sonos_livingroom', 'unavailable') %}
+              unavailable
+            {% else %}
+              true
+            {% endif %}
+          turn_on:
+            service: media_player.repeat_set
+            data:
+              repeat: 'all'
+            target:
+              entity_id: media_player.sonos_livingroom
+          turn_off:
+            service: media_player.repeat_set
+            data:
+              repeat: 'off'
+            target:
+              entity_id: media_player.sonos_livingroom
+```
+
+It is also possible to create a template switch which controls the one track shuffle, by changing `all` to `single`
