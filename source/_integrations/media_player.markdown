@@ -241,13 +241,13 @@ switch:
           turn_on:
             service: media_player.repeat_set
             data:
-              repeat: 'all'
+              repeat: "all"
             target:
               entity_id: media_player.sonos_livingroom
           turn_off:
             service: media_player.repeat_set
             data:
-              repeat: 'off'
+              repeat: "off"
             target:
               entity_id: media_player.sonos_livingroom
 ```
