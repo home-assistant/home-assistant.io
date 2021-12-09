@@ -56,7 +56,11 @@ Each device adds a set of sensors to Home Assistant.
 
 - `meter`
 
-  Detailed information about power, current and voltage, if supported split among the phases. Updated every minute interval.
+  Detailed information about power, current and voltage, if supported split among the phases. Updated every minute.
+
+- `ohmpilot`
+
+  Detailed information about energy, power, and temperature of your Ohmpilots. Updated every minute.
 
 - `storage`
 
@@ -67,6 +71,16 @@ The corresponding sensors are added to Home Assistant as entities as soon as the
 This means for example that when Home Assistant is started at night, there might be no sensor providing photovoltaic related data.
 This does not need to be problematic as the values will be added on sunrise, when the Fronius devices begins providing the needed data.
 When a device is not responding correctly the update interval will increase to 10 minutes (3 minutes for power flow) until valid data is received again.
+
+## Energy dashboard
+
+Recommended energy dashboard configuration for meter location in feed in path (`Meter location: 0`):
+
+- For `Grid consumption` use the meters `Energy real consumed` entity.
+- For `Return to grid` use the meters `Energy real produced` entity.
+- For `Solar production` add each inverters `Energy total` entity.
+- `Battery systems` aren't supported directly. Use [Riemann sum](/integrations/integration/) with negative values of `Power battery` entity (from power_flow endpoint found in your `SolarNet` device) for charging and positive values for discharging.
+- For `Devices` use the Ohmpilots `Energy consumed` entity.
 
 ## Note
 
