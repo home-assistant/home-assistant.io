@@ -59,12 +59,12 @@ quickly.
 
 <img class="no-shadow" src='/images/blog/2021-12/configuration-menu.png' alt='Screenshot of the new areas panel'>
 
-The Supervisor panel and its sidebar item has been removed and the panel
-has been merged into the configuration panel now. All OS, Core & Add-on
+The Supervisor panel and its sidebar item have been removed, and the panel
+has been merged into the configuration panel. All OS, Core & Add-on
 updates are now shown in the top of the configuration panel.
 
 If you are using our Android, iOS, or macOS Companion apps, the sidebar menu
-item to configure those has also been moved into the configuration panel.
+to configure those has also been moved into the configuration panel.
 
 All configuration related items, neatly organized in a single place 🤘
 
@@ -86,15 +86,15 @@ Button entities can be provided by integrations and can be used for things like:
 Examples use cases of button entities.
 </p>
 
-All things that can be triggered from Home Assistant, but are not really have
-on or off state.
+These are all things that can be triggered from Home Assistant but are not
+really have explicit on or off states.
 
 We have added support for this button entity to Google Assistant, Alexa and
 HomeKit; allowing you to "press" those buttons from your favorite voice
 assistant.
 
 For this release, MQTT & KNX added support for providing buttons. The Shelly,
-WLED, Elgato, Litter-Robot, TOLO Sauna, Tuya, Renault and NAM integrations
+WLED, Elgato, Litter-Robot, TOLO Sauna, Tuya, Renault, and NAM integrations
 have added button entities.
 
 Additionally, [ESPHome 2021.12](https://esphome.io/changelog/2021.12.0.html)
@@ -108,14 +108,14 @@ The area panel has been redesigned. Instead of a list of areas, it now
 shows a card for each area. The card shows a picture of the area.
 
 Wait, a picture? Yes! You can now upload a picture for your area straight
-from the Home Assistant frontend. So, you can make it look, something like this:
+from the Home Assistant frontend. So, you can make it look something like this:
 
 <img class="no-shadow" src='/images/blog/2021-12/areas-panel.png' alt='Screenshot of the new areas panel'>
 
 {% my areas badge %}
 
 But that is not all, [@zsarnett] created a brand new area Lovelace card.
-This card will use the picture you've uploaded for your area and it
+This card will use the picture you've uploaded for your area, and it
 automatically populates with entities of devices you have assigned
 to that specific area.
 
@@ -126,14 +126,13 @@ Screenshot of a new area Lovelace card.
 
 [@zsarnett]: https://github.com/zsarnett
 
-## Users that can only login from the local network
+## Users that can only log in from the local network
 
-This new feature allows you to make users that can only login from the local
-network and not from the internet or cloud.
+This new feature allows you to make users that are only allowed to log in
+from the local network and not from the internet or cloud.
 
 This can be useful if you have users that are not always at your home or
-a dedicated user for a wall tablet that never needs to be able to login
-remotely.
+a dedicated user for a wall tablet that never needs to log in remotely.
 
 <img class="no-shadow" src='/images/blog/2021-12/local-only-user.png' alt='Screenshot of user configuration in Home Assistant with local only enabled.'>
 
@@ -141,8 +140,9 @@ remotely.
 
 ## Z-Wave JS SmartStart and entity categories
 
-Z-Wave JS now support SmartStart! You can add devices supporting that,
-by scanning their code using your camera.
+Z-Wave JS now support SmartStart! By scanning their code using your camera,
+you can add devices supporting that.
+
 
 Additionally, Z-Wave JS had added support for Entity Categories
 
@@ -159,13 +159,13 @@ be re-used in other automations.
 
 ## Triggering on any, but only state changes
 
-Up until now, writing automations that trigger on any state change of an entity,
+Until now, writing automations that trigger on any state change of an entity,
 but not on any attribute changes, was nearly impossible without adding
 additional conditions.
 
 We have now added a way to trigger on any state change, regardless of the state,
-without trigggering on attribute changes. If you set `from` or `to`, and
-leave it empty, it will match any state, but ignores attributes.
+without triggering on attribute changes. If you set `from` or `to`, and
+leave it empty, it will match any state but ignore attributes.
 
 ```yaml
 automation:
@@ -201,8 +201,8 @@ work as reliable as it should have been.
 
 We have some good news, these casting issues have been resolved!
 
-Although a bugfix, we think the impact was big enough to warrant
-a mention for it in the release notes.
+Although a bugfix, we think the impact was significant enough to warrant
+its mention in the release notes.
 
 ## Other noteworthy changes
 
@@ -214,14 +214,14 @@ noteworthy changes this release:
   in Home Assistant, and scenes are now also natively supported.
   Amazing job, thanks [@marcelveldt]!
 - [@farmio] completely rewrote the Fronius integration adding support
-  for all the latest and greatest Home Assistant has to offer. Nice!
-- Besides support for the new button entity, ESPHome now also support
+  for all the latest, and greatest Home Assistant offers. Nice!
+- Besides supporting the new button entity, ESPHome now also supports
   setting the mode and unit of measurement on number entities.
   Thanks, [@jesserockz]!
 - Magic Home (Flux LED) got lots of love from [@bdraco], adding support
   for new devices and features along the way.
 - [@jbouwh] improved the `as_datetime` template method, which now supports
-  the UNIX timestamps as well.
+  the UNIX timestamp.
 - The motionEye integration added sensors and service, thank you [@dermotduffy].
 - WLED devices can now be restarted and upgraded from Home Assistant.
 - [@chemelli74] added the climate platform support for Shelly, and
@@ -233,21 +233,21 @@ noteworthy changes this release:
 - System Bridge has two new services for sending keyboard events to
   the remote machine, added by [@timmo001].
 - [@klada] added support for media player groups to Denon HEOS.
-- The REST platform now support templates for its headers and query
+- The REST platform now supports templates for its headers and query
   parameters. Thanks, [@koying].
 - Mill now supports its 3rd generation heaters, thanks [@Danielhiversen]
 - [@hmmbob] added support for `ms-MY`, `nl-BE`, `pa-IN` to Google TTS.
 - Nanoleaf now pushes updates into Home Assistant, thanks [@milanmeu].
 - [@micha91] extended Yamaha MusicCast with number entities for controlling
-  equalizers, dialogue volume/lift and the display brightness.
+  equalizers, dialogue volume/lift, and the display brightness.
 - The Levoit Core 400S air purifier is now supported by the VeSync integration,
   thanks for that [@jparchem].
 - The state of number helpers is now exposed to Prometheus. Nice, [@alim4r]!
 - [@tschamm] added support for shutter controls to Bosch SHC.
-- Notifications for Android TV can now send notification with custom icons;
+- Notifications for Android TV can now send a notification with custom icons;
   Awesome adding [@redahb]!
-- MQTT has seen multiple improvements this release:
-  - The select and number platforms now now have `command_template` support ([@jbouwh])
+- MQTT has seen multiple improvements in this release:
+  - The select and number platforms now have `command_template` support ([@jbouwh])
   - Switches now support `device_class` ([@koying])
   - MQTT platforms can now set the `object_id` option ([@Smeagolworms4])
   - Selects can now have a single or no options ([@emontnemery])
@@ -326,17 +326,24 @@ entity is shown, you can now change that by editing the entity in the UI.
 
 {% details "Add-ons, Backups & Supervisor" %}
 
-The Supervisor panel has been merged into the configuration panel; therefore
-the separate menu item has been removed from the sidebar.
+The Supervisor panel has been merged into the configuration panel. The separate
+menu item from the sidebar has been removed.
 
 ----
 
-The binary_sensor with "running" `device_class` that was provided for the
-Home Assistant Operating System device did not work and has now been removed,
-if you have added this to templates and/or automation remove it from
+The `binary_sensor` with "running" `device_class` that was provided for the
+Home Assistant Operating System device did not work and has now been removed;
+If you have added this to templates or automations, remove it from
 your configuration.
 
 ([@ludeeus] - [#60597]) ([hassio docs])
+
+{% enddetails %}
+
+{% details "Companion App" %}
+
+The Companion App configuration has been merged into the configuration panel.
+The separate menu item from the sidebar has been removed.
 
 {% enddetails %}
 
@@ -344,7 +351,7 @@ your configuration.
 
 The HVAC mode for zone climate entities was set to `FAN` or `OFF`, because the
 actual HVAC mode is set for the entire ducted AC system. However, using FAN
-means the Google Home app wont let you set a target temperature,
+means the Google Home app won't let you set a target temperature,
 so it has been changed `AUTO` instead.
 
 ([@Bre77] - [#52816]) ([advantage_air docs])
@@ -424,11 +431,11 @@ selector (device ID) instead of using a Guardian entity.
 {% details "HomeKit Controller" %}
 
 This release removes the air quality from HomeKit Controller as the platform
-as a whole is now deprecated.
+has been previously deprecated.
 
-Starting from September, the air quality values have been broken out as their
-own sensors, making them easier to incorporate in your dashboard widgets,
-graphs and automations. These should be used instead.
+The air quality values have been broken out as their own sensors starting from
+September, making them easier to incorporate in your dashboard widgets, graphs,
+and automations. These should be used instead.
 
 ([@Jc2k] - [#60480]) ([homekit_controller docs])
 
@@ -438,20 +445,31 @@ graphs and automations. These should be used instead.
 
 **Events for Hue remotes/switches**
 
-Philips/Signify streamlined the events that are emitted for remotes/switches, these are now no longer device specific but more generic.
-This means that if you're relying on the `hue_event` to trigger events emitted by these devices, the event_data will now be a slightly bit different.
-To easily identify what events get emitted by your Hue remotes, Open Developer Tools and subscribe to the `hue_event`.
+Philips/Signify streamlined the events that are emitted for remotes/switches;
+these are now no longer device specific but more generic. This means that if
+you're relying on the `hue_event` to trigger events emitted by these devices,
+the `event_data` will now be slightly different. To easily identify what
+events get emitted by your Hue remotes, Open Developer Tools and subscribe
+to the `hue_event`.
 
 **Light entities for Hue rooms/zones**
 
-Entities for Hue groups (zones/rooms) will be imported but by default in a disabled state.
-The Integration option to enable Hue groups has been phased out in favor of the default Home Assistant functionality to enable/disable entities.
-To enable any (new) light entities for Hue groups: Open settings --> integrations --> Hue --> Entities --> Click one of the disabled entities and enable it.
+Entities for Hue groups (zones/rooms) will be imported but in a disabled state
+by default. The Integration option to enable Hue groups has been phased out in
+favor of the default Home Assistant functionality to enable/disable entities.
+
+To enable any (new) light entities for Hue groups:
+Open settings --> integrations --> Hue --> Entities --> Click one of the
+disabled entities and enable it.
+
 Existing Hue group lights will be migrated as enabled entities.
 
 **Entities for Hue scenes**
 
-If you create any scenes for your Hue zones/rooms, these will now be automatically imported to Home Assistant as scene entity, including support for the new Hue Dynamic Scenes. You can disable any scene entities you don't like to use in Home Assistant (or delete them in the Hue app).
+If you create any scenes for your Hue zones/rooms, these will now be
+automatically imported to Home Assistant as scene entity, including support for
+the new Hue Dynamic Scenes. You can disable any scene entities you don't like
+to use in Home Assistant (or delete them in the Hue app).
 
 ([@marcelveldt] - [#58996]) ([hue docs])
 
@@ -468,7 +486,7 @@ to this release; and thus can be safely removed from your YAML configuration
 after upgrading.
 
 Additionally, the KNX integration can now be reloaded via the Integrations
-screen in the frontend and thus the knx.reload service has been removed.
+screen in the frontend, and thus the `knx.reload` service has been removed.
 
 ([@marvin-w] - [#59377]) ([knx docs])
 
@@ -494,7 +512,7 @@ future version of Home Assistant. Please use the new `event` config key instead.
 {% details "Kostal Plenticore" %}
 
 The "Battery Strategy" sensor has been removed from the Kostal Plenticore
-integration, it's replaced by a `switch` and a `select` entity to allow setting
+integration. It is replaced by a `switch` and a `select` entity to allow setting
 the battery charging settings from Home Assistant.
 
 ([@slowflyer] - [#56529]) ([kostal_plenticore docs])
@@ -504,7 +522,7 @@ the battery charging settings from Home Assistant.
 {% details "Litter-Robot" %}
 
 The `litterrobot.reset_waste_drawer` and `litterrobot.set_wait_time` services
-are deprecated and replaced by a dedicated `button` entities; please use
+are deprecated and replaced by dedicated `button` entities; please use
 please use those instead.
 
 ([@natekspencer] - [#59734]) ([litterrobot docs])
@@ -632,12 +650,12 @@ and have been removed:
 {% details "Notifications for Android TV" %}
 
 The Notifications for Android TV integration allows you to send custom
-notifications to Android TV devices. By sending a `file` along with the
-notification, this allows you to send image files that will show up above
+notifications to Android TV devices. Sending a `file` along with the
+notification, allows you to send image files that will show up above
 the notification.
 
 Now that support for icons has been added in the same way as images, the `file`
-option has been renamed to `image` as to properly identify what you're sending
+option has been renamed to `image` to properly identify what you're sending
 with the notification.
 
 As such, code and automations that use the `file` option for an image have to
@@ -650,7 +668,7 @@ refer to `image` from now on.
 {% details "Pentair ScreenLogic" %}
 
 Screenlogic SCG levels have moved to the number platform to support setting of
-the values. The sensor entities that previously represented these values will
+these values. The sensor entities that previously represented these values will
 need to be manually deleted in `Configuration -> Entities`.
 
 ([@dieselrabbit] - [#60872]) ([screenlogic docs])
@@ -702,8 +720,8 @@ selector (device ID) instead of using a SimpliSafe system ID.
 
 {% details "SMA Solar" %}
 
-Previously when the inverter was not supplying any power the sensors showed as
-`Unknown`. These sensors will now show the value of `0`. Making it more useful
+Previously when the inverter was not supplying any power, the sensors showed as
+`Unknown`. These sensors will now show the value of `0`, making it more useful
 for graphs or calculations.
 
 ([@rklomp] - [#59848]) ([sma docs])
@@ -716,7 +734,7 @@ The `sonos.set_option` service has been removed along with the `bass_level`
 and `treble_level` attributes on `media_player` entities.
 
 Controls for bass and treble adjustments have been moved to
-dedicated `number` entities
+dedicated `number` entities.
 
 ([@jjlawren] - [#60498]) ([sonos docs])
 
@@ -824,26 +842,25 @@ replace them with service calls to their native entities instead.
 
 {% details "Yamaha MusicCast" %}
 
-Until now, there was only one Home Assistant device created for a Yamaha
-MusicCast device and the media player entities of all zones were part of
-this device.
+Only one Home Assistant device was created for a Yamaha MusicCast device,
+and the media player entities of all zones were part of this device.
 
-As of this release every zones media player will be located in its own
+As of this release, every zones media player will be located in its own
 Home Assistant device. For single zone devices, nothing will change and
-all your automations, scripts, scenes etc. should work in the same way as
+all your automations, scripts, scenes, etc., should work in the same way as
 before.
 
-For multi zone devices for every non main zone (e.g., zone2 or zone3)
-a new device will be created. The media_player of the main zone will remain
+A new device will be created for multi-zone devices for every non-main zone
+(e.g., zone2 or zone3). The `media_player` of the main-zone will remain
 in the original device with all its properties, scripts, automations and scenes,
-which were configured for it.
+configured for it.
 
-For other zones you will have to set the area of the newly generated devicesfor
-the various zones manually. If you created scripts, automations or scenes with
-the device as a target and want them to work for non main zones, you will have
-to add the newly added devices as a target to your script/automation/scene.
+For other zones, you will have to set the area of the newly generated devices
+for the various zones manually. If you created scripts, automations, or scenes
+with the device as a target and want them to work for non-main zones, you will
+have to add the newly added devices as a target to your script/automation/scene.
 
-If you used the media player entity as target, everything should still work
+If you used the media player entity as a target, everything should still work
 like before.
 
 ([@micha91] - [#58285]) ([yamaha_musiccast docs])
@@ -863,11 +880,6 @@ Configuration entities:
 - Do not show up on the automatically generated Lovelace Dashboards.
 
 ([@MartinHjelmare] - [#59157] [#58703] [#59474]) ([zwave_js docs])
-
-----
-
-- Add zwave_js speed configurations for GE/Jasco 12730 and 14287 fans ([@mkowalchuk] - [#60517]) ([zwave_js docs]) (breaking-change)
-
 
 {% enddetails %}
 
