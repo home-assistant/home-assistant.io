@@ -140,11 +140,19 @@ a dedicated user for a wall tablet that never needs to log in remotely.
 
 ## Z-Wave JS SmartStart and entity categories
 
-Z-Wave JS now support SmartStart! By scanning their code using your camera,
-you can add devices supporting that.
+Setting up your Z-Wave device with Home Assistant is now easier than ever,
+as Z-Wave JS now supports Z-Wave SmartStart!
 
+When you have a SmartStart capable Z-Wave stick and device, you can now
+set up the device by simply scanning the QR code on the device, using your
+webcam, or using your mobile phone with the Home Assistant Companion app.
 
-Additionally, Z-Wave JS had added support for Entity Categories
+Including devices to your Z-Wave network has never been easier.
+
+<img class="no-shadow" src='/images/blog/2021-12/smartstart.png' alt='Screenshot of scanning the QR code to add a Z-Wave SmartStart device in Home Assistant.'>
+
+Additionally, Z-Wave JS had added support for entity categories, so
+all your Z-Wave sensors are now neatly organized.
 
 ## Blueprint scripts
 
