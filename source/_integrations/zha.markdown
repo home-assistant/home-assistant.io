@@ -156,6 +156,39 @@ If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path c
 - Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
 - Sonoff ZBBridge : `socket://[IP]:[PORT]` for example `socket://192.168.1.11:8888`
 
+### deCONZ Devices
+
+There are two options to connect to deCONZ devices. Those can be plugged into the local host system or a remote
+machine can be used as a serial port forwarder via TCP.
+
+#### Local device
+
+Set the serial device path to the serial port in `/dev/serial/by-id` as described above.
+
+#### Remote device
+
+**Note:** There are no security mechanisms. Anyone with access to your network can take control of your deCONZ device!
+
+Use a device path of the format `tcp://<host>:<port>` to connect to a serial device that is forwarded
+through a remote device. On the remote machine tools like `ser2net` or `socat` can be used to forward
+a serial device to a tcp socket.
+
+Example configuration steps:
+
+- Install `ser2net` from your distributions repository on the remote machine
+- Enable the service to automatically start (usually `sudo systemctl enable ser2net.service`)
+- Add the following single line to `/etc/ser2net.conf`:
+
+```text
+<port>:raw:0:/dev/serial/by-id/<your-serial-device>:38400 NONE 1STOPBIT -XONXOFF NOBREAK
+
+# example:
+23344:raw:0:/dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2457780-if00:38400 NONE 1STOPBIT -XONXOFF NOBREAK
+```
+
+- Restart ser2net (or reboot)
+- In the Home Assistant GUI configure a ZHA integration with a deCONZ device and the custom path `tcp://<remote machine hostname or IP>:23344`
+
 ### Discovery via USB or Zeroconf
 
 Some devices can be auto-discovered, which can simplify the ZHA setup process. The following devices have been tested with discovery and offer a quick setup experience:
