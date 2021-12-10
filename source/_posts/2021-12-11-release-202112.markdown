@@ -880,7 +880,7 @@ replace them with service calls to their native entities instead.
 Only one Home Assistant device was created for a Yamaha MusicCast device,
 and the media player entities of all zones were part of this device.
 
-As of this release, every zones media player will be located in its own
+As of this release, every zone media player will be located in its own
 Home Assistant device. For single zone devices, nothing will change and
 all your automations, scripts, scenes, etc., should work in the same way as
 before.
