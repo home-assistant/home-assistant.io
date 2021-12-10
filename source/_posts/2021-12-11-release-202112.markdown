@@ -232,7 +232,7 @@ media player changes.
 
 You might be aware of issues with using the Google Cast features
 in Home Assistant. For example, casting a Lovelace dashboard didn't
-work as reliable as it should have been.
+work as reliably as it should have been.
 
 We have some good news, these casting issues have been resolved!
 
