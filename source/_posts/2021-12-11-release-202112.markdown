@@ -157,13 +157,14 @@ all your Z-Wave sensors are now neatly organized.
 ## Blueprint scripts
 
 This was actually in Home Assistant Core 2021.11 release, but we forgot to
-mention it completely! :( Retry!
+mention it completely... Shame on us... Retry!
 
 You can now create, provide, share Blueprints for scripts! This works
 the same as with automations, except... well, it provides a script instead.
 
-This can be helpful to provide blueprints for configurable bits, that can
-be re-used in other automations.
+Script blueprints can be shared and important, exactly like we do with
+automations now. These can be really helpful to provide to other Home Assistant
+users, as these scripts can be re-used in, e.g., other automations.
 
 ## Triggering on any, but only state changes
 
