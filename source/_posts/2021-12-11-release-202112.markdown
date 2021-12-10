@@ -112,7 +112,7 @@ Button entities can be provided by integrations and can be used for things like:
 Examples use cases of button entities.
 </p>
 
-These are all things that can be triggered from Home Assistant but are not
+These are all things that can be triggered from Home Assistant but do not
 really have explicit on or off states.
 
 We have added support for this button entity to Google Assistant, Alexa and
@@ -387,7 +387,7 @@ The separate menu item from the sidebar has been removed.
 The HVAC mode for zone climate entities was set to `FAN` or `OFF`, because the
 actual HVAC mode is set for the entire ducted AC system. However, using FAN
 means the Google Home app won't let you set a target temperature,
-so it has been changed `AUTO` instead.
+so it has been changed to `AUTO` instead.
 
 ([@Bre77] - [#52816]) ([advantage_air docs])
 
@@ -558,7 +558,7 @@ the battery charging settings from Home Assistant.
 
 The `litterrobot.reset_waste_drawer` and `litterrobot.set_wait_time` services
 are deprecated and replaced by dedicated `button` entities; please use
-please use those instead.
+those instead.
 
 ([@natekspencer] - [#59734]) ([litterrobot docs])
 
@@ -950,7 +950,7 @@ have been removed, use stdlib `http.HTTPStatus` instead.
 Removed `util.get_local_ip()` in favor of `components.network.async_get_source_ip()`.
 
 Previous implementation was determining local IP based on the routing versus a
-fixed public ip "8.8.8.8". New function instead allows to choice the destination
+fixed public ip "8.8.8.8". The new function instead allows to choose the destination
 and determine local_ip based on the source interface needed to get there.
 
 ([@chemelli74] - [#58669])
@@ -993,7 +993,7 @@ Please use the `NumberMode` enum instead.
 
 The use of the `DEVICE_CLASS_*` constants and `DEVICE_CLASSES` constants in
 **all** entity platforms, has now been depreacted. Instead, use the equavalent
-`DeviceClas` `StrEnum` provided by each platform.
+`DeviceClass` `StrEnum` provided by each platform.
 
 Example:
 
@@ -1033,7 +1033,7 @@ The value of `ATTR_HA_MATCHING_DOMAINS` constant has been updated to replace the
 
 {% details "MQTT/DHCP/ZeroConf/USB/SSDP Discovery" %}
 
-MQTT, DHCP, ZerConf, USB and SSDP discovery now provides an dataclass
+MQTT, DHCP, ZerConf, USB and SSDP discovery now provides a dataclass
 object, instead of using a dictionary. 
 
 The dataclass objects have implemented dictionary access for temporary
