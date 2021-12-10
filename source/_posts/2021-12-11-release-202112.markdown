@@ -188,7 +188,7 @@ mention it completely... Shame on us... Retry!
 You can now create, provide, share Blueprints for scripts! This works
 the same as with automations, except... well, it provides a script instead.
 
-Script blueprints can be shared and important, exactly like we do with
+Script blueprints can be shared and imported, exactly like we do with
 automations now. These can be really helpful to provide to other Home Assistant
 users, as these scripts can be re-used in, e.g., other automations.
 
