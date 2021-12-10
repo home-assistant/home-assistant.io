@@ -56,7 +56,9 @@ and [Xiaomi IR Remote](#xiaomi-ir-remote). Please read the linked sections for t
 Devices need to be set up using the Mi Home app and not vendor-specific apps (e.g. Roborock).
 
 <div class='note'>
+
   For more complex network setups (e.g. VLANs), reference the [following documentation](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets) for additional information.
+
 </div>
 
 {% include integrations/config_flow.md %}
