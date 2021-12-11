@@ -9,7 +9,7 @@ og_image: /images/state-of-the-open-home/social.png
 ![Banner State of the Open Home](/images/state-of-the-open-home/promo.png)
 
 Where: YouTube<br>
-When: Saturday, December 11, at 11am PST / 8pm CET
+When: Saturday, December 11, at 11am PST / 8pm CET ([in other timezones](https://www.timeanddate.com/worldclock/fixedtime.html?msg=State+of+the+Open+Home&iso=20211211T19))
 
 For over 8 years we've been working on the open home. We envision the open home as one where you are in control of the technology, your data and who can access it. At the State of the Open Home 2021 we will present on the progress we made this year in making the open home a viable choice for everyone.
 
