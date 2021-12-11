@@ -188,11 +188,10 @@ button:
   - platform: mqtt
     unique_id: bedroom_switch_reboot_btn
     name: "Restart Bedroom Switch"
-    state_topic: "home/bedroom/switch1"
     command_topic: "home/bedroom/switch1/commands"
+    payload_press: "restart"
     availability:
       - topic: "home/bedroom/switch1/available"
-    payload_press: "restart"
     qos: 0
     retain: false
     entity_category: "config"
