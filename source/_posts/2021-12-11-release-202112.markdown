@@ -356,6 +356,28 @@ for this is recommended and remains available.
 
 In case you used this to change how, for example, a cover or door contact
 entity is shown, you can now change that by editing the entity in the UI.
+For these cases, customizing the `device_class` is no longer needed.
+
+A small explanation why it has been removed:
+
+With customize, one is changing the state machine directly, without any checks.
+This comes at a risk. Additionally, for many use cases (like: name, icon,
+device class) one should edit the entity via the UI instead, which is
+possible for the greater part of the entities nowadays.
+
+The old customize UI is confusing in many ways and has a level of power that,
+if wielded incorrectly, it can have unforeseen consequences.
+Someone found the customize first, and then things
+are out of sync throughout the UI, as the internal entity registry would show
+the old values.
+
+The customize UI also relied on setting up an include and YAML configuration to
+begin with; which already made it an advanced feature.
+
+Therefore, the customize UI was removed and remains available as an advanced
+YAML feature, additionally we have added the capability, to adjust
+the common `device_class` changes using the "Show as" feature while
+editing the entity from UI.
 
 {% enddetails %}
 
