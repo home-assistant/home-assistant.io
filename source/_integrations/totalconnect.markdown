@@ -50,6 +50,15 @@ automation:
       service: scene.turn_on
       target:
         entity_id: scene.OnArmedAway
+  - alias: "Alarm: Arm Home Instant at Sunset"
+    trigger:
+      platform: sun
+      event: sunset
+      offset: '0'
+    action:
+      service: totalconnect.arm_home_instant
+      target:
+        entity_id: alarm_control_panel.total_connect
 ```
 
 {% details "Notes for Home Assistant Core Installations" %}
@@ -66,7 +75,7 @@ sudo apt install libxml2-dev libxmlsec1-dev
 
 The integration provides an Alarm Control Panel for each TotalConnect location. It uses the name of your location from TotalConnect.  For example, if your location name in TotalConnect is "Home", then you will get `alarm_control_panel.home` in Home Assistant.
 
-The alarm control panel supports the following services: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night`, and `alarm_disarm`. The integration also provides unique services for `arm_home_instant` and `arm_away_instant` which arm the system with zero entry delay, triggering the alarm instantly if someone opens a door.
+The alarm control panel supports the following services: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night`, and `alarm_disarm`. The integration also provides unique services for `totalconnect.arm_home_instant` and `totalconnect.arm_away_instant` which arm the system with zero entry delay, triggering the alarm instantly if someone opens a door.
 
 The `triggered` state also provides a state attribute called `triggered_source` giving more detail on what triggered the alarm:
 
