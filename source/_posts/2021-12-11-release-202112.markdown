@@ -367,7 +367,7 @@ possible for the greater part of the entities nowadays.
 
 The old customize UI is confusing in many ways and has a level of power that,
 if wielded incorrectly, can have unforeseen consequences.
-Someone found the customize first, and then things
+Someone found and used the customize UI first, and then things
 are out of sync throughout the UI, as the internal entity registry would show
 the old values.
 
