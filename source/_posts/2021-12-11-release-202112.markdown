@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2021.12: Beta release notes"
-description: "Beta release notes for 2021.12"
-date: 2021-12-03 00:00:00
+title: "2021.12: New configuration menu, the button entity, and gorgeous area cards!"
+description: "A revamped config menu, Z-Wave SmartStart, lovely Area cards, the button entity, local only users, and blueprint scripts."
+date: 2021-12-11 00:00:00
 date_formatted: "December 11, 2021"
 author: Franck Nijhof
 author_twitter: frenck
@@ -14,27 +14,6 @@ og_image: /images/blog/2021-12/social.png
 ---
 
 <a href='/integrations/#version/2021.12'><img src='/images/blog/2021-12/social.png' style='border: 0;box-shadow: none;'></a>
-
-These are the beta release notes for Home Assistant Core 2021.12 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
 
 Home Assistant Core 2021.12, the final release of the year 2021; And
 I really think this release will contain a holiday gift for everyone!
@@ -2328,6 +2307,8 @@ The following integrations are no longer available as of this release:
 - Fix non-threadsafe call to async_fire in telegram_bot ([@bdraco] - [#61465]) ([telegram_bot docs]) (beta fix)
 - Fix exception in color_rgb_to_rgbww ([@bdraco] - [#61466]) (beta fix)
 - Fix missing color modes for Magic Home Ceiling Light CCT (0xE1) ([@bdraco] - [#61478]) ([flux_led docs]) (beta fix)
+- Fix typo in Hue device triggers - use enum value ([@marcelveldt] - [#61498]) ([hue docs]) (beta fix)
+- Update frontend to 20211211.0 ([@bramkragten] - [#61499]) ([frontend docs]) (beta fix)
 
 {% enddetails %}
 
@@ -3568,6 +3549,8 @@ The following integrations are no longer available as of this release:
 [#61465]: https://github.com/home-assistant/core/pull/61465
 [#61466]: https://github.com/home-assistant/core/pull/61466
 [#61478]: https://github.com/home-assistant/core/pull/61478
+[#61498]: https://github.com/home-assistant/core/pull/61498
+[#61499]: https://github.com/home-assistant/core/pull/61499
 [@Adminiuga]: https://github.com/Adminiuga
 [@AngellusMortis]: https://github.com/AngellusMortis
 [@Bre77]: https://github.com/Bre77
