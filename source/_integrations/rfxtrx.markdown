@@ -72,7 +72,7 @@ In the options menu, select *Enable automatic add* to enable automatic addition 
 
 #### Covers
 
-The RFXtrx integration supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.
+The RFXtrx integration supports Siemens/LightwaveRF and Somfy RTS roller shutters that communicate in the frequency range of 433.92 MHz.
 
 #### Lights
 
@@ -100,9 +100,9 @@ To manually add a device, in the options window, an event code can be added in t
 
 See [Generate codes](#generate-codes) how to generate event codes.
 
-#### RFY
+#### Somfy RTS
 
-The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) is required for RFY support, however, it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. E.g., if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, e.g., id: `1` `02` `04` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
+The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) or later versions like [RFXtrx433XL](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ObjectPath=/Shops/78165469/Products/18103) is required for support, however, it does not support receive for the Somfy RTS protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. E.g., if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, e.g., id: `1` `02` `04` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
 
 #### Convert switch event to dimming event
 
@@ -138,9 +138,9 @@ If a device is missing from the list, close the options window and either make s
 
 Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the RFXtrx device to try to send each signal repeatedly.
 
-#### Device events
-
-To enable device events, use the checkbox *Enable device event*. See [Events](#events) for more information about device events.
+<div class='note warning'>
+The RFXtrx hardware generally handle signal repeats itself, and some protocols are timing sensitive when it comes to signal repeats so in general this should be avoided.
+</div>
 
 #### Off Delay
 
@@ -153,7 +153,7 @@ For those devices, use the *off_delay* parameter. It defines a delay after, whic
 
 #### Venetian blind mode
 
-Available only for RFY cover devices. Enables tilt control of venetian blind slats.
+Available only for Somfy RTS cover devices. Enables tilt control of venetian blind slats.
 
 Venetian blind motors that control slats tilt can be configured in one of two modes - US (short press of up/down buttons opens/closes the blind, long-press controls tilt angle), or European (short press of up/down buttons controls tilt angle, long-press opens/closes the blind). You can select one of the following settings depending on your blinds:
 
@@ -353,76 +353,3 @@ If you need to generate codes for switches and lights, you can use a template (u
 - Launch your Home Assistant and go to the website.
 - Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
 - Toggle your new switch in the Home Assistant interface
-
-## Configuration import
-
-When RFXtrx integration is configured in `configuration.yaml`, the configuration will be imported once. After import, the configuration can be removed from `configuration.yaml`.
-
-{% configuration %}
-device:
-  description: "The path to your device, e.g., `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0` or `/dev/ttyUSB0`. Required if you are using a locally connected USB device."
-  required: false
-  type: string
-host:
-  description: "The hostname the remote RFXtrx is available on if connecting via TCP. If this is set, a port is required."
-  required: false
-  type: string
-port:
-  description: "The TCP port the remote RFXtrx is available on. If this is set, a host is required."
-  required: false
-  type: integer
-debug:
-  description: "If you want to receive debug output."
-  required: false
-  default: false
-  type: boolean
-devices:
-  description: A list of devices.
-  required: false
-  type: map
-  keys:
-    EVENT_CODE:
-      description: An code string describing the device. It may include state, but state will be ignored.
-      required: true
-      type: map
-      keys:
-        device_class:
-          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
-          required: false
-          type: device_class
-        fire_event:
-          description: Fires an event even if the state is the same as before. Can be used for automations.
-          required: false
-          type: boolean
-          default: false
-        off_delay:
-          description: For binary sensors that only sends 'On' state updates, this variable sets a delay after which the binary sensor state will be updated back to 'Off'.
-          required: false
-          type: integer
-        data_bits:
-          description: Defines how many bits are used for commands inside the data packets sent by the device.
-          required: false
-          type: integer
-        command_on:
-          description: Defines the data bits value that is sent by the device upon an 'On' command.
-          required: false
-          type: string
-        command_off:
-          description: Defines the data bits value that is sent by the device upon an 'Off' command.
-          required: false
-          type: string
-        signal_repetitions:
-          description: Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the RFXtrx device to try to send each signal repeatedly.
-          required: false
-          type: integer
-automatic_add:
-  description: To enable the automatic addition of new binary sensors.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
-
-<div class='note warning'>
-If a device ID consists of only numbers, please make sure to surround it with quotes.
-This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
-</div>
