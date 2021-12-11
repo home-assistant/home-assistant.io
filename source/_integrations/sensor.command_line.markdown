@@ -32,6 +32,10 @@ name:
   description: Name of the command sensor.
   required: false
   type: string
+device_class:
+  description: Sets the [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 unit_of_measurement:
   description: Defines the unit of measurement of the sensor, if any.
   required: false
@@ -71,6 +75,7 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 sensor:
   - platform: command_line
     name: CPU Temperature
+    device_class: temperature
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     # If errors occur, make sure configuration file is encoded as UTF-8
     unit_of_measurement: "°C"
