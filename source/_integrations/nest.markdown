@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Camera](#camera)
 
-Cameras and Doorbells use [Automation and Device Triggers](#automation-and-device-triggers) for events and a [Media Source](#media-source) for capturing media iamges on supported devices.  Other device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
+Cameras and Doorbells use [Automation and Device Triggers](#automation-and-device-triggers) for events and a [Media Source](#media-source) for capturing media iamges on supported devices. Other device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
@@ -165,7 +165,7 @@ nest:
   project_id: PROJECT_ID
 ```
 
-Then make sure to restart Home Assistant under _**Server Controls**_.  {% my server_controls badge %}
+Then make sure to restart Home Assistant under _**Server Controls**_. {% my server_controls badge %}
 
 {% configuration %}
 client_id:
@@ -210,7 +210,7 @@ your Home Assistant to access your account and Nest devices.
 
 In this section you will authorize Home Assistant to access your account by generating an *Authentication Token*.
 
-1. Choose **OAuth for Apps** since you created *Desktop App* credentials above in the Google Cloud Console.  Note that *OAuth for Web* still exists if you previously created *Web Application* credentials and want to keep using them.
+1. Choose **OAuth for Apps** since you created *Desktop App* credentials above in the Google Cloud Console. Note that *OAuth for Web* still exists if you previously created *Web Application* credentials and want to keep using them.
 
     ![Screenshot of Integration setup on OAuth type step](/images/integrations/nest/integration_oauth_type.png)
 
