@@ -57,7 +57,7 @@ Happy holidays and for the last time in 2021: Enjoy the release!
 
 
 _PS: We are skipping the January release because of the
-holidays. So, the first release in 2022, will be Wednesday, 2 Febraury 2022._
+holidays. So, the first release in 2022, will be Wednesday, 2 February 2022._
 
 
 - [Brand new configuration panel](#brand-new-configuration-panel)
