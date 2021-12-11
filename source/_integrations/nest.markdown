@@ -23,7 +23,7 @@ ha_platforms:
   - sensor
 ---
 
-The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events.
+The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -31,17 +31,13 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Camera](#camera)
 
-Cameras and Doorbells support [Automation and Device Triggers](#automation-and-device-triggers) and a [Media Source](#media-source) for viewing recent events.
-
-thers device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
+Cameras and Doorbells use [Automation and Device Triggers](#automation-and-device-triggers) for events and a [Media Source](#media-source) for capturing media iamges on supported devices.  Other device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
 <div class='note'>
-The Nest Smart Device Management (SDM) API *requires a US$5 fee*.
+The Nest Smart Device Management (SDM) API <b>requires a US$5 fee</b>.
 </div>
-
-The full detailed instructions for account setup are available in the [Device Access Registration](https://developers.google.com/nest/device-access/registration) Quick Start Guide. The instructions below are included to make this complex setup process a bit easier to follow.
 
 ## Device Access Registration
 
@@ -337,28 +333,28 @@ All Google Nest Thermostat models have traits exposed from the SDM API. The init
 
 Given a thermostat named `Upstairs` then sensors are created with names such as `sensor.upstairs_temperature` or `sensor.upstairs_humidity`.
 
+Note: Additional Nest Temperature Sensors are not supported by the SDM API.
 
 ## Camera
 
-Home Assistant supports all SDM API features, but different Cameras and Doorbells models have different inherent capabilities. Every camera has one of two different live stream :
+Home Assistant supports all SDM API features. However, every Camera or Doorbell device has a different set of built-in capabilities. A Camera device has one of the following live stream types:
 
-  * An `RTSP` live stream served via `HLS` by Home Assistant Core. These cameras support server side stream recording and live image previews. [Low Latency HLS](/integrations/stream#ll-hls) is a great option to enable to reduce stream latency.
-  * A `WebRTC` live stream with direct browser to camera communication with super low latency. These cameras *do not support* server side stream recording and live image previews.
+  * **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server side `camera` services like stream recording, or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
+  * **WebRTC**: These devices support direct browser to camera communication, and a super low latency stream. Live image previews and the `camera` services like stream recording are *not supported*.
 
-All cameras do support triggers for events like motion, however only some support capturing snapshots for events.
+All cameras have motion and person triggers, however only some support capturing snapshots for events. The table below summarizes the [Supported SDM API features](https://developers.google.com/nest/device-access/supported-devices) for each device.
 
-See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for a complete list of Google Nest devices and models supported by the SDM API.
-
-| Device | Live Stream | Triggers | Trigger Image Support |
+| Device | Live Stream | Triggers / Events | Media Source<br> for Triggers / Events |
 | ------ | :---------: | :------: | :--------------------: |
 | Nest Cam (indoor, wired)<br>Nest Cam (outdoor, battery) | WebRTC | Motion<br>Person | N/A |
 | Nest Cam Indoor<br>Nest Cam IQ Indoor<br>Nest Cam IQ Outdoor<br>Nest Cam Outdoor | RTSP<br>Recording | Motion<br>Person<br>Sound | Snapshot (jpg) |
 | Nest Cam with floodlight | WebRTC | Motion<br>Person | N/A |
 | Nest Doorbell (battery) | WebRTC | Motion<br>Person<br>Chime | Clip Preview (mp4) |
 | Nest Doorbell (wired) | RTSP<br>Recording | Motion<br>Person<br>Sound<br>Chime | Snapshot (jpg) |
-| Nest Hub Max | RTSP<br>Recording | Motion<br>Person<br>Sound<br><sub><sup>*Note: Nest SDM API [reported issue](https://github.com/home-assistant/core/issues/58482) is not sending events*</sup></sub> | Snapshot (jpg) |
+| Nest Hub Max | RTSP<br>Recording | Motion<br>Person<br>Sound<br><sub><sup>* [SDM API known issue](https://github.com/home-assistant/core/issues/58482)</sup></sub> | Snapshot (jpg) |
 
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
+
 
 ## Automation and Device Triggers
 
@@ -392,11 +388,9 @@ The action in this section uses the [Android Companion App](https://companion.ho
 
 ## Media Source
 
-The Nest [Media Source](/integrations/media-source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
+The Nest [Media Source](/integrations/media_source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
 
-See [Device Access: Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for details on Image Support for various devices in the API. Not all cameras support event snapshots, and the Nest Doorbell battery camera supports 10-frame video clips for events.
-
-The Nest media source only displays the most recent event for each camera at the moment.
+The table above describes which devices support event image snapshots or 10-frame mp4 video clips for recent events.
 
 ## Manual Pub/Sub subscription
 
