@@ -35,5 +35,9 @@ To use the integration in your installation, you need to specify the credentials
 
 {% include integrations/config_flow.md %}
 
+## Information
+
+Setting up the integration can take longer depending on the number of devices, because you have to wait one minute between each request to the C.M.I. to avoid activating the rate limit.
+
 [taWebsite]: https://www.ta.co.at/
 [DeviceClassList]: https://developers.home-assistant.io/docs/core/entity/sensor#available-device-classes
