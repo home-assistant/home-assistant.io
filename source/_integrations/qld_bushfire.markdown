@@ -8,6 +8,8 @@ ha_release: 0.95
 ha_codeowners:
   - '@exxamalte'
 ha_domain: qld_bushfire
+ha_platforms:
+  - geo_location
 ---
 
 The `qld_bushfire` platform lets you integrate a 

@@ -427,7 +427,7 @@ The first run after adding a device is when the `zwave` integration will take ti
 
 You do not need to install any software to use Z-Wave.
 
-If the path of `/dev/ttyACM0` doesn't work, look in the *System* section of the *Supervisor* menu. There you'll find a *Hardware* button which will list all the hardware found.
+If the path of `/dev/ttyACM0` doesn't work, look in {% my supervisor_logs title="Configuration > Add-ons & Backups > System" %}. There you'll find a *Hardware* button which will list all the hardware found.
 
 You can also check what hardware has been found using the [`ha` command](/hassio/commandline/#hardware):
 
@@ -674,7 +674,7 @@ You can use the **Remove Failed Node** button to remove a failed device (e.g., b
 
 ## Control panel
 
-The Z-Wave control panel is available via **Configuration** &rarr; **Integrations** &rarr; **Z-Wave** &rarr; **Configure**.
+The Z-Wave control panel is available via **Configuration** &rarr; **Devices & Services** &rarr; **Z-Wave** &rarr; **Configure**.
 
 - **No Z-Wave integration?** Follow the [set up instructions](/integrations/zwave/#detailed-installation-instructions) to enable it.
 - **Missing the *Configuration* button?** See the [configuration documentation](/integrations/config/) for instructions on enabling it.

@@ -15,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - calendar
   - camera
+  - button
   - climate
   - cover
   - device_tracker
@@ -23,6 +24,7 @@ ha_platforms:
   - light
   - lock
   - media_player
+  - geo_location
   - notify
   - number
   - remote

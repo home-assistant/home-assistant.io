@@ -39,19 +39,19 @@ This integration provides the following platforms:
 - Device tracker: The location of your car.
 - Lock: Control the lock of your car.
 - Sensors: Mileage, remaining range, remaining fuel, charging time remaining (electric cars), charging status (electric cars), remaining range electric (electric cars).
-- Notifications: Send messages or Points of Interest (POI) to your car.
+- Notifications: Send Points of Interest (POI) to your car.
 - Services: Turn on air condition, sound the horn, flash the lights, update the vehicle location and update the state. More details can be found [here](/integrations/bmw_connected_drive/#services).
 
 ## Configuration
 
-The preferred way to enable the `bmw_connected_drive` integration is via **Configuration** > **Integrations**. After connecting to your account, you can set the following settings in the integration's options:
+The preferred way to enable the `bmw_connected_drive` integration is via **Configuration** > **Devices & Services**. After connecting to your account, you can set the following settings in the integration's options:
 
 | Setting | Description |
 |---------|-------------|
 | Read-only | No execution of services to the vehicle. Still possible to send messages and POIs via `notify` and to request a status update via `bmw_connected_drive.update_state`.
 | Use Home Assistant location for car location polls | Older cars (non i3/i8 build before 7/2014) require the phone to be close to the car to get location updates. Enable this option to use the location of your Home Assistant instance for these queries, so updates are available when your car is in the surrounding of your home. |
 
-The following settings in your `configuration.yaml` file are considered legacy. They will be imported into **Configuration** > **Integrations** and you can set the options from above. Changes to `configuration.yaml` after the first import will be ignored.
+The following settings in your `configuration.yaml` file are considered legacy. They will be imported into **Configuration** > **Devices & Services** and you can set the options from above. Changes to `configuration.yaml` after the first import will be ignored.
 
 ### Legacy configuration
 
@@ -95,23 +95,12 @@ bmw_connected_drive:
 
 ## Notifications
 
-The `bmw_connected_drive` integration offers a notification service. Using this service you can send messages or Points of Interest (POI) to your vehicle. In your vehicle you can select this POI and the navigation will automatically start using the POI as a destination.
+The `bmw_connected_drive` integration offers a notification service. Using this service you can send Points of Interest (POI) to your vehicle. In your vehicle you can select this POI and the navigation will automatically start using the POI as a destination.
 The name of the service is `notify.bmw_connected_drive_<your_vehicle>`.
 
 ### Examples
 
 A few examples on how to use the notification service.
-
-#### Send a text message to your vehicle
-
-```yaml
-...
-action:
-  service: notify.bmw_connected_drive_<your_vehicle>
-  data:
-    title: Message from Home Assistant # optional, will default to "Home Assistant" when left empty
-    message: The text of the message you want to send to your vehicle
-```
 
 #### Send a Point of Interest to your vehicle
 
@@ -164,6 +153,19 @@ The service `bmw_connected_drive.light_flash` flashes the lights of the vehicle.
 ### Vehicle finder
 
 The service `bmw_connected_drive.find_vehicle` requests the vehicle to update the GPS location. This can be used for older vehicles which don't automatically send the updated GPS location. The vehicle is identified via the parameter `vin`.
+
+<div class="note warning">
+
+  Using this service will **send your Home Assistant location to BMW**, as this is required by the API (like sharing your mobile phone's location with the MyBMW app for vehicle tracking).
+  If you do not want this, trigger the `vehicle_finder` service from your phone and it should update in Home Assistant within 5 minutes.
+
+</div>
+
+<div class="note">
+
+  On some older cars (non i3/i8 series produced before 7/2014) this service will fail in getting your vehicles position, if the vehicle is more than 1.5 km away from the location of your Home Assistant instance. This is a limitation of the BMW API.
+
+</div>
 
 ### Update the state
 

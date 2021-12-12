@@ -4,6 +4,7 @@ description: Instructions on how to integrate KNX components with Home Assistant
 ha_category:
   - Hub
   - Binary Sensor
+  - Button
   - Climate
   - Cover
   - Fan
@@ -25,6 +26,7 @@ ha_domain: knx
 ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - fan
@@ -36,6 +38,7 @@ ha_platforms:
   - select
   - switch
   - weather
+ha_config_flow: true
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.
@@ -51,6 +54,7 @@ Please note, the KNX platform does not support KNX Secure.
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
+- [Button](#button)
 - [Climate](#climate)
 - [Cover](#cover)
 - [Fan](#fan)
@@ -63,13 +67,9 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Weather](#weather)
 
+{% include integrations/config_flow.md %}
+
 ## Basic Configuration
-
-To use your KNX devices from Home Assistant, add the following lines to your `configuration.yaml` file:
-
-```yaml
-knx:
-```
 
 In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main `configuration.yaml` file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files. See [Splitting up the configuration](/docs/configuration/splitting_configuration/).
 
@@ -86,33 +86,6 @@ knx:
 
 Please see the dedicated platform sections below about how to configure them correctly.
 
-{% configuration %}
-individual_address:
-  description: The KNX individual address (IA) that shall be used for routing or if a tunneling server doesn't assign an IA at connection.
-  required: false
-  type: string
-  default: "15.15.250"
-multicast_group:
-  description: The multicast group to use for automatic interface discovery and routing communication.
-  required: false
-  type: string
-  default: "224.0.23.12"
-multicast_port:
-  description: The port for multicast communication.
-  required: false
-  type: integer
-  default: 3671
-rate_limit:
-  description: Defines the maximum number of telegrams to be sent to the bus per second (range 1-100).
-  required: false
-  default: 20
-  type: integer
-state_updater:
-  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home Assistant. Set this option to False to prevent this behavior.
-  required: false
-  default: true
-  type: boolean
-{% endconfiguration %}
 
 ### Group addresses
 
@@ -143,77 +116,45 @@ knx:
 
 ## Connection
 
-Under normal conditions no connection configuration should be needed. The integration will auto-detect KNX/IP interfaces and connect to one. This requires multicast communication to work in your environment.
+Connection parameters are set up when adding the integration and can be changed from the `Integrations` panel.
 
-### Tunneling
-
-If you want to connect to a specific tunneling server or if the auto detection of the KNX/IP device does not work the IP or/and port of the tunneling device can be configurated.
-
-```yaml
-knx:
-  tunneling:
-    host: "192.168.2.23"
-```
-
-{% configuration %}
-host:
-  description: IP address of the KNX/IP tunneling device.
-  type: string
-  required: true
-port:
-  description: Port of the KNX/IP tunneling device.
-  type: integer
-  required: false
-local_ip:
-  description: IP address of the local interface.
-  type: string
-  required: false
-route_back:
-  description: When True the KNXnet/IP Server shall use the IP address and the port number from the IP package received as the target IP address or port number for the response to the KNXnet/IP Client (for NAT / Docker).
-  type: boolean
-  default: false
-  required: false
-{% endconfiguration %}
-
-### Routing
-
-Explicit connection via KNX/IP routing. This requires multicast communication to work in your environment.
-
-```yaml
-knx:
-  routing:
-```
-
-{% configuration %}
-local_ip:
-  description: The local IP address of the interface that shall be used to send multicast packets. If omitted the default multicast interface is used.
-  type: string
-  required: false
-{% endconfiguration %}
+Use `route back` if your tunneling server is located on a different network.
 
 ## Events
 
 ```yaml
 knx:
-  event_filter: 
-    - "1/0/*"
-    - "6/2,3,4-6/*"
+  event:
+    - address:
+        - "0/1/*"
+    - address:
+        - "1/2/*"
+        - "1/3/2-4"
+      type: "2byte_unsigned"
+    - address:
+        - "3/4/5"
+      type: "2byte_float"
 ```
 
 {% configuration %}
-event_filter:
-  description: Defines a list of patterns for filtering KNX group addresses. Telegrams with destination addresses matching this pattern are sent to the Home Assistant event bus as `knx_event`.
-  required: false
+address:
+  description: Defines a list of patterns for matching KNX group addresses. Telegrams with destination addresses matching one of the patterns are sent to the Home Assistant event bus as `knx_event`.
+  required: true
   type: [list, string]
+type:
+  description: Telegram payloads in `knx_event` events will be decoded using the configured type (DPT) for the addresses in the same block. The decoded value will be written to the event data `value` key. If not configured the `value` key will be `None` - the `data` key will still hold the raw payload (use this for DPT 1, 2, 3). All sensor types are valid types - see [KNX Sensor](#sensor) (e.g., "2byte_float" or "1byte_signed").
+  type: [string, integer]
+  required: false
 {% endconfiguration %}
 
-Every telegram that matches the filter with its destination field will be announced on the event bus as a `knx_event` event containing data attributes
+Every telegram that matches an address pattern with its destination field will be announced on the event bus as a `knx_event` event containing data attributes
 
 - `data` contains the raw payload data (e.g., 1 or "[12, 55]").
 - `destination` the KNX group address the telegram is sent to as string (e.g., "1/2/3).
 - `direction` the direction of the telegram as string ("Incoming" / "Outgoing").
 - `source` the KNX individual address of the sender as string (e.g., "1.2.3").
 - `telegramtype` the APCI service of the telegram. "GroupValueWrite", "GroupValueRead" or "GroupValueResponse" generate a knx_event.
+- `value` contains the decoded payload value if `type` is configured for the address. Will be `None` for "GroupValueRead" telegrams.
 
 ## Services
 
@@ -289,7 +230,7 @@ automation:
 
 ### Register Event
 
-The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses matching the `event_filter` attribute in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
+The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses configured in the `event` key in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
 
 {% configuration %}
 address:
@@ -301,6 +242,10 @@ remove:
   required: false
   type: boolean
   default: false
+type:
+  description: If set, the payload will be decoded as given DPT in the event data `value` key. KNX sensor types are valid values [KNX Sensor](#sensor) (e.g., "2byte_float" or "1byte_signed").
+  type: [string, integer]
+  required: false
 {% endconfiguration %}
 
 ### Register Exposure
@@ -489,6 +434,73 @@ action:
   description: Specify a list of actions analog to the [automation rules](/docs/automation/action/).
   required: false
   type: list
+{% endconfiguration %}
+
+## Button
+
+The KNX button platform allows to send concurrent predefined values via the frontend or a platform service. When a user presses the button, the assigned generic raw payload is sent to the KNX bus.
+
+<div class='note'>
+
+Telegrams received on the KNX bus for the group address of a button are not reflected in a new button state. Use `knx_event` if you want to automate on a specific payload received on a group address.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  button:
+    - name: "DPT 1 - True button"
+      address: "0/0/1"
+    - name: "100% button"
+      address: "0/0/2"
+      payload: 0xFF
+      payload_length: 1
+    - name: "Temperature button"
+      address: "0/0/3"
+      value: 21.5
+      type: temperature
+```
+
+<div class='note'>
+
+When `type` is used `value` is required, `payload` is invalid.
+When `payload_length` is used `value` is invalid.
+
+</div>
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address to send to.
+  required: true
+  type: [string, list]
+payload:
+  description: The raw payload that shall be sent.
+  required: false
+  type: integer
+  default: 1
+payload_length:
+  description: The length of the payload data in the telegram. Use `0` for DPT 1, 2 or 3.
+  required: false
+  type: integer
+  default: 0
+value:
+  description: The value that shall be sent encoded by `type`.
+  required: false
+  type: [integer, float, string]
+type:
+  description: A type from the [value types table](/integrations/knx/#value-types) to encode the configured `value`.
+  required: false
+  type: [string, integer]
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Climate

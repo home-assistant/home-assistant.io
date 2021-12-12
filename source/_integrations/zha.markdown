@@ -10,6 +10,7 @@ ha_category:
   - Light
   - Lock
   - Sensor
+  - Siren
   - Switch
   - Cover
   - Number
@@ -32,6 +33,7 @@ ha_platforms:
   - lock
   - number
   - sensor
+  - siren
   - switch
 ha_zeroconf: true
 ---
@@ -141,7 +143,7 @@ radio type. In the pop-up:
 Most devices need at the very least the serial device path, like `/dev/ttyUSB0`, but it is recommended to use
 device path from `/dev/serial/by-id` folder,
 e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`  
-A list of available device paths can be found in **Supervisor** > **System** > **Host System** > **dot menu** > **Hardware**.
+A list of available device paths can be found in {% my supervisor_logs title="Configuration > Add-ons & Backups > System" %} > **Host** > **dot menu** > **Hardware**.
 
 Press `Submit`. The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
 
@@ -160,9 +162,11 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 
 | Device | Discovery Method | Identifier |
 | -------| ---------------- | ---------- |
+| [Bitron Video/SMaBiT BV AV2010/10](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/) | USB | 10C4:8B34 |
 | [ConBee II](https://phoscon.de/en/conbee2) | USB | 1CF1:0030 |
 | [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) | USB | 10C4:8A2A |
 | [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/) | USB | 10C4:EA60 |
+| [ZigStar Stick (CC2652 + CH340B variant)](https://zig-star.com/projects/zigbee-stick-v4/) | USB | 1A86:7523 |
 | [Tube’s EFR32 Pro Ethernet/Serial Coordinator](https://www.tubeszb.com/) | USB| 10C4:EA60 |
 | [Tube's CC2652P2 USB-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_cc2652p2.local. |
 | [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_cc2652p2_poe.local. |
@@ -334,7 +338,7 @@ This service disables a lock code on a Zigbee lock.
 
 To add a new device:
 
-1. Go to the **Integrations** page, find the **Zigbee Home Automation** integration that was added by the configuration steps above, and select **Configure**.
+1. Go to the **Integrations** panel, find the **Zigbee Home Automation** integration that was added by the configuration steps above, and select **Configure**.
 1. Click on the plus button at the bottom right corner to start a scan for new devices.
 1. Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times, switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
 1. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
@@ -401,7 +405,7 @@ When reporting issues, please provide the following information in addition to i
 1. Debug logs for the issue, see [debug logging](#debug-logging)
 2. Model of Zigbee radio being used
 3. If issue is related to a specific Zigbee device, provide device Zigbee signature. Signature is available at
-**Configuration** -> **Integrations** -> **Zigbee Home Automation** (click **Configure**) -> **Devices** (pick your device) -> **Zigbee Device Signature**
+**Configuration** -> **Devices & Services** -> **Zigbee Home Automation** (click **Configure**) -> **Devices** (pick your device) -> **Zigbee Device Signature**
 
 ### Debug logging
 

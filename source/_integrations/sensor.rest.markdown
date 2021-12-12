@@ -41,6 +41,12 @@ or a template based request:
 sensor:
   - platform: rest
     resource_template: http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}
+    headers:
+      Authorization: >
+        Bearer {{ states("input_text.my_access_token") }}
+    params:
+      start_date: >
+        {{ (now() - timedelta(days = 1)).strftime('%Y-%m-%d') }}
 ```
 
 {% endraw %}
@@ -109,11 +115,11 @@ password:
 headers:
   description: The headers for the requests.
   required: false
-  type: [string, list]
+  type: [template, list]
 params:
   description: The query params for the requests.
   required: false
-  type: [string, list]  
+  type: [template, list]  
 json_attributes:
   description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the "text/xml", "application/xml" or "application/xhtml+xml" content type, it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html)
   required: false
@@ -333,7 +339,7 @@ sensor:
         entity_id: sensor.owm_report
       owm_temp:
         friendly_name: "Outside temp"
-        value_template: "{{ state_attr(['sensor.owm_report', 'main')['temp'] - 273.15 }}"
+        value_template: "{{ state_attr('sensor.owm_report', 'main')['temp'] - 273.15 }}"
         unit_of_measurement: "°C"
         entity_id: sensor.owm_report
       owm_pressure:

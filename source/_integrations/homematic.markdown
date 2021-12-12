@@ -440,7 +440,7 @@ action:
 
 #### Integrating HMIP-DLD
 
-There is no available default integration for HMIP Doorlock (HMIP-DLD) in the current `pyhomeatic` implementation.
+There is no available default integration for HMIP Doorlock (HMIP-DLD) in the current `pyhomematic` implementation.
 A workaround is to define a template lock in your configuration:
 
 {% raw %}
@@ -483,9 +483,9 @@ When the connection to your Homematic CCU or Homegear is lost, Home Assistant wi
 ```yaml
 template:
   - binary_sensor:
-    - name: "Homematic is sending updates"
-      state: >-
-        {{ now() - as_timestamp(state_attr('sensor.office_voltage', 'last_changed'), 601) < 600 }}
+      - name: "Homematic is sending updates"
+        state: >-
+          {{ now() - as_timestamp(state_attr('sensor.office_voltage', 'last_changed'), 601) < 600 }}
 
 automation:
   - alias: "Homematic Reconnect"

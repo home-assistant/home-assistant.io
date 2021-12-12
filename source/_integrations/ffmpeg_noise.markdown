@@ -73,3 +73,17 @@ To experiment with values:
 ```bash
 ffmpeg -i YOUR_INPUT -vn -filter:a silencedetect=n=-30dB:d=1 -f null -
 ```
+
+### Troubleshooting
+
+#### Unresponsive after a while
+
+If the noise sensor becomes unresponsive, make sure you have `extra_arguments: -nostats` in the configuration.  
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  - platform: ffmpeg_noise
+    input: FFMPEG_SUPPORTED_INPUT
+    extra_arguments: -nostats
+```

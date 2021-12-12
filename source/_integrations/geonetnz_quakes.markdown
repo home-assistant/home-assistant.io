@@ -11,6 +11,7 @@ ha_codeowners:
   - '@exxamalte'
 ha_domain: geonetnz_quakes
 ha_platforms:
+  - geo_location
   - sensor
 ---
 

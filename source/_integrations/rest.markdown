@@ -151,11 +151,11 @@ password:
 headers:
   description: The headers for the requests.
   required: false
-  type: [string, list]
+  type: [list, template]
 params:
   description: The query params for the requests.
   required: false
-  type: [string, list]
+  type: [list, template]
 sensor:
   description: A list of [RESTful Sensor](/integrations/sensor.rest) to create from the shared data. All configuration settings that the supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
   required: false
