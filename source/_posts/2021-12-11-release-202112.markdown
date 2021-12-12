@@ -27,7 +27,7 @@ Thank you for hanging out with the project. Thank you for contributing, and
 thank you for reporting an issue. Thank you for helping out a fellow Home
 Assistant user on the forum, chat, Reddit, or anywhere else. Thank you for
 sharing your experiences, ideas, automations, scripts, YouTube videos,
-and blogs; and above all:  
+and blogs; and above all:
 Thank you for using Home Assistant ❤️
 
 Happy holidays and for the last time in 2021: Enjoy the release!
@@ -50,6 +50,7 @@ holidays. So, the first release in 2022, will be Wednesday, 2 February 2022._
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.12.1 - December 12](#release-2021121---december-12)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -314,6 +315,46 @@ Additionally, [KNX][knx docs] can now partially be set up via the UI. The
 connection is done via the UI, the entities are configuration in YAML; just
 like before. Done by [@marvin-w].
 
+## Release 2021.12.1 - December 12
+
+- Fix Sonos sub & surround switch state reporting ([@jjlawren] - [#61531]) ([sonos docs])
+- Update logic for nest media source `can_play` for events ([@allenporter] - [#61537]) ([nest docs])
+- Fix HomeKit covers with device class window and no tilt ([@bdraco] - [#61566]) ([homekit docs])
+- Update frontend to 20211212.0 ([@bramkragten] - [#61577]) ([frontend docs])
+- Fix Hue transition calculation ([@marcelveldt] - [#61581]) ([hue docs])
+- enable grouped light if enabled in previous integration ([@marcelveldt] - [#61582]) ([hue docs])
+- Only publish nest camera event messages once per thread and bump nest version ([@allenporter] - [#61587]) ([nest docs])
+- Fix for failing Solarlog integration in HA 2021.12 ([@Ernst79] - [#61602]) ([solarlog docs])
+- Fix availability for 3th party Hue lights ([@marcelveldt] - [#61603]) ([hue docs])
+- Bump aiopvapi to 1.6.19 to fix async_timeout passing loop ([@bdraco] - [#61618]) ([hunterdouglas_powerview docs])
+- Bump aiohue to 3.0.3 ([@balloob] - [#61627]) ([hue docs])
+
+[#61531]: https://github.com/home-assistant/core/pull/61531
+[#61537]: https://github.com/home-assistant/core/pull/61537
+[#61566]: https://github.com/home-assistant/core/pull/61566
+[#61577]: https://github.com/home-assistant/core/pull/61577
+[#61581]: https://github.com/home-assistant/core/pull/61581
+[#61582]: https://github.com/home-assistant/core/pull/61582
+[#61587]: https://github.com/home-assistant/core/pull/61587
+[#61602]: https://github.com/home-assistant/core/pull/61602
+[#61603]: https://github.com/home-assistant/core/pull/61603
+[#61618]: https://github.com/home-assistant/core/pull/61618
+[#61627]: https://github.com/home-assistant/core/pull/61627
+[@Ernst79]: https://github.com/Ernst79
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@jjlawren]: https://github.com/jjlawren
+[@marcelveldt]: https://github.com/marcelveldt
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[hue docs]: /integrations/hue/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[nest docs]: /integrations/nest/
+[solarlog docs]: /integrations/solarlog/
+[sonos docs]: /integrations/sonos/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
@@ -398,7 +439,7 @@ so it has been changed to `AUTO` instead.
 
 The following services/sensors have been removed due to not being available
 using the My BMW API:
- 
+
 - `alltrips_*`
 - `lasttrips_*`
 - `chargingconnectiontype`
@@ -1035,7 +1076,7 @@ The value of `ATTR_HA_MATCHING_DOMAINS` constant has been updated to replace the
 {% details "MQTT/DHCP/ZeroConf/USB/SSDP Discovery" %}
 
 MQTT, DHCP, ZerConf, USB and SSDP discovery now provides a dataclass
-object, instead of using a dictionary. 
+object, instead of using a dictionary.
 
 The dataclass objects have implemented dictionary access for temporary
 backwards compatibility during this deprecation period.
