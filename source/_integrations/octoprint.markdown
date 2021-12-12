@@ -23,7 +23,7 @@ ha_platforms:
 
 ### API Key
 
-The Octoprint integration will attempt to register itself via the [application keys plugin](https://docs.octoprint.org/en/master/bundledplugins/appkeys.html). After submitting the configuration UI in Home Assistant, open the Octoprint UI and click allow on the prompt.
+The Octoprint integration will attempt to register itself via the [application keys plugin](https://docs.octoprint.org/en/master/bundledplugins/appkeys.html). After submitting the configuration UI in Home Assistant, open the Octoprint UI and click allow on the prompt. **For this you need the Discovery plugin to be activated in Octoprint**.
 
 ## Binary Sensor
 
