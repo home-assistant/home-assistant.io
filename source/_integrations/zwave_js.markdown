@@ -638,11 +638,15 @@ You can, but you cannot run them both at the same time. Only one of them can be 
 
 Switching does not require renaming your devices.
 
-1. Note your network security keys from your current add-on, then uninstall that add-on. **Do not remove the Z-Wave JS integration or you will lose all device and entity naming.**
+1. Disable the Z-Wave JS integration. **Do not remove the Z-Wave JS integration or you will lose all device and entity naming.** This will automatically stop the official Z-Wave JS add-on.
 
-2. Install and configure the new add-on, including setting those network security keys.
+2. Note your network security keys from the official add-on, then uninstall that add-on.
 
-3. Reconfigure the Z-Wave integration in Home Assistant by clicking "Configure" for Z-Wave JS on the Integrations page, then select "Re-Configure Server". Add the the new/updated WebSocket URL.
+3. Install and configure the Z-Wave JS to MQTT add-on, including setting the location of your Z-Wave device and the network security keys.
+
+4. Add the Z-Wave JS integration again (even though it is still installed), and uncheck the "Use the Z-Wave JS Supervisor add-on". Enter the correct address for the community add-on in the URL field in the next step.
+
+5. Enable the Z-Wave JS integration.
 
 #### What's the benefit of using Zwavejs2Mqtt over the official Add-On?
 
