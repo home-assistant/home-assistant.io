@@ -267,6 +267,10 @@ noteworthy changes this release:
   - Selects can now have a single or no options ([@emontnemery])
   - Added 'trigger' support for Alarm Control Panels ([@XaF])
   - Added `lock.open` support ([@Hypnos3])
+- The statistics component received a bunch of new statistical characteristics
+  and one can be chosen to be presented as the state of the sensor directly.
+  For performance reasons the full set of characteristcs was removed from
+  attributes ([@ThomDietrich]).
 
 This release adds support for long-term statistics to the following integrations:
 
@@ -773,6 +777,26 @@ Controls for bass and treble adjustments have been moved to
 dedicated `number` entities.
 
 ([@jjlawren] - [#60498]) ([sonos docs])
+
+{% enddetails %}
+
+{% details "Statistics" %}
+
+All statistical characteristics were removed from sensor attributes and are
+now selectable through `state_characteristic` as the state of the sensor
+directly.
+The parameter `state_characteristic` will become mandatory for configuration
+in a future release.
+
+Users will need to adapt their configuration and expose the desired characteristic.
+Additional template sensors to expose attributes are no longer necessary and
+existing ones will no longer work.
+
+Additionally, many more characteristics were added, including a few for a
+binary source sensor. Most characteristics were renamed. Please check
+documentation.
+
+([@ThomDietrich] - [#59867]) ([statistics docs])
 
 {% enddetails %}
 
