@@ -790,7 +790,7 @@ existing ones will no longer work.
 
 Additionally, many more characteristics were added, including a few for a
 binary source sensor. Most characteristics were renamed. Please check
-documentation.
+the documentation.
 
 ([@ThomDietrich] - [#59867]) ([statistics docs])
 
