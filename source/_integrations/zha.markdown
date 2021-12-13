@@ -53,6 +53,7 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 - Number (i.e. analog output)
 - Sensor
+- Siren
 - Switch
 
 There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created. As well as support for binding/unbinding (i.e. bind a remote to a lightbulb or group).
