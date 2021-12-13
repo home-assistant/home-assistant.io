@@ -61,7 +61,7 @@ This is a separate account from the one you made for the app. You cannot log in 
 1. Log in to the [Tuya IoT Platform](https://iot.tuya.com/).
 2. In the left navigation bar, click `Cloud` > `Development`. 
 3. On the page that appears, click `Create Cloud Project`.
-4. In the `Create Cloud Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in.
+4. In the `Create Cloud Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in. Refer to the country/data center mapping list [here](https://github.com/tuya/tuya-home-assistant/blob/main/docs/regions_dataCenters.md) to choose the right data center for the country you are in.
   ![](/images/integrations/tuya/image_001.png)
 5. Click `Create` to continue with the project configuration.
 6. In Configuration Wizard, make sure you add `Device Status Notification` API. The list of API should look like this:
