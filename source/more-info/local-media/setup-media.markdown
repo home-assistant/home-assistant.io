@@ -26,7 +26,7 @@ docker run -d --name="home-assistant" \
   -v /PATH_TO_YOUR_CONFIG:/config \
   -v /etc/localtime:/etc/localtime:ro \
   --net=host \
-  {{ site.installation.container.base }}:stable
+  {{ site.installation.container }}:stable
 ```
 
 You'll need to change it to this:
@@ -37,7 +37,7 @@ docker run -d --name="home-assistant" \
   -v /PATH_TO_YOUR_MEDIA:/media \
   -v /etc/localtime:/etc/localtime:ro \
   --net=host \
-  {{ site.installation.container.base }}:stable
+  {{ site.installation.container }}:stable
 ```
 
 If you are using Docker compose, you can add a volume to your composition file
