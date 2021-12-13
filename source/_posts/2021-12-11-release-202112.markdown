@@ -267,10 +267,6 @@ noteworthy changes this release:
   - Selects can now have a single or no options ([@emontnemery])
   - Added 'trigger' support for Alarm Control Panels ([@XaF])
   - Added `lock.open` support ([@Hypnos3])
-- The statistics component received a bunch of new statistical characteristics
-  and one can be chosen to be presented as the state of the sensor directly.
-  For performance reasons the full set of characteristcs was removed from
-  attributes ([@ThomDietrich]).
 
 This release adds support for long-term statistics to the following integrations:
 
