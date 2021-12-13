@@ -813,6 +813,26 @@ dedicated `number` entities.
 
 {% enddetails %}
 
+{% details "Statistics" %}
+
+All statistical characteristics were removed from sensor attributes and are
+now selectable through `state_characteristic` as the state of the sensor.
+The parameter `state_characteristic` will become mandatory in a future release.
+
+Please adapt the configuration of your statistics sensor(s) and expose the
+characteristic you are interested in directly through `state_characteristic`.
+Existing template sensors to access individual characteristics can be removed.
+In case you are interested in multiple characteristics, you need to define
+multiple statistics sensors.
+
+Many characteristics were renamed and additional ones were added, including
+a few for binary source sensors. Consider opening a feature request if your
+use case is not directly covered.
+
+([@ThomDietrich] - [#59867]) ([statistics docs])
+
+{% enddetails %}
+
 {% details "Templates: `timestamp_local` and `timestamp_utc`" %}
 
 The `timestamp_local` and `timestamp_utc` template functions/filters have
