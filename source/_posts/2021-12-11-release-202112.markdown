@@ -779,18 +779,18 @@ dedicated `number` entities.
 {% details "Statistics" %}
 
 All statistical characteristics were removed from sensor attributes and are
-now selectable through `state_characteristic` as the state of the sensor
-directly.
-The parameter `state_characteristic` will become mandatory for configuration
-in a future release.
+now selectable through `state_characteristic` as the state of the sensor.
+The parameter `state_characteristic` will become mandatory in a future release.
 
-Users will need to adapt their configuration and expose the desired characteristic.
-Additional template sensors to expose attributes are no longer necessary and
-existing ones will no longer work.
+Please adapt the configuration of your statistics sensor(s) and expose the
+characteristic you are interested in directly through `state_characteristic`.
+Existing template sensors to access individual characteristics can be removed.
+In case you are interested in multiple characteristics, you need to define
+multiple statistics sensors.
 
-Additionally, many more characteristics were added, including a few for a
-binary source sensor. Most characteristics were renamed. Please check
-the documentation.
+Many characteristics were renamed and additional ones were added, including
+a few for binary source sensors. Consider opening a feature request if your
+use case is not directly covered.
 
 ([@ThomDietrich] - [#59867]) ([statistics docs])
 
