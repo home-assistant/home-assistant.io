@@ -44,6 +44,3 @@ This integration provides the covid numbers in germany on district level publish
 - Hospitalization incidence for people between 60-79 
 - Hospitalization cases for people older than 80 
 - Hospitalization incidence for people older than 80 
-
-
-![Integration used within the lovelace](/images/integrations/rki_covid/lovelace_graph.png)
