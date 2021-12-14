@@ -410,7 +410,7 @@ The action in this section uses the [Android Companion App](https://companion.ho
 
 ## Media Source
 
-The Nest [Media Source](/integrations/media-source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
+The Nest [Media Source](/integrations/media_source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
 
 See [Device Access: Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for details on Image Support for various devices in the API. Not all cameras support event snapshots, and the Nest Doorbell battery camera supports 10-frame video clips for events.
 
