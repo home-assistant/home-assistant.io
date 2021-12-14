@@ -35,12 +35,16 @@ Go to the "Developer Tools", then to "Call Service", and choose `downloader/down
 
 This will download the file from the given URL.
 
-| Service data attribute | Optional | Description                                    |
-| ---------------------- | -------- | ---------------------------------------------- |
-| `url`                  |       no | The URL of the file to download.               |
-| `subdir`               |      yes | Download into subdirectory of **download_dir** |
-| `filename`             |      yes | Determine the filename.                        |
-| `overwrite`            |      yes | Whether to overwrite the file or not, defaults to `false`. |
+| Service data attribute | Optional | Description                                                                   |
+|------------------------|----------|-------------------------------------------------------------------------------|
+| `url`                  | no       | The URL of the file to download.                                              |
+| `subdir`               | yes      | Download into subdirectory of **download_dir**                                |
+| `filename`             | yes      | Determine the filename.                                                       |
+| `overwrite`            | yes      | Whether to overwrite the file or not, defaults to `false`.                    |
+| `async`                | yes      | Whether to download in background without waiting or not, defaults to `true`. |
+| `auth_type`            | yes      | Authentication type: `none`, `basic` or `digest`, defaults to `None`.         |
+| `username`             | yes      | Username for authentication. Only required if **auth_type** is not `None`.    |
+| `password`             | yes      | Password for authentication. Only required if **auth_type** is not `None`.    |
 
 ### Download Status Events
 
