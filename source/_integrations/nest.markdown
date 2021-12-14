@@ -31,12 +31,14 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Camera](#camera)
 
-Cameras and Doorbells use [Automation and Device Triggers](#automation-and-device-triggers) for events and a [Media Source](#media-source) for capturing media iamges on supported devices. Other device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
+Cameras and Doorbells use [Automation and Device Triggers](#automation-and-device-triggers) for events and a [Media Source](#media-source) for capturing media images on supported devices. Other device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
 <div class='note'>
-The Nest Smart Device Management (SDM) API <b>requires a US$5 fee</b>.
+
+The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
+
 </div>
 
 ## Device Access Registration
@@ -339,8 +341,8 @@ Note: Additional Nest Temperature Sensors are not supported by the SDM API.
 
 Home Assistant supports all SDM API features. However, every Camera or Doorbell device has a different set of built-in capabilities. A Camera device has one of the following live stream types:
 
-  * **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server side `camera` services like stream recording, or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
-  * **WebRTC**: These devices support direct browser to camera communication, and a super low latency stream. Live image previews and the `camera` services like stream recording are *not supported*.
+- **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server-side `camera` services like stream recording or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
+- **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. Live image previews and the `camera` services like stream recording are *not supported*.
 
 All cameras have motion and person triggers, however only some support capturing snapshots for events. The table below summarizes the [Supported SDM API features](https://developers.google.com/nest/device-access/supported-devices) for each device.
 
