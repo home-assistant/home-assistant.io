@@ -4,7 +4,7 @@ description: Instructions on how to connect your EnaSolar GT Solar Inverter to H
 ha_category:
   - Energy
 ha_iot_class: Local Polling
-ha_release: '0.1.0'
+ha_release: 2022.2
 ha_codeowners:
   - '@geustace'
 ha_domain: enasolar
