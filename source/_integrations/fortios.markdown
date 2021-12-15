@@ -5,6 +5,7 @@ ha_category:
   - Presence Detection
 ha_release: 0.97
 ha_iot_class: Local Polling
+ha_quality_scale: silver
 ha_codeowners:
   - '@kimfrellsen'
 ha_domain: fortios
