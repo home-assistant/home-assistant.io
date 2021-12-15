@@ -43,3 +43,75 @@ sensor_id:
   required: true
   type: string
 {% endconfiguration %}
+
+## Neurio hardware has an open local network accessible API
+
+The current implementation of the Neurio Energy component is based on a cloud based service, should that service end in the future, it is still possible to read the Neurio's Energy values for each CT and their consumption directly from the neurio hardware itself by hitting the device's IP with `/current-sample` at the end, i.e. `http://NEURIO-IP/current-sample`
+
+The data that comes back looks something like:
+```json
+{
+    "sensorId": "0x0000C47F510185DC",
+    "timestamp": "2021-12-15T04:14:35Z",
+    "channels": [
+        {
+            "type": "PHASE_A_CONSUMPTION",
+            "ch": 1,
+            "eImp_Ws": 111639399492,
+            "eExp_Ws": 3487634862,
+            "p_W": 1028,
+            "q_VAR": -80,
+            "v_V": 122.456
+        },
+        {
+            "type": "PHASE_B_CONSUMPTION",
+            "ch": 2,
+            "eImp_Ws": 115701364915,
+            "eExp_Ws": 1324518714,
+            "p_W": 212,
+            "q_VAR": -85,
+            "v_V": 123.135
+        },
+        {
+            "type": "CONSUMPTION",
+            "ch": 3,
+            "eImp_Ws": 227335016810,
+            "eExp_Ws": 4806405446,
+            "p_W": 1240,
+            "q_VAR": -165,
+            "v_V": 122.796
+        }
+    ],
+    "cts": [
+        {
+            "ct": 1,
+            "p_W": 1028,
+            "q_VAR": -80,
+            "v_V": 122.456,
+            "i_A": 8.488
+        },
+        {
+            "ct": 2,
+            "p_W": 212,
+            "q_VAR": -85,
+            "v_V": 123.135,
+            "i_A": 2.206
+        },
+        {
+            "ct": 3,
+            "p_W": 0,
+            "q_VAR": 0,
+            "v_V": 0.000,
+            "i_A": 0.000
+        },
+        {
+            "ct": 4,
+            "p_W": 0,
+            "q_VAR": 0,
+            "v_V": 122.453,
+            "i_A": 0.000
+        }
+    ]
+}
+```
+
