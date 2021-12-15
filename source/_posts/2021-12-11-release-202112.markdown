@@ -51,6 +51,7 @@ holidays. So, the first release in 2022, will be Wednesday, 2 February 2022._
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.12.1 - December 12](#release-2021121---december-12)
+- [Release 2021.12.2 - December 15](#release-2021122---december-15)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -354,6 +355,92 @@ like before. Done by [@marvin-w].
 [nest docs]: /integrations/nest/
 [solarlog docs]: /integrations/solarlog/
 [sonos docs]: /integrations/sonos/
+
+## Release 2021.12.2 - December 15
+
+- Bump pysmappee to 0.2.29 ([@bsmappee] - [#61160]) ([smappee docs])
+- Upgrade lupupy to 0.0.24 ([@majuss] - [#61598]) ([lupusec docs])
+- Suppress errors for legacy nest api when using media source ([@allenporter] - [#61629]) ([nest docs])
+- Bump total_connect_client to 2021.12 ([@austinmroczek] - [#61634]) ([totalconnect docs])
+- Add additional-tag to machine builds ([@ludeeus] - [#61693])
+- Bump aiohue to 3.0.4 ([@balloob] - [#61709]) ([hue docs])
+- Update pymelcloud to 2.5.6 ([@vilppuvuorinen] - [#61717]) ([melcloud docs])
+- Add check for incompatible device trigger in Hue integration ([@marcelveldt] - [#61726]) ([hue docs])
+- Fix turn_off with transition for grouped Hue lights ([@marcelveldt] - [#61728]) ([hue docs])
+- Fix Flash effect for Hue lights ([@marcelveldt] - [#61733]) ([hue docs])
+- Blacklist availability check for a light at startup in Hue integration ([@marcelveldt] - [#61737]) ([hue docs])
+- Upgrade tailscale to 0.1.5 ([@frenck] - [#61744]) ([tailscale docs])
+- Bump brunt package to 1.0.1 ([@eavanvalkenburg] - [#61784]) ([brunt docs])
+- Fix ZHA unoccupied setpoints. ([@MattWestb] - [#61791]) ([zha docs])
+- Don't override pychromecast MediaController's APP ID ([@emontnemery] - [#61796]) ([cast docs])
+- Bump pychromecast to 10.2.1 ([@emontnemery] - [#61811]) ([cast docs])
+- Tibber, update library, fixes #61525 ([@Danielhiversen] - [#61813]) ([tibber docs])
+- Bump python-miio to 0.5.9.2 ([@rytilahti] - [#61831]) ([xiaomi_miio docs])
+- Ensure SimpliSafe websocket reconnects upon new token ([@bachya] - [#61835]) ([simplisafe docs])
+- Allow setting local_ip for knx routing connections ([@marvin-w] - [#61836]) ([knx docs])
+- Fix broken Environment Canada ([@michaeldavie] - [#61848]) ([environment_canada docs])
+- Bump google-nest-sdm to 0.4.8 ([@allenporter] - [#61851]) ([nest docs])
+- Bump aiohue to 3.0.5 ([@marcelveldt] - [#61875]) ([hue docs])
+- Update frontend to 20211215.0 ([@bramkragten] - [#61877]) ([frontend docs])
+
+[#61160]: https://github.com/home-assistant/core/pull/61160
+[#61598]: https://github.com/home-assistant/core/pull/61598
+[#61629]: https://github.com/home-assistant/core/pull/61629
+[#61634]: https://github.com/home-assistant/core/pull/61634
+[#61693]: https://github.com/home-assistant/core/pull/61693
+[#61709]: https://github.com/home-assistant/core/pull/61709
+[#61717]: https://github.com/home-assistant/core/pull/61717
+[#61726]: https://github.com/home-assistant/core/pull/61726
+[#61728]: https://github.com/home-assistant/core/pull/61728
+[#61733]: https://github.com/home-assistant/core/pull/61733
+[#61737]: https://github.com/home-assistant/core/pull/61737
+[#61744]: https://github.com/home-assistant/core/pull/61744
+[#61784]: https://github.com/home-assistant/core/pull/61784
+[#61791]: https://github.com/home-assistant/core/pull/61791
+[#61796]: https://github.com/home-assistant/core/pull/61796
+[#61811]: https://github.com/home-assistant/core/pull/61811
+[#61813]: https://github.com/home-assistant/core/pull/61813
+[#61831]: https://github.com/home-assistant/core/pull/61831
+[#61835]: https://github.com/home-assistant/core/pull/61835
+[#61836]: https://github.com/home-assistant/core/pull/61836
+[#61848]: https://github.com/home-assistant/core/pull/61848
+[#61851]: https://github.com/home-assistant/core/pull/61851
+[#61875]: https://github.com/home-assistant/core/pull/61875
+[#61877]: https://github.com/home-assistant/core/pull/61877
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@MattWestb]: https://github.com/MattWestb
+[@allenporter]: https://github.com/allenporter
+[@austinmroczek]: https://github.com/austinmroczek
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
+[@bsmappee]: https://github.com/bsmappee
+[@eavanvalkenburg]: https://github.com/eavanvalkenburg
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@ludeeus]: https://github.com/ludeeus
+[@majuss]: https://github.com/majuss
+[@marcelveldt]: https://github.com/marcelveldt
+[@marvin-w]: https://github.com/marvin-w
+[@michaeldavie]: https://github.com/michaeldavie
+[@rytilahti]: https://github.com/rytilahti
+[@vilppuvuorinen]: https://github.com/vilppuvuorinen
+[brunt docs]: /integrations/brunt/
+[cast docs]: /integrations/cast/
+[environment_canada docs]: /integrations/environment_canada/
+[frontend docs]: /integrations/frontend/
+[hue docs]: /integrations/hue/
+[knx docs]: /integrations/knx/
+[lupusec docs]: /integrations/lupusec/
+[melcloud docs]: /integrations/melcloud/
+[nest docs]: /integrations/nest/
+[simplisafe docs]: /integrations/simplisafe/
+[smappee docs]: /integrations/smappee/
+[tailscale docs]: /integrations/tailscale/
+[tibber docs]: /integrations/tibber/
+[totalconnect docs]: /integrations/totalconnect/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zha docs]: /integrations/zha/
 
 ## If you need help...
 
