@@ -41,7 +41,7 @@ docker run -d --name="home-assistant" \
 ```
 
 If you are using Docker compose, you can add a volume to your composition file
-in similar fashion as listed in the command above.
+in a similar fashion as listed in the command above.
 
 ## Home Assistant Core
 
@@ -55,7 +55,7 @@ For example, if your current configuration folder is stored in:
 
 `/home/frenck/.homeassistant/`
 
-The you'll need to create a media folder in that same path:
+Then you'll need to create a media folder in that same path:
 
 `/home/frenck/.homeassistant/media`
 
