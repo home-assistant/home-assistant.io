@@ -76,6 +76,8 @@ A device is identified as stale when it's still present on Home Assistant but no
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific  router                                                                                 |
 
+**Note**: Services will be soon deprecated in favor of button entities, that have the same functionality.
+
 ## Integration Options
 
 It is possible to change some behaviors through the integration options.
