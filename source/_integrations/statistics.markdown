@@ -24,7 +24,7 @@ Assuming the [`recorder`](/integrations/recorder/) integration is running, histo
 
 ## Characteristics
 
-The following statistical characteristics are available. Pay close attention to the right configuration of `sampling_size` and `max_age`, as most characterists are directly related to the count of samples or the age of processed samples.
+The following statistical characteristics are available. Pay close attention to the right configuration of `sampling_size` and `max_age`, as most characteristics are directly related to the count of samples or the age of processed samples.
 
 ### Numeric Source Sensor
 
