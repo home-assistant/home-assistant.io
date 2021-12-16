@@ -13,7 +13,7 @@ ha_platforms:
   - device_tracker
 ---
 
-This integration enables Home Assistant to do device tracking of devices with a MAC address connected to a FortiGate from [Fortinet](https://www.fortinet.com).
+The FortiOS presence detection enables Home Assistant to track devices with a MAC address connected to a FortiGate from [Fortinet](https://www.fortinet.com).
 
 The integration relies on the [fortiosapi](https://pypi.org/project/fortiosapi/).  
 The integration has been verified on FortiGate appliances and FortiGate VM running FortiOS v. 6.4.x (up to 6.4.8) and 7.0.x (up to 7.0.4).  
