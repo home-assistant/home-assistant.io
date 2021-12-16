@@ -25,7 +25,7 @@ Once you have the name of your namespace, instance, Shared Access Policy and the
 
 The alternative approach is to use a connection string and instance name, this can be retrieved in the same way as the Shared Access Policy and this can also be gotten for a device in an IoT Hub (Event Hub-compatible connection string). In the case of IoT Hub, you need to put the Device ID as the instance name.
 
-The final thing to consider is how often you want the integration to send messages in a batch to your hub, this is set with the `send_interval`, with a default of 5 seconds. Since this component runs in an asynchronous way there is no guarantee that the sending happens exactly on time, and because your home assistant might be very busy with lots of events happening it might discard several events that are older then 20 seconds plus the `send_interval`.
+The final thing to consider is how often you want the integration to send messages in a batch to your hub, this is set with the `send_interval`, with a default of 5 seconds. Since this component runs in an asynchronous way there is no guarantee that the sending happens exactly on time, and because your Home Assistant might be very busy with lots of events happening it might discard several events that are older then 20 seconds plus the `send_interval`.
 
 ## Configuration
 
