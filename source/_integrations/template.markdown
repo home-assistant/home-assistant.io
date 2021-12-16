@@ -15,6 +15,7 @@ ha_domain: template
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - cover
   - fan
   - light
@@ -29,7 +30,7 @@ ha_platforms:
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Sensors, binary (on/off) sensors, numbers and selects are covered on this page. For other types, please see the specific pages:
+Sensors, binary (on/off) sensors, buttons, numbers and selects are covered on this page. For other types, please see the specific pages:
 
 - [Alarm Control Panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
@@ -40,7 +41,7 @@ Sensors, binary (on/off) sensors, numbers and selects are covered on this page. 
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
-Sensor, binary sensor, number and select template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+Sensor, binary sensor, button, number and select template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/button/number/select entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
@@ -201,25 +202,16 @@ select:
   required: true
   type: map
   keys:
-    state:
-      description: Template for the select's current value.
-      required: true
-      type: template
-    select_option:
-      description: Defines actions to run to select an option from the `options` list. The variable `option` will contain the option selected.
+    press:
+      description: Defines actions to run to press the button.
       required: true
       type: action
-    options:
-      description: Template for the select's available options.
-      required: true
-      type: template
-    optimistic:
-      description: Flag that defines if select works in optimistic mode.
-      required: false
-      type: boolean
-      default: false
-"[all sensor, binary sensor, number, select entities]":
-  description: Fields that can be used above for sensors, binary sensors, numbers, and selects.
+button:
+  description: List of buttons
+  required: true
+  type: map
+"[all sensor, binary sensor, button, number, select entities]":
+  description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map
   keys:
