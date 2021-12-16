@@ -27,11 +27,9 @@ The alternative approach is to use a connection string and instance name, this c
 
 The final thing to consider is how often you want the integration to send messages in a batch to your hub, this is set with the `send_interval`, with a default of 5 seconds. Since this component runs in an asynchronous way there is no guarantee that the sending happens exactly on time, and because your Home Assistant might be very busy with lots of events happening it might discard several events that are older then 20 seconds plus the `send_interval`.
 
-## Configuration
-
-The configuration will move to a hybrid of yaml and config flow starting with 2022.2, where the filters can be set in the `configuration.yaml` and the other pieces are done through a config flow.
-
 {% include integrations/config_flow.md %}
+
+You can setup [filters](#filter-configuration) through the `configuration.yaml`, any other keys from the old configuration are forwarded to the config flow and stored by Home Assistant and can be deleted from your configuration.
 
 <div class='note warning'>
 Not filtering domains or entities will send every event to Azure Event Hub, thus taking up a lot of space and bandwidth.
@@ -41,7 +39,7 @@ Not filtering domains or entities will send every event to Azure Event Hub, thus
 Event Hubs have a retention time of at most 7 days, if you do not capture or use the events they are deleted automatically from the Event Hub, the default retention is 1 day.
 </div>
 
-### Configure Filter
+### Filter Configuration
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Azure Event Hub`, you can use the `filter` parameter.
 
@@ -78,8 +76,8 @@ Filters are applied as follows:
 
 {% configuration %}
 filter:
-  description: Filter domains and entities for Event Hub. ([Configure Filter](#configure-filter))
-  required: true
+  description: Filter domains and entities for Event Hub.
+  required: false
   type: map
   default: Includes all entities from all domains
   keys:
