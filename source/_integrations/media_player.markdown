@@ -113,7 +113,8 @@ Documentation:
 Example of calling media_player service with title and image set:
 
 ```yaml
-entity_id: media_player.chromecast
+target:
+  entity_id: media_player.chromecast
 service: media_player.play_media
 data:
   media_content_type: music
