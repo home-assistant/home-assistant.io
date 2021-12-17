@@ -29,7 +29,7 @@ The final thing to consider is how often you want the integration to send messag
 
 {% include integrations/config_flow.md %}
 
-You can setup [filters](#filter-configuration) through the `configuration.yaml`, any other keys from the old configuration are forwarded to the config flow and stored by Home Assistant and can be deleted from your configuration.
+You can setup [filters](#filter-configuration) through the `configuration.yaml`.
 
 <div class='note warning'>
 Not filtering domains or entities will send every event to Azure Event Hub, thus taking up a lot of space and bandwidth.
