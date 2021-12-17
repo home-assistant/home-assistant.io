@@ -56,8 +56,9 @@ The following models have been tested with integration.
 | 0x06  | Controller RGBW             |                                 |
 | 0x07  | Controller RGBCW            |                                 |
 | 0x08  | Controller RGB with MIC     |                                 |
-| 0x09  | Switch 1c                   |                                 |
 | 0x0E  | Floor Lamp RGBCW            |                                 |
+| 0x10  | Christmas Light             |                                 |
+| 0x1A  | Christmas Light             |                                 |
 | 0x1C  | Table Light CCT             |                                 |
 | 0x21  | Bulb Dimmable               |                                 |
 | 0x25  | Controller RGB/WW/CW        | Supports RGB,RGBW,RGBWW,CW,DIM  |
@@ -80,19 +81,19 @@ The following models have not been tested with integration but may work.
 | Model | Description                 | Notes                           |
 | ----- | --------------------------- | ------------------------------- |
 | 0x09  | Ceiling Light CCT           |                                 |
-| 0x10  | Christmas Light             |                                 |
 | 0x16  | Magnetic Light CCT          |                                 |
 | 0x17  | Magnetic Light Dimmable     |                                 |
 | 0x19  | Socket 2 USB                |                                 |
-| 0x1A  | Christmas Light             |                                 |
 | 0x18  | Plant Light                 |                                 |
 | 0x1B  | Spray Light                 |                                 |
+| 0x62  | Controller CCT              | May be discontinued             |
 | 0x52  | Bulb CCT                    | May be discontinued             |
 | 0x95  | Switch 2c                   |                                 |
 | 0x96  | Switch 4c                   |                                 |
 | 0xD1  | Digital Light               |                                 |
 | 0xE1  | Ceiling Light               |                                 |
 | 0xE2  | Ceiling Light Assist        |                                 |
+| 0xA4  | Addressable v4              |                                 |
 
 ### Effects
 
