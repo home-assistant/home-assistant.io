@@ -10,6 +10,8 @@ ha_codeowners:
 ha_domain: kostal_plenticore
 ha_platforms:
   - sensor
+  - select
+  - switch
 ---
 
 The Kostal Plenticore integration allows you to get data from [Kostal Plenticore](https://www.kostal-solar-electric.com/) solar inverters and integrate them into your Home Assistant installation. It allows you also to change some of settings values of the inverter.

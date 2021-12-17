@@ -124,7 +124,11 @@ password:
 headers:
   description: The headers for the requests.
   required: false
-  type: [list, string]
+  type: [list, template]
+params:
+  description: The query params for the requests.
+  required: false
+  type: [list, template]
 {% endconfiguration %}
 
 ## Examples
@@ -153,7 +157,9 @@ binary_sensor:
 
 ### Accessing an HTTP authentication protected endpoint
 
-The REST sensor supports HTTP authentication and customized headers.
+The REST sensor supports HTTP authentication and template-enabled customized headers.
+
+{% raw %}
 
 ```yaml
 binary_sensor:
@@ -165,7 +171,11 @@ binary_sensor:
     headers:
       User-Agent: Home Assistant
       Content-Type: application/json
+      X-Custom-Header: '{{ states("input_text.the_custom_header") }}'
 ```
+
+{% endraw %}
+
 
 The headers will contain all relevant details. This will also give
 you the ability to access endpoints that are protected by tokens.

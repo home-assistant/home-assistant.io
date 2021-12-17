@@ -2,12 +2,16 @@
 title: Venstar
 description: Instructions for how to integrate Venstar WiFi thermostats within Home Assistant.
 ha_category:
+  - Binary Sensor
   - Climate
+  - Sensor
 ha_release: 0.62
 ha_iot_class: Local Polling
 ha_domain: venstar
 ha_platforms:
+  - binary_sensor
   - climate
+  - sensor
 ha_codeowners:
   - '@garbled1'
 ha_config_flow: true
@@ -29,6 +33,8 @@ Currently supported functionality:
 - Reading and setting the humidity level and limits (T7900 only)
 - Turning on away preset
 - Turning on hold mode preset
+- Remote temperature sensors
+- Thermostat alerts (Filter replacement/etc)
 
 The following values are supported for the preset_mode state attribute:
 - `none`: *Enables* the scheduling functionality.
@@ -63,14 +69,4 @@ ssl:
   required: false
   type: boolean
   default: false
-timeout:
-  description: Number of seconds for API timeout.
-  required: false
-  type: integer
-  default: 5
-humidifier:
-  description: Report humidity and expose humidifier setpoints.
-  required: false
-  type: boolean
-  default: true
 {% endconfiguration_basic %}

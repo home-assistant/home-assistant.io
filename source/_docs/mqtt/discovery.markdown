@@ -10,6 +10,7 @@ Supported by MQTT discovery:
 
 - [Alarm control panels](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensors](/integrations/binary_sensor.mqtt/)
+- [Buttons](/integrations/button.mqtt/)
 - [Cameras](/integrations/camera.mqtt/)
 - [Covers](/integrations/cover.mqtt/)
 - [Device Trackers](/integrations/device_tracker.mqtt/)
@@ -85,6 +86,7 @@ Supported abbreviations:
     'avty'                 'availability',
     'avty_mode':           'availability_mode',
     'avty_t':              'availability_topic',
+    'avty_tpl':            'availability_template',
     'away_mode_cmd_t':     'away_mode_command_topic',
     'away_mode_stat_tpl':  'away_mode_state_template',
     'away_mode_stat_t':    'away_mode_state_topic',
@@ -111,12 +113,14 @@ Supported abbreviations:
     'cmd_tpl':             'command_template',
     'cod_arm_req':         'code_arm_required',
     'cod_dis_req':         'code_disarm_required',
+    'cod_trig_req':        'code_trigger_required',
     'curr_temp_t':         'current_temperature_topic',
     'curr_temp_tpl':       'current_temperature_template',
     'dev':                 'device',
     'dev_cla':             'device_class',
     'dock_t':              'docked_topic',
     'dock_tpl':            'docked_template',
+    'e':                   'encoding',
     'err_t':               'error_topic',
     'err_tpl':             'error_template',
     'fanspd_t':            'fan_speed_topic',
@@ -164,6 +168,7 @@ Supported abbreviations:
     'mode_stat_t':         'mode_state_topic',
     'modes':               'modes',
     'name':                'name',
+    'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
     'opt':                 'optimistic',
@@ -205,6 +210,7 @@ Supported abbreviations:
     'pl_rst_pr_mode':      'payload_reset_preset_mode',
     'pl_toff':             'payload_turn_off',
     'pl_ton':              'payload_turn_on',
+    'pl_trig':             'payload_trigger',
     'pl_unlk':             'payload_unlock',
     'pos_clsd':            'position_closed',
     'pos_open':            'position_open',
@@ -314,8 +320,9 @@ The following software has built-in support for MQTT discovery:
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
-- [Teleinfo MQTT](https://github.com/fmartinou/teleinfo-mqtt) (starting with 3.0.0)
-- [What's up Docker?](https://github.com/fmartinou/whats-up-docker) (starting with 3.5.0)
+- [Teleinfo MQTT](https://fmartinou.github.io/teleinfo-mqtt/) (starting with 3.0.0)
+- [Tydom2MQTT](https://fmartinou.github.io/tydom2mqtt/)
+- [What's up Docker?](https://fmartinou.github.io/whats-up-docker/) (starting with 3.5.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
@@ -481,3 +488,22 @@ If the device supports gps coordinates then they can be sent to Home Assistant b
   "gps_accuracy": 1.2
  }
 ```
+
+### Use object_id to influence the entity id
+
+
+The entity id is automatically generated from the entity's name. All MQTT entity components optionally support providing an `object_id` which will be used instead if provided.
+
+- Configuration topic: `homeassistant/sensor/device1/config`
+- Example configuration payload:
+
+```json
+{
+  "name":"My Super Device",
+  "object_id":"device1",
+  "state_topic": "homeassistant/sensor/device1/state",
+ }
+```
+
+In the example above, the the entity_id will be `sensor.device1` instead of `sensor.my_super_device`.
+

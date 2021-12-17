@@ -18,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - light
+  - number
   - sensor
   - switch
 ---
@@ -28,7 +29,7 @@ The Pentair ScreenLogic integration allows you to integrate your Pentair Intelli
 
 ## Options
 
-ScreenLogic options are set via **Configuration** -> **Integrations** -> **Pentair ScreenLogic** -> **Options**.
+ScreenLogic options are set via **Configuration** -> **Devices & Services** -> **Pentair ScreenLogic** -> **Options**.
 
 * Seconds between scans - How many seconds between each polling of the ScreenLogic gateway.
 

@@ -45,6 +45,10 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -54,6 +58,14 @@ availability_mode:
    required: false
    type: string
    default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
+command_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic`.
+  required: false
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the selected option.
   required: true
@@ -125,13 +137,17 @@ name:
   description: The name of the Select.
   required: false
   type: string
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 optimistic:
   description: Flag that defines if the select works in optimistic mode.
   required: false
   type: boolean
   default: "`true` if no `state_topic` defined, else `false`."
 options:
-  description: List of options that can be selected.
+  description: List of options that can be selected. An empty list or a list with a single item is allowed.
   required: true
   type: list
 qos:

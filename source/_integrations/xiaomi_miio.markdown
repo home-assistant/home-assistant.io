@@ -51,9 +51,15 @@ The Xiaomi Miio integration supports the following devices:
 
 Most Xiaomi Miio devices support configuration using the Home Assistant UI,
 except for the [Xiaomi device tracker](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
-and [Xiaomi IR Remote](#xiaomi-ir-remote).
+and [Xiaomi IR Remote](#xiaomi-ir-remote). Please read the linked sections for those devices for more information.
 
-Please read the linked sections for those devices for more information.
+Devices need to be set up using the Mi Home app and not vendor-specific apps (e.g. Roborock).
+
+<div class='note'>
+
+  For more complex network setups (e.g. VLANs), reference the [following documentation](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets) for additional information.
+
+</div>
 
 {% include integrations/config_flow.md %}
 
@@ -875,6 +881,7 @@ Power Supply            | Indicates whether the power supply is connected or not
 Number                  | Description
 ----------------------- | -----------------------
 Delay Off Countdown     | Set the delay off countdown in minutes
+LED Brightness          | Set the LED brightness
 Oscillation Angle       | Set the oscillation angle in degrees
 
 - Sensor entities

@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_domain: yamaha_musiccast
 ha_platforms:
   - media_player
+  - number
 ---
 
 The Yamaha MusicCast integration allows you to control [Yamaha MusicCast Receivers](https://usa.yamaha.com/products/audio_visual/musiccast/index.html) from Home Assistant.
@@ -57,6 +58,25 @@ data:
   media_content_id: "presets:1"
   media_content_type: "music"
 ```
+
+## Configuration/Diagnostic Entities
+
+Depending on the features supported by the device, several entities will be added for every MusicCast Device. Some of the entities are related to the MusicCast device and some are related to a zone of the device. All device and main zone related entities will be assigned to the Home Assistant device of the main zone. Entities related to other zones will be assigned to the Home Assistant device of the corresponding zone.
+
+### Number Entities
+
+The following entities will be added, if they are supported by the MusicCast device:
+- Equalizer (configuration, zone level)
+  - One number entity each is added for high, mid and low
+- Tone Control (configuration, zone level)
+  - One number entity each is added for bass and treble
+- Dialogue Level (configuration, zone level)
+  - Set the volume of dialogues in relation to the general volume
+- Dialogue Lift (configuration, zone level)
+  - Set the vertical position of the dialogues in the surround system
+- DTS Dialogue Control (configuration, zone level)
+  - Control the volume of dialogues for DTS:X content
+
 ## Troubleshooting
 
 In this section known problems and their resolution are documented.

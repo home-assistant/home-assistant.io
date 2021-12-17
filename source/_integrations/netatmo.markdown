@@ -235,7 +235,7 @@ client_secret:
 
 **After the client_id and client_secret is added to your `configuration.yaml` you must enable Netatmo through the integrations page.**
 
-Menu: **Configuration** -> **Integrations**.
+Menu: **Configuration** -> **Devices & Services**.
 
 Click on the `+` sign to add an integration and click on **Netatmo**.
 After completing the configuration flow, the Netatmo integration will be available.

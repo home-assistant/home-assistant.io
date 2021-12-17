@@ -25,7 +25,7 @@ The [MySensors](https://www.mysensors.org) project combines devices like Arduino
 
 ## Configuration
 
-To integrate your Serial, Ethernet (LAN) or MQTT MySensors Gateway, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integration select **MySensors**.
+To integrate your Serial, Ethernet (LAN) or MQTT MySensors Gateway, go to **Configuration** >> **Devices & Services** in the UI, click the button with `+` sign and from the list of integration select **MySensors**.
 
 Configuration depends on the type of Gateway you use:
 

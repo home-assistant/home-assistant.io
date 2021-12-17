@@ -15,6 +15,7 @@ ha_codeowners:
 ha_domain: renault
 ha_platforms:
   - binary_sensor
+  - button
   - device_tracker
   - sensor
   - select

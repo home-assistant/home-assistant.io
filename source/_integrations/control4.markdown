@@ -23,7 +23,7 @@ Before setting up, you should assign a static IP address/DHCP reservation on you
 
 ## Options
 
-The Control4 integration offers additional options in **Configuration** -> **Integrations** -> **Control4** -> **Options**:
+The Control4 integration offers additional options in **Configuration** -> **Devices & Services** -> **Control4** -> **Options**:
 
 {% configuration %}
 Seconds between updates:

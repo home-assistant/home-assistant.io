@@ -48,11 +48,19 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -148,6 +156,10 @@ name:
   required: false
   type: string
   default: MQTT humidifier
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 optimistic:
   description: Flag that defines if humidifier works in optimistic mode
   required: false
