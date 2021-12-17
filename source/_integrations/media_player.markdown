@@ -113,8 +113,9 @@ Documentation:
 Example of calling media_player service with title and image set:
 
 ```yaml
-entity_id: media_player.chromecast
 service: media_player.play_media
+target:
+  entity_id: media_player.chromecast
 data:
   media_content_type: music
   media_content_id: "https://fake-home-assistant.io.stream/aac"
