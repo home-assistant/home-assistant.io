@@ -691,7 +691,7 @@ The following overview contains a couple of options to get the needed values:
 # Timestamps
 {{ value_json.tst | timestamp_local }}
 {{ value_json.tst | timestamp_utc }}
-{{ value_json.tst | timestamp_custom('%Y' True) }}
+{{ value_json.tst | timestamp_custom('%Y', True) }}
 ```
 
 {% endraw %}
