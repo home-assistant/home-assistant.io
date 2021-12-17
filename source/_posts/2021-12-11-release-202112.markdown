@@ -52,6 +52,7 @@ holidays. So, the first release in 2022, will be Wednesday, 2 February 2022._
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.12.1 - December 12](#release-2021121---december-12)
 - [Release 2021.12.2 - December 15](#release-2021122---december-15)
+- [Release 2021.12.3 - December 17](#release-2021123---december-17)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -440,6 +441,69 @@ like before. Done by [@marvin-w].
 [tibber docs]: /integrations/tibber/
 [totalconnect docs]: /integrations/totalconnect/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zha docs]: /integrations/zha/
+
+## Release 2021.12.3 - December 17
+
+- Update ebusdpy version ([@sindudas] - [#59899]) ([ebusd docs])
+- Nextbus upcoming sort as integer ([@ViViDboarder] - [#61416]) ([nextbus docs])
+- Add restore logic to Shelly climate platform ([@chemelli74] - [#61632]) ([shelly docs])
+- Fix OwnetError preventing onewire initialisation ([@epenet] - [#61696]) ([onewire docs])
+- Fix notify platform setup for KNX ([@marvin-w] - [#61842]) ([knx docs])
+- Bump aiohue to 3.0.6 ([@marcelveldt] - [#61974]) ([hue docs])
+- Brunt dependency bump to 1.0.2 ([@eavanvalkenburg] - [#62014]) ([brunt docs])
+- Bump flux_led to 0.26.15 ([@bdraco] - [#62017]) ([flux_led docs])
+- Fix none-check in template light ([@emontnemery] - [#62089]) ([template docs])
+- Add missing timezone information ([@DeerMaximum] - [#62106]) ([vallox docs])
+- Improve availability for Shelly Valve ([@chemelli74] - [#62129]) ([shelly docs])
+- Fix Non-thread-safe operation in homekit light events ([@bdraco] - [#62147]) ([homekit docs])
+- Fix Non-thread-safe operation in logbook ([@bdraco] - [#62148]) ([logbook docs])
+- Bump google-nest-sdm to 0.4.9 ([@allenporter] - [#62160]) ([nest docs])
+- Add guard in call to activate_scene in Hue ([@marcelveldt] - [#62177]) ([hue docs])
+- Fix threading error in scripts with repeat or choose actions ([@emontnemery] - [#62168])
+- Fix threading error in zha ([@emontnemery] - [#62170]) ([zha docs])
+
+[#59899]: https://github.com/home-assistant/core/pull/59899
+[#61416]: https://github.com/home-assistant/core/pull/61416
+[#61632]: https://github.com/home-assistant/core/pull/61632
+[#61696]: https://github.com/home-assistant/core/pull/61696
+[#61842]: https://github.com/home-assistant/core/pull/61842
+[#61974]: https://github.com/home-assistant/core/pull/61974
+[#62014]: https://github.com/home-assistant/core/pull/62014
+[#62017]: https://github.com/home-assistant/core/pull/62017
+[#62089]: https://github.com/home-assistant/core/pull/62089
+[#62106]: https://github.com/home-assistant/core/pull/62106
+[#62129]: https://github.com/home-assistant/core/pull/62129
+[#62147]: https://github.com/home-assistant/core/pull/62147
+[#62148]: https://github.com/home-assistant/core/pull/62148
+[#62160]: https://github.com/home-assistant/core/pull/62160
+[#62168]: https://github.com/home-assistant/core/pull/62168
+[#62170]: https://github.com/home-assistant/core/pull/62170
+[#62177]: https://github.com/home-assistant/core/pull/62177
+[@DeerMaximum]: https://github.com/DeerMaximum
+[@ViViDboarder]: https://github.com/ViViDboarder
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@eavanvalkenburg]: https://github.com/eavanvalkenburg
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@marcelveldt]: https://github.com/marcelveldt
+[@marvin-w]: https://github.com/marvin-w
+[@sindudas]: https://github.com/sindudas
+[brunt docs]: /integrations/brunt/
+[ebusd docs]: /integrations/ebusd/
+[flux_led docs]: /integrations/flux_led/
+[homekit docs]: /integrations/homekit/
+[hue docs]: /integrations/hue/
+[knx docs]: /integrations/knx/
+[logbook docs]: /integrations/logbook/
+[nest docs]: /integrations/nest/
+[nextbus docs]: /integrations/nextbus/
+[onewire docs]: /integrations/onewire/
+[shelly docs]: /integrations/shelly/
+[template docs]: /integrations/template/
+[vallox docs]: /integrations/vallox/
 [zha docs]: /integrations/zha/
 
 ## If you need help...
