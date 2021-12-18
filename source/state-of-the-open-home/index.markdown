@@ -15,8 +15,8 @@ For over 8 years we've been working on the open home. We envision the open home 
 
 The event is hosted by Nabu Casa, Home Assistant & ESPHome and we'll be joined by our friends from WLED, Z-Wave JS, Stanford's OVAL lab and Northeastern University to talk about our work on making this vision a reality.
 
-To be notified when the live stream is online, [visit YouTube](https://www.youtube.com/watch?v=6ZMXE5PXPqU) and click “Set Reminder”.
+To watch the recording, check below:
 
 <div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6ZMXE5PXPqU" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6ZMXE5PXPqU?start=294" frameborder="0" allowfullscreen></iframe>
 </div>
