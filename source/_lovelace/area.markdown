@@ -26,7 +26,7 @@ area:
   type: string
 navigation_path:
   required: false
-  description: link to lovelace view. For more information about views, see the [view documentation](/lovelace/views/)
+  description: link to Lovelace view. For more information about views, see the [view documentation](/lovelace/views/)
   type: string
 theme:
   required: false
