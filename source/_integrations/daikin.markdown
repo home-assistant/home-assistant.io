@@ -98,23 +98,24 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 - Inside temperature
 - Outside temperature
 - Inside humidity
-- Total instant power consumption
+- Current total power consumption
 - Hourly energy consumption in cool mode
 - Hourly energy consumption in heat mode
-- Outside compressor frequency
+- Outside unit compressor frequency
+- Today's total energy consumption (resets at 00:00)
 
 <div class='note'>
 
 - Some models only report outside temperature when they are turned on.
-- Some models does not have humidity sensor.
-- Some models does not report the power/energy consumption.
-- Some models does not report the compressor frequency.
+- Some models do not have humidity sensor.
+- Some models do not report the power/energy consumption.
+- Some models do not report the compressor frequency.
 
 </div>
 
 <div class='note'>
 
-- The 'total' power sensor is updated every time 100 Wh are consumed by all the AC summed together.
+- The 'total' power and energy sensor is updated every time 100 Wh are consumed by all the AC summed together.
 - The 'cool/heat' energy sensors are updated hourly with the previous hour energy consumption
   of a given mode and a given AC.
 - The 'cool' mode also includes the 'fan' and 'dehumidifier' modes' power consumption.
