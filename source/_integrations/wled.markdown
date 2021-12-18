@@ -143,3 +143,71 @@ data:
 ```
 
 {% endraw %}
+
+### Activating a preset
+
+Activating a preset is an easy way to set a WLED light to a specific
+configuration. Here is an example service call to set a WLED light 
+to a preset called My Preset:
+
+{% raw %}
+
+```yaml
+service: light.turn_on
+data:
+  entity_id: light.wled
+service: select.select_option
+target:
+  entity_id: select.wled_preset
+data:
+  option: 'My Preset'
+```
+
+{% endraw %}
+
+### Automation Using Specific Palette Name
+
+An automation to turn on a WLED light and select a specific palette and
+set intensity and speed can be created by first calling the light.turn_on
+service, then calling the select.select_option service to select the
+palette, then calling the number.set_value service to set the intensity
+and again to set the speed. 
+
+Here is an example of all of these put together into an automation:
+
+{% raw %}
+
+```yaml
+- alias: 'Turn on WLED rain effect when weather changes to rainy'
+  description: 'Turns on WLED light, setting effect to Rain, palette to Breeze, intensity to 200 and speed to 255'
+  trigger:
+    - platform: state
+      entity_id: sensor.weather_condition
+      to: 'rainy'
+  condition:
+    - condition: time
+      after: '08:00:00'
+      before: '23:00:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.wled
+        effect: Rain
+    - service: select.select_option
+      target:
+        entity_id: select.wled_color_palette
+      data:
+        option: Breeze
+    - service: number.set_value
+      target:
+        entity_id: number.wled_intensity
+      data:
+        value: 200
+    - service: number.set_value
+      target:
+        entity_id: number.wled_speed
+      data:
+        value: 255
+```
+
+{% endraw %}
