@@ -1,0 +1,44 @@
+---
+type: card
+title: "Area Card"
+sidebar_label: Area
+description: "The Area card gives control of your entities in a specified area."
+---
+
+The Area card lets you control and monitor an individual area.
+
+<p class='img'>
+  <img src='https://www.home-assistant.io/images/blog/2021-12/area-card.png' alt='Screenshot of the Area card'>
+  Screenshot of the Area card.
+</p>
+
+
+To add the Humidifier card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Area** from the card picker. All options for this card can be configured via the user interface.
+
+{% configuration %}
+type:
+  required: true
+  description: "`area`"
+  type: string
+area:
+  required: true
+  description: ID of the `area`.
+  type: string
+navigation_path:
+  required: false
+  description: link to lovelace view. For more information about views, see the [view documentation](/lovelace/views/)
+  type: string
+theme:
+  required: false
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
+  type: string
+{% endconfiguration %}
+
+## Example
+
+Alternatively, the card can be configured using YAML:
+
+```yaml
+- type: area
+  area: bedroom
+```
