@@ -499,12 +499,13 @@ The `lcn` switch platform allows the control of the following [LCN](https://www.
 ## Additional Features
 
 ### Transponder and fingerprint sensor
+
 To use LCN transponders or fingerprint sensors ensure that the corresponding module's I-port property
 is enabled in the LCN-PRO software and properly configured.
 LCN transponders and fingerprints are identified by a six value hexadecimal code (e.g. *123abc*).
 If a code is received a corresponding event ([transponder event](#event-lcn_transponder), [fingerprint event](#event-lcn_fingerprint))
 is fired and can be used to trigger an automation.
-Alternatively you can use the corresponding [device triggers](#device-triggers).
+Alternatively, you can use the corresponding [device triggers](#device-triggers).
 
 Example:
 
@@ -528,13 +529,14 @@ automation:
 Further examples can be found in the [event section](#events).
 
 ### Remote control
-To use LCN remote controls (e.g. LCN-RT or LCN-RT16) ensure that the corresponding module's I-port property
+
+To use LCN remote controls (e.g., LCN-RT or LCN-RT16) ensure that the corresponding module's I-port property
 is enabled in the LCN-PRO software and its behavior is properly configured as "IR access control".
 With this configuration each remote control is identified by a six value hexadecimal code (e.g. *123abc*).
 If a command from a remote control is received a corresponding event ([transponder event](#event-lcn_transponder))
 is fired and can be used to trigger an automation. Along with the transmitted code, the pressed key and the key action
-is transmitted.
-Alternatively you can use the corresponding [device triggers](#device-triggers).
+are transmitted.
+Alternatively, you can use the corresponding [device triggers](#device-triggers).
 
 Examples can be found in the [event section](#events).
 
@@ -549,7 +551,7 @@ manually enter the PCHK host id (default: 4). Select the keys and key actions as
 
 When a *send keys* command is received, the LCN integration will fire a [send keys event](#event-lcn_send_keys) for each
 key configured. These events can be used to trigger an automation.
-Alternatively you can use the corresponding [device triggers](#device-triggers).
+Alternatively, you can use the corresponding [device triggers](#device-triggers).
 
 Examples can be found in the [event section](#events).
 
@@ -572,7 +574,7 @@ Examples are button presses from remote controls (transmitters), transponder fin
 
 </div>
 
-All events have some common attributes in their `event_data` which identify the sending LCN hardware module (e.g. the module the transponder is connected to):
+All events have some common attributes in their `event_data` which identify the sending LCN hardware module (e.g., the module the transponder is connected to):
 
 | Event payload | Description  | Values |
 | ------------- | -----------  | ------ |
@@ -580,7 +582,7 @@ All events have some common attributes in their `event_data` which identify the 
 | `segment_id` | Module's segment id | 5..128 |
 | `module_id` | Module id | 5..254 |
 
-In addition every event has its own special attributes which are described below.
+In addition, every event has its own special attributes which are described below.
 All special attributes are optional and can be used as supplementary filters.
 
 ### Event: `lcn_transmitter`
