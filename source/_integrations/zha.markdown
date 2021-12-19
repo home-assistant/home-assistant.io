@@ -101,7 +101,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 <div class="note warning">
 
 The **EZSP** protocol requires a stable connection to the serial port. With _ITEAD Sonoff ZBBridge_ connecting over the WiFi network
-it is expected to see `NCP entered failed state. Requesting APP controller restart` in the logs. This is a normal part of the operation and indicates there was a drop in communication between ZHA and SonOff bridge.
+it is expected to see `NCP entered failed state. Requesting APP controller restart` in the logs. This is a normal part of the operation and indicates there was a drop in communication between ZHA and Sonoff bridge.
 
 </div>
 
