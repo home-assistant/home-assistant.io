@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: input_timetable
 ---
 
-The `input_timetable` integration allows the user to define the times throughout the day when the `input_timetable` entity is set to on or off. An automation rule can be used to tie this timetable to other entities. Changes to the time periods will then impact the other entities, without the need to change the automation rule iteslf.
+The `input_timetable` integration allows the user to define the times throughout the day when the `input_timetable` entity is set to on or off. An automation rule can be used to tie this timetable to other entities. Changes to the time periods will then impact the other entities, without the need to change the automation rule itself.
 
 Input timetables can be configured via `configuration.yaml`:
 
