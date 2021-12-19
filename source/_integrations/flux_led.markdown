@@ -3,12 +3,14 @@ title: Magic Home
 description: Instructions on how to setup Magic Home within Home Assistant.
 ha_category:
   - Light
+  - Select
   - Switch
 ha_iot_class: Local Push
 ha_release: 0.25
 ha_domain: flux_led
 ha_platforms:
   - light
+  - select
   - switch
 ha_codeowners:
   - '@icemanch'
