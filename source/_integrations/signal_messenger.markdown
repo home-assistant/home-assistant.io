@@ -90,3 +90,16 @@ action:
       attachments:
         - "/tmp/surveillance_camera.jpg"
 ```
+
+### Text message with an attachment loaded from a URL
+
+```yaml
+...
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    message: "A person was detected on the front camera!"
+    data:
+      url:
+        - "http://homeassistant.local/api/frigate/notifications/<event-id>/thumbnail.jpg"
+```
