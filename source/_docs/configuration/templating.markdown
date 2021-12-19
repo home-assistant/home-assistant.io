@@ -297,6 +297,49 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+### Immediate if (iif)
+
+A common case is to conditionally return a value based on another value.
+For example, return a "Yes" or "No" when the light is on or off.
+
+This can be written as:
+
+```text
+{% if is_state('light.kitchen', 'on') %}
+  Yes
+{% else %}
+  No
+{% endif %}
+```
+
+Or using a shorter syntax:
+
+```text
+{{ 'Yes' if is_state('light.kitchen', 'on') else 'No' }}
+```
+
+Additionally, to the above, you can use the `iif` function/filter, which is
+an immediate if.
+
+Syntax: `iif(value, if_true, if_false, if_none)`
+
+It expects a value and can return a value if the condition returns true,
+false or `None`. The value is loosely compared if it is truthy or not. For
+example, an empty string, mapping or list, will be considered false. 
+
+Examples using `iif`:
+
+```text
+{{ iif(is_state('light.kitchen', 'on'), 'Yes', 'No') }}
+
+{{ is_state('light.kitchen', 'on') | iif('Yes', 'No') }}
+
+{{ (state('light.kitchen') == 'on') | iif('Yes', 'No') }}
+```
+
+If the `if_none` parameter is omitted, the `if_false` value is used when
+the value 
+
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
