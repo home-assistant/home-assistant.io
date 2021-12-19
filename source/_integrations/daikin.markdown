@@ -101,7 +101,7 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 - Current total power consumption
 - Hourly energy consumption in cool mode
 - Hourly energy consumption in heat mode
-- Outside unit compressor frequency
+- Outside unit's compressor frequency
 - Today's total energy consumption (resets at 00:00)
 
 <div class='note'>
@@ -115,7 +115,8 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 
 <div class='note'>
 
-- The 'total' power and energy sensor is updated every time 100 Wh are consumed by all the AC summed together.
+- The 'total' power and energy sensor is updated every time 100 Wh are consumed by all different operating modes summed together.
+- The 'Current total power consumption' sensor is derived from the energy consumption and not provided by the AC directly. (Details see: https://bitbucket.org/mustang51/pydaikin/src/b3b7878c8f411b26c21c21dc08818cf8af5ec6c6/pydaikin/power.py#lines-160)
 - The 'cool/heat' energy sensors are updated hourly with the previous hour energy consumption
   of a given mode and a given AC.
 - The 'cool' mode also includes the 'fan' and 'dehumidifier' modes' power consumption.
