@@ -14,6 +14,8 @@ og_image: /images/blog/2021-12-21-android-december-2021/Companion.png
 
 Hey Everyone! It's time for the December 2021 Android release. It has been a while since the last Android release as the team has been very busy working on many new and exciting features. To kick things off we would like to announce that there is now a Wear OS app that you can find in the Play Store alongside todays phone app release!
 
+<a href="https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" style="display:inline-block"><img width="200" class="download-badge" alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"></a>
+
 ## Wear OS Beta
 
 For the past couple of months the Android repo has been seeing a lot new contributors coming and bringing in some amazing work. There is now a Wear OS Beta app released in the Play Store! A big thank you to [leroyboerefijn], [dshokouhi], [JBassett], [Kisty], [apo-mak], 
