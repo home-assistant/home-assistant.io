@@ -20,15 +20,3 @@ The Control4 integration allows you to control and monitor lights from your loca
 Before setting up, you should assign a static IP address/DHCP reservation on your router to your Control4 controller. Home Assistant must be able to communicate with the controller over the local network; 4Sight remote access is not supported.
 
 {% include integrations/config_flow.md %}
-
-## Options
-
-The Control4 integration offers additional options in **Configuration** -> **Devices & Services** -> **Control4** -> **Options**:
-
-{% configuration %}
-Seconds between updates:
-  description: How often Home Assistant will poll the Control4 controller for state updates. Very frequent polling could cause the controller to lag, especially with many devices.
-  required: false
-  type: integer
-  default: 5
-{% endconfiguration %}
