@@ -53,7 +53,7 @@ holidays. So, the first release in 2022, will be Wednesday, 2 February 2022._
 - [Release 2021.12.1 - December 12](#release-2021121---december-12)
 - [Release 2021.12.2 - December 15](#release-2021122---december-15)
 - [Release 2021.12.3 - December 17](#release-2021123---december-17)
-- [Release 2021.12.4 - December 19](#release-2021124---december-19)
+- [Release 2021.12.4 - December 20](#release-2021124---december-20)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -507,7 +507,7 @@ like before. Done by [@marvin-w].
 [vallox docs]: /integrations/vallox/
 [zha docs]: /integrations/zha/
 
-## Release 2021.12.4 - December 19
+## Release 2021.12.4 - December 20
 
 - Honeywell unique id fix ([@rdfurman] - [#59393]) ([honeywell docs])
 - Add vicare strings ([@oischinger] - [#61593]) ([vicare docs])
@@ -533,6 +533,11 @@ like before. Done by [@marvin-w].
 - Ensure existing SimpliSafe websocket tasks are cancelled appropriately ([@bachya] - [#62347]) ([simplisafe docs])
 - Bump pywemo==0.7.0 ([@esev] - [#62360]) ([wemo docs])
 - Bump voluptuous_serialize to 2.5.0 ([@balloob] - [#62363])
+- Don't use the homeassistant media app when casting media ([@emontnemery] - [#62385]) ([cast docs])
+- Bump brunt to 1.1.0 ([@eavanvalkenburg] - [#62386]) ([brunt docs])
+- Update frontend to 20211220.0 ([@bramkragten] - [#62389]) ([frontend docs])
+- Bump pychromecast to 10.2.2 ([@emontnemery] - [#62390]) ([cast docs])
+- Update xknx to 0.18.14 ([@farmio] - [#62411]) ([knx docs])
 
 [#59393]: https://github.com/home-assistant/core/pull/59393
 [#61593]: https://github.com/home-assistant/core/pull/61593
@@ -558,14 +563,22 @@ like before. Done by [@marvin-w].
 [#62347]: https://github.com/home-assistant/core/pull/62347
 [#62360]: https://github.com/home-assistant/core/pull/62360
 [#62363]: https://github.com/home-assistant/core/pull/62363
+[#62385]: https://github.com/home-assistant/core/pull/62385
+[#62386]: https://github.com/home-assistant/core/pull/62386
+[#62389]: https://github.com/home-assistant/core/pull/62389
+[#62390]: https://github.com/home-assistant/core/pull/62390
+[#62411]: https://github.com/home-assistant/core/pull/62411
 [@Cereal2nd]: https://github.com/Cereal2nd
 [@Flameeyes]: https://github.com/Flameeyes
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
 [@chemelli74]: https://github.com/chemelli74
 [@chishm]: https://github.com/chishm
+[@eavanvalkenburg]: https://github.com/eavanvalkenburg
+[@emontnemery]: https://github.com/emontnemery
 [@esev]: https://github.com/esev
 [@farmio]: https://github.com/farmio
 [@frenck]: https://github.com/frenck
@@ -576,13 +589,17 @@ like before. Done by [@marvin-w].
 [@starkillerOG]: https://github.com/starkillerOG
 [@timmo001]: https://github.com/timmo001
 [@wlcrs]: https://github.com/wlcrs
+[brunt docs]: /integrations/brunt/
 [caldav docs]: /integrations/caldav/
+[cast docs]: /integrations/cast/
 [dexcom docs]: /integrations/dexcom/
 [dlna_dmr docs]: /integrations/dlna_dmr/
 [fitbit docs]: /integrations/fitbit/
 [flux_led docs]: /integrations/flux_led/
 [fronius docs]: /integrations/fronius/
+[frontend docs]: /integrations/frontend/
 [honeywell docs]: /integrations/honeywell/
+[knx docs]: /integrations/knx/
 [lyric docs]: /integrations/lyric/
 [netgear docs]: /integrations/netgear/
 [nexia docs]: /integrations/nexia/
