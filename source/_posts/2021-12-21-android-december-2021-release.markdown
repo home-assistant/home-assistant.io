@@ -10,7 +10,7 @@ og_image: /images/blog/2021-12-21-android-december-2021/Companion.png
 ---
 
 
-<img src='/images/blog/2021-12-21-android-december-2021/Companion.png'><br />
+![Screenshot of the Android app](/images/blog/2021-12-21-android-december-2021/Companion.png)
 
 Hey Everyone! It's time for the December 2021 Android release. It has been a while since the last Android release as the team has been very busy working on many new and exciting features. To kick things off we would like to announce that there is now a Wear OS app that you can find in the Play Store alongside todays phone app release!
 
@@ -90,7 +90,11 @@ Screenshot of Media Player Widget
 *  Support for entity category and state class in sensors
 
 
-Big thank you to everyone involved. Please keep those bug reports and feature requests coming!
+Big thank you to everyone involved. Please keep those bug reports and feature requests coming! Be sure to watch the State of the Open Home address for what to expect in 2022 and a live demo of some of the features above!
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=6ZMXE5PXPqU&t=9291s" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## Changelog
 
