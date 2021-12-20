@@ -178,12 +178,12 @@ numbers:
         required: false
         type: string
     minimum:
-        description: Minimal value. Usefull when controlling pumps that have a special function when controlling above or below a certain threshold.
+        description: Minimal value. Useful when controlling pumps that have a special function when controlling above or below a certain threshold.
         required: false
         default: 0.0
         type: float
     maximum:
-        description: Maximal value. Usefull when controlling pumps that have a special function when controlling above or below a certain threshold.
+        description: Maximal value. Useful when controlling pumps that have a special function when controlling above or below a certain threshold.
         required: false
         default: 100.0
         type: float
