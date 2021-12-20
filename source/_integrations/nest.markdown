@@ -346,9 +346,11 @@ All Google Nest Thermostat models have traits exposed from the SDM API. The init
 Given a thermostat named `Upstairs` then sensors are created with names such as `sensor.upstairs_temperature` or `sensor.upstairs_humidity`.
 
 <div class='note'>
+
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to access and control your thermostat*
+
 </div>
 <div class='note'>
 Additional Nest Temperature Sensors are not supported by the SDM API.
@@ -363,6 +365,7 @@ Home Assistant supports all SDM API features. However, every Camera or Doorbell 
 - **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. Live image previews and the `camera` services like stream recording are *not supported*.
 
 <div class='note'>
+
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to see and display your camera’s livestream*
@@ -395,6 +398,7 @@ in Home Assistant. You should review the [Automating Home Assistant](/getting-st
 ![Screenshot Device Triggers](/images/integrations/nest/device_triggers.png)
 
 <div class='note'>
+
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to know when there's a camera event*
@@ -434,13 +438,14 @@ The Nest [Media Source](/integrations/media_source) platform allows you to brows
 The table above describes which devices support event image snapshots or 10-frame mp4 video clips for recent events.
 
 <div class='note'>
+
 This feature is enabled by the following permissions:
 
 - *Based on the events you've selected to share from this device, allow Home Assistant to access camera video clips*
 - *Based on the events you've selected to share from this device, allow Home Assistant to access camera snapshots*
 - *Other permissions in the Nest or Google Home apps*.
-</div>
 
+</div>
 
 ## Manual Pub/Sub subscription
 
