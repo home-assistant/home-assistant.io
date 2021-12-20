@@ -14,11 +14,11 @@ og_image: /images/blog/2021-12-21-android-december-2021/Companion.png
 
 Hey Everyone! It's time for the December 2021 Android release. It has been a while since the last Android release as the team has been very busy working on many new and exciting features. To kick things off we would like to announce that there is now a Wear OS app that you can find in the Play Store alongside todays phone app release!
 
-<a href="https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" style="display:inline-block"><img width="200" class="download-badge" alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"></a>
+<a href="https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" style="display:inline-block"><img width="200" class="download-badge" alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" style='box-shadow:none;border:0'></a>
 
 ## Wear OS Beta
 
-For the past couple of months the Android repo has been seeing a lot new contributors coming and bringing in some amazing work. There is now a Wear OS Beta app released in the Play Store! A big thank you to [leroyboerefijn], [dshokouhi], [JBassett], [Kisty], [apo-mak], 
+For the past couple of months the Android repo has been seeing a lot new contributors coming and bringing in some amazing work. There is now a Wear OS Beta app released in the Play Store! A big thank you to [leroyboerefijn], [dshokouhi], [JBassett], [Kisty], [apo-mak],
 [SkechyWolf] and [HunterX86] for all your hard work! A lot of work has been done to share the codebase between the phone and the watch because we wanted the watch to also have a standalone experience in case you are not near your phone. The app will remain as a Beta for several months but we feel in its current state it is ready for you to enjoy. The reason we have decided to keep it with a beta label for now is because there is more work to be done and some of the underlying libraries being used have not received a stable release yet.
 
 ![Screenshot of Wear OS on wrist](/images/blog/2021-12-21-android-december-2021/wear.jpg)
@@ -39,7 +39,7 @@ Screenshot of Wear OS Tile
 
 Initial support for sensors has also been added! Upon logging in the default battery sensors will be registered in your Home Assistant server. The app will wait for a network connection to provide an update so you won't have to worry about it constantly maintaining a connection. Soon we will be looking into adding a UI to enable/disable sensors as well as evaluating all current phone sensors and adding whichever ones we can!
 
-One thing to keep in mind is that its important to ensure both the phone and watch are on the same version in order for some of the features to work as expected. Feel free to [join the beta] and help development by finding bugs and submitting feature requests! Be on the look out for future updates to the Wear OS app! 
+One thing to keep in mind is that its important to ensure both the phone and watch are on the same version in order for some of the features to work as expected. Feel free to [join the beta] and help development by finding bugs and submitting feature requests! Be on the look out for future updates to the Wear OS app!
 
 <p class='img'>
 <img src='/images/blog/2021-12-21-android-december-2021/phone_wear.png' alt='Screenshot of Wear OS Settings in Phone app'>
