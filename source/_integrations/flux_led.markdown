@@ -64,11 +64,16 @@ These devices have been sold under at least the following brands:
 - Goldwin
 - Hakkatronics
 - [HaoDeng](http://www.zengge.com/appkzd)
+- [Heissner](https://www.heissner.de/)
 - HDDFL
-- illume RGBW
+- [illume RGBW](https://dals.com/illume/)
+- [Illumination FX](https://www.illumination-fx.com/)
 - INDARUN
 - iNextStation
+- [Koopower](https://www.koopower.com/)
+- [Lallumer](https://www.lapuretes.cn/)
 - LEDENET
+- [LiteWRX](https://litewrx.com/)
 - Lytworx
 - Magic Ambient
 - [Magic Home](http://www.zengge.com/appkzd)
@@ -83,6 +88,7 @@ These devices have been sold under at least the following brands:
 - PHOPOLLO
 - [Pin Stadium Pinball Lights](https://pinstadium.com/)
 - POV Lamp
+- [PROTEAM Europe Pool Lights](https://proteam-me.com/)
 - [Rimikon](https://www.rimikon.com/)
 - SMFX
 - [Sumaote](https://fvtled.com/)
