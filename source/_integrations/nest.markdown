@@ -329,9 +329,11 @@ All Google Nest Thermostat models are exposed as a `climate` entity that use the
 Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
 
 <div class='note'>
+
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to access and control your thermostat*
+
 </div>
 
 ## Sensor
