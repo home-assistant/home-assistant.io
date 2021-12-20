@@ -19,6 +19,8 @@ Hey Everyone! It's time for the December 2021 Android release. It has been a whi
 For the past couple of months the Android repo has been seeing a lot new contributors coming and bringing in some amazing work. There is now a Wear OS Beta app released in the Play Store! A big thank you to [leroyboerefijn], [dshokouhi], [JBassett], [Kisty], [apo-mak], 
 [SkechyWolf] and [HunterX86] for all your hard work! A lot of work has been done to share the codebase between the phone and the watch because we wanted the watch to also have a standalone experience in case you are not near your phone. The app will remain as a Beta for several months but we feel in its current state it is ready for you to enjoy. The reason we have decided to keep it with a beta label for now is because there is more work to be done and some of the underlying libraries being used have not received a stable release yet.
 
+![Screenshot of Wear OS on wrist](/images/blog/2021-12-21-android-december-2021/wear.jpg)
+
 As of today you can login to the app using either the watch or you can open up the phone app and head over to App Configuration and login using the new Wear OS settings section! Once you are logged in you will see a brief loading screen while we get your entities ready. To avoid some of the loading delays we have a Favorites feature that will allow you to add your most used entities to appear at the top of the app for quick and easy access. You can add/remove these entities using the Settings screen in the watch app or you can add/remove and change the order using the phone app. We highly recommend setting up your favorite entities as they will be available during the loading process.
 
 <p class='img'>
