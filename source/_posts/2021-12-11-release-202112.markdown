@@ -53,6 +53,7 @@ holidays. So, the first release in 2022, will be Wednesday, 2 February 2022._
 - [Release 2021.12.1 - December 12](#release-2021121---december-12)
 - [Release 2021.12.2 - December 15](#release-2021122---december-15)
 - [Release 2021.12.3 - December 17](#release-2021123---december-17)
+- [Release 2021.12.4 - December 19](#release-2021124---december-19)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -505,6 +506,99 @@ like before. Done by [@marvin-w].
 [template docs]: /integrations/template/
 [vallox docs]: /integrations/vallox/
 [zha docs]: /integrations/zha/
+
+## Release 2021.12.4 - December 19
+
+- Honeywell unique id fix ([@rdfurman] - [#59393]) ([honeywell docs])
+- Add vicare strings ([@oischinger] - [#61593]) ([vicare docs])
+- Fix "vevent" KeyError in caldav component ([@jkuettner] - [#61718]) ([caldav docs])
+- Silently retry Fronius inverter endpoint 2 times ([@farmio] - [#61826]) ([fronius docs])
+- Avoid setting nexia humidity to the same value since it causes the api to fail ([@bdraco] - [#61843]) ([nexia docs])
+- Force Lyric token refresh on first authentication failure ([@timmo001] - [#62100]) ([lyric docs])
+- Bump pydexcom to 0.2.2 ([@gagebenne] - [#62207]) ([dexcom docs])
+- Fix spurious RainMachine config entry reload ([@bachya] - [#62215]) ([rainmachine docs])
+- Fix bug in which SimpliSafe websocket won't reconnect on error ([@bachya] - [#62241]) ([simplisafe docs])
+- bump pynetgear to 0.8.0 ([@starkillerOG] - [#62261]) ([netgear docs])
+- Fix logging for Shelly climate platform ([@chemelli74] - [#62264]) ([shelly docs])
+- Upgrade tailscale to 0.1.6 ([@frenck] - [#62267]) ([tailscale docs])
+- Fix fitbit no SSL URL handling ([@MartinHjelmare] - [#62270]) ([fitbit docs])
+- Fix Non-thread-safe operation in rflink binary_sensor ([@bdraco] - [#62286]) ([rflink docs])
+- Fix Non-thread-safe operation in zwave node_added ([@bdraco] - [#62287]) ([zwave docs])
+- Bump flux_led to 0.27.8 to fix discovery of older devices ([@bdraco] - [#62292]) ([flux_led docs])
+- Bump async-upnp-client to 0.23.0 ([@Flameeyes] - [#62223]) ([upnp docs]) ([yeelight docs]) ([dlna_dmr docs]) ([ssdp docs])
+- Update async-upnp-client library to 0.23.1 ([@chishm] - [#62298]) ([upnp docs]) ([yeelight docs]) ([dlna_dmr docs]) ([ssdp docs])
+- Bump ring to 0.7.2 ([@balloob] - [#62299]) ([ring docs])
+- Fix missing brightness for Velbus entities ([@wlcrs] - [#62314]) ([velbus docs])
+- Fix velbus climate current temp ([@Cereal2nd] - [#62329]) ([velbus docs])
+- Ensure existing SimpliSafe websocket tasks are cancelled appropriately ([@bachya] - [#62347]) ([simplisafe docs])
+- Bump pywemo==0.7.0 ([@esev] - [#62360]) ([wemo docs])
+- Bump voluptuous_serialize to 2.5.0 ([@balloob] - [#62363])
+
+[#59393]: https://github.com/home-assistant/core/pull/59393
+[#61593]: https://github.com/home-assistant/core/pull/61593
+[#61718]: https://github.com/home-assistant/core/pull/61718
+[#61826]: https://github.com/home-assistant/core/pull/61826
+[#61843]: https://github.com/home-assistant/core/pull/61843
+[#62100]: https://github.com/home-assistant/core/pull/62100
+[#62207]: https://github.com/home-assistant/core/pull/62207
+[#62215]: https://github.com/home-assistant/core/pull/62215
+[#62223]: https://github.com/home-assistant/core/pull/62223
+[#62241]: https://github.com/home-assistant/core/pull/62241
+[#62261]: https://github.com/home-assistant/core/pull/62261
+[#62264]: https://github.com/home-assistant/core/pull/62264
+[#62267]: https://github.com/home-assistant/core/pull/62267
+[#62270]: https://github.com/home-assistant/core/pull/62270
+[#62286]: https://github.com/home-assistant/core/pull/62286
+[#62287]: https://github.com/home-assistant/core/pull/62287
+[#62292]: https://github.com/home-assistant/core/pull/62292
+[#62298]: https://github.com/home-assistant/core/pull/62298
+[#62299]: https://github.com/home-assistant/core/pull/62299
+[#62314]: https://github.com/home-assistant/core/pull/62314
+[#62329]: https://github.com/home-assistant/core/pull/62329
+[#62347]: https://github.com/home-assistant/core/pull/62347
+[#62360]: https://github.com/home-assistant/core/pull/62360
+[#62363]: https://github.com/home-assistant/core/pull/62363
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@Flameeyes]: https://github.com/Flameeyes
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@chishm]: https://github.com/chishm
+[@esev]: https://github.com/esev
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gagebenne]: https://github.com/gagebenne
+[@jkuettner]: https://github.com/jkuettner
+[@oischinger]: https://github.com/oischinger
+[@rdfurman]: https://github.com/rdfurman
+[@starkillerOG]: https://github.com/starkillerOG
+[@timmo001]: https://github.com/timmo001
+[@wlcrs]: https://github.com/wlcrs
+[caldav docs]: /integrations/caldav/
+[dexcom docs]: /integrations/dexcom/
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[fitbit docs]: /integrations/fitbit/
+[flux_led docs]: /integrations/flux_led/
+[fronius docs]: /integrations/fronius/
+[honeywell docs]: /integrations/honeywell/
+[lyric docs]: /integrations/lyric/
+[netgear docs]: /integrations/netgear/
+[nexia docs]: /integrations/nexia/
+[rainmachine docs]: /integrations/rainmachine/
+[rflink docs]: /integrations/rflink/
+[ring docs]: /integrations/ring/
+[shelly docs]: /integrations/shelly/
+[simplisafe docs]: /integrations/simplisafe/
+[ssdp docs]: /integrations/ssdp/
+[tailscale docs]: /integrations/tailscale/
+[upnp docs]: /integrations/upnp/
+[velbus docs]: /integrations/velbus/
+[vicare docs]: /integrations/vicare/
+[wemo docs]: /integrations/wemo/
+[yeelight docs]: /integrations/yeelight/
+[zwave docs]: /integrations/zwave/
 
 ## If you need help...
 
