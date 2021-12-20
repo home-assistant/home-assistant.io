@@ -260,6 +260,8 @@ In this section you will authorize Home Assistant to access your account by gene
 
 ## Troubleshooting
 
+- You can manage devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Restart Home Assistant to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
+
 - For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
 
 - Check **Configuration** then **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
@@ -326,6 +328,14 @@ All Google Nest Thermostat models are exposed as a `climate` entity that use the
 
 Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
 
+<div class='note'>
+
+This feature is enabled by the following permissions:
+
+- *Allow Home Assistant to access and control your thermostat*
+
+</div>
+
 ## Sensor
 
 All Google Nest Thermostat models have traits exposed from the SDM API. The initial values of the sensors are fetched on startup, then updated regularly using the Cloud Pubsub subscriber. The following traits are supported with sensors:
@@ -335,7 +345,17 @@ All Google Nest Thermostat models have traits exposed from the SDM API. The init
 
 Given a thermostat named `Upstairs` then sensors are created with names such as `sensor.upstairs_temperature` or `sensor.upstairs_humidity`.
 
-Note: Additional Nest Temperature Sensors are not supported by the SDM API.
+<div class='note'>
+
+This feature is enabled by the following permissions:
+
+- *Allow Home Assistant to access and control your thermostat*
+
+</div>
+<div class='note'>
+Additional Nest Temperature Sensors are not supported by the SDM API.
+</div>
+
 
 ## Camera
 
@@ -343,6 +363,16 @@ Home Assistant supports all SDM API features. However, every Camera or Doorbell 
 
 - **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server-side `camera` services like stream recording or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
 - **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. Live image previews and the `camera` services like stream recording are *not supported*.
+
+<div class='note'>
+
+This feature is enabled by the following permissions:
+
+- *Allow Home Assistant to see and display your camera’s livestream*
+- *Other permissions in the Nest or Google Home apps*.
+
+</div>
+
 
 All cameras have motion and person triggers, however only some support capturing snapshots for events. The table below summarizes the [Supported SDM API features](https://developers.google.com/nest/device-access/supported-devices) for each device.
 
@@ -363,7 +393,19 @@ Given a camera named `Front Yard` then the camera is created with a name such as
 The Nest integration makes [device triggers](/docs/automation/trigger/#device-triggers) available to enable automation
 in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
 
+{% my automations badge %}
+
 ![Screenshot Device Triggers](/images/integrations/nest/device_triggers.png)
+
+<div class='note'>
+
+This feature is enabled by the following permissions:
+
+- *Allow Home Assistant to know when there's a camera event*
+- *Allow Home Assistant to know when there's a doorbell event*
+- *Other permissions in the Nest or Google Home apps*.
+</div>
+
 
 ## Example
 
@@ -388,11 +430,22 @@ action:
 
 The action in this section uses the [Android Companion App](https://companion.home-assistant.io/docs/notifications/notifications-basic/) and the camera proxy to send a notification with a snapshot from the camera.
 
+
 ## Media Source
 
 The Nest [Media Source](/integrations/media_source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
 
 The table above describes which devices support event image snapshots or 10-frame mp4 video clips for recent events.
+
+<div class='note'>
+
+This feature is enabled by the following permissions:
+
+- *Based on the events you've selected to share from this device, allow Home Assistant to access camera video clips*
+- *Based on the events you've selected to share from this device, allow Home Assistant to access camera snapshots*
+- *Other permissions in the Nest or Google Home apps*.
+
+</div>
 
 ## Manual Pub/Sub subscription
 
