@@ -4,9 +4,11 @@ description: Instructions on how to integrate Android TV and Fire TV devices int
 ha_category:
   - Media Player
 ha_release: 0.7.6
+ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@JeffLIrion'
+  - '@ollo69'
 ha_domain: androidtv
 ha_platforms:
   - media_player
