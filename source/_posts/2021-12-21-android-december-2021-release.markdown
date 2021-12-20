@@ -1,8 +1,8 @@
 ---
 title: "Android 2021.12: Wear OS Beta!"
 description: "Wear OS Beta, Instant Update Widgets and more!"
-date: 2021-12-19 00:00:00
-date_formatted: "December 19, 2021"
+date: 2021-12-20 00:00:00
+date_formatted: "December 20, 2021"
 comments: true
 author: Daniel Shokouhi
 categories: Release-Notes
