@@ -110,7 +110,7 @@ Big thank you to everyone involved. Please keep those bug reports and feature re
 [JBassett]: https://github.com/JBassett
 [Kisty]: https://github.com/Kisty
 [apo-mak]: https://github.com/apo-mak
-[SketchyWolf]: https://github.com/SketchyWolf
+[SkechyWolf]: https://github.com/SkechyWolf
 [HunterX86]: https://github.com/HunterX86
 [LasseRosenow]: https://github.com/LasseRosenow
 [jannis3005]: https://github.com/jannis3005
