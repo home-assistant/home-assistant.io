@@ -123,8 +123,7 @@ Secret* as these are needed in later steps.
 {% details "Create a Device Access project_id [Device Access Console]" %}
 
 Now that you have authentication configured, you will create a Nest Device Access Project which *requires a US$5 fee*.
-Once completed, you will have a device access `project_id` needed for later steps and the *Topic Name* needed to
-configure Pub/Sub.
+Once completed, you will have a device access `project_id` needed for later steps.
 
 1. Go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page. Click on the button **[Go to the Device Access Console](https://console.nest.google.com/device-access/)**.
     ![Screenshot of Device Access Registration](/images/integrations/nest/device_access.png)
@@ -148,8 +147,6 @@ configure Pub/Sub.
     ![Screenshot of enabling events](/images/integrations/nest/enable_events.png)
 
 1. Take note of the *Project ID* as you will it later. At this point you have the `project_id`, `client_id` and `client_secret` configuration options needed for Home Assistant.
-
-1. Take note of the *Pub/Sub Topic* which is later entered manually as the *Topic Name* when configuring Pub/Sub in a follow up step.
 
 {% enddetails %}
 
