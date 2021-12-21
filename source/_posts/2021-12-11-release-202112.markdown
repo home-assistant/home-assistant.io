@@ -538,6 +538,12 @@ like before. Done by [@marvin-w].
 - Update frontend to 20211220.0 ([@bramkragten] - [#62389]) ([frontend docs])
 - Bump pychromecast to 10.2.2 ([@emontnemery] - [#62390]) ([cast docs])
 - Update xknx to 0.18.14 ([@farmio] - [#62411]) ([knx docs])
+- Invalidate CI cache when bumping dependencies, part 2 ([@frenck] - [#62412])
+- Invalidate CI cache when bumping dependencies ([@frenck] - [#62394])
+- Make it possible to turn on audio only google cast devices ([@emontnemery] - [#62420]) ([cast docs])
+- Bump bimmer_connected to 0.8.7 ([@rikroe] - [#62435]) ([bmw_connected_drive docs])
+- bump aiohue to 3.0.7 ([@marcelveldt] - [#62444]) ([hue docs])
+- Change Hue availability blacklist logic a bit ([@marcelveldt] - [#62446]) ([hue docs])
 
 [#59393]: https://github.com/home-assistant/core/pull/59393
 [#61593]: https://github.com/home-assistant/core/pull/61593
@@ -567,7 +573,13 @@ like before. Done by [@marvin-w].
 [#62386]: https://github.com/home-assistant/core/pull/62386
 [#62389]: https://github.com/home-assistant/core/pull/62389
 [#62390]: https://github.com/home-assistant/core/pull/62390
+[#62394]: https://github.com/home-assistant/core/pull/62394
 [#62411]: https://github.com/home-assistant/core/pull/62411
+[#62412]: https://github.com/home-assistant/core/pull/62412
+[#62420]: https://github.com/home-assistant/core/pull/62420
+[#62435]: https://github.com/home-assistant/core/pull/62435
+[#62444]: https://github.com/home-assistant/core/pull/62444
+[#62446]: https://github.com/home-assistant/core/pull/62446
 [@Cereal2nd]: https://github.com/Cereal2nd
 [@Flameeyes]: https://github.com/Flameeyes
 [@MartinHjelmare]: https://github.com/MartinHjelmare
@@ -584,11 +596,14 @@ like before. Done by [@marvin-w].
 [@frenck]: https://github.com/frenck
 [@gagebenne]: https://github.com/gagebenne
 [@jkuettner]: https://github.com/jkuettner
+[@marcelveldt]: https://github.com/marcelveldt
 [@oischinger]: https://github.com/oischinger
 [@rdfurman]: https://github.com/rdfurman
+[@rikroe]: https://github.com/rikroe
 [@starkillerOG]: https://github.com/starkillerOG
 [@timmo001]: https://github.com/timmo001
 [@wlcrs]: https://github.com/wlcrs
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [brunt docs]: /integrations/brunt/
 [caldav docs]: /integrations/caldav/
 [cast docs]: /integrations/cast/
@@ -599,6 +614,7 @@ like before. Done by [@marvin-w].
 [fronius docs]: /integrations/fronius/
 [frontend docs]: /integrations/frontend/
 [honeywell docs]: /integrations/honeywell/
+[hue docs]: /integrations/hue/
 [knx docs]: /integrations/knx/
 [lyric docs]: /integrations/lyric/
 [netgear docs]: /integrations/netgear/
