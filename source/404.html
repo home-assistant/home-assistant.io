@@ -15,12 +15,18 @@ body_id: not_found
     </div>
 </div>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha"
+/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+
 <script type="text/javascript">
 docsearch({
-  apiKey: '{{ site.algolia.api_key }}',
-  indexName: 'home-assistant',
-  inputSelector: '#search404',
+  apiKey: "{{ site.algolia.api_key }}",
+  appId: "{{ site.algolia.app_id }}",
+  indexName: "{{ site.algolia.index_name }}",
+  inputSelector: '#search',
   debug: false // Set debug to true if you want to inspect the dropdown
 });
 
