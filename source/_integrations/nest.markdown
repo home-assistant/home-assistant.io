@@ -255,70 +255,6 @@ In this section you will authorize Home Assistant to access your account by gene
 
 {% enddetails %}
 
-## Troubleshooting
-
-- You can manage devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Restart Home Assistant to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
-
-- For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
-
-- Check **Configuration** then **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
-
-- *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiugration or your authentication token was revoked by Google for some other reason.
-
-{% details "Details about reauthentication issues" %}
-
-- This most likely reason is the *OAuth Consent Screen* is set to *Testing* by default which expires the token after 7 days.
-- Follow the steps above to set it to *Production* to resolve this and reauthorize your integration one more time to get a new token.
-- You may also see this as the error message *invalid_grant: Token has been expired or revoked*.
-- See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for more reasons on why your token may have expired. 
-
-{% enddetails %}
-
-- *Error 400: redirect_uri_mismatch*: This means you have an existing *Web Application* credential. It is recommended to delete the existing OAuth Client id and create a new *Desktop App* credential using the instructions above. This has the advantage of not requiring SSL or a public DNS name.
-
-- *Thermostat does not appear or is unavailable* happens due to a bug where the SDM API does return the devices. A common fix get the API to work again is to:
-
-{% details "How to restart thermostat" %}
-
-- Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
-- In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
-- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Devices & Services**, click `...` next to *Nest* and choose **Reload**.
-
-{% enddetails %}
-
-- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double-check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you may want to walk through the Google instructions and issue commands directly against the API until you successfully get back the devices.
-
-- *Error 403: access_denied* means that you need to visit the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) and add your Google Account as a *Test User*.
-
-- *Error: invalid_client no application name* means the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) has not been fully configured for the project. Enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
-
-- *Subscriber error* means that `configuration.yaml` has an incorrect `subscriber_id` or the subscription is misconfiugred. It is recommended to delete this from the configuration, then delete and re-add the integration to let it create a subscription for you.
-
-- *Not receiving updates* typically means a problem with the subscriber configuration. Make sure to check the logs for any error messages. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
-
-- You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all.
-
-- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 
-
-```yaml
-
-logger:
-  default: info
-  logs:
-    homeassistant.components.nest: debug
-    homeassistant.components.nest.climate_sdm: debug
-    homeassistant.components.nest.camera_sdm: debug
-    homeassistant.components.nest.sensor_sdm: debug
-    homeassistant.helpers.config_entry_flow: debug
-    homeassistant.helpers.config_entry_oauth2_flow: debug
-    google_nest_sdm: debug
-    google_nest_sdm.device: debug
-    google_nest_sdm.device_manager: debug
-    google_nest_sdm.google_nest_subscriber: debug
-    google_nest_sdm.event: debug
-    google.cloud.pubsub_v1: debug
-```
-
 ## Climate
 
 All Google Nest Thermostat models are exposed as a `climate` entity that use the [Thermostat Traits](https://developers.google.com/nest/device-access/traits/device/thermostat-hvac) in the SDM API. State changes to the thermostat are reported to Home Assistant through the Cloud Pubsub subscriber.
@@ -444,11 +380,70 @@ This feature is enabled by the following permissions:
 
 </div>
 
-## Manual Pub/Sub subscription
+## Troubleshooting
 
-It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `susbcriber_id` in the configuration.
+- You can manage devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Restart Home Assistant to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
 
-See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
+- For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
+
+- Check **Configuration** then **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
+
+- *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiugration or your authentication token was revoked by Google for some other reason.
+
+{% details "Details about reauthentication issues" %}
+
+- This most likely reason is the *OAuth Consent Screen* is set to *Testing* by default which expires the token after 7 days.
+- Follow the steps above to set it to *Production* to resolve this and reauthorize your integration one more time to get a new token.
+- You may also see this as the error message *invalid_grant: Token has been expired or revoked*.
+- See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for more reasons on why your token may have expired. 
+
+{% enddetails %}
+
+- *Error 400: redirect_uri_mismatch*: This means you have an existing *Web Application* credential. It is recommended to delete the existing OAuth Client id and create a new *Desktop App* credential using the instructions above. This has the advantage of not requiring SSL or a public DNS name.
+
+- *Thermostat does not appear or is unavailable* happens due to a bug where the SDM API does return the devices. A common fix get the API to work again is to:
+
+{% details "How to restart thermostat" %}
+
+- Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
+- In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
+- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Devices & Services**, click `...` next to *Nest* and choose **Reload**.
+
+{% enddetails %}
+
+- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double-check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you may want to walk through the Google instructions and issue commands directly against the API until you successfully get back the devices.
+
+- *Error 403: access_denied* means that you need to visit the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) and add your Google Account as a *Test User*.
+
+- *Error: invalid_client no application name* means the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) has not been fully configured for the project. Enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
+
+- *Subscriber error* means that `configuration.yaml` has an incorrect `subscriber_id` or the subscription is misconfiugred. It is recommended to delete this from the configuration, then delete and re-add the integration to let it create a subscription for you.
+
+- *Not receiving updates* typically means a problem with the subscriber configuration. Make sure to check the logs for any error messages. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
+
+- You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all.
+
+- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 
+
+```yaml
+
+logger:
+  default: info
+  logs:
+    homeassistant.components.nest: debug
+    homeassistant.components.nest.climate_sdm: debug
+    homeassistant.components.nest.camera_sdm: debug
+    homeassistant.components.nest.sensor_sdm: debug
+    homeassistant.helpers.config_entry_flow: debug
+    homeassistant.helpers.config_entry_oauth2_flow: debug
+    google_nest_sdm: debug
+    google_nest_sdm.device: debug
+    google_nest_sdm.device_manager: debug
+    google_nest_sdm.google_nest_subscriber: debug
+    google_nest_sdm.event: debug
+```
+
+- It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `susbcriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
 
 # Legacy Works With Nest API
 
