@@ -15,6 +15,12 @@ ha_platforms:
   - switch
 ---
 
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.4.
+
+</div>
+
 The `mcp23017` integration is the base for all related mcp23017 platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding sections.
 
 For more details about the MCP23017 I2C I/O port expander you can find its datasheet here: [MCP23017](https://www.microchip.com/wwwproducts/en/MCP23017).
