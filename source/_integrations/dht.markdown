@@ -13,6 +13,14 @@ ha_codeowners:
   - '@thegardenmonkey'
 ---
 
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.4.
+
+For more information see: [Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+</div>
+
 The `dht` sensor platform allows you to get the current temperature and humidity from a DHT11, DHT22 or AM2302 device.
 
 ## Setup
