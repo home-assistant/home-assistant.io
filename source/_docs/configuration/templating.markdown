@@ -554,7 +554,7 @@ The numeric functions and filters will not fail if the input is not a valid numb
 ### String filters
 
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
-- Filter `slugify(separator="_")` will convert a given string into a "slug", such as what is used for an `entity_id`.
+- Filter `slugify(separator="_")` will convert a given string into a "slug".
 
 ### Regular expressions
 
