@@ -595,6 +595,7 @@ See: https://docs.python.org/3/library/struct.html
 ### String filters
 
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
+- Filter `slugify(separator="_")` will convert a given string into a "slug".
 
 ### Regular expressions
 
