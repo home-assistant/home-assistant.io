@@ -304,6 +304,8 @@ For example, return a "Yes" or "No" when the light is on or off.
 
 This can be written as:
 
+{% raw %}
+
 ```text
 {% if is_state('light.kitchen', 'on') %}
   Yes
@@ -312,11 +314,18 @@ This can be written as:
 {% endif %}
 ```
 
+{% endraw %}
+
 Or using a shorter syntax:
+
+
+{% raw %}
 
 ```text
 {{ 'Yes' if is_state('light.kitchen', 'on') else 'No' }}
 ```
+
+{% endraw %}
 
 Additionally, to the above, you can use the `iif` function/filter, which is
 an immediate if.
@@ -329,6 +338,8 @@ example, an empty string, mapping or list, will be considered false.
 
 Examples using `iif`:
 
+{% raw %}
+
 ```text
 {{ iif(is_state('light.kitchen', 'on'), 'Yes', 'No') }}
 
@@ -336,6 +347,8 @@ Examples using `iif`:
 
 {{ (state('light.kitchen') == 'on') | iif('Yes', 'No') }}
 ```
+
+{% endraw %}
 
 If the `if_none` parameter is omitted, the `if_false` value is used when
 the value 
