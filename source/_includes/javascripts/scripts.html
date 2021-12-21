@@ -18,8 +18,7 @@ docsearch({
   apiKey: "{{ site.algolia.api_key }}",
   appId: "{{ site.algolia.app_id }}",
   indexName: "{{ site.algolia.index_name }}",
-  inputSelector: '#search',
-  debug: false // Set debug to true if you want to inspect the dropdown
+  container: '#search'
 });
 
 document.querySelector('.search .close').addEventListener('click', function(ev) {
