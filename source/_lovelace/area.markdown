@@ -15,6 +15,10 @@ The Area card lets you control and monitor an individual area.
 
 To add the Area card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Area** from the card picker. All options for this card can be configured via the user interface.
 
+Buttons will appear on the card for the entities in the area including fan, light and switch. A motion sensor icon will appear in the top left if a motion sensor is in the area and motion is detected by the motion sensor.
+
+If a camera is added to the area you can show the camera feed instead of the area pictue.
+
 {% configuration %}
 type:
   required: true
@@ -24,6 +28,10 @@ area:
   required: true
   description: ID of the `area`.
   type: string
+show_camera: 
+  required: false
+  description: Changes the area picture to a live feed of the camera set for the area.
+  type: boolean
 navigation_path:
   required: false
   description: link to Lovelace view. For more information about views, see the [view documentation](/lovelace/views/)
@@ -38,7 +46,19 @@ theme:
 
 Alternatively, the card can be configured using YAML:
 
+Basic example:
+
 ```yaml
 - type: area
   area: bedroom
+```
+
+Complex example
+
+```yaml
+- type: area
+  area: bedroom
+  navigation_path: my_bedroom
+  show_camera:true
+  theme: green
 ```
