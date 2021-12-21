@@ -16,6 +16,14 @@ ha_platforms:
   - switch
 ---
 
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.4.
+
+For more information see: [Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+</div>
+
 The `pi4ioe5v9xxxx` integration provides support for the quasi-bidirectional devices PI4IOE5V9570, PI4IOE5V9674, PI4IOE5V9673, PI4IOE5V96224 and PI4IOE5V96248 from [diodes.com](https://www.diodes.com).
 
 For more details about the pi4ioe5v9xxxx I2C I/O port expander you can find the datasheets here:
