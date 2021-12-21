@@ -86,7 +86,7 @@ collections:
 #Search
 algolia:
   app_id: FBHBYS3J0U
-  api_key: 07d99896ddcaf0394fb0b264ffb73057
+  api_key: afc0db80952b6ed3bbbebb62fa9ed4d4
   index_name: home-assistant
 
 # Twitter
