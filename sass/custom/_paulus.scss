@@ -27,6 +27,7 @@ $primary-color: #049cdb;
     width: 100%;
     border-bottom: 2px solid $primary-color;
     float: right;
+    display: inline-flex;
 
     .algolia-autocomplete {
       width: calc(100% - 64px);
