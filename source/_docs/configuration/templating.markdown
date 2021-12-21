@@ -350,8 +350,9 @@ Examples using `iif`:
 
 {% endraw %}
 
-If the `if_none` parameter is omitted, the `if_false` value is used when
-the value 
+If the `if_none` parameter is used to define the return value
+of when `value` is `None`. If `if_none` is omitted, the `if_false` value is
+used when the value is `None`.
 
 ### Time
 
