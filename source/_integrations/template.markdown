@@ -251,7 +251,7 @@ template:
   # Define state-based template entities
   - sensor:
       ...
-    binary_sensor:
+  - binary_sensor:
       ...
 
   # Define trigger-based template entities
