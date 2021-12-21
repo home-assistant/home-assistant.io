@@ -228,3 +228,34 @@ data:
     - [255, 255, 255]
   speed_pct: 80
 ```
+
+
+### Set Music Mode - Service `flux_led.set_music_mode`
+
+The RGB with MIC (0x08), Addressable v2 (0xA2), and Addressable v3 (0xA3) models have a built-in microphone that have multiple music mode settings.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | The entity_id of the LED light to set the effect on. |
+| `sensitivity` | Microphone sensitivity (0-100) |
+| `brightness` | Light brightness (0-100) |
+| `light_screen` | Light screen mode for 2 dimensional pixels (Addressable models only) |
+| `effect` | Effect (1-16 on Addressable models, 0-3 on RGB with MIC models)|
+| `foreground_color` | The foreground RGB color |
+| `background_color` | The background RGB color (Addressable models only) |
+
+```yaml
+#Example Service Call
+service: flux_led.set_music_mode
+target:
+  entity_id:
+    - light.addressable_v3_8e2f7f
+    - light.addressable_v3_8ebdeb
+data:
+  sensitivity: 100
+  brightness: 100
+  effect: 2
+  light_screen: false
+  background_color: [0, 255, 0]
+  foreground_color: [255, 0, 0]
+```
