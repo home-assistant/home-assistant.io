@@ -13,7 +13,7 @@ The Area card lets you control and monitor an individual area.
 </p>
 
 
-To add the Humidifier card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Area** from the card picker. All options for this card can be configured via the user interface.
+To add the Area card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Area** from the card picker. All options for this card can be configured via the user interface.
 
 {% configuration %}
 type:
