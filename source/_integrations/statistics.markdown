@@ -9,26 +9,27 @@ ha_release: '0.30'
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
+  - '@ThomDietrich'
 ha_domain: statistics
 ha_platforms:
   - sensor
 ---
 
-The `statistics` sensor platform observes the state of a source sensor and provides statistical characteristics about its recent past. This integration can be useful in automations, e.g., to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffee over a day gets too high.
+The `statistics` sensor platform observes the state of a source sensor and provides statistical characteristics about its recent past. Examples are a moving average, the minimum value, trend information, or variance. The integration can be useful in automations, e.g., when the humidity in the bathroom settles after a hot shower or when the number of brewed coffee over a day gets too high.
 
-The statistics sensor updates with every source sensor update. The value of the sensor represents one statistical characteristic, with `mean` being the default. The time period and/or number of recent state that should be considered is an important factor here. Check the configuration section below for options.
+The sensor updates with every source sensor change and presents one of many configurable statistical characteristics. The time period and/or number of recent states to be considered are defined through configuration and must be chosen based on the use case.
 
-Both `sensor` and `binary_sensor` are supported as source sensor. A number of characteristics is supported by each, please check below.
+As source, all sensors with a numeric state or alternatively any numeric attribute can be observed. Additionally, the component supports the `binary_sensor` domain with a limited number of statistical characteristics as source sensor.
 
-Assuming the [`recorder`](/integrations/recorder/) integration is running, historical sensor data is read from the database on startup and is available immediately after a restart of the platform. If the [`recorder`](/integrations/recorder/) integration is *not* running, it can take some time for the sensor to start reporting data because some characteristics calculations require more than one source sensor value.
+Assuming the [recorder](/integrations/recorder/) integration is running, historical sensor data is read from the database on startup and is available immediately after a restart of the platform. If the recorder integration is *not* running, it can take some time for the sensor to start reporting data because some characteristics calculations require more than one source sensor value.
 
 ## Characteristics
 
-The following statistical characteristics are available. Pay close attention to the right configuration of `sampling_size` and `max_age`, as most characterists are directly related to the count of samples or the age of processed samples.
+The following statistical characteristics are available. Pay close attention to the right configuration of `sampling_size` and `max_age`, as most characteristics are directly related to the count of samples and the age of processed samples.
 
 ### Numeric Source Sensor
 
-The following characteristics are supported for `sensor` source sensors:
+The following characteristics are supported for numeric source sensors:
 
 | State Characteristic | Description |
 | -------------------- | ----------- |
@@ -103,19 +104,23 @@ sensor:
 ```
 
 {% configuration %}
-entity_id:
-  description: The source sensor to observe and compute statistical characteristics for. Only [sensors](/integrations/sensor/) and [binary sensor](/integrations/binary_sensor/) are supported.
-  required: true
-  type: string
 name:
   description: Name of the new statistics sensor.
   required: false
   default: Stats
   type: string
-state_characteristic:
-  description: The characteristic that should be used as the state of the statistics sensor (see table above). **Beware** that this parameter will become mandatory in a future version. Include in your configuration. If currently omitted, the default characteristic for a `sensor` source sensor is "mean", for a `binary_sensor` "count".
+entity_id:
+  description: The source sensor entity to observe and compute statistical characteristics for. Only numeric sensors and [binary sensor](/integrations/binary_sensor/) are supported.
+  required: true
+  type: string
+attribute:
+  description: Instead of the state of the source sensor entity, an attribute can be configured for statistical observation. Only numeric attributes are accepted and no unit of measurement will be applied.
   required: false
-  default: mean / count
+  type: string
+state_characteristic:
+  description: The characteristic that should be used as the state of the statistics sensor (see table above). **Beware** that this parameter will become mandatory in a future version. Include in your configuration. If currently omitted, the default characteristic for a `binary_sensor` is "count" and for any numeric sensor "mean".
+  required: false
+  default: count / mean
   type: string
 sampling_size:
   description: Maximum number of source sensor measurements stored. Be sure to choose a reasonably high number if the limit should be driven by `max_age` instead.
