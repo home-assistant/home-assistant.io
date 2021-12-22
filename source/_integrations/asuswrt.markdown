@@ -46,17 +46,25 @@ These sensors are automatically created and associated to the router device:
 
 Only `Connected devices sensor` is created in status **enabled**, all other sensors are created in status **disabled**. To use them, simply **enable** on the devices page.
 
-## Integration Options
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
+Consider home:
+  description: Number of seconds that must elapse before considering a disconnected device `not at home`.
+Track unknown:
+  description: Enable this option to track also devices that do not have a name. Name will be replaced by mac address.
+Interface:
+  description: The interface that you want statistics from (e.g. eth0,eth1 etc).
+Dnsmasq:
+  description: The location in the router of the `dnsmasq.leases` file.
+Require IP:
+  description: If devices must have IP (this option is available only for access point mode).
+{% endconfiguration_basic %}
 
-It is possible to change some behaviors through the integration options. These can be changed at **ASUSWRT** -> **Configure** on the Integrations page.
+<div class='note'>
 
-- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home"
-- **Track unknown**: Enable this option to track also devices that do not have a name. Name will be replaced by mac address.
-- **Interface**: The interface that you want statistics from (e.g. eth0,eth1 etc)
-- **Dnsmasq**: The location in the router of the dnsmasq.leases files
-- **Require IP**: If devices must have IP (this option is available only for access point mode)
+If you don't want to automatically track new detected device, disable the integration system option `Enable new added entities`
 
-**Note**: if you don't want to automatically track new detected device, disable the integration system option `Enable new added entities`
+</div>
 
 ## Padavan custom firmware (The rt-n56u project)
 
