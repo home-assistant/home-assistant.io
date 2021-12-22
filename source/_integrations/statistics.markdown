@@ -18,6 +18,8 @@ The `statistics` sensor platform observes the state of a source sensor and provi
 
 The statistics sensor updates with every source sensor update. The value of the sensor represents one statistical characteristic, with `mean` being the default. The time period and/or number of recent state that should be considered is an important factor here. Check the configuration section below for options.
 
+The service `statistics.reset_buffer` is provided to clear the buffer of stored source sensor values and to restart collection. Instead of a moving time window mode, the service enables the realization of data collection with a fixed starting point, e.g., at midnight or when a device was turned on.
+
 Both `sensor` and `binary_sensor` are supported as source sensor. A number of characteristics is supported by each, please check below.
 
 Assuming the [`recorder`](/integrations/recorder/) integration is running, historical sensor data is read from the database on startup and is available immediately after a restart of the platform. If the [`recorder`](/integrations/recorder/) integration is *not* running, it can take some time for the sensor to start reporting data because some characteristics calculations require more than one source sensor value.
@@ -142,3 +144,17 @@ quantile_method:
   default: exclusive
   type: string
 {% endconfiguration %}
+
+## Service `statistics.reset_buffer`
+
+The service can be used in automations or similar to reset the computation of statistics. It removes stored state values from the statistics sensors memory. The service enables the generation of statistics since a specific time of day, since a device or entity event, or based on any other trigger. Instead of a moving window, the statistics integration can be used in incremental mode, if the service is applied in the right way.
+
+When utilized, be aware that `sampling_size` and/or `max_age` must still be configured. They are also seen as a failsafe measure, so that the number of collected state values does not overflow, when the automation calling the `statistics.reset_buffer` service is not executed. In the example of a statistics sensor that is supposed to be reset at sunset every day, a setting of `max_age: {hours: 24}` or even `max_age: {hours: 48}` would be a reasonable failsafe.
+
+By default, all values will be forgotten, which would lead to a temporarily unknown state for most statistical characteristics. Therefore, a number of most recent state values can be kept in memory to avoid this issue. In case both "keep count" and "keep age" are provided, values which meet one of the two conditions are kept.
+
+| Service data attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      yes | Name of the statistics sensor entity to take action, e.g., `sensor.bathroom_statistics`. |
+| `keep_count`           |       no | Number of most recent state values to be kept in memory. Many statistics do not compute without at least two values and a couple more are needed to be representative. |
+| `keep_age`             |       no | Maximum age of most recent state values to be kept in memory. Set to a number of seconds, to a duration in the format `00:00:00`, or as a time period like `minutes: 5`. |
