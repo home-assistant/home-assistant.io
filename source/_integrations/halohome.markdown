@@ -15,6 +15,11 @@ ha_platforms:
 
 Integrates [HALO Home](https://www.cooperlighting.com/global/brands/halo-home) smart lights into Home Assistant.
 
-## Configuration
+Supports brightness and color temperature for Bluetooth HALO Home lights.
+
+Devices are read from the HALO Home API upon setup and stored by this
+integration to allow devices to be controlled even when the internet is not
+accessible. Because of this, if devices are added or removed, the integration
+must be reconfigured.
 
 {% include integrations/config_flow.md %}
