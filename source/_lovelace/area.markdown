@@ -32,6 +32,7 @@ show_camera:
   required: false
   description: Changes the area picture to a live feed of the camera set for the area.
   type: boolean
+  default: false
 navigation_path:
   required: false
   description: link to Lovelace view. For more information about views, see the [view documentation](/lovelace/views/)
