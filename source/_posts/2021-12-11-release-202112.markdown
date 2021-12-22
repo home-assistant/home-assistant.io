@@ -813,7 +813,10 @@ To enable any (new) light entities for Hue groups:
 Open settings --> integrations --> Hue --> Entities --> Click one of the
 disabled entities and enable it.
 
-Existing Hue group lights will be migrated as enabled entities.
+Existing Hue group lights for rooms/zones will be migrated as enabled entities.
+
+Legacy Hue groups of type `LightGroup` (which are not visible in the official Hue
+app) will no longer be supported!
 
 **Entities for Hue scenes**
 
