@@ -318,7 +318,6 @@ This can be written as:
 
 Or using a shorter syntax:
 
-
 {% raw %}
 
 ```text
@@ -330,11 +329,14 @@ Or using a shorter syntax:
 Additionally, to the above, you can use the `iif` function/filter, which is
 an immediate if.
 
-Syntax: `iif(value, if_true, if_false, if_none)`
+Syntax: `iif(condition, if_true, if_false, if_none)`
 
-It expects a value and can return a value if the condition returns true,
-false or `None`. The value is loosely compared if it is truthy or not. For
-example, an empty string, mapping or list, will be considered false. 
+`iif` returns the value of `if_true` if the condition is truthy, the value of `if_false` if it's `falsy` and the value of `if_none` if it's `None`.
+An empty string, an empty mapping or an an empty list, are all falsy, refer to [the Python documentation](https://docs.python.org/3/library/stdtypes.html#truth-value-testing) for an in depth explanation.
+
+`if_true` is optional, if it's omitted `True` is returned if the condition is truthy.
+`if_false` is optional, if it's omitted `False` is returned if the condition is falsy.
+`if_none` is optional, if it's omitted the value of `if_false` is returned if the condition is `None`.
 
 Examples using `iif`:
 
@@ -350,9 +352,6 @@ Examples using `iif`:
 
 {% endraw %}
 
-If the `if_none` parameter is used to define the return value
-of when `value` is `None`. If `if_none` is omitted, the `if_false` value is
-used when the value is `None`.
 
 ### Time
 
