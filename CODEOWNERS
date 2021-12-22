@@ -195,6 +195,7 @@ source/_integrations/group.markdown @home-assistant/core
 source/_integrations/growatt_server.markdown @indykoning @muppet3000 @JasperPlant
 source/_integrations/guardian.markdown @bachya
 source/_integrations/habitica.markdown @ASMfreaK @leikoilja
+source/_integrations/halohome.markdown @nayaverdier
 source/_integrations/harmony.markdown @ehendrix23 @bramkragten @bdraco @mkeesey @Aohzan
 source/_integrations/hassio.markdown @home-assistant/supervisor
 source/_integrations/heatmiser.markdown @andylockran
