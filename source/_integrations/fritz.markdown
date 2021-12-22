@@ -15,6 +15,7 @@ ha_codeowners:
 ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
+  - button
   - device_tracker
   - sensor
   - switch
@@ -27,6 +28,7 @@ There is support for the following platform types within Home Assistant:
 
 - **Device tracker** - presence detection by looking at connected devices.
 - **Binary sensor** - connectivity status.
+- **Button** - reboot, reconnect, firmware_update.
 - **Sensor** - external IP address, uptime and network monitors.
 - **Switch** - call deflection, port forward, parental control and Wi-Fi networks.
 
@@ -44,28 +46,9 @@ The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the
 
 Currently supported services are Platform specific:
 
-- `fritz.reconnect`
-- `fritz.reboot`
 - `fritz.cleanup`
 
 ### Platform Services
-
-#### Service `fritz.reboot`
-
-Reboot the router.
-
-| Service data attribute | Optional | Description                                                                                                    |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific  router                                                                                 |
-
-#### Service `fritz.reconnect`
-
-Disconnect and reconnect the router to the Internet.
-If you have a dynamic IP address, most likely it will change.
-
-| Service data attribute | Optional | Description                                                                                                    |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific  router                                                                                 |
 
 #### Service `fritz.cleanup`
 
@@ -75,8 +58,6 @@ A device is identified as stale when it's still present on Home Assistant but no
 | Service data attribute | Optional | Description                                                                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific  router                                                                                 |
-
-**Note**: Services will be soon deprecated in favor of button entities, that have the same functionality.
 
 ## Integration Options
 
@@ -114,11 +95,11 @@ The following script can be used to easily add a reconnect button to your UI. If
 
 ```yaml
 fritz_box_reconnect:
-  alias: "Reconnect FRITZ!Box"
+  alias: "Reboot FRITZ!Box"
   sequence:
-    - service: fritz.reconnect
+    - service: button.press
       target:
-        entity_id: binary_sensor.fritzbox_7530_connection
+        entity_id: button.fritzbox_7530_reboot
 
 ```
 
@@ -126,14 +107,14 @@ fritz_box_reconnect:
 
 ```yaml
 automation:
-- alias: "System - Reconnect FRITZ!Box"
+- alias: "Reconnect FRITZ!Box"
   trigger:
     - platform: time
       at: "05:00:00"
   action:
-    - service: fritz.reconnect
+    - service: button.press
       target:
-        entity_id: binary_sensor.fritzbox_7530_connection
+        entity_id: button.fritzbox_7530_reconnect
 
 ```
 
