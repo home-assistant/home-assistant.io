@@ -17,7 +17,7 @@ Genie is an open, privacy-preserving virtual assistant by [Stanford OVAL](https:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6ZMXE5PXPqU?start=9691" frameborder="0" allowfullscreen></iframe>
 </div>
 
-Genie is the successor to the Almond project. With the help of various grants and sponsorships Stanford is working on making Genie ready for general use.
+Genie is the successor to the Almond project. With the help of various grants and sponsors Stanford is working on making Genie ready for general use.
 
 If you want to learn more, check out the Genie [website](https://genie.stanford.edu) and the [getting started guide](https://wiki.genie.stanford.edu/getting-started/installation-guide) on how to make your own. To get in touch with other Genie users and their dev team, check their [Discord](https://discord.gg/anthtR4)
  or [community forums](https://community.almond.stanford.edu/).
