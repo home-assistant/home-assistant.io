@@ -38,17 +38,23 @@ For Fire TV devices, the instructions are as follows:
 
 {% include integrations/config_flow.md %}
 
-## Integration Options
-
-It is possible to change some behaviors through the integration options. These can be changed at **AndroidTV** -> **Configure** on the Integrations page.
-
-- **Applications List**: here you can define a list of applications where the keys are app IDs and the values are app names that will be displayed in the UI. If a name is not provided, the app will never be shown in the sources list. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/748d6b71cad611c624ef7526d9928431167531a3/androidtv/constants.py#L290-L308) are configured in the backend package and do not need to be included in your configuration)
-- **Get Sources**: whether or not to retrieve the running apps as the list of sources
-- **Exclude Unnamed Apps**: exclude app with unknown name
-- **Use Screen Cap**: determines if album art should be pulled from what is shown on screen
-- **Turn off command**: ADB shell command to override default turn_off command
-- **Turn on command**: ADB shell command to override default turn_on command
-- **State Detection Rules**: here you can configure a list of rules where the rule key is the app IDs and whose values are lists of state detection rules. As example a valid value for a detection rule is `["standby", {"playing": {"media_session_state": 4}}, {"paused": {"media_session_state": 3, "wake_lock_size": 4}}]`. Note that rule values must be always inside square bracket (`[...]`). See the section [Custom State Detection](#custom-state-detection) for more info
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
+Configure Applications List:
+  description: Here you can define a list of applications where the keys are app IDs and the values are app names that will be displayed in the UI. If a name is not provided, the app will never be shown in the sources list. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/748d6b71cad611c624ef7526d9928431167531a3/androidtv/constants.py#L290-L308) are configured in the backend package and do not need to be included in your configuration).
+Retrieve the running apps as the list of sources:
+  description: "Whether or not to retrieve the running apps as the list of sources. If this option is checked, the running apps will be retrieved and used as the sources. If not, there will be only one source: the current app."
+Exclude apps with unknown name:
+  description: "Exclude app with unknown name from the source list. If this option is checked, then only apps configured in `Configured Application List` option will be listed among the sources."
+Use screen capture for album art:
+  description: "Determines if album art should be pulled from what is shown on screen."
+Turn off command:
+  description: "ADB shell command to override default turn off command. Leave empty to use default."
+Turn on command:
+  description: "ADB shell command to override default turn on command. Leave empty to use default."
+Configure State Detection Rules:
+  description: Here you can configure a list of rules where the rule key is the app IDs and whose values are lists of state detection rules. As example a valid value for a detection rule is `["standby", {"playing":{"media_session_state":4}}, {"paused":{"media_session_state":3, "wake_lock_size":4}}]`. Note that rule values must be always inside square bracket (`[...]`). See the section [Custom State Detection](#custom-state-detection) for more info.
+{% endconfiguration_basic %}
 
 ## ADB Setup
 
@@ -63,7 +69,9 @@ When connecting to your device for the first time, a dialog will appear on your 
 The default approach is to connect to your device using the `adb-shell` Python package. As of Home Assistant 0.101, if a key is needed for authentication and it is not provided by the `ADB Key` setup option, then Home Assistant will generate a key for you.
 
 <div class='note'>
+
 To be able to provide `ADB Key` on integration setup, you need to enable [advanced mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode).
+
 </div>
 
 Prior to Home Assistant 0.101, this approach did not work well for newer devices. Efforts have been made to resolve these issues, but if you experience problems then you should use the ADB server option.
@@ -73,7 +81,9 @@ Prior to Home Assistant 0.101, this approach did not work well for newer devices
 The second option is to use an ADB server to connect to your Android TV and Fire TV devices.
 
 <div class='note'>
+
 To configure ADB server on integration setup, you need to enable [advanced mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode).
+
 </div>
 
 Using this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Android TV / Fire TV device and report back to Home Assistant. To use this option, add the `adb_server_ip` option to your configuration. If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
