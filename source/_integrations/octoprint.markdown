@@ -22,7 +22,7 @@ ha_platforms:
 {% include integrations/config_flow.md %}
 
 ### API Key
-For the integration to work, please check that the plugin Discovery is enabled (you can disable it after integration is done).
+For the integration to work, please check that the plugin Discovery is enabled.
 The Octoprint integration will attempt to register itself via the [application keys plugin](https://docs.octoprint.org/en/master/bundledplugins/appkeys.html). After submitting the configuration UI in Home Assistant, open the Octoprint UI and click allow on the prompt. 
 
 ## Binary Sensor
