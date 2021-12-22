@@ -512,7 +512,6 @@ source/_integrations/syslog.markdown @fabaff
 source/_integrations/system_bridge.markdown @timmo001
 source/_integrations/tado.markdown @michaelarnauts @noltari
 source/_integrations/tag.markdown @balloob @dmulcahey
-source/_integrations/tahoma.markdown @philklei
 source/_integrations/tailscale.markdown @frenck
 source/_integrations/tankerkoenig.markdown @guillempages
 source/_integrations/tapsaff.markdown @bazwilliams
