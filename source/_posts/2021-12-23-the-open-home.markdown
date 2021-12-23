@@ -1,6 +1,6 @@
 ---
 title: "The Open Home"
-description: "Our vision for the smart home is one that is "
+description: "Our vision for the smart home: privacy, choice and durability."
 date: 2021-12-23 00:01:00
 date_formatted: "December 23, 2021"
 author: Paulus Schoutsen
