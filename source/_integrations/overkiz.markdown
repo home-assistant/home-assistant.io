@@ -1,6 +1,6 @@
 ---
 title: Overkiz (by Somfy)
-description: Instructions on how to integrate Overkiz based platforms with Home Assistant.
+description: Instructions on how to integrate hubs whom use the Overkiz platform with Home Assistant.
 ha_category:
   - Hub
   - Sensor
