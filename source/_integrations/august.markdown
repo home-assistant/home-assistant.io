@@ -27,13 +27,17 @@ The `august` integration allows you to integrate your [August](https://august.co
 
 ## Known Working Devices
 
-- August Wi-Fi Smart Lock (Gen 4)
-- August Smart Lock Pro (Gen 3)
-- August Smart Lock (Gen 2)
-- August Doorbell Cam (Gen 1, Gen2)
-- August View
-- Yale Assure Locks with August/Yale Connect Module
-- Yale Conexis L1 with August/Yale Connect Module
+| --------------------------------- | ------------------------------------|
+| Device                            | Requires Connect Bridge or Doorbell |
+| --------------------------------- | ------------------------------------|
+| August Wi-Fi Smart Lock (Gen 4) | yes |
+| August Smart Lock Pro (Gen 3) | yes |
+| August Smart Lock (Gen 2) | yes |
+| August Smart Lock (Gen 1) | no |
+| August Doorbell Cam (Gen 1, Gen2) | no |
+| August View | no |
+| Yale Assure Locks with August/Yale Connect Module | yes |
+| Yale Conexis L1 with August/Yale Connect Module | yes |
 
 There is currently support for the following device types within Home Assistant:
 
@@ -44,7 +48,7 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 
 <div class='note'>
-August Lock 2nd Gen will need either August Connect or Doorbell to connect to Home Assistant.
+Most devices will need either August Connect or Doorbell to connect to Home Assistant.
 </div>
 
 ## Known Unsupported Devices
