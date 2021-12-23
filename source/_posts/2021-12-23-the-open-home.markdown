@@ -29,7 +29,7 @@ It is okay for a product to offer a cloud connection, but it should be opt-in.
 
 Devices in your home gather data about themselves and their surroundings. Your data. Vendors shouldn't be able to limit access to your data or limit the interoperability of their products with the rest of your smart home.
 
-**Choice** for the Open Home means that products need to make the gathered data available to the user through APIs. This avoids vendor lock-in and allows users to mix systems as they see fit.
+**Choice** for the Open Home means that products need to make the gathered data available through local APIs. This avoids vendor lock-in and allows users to create their own smart home with products from different manufacturers.
 
 ## Durability
 
@@ -41,7 +41,7 @@ As we install more and and more devices in our home, durability is becoming more
 
 ## State of the Open Home
 
-At the State of the Open Home I presented this vision and how we, together with our friends from open source and academia, are working towards achieving it.
+At the State of the Open Home we presented this vision and how we, together with our friends from open source and academia, are working towards achieving it.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6ZMXE5PXPqU?start=512" frameborder="0" allowfullscreen></iframe>
