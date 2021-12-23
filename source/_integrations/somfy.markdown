@@ -17,7 +17,7 @@ ha_platforms:
   - switch
 ---
 
-The Somfy integration will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis).
+The Somfy integration will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis), unlike the [Overkiz (by Somfy)](/integrations/overkiz/) integration.
 
 ## Installation
 
@@ -71,3 +71,13 @@ optimistic:
 **optimistic** mode should only be used when the integration is not able to gain information on whether a cover is open or closed (e.g., [RTS](https://www.somfysystems.com/en-us/discover-somfy/technology/radio-technology-somfy) devices). It will attempt to track the status within Home Assistant. This mode should only be used if Home Assistant is the only way you operate the blind. If you also use the physical remote control or the Somfy app, Home Assistant will become out of sync.
 
 {% include integrations/config_flow.md %}
+
+## Known limitations
+
+### Limited device support
+
+Unfortunately, the official Somfy API has limited device support. If your devices are not recognized in Home Assistant, you could use the [Overkiz (by Somfy) integration](/integrations/overkiz/) which has more features and devices supported.
+
+### Execution queue has a soft limit (10)
+
+The Somfy API has a limit of 10 actions that can be executed in parallel. Currently this can only be solved by adding a time-out in between your executions, where you need to take the execution time into account.
