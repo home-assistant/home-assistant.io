@@ -18,7 +18,7 @@ The PVOutput integration consumes information from [PVOutput](https://pvoutput.o
 
 {% include integrations/config_flow.md %}
 
-## Extracting data into seperate sensors
+## Extracting data into separate sensors
 
 To format the PVoutput sensor it's recommended to use the [template component](/topics/templating/). For example:
 
