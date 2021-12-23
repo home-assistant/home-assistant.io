@@ -28,7 +28,7 @@ The `august` integration allows you to integrate your [August](https://august.co
 ## Known Working Devices
 
 | --------------------------------- | ------------------------------------|
-| Device                            | Requires Connect Bridge or Doorbell |
+| Device                            | Requires (Connect Bridge)[https://august.com/products/august-connect/] or Doorbell |
 | --------------------------------- | ------------------------------------|
 | August Wi-Fi Smart Lock (Gen 4) | yes |
 | August Smart Lock Pro (Gen 3) | yes |
@@ -48,7 +48,7 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 
 <div class='note'>
-Most devices will need either August Connect or Doorbell to connect to Home Assistant.
+Most devices will need either August (Connect Bridge)[https://august.com/products/august-connect/] or Doorbell to connect to Home Assistant.
 </div>
 
 ## Known Unsupported Devices
