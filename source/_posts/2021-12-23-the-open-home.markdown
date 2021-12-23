@@ -35,13 +35,13 @@ Devices in your home gather data about themselves and their surroundings. Your d
 
 If there is one thing that technology firms are very good at, it is launching new products. However, maintaining the products and making sure they keep working is an afterthought for most. The result is that vendors will decide to turn off the support for your device, crippling the features or even prevent it from working at all. You will need to buy something new.
 
-As we install more and and more devices in our home, durability is becoming more and more important. We shouldn't have to buy everything new every couple of years because the manufacturer decided to move on and create something newer.
+As we install more and more devices in our home, durability is becoming more and more important. We shouldn't have to buy everything new every couple of years because the manufacturer decided to move on and create something newer.
 
 **Durability** for the Open Home means that devices are designed and built to keep working. Not just this year, but for the next decade.
 
 ## State of the Open Home
 
-At the State of the Open Home we presented this vision and how we, together with our friends from open source and academia, are working towards achieving it.
+At the State of the Open Home, we presented this vision and how we, together with our friends from open source and academia, are working towards achieving it.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6ZMXE5PXPqU?start=512" frameborder="0" allowfullscreen></iframe>
