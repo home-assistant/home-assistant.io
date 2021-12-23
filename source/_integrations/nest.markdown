@@ -218,7 +218,7 @@ In this section you will authorize Home Assistant to access your account by gene
 
     ![Screenshot of Integration setup on Link Accounts step](/images/integrations/nest/integration_link_account.png)
 
-1. A new tab opens, allowing you to chooce a Google account. This should be the same developer account you configured above.
+1. A new tab opens, allowing you to choose a Google account. This should be the same developer account you configured above.
 
 1. The *Google Nest permissions* screen will allow you to choose which devices to configure and lets you select devices from multiple homes. You likely want to enable everything, however, you can leave out any feature you do not wish to use with Home Assistant.
 
