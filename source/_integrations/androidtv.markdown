@@ -41,7 +41,7 @@ For Fire TV devices, the instructions are as follows:
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
 Configure Applications List:
-  description: Here you can define a list of applications where the keys are app IDs and the values are app names that will be displayed in the UI. If a name is not provided and the option `Exclude apps with unknown name` is enabled, the app will never be shown in the sources list. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/748d6b71cad611c624ef7526d9928431167531a3/androidtv/constants.py#L290-L308) are configured in the backend package and do not need to be included in your configuration).
+  description: Here you can define applications that are not automatically detected by the backend library, where the keys are app IDs and the values are app names that will be displayed in the UI. If a name is not provided and the option `Exclude apps with unknown name` is enabled, the app will never be shown in the sources list.
 Retrieve the running apps as the list of sources:
   description: "Whether or not to retrieve the running apps as the list of sources. If this option is checked, the running apps will be retrieved and used as the sources. If not, there will be only one source: the current app."
 Exclude apps with unknown name:
@@ -165,7 +165,7 @@ Available key commands include:
 - `BACK`
 - `MENU`
 
-The full list of key commands can be found [here](https://github.com/JeffLIrion/python-androidtv/blob/748d6b71cad611c624ef7526d9928431167531a3/androidtv/constants.py#L189-L233).
+The full list of key commands can be found in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.
 
 You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level. This information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package, and also to define your own [custom state detection](#custom-state-detection) rules.
 
