@@ -5,6 +5,7 @@ ha_category:
   - Hub
   - Alarm
   - Binary Sensor
+  - Button
   - Climate
   - Fan
   - Light
@@ -25,6 +26,7 @@ ha_domain: zha
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - climate
   - cover
   - device_tracker
@@ -46,6 +48,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Alarm Control Panel
 - Binary Sensor
+- Button
 - Climate (beta)
 - Cover
 - Fan
