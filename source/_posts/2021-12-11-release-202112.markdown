@@ -54,6 +54,7 @@ holidays. So, the first release in 2022, will be Wednesday, 2 February 2022._
 - [Release 2021.12.2 - December 15](#release-2021122---december-15)
 - [Release 2021.12.3 - December 17](#release-2021123---december-17)
 - [Release 2021.12.4 - December 20](#release-2021124---december-20)
+- [Release 2021.12.5 - December 23](#release-2021125---december-23)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -632,6 +633,84 @@ like before. Done by [@marvin-w].
 [wemo docs]: /integrations/wemo/
 [yeelight docs]: /integrations/yeelight/
 [zwave docs]: /integrations/zwave/
+
+## Release 2021.12.5 - December 23
+
+- Require RPi.GPIO and bump adafruit-circuitpython-dht to 3.7.0 in dht ([@TheGardenMonkey] - [#61751]) ([dht docs])
+- Fix deconz light service parameter handling ([@schmyd] - [#62128]) ([deconz docs])
+- Fix broken Vallox integration in 2021.12 ([@andre-richter] - [#62308]) ([vallox docs])
+- Fix Sonos updating when entities are disabled ([@jjlawren] - [#62456]) ([sonos docs])
+- Fix repetier crash when printer is offline ([@ShadowBr0ther] - [#62490]) ([repetier docs])
+- Bump soco to 0.25.1 ([@jjlawren] - [#62523]) ([sonos docs])
+- Update xknx to version 0.18.15 ([@marvin-w] - [#62557]) ([knx docs])
+- Bump pytile to 2021.12.0 ([@bachya] - [#62559]) ([tile docs])
+- Bump flux_led to 0.27.12 to fix legacy cct controllers ([@bdraco] - [#62573]) ([flux_led docs])
+- Fix missing object assignment for Fritz ([@chemelli74] - [#62575]) ([fritz docs])
+- Fix timezone trafikverket_train ([@gjohansson-ST] - [#62582]) ([trafikverket_train docs])
+- Improve google cast state reporting ([@emontnemery] - [#62587]) ([cast docs])
+- Fix pvpc_hourly_pricing by changing data source and modernise integration ([@azogue] - [#62591]) ([pvpc_hourly_pricing docs])
+- Bump flux_led to 0.27.13 to fix discovery of legacy devices ([@bdraco] - [#62613]) ([flux_led docs])
+- Fix missing exception handling from upstream lib in Fritz ([@chemelli74] - [#62617]) ([fritz docs])
+- Round Hue transition to steps of 100ms ([@krys1976] - [#62619]) ([hue docs])
+- Bump aiohue to 3.0.8 ([@balloob] - [#62651]) ([hue docs])
+- Bump aiohue to 3.0.9 ([@marcelveldt] - [#62658]) ([hue docs])
+- Bump aiohue to 3.0.10 ([@marcelveldt] - [#62664]) ([hue docs])
+- Adjust Hue retry logic to changes in the aiohue library ([@marcelveldt] - [#62665]) ([hue docs])
+- Fix Hue button events ([@marcelveldt] - [#62669]) ([hue docs])
+- Never use availability workaround for certified Hue devices ([@marcelveldt] - [#62676]) ([hue docs])
+- Fix Hue docstring ([@marcelveldt] - [#62684]) ([hue docs])
+
+[#61751]: https://github.com/home-assistant/core/pull/61751
+[#62128]: https://github.com/home-assistant/core/pull/62128
+[#62308]: https://github.com/home-assistant/core/pull/62308
+[#62456]: https://github.com/home-assistant/core/pull/62456
+[#62490]: https://github.com/home-assistant/core/pull/62490
+[#62523]: https://github.com/home-assistant/core/pull/62523
+[#62557]: https://github.com/home-assistant/core/pull/62557
+[#62559]: https://github.com/home-assistant/core/pull/62559
+[#62573]: https://github.com/home-assistant/core/pull/62573
+[#62575]: https://github.com/home-assistant/core/pull/62575
+[#62582]: https://github.com/home-assistant/core/pull/62582
+[#62587]: https://github.com/home-assistant/core/pull/62587
+[#62591]: https://github.com/home-assistant/core/pull/62591
+[#62613]: https://github.com/home-assistant/core/pull/62613
+[#62617]: https://github.com/home-assistant/core/pull/62617
+[#62619]: https://github.com/home-assistant/core/pull/62619
+[#62651]: https://github.com/home-assistant/core/pull/62651
+[#62658]: https://github.com/home-assistant/core/pull/62658
+[#62664]: https://github.com/home-assistant/core/pull/62664
+[#62665]: https://github.com/home-assistant/core/pull/62665
+[#62669]: https://github.com/home-assistant/core/pull/62669
+[#62676]: https://github.com/home-assistant/core/pull/62676
+[#62684]: https://github.com/home-assistant/core/pull/62684
+[@ShadowBr0ther]: https://github.com/ShadowBr0ther
+[@TheGardenMonkey]: https://github.com/TheGardenMonkey
+[@andre-richter]: https://github.com/andre-richter
+[@azogue]: https://github.com/azogue
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@emontnemery]: https://github.com/emontnemery
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jjlawren]: https://github.com/jjlawren
+[@krys1976]: https://github.com/krys1976
+[@marcelveldt]: https://github.com/marcelveldt
+[@marvin-w]: https://github.com/marvin-w
+[@schmyd]: https://github.com/schmyd
+[cast docs]: /integrations/cast/
+[deconz docs]: /integrations/deconz/
+[dht docs]: /integrations/dht/
+[flux_led docs]: /integrations/flux_led/
+[fritz docs]: /integrations/fritz/
+[hue docs]: /integrations/hue/
+[knx docs]: /integrations/knx/
+[pvpc_hourly_pricing docs]: /integrations/pvpc_hourly_pricing/
+[repetier docs]: /integrations/repetier/
+[sonos docs]: /integrations/sonos/
+[tile docs]: /integrations/tile/
+[trafikverket_train docs]: /integrations/trafikverket_train/
+[vallox docs]: /integrations/vallox/
 
 ## If you need help...
 
