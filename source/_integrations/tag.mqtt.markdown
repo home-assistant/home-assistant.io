@@ -16,11 +16,6 @@ MQTT scanners are only supported through [MQTT discovery](/docs/mqtt/discovery/)
 The discovery topic needs to be: `<discovery_prefix>/tag/[<node_id>/]<object_id>/config`.
 
 {% configuration %}
-encoding:
-  description: The encoding of the payloads received. Set to `""` to disable decoding of incoming payload.
-  required: false
-  type: string
-  default: "utf-8"
 topic:
   description: The MQTT topic subscribed to receive tag scanned events.
   required: true
