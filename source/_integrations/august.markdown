@@ -47,7 +47,7 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 
 <div class='note'>
-Most devices will need either August [Connect Bridge](https://august.com/products/august-connect/) or Doorbell to connect to Home Assistant.
+Most devices will need either August Connect Bridge or Doorbell to connect to Home Assistant.
 </div>
 
 ## Known Unsupported Devices
