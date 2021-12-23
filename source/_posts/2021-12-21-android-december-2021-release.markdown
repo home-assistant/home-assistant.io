@@ -108,6 +108,7 @@ Big thank you to everyone involved. Please keep those bug reports and feature re
 - 2021.9.0 - https://github.com/home-assistant/android/releases/tag/2021.9.0
 - 2021.10.0 - https://github.com/home-assistant/android/releases/tag/2021.10.0
 - 2021.12.0 - https://github.com/home-assistant/android/releases/tag/2021.12.0
+- 2021.12.1 - https://github.com/home-assistant/android/releases/tag/2021.12.1
 
 [leroyboerefijn]: https://github.com/leroyboerefijn
 [dshokouhi]: https://github.com/dshokouhi
