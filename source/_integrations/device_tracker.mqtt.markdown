@@ -157,11 +157,6 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
-encoding:
-  description: The encoding of the payloads received. Set to `""` to disable decoding of incoming payload.
-  required: false
-  type: string
-  default: "utf-8"
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
