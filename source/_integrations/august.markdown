@@ -27,8 +27,8 @@ The `august` integration allows you to integrate your [August](https://august.co
 
 ## Known Working Devices
 
-| --------------------------------- | ------------------------------------|
 | Device                            | Requires [Connect Bridge](https://august.com/products/august-connect/) or Doorbell |
+| --------------------------------- | ------------------------------------|
 | August Wi-Fi Smart Lock (Gen 4) | yes |
 | August Smart Lock Pro (Gen 3) | yes |
 | August Smart Lock (Gen 2) | yes |
