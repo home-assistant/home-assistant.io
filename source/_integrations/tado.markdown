@@ -184,7 +184,7 @@ automation:
       value_template: >
         {% set tado_temp = states('sensor.tado_temperature')|float(20) %}
         {% set room_temp = states('sensor.temp_sensor_room')|float(20) %}
-        {{ (tado_temp - room_temp) > 0.5 or (tado_temp - room_temp) < -0.5 }}
+        {{ (tado_temp - room_temp) | abs > 0.5 }}
     
     # Work out what the new offset should be (tado temp less the room temp but add the current offset value) and turn that to a negative value for setting as the new offset
     action:
