@@ -13,6 +13,8 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_codeowners:
+  - '@sergeymaysak'
 ---
 
 The `wirelesstag` implementation allows you to integrate your [wirelesstag.net](https://wirelesstag.net/) sensors tags in Home Assistant.
@@ -114,6 +116,8 @@ monitored_conditions:
       description: "Water level/soil moisture in % (applicable for Water Tag only)."
     light:
       description: Brightness in lux (if supported by tag).
+    ambient_temperature:
+      description: If your device is Outdoor Probe with ambient temperature - use this sensor.
 {% endconfiguration %}
 
 ## Switch

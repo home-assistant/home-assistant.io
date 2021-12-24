@@ -32,6 +32,7 @@ Each 1-wire component data sheet describes the different properties the componen
 | -------|:-----|:-----|
 | 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | 2 sensed (sensed.A/B) <sup>[4](#note_4)</sup> |
 | 29     | [DS2408](https://datasheets.maximintegrated.com/en/ds/DS2408.pdf)  | 8 sensed (sensed.0-7) <sup>[4](#note_4)</sup> |
+| 3A     | [DS2413](https://datasheets.maximintegrated.com/en/ds/DS2413.pdf)  | 2 sensed (sensed.A/B) <sup>[4](#note_4)</sup> |
 
 #### Sensors:
 
@@ -55,6 +56,7 @@ Each 1-wire component data sheet describes the different properties the componen
 | 05     | [DS2405](https://datasheets.maximintegrated.com/en/ds/DS2405.pdf)  | 1 PIO <sup>[4](#note_4)</sup> |
 | 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | 2 latches (latch.A/B) and 2 PIOs (PIO.A/B) <sup>[4](#note_4)</sup> |
 | 29     | [DS2408](https://datasheets.maximintegrated.com/en/ds/DS2408.pdf)  | 8 latches (latch.0-7) and 8 PIOs (PIO.0/7) <sup>[4](#note_4)</sup> |
+| 3A     | [DS2413](https://datasheets.maximintegrated.com/en/ds/DS2413.pdf)  | 2 PIOs (PIO.A/B) <sup>[4](#note_4)</sup> |
 
 #### Bridges:
 
@@ -130,18 +132,6 @@ The device IDs begin with `28-`.
 `owserver` on Linux hosts is part of the [owfs 1-Wire file system](https://owfs.org/). When a 1-wire interface adapter is used, you can access sensors on a remote or local Linux host that is running `owserver`. `owserver` by default runs on port 4304. Use the `host` option to specify the host or IP of the remote server, and the optional `port` option to change the port from the default.
 
 {% include integrations/config_flow.md %}
-
-### Configuration Example
-
-When `onewire` is added to Home Assistant, it will generate an ID for the sensor. You can specify a friendly name for the sensor with the name configuration option.
-
-```yaml
-# Named sensor configuration.yaml entry
-sensor:
-  - platform: onewire
-    names:
-      GENERATED_ID: FRIENDLY_NAME
-```
 
 ### Entities and attributes
 

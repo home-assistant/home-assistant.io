@@ -28,10 +28,19 @@ There is currently support for the following device types within Home Assistant:
 
 ## Sensors
 
-Sensors are added for both usage and production with the following names:
+Sensors are added for both usage and production:
 
-- **Active Usage/Production**: Current active power usage/production in Watts. Updated every 60 seconds.
-- **Daily/Weekly/Monthly Usage/Production**: Daily/Weekly/Monthly power usage/production in kWh. Updated every 5 minutes.
+- Active sensors: Updated every 60 seconds.
+  - Usage: Current active power usage in Watts.
+  - Production: Current active power production in Watts.
+- Trend sensors: Data provided for daily, weekly, monthly and yearly scales. Updated every 5 minutes.
+  - Usage: Power usage in kWh.
+  - Production: Power production in kWh.
+  - To Grid: Power exported to the grid in kWh.
+  - From Grid: Power imported from the grid in kWh.
+  - Net Production: Measures total solar production against usage.
+  - Net Production Percentage: Net production as a percentage value.
+  - Solar Powered Percentage: Percentage of power used directly from solar.
 
 Binary sensors are created for each of the devices detected by your Sense monitor to show their power state.
 

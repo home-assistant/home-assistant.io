@@ -49,7 +49,7 @@ password:
   default: The default password is the `PIN` included on the configuration card.
   type: string
 use_legacy_protocol:
-  description: Enable limited support for legacy firmware protocols (Tested with v1.24).
+  description: Enable limited support for legacy firmware protocols (Tested with v1.24, v1.26).
   required: false
   default: false
   type: boolean

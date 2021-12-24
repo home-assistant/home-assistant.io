@@ -22,5 +22,4 @@ You'll need the Account ID (which can be found in the Adax Wifi app, pressing 'A
 3. Select “Add Credential”
 4. Give some name to the created credential and copy the generated password.
 
-
 {% include integrations/config_flow.md %}

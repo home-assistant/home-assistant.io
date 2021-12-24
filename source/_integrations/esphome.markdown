@@ -21,6 +21,7 @@ ha_platforms:
   - light
   - number
   - sensor
+  - select
   - switch
 ---
 

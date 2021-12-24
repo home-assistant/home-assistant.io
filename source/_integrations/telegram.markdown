@@ -22,7 +22,7 @@ The requirements are:
 
 **Method 1:** You can get your `chat_id` by sending any message to the [GetIDs bot](https://t.me/getidsbot).
 
-**Method 2:** To retrieve your `chat_id` you can visit `https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` **after** you have sent the bot a message. Replace `YOUR_API_TOKEN` with your actual token.
+**Method 2:** To retrieve your `chat_id` you can visit `https://api.telegram.org/bot<YOUR_API_TOKEN>/getUpdates` or to use `$ curl -X GET https://api.telegram.org/bot<YOUR_API_TOKEN>/getUpdates` **after** you have sent the bot a message. Replace `<YOUR_API_TOKEN>` with your actual token.
 
 The result set will include your chat ID as `id` in the `chat` section:
 

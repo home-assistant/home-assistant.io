@@ -1,5 +1,5 @@
 ---
-title: OpenZWave (beta)
+title: OpenZWave (deprecated)
 description: Instructions on how to integrate OpenZWave with Home Assistant.
 ha_category:
   - Switch
@@ -22,14 +22,15 @@ ha_platforms:
   - switch
 ---
 
-This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT. 
-
 <div class='note warning'>
 
- As of mid-2021 this integration, as well as the upstream ozwdaemon project, are not currently maintained. If you're starting out with Z-Wave in Home Assistant, we recommend that you use [the Z-Wave JS integration](/integrations/zwave_js).
+ This integration is deprecated. We recommend using [the Z-Wave JS integration](/integrations/zwave_js).
+
+ The OpenZWave integration will no longer receive any updates. The technical dependencies may render this integration unusable in the future, at which time it may be removed.
 
 </div>
 
+This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT.
 
 ## Requirements
 
@@ -52,19 +53,6 @@ This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave
 
 The secure network key is set in the settings for the ozwdaemon and
 not in the integration configuration.
-
-## Migrate from Z-Wave integration
-
-To migrate to the OpenZWave integration from the Z-Wave integration there's a
-wizard in the frontend configuration panel of the Z-Wave integration. The wizard
-will try to migrate the entity IDs, names, icons and areas of the entities and
-devices of your Z-Wave integration to your OpenZWave integration. At the end of
-the migration, the Z-Wave integration configuration entry will be removed.
-
-Make sure you take necessary backups, eg a Supervisor snapshot, before migrating
-to be able to restore the Z-Wave integration. The wizard may not be able to
-migrate all entity and device information. It will show you what entity and
-device information failed to migrate.
 
 ## Services
 
@@ -130,11 +118,11 @@ This service will set the specified configuration parameter to the value specifi
 allow device-specific configurations. Example of this would be setting notification
 LED colors on switches.
 
-| Service Data Attribute | Required | Description                                                                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                              |
-| `node_id`              | yes      | Node id of the device to set configuration parameter to (integer).                                              |
-| `parameter`            | yes      | Parameter number to set (integer).                                                                              |
+| Service Data Attribute | Required | Description                                                                                                                                                                         |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                                                                                                  |
+| `node_id`              | yes      | Node id of the device to set configuration parameter to (integer).                                                                                                                  |
+| `parameter`            | yes      | Parameter number to set (integer).                                                                                                                                                  |
 | `value`                | yes      | Value to set for parameter. (String or integer value for list, string or boolean for bool parameters, list of dicts for bitset parameters (see example below), integer for others). |
 
 

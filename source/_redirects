@@ -9,6 +9,11 @@
 
 # Redirect for Energy
 /energy /home-energy-management
+/integrations/energy /docs/energy 301!
+
+/amber https://www.crowdsupply.com/nabu-casa/home-assistant-yellow
+/yellow https://www.crowdsupply.com/nabu-casa/home-assistant-yellow
+/blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
 # Older development pages
 /developers https://developers.home-assistant.io
@@ -108,7 +113,6 @@
 /components/alarm_control_panel.spc /integrations/spc
 /components/alarm_control_panel.totalconnect /integrations/totalconnect
 /components/alarm_control_panel.verisure /integrations/verisure#alarm-control-panel
-/components/alarm_control_panel.wink /integrations/wink#alarm-control-panel
 /components/alarm_control_panel.yale_smart_alarm /integrations/yale_smart_alarm
 /components/apiai /integrations/dialogflow
 /components/binary_sensor.abode /integrations/abode#binary-sensor
@@ -158,7 +162,6 @@
 /components/binary_sensor.linode /integrations/linode#binary-sensor
 /components/binary_sensor.lupusec /integrations/lupusec
 /components/binary_sensor.maxcube /integrations/maxcube
-/components/binary_sensor.mychevy /integrations/mychevy
 /components/binary_sensor.mystrom /integrations/mystrom#binary-sensor
 /components/binary_sensor.ness_alarm /integrations/ness_alarm
 /components/binary_sensor.nest /integrations/nest#binary-sensor
@@ -204,7 +207,6 @@
 /components/binary_sensor.vultr /integrations/vultr#binary-sensor
 /components/binary_sensor.w800rf32 /integrations/w800rf32#binary-sensor
 /components/binary_sensor.wemo /integrations/wemo
-/components/binary_sensor.wink /integrations/wink#binary-sensor
 /components/binary_sensor.wirelesstag /integrations/wirelesstag#binary-sensor
 /components/binary_sensor.workday /integrations/workday
 /components/binary_sensor.zha /integrations/zha
@@ -287,7 +289,6 @@
 /components/climate.velbus /integrations/velbus
 /components/climate.venstar /integrations/venstar
 /components/climate.vera /integrations/vera
-/components/climate.wink /integrations/wink#climate
 /components/climate.xs1 /integrations/xs1
 /components/climate.zhong_hong /integrations/zhong_hong
 /components/climate.zwave /integrations/zwave#climate
@@ -319,7 +320,6 @@
 /components/cover.tuya /integrations/tuya
 /components/cover.velux /integrations/velux
 /components/cover.vera /integrations/vera
-/components/cover.wink /integrations/wink#cover
 /components/cover.zwave /integrations/zwave#cover
 /components/cppm /integrations/cppm_tracker
 /components/device_tracker.actiontec /integrations/actiontec
@@ -341,7 +341,6 @@
 /components/device_tracker.gpslogger /integrations/gpslogger
 /components/device_tracker.hitron_coda /integrations/hitron_coda
 /components/device_tracker.huawei_lte /integrations/huawei_lte
-/components/device_tracker.huawei_router /integrations/huawei_router
 /components/device_tracker.icloud /integrations/icloud
 /components/device_tracker.keenetic_ndms2 /integrations/keenetic_ndms2
 /components/device_tracker.linksys_ap /integrations/linksys_ap
@@ -369,7 +368,6 @@
 /components/device_tracker.tomato /integrations/tomato
 /components/device_tracker.tplink /integrations/tplink
 /components/device_tracker.traccar /integrations/traccar
-/components/device_tracker.trackr /integrations/trackr
 /components/device_tracker.ubus /integrations/ubus
 /components/device_tracker.unifi /integrations/unifi
 /components/device_tracker.unifi_direct /integrations/unifi_direct
@@ -384,7 +382,6 @@
 /components/fan.smartthings /integrations/smartthings#fan
 /components/fan.tuya /integrations/tuya
 /components/fan.wemo /integrations/wemo#fan
-/components/fan.wink /integrations/wink#fan
 /components/fan.zha /integrations/zha
 /components/fan.zwave /integrations/zwave
 /components/generic /integrations/generic
@@ -466,7 +463,6 @@
 /components/light.tuya /integrations/tuya
 /components/light.vera /integrations/vera
 /components/light.wemo /integrations/wemo
-/components/light.wink /integrations/wink#light
 /components/light.x10 /integrations/x10
 /components/light.yeelight /integrations/yeelight
 /components/light.yeelightsunflower /integrations/yeelightsunflower
@@ -481,7 +477,6 @@
 /components/lock.homematic /integrations/homematic
 /components/lock.isy994 /integrations/isy994
 /components/lock.kiwi /integrations/kiwi
-/components/lock.nello /integrations/nello
 /components/lock.nuki /integrations/nuki
 /components/lock.sesame /integrations/sesame
 /components/lock.smartthings /integrations/smartthings#lock
@@ -489,7 +484,6 @@
 /components/lock.vera /integrations/vera
 /components/lock.verisure /integrations/verisure
 /components/lock.volvooncall /integrations/volvooncall
-/components/lock.wink /integrations/wink#lock
 /components/lock.zwave /integrations/zwave#lock
 /components/mailbox.asterisk_cdr /integrations/asterisk_cdr
 /components/mailbox.asterisk_mbox /integrations/asterisk_mbox
@@ -627,7 +621,6 @@
 /components/scene.tuya /integrations/tuya
 /components/scene.velux /integrations/velux
 /components/scene.vera /integrations/vera
-/components/scene.wink /integrations/wink
 /components/sensor.abode /integrations/abode
 /components/sensor.ads /integrations/ads#sensor
 /components/sensor.aftership /integrations/aftership
@@ -746,7 +739,6 @@
 /components/sensor.influxdb /integrations/influxdb#sensor
 /components/sensor.insteon /integrations/insteon
 /components/sensor.integration /integrations/integration
-/components/sensor.iota /integrations/iota#sensor
 /components/sensor.iperf3 /integrations/iperf3
 /components/sensor.irish_rail_transport /integrations/irish_rail_transport
 /components/sensor.islamic_prayer_times /integrations/islamic_prayer_times
@@ -763,10 +755,7 @@
 /components/sensor.logi_circle /integrations/logi_circle#sensor
 /components/sensor.london_air /integrations/london_air
 /components/sensor.london_underground /integrations/london_underground
-/components/sensor.loop_energy /integrations/loopenergy
-/components/sensor.loopenergy /integrations/loopenergy
 /components/sensor.luftdaten /integrations/luftdaten#sensor
-/components/sensor.lyft /integrations/lyft
 /components/sensor.magicseaweed /integrations/magicseaweed
 /components/sensor.meteo_france /integrations/meteo_france
 /components/sensor.mfi /integrations/mfi#sensor
@@ -779,7 +768,6 @@
 /components/sensor.moon /integrations/moon
 /components/sensor.mqtt_room /integrations/mqtt_room
 /components/sensor.mvglive /integrations/mvglive
-/components/sensor.mychevy /integrations/mychevy
 /components/sensor.nederlandse_spoorwegen /integrations/nederlandse_spoorwegen
 /components/sensor.nest /integrations/nest#sensor
 /components/sensor.netatmo /integrations/netatmo#sensor
@@ -910,7 +898,6 @@
 /components/sensor.waterfurnace /integrations/waterfurnace
 /components/sensor.waze_travel_time /integrations/waze_travel_time
 /components/sensor.whois /integrations/whois
-/components/sensor.wink /integrations/wink#sensor
 /components/sensor.wirelesstag /integrations/wirelesstag#sensor
 /components/sensor.worldclock /integrations/worldclock
 /components/sensor.worldtidesinfo /integrations/worldtidesinfo
@@ -1034,7 +1021,6 @@
 /components/switch.vultr /integrations/vultr#switch
 /components/switch.wake_on_lan /integrations/wake_on_lan#switch
 /components/switch.wemo /integrations/wemo
-/components/switch.wink /integrations/wink#switch
 /components/switch.wirelesstag /integrations/wirelesstag#switch
 /components/switch.xs1 /integrations/xs1
 /components/switch.zha /integrations/zha
@@ -1058,7 +1044,6 @@
 /components/vacuum.roomba /integrations/roomba
 /components/vlc-telnet /integrations/vlc_telnet
 /components/water_heater.econet /integrations/econet
-/components/water_heater.wink /integrations/wink#water-heater
 /components/weather.buienradar /integrations/buienradar
 /components/weather.ecobee /integrations/ecobee
 /components/weather.ipma /integrations/ipma
@@ -1427,7 +1412,6 @@
 /components/http /integrations/http
 /components/htu21d /integrations/htu21d
 /components/huawei_lte /integrations/huawei_lte
-/components/huawei_router /integrations/huawei_router
 /components/hue /integrations/hue
 /components/hunterdouglas_powerview /integrations/hunterdouglas_powerview
 /components/hydrawise /integrations/hydrawise
@@ -1453,7 +1437,6 @@
 /components/integration /integrations/integration
 /components/intent_script /integrations/intent_script
 /components/ios /integrations/ios
-/components/iota /integrations/iota
 /components/iperf3 /integrations/iperf3
 /components/ipma /integrations/ipma
 /components/iqvia /integrations/iqvia
@@ -1520,14 +1503,12 @@
 /components/logi_circle /integrations/logi_circle
 /components/london_air /integrations/london_air
 /components/london_underground /integrations/london_underground
-/components/loopenergy /integrations/loopenergy
 /components/luci /integrations/luci
 /components/luftdaten /integrations/luftdaten
 /components/lupusec /integrations/lupusec
 /components/lutron /integrations/lutron
 /components/lutron_caseta /integrations/lutron_caseta
 /components/lw12wifi /integrations/lw12wifi
-/components/lyft /integrations/lyft
 /components/magicseaweed /integrations/magicseaweed
 /components/mailbox /integrations/mailbox
 /components/mailgun /integrations/mailgun
@@ -1577,7 +1558,6 @@
 /components/mqtt_room /integrations/mqtt_room
 /components/mqtt_statestream /integrations/mqtt_statestream
 /components/mvglive /integrations/mvglive
-/components/mychevy /integrations/mychevy
 /components/mycroft /integrations/mycroft
 /components/myq /integrations/myq
 /components/mysensors /integrations/mysensors
@@ -1588,7 +1568,6 @@
 /components/nanoleaf /integrations/nanoleaf
 /components/neato /integrations/neato
 /components/nederlandse_spoorwegen /integrations/nederlandse_spoorwegen
-/components/nello /integrations/nello
 /components/ness_alarm /integrations/ness_alarm
 /components/nest /integrations/nest
 /components/netatmo /integrations/netatmo
@@ -1892,7 +1871,6 @@
 /components/tplink /integrations/tplink
 /components/tplink_lte /integrations/tplink_lte
 /components/traccar /integrations/traccar
-/components/trackr /integrations/trackr
 /components/tradfri /integrations/tradfri
 /components/trafikverket_train /integrations/trafikverket_train
 /components/trafikverket_weatherstation /integrations/trafikverket_weatherstation
@@ -1966,7 +1944,6 @@
 /components/websocket_api /integrations/websocket_api
 /components/wemo /integrations/wemo
 /components/whois /integrations/whois
-/components/wink /integrations/wink
 /components/wirelesstag /integrations/wirelesstag
 /components/withings /integrations/withings
 /components/workday /integrations/workday
@@ -2035,6 +2012,27 @@
 /docs/ecosystem/notebooks/stats https://data.home-assistant.io
 /docs/frontend/mobile https://companion.home-assistant.io
 /docs/script/editor /docs/scripts/editor
+/docs/z-wave /integrations/zwave_js
+/docs/z-wave/adding /integrations/zwave/#adding-and-removing-devices
+/docs/z-wave/control-panel /integrations/zwave/#control-panel
+/docs/z-wave/controllers/#aeotec-stick /docs/z-wave/controllers/#aeotec-z-stick
+/docs/z-wave/devices /integrations/zwave/#device-support
+/docs/z-wave/devices/#instant-status /integrations/zwave/#instant-status
+/docs/z-wave/devices/#polling /integrations/zwave/#polling
+/docs/z-wave/device-specific /integrations/zwave/#device-specific-information
+/docs/z-wave/device-specific/#device-categories /integrations/zwave/#device-support
+/docs/z-wave/device-specific/#motion-or-alarm-sensors /integrations/zwave/#binary-sensor
+/docs/z-wave/device-specific/#locks-and-other-secure-devices /integrations/zwave/#lock
+/docs/z-wave/device-specific/#specific-devices /integrations/zwave/#device-specific-information
+/docs/z-wave/device-specific/#aeotec-z-stick /docs/z-wave/controllers/#aeotec-z-stick
+/docs/z-wave/device-specific/#razberry-board /docs/z-wave/controllers/#razberry-board
+/docs/z-wave/device-specific/#raspberry-pi-3-procedure /docs/z-wave/controllers/#raspberry-pi-3-procedure
+/docs/z-wave/device-specific/#raspberry-pi-4-procedure /docs/z-wave/controllers/#raspberry-pi-4-procedure
+/docs/z-wave/entities /integrations/zwave/#device-support
+/docs/z-wave/events /integrations/zwave/#events
+/docs/z-wave/installation /integrations/zwave/#detailed-installation-instructions
+/docs/z-wave/query-stage /integrations/zwave/#query-stage
+/docs/z-wave/services /integrations/zwave/#services
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io
@@ -2056,8 +2054,10 @@
 /integrations/scene.knx /integrations/knx#scene
 /integrations/sensor.knx /integrations/knx#sensor
 /integrations/switch.knx /integrations/knx#switch
+/integrations/trace /docs/automation/troubleshooting
 /integrations/weather.knx /integrations/knx#weather
 /integrations/zigbee /integrations/xbee
+/integrations/calendar.google /integrations/google
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
 /getting-started/automation-create-first /getting-started/automation
@@ -2084,12 +2084,12 @@
 /getting-started/troubleshooting-configuration /docs/troubleshooting
 /getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml
-/getting-started/z-wave /docs/z-wave
-/getting-started/z-wave-devices /docs/z-wave/devices
-/getting-started/z-wave-installation /docs/z-wave/installation
-/getting-started/z-wave-panel /docs/z-wave/control-panel
-/getting-started/z-wave-device-specific /docs/z-wave/device-specific
-/hassio/zwave /docs/z-wave
+/getting-started/z-wave /integrations/zwave_js
+/getting-started/z-wave-devices /integrations/zwave_js
+/getting-started/z-wave-installation /integrations/zwave_js
+/getting-started/z-wave-panel /integrations/zwave_js
+/getting-started/z-wave-device-specific /integrations/zwave_js
+/hassio/zwave /integrations/zwave_js
 /topics/events /docs/configuration/events
 /topics/packages /docs/configuration/packages
 /topics/platform_options /docs/configuration/platform_options
@@ -2119,6 +2119,9 @@
 /cookbook/#infrastructure /examples/#infrastructure
 /cookbook/#automation-examples /examples
 /cookbook /examples
+/common-tasks/os/#snapshots /common-tasks/os/#backups
+/common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
+/more-info/unsupported/container /more-info/unsupported/software
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -2212,6 +2215,8 @@
 /components/device_tracker.ubee /more-info/removed-integration 301
 /components/device_tracker.xfinity  /more-info/removed-integration 301
 /components/edp_redy /more-info/removed-integration 301
+/components/essent /more-info/removed-integration 301
+/integrations/essent /more-info/removed-integration 301
 /components/fedex /more-info/removed-integration 301
 /components/fortigate /more-info/removed-integration 301
 /components/history_graph /more-info/removed-integration 301
@@ -2308,6 +2313,44 @@
 /components/spotcrime /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /components/sensor.wunderground /more-info/removed-integration 301
+/components/tesla /more-info/removed-integration 301
+/integrations/tesla /more-info/removed-integration 301
 /components/wunderground /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
 /integrations/garmin_connect /more-info/removed-integration 301
+/components/device_tracker.trackr /more-info/removed-integration 301
+/components/trackr /more-info/removed-integration 301
+/integrations/trackr /more-info/removed-integration 301
+/components/alarm_control_panel.wink /more-info/removed-integration 301
+/components/binary_sensor.wink /more-info/removed-integration 301
+/components/climate.wink /more-info/removed-integration 301
+/components/cover.wink /more-info/removed-integration 301
+/components/fan.wink /more-info/removed-integration 301
+/components/light.wink /more-info/removed-integration 301
+/components/lock.wink /more-info/removed-integration 301
+/components/scene.wink /more-info/removed-integration 301
+/components/sensor.wink /more-info/removed-integration 301
+/components/switch.wink /more-info/removed-integration 301
+/components/water_heater.wink /more-info/removed-integration 301
+/components/wink /more-info/removed-integration 301
+/integrations/wink /more-info/removed-integration 301
+/components/lyft /more-info/removed-integration 301
+/components/sensor.lyft /more-info/removed-integration 301
+/integrations/lyft /more-info/removed-integration 301
+/components/lock.nello /more-info/removed-integration 301
+/components/nello /more-info/removed-integration 301
+/integrations/nello /more-info/removed-integration 301
+/components/device_tracker.huawei_router /more-info/removed-integration 301
+/integrations/huawei_router /more-info/removed-integration 301
+/components/sensor.iota /more-info/removed-integration 301
+/components/iota /more-info/removed-integration 301
+/integrations/iota /more-info/removed-integration 301
+/components/mychevy /more-info/removed-integration 301
+/integrations/mychevy /more-info/removed-integration 301
+/components/binary_sensor.mychevy /more-info/removed-integration 301
+/components/sensor.mychevy /more-info/removed-integration 301
+/integrations/loopenergy /more-info/removed-integration 301
+/components/loopenergy /more-info/removed-integration 301
+/components/sensor.loop_energy /more-info/removed-integration 301
+/components/sensor.loopenergy /more-info/removed-integration 301
+/integrations/tahoma /more-info/removed-integration 301

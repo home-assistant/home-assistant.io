@@ -81,7 +81,23 @@ initial_hvac_mode:
   required: false
   type: string
 away_temp:
-  description: "Set the temperature used by `preset_mode: away`. If this is not specified, the preset mode feature will not be available."
+  description: "Set the temperature used by `preset_mode: away`."
+  required: false
+  type: float
+comfort_temp:
+  description: "Set the temperature used by `preset_mode: comfort`."
+  required: false
+  type: float
+home_temp:
+  description: "Set the temperature used by `preset_mode: home`."
+  required: false
+  type: float
+sleep_temp:
+  description: "Set the temperature used by `preset_mode: sleep`."
+  required: false
+  type: float
+activity_temp:
+  description: "Set the temperature used by `preset_mode: activity`."
   required: false
   type: float
 precision:

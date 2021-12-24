@@ -21,6 +21,7 @@ ha_platforms:
   - climate
   - light
   - sensor
+  - select
 ---
 
 The Netatmo integration platform is the main integration to integrate all Netatmo related platforms.
@@ -37,7 +38,7 @@ There is currently support for the following device types within Home Assistant:
 
 ### Extra configuration of the integration
 
-Configuration of Netatmo public weather stations is offered from the front end. Enter the Netatmo integration and press the cogwheel.
+Configuration of Netatmo public weather stations is offered from the front end. Enter the Netatmo integration and press the "CONFIGURE", then set "Area name" for new area.
 
 In the dialog, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
 
@@ -234,7 +235,7 @@ client_secret:
 
 **After the client_id and client_secret is added to your `configuration.yaml` you must enable Netatmo through the integrations page.**
 
-Menu: **Configuration** -> **Integrations**.
+Menu: **Configuration** -> **Devices & Services**.
 
 Click on the `+` sign to add an integration and click on **Netatmo**.
 After completing the configuration flow, the Netatmo integration will be available.

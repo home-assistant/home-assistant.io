@@ -10,7 +10,10 @@ ha_category:
   - Hub
   - Light
   - Lock
+  - Number
+  - Select
   - Sensor
+  - Siren
   - Switch
 ha_release: '2021.2'
 ha_iot_class: Local Push
@@ -27,6 +30,8 @@ ha_platforms:
   - lock
   - number
   - sensor
+  - select
+  - siren
   - switch
 ---
 
@@ -36,11 +41,24 @@ Please review the limitations [below](/integrations/zwave_js/#current-limitation
 
 ## Quick start (Home Assistant including Supervisor)
 
-To add Z-Wave JS to your installation, plug the Z-Wave stick into the device that runs Home Assistant. Then Go to Configuration >> Integrations in the UI. Click the "Add integration" button in the bottom right and from the list of integrations, select "Z-Wave JS" and follow the instructions shown.
+To add Z-Wave JS to your installation, plug the Z-Wave stick into the device that runs Home Assistant. Then Go to {% my integrations title="Configuration > Devices & Services" %} in the UI. Click the "Add integration" button in the bottom right and from the list of integrations, select "Z-Wave JS" and follow the instructions shown.
 
 Note: A new network key is automatically generated for you. If this Z-Wave stick has already paired with secure devices, you need to enter the previously used network key. Make sure that you keep a backup of this key in a safe place in case you need to move your Z-Wave stick to another device.
 
 If you do not run Home Assistant OS (the default installation type) or Home Assistant Supervised, please see the [advanced installation instructions](#advanced-installation-instructions).
+
+### Discovery via USB
+
+Some devices can be auto-discovered, which can simplify the Z-Wave JS setup process. The following devices have been tested with discovery, and offer a quick setup experience:
+
+| Device | Identifier | Vendor |
+| -------| ---------- | ------ |
+| Aeotec Z-Stick Gen5+ | 0658:0200 | https://aeotec.com/z-wave-usb-stick/ |
+| Nortek HUSBZB-1 | 10C4:8A2A | https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/ |
+| Zooz ZST10 | 10C4:EA60 | https://www.getzooz.com/zooz-zst10-s2-stick.html |
+| Z-WaveMe UZB | 0658:0200 | https://z-wave.me/products/uzb/ |
+
+Additional devices may be discoverable, however only devices that have been confirmed discoverable are listed above.
 
 ## Using Z-Wave
 
@@ -62,8 +80,9 @@ This service will update a configuration parameter. To update multiple partial p
 
 | Service Data Attribute 	| Required  	| Description                                                                                                                               	|
 |------------------------	|-----------	|-------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
-| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                                	|
+| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 | `parameter`            	| yes       	| The parameter number or the name of the property. The name of the property is case sensitive.                                             	|
 | `bitmask`              	| no        	| The bitmask for a partial parameter in hex (0xff) or decimal (255) format. If the name of the parameter is provided, this is not needed. 	|
 | `value`                	| yes       	| The target value for the parameter as the integer value or the state label. The state label is case sensitive.                       	|
@@ -114,8 +133,9 @@ This service will bulk set multiple partial configuration parameters. Be warned 
 
 | Service Data Attribute 	| Required  	| Description                                                                                                                               	|
 |------------------------	|-----------	|-------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
-| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                                	|
+| `entity_id`            	| no        	| Entity (or list of entities) to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 | `parameter`            	| yes       	| The parameter number of the property. The name of the property is case sensitive.                                             	|
 | `value`                	| yes       	| Either the raw integer value that you want to set for the entire parameter, or a dictionary where the keys are either the bitmasks (in integer or hex form) or the partial parameter name and the values are the value you want to set on each partial (either the integer value or a named state when applicable). Note that when using a dictionary, and bitmasks that are not provided will be set to their currently cached values.                       	|
 
@@ -211,8 +231,9 @@ This service will set a value on a Z-Wave device. It is for advanced use cases w
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
-| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                         |
+| `entity_id`            	| no        	| Entity (or list of entities) to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 | `command_class`       	| yes       	| ID of Command Class that you want to set the value for. 	                                                                                            |
 | `property`            	| yes       	| ID of Property that you want to set the value for. 	                                                                                                  |
 | `property_key`        	| no        	| ID of Property Key that you want to set the value for. 	                                                                                              |
@@ -227,8 +248,9 @@ This service will set a value on multiple Z-Wave devices using multicast. It is 
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least two `entity_id` or `device_id` must be provided if not broadcasting the command.                       	|
-| `device_id`            	| no        	| ID of device (or list of device IDs) to set the configuration parameter on. At least two `entity_id` or `device_id` must be provided if not broadcasting the command.                                         |
+| `entity_id`            	| no        	| Entity (or list of entities) to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                	|
 | `broadcast`             | no          | Boolean that indicates whether you want the message to be broadcast to all nodes on the network. If you have only one Z-Wave JS network configured, you do not need to provide a `device_id` or `entity_id` when this is set to true. When you have multiple Z-Wave JS networks configured, you MUST provide at least one `device_id` or `entity_id` so the service knows which network to target.                                         |
 | `command_class`       	| yes       	| ID of Command Class that you want to set the value for. 	                                                                                            |
 | `property`            	| yes       	| ID of Property that you want to set the value for. 	                                                                                                  |
@@ -243,10 +265,11 @@ Calling this service forces Z-Wave JS to try to reach a node. This can be used t
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to ping. At least one `entity_id` or `device_id` must be provided.                       	|
-| `device_id`            	| no        	| ID of device to ping. At least one `entity_id` or `device_id` must be provided.                                         |
+| `entity_id`            	| no        	| Entity (or list of entities) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
 
-This service can be used in tandem with the node status sensor (disabled by default) to track the node's status and fire the command when needed. Here's an example automation that would ping a node when the node status sensor state has changed to dead and remained dead for 30 minutes. Note that this may be useful for some devices but will definitely not be useful for all. In cases where it is not useful, all you will be doing is generating additional traffic on your Z-Wave network which could slow down communication.
+This service can be used in tandem with the node status sensor to track the node's status and fire the command when needed. Here's an example automation that would ping a node when the node status sensor state has changed to dead and remained dead for 30 minutes. Note that this may be useful for some devices but will definitely not be useful for all. In cases where it is not useful, all you will be doing is generating additional traffic on your Z-Wave network which could slow down communication.
 
 ```yaml
 trigger:
@@ -408,33 +431,96 @@ action:
       entity_id: switch.in_wall_dual_relay_switch_2, switch.in_wall_dual_relay_switch_3
 ```
 
+## Automations
+
+### Device automations
+
+Z-Wave JS has support for device triggers and conditions. To use a device automation, use the automation UI to select the "Device" trigger/condition type, and then pick your Z-Wave JS device. Under trigger/condition types, you will see Z-Wave JS specific entries.
+
+### `zwave_js.value_updated` trigger
+
+Z-Wave JS provides the `zwave_js.value_updated` trigger platform which can be used to trigger automations on any Z-Wave JS value update, including Z-Wave values that aren't supported in Home Assistant via entities. While they can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
+
+```yaml
+# Example automation trigger that fires whenever the `latchStatus` value changes from `closed` to `opened` on the three devices (devices will be derived from an entity ID).
+trigger:
+  platform: zwave_js.value_updated
+  # At least one `device_id` or `entity_id` must be provided
+  device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
+  entity_id:
+    - lock.front_lock
+    - lock.back_door
+  # `property` and `command_class` are required
+  command_class: 98 # Door Lock CC
+  property: "latchStatus"
+  # `property_key` and `endpoint` are optional
+  property_key: null
+  endpoint: 0
+  # `from` and `to` will both accept lists of values and the trigger will fire if the value update matches any of the listed values
+  from:
+    - "closed"
+    - "jammed"
+  to: "opened"
+```
+
+#### Available Trigger Data
+
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `zwave_js.value_updated` trigger platform has additional trigger data available for use.
+
+| Template variable            | Data                                                                                       |
+|------------------------------|--------------------------------------------------------------------------------------------|
+| `trigger.device_id`          | Device ID for the device in the device registry.                                           |
+| `trigger.node_id`            | Z-Wave node ID.                                                                            |
+| `trigger.command_class`      | Command class ID.                                                                          |
+| `trigger.command_class_name` | Command class name.                                                                        |
+| `trigger.property`           | Z-Wave Value's property.                                                                   |
+| `trigger.property_name`      | Z-Wave Value's property name.                                                              |
+| `trigger.property_key`       | Z-Wave Value's property key.                                                               |
+| `trigger.property_key_name`  | Z-Wave Value's property key name.                                                          |
+| `trigger.endpoint`           | Z-Wave Value's endpoint.                                                                   |
+| `trigger.previous_value`     | The previous value for this Z-Wave value (translated to a state name when possible).       |
+| `trigger.previous_value_raw` | The raw previous value for this Z-Wave value (the key of the state when a state is named). |
+| `trigger.current_value`      | The current value for this Z-Wave value (translated to a state name when possible).        |
+| `trigger.current_value_raw`  | The raw current value for this Z-Wave value (the key of the state when a state is named).  |
+
 ## Current Limitations
 
 - While support for the most common devices is working, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
-- There currently is no migration path available from any of the other Z-Wave implementations in Home Assistant. Your Z-Wave network is however stored on your stick so migrating will only require you to redo your device and entity naming.
 
 You can keep track of the Roadmap for the Z-Wave JS integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).
 
 ## Migrating from previous Z-Wave implementations
 
-If you are currently running on the [`zwave`](/integrations/zwave/) or [`ozw`](/integrations/ozw/) Z-Wave integration and it works fine, there is **no need to switch over at this time** to Z-Wave JS. It is important to know is that most development focus currently goes to Z-Wave JS. The previous implementations are still provided as-is. They will **NOT be removed** without proper notice but in time there *might* come technical dependencies that render one or both of those integrations unusable.
-
 If you're new to Home Assistant, use Z-Wave JS.
 
-The `zwave` integration has been marked as deprecated and will no longer receive any updates like new device files. The `ozw` integration will receive new device files if they are provided by upstream.
+The `zwave` and `ozw` integrations have been marked as deprecated and will no longer receive any updates.
 
-It is perfectly doable to switch over from one of the above mentioned previous integrations to the new Z-Wave JS integration. The good news is that your entire Z-Wave network is **stored on your stick** so you will not have to run through your house to recreate your network. That said, we currently do not provide a full-fledged, worry-free, click-a-button, migration from old to new. We're exploring options to provide this in the future. This means that if you want to switch over now, *you* will be the migration wizard.
+It is perfectly doable to switch over from one of the above mentioned previous integrations to the new Z-Wave JS integration. The good news is that your entire Z-Wave network is **stored on your stick** so you will not have to run through your house to recreate your network.
+
+If you are currently running the [`zwave`](/integrations/zwave/) or [`ozw`](/integrations/ozw/) Z-Wave integration we recommend you to migrate to Z-Wave JS. All development focus now goes to Z-Wave JS. The previous implementations are provided as-is. They will not be removed without proper notice but in time there might come technical dependencies that render one or both of those integrations unusable.
+
+### Automatic migration wizard
+
+For the `zwave` integration there is a migration wizard that will help you set up the Z-Wave JS integration, remove the `zwave` integration and migrate the entities and devices that can be mapped from the `zwave` integration to the Z-Wave JS integration. Some entities may not be able to migrate automatically and you will need to rename the corresponding available Z-Wave JS entities manually, after the migration. Before completing the migration you will be shown a list of entities that could not be migrated automatically, and you'll have the option to abort or continue with the migration. The migration wizard is available from the `zwave` integration configuration panel in the GUI.
+
+There is no automatic migration wizard for the `ozw` integration. Please follow the manual migration path below if you want to migrate from `ozw` to Z-Wave JS.
 
 ### In a nutshell this is what the migration path looks like
 
-1) Make a **backup** of your Home Assistant configuration. If you're running the supervisor this is very easy to do by creating a snapshot. You should do this so you'll be able to quickly revert if you may run into unexpected problems.
+1) Make a **backup** of your Home Assistant configuration. If you're running the supervisor this is very easy to do by creating a backup. You should do this so you'll be able to quickly revert if you may run into unexpected problems.
 
    <div class='note info'>Write down/copy your Z-Wave network key somewhere, you are going to need it later.</div>
 
    <div class='note info'>Make a list of what node ID belongs to each device. Your network (Nodes and their config etc) is stored on the stick but the names you gave your devices and entities are not. This step is optional but will save you a lot of time later.</div>
 
-2) Remove the Z-Wave integration from Home Assistant: Configuration --> Integrations --> Z-Wave (or OpenZWave) --> Press the three dots and click Remove.
+2) Remove the Z-Wave integration from Home Assistant: Configuration --> Integrations --> Z-Wave (or OpenZWave) --> Press the three dots and click Delete.
 
+    <div class='note info'>
+
+    If you have configured Z-Wave manually, make sure to also remove the `zwave:` section from your `configuration.yaml`.
+
+    </div>
+ 
 3) If you were running the OpenZWave beta, make sure to stop (or even remove) the OpenZWave add-on, also make sure it doesn't start automatically at startup.
 
 4) Restart your Home Assistant host. This step is important to make sure that your Z-Wave stick is released by the operating system.
@@ -554,7 +640,7 @@ Node {{ node }};{{ s.name }};{{ s.entity_id }}{% endfor %}
 
 {% endraw %}
 
-## How can I add (include) a new device to my Z-Wave network?
+### How can I add (include) a new device to my Z-Wave network?
 
 1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
 2. Press `Add node`.
@@ -567,7 +653,7 @@ Node {{ node }};{{ s.name }};{{ s.entity_id }}{% endfor %}
 While adding devices, you have the option to use `secure inclusion`, this means that the traffic between the controller and the device will be encrypted. This adds additional overhead to the Z-Wave network so use this option with care. As a general rule of thumb it is advised to only securely include devices that actually NEED this kind of protection. A good example is a Z-Wave door lock.
 </div>
 
-## How can I remove (exclude) a device from my Z-Wave network?
+### How can I remove (exclude) a device from my Z-Wave network?
 
 1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
 2. Press `Remove node`.
@@ -638,4 +724,8 @@ to pick up those new names, either reload the integration or restart Home Assist
 
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow the menu:
 
-**Configuration** -> **Integrations** -> **Z-Wave JS** -> **Configure** -> **Download a dump of your network to help diagnose issues**
+**Configuration** -> **Devices & Services** -> **Z-Wave JS** -> **Configure** -> **Download a dump of your network to help diagnose issues**
+
+### Interference issues
+
+Many users have reported issues with interference when the USB stick was directly connected to the machine (proximity). If you are having issues try to use a short USB 2.0 A male to female extension cord.

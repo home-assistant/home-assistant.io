@@ -3,6 +3,6 @@ title: "Cards"
 description: "Lovelace cards."
 ---
 
-The cards are the what make the interface of your Lovelace dashboard.
+Cards provide a structure for interfacing with your Lovelace dashboard.
 
-There are a lot of card types, each with it's own configuration options, pick a card in the menu to see the options for that card.
+There are several built-in card types, each with their own configuration options. Select a card from the menu to view additional details and the options for that card.

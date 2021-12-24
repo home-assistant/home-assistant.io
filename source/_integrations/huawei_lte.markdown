@@ -68,7 +68,7 @@ entities varies by device model and firmware version.
 
 ### Configuration via the frontend
 
-Menu: **Configuration** -> **Integrations**.
+Menu: **Configuration** -> **Devices & Services**.
 
 Click on the `+` sign to add an integration and click on **Huawei
 LTE**, and follow the configuration flow. After finishing, the Huawei

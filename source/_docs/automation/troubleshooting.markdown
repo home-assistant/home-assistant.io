@@ -3,30 +3,26 @@ title: "Troubleshooting Automations"
 description: "Tips on how to troubleshoot your automations."
 ---
 
-## Using debug traces
+When an automation is run, all steps are recorded and a trace is made. From the UI choose **Configuration** which is located in the sidebar, then click on **Automation** to go to the automation editor or click this button directly: {% my automations badge %}
 
-Every time an automation runs, a debugging trace is generated regardless of whether the automation was completed, aborted, or suffered an error. Traces allow you to interactively inspect the state of the automation at every step and also check the values of [variables](/docs/scripts/#variables) and rendered [templates](/docs/configuration/templating/). Traces can be accessed in the {% my automations title="Automations Section" %} of {% my configuration %}.
+Click on the clock icon next to an automation to enter the debugging screen. Alternatively, click on **Show trace** directly from a Logbook automation entry.
 
-![Automation debug trace example](/images/integrations/automation/automation-tracing.png)
+![Automation tracing example](/images/integrations/automation/automation-tracing.png)
+
+The above screenshot shows a previous run of an automation. The automation is displayed using an interactive graph, highlighting which path the automation took. Each node in the graph can be clicked to view the details on what happened with the automation during that specific step. It traces the complete run of an automation.
+
+The debugging screen is split into four features, the first being the Step Details which provides all details for each step of the automation. The second feature is the Trace Timeline which the screenshot above shows and where the automation can be followed on a timeline. The next is Related logbook entries, as the name says a logbook for all the entries related to the specific trace. The last two features are Automation Config and optionally Blueprint Config for the automation YAML code.
 
 Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating-your-yaml-automations-to-automationsyaml) assigned in order for debugging traces to be stored.
 
-By default the last 5 traces are stored for each automation, this can be adjusted in the [YAML configuration](/docs/automation/yaml/#number-of-debug-traces-stored) of an automation. Stored traces are reset each time Home Assistant restarts.
+#### Traces ####
 
-## Inspecting logs and the Logbook
+The last 5 traces are recorded for all automations. It is possible to change this by adding the following code to your automation.
 
-You can verify that your automation rules are being initialized correctly by watching both the realtime logs (`homeassistant.log` in the configuration directory) and also the [Logbook](/integrations/logbook/). The realtime logs will show the rules being initialized (once for each trigger), example:
-
-```text
-INFO [homeassistant.components.automation] Initialized rule Rainy Day
-INFO [homeassistant.components.automation] Initialized rule Rainy Day
-INFO [homeassistant.components.automation] Initialized rule Rainy Day
-INFO [homeassistant.components.automation] Initialized rule Rain is over
+```yaml
+trace:
+    stored_traces: 1
 ```
-
-The Logbook integration will show a line entry when an automation is triggered. You can look at the previous entry to determine which trigger in the rule triggered the event.
-
-![Logbook example](/images/integrations/automation/logbook.png)
 
 [template]: /topics/templating/
 
@@ -43,7 +39,7 @@ It is also useful to go to **{% my server_controls title="Configuration -> Serve
 
 If your automation uses templates in any part, you can do the following to make sure it works as expected:
 
-1. Go to **{% my developer_templates title="Developer tools -> Template" %}** tab.
+1. Go to **{% my developer_template title="Developer tools -> Template" %}** tab.
 2. Create all variables (sources) required for your template as described at the end of [this](https://www.home-assistant.io/docs/configuration/templating/#processing-incoming-data) paragraph.
 3. Copy your template code and paste it in Template editor straight after your variables.
 4. If necessary, change your sources' value and check if the template works as you want and does not generate any errors.

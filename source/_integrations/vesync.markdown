@@ -110,21 +110,29 @@ Adapted from the [TP-Link integration](https://www.home-assistant.io/integration
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: template
-    sensors:
-      vesync_switch_watts:
-        friendly_name_template: "{{ states.switch.vesync_switch.name}} Current Consumption"
-        value_template: '{{ states.switch.vesync_switch.attributes["current_power_w"] | float }}'
-        unit_of_measurement: "W"
-      vesync_switch_total_kwh:
-        friendly_name_template: "{{ states.switch.vesync_switch.name}} Total Consumption"
-        value_template: '{{ states.switch.vesync_switch.attributes["today_energy_kwh"] | float }}'
-        unit_of_measurement: "kWh"
-      vesync_switch_volts:
-        friendly_name_template: "{{ states.switch.vesync_switch.name}} Voltage"
-        value_template: '{{ states.switch.vesync_switch.attributes["voltage"] | float }}'
-        unit_of_measurement: "V"
+template:
+  - sensor:
+    - name: "Vesync current comsumption"
+      state: "{{ state_attr('switch.vesync_switch', 'current_power_w') | float(default=0) }}"
+      unit_of_measurement: "W"
+    - name: "Vesync total consumption"
+      state: "{{ state_attr('switch.vesync_switch', 'today_energy_kwh') | float(default=0) }}"
+      unit_of_measurement: "kWh"
+    - name: "Vesync voltage"
+      state: "{{ state_attr('switch.vesync_switch', 'voltage') | float(default=0) }}"
+      unit_of_measurement: "V"
+```
+{% endraw %}
+
+Extracting air quality from a VeSync LV-PUR131S air purifier. Change the `vesync_air_purifier` to match your device's entity ID.
+
+{% raw %}
+
+```yaml
+template:
+  - sensor:
+      - name: "VeSync Air Quality"
+        state: "{{ state_attr('fan.vesync_air_purifier', 'air_quality') | title }}"
 ```
 
 {% endraw %}

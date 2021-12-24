@@ -11,7 +11,6 @@ categories:
 - Release-Notes
 - Core
 og_image: /images/blog/2021-04/social.png
-feedback: true
 ---
 
 <a href='/integrations/#version/2021.4'><img src='/images/blog/2021-04/social.png' style='border: 0;box-shadow: none;'></a>
@@ -112,7 +111,7 @@ Today we introduce: Home Assistant Analytics. Opt-in, privacy-aware, public
 and open source. Just as it all should be for our project.
 
 [@ludeeus] did a fantastic job writing this new integration. You decide if you
-turn it on or not; however, we guarantee its privacy-aware. Doubt it? Review it!
+turn it on or not; however, we guarantee it's privacy-aware. Doubt it? Review it!
 Everything is open source!
 
 Not open enough for you? We are publishing the result for everybody to see:
@@ -1033,7 +1032,7 @@ modbus:
 The `reporting` and `include_used_components` configuration options have now
 been deprecated, the `updater` integration will no longer report any analytics.
 
-The analytics has moved to it's own integration.
+The analytics has moved to its own integration.
 See the [`analytics` integration](/integrations/analytics) for more details on
 how to configure it.
 

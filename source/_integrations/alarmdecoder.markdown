@@ -191,7 +191,6 @@ The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Sta
 
 </div>
 
-
 | Mode                                                    | Key Sequence                   |
 | ------------------------------------------------------- | ------------------------------ |
 | `alarm_arm_home`                                        | `chr(4)` + `chr(4)` + `chr(4)` |

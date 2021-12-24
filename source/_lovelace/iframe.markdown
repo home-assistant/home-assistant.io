@@ -29,7 +29,7 @@ url:
   type: string
 aspect_ratio:
   required: false
-  description: Height to width ratio.
+  description: 'Forces the height of the image to be a ratio of the width. Valid formats: Height percentage value (`23%`) or ratio expressed with colon or "x" separator (`16:9` or `16x9`). For a ratio, the second element can be omitted and will default to "1" (`1.78` equals `1.78:1`).'
   type: string
   default: "50%"
 title:

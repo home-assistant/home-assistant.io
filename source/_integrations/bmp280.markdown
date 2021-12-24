@@ -15,7 +15,7 @@ ha_platforms:
   - sensor
 ---
 
-The `bmp280` sensor platform allows you to read temperature and pressure values of a [Bosch BMP280 Environmental sensor](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/pressure-sensors-bmp280-1.html) connected via [I2C](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins).
+The `bmp280` sensor platform allows you to read temperature and pressure values of a [Bosch BMP280 Environmental sensor](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp280/) connected via [I2C](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins).
 
 This integration has been tested on a Raspberry Pi 4B, but it should work on any device which is supported by [CircuitPython](https://circuitpython.org/).
 

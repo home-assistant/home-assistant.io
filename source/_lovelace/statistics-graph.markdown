@@ -41,7 +41,7 @@ chart_type:
   required: false
   description: If the chart should be rendered as a `bar` or a `line` chart.
   type: string
-state_types:
+stat_types:
   required: false
   description: The stat types to render. `min`, `max`, `mean`, `sum`
   type: list

@@ -2,7 +2,7 @@
 
 Best practice for updating a Home Assistant installation:
 
-1. Backup your installation{% if page.installation == "os" or page.installation == "supervised" %}, using the snapshot functionality Home Assistant offers{% endif %}.
+1. Backup your installation{% if page.installation == "os" or page.installation == "supervised" %}, using the backup functionality Home Assistant offers{% endif %}.
 1. Check the release notes for breaking changes on [Home Assistant release notes](https://github.com/home-assistant/home-assistant/releases). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f` / `CMD + f`) and search for **Breaking Changes**.
 {% if page.installation == "os" or page.installation == "supervised" %}
 1. Check your configuration using the [Check Home Assistant configuration](/addons/check_config/) add-on.
@@ -20,10 +20,10 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
   content: |
 
     1. Open your Home Assistant UI
-    2. Navigate to the Supervisor panel
-    3. On the Dashboard tab you will be presented with an update notification
+    2. Navigate to the Configuration panel
+    3. On the top you will be presented with an update notification
 
-    _If you do not see that notification you can navigate to the System tab. and click the "Reload Supervisor" button._
+    _If you do not see that notification you can navigate to the {% my supervisor_logs title="Configuration > Add-ons & Backups > System" %} panel. and click the "Reload Supervisor" button._
 
 - title: Using the CLI
   content: |

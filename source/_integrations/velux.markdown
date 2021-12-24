@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: velux
 ha_platforms:
   - cover
+  - light
   - scene
 ---
 

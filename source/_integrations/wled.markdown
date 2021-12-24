@@ -15,11 +15,13 @@ ha_domain: wled
 ha_zeroconf: true
 ha_platforms:
   - light
+  - number
   - sensor
+  - select
   - switch
 ---
 
-[WLED](https://github.com/Aircoookie/WLED) is a fast and feature-rich
+[WLED](https://kno.wled.ge) is a fast and feature-rich
 implementation of an ESP8266/ESP32 webserver to control
 NeoPixel (WS2812B, WS2811, SK6812, APA102, and similar) LED's.
 
@@ -52,7 +54,9 @@ If WLED has 2 or more segments, each segment gets its own light entity in
 Home Assistant. Additionally, a master light entity is created. This master
 entity controls the strip power and overall brightness applied to all segments.
 
-## Selects
+Additionally, select and number entities described below will be created for each segment.
+
+## Select Entities
 
 This integration provides selects for the following information from WLED:
 
@@ -60,7 +64,14 @@ This integration provides selects for the following information from WLED:
 - Preset
 - Color palette (per segment, disabled by default).
 
-## Sensors
+## Number Entities
+
+This integration provides `number` entities to control the following, segment-specific settings:
+
+- Intensity
+- Speed
+
+## Sensor Entities
 
 This integration provides sensors for the following information from WLED:
 
@@ -86,7 +97,7 @@ Can be configured on the WLED itself under settings > LED Preferences > Timed li
 Toggles the synchronization between multiple WLED devices.
 Can be configured on the WLED itself under settings > Sync Interfaces > WLED Broadcast.
 
-[WLED Sync documentation](https://github.com/Aircoookie/WLED/wiki/Sync-WLED-devices-(UDP-Notifier))
+[WLED Sync documentation](https://kno.wled.ge/interfaces/udp-realtime/)
 
 {% include integrations/option_flow.md %}
 
@@ -94,27 +105,6 @@ Can be configured on the WLED itself under settings > Sync Interfaces > WLED Bro
 Keep Master Light:
   description: Keep the master light, even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to appear and remove dynamically.
 {% endconfiguration_basic %}
-
-## Services
-
-Currently, the WLED integration provides one service for controlling effect.
-More services for other WLED features are expected to be added in the future.
-
-### Service `wled.effect`
-
-This service allows for controlling the WLED effect.
-
-| Service Data Attribute | Required | Description                                                                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | A WLED entity ID, or list entity IDs, to apply the effect to. Use `entity_id: all` to target all WLED entities. |
-| `effect`               | no       | Name or ID of the WLED light effect.                                                                            |
-| `intensity`            | no       | Intensity of the effect. Number between `0` and `255`.                                                          |
-| `palette`              | no       | Name or ID of the WLED light palette.                                                                           |
-| `speed`                | no       | Speed of the effect. Number between `0` (slow) and `255` (fast).                                                |
-| `reverse`              | no       | Reverse the effect. Either `true` to reverse or `false` otherwise.                                              |
-
-A list of all available effects (and the behavior of the intensity for each
-effect) [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/List-of-effects-and-palettes#effects).
 
 ## Example Automations
 
@@ -125,7 +115,7 @@ You can automate changing the effect using a service call like this:
 {% raw %}
 
 ```yaml
-service: wled.effect
+service: light.turn_on
 target:
   entity_id: light.wled
 data:
@@ -136,28 +126,18 @@ data:
 
 ### Activating Random Palette
 
-Activating a random palette is a bit more complicated as there is currently no way to obtain a list of available palettes.
-To go around this issue, one solution is to leverage the fact that palettes can be activated by their IDs.
-As the IDs are based on an incrementing counter, picking a random number between zero and the number of palettes minus one works.
-
-To do this, the first step is to use [WLED's JSON API](https://github.com/Aircoookie/WLED/wiki/JSON-API) find out how many palettes the device supports:
-
-```bash
-$ curl --silent http://<ip address of the wled device>/json | jq ".palettes | length"
-
-54
-```
-
-In this case (using WLED v0.11.0) there are 54 palettes, so the following service call will activate a random palette by its ID between 0 and 53:
+Activating a random palette is very similar to the above random effect,
+and can be done by selecting a random one from the available palette select
+entity.
 
 {% raw %}
 
 ```yaml
-service: wled.effect
+service: select.select_option
 target:
-  entity_id: light.wled
+  entity_id: select.wled_palette
 data:
-  palette: "{{ range(0,53) | random }}"
+  option: "{{ state_attr('select.wled_palette', 'options') | random }}"
 ```
 
 {% endraw %}

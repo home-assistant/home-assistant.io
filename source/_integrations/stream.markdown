@@ -24,6 +24,19 @@ The `stream` integration is automatically loaded by `default_config` and enabled
 stream:
 ```
 
+## LL-HLS
+
+There is the option to enable LL-HLS for lower latency. Please note that LL-HLS has strict timing and network requirements that can be hard to meet, so this option may not work on all setups. As HTTP/2 is required by the LL-HLS specification, the use of an HTTP/2 enabled reverse proxy is strongly recommended.
+To enable LL-HLS, add the following to your `configuration.yaml`:
+
+```yaml
+# Example LL-HLS configuration.yaml entry.
+stream:
+  ll_hls: true
+  part_duration: 0.75  # Range of 0.2 to 1.5
+  segment_duration: 6  # Range of 2 to 10
+```
+
 ## Technical Details
 
 The integration currently supports proxying H.264 and H.265 source streams to the HLS protocol and requires at least FFmpeg >= 4. Note that H.265 support is limited to Safari, iOS, and Android. The `stream` integration also provides limited support for audio. PCM codecs (e.g. G.711/G.723/G.726/G.729) are not supported. ADTS AAC audio is also currently not supported. Most other AAC and MP3 encoded audio should work.

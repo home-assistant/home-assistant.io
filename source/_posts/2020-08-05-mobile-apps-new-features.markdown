@@ -74,7 +74,7 @@ Starting with 1.8.0 we have introduced a new [Geocoded sensor](https://companion
 Screenshot of the Geocoded Sensor.
 </p>
 
-The battery level sensor was split in 1.9.0 to include a [battery state sensor](https://companion.home-assistant.io/docs/core/sensors#battery-sensors) so you can see when your device is actively `charging`, `not_charging`, `discharging` and `full`. You can also distinguish whether its `wireless`, `ac` or `usb`. The state now updates immediately upon being plugged in and unplugged to allow for quicker automations.
+The battery level sensor was split in 1.9.0 to include a [battery state sensor](https://companion.home-assistant.io/docs/core/sensors#battery-sensors) so you can see when your device is actively `charging`, `not_charging`, `discharging` and `full`. You can also distinguish whether it's `wireless`, `ac` or `usb`. The state now updates immediately upon being plugged in and unplugged to allow for quicker automations.
 
 
 #### Biometrics

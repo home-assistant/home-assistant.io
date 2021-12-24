@@ -43,6 +43,12 @@ The following sensors are available in the library:
 | DC1 Power               | W    | Power of string 1. |
 | DC2 Power               | W    | Power of string 2. |
 | DC3 Power               | W    | Power of string 3. |
+| DC1 Voltage             | V    | Voltage of string 1. |
+| DC2 Voltage             | V    | Voltage of string 2. |
+| DC3 Voltage             | V    | Voltage of string 3. |
+| DC1 Current             | A    | Current of string 1. |
+| DC2 Current             | A    | Current of string 2. |
+| DC3 Current             | A    | Current of string 3. |
 | PV to Battery Power     | W    | Power used to charge the battery. |
 | Energy Manager State    |      | State of the energy manager. |
 | Battery Cycles          |      | Number of full charge/discharge cylces. |
@@ -105,23 +111,3 @@ The following sensors are available in the library:
 <div class='note'>
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
 </div>
-
-## Services
-
-### Service `kostal_plenticore.write_setting_value`
-
-Write a new value to a setting.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String that point to a setting `entity_id`.
-| `value` | no  | The new value to write to the setting.
-
-Example:
-
-Set the minimal SoC of the battery:
-
-```yaml
-entity_id: sensor.plenticore_battery_min_soc
-value: 10
-```

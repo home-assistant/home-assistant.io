@@ -1,7 +1,6 @@
 ---
 title: MeteoAlarm
 description: Instructions on how to set up MeteoAlarm binary sensors within Home Assistant.
-logo: meteoalarm.png
 ha_category: Binary Sensor
 ha_release: 0.93
 ha_iot_class: Cloud Polling
@@ -42,10 +41,10 @@ province:
   required: true
   type: string
 language:
-  description: "The 2 letters of your language, please be aware that this is only possible in the current country. So 'ne' is only possible in Netherlands. Possible options are: bu, bs, ce, da, de, ee, en, es, ga, ca, su, fr, gr, he, hr, ma, is, it, li, la, sr, mk, ma, ne, no, po, pt, ro, cp, sv, sl, eu."
+  description: "The ISO code of your language, please be aware that this is only possible in the current country. So 'nl-NL' or 'nl-BE' is only possible in Netherlands or Belgium"
   required: false
   type: string
-  default: "en"
+  default: "en-US"
 {% endconfiguration %}
 
 

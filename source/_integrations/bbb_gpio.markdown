@@ -13,6 +13,14 @@ ha_platforms:
   - switch
 ---
 
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.4.
+
+For more information see: [Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+</div>
+
 The `bbb_gpio` integration is the base for all [BeagleBone Black](https://beagleboard.org/black) related GPIO platforms in Home Assistant.
 There is no setup needed for the integration itself.
 
@@ -20,7 +28,7 @@ There is no setup needed for the integration itself.
 
 The `bbb_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [BeagleBone Black](https://beagleboard.org/black).
 
-## Configuration
+### Configuration
 
 To use your BeagleBone Black's GPIO in your installation, add the following to your `configuration.yaml` file:
 
@@ -73,7 +81,7 @@ For more details about the GPIO layout, visit the [article](https://elinux.org/B
 
 The `bbb_gpio` switch platform allows you to control the GPIOs of your [BeagleBone Black](https://beagleboard.org/black).
 
-## Configuration
+### Configuration
 
 To use your BeagleBone Black's GPIO in your installation, add the following to your `configuration.yaml` file:
 

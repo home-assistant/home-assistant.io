@@ -3,9 +3,9 @@ title: "Configuration.yaml"
 description: "Configuring Home Assistant via text files."
 ---
 
-While you can configure most of Home Assistant directly from the user interface under {% my configuration %}, some parts need you to edit `configuration.yaml`. This file contains integrations to be loaded along with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable specific functionality.
+While you can configure most of Home Assistant directly from the user interface under {% my config title="Configuration" %}, some parts need you to edit `configuration.yaml`. This file contains integrations to be loaded along with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable specific functionality.
 
-If you run into trouble while configuring Home Assistant, refer to the [configuration troubleshooting page](/getting-started/configuration/troubleshooting/) and the [`configuration.yaml` examples](/examples/#example-configurationyaml).
+If you run into trouble while configuring Home Assistant, refer to the [configuration troubleshooting page](/docs/configuration/troubleshooting/) and the [`configuration.yaml` examples](/examples/#example-configurationyaml).
 
 ## Editing `configuration.yaml`
 
@@ -15,7 +15,7 @@ If you prefer to use a file editor on your computer, use the {% my supervisor_ad
 
 _If you use Home Assistant Container, you can find `configuration.yaml` in the config folder that you mounted in your container._
 
-_If you use Home Assistant Core, you can find `configuration.yaml` in the config folder passed to the `hass` command (default is `~/.homeasssistant`)._
+_If you use Home Assistant Core, you can find `configuration.yaml` in the config folder passed to the `hass` command (default is `~/.homeassistant`)._
 
 ## Reloading changes
 
@@ -31,6 +31,6 @@ If you can't see your integration listed there, you will need to restart Home As
 
 ## Migrating to a new system
 
-The preferred way of migrating to a new system is by {% my supervisor_snapshots title="making a backup" %}.
+The preferred way of migrating to a new system is by {% my supervisor_backups title="making a backup" %}.
 
 If you run the container or core installation methods, you will need to manually make a backup of your configuration folder. Be aware that some of the files you need start with `.`, which is hidden by default from both `ls` (in SSH), in Windows Explorer, and macOS Finder. You'll need to ensure that you're viewing all files before you copy them.

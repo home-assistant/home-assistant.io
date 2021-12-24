@@ -1,5 +1,5 @@
 ---
-title: Prosegur
+title: Prosegur Alarm
 description: Instructions on how to integrate Prosegur Smart Alarms into Home Assistant.
 ha_category:
   - Alarm

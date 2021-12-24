@@ -46,7 +46,7 @@ The following entity types are created:
 
 ### Incidents Sensor
 
-This is the main entity of the integration containing the incident message as it's `value`, it has several attributes which are described below.
+This is the main entity of the integration containing the incident message as its `value`, it has several attributes which are described below.
 
 | Attribute | Description |
 | --------- | ----------- |

@@ -44,6 +44,8 @@ Those automatically discovered Smappee devices are listed on the integrations pa
 This will provide you a limited number of entities only.
 If your home network doesn't support mDNS you can still manually initiate the Smappee integration by choosing the LOCAL option and entering the IP address of the Smappee monitor through the configuration flow.
 
+Technical note: Auto-discovery of Smappee device requires that its mDNS name and password are set to factory default values. These values are typically accessed on the device expert web portal (locally at http://[IP-Address]/smappee.html). If you have changed the mDNS name, this typically is "Smappee[serialnumber]".
+
 ### Sensor
 A sensor entity is being added for the current active power usage. In case of solar production, an entity for active power production is added as well.
 

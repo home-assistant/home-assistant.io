@@ -66,7 +66,7 @@ This service will send messages to a registered device. The following parameters
 - **target**: The desired state of the device, only devices that match the state will receive messages. To enable state tracking a registered device must have a `tracking_device_id` attribute added to the `[NOTIFIER_NAME]_apns.yaml` file. If this ID matches a device in `known_devices.yaml` the device state will be tracked.
 
 - **data**:
-  * **badge**: The number to display as the badge of the app icon.
-  * **sound**: The name of a sound file in the app bundle or in the Library/Sounds folder.
-  * **category**: Provide this key with a string value that represents the identifier property of the `UIMutableUserNotificationCategory`.
-  * **content_available**: Provide this key with a value of 1 to indicate that new content is available.
+  - **badge**: The number to display as the badge of the app icon.
+  - **sound**: The name of a sound file in the app bundle or in the Library/Sounds folder.
+  - **category**: Provide this key with a string value that represents the identifier property of the `UIMutableUserNotificationCategory`.
+  - **content_available**: Provide this key with a value of 1 to indicate that new content is available.

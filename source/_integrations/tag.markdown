@@ -99,7 +99,7 @@ NFC tags come in many different shapes and formats. [NFC Stickers](https://amzn.
 
 To get started with printing cards, you need the following hardware:
 
-- [Inktjet Printer](https://amzn.to/3khMrts)
+- [Inkjet Printer](https://amzn.to/3khMrts)
 - [Compatible card printing tray](https://amzn.to/3hq59x2)
 - [Printable NFC cards](https://amzn.to/3iqHpKx)
 
