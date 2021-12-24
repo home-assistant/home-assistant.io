@@ -42,6 +42,8 @@ Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0-beta.1` is th
 
 ### Local User
 
+You will need a local user created in your UniFi OS Console to log in with. Ubiquiti Cloud Users will **not** work.
+
 1. Login to your *Local Portal* on your UniFiOS device, and click on *Users*
 1. In the upper right corner, click on *Add User*
 1. Click *Add Admin*, and fill out the form. Specific Fields to pay attention to:
@@ -56,12 +58,12 @@ Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0-beta.1` is th
 
 ### Camera Streams
 
-The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera. With the latest versions of UniFi Protect, the stream is enabled per default, but it is recommended to just check that this is done. To check and enable the the feature
+The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just check that this is done. To check and enable the the feature
 
 1. open UniFi Protect and click on *Devices*
 1. Select *Manage* in the Menu bar at the top
 1. Click on the + Sign next to RTSP
-1. Enable minimum 1 stream out of the 3 available. UniFi Protect will select the Stream with the Highest resolution as the default enabled one.
+1. Enable minimum 1 stream out of the 3 available. The Stream with the Highest resolution as the default enabled one.
 
 {% include integrations/config_flow.md %}
 
