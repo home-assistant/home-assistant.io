@@ -17,19 +17,9 @@ ha_platforms:
   - camera
 ---
 
-The [UniFi Protect Integration](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/), adds support for retrieving Camera feeds and Sensor data from a UniFi Protect installation on either a UniFi OS Console running UniFi Protect.
+The UniFi Protect integration, adds support for retrieving Camera feeds and Sensor data from an [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on an UniFi OS Console.
 
-{% include integrations/config_flow.md %}
-
-## Device Support
-
-All known UniFi Protect devices are should be supported. Each device will get a variety of entities added for each of the different entity platforms.
-
-### Camera
-
-A camera entity for each camera channel and RTSP(S) combination found on the NVR device will be created. Only the highest resolution RTSPS camera entity will be enabled by default. Changing your RTSP settings in UniFi Protect will require you to reload the `unifiprotect` integration or restart Home Assistant.
-
-## UniFi Protect Support
+## Prerequisites
 
 ### Hardware Support
 
@@ -50,10 +40,6 @@ The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you 
 
 Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0-beta.1` is the newest UniFi Protect version. So the recommended versions of UniFi Protect to run for a `2022.2.0` version of Home Assistant are `1.20.0`, `1.20.1` or `1.21.0-beta.1`.
 
-## Prerequisites
-
-Before you install this Integration you need to ensure that the following two settings are applied in UniFi Protect.
-
 ### Local User
 
 1. Login to your *Local Portal* on your UniFiOS device, and click on *Users*
@@ -73,16 +59,28 @@ Before you install this Integration you need to ensure that the following two se
 The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera. With the latest versions of UniFi Protect, the stream is enabled per default, but it is recommended to just check that this is done. To check and enable the the feature
 
 1. open UniFi Protect and click on *Devices*
-2. Select *Manage* in the Menu bar at the top
-3. Click on the + Sign next to RTSP
-4. Enable minimum 1 stream out of the 3 available. UniFi Protect will select the Stream with the Highest resolution as the default enabled one.
+1. Select *Manage* in the Menu bar at the top
+1. Click on the + Sign next to RTSP
+1. Enable minimum 1 stream out of the 3 available. UniFi Protect will select the Stream with the Highest resolution as the default enabled one.
 
-#### Minimizing Latency
+{% include integrations/config_flow.md %}
 
-To minimize the latency to your UniFi Protect cameras, you will want to [enable LL-HLS in the stream integration](/integrations/stream/#ll-hls). You will also want to put an HTTP/2 reserve proxy in front of Home Assistant so you can have connection pooling. If you do not add a reverse proxy, you may start to get "Waiting for Websocket..." messages while trying to view too many camera streams at once.
+## Features
 
-##### Resources
+All known UniFi Protect devices are should be supported. Each UniFi Protect device will get a variety of entities added for each of the different entity platforms.
 
-* NGINX Proxy Home Assistant OS Add-on: [![NGINX Proxy Add-on](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_nginx_proxy)
+### UniFi
 
-* [Community Guide for NGINX](https://community.home-assistant.io/t/reverse-proxy-using-nginx/196954)
+### Cameras
+
+Each UniFi Protect camera will get the following entities added:
+
+* **Camera** - A camera entity for each camera channel and RTSP(S) combination found for each camera (up to 6). Only the highest resolution RTSPS camera entity will be enabled by default.
+
+## Troubleshooting
+
+### Delay in Video Feed
+
+The default settings on the stream integration, will give you a 5-15+ second delay. You can reduce this delay to 1-3, by enabling [LL-HLS in the stream integration](/integrations/stream/#ll-hls). You will also want to put an HTTP/2 reserve proxy in front of Home Assistant so you can have connection pooling. If you do not add a reverse proxy, you may start to get "Waiting for Websocket..." messages while trying to view too many camera streams at once. One way to do this is using the official NGINX Proxy Add-on.
+
+[![NGINX Proxy Add-on](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_nginx_proxy)
