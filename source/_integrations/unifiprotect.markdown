@@ -83,6 +83,6 @@ To minimize the latency to your UniFi Protect cameras, you will want to [enable 
 
 ##### Resources
 
-* Nginx Proxy Home Assistant OS Add-on: [![Nginx Proxy Add-on](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_nginx_proxy)
+* NGINX Proxy Home Assistant OS Add-on: [![NGINX Proxy Add-on](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_nginx_proxy)
 
-* [Community Guide for Nginx](https://community.home-assistant.io/t/reverse-proxy-using-nginx/196954)
+* [Community Guide for NGINX](https://community.home-assistant.io/t/reverse-proxy-using-nginx/196954)
