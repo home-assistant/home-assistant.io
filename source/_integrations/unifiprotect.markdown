@@ -69,8 +69,6 @@ The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs 
 
 All known UniFi Protect devices are should be supported. Each UniFi Protect device will get a variety of entities added for each of the different entity platforms.
 
-### UniFi
-
 ### Cameras
 
 Each UniFi Protect camera will get the following entities added:
