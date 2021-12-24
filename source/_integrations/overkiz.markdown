@@ -4,6 +4,9 @@ description: Instructions on how to integrate hubs whom use the Overkiz platform
 ha_category:
   - Hub
   - Sensor
+  - Button
+  - Lock
+  - Number
 ha_release: 2022.1.0
 ha_config_flow: true
 ha_iot_class: Cloud Polling
@@ -14,6 +17,9 @@ ha_codeowners:
 ha_domain: overkiz
 ha_platforms:
   - sensor
+  - button
+  - lock
+  - number
 ---
 
 The Overkiz (by Somfy) integration platform is used by many different vendors, like Somfy, Hitachi and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
