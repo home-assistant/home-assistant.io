@@ -202,14 +202,32 @@ select:
   required: true
   type: map
   keys:
-    press:
-      description: Defines actions to run to press the button.
+    state:
+      description: Template for the select's current value.
+      required: true
+      type: template
+    select_option:
+      description: Defines actions to run to select an option from the `options` list. The variable `option` will contain the option selected.
       required: true
       type: action
+    options:
+      description: Template for the select's available options.
+      required: true
+      type: template
+    optimistic:
+      description: Flag that defines if select works in optimistic mode.
+      required: false
+      type: boolean
+      default: false
 button:
   description: List of buttons
   required: true
   type: map
+  keys:
+    press:
+      description: Defines actions to run to press the button.
+      required: true
+      type: action
 "[all sensor, binary sensor, button, number, select entities]":
   description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
