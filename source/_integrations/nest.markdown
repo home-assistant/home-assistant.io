@@ -41,6 +41,12 @@ The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
 
 </div>
 
+<div class='note'>
+
+**Home Assistant {{ site.current_major_version }}.{{ site.current_minor_version }}**: The Home Assistant documentation website always reflects the current version of Home Assistant.
+
+</div>
+
 ## Device Access Registration
 
 For the first phase, you will turn on the API and create the necessary credentials to have Home Assistant talk to the Nest API.
@@ -381,6 +387,8 @@ This feature is enabled by the following permissions:
 </div>
 
 ## Troubleshooting
+
+- This website is for **Home Assistant {{ site.current_major_version }}.{{ site.current_minor_version }}** so make sure to update.
 
 - You can manage devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Restart Home Assistant to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
 
