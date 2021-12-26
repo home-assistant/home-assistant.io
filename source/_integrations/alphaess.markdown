@@ -5,7 +5,7 @@ description: Instructions on how to integrate Alpha ESS Solar Storage with Home 
 ha_category:
   - Energy
 ha_iot_class: Cloud Polling
-ha_release:
+ha_release: 2022.1
 ha_config_flow: true
 ha_domain: alphaess
 ha_platforms:
