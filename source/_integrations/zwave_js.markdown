@@ -412,11 +412,11 @@ action:
 
 ### Device automations
 
-Z-Wave JS has support for device triggers and conditions. To use a device automation, use the automation UI to select the "Device" trigger/condition type, and then pick your Z-Wave JS device. Under trigger/condition types, you will see Z-Wave JS specific entries.
+Z-Wave JS has support for device triggers, conditions, and actions. To use a device automation, use the automation UI to select the "Device" trigger/condition/action type, and then pick your Z-Wave JS device. Under trigger/condition/action types, you will see Z-Wave JS specific entries.
 
-### `zwave_js.value_updated` trigger
+### `zwave_js.value_updated` trigger platform
 
-Z-Wave JS provides the `zwave_js.value_updated` trigger platform which can be used to trigger automations on any Z-Wave JS value update, including Z-Wave values that aren't supported in Home Assistant via entities. While they can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
+This trigger platform can be used to trigger automations on any Z-Wave JS value update, including Z-Wave values that aren't supported in Home Assistant via entities. While they can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
 
 ```yaml
 # Example automation trigger that fires whenever the `latchStatus` value changes from `closed` to `opened` on the three devices (devices will be derived from an entity ID).
