@@ -1,15 +1,18 @@
 ---
-title: Flux LED/MagicHome
-description: Instructions on how to setup Flux led/MagicHome/MagicLight within Home Assistant.
+title: Magic Home
+description: Instructions on how to setup Magic Home within Home Assistant.
 ha_category:
+  - Button
   - Light
+  - Select
   - Switch
 ha_iot_class: Local Push
 ha_release: 0.25
 ha_domain: flux_led
 ha_platforms:
+  - button
   - light
-  - number
+  - select
   - switch
 ha_codeowners:
   - '@icemanch'
@@ -18,7 +21,7 @@ ha_config_flow: true
 ha_dhcp: true
 ---
 
-The Flux LED integration supports several brands of switches, bulbs, and controllers that use the same protocol and have the HF-LPB100 chipset in common. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the MagicHome app.
+The Magic Home integration supports several brands of switches, bulbs, and controllers that use the same protocol. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the Magic Home app.
 
 This integration will provide local control over your LED lights/strips and can be configured to auto-scan your network for controllers or for you to manually configure individual lights by their IP address.
 
@@ -33,11 +36,77 @@ Examples of controllers:
 - [Ledenet WiFi RGBW Controller](https://amzn.to/2WZKXNa)
 - [SUPERNIGHT WiFi Wireless LED Smart Controller](https://amzn.to/2WURx7w)
 
+These devices have been sold under at least the following brands:
 
+- Aislan
+- [Allkeys](http://allkeystech.com/)
+- Apobob
+- [Arilux](https://www.ariluxworldwide.com/)
+- Aubric
+- BERENNIS
+- BHGY
+- [Brizled](https://www.brizled.com/)
+- Bunpeon
+- [Chichin](https://chichinlighting.com/)
+- Comoyda
+- dalattin
+- [DALS RGBW / Armacost Lighting / MyLED](https://www.armacostlighting.com/)
+- DARKPROOF
+- [Daybetter](https://www.daybetter.com/)
+- deerdance
+- DIAMOND
+- [Diode Dynamics](https://www.diodedynamics.com/)
+- [Flux LED](https://www.fluxsmartlighting.com/)
+- [FVTLED](https://fvtled.com/)
+- [GEV LIG](https://www.gev.de/)
+- GEYUEYA Home
+- GIDEALED
+- [GIDERWEL](https://giderwel.com/)
+- GMK
+- Goldwin
+- Hakkatronics
+- [HaoDeng](http://www.zengge.com/appkzd)
+- [Heissner](https://www.heissner.de/)
+- HDDFL
+- [illume RGBW](https://dals.com/illume/)
+- [Illumination FX](https://www.illumination-fx.com/)
+- INDARUN
+- iNextStation
+- [Koopower](https://www.koopower.com/)
+- [Lallumer](https://www.lapuretes.cn/)
+- LEDENET
+- [LiteWRX](https://litewrx.com/)
+- Lytworx
+- Magic Ambient
+- [Magic Home](http://www.zengge.com/appkzd)
+- [Magic Hue](http://www.magichue.com/)
+- [Magic Light](https://www.magiclightbulbs.com/)
+- Miheal
+- Mowelai
+- Nexlux
+- OBSESS
+- [Offdarks](http://offdarks.net)
+- PH LED
+- PHOPOLLO
+- [Pin Stadium Pinball Lights](https://pinstadium.com/)
+- POV Lamp
+- [PROTEAM Europe Pool Lights](https://proteam-me.com/)
+- [Rimikon](https://www.rimikon.com/)
+- SMFX
+- [Sumaote](https://fvtled.com/)
+- [Superhome](https://superhome.com.cy/)
+- [SuperlightingLED](https://www.superlightingled.com/)
+- Svipear
+- Tommox
+- Vanance
+- Yetaida
+- YHW
+- [Zengge](http://www.zengge.com/sy)
+- Zombber
 
 {% include integrations/config_flow.md %}
 
-After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Flux Led/Magic Home" configuration for the bulb or controller. 
+After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
 
 
 **Custom Effect**\
@@ -97,7 +166,7 @@ The following models have not been tested with integration but may work.
 
 ### Effects
 
-The Flux LED light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the `light.turn_on` command.
+The Magic Home light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the `light.turn_on` command.
 
 | Effect Name                                                                                                  | Description                                                        |
 |--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
@@ -132,4 +201,62 @@ colors:
   - [0,0,255]
 speed_pct: 80
 transition: "jump"
+```
+
+### Set Zones - Service `flux_led.set_zones`
+
+The Addressable v3 (0xA3) models allow setting a color effect per zone. The length of each zone is the number of pixels per segment divided by the number of colors. If the device is turned off, setting the zones will not turn it on. A separate call to `light.turn_on` is needed to turn on the device.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | The entity_id of the LED light to set the effect on. |
+| `colors` | List of colors for each zone (RGB). (Max 2048 Colors) |
+| `speed_pct` | The speed of the effect in % (0-100. Default 50) |
+| `effect` | The effect you would like. Valid options are `static`, `running_water`, `strobe`, `jump`, or `breathing`. (Default `static`) |
+
+```yaml
+#Example Service Call
+service: flux_led.set_zones
+target:
+  entity_id:
+    - light.addressable_v3_8e2f7f
+    - light.addressable_v3_8ebdeb
+data:
+  colors:
+    - [255, 0, 0]
+    - [0, 255, 0]
+    - [0, 0, 255]
+    - [255, 255, 255]
+  speed_pct: 80
+```
+
+
+### Set Music Mode - Service `flux_led.set_music_mode`
+
+The RGB with MIC (0x08), Addressable v2 (0xA2), and Addressable v3 (0xA3) models have a built-in microphone that have multiple music mode settings.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | The entity_id of the LED light to set the effect on. |
+| `sensitivity` | Microphone sensitivity (0-100) |
+| `brightness` | Light brightness (0-100) |
+| `light_screen` | Light screen mode for 2 dimensional pixels (Addressable models only) |
+| `effect` | Effect (1-16 on Addressable models, 0-3 on RGB with MIC models)|
+| `foreground_color` | The foreground RGB color |
+| `background_color` | The background RGB color (Addressable models only) |
+
+```yaml
+#Example Service Call
+service: flux_led.set_music_mode
+target:
+  entity_id:
+    - light.addressable_v3_8e2f7f
+    - light.addressable_v3_8ebdeb
+data:
+  sensitivity: 100
+  brightness: 100
+  effect: 2
+  light_screen: false
+  background_color: [0, 255, 0]
+  foreground_color: [255, 0, 0]
 ```

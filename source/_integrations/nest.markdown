@@ -220,7 +220,7 @@ In this section you will authorize Home Assistant to access your account by gene
 
 1. A new tab opens, allowing you to choose a Google account. This should be the same developer account you configured above.
 
-1. The *Google Nest permissions* screen will allow you to choose which devices to configure and lets you select devices from multiple homes. You likely want to enable everything, however, you can leave out any feature you do not wish to use with Home Assistant.
+1. The *Google Nest permissions* screen will allow you to choose which devices to configure. You likely want to enable everything, however, you can leave out any feature you do not wish to use with Home Assistant. You can select devices from multiple homes using the drop down.
 
     ![Screenshot of Nest permissions authorization](/images/integrations/nest/oauth_approve.png)
 
@@ -261,11 +261,15 @@ All Google Nest Thermostat models are exposed as a `climate` entity that use the
 
 Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
 
-<div class='note'>
+- *Error 400: redirect_uri_mismatch*: This means you have an existing *Web Application* credential. It is recommended to delete the existing OAuth Client id and create a new *Desktop App* credential using the instructions above. This has the advantage of not requiring SSL or a public DNS name.
+
+- *Thermostat does not appear or is unavailable* happens due to a bug where the SDM API does return the devices. A common fix get the API to work again is to:
 
 This feature is enabled by the following permissions:
 
-- *Allow Home Assistant to access and control your thermostat*
+- Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
+- In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
+- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Devices & Services**, click `...` next to *Nest* and choose **Reload**.
 
 </div>
 

@@ -5,6 +5,7 @@ ha_category:
   - Hub
   - Alarm
   - Binary Sensor
+  - Button
   - Climate
   - Fan
   - Light
@@ -25,6 +26,7 @@ ha_domain: zha
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - climate
   - cover
   - device_tracker
@@ -46,6 +48,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Alarm Control Panel
 - Binary Sensor
+- Button
 - Climate (beta)
 - Cover
 - Fan
@@ -53,6 +56,7 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 - Number (i.e. analog output)
 - Sensor
+- Siren
 - Switch
 
 There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created. As well as support for binding/unbinding (i.e. bind a remote to a lightbulb or group).
@@ -162,6 +166,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 
 | Device | Discovery Method | Identifier |
 | -------| ---------------- | ---------- |
+| [ITead SONOFF Zigbee 3.0 USB Dongle Plus](https://itead.cc/product/sonoff-zigbee-3-0-usb-dongle-plus/) | USB | 10C4:EA60 |
 | [Bitron Video/SMaBiT BV AV2010/10](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/) | USB | 10C4:8B34 |
 | [ConBee II](https://phoscon.de/en/conbee2) | USB | 1CF1:0030 |
 | [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) | USB | 10C4:8A2A |

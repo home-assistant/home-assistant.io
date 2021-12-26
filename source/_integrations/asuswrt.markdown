@@ -24,7 +24,11 @@ There is currently support for the following device types within Home Assistant:
 - **Presence Detection** - The ASUSWRT platform offers presence detection by looking at connected devices to a ASUSWRT based router.
 - **Sensor** - The ASUSWRT sensors platform allows you to get information from your ASUS router within Home Assistant.
 
-{% include integrations/config_flow.md %}
+## Configuration
+
+To add your ASUSWRT devices into your Home Assistant installation, go to:
+
+**Configuration** -> **Devices & Services** in the UI, click the button with `+` sign and from the list of integrations select **ASUSWRT**.
 
 <div class='note warning'>
 

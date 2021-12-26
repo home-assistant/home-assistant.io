@@ -1,8 +1,9 @@
 ---
 title: LOOKin
-description: Instructions on how to integrate LookIN devices into Home Assistant.
+description: Instructions on how to integrate LOOKin devices into Home Assistant.
 ha_category:
   - Climate
+  - Media Player
   - Sensor
 ha_release: 2021.11
 ha_iot_class: Local Push
@@ -12,6 +13,7 @@ ha_domain: lookin
 ha_config_flow: true
 ha_platforms:
   - climate
+  - media_player
   - sensor
 ha_zeroconf: true
 ---
