@@ -10,6 +10,7 @@ ha_category:
   - Fan
   - Light
   - Lock
+  - Select
   - Sensor
   - Siren
   - Switch
@@ -34,6 +35,7 @@ ha_platforms:
   - light
   - lock
   - number
+  - select
   - sensor
   - siren
   - switch
@@ -55,6 +57,7 @@ There is currently support for the following device types within Home Assistant:
 - Light
 - Lock
 - Number (i.e. analog output)
+- Select
 - Sensor
 - Siren
 - Switch
