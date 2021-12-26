@@ -30,8 +30,6 @@ This Integration supports all UniFi OS Consoles that can run UniFi Protect. Curr
 * UniFi Dream Machine Pro (**UDMP**)
 * UniFi Cloud Key Gen2 Plus (**CKGP**) firmware version v2.0.24+
 
-Ubiquiti released v2.0.24 as an official firmware release for the CloudKey+, and it is recommended that people upgrade to this UniFi OS based firmware for their CloudKey+, as this gives a much better realtime experience.
-
 CKGP with Firmware v1.x **do NOT run UniFiOS**, you must upgrade to firmware v2.0.24 or newer.
 
 ### Software Support
