@@ -28,23 +28,23 @@ camera:
 
 {% configuration %}
 still_image_url:
-  description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/topics/templating/)."
-  required: true
+  description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/topics/templating/). At least one of still_image_url or stream_source must be provided."
+  required: true*
   type: string
 stream_source:
-  description: "The URL your camera serves the live stream on, e.g., `rtsp://192.168.1.21:554/`. Can be a [template](/topics/templating/)."
-  required: false
+  description: "The URL your camera serves the live stream on, e.g., `rtsp://user:pass@192.168.1.21:554/`. Can be a [template](/topics/templating/). Usernames and passwords must be embedded in the url. At least one of still_image_url or stream_source must be provided."
+  required: true*
   type: string
 name:
   description: This parameter allows you to override the name of your camera.
   required: false
   type: string
 username:
-  description: The username for accessing your camera.
+  description: The username for accessing your camera. Note that this username applies only to still_image_url and not to stream_source.
   required: false
   type: string
 password:
-  description: The password for accessing your camera.
+  description: The password for accessing your camera. Note that this password applies only to still_image_url and not to stream_source.
   required: false
   type: string
 authentication:
@@ -120,6 +120,7 @@ camera:
     name: Host instance camera feed
     still_image_url: https://127.0.0.5:8123/api/camera_proxy/camera.live_view
 ```
+
 ### Image from HTTP only camera
 
 To access a camera which is only available via HTTP, you must turn off SSL verification.
@@ -141,7 +142,18 @@ camera:
   - platform: generic
     name: Streaming Enabled
     still_image_url: http://194.218.96.92/jpg/image.jpg
-    stream_source: rtsp://194.218.96.92:554
+    username: user
+    password: pass
+    stream_source: rtsp://user:pass@194.218.96.92:554
+```
+
+If a camera only has a live stream URL and no snapshot url, the [stream](/integrations/stream/) component can also generate still images from the live stream URL.
+
+```yaml
+camera:
+  - platform: generic
+    name: Streaming
+    stream_source: rtsp://user:pass@194.218.96.92:554
 ```
 
 ### Secured access to the camera
