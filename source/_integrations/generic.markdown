@@ -32,7 +32,7 @@ still_image_url:
   required: false
   type: string
 stream_source:
-  description: "The URL your camera serves the live stream on, e.g., `rtsp://user:pass@192.168.1.21:554/`. Can be a [template](/topics/templating/). Usernames and passwords must be embedded in the url. At least one of still_image_url or stream_source must be provided."
+  description: "The URL your camera serves the live stream on, e.g., `rtsp://user:pass@192.168.1.21:554/`. Can be a [template](/topics/templating/). Usernames and passwords must be embedded in the URL. At least one of still_image_url or stream_source must be provided."
   required: false
   type: string
 name:
@@ -147,7 +147,7 @@ camera:
     stream_source: rtsp://user:pass@194.218.96.92:554
 ```
 
-If a camera only has a live stream URL and no snapshot url, the [stream](/integrations/stream/) component can also generate still images from the live stream URL.
+If a camera only has a live stream URL and no snapshot URL, the [stream](/integrations/stream/) component can also generate still images from the live stream URL.
 
 ```yaml
 camera:
