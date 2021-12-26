@@ -29,11 +29,11 @@ camera:
 {% configuration %}
 still_image_url:
   description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/topics/templating/). At least one of still_image_url or stream_source must be provided."
-  required: true*
+  required: false
   type: string
 stream_source:
   description: "The URL your camera serves the live stream on, e.g., `rtsp://user:pass@192.168.1.21:554/`. Can be a [template](/topics/templating/). Usernames and passwords must be embedded in the url. At least one of still_image_url or stream_source must be provided."
-  required: true*
+  required: false
   type: string
 name:
   description: This parameter allows you to override the name of your camera.
