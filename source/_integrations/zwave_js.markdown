@@ -421,7 +421,7 @@ This trigger platform can be used to trigger automations on any Z-Wave JS value 
 #### Example automation trigger configuration
 
 ```yaml
-# Example automation trigger that fires whenever the `latchStatus` value changes from `closed` to `opened` on the three devices (devices will be derived from an entity ID).
+# Fires whenever the `latchStatus` value changes from `closed` to `opened` on the three devices (devices will be derived from an entity ID).
 trigger:
   platform: zwave_js.value_updated
   # At least one `device_id` or `entity_id` must be provided
