@@ -67,10 +67,10 @@ There are several services which can be used for automations and control of the 
 | `turn_off` | Calling this service will turn the irrigation valve off (`entity_id` is required).
 | `turn_on` | Calling this service will turn the irrigation valve on (`entity_id` is required).
 | `set_watering_time` | Calling this service sets the watering time (`entity_id` and `watering_time` are required parameters), `watering_time` must be in the range 1-1800 seconds.
-| `set_trigger_1` | Calling this service sets the trigger_1 (`entity_id` and `trigger_1` are required parameters), `trigger_1` must be according Trigger rules (see note below).
-| `set_trigger_2` | Calling this service sets the trigger_2 (`entity_id` and `trigger_2` are required parameters), `trigger_2` must be according Trigger rules (see note below).
-| `set_trigger_3` | Calling this service sets the trigger_3 (`entity_id` and `trigger_3` are required parameters), `trigger_3` must be according Trigger rules (see note below).
-| `set_trigger_4` | Calling this service sets the trigger_4 (`entity_id` and `trigger_4` are required parameters), `trigger_4` must be according Trigger rules (see note below).
+| `set_trigger_1` | Calling this service sets the trigger_1 (`entity_id` and `trigger_1` are required parameters), `trigger_1` must be according Trigger rules (see below).
+| `set_trigger_2` | Calling this service sets the trigger_2 (`entity_id` and `trigger_2` are required parameters), `trigger_2` must be according Trigger rules (see below).
+| `set_trigger_3` | Calling this service sets the trigger_3 (`entity_id` and `trigger_3` are required parameters), `trigger_3` must be according Trigger rules (see below).
+| `set_trigger_4` | Calling this service sets the trigger_4 (`entity_id` and `trigger_4` are required parameters), `trigger_4` must be according Trigger rules (see below).
 
 - For `pause switch`:
 
@@ -80,7 +80,6 @@ There are several services which can be used for automations and control of the 
 | `turn_on` | Calling this service will turn the pause switch on, disabling watering switch (`entity_id` is required).
 | `set_pause_time` | Calling this service sets the pause time (`entity_id` and `pause_time` are required parameters), `pause_time` must be in the range 1-24 hours.
 
-Note:
 Trigger rules:
 - String with 8 decimal characters ("0" to "9").
 - The first three characters (String[0,3]) represent an integer from 0 to 127, which corresponds to Bitfield of: 1 - Sunday, 2 - Monday, 4 - Tuesday, 8 - Wednesday, 16 - Thursday, 32 - Friday and 64 - Saturday. Setting zero, trigger is only valid for today.
