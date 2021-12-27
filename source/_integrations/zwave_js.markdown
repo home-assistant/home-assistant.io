@@ -408,21 +408,13 @@ action:
       entity_id: switch.in_wall_dual_relay_switch_2, switch.in_wall_dual_relay_switch_3
 ```
 
-## Automation Trigger Platforms
+## Automations
 
-<<<<<<< HEAD
 The `Z-Wave JS` integration provides its own trigger platforms which can be used in automations.
 
 ### `zwave_js.value_updated`
 
 This trigger platform can be used to trigger automations on any Z-Wave JS value update, including Z-Wave values that aren't supported in Home Assistant via entities. While they can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
-=======
-The `Z-Wave JS` integration provides its own trigger platforms which can be used in automations. While they currently can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
-
-### `zwave_js.value_updated`
-
-This trigger platform can be used to trigger automations on any Z-Wave JS value update, including Z-Wave values that aren't supported in Home Assistant via entities.
->>>>>>> e7f6eb172e (Add documentation for zwave_js.event automation trigger)
 
 #### Example automation trigger configuration
 
