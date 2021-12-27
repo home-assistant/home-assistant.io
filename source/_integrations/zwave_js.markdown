@@ -408,7 +408,7 @@ action:
       entity_id: switch.in_wall_dual_relay_switch_2, switch.in_wall_dual_relay_switch_3
 ```
 
-## Automation Trigger Platforms
+## Automations
 
 The `Z-Wave JS` integration provides its own trigger platforms which can be used in automations.
 
