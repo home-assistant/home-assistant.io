@@ -408,13 +408,9 @@ action:
       entity_id: switch.in_wall_dual_relay_switch_2, switch.in_wall_dual_relay_switch_3
 ```
 
-## Automations
+## Automation Trigger Platforms
 
-### Device automations
-
-Z-Wave JS has support for device triggers, conditions, and actions. To use a device automation, use the automation UI to select the "Device" trigger/condition/action type, and then pick your Z-Wave JS device. Under trigger/condition/action types, you will see Z-Wave JS specific entries.
-
-### `zwave_js.value_updated` trigger platform
+### `zwave_js.value_updated`
 
 This trigger platform can be used to trigger automations on any Z-Wave JS value update, including Z-Wave values that aren't supported in Home Assistant via entities. While they can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
 
