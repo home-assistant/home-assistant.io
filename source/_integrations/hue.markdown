@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@balloob'
-  - '@frenck'
   - '@marcelveldt'
 ha_domain: hue
 ha_ssdp: true
@@ -19,8 +18,9 @@ ha_homekit: true
 ha_platforms:
   - binary_sensor
   - light
-  - sensor
   - scene
+  - sensor
+  - switch
 ha_zeroconf: true
 ---
 

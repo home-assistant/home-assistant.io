@@ -1,6 +1,6 @@
 ---
-title: "Balboa Spa"
-description: "Instructions on how to integrate Balboa Spa WiFi within Home Assistant."
+title: Balboa Spa Client
+description: Instructions on how to integrate Balboa Spa WiFi within Home Assistant.
 ha_category:
   - Binary Sensor
   - Climate

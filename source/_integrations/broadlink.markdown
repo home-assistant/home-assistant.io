@@ -19,7 +19,6 @@ ha_platforms:
   - remote
   - sensor
   - switch
-  - light
 ha_dhcp: true
 ---
 

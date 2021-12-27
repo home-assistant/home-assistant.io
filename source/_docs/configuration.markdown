@@ -15,6 +15,8 @@ If you prefer to use a file editor on your computer, use the {% my supervisor_ad
 
 _If you use Home Assistant Container, you can find `configuration.yaml` in the config folder that you mounted in your container._
 
+_If you use Home Assistant Operating System, you can find `configuration.yaml` in the `/config` folder of the installation._
+
 _If you use Home Assistant Core, you can find `configuration.yaml` in the config folder passed to the `hass` command (default is `~/.homeassistant`)._
 
 ## Reloading changes

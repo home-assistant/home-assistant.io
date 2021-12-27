@@ -16,6 +16,7 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - media_player
+  - number
   - sensor
   - switch
 ha_zeroconf: true

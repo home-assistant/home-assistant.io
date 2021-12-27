@@ -40,7 +40,7 @@ If you would like to test next release before anyone else, you can install the b
 {% elsif page.installation == "container" %}
 
 ```bash
-docker pull {{ site.installation.container.base }}:beta
+docker pull {{ site.installation.container }}:beta
 ```
 
 **[You then need to recreate the container with the new image.](/installation/linux#install-home-assistant-container)**
