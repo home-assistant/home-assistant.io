@@ -498,12 +498,6 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | `trigger.event`             | Name of event.                                                                        |
 | `trigger.event_data`           | Any data included in the event.                                                                   |
 
-## Current Limitations
-
-- While support for the most common devices is working, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
-
-You can keep track of the Roadmap for the Z-Wave JS integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).
-
 ## Migrating from previous Z-Wave implementations
 
 If you are switching from the `zwave` or `ozw` integrations to the new Z-Wave JS integration, you will not need to recreate your entire network, as the network is **stored on your stick**. A few things, such as how you receive [central scene events](#events) will work differently than they did before.
