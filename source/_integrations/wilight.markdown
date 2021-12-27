@@ -82,7 +82,7 @@ There are several services which can be used for automations and control of the 
 
 Note:
 Trigger rules:
-- String with 8 decimal characters ("0" to "9).
+- String with 8 decimal characters ("0" to "9").
 - The first three characters (String[0,3]) represent an integer from 0 to 127, which corresponds to Bitfield of: 1 - Sunday, 2 - Monday, 4 - Tuesday, 8 - Wednesday, 16 - Thursday, 32 - Friday and 64 - Saturday. Setting zero, trigger is only valid for today.
 - String[3,5] represents the hour of trigger, from 0 to 23.
 - String[5,7] represents the minute of trigger, from 0 to 59.
