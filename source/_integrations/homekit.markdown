@@ -564,6 +564,8 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 
 Check if the domain of your entity is [supported](#supported-components). If it is, check your [filter](#configure-filter) settings. Make sure the spelling is correct, especially if you use `include_entities`.
 
+If your sensor is not visible, make sure the `unit_of_measurement` is set correctly as per [Valid units of measurement](https://github.com/home-assistant/core/blob/d7ac4bd65379e11461c7ce0893d3533d8d8b8cbf/homeassistant/const.py#L384). For example the correct unit of measurement for a temperature sensor is either "°C" or "°F", and for a humidity sensor it is "%". Use the [Customizing entitities](https://www.home-assistant.io/docs/configuration/customizing-devices/) to change the `unit_of_measurement` for an entity.
+
 #### HomeKit doesn't work on second Home Assistant instance
 
 To use the HomeKit integration with multiple different Home Assistant instances on the same local network, you need to set a custom name for at least one of them. [config/name](#name)
