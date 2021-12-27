@@ -14,7 +14,7 @@ ha_platforms:
   - sensor
 ---
 
-The PVOutput integration consumes information from [PVOutput](https://pvoutput.org/) which were uploaded by your solar photovoltaic (PV) system.
+The PVOutput integration consumes information from [PVOutput](https://pvoutput.org/) which was uploaded by your solar photovoltaic (PV) system.
 
 {% include integrations/config_flow.md %}
 
