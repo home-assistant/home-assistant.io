@@ -410,6 +410,8 @@ action:
 
 ## Automation Trigger Platforms
 
+The `Z-Wave JS` integration provides its own trigger platforms which can be used in automations.
+
 ### `zwave_js.value_updated`
 
 This trigger platform can be used to trigger automations on any Z-Wave JS value update, including Z-Wave values that aren't supported in Home Assistant via entities. While they can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
