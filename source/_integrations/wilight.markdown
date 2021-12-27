@@ -43,18 +43,18 @@ There are several services which can be used for automations and control of the 
 
 | Service | Description |
 | --------- | ----------- |
-| `set_percentage` | Calling this service sets the fan speed (entity_id and percentage are required parameters). Percentage must be in the range 0-100, percentage = 0 turns off the fan. There are three speed levels 33%, 66% and 100%. Adjusting to intermediate levels goes to the next higher level.
-| `set_direction` | Calling this service will set the fan direction (entity_id and direction are required parameters, and direction must be one of the following: forward or reverse). Calling this service will turn the fan on.
-| `toggle` | Calling this service will toggle the fan between on and off states (entity_id is required).
-| `turn_off` | Calling this service will turn the fan off (entity_id is required).
-| `turn_on` | Calling this service will turn the fan on and set the speed and direction to the last used ones (defaults to high and forward, entity_id is required).
+| `set_percentage` | Calling this service sets the fan speed (`entity_id` and `percentage` are required parameters). Percentage must be in the range 0-100, percentage = 0 turns off the fan. There are three speed levels 33%, 66% and 100%. Adjusting to intermediate levels goes to the next higher level.
+| `set_direction` | Calling this service will set the fan direction (`entity_id` and `direction` are required parameters, and direction must be one of the following: forward or reverse). Calling this service will turn the fan on.
+| `toggle` | Calling this service will toggle the fan between on and off states (`entity_id` is required).
+| `turn_off` | Calling this service will turn the fan off (`entity_id` is required).
+| `turn_on` | Calling this service will turn the fan on and set the speed and direction to the last used ones (defaults to high and forward, `entity_id` is required).
 
 ## Irrigation
 
 The `wilight` `switch` integration allows you to control your Irrigation from within Home Assistant.
 There are two switch types in Irrigation: `watering switch` and `pause switch`.
-Watering switch turn on and off the irrigation valve, while the pause switch disable / enable the action of watering switch.
-Triggers activate (turn on) the irrigation valve at the programmed time, which can be defined on which days of the week it is desired or if only once (today).
+`Watering switch` turn on and off the irrigation valve, while the `pause switch` disable / enable the action of `watering switch`.
+`Triggers` activate (turn on) the `watering switch` (irrigation valve) at the programmed time, which can be defined on which days of the week it is desired or if only once (today).
 
 ### Services
 
@@ -64,21 +64,21 @@ There are several services which can be used for automations and control of the 
 
 | Service | Description |
 | --------- | ----------- |
-| `turn_off` | Calling this service will turn the irrigation valve off (entity_id is required).
-| `turn_on` | Calling this service will turn the irrigation valve on (entity_id is required).
-| `set_watering_time` | Calling this service sets the watering time (entity_id and watering_time are required parameters). Watering time must be in the range 1-1800 seconds.
-| `set_trigger_1` | Calling this service sets the trigger_1 (entity_id and trigger_1 are required parameters). Trigger 1 must be according Trigger rules (see note below).
-| `set_trigger_2` | Calling this service sets the trigger_2 (entity_id and trigger_2 are required parameters). Trigger 1 must be according Trigger rules (see note below).
-| `set_trigger_3` | Calling this service sets the trigger_3 (entity_id and trigger_3 are required parameters). Trigger 1 must be according Trigger rules (see note below).
-| `set_trigger_4` | Calling this service sets the trigger_4 (entity_id and trigger_4 are required parameters). Trigger 1 must be according Trigger rules (see note below).
+| `turn_off` | Calling this service will turn the irrigation valve off (`entity_id` is required).
+| `turn_on` | Calling this service will turn the irrigation valve on (`entity_id` is required).
+| `set_watering_time` | Calling this service sets the watering time (`entity_id` and `watering_time` are required parameters), `watering_time` must be in the range 1-1800 seconds.
+| `set_trigger_1` | Calling this service sets the trigger_1 (`entity_id` and `trigger_1` are required parameters), `trigger_1` must be according Trigger rules (see note below).
+| `set_trigger_2` | Calling this service sets the trigger_2 (`entity_id` and `trigger_2` are required parameters), `trigger_2` must be according Trigger rules (see note below).
+| `set_trigger_3` | Calling this service sets the trigger_3 (`entity_id` and `trigger_3` are required parameters), `trigger_3` must be according Trigger rules (see note below).
+| `set_trigger_4` | Calling this service sets the trigger_4 (`entity_id` and `trigger_4` are required parameters), `trigger_4` must be according Trigger rules (see note below).
 
 - For `pause switch`:
 
 | Service | Description |
 | --------- | ----------- |
-| `turn_off` | Calling this service will turn the pause switch off, enabling watering switch (entity_id is required).
-| `turn_on` | Calling this service will turn the pause switch on, disabling watering switch (entity_id is required).
-| `set_pause_time` | Calling this service sets the pause time (entity_id and pause_time are required parameters). Pause time must be in the range 1-24 hours.
+| `turn_off` | Calling this service will turn the pause switch off, enabling watering switch (`entity_id` is required).
+| `turn_on` | Calling this service will turn the pause switch on, disabling watering switch (`entity_id` is required).
+| `set_pause_time` | Calling this service sets the pause time (`entity_id` and `pause_time` are required parameters), `pause_time` must be in the range 1-24 hours.
 
 Note:
 Trigger rules:
