@@ -1,10 +1,12 @@
 ---
 title: VeSync
-description: Instructions on how to set up VeSync switches, outlets, and fans within Home Assistant.
+description: Instructions on how to set up VeSync switches, outlets, fans, and humidifiers within Home Assistant.
 ha_category:
   - Light
   - Switch
   - Fan
+  - Humidifier
+  - Number
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -17,9 +19,11 @@ ha_platforms:
   - fan
   - light
   - switch
+  - humidifier
+  - number
 ---
 
-The `vesync` integration enables you to control smart switches and outlets connected to the VeSync App.
+The `vesync` integration enables you to control smart switches, outlets, fans, and humidifiers connected to the VeSync App.
 
 The devices must be added to the VeSync App before this integration can discover them.
 
@@ -28,6 +32,8 @@ The following platforms are supported:
 - **light**
 - **switch**
 - **fan**
+- **humidifier**
+- **number**
 
 ## Supported Devices
 
@@ -55,6 +61,10 @@ This integration supports devices controllable by the VeSync App.  The following
 
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
 - LEVOIT Core 200S Smart True HEPA Air Purifier (Core200S)
+
+### Humidifiers
+
+- LEVOIT Classic 300S Ultrasonic Smart Humidifier
 
 ## Prerequisite
 
@@ -98,6 +108,33 @@ VeSync air purifiers will expose the following details depending on the features
 | `screen_status`         | The current status of the screen. (LV-PUR131S)                                    | on              |
 | `night_light`           | The current status of the night light (Core200S)                                  | off             |
 | `child_lock`            | The current status of the child lock (Core200S)                                   | off             |
+
+## Humidifier Exposed Attributes
+
+VeSync air purifiers will expose the following details depending on the features supported by the model:
+
+| Attribute                     | Description                                                                       | Example             |
+| ----------------------------- | --------------------------------------------------------------------------------- | ------------------- |
+| `humidity`                    | The target humidity of the humidifier.                                            | 40                  |
+| `max_humidity`                | The minimum allowed target humidity of the humidifier.                            | 30                  |
+| `min_humidity`                | The maximum allowed target humidity of the humidifier.                            | 80                  |
+| `mode`                        | The current mode the humidifier is in.                                            | manual              |
+| `available_modes`             | The available list of modes supported by the humidifier.                          | auto, manual, sleep |
+| `water_lacks`                 | Whether the humidifier lacks water.                                               | false               |
+| `humidity_high`               | Wether the humidifier detects high humidity.                                      | true                |
+| `water_tank_lifted`           | Wether the water tank is lifted.                                                  | true                |
+| `automatic_stop_reach_target` | Wether the automatic stop target has been reached.                                | false               |
+| `current_humidity`            | The percent humidity measured by the humidifier.                                  | 43                  |
+| `mist_level`                  | The level of mist being emitted by the humidifier.                                | 5                   |
+
+In addition to the humidifier entity, the following controls are exposed via other entities:
+
+| Entity ID                                | Description                                                                       | Type            |
+| ---------------------------------------- | --------------------------------------------------------------------------------- | --------------- |
+| `[humidifier ID].mist_level`             | The target mist level of the humidifier.                                          | Number          |
+| `[humidifier ID].night_light_brightness` | The brightness of the humidifier's night light.                                   | Number          |
+| `[humidifier ID].display`                | The humidifier's display.                                                         | Switch          |
+| `[humidifier ID].automatic_stop`         | The humidifier's automatic stop feature.                                          | Switch          |
 
 ## Extracting Attribute data
 
