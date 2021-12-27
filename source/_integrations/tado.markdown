@@ -178,8 +178,7 @@ automation:
         - sensor.temp_sensor_room
         - sensor.tado_temperature
     
-    # Check if the room temp is more than 0.5 away from the tado thermostat reading
-    condition. The sensors default to room temperature (20) when the reading is in error:
+    # Check if the room temp is more than 0.5 away from the tado thermostat reading condition. The sensors default to room temperature (20) when the reading is in error:
     - condition: template
       value_template: >
         {% set tado_temp = states('sensor.tado_temperature')|float(20) %}
