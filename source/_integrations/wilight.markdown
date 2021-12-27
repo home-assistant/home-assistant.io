@@ -4,7 +4,9 @@ description: Instructions on how to integrate WiLight devices into Home Assistan
 ha_category:
   - Cover
   - Fan
+  - Irrigation
   - Light
+  - Switch
 ha_release: 0.115
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -17,6 +19,7 @@ ha_platforms:
   - cover
   - fan
   - light
+  - switch
 ---
 
 The `wilight` integration is to integrate [WiLight](http://www.wilight.com.br) devices with Home Assistant.
@@ -24,18 +27,19 @@ The `wilight` integration is to integrate [WiLight](http://www.wilight.com.br) d
 There is currently support for the following device types within Home Assistant:
 
 - Cover (WiLight model C-103).
-- Fan (WiLight model V-104).
-- Light (WiLight model I-100, I-102 and I-107).
+- [Fan](#fan) (WiLight model V-104).
+- Light (WiLight model I-100, I-102, I-107 and I-110).
+- [Irrigation](#irrigation) / Switch (WiLight model R-105).
 
 {% include integrations/config_flow.md %}
 
 ## Fan
 
-The `wilight` integration allows you to control your Fans from within Home Assistant.
+The `wilight` `fan` integration allows you to control your Fans from within Home Assistant.
 
 ### Services
 
-There are several services which can be used for automations and control of the fan:
+There are several services which can be used for automations and control of the `fan`:
 
 | Service | Description |
 | --------- | ----------- |
@@ -44,3 +48,42 @@ There are several services which can be used for automations and control of the 
 | `toggle` | Calling this service will toggle the fan between on and off states (entity_id is required).
 | `turn_off` | Calling this service will turn the fan off (entity_id is required).
 | `turn_on` | Calling this service will turn the fan on and set the speed and direction to the last used ones (defaults to high and forward, entity_id is required).
+
+## Irrigation
+
+The `wilight` `switch` integration allows you to control your Irrigation from within Home Assistant.
+There are two switch types in Irrigation: `watering switch` and `pause switch`.
+Watering switch turn on and off the irrigation valve, while the pause switch disable / enable the action of watering switch.
+Triggers activate (turn on) the irrigation valve at the programmed time, which can be defined on which days of the week it is desired or if only once (today).
+
+### Services
+
+There are several services which can be used for automations and control of the Irrigation:
+
+- For `watering switch`:
+
+| Service | Description |
+| --------- | ----------- |
+| `turn_off` | Calling this service will turn the irrigation valve off (entity_id is required).
+| `turn_on` | Calling this service will turn the irrigation valve on (entity_id is required).
+| `set_watering_time` | Calling this service sets the watering time (entity_id and watering_time are required parameters). Watering time must be in the range 1-1800 seconds.
+| `set_trigger_1` | Calling this service sets the trigger_1 (entity_id and trigger_1 are required parameters). Trigger 1 must be according Trigger rules (see note below).
+| `set_trigger_2` | Calling this service sets the trigger_2 (entity_id and trigger_2 are required parameters). Trigger 1 must be according Trigger rules (see note below).
+| `set_trigger_3` | Calling this service sets the trigger_3 (entity_id and trigger_3 are required parameters). Trigger 1 must be according Trigger rules (see note below).
+| `set_trigger_4` | Calling this service sets the trigger_4 (entity_id and trigger_4 are required parameters). Trigger 1 must be according Trigger rules (see note below).
+
+- For `pause switch`:
+
+| Service | Description |
+| --------- | ----------- |
+| `turn_off` | Calling this service will turn the pause switch off, enabling watering switch (entity_id is required).
+| `turn_on` | Calling this service will turn the pause switch on, disabling watering switch (entity_id is required).
+| `set_pause_time` | Calling this service sets the pause time (entity_id and pause_time are required parameters). Pause time must be in the range 1-24 hours.
+
+Note:
+Trigger rules:
+- String with 8 decimal characters ("0" to "9).
+- The first three characters (String[0,3]) represent an integer from 0 to 127, which corresponds to Bitfield of: 1 - Sunday, 2 - Monday, 4 - Tuesday, 8 - Wednesday, 16 - Thursday, 32 - Friday and 64 - Saturday. Setting zero, trigger is only valid for today.
+- String[3,5] represents the hour of trigger, from 0 to 23.
+- String[5,7] represents the minute of trigger, from 0 to 59.
+- String[7,8] represents the enable trigger, 0 - disabled, 1- enabled.
