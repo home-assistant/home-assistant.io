@@ -1,6 +1,6 @@
 ---
-title: Luftdaten
-description: Instructions on how to setup Luftdaten sensors in Home Assistant.
+title: Sensor.Community
+description: Instructions on how to add Sensor.Community sensors to Home Assistant.
 ha_category:
   - Health
   - Sensor
@@ -15,11 +15,11 @@ ha_platforms:
   - sensor
 ---
 
-The `luftdaten` integration will query the open data API of [luftdaten.info](https://luftdaten.info/) to monitor air quality and other weather data from a specific (self build) sensor station.
+The Sensor.Communtiy integration will query the open data API of [Sensor.Community](https://sensor.community) to monitor air quality and other weather data from a specific (self build) sensor station.
 
 ## Prerequisites
 
-- To get the ID of a particle sensor you need to select it on the [Feinstaub map](https://deutschland.maps.luftdaten.info/) and find it in the sidebar (Column "Sensor ID").
-- To get the ID of a temperature/humidity sensor you need to find it on the map hosted on [Madavi](https://www.madavi.de/sensor/feinstaub-map-dht/).
+To get the ID of a particle, pressure, noise, temperature, or humidity sensor by selecting it on the [Sensor.Community map](https://maps.sensor.community/).
+After selecting the sensor, it will show the needed ID in the sidebar with a `#` in front of it.
 
 {% include integrations/config_flow.md %}
