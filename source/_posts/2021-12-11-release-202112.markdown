@@ -55,6 +55,7 @@ holidays. So, the first release in 2022, will be Wednesday, 2 February 2022._
 - [Release 2021.12.3 - December 17](#release-2021123---december-17)
 - [Release 2021.12.4 - December 20](#release-2021124---december-20)
 - [Release 2021.12.5 - December 23](#release-2021125---december-23)
+- [Release 2021.12.6 - December 27](#release-2021126---december-27)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -711,6 +712,52 @@ like before. Done by [@marvin-w].
 [tile docs]: /integrations/tile/
 [trafikverket_train docs]: /integrations/trafikverket_train/
 [vallox docs]: /integrations/vallox/
+
+## Release 2021.12.6 - December 27
+
+- Fix picnic sensor time unit ([@corneyl] - [#62437]) ([picnic docs])
+- Bump soco to 0.25.2 ([@jjlawren] - [#62691]) ([sonos docs])
+- Bump zeroconf to 0.38.1 ([@bdraco] - [#62720]) ([zeroconf docs])
+- Fix TypeError of vacuum battery level None ([@htmltiger] - [#62722]) ([google_assistant docs])
+- Add return for certified devices to not apply availability check ([@flfue] - [#62728]) ([hue docs])
+- Bump roombapy to 1.6.4 ([@freekode] - [#62741]) ([roomba docs])
+- Add missing entity category for gen2 devices ([@chemelli74] - [#62812]) ([shelly docs])
+- Upgrade youless library to version 0.16 ([@gjong] - [#62837]) ([youless docs])
+- Update tuya-iot-py-sdk to 0.6.6 ([@frenck] - [#62858]) ([tuya docs])
+- Fix keyerror when no previous Picnic orders exist ([@corneyl] - [#62870]) ([picnic docs])
+- Update frontend to 20211227.0 ([@bramkragten] - [#62874]) ([frontend docs])
+
+[#62437]: https://github.com/home-assistant/core/pull/62437
+[#62691]: https://github.com/home-assistant/core/pull/62691
+[#62720]: https://github.com/home-assistant/core/pull/62720
+[#62722]: https://github.com/home-assistant/core/pull/62722
+[#62728]: https://github.com/home-assistant/core/pull/62728
+[#62741]: https://github.com/home-assistant/core/pull/62741
+[#62812]: https://github.com/home-assistant/core/pull/62812
+[#62837]: https://github.com/home-assistant/core/pull/62837
+[#62858]: https://github.com/home-assistant/core/pull/62858
+[#62870]: https://github.com/home-assistant/core/pull/62870
+[#62874]: https://github.com/home-assistant/core/pull/62874
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@corneyl]: https://github.com/corneyl
+[@flfue]: https://github.com/flfue
+[@freekode]: https://github.com/freekode
+[@frenck]: https://github.com/frenck
+[@gjong]: https://github.com/gjong
+[@htmltiger]: https://github.com/htmltiger
+[@jjlawren]: https://github.com/jjlawren
+[frontend docs]: /integrations/frontend/
+[google_assistant docs]: /integrations/google_assistant/
+[hue docs]: /integrations/hue/
+[picnic docs]: /integrations/picnic/
+[roomba docs]: /integrations/roomba/
+[shelly docs]: /integrations/shelly/
+[sonos docs]: /integrations/sonos/
+[tuya docs]: /integrations/tuya/
+[youless docs]: /integrations/youless/
+[zeroconf docs]: /integrations/zeroconf/
 
 ## If you need help...
 
