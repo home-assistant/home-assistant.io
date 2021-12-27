@@ -37,7 +37,7 @@ There is currently support for the following device types within Home Assistant:
 
 The `wilight` `fan` integration allows you to control your Fans from within Home Assistant.
 
-### Services
+### Fan Services
 
 There are several services which can be used for automations and control of the `fan`:
 
@@ -56,7 +56,7 @@ There are two switch types in Irrigation: `watering switch` and `pause switch`.
 `Watering switch` turn on and off the irrigation valve, while the `pause switch` disable / enable the action of `watering switch`.
 `Triggers` activate (turn on) the `watering switch` (irrigation valve) at the programmed time, which can be defined on which days of the week it is desired or if only once (today).
 
-### Services
+### Irrigation Services
 
 There are several services which can be used for automations and control of the Irrigation:
 
