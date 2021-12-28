@@ -485,7 +485,8 @@ template:
   - binary_sensor:
       - name: "Homematic is sending updates"
         state: >-
-          {{ as_timestamp(now()) - as_timestamp(state_attr('sensor.office_voltage', 'last_changed'), 601) < 600 }}
+          {{ (now() - states.sensor['office_voltage'].last_changed).seconds < 600 }}
+
 
 automation:
   - alias: "Homematic Reconnect"
