@@ -487,7 +487,6 @@ template:
         state: >-
           {{ (now() - states.sensor['office_voltage'].last_changed).seconds < 600 }}
 
-
 automation:
   - alias: "Homematic Reconnect"
     trigger:
