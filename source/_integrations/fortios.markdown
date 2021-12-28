@@ -23,8 +23,10 @@ All devices with a MAC address identified by FortiGate would be tracked, this co
 
 The integration is based on the Home Assistant `device_tracker` platform.
 
+## Example Configuration:
+This example uses the FortiOS integration as device tracker, with API token and does not verify the SSL certificate.
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml
 device_tracker:
   - platform: fortios
     host: YOUR_HOST
