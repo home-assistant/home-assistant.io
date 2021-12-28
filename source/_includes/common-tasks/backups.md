@@ -56,4 +56,4 @@ You often need a backup in case your system has crashed. If you only store them 
 - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
 - [Nextcloud Backup](https://github.com/Sebclem/hassio-nextcloud-backup)
 - [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
-- [Remote Backup (uses scp)](https://github.com/overkill32/hassio-remote-backup)
+- [Remote Backup (scp/rsync/rclone)](https://github.com/ikifar2012/remote-backup-addon)
