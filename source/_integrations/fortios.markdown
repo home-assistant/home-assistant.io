@@ -32,17 +32,17 @@ device_tracker:
 ```
 
 {% configuration %}
-  host:
-    description: Hostname or IP address of the FortiGate. Optionally portname can be added like this "10.10.10.10:443". Remember qoutes if portnumber is added.
-    required: true
-    type: string
-  token:
-    description: See: [Generate an API token for FortiOS](https://docs.fortinet.com/document/forticonverter/6.2.0/online-help/866905/connect-fortigate-device-via-api-token) for how to create an API token. Remember this integration only needs read access to a FortiGate, so configure the API user to only to have limited and read-only access.
-    required: true
-    type: string
-  verify_ssl:
-    description: If the SSL certificate should be verified. In most home cases users do not have a verified certificate.
-    required: false
-    type: boolean
-    default: false  
+host:
+  description: Hostname or IP address of the FortiGate. Optionally portname can be added like this "10.10.10.10:443". Remember qoutes if portnumber is added.
+  required: true
+  type: string
+token:
+  description: See: [Generate an API token for FortiOS](https://docs.fortinet.com/document/forticonverter/6.2.0/online-help/866905/connect-fortigate-device-via-api-token) for how to create an API token. Remember this integration only needs read access to a FortiGate, so configure the API user to only to have limited and read-only access.
+  required: true
+  type: string
+verify_ssl:
+  description: If the SSL certificate should be verified. In most home cases users do not have a verified certificate.
+  required: false
+  type: boolean
+  default: false  
 {% endconfiguration %}
