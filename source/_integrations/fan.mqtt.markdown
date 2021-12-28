@@ -119,7 +119,7 @@ enabled_by_default:
   type: boolean
   default: true
 encoding:
-  description: The encoding of the payloads received. Set to `""` to disable decoding of incoming payload.
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
   required: false
   type: string
   default: "utf-8"
