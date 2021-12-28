@@ -6,8 +6,7 @@ ha_iot_class: "Local Polling"
 ha_release: "0.97"
 ha_domain: fortios
 ha_platforms:
-  - "device_tracker"
-ha_quality_scale: silver
+  - device_tracker
 ha_codeowners:
   - '@kimfrellsen'
 ---
