@@ -21,6 +21,5 @@ The SenseME integration supports devices that speak the [SenseME](https://www.bi
 ### Supported devices
 
 - Haiku Fans with SenseME
-- Haiku standalone lights
 
 {% include integrations/config_flow.md %}
