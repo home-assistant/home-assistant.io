@@ -7,6 +7,7 @@ ha_category:
   - Button
   - Lock
   - Number
+  - Light
   - Scene
   - Binary Sensor
 ha_release: 2022.1.0
@@ -22,6 +23,7 @@ ha_platforms:
   - button
   - lock
   - number
+  - light
   - scene
   - binary_sensor
 ---
