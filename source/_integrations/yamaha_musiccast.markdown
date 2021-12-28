@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_domain: yamaha_musiccast
 ha_platforms:
   - media_player
+  - number
 ---
 
 The Yamaha MusicCast integration allows you to control [Yamaha MusicCast Receivers](https://usa.yamaha.com/products/audio_visual/musiccast/index.html) from Home Assistant.

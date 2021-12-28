@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: twentemilieu
 ha_platforms:
   - sensor
+ha_quality_scale: platinum
 ---
 
 The Twente Milieu integration allows you to track the next scheduled waste

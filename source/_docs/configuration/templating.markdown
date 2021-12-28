@@ -634,11 +634,14 @@ These functions are used to process raw value's in a `bytes` format to values in
 The `pack` and `unpack` functions can also be used as a filter. They make use of the Python 3 `struct` library.
 See: https://docs.python.org/3/library/struct.html
 
-- Filter `value | pack(format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or the `format_string` is invalid.
-- Function `pack(value, format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or the `format_string` is invalid.
-- Filter `value | unpack(format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or the `format_string` is invalid.
-- Function `unpack(value, format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or the `format_string` is invalid.
+- Filter `value | pack(format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
+- Function `pack(value, format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
+- Filter `value | unpack(format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid.
+- Function `unpack(value, format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid.
 
+<div class='note'>
+
+Some examples:
 {% raw %}
 
 - `{{ 0xDEADBEEF | pack(">I") }}` - renders as `b"\xde\xad\xbe\xef"`
@@ -647,6 +650,8 @@ See: https://docs.python.org/3/library/struct.html
 - `{{ 0xDEADBEEF | pack(">I") | unpack("">H", offset=2) }}` - renders as `0xBEEF`
 
 {% endraw %}
+
+</div>
 
 ### String filters
 
@@ -743,7 +748,7 @@ The following overview contains a couple of options to get the needed values:
 # Timestamps
 {{ value_json.tst | timestamp_local }}
 {{ value_json.tst | timestamp_utc }}
-{{ value_json.tst | timestamp_custom('%Y' True) }}
+{{ value_json.tst | timestamp_custom('%Y', True) }}
 ```
 
 {% endraw %}

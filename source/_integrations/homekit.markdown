@@ -429,7 +429,7 @@ The following integrations are currently supported:
 
 # Device Triggers
 
-Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Configuration >> Integrations" %}**.
+Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Configuration >> Integrations" %}**. To use this feature, Advanced Mode must be enabled in your user profile.
 
 Bridged device triggers are represented as a single press button on stateless programmable switches. This allows a HomeKit automation to run when a device trigger fires. Because the Apple Home app currently only shows the number of the button and not the name, users may find it easier to identify the name of the button in the `Eve for HomeKit` app.
 

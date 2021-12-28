@@ -1,7 +1,7 @@
 ---
 title: TOLO Sauna
 description: Control your TOLO Sauna and TOLO Steam Bath with Home Assistant.
-ha_release: "2021.12"
+ha_release: '2021.12'
 ha_category:
   - Climate
   - Health
@@ -10,14 +10,15 @@ ha_domain: tolo
 ha_config_flow: true
 ha_codeowners:
   - '@MatthiasLohr'
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
   - button
   - climate
+  - fan
   - light
-  - select
   - sensor
+  - select
 ha_dhcp: true
 ---
 

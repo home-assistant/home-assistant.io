@@ -1,16 +1,19 @@
 ---
 title: devolo Home Network
 description: Instructions on how to integrate devolo Home Network devices with Home Assistant.
-ha_category: 
+ha_category:
   - Sensor
 ha_release: '2021.12'
-ha_iot_class: Local Pull
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@2Fake'
   - '@Shutgun'
 ha_domain: devolo_home_network
 ha_quality_scale: platinum
+ha_platforms:
+  - sensor
+ha_zeroconf: true
 ---
 
 The devolo Home Network integration allows you to monitor your PLC network.

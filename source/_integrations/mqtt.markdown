@@ -14,6 +14,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - camera
+  - button
   - climate
   - cover
   - fan
