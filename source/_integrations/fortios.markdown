@@ -4,7 +4,7 @@ description: Instructions on how to use Fortinet FortiOS to track devices in Hom
 ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
-ha_release: 0.97
+ha_release: 0.97.0
 ha_domain: fortios
 ha_platforms:
   - device_tracker
