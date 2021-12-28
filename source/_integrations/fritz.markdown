@@ -59,6 +59,18 @@ A device is identified as stale when it's still present on Home Assistant but no
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific  router                                                                                 |
 
+#### Service `fritz.set_guest_wifi_password`
+
+Set a new password for the guest wifi.
+The password must be between 8 and 63 characters long.
+If no additional parameter is set, the password will be auto-generated with a length of 32 characters.
+
+| Service data attribute | Optional | Description                                                                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `device_id`            | no       | Only act on a specific  router                                                                                 |
+| `password`             | yes      | New password for the guest wifi                                                                                |
+| `length`               | yes      | Length of the new password. The password will be auto-generated, if no password is set.                        |
+
 ## Integration Options
 
 It is possible to change some behaviors through the integration options.
