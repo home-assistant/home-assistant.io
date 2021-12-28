@@ -5,12 +5,12 @@ ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
 ha_release: 0.97
-ha_quality_scale: silver
-ha_codeowners:
-  - '@kimfrellsen'
 ha_domain: fortios
 ha_platforms:
   - device_tracker
+ha_quality_scale: silver
+ha_codeowners:
+  - '@kimfrellsen'
 ---
 
 The FortiOS presence detection enables Home Assistant to track devices with a MAC address connected to a FortiGate from [Fortinet](https://www.fortinet.com).
