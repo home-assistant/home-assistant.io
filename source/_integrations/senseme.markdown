@@ -16,11 +16,11 @@ ha_platforms:
 
 Integrates SenseME devices into Home Assistant.
 
-The [SenseME](https://www.bigassfans.com/senseme/) integration supports Haiku Fans and standalone lights.
+The SenseME integration supports devices that speak the [SenseME](https://www.bigassfans.com/senseme/) protocol.
 
 ### Supported devices
 
-Haiku Fans with SenseME
-Haiku standalone lights
+- Haiku Fans with SenseME
+- Haiku standalone lights
 
 {% include integrations/config_flow.md %}
