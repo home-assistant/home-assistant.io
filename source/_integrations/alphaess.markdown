@@ -16,9 +16,11 @@ ha_codeowners:
 
 This integration pulls data from an [Alpha ESS](https://www.alpha-ess.com/) Energy Storage Solution.
 
-## Configuration
+## Credentials
 
-The integration can be entirely setup from within the GUI.  Add the integration to Home Assistant and provide the username and password needed to logon to the Alpha ESS website.  Any Alpha ESS energy storage units registered with Alpha ESS will be automatically discovered and added to Home Assistant.  
+You will need to have previously registered an Alpha ESS energy storage system with AlphaESS and you must know the credentials you use to access their website/app.  You will need to provide those credentials to HomeAssistant so that the integration can logon and pull down your energy storage system data.
+
+{% include integrations/config_flow.md %}
   
 ## Integration Entities
   
