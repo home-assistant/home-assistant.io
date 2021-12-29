@@ -449,12 +449,12 @@ logger:
 
 - It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `susbcriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
 
-# Legacy Works With Nest API
-
-This section contains instructions for the Legacy [Works with Nest](https://developers.nest.com/) API.
+# Legacy Works With Nest API (Deprecated)
 
 <div class='note warning'>
-New users are not currently able to set up a Works With Nest Developer account. The documentation is preserved here for existing users of the API.
+
+The Legacy [Works with Nest](https://developers.nest.com/) API is deprecated and will be removed in Home Assistant Core 2022.5.
+
 </div>
 
 {% details "Legacy Works with Nest Configuration Steps" %}
