@@ -122,6 +122,8 @@ The following models have been tested with integration.
 
 | Model | Description                 | Notes                           |
 | ----- | --------------------------- | ------------------------------- |
+| 0x01  | Legacy RGB Controller       | Original protocol               |
+| 0x03  | Legacy CCT Controller       | Original protocol               |
 | 0x04  | UFO Controller RGBW         |                                 |
 | 0x06  | Controller RGBW             |                                 |
 | 0x07  | Controller RGBCW            |                                 |
@@ -136,6 +138,7 @@ The following models have been tested with integration.
 | 0x35  | Bulb RGBCW                  |                                 |
 | 0x41  | Controller Dimmable         |                                 |
 | 0x44  | Bulb RGBW                   |                                 |
+| 0x52  | Bulb CCT                    |                                 |
 | 0x54  | Downlight RGBW              |                                 |
 | 0x93  | Switch 1c                   |                                 |
 | 0x94  | Switch 1c Watt              |                                 |
@@ -150,20 +153,22 @@ The following models have not been tested with integration but may work.
 
 | Model | Description                 | Notes                           |
 | ----- | --------------------------- | ------------------------------- |
+| 0x02  | Legacy Dimmable Controller  | Original protocol               |
 | 0x09  | Ceiling Light CCT           |                                 |
 | 0x16  | Magnetic Light CCT          |                                 |
 | 0x17  | Magnetic Light Dimmable     |                                 |
 | 0x19  | Socket 2 USB                |                                 |
 | 0x18  | Plant Light                 |                                 |
 | 0x1B  | Spray Light                 |                                 |
+| 0x1E  | Ceiling Light RGBCW         | Probably works & same as 0x35   |
 | 0x62  | Controller CCT              | May be discontinued             |
-| 0x52  | Bulb CCT                    | May be discontinued             |
 | 0x95  | Switch 2c                   |                                 |
 | 0x96  | Switch 4c                   |                                 |
 | 0xD1  | Digital Light               |                                 |
 | 0xE1  | Ceiling Light               |                                 |
 | 0xE2  | Ceiling Light Assist        |                                 |
-| 0xA4  | Addressable v4              |                                 |
+| 0xA4  | Addressable v4              | Probably works & same as 0xA3   |
+| 0xA6  | Addressable v6              | Probably works & same as 0xA3   |
 
 ### Effects
 
