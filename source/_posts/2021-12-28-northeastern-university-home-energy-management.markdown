@@ -19,7 +19,7 @@ They presented about their research into lowering grid demand by reducing thermo
 
 With Home Assistant we want every home to be about [privacy, choice and durability](/blog/2021/12/23/the-open-home/) and it's how we built Home Assistant. Because we believe in choice, all data in Home Assistant is accessible and one can extend or built on top of our platform.
 
-This architecture made it possible for Prof. Kane to gather data about all devices, survey users based on changes to devices and export all this data back to their research lab. For this they leverage our device integrations, added a custom survey feature to our UI and leverage push notifications from the Home Assistant companion app to draw the user's attention to the surveys.
+This architecture made it possible for Prof. Kane to create a custom version of Home Assistant for his research that gathers data about all devices, surveys users based on changes to devices and exports all this data back to their research lab. For this they leverage device integrations, added a custom survey feature to the UI and push notifications from the Home Assistant companion app to draw the user's attention to the surveys.
 
 But what makes me extra happy is that their research is focusing on home energy management. This has been a feature we added to Home Assistant in 2020 as [our way to help tackle the climate crisis](/blog/2021/08/04/home-energy-management/). It makes me proud to see that we are able to help researchers do their work and we hope to see more of this. We're also looking forward to collaborating with Prof. Kane on using his research to improve Home Assistant.
 
