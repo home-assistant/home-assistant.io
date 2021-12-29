@@ -56,6 +56,7 @@ holidays. So, the first release in 2022, will be Wednesday, 2 February 2022._
 - [Release 2021.12.4 - December 20](#release-2021124---december-20)
 - [Release 2021.12.5 - December 23](#release-2021125---december-23)
 - [Release 2021.12.6 - December 27](#release-2021126---december-27)
+- [Release 2021.12.7 - December 29](#release-2021127---december-29)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -758,6 +759,58 @@ like before. Done by [@marvin-w].
 [tuya docs]: /integrations/tuya/
 [youless docs]: /integrations/youless/
 [zeroconf docs]: /integrations/zeroconf/
+
+## Release 2021.12.7 - December 29
+
+- Fix unique_id of nuki config entry ([@pree] - [#62840]) ([nuki docs])
+- Bump python-smarttub dependency to 0.0.29 ([@mdz] - [#62968]) ([smarttub docs])
+- Bump flux_led to 0.27.21 ([@bdraco] - [#62971]) ([flux_led docs])
+- Send commands to Hue grouped lights all at once ([@marcelveldt] - [#62973]) ([hue docs])
+- Remove duplicate filter for Hue button events ([@marcelveldt] - [#62974]) ([hue docs])
+- Update frontend to 20211229.0 ([@bramkragten] - [#62981]) ([frontend docs])
+- Bump aiohue to 3.0.11 ([@marcelveldt] - [#62983]) ([hue docs])
+- Gracefully handle unknown HVAC mode in Tuya ([@frenck] - [#62984]) ([tuya docs])
+- Fix short flash effect in Hue integration ([@marcelveldt] - [#62988]) ([hue docs])
+- Fix incorrect unit of measurement access in Tuya ([@frenck] - [#62989]) ([tuya docs])
+- Fix Tuya data type information in lights ([@frenck] - [#62993]) ([tuya docs])
+- Fix Tuya data type information in climate ([@frenck] - [#62994]) ([tuya docs])
+- Gracefully handle missing preset mode in Tuya fan ([@frenck] - [#62996]) ([tuya docs])
+- Normalize Hue colortemp if value outside of bounds ([@marcelveldt] - [#62998]) ([hue docs])
+- Hotfix for Nuki integration tests ([@frenck] - [#63007]) ([nuki docs])
+- Fix night mode switch state on Sonos ([@jjlawren] - [#63009]) ([sonos docs])
+- Add missing migration for Sonos speech enhancement switch entities ([@jjlawren] - [#63010]) ([sonos docs])
+
+[#62840]: https://github.com/home-assistant/core/pull/62840
+[#62968]: https://github.com/home-assistant/core/pull/62968
+[#62971]: https://github.com/home-assistant/core/pull/62971
+[#62973]: https://github.com/home-assistant/core/pull/62973
+[#62974]: https://github.com/home-assistant/core/pull/62974
+[#62981]: https://github.com/home-assistant/core/pull/62981
+[#62983]: https://github.com/home-assistant/core/pull/62983
+[#62984]: https://github.com/home-assistant/core/pull/62984
+[#62988]: https://github.com/home-assistant/core/pull/62988
+[#62989]: https://github.com/home-assistant/core/pull/62989
+[#62993]: https://github.com/home-assistant/core/pull/62993
+[#62994]: https://github.com/home-assistant/core/pull/62994
+[#62996]: https://github.com/home-assistant/core/pull/62996
+[#62998]: https://github.com/home-assistant/core/pull/62998
+[#63007]: https://github.com/home-assistant/core/pull/63007
+[#63009]: https://github.com/home-assistant/core/pull/63009
+[#63010]: https://github.com/home-assistant/core/pull/63010
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@frenck]: https://github.com/frenck
+[@jjlawren]: https://github.com/jjlawren
+[@marcelveldt]: https://github.com/marcelveldt
+[@mdz]: https://github.com/mdz
+[@pree]: https://github.com/pree
+[flux_led docs]: /integrations/flux_led/
+[frontend docs]: /integrations/frontend/
+[hue docs]: /integrations/hue/
+[nuki docs]: /integrations/nuki/
+[smarttub docs]: /integrations/smarttub/
+[sonos docs]: /integrations/sonos/
+[tuya docs]: /integrations/tuya/
 
 ## If you need help...
 
