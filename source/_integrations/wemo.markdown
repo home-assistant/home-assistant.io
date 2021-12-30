@@ -74,7 +74,7 @@ If the device doesn't seem to work and all you see is the state "unavailable" on
 
 ### Device Options
 
-Clicking the `Configure` button on the Wemo integration will bring up some additional options that can be configured for WeMo devices.
+Clicking the `Configure` button on the WeMo integration will bring up some additional options that can be configured for WeMo devices.
 
 ![Device Options](/images/integrations/wemo/device_options.png)
 
@@ -90,7 +90,7 @@ There are some downsides of disabling *Subscribe to device local push updates*:
 
 **Register for device long-press events**: WeMo wall switches and dimmers will send Home Assistant a notification when the button on the device is held for more than 2 seconds. This feature is enabled by default in Home Assistant (see [below](#long-press-events-and-triggers)). If this feature causes issues for your device, it can be disabled by deselecting the *Register for device long-press events* option.
 
-**Seconds to wait between polling the device**: When Home Assistant detects that Local Polling is needed, or when the *Subscribe to device local push updates* option is disabled, this option will control how frequently the device is polled for state updates. If your device has a poor WiFi connection, it may be a good idea to increase this value so polling happens less frequently. The minumum value is 10 seconds.
+**Seconds to wait between polling the device**: When Home Assistant detects that Local Polling is needed, or when the *Subscribe to device local push updates* option is disabled, this option will control how frequently the device is polled for state updates. If your device has a poor WiFi connection, it may be a good idea to increase this value so polling happens less frequently. The minimum value is 10 seconds.
 
 ## Emulated devices
 
