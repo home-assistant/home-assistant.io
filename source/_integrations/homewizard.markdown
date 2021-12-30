@@ -6,15 +6,14 @@ ha_category:
   - Energy
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_domain: homewizard_energy
+ha_domain: homewizard
 ha_codeowners:
   - '@DCSBL'
 ha_platforms:
   - sensor
 ha_zeroconf: true
 ---
-Integration for the [HomeWizard Energy](https://www.homewizard.nl/energy) platform. It
-can collect data locally form the HomeWizard Energy products create them as sensors in Home Assistant.
+Integration for the [HomeWizard Energy](https://www.homewizard.nl/energy) platform. It can collect data locally from the HomeWizard Energy products and create them as sensors in Home Assistant.
 
 **Supported devices**
 - [Wifi P1 Meter](https://www.homewizard.nl/p1-meter): Depending on the connected DSMR meter: sensors for power import/export, energy consumption (single or three phases) and gas. (Model: `HWE-P1`)
