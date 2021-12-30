@@ -131,7 +131,7 @@ Example of an automation with an service call, full configuration:
   - service: notify.living_room_tv
     data:
       title: "Thanks for the water!"
-      message: "Nigel is {{ states.sensor.nigel_moisture.state }}% moisture"
+      message: Nigel is {{ states('sensor.nigel_moisture') }}% moisture
       data:
         duration: 4
         position: "bottom-left"
