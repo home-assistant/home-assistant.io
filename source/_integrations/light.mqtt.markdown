@@ -90,6 +90,10 @@ brightness_command_topic:
   description: The MQTT topic to publish commands to change the light’s brightness.
   required: false
   type: string
+brightness_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `brightness_command_topic`. Available variables: `value`."
+  required: false
+  type: string
 brightness_scale:
   description: "Defines the maximum brightness value (i.e., 100%) of the MQTT device."
   required: false
