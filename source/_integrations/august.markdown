@@ -35,8 +35,9 @@ The `august` integration allows you to integrate your [August](https://august.co
 | August Smart Lock (Gen 1) | no |
 | August Doorbell Cam (Gen 1, Gen2) | no |
 | August View | no |
-| Yale Assure Locks with August/Yale Connect Module | yes |
-| Yale Conexis L1 with August/Yale Connect Module | yes |
+| Yale Assure Lock | yes |
+| Yale Conexis L1 | yes |
+| Yale Linus | yes |
 
 There is currently support for the following device types within Home Assistant:
 
