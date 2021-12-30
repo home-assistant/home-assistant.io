@@ -18,7 +18,7 @@ This integration pulls data from an [Alpha ESS](https://www.alpha-ess.com/) Ener
 
 ## Credentials
 
-You will need to have previously registered an Alpha ESS energy storage system with AlphaESS and you must know the credentials you use to access their website/app.  You will need to provide those credentials to HomeAssistant so that the integration can logon and pull down your energy storage system data.
+You will need to have previously registered an Alpha ESS energy storage system with AlphaESS and you must know the credentials you use to access their website/app.  You will need to provide those credentials to Home Assistant so that the integration can logon and pull down your energy storage system data.
 
 {% include integrations/config_flow.md %}
   
