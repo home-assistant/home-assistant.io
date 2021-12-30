@@ -46,7 +46,7 @@ name:
   description: Let you overwrite the name of the device.
   required: false
   type: string
-  default: Binary sensor Ping [hostname]
+  default: Ping [hostname]
 {% endconfiguration %}
 
 The sensor exposes the different round trip times values measured by `ping` as attributes:
