@@ -10,11 +10,11 @@ ha_codeowners:
 ha_domain: wevolor
 ---
 
-[Levolor](https://levolor.com) is an American manufacturer of window shades and coverings. Motorized Levolor blinds can be controlled via the [Levolor Premium 6-Channel Remote](https://www.levolor.com/premium-6-channel-remote.html), which syncs via Bluetooth with a smartphone app but does not offer any remote control over WiFi.
+[Levolor](https://levolor.com) is an American manufacturer of window shades and coverings. Motorized Levolor blinds can be controlled via the [Levolor Premium 6-Channel Remote](https://www.levolor.com/premium-6-channel-remote.html), which syncs via Bluetooth with a smartphone app but does not offer any remote control over Wi-Fi.
 
-[Wevolor](https://wevolor.com) is a WiFi enabled IoT device, built by Roger Hoggarth, which syncs with the Levolor 6-channel remote to allow linking Levolor blinds to a home automation system. The Wevolor firmware can be downloaded for free and installed on a compatible Arduino device, or Wevolor devices can be purchased from the Wevolor website.
+[Wevolor](https://wevolor.com) is a Wi-Fi-enabled IoT device, built by Roger Hoggarth, which syncs with the Levolor 6-channel remote to allow linking Levolor blinds to a home automation system. The Wevolor firmware can be downloaded for free and installed on a compatible Arduino device, or Wevolor devices can be purchased from the Wevolor website.
 
-This integration supports Wevolor [version 5.4](https://wevolor.com/instructions/wevolor_instructions_5_4.html) and greater, using the locally available API. Your Wevolor device will need to have a static IP address on the local network, since Wevolor does not support any sort of auto-discovery.
+This integration supports Wevolor [version 5.4](https://wevolor.com/instructions/wevolor_instructions_5_4.html) and greater, using the locally available API. Your Wevolor device will need to have a static IP address on the local network since Wevolor does not support any sort of auto-discovery.
 
 {% include integrations/config_flow.md %}
 
