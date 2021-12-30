@@ -20,7 +20,7 @@ There is no setup needed for the integration itself.
 
 The `bbb_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [BeagleBone Black](https://beagleboard.org/black).
 
-## Configuration
+### Configuration
 
 To use your BeagleBone Black's GPIO in your installation, add the following to your `configuration.yaml` file:
 
@@ -73,7 +73,7 @@ For more details about the GPIO layout, visit the [article](https://elinux.org/B
 
 The `bbb_gpio` switch platform allows you to control the GPIOs of your [BeagleBone Black](https://beagleboard.org/black).
 
-## Configuration
+### Configuration
 
 To use your BeagleBone Black's GPIO in your installation, add the following to your `configuration.yaml` file:
 

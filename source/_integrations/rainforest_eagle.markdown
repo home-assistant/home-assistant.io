@@ -12,6 +12,8 @@ ha_codeowners:
 ha_domain: rainforest_eagle
 ha_platforms:
   - sensor
+ha_config_flow: true
+ha_dhcp: true
 ---
 
 Integrate energy usage and price from the Rainforest Automation's [Eagle-200](https://rainforestautomation.com/rfa-z114-eagle-200/)

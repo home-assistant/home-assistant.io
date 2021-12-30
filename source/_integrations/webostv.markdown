@@ -22,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 - [Media Player](#media-player)
 - [Notifications](#notifications)
 
-To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](https://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
+To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 
 Once basic configuration is added to your `configuration.yaml` file. A notification should be visible in the frontend's **Notification** section. Follow the instructions and accept the pairing request on your TV.
 
@@ -138,7 +138,7 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 
 ## Sources
 
-To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration. If you leave the `sources:` configuration empty, the `media_player` will offer all sources of the TV. If you list a subset of sources in the configuration, only those will be displayed.
+To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while it's powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration. If you leave the `sources:` configuration empty, the `media_player` will offer all sources of the TV. If you list a subset of sources in the configuration, only those will be displayed.
 
 Note: it is normal and expected behavior that for a switched-off TV only the Live TV source is offered in the `media_player`, even if you have configured other sources as well. These will show up as soon as the TV is switched on.
 
@@ -196,7 +196,7 @@ Available services: `button`, `command`
 | Service data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
-| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
+| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `NETFLIX`, `GUIDE`, `AMAZON`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
 
 ### Service `webostv.command`
 

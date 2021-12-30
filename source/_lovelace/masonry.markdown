@@ -6,7 +6,7 @@ description: "The default panel layout uses a masonry algorithme."
 ---
 
 The masonry view is the default view type.
-It sorts cards in columns based on their `card size`. If you want to group some cards you have to use `stack` cards.
+It sorts cards in columns based on their `card size`. If you want to group some cards you have to use `stack` or `grid` cards.
 
 {% configuration %}
 type:

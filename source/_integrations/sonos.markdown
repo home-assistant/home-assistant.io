@@ -16,6 +16,7 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - media_player
+  - number
   - sensor
   - switch
 ha_zeroconf: true
@@ -24,6 +25,14 @@ ha_zeroconf: true
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
 
 {% include integrations/config_flow.md %}
+
+## Feature controls & sensors
+
+Speaker-level features are exposed as `number` or `switch` entities which report current values and allow direct control.
+
+- **All devices**: Bass, Treble, Crossfade, Status Light, Touch Controls
+- **Home theater devices**: Night Sound, Speech Enhancement, Surround Enabled, Audio Input Format (read-only)
+- **When paired with a sub**: Subwoofer Enabled
 
 ## Battery support
 
@@ -180,21 +189,6 @@ Update an existing Sonos alarm.
 | `volume` | yes | Float for volume level.
 | `enabled` | yes | Boolean for whether or not to enable this alarm.
 | `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players.
-
-### Service `sonos.set_option`
-
-Set Sonos speaker options.
-
-Night Sound and Speech Enhancement modes are only supported when playing from the TV source of products like Sonos Playbar and Sonos Beam. Other speaker types will ignore these options.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of `entity_id`s that will have their options set.
-| `buttons_enabled` | yes | Boolean to control the functioning of hardware buttons on the device.
-| `crossfade` | yes | Boolean to control crossfading between songs.
-| `night_sound` | yes | Boolean to control Night Sound mode.
-| `speech_enhance` | yes | Boolean to control Speech Enhancement mode.
-| `status_light` | yes | Boolean to control the Status (LED) Light.
 
 ### Service `sonos.play_queue`
 

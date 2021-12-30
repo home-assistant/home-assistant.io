@@ -16,6 +16,7 @@ ha_codeowners:
   - '@rytilahti'
   - '@syssi'
   - '@starkillerOG'
+  - '@bieniu'
 ha_domain: xiaomi_miio
 ha_config_flow: true
 ha_zeroconf: true
@@ -39,7 +40,7 @@ The Xiaomi Miio integration supports the following devices:
 
 - [Xiaomi Gateway](#xiaomi-gateway)
 - [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
-- [Xiaomi Air Purifier and Humidifier](#xiaomi-air-purifier-and-humidifier)
+- [Xiaomi Air Purifier, Air Humidifier and Standing Fan](#xiaomi-air-purifier-air-humidifier-and-standing-fan)
 - [Xiaomi Air Quality Monitor](#xiaomi-air-quality-monitor)
 - [Xiaomi IR Remote](#xiaomi-ir-remote)
 - [Xiaomi Mi Robot Vacuum](#xiaomi-mi-robot-vacuum)
@@ -50,9 +51,15 @@ The Xiaomi Miio integration supports the following devices:
 
 Most Xiaomi Miio devices support configuration using the Home Assistant UI,
 except for the [Xiaomi device tracker](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
-and [Xiaomi IR Remote](#xiaomi-ir-remote).
+and [Xiaomi IR Remote](#xiaomi-ir-remote). Please read the linked sections for those devices for more information.
 
-Please read the linked sections for those devices for more information.
+Devices need to be set up using the Mi Home app and not vendor-specific apps (e.g. Roborock).
+
+<div class='note'>
+
+  For more complex network setups (e.g. VLANs), reference the [following documentation](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets) for additional information.
+
+</div>
 
 {% include integrations/config_flow.md %}
 
@@ -221,6 +228,11 @@ Supported devices:
 | Standing Fan           | zhimi.fan.sa1          | |
 | DC Pedestal Fan        | zhimi.fan.v2           | |
 | DC Pedestal Fan        | zhimi.fan.v3           | |
+| Standing Fan 1C        | dmaker.fan.1c          | |
+| Tower Fan              | dmaker.fan.p9          | |
+| Standing Fan 2         | dmaker.fan.p10         | |
+| Standing Fan Pro       | dmaker.fan.p11         | |
+| Standing Fan 3         | zhimi.fan.za5          | |
 
 ### Features
 
@@ -246,15 +258,16 @@ Favorite Level          | Set the favorite level
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Humidity                | The current humidity measured
-Motor Speed             | The current motor speed measured in rpm
-PM2.5                   | The current particulate matter 2.5 measured
-Purify Volume           | The volume of purified air in qubic meter
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Purify Volume           | The volume of purified air in qubic meter                      | False
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
@@ -270,8 +283,6 @@ LED                     | Turn on/off the LED
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
@@ -288,17 +299,18 @@ Volume                  | Set the volume
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Humidity                | The current humidity measured
-Illuminance             | The current illuminance measured
-Motor Speed             | The current motor speed measured in rpm
-PM2.5                   | The current particulate matter 2.5 measured
-Purify Volume           | The volume of purified air in qubic meter
-Second Motor Speed      | The current second motor speed measured in rpm
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Illuminance             | The current illuminance measured                               | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Purify Volume           | The volume of purified air in qubic meter                      | False
+Second Motor Speed      | The current second motor speed measured in rpm                 | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
@@ -313,8 +325,6 @@ LED                     | Turn on/off the LED
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
@@ -327,16 +337,17 @@ Volume                  | Set the volume
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Humidity                | The current humidity measured
-Illuminance             | The current illuminance measured
-Motor Speed             | The current motor speed measured in rpm
-PM2.5                   | The current particulate matter 2.5 measured
-Second Motor Speed      | The current second motor speed measured in rpm
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Illuminance             | The current illuminance measured                               | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Second Motor Speed      | The current second motor speed measured in rpm                 | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
@@ -351,8 +362,6 @@ LED                     | Turn on/off the LED
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
@@ -364,14 +373,15 @@ Favorite Level          | Set the favorite level
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Humidity                | The current humidity measured
-Motor Speed             | The current motor speed measured in rpm
-PM2.5                   | The current particulate matter 2.5 measured
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
@@ -389,8 +399,6 @@ This model uses newer MiOT communication protocol.
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Fan)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `use_time`
 - Number entities
 
@@ -407,15 +415,16 @@ LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Humidity                | The current humidity measured
-Motor Speed             | The current motor speed measured in rpm
-PM2.5                   | The current particulate matter 2.5 measured
-Purify Volume           | The volume of purified air in qubic meter
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Purify Volume           | The volume of purified air in qubic meter                      | False
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
@@ -428,8 +437,6 @@ Child Lock              | Turn on/off the child lock
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
-- Attributes (fan platform)
-  - `model`
 - Number entities
 
 Number                  | Description
@@ -439,12 +446,12 @@ LED Brihtness           | Set the LED brightness
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Motor Speed             | The current motor speed measured in rpm
-PM2.5                   | The current particulate matter 2.5 measured
+Sensor                  | Description                                  | Enabled by default
+----------------------- | -----------------------                      | -----------------------
+Filter Life Remaining   | The remaining life of the filter             | True
+Filter Use              | Filter usage time in hours                   | True
+Motor Speed             | The current motor speed measured in rpm      | True
+PM2.5                   | The current particulate matter 2.5 measured  | True
 
 - Switch entities
 
@@ -458,8 +465,6 @@ Child Lock              | Turn on/off the child lock
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Idle, Medium, High, Strong)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
@@ -467,15 +472,16 @@ Child Lock              | Turn on/off the child lock
   - `button_pressed`
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-PM2.5                   | The current particulate matter 2.5 measured
-Illuminance             | The current illuminance measured
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Motor Speed             | The current motor speed measured in rpm
-Second Motor Speed      | The current second motor speed measured in rpm
-Purify Volume           | The volume of purified air in qubic meter
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Illuminance             | The current illuminance measured                               | True
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+Second Motor Speed      | The current second motor speed measured in rpm                 | True
+Purify Volume           | The volume of purified air in qubic meter                      | False
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
@@ -490,21 +496,19 @@ LED                     | Turn on/off the LED
 - Power (on, off)
 - Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `use_time`
   - `extra_features`
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Carbon Dioxide          | The current carbon dioxide measured in ppm
-Filter Life Remaining   | The remaining life of the filter
-Filter Use              | Filter usage time in hours
-Humidity                | The current humidity measured
-Illuminance             | The current illuminance measured
-PM2.5                   | The current particulate matter 2.5 measured
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Carbon Dioxide          | The current carbon dioxide measured in ppm                     | True
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Select entities
 
@@ -549,11 +553,12 @@ LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Humidity                | The current humidity measured
-Temperature             | The current temperature measured
-Water Level             | The current water level percentage measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -------------------------------------------------------------- | ------------------
+Humidity                | The current humidity measured                                  | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
+Water Level             | The current water level percentage measured                    | True
 
 - Switch entities
 
@@ -591,11 +596,12 @@ LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor | Description
------------------------ | -----------------------
-Humidity                | The current humidity measured
-Temperature             | The current temperature measured
-Water Level             | The current water level percentage measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -------------------------------------------------------------- | ------------------
+Humidity                | The current humidity measured                                  | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
+Water Level             | The current water level percentage measured                    | True
 
 - Switch entities
 
@@ -640,12 +646,13 @@ LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Actual Speed            | The current motor speed measured in rpm
-Humidity                | The current humidity measured
-Temperature             | The current temperature measured
-Water Level             | The current water level percentage measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -------------------------------------------------------------- | ------------------
+Actual Speed            | The current motor speed measured in rpm                        | True
+Humidity                | The current humidity measured                                  | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
+Water Level             | The current water level percentage measured                    | True
 
 - Switch entities
 
@@ -689,11 +696,12 @@ LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Humidity                | The current humidity measured
-Temperature             | The current temperature measured
-Water Level             | The current water level percentage measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -------------------------------------------------------------- | ------------------
+Humidity                | The current humidity measured                                  | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
+Water Level             | The current water level percentage measured                    | True
 
 - Switch entities
 
@@ -727,10 +735,11 @@ Water Tank Empty        | Indicates whether the water tank is empty or not
 
 - Sensor entities
 
-Sensor                  | Description
------------------------ | -----------------------
-Humidity                | The current humidity measured
-Temperature             | The current temperature measured
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -------------------------------------------------------------- | ------------------
+Humidity                | The current humidity measured                                  | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
 
 - Switch entities
 
@@ -816,6 +825,79 @@ Switch                  | Description
 ----------------------- | -----------------------
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
+
+### Standing Fan 1C (dmaker.fan.1c)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the Buzzer
+Child Lock              | Turn on/off the Child Lock
+LED                     | Turn on/off the LED
+
+### Tower Fan/Standing Fan 2/Standing Fan Pro (dmaker.fan.p9/dmaker.fan.p10/dmaker.fan.p11)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+Oscillation Angle       | Set the oscillation angle in degrees
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the Buzzer
+Child Lock              | Turn on/off the Child Lock
+LED                     | Turn on/off the LED
+
+### Standing Fan 3 (zhimi.fan.za5)
+
+- Power (on, off)
+- Operation modes (Normal, Nature)
+- Oscillation (on, off)
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------------
+Power Supply            | Indicates whether the power supply is connected or not
+
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Delay Off Countdown     | Set the delay off countdown in minutes
+LED Brightness          | Set the LED brightness
+Oscillation Angle       | Set the oscillation angle in degrees
+
+- Sensor entities
+
+Sensor                  | Description
+----------------------- | -----------------------
+Humidity                | The current humidity measured
+Temperature             | The current temperature measured
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the Buzzer
+Child Lock              | Turn on/off the Child Lock
+Ionizer                 | Turn on/off the Ionizer
 
 ### Platform Services
 
@@ -1298,41 +1380,53 @@ automation:
           segments: [1, 1]
 ```
 
+### Sensors
+
+{% configuration_basic %}
+
+DnD Start*:
+  description: The timestamp when the next DnD will start
+DnD End*:
+  description: The timestamp when the current or next DnD will end
+Total duration*:
+  description: The total cleaning duration in seconds
+Total Clean Area*:
+  description: The total cleaning area in square meters
+Total Clean Count*:
+  description: The total amount of times a clean cycle has been ran
+Total Dust Collection Count*:
+  description: The total amount of dust that has been collected
+Filter Left*:
+  description: How long the filter can be used in seconds
+Main Brush Left*:
+  description: How long the main brush can be used in seconds
+Sensor Dirty Left*:
+  description: How long the sensor can  be used in seconds
+Last Clean Area*:
+  description: The last cleaned area in square meters
+Last Clean Duration*:
+  description: The last clean duration in seconds
+Last Clean End*:
+  description: The last clean end time as a timestamp
+Last Clean Start*:
+  description: The last clean start time as a timestamp
+Mop Attached**:
+  description: If the mop is attached
+Water Box Attached**:
+  description: If the watter box is attached
+Water Shortage**:
+  description: If the water box is low on water
+
+{% endconfiguration_basic %}
+
+<div class="note">
+* Needs to be manually enabled once the integration has been added. <br>
+** Only enabled if the vacuum has a mop.
+</div>
+
 ### Attributes
 
-In addition to [all of the attributes provided by the `vacuum` component](/integrations/vacuum/#attributes),
-(`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, and `params`), the `xiaomi` platform introduces specific attributes. These are:
-
-- `cleaning_time`
-- `do_not_disturb`
-- `main_brush_left`
-- `side_brush_left`
-- `filter_left`
-- `sensor_dirty_left`
-- `cleaning_count`
-- `total_cleaned_area`
-- `total_cleaning_time`
-- `clean_start`
-- `clean_end`
-- `mop_attached`
-
-The following table shows the units of measurement for each attribute:
-
-| Attribute                 | Unit of measurement | Description                                                    |
-|---------------------------|---------------------|----------------------------------------------------------------|
-| `do_not_disturb`          |                     | DND mode on / off                                              |
-| `cleaning_time`           | minutes             | Last / actual cleaning time in minutes                         |
-| `cleaned_area`            | square meter        | Last / actual cleaned area in square meters                    |
-| `main_brush_left`         | hours               | Hours left until a change of the main brush is needed          |
-| `side_brush_left`         | hours               | Hours left until a change of the side brush is needed          |
-| `filter_left`             | hours               | Hours left until a change of the filter is needed              |
-| `sensor_dirty_left`       | hours               | Hours left until the wall and cliff sensors should be cleaned  |
-| `cleaning_count`          |                     | Number of total cleaning cycles                                |
-| `total_cleaned_area`      | square meter        | Total cleaned area in square meters                            |
-| `total_cleaning_time`     | minutes             | Total cleaning time in minutes                                 |
-| `clean_start`             | datetime            | The last date/time the vacuum started cleaning (offset naive)  |
-| `clean_stop`              | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
-| `mop_attached`            |                     | A mop and water box are attached / not attached                |
+The vacuums from the `xiaomi` platform does not expose additional attributes other the ones provided by [the `vacuum` component](/integrations/vacuum/#attributes),
 
 ### Example on how to clean a specific room
 

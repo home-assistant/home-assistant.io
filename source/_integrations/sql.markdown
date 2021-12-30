@@ -106,10 +106,19 @@ Note that the SQL sensor state corresponds to the last row of the SQL result set
 
 ### Previous state of an entity
 
-This example only works with *binary_sensors*:
-
+Based on previous example with temperature, the query to get the former state is :
 ```sql
-SELECT * FROM states WHERE entity_id = 'binary_sensor.xyz789' GROUP BY state ORDER BY last_changed DESC LIMIT 1;
+SELECT * FROM (SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 2) two_entity  ORDER BY state_id ASC LIMIT 1;
+```
+Thus in yaml
+```yaml
+# Example configuration.yaml
+sensor:
+  - platform: sql
+    queries:
+      - name: Former_Temperature_In
+        query: "SELECT * FROM (SELECT state FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 2) two_entity  ORDER BY state_id ASC LIMIT 1;"
+        column: "state"
 ```
 
 ### Database size

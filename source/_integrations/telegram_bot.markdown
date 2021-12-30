@@ -517,3 +517,13 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
 ```
 
 {% endraw %}
+
+## Example: send_message with formatted Text
+
+```yaml
+action:
+- service: notify.telegrambot
+  data:
+    title: Example Message
+    message: 'Message with *BOLD*, _ITALIC_ and `MONOSPACE` Text'
+```

@@ -36,7 +36,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 
 ### Options
 
-To configure options for DSMR integration go to **Configuration** >> **Integrations** and press **Options** on the DSMR card.
+To configure options for DSMR integration go to **Configuration** >> **Devices & Services** and press **Options** on the DSMR card.
 
 #### Time between updates
 
@@ -57,6 +57,7 @@ This integration is known to work for:
 - Kaifa E0026
 - Kamstrup 382JxC (DSMR 2.2)
 - Sagemcom XS210 ESMR5
+- Sagemcom T211 
 - Ziv E0058 ESMR5
 
 ### Connecting to the meter
@@ -70,10 +71,10 @@ Connection can be done directly to the meter via a USB to serial connector, or t
 - [SOS Solutions](https://www.sossolutions.nl/slimme-meter-kabel)
 - [AliExpress](https://nl.aliexpress.com/item/32945187155.html)
 
-Docker users have to allow Docker access to the USB to seriacl converter by adding `--device /dev/ttyUSB21:/dev/ttyUSB21` to the run command:
+Docker users have to allow Docker access to the USB to serial converter by adding `--device /dev/ttyUSB21:/dev/ttyUSB21` to the run command:
 
 ```hass
-$ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /home/USERNAME/hass:/config -v /etc/localtime:/etc/localtime:ro --net=host {{ site.installation.container.base }}
+$ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /home/USERNAME/hass:/config -v /etc/localtime:/etc/localtime:ro --net=host {{ site.installation.container }}
 ```
 
 #### Serial to network proxies:
@@ -86,7 +87,7 @@ DIY solutions (ESP8266 based):
 
 {% include integrations/config_flow.md %}
 
-Optional configuration example for ser2net:
+Optional configuration example for ser2net 3.x.x:
 
 ```sh
 # Example /etc/ser2net.conf for proxying USB/serial connections to DSMRv4 smart meters
@@ -96,6 +97,22 @@ or
 ```sh
 # Example /etc/ser2net.conf for proxying USB/serial connections to DSMRv2.2 smart meters
 2001:raw:600:/dev/ttyUSB0:9600 EVEN 1STOPBIT 7DATABITS XONXOFF LOCAL -RTSCTS
+```
+
+Optional configuration example for ser2net 4.x.x:
+
+```sh
+# Example /etc/ser2net.yaml for proxying USB/serial connections to DSMRv4 smart meters
+connection: &con0096
+    accepter: tcp,2001
+    enable: on
+    options:
+      banner: *banner
+      kickolduser: true
+      telnet-brk-on-sync: true
+    connector: serialdev,
+              /dev/ttyUSB0,
+              115200n81,local
 ```
 
 ### Technical overview

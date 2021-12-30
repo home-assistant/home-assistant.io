@@ -82,9 +82,12 @@ If you prefer to use a live operating system, follow the instructions of your Li
 ### Write the image to your boot media
 
 1. Attach the Home Assistant boot media ({{site.installation.types[page.installation_type].installation_media}}) to your computer
+{% if page.installation_type == 'odroid' %}
+   If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
+{% endif %}
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
 3. Select "Flash from URL"
-![etcher_from_url](/images/installation/etcher1.png)
+![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
 
 4. Get the URL for your {{site.installation.types[page.installation_type].board}}:
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
@@ -118,22 +121,22 @@ If you prefer to use a live operating system, follow the instructions of your Li
 _Select and copy the URL or use the "copy" button that appear when you hover it._
 
 1. Paste the URL for your {{site.installation.types[page.installation_type].board}} into Balena Etcher and click "OK"
-![etcher_from_url_paste](/images/installation/etcher2.png)
+![Screenshot of the Etcher software showing the URL bar with a URL pasted in.](/images/installation/etcher2.png)
 6. Balena Etcher will now download the image, when that is done click "Select target"
-![etcher_select_target](/images/installation/etcher3.png)
+![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
 7. Select the {{site.installation.types[page.installation_type].installation_media}} you want to use for your {{site.installation.types[page.installation_type].board}}
-![etcher_select_target](/images/installation/etcher4.png)
+![Screenshot of the Etcher software showing teh targets available.](/images/installation/etcher4.png)
 8. Click on "Flash!" to start writing the image
-![etcher_select_target](/images/installation/etcher5.png)
+![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
 9. When Balena Etcher is finished writing the image you will get this confirmation
-![etcher_select_target](/images/installation/etcher6.png)
+![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
 {% if page.installation_type == 'generic-x86-64' %}
 1. If you used your Desktop system to write to your boot media, install the boot media ({{site.installation.types[page.installation_type].installation_media}}) into the target system. Otherwise, shutdown the live operating system and make sure to remove the USB flash drive you have been using for the live system.
 2. Make sure an ethernet cable for network is plugged in
-3. Power the system on. 
+3. Power the system on.
 {% else %}
 1. Insert the boot media ({{site.installation.types[page.installation_type].installation_media}}) you just created
 2. Attach a ethernet cable for network.
@@ -181,10 +184,11 @@ _All these can be extended if your usage calls for more resources._
 - title: VirtualBox
   content: |
     1. Create a new virtual machine
-    2. Select “Other Linux (64Bit)
-    3. Select “Use an existing virtual hard disk file”, select the VDI file from above
-    4. Edit the “Settings” of the VM and go “System” then Motherboard and Enable EFI
-    5. Then “Network” “Adapter 1” Bridged and your adapter.
+    2. Select Type “Linux” and Version “Other Linux (64-bit)”
+    3. Select “Use an existing virtual hard disk file”, select the unzipped VDI file from above
+    4. Edit the “Settings” of the VM and go “System” then “Motherboard” and select “Enable EFI”
+    5. Then go to “Network” “Adapter 1” choose “Bridged Adapter” and choose your Network adapter
+    6. Then go to “Audio” and choose “Intel HD Audio” as Audio Controller.
 
 - title: KVM
   content: |

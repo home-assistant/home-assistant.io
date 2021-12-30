@@ -50,17 +50,15 @@ Starting with [version 2 of the firmware](https://www.edimax.com/edimax/download
 {% raw %}
 
 ```yaml
-  - platform: template
-    sensors:
-      edimax_current_power:
-        friendly_name: Edimax Current power consumption
-        unit_of_measurement: "W"
-        value_template: "{{ state_attr('switch.edimax_smart_plug',  'current_power_w') | replace('None', 0) }}"
-
-      edimax_total_power:
-        friendly_name: Edimax Accumulated daily power consumption
-        unit_of_measurement: "kWh"
-        value_template: "{{ state_attr('switch.edimax_smart_plug',  'today_energy_kwh') | replace('None', 0) }}"
+template:
+  - sensor:
+    - name: Edimax Current power consumption
+      unit_of_measurement: "W"
+      state: "{{ state_attr('switch.edimax_smart_plug', 'current_power_w') | default(0, true) }}"
+      
+    - name: Edimax Accumulated daily power consumption
+      unit_of_measurement: "kWh"
+      state: "{{ state_attr('switch.edimax_smart_plug', 'today_energy_kwh') | default(0, true) }}"
 ```
 
 {% endraw %}

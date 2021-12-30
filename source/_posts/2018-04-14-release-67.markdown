@@ -15,7 +15,7 @@ og_image: /images/blog/2018-04-0.67/components.png
 
 Release 0.67 is here! In case you missed [the announcement from yesterday][ann-ubiquiti], Ubiquiti is paying me to write these release notes. Ooooooh yeah. With more time on my hands I'm going to be focusing on major improvements that we have been postponing for a while, first up will be a user system.
 
-This release includes a security fix. The error log was accessible via the API without requiring authentication in previous releases. Although not a leak on it's own, combined with a faulty component that would log sensitive information to the error log could lead to that being exposed (we don't know of any component that does this). Thanks to [Matt Hamilton](https://github.com/Eriner) for disclosing this issue to us.
+This release includes a security fix. The error log was accessible via the API without requiring authentication in previous releases. Although not a leak on its own, combined with a faulty component that would log sensitive information to the error log could lead to that being exposed (we don't know of any component that does this). Thanks to [Matt Hamilton](https://github.com/Eriner) for disclosing this issue to us.
 
 ## New Platforms
 

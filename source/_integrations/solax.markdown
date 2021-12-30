@@ -46,17 +46,14 @@ If you would like to convert the values from multiple panels or view the total p
 
 ```yaml
 # Example configuration.yaml entry for template platform
-sensors:
-- platform: template
-  sensors:
-    total_pv_power:
-      friendly_name: "Total PV Power"
-      unit_of_measurement: "W"
-      value_template: "{{ (states('sensor.pv1_power') | float) + (states('sensor.pv2_power') | float) }}"
-    load_power:
-      friendly_name: "Load Power"
-      unit_of_measurement: "W"
-      value_template: "{{ (states('sensor.power_now') | float) - (states('sensor.exported_power') | float) }}"
+template:
+- sensor
+  - name: Total PV power
+    unit_of_measurement: "W"
+    state: "{{ (states('sensor.pv1_power') | float(default=0)) + (states('sensor.pv2_power') | float(default=0)) }}"
+  - name: Load power
+    unit_of_measurement: "W"
+    state: "{{ (states('sensor.power_now') | float(default=0)) - (states('sensor.exported_power') | float(default=0)) }}"
 ```
 
 {% endraw %}

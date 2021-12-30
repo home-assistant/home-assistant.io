@@ -75,20 +75,16 @@ along with the supply temperature (use the ID of your unit):
 ```yaml
 # Example configuration.yaml entry to create sensors
 # from the izone controller state attributes
-sensor:
-  - platform: template
-    sensors:
-      control_zone:
-        friendly_name: "Control zone"
-        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_name') }}"
-      control_zone_target:
-        friendly_name: "Target temperature"
-        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_setpoint') }}"
-        unit_of_measurement: "°C" 
-      temperature_supply:
-        friendly_name: "Supply temperature"
-        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
-        unit_of_measurement: "°C"
+template:
+  - sensor:
+    - name: "Control zone"
+      state: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_name') }}"
+    - name: "Target temperature"
+      state: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_setpoint') }}"
+      unit_of_measurement: "°C" 
+    - name : "Supply temperature"
+      state: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
+      unit_of_measurement: "°C"
 ```
 
 {% endraw %}

@@ -4,7 +4,7 @@ description: "More information on how to set up local media sources in Home Assi
 ---
 
 In order to use the media browser with Home Assistant, it needs to know where to
-find you local media.
+find your local media.
 
 ## Home Assistant OS and Supervised
 
@@ -26,7 +26,7 @@ docker run -d --name="home-assistant" \
   -v /PATH_TO_YOUR_CONFIG:/config \
   -v /etc/localtime:/etc/localtime:ro \
   --net=host \
-  {{ site.installation.container.base }}:stable
+  {{ site.installation.container }}:stable
 ```
 
 You'll need to change it to this:
@@ -37,11 +37,11 @@ docker run -d --name="home-assistant" \
   -v /PATH_TO_YOUR_MEDIA:/media \
   -v /etc/localtime:/etc/localtime:ro \
   --net=host \
-  {{ site.installation.container.base }}:stable
+  {{ site.installation.container }}:stable
 ```
 
 If you are using Docker compose, you can add a volume to your composition file
-in similar fashion as listed in the command above.
+in a similar fashion as listed in the command above.
 
 ## Home Assistant Core
 
@@ -55,7 +55,7 @@ For example, if your current configuration folder is stored in:
 
 `/home/frenck/.homeassistant/`
 
-The you'll need to create a media folder in that same path:
+Then you'll need to create a media folder in that same path:
 
 `/home/frenck/.homeassistant/media`
 

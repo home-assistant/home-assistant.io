@@ -50,6 +50,7 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [How to achieve smart home nirvana (or, home automation without subscription)](https://arstechnica.com/information-technology/2021/03/how-to-achieve-smart-home-nirvana-or-home-automation-without-subscription/) - March 2021
 - [Why I use Home Assistant for open source home automation](https://opensource.com/article/20/11/home-assistant) - November 2020
 - [Home Assistant, the Python IoT hub](https://lwn.net/Articles/822350/) - June 2020
 - [Thomas-Krenn-Award 2020: Dino, Teckids und Home Assistant](https://www.thomas-krenn.com/de/tkmag/allgemein/gewinner-thomas-krenn-award-2020/) - June 2020
@@ -67,8 +68,8 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [The winners of the Thomas-Krenn-Awards 2018](https://www.thomas-krenn.com/de/tkmag/allgemein/die-gewinner-des-thomas-krenn-awards-2018-stehen-fest/) - March 2018
 - [Best of Open Source Smart Home: Home Assistant vs OpenHAB](https://smarthome.university/your-smart-home-platform-home-assistant-vs-openhab/) - February 2018
 - [Hausautomations-Schaltzentrale Home Assistant auf Python-Basis](https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html) - December 2017
-- [Using Home Assistant the ARTIK Cloud](http://web.archive.org/web/20191028191303/https://developer.artik.io/documentation/developer-guide/wireless-iot/hass.html) - September 2017
-- [Control home automation hardware with Home Assistant](http://www.linux-magazine.com/Issues/2017/203/Home-Assistant) - August 2017
+- [Using Home Assistant the ARTIK Cloud](https://web.archive.org/web/20191028191303/https://developer.artik.io/documentation/developer-guide/wireless-iot/hass.html) - September 2017
+- [Control home automation hardware with Home Assistant](https://www.linux-magazine.com/Issues/2017/203/Home-Assistant) - August 2017
 - [Smart Home Home Assistant KNX Alexa Sprachsteuerung](https://onesmarthome.de/smart-home-home-assistant-knx-alexa-sprachsteuerung/) - August 2017
 - [Episode #122: Home Assistant: Pythonic Home Automation](https://talkpython.fm/episodes/show/122/home-assistant-pythonic-home-automation) - July 2017
 - [Smart Home Home Assistant Konfiguration mit YAML](https://onesmarthome.de/smart-home-home-assistant-konfiguration/) - July 2017
@@ -84,7 +85,7 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Episode #11](https://pythonbytes.fm/episodes/show/11/django-2.0-is-dropping-python-2-entirely-pipenv-for-profile-functionality-and-pythonic-home-automation) at minute 15:20 by [Python Bytes](https://pythonbytes.fm/) - January 2017
 - [Now you can hide your smart home on the darknet](https://www.wired.com/2016/07/now-can-hide-smart-home-darknet/) - July 2016
 - [Home Assistant: The Python Approach to Home Automation](https://www.linux.com/news/home-assistant-python-approach-home-automation-video) - June 2016
-- [Secure home automation, without clouds or dedicated hubs](http://linuxgizmos.com/secure-home-automation-without-clouds-or-dedicated-hubs/) - June 2016
+- [Secure home automation, without clouds or dedicated hubs](https://linuxgizmos.com/secure-home-automation-without-clouds-or-dedicated-hubs/) - June 2016
 - [Weekend Project: Setting up Home Assistant on your PC or Mac](https://www.automatedhome.co.uk/software/weekend-project-setting-up-home-assistant-on-your-pc-or-mac.html) by [automated home](https://www.automatedhome.co.uk/) - April 2016
 - [Episode 105 - DIY Home Automation Roundup](https://www.hometech.fm/shows/105) by [HomeTech.fm](https://www.hometech.fm/) - April 2016
 - [5 open source home automation tools](https://opensource.com/life/16/3/5-open-source-home-automation-tools) by [opensource.com](https://opensource.com) - March 2016

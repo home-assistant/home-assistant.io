@@ -8,9 +8,9 @@ ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
-  - '@home-assistant/core'
   - '@PhracturedBlue'
   - '@tetienne'
+  - '@home-assistant/core'
 ha_domain: template
 ha_platforms:
   - alarm_control_panel
@@ -20,8 +20,8 @@ ha_platforms:
   - light
   - lock
   - number
-  - select
   - sensor
+  - select
   - switch
   - vacuum
   - weather
@@ -61,7 +61,7 @@ template:
           {% set bedroom = states('sensor.bedroom_temperature') | float %}
           {% set kitchen = states('sensor.kitchen_temperature') | float %}
 
-          {{ ((bedroom + kitchen) / 2) | round(1) }}
+          {{ ((bedroom + kitchen) / 2) | round(1, default=0) }}
 ```
 
 {% endraw %}
@@ -86,8 +86,8 @@ template:
         minutes: 0
     sensor:
       # Keep track how many days have past since a date
-      - name: Not smoking
-        state: '{{ ( ( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round }}'
+      - name: "Not smoking"
+        state: '{{ ( ( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(default=0) }}'
         unit_of_measurement: "Days"
 ```
 
@@ -112,12 +112,12 @@ sensor:
       required: true
       type: template
     unit_of_measurement:
-      description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
+      description: "Defines the units of measurement of the sensor, if any. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
       default: None
     state_class:
-      description: "Defines the state class of the sensor, if any. Only possible value currently is `measurement`. Set this if your template sensor represents a measurement of the current value (so not a daily aggregate etc)."
+      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
       default: None
@@ -147,10 +147,6 @@ binary_sensor:
   required: false
   type: map
   keys:
-    icon:
-      description: Defines a template for the icon of the sensor.
-      required: false
-      type: template
     picture:
       description: Defines a template for the entity picture of the sensor.
       required: false
@@ -178,8 +174,7 @@ number:
       description: Template for the number's current value.
       required: true
       type: template
-    set_value:
-      description: Defines an action to run when the number value changes.
+      description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
       required: true
       type: action
     step:
@@ -211,7 +206,7 @@ select:
       required: true
       type: template
     select_option:
-      description: Defines an action to run to select an option from the `options` list.
+      description: Defines actions to run to select an option from the `options` list. The variable `option` will contain the option selected.
       required: true
       type: action
     options:
@@ -229,15 +224,19 @@ select:
   type: map
   keys:
     name:
-      description: Defines a template to get the name of the sensor.
+      description: Defines a template to get the name of the entity.
       required: false
       type: template
     unique_id:
-      description: An ID that uniquely identifies this sensor. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+      description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
       required: false
       type: string
+    icon:
+      description: Defines a template for the icon of the entity.
+      required: false
+      type: template
     availability:
-      description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the component will always be `available`.
+      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
       required: false
       type: template
       default: true
@@ -252,7 +251,7 @@ template:
   # Define state-based template entities
   - sensor:
       ...
-    binary_sensor:
+  - binary_sensor:
       ...
 
   # Define trigger-based template entities
@@ -268,7 +267,7 @@ template:
 
 ## Rate limiting updates
 
-When there are entities present in the template and no triggers are defined, the template will be re-rendered when one of the entities changes states. To avoid this taking up too many resources in Home Assistant, automatic rate limiting will be automatically applied if too many states are observed.
+When there are entities present in the template and no triggers are defined, the template will be re-rendered when one of the entities changes states. To avoid this taking up too many resources in Home Assistant, rate limiting will be automatically applied if too many states are observed.
 
 <p class='note'>
 <a href='#trigger-based-template-sensors'>Define a trigger</a> to avoid a rate limit and get more control over entity updates.
@@ -311,7 +310,7 @@ If the template accesses every state on the system, a rate limit of one update p
 
 ### Startup
 
-If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use `is_state()` function in your template. For example, you would replace {% raw %}`{{ states.cover.source.state == 'open' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
+If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use `is_state()` function in your template. For example, you would replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
 
 {% raw %}
 
@@ -415,7 +414,7 @@ template:
 
 ### Multiline Example With an `if` Test
 
-This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend.
+This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend, and shows 'standby' if the power use is less than 1000 watts.
 
 {% raw %}
 
@@ -426,7 +425,7 @@ template:
         state: >
           {% if is_state('switch.kettle', 'off') %}
             off
-          {% elif state_attr('switch.kettle', 'kwh')|float < 1000 %}
+          {% elif state_attr('switch.kettle', 'W')|float < 1000 %}
             standby
           {% elif is_state('switch.kettle', 'on') %}
             on
@@ -510,7 +509,7 @@ template:
   - binary_sensor:
       - name: My Device
         state: >
-          {{ is_state('device_tracker.my_device_nmap', 'home') or is_state('device_tracker.my_device_gps', 'home') }
+          {{ is_state('device_tracker.my_device_nmap', 'home') or is_state('device_tracker.my_device_gps', 'home') }}
         device_class: "presence"
         attributes:
           latitude: >
@@ -531,7 +530,7 @@ template:
 
 ### Change the icon when a state changes
 
-This example demonstrates how to use template to change the icon as it's state changes. This icon is referencing it's own state.
+This example demonstrates how to use template to change the icon as its state changes. This icon is referencing its own state.
 
 {% raw %}
 
@@ -600,7 +599,7 @@ sensors:
           required: true
           type: template
         availability_template:
-          description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+          description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
           required: false
           type: template
           default: true
@@ -674,7 +673,7 @@ sensor:
         required: false
         type: string
       unit_of_measurement:
-        description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
+        description: "Defines the units of measurement of the sensor, if any. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
         required: false
         type: string
         default: None
@@ -710,3 +709,9 @@ sensor:
         type: device_class
         default: None
 {% endconfiguration %}
+
+## Event `event_template_reloaded`
+
+Event `event_template_reloaded` is fired when Template entities have been reloaded and entities thus might have changed.
+
+This event has no additional data.

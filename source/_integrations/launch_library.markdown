@@ -1,7 +1,6 @@
 ---
 title: Launch Library
 description: Instructions on how to integrate space launch information within Home Assistant.
-logo: rocket.png
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling

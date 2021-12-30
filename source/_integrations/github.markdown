@@ -8,6 +8,9 @@ ha_iot_class: Cloud Polling
 ha_domain: github
 ha_platforms:
   - sensor
+ha_codeowners:
+  - '@timmo001'
+  - '@ludeeus'
 ---
 
 The GitHub sensor allows you to monitor your favorite [GitHub](https://github.com/) repositories. Monitored information includes the amount of stargazers, forks, open issues and pull requests, the latest commit message, and more. 
@@ -35,7 +38,7 @@ access_token:
   required: true
   type: string
 url:
-  description: If you are using a GitHub Enterprise server, add it's URL here. For example, `https://mygithubserver.com`
+  description: If you are using a GitHub Enterprise server, add its URL here. For example, `https://mygithubserver.com`
   required: false
   type: string
 repositories:

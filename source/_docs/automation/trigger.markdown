@@ -7,6 +7,8 @@ Triggers are what starts the processing of an automation rule. When _any_ of the
 
 An automation can be triggered by an event, with a certain entity state, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
 
+- [Trigger ID](#trigger-id)
+- [Trigger variables](#trigger-variables)
 - [Event trigger](#event-trigger)
 - [Home Assistant trigger](#home-assistant-trigger)
 - [MQTT trigger](#mqtt-trigger)
@@ -22,9 +24,9 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
 
-## Trigger id
+## Trigger ID
 
-All triggers can be assigned an optional `id`. If the id is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from trigger conditions.
+All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (i.e., several triggers of different types that should all turn some entity on).
 
 ```yaml
 automation:
@@ -42,10 +44,9 @@ automation:
       to: "home"
 ```
 
-
 ## Trigger variables
 
-Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in trigger templates with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
+Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in [trigger templates](/docs/automation/templating) with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
 
 ## Event trigger
 
@@ -294,7 +295,7 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 ## State trigger
 
 Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
-If only one of `from_state` or `to_state` are given, the trigger will fire on any matching state change, but not if only attributes change.
+If at least one of `from` or `to` are given, the trigger will fire on any matching state change, but not if only attributes change. To trigger on all state changes, but not on changed attributes, set at least one of `from` or `to` to `null`.
 
 <div class='note'>
 
@@ -315,7 +316,7 @@ automation:
       to: "home"
 ```
 
-It's possible to give a list of from_states or to_states:
+It's possible to give a list of `from` states or `to` states:
 
 ```yaml
 automation:
@@ -328,7 +329,45 @@ automation:
       to: "error"
 ```
 
-### Holding a state
+Trigger on all state changes, but not attributes by setting `to` to `null`:
+
+```yaml
+automation:
+  trigger:
+    - platform: state
+      entity_id: vacuum.test
+      to:
+```
+
+### Triggering on attribute changes
+
+When the `attribute` option is specified, the trigger only fires
+when the specified attribute changes. Changes to other attributes or the
+state are ignored.
+
+For example, this trigger only fires when the boiler has been heating for 10 minutes:
+
+```yaml
+automation:
+  trigger:
+    - platform: state
+      entity_id: climate.living_room
+      attribute: hvac_action
+      to: "heating"
+      for: "00:10:00"
+```
+
+This trigger fires whenever the boiler's `hvac_action` attribute changes:
+
+```yaml
+automation:
+  trigger:
+    - platform: state
+      entity_id: climate.living_room
+      attribute: hvac_action
+```
+
+### Holding a state or attribute
 
 You can use `for` to have the state trigger only fire if the state holds for some time.
 
@@ -377,22 +416,6 @@ automation:
       entity_id: media_player.kitchen
       # The media player remained in its current state for 1 hour
       for: "01:00:00"
-```
-
-When the `attribute` option is specified, all of the above works, but only
-applies to the specific state value of that attribute. In this case the
-normal state value of the entity is ignored.
-
-For example, this trigger only fires if the boiler was heating for 10 minutes:
-
-```yaml
-automation:
-  trigger:
-    - platform: state
-      entity_id: climate.living_room
-      attribute: hvac_action
-      to: "heating"
-      for: "00:10:00"
 ```
 
 You can also use templates in the `for` option.
@@ -677,7 +700,7 @@ automation 3:
 
 <div class='note warning'>
 
-Do not prefix numbers with a zero - using `'00'` instead of `'0'` for example will result in errors.
+Do not prefix numbers with a zero - using `'01'` instead of `'1'` for example will result in errors.
 
 </div>
 
@@ -725,7 +748,7 @@ automation:
 ## Geolocation trigger
 
 Geolocation trigger fires when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/integrations/geo_location/) platform support reporting GPS coordinates.
-Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source`, which is directly linked to one of the Geolocation platforms.
+Because entities are generated and removed by these platforms automatically, the entity ID normally cannot be predicted. Instead, this trigger requires the definition of a `source`, which is directly linked to one of the Geolocation platforms.
 
 <div class='note'>
 
@@ -769,7 +792,7 @@ automation:
 
 ## Multiple Entity IDs for the same Trigger
 
-It is possible to specify multiple entities for the same trigger. To do so add multiple entities using a nested list. The trigger will fire and start, [processing](#what-are-triggers) your automation each time the trigger is true for each entity listed.
+It is possible to specify multiple entities for the same trigger. To do so add multiple entities using a nested list. The trigger will fire and start, [processing](#what-are-triggers) your automation each time the trigger is true for any entity listed.
 
 ```yaml
 automation:

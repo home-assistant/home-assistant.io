@@ -361,7 +361,7 @@ state_filter:
   type: map
 aspect_ratio:
   required: false
-  description: Height to width ratio.
+  description: 'Forces the height of the image to be a ratio of the width. Valid formats: Height percentage value (`23%`) or ratio expressed with colon or "x" separator (`16:9` or `16x9`). For a ratio, the second element can be omitted and will default to "1" (`1.78` equals `1.78:1`).'
   type: string
   default: "50%"
 style:
@@ -435,7 +435,7 @@ user:
 ### How to use the style object
 
 Position and style your elements using [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS). More/other keys are also possible.
-Note, the default style for most elements includes [translate](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate)(-50%, -50%), which means that the coordinates you provide will set the position of the center of the element.
+Note, the default style for most elements includes [translate](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate)(-50%, -50%), which means that the coordinates you provide will set the position of the center of the element. Use `transform: none` to disable this behavior.
 
 ```yaml
 style:

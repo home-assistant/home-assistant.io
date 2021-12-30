@@ -10,7 +10,9 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_domain: group
 ha_platforms:
+  - binary_sensor
   - cover
+  - fan
   - light
   - media_player
   - notify

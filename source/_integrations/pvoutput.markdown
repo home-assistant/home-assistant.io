@@ -49,24 +49,20 @@ sensor:
   - platform: pvoutput
     system_id: YOUR_SYSTEM_ID
     api_key: YOUR_API_KEY
-  - platform: template
-    sensors:
-      power_consumption:
-        value_template: "{% if is_state_attr('sensor.pvoutput', 'power_consumption', 'NaN') %}0{% else %}{{ state_attr('sensor.pvoutput', 'power_consumption') }}{% endif %}"
-        friendly_name: "Using"
-        unit_of_measurement: "Watt"
-      energy_consumption:
-        value_template: '{{ "%0.1f"|format(state_attr("sensor.pvoutput", "energy_consumption")|float/1000) }}'
-        friendly_name: "Used"
-        unit_of_measurement: "kWh"
-      power_generation:
-        value_template: '{% if is_state_attr("sensor.pvoutput", "power_generation", "NaN") %}0{% else %}{{ state_attr("sensor.pvoutput", "power_generation") }}{% endif %}'
-        friendly_name: "Generating"
-        unit_of_measurement: "Watt"
-      energy_generation:
-        value_template: '{% if is_state_attr("sensor.pvoutput", "energy_generation", "NaN") %}0{% else %}{{ "%0.2f"|format(state_attr("sensor.pvoutput", "energy_generation")|float/1000) }}{% endif %}'
-        friendly_name: "Generated"
-        unit_of_measurement: "kWh"
+template:
+  - sensor:
+    - name: Power Consumption
+      state: "{{ state_attr('sensor.pvoutput', 'power_consumption') | float(default=0) }}"
+      unit_of_measurement: "W"
+    - name: Energy Consumption
+      state: "{{ '%0.1f' | format(state_attr('sensor.pvoutput', 'energy_consumption') | float(default=0) / 1000) }}"
+      unit_of_measurement: "kWh"
+    - name: Power Generation
+      state: "{{ state_attr('sensor.pvoutput', 'power_generation') | float(default=0) }}"
+      unit_of_measurement: "W"
+    - name: Energy Generation
+      state: "{{ '%0.2f' | format(state_attr('sensor.pvoutput', 'energy_generation') | float(default=0) / 1000) }}" 
+      unit_of_measurement: "kWh"
 ```
 
 {% endraw %}

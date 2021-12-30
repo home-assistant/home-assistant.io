@@ -101,7 +101,7 @@ First thing you need to do after sing in [AWS console](https://console.aws.amazo
 Next you need create a Lambda function.
 
 - Click `Services` in top navigation bar, expand the menu to display all AWS services, click `Lambda` under `Compute` section to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
-- **IMPORTANT - Alexa Skills are only supported in certain AWS reigons** Your current server location will be displayed on the top right corner (for example, Ohio), make sure you select the server closest to your location / region based on your Amazon account's country, whilst also ensuring that it is within one of the supported reigons for Alexa Skills otherwise this will not work!
+- **IMPORTANT - Alexa Skills are only supported in certain AWS regions** Your current server location will be displayed on the top right corner (for example, Ohio), make sure you select the server closest to your location / region based on your Amazon account's country, whilst also ensuring that it is within one of the supported regions for Alexa Skills otherwise this will not work!
   - **US East (N.Virginia)** region for English (US) or English (CA) skills
   - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
   - **US West (Oregon)** region for Japanese and English (AU) skills.
@@ -163,6 +163,7 @@ After your Home Assistant has restarted, go back to `AWS Lambda Console`, you ar
   }
 }
 ```
+
 - Click `Create` in the bottom right hand corner.
 
 This test event is a `Discovery` directive, your Home Assistant instance will respond with a list of devices Alexa can interact with. This test data is lack of `token` in `payload.scope`, your Lambda function will read the `LONG_LIVED_ACCESS_TOKEN` from environment variable.
@@ -283,7 +284,6 @@ alexa:
           type: string
         filter:
           description: Filter domains and entities for Alexa. ([Configure Filter](#configure-filter))
-          required: true
           type: map
           keys:
             include_domains:
@@ -796,7 +796,7 @@ The following table lists the possible friendly name synonyms available for a In
 
 ### Light
 
-Control lights with _"turn on"_ and _"turn off"_ utterances, adjust brightness, color, and temperature. 
+Control lights with _"turn on"_ and _"turn off"_ utterances, adjust brightness, color, and temperature.
 
 - _"Alexa, turn on the bathroom light."_
 - _"Alexa, turn off the patio light."_
@@ -938,11 +938,11 @@ Support _"turn on"_ and _"turn off"_ utterances.
 
 ### Timer
 
-Start a timer with using the _"turn on"_ utterance. 
+Start a timer with using the _"turn on"_ utterance.
 
 - _"Alexa, turn on the laundry."_
 
-Cancel a timer using the _"turn off"_ utterance. 
+Cancel a timer using the _"turn off"_ utterance.
 
 - _"Alexa, turn off the laundry."_
 

@@ -9,7 +9,7 @@ The template variable `this` is also available when evaluating any `trigger_vari
 
 ## Available this Data
 
-`this` is a state object. [State Objects](/docs/configuration/state_object) provides a comprehensive description for the properties of `this` and `this.attributes`.
+Variable `this` is the [state object](/docs/configuration/state_object) of the automation. State objects also contain context data which can be used to identify the user that caused a script or automation to execute.
 
 ## Available Trigger Data
 

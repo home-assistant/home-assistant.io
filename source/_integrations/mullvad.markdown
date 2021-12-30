@@ -14,7 +14,7 @@ ha_platforms:
   - binary_sensor
 ---
 
-The Mullvad VPN integration pulls [Mullvad](https://mullvad.net/) VPN status information into Home Assistant.
+The Mullvad VPN integration uses the [Mullvad](https://mullvad.net/) VPN API to detect if your Home Assistant instance is connected to the Mullvad VPN service.
 
 ![](/images/screenshots/mullvad_vpn_sample_sensor_connected.png)
 
