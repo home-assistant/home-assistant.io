@@ -57,7 +57,7 @@ A device is identified as stale when it's still present on Home Assistant but no
 
 | Service data attribute | Optional | Description                                                                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific  router                                                                                 |
+| `device_id`            | no       | Only act on a specific  router                                                                                 |
 
 ## Integration Options
 

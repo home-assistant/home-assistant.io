@@ -140,7 +140,7 @@ Once completed, you will have a device access `project_id` needed for later step
 1. Give your Device Access project a name and click **Next**.
     ![Screenshot of naming a project](/images/integrations/nest/project_name.png)
 
-1. Next you will be asked for an *OAuth client ID*  which you created in the previous step and click **Nest**.
+1. Next you will be asked for an *OAuth client ID*  which you created in the previous step and click **Next**.
     ![Screenshot of Device Access Console OAuth client ID](/images/integrations/nest/device_access_oauth_client_id.png)
 
 1. Enable Events by clicking on **Enable** and **Create project**.
