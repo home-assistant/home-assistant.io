@@ -130,6 +130,7 @@ Supported abbreviations:
     'flsh_tlng':           'flash_time_long',
     'flsh_tsht':           'flash_time_short',
     'fx_cmd_t':            'effect_command_topic',
+    'fx_cmd_tpl':          'effect_command_template',
     'fx_list':             'effect_list',
     'fx_stat_t':           'effect_state_topic',
     'fx_tpl':              'effect_template',
