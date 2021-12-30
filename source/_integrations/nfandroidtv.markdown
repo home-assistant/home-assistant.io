@@ -125,7 +125,7 @@ icon:
   auth: "digest"
 ```
 
-Example of automation serivce call, full cofiguration:
+Example of an automation with an service call, full configuration:
 
 ```yaml
   - service: notify.living_room_tv
