@@ -96,6 +96,18 @@ The following sensors are available in the library:
 | Energy Yield Month      | kWh  | Energy yield of the current month. |
 | Energy Yield Year       | kWh  | Energy yield of the current year. |
 | Energy Yield Total      | kWh  | Energy yield total. |
+| Energy Discharge to Grid Day    | kwH  | Energy discharged to the Grid of the current day. |
+| Energy Discharge to Grid Month  | kwH  | Energy discharged to the Grid of the current month. |
+| Energy Discharge to Grid Year   | kwH  | Energy discharged to the Grid of the current year. |
+| Energy Discharge to Grid Total  | kwH  | Energy discharged to the Grid total. |
+| Battery Charge from Grid Day    | kwH  | Energy charged to the battery from the Grid of the current day. |
+| Battery Charge from Grid Month  | kwH  | Energy charged to the battery from the Grid of the current month. |
+| Battery Charge from Grid Year   | kwH  | Energy charged to the battery from the Grid of the current year. |
+| Battery Charge from Grid Total  | kwH  | Energy charged to the battery from the Grid total. |
+| Battery Charge from PV Day    | kwH  | Energy charged to the battery from the PV of the current day. |
+| Battery Charge from PV Month  | kwH  | Energy charged to the battery from the PV of the current month. |
+| Battery Charge from PV Year   | kwH  | Energy charged to the battery from the PV of the current year. |
+| Battery Charge from PV Total  | kwH  | Energy charged to the battery from the PV total. |
 
 ### Settings Sensors
 
