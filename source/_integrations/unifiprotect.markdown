@@ -88,7 +88,7 @@ Both the UniFi Protect integration and the Python library it uses provides a ton
 logger:
   logs:
     pyunifiprotect: debug
-    custom_components.unifiprotect: debug
+    homeassistant.components.unifiprotect: debug
 ```
 
 ### Delay in Video Feed
