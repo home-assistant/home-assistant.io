@@ -61,7 +61,7 @@ The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs 
 1. Open UniFi Protect and click on *Devices*
 1. Select *Manage* in the Menu bar at the top
 1. Click on the + sign next to RTSP
-1. Enable minimum 1 stream out of the 3 available. The Stream with the Highest resolution as the default enabled one.
+1. Enable a minimum 1 stream out of the 3 available. The Stream with the Highest resolution is the default enabled one.
 
 {% include integrations/config_flow.md %}
 
