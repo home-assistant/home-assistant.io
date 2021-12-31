@@ -120,6 +120,7 @@ lifx:
     - server: IP_ADDRESS
       port: 56700
       broadcast: IP_ADDRESS
+  default_transition: 0.25
 ```
 
 {% configuration %}
@@ -135,4 +136,8 @@ broadcast:
   description: The broadcast address for discovering lights. Can also set this to the IP address of a bulb to skip discovery.
   required: false
   type: string
+default_transition:
+  description: The length of a transition (in seconds) when a light's brightness or color is updated. Defaults to 0 seconds if omitted.
+  required: false
+  type: float
 {% endconfiguration %}
