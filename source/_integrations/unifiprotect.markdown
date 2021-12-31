@@ -82,7 +82,7 @@ Each UniFi Protect camera will get the following entities added:
 
 ### Enabling Debug Logging
 
-Both the UniFi Protect integration and the Python library it uses provides a ton of debug logging that can help you with troubleshooting connectivity issues. To enable debug logging for both, add the following to your `configuration.yaml` file:
+Both the UniFi Protect integration and the Python library it uses provide a ton of debug logging that can help you with troubleshooting connectivity issues. To enable debug logging for both, add the following to your `configuration.yaml` file:
 
 ```yaml
 logger:
