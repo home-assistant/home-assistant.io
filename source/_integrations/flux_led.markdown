@@ -95,6 +95,10 @@ The following models have not been tested with integration but may work.
 | 0xE2  | Ceiling Light Assist        |                                 |
 | 0xA4  | Addressable v4              |                                 |
 
+### Troubleshooting
+
+If a strip controller device will not stay on wifi or goes offline during adjusting colors and effects, upgrading to a power supply with a higher amperage usually resolves any stability issues.
+
 ### Effects
 
 The Flux LED light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the `light.turn_on` command.
