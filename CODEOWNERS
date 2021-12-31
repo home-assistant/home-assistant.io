@@ -544,6 +544,7 @@ source/_integrations/twinkly.markdown @dr1rrb
 source/_integrations/ubus.markdown @noltari
 source/_integrations/unifi.markdown @Kane610
 source/_integrations/unifiled.markdown @florisvdk
+source/_integrations/unifiprotect.markdown @briis @AngellusMortis @bdraco
 source/_integrations/upb.markdown @gwww
 source/_integrations/upc_connect.markdown @pvizeli @fabaff
 source/_integrations/upcloud.markdown @scop
