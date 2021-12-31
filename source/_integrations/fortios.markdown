@@ -37,7 +37,7 @@ host:
   required: true
   type: string
 token:
-  description: See: [Generate an API token for FortiOS](https://docs.fortinet.com/document/forticonverter/6.2.0/online-help/866905/connect-fortigate-device-via-api-token) for how to create an API token. Remember this integration only needs read access to a FortiGate, so configure the API user to only to have limited and read-only access.
+  description: See: [Generate an API token for FortiOS](https://docs.fortinet.com/document/forticonverter/6.2.0/online-help/866905/connect-fortigate-device-via-api-token) for how to create an API token. This integration only needs read access to a FortiGate, so configure the API user to only to have limited and read-only access.
   required: true
   type: string
 verify_ssl:
