@@ -47,6 +47,5 @@ The HomeWizard Energy API only exposes properties that are used within the HomeW
 | Active Power_l2 | w | HWE-P1, SDM630-wifi | Active power usage Line 2. |
 | Active Power_l3 | w | HWE-P1, SDM630-wifi | Active power usage Line 3. |
 | Total Gas | m3 | HWE-P1 | Current gas import reading, only available when your smart meter is connected to a gas meter. |
-| Gas Timestamp | | HWE-P1 | Last update from gas reading, only available when your smart meter is connected to a gas meter.  |
-| SMR Version | | HWE-P1 | The detected DSMR version. |
-| Model | | HWE-P1 | The detected smart meter model. |
+| DSMR Version | | HWE-P1 | The detected DSMR version. |
+| Smart Meter Model | | HWE-P1 | The detected smart meter model. |
