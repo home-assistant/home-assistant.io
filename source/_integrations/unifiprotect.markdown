@@ -23,7 +23,7 @@ The UniFi Protect integration, adds support for retrieving Camera feeds and Sens
 
 ### Hardware Support
 
-This Integration supports all UniFi OS Consoles that can run UniFi Protect. Currently this includes:
+This Integration supports all UniFi OS Consoles that can run UniFi Protect. Currently, this includes:
 
 * UniFi Protect Network Video Recorder (**UNVR**)
 * UniFi Protect Network Video Recorder Pro (**UNVRPRO**)
