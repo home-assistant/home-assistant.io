@@ -548,7 +548,7 @@ The Z-Wave network can be configured via the built-in Z-Wave JS control panel in
 
 **Option 3: The Zwavejs2Mqtt Docker container**
 
-This is the recommended approach if you're running Home Assistant Container. See the [Zwavejs2Mqtt documentation](https://zwave-js.github.io/Zwavejs2Mqtt/#/getting-started/quick-start) for instructions.
+This is the recommended approach if you're running Home Assistant Container. See the [Zwavejs2Mqtt documentation](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) for instructions.
 
 This method provides the same server application and UI as the Zwavejs2Mqtt add-on. After installing the Docker image, make sure you enable the WS Server in the Home Assistant section of Settings page.
 
