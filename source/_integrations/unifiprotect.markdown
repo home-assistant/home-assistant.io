@@ -85,19 +85,19 @@ Each UniFi Protect camera will get the following entities added:
 
 Each UniFi Protect flood light will get the following entities added:
 
-* **Button** - A button entity that is disabled by default will be added for each flood light entity. This will let you Reboot your flood light device.
+* **Button** - A disabled by default button entity is added for each floodlight entity. The button will let you Reboot your floodlight device.
 
 ### Sensor
 
 Each UniFi Protect sensor will get the following entities added:
 
-* **Button** - A button entity that is disabled by default will be added for each sensor entity. This will let you Reboot your sensor device.
+* **Button** - A disabled by default button entity is added for each sensor entity. The button will let you Reboot your sensor device.
 
 ### Viewport
 
 Each UniFi Protect viewport will get the following entities added:
 
-* **Button** - A button entity that is disabled by default will be added for each viewport entity. This will let you Reboot your viewport device.
+* **Button** - A disabled by default button entity is added for each viewport entity. The button will let you Reboot your viewport device.
 
 ## Troubleshooting
 
