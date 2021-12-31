@@ -4,6 +4,7 @@ description: Instructions on how to configure UniFi Protect integration by Ubiqu
 ha_category:
   - Hub
   - Camera
+  - Media Player
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -15,6 +16,7 @@ ha_codeowners:
 ha_domain: unifiprotect
 ha_platforms:
   - camera
+  - media_player
 ---
 
 The UniFi Protect integration, adds support for retrieving Camera feeds and Sensor data from an [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on an UniFi OS Console.
@@ -74,11 +76,27 @@ All known UniFi Protect devices are should be supported. Each UniFi Protect devi
 Each UniFi Protect camera will get the following entities added:
 
 * **Camera** - A camera entity for each camera channel and RTSP(S) combination found for each camera (up to 6). Only the highest resolution RTSPS camera entity will be enabled by default.
+* **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](https://www.home-assistant.io/integrations/tts/#service-say).
 
 ## Troubleshooting
+
+### Enabling Debug Logging
+
+Both the UniFi Protect integration and the Python library it uses provides a ton of debug logging that can help you with troubleshooting connectivity issues. To enable debug logging for both, add the following to your `configuration.yaml` file:
+
+```yaml
+logger:
+  logs:
+    pyunifiprotect: debug
+    custom_components.unifiprotect: debug
+```
 
 ### Delay in Video Feed
 
 The default settings on the stream integration will give you a 5-15+ second delay. You can reduce this delay to 1-3 seconds, by enabling [LL-HLS in the stream integration](/integrations/stream/#ll-hls). You will also want to put an HTTP/2 reserve proxy in front of Home Assistant so you can have connection pooling. If you do not add a reverse proxy, you may start to get "Waiting for Websocket..." messages while trying to view too many camera streams at once. One way to do this is using the official NGINX Proxy Add-on:
 
 [![NGINX Proxy Add-on](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_nginx_proxy)
+
+### Cannot Play Audio to Speakers
+
+Unlike with many other things, playing audio to your speakers requires your Home Assistant to be able to reach your camera directly. Specifically via port `tcp/7004`. You can [enable debug logging](#enabling-debug-logging) and it will output the full FFmpeg command that is ran and the output from FFmpeg to help you troubleshoot why audio is not playing to the device.
