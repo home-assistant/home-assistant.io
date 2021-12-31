@@ -3,6 +3,7 @@ title: UniFi Protect
 description: Instructions on how to configure UniFi Protect integration by Ubiquiti.
 ha_category:
   - Hub
+  - Button
   - Camera
   - Media Player
 ha_release: 2022.2
@@ -15,6 +16,7 @@ ha_codeowners:
   - '@bdraco'
 ha_domain: unifiprotect
 ha_platforms:
+  - button
   - camera
   - media_player
 ---
@@ -77,6 +79,25 @@ Each UniFi Protect camera will get the following entities added:
 
 * **Camera** - A camera entity for each camera channel and RTSP(S) combination found for each camera (up to 6). Only the highest resolution RTSPS camera entity will be enabled by default.
 * **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](https://www.home-assistant.io/integrations/tts/#service-say).
+* **Button** - A button entity that is disabled by default will be added for each camera entity. This will let you Reboot your camera device.
+
+### Flood Light
+
+Each UniFi Protect flood light will get the following entities added:
+
+* **Button** - A button entity that is disabled by default will be added for each flood light entity. This will let you Reboot your flood light device.
+
+### Sensor
+
+Each UniFi Protect sensor will get the following entities added:
+
+* **Button** - A button entity that is disabled by default will be added for each sensor entity. This will let you Reboot your sensor device.
+
+### Viewport
+
+Each UniFi Protect viewport will get the following entities added:
+
+* **Button** - A button entity that is disabled by default will be added for each viewport entity. This will let you Reboot your viewport device.
 
 ## Troubleshooting
 
