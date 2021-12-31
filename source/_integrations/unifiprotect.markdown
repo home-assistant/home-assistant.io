@@ -5,6 +5,7 @@ ha_category:
   - Hub
   - Button
   - Camera
+  - Light
   - Media Player
 ha_release: 2022.2
 ha_iot_class: Local Push
@@ -18,6 +19,7 @@ ha_domain: unifiprotect
 ha_platforms:
   - button
   - camera
+  - light
   - media_player
 ---
 
@@ -79,25 +81,26 @@ Each UniFi Protect camera will get the following entities added:
 
 * **Camera** - A camera entity for each camera channel and RTSP(S) combination found for each camera (up to 6). Only the highest resolution RTSPS camera entity will be enabled by default.
 * **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](https://www.home-assistant.io/integrations/tts/#service-say).
-* **Button** - A disabled by default button entity is added for each camera entity. The button will let you reboot your camera device.
+* **Button** - A disabled by default button entity is added for each camera device. The button will let you reboot your camera device.
 
-### Floodlight
+### Floodlights
 
 Each UniFi Protect flood light will get the following entities added:
 
-* **Button** - A disabled by default button entity is added for each floodlight entity. The button will let you reboot your floodlight device.
+* **Light** - A light entity will be added for each floodlight device. The light entity will let you control turning on or off your light as well as adjust the brightness of your floodlight.
+* **Button** - A disabled by default button entity is added for each floodlight device. The button will let you reboot your floodlight device.
 
-### Sensor
+### Sensors
 
 Each UniFi Protect sensor will get the following entities added:
 
-* **Button** - A disabled by default button entity is added for each sensor entity. The button will let you reboot your sensor device.
+* **Button** - A disabled by default button entity is added for each sensor device. The button will let you reboot your sensor device.
 
-### Viewport
+### Viewports
 
 Each UniFi Protect viewport will get the following entities added:
 
-* **Button** - A disabled by default button entity is added for each viewport entity. The button will let you reboot your viewport device.
+* **Button** - A disabled by default button entity is added for each viewport device. The button will let you reboot your viewport device.
 
 ## Troubleshooting
 
