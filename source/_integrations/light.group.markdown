@@ -9,7 +9,7 @@ ha_quality_scale: internal
 ha_domain: group
 ---
 
-The group light platform lets you combine multiple lights into one entity. All child lights of a light group can still be used as usual, but controlling the state of the grouped light will forward the command to each child light.
+The light group platform lets you combine multiple lights into one entity. All child lights of a light group can still be used as usual, but controlling the state of the grouped light will forward the command to each child light.
 
 To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
