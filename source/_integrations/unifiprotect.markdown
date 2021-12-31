@@ -56,7 +56,7 @@ You will need a local user created in your UniFi OS Console to log in with. Ubiq
 
 ### Camera Streams
 
-The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just check that this is done. To check and enable the the feature
+The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just check that this is done. To check and enable the feature:
 
 1. Open UniFi Protect and click on *Devices*
 1. Select *Manage* in the Menu bar at the top
