@@ -13,14 +13,12 @@ ha_platforms:
   - media_player
 ---
 
-The Kaleidescape integration allows for the automation of Kaleidescape movie players in Home Assistant. Services and attributes are exposed for building advanced automations. Ideas include:
+The Kaleidescape integration allows for the automation of Kaleidescape movie players in Home Assistant. Services and attributes are exposed for building simple to advanced automations. Ideas include:
 
-- The start of movie credits automatically turns up lights.
 - Playing and pausing a movie sets lighting scenes.
-- A change in aspect ratio controls a masking system.
+- The start of movie credits turns up the lights.
+- A change in aspect ratio controls a projection masking system.
 - A change in video resolution controls a lens system or video scaler.
-
-![Screenshot of Media Player](/images/integrations/kaleidescape/media_player.png)
 
 ## Supported Models
 
@@ -400,7 +398,9 @@ attribute: cinemascape_mask
 
 | Value | Description |
 | ----- | ----------- |
+| `133` | 1.33 (4:3) aspect ratio |
 | `166` | 1.66 aspect ratio |
 | `178` | 1.78 (16:9) aspect ratio |
+| `185` | 1.85 aspect ratio |
 | `237` | 2.37 aspect ratio |
 | `240` | 2.40 aspect ratio |
