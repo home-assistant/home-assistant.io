@@ -8,7 +8,7 @@ ha_iot_class: Local Push
 ha_domain: mqtt_statestream
 ---
 
-The `mqtt_statestream` integration publishes state changes in Home Assistant to individual MQTT topics.
+The `mqtt_statestream` integration publishes state changes in Home Assistant to individual MQTT topics. [The MQTT integration](integrations/mqtt/) is a prerequisite for MQTT Statestream to work.
 
 ## Configuration
 
