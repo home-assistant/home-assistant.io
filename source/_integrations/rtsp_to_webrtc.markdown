@@ -11,9 +11,7 @@ ha_codeowners:
 ha_domain: rtsp_to_webrtc
 ---
 
-The `rtsp_to_webrtc` integration allows other integrations to provide WebRTC live streams. The integration initiates a connection to a [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
-
-Other integrations may use `rtsp_to_webrtc` with a `camera` to make WebRTC streams available in the fronted. This integration does not add any camera devices itself.
+The `rtsp_to_webrtc` integration registers with `camera` to provide WebRTC live streams for any RTSP camera. The integration initiates a connection to a [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
 
 ## Configuration
 
@@ -34,7 +32,7 @@ You need an existing [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) serv
 
 ## Technical Details
 
-A camera integration must explicitly integration with `rtsp_to_webrtc`, and must set a camera attribute `frontend_stream_type` of `STREAM_TYPE_WEBRTC` to instruct the frontend to use WebRTC streams.
+The `rtsp_to_webrtc` registers with `camera` to override the camera attribute `frontend_stream_type` of `STREAM_TYPE_WEBRTC` to instruct the frontend to use WebRTC streams.
 
 <!-- Note: This documentation will be updated as support for other integrations is added, or if it is integrated directly into camera in future PRs. -->
 
