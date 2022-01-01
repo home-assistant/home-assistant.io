@@ -7,6 +7,7 @@ ha_category:
   - Camera
   - Light
   - Media Player
+  - Switch
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -21,6 +22,7 @@ ha_platforms:
   - camera
   - light
   - media_player
+  - switch
 ---
 
 The UniFi Protect integration, adds support for retrieving Camera feeds and Sensor data from an [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on an UniFi OS Console.
@@ -77,30 +79,55 @@ All known UniFi Protect devices are should be supported. Each UniFi Protect devi
 
 ### Cameras
 
+#### Smart Detections
+
+A clarification about "Smart Detections" below and which cameras have them. The following cameras have Smart Detections:
+
+* All "AI" series cameras. This includes the AI 360 and the AI Bullet.
+* All "G4" series cameras _except_ the G4 Instant. This includes the G4 Doorbell, G4 Bullet and G4 Pro.
+
+G3 Series cameras do _not_ have Smart detections.
+
+#### Entities
+
 Each UniFi Protect camera will get the following entities added:
 
 * **Camera** - A camera entity for each camera channel and RTSP(S) combination found for each camera (up to 6). Only the highest resolution RTSPS camera entity will be enabled by default.
 * **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](https://www.home-assistant.io/integrations/tts/#service-say).
+* **Switch** - The following switch entities will be added for each camera:
+  * **Overlay (Show Name, Show Date, Show Logo, Show Bitrate)** - 4 configuration switches will be added to configuration the Overlay Information on your camera's video feed.
+  * **Smart Detections (Person, Vehicle)** - If your camera has smart detections, there will be a switch added for each smart detection type to enable or disable that type.
+  * **Status Light** - If your camera has a status light, there will be a configuration switch to turn it on and off.
+  * **HDR Mode** - If your camera has HDR, there will be a configuration switch to turn it on and off.
+  * **High FPS** - If your camera has a "High FPS" mode, there will be configuration switch to toggle between Default and High FPS mode.
+  * **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone and a black privacy zone over the whole camera.
+  * **System Sounds** - If your camera has a speaker, there will be a configuration switch to toggle system sounds.
+  * **SSH Enabled** - A disabled by default switch entity will be added to let you toggle on and off SSH for your camera. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
 * **Button** - A disabled by default button entity is added for each camera device. The button will let you reboot your camera device.
 
 ### Floodlights
 
-Each UniFi Protect flood light will get the following entities added:
+Each UniFi Protect floodlight will get the following entities added:
 
 * **Light** - A light entity will be added for each floodlight device. The light entity will let you control turning on or off your light as well as adjust the brightness of your floodlight.
+* **Switch** - The following switch entities will be added for each camera:
+  * **Status Light** - A configuration switch to turn it on and off to turn on and off the status light for your floodlight.
+  * **SSH Enabled** - A disabled by default switch entity will be added to let you toggle on and off SSH for your floodlight. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
 * **Button** - A disabled by default button entity is added for each floodlight device. The button will let you reboot your floodlight device.
 
 ### Sensors
 
-Each UniFi Protect sensor will get the following entities added:
+Each UniFi Protect smart sensor will get the following entities added:
 
 * **Button** - A disabled by default button entity is added for each sensor device. The button will let you reboot your sensor device.
+* **Switch** - A disabled by default switch entity will be added to let you toggle on and off SSH for your sensor. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
 
 ### Viewports
 
 Each UniFi Protect viewport will get the following entities added:
 
 * **Button** - A disabled by default button entity is added for each viewport device. The button will let you reboot your viewport device.
+* **Switch** - A disabled by default switch entity will be added to let you toggle on and off SSH for your viewport. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
 
 ## Troubleshooting
 
