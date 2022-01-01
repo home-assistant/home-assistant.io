@@ -95,12 +95,12 @@ Each UniFi Protect camera will get the following entities added:
 * **Camera** - A camera entity for each camera channel and RTSP(S) combination found for each camera (up to 6). Only the highest resolution RTSPS camera entity will be enabled by default.
 * **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](https://www.home-assistant.io/integrations/tts/#service-say).
 * **Switch** - The following switch entities will be added for each camera:
+  * **Privacy Mode** - If your camera allows for Privacy Masks, there will be a control switch to toggle a "Privacy Mode" that disables recording, microphone and a black privacy zone over the whole camera.
   * **Overlay (Show Name, Show Date, Show Logo, Show Bitrate)** - 4 configuration switches will be added to configuration the Overlay Information on your camera's video feed.
   * **Smart Detections (Person, Vehicle)** - If your camera has smart detections, there will be a switch added for each smart detection type to enable or disable that type.
   * **Status Light** - If your camera has a status light, there will be a configuration switch to turn it on and off.
   * **HDR Mode** - If your camera has HDR, there will be a configuration switch to turn it on and off.
   * **High FPS** - If your camera has a "High FPS" mode, there will be configuration switch to toggle between Default and High FPS mode.
-  * **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone and a black privacy zone over the whole camera.
   * **System Sounds** - If your camera has a speaker, there will be a configuration switch to toggle system sounds.
   * **SSH Enabled** - A disabled by default switch entity will be added to let you toggle on and off SSH for your camera. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
 * **Button** - A disabled by default button entity is added for each camera device. The button will let you reboot your camera device.
