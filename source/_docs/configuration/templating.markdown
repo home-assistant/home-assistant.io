@@ -297,6 +297,22 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+### Target
+
+The `target_entities` function and filter can be used to get a list of entities that are associated with a given target selector in a blueprint.
+
+- `target_entities(var_target)` returns a list of entities that are associated with a given target selector.
+
+#### Target Examples
+
+{% raw %}
+
+```text
+{{ target_entities(var_target) }}  # ['light.hue_light_upstairs', 'light.hue_light_downstairs']
+```
+
+{% endraw %}
+
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
