@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-The Oncue by Kohler integration will allow your to monitor the state of your [Oncue enabled Kohler generator](https://api.kohler.com/oncueplus/#/auth).
+The Oncue by Kohler integration will allow you to monitor the state of your [Oncue enabled Kohler generator](https://api.kohler.com/oncueplus/#/auth).
 
 ## Supported Devices
 
