@@ -99,7 +99,7 @@ Each UniFi Protect camera will get the following entities added:
   * **Smart Detections (Person, Vehicle)** - If your camera has smart detections, there will be a switch added for each smart detection type to enable or disable that type.
   * **Status Light** - If your camera has a status light, there will be a configuration switch to turn it on and off.
   * **HDR Mode** - If your camera has HDR, there will be a configuration switch to turn it on and off.
-  * **High FPS** - If your camera has a "High FPS" mode, there will be configuration switch to toggle between Default and High FPS mode.
+  * **High FPS** - If your camera has a "High FPS" mode, there will be a configuration switch to toggle between Default and High FPS mode.
   * **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
   * **System Sounds** - If your camera has a speaker, there will be a configuration switch to toggle system sounds.
   * **SSH Enabled** - A disabled by default switch entity will be added to let you toggle on and off SSH for your camera. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
