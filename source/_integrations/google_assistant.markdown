@@ -115,9 +115,9 @@ If you want to support active reporting of state to Google's server (configurati
 4. Add device scan configuration:
   1. Click `+ New scan config`
   2. Select `MDNS`
-  3. set MDNS service name to `_home-assistant._tcp.local`
+  3. set mDNS service name to `_home-assistant._tcp.local`
 5. `Save` your changes.
-6. Either wait for 30 minutes, or restart your connected google device.
+6. Either wait for 30 minutes, or restart your connected Google device.
 7. You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome)
 
 Next to the above steps you need to add the `local_fulfillment: true` configuration to your google_assistant configuration.
@@ -176,7 +176,7 @@ report_state:
   default: false
   type: boolean
 local_fulfillment:
-  description: Use local fulfillment to directly send the commands from your google device to Home Assistant without using the cloud.
+  description: Use local fulfillment to directly send the commands from your Google device to Home Assistant without using the cloud.
   required: false
   default: false
   type: boolean
