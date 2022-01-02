@@ -141,4 +141,8 @@ quantile_method:
   required: false
   default: exclusive
   type: string
+unique_id:
+  description: An ID that uniquely identifies the statistics sensor. Set this to a unique value to allow customization through the UI. Change the unique ID after switching the `state_characteristic` of a previously configured sensor, to start with a fresh recorder history.
+  required: false
+  type: string
 {% endconfiguration %}
