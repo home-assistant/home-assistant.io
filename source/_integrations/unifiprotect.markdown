@@ -7,6 +7,7 @@ ha_category:
   - Camera
   - Light
   - Media Player
+  - Number
   - Switch
 ha_release: 2022.2
 ha_iot_class: Local Push
@@ -22,6 +23,7 @@ ha_platforms:
   - camera
   - light
   - media_player
+  - number
   - switch
 ---
 
@@ -38,7 +40,7 @@ This Integration supports all UniFi OS Consoles that can run UniFi Protect. Curr
 * UniFi Dream Machine Pro (**UDMP**)
 * UniFi Cloud Key Gen2 Plus (**CKGP**) firmware version v2.0.24+
 
-CKGP with Firmware v1.x **do NOT run UniFiOS**, you must upgrade to firmware v2.0.24 or newer.
+CKGP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2.0.24 or newer.
 
 ### Software Support
 
@@ -50,7 +52,7 @@ Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0-beta.2` is th
 
 You will need a local user created in your UniFi OS Console to log in with. Ubiquiti Cloud Users will **not** work.
 
-1. Login to your *Local Portal* on your UniFiOS device, and click on *Users*
+1. Login to your *Local Portal* on your UniFi OS device, and click on *Users*
 1. In the upper right corner, click on *Add User*
 1. Click *Add Admin*, and fill out the form. Specific Fields to pay attention to:
     * Role: Must be *Limited Admin*
@@ -94,6 +96,11 @@ Each UniFi Protect camera will get the following entities added:
 
 * **Camera** - A camera entity for each camera channel and RTSP(S) combination found for each camera (up to 6). Only the highest resolution RTSPS camera entity will be enabled by default.
 * **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](https://www.home-assistant.io/integrations/tts/#service-say).
+* **Number** - The following number entities will be added for each camera:
+  * **Chime Duration** - If your camera has a chime (doorbell), a configuration number entity will be added to adjust the chime duration of your doorbell chime.
+  * **Zoom Level** - If your camera has optical zoom, a configuration number entity will be added to adjust the zoom level.
+  * **Microphone Level** - If your camera has a microphone, a configuration number entity will be added to adjust the camera's microphone sensitivity.
+  * **WDR Level** - If your camera does not have HDR, a configuration number entity will be added to adjust the WDR level.
 * **Switch** - The following switch entities will be added for each camera:
   * **Overlay (Show Name, Show Date, Show Logo, Show Bitrate)** - 4 configuration switches will be added to configuration the Overlay Information on your camera's video feed.
   * **Smart Detections (Person, Vehicle)** - If your camera has smart detections, there will be a switch added for each smart detection type to enable or disable that type.
@@ -110,7 +117,10 @@ Each UniFi Protect camera will get the following entities added:
 Each UniFi Protect floodlight will get the following entities added:
 
 * **Light** - A light entity will be added for each floodlight device. The light entity will let you control turning on or off your light as well as adjust the brightness of your floodlight.
-* **Switch** - The following switch entities will be added for each camera:
+* **Number** - The following number entities will be added for each floodlight:
+  * **Motion Sensitivity** - A configuration number entity to adjust the sensitivity of the PIR sensor for your floodlight.
+  * **Auto-shutoff Duration** - A configuration number entity to adjust the the auto-shutoff timer after motion is detected.
+* **Switch** - The following switch entities will be added for each floodlight:
   * **Status Light** - A configuration switch to turn it on and off to turn on and off the status light for your floodlight.
   * **SSH Enabled** - A disabled by default switch entity will be added to let you toggle on and off SSH for your floodlight. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
 * **Button** - A disabled by default button entity is added for each floodlight device. The button will let you reboot your floodlight device.
