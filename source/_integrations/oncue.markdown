@@ -2,6 +2,7 @@
 title: Oncue by Kohler
 description: Documentation about the oncue sensors.
 ha_category:
+  - Binary Sensor
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 2022.2
@@ -10,6 +11,7 @@ ha_codeowners:
   - '@bdraco'
 ha_domain: oncue
 ha_platforms:
+  - binary_sensor
   - sensor
 ---
 
