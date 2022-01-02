@@ -72,7 +72,7 @@ The default approach is to connect to your device using the `adb-shell` Python p
 
 <div class='note'>
 
-To be able to provide `ADB Key` on integration setup, you need to enable [advanced mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode).
+To be able to provide `ADB Key` on integration setup, you need to enable [advanced mode](/blog/2019/07/17/release-96/#advanced-mode).
 
 </div>
 
@@ -84,7 +84,7 @@ The second option is to use an ADB server to connect to your Android TV and Fire
 
 <div class='note'>
 
-To configure ADB server on integration setup, you need to enable [advanced mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode).
+To configure ADB server on integration setup, you need to enable [advanced mode](/blog/2019/07/17/release-96/#advanced-mode).
 
 </div>
 
