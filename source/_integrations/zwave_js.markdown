@@ -680,8 +680,8 @@ Names set in Home Assistant will not import into Zwavejs2Mqtt.
 #### How can I add (include) a new device to my Z-Wave network?
 
 1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
-2. Press `Add node`.
-3. Press `Start Inclusion`. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
+2. Press `+ ADD DEVICE`.
+3. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
 4. Put the device you want to add in inclusion mode. Refer to its manual how this is done.
 5. The UI should confirm that the node was added and it will be immediately visible in Home Assistant. After a short while (seconds to minutes) the entities should also be created.
 6. If the controller fails to add/find your device, cancel the inclusion process (to unblock your network again). In some cases it might help to first remove a node (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet. Another approach would be to factory reset the device. Info about that is in the manual of your device.
@@ -704,8 +704,8 @@ S2 security does not impose additional network traffic and provides additional b
 #### How do I remove (exclude) a device from my Z-Wave network?
 
 1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
-2. Press `Remove node`.
-3. Press `Start Exclusion`. The Z-Wave controller is now in exclusion mode and will not respond to other commands.
+2. Press `REMOVE DEVICE`.
+3. Press `START EXCLUSION`. The Z-Wave controller is now in exclusion mode and will not respond to other commands.
 4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
 5. The UI should confirm that the node was removed and the device and entities will be removed from Home Assistant.
 
