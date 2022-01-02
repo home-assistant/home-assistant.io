@@ -118,7 +118,9 @@ If you want to support active reporting of state to Google's server (configurati
   3. set mDNS service name to `_home-assistant._tcp.local`
 5. `Save` your changes.
 6. Either wait for 30 minutes, or restart your connected Google device.
-7. You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome)
+7. Restart Home Assistant Core.
+
+You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome)
 
 ### YAML Configuration
 
