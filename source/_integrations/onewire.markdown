@@ -44,6 +44,7 @@ Each 1-wire component data sheet describes the different properties the componen
 | 22     | [DS1822](https://datasheets.maximintegrated.com/en/ds/DS1822.pdf)            |                                 |
 | 26     | [DS2438](https://datasheets.maximintegrated.com/en/ds/DS2438.pdf)            | Temperature, Voltage, Current (pressure when using B1-R1-A, illuminance when using S2-R1-A, humidity when using compatible Honeywell or Humirel sensor) <sup>[2](#note_2)</sup> |
 | 28     | [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)          | Temperature                     |
+| 30     | [DS2760](https://pdfserv.maximintegrated.com/en/ds/DS2760.pdf)            | Temperature, Voltage, Thermocouple Type K <sup>[2](#note_2)</sup> |
 | 3B     | [DS1825](https://datasheets.maximintegrated.com/en/ds/DS1825.pdf)            | Temperature                     |
 | 42     | [DS28EA00](https://datasheets.maximintegrated.com/en/ds/DS28EA00.pdf)        | Temperature                     |
 | 7E     | [EDS00xx](https://www.embeddeddatasystems.com/assets/images/supportFiles/manuals/EN-UserMan%20%20OW-ENV%20Sensor%20v13.pdf)        | Temperature/Humidity/Barometric pressure/Light <sup>[6](#note_6)</sup>|
@@ -69,8 +70,8 @@ Notes:
 
 - <a name="note_1">The TAI-8570</a> Pressure Sensor is based on a 1-wire composite device by AAG Electronica. It contains, above 1-wire components, also a barometer, hygrometer and illuminance sensors. This onewire platform can read and present values from that device, but the sensors will default to disabled <sup>[4](#note_4)</sup>.
 
-- <a name="note_2">For hobbyists</a>, it is quite common to use DS2438 Smart Battery Monitor as a multipurpose measurement node that can place temperature, humidity and luminosity on the 1-wire bus by just adding some standard components to the DS2438. For different component types, there are ready-made algorithms implemented in owfs. Those are exposed by the owfs software and can be read by this platform. The B1-R1-A/pressure is exposed as a barometric pressure sensor. S2-R1-A/illuminance is presented as an illuminance sensor. For a more detailed description of these properties, refer to the [owfs documentation](https://owfs.org/index_php_page_ds2438.html).
-  For this component, the more basic quantities (temperature, VAD, VDD and IAD) are exported as separate sensors. Please note that some of the sensors will default to disabled <sup>[4](#note_4)</sup>.
+- <a name="note_2">For hobbyists</a>, it is quite common to use DS2438 or DS2760 families of Smart Battery Monitor as a multipurpose measurement node that can place temperature, humidity, current, thermocouple temperature, and luminosity on the 1-wire bus by just adding some standard components to the DS2438 or DS2760. For different component types, there are ready-made algorithms implemented in owfs. Those are exposed by the owfs software and can be read by this platform. The B1-R1-A/pressure is exposed as a barometric pressure sensor. S2-R1-A/illuminance is presented as an illuminance sensor. For a more detailed description of these properties, refer to the owfs documentation [DS2438](https://owfs.org/index_php_page_ds2438.html), [DS2760](https://owfs.org/index_php_page_ds2438.html).
+  For these components, the more basic quantities (temperature, VAD, VDD and IAD) are exported as separate sensors. Please note that some of the sensors will default to disabled <sup>[4](#note_4)</sup>.
 
 - <a name="note_3">Hobbyboards</a> is a company that has been selling DIY boards of different kinds. The company has been away from the market for some time, so no reference to the boards can be made. This platform has an implementation for some of those.
 
@@ -79,7 +80,7 @@ Notes:
 - <a name="note_5">Bridge devices have no sensors</a>. The `aux` and `main` branches are searched for additional 1-wire devices during discovery.  
 
 - <a name="note_6">Multisensors manufactured by Embedded Data Systems</a>. Currently only EDS0066 (temperature/barometric pressure) and EDS0068 (temperature/humidity/barometric pressure/light) are supported.
-
+  
 ## Interfacing with the 1-wire bus
 
 The 1-Wire bus can be connected directly to the IO pins of Raspberry Pi or by using a dedicated interface adapter, for example
