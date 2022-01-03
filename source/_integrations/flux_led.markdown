@@ -48,10 +48,12 @@ This determines the transition between each color.
 
 ### Supported Models
 
-The following models have been tested with integration.
+The following models have been tested with library.
 
 | Model | Description                 | Notes                           |
 | ----- | --------------------------- | ------------------------------- |
+| 0x01  | Legacy RGB Controller       | Original protocol               |
+| 0x03  | Legacy CCT Controller       | Original protocol               |
 | 0x04  | UFO Controller RGBW         |                                 |
 | 0x06  | Controller RGBW             |                                 |
 | 0x07  | Controller RGBCW            |                                 |
@@ -61,39 +63,42 @@ The following models have been tested with integration.
 | 0x1A  | Christmas Light             |                                 |
 | 0x1C  | Table Light CCT             |                                 |
 | 0x21  | Bulb Dimmable               |                                 |
-| 0x25  | Controller RGB/WW/CW        | Supports RGB,RGBW,RGBWW,CW,DIM  |
+| 0x25  | Controller RGB/WW/CW        | Supports RGB, RGBW, RGBWW, CW, DIM |
 | 0x33  | Controller RGB              |                                 |
 | 0x35  | Bulb RGBCW                  |                                 |
 | 0x41  | Controller Dimmable         |                                 |
 | 0x44  | Bulb RGBW                   |                                 |
+| 0x52  | Bulb CCT                    |                                 |
 | 0x54  | Downlight RGBW              |                                 |
 | 0x93  | Switch 1c                   |                                 |
 | 0x94  | Switch 1c Watt              |                                 |
 | 0x97  | Socket 1c                   |                                 |
-| 0xA1  | Addressable v1              |                                 |
-| 0xA2  | Addressable v2              |                                 |
-| 0xA3  | Addressable v3              |                                 |
+| 0xA1  | Addressable v1              | Supports UCS1903, SM16703, WS2811, WS2812B, SK6812, INK1003, WS2801, LB1914 |
+| 0xA2  | Addressable v2              | Supports UCS1903, SM16703, WS2811, WS2811B, SK6812, INK1003, WS2801, WS2815, APA102, TM1914, UCS2904B |
+| 0xA3  | Addressable v3              | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW, INK1003, UCS2904B |
 
 ### Unsupported Models
 
-The following models have not been tested with integration but may work.
+The following models have not been tested with library but may work.
 
 | Model | Description                 | Notes                           |
 | ----- | --------------------------- | ------------------------------- |
+| 0x02  | Legacy Dimmable Controller  | Original protocol               |
 | 0x09  | Ceiling Light CCT           |                                 |
 | 0x16  | Magnetic Light CCT          |                                 |
 | 0x17  | Magnetic Light Dimmable     |                                 |
 | 0x19  | Socket 2 USB                |                                 |
 | 0x18  | Plant Light                 |                                 |
 | 0x1B  | Spray Light                 |                                 |
+| 0x1E  | Ceiling Light RGBCW         | Probably works & same as 0x35   |
 | 0x62  | Controller CCT              | May be discontinued             |
-| 0x52  | Bulb CCT                    | May be discontinued             |
 | 0x95  | Switch 2c                   |                                 |
 | 0x96  | Switch 4c                   |                                 |
 | 0xD1  | Digital Light               |                                 |
 | 0xE1  | Ceiling Light               |                                 |
 | 0xE2  | Ceiling Light Assist        |                                 |
-| 0xA4  | Addressable v4              |                                 |
+| 0xA4  | Addressable v4              | Probably works & same as 0xA3   |
+| 0xA6  | Addressable v6              | Probably works & same as 0xA3   |
 
 ### Effects
 
