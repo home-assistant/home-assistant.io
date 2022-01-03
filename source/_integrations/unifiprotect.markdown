@@ -138,7 +138,7 @@ Each UniFi Protect smart sensor will get the following entities added:
 
 Each UniFi Protect viewport will get the following entities added:
 
-* **Liveview Select** - A select control will be added for viewport device you allow you to select which liveview is being shown on the viewport.
+* **Liveview Select** - A select control will be added for each viewport device that will allow you to select which liveview is being displayed on the viewport.
 * **Button** - A disabled by default button entity is added for each viewport device. The button will let you reboot your viewport device.
 * **Switch** - A disabled by default switch entity will be added to let you toggle on and off SSH for your viewport. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
 
@@ -167,4 +167,4 @@ Unlike with many other things, playing audio to your speakers requires your Home
 
 ### Liveview Options for Viewport Missing Options or Out of Date
 
-Main control selects cannot have dynamic options since the options are exported out to voice assistants. After you add / remove / change a Liveview in UniFi Protect, you must restart Home Assistant to get the new Liveview Options for your Viewport.
+Main control selects cannot have dynamic options since the options are exported out to voice assistants. After you add / remove / change a Liveview in UniFi Protect, you must restart Home Assistant to get the new options for your Viewport.
