@@ -138,6 +138,7 @@ Each UniFi Protect smart sensor will get the following entities added:
 
 Each UniFi Protect viewport will get the following entities added:
 
+* **Liveview Select** - A select control will be added for viewport device you allow you to select which liveview is being shown on the viewport.
 * **Button** - A disabled by default button entity is added for each viewport device. The button will let you reboot your viewport device.
 * **Switch** - A disabled by default switch entity will be added to let you toggle on and off SSH for your viewport. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
 
