@@ -48,7 +48,7 @@ This determines the transition between each color.
 
 ### Supported Models
 
-The following models have been tested with library.
+The following models have been tested with integration.
 
 | Model | Description                 | Notes                           |
 | ----- | --------------------------- | ------------------------------- |
