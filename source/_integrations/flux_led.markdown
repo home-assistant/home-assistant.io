@@ -41,6 +41,10 @@ Examples of addressable controllers:
 
 - [Addressable v3](https://www.amazon.com/gp/product/B09BMBSCRF/)
 
+Examples of addressable controllers with strip:
+
+- [Addressable v2](https://www.amazon.com/gp/product/B07B7CQ2ZB/)
+
 Examples of sockets:
 
 - [MagicLight Smart Plugs](https://www.magiclightbulbs.com/smart-plugs) or [Amazon](https://www.amazon.com/gp/product/B07XNBVVXV/)
