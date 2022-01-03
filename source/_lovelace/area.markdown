@@ -17,7 +17,7 @@ To add the Area card to your user interface, click the Lovelace menu (three dots
 
 Buttons will appear on the card for the entities in the area including fan, light and switch. A motion sensor icon will appear in the top left if a motion sensor is in the area and motion is detected by the motion sensor.
 
-If a camera is added to the area you can show the camera feed instead of the area pictue.
+If a camera is added to the area you can show the camera feed instead of the area picture.
 
 {% configuration %}
 type:
@@ -60,6 +60,6 @@ Complex example
 - type: area
   area: bedroom
   navigation_path: my_bedroom
-  show_camera:true
+  show_camera: true
   theme: green
 ```
