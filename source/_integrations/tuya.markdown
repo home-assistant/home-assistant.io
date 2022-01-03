@@ -100,10 +100,10 @@ Click the created project to enter the `Project Overview` page and get the `Auth
     description: Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/). Find the **Access Secret** under [Authorization Key](#get-authorization-key) on the **Project Overview** tab.
 
   Account:
-    description: Tuya Smart or Smart Life app account.
+    description: Tuya Smart or Smart Life **app** account.
 
   Password:
-    description: The password of your app account.
+    description: The password of your **app** account.
 
 {% endconfiguration_basic %}
 
