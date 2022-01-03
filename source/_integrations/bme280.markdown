@@ -10,6 +10,14 @@ ha_platforms:
   - sensor
 ---
 
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.4.
+
+For more information see: [Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+</div>
+
 The Bosch BME280 integration allows you to read temperature, humidity and pressure values of a [Bosch BME280 Environmental sensor](https://cdn-shop.adafruit.com/datasheets/BST-BME280_DS001-10.pdf) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins) or connected via SPI. It allows you to use all the operation modes of the sensor described in its datasheet.
 
 ## Configuration
