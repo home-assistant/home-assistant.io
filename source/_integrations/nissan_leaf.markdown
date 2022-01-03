@@ -19,7 +19,7 @@ The `nissan_leaf` integration offers integration with the [NissanConnect EV](htt
 
 * sensors for the battery status, range and charging status
 * a switch to start and stop the climate control
-* button to request the car starts charging.
+* a button to request the car starts charging.
 * service to request updates from the car.
 
 ## Configuration
