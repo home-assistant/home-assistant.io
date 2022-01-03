@@ -33,6 +33,7 @@ nissan_leaf:
   password: "YOUR_PASSWORD"
   region: "YOUR_REGION"
 ```
+
 {% configuration %}
 username:
   description: The username associated with your NissanConnect EV account. Enclose in quotes.
