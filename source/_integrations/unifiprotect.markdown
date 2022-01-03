@@ -167,4 +167,4 @@ Unlike with many other things, playing audio to your speakers requires your Home
 
 ### Liveview Options for Viewport Missing Options or Out of Date
 
-Main control selects cannot have dynamic options since the options are exported out to voice assistants. After you add / remove / change a Liveview in UniFi Protect, you must restart Home Assistant to get the new options for your Viewport.
+Main control selects currently cannot have dynamic options since the options are exported out to voice assistants. After you add/remove/change a Liveview in UniFi Protect, you must restart Home Assistant to get the new options for your Viewport.
