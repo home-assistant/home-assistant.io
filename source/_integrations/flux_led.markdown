@@ -43,6 +43,7 @@ Examples of addressable controllers:
 
 Examples of addressable controllers with strip:
 
+- [Addressable v1](https://www.amazon.com/gp/product/B07RLF7C86/)
 - [Addressable v2](https://www.amazon.com/gp/product/B07B7CQ2ZB/)
 
 Examples of sockets:
