@@ -24,16 +24,25 @@ This integration will provide local control over your LED lights/strips and can 
 
 Example of bulbs:
 
-- [Flux Smart Lighting](https://www.fluxsmartlighting.com/)
-- [Flux WiFi Smart LED Light Bulb4](https://amzn.to/2X0dVwu)
-- [WIFI smart LED light Bulb1](https://amzn.to/2J2fksr)
+- [MagicLight Smart Bulbs](https://www.magiclightbulbs.com/lightbulbs) or [Amazon](https://www.amazon.com/gp/product/B081YJHHB1/)
+- [RGBCW Downlights](https://www.amazon.com/gp/product/B093Q83G7S/)
+- [RGBCW Floodlights](https://www.amazon.com/gp/product/B09J38NKPN)
 
 Examples of controllers:
 
-- [Ledenet WiFi RGBW Controller](https://amzn.to/2WZKXNa)
-- [SUPERNIGHT WiFi Wireless LED Smart Controller](https://amzn.to/2WURx7w)
+- [MagicLight Strip Lights](https://www.magiclightbulbs.com/strip-lights) or [Amazon](https://www.amazon.com/gp/product/B08LPSS4J3/)
 
+Examples of addressable controllers:
 
+- [RGB](https://www.amazon.com/gp/product/B07C1LN7FZ/)
+- [RGBW](https://www.amazon.com/gp/product/B07J9QCQNN/)
+- [RGBCW](https://www.amazon.com/gp/product/B09BMC4JNJ/)
+- [RGB/W/CW](https://www.amazon.com/gp/product/B01DY56N8U/)
+- [Addressable v3](https://www.amazon.com/gp/product/B09BMBSCRF/)
+
+Examples of sockets:
+
+- [MagicLight Smart Plugs](https://www.magiclightbulbs.com/smart-plugs) or [Amazon](https://www.amazon.com/gp/product/B07XNBVVXV/)
 
 {% include integrations/config_flow.md %}
 
