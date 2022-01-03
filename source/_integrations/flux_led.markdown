@@ -44,7 +44,7 @@ Examples of sockets:
 
 {% include integrations/config_flow.md %}
 
-After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Flux Led/Magic Home" configuration for the bulb or controller. 
+After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Flux Led/Magic Home" configuration for the bulb or controller. Devices listed as unsupported below are likely to work, however, they have not been tested by the integration's developers.
 
 
 **Custom Effect**\
