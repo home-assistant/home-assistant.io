@@ -26,16 +26,19 @@ Example of bulbs:
 - [RGBCW Downlights](https://www.amazon.com/gp/product/B093Q83G7S/)
 - [RGBCW Floodlights](https://www.amazon.com/gp/product/B09J38NKPN)
 
-Examples of controllers:
+Examples of controllers with strips:
 
 - [MagicLight Strip Lights](https://www.magiclightbulbs.com/strip-lights) or [Amazon](https://www.amazon.com/gp/product/B08LPSS4J3/)
 
-Examples of addressable controllers:
+Examples of controllers:
 
 - [RGB](https://www.amazon.com/gp/product/B07C1LN7FZ/)
 - [RGBW](https://www.amazon.com/gp/product/B07J9QCQNN/)
 - [RGBCW](https://www.amazon.com/gp/product/B09BMC4JNJ/)
 - [RGB/W/CW](https://www.amazon.com/gp/product/B01DY56N8U/)
+
+Examples of addressable controllers:
+
 - [Addressable v3](https://www.amazon.com/gp/product/B09BMBSCRF/)
 
 Examples of sockets:
