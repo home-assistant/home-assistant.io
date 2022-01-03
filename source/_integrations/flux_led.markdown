@@ -79,7 +79,7 @@ The following models have been tested with library.
 
 ### Unsupported Models
 
-The following models have not been tested with library but may work.
+The following models have not been tested with integration but may work.
 
 | Model | Description                 | Notes                           |
 | ----- | --------------------------- | ------------------------------- |
