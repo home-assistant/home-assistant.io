@@ -82,7 +82,17 @@ nissan_leaf:
 
 ## Starting a Charge
 
-You can use the `nissan_leaf.start_charge` service to send a request to the Nissan servers to start a charge. The car must be plugged in!  The service requires you to provide the vehicle identification number (VIN) as a parameter. You can see the VIN on the attributes of all the entities created by this component.
+You can use the `button.press` service to send a request to send a request to the Nissan servers to start a charge. The car must be plugged in!
+
+```yaml
+- service: button.press
+  target:
+    entity_id: button.start_mycar_charging
+```
+
+### Starting a Charge (Deprecated)
+
+Before the introduction of the [button](https://www.home-assistant.io/integrations/button/) integration the `nissan_leaf.start_charge` service was used to send a request to the Nissan servers to start a charge. The service requires you to provide the vehicle identification number (VIN) as a parameter. You can see the VIN on the attributes of all the entities created by this component.   
 
 ```yaml
 - service: nissan_leaf.start_charge
