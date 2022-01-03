@@ -8,6 +8,7 @@ ha_category:
   - Light
   - Media Player
   - Number
+  - Select
   - Switch
 ha_release: 2022.2
 ha_iot_class: Local Push
@@ -24,6 +25,7 @@ ha_platforms:
   - light
   - media_player
   - number
+  - select
   - switch
 ---
 
@@ -136,6 +138,7 @@ Each UniFi Protect smart sensor will get the following entities added:
 
 Each UniFi Protect viewport will get the following entities added:
 
+* **Liveview Select** - A select control will be added for each viewport device that will allow you to select which liveview is being displayed on the viewport.
 * **Button** - A disabled by default button entity is added for each viewport device. The button will let you reboot your viewport device.
 * **Switch** - A disabled by default switch entity will be added to let you toggle on and off SSH for your viewport. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
 
@@ -161,3 +164,7 @@ The default settings on the stream integration will give you a 5-15+ second dela
 ### Cannot Play Audio to Speakers
 
 Unlike with many other things, playing audio to your speakers requires your Home Assistant to be able to reach your camera directly. Specifically via port `tcp/7004`. You can [enable debug logging](#enabling-debug-logging) and it will output the full FFmpeg command that will be run and the output from FFmpeg to help you troubleshoot why audio is not playing to the device.
+
+### Liveview Options for Viewport Missing Options or Out of Date
+
+Main control selects currently cannot have dynamic options since the options are exported out to voice assistants. After you add/remove/change a Liveview in UniFi Protect, you must restart Home Assistant to get the new options for your Viewport.
