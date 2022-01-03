@@ -89,6 +89,7 @@ configuration without restarting Home Assistant itself.
 | ------- | ---- | ----------- |
 | `decrement` | `entity_id(s)`<br>`area_id(s)` | Decrement the value of specific `input_number` entities by `step` 
 | `increment` | `entity_id(s)`<br>`area_id(s)` | Increment the value of specific `input_number` entities by `step`
+| `add` | `amount`<br>`entity_id(s)`<br>`area_id(s)` | Increase the value by a specific amount
 | `reload` | | Reload `input_number` configuration |
 | `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_number` entities
 
