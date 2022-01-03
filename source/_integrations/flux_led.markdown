@@ -18,26 +18,41 @@ ha_config_flow: true
 ha_dhcp: true
 ---
 
-The Flux LED integration supports several brands of switches, bulbs, and controllers that use the same protocol and have the HF-LPB100 chipset in common. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the MagicHome app.
-
-This integration will provide local control over your LED lights/strips and can be configured to auto-scan your network for controllers or for you to manually configure individual lights by their IP address.
+The Magic Home (aka Flux LED) integration supports several brands of smart sockets, LED bulbs, and LED controllers that use the same protocol over WiFi. If you can control your device with the MagicHome app, and it is listed as supported below, this integration can control the device. 
 
 Example of bulbs:
 
-- [Flux Smart Lighting](https://www.fluxsmartlighting.com/)
-- [Flux WiFi Smart LED Light Bulb4](https://amzn.to/2X0dVwu)
-- [WIFI smart LED light Bulb1](https://amzn.to/2J2fksr)
+- [MagicLight Smart Bulbs](https://www.magiclightbulbs.com/lightbulbs) or [Amazon](https://www.amazon.com/gp/product/B081YJHHB1/)
+- [RGBCW Downlights](https://www.amazon.com/gp/product/B093Q83G7S/)
+- [RGBCW Floodlights](https://www.amazon.com/gp/product/B09J38NKPN)
+
+Examples of controllers with strips:
+
+- [MagicLight Strip Lights](https://www.magiclightbulbs.com/strip-lights) or [Amazon](https://www.amazon.com/gp/product/B08LPSS4J3/)
 
 Examples of controllers:
 
-- [Ledenet WiFi RGBW Controller](https://amzn.to/2WZKXNa)
-- [SUPERNIGHT WiFi Wireless LED Smart Controller](https://amzn.to/2WURx7w)
+- [RGB](https://www.amazon.com/gp/product/B07C1LN7FZ/)
+- [RGBW](https://www.amazon.com/gp/product/B07J9QCQNN/)
+- [RGBCW](https://www.amazon.com/gp/product/B09BMC4JNJ/)
+- [RGB/W/CW](https://www.amazon.com/gp/product/B01DY56N8U/)
 
+Examples of addressable controllers:
 
+- [Addressable v3](https://www.amazon.com/gp/product/B09BMBSCRF/)
+
+Examples of addressable controllers with strip:
+
+- [Addressable v1](https://www.amazon.com/gp/product/B07RLF7C86/)
+- [Addressable v2](https://www.amazon.com/gp/product/B07B7CQ2ZB/)
+
+Examples of sockets:
+
+- [MagicLight Smart Plugs](https://www.magiclightbulbs.com/smart-plugs) or [Amazon](https://www.amazon.com/gp/product/B07XNBVVXV/)
 
 {% include integrations/config_flow.md %}
 
-After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Flux Led/Magic Home" configuration for the bulb or controller. 
+After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Flux Led/Magic Home" configuration for the bulb or controller. Devices listed as unsupported below are likely to work, however, they have not been tested by the integration's developers.
 
 
 **Custom Effect**\
