@@ -39,7 +39,6 @@ source/_integrations/apple_tv.markdown @postlund
 source/_integrations/apprise.markdown @caronc
 source/_integrations/aprs.markdown @PhilRW
 source/_integrations/arcam_fmj.markdown @elupus
-source/_integrations/arduino.markdown @fabaff
 source/_integrations/arest.markdown @fabaff
 source/_integrations/arris_tg2492lg.markdown @vanbalken
 source/_integrations/asuswrt.markdown @kennedyshead @ollo69
