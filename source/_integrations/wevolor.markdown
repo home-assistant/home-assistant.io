@@ -20,19 +20,11 @@ This integration supports Wevolor [version 5.4](https://wevolor.com/instructions
 
 {% configuration_basic %}
   host:
-    required: true
     description: The IP address of the Wevolor device on the local network.
-    type: string
   channel_count:
-    required: true
     description: The number of channels (1-6) you would like to be displayed in the UI for this Wevolor device.
-    type: integer
-    default: 6
   support_tilt:
-    required: true
-    description: Set true if the Levolor blinds you are controlling support tilt, false otherwise.
-    type: boolean
-    default: false
+    description: Set true if any of the Levolor blinds you are controlling support tilt, false otherwise.
 {% endconfiguration_basic %}
 
 ## Cover
