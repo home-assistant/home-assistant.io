@@ -57,6 +57,7 @@ holidays. So, the first release in 2022, will be Wednesday, 2 February 2022._
 - [Release 2021.12.5 - December 23](#release-2021125---december-23)
 - [Release 2021.12.6 - December 27](#release-2021126---december-27)
 - [Release 2021.12.7 - December 29](#release-2021127---december-29)
+- [Release 2021.12.8 - January 4](#release-2021128---january-4)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -811,6 +812,94 @@ like before. Done by [@marvin-w].
 [smarttub docs]: /integrations/smarttub/
 [sonos docs]: /integrations/sonos/
 [tuya docs]: /integrations/tuya/
+
+## Release 2021.12.8 - January 4
+
+- Update version of iZone library to add some bug fixes ([@Swamp-Ig] - [#61548]) ([izone docs])
+- Fix Tuya vacuum display battery level ([@dougiteixeira] - [#61643]) ([tuya docs])
+- Update no_ip URL ([@fabaff] - [#62477]) ([no_ip docs])
+- Do not create a number LED brightness entity for Xiaomi Miio devices that do not support it ([@bieniu] - [#62819]) ([xiaomi_miio docs])
+- Fix local_ip handling in KNX options flow ([@marvin-w] - [#62969]) ([knx docs])
+- Fix reporting correct colormode for 3rd party Hue lights ([@marcelveldt] - [#63015]) ([hue docs])
+- Hue allow per-device availability override ([@marcelveldt] - [#63025]) ([hue docs])
+- Bump pyatmo to 6.2.1 ([@cgtobi] - [#62291]) ([netatmo docs])
+- Bump pyatmo to v6.2.2 ([@cgtobi] - [#63053]) ([netatmo docs])
+- Ignore serial number "blank" from NUT ([@ollo69] - [#63066]) ([nut docs])
+- Bump greeclimate to 1.0.1 ([@cmroche] - [#63092]) ([gree docs])
+- Fix Shelly error fetching device triggers for sleeping devices ([@thecode] - [#63103]) ([shelly docs])
+- Fix systemmonitor CPU temp for Armbian on PineA64 ([@ktaragorn] - [#63111]) ([systemmonitor docs])
+- Fix CO/CO2 sensors mixup in Google Assistant ([@ryborg] - [#63152]) ([google_assistant docs])
+- Bump flux_led to 0.27.28 to fix missing white channel on SK6812RGBW strips ([@bdraco] - [#63154]) ([flux_led docs])
+- Add default Fronius logger model for v0 API ([@trdischat] - [#63184]) ([fronius docs])
+- Prevent doorbird integration from overloading the device on startup ([@bdraco] - [#63253]) ([doorbird docs])
+- Bump flux_led to 0.27.32 to fix incorrect strip order on A2 devices ([@bdraco] - [#63262]) ([flux_led docs])
+- Sisyphus: Fix bad super call ([@balloob] - [#63327]) ([sisyphus docs])
+- Fix status type in Shelly climate platform ([@bieniu] - [#63347]) ([shelly docs])
+- Bump micloud to 0.5 ([@starkillerOG] - [#63348]) ([xiaomi_miio docs])
+- Work around ingress glitch with 304 responses ([@masto] - [#63355]) ([hassio docs])
+- Fix Hue grouped light color_mode calculation ([@marcelveldt] - [#63374]) ([hue docs])
+- Fix missing timezone in GTFS timestamp sensor ([@frenck] - [#63401]) ([gtfs docs])
+
+[#61548]: https://github.com/home-assistant/core/pull/61548
+[#61643]: https://github.com/home-assistant/core/pull/61643
+[#62291]: https://github.com/home-assistant/core/pull/62291
+[#62477]: https://github.com/home-assistant/core/pull/62477
+[#62819]: https://github.com/home-assistant/core/pull/62819
+[#62969]: https://github.com/home-assistant/core/pull/62969
+[#63015]: https://github.com/home-assistant/core/pull/63015
+[#63025]: https://github.com/home-assistant/core/pull/63025
+[#63053]: https://github.com/home-assistant/core/pull/63053
+[#63066]: https://github.com/home-assistant/core/pull/63066
+[#63092]: https://github.com/home-assistant/core/pull/63092
+[#63103]: https://github.com/home-assistant/core/pull/63103
+[#63111]: https://github.com/home-assistant/core/pull/63111
+[#63152]: https://github.com/home-assistant/core/pull/63152
+[#63154]: https://github.com/home-assistant/core/pull/63154
+[#63184]: https://github.com/home-assistant/core/pull/63184
+[#63253]: https://github.com/home-assistant/core/pull/63253
+[#63262]: https://github.com/home-assistant/core/pull/63262
+[#63327]: https://github.com/home-assistant/core/pull/63327
+[#63347]: https://github.com/home-assistant/core/pull/63347
+[#63348]: https://github.com/home-assistant/core/pull/63348
+[#63355]: https://github.com/home-assistant/core/pull/63355
+[#63374]: https://github.com/home-assistant/core/pull/63374
+[#63401]: https://github.com/home-assistant/core/pull/63401
+[@Swamp-Ig]: https://github.com/Swamp-Ig
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@cgtobi]: https://github.com/cgtobi
+[@cmroche]: https://github.com/cmroche
+[@dougiteixeira]: https://github.com/dougiteixeira
+[@fabaff]: https://github.com/fabaff
+[@frenck]: https://github.com/frenck
+[@ktaragorn]: https://github.com/ktaragorn
+[@marcelveldt]: https://github.com/marcelveldt
+[@marvin-w]: https://github.com/marvin-w
+[@masto]: https://github.com/masto
+[@ollo69]: https://github.com/ollo69
+[@ryborg]: https://github.com/ryborg
+[@starkillerOG]: https://github.com/starkillerOG
+[@thecode]: https://github.com/thecode
+[@trdischat]: https://github.com/trdischat
+[doorbird docs]: /integrations/doorbird/
+[flux_led docs]: /integrations/flux_led/
+[fronius docs]: /integrations/fronius/
+[google_assistant docs]: /integrations/google_assistant/
+[gree docs]: /integrations/gree/
+[gtfs docs]: /integrations/gtfs/
+[hassio docs]: /integrations/hassio/
+[hue docs]: /integrations/hue/
+[izone docs]: /integrations/izone/
+[knx docs]: /integrations/knx/
+[netatmo docs]: /integrations/netatmo/
+[no_ip docs]: /integrations/no_ip/
+[nut docs]: /integrations/nut/
+[shelly docs]: /integrations/shelly/
+[sisyphus docs]: /integrations/sisyphus/
+[systemmonitor docs]: /integrations/systemmonitor/
+[tuya docs]: /integrations/tuya/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
 
 ## If you need help...
 
