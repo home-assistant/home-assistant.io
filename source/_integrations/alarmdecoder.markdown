@@ -132,10 +132,14 @@ Using a combination of the available services and attributes, you can create swi
       value_template: "{{ is_state_attr('alarm_control_panel.alarm_panel', 'chime', true) }}"
       turn_on:
         service: alarmdecoder.alarm_toggle_chime
+        target:
+          entity_id: alarm_control_panel.alarm_panel
         data:
           code: !secret alarm_code
       turn_off:
         service: alarmdecoder.alarm_toggle_chime
+        target:
+          entity_id: alarm_control_panel.alarm_panel
         data:
           code: !secret alarm_code
       icon_template: >-
