@@ -3,6 +3,7 @@ title: RTSPtoWebRTC
 description: Instructions on how to integrate RTSPtoWebRTC server within Home Assistant.
 ha_category:
   - Other
+ha_config_flow: true
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -11,7 +12,9 @@ ha_codeowners:
 ha_domain: rtsp_to_webrtc
 ---
 
-The `rtsp_to_webrtc` integration registers with `camera` to provide WebRTC live streams for any RTSP camera. The integration initiates a connection to a [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
+The `rtsp_to_webrtc` integration registers with `camera` to provide WebRTC live streams for any RTSP camera. The integration initiates a connection to a [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb) or [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
+
+The integraton configuration requires the URL to your server (e.g. `http://example.com:8083`) and will automatically discover which type of server you have.
 
 {% include integrations/config_flow.md %}
 
@@ -25,10 +28,10 @@ See [WebRTC](https://webrtc.org/) for more technical details on the open standar
 
 - The Home Assistant Frontend is a WebRTC client. This just means there is some javascript for initiating a WebRTC stream which creates an *offer*.
 - The `webrtc` integration is responsible for *signaling*, passing the *offer* and an RTSP URL to the *RTSPtoWebRTC* server.
-- The *RTSPtoWebRTC* server opens the RTSP URL, and returns back an *answer*.
+- The *RTSPtoWeb{RTC}* server opens the RTSP URL, and returns back an *answer*.
 - The Frontend accepts the answer and then establishes a *peer connection* to the *RTSPtoWebRTC* server.
 - Establishing a peer connection may be a direct connection on the local network, or using a variety of techniques to communicate through a NAT (e.g. with a STUN server).
-- The Frontend then communicates directly with the *RTSPtoWebRTC* proxy server to view the stream.
+- The Frontend then communicates directly with the *RTSPtoWeb{RTC}* proxy server to view the stream.
 
 See [Getting started with peer connections](https://webrtc.org/getting-started/peer-connections) for more on the technical details.
 
@@ -36,4 +39,4 @@ See [Getting started with peer connections](https://webrtc.org/getting-started/p
 
 The integration may not work for your particular setup, and Home Assistant cannot support and troubleshoot user problems that are unrelated to the actual integration in Home Assistant.
 
-The WebRTC stream negotiation process and streaming can very a lot depending on your network setup and camera setup.  *RTSPtoWebRTC* supports specific audio and video codecs only, see [Limitations](https://github.com/deepch/RTSPtoWebRTC#limitations)
+The WebRTC stream negotiation process and streaming can very a lot depending on your network setup and camera setup. See the specific audio and video codecs supported at [RTSPtoWeb Limitations](https://github.com/deepch/RTSPtoWeb#limitations) and [RTSPtoWebRTC Limitations](https://github.com/deepch/RTSPtoWebRTC#limitations).
