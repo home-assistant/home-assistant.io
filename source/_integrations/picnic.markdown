@@ -34,5 +34,6 @@ This integration provides the following sensors. Some sensors are disabled by de
 | Last order status              | Status of the last order, either `CURRENT`, `CANCELLED` or `COMPLETED`. Will only transition to `COMPLETED` after the invoice email has been sent.  |
 | Last order ETA start           | Start of the ETA window of the last order, will get more precise if the driver is underway.                                                         |
 | Last order ETA end             | End of the ETA window of the last order.                                                                                                            |
+| Last order max order time      | Maximum time it is/was still possible to add products to the last order.
 | Last order delivery time       | The delivery time of the last order, `unavailable` if not yet delivered.                                                                            |
 | Last order total price         | The total price of the last order.                                                                                                                  |
