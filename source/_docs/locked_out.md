@@ -23,13 +23,13 @@ Connect a keyboard and monitor to your device.
 
 #### To reset a user's password, via the container command line
 
-If you are running Home Assistant in a container, you can use the command line in the container with the `hass` command to change your password. The steps below refer to a Home Assistant container in Docker named `ha`. Note that while working in the container, commands will take a few moments to execute.
+If you are running Home Assistant in a container, you can use the command line in the container with the `hass` command to change your password. The steps below refer to a Home Assistant container in Docker named `homeassistant`. Note that while working in the container, commands will take a few moments to execute.
   
-1. `docker exec -it ha bash` to open to the container command line
+1. `docker exec -it homeassistant bash` to open to the container command line
 2. `hass` to create a default user, if this is your first time using the tool
 3. `hass --script auth --config /config change_password existing_user new_password` to change the password
 4. `exit` to exit the container command line
-5. `docker restart ha` to restart the container
+5. `docker restart homeassistant` to restart the container
 
 #### To reset a user's password, as an administrator via the web interface
 
