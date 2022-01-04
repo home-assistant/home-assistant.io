@@ -26,7 +26,9 @@ There is currently support for the following device types within Home Assistant:
 matrix:
   homeserver: https://matrix.org
   username: "@my_matrix_user:matrix.org"
+  # At least one of password or access_token is required.
   password: supersecurepassword
+  access_token: "access_token_of_my_device"
   rooms:
     - "#hasstest:matrix.org"
   commands:
@@ -40,9 +42,15 @@ username:
   required: true
   type: string
 password:
-  description: The password for your Matrix account.
-  required: true
+  description: The password for your Matrix account. At least one of password or access_token is required, and when access_token is configured and valid, the configured password will be ignored.
+  required: false
   type: string
+  default: empty
+access_token:
+  description: The access token associated with your device. At least one of password or access_token is required, and when access_token is configured and valid, the configured password will be ignored.
+  required: false
+  type: string
+  default: empty
 homeserver:
   description: "The full URL for your homeserver. If you use the default matrix.org homeserver, this is 'https://matrix.org'."
   required: true
