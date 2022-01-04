@@ -3,7 +3,7 @@ title: RTSPtoWebRTC
 description: Instructions on how to integrate RTSPtoWebRTC server within Home Assistant.
 ha_category:
   - Other
-ha_release: '2021.12.1'
+ha_release: 2022.2
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
@@ -13,22 +13,7 @@ ha_domain: rtsp_to_webrtc
 
 The `rtsp_to_webrtc` integration registers with `camera` to provide WebRTC live streams for any RTSP camera. The integration initiates a connection to a [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
 
-## Configuration
-
-You need an existing [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) server to configure the `rtsp_to_webrtc`. The integraton is configured with the URL to your server, e.g. `https://example.com:8083.
-
-{% my config_flow_start badge domain=page.ha_domain %}
-
-{% details "Manual configuration steps" %}
-
-1. Browse to your Home Assistant instance using.
-1. In the sidebar click on _**{% my config icon %}**_.
-1. From the configuration menu select: _**{% my integrations icon %}**_.
-1. In the bottom right, click on the
-  _**{% my config_flow_start icon domain=page.ha_domain %}**_ button.
-1. From the list, search and select _**"RTSPtoWebRTC"**_ and follow the instructions.
-
-{% enddetails %}
+{% include integrations/config_flow.md %}
 
 ## Technical Details
 
