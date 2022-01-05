@@ -135,7 +135,7 @@ Each UniFi Protect floodlight will get the following entities added:
 
 Each UniFi Protect smart sensor will get the following entities added:
 
-* **Sensors** - Sensors are provided for data provided from smart sensor device. Sensors include "Door", "Motion Detected" and "Battery Low".
+* **Sensors** - Sensors are provided for data provided from smart sensor devices. Sensors include "Door", "Motion Detected" and "Battery Low".
 * **Button** - A disabled by default button entity is added for each sensor device. The button will let you reboot your sensor device.
 * **Switch** - A disabled by default switch entity will be added to let you toggle on and off SSH for your sensor. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
 
