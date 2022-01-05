@@ -3,6 +3,7 @@ title: UniFi Protect
 description: Instructions on how to configure UniFi Protect integration by Ubiquiti.
 ha_category:
   - Hub
+  - Binary Sensor
   - Button
   - Camera
   - Light
@@ -20,6 +21,7 @@ ha_codeowners:
   - '@bdraco'
 ha_domain: unifiprotect
 ha_platforms:
+  - binary_sensor
   - button
   - camera
   - light
@@ -112,6 +114,7 @@ Each UniFi Protect camera will get the following entities added:
   * **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
   * **System Sounds** - If your camera has a speaker, there will be a configuration switch to toggle system sounds.
   * **SSH Enabled** - A disabled by default switch entity will be added to let you toggle on and off SSH for your camera. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
+* **Sensors** - Sensors are provided for data provided from the camera device. Sensors include "Is Dark" and "Doorbell Chime" (if camera has a chime).
 * **Button** - A disabled by default button entity is added for each camera device. The button will let you reboot your camera device.
 
 ### Floodlights
@@ -125,12 +128,14 @@ Each UniFi Protect floodlight will get the following entities added:
 * **Switch** - The following switch entities will be added for each floodlight:
   * **Status Light** - A configuration switch to turn it on and off to turn on and off the status light for your floodlight.
   * **SSH Enabled** - A disabled by default switch entity will be added to let you toggle on and off SSH for your floodlight. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
+* **Sensors** - Sensors are provided for data provided from floodlight devices. Sensors include "Is Dark" and "Motion Detected".
 * **Button** - A disabled by default button entity is added for each floodlight device. The button will let you reboot your floodlight device.
 
 ### Sensors
 
 Each UniFi Protect smart sensor will get the following entities added:
 
+* **Sensors** - Sensors are provided for data provided from smart sensor devices. Sensors include "Door", "Motion Detected" and "Battery Low".
 * **Button** - A disabled by default button entity is added for each sensor device. The button will let you reboot your sensor device.
 * **Switch** - A disabled by default switch entity will be added to let you toggle on and off SSH for your sensor. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
 
@@ -141,6 +146,12 @@ Each UniFi Protect viewport will get the following entities added:
 * **Liveview Select** - A select control will be added for each viewport device that will allow you to select which liveview is being displayed on the viewport.
 * **Button** - A disabled by default button entity is added for each viewport device. The button will let you reboot your viewport device.
 * **Switch** - A disabled by default switch entity will be added to let you toggle on and off SSH for your viewport. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
+
+### NVR
+
+Your main UniFi Protect NVR device also gets a number of diagnostics sensors that can be used for tracking the state of your UniFi Protect system:
+
+* **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
 
 ## Troubleshooting
 
