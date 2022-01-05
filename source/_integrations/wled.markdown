@@ -164,9 +164,9 @@ to a preset called My Preset:
 ### Automation Using Specific Palette Name
 
 An automation to turn on a WLED light and select a specific palette and
-set intensity and speed can be created by first calling the light.turn_on
-service, then calling the select.select_option service to select the
-palette, then calling the number.set_value service to set the intensity
+set intensity, and speed can be created by first calling the `light.turn_on`
+service, then calling the `select.select_option` service to select the
+palette, then call the `number.set_value` service to set the intensity
 and again to set the speed. 
 
 Here is an example of all of these put together into an automation:
