@@ -20,7 +20,7 @@ The integraton configuration requires the URL to your server (e.g. `http://examp
 
 ## Technical Details
 
-The `rtsp_to_webrtc` registers with `camera` to override the camera attribute `frontend_stream_type` of `STREAM_TYPE_WEBRTC` to instruct the frontend to use WebRTC streams.
+RTSPtoWebRTC registers with the camera integration to override the camera attribute `frontend_stream_type` of `STREAM_TYPE_WEBRTC` to instruct the frontend to use WebRTC streams.
 
 <!-- Note: This documentation will be updated as support for other integrations is added, or if it is integrated directly into camera in future PRs. -->
 
