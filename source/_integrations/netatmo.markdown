@@ -233,7 +233,7 @@ client_secret:
   type: string
 {% endconfiguration %}
 
-**After the client_id and client_secret is added to your `configuration.yaml` you must enable Netatmo through the integrations page.**
+**After the `client_id` and `client_secret` are added to your `configuration.yaml` you must restart Home Assistant and then enable Netatmo through the integrations page.**
 
 Menu: **Configuration** -> **Devices & Services**.
 
