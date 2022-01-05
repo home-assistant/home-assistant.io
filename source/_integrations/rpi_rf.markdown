@@ -10,6 +10,14 @@ ha_platforms:
   - switch
 ---
 
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.4.
+
+For more information see: [Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+</div>
+
 The `rpi_rf` switch platform allows you to control devices over 433/315MHz LPD/SRD signals with generic low-cost GPIO RF modules on a [Raspberry Pi](https://www.raspberrypi.org/).
 
 Interoperable with codes sniffed via [the rpi-rf module](https://pypi.python.org/pypi/rpi-rf) or [rc-switch](https://github.com/sui77/rc-switch).
