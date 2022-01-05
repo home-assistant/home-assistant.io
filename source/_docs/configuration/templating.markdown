@@ -771,6 +771,51 @@ To evaluate a response, go to **{% my developer_template title="Developer Tools 
 
 {% endraw %}
 
+### Using templates with the MQTT integration
+
+The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to status updates or incoming service calls (command templates) to payloads that configure the MQTT device.
+
+#### Using value templates with MQTT
+
+For incoming data a value template translates incoming JSON or raw data to a valid payload.
+Incoming payloads are rendered with possible JSON values, so when rendering the `value_json` can be used access the attributes in a JSON based payload.
+
+<div class='note'>
+
+Example value template:
+
+With given payload:
+
+```json
+{ "state": "ON", "temperature": 21.902 }
+```
+
+Template {% raw %}```{{ value_json.temperature | round(1) }}```{% endraw %} renders to `21.9`.
+
+Additional the MQTT entity attributes `entity_id` and `name` can be used as variables in the template.
+
+ </div>
+
+#### Using command templates with MQTT
+
+For service calls command templates are defined to format the outgoing MQTT payload to the device. When a service call is executed `value` can be used to generate the correct payload to the device.
+
+<div class='note'>
+
+Example command template:
+
+With given value `21.9` template {% raw %}```{"temperature": {{ value }} }```{% endraw %} renders to:
+
+```json
+{
+  "temperature": 21.9
+}
+```
+
+Additional the MQTT entity attributes `entity_id` and `name` can be used as variables in the template.
+
+</div>
+
 ## Some more things to keep in mind
 
 ### `entity_id` that begins with a number
