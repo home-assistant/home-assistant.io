@@ -114,7 +114,7 @@ Each UniFi Protect camera will get the following entities added:
   * **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
   * **System Sounds** - If your camera has a speaker, there will be a configuration switch to toggle system sounds.
   * **SSH Enabled** - A disabled by default switch entity will be added to let you toggle on and off SSH for your camera. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
-* **Sensors** - Sensors are provided for data provided from camera device. Sensors include "Is Dark" and "Doorbell Chime" (if camera has a chime).
+* **Sensors** - Sensors are provided for data provided from the camera device. Sensors include "Is Dark" and "Doorbell Chime" (if camera has a chime).
 * **Button** - A disabled by default button entity is added for each camera device. The button will let you reboot your camera device.
 
 ### Floodlights
