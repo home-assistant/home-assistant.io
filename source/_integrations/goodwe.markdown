@@ -6,7 +6,7 @@ ha_category:
   - Energy
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_release: 2022.01
+ha_release: 2022.2
 ha_codeowners:
   - "@mletenay"
 ha_domain: goodwe
