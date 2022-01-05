@@ -16,6 +16,14 @@ ha_platforms:
   - switch
 ---
 
+<div class='note warning'>
+
+Using this integration via the SysBus is deprecated and will be removed in Home Assistant Core 2022.6.
+
+For more information see: [Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+</div>
+
 The `onewire` platform supports sensors which that using the One wire (1-wire) bus for communication.
 
 Every 1-wire device has a (globally) unique ID that identifies the device on the bus. The first two digits identify a device family and the last 14 digits are a globally unique number given to it during manufacturing.
@@ -82,50 +90,7 @@ Notes:
 
 ## Interfacing with the 1-wire bus
 
-The 1-Wire bus can be connected directly to the IO pins of Raspberry Pi or by using a dedicated interface adapter, for example
-[DS9490R](https://datasheets.maximintegrated.com/en/ds/DS9490-DS9490R.pdf) or adapters based on [DS2482-100](https://datasheets.maximintegrated.com/en/ds/DS2482-100.pdf) that can be directly attached to the IO pins on the Raspberry Pi.
-
-It is also possible for this platform to interface with a remote 1-wire host over a network connection using owfs and owserver.
-
-### Raspberry Pi set up
-
-In order to setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/config.txt`. This file can not be edited through ssh. You have to put your SD card to a PC, and edit the file directly.
-To edit `/boot/config.txt` on the Home Assistant Operating System, use [this documentation](https://developers.home-assistant.io/docs/operating-system/debugging.html) to enable SSH and edit `/mnt/boot/config.txt` via `vi`.
-
-If you use an external pull-up resistor and the default GPIO 4 for the data line, add the following line:
-
-```txt
-dtoverlay=w1-gpio
-```
-
-If you don't want to use an external resistor, you can use a built-in one using the following line:
-
-```txt
-dtoverlay=w1-gpio-pullup
-```
-
-It is also possible to use a different GPIO pin like this to change it to pin 15:
-
-```txt
-dtoverlay=w1-gpio-pullup,gpiopin=15
-```
-
-Furthermore, it is also possible to have multiple GPIOs as one-wire data channel by adding multiple lines like this:
-
-```txt
-dtoverlay=w1-gpio-pullup,gpiopin=15
-dtoverlay=w1-gpio-pullup,gpiopin=16
-```
-
-You can read about further parameters in this documentation: [Raspberry Pi Tutorial Series: 1-Wire DS18B20 Sensor](https://www.waveshare.com/wiki/Raspberry_Pi_Tutorial_Series:_1-Wire_DS18B20_Sensor#Enable_1-Wire).
-
-When using the GPIO pins on Raspberry Pi directly as a 1-wire bus, the description above uses two kernel modules. `1w_gpio`, that implements the 1-wire protocol, and `1w_therm`, that understands the DS18B20 (family 28) components inner structure and reports temperature.
-There is no support for other device types (families) and hence this onewire platform only supports temperature measurements from family 28 devices.
-
-### Raspberry Pi checking connected devices via ssh
-
-If you set up ssh, you can check the connected one-wire devices in the following folder: /sys/bus/w1/devices
-The device IDs begin with `28-`.
+The 1-Wire bus can be connected with a remote 1-wire host over a network connection using owfs and owserver.
 
 ## Interface adapter setup
 
