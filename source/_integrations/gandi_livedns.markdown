@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: gandi_livedns
 ---
 
-With the `gandi_livedns` integration you can keep your [Gandi.net](https://www.gandi.net) LiveDNS record up to date.
+With the Gandi.net integration, you can keep your [Gandi.net](https://www.gandi.net) LiveDNS record up to date.
 
 ## Prerequisites
 
