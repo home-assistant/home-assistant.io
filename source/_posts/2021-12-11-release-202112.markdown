@@ -839,7 +839,11 @@ like before. Done by [@marvin-w].
 - Work around ingress glitch with 304 responses ([@masto] - [#63355]) ([hassio docs])
 - Fix Hue grouped light color_mode calculation ([@marcelveldt] - [#63374]) ([hue docs])
 - Fix missing timezone in GTFS timestamp sensor ([@frenck] - [#63401]) ([gtfs docs])
+- Handle missing monitored users in Plex options ([#63411]) [@jjlawren]
+- Handle no enabled ipv4 addresses in the network integration ([#63416]) [@bdraco]
 
+[#63411]: https://github.com/home-assistant/core/pull/63411
+[#63416]: https://github.com/home-assistant/core/pull/63416
 [#61548]: https://github.com/home-assistant/core/pull/61548
 [#61643]: https://github.com/home-assistant/core/pull/61643
 [#62291]: https://github.com/home-assistant/core/pull/62291
