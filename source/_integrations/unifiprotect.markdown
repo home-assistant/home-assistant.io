@@ -149,7 +149,7 @@ Each UniFi Protect viewport will get the following entities added:
 
 ### NVR
 
-You main UniFi Protect NVR device also gets a number of diagnostics sensors that can be use for tracking the state of your UniFi Protect system:
+Your main UniFi Protect NVR device also gets a number of diagnostics sensors that can be used for tracking the state of your UniFi Protect system:
 
 * **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as an state attribute though to help map sensor to disk.
 
