@@ -128,7 +128,7 @@ Each UniFi Protect floodlight will get the following entities added:
 * **Switch** - The following switch entities will be added for each floodlight:
   * **Status Light** - A configuration switch to turn it on and off to turn on and off the status light for your floodlight.
   * **SSH Enabled** - A disabled by default switch entity will be added to let you toggle on and off SSH for your floodlight. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
-* **Sensors** - Sensors are provided for data provided from floodlight device. Sensors include "Is Dark" and "Motion Detected".
+* **Sensors** - Sensors are provided for data provided from floodlight devices. Sensors include "Is Dark" and "Motion Detected".
 * **Button** - A disabled by default button entity is added for each floodlight device. The button will let you reboot your floodlight device.
 
 ### Sensors
