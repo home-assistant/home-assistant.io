@@ -171,29 +171,23 @@ and again to set the speed.
 
 Here is an example of all of these put together into an automation:
 
-{% raw %}
-
 ```yaml
-- alias: 'Turn on WLED rain effect when weather changes to rainy'
-  description: 'Turns on WLED light, setting effect to Rain, palette to Breeze, intensity to 200 and speed to 255'
+- alias: "Turn on WLED rain effect when weather changes to rainy"
   trigger:
     - platform: state
       entity_id: sensor.weather_condition
-      to: 'rainy'
-  condition:
-    - condition: time
-      after: '08:00:00'
-      before: '23:00:00'
+      to: "rainy"
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.wled
-        effect: Rain
+      data:
+        effect: "Rain"
     - service: select.select_option
       target:
         entity_id: select.wled_color_palette
       data:
-        option: Breeze
+        option: "Breeze"
     - service: number.set_value
       target:
         entity_id: number.wled_intensity
@@ -205,5 +199,3 @@ Here is an example of all of these put together into an automation:
       data:
         value: 255
 ```
-
-{% endraw %}
