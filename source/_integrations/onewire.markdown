@@ -33,6 +33,7 @@ Each 1-wire component data sheet describes the different properties the componen
 | 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | 2 sensed (sensed.A/B) <sup>[4](#note_4)</sup> |
 | 29     | [DS2408](https://datasheets.maximintegrated.com/en/ds/DS2408.pdf)  | 8 sensed (sensed.0-7) <sup>[4](#note_4)</sup> |
 | 3A     | [DS2413](https://datasheets.maximintegrated.com/en/ds/DS2413.pdf)  | 2 sensed (sensed.A/B) <sup>[4](#note_4)</sup> |
+| EF     | [HobbyBoard](https://hobbyboards.com/)                             | Hub Branch State <sup>[3](#note_3) [4](#note_4)</sup> |
 
 #### Sensors:
 
@@ -57,6 +58,7 @@ Each 1-wire component data sheet describes the different properties the componen
 | 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | 2 latches (latch.A/B) and 2 PIOs (PIO.A/B) <sup>[4](#note_4)</sup> |
 | 29     | [DS2408](https://datasheets.maximintegrated.com/en/ds/DS2408.pdf)  | 8 latches (latch.0-7) and 8 PIOs (PIO.0/7) <sup>[4](#note_4)</sup> |
 | 3A     | [DS2413](https://datasheets.maximintegrated.com/en/ds/DS2413.pdf)  | 2 PIOs (PIO.A/B) <sup>[4](#note_4)</sup> |
+| EF     | [HobbyBoard](https://hobbyboards.com/)                             | Hub Branch Enable, Moisture Sensor Type <sup>[3](#note_3) [4](#note_4)</sup> |
 
 #### Bridges:
 
