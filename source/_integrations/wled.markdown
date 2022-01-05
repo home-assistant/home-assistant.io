@@ -150,20 +150,16 @@ Activating a preset is an easy way to set a WLED light to a specific
 configuration. Here is an example service call to set a WLED light 
 to a preset called My Preset:
 
-{% raw %}
-
 ```yaml
-service: light.turn_on
-data:
-  entity_id: light.wled
-service: select.select_option
-target:
-  entity_id: select.wled_preset
-data:
-  option: 'My Preset'
+- service: light.turn_on
+  target:
+    entity_id: light.wled
+- service: select.select_option
+  target:
+    entity_id: select.wled_preset
+  data:
+    option: "My Preset"
 ```
-
-{% endraw %}
 
 ### Automation Using Specific Palette Name
 
