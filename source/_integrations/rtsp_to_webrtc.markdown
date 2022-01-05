@@ -2,7 +2,7 @@
 title: RTSPtoWebRTC
 description: Instructions on how to integrate RTSPtoWebRTC server within Home Assistant.
 ha_category:
-  - Other
+  - Camera
 ha_config_flow: true
 ha_release: 2022.2
 ha_iot_class: Local Push
