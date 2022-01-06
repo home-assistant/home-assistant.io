@@ -116,7 +116,7 @@ Each UniFi Protect camera will get the following entities added:
   * **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
   * **System Sounds** - If your camera has a speaker, there will be a configuration switch to toggle system sounds.
   * **SSH Enabled** - A disabled by default switch entity will be added to let you toggle on and off SSH for your camera. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
-* **Sensors** - Sensors are provided for data provided from the camera device. Sensors include "Is Dark" and "Doorbell Chime" (if camera has a chime). A number of diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
+* **Sensors** - Sensors are provided for data provided from the camera device. Sensors include "Is Dark" and "Doorbell Chime" (if camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
 * **Button** - A disabled by default button entity is added for each camera device. The button will let you reboot your camera device.
 
 ### Floodlights
@@ -154,7 +154,7 @@ Each UniFi Protect viewport will get the following entities added:
 Your main UniFi Protect NVR device also gets a number of diagnostics sensors that can be used for tracking the state of your UniFi Protect system:
 
 * **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
-* **Utilization and Storage Sensors**: A number of other sensors are also added for uptime, hardware utilization and distribution details of the video on disk.
+* **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
 
 ## Troubleshooting
 
