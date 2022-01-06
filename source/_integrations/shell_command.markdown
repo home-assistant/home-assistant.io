@@ -47,7 +47,7 @@ The `command` is executed within the [configuration directory](/docs/configurati
 If you are using [Home Assistant operating system](https://github.com/home-assistant/operating-system), the commands are executed in the `homeassistant` container context. So if you test or debug your script, it might make sense to do this in the context of this container to get the same runtime environment.
 </div>
 
-With a `0` exit code, the output (stdout) of the command is used as `value`. In case a command results in a non `0` exit code or is terminated by the `command_timeout`, the result is only logged to Home Assistant log and the value of the sensor is not updated.
+With a `0` exit code, the output (stdout) of the command is used as `value`. In case a command results in a non `0` exit code or is terminated after a timeout of 60 seconds, the result is only logged to Home Assistant log and the value of the sensor is not updated.
 
 ## Examples
 
