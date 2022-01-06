@@ -184,7 +184,7 @@ This (large) sensor configuration gives us another example:
 You'll notice that this example includes a secondary parameter section (under the steam section) as well as a better example of the way comments can be used to break down files into sections.
 
 All of the above can be applied when splitting up files using packages. To
-learn more about packages, see the [Packages](/packages) page.
+learn more about packages, see the [Packages](/docs/configuration/packages) page.
 
 That about wraps it up.
 
