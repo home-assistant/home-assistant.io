@@ -156,6 +156,18 @@ Your main UniFi Protect NVR device also gets a number of diagnostics sensors tha
 * **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
 * **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
 
+## Services
+
+### Service unifiprotect.set_doorbell_message
+
+Use to dynamically set the message on a Doorbell LCD screen. This service should only be used to set dynamic messages (i.e. setting the current outdoor temperature on your Doorbell).
+
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | No       | The Doorbell Text select entity for your Doorbell                                                            |
+| `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters    |
+| `duration`             | Yes      | Number of minutes to display the message for before returning to the default message                         |
+
 ## Troubleshooting
 
 ### Enabling Debug Logging
@@ -182,3 +194,11 @@ Unlike with many other things, playing audio to your speakers requires your Home
 ### Liveview Options for Viewport Missing Options or Out of Date
 
 Main control selects currently cannot have dynamic options since the options are exported out to voice assistants. After you add/remove/change a Liveview in UniFi Protect, you must restart Home Assistant to get the new options for your Viewport.
+
+### NvrErrors with "404 - Reason: Not Found"
+
+If you get errors while authenticating or fetching data for `NvrError... 404 - Reason: Not Found`, there is a good chance that your UniFi Protect application has crashed. UniFi Protect runs in a supervised way on UniFi OS (similar to Home Assistant OS + Home Assistant Core). Getting a 404 for a URL that should not produce a 404 means UniFi Protect is probably not running. You may want to check the health of your disks or look into debugging UniFi Protect to see why it is crashing.
+
+```log
+pyunifiprotect.NvrError: Fetching Camera List failed: 404 - Reason: Not Found
+```
