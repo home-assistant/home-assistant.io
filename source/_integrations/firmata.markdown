@@ -144,7 +144,7 @@ binary_sensor:
     pin:
       description: The digital or analog pin number on the board. For analog pins the corresponding digital number must be used. Please use the pinout that corresponds to your board. For example, on the Arduino Uno, pin A2 corresponds to the digital pin number 16.
       required: true
-      type: integer
+      type: [integer, string]
     pin_mode:
       description: The digital or analog pin input mode. Supported modes are `INPUT` and `PULLUP`. Check your board specifications to see which pins have optional internal pullups available.
       required: true
