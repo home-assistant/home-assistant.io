@@ -19,7 +19,7 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 | Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Effects           | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Flashing          | ✘                                                          | ✔                                                                    | ✔                                                                            |
-| HS Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| HS Color          | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | RGBW Color        | ✔                                                          | ✔                                                                    | ✘                                                                            |
 | RGBWW Color       | ✔                                                          | ✔                                                                    | ✘                                                                            |
@@ -809,7 +809,7 @@ light:
 The `mqtt` light platform with template schema lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
 It is format-agnostic so you can use any data format you want (i.e., string, JSON), just configure it with templating.
 
-This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and effects.
+This schema supports on/off, brightness, RGB colors, XY colors, HS Color, color temperature, transitions, short/long flashing and effects.
 
 ## Template schema - Configuration
 
@@ -1034,7 +1034,7 @@ In this section you find some real-life examples of how to use this light.
 
 ### Simple string payload
 
-For a simple string payload with the format `state,brightness,r-g-b` (e.g., `on,255,255-255-255`), add the following to your `configuration.yaml` file:
+For a simple string payload with the format `state,brightness,r-g-b,h-s` (e.g., `on,255,255-255-255,360-100`), add the following to your `configuration.yaml` file:
 
 {% raw %}
 
@@ -1045,7 +1045,7 @@ light:
     schema: template
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: "on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}"
+    command_on_template: "on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }},{{ hue|d }}-{{ sat|d }}"
     command_off_template: "off"
     state_template: "{{ value.split(',')[0] }}"  # must return `on` or `off`
     brightness_template: "{{ value.split(',')[1] }}"
@@ -1079,6 +1079,9 @@ light:
       {%- endif -%}
       {%- if red is defined and green is defined and blue is defined -%}
       , "color": [{{ red }}, {{ green }}, {{ blue }}]
+      {%- endif -%}
+      {%- if hue is defined and sat is defined -%}
+      , "huesat": [{{ hue }}, {{ sat }}]
       {%- endif -%}
       {%- if effect is defined -%}
       , "effect": "{{ effect }}"
