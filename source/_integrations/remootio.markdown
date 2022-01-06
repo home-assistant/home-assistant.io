@@ -1,5 +1,6 @@
 ---
 title: Remootio
+description: Instructions on how to integrate Remootio controlled garage door or garden gate into Home Assistant.
 ha_release: ???
 ha_category:
   - Cover
@@ -8,6 +9,8 @@ ha_domain: remootio
 ha_codeowners:
   - '@ivgg-me'
 ha_config_flow: true
+ha_platforms:
+  - cover
 ---
 
 This integration lets you control [Remootio](https://www.remootio.com/) controlled garage doors and/or gates through Home Assistant.
