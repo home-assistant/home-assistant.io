@@ -160,12 +160,12 @@ Your main UniFi Protect NVR device also gets a number of diagnostics sensors tha
 
 ### Service unifiprotect.set_doorbell_message
 
-Use to dynamically set the message on a Doorbell LCD screen. Should only be used to set dynamic messages (i.e. setting the current outdoor temperature on your Doorbell).
+Use to dynamically set the message on a Doorbell LCD screen. This service should only be used to set dynamic messages (i.e. setting the current outdoor temperature on your Doorbell).
 
 | Service data attribute | Optional | Description                                                                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | No       | The Doorbell Text select entity for your Doorbell                                                            |
-| `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less then 30 characters    |
+| `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters    |
 | `duration`             | Yes      | Number of minutes to display the message for before returning to the default message                         |
 
 ## Troubleshooting
