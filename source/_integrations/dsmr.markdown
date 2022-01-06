@@ -63,7 +63,8 @@ This integration is known to work for:
 
 ### Connecting to the meter
 
-Connection can be done directly to the meter via a USB to serial connector, or through a serial to network proxy
+Connection can be done directly to the meter via a USB to serial connector, or through a serial to network proxy.
+It is also possible to connect to a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103) with an integrated [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602).
 
 #### USB serial converters:
 
