@@ -37,13 +37,13 @@ We are just getting started with things. As usual our users are really good at f
 
 Wait Sidequest, what is that? Sidequest is the alternative App Store for the Oculus Quest.
 
-In VR terminology our app is a "2D app". The official Oculus Quest store only recently started allowing 2D apps and we are still working on a version that meets those requirements. So while we are waiting, we wanted to release something so we can get feedback how you are using it to automate things.
+In VR terminology our app is a "2D app". The official Oculus Quest store only recently started allowing 2D apps and we are still working on a version that meets their requirements. So while we are waiting, we wanted to release something so we can get feedback how you are using it to automate things.
 
 The app on Sidequest is the [minimal version] of the Home Assistant Companion Android app. While the Quest runs Android, it doesn't have the Google services. This means no widgets, no shortcuts, and no support for the standard notifications.
 
-## 2022.1 Release
+## 2022.1 Release for Android
 
-We can't just make a post like this and ignore the new release that just went out the other day without highlighting it right?! While the 2022.1 release may not be as jam-packed as 2021.12 we do still have some neat features to cover.
+We can't just make a post like this and ignore the new release for the Phone app that just went out the other day without highlighting it right?! While the 2022.1 release may not be as jam-packed as 2021.12 we do still have some neat features to cover.
 
 *  A new sensor to determine if your devices [work profile] is active by [zmarties]. This sensor will update as soon as a state change is detected allowing you to make unique automations based on the profile being active.
 *  [dshokouhi] has added a new sensor allowing you to see what the [Last Used App] was. Pair this new sensor with the Quest and you can make specific automations based on what game you are currently playing!
@@ -70,6 +70,6 @@ A big thank you to all of our contributors and users for bringing in awesome fea
 [install the app]: https://sidequestvr.com/app/6427/home-assistant
 [work profile]: https://companion.home-assistant.io/docs/core/sensors#work-profile-sensor
 [Last Used App]: https://companion.home-assistant.io/docs/core/sensors#last-used-app-sensor
-[version]: https://companion.home-assistant.io/docs/core/android-flavors
+[minimal version]: https://companion.home-assistant.io/docs/core/android-flavors
 [interactive sensor]: https://companion.home-assistant.io/docs/core/sensors#interactive-sensor
 [good lighting]: https://support.oculus.com/articles/headsets-and-accessories/using-your-headset/turn-off-tracking/
