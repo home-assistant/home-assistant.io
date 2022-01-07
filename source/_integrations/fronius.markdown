@@ -81,8 +81,8 @@ Recommended energy dashboard configuration for meter location in feed in path (`
 - For `Grid consumption` use the meters `Energy real consumed` entity.
 - For `Return to grid` use the meters `Energy real produced` entity.
 - For `Solar production`: 
-  - If no battery is involved at an inverter: Add each inverters `Energy total` entity.
-  - If a battery is involved at an inverter: Use [Riemann sum](/integrations/integration/) over `Power photovoltaics` entity (from power_flow endpoint found in your `SolarNet` device)
+  - If no battery is connected to an inverter: Add each inverters `Energy total` entity.
+  - If a battery is connected to an inverter: Use [Riemann sum](/integrations/integration/) over `Power photovoltaics` entity (from power_flow endpoint found in your `SolarNet` device)
 - `Battery systems` aren't supported directly. Use [Template](/integrations/template) to split and invert negative values of `Power battery` entity (from power_flow) for charging power (W) and positive values for discharging power (W). Then use [Riemann sum](/integrations/integration/) to integrate each into energy values (kWh).
 - For `Devices` use the Ohmpilots `Energy consumed` entity.
 
