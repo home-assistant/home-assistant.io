@@ -12,20 +12,14 @@ og_image: /images/blog/2022-01-android-quest/quest_sensors.png
 
 ![Screenshot of the Android app](/images/blog/2022-01-android/quest_sensors.png)
 
-Hey Everyone! We hope you all had a great new years and holidays spent with the family! This past holiday season had some pretty cool toys going around. Cool toys to us mean more things to tinker with. One of the most popular gifts this year was no doubt the Oculus Quest and to be honest, how could it not be right? Naturally, working on the Android app some of us wondered how does the app performs on such a device? Well, it actually works pretty well and you can start building automations based on your usage today!
+Hey Everyone! We hope you all had a great new years and holidays spent with the family! This past holiday season had some pretty cool toys going around. Cool toys to us mean more things to tinker with. One of the most popular gifts this year was no doubt the Oculus Quest and to be honest, how could it not be right?
+
+Naturally, working on the Android app some of us wondered how does the app perform on such a device? Well, it actually works pretty well and you can start building automations based on your usage today!
 
 <a href="https://sidequestvr.com/app/6427/home-assistant" style="display:inline-block"><img width="200" class="download-badge" alt="Get it on SideQuest" src="https://sidequestvr.com/assets/images/branding/Get-it-on-SIDEQUEST.png" style='box-shadow:none;border:0'></a>
 
 
-## Hello Sidequest!
-
-Wait Sidequest, what is that? Sidequest is the alternative App Store for the Oculus Quest. The app that we got working is the minimal build of our Companion app for Android.
-
-In VR terminology our app is a "2D app". The official Oculus Quest store only recently started allowing 2D apps and we are still working on a version that meets those requirements. So while we are waiting, we wanted to release something so we can get feedback how you are using it to automate things.
-
-The app on Sidequest is the minimal [version] of the Home Assistant Companion Android app. While the Quest runs Android, it doesn't have the Google services. This means no widgets, no shortcuts, and no support for the standard notifications.
-
-![Screenshot of App on Quest](/images/blog/2022-01-android/app_on_quest.png)
+## Oculus Quest data in Home Assistant
 
 Home Assistant Companion for Quest gives you access in Home Assistant to over 40 data points about your headset. For example, our [interactive sensor] updates as soon as the screen comes on, which means you're wearing the headset. This allows you to make sure your lights are bright enough to play VR.
 
@@ -36,6 +30,16 @@ Keep the music on in the background while you are playing? Automate your media p
 It is not all about automations either. You can open the Home Assistant interface on your Quest (in 2D) and see who rang the doorbell. You can even talk back if your doorbell supports it!
 
 We are just getting started with things. As usual our users are really good at finding more unique use cases that we didn't even consider. So get your device [set up with Sidequest], [install the app] and start automating today!
+
+![Screenshot of App on Quest](/images/blog/2022-01-android/app_on_quest.png)
+
+## Hello Sidequest!
+
+Wait Sidequest, what is that? Sidequest is the alternative App Store for the Oculus Quest.
+
+In VR terminology our app is a "2D app". The official Oculus Quest store only recently started allowing 2D apps and we are still working on a version that meets those requirements. So while we are waiting, we wanted to release something so we can get feedback how you are using it to automate things.
+
+The app on Sidequest is the [minimal version] of the Home Assistant Companion Android app. While the Quest runs Android, it doesn't have the Google services. This means no widgets, no shortcuts, and no support for the standard notifications.
 
 ## 2022.1 Release
 
@@ -62,7 +66,7 @@ A big thank you to all of our contributors and users for bringing in awesome fea
 [JBassett]: https://github.com/JBassett
 [SkechyWolf]: https://github.com/SkechyWolf
 [jpelgrom]: https://github.com/jpelgrom
-[setup with Sidequest]: https://sidequestvr.com/setup-howto
+[set up with Sidequest]: https://sidequestvr.com/setup-howto
 [install the app]: https://sidequestvr.com/app/6427/home-assistant
 [work profile]: https://companion.home-assistant.io/docs/core/sensors#work-profile-sensor
 [Last Used App]: https://companion.home-assistant.io/docs/core/sensors#last-used-app-sensor
