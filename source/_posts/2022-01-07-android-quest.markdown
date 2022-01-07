@@ -19,19 +19,13 @@ Hey Everyone! We hope you all had a great new years and holidays spent with the 
 
 ## Hello Sidequest!
 
-Wait Sidequest? What is that? Why is this app not on the Oculus Quest Store or even App Lab!? Those are some good questions. It's because we are not a VR-ready app but a 2D app.
+Wait Sidequest, what is that? Sidequest is the alternative App Store for the Oculus Quest. The app that we got working is the minimal build of our Companion app for Android.
 
-The app on Sidequest is actually the minimal [version] of the Android app. While the Quest runs Android, it doesn't have the Google services. This means no widgets, no shortcuts, and no support for the standard notifications.
-
-Meta has recently started to approve 2D app. We have begun creating a new version of the app specifically to meet the Quest Store requirements but it will take some time for us to get this ready and approved. So while we are waiting, we wanted to release something so we can get feedback how you are using it to automate things.
+The app on Sidequest is the minimal [version] of the Home Assistant Companion Android app. While the Quest runs Android, it doesn't have the Google services. This means no widgets, no shortcuts, and no support for the standard notifications.
 
 ![Screenshot of App on Quest](/images/blog/2022-01-android/app_on_quest.png)
 
-Now you may be asking yourself but do I really need this installed? What am I going to gain from this? That's not easy for us to answer for every user because we all have different needs, not everyone has the same room they play in or the same devices in their smart home.
-
-By having the android app installed on your Quest you gain access to the many sensors offered by the app. For example, our [interactive sensor] updates as soon as the screen comes on, which means you're wearing the headset. This allows you to make sure your lights are bright enough to play VR.
-
-Today's release includes over 40 sensors describing the state of your headset to Home Assistant.
+Home Assistant Companion for Quest gives you access in Home Assistant to over 40 data points about your headset. For example, our [interactive sensor] updates as soon as the screen comes on, which means you're wearing the headset. This allows you to make sure your lights are bright enough to play VR.
 
 Ever play on your headset until it dies and then sits around waiting for it to charge up? Using the battery sensors you can get notified when your headset is fully charged and ready to play that next round.
 
