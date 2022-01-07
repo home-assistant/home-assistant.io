@@ -104,3 +104,8 @@ action:
         - "https://www.home-assistant.io/images/favicon-192x192-full.png"
 ```
 
+<div class='note'>
+
+If both urls and attachments are specified, urls will be prioritized and attachments will be ignored.
+
+</div>
