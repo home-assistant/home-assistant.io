@@ -67,10 +67,7 @@ There are several services which can be used for automations and control of the 
 | `turn_off` | Calling this service will turn the irrigation valve off (`entity_id` is required).
 | `turn_on` | Calling this service will turn the irrigation valve on (`entity_id` is required).
 | `set_watering_time` | Calling this service sets the watering time (`entity_id` and `watering_time` are required parameters), `watering_time` must be in the range 1-1800 seconds.
-| `set_trigger_1` | Calling this service sets the trigger_1 (`entity_id` and `trigger_1` are required parameters), `trigger_1` must be according Trigger rules (see below).
-| `set_trigger_2` | Calling this service sets the trigger_2 (`entity_id` and `trigger_2` are required parameters), `trigger_2` must be according Trigger rules (see below).
-| `set_trigger_3` | Calling this service sets the trigger_3 (`entity_id` and `trigger_3` are required parameters), `trigger_3` must be according Trigger rules (see below).
-| `set_trigger_4` | Calling this service sets the trigger_4 (`entity_id` and `trigger_4` are required parameters), `trigger_4` must be according Trigger rules (see below).
+| `set_trigger` | Calling this service sets the trigger_1, trigger_2, trigger_3 or trigger_4 (`entity_id`, `trigger_index` and `trigger` are required parameters), `trigger_index` must be between 1 and 4 and `trigger` must be according Trigger rules (see below).
 
 - For `pause switch`:
 
