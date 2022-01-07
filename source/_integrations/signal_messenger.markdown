@@ -90,3 +90,17 @@ action:
       attachments:
         - "/tmp/surveillance_camera.jpg"
 ```
+
+### Text message with an attachment from a url
+
+```yaml
+...
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    message: "Alarm in the living room!"
+    data:
+      urls:
+        - "https://www.home-assistant.io/images/favicon-192x192-full.png"
+```
+
