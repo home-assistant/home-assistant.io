@@ -6,11 +6,11 @@ date_formatted: "January 07, 2022"
 comments: true
 author: Daniel Shokouhi
 categories: Release-Notes
-og_image: /images/blog/2022-01-android-quest/Companion.png
+og_image: /images/blog/2022-01-android-quest/quest_sensors.png
 ---
 
 
-![Screenshot of the Android app](/images/blog/2022-01-android/Companion.png)
+![Screenshot of the Android app](/images/blog/2022-01-android/quest_sensors.png)
 
 Hey Everyone! We hope you all had a great new years and holidays spent with the family! This past holiday season had some pretty cool toys going around. Cool toys to us mean more things to tinker with. One of the most popular gifts this year was no doubt the Oculus Quest and to be honest, how could it not be right? Naturally, working on the Android app some of us wondered how does the app performs on such a device? Well, it actually works pretty well and you can start building automations based on your usage today!
 
