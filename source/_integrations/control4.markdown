@@ -3,7 +3,8 @@ title: Control4
 description: Instructions on adding a Control4 system to Home Assistant.
 ha_release: '0.114'
 ha_category: Light
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
+ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
   - '@lawtancool'
