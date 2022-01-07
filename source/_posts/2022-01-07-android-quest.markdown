@@ -21,6 +21,8 @@ Hey Everyone! We hope you all had a great new years and holidays spent with the 
 
 Wait Sidequest, what is that? Sidequest is the alternative App Store for the Oculus Quest. The app that we got working is the minimal build of our Companion app for Android.
 
+In VR terminology our app is a "2D app". The official Oculus Quest store only recently started allowing 2D apps and we are still working on a version that meets those requirements. So while we are waiting, we wanted to release something so we can get feedback how you are using it to automate things.
+
 The app on Sidequest is the minimal [version] of the Home Assistant Companion Android app. While the Quest runs Android, it doesn't have the Google services. This means no widgets, no shortcuts, and no support for the standard notifications.
 
 ![Screenshot of App on Quest](/images/blog/2022-01-android/app_on_quest.png)
