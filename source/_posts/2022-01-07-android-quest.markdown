@@ -19,15 +19,27 @@ Hey Everyone! We hope you all had a great new years and holidays spent with the 
 
 ## Hello Sidequest!
 
-Wait Sidequest? What is that? Why is this app not on the Oculus Quest Store or even App Lab!? Those are some good questions so let's address why we are on Sidequest first and not in App Lab or the Quest Store itself. To start with we are not a VR-ready app, the app found on Sidequest is actually the minimal [version] of the Android app. Why the minimal version? Well the Quest does run Android however, it's a pretty heavily modified fork with no Google services. There are no widgets, no shortcuts, and do not even allow standard notifications. As some of you may be aware Meta had only recently started to approve of what we qualify as a 2D app. We have begun creating a new version of the app specifically to meet the Quest Store requirements but it will take some time for us to get things to pass inspection. So while we are waiting we didn't want to hold back on releasing something so we can get more feedback and start getting more data for everyone to automate things.
+Wait Sidequest? What is that? Why is this app not on the Oculus Quest Store or even App Lab!? Those are some good questions. It's because we are not a VR-ready app but a 2D app.
+
+The app on Sidequest is actually the minimal [version] of the Android app. While the Quest runs Android, it doesn't have the Google services. This means no widgets, no shortcuts, and no support for the standard notifications.
+
+Meta has recently started to approve 2D app. We have begun creating a new version of the app specifically to meet the Quest Store requirements but it will take some time for us to get this ready and approved. So while we are waiting, we wanted to release something so we can get feedback how you are using it to automate things.
 
 ![Screenshot of App on Quest](/images/blog/2022-01-android/app_on_quest.png)
 
-Now you may be asking yourself but do I really need this installed? What am I going to gain from this? That's not easy for us to answer for every user because we all have different needs, not everyone has the same room they play in or the same devices in their smart home. By having the android app installed on your Quest you gain access to the many sensors offered by the app. Some of them are actually pretty useful. For example, our [interactive sensor] updates as soon as the screen comes on which is pretty much when you are wearing the headset. By using this sensor you could make sure your lights are on bright enough to allow room tracking to be more consistent because it does indeed require [good lighting].
+Now you may be asking yourself but do I really need this installed? What am I going to gain from this? That's not easy for us to answer for every user because we all have different needs, not everyone has the same room they play in or the same devices in their smart home.
 
-There are over 40 sensors to include in your automations, with plans to include more sensors as we find more data to send back to your Home Assistant server. Ever play on your headset until it dies and then sits around waiting for it to charge up? Using the battery sensors you can get notified when your headset is fully charged and ready to play that next round. Keep the music on in the background while you are playing? Automate your media player volume level based on your microphone is muted. It is not all about sensors either, you may be wondering who rang the doorbell and if it's important enough to take off the headset. Just open up the app and you'll be able to see who is there and even talk back if your device supports it!
+By having the android app installed on your Quest you gain access to the many sensors offered by the app. For example, our [interactive sensor] updates as soon as the screen comes on, which means you're wearing the headset. This allows you to make sure your lights are bright enough to play VR.
 
-We are just getting started with things but as we have discovered our users are really good at finding more unique use cases that we didn't even consider. So get your device [setup with Sidequest], [install the app] and start automating today!
+Today's release includes over 40 sensors describing the state of your headset to Home Assistant.
+
+Ever play on your headset until it dies and then sits around waiting for it to charge up? Using the battery sensors you can get notified when your headset is fully charged and ready to play that next round.
+
+Keep the music on in the background while you are playing? Automate your media player volume level based on whether your Quest microphone is muted.
+
+It is not all about automations either. You can open the Home Assistant interface on your Quest (in 2D) and see who rang the doorbell. You can even talk back if your doorbell supports it!
+
+We are just getting started with things. As usual our users are really good at finding more unique use cases that we didn't even consider. So get your device [set up with Sidequest], [install the app] and start automating today!
 
 ## 2022.1 Release
 
