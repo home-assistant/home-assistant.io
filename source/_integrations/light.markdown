@@ -56,6 +56,7 @@ Most lights do not support all attributes. You can check the integration documen
 | `white` | yes | Set the light to white mode and change its brightness, where 0 means the light is off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light. Note that `white` does not have a corresponding state attribute, the `color_mode` state attribute will to `white` and the `brightness` state attribute will be set to the requested brightness.
 | `flash` | yes | Tell light to flash, can be either value `short` or `long`.
 | `effect`| yes | Applies an effect such as `colorloop` or `random`.
+| `distribution` | yes | Integer between 0 and 255 for how the light should distribute, if it is capable of emitting in opposite directions (eg. up/down), where 0 means fully up and 255 is fully down.
 
 <div class='note'>
 
