@@ -2,7 +2,6 @@
 title: Intellifire 
 description: Instructions on the Intellifire Fireplace integration for Home Assistant.
 ha_category:
-  - Sensor
   - Binary Sensor
 ha_iot_class: Local Polling
 ha_release: 0.47
@@ -25,7 +24,7 @@ Configuration is done via the GUI.
 ### Sensor Types
 
 
-The following sensors are available as either a **Binary Sensor** when dealing with on/off values or in the form of a **Sensor** when dealing with other values.
+The following sensors are available as either a **Binary Sensor** when dealing with on/off.
 
 ### Binary Sensors
 
@@ -33,10 +32,3 @@ The following sensors are available as either a **Binary Sensor** when dealing w
 - `fan_on`: Whether the fan is on/off.
 - `timer_on`: Whether timer-mode is engaged.
 - `thermostat_on`: Whether the thermostat is turned on.
-
-### Sensors
-
-- `fan_speed`: an `integer` representing fan-speed. Most likely 0-5
-- `flame_height`: an `integer` representing the flame height. `0` is off
-- `target_temp`: if the thermostat is enabled (`thermostat_on`) this will display the desired temperature. Natively the unit operates in celsius.
-- `timer_remaining`: if the timer mode (`timer_on`) is enabled - this will display the number of `minutes` remaining.
