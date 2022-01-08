@@ -40,6 +40,10 @@ Please note that "-" characters need to be included in the key when providing it
 <img src='/images/integrations/motion_blinds/Motion_App__get_key_2.jpg' />
 </p>
 
+Note that it has been reported that the official Bloc Blinds app doesn't seem to hand out the API key on Android, it does seem to provide the API key on the IOS version of the official Bloc Blinds app.
+You can also retrieve the API key by using a packet capture app on a mobile phone and "sniffing" the packets of the Bloc Blinds app.
+Search for a packet containing `accessToken=`, the first 16 characters of the value (including -) is the API key.
+
 ## Top Down Bottom Up (TDBU) blinds
 
 TDBU blinds consist of two bars controlled by two motors designated by Top and Bottom with fabric in between.
