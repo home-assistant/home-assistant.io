@@ -27,7 +27,7 @@ in the _Device software_ section of the device settings and enable the API with 
 
 ## Events
 
-The integration fires the event `remootio_left_open` if the Remootio controlled garage door or garden gate has been left open for 5 minutes.
+The integration fires an event under the type `remootio_left_open` if the Remootio controlled garage door or garden gate has been left open for 5 minutes.
 
 ### Listening for events
 
