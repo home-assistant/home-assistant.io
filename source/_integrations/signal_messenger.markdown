@@ -93,6 +93,8 @@ action:
 
 ### Text message with an attachment from a URL
 
+Note there is a 50mb size limit for attachments retrieved via URLs. You can set `verifyUrls` to `False` to ignore SSL errors (default `True`)
+
 ```yaml
 ...
 action:
