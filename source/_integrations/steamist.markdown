@@ -2,6 +2,7 @@
 title: Steamist
 description: Documentation about Steamist steam showers.
 ha_category:
+  - Sensor
   - Switch
 ha_iot_class: Local Polling
 ha_release: 2022.2
@@ -10,6 +11,7 @@ ha_codeowners:
   - '@bdraco'
 ha_domain: steamist
 ha_platforms:
+  - sensor
   - switch
 ---
 
