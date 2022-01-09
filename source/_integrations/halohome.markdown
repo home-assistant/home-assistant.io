@@ -17,9 +17,7 @@ Integrates [HALO Home](https://www.cooperlighting.com/global/brands/halo-home) s
 
 Supports brightness and color temperature for Bluetooth HALO Home lights.
 
-Devices are read from the HALO Home API upon setup and stored by this
-integration to allow devices to be controlled even when the internet is not
-accessible. Because of this, if devices are added or removed, the integration
-must be reconfigured.
+Internet access is required for the initial setup, but devices are stored for
+usage even when the internet is not available.
 
 {% include integrations/config_flow.md %}
