@@ -208,6 +208,28 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+{% raw %}
+
+```text
+{% for energy in expand('group.energy_sensors') if is_number(energy.state) %}
+  {{ energy.state }}
+  {%- if not loop.last %}, {% endif -%}
+{% endfor %}
+```
+
+{% endraw %}
+
+The same thing can also be expressed as a test:
+
+{% raw %}
+
+```text
+{{ expand('group.energy_sensors') 
+  | selectattr("state", 'is_number') | join(', ') }}
+```
+
+{% endraw %}
+
 ### Devices
 
 - `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
