@@ -14,7 +14,7 @@ ha_platforms:
   - sensor
 ---
 
-The `min_max` sensor platform consumes the state from other sensors to determine the minimum, maximum, latest (last), mean and median of the collected states. The sensor will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/integrations/statistics) first.
+The `min_max` sensor platform consumes the state from other sensors to determine the minimum, maximum, latest (last), mean, median, and range of the collected states. The sensor will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/integrations/statistics) first.
 
 This sensor is an alternative to the [template sensor](/integrations/template)'s `value_template:` to get the average or the median of multiple sensors.
 
