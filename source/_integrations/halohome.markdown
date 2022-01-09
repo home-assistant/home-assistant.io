@@ -3,7 +3,7 @@ title: HALO Home
 description: Instructions on integrating HALO Home smart lights into Home Assistant.
 ha_category:
   - Light
-ha_release: 2022.1
+ha_release: 2022.2
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@nayaverdier'
