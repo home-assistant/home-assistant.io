@@ -188,7 +188,7 @@ Use to dynamically set the message on a Doorbell LCD screen. This service should
 
 ### Enabling Debug Logging
 
-Both the UniFi Protect integration and the Python library it uses provides a ton of debug logging that can help you with troubleshooting connectivity issues. To enable debug logging for both, add the following to your `configuration.yaml` file:
+Both the UniFi Protect integration and the Python library it uses provide debug logging that can help you with troubleshooting connectivity issues. To enable debug logging for both, add the following to your `configuration.yaml` file:
 
 ```yaml
 logger:
