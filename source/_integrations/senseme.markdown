@@ -4,6 +4,7 @@ description: Instructions on how to integrate SenseME devices into Home Assistan
 ha_category:
   - Binary Sensor
   - Fan
+  - Switch
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_codeowners:
@@ -14,6 +15,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - fan
+  - switch
 ---
 
 Integrates SenseME devices into Home Assistant.
