@@ -15,9 +15,4 @@ ha_platforms:
 
 `invoxia` is an integration which offers tracking support using your GPS trackers from [Invoxia™](https://www.invoxia.com) into Home Assistant.
 
-## Authentication
-
-During configuration, you simply need to use the username and password associated to the Invoxia™ account linked to your GPS trackers.
-All trackers associated to your account will be directly registered and accessible.
-
 {% include integrations/config_flow.md %}
