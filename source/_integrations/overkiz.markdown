@@ -66,10 +66,6 @@ Even though most Overkiz hubs support adding Z-Wave, Hue, and Sonos devices, thi
 
 ### Overkiz API limits
 
-**Execution queue is full on gateway: #xxxx-xxxx-xxxx (soft limit: 10)**
-
-The Overkiz has a limit of 10 actions that can be executed in parallel. The integration will try to retry this command, however, this is not guaranteed to succeed.
-
 **Server busy, please try again later. (Too many executions)**
 
 During peak hours, it could happen that the Overkiz platform is unable to execute your command. The integration will try to retry this command, however, this is not guaranteed to succeed.
