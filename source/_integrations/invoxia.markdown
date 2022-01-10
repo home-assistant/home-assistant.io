@@ -13,6 +13,6 @@ ha_platforms:
   - device_tracker
 ---
 
-`invoxia` is an integration which offers tracking support using your GPS trackers from [Invoxia™](https://www.invoxia.com) into Home Assistant.
+Invoxia is an integration that offers tracking support using your GPS trackers from [Invoxia™](https://www.invoxia.com) into Home Assistant.
 
 {% include integrations/config_flow.md %}
