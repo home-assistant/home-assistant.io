@@ -333,7 +333,6 @@
 /components/device_tracker.bt_smarthub /integrations/bt_smarthub
 /components/device_tracker.cisco_ios /integrations/cisco_ios
 /components/device_tracker.ddwrt /integrations/ddwrt
-/components/device_tracker.ee_brightbox /integrations/ee_brightbox
 /components/device_tracker.freebox /integrations/freebox
 /components/device_tracker.fritz /integrations/fritz
 /components/device_tracker.geofency /integrations/geofency
@@ -1272,7 +1271,6 @@
 /components/ecovacs /integrations/ecovacs
 /components/eddystone_temperature /integrations/eddystone_temperature
 /components/edimax /integrations/edimax
-/components/ee_brightbox /integrations/ee_brightbox
 /components/efergy /integrations/efergy
 /components/egardia /integrations/egardia
 /components/eight_sleep /integrations/eight_sleep
@@ -2355,3 +2353,6 @@
 /components/sensor.arduino /more-info/removed-integration 301
 /components/switch.arduino /more-info/removed-integration 301
 /integrations/arduino /more-info/removed-integration 301
+/components/device_tracker.ee_brightbox /more-info/removed-integration 301
+/components/ee_brightbox /more-info/removed-integration 301
+/integrations/ee_brightbox /more-info/removed-integration 301
