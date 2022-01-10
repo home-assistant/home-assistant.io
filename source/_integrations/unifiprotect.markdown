@@ -160,15 +160,61 @@ Your main UniFi Protect NVR device also gets a number of diagnostics sensors tha
 
 ## Services
 
-### Service unifiprotect.set_doorbell_message
+### Service unifiprotect.set_default_doorbell_text
 
-Use to dynamically set the message on a Doorbell LCD screen. This service should only be used to set dynamic messages (i.e. setting the current outdoor temperature on your Doorbell).
+Sets the default doorbell message. This will be the message that is automatically selected when a message "expires".
 
 | Service data attribute | Optional | Description                                                                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | No       | The Doorbell Text select entity for your Doorbell                                                            |
-| `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters    |
-| `duration`             | Yes      | Number of minutes to display the message for before returning to the default message                         |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances.  |
+| `message`              | No       | The default message for your Doorbell. Must be less than 30 characters.                                      |
+
+### Service unifiprotect.add_doorbell_text
+
+Adds a new custom message for Doorbells.
+
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances.  |
+| `message`              | No       | New custom message to add for Doorbells. Must be less than 30 characters.                                    |
+
+### Service unifiprotect.remove_doorbell_text
+
+Removes an existing message for Doorbells.
+
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances.  |
+| `message`              | No       | Existing custom message to remove for Doorbells.                                                             |
+
+### Service unifiprotect.set_doorbell_message
+
+Use to dynamically set the message on a Doorbell LCD screen. This service should only be used to set dynamic messages (i.e. setting the current outdoor temperature on your Doorbell). Static messages should still be set using the Select entity and can be added/removed using the `add_doorbell_text`/`remove_doorbell_text` services.
+
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | No       | The Doorbell Text select entity for your Doorbell.                                                           |
+| `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters.   |
+| `duration`             | Yes      | Number of minutes to display the message for before returning to the default message. Default is no expire.  |
+
+### Service unifiprotect.profile_ws_messages
+
+Profiles UniFi Protect Websocket messages and prints out summary afterwards. Profile output is saved to `config/ufp_ws_profile.{time}.json`.
+
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances.  |
+| `duration`             | Yes      | Number of seconds to profile Websocket messages for.                                                         |
+
+### Service unifiprotect.take_sample
+
+Generates Sample Data from a given UniFi Protect instance. Useful for debugging or reporting issues. Output data is saved to `config/ufp_sample.{time}.zip`.
+
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances.  |
+| `duration`             | Yes      | How long to capture Websocket messages for. Defaults to 30 seconds.                                          |
+| `anonymize`            | Yes      | Data is anonymized by default to make safe for distribution.                                                 |
 
 ## Troubleshooting
 
