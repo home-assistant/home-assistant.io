@@ -66,7 +66,8 @@ icon:
 By default when any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`. If you set the `all` option to `true` though, this behavior is inverted and all members of the group have to be `on` for the group to turn on as well.
 
 ## Group state update
-The group's state is updated when any group member's state is updated. Calling `homeassistant.update_entity` with the target set to the group will not be forwarded to the group members, instead the `expand()` template function can be used to to force all group members to update state.
+
+The group's state is updated when any group member's state is updated. Calling `homeassistant.update_entity` with the target set to the group will not be forwarded to the group members, instead the `expand()` template function can be used to force all group members to update state.
 
 ## Group state calculation
 
