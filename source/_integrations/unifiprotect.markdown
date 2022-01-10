@@ -197,25 +197,6 @@ Use to dynamically set the message on a Doorbell LCD screen. This service should
 | `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters.   |
 | `duration`             | Yes      | Number of minutes to display the message for before returning to the default message. The default is to not expire. |
 
-### Service unifiprotect.profile_ws_messages
-
-Profiles UniFi Protect Websocket messages and prints out summary afterwards. Profile output is saved to `config/ufp_ws_profile.{time}.json`.
-
-| Service data attribute | Optional | Description                                                                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances.  |
-| `duration`             | Yes      | Number of seconds to profile Websocket messages for.                                                         |
-
-### Service unifiprotect.take_sample
-
-Generates Sample Data from a given UniFi Protect instance. Useful for debugging or reporting issues. Output data is saved to `config/ufp_sample.{time}.zip`.
-
-| Service data attribute | Optional | Description                                                                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances.  |
-| `duration`             | Yes      | How long to capture Websocket messages for. Defaults to 30 seconds.                                          |
-| `anonymize`            | Yes      | Data is anonymized by default to make safe for distribution.                                                 |
-
 ## Troubleshooting
 
 ### Enabling Debug Logging
