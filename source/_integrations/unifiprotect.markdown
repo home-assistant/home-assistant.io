@@ -66,12 +66,6 @@ You will need a local user created in your UniFi OS Console to log in with. Ubiq
     * CONTROLLER PERMISSIONS - Under UniFi Protect, select Administrators. **NOTE**: Other roles may work, but only the default Administrators rule is fully tested.
 1. Click *Add* in at the bottom Right.
 
-<div class='note'>
-
-A few users have reported that they had to restart their UDMP device after creating the local user for it to work. So if you get some kind of *Error 500* when setting up the Integration, try to restart the UDMP.
-
-</div>
-
 ![ADMIN_UNIFIOS](/images/integrations/unifiprotect/unifi_os_admin.png)
 
 ### Camera Streams
@@ -211,9 +205,11 @@ Unlike with many other things, playing audio to your speakers requires your Home
 
 Main control selects currently cannot have dynamic options since the options are exported out to voice assistants. After you add/remove/change a Liveview in UniFi Protect, you must restart Home Assistant to get the new options for your Viewer.
 
-### NvrErrors with "404 - Reason: Not Found"
+### NvrErrors with "404 - Reason: Not Found" or "502 - Reason: Bad Gateway"
 
 If you get errors while authenticating or fetching data for `NvrError... 404 - Reason: Not Found`, there is a good chance that your UniFi Protect application has crashed. UniFi Protect runs in a supervised way on UniFi OS (similar to Home Assistant OS + Home Assistant Core). Getting a 404 for a URL that should not produce a 404 means UniFi Protect is probably not running. You may want to check the health of your disks or look into debugging UniFi Protect to see why it is crashing.
+
+Similarly, a `502 Bad Gateway` also means that your UniFi Protect application may not be running.
 
 ```log
 pyunifiprotect.NvrError: Fetching Camera List failed: 404 - Reason: Not Found
