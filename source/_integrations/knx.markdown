@@ -38,6 +38,7 @@ ha_platforms:
   - select
   - switch
   - weather
+ha_config_flow: true
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.
@@ -177,6 +178,10 @@ payload:
 type:
   description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values - see table in [KNX Sensor](#sensor).
   type: [string, integer, float]
+response:
+  description: If set to `true`, the telegram will be sent as a `GroupValueResponse` instead of a `GroupValueWrite`.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Read

@@ -13,6 +13,14 @@ ha_platforms:
   - sensor
 ---
 
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.4.
+
+For more information see: [Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+</div>
+
 There is currently support for the following device types within Home Assistant:
 
 - [Light](#light)

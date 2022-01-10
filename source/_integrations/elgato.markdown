@@ -12,6 +12,7 @@ ha_quality_scale: platinum
 ha_domain: elgato
 ha_zeroconf: true
 ha_platforms:
+  - button
   - light
 ---
 

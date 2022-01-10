@@ -55,8 +55,10 @@ This integration supports devices controllable by the VeSync App.  The following
 
 ### Fans
 
+- Core 200S: Smart True HEPA Air Purifier
+- Core 300S: Smart True HEPA Air Purifier
+- Core 400S: Smart True HEPA Air Purifier
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
-- LEVOIT Core 200S Smart True HEPA Air Purifier (Core200S)
 
 ## Prerequisite
 
@@ -99,19 +101,19 @@ VeSync air purifiers will expose the following details depending on the features
 
 | Attribute               | Description                                                                       | Example         |
 | ----------------------- | --------------------------------------------------------------------------------- | --------------- |
-| `mode`                  | The current mode the device is in. (LV-PUR131S, Core200S)                         | manual          |
-| `speed`                 | The current speed setting of the device. (LV-PUR131S, Core200S)                   | high            |
+| `mode`                  | The current mode the device is in. (LV-PUR131S, Core200S/300s/400s)               | manual          |
+| `speed`                 | The current speed setting of the device. (LV-PUR131S, Core200S/300s/400s)         | high            |
 | `speed_list`            | The available list of speeds supported by the device. (LV-PUR131S)                | high            |
 | `active_time`           | The number of seconds since the device has been in a non-off mode. (LV-PUR131S)   | 1598            |
-| `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S)                        | 142             |
+| `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, (Core200S/300s/400s)             | 142             |
 | `air_quality`           | The current air quality reading. (LV-PUR131S)                                     | excellent       |
 | `screen_status`         | The current status of the screen. (LV-PUR131S)                                    | on              |
-| `night_light`           | The current status of the night light (Core200S)                                  | off             |
-| `child_lock`            | The current status of the child lock (Core200S)                                   | off             |
+| `night_light`           | The current status of the night light (Core200S/Core400s)                         | off             |
+| `child_lock`            | The current status of the child lock (Core200S/300s/400s)                         | off             |
 
 ## Extracting Attribute data
 
-In order to get the attributes readings from supported devices, such as voltage from outlets or fan attributes, you'll have to create a [template sensor](/integrations/switch.template/).
+In order to get the attributes readings from supported devices, such as voltage from outlets or fan attributes, you'll have to create a [template sensor](/integrations/template#state-based-template-sensors/).
 
 In the example below, change all of the `vesync_switch`'s to match your device's entity ID.
 

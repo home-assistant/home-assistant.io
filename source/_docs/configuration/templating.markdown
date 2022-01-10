@@ -208,6 +208,28 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+{% raw %}
+
+```text
+{% for energy in expand('group.energy_sensors') if is_number(energy.state) %}
+  {{ energy.state }}
+  {%- if not loop.last %}, {% endif -%}
+{% endfor %}
+```
+
+{% endraw %}
+
+The same thing can also be expressed as a test:
+
+{% raw %}
+
+```text
+{{ expand('group.energy_sensors') 
+  | selectattr("state", 'is_number') | join(', ') }}
+```
+
+{% endraw %}
+
 ### Devices
 
 - `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
@@ -296,6 +318,62 @@ The same thing can also be expressed as a filter:
 ```
 
 {% endraw %}
+
+### Immediate if (iif)
+
+A common case is to conditionally return a value based on another value.
+For example, return a "Yes" or "No" when the light is on or off.
+
+This can be written as:
+
+{% raw %}
+
+```text
+{% if is_state('light.kitchen', 'on') %}
+  Yes
+{% else %}
+  No
+{% endif %}
+```
+
+{% endraw %}
+
+Or using a shorter syntax:
+
+{% raw %}
+
+```text
+{{ 'Yes' if is_state('light.kitchen', 'on') else 'No' }}
+```
+
+{% endraw %}
+
+Additionally, to the above, you can use the `iif` function/filter, which is
+an immediate if.
+
+Syntax: `iif(condition, if_true, if_false, if_none)`
+
+`iif` returns the value of `if_true` if the condition is truthy, the value of `if_false` if it's `falsy` and the value of `if_none` if it's `None`.
+An empty string, an empty mapping or an an empty list, are all falsy, refer to [the Python documentation](https://docs.python.org/3/library/stdtypes.html#truth-value-testing) for an in depth explanation.
+
+`if_true` is optional, if it's omitted `True` is returned if the condition is truthy.
+`if_false` is optional, if it's omitted `False` is returned if the condition is falsy.
+`if_none` is optional, if it's omitted the value of `if_false` is returned if the condition is `None`.
+
+Examples using `iif`:
+
+{% raw %}
+
+```text
+{{ iif(is_state('light.kitchen', 'on'), 'Yes', 'No') }}
+
+{{ is_state('light.kitchen', 'on') | iif('Yes', 'No') }}
+
+{{ (state('light.kitchen') == 'on') | iif('Yes', 'No') }}
+```
+
+{% endraw %}
+
 
 ### Time
 
@@ -558,6 +636,9 @@ The numeric functions and filters will not fail if the input is not a valid numb
 - `atan(value, default)` will return the arcus tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
 - `atan2(y, x, default)` will return the four quadrant arcus tangent of y / x. If `y` or `x` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
 - `sqrt(value, default)` will return the square root of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
+- `max([x, y, ...])` will obtain the largest item in a sequence. Uses the same parameters as the built-in [max](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.max) filter.
+- `min([x, y, ...])` will obtain the smallest item in a sequence. Uses the same parameters as the built-in [min](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.min) filter.
+- `average([x, y, ...])` will return the average value of the sequence. Can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
@@ -565,9 +646,6 @@ The numeric functions and filters will not fail if the input is not a valid numb
   - `round(precision, "floor", default)` will always round down to `precision` decimals
   - `round(precision, "ceil", default)` will always round up to `precision` decimals
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
-- Filter `[x, y, ...] | max` will obtain the largest item in a sequence.
-- Filter `[x, y, ...] | min` will obtain the smallest item in a sequence.
-- Filter `[x, y, ...] | average` will return the average value of the sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
@@ -578,11 +656,14 @@ These functions are used to process raw value's in a `bytes` format to values in
 The `pack` and `unpack` functions can also be used as a filter. They make use of the Python 3 `struct` library.
 See: https://docs.python.org/3/library/struct.html
 
-- Filter `value | pack(format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or the `format_string` is invalid.
-- Function `pack(value, format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or the `format_string` is invalid.
-- Filter `value | unpack(format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or the `format_string` is invalid.
-- Function `unpack(value, format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or the `format_string` is invalid.
+- Filter `value | pack(format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
+- Function `pack(value, format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
+- Filter `value | unpack(format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid.
+- Function `unpack(value, format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid.
 
+<div class='note'>
+
+Some examples:
 {% raw %}
 
 - `{{ 0xDEADBEEF | pack(">I") }}` - renders as `b"\xde\xad\xbe\xef"`
@@ -592,9 +673,12 @@ See: https://docs.python.org/3/library/struct.html
 
 {% endraw %}
 
+</div>
+
 ### String filters
 
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
+- Filter `slugify(separator="_")` will convert a given string into a "slug".
 
 ### Regular expressions
 
@@ -686,7 +770,7 @@ The following overview contains a couple of options to get the needed values:
 # Timestamps
 {{ value_json.tst | timestamp_local }}
 {{ value_json.tst | timestamp_utc }}
-{{ value_json.tst | timestamp_custom('%Y' True) }}
+{{ value_json.tst | timestamp_custom('%Y', True) }}
 ```
 
 {% endraw %}
@@ -708,6 +792,51 @@ To evaluate a response, go to **{% my developer_template title="Developer Tools 
 ```
 
 {% endraw %}
+
+### Using templates with the MQTT integration
+
+The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to status updates or incoming service calls (command templates) to payloads that configure the MQTT device.
+
+#### Using value templates with MQTT
+
+For incoming data a value template translates incoming JSON or raw data to a valid payload.
+Incoming payloads are rendered with possible JSON values, so when rendering the `value_json` can be used access the attributes in a JSON based payload.
+
+<div class='note'>
+
+Example value template:
+
+With given payload:
+
+```json
+{ "state": "ON", "temperature": 21.902 }
+```
+
+Template {% raw %}```{{ value_json.temperature | round(1) }}```{% endraw %} renders to `21.9`.
+
+Additional the MQTT entity attributes `entity_id` and `name` can be used as variables in the template.
+
+ </div>
+
+#### Using command templates with MQTT
+
+For service calls command templates are defined to format the outgoing MQTT payload to the device. When a service call is executed `value` can be used to generate the correct payload to the device.
+
+<div class='note'>
+
+Example command template:
+
+With given value `21.9` template {% raw %}```{"temperature": {{ value }} }```{% endraw %} renders to:
+
+```json
+{
+  "temperature": 21.9
+}
+```
+
+Additional the MQTT entity attributes `entity_id` and `name` can be used as variables in the template.
+
+</div>
 
 ## Some more things to keep in mind
 
