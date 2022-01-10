@@ -26,13 +26,13 @@ There is currently support for the following device types within Home Assistant:
 
 ## Alarm Control Panel
 
-Services provided are `armed_away`, `armed_home` and `disarmed`.
+Services provided are `armed_away`, `armed_home`, and `disarmed`.
 
-No code is required to operate the alarm
+No code is required to operate the alarm.
 
 
 ## Lock
 
-Lock platform requires a code for unlocking but no code for locking.
+The lock platform requires a code for unlocking but no code for locking.
 
 The integration can be configured to provide a default code that is used if no code is supplied and the number of digits required.
