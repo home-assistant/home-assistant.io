@@ -110,7 +110,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
 * **Sensors** - Sensors include "Is Dark", "Motion Detected", "Detected Object" (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
   * Motion and Detected Object sensors will also contain an `event_thumbnail` attribute that can be used to get the event thumbnail directly from UniFi Protect for that motion or smart detection.
   * The Detected Object sensor will have the values of "none", "person", or "vehicle" based on object UniFi Protect detected.
-* **Device Configuration** - Cameras will get various different configuration controls based on the features available to the camera. Currently provided configuration controls:
+* **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   * configuration sliders for Chime Duration, Zoom Level, Microphone Sensitivity, and WDR Level
   * configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds.
 * **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
@@ -121,7 +121,7 @@ Each UniFi Protect floodlight will get a device in Home Assistant with the follo
 
 * **Light** - A light entity will be added for each floodlight device. The light entity will let you control turning on or off your light as well as adjust the brightness of your floodlight.
 * **Sensors** - Sensors are provided for data provided from floodlight devices. Sensors include "Is Dark" and "Motion Detected".
-* **Device Configuration** - Floodlights will get configuration controls for the PIR Motion Sensitivity, the Auto-shutoff Duration after detected motion, Status Light switch and SSH status.
+* **Device Configuration** - Floodlights will get configuration controls for the PIR Motion Sensitivity, the Auto-shutoff Duration after detected motion, Status Light switch, and SSH status.
 * **Button** - A disabled by default button is added for each floodlight device. The button will let you reboot your floodlight device.
 
 ### UniFi Protect Smart Sensors
