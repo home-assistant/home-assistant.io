@@ -1,6 +1,6 @@
 ---
 title: IntelliFire
-description: Instructions on the Intellifire Fireplace integration for Home Assistant.
+description: Instructions on the IntelliFire Fireplace integration for Home Assistant.
 ha_category:
   - Binary Sensor
 ha_iot_class: Local Polling
