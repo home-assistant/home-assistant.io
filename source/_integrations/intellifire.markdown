@@ -23,7 +23,7 @@ The following sensors are available as either a **Binary Sensor** when dealing w
 
 ### Binary Sensors
 
-- `pilot_light`: Pilot light status.
-- `fan_on`: Whether the fan is on/off.
-- `timer_on`: Whether timer-mode is engaged.
-- `thermostat_on`: Whether the thermostat is turned on.
+- **Power Sensor**: Whether the fire is on.
+- **Pilot Light Sensor**: Whether the pilot light is turned on.
+- **Timer Sensor**: Whether the sleep timer is turned on.
+- **Thermostat Sensor**: Whether the thermostat is turned on.
