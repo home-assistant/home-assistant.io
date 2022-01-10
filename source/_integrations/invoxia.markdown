@@ -1,5 +1,5 @@
 ---
-title: "Invoxia (unofficial)"
+title: "Invoxia"
 description: "Integrate your Invoxia™ GPS trackers to Home Assistant."
 ha_release: 2022.2
 ha_category: Presence Detection
