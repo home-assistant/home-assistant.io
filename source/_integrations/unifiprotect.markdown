@@ -68,7 +68,7 @@ You will need a local user created in your UniFi OS Console to log in with. Ubiq
 
 <div class='note'>
 
-A few users have reported that they had to restart their UDMP device after creating the local user for it to work. So if you get some kind of *Error 500* when setting up the Integration, try restart the UDMP.
+A few users have reported that they had to restart their UDMP device after creating the local user for it to work. So if you get some kind of *Error 500* when setting up the Integration, try to restart the UDMP.
 
 </div>
 
