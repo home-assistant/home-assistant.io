@@ -98,7 +98,7 @@ sensor:
       - type: disk_use
         arg: /dev
       - type: disk_use
-        arg: /dev/shm        
+        arg: /dev/shm
 ```
 
 ## Processor temperature
