@@ -19,8 +19,10 @@ There is currently support for the following device types within Home Assistant:
 
 - Sensor
 
-The integration will create sensor entities for the different values of the device like State of Charge, Charge Power, Power Grid Consumption and many more.
-Setup of this integrations requires that your battery device is connected to your LAN and you know the actual IP Address/Hostname of it.
-The Port ist pre-defined with 502 (Standard Modbus Port). The integration is using this [PyPI Package](https://github.com/vip0r/vartastorage)
+The integration will create sensor entities for the different values of the device like the State of Charge, Charge Power, Power Grid Consumption, and many more.
+
+# Prerequisites
+
+To set up this integration, it is required that your battery device is connected to your network.
 
 {% include integrations/config_flow.md %}
