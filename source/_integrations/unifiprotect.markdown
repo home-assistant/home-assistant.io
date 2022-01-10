@@ -195,7 +195,7 @@ Use to dynamically set the message on a Doorbell LCD screen. This service should
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | No       | The Doorbell Text select entity for your Doorbell.                                                           |
 | `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters.   |
-| `duration`             | Yes      | Number of minutes to display the message for before returning to the default message. Default is no expire.  |
+| `duration`             | Yes      | Number of minutes to display the message for before returning to the default message. The default is to not expire. |
 
 ### Service unifiprotect.profile_ws_messages
 
