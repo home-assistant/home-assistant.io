@@ -1,5 +1,5 @@
 ---
-title: Intellifire 
+title: IntelliFire
 description: Instructions on the Intellifire Fireplace integration for Home Assistant.
 ha_category:
   - Binary Sensor
