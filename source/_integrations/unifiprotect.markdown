@@ -102,7 +102,6 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
 * **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](/integrations/tts/#service-say).
 * **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
 * **Sensors** - Sensors include "Is Dark", "Motion Detected", "Detected Object" (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
-  * Motion and Detected Object sensors will also contain an `event_thumbnail` attribute that can be used to get the event thumbnail directly from UniFi Protect for that motion or smart detection.
   * The Detected Object sensor will have the values of "none", "person", or "vehicle" based on object UniFi Protect detected.
 * **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   * configuration sliders for Chime Duration, Zoom Level, Microphone Sensitivity, and WDR Level
