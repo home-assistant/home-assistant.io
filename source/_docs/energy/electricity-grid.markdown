@@ -49,7 +49,7 @@ We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-as
 
 CT clamp sensors measure your energy usage by looking at the current passing through an electrical wire. This makes it possible to calculate the energy usage. In Home Assistant we have support for off-the-shelf CT clamp sensors and you can build your own.
 
-The off-the-shelf solution that we advise is the [Shelly EM](https://shop.shelly.cloud/shelly-em-2-x-120a-clamp-wifi-smart-home-automation). The device has a local API, updates are pushed to Home Assistant and it has a high quality integration.
+The off-the-shelf solution that we advise is the [Shelly EM](https://shop.shelly.cloud/shelly-em-2-x-120a-clamp-wifi-smart-home-automation?tracking=A7FsiPIfUWsFpnfKHa8SRyUYLXjr2hPq). The device has a local API, updates are pushed to Home Assistant and it has a high quality integration.
 
 You can build your own using ESPHome's [CT Clamp Current sensor](https://esphome.io/components/sensor/ct_clamp.html) or energy meter sensors like the [ATM90E32](https://esphome.io/components/sensor/atm90e32.html). For the DIY route, check out [this video by digiblur](https://www.youtube.com/watch?v=n2XZzciz0s4) to get started.
 
@@ -64,3 +64,5 @@ If you are unable to select your energy sensor in the grid consumption drop down
 
 
 [Energy integrations](/integrations/#energy)
+
+_Disclaimer: Some links on this page are affiliate links helping support the Home Assistant project._
