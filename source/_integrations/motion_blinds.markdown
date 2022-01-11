@@ -41,8 +41,6 @@ Please note that "-" characters need to be included in the key when providing it
 </p>
 
 Note that it has been reported that the official Bloc Blinds app doesn't seem to hand out the API key on Android, it does seem to provide the API key on the iOS version of the official Bloc Blinds app.
-You can also retrieve the API key by using a packet capture app on a mobile phone and "sniffing" the packets of the Bloc Blinds app.
-Search for a packet containing `accessToken=`, the first 16 characters of the value (including -) is the API key.
 
 ## Top Down Bottom Up (TDBU) blinds
 
