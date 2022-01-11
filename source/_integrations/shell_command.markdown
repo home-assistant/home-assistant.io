@@ -45,7 +45,7 @@ The `command` is executed within the [configuration directory](/docs/configurati
 
 <div class='note'>
 
-If you are using [Home Assistant operating system](https://github.com/home-assistant/operating-system), the commands are executed in the `homeassistant` container context. So if you test or debug your script, it might make sense to do this in the context of this container to get the same runtime environment.
+If you are using [Home Assistant Operating System](https://github.com/home-assistant/operating-system), the commands are executed in the `homeassistant` container context. So if you test or debug your script, it might make sense to do this in the context of this container to get the same runtime environment.
 
 </div>
 
