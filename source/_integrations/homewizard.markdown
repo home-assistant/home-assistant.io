@@ -1,7 +1,7 @@
 ---
 title: HomeWizard Energy
 description: Instructions on how to integrate HomeWizard Energy into Home Assistant.
-ha_release: 2021.10
+ha_release: 2022.2
 ha_category:
   - Energy
 ha_iot_class: Local Polling
