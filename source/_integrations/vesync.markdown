@@ -17,6 +17,7 @@ ha_platforms:
   - fan
   - light
   - switch
+  - sensor
 ---
 
 The `vesync` integration enables you to control smart switches and outlets connected to the VeSync App.
@@ -28,6 +29,7 @@ The following platforms are supported:
 - **light**
 - **switch**
 - **fan**
+- **sensor**
 
 ## Supported Devices
 
@@ -72,14 +74,22 @@ the configuration section below.
 |---------|-------------|
 | `update_devices` | Poll Vesync server to find and add any new devices |
 
+## Power & Energy Sensors
+
+Many VeSync outlets support power & energy monitoring. These data are exposed as diagnostic sensor entities alongside the outlet
+itself. Note that prior versions of the integration exposed these as state attributes on the outlet switch entity.
+
+| Sensor                                  | Description                                                        | Example |
+| --------------------------------------- | ------------------------------------------------------------------ | ------- |
+| `sensor.<outlet name>_current_power`    | The present power consumption of the switch in watts               | 7.89    |
+| `sensor.<outlet name>_energy_use_today` | The kilowatt hours used by the switch during the previous 24 hours | 0.12    |
+
 ## Outlet Exposed Attributes
 
 VeSync outlets will expose the following details for only the smart outlets. Energy monitoring not available for in-wall switches.
 
 | Attribute               | Description                                                             | Example         |
 | ----------------------- | ----------------------------------------------------------------------- | --------------- |
-| `current_power_w`       | The present power consumption of the switch in watts.                   | 100             |
-| `today_energy_kwh`      | The kilowatt hours used by the switch during the previous 24 hours.     | 0.12            |
 | `voltage`               | Current voltage of the device                                           | 120.32          |
 | `weekly_energy_total`   | Total energy usage for week starting from Monday 12:01AM in kWh         | 14.74           |
 | `monthly_energy_total`  | Total energy usage for month starting from 12:01AM on the first in kWh  | 52.30           |
@@ -103,7 +113,7 @@ VeSync air purifiers will expose the following details depending on the features
 
 ## Extracting Attribute data
 
-In order to get the attributes readings from supported devices, such as energy from outlets or fan attributes, you'll have to create a [template sensor](/integrations/template#state-based-template-sensors/).
+In order to get the attributes readings from supported devices, such as voltage from outlets or fan attributes, you'll have to create a [template sensor](/integrations/template#state-based-template-sensors/).
 
 In the example below, change all of the `vesync_switch`'s to match your device's entity ID.
 
@@ -114,12 +124,6 @@ Adapted from the [TP-Link integration](https://www.home-assistant.io/integration
 ```yaml
 template:
   - sensor:
-    - name: "Vesync current comsumption"
-      state: "{{ state_attr('switch.vesync_switch', 'current_power_w') | float(default=0) }}"
-      unit_of_measurement: "W"
-    - name: "Vesync total consumption"
-      state: "{{ state_attr('switch.vesync_switch', 'today_energy_kwh') | float(default=0) }}"
-      unit_of_measurement: "kWh"
     - name: "Vesync voltage"
       state: "{{ state_attr('switch.vesync_switch', 'voltage') | float(default=0) }}"
       unit_of_measurement: "V"
