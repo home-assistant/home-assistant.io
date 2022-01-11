@@ -13,16 +13,19 @@ ha_platforms:
   - sensor
 ha_zeroconf: true
 ---
+
 Integration for the [HomeWizard Energy](https://www.homewizard.nl/energy) platform. It can collect data locally from the HomeWizard Energy products and create them as sensors in Home Assistant.
 
 **Supported devices**
+
 - [Wifi P1 Meter](https://www.homewizard.nl/p1-meter): Depending on the connected DSMR meter: sensors for power import/export, energy consumption (single or three phases) and gas. (Model: `HWE-P1`)
 - [Wifi Energy Socket](https://www.homewizard.nl/energy-socket): Sensors for power import/export and energy consumption. (model: `HWE-SKT`)
 - [Wifi kWh Meter](https://www.homewizard.nl/kwh-meter): Sensors for power import/export and energy consumption. (Models: `SDM230-wifi`, `SDM630-wifi`)
 
-
 ## Enable the API
-You have to enable the local API to allow Home Assistant to communicate with your device. Do this in the HomeWizard Energy app.
+
+You have to enable the local API to allow Home Assistant to communicate with your device. Do this in the HomeWizard Energy app:
+
   1. Go to Settings. (Gear icon in the upper-right)
   2. Go to 'Meters'.
   3. Select your device.
