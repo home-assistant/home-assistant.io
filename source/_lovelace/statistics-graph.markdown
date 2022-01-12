@@ -39,16 +39,20 @@ days_to_show:
   default: 30
 chart_type:
   required: false
-  description: If the chart should be rendered as a `bar` or a `line` chart.
+  description: If the graph should be rendered as a `bar` or a `line` chart.
   type: string
 stat_types:
   required: false
-  description: The stat types to render. `min`, `max`, `mean`, `sum`
+  description: The statistics types to render. `min`, `max`, `mean`, `sum`
   type: list
 title:
   required: false
   description: The card title.
   type: string
+period:
+  required: false
+  description: The period of the rendered graph. `5minute`, `hour`, `day` or `month` 
+  type: string  
 {% endconfiguration %}
 
 ## Options For Entities
