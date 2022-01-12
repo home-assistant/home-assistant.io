@@ -35,7 +35,7 @@ No code is required to operate the alarm.
 
 ## Binary Sensors
 
-Provides support for contact sensors for doors showing if door is open or closed
+Provides support for contact sensors for doors showing if door is open or closed.
 
 ## Lock
 
