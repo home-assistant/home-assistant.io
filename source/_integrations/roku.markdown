@@ -129,7 +129,7 @@ action:
 
 ## Content Deeplinking
 
-The `media_player.play_media` service may be used to deep link to content within an qpplication.
+The `media_player.play_media` service may be used to deep link to content within an application.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
