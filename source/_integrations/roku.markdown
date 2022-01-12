@@ -142,7 +142,7 @@ This service allows you to launch an application with content deeplink.
 
 #### Obtaining Content IDs
 
-Content IDs vary between streaming providers in format but are often part of the website URL. Here are some tips for a few major streaming services:
+Content IDs are unique to each streaming service and vary in format but are often part of the video webpage URL. Here are some examples:
 
 | Service | App ID | URL Format | Content ID | Media Type
 | ------- | ------ | ---------- | ---------- | ---------- |
