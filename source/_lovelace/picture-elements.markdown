@@ -391,7 +391,7 @@ conditions:
       type: string
     attribute:
       required: false
-      description: An attribute associated with the `entity`. Its value should be used instead of entity's state.
+      description: An attribute associated with the `entity`. Its value will be used instead of the entity's state.
       type: string
     state:
       required: false
