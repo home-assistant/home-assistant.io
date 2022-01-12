@@ -3,17 +3,28 @@ title: "Setting up local media sources"
 description: "More information on how to set up local media sources in Home Assistant."
 ---
 
-In order to use the media browser with Home Assistant, it needs to know where to
-find your local media.
+Home Assistant has a local media folder. Any audio or video files placed in this folder will be accessible via the media browser.
 
-## Home Assistant OS and Supervised
+The easiest way to manage your local media is using the {% my supervisor_addon title="Samba" addon="core_samba" %}.
 
-No action is needed from your end to set it up. Home Assistant will
-automatically use the "media" folder that is provided on these systems.
+## Using custom folders
+
+It is also possible to set up custom and additional media directories. To do
+so, you'll need to adjust the [core configuration][basic-configuration].
+
+This example adds the two media folders to Home Assistant:
+
+```yaml
+# Example configuration.yaml
+homeassistant:
+  media_dirs:
+    media: /media
+    recording: /mnt/recordings
+```
 
 ## Home Assistant Container
 
-If you run the Home Assistant Container in, for example, Docker, you'll need to
+If you run the Home Assistant Container you'll need to
 add a Docker volume mount to the Home Assistant container, to mount in
 your local media.
 
@@ -45,8 +56,7 @@ in a similar fashion as listed in the command above.
 
 ## Home Assistant Core
 
-If you run Home Assistant Core directly in, for example, a Python virtual
-environment, you'll need to create a media folder yourself.
+If you run Home Assistant Core you'll need to create a media folder yourself.
 
 By default, Home Assistant will look for the `media` folder inside your current
 Home Assistant configuration folder.
@@ -58,20 +68,5 @@ For example, if your current configuration folder is stored in:
 Then you'll need to create a media folder in that same path:
 
 `/home/frenck/.homeassistant/media`
-
-## Using custom folders
-
-It is also possible to set up custom and additional media directories. To do
-so, you'll need to adjust the [core configuration][basic-configuration].
-
-This example adds the two media folders to Home Assistant:
-
-```yaml
-# Example configuration.yaml
-homeassistant:
-  media_dirs:
-    media: /media
-    recording: /mnt/recordings
-```
 
 [basic-configuration]: /docs/configuration/basic/#media_dirs
