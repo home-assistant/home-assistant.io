@@ -98,9 +98,6 @@ The API calls are like this:
 ```txt
 GET http://ROKU_IP:8060/query/apps
 POST http://ROKU_IP:8060/launch/APP_ID
-
-YouTube example:
-POST http://YOUR_ROKU_IP:8060/launch/837?contentID=YOUR_YOUTUBE_VIDEOS_CONTENT_ID&MediaType=live
 ```
 
 One method of performing the GET request is to open `http://ROKU_IP:8060/query/apps` in your web browser of choice. The Roku will return an XML-formatted list of available channels, including their full name and appID. 
@@ -130,7 +127,31 @@ action:
       media_content_type: channel
 ```
 
-## Services
+## Content Deeplinking
+
+The `media_player.play_media` service may be used to deep link to content with an channel.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`.                                                                                                                       |
+| `media_content_id`     |       no | A media identifier. | 291097
+| `media_content_type`   |       no | A media type. | channel
+| `content_id` | no | A content identifier unique to channel. | 8e06a8b7-d667-4e31-939d-f40a6dd78a88
+| `media_type` | no | A media type passed to channel. | movie
+
+### Example
+
+
+### Obtaining Content IDs
+
+Content IDs are unique to each streaming service and vary in format but are often part of the video webpage URL. Here are some examples:
+
+| Service | App ID | URL Format | Content ID | Media Type
+| ------- | ------ | ---------- | ---------- | ---------- |
+| Disney Plus | 291097 | disneyplus.com/video/8e06a8b7-d667-4e31-939d-f40a6dd78a88 | 8e06a8b7-d667-4e31-939d-f40a6dd78a88 | movie
+| Hulu | 2285 | hulu.com/series/american-dad-977c8e25-cde0-41b7-80ce-e746f2d2093f | american-dad-977c8e25-cde0-41b7-80ce-e746f2d2093f | series
+| Spotify | 22297 | N/A | spotify:playlist:abcdefghij0123456789XY | app
+| YouTube | 837 | youtu.be/6ZMXE5PXPqU | 6ZMXE5PXPqU | live
 
 ### Service `roku.search`
 
