@@ -98,9 +98,6 @@ The API calls are like this:
 ```txt
 GET http://ROKU_IP:8060/query/apps
 POST http://ROKU_IP:8060/launch/APP_ID
-
-YouTube example:
-POST http://YOUR_ROKU_IP:8060/launch/837?contentID=YOUR_YOUTUBE_VIDEOS_CONTENT_ID&MediaType=live
 ```
 
 One method of performing the GET request is to open `http://ROKU_IP:8060/query/apps` in your web browser of choice. The Roku will return an XML-formatted list of available channels, including their full name and appID. 
@@ -147,9 +144,10 @@ This service allows you to launch an application with content deeplink.
 
 Content IDs vary between streaming providers in format but are often part of the website URL. Here are some tips for a few major streaming services:
 
-| Service | App ID | URL Format | Content ID |
-| ------- | ------ | ---------- | ---------- |
-| Disney Plus | 291097 | disneyplus.com/video/8e06a8b7-d667-4e31-939d-f40a6dd78a88 | 8e06a8b7-d667-4e31-939d-f40a6dd78a88
+| Service | App ID | URL Format | Content ID | Media Type
+| ------- | ------ | ---------- | ---------- | ---------- |
+| Disney Plus | 291097 | disneyplus.com/video/8e06a8b7-d667-4e31-939d-f40a6dd78a88 | 8e06a8b7-d667-4e31-939d-f40a6dd78a88 | movie
+| YouTube | 837 | youtu.be/6ZMXE5PXPqU | 6ZMXE5PXPqU | live
 
 ### Service `roku.search`
 
