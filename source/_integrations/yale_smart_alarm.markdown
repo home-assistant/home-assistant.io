@@ -3,6 +3,7 @@ title: Yale Smart Living
 description: Instructions on how to integrate Yale Smart Alarms into Home Assistant.
 ha_category:
   - Alarm
+  - Binary Sensor
   - Lock
 ha_release: 0.78
 ha_iot_class: Cloud Polling
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: yale_smart_alarm
 ha_platforms:
   - alarm_control_panel
+  - binary_sensor
   - lock
 ---
 
@@ -20,6 +22,7 @@ The Yale Smart Living integration provides connectivity with the Yale Smart Alar
 There is currently support for the following device types within Home Assistant:
 
 - Alarm
+- Binary Sensor
 - Lock
 
 {% include integrations/config_flow.md %}
@@ -30,6 +33,9 @@ Services provided are `armed_away`, `armed_home`, and `disarmed`.
 
 No code is required to operate the alarm.
 
+## Binary Sensors
+
+Provides support for contact sensors for doors showing if door is open or closed
 
 ## Lock
 
