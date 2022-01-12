@@ -132,6 +132,17 @@ action:
 
 ## Services
 
+### Service `roku.launch`
+
+This service allows you to launch an application with content deeplink.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | yes | The entities to search on. | media_player.roku
+| `app_id` | yes | TBD | TBD
+| `content_id` | yes | TBD | TBD
+| `media_type` | yes | TBD | TBD
+
 ### Service `roku.search`
 
 This service allows you to emulate opening the search screen and entering the search keyword.
