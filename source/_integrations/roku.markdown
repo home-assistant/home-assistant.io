@@ -139,9 +139,9 @@ This service allows you to launch an application with content deeplink.
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | yes | The entities to search on. | media_player.roku
-| `app_id` | yes | TBD | TBD
-| `content_id` | yes | TBD | TBD
-| `media_type` | yes | TBD | TBD
+| `app_id` | no | The application ID to launch. | 291097
+| `content_id` | no | The content ID to launch with. | 8e06a8b7-d667-4e31-939d-f40a6dd78a88
+| `media_type` | no | The type of content being launched. | movie
 
 ### Service `roku.search`
 
