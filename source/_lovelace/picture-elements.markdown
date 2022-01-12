@@ -389,13 +389,17 @@ conditions:
       required: true
       description: Entity ID.
       type: string
+    attribute:
+      required: false
+      description: An attribute associated with the `entity`. Its value should be used instead of entity's state.
+      type: string
     state:
       required: false
-      description: Entity state is equal to this value.*
+      description: Entity state/attribute is equal to this value.*
       type: string
     state_not:
       required: false
-      description: Entity state is unequal to this value.*
+      description: Entity state/attribute is unequal to this value.*
       type: string
 elements:
   required: true
