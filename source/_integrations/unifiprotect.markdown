@@ -52,7 +52,7 @@ CKGP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2
 
 The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported. Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release comes out to ensure the new version is fully supported.
 
-Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0-beta.2` is the newest UniFi Protect version. So the recommended versions of UniFi Protect to run for a `2022.2.0` version of Home Assistant are `1.20.0`, `1.20.1`, `1.20.2`, `1.20.3`, `1.21.0-beta.1`, or `1.21.0-beta.2`.
+Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0-beta.3` is the newest UniFi Protect version. So the recommended versions of UniFi Protect to run for a `2022.2.0` version of Home Assistant are `1.20.0`, `1.20.1`, `1.20.2`, `1.20.3`, `1.21.0-beta.1`, `1.21.0-beta.2`, and `1.21.0-beta.3`.
 
 ### Local User
 
@@ -102,7 +102,6 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
 * **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](/integrations/tts/#service-say).
 * **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
 * **Sensors** - Sensors include "Is Dark", "Motion Detected", "Detected Object" (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
-  * Motion and Detected Object sensors will also contain an `event_thumbnail` attribute that can be used to get the event thumbnail directly from UniFi Protect for that motion or smart detection.
   * The Detected Object sensor will have the values of "none", "person", or "vehicle" based on object UniFi Protect detected.
 * **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   * configuration sliders for Chime Duration, Zoom Level, Microphone Sensitivity, and WDR Level
