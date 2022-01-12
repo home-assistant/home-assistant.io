@@ -56,7 +56,7 @@ conditions:
     state_not: "off"
   - entity: light.ceiling
     attribute: effect
-    state: sunset
+    state: "sunset"
 card:
   type: entities
   entities:
