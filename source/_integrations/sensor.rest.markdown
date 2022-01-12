@@ -133,6 +133,11 @@ force_update:
   required: false
   type: boolean
   default: false
+scan_interval:
+  description: Sets the polling [scan interval](https://www.home-assistant.io/docs/configuration/platform_options/#scan-interval). Default 30 seconds. Additionally, calling service [homeassistant.update](https://www.home-assistant.io/docs/scripts/service-calls/#homeassistant-services) will request an immediate update, rather than waiting for the next scheduled update.
+  required: false
+  type: integer
+  default: 30
 {% endconfiguration %}
 
 <div class='note'>
