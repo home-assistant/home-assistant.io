@@ -143,6 +143,14 @@ This service allows you to launch an application with content deeplink.
 | `content_id` | no | The content ID to launch with. | 8e06a8b7-d667-4e31-939d-f40a6dd78a88
 | `media_type` | no | The type of media being launched. | movie
 
+#### Obtaining Content IDs
+
+Content IDs vary between streaming providers in format but are often part of the website URL. Here are some tips for a few major streaming services:
+
+| Service | App ID | URL Format | Content ID |
+| ------- | ------ | ---------- | ---------- |
+| Disney Plus | 291097 | disneyplus.com/video/8e06a8b7-d667-4e31-939d-f40a6dd78a88 | 8e06a8b7-d667-4e31-939d-f40a6dd78a88
+
 ### Service `roku.search`
 
 This service allows you to emulate opening the search screen and entering the search keyword.
