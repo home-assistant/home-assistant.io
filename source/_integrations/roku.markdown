@@ -162,7 +162,7 @@ Content IDs are unique to each streaming service and vary in format but are ofte
 | ------- | ------ | ---------- | ---------- | ---------- |
 | Disney Plus | 291097 | disneyplus.com/video/8e06a8b7-d667-4e31-939d-f40a6dd78a88 | 8e06a8b7-d667-4e31-939d-f40a6dd78a88 | movie
 | Hulu | 2285 | hulu.com/series/american-dad-977c8e25-cde0-41b7-80ce-e746f2d2093f | american-dad-977c8e25-cde0-41b7-80ce-e746f2d2093f | series
-| Spotify | 22297 | N/A | spotify:playlist:abcdefghij0123456789XY | app
+| Spotify | 22297 | open.spotify.com/playlist/5xddIVAtLrZKtt4YGLM1SQ | spotify:playlist:5xddIVAtLrZKtt4YGLM1SQ | playlist
 | YouTube | 837 | youtu.be/6ZMXE5PXPqU | 6ZMXE5PXPqU | live
 
 ## Services
