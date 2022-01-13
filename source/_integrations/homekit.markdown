@@ -549,7 +549,7 @@ By default, the macvtap adapter created by libvirt does not allow the guest to r
 
 Configure the virtual machine's macvtap adapter to accept multicast traffic by adding the `trustGuestRxFilters="yes"` setting in the adapter's XML. For example:
 
-```
+```xml
 <interface type="direct" trustGuestRxFilters="yes">
   <mac address="xx:xx:xx:xx:xx:xx"/>
   <source dev="eno1" mode="bridge"/>
