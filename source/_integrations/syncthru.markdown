@@ -15,11 +15,9 @@ ha_platforms:
   - sensor
 ---
 
-The Samsung SyncThru Printer platform allows you to read current data from your local Samsung printer.
+The Samsung SyncThru Printer platform allows Home Asssitant to read current data from a local Samsung printer.  
 
-It usually provides information about the device's state, the left amount of ink or toner and the state of paper trays.
-
-The following information is displayed in separate sensors, if it is available:
+Depending on device abilities, the following separate sensors are created if supported:
 
  - Whether the printer is online
  - Whether the printer is in an error state
@@ -27,5 +25,7 @@ The following information is displayed in separate sensors, if it is available:
  - Black, cyan, magenta and yellow drum state
  - First to fifth paper input tray state
  - First to sixth paper output tray state
+
+In order for a device to be discovered automatically, SSPD / uPnP (under Network settings) must be enabled.
 
 {% include integrations/config_flow.md %}
