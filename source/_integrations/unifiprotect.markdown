@@ -119,7 +119,7 @@ Each UniFi Protect floodlight will get a device in Home Assistant with the follo
 
 ### UniFi Protect Smart Sensors
 
-Each UniFi Protect smart sensors are a bit different then normal sensors. They are a multi-sensor can act as a contact sensor (door/window), a motion detector, a light level detector, a humidity sensor, a temperature level sensor, alarm sound sensor, and/or a leak detector. Each sensor function can be enabled or disabled dynamically. Disabled sensors will be marked as "unavailable".
+Each UniFi Protect smart sensors are a bit different than normal sensors. They are a multi-sensor that can act as a contact sensor (door/window), a motion detector, a light level detector, a humidity sensor, a temperature level sensor, an alarm sound sensor, and/or a leak detector. Each sensor function can be enabled or disabled dynamically. Disabled sensors will be marked as "unavailable".
 
 * **Sensors** - A sensor is provided for each major function of the smart sensor device:
   * **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
