@@ -4,7 +4,7 @@ description: Instructions on how to connect your EnaSolar GT Solar Inverter to H
 ha_category:
   - Energy
 ha_iot_class: Local Polling
-ha_release: '2021.12.8'
+ha_release: 2022.2
 ha_codeowners:
   - '@geustace'
 ha_domain: enasolar
@@ -21,13 +21,7 @@ This integration uses the inverter's web interface. Home Assistant must be able 
 Note: Polling too frequently caused the web server in the inverter to become unresponsive, to reset turn the AC switch on the inverter Off and On again. The current implementation polls the meters every minute and the daily data every 10 minutes. Polling is also reduced at night.
 
 
-## Configuration
-
-1. Select Integrations from the Home Assistant Configuration page
-2. Select ADD INTEGRATION
-3. Search for EnaSolar.
-
-Fill in the connection form. Note: Naming the inverter isn't particularly helpful unless you have more than one. select NEXT. If the connection succeeded the next form will have been pre-filled with values extracted from the inverter.  You may choose to over-ride a value if is incorrect.
+{% include integrations/config_flow.md %}
 
 Max AC Output Power: is used to calculate the utilisation. It should be one of - 1.5, 2.0, 3.0, 3.8, 4.0 or 5.0
 Number of DC strings in the array: It should be either - 1 or 2
