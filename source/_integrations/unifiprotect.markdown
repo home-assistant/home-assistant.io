@@ -114,14 +114,21 @@ Each UniFi Protect floodlight will get a device in Home Assistant with the follo
 
 * **Light** - A light entity will be added for each floodlight device. The light entity will let you control turning on or off your light as well as adjust the brightness of your floodlight.
 * **Sensors** - Sensors are provided for data provided from floodlight devices. Sensors include "Is Dark" and "Motion Detected".
-* **Device Configuration** - Floodlights will get configuration controls for the PIR Motion Sensitivity, the Auto-shutoff Duration after detected motion, Status Light switch, and SSH status.
+* **Device Configuration** - Floodlights will get configuration controls for the PIR Motion Sensitivity, the Auto-shutoff Duration after detected motion, and Status Light switch
 * **Button** - A disabled by default button is added for each floodlight device. The button will let you reboot your floodlight device.
 
 ### UniFi Protect Smart Sensors
 
-Each UniFi Protect smart sensor will get a device in Home Assistant with the following:
+Each UniFi Protect smart sensors are a bit different than normal sensors. They are a multi-sensor that can act as a contact sensor (door/window), a motion detector, a light level detector, a humidity sensor, a temperature level sensor, an alarm sound sensor, and/or a leak detector. Each sensor function can be enabled or disabled dynamically. Disabled sensors will be marked as "unavailable".
 
-* **Sensors** - Sensors are provided for data provided from smart sensor devices. Sensors include "Door", "Motion Detected" and "Battery Low".
+* **Sensors** - A sensor is provided for each major function of the smart sensor device:
+  * **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
+  * **Motion Detection** - A motion detection sensor will be available if the mount type is not set to "Leak" and motion detection is enabled.
+  * **Light Level** - A light level sensor will be available if the mount type is not set to "Leak" and the light sensor is enabled.
+  * **Humidity** - A humidity sensor will be available if the mount type is not set to "Leak" and the humidity sensor is enabled.
+  * **Temperature** - A temperature sensor will be available if the mount type is not set to "Leak" and the temperature sensor is enabled.
+  * **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
+* **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
 * **Button** - A disabled by default button is added for each smart sensor device. The button will let you reboot your smart sensor device.
 
 ### UniFi Protect Viewers
