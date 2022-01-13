@@ -19,7 +19,7 @@ Integration for the [HomeWizard Energy](https://www.homewizard.nl/energy) platfo
 **Supported devices**
 
 - [Wifi P1 Meter](https://www.homewizard.nl/p1-meter): Depending on the connected DSMR meter: sensors for power import/export, energy consumption (single or three phases) and gas. (Model: `HWE-P1`)
-- [Wifi Energy Socket](https://www.homewizard.nl/energy-socket): Sensors for power import/export and energy consumption and a switch for controlling the outlet (model: `HWE-SKT`)
+- [Wifi Energy Socket](https://www.homewizard.nl/energy-socket): Sensors for power import/export and energy consumption and switches for controlling the outlet (model: `HWE-SKT`)
 - [Wifi kWh Meter](https://www.homewizard.nl/kwh-meter): Sensors for power import/export and energy consumption. (Models: `SDM230-wifi`, `SDM630-wifi`)
 
 ## Enable the API
