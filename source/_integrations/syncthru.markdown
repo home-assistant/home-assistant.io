@@ -26,6 +26,6 @@ Depending on device abilities, the following separate sensors are created if sup
  - First to fifth paper input tray state
  - First to sixth paper output tray state
 
-In order for a device to be discovered automatically, SSPD / uPnP (under Network settings) must be enabled.
+In order for a device to be discovered automatically, SSPD / UPnP (under Network settings) must be enabled.
 
 {% include integrations/config_flow.md %}
