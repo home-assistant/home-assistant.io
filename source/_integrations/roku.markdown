@@ -164,6 +164,8 @@ Content IDs are unique to each streaming service and vary in format but are ofte
 | Spotify | 22297 | N/A | spotify:playlist:abcdefghij0123456789XY | app
 | YouTube | 837 | youtu.be/6ZMXE5PXPqU | 6ZMXE5PXPqU | live
 
+## Services
+
 ### Service `roku.search`
 
 This service allows you to emulate opening the search screen and entering the search keyword.
