@@ -136,8 +136,8 @@ The `media_player.play_media` service may be used to deep link to content within
 | `entity_id` | no | Target a specific media player. To target all media players, use `all`. |                                                                                                                    |
 | `media_content_id` | no | A media identifier. | 291097
 | `media_content_type` | no | A media type. | channel
-| `content_id` | no | A unique content identifier passed to app. | 8e06a8b7-d667-4e31-939d-f40a6dd78a88
-| `media_type` | no | A media type passed to app. Should be one of `app`, `movie`, `episode`, `season`, `series`, `shortFormVideo`, `special`, `live` | movie
+| `extra.content_id` | no | A unique content identifier passed to app. | 8e06a8b7-d667-4e31-939d-f40a6dd78a88
+| `extra.media_type` | no | A media type passed to app. Should be one of `app`, `movie`, `episode`, `season`, `series`, `shortFormVideo`, `special`, `live` | movie
 
 ### Example
 
@@ -149,8 +149,9 @@ action:
     data:
       media_content_id: 291097
       media_content_type: app
-      content_id: 8e06a8b7-d667-4e31-939d-f40a6dd78a88
-      media_type: movie
+      extra:
+        content_id: 8e06a8b7-d667-4e31-939d-f40a6dd78a88
+        media_type: movie
 ```
 
 ### Obtaining Content IDs
