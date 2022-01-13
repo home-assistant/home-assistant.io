@@ -4,7 +4,7 @@ description: Instructions on how to connect your EnaSolar GT Solar Inverter to H
 ha_category:
   - Energy
 ha_iot_class: Local Polling
-ha_release: '0.1.0'
+ha_release: '2021.12.8'
 ha_codeowners:
   - '@geustace'
 ha_domain: enasolar
@@ -31,7 +31,7 @@ Fill in the connection form. Note: Naming the inverter isn't particularly helpfu
 
 Max AC Output Power: is used to calculate the utilisation. It should be one of - 1.5, 2.0, 3.0, 3.8, 4.0 or 5.0
 Number of DC strings in the array: It should be either - 1 or 2
-Capability: is made up of AND'ing together the feature set of the inverter. Bit 1 the inverter has power meters, 2 has solar meters, 4 has temperature, 256 temperature is in Fahrenhiet
+Capability: indicates which optional features are present in the inverter.
 
 ## Sensors
 
