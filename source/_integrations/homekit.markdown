@@ -543,6 +543,24 @@ You can also try to use `avahi-daemon` in reflector mode together with the optio
 
 Configure the network mode as `networkbridge`. Otherwise the Home Assistant Bridge won't be exposed to the network.
 
+#### `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - Libvirt QEMU/KVM virtual machine with macvtap adapter
+
+By default, the macvtap adapter created by libvirt does not allow the guest to receive multicast traffic.
+
+Configure the virtual machine's macvtap adapter to accept multicast traffic by adding the `trustGuestRxFilters="yes"` setting in the adapter's XML. For example:
+
+```
+<interface type="direct" trustGuestRxFilters="yes">
+  <mac address="xx:xx:xx:xx:xx:xx"/>
+  <source dev="eno1" mode="bridge"/>
+  <model type="virtio"/>
+  <link state="up"/>
+  <address type="pci" domain="0x0000" bus="0x01" slot="0x00" function="0x0"/>
+</interface>
+```
+
+This only works with the `virtio` network adapter type and it is disabled by default for security reasons. See [the libvirt documentation](https://libvirt.org/formatdomain.html#elementsNICS) for more details.
+
 #### Pairing hangs - zeroconf error
 
 Pairing eventually fails, you might see the error message, `NonUniqueNameException`, you likely need to enable `default_interface: true` in the `zeroconf` integration configuration and set a unique name such as `name: MyHASS42`.
