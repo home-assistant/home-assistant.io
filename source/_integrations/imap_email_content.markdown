@@ -1,4 +1,4 @@
----
+git@github.com:smcpeck/home-assistant.io.git---
 title: IMAP Email Content
 description: Instructions on how to integrate IMAP email content sensor into Home Assistant.
 ha_category:
@@ -60,6 +60,13 @@ senders:
   description: A list of sender email addresses that are allowed to report state via email. Only emails received from these addresses will be processed.
   required: true
   type: string
+keep:
+  description: Keep existing message until another arrives. Default behavior will set sensor to `Unknown` next time the IMAP account is checked and no new message has arrived. This is useful if you want a sensor's value to persist based on the last received e-mail (like a date value).
+  required: false
+  default: false
+  type: boolean
+daysback:
+  description: Number of days back to look for e-mail. This is mainly intended to be used with `keep: true` so your last state is restored on a restart (like other sensors that "query" an existing entity and discover the proper state). It isn't perfect, but will offer some value. During normal operation, the last UID is tracked so older e-mails won't continuously be re-processed.
 value_template:
   description: If specified this template will be used to render the state of the sensor. If a template is not supplied the message subject will be used for the sensor value. The following attributes will be supplied to the template.
   required: false
@@ -89,6 +96,8 @@ sensor:
     port: 993
     username: MY_EMAIL_USERNAME
     password: MY_EMAIL_PASSWORD
+    keep: true
+    daysback: 5
     senders:
       - no-reply@smartconnect.apc.com
     value_template: >-
