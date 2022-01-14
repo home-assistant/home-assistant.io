@@ -151,7 +151,7 @@ action:
       media_content_type: url
       extra:
         format: mp4
-        title: Big Buck Bunny
+        name: Big Buck Bunny
 ```
 
 ## Content Deeplinking
