@@ -10,6 +10,8 @@ ha_codeowners:
   - '@bendavid'
   - '@thecode'
 ha_domain: webostv
+ha_config_flow: true
+ha_ssdp: true
 ha_platforms:
   - media_player
   - notify
