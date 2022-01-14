@@ -6,7 +6,7 @@ ha_category:
   - Light
   - Media Player
   - Sensor
-ha_release: 2022.1.0
+ha_release: 2021.11
 ha_iot_class: Local Push
 ha_codeowners:
   - '@ANMalko'
