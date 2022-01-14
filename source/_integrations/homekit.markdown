@@ -458,6 +458,10 @@ automation:
     packet: XXXXXXXX
 ```
 
+## Events
+
+This integration emits events as `homekit_state_change` on the event bus. This can be used for example in automations to known whether an entity's state got changed from HomeKit specifically. 
+
 ## Troubleshooting
 
 ### All or some devices are intermittently unresponsive
