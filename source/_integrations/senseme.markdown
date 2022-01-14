@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Fan
   - Light
+  - Select
   - Switch
 ha_release: 2022.2
 ha_iot_class: Local Push
@@ -17,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - fan
   - light
+  - select
   - switch
 ---
 
