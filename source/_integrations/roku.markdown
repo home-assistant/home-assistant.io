@@ -129,7 +129,7 @@ action:
 
 ## Play on Roku
 
-The `media_player.play_media` service may be used to send media URLs (primarily videos) for direct playback on your device. This feature makes use of PlayOnRoku app (built-in).
+The `media_player.play_media` service may be used to send media URLs (primarily videos) for direct playback on your device. This feature makes use of the built-in PlayOnRoku application.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
