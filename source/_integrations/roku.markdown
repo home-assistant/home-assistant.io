@@ -127,6 +127,16 @@ action:
       media_content_type: channel
 ```
 
+## Play on Roku
+
+The `media_player.play_media` service may be used to send media URLs (primarily videos) for direct playback on your device. This feature makes use of PlayOnRoku app (built-in).
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | no | Target a specific media player. To target all media players, use `all`. |                                                                                                                    |
+| `media_content_id` | no | A media URL. | https://
+| `media_content_type` | no | A media type. | url
+
 ## Content Deeplinking
 
 The `media_player.play_media` service may be used to deep link to content within an application.
