@@ -98,7 +98,8 @@ G3 Series cameras do _not_ have Smart detections.
 
 Each UniFi Protect camera will get a device in Home Assistant with the following:
 
-* **Camera** - A camera for each camera channel and RTSP(S) combination found for each camera (up to 6). Only the highest resolution RTSPS camera entity will be enabled by default.
+* **Camera** - A camera for each camera channel and RTSP(S) combination found for each camera (up to 7). Only the highest resolution RTSPS camera entity will be enabled by default.
+  * If your camera is a G4 Doorbell Pro, an additional camera entity will be added for the Package Camera. The Package Camera entity will _not_ have streaming capabilities regardless of whether RTSPS is enabled on the channel or not. This is due to the Package Camera having a very low FPS that does not make it compatible with HLS streaming.
 * **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](/integrations/tts/#service-say).
 * **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
 * **Sensors** - Sensors include "Is Dark", "Motion Detected", "Detected Object" (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
