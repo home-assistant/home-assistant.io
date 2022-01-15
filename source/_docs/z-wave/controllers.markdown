@@ -7,7 +7,7 @@ description: "Extended instructions how to setup Z-Wave."
 
 You need to have a compatible Z-Wave stick or module installed. The following devices have been confirmed to work with Z-Wave JS:
 
-- 700 series controllers
+- 700 series controllers (*Warning*: As of 15 January 2022 [users are still reporting stability problems with these controllers](https://github.com/zwave-js/node-zwave-js/issues/3906).)
   - Aeotec Z-Stick 7
   - Zooz ZST10 700
   - Silicon Labs SLUSB7000A
