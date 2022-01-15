@@ -2,9 +2,9 @@
 title: DoorBird
 description: Instructions on how to integrate your DoorBird video doorbell with Home Assistant.
 ha_category:
-  - Doorbell
-  - Camera
   - Button
+  - Camera
+  - Doorbell
 ha_release: 0.54
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -14,8 +14,8 @@ ha_codeowners:
 ha_domain: doorbird
 ha_zeroconf: true
 ha_platforms:
-  - camera
   - button
+  - camera
 ---
 
 The `doorbird` implementation allows you to integrate your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
