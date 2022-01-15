@@ -249,7 +249,7 @@ template:
       unit_of_measurement: kWh
       state: >
         {% if is_number(states('sensor.daily_energy_offpeak')) and is_number(states('sensor.daily_energy_peak')) %}
-          {{ (states('sensor.daily_energy_offpeak') + states('sensor.daily_energy_peak')) | float }}
+          {{ states('sensor.daily_energy_offpeak') | float + states('sensor.daily_energy_peak') | float }}
         {% else %}
           None
         {% endif %}
@@ -259,7 +259,7 @@ template:
       unit_of_measurement: kWh
       state: >
         {% if is_number(states('sensor.monthly_energy_offpeak')) and is_number(states('sensor.monthly_energy_peak')) %}
-          {{ (states('sensor.monthly_energy_offpeak') + states('sensor.monthly_energy_peak')) | float }}
+          {{ states('sensor.monthly_energy_offpeak') | float + states('sensor.monthly_energy_peak') | float }}
         {% else %}
           None
         {% endif %}

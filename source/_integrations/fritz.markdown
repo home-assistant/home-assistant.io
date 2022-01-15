@@ -56,7 +56,7 @@ Reboot the router.
 
 | Service data attribute | Optional | Description                                                                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific  router                                                                                 |
+| `device_id`            | no       | Only act on a specific  router                                                                                 |
 
 #### Service `fritz.reconnect`
 
@@ -65,7 +65,7 @@ If you have a dynamic IP address, most likely it will change.
 
 | Service data attribute | Optional | Description                                                                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific  router                                                                                 |
+| `device_id`            | no       | Only act on a specific  router                                                                                 |
 
 #### Service `fritz.cleanup`
 
@@ -74,7 +74,7 @@ A device is identified as stale when it's still present on Home Assistant but no
 
 | Service data attribute | Optional | Description                                                                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific  router                                                                                 |
+| `device_id`            | no       | Only act on a specific  router                                                                                 |
 
 ## Integration Options
 

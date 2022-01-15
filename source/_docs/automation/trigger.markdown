@@ -342,7 +342,7 @@ automation:
 ### Triggering on attribute changes
 
 When the `attribute` option is specified, the trigger only fires
-when the specified attribut changes. Changes to other attributes or the
+when the specified attribute changes. Changes to other attributes or the
 state are ignored.
 
 For example, this trigger only fires when the boiler has been heating for 10 minutes:

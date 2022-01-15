@@ -23,7 +23,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG)
 - **current**: Current in A.
 - **date**: Date string (ISO 8601).
-- **energy**: Energy in Wh or kWh.
+- **energy**: Energy in Wh, kWh or MWh.
 - **frequency**: Frequency in Hz, kHz, MHz or GHz.
 - **gas**: Gasvolume in m³ or ft³.
 - **humidity**: Percentage of humidity in the air.

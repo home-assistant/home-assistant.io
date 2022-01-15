@@ -20,18 +20,8 @@ Installation with Docker is straightforward. Adjust the following command so tha
 
 {% endif %}
 
-{% if page.installation_type == 'raspberrypi' %}
-#### Raspberry pi 3
-
-  {% include installation/container/cli.md image=site.installation.container.raspberrypi3 %}
-
-#### Raspberry pi 4
-
-  {% include installation/container/cli.md image=site.installation.container.raspberrypi4 %}
-
-{% elsif page.installation_type == 'alternative' %}
+{% if page.installation_type == 'alternative' %}
   {% include installation/container/alternative.md %}
-
 {% else %}
   {% include installation/container/cli.md %}
 {% endif %}
@@ -76,23 +66,17 @@ If you change the configuration you have to restart the server. To do that you h
 
 As the Docker command becomes more complex, switching to `docker-compose` can be preferable and support automatically restarting on failure or system restart. Create a `docker-compose.yml` file:
 
-{% if page.installation_type == 'raspberrypi' %}
-#### Raspberry pi 3
-
-  {% include installation/container/compose.md image=site.installation.container.raspberrypi3 %}
-
-#### Raspberry pi 4
-
-  {% include installation/container/compose.md image=site.installation.container.raspberrypi4 %}
-{% else %}
-  {% include installation/container/compose.md %}
-{% endif %}
+{% include installation/container/compose.md %}
 
 Start it by running:
 
 ```bash
 docker-compose up -d
 ```
+
+Once the Home Assistant Container is running Home Assistant should be accessible using `http://<host>:8123` (replace <host> with the hostname or IP of the system). You can continue with onboarding.
+
+{% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 
 ### Exposing Devices
 

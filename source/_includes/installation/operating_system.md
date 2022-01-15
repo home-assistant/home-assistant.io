@@ -184,10 +184,11 @@ _All these can be extended if your usage calls for more resources._
 - title: VirtualBox
   content: |
     1. Create a new virtual machine
-    2. Select “Other Linux (64Bit)
-    3. Select “Use an existing virtual hard disk file”, select the VDI file from above
-    4. Edit the “Settings” of the VM and go “System” then Motherboard and Enable EFI
-    5. Then “Network” “Adapter 1” Bridged and your adapter.
+    2. Select Type “Linux” and Version “Other Linux (64-bit)”
+    3. Select “Use an existing virtual hard disk file”, select the unzipped VDI file from above
+    4. Edit the “Settings” of the VM and go “System” then “Motherboard” and select “Enable EFI”
+    5. Then go to “Network” “Adapter 1” choose “Bridged Adapter” and choose your Network adapter
+    6. Then go to “Audio” and choose “Intel HD Audio” as Audio Controller.
 
 - title: KVM
   content: |

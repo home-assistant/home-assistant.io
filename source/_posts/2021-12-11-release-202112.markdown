@@ -27,7 +27,7 @@ Thank you for hanging out with the project. Thank you for contributing, and
 thank you for reporting an issue. Thank you for helping out a fellow Home
 Assistant user on the forum, chat, Reddit, or anywhere else. Thank you for
 sharing your experiences, ideas, automations, scripts, YouTube videos,
-and blogs; and above all:  
+and blogs; and above all:
 Thank you for using Home Assistant ❤️
 
 Happy holidays and for the last time in 2021: Enjoy the release!
@@ -50,6 +50,15 @@ holidays. So, the first release in 2022, will be Wednesday, 2 February 2022._
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.12.1 - December 12](#release-2021121---december-12)
+- [Release 2021.12.2 - December 15](#release-2021122---december-15)
+- [Release 2021.12.3 - December 17](#release-2021123---december-17)
+- [Release 2021.12.4 - December 20](#release-2021124---december-20)
+- [Release 2021.12.5 - December 23](#release-2021125---december-23)
+- [Release 2021.12.6 - December 27](#release-2021126---december-27)
+- [Release 2021.12.7 - December 29](#release-2021127---december-29)
+- [Release 2021.12.8 - January 4](#release-2021128---january-4)
+- [Release 2021.12.9 - January 10](#release-2021129---january-10)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -314,6 +323,674 @@ Additionally, [KNX][knx docs] can now partially be set up via the UI. The
 connection is done via the UI, the entities are configuration in YAML; just
 like before. Done by [@marvin-w].
 
+## Release 2021.12.1 - December 12
+
+- Fix Sonos sub & surround switch state reporting ([@jjlawren] - [#61531]) ([sonos docs])
+- Update logic for nest media source `can_play` for events ([@allenporter] - [#61537]) ([nest docs])
+- Fix HomeKit covers with device class window and no tilt ([@bdraco] - [#61566]) ([homekit docs])
+- Update frontend to 20211212.0 ([@bramkragten] - [#61577]) ([frontend docs])
+- Fix Hue transition calculation ([@marcelveldt] - [#61581]) ([hue docs])
+- enable grouped light if enabled in previous integration ([@marcelveldt] - [#61582]) ([hue docs])
+- Only publish nest camera event messages once per thread and bump nest version ([@allenporter] - [#61587]) ([nest docs])
+- Fix for failing Solarlog integration in HA 2021.12 ([@Ernst79] - [#61602]) ([solarlog docs])
+- Fix availability for 3th party Hue lights ([@marcelveldt] - [#61603]) ([hue docs])
+- Bump aiopvapi to 1.6.19 to fix async_timeout passing loop ([@bdraco] - [#61618]) ([hunterdouglas_powerview docs])
+- Bump aiohue to 3.0.3 ([@balloob] - [#61627]) ([hue docs])
+
+[#61531]: https://github.com/home-assistant/core/pull/61531
+[#61537]: https://github.com/home-assistant/core/pull/61537
+[#61566]: https://github.com/home-assistant/core/pull/61566
+[#61577]: https://github.com/home-assistant/core/pull/61577
+[#61581]: https://github.com/home-assistant/core/pull/61581
+[#61582]: https://github.com/home-assistant/core/pull/61582
+[#61587]: https://github.com/home-assistant/core/pull/61587
+[#61602]: https://github.com/home-assistant/core/pull/61602
+[#61603]: https://github.com/home-assistant/core/pull/61603
+[#61618]: https://github.com/home-assistant/core/pull/61618
+[#61627]: https://github.com/home-assistant/core/pull/61627
+[@Ernst79]: https://github.com/Ernst79
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@jjlawren]: https://github.com/jjlawren
+[@marcelveldt]: https://github.com/marcelveldt
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[hue docs]: /integrations/hue/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[nest docs]: /integrations/nest/
+[solarlog docs]: /integrations/solarlog/
+[sonos docs]: /integrations/sonos/
+
+## Release 2021.12.2 - December 15
+
+- Bump pysmappee to 0.2.29 ([@bsmappee] - [#61160]) ([smappee docs])
+- Upgrade lupupy to 0.0.24 ([@majuss] - [#61598]) ([lupusec docs])
+- Suppress errors for legacy nest api when using media source ([@allenporter] - [#61629]) ([nest docs])
+- Bump total_connect_client to 2021.12 ([@austinmroczek] - [#61634]) ([totalconnect docs])
+- Add additional-tag to machine builds ([@ludeeus] - [#61693])
+- Bump aiohue to 3.0.4 ([@balloob] - [#61709]) ([hue docs])
+- Update pymelcloud to 2.5.6 ([@vilppuvuorinen] - [#61717]) ([melcloud docs])
+- Add check for incompatible device trigger in Hue integration ([@marcelveldt] - [#61726]) ([hue docs])
+- Fix turn_off with transition for grouped Hue lights ([@marcelveldt] - [#61728]) ([hue docs])
+- Fix Flash effect for Hue lights ([@marcelveldt] - [#61733]) ([hue docs])
+- Blacklist availability check for a light at startup in Hue integration ([@marcelveldt] - [#61737]) ([hue docs])
+- Upgrade tailscale to 0.1.5 ([@frenck] - [#61744]) ([tailscale docs])
+- Bump brunt package to 1.0.1 ([@eavanvalkenburg] - [#61784]) ([brunt docs])
+- Fix ZHA unoccupied setpoints. ([@MattWestb] - [#61791]) ([zha docs])
+- Don't override pychromecast MediaController's APP ID ([@emontnemery] - [#61796]) ([cast docs])
+- Bump pychromecast to 10.2.1 ([@emontnemery] - [#61811]) ([cast docs])
+- Tibber, update library, fixes #61525 ([@Danielhiversen] - [#61813]) ([tibber docs])
+- Bump python-miio to 0.5.9.2 ([@rytilahti] - [#61831]) ([xiaomi_miio docs])
+- Ensure SimpliSafe websocket reconnects upon new token ([@bachya] - [#61835]) ([simplisafe docs])
+- Allow setting local_ip for knx routing connections ([@marvin-w] - [#61836]) ([knx docs])
+- Fix broken Environment Canada ([@michaeldavie] - [#61848]) ([environment_canada docs])
+- Bump google-nest-sdm to 0.4.8 ([@allenporter] - [#61851]) ([nest docs])
+- Bump aiohue to 3.0.5 ([@marcelveldt] - [#61875]) ([hue docs])
+- Update frontend to 20211215.0 ([@bramkragten] - [#61877]) ([frontend docs])
+
+[#61160]: https://github.com/home-assistant/core/pull/61160
+[#61598]: https://github.com/home-assistant/core/pull/61598
+[#61629]: https://github.com/home-assistant/core/pull/61629
+[#61634]: https://github.com/home-assistant/core/pull/61634
+[#61693]: https://github.com/home-assistant/core/pull/61693
+[#61709]: https://github.com/home-assistant/core/pull/61709
+[#61717]: https://github.com/home-assistant/core/pull/61717
+[#61726]: https://github.com/home-assistant/core/pull/61726
+[#61728]: https://github.com/home-assistant/core/pull/61728
+[#61733]: https://github.com/home-assistant/core/pull/61733
+[#61737]: https://github.com/home-assistant/core/pull/61737
+[#61744]: https://github.com/home-assistant/core/pull/61744
+[#61784]: https://github.com/home-assistant/core/pull/61784
+[#61791]: https://github.com/home-assistant/core/pull/61791
+[#61796]: https://github.com/home-assistant/core/pull/61796
+[#61811]: https://github.com/home-assistant/core/pull/61811
+[#61813]: https://github.com/home-assistant/core/pull/61813
+[#61831]: https://github.com/home-assistant/core/pull/61831
+[#61835]: https://github.com/home-assistant/core/pull/61835
+[#61836]: https://github.com/home-assistant/core/pull/61836
+[#61848]: https://github.com/home-assistant/core/pull/61848
+[#61851]: https://github.com/home-assistant/core/pull/61851
+[#61875]: https://github.com/home-assistant/core/pull/61875
+[#61877]: https://github.com/home-assistant/core/pull/61877
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@MattWestb]: https://github.com/MattWestb
+[@allenporter]: https://github.com/allenporter
+[@austinmroczek]: https://github.com/austinmroczek
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
+[@bsmappee]: https://github.com/bsmappee
+[@eavanvalkenburg]: https://github.com/eavanvalkenburg
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@ludeeus]: https://github.com/ludeeus
+[@majuss]: https://github.com/majuss
+[@marcelveldt]: https://github.com/marcelveldt
+[@marvin-w]: https://github.com/marvin-w
+[@michaeldavie]: https://github.com/michaeldavie
+[@rytilahti]: https://github.com/rytilahti
+[@vilppuvuorinen]: https://github.com/vilppuvuorinen
+[brunt docs]: /integrations/brunt/
+[cast docs]: /integrations/cast/
+[environment_canada docs]: /integrations/environment_canada/
+[frontend docs]: /integrations/frontend/
+[hue docs]: /integrations/hue/
+[knx docs]: /integrations/knx/
+[lupusec docs]: /integrations/lupusec/
+[melcloud docs]: /integrations/melcloud/
+[nest docs]: /integrations/nest/
+[simplisafe docs]: /integrations/simplisafe/
+[smappee docs]: /integrations/smappee/
+[tailscale docs]: /integrations/tailscale/
+[tibber docs]: /integrations/tibber/
+[totalconnect docs]: /integrations/totalconnect/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zha docs]: /integrations/zha/
+
+## Release 2021.12.3 - December 17
+
+- Update ebusdpy version ([@sindudas] - [#59899]) ([ebusd docs])
+- Nextbus upcoming sort as integer ([@ViViDboarder] - [#61416]) ([nextbus docs])
+- Add restore logic to Shelly climate platform ([@chemelli74] - [#61632]) ([shelly docs])
+- Fix OwnetError preventing onewire initialisation ([@epenet] - [#61696]) ([onewire docs])
+- Fix notify platform setup for KNX ([@marvin-w] - [#61842]) ([knx docs])
+- Bump aiohue to 3.0.6 ([@marcelveldt] - [#61974]) ([hue docs])
+- Brunt dependency bump to 1.0.2 ([@eavanvalkenburg] - [#62014]) ([brunt docs])
+- Bump flux_led to 0.26.15 ([@bdraco] - [#62017]) ([flux_led docs])
+- Fix none-check in template light ([@emontnemery] - [#62089]) ([template docs])
+- Add missing timezone information ([@DeerMaximum] - [#62106]) ([vallox docs])
+- Improve availability for Shelly Valve ([@chemelli74] - [#62129]) ([shelly docs])
+- Fix Non-thread-safe operation in homekit light events ([@bdraco] - [#62147]) ([homekit docs])
+- Fix Non-thread-safe operation in logbook ([@bdraco] - [#62148]) ([logbook docs])
+- Bump google-nest-sdm to 0.4.9 ([@allenporter] - [#62160]) ([nest docs])
+- Add guard in call to activate_scene in Hue ([@marcelveldt] - [#62177]) ([hue docs])
+- Fix threading error in scripts with repeat or choose actions ([@emontnemery] - [#62168])
+- Fix threading error in zha ([@emontnemery] - [#62170]) ([zha docs])
+
+[#59899]: https://github.com/home-assistant/core/pull/59899
+[#61416]: https://github.com/home-assistant/core/pull/61416
+[#61632]: https://github.com/home-assistant/core/pull/61632
+[#61696]: https://github.com/home-assistant/core/pull/61696
+[#61842]: https://github.com/home-assistant/core/pull/61842
+[#61974]: https://github.com/home-assistant/core/pull/61974
+[#62014]: https://github.com/home-assistant/core/pull/62014
+[#62017]: https://github.com/home-assistant/core/pull/62017
+[#62089]: https://github.com/home-assistant/core/pull/62089
+[#62106]: https://github.com/home-assistant/core/pull/62106
+[#62129]: https://github.com/home-assistant/core/pull/62129
+[#62147]: https://github.com/home-assistant/core/pull/62147
+[#62148]: https://github.com/home-assistant/core/pull/62148
+[#62160]: https://github.com/home-assistant/core/pull/62160
+[#62168]: https://github.com/home-assistant/core/pull/62168
+[#62170]: https://github.com/home-assistant/core/pull/62170
+[#62177]: https://github.com/home-assistant/core/pull/62177
+[@DeerMaximum]: https://github.com/DeerMaximum
+[@ViViDboarder]: https://github.com/ViViDboarder
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@eavanvalkenburg]: https://github.com/eavanvalkenburg
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@marcelveldt]: https://github.com/marcelveldt
+[@marvin-w]: https://github.com/marvin-w
+[@sindudas]: https://github.com/sindudas
+[brunt docs]: /integrations/brunt/
+[ebusd docs]: /integrations/ebusd/
+[flux_led docs]: /integrations/flux_led/
+[homekit docs]: /integrations/homekit/
+[hue docs]: /integrations/hue/
+[knx docs]: /integrations/knx/
+[logbook docs]: /integrations/logbook/
+[nest docs]: /integrations/nest/
+[nextbus docs]: /integrations/nextbus/
+[onewire docs]: /integrations/onewire/
+[shelly docs]: /integrations/shelly/
+[template docs]: /integrations/template/
+[vallox docs]: /integrations/vallox/
+[zha docs]: /integrations/zha/
+
+## Release 2021.12.4 - December 20
+
+- Honeywell unique id fix ([@rdfurman] - [#59393]) ([honeywell docs])
+- Add vicare strings ([@oischinger] - [#61593]) ([vicare docs])
+- Fix "vevent" KeyError in caldav component ([@jkuettner] - [#61718]) ([caldav docs])
+- Silently retry Fronius inverter endpoint 2 times ([@farmio] - [#61826]) ([fronius docs])
+- Avoid setting nexia humidity to the same value since it causes the api to fail ([@bdraco] - [#61843]) ([nexia docs])
+- Force Lyric token refresh on first authentication failure ([@timmo001] - [#62100]) ([lyric docs])
+- Bump pydexcom to 0.2.2 ([@gagebenne] - [#62207]) ([dexcom docs])
+- Fix spurious RainMachine config entry reload ([@bachya] - [#62215]) ([rainmachine docs])
+- Fix bug in which SimpliSafe websocket won't reconnect on error ([@bachya] - [#62241]) ([simplisafe docs])
+- bump pynetgear to 0.8.0 ([@starkillerOG] - [#62261]) ([netgear docs])
+- Fix logging for Shelly climate platform ([@chemelli74] - [#62264]) ([shelly docs])
+- Upgrade tailscale to 0.1.6 ([@frenck] - [#62267]) ([tailscale docs])
+- Fix fitbit no SSL URL handling ([@MartinHjelmare] - [#62270]) ([fitbit docs])
+- Fix Non-thread-safe operation in rflink binary_sensor ([@bdraco] - [#62286]) ([rflink docs])
+- Fix Non-thread-safe operation in zwave node_added ([@bdraco] - [#62287]) ([zwave docs])
+- Bump flux_led to 0.27.8 to fix discovery of older devices ([@bdraco] - [#62292]) ([flux_led docs])
+- Bump async-upnp-client to 0.23.0 ([@Flameeyes] - [#62223]) ([upnp docs]) ([yeelight docs]) ([dlna_dmr docs]) ([ssdp docs])
+- Update async-upnp-client library to 0.23.1 ([@chishm] - [#62298]) ([upnp docs]) ([yeelight docs]) ([dlna_dmr docs]) ([ssdp docs])
+- Bump ring to 0.7.2 ([@balloob] - [#62299]) ([ring docs])
+- Fix missing brightness for Velbus entities ([@wlcrs] - [#62314]) ([velbus docs])
+- Fix velbus climate current temp ([@Cereal2nd] - [#62329]) ([velbus docs])
+- Ensure existing SimpliSafe websocket tasks are cancelled appropriately ([@bachya] - [#62347]) ([simplisafe docs])
+- Bump pywemo==0.7.0 ([@esev] - [#62360]) ([wemo docs])
+- Bump voluptuous_serialize to 2.5.0 ([@balloob] - [#62363])
+- Don't use the homeassistant media app when casting media ([@emontnemery] - [#62385]) ([cast docs])
+- Bump brunt to 1.1.0 ([@eavanvalkenburg] - [#62386]) ([brunt docs])
+- Update frontend to 20211220.0 ([@bramkragten] - [#62389]) ([frontend docs])
+- Bump pychromecast to 10.2.2 ([@emontnemery] - [#62390]) ([cast docs])
+- Update xknx to 0.18.14 ([@farmio] - [#62411]) ([knx docs])
+- Invalidate CI cache when bumping dependencies, part 2 ([@frenck] - [#62412])
+- Invalidate CI cache when bumping dependencies ([@frenck] - [#62394])
+- Make it possible to turn on audio only google cast devices ([@emontnemery] - [#62420]) ([cast docs])
+- Bump bimmer_connected to 0.8.7 ([@rikroe] - [#62435]) ([bmw_connected_drive docs])
+- bump aiohue to 3.0.7 ([@marcelveldt] - [#62444]) ([hue docs])
+- Change Hue availability blacklist logic a bit ([@marcelveldt] - [#62446]) ([hue docs])
+
+[#59393]: https://github.com/home-assistant/core/pull/59393
+[#61593]: https://github.com/home-assistant/core/pull/61593
+[#61718]: https://github.com/home-assistant/core/pull/61718
+[#61826]: https://github.com/home-assistant/core/pull/61826
+[#61843]: https://github.com/home-assistant/core/pull/61843
+[#62100]: https://github.com/home-assistant/core/pull/62100
+[#62207]: https://github.com/home-assistant/core/pull/62207
+[#62215]: https://github.com/home-assistant/core/pull/62215
+[#62223]: https://github.com/home-assistant/core/pull/62223
+[#62241]: https://github.com/home-assistant/core/pull/62241
+[#62261]: https://github.com/home-assistant/core/pull/62261
+[#62264]: https://github.com/home-assistant/core/pull/62264
+[#62267]: https://github.com/home-assistant/core/pull/62267
+[#62270]: https://github.com/home-assistant/core/pull/62270
+[#62286]: https://github.com/home-assistant/core/pull/62286
+[#62287]: https://github.com/home-assistant/core/pull/62287
+[#62292]: https://github.com/home-assistant/core/pull/62292
+[#62298]: https://github.com/home-assistant/core/pull/62298
+[#62299]: https://github.com/home-assistant/core/pull/62299
+[#62314]: https://github.com/home-assistant/core/pull/62314
+[#62329]: https://github.com/home-assistant/core/pull/62329
+[#62347]: https://github.com/home-assistant/core/pull/62347
+[#62360]: https://github.com/home-assistant/core/pull/62360
+[#62363]: https://github.com/home-assistant/core/pull/62363
+[#62385]: https://github.com/home-assistant/core/pull/62385
+[#62386]: https://github.com/home-assistant/core/pull/62386
+[#62389]: https://github.com/home-assistant/core/pull/62389
+[#62390]: https://github.com/home-assistant/core/pull/62390
+[#62394]: https://github.com/home-assistant/core/pull/62394
+[#62411]: https://github.com/home-assistant/core/pull/62411
+[#62412]: https://github.com/home-assistant/core/pull/62412
+[#62420]: https://github.com/home-assistant/core/pull/62420
+[#62435]: https://github.com/home-assistant/core/pull/62435
+[#62444]: https://github.com/home-assistant/core/pull/62444
+[#62446]: https://github.com/home-assistant/core/pull/62446
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@Flameeyes]: https://github.com/Flameeyes
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@chishm]: https://github.com/chishm
+[@eavanvalkenburg]: https://github.com/eavanvalkenburg
+[@emontnemery]: https://github.com/emontnemery
+[@esev]: https://github.com/esev
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gagebenne]: https://github.com/gagebenne
+[@jkuettner]: https://github.com/jkuettner
+[@marcelveldt]: https://github.com/marcelveldt
+[@oischinger]: https://github.com/oischinger
+[@rdfurman]: https://github.com/rdfurman
+[@rikroe]: https://github.com/rikroe
+[@starkillerOG]: https://github.com/starkillerOG
+[@timmo001]: https://github.com/timmo001
+[@wlcrs]: https://github.com/wlcrs
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[brunt docs]: /integrations/brunt/
+[caldav docs]: /integrations/caldav/
+[cast docs]: /integrations/cast/
+[dexcom docs]: /integrations/dexcom/
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[fitbit docs]: /integrations/fitbit/
+[flux_led docs]: /integrations/flux_led/
+[fronius docs]: /integrations/fronius/
+[frontend docs]: /integrations/frontend/
+[honeywell docs]: /integrations/honeywell/
+[hue docs]: /integrations/hue/
+[knx docs]: /integrations/knx/
+[lyric docs]: /integrations/lyric/
+[netgear docs]: /integrations/netgear/
+[nexia docs]: /integrations/nexia/
+[rainmachine docs]: /integrations/rainmachine/
+[rflink docs]: /integrations/rflink/
+[ring docs]: /integrations/ring/
+[shelly docs]: /integrations/shelly/
+[simplisafe docs]: /integrations/simplisafe/
+[ssdp docs]: /integrations/ssdp/
+[tailscale docs]: /integrations/tailscale/
+[upnp docs]: /integrations/upnp/
+[velbus docs]: /integrations/velbus/
+[vicare docs]: /integrations/vicare/
+[wemo docs]: /integrations/wemo/
+[yeelight docs]: /integrations/yeelight/
+[zwave docs]: /integrations/zwave/
+
+## Release 2021.12.5 - December 23
+
+- Require RPi.GPIO and bump adafruit-circuitpython-dht to 3.7.0 in dht ([@TheGardenMonkey] - [#61751]) ([dht docs])
+- Fix deconz light service parameter handling ([@schmyd] - [#62128]) ([deconz docs])
+- Fix broken Vallox integration in 2021.12 ([@andre-richter] - [#62308]) ([vallox docs])
+- Fix Sonos updating when entities are disabled ([@jjlawren] - [#62456]) ([sonos docs])
+- Fix repetier crash when printer is offline ([@ShadowBr0ther] - [#62490]) ([repetier docs])
+- Bump soco to 0.25.1 ([@jjlawren] - [#62523]) ([sonos docs])
+- Update xknx to version 0.18.15 ([@marvin-w] - [#62557]) ([knx docs])
+- Bump pytile to 2021.12.0 ([@bachya] - [#62559]) ([tile docs])
+- Bump flux_led to 0.27.12 to fix legacy cct controllers ([@bdraco] - [#62573]) ([flux_led docs])
+- Fix missing object assignment for Fritz ([@chemelli74] - [#62575]) ([fritz docs])
+- Fix timezone trafikverket_train ([@gjohansson-ST] - [#62582]) ([trafikverket_train docs])
+- Improve google cast state reporting ([@emontnemery] - [#62587]) ([cast docs])
+- Fix pvpc_hourly_pricing by changing data source and modernise integration ([@azogue] - [#62591]) ([pvpc_hourly_pricing docs])
+- Bump flux_led to 0.27.13 to fix discovery of legacy devices ([@bdraco] - [#62613]) ([flux_led docs])
+- Fix missing exception handling from upstream lib in Fritz ([@chemelli74] - [#62617]) ([fritz docs])
+- Round Hue transition to steps of 100ms ([@krys1976] - [#62619]) ([hue docs])
+- Bump aiohue to 3.0.8 ([@balloob] - [#62651]) ([hue docs])
+- Bump aiohue to 3.0.9 ([@marcelveldt] - [#62658]) ([hue docs])
+- Bump aiohue to 3.0.10 ([@marcelveldt] - [#62664]) ([hue docs])
+- Adjust Hue retry logic to changes in the aiohue library ([@marcelveldt] - [#62665]) ([hue docs])
+- Fix Hue button events ([@marcelveldt] - [#62669]) ([hue docs])
+- Never use availability workaround for certified Hue devices ([@marcelveldt] - [#62676]) ([hue docs])
+- Fix Hue docstring ([@marcelveldt] - [#62684]) ([hue docs])
+
+[#61751]: https://github.com/home-assistant/core/pull/61751
+[#62128]: https://github.com/home-assistant/core/pull/62128
+[#62308]: https://github.com/home-assistant/core/pull/62308
+[#62456]: https://github.com/home-assistant/core/pull/62456
+[#62490]: https://github.com/home-assistant/core/pull/62490
+[#62523]: https://github.com/home-assistant/core/pull/62523
+[#62557]: https://github.com/home-assistant/core/pull/62557
+[#62559]: https://github.com/home-assistant/core/pull/62559
+[#62573]: https://github.com/home-assistant/core/pull/62573
+[#62575]: https://github.com/home-assistant/core/pull/62575
+[#62582]: https://github.com/home-assistant/core/pull/62582
+[#62587]: https://github.com/home-assistant/core/pull/62587
+[#62591]: https://github.com/home-assistant/core/pull/62591
+[#62613]: https://github.com/home-assistant/core/pull/62613
+[#62617]: https://github.com/home-assistant/core/pull/62617
+[#62619]: https://github.com/home-assistant/core/pull/62619
+[#62651]: https://github.com/home-assistant/core/pull/62651
+[#62658]: https://github.com/home-assistant/core/pull/62658
+[#62664]: https://github.com/home-assistant/core/pull/62664
+[#62665]: https://github.com/home-assistant/core/pull/62665
+[#62669]: https://github.com/home-assistant/core/pull/62669
+[#62676]: https://github.com/home-assistant/core/pull/62676
+[#62684]: https://github.com/home-assistant/core/pull/62684
+[@ShadowBr0ther]: https://github.com/ShadowBr0ther
+[@TheGardenMonkey]: https://github.com/TheGardenMonkey
+[@andre-richter]: https://github.com/andre-richter
+[@azogue]: https://github.com/azogue
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@emontnemery]: https://github.com/emontnemery
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jjlawren]: https://github.com/jjlawren
+[@krys1976]: https://github.com/krys1976
+[@marcelveldt]: https://github.com/marcelveldt
+[@marvin-w]: https://github.com/marvin-w
+[@schmyd]: https://github.com/schmyd
+[cast docs]: /integrations/cast/
+[deconz docs]: /integrations/deconz/
+[dht docs]: /integrations/dht/
+[flux_led docs]: /integrations/flux_led/
+[fritz docs]: /integrations/fritz/
+[hue docs]: /integrations/hue/
+[knx docs]: /integrations/knx/
+[pvpc_hourly_pricing docs]: /integrations/pvpc_hourly_pricing/
+[repetier docs]: /integrations/repetier/
+[sonos docs]: /integrations/sonos/
+[tile docs]: /integrations/tile/
+[trafikverket_train docs]: /integrations/trafikverket_train/
+[vallox docs]: /integrations/vallox/
+
+## Release 2021.12.6 - December 27
+
+- Fix picnic sensor time unit ([@corneyl] - [#62437]) ([picnic docs])
+- Bump soco to 0.25.2 ([@jjlawren] - [#62691]) ([sonos docs])
+- Bump zeroconf to 0.38.1 ([@bdraco] - [#62720]) ([zeroconf docs])
+- Fix TypeError of vacuum battery level None ([@htmltiger] - [#62722]) ([google_assistant docs])
+- Add return for certified devices to not apply availability check ([@flfue] - [#62728]) ([hue docs])
+- Bump roombapy to 1.6.4 ([@freekode] - [#62741]) ([roomba docs])
+- Add missing entity category for gen2 devices ([@chemelli74] - [#62812]) ([shelly docs])
+- Upgrade youless library to version 0.16 ([@gjong] - [#62837]) ([youless docs])
+- Update tuya-iot-py-sdk to 0.6.6 ([@frenck] - [#62858]) ([tuya docs])
+- Fix keyerror when no previous Picnic orders exist ([@corneyl] - [#62870]) ([picnic docs])
+- Update frontend to 20211227.0 ([@bramkragten] - [#62874]) ([frontend docs])
+
+[#62437]: https://github.com/home-assistant/core/pull/62437
+[#62691]: https://github.com/home-assistant/core/pull/62691
+[#62720]: https://github.com/home-assistant/core/pull/62720
+[#62722]: https://github.com/home-assistant/core/pull/62722
+[#62728]: https://github.com/home-assistant/core/pull/62728
+[#62741]: https://github.com/home-assistant/core/pull/62741
+[#62812]: https://github.com/home-assistant/core/pull/62812
+[#62837]: https://github.com/home-assistant/core/pull/62837
+[#62858]: https://github.com/home-assistant/core/pull/62858
+[#62870]: https://github.com/home-assistant/core/pull/62870
+[#62874]: https://github.com/home-assistant/core/pull/62874
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@corneyl]: https://github.com/corneyl
+[@flfue]: https://github.com/flfue
+[@freekode]: https://github.com/freekode
+[@frenck]: https://github.com/frenck
+[@gjong]: https://github.com/gjong
+[@htmltiger]: https://github.com/htmltiger
+[@jjlawren]: https://github.com/jjlawren
+[frontend docs]: /integrations/frontend/
+[google_assistant docs]: /integrations/google_assistant/
+[hue docs]: /integrations/hue/
+[picnic docs]: /integrations/picnic/
+[roomba docs]: /integrations/roomba/
+[shelly docs]: /integrations/shelly/
+[sonos docs]: /integrations/sonos/
+[tuya docs]: /integrations/tuya/
+[youless docs]: /integrations/youless/
+[zeroconf docs]: /integrations/zeroconf/
+
+## Release 2021.12.7 - December 29
+
+- Fix unique_id of nuki config entry ([@pree] - [#62840]) ([nuki docs])
+- Bump python-smarttub dependency to 0.0.29 ([@mdz] - [#62968]) ([smarttub docs])
+- Bump flux_led to 0.27.21 ([@bdraco] - [#62971]) ([flux_led docs])
+- Send commands to Hue grouped lights all at once ([@marcelveldt] - [#62973]) ([hue docs])
+- Remove duplicate filter for Hue button events ([@marcelveldt] - [#62974]) ([hue docs])
+- Update frontend to 20211229.0 ([@bramkragten] - [#62981]) ([frontend docs])
+- Bump aiohue to 3.0.11 ([@marcelveldt] - [#62983]) ([hue docs])
+- Gracefully handle unknown HVAC mode in Tuya ([@frenck] - [#62984]) ([tuya docs])
+- Fix short flash effect in Hue integration ([@marcelveldt] - [#62988]) ([hue docs])
+- Fix incorrect unit of measurement access in Tuya ([@frenck] - [#62989]) ([tuya docs])
+- Fix Tuya data type information in lights ([@frenck] - [#62993]) ([tuya docs])
+- Fix Tuya data type information in climate ([@frenck] - [#62994]) ([tuya docs])
+- Gracefully handle missing preset mode in Tuya fan ([@frenck] - [#62996]) ([tuya docs])
+- Normalize Hue colortemp if value outside of bounds ([@marcelveldt] - [#62998]) ([hue docs])
+- Hotfix for Nuki integration tests ([@frenck] - [#63007]) ([nuki docs])
+- Fix night mode switch state on Sonos ([@jjlawren] - [#63009]) ([sonos docs])
+- Add missing migration for Sonos speech enhancement switch entities ([@jjlawren] - [#63010]) ([sonos docs])
+
+[#62840]: https://github.com/home-assistant/core/pull/62840
+[#62968]: https://github.com/home-assistant/core/pull/62968
+[#62971]: https://github.com/home-assistant/core/pull/62971
+[#62973]: https://github.com/home-assistant/core/pull/62973
+[#62974]: https://github.com/home-assistant/core/pull/62974
+[#62981]: https://github.com/home-assistant/core/pull/62981
+[#62983]: https://github.com/home-assistant/core/pull/62983
+[#62984]: https://github.com/home-assistant/core/pull/62984
+[#62988]: https://github.com/home-assistant/core/pull/62988
+[#62989]: https://github.com/home-assistant/core/pull/62989
+[#62993]: https://github.com/home-assistant/core/pull/62993
+[#62994]: https://github.com/home-assistant/core/pull/62994
+[#62996]: https://github.com/home-assistant/core/pull/62996
+[#62998]: https://github.com/home-assistant/core/pull/62998
+[#63007]: https://github.com/home-assistant/core/pull/63007
+[#63009]: https://github.com/home-assistant/core/pull/63009
+[#63010]: https://github.com/home-assistant/core/pull/63010
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@frenck]: https://github.com/frenck
+[@jjlawren]: https://github.com/jjlawren
+[@marcelveldt]: https://github.com/marcelveldt
+[@mdz]: https://github.com/mdz
+[@pree]: https://github.com/pree
+[flux_led docs]: /integrations/flux_led/
+[frontend docs]: /integrations/frontend/
+[hue docs]: /integrations/hue/
+[nuki docs]: /integrations/nuki/
+[smarttub docs]: /integrations/smarttub/
+[sonos docs]: /integrations/sonos/
+[tuya docs]: /integrations/tuya/
+
+## Release 2021.12.8 - January 4
+
+- Update version of iZone library to add some bug fixes ([@Swamp-Ig] - [#61548]) ([izone docs])
+- Fix Tuya vacuum display battery level ([@dougiteixeira] - [#61643]) ([tuya docs])
+- Update no_ip URL ([@fabaff] - [#62477]) ([no_ip docs])
+- Do not create a number LED brightness entity for Xiaomi Miio devices that do not support it ([@bieniu] - [#62819]) ([xiaomi_miio docs])
+- Fix local_ip handling in KNX options flow ([@marvin-w] - [#62969]) ([knx docs])
+- Fix reporting correct colormode for 3rd party Hue lights ([@marcelveldt] - [#63015]) ([hue docs])
+- Hue allow per-device availability override ([@marcelveldt] - [#63025]) ([hue docs])
+- Bump pyatmo to 6.2.1 ([@cgtobi] - [#62291]) ([netatmo docs])
+- Bump pyatmo to v6.2.2 ([@cgtobi] - [#63053]) ([netatmo docs])
+- Ignore serial number "blank" from NUT ([@ollo69] - [#63066]) ([nut docs])
+- Bump greeclimate to 1.0.1 ([@cmroche] - [#63092]) ([gree docs])
+- Fix Shelly error fetching device triggers for sleeping devices ([@thecode] - [#63103]) ([shelly docs])
+- Fix systemmonitor CPU temp for Armbian on PineA64 ([@ktaragorn] - [#63111]) ([systemmonitor docs])
+- Fix CO/CO2 sensors mixup in Google Assistant ([@ryborg] - [#63152]) ([google_assistant docs])
+- Bump flux_led to 0.27.28 to fix missing white channel on SK6812RGBW strips ([@bdraco] - [#63154]) ([flux_led docs])
+- Add default Fronius logger model for v0 API ([@trdischat] - [#63184]) ([fronius docs])
+- Prevent doorbird integration from overloading the device on startup ([@bdraco] - [#63253]) ([doorbird docs])
+- Bump flux_led to 0.27.32 to fix incorrect strip order on A2 devices ([@bdraco] - [#63262]) ([flux_led docs])
+- Sisyphus: Fix bad super call ([@balloob] - [#63327]) ([sisyphus docs])
+- Fix status type in Shelly climate platform ([@bieniu] - [#63347]) ([shelly docs])
+- Bump micloud to 0.5 ([@starkillerOG] - [#63348]) ([xiaomi_miio docs])
+- Work around ingress glitch with 304 responses ([@masto] - [#63355]) ([hassio docs])
+- Fix Hue grouped light color_mode calculation ([@marcelveldt] - [#63374]) ([hue docs])
+- Fix missing timezone in GTFS timestamp sensor ([@frenck] - [#63401]) ([gtfs docs])
+- Handle missing monitored users in Plex options ([#63411]) [@jjlawren]
+- Handle no enabled ipv4 addresses in the network integration ([#63416]) [@bdraco]
+
+[#63411]: https://github.com/home-assistant/core/pull/63411
+[#63416]: https://github.com/home-assistant/core/pull/63416
+[#61548]: https://github.com/home-assistant/core/pull/61548
+[#61643]: https://github.com/home-assistant/core/pull/61643
+[#62291]: https://github.com/home-assistant/core/pull/62291
+[#62477]: https://github.com/home-assistant/core/pull/62477
+[#62819]: https://github.com/home-assistant/core/pull/62819
+[#62969]: https://github.com/home-assistant/core/pull/62969
+[#63015]: https://github.com/home-assistant/core/pull/63015
+[#63025]: https://github.com/home-assistant/core/pull/63025
+[#63053]: https://github.com/home-assistant/core/pull/63053
+[#63066]: https://github.com/home-assistant/core/pull/63066
+[#63092]: https://github.com/home-assistant/core/pull/63092
+[#63103]: https://github.com/home-assistant/core/pull/63103
+[#63111]: https://github.com/home-assistant/core/pull/63111
+[#63152]: https://github.com/home-assistant/core/pull/63152
+[#63154]: https://github.com/home-assistant/core/pull/63154
+[#63184]: https://github.com/home-assistant/core/pull/63184
+[#63253]: https://github.com/home-assistant/core/pull/63253
+[#63262]: https://github.com/home-assistant/core/pull/63262
+[#63327]: https://github.com/home-assistant/core/pull/63327
+[#63347]: https://github.com/home-assistant/core/pull/63347
+[#63348]: https://github.com/home-assistant/core/pull/63348
+[#63355]: https://github.com/home-assistant/core/pull/63355
+[#63374]: https://github.com/home-assistant/core/pull/63374
+[#63401]: https://github.com/home-assistant/core/pull/63401
+[@Swamp-Ig]: https://github.com/Swamp-Ig
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@cgtobi]: https://github.com/cgtobi
+[@cmroche]: https://github.com/cmroche
+[@dougiteixeira]: https://github.com/dougiteixeira
+[@fabaff]: https://github.com/fabaff
+[@frenck]: https://github.com/frenck
+[@ktaragorn]: https://github.com/ktaragorn
+[@marcelveldt]: https://github.com/marcelveldt
+[@marvin-w]: https://github.com/marvin-w
+[@masto]: https://github.com/masto
+[@ollo69]: https://github.com/ollo69
+[@ryborg]: https://github.com/ryborg
+[@starkillerOG]: https://github.com/starkillerOG
+[@thecode]: https://github.com/thecode
+[@trdischat]: https://github.com/trdischat
+[doorbird docs]: /integrations/doorbird/
+[flux_led docs]: /integrations/flux_led/
+[fronius docs]: /integrations/fronius/
+[google_assistant docs]: /integrations/google_assistant/
+[gree docs]: /integrations/gree/
+[gtfs docs]: /integrations/gtfs/
+[hassio docs]: /integrations/hassio/
+[hue docs]: /integrations/hue/
+[izone docs]: /integrations/izone/
+[knx docs]: /integrations/knx/
+[netatmo docs]: /integrations/netatmo/
+[no_ip docs]: /integrations/no_ip/
+[nut docs]: /integrations/nut/
+[shelly docs]: /integrations/shelly/
+[sisyphus docs]: /integrations/sisyphus/
+[systemmonitor docs]: /integrations/systemmonitor/
+[tuya docs]: /integrations/tuya/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+
+## Release 2021.12.9 - January 10
+
+- Bump pychromecast to 10.2.3 ([@emontnemery] - [#63429]) ([cast docs])
+- Bump flux_led to 0.27.40 to fix SK6812RGBW white level reporting ([@bdraco] - [#63435]) ([flux_led docs])
+- Fix incorrect access to entity registry in Xiaomi Miio ([@frenck] - [#63446]) ([xiaomi_miio docs])
+- Pickup screenlogic codeowner ([@bdraco] - [#61477]) ([screenlogic docs])
+- Bump screenlogicpy ([@dieselrabbit] - [#63533]) ([screenlogic docs])
+- Bump soco to 0.25.3 ([@jjlawren] - [#63548]) ([sonos docs])
+- Fix KeyError during call to homekit.unpair ([@bdraco] - [#63627]) ([homekit docs])
+- Ensure selected entity is pre-selected in homekit options flow ([@bdraco] - [#63628]) ([homekit docs])
+- Bump flux_led to 0.27.41 ([@bdraco] - [#63638]) ([flux_led docs])
+- Add default mode 'auto' for tradfri starkvind air purifier on turn on ([@leahoswald] - [#63641]) ([tradfri docs])
+- Bump flux_led to 0.27.42 ([@bdraco] - [#63651]) ([flux_led docs])
+- Split august motion and image capture binary sensors ([@bdraco] - [#62154]) ([august docs])
+- Bump yalexs to 1.1.16 ([@bdraco] - [#62700]) ([august docs])
+- Fix august locks failing to lock/unlock ([@bdraco] - [#63652]) ([august docs])
+- Switchbot Set initial state for switch ([@RenierM26] - [#63654]) ([switchbot docs])
+- Fix Tuya climate c_f DP not being a string ([@frenck] - [#63680]) ([tuya docs])
+- Fix Netgear used method version ([@starkillerOG] - [#63686]) ([netgear docs])
+- Bump flux_led to 0.27.44 to fix CCT ceiling lights ([@bdraco] - [#63712]) ([flux_led docs])
+- Bump PySwitchbot to 0.13.2 ([@RenierM26] - [#63713]) ([switchbot docs])
+- Bump WazeRouteCalculator to 0.14 ([@k-korn] - [#63718]) ([waze_travel_time docs])
+- Fix zwave_js device actions ([@raman325] - [#63769]) ([zwave_js docs])
+- Add client metadata to cloud register ([@ludeeus] - [#63794]) ([cloud docs])
+- Support Tuya strip lights with correct values for saturation and brightness ([@Knodd] - [#63812]) ([tuya docs])
+- Bump flux_led to 0.27.45 to fix missing controls on ZJ21410 models ([@bdraco] - [#63854]) ([flux_led docs])
+- Bump aioharmony to 0.2.9 ([@bdraco] - [#63858]) ([harmony docs])
+- Bump frontend to 20211229.1 ([@balloob] - [#63866]) ([frontend docs])
+
+[#61477]: https://github.com/home-assistant/core/pull/61477
+[#62154]: https://github.com/home-assistant/core/pull/62154
+[#62700]: https://github.com/home-assistant/core/pull/62700
+[#63429]: https://github.com/home-assistant/core/pull/63429
+[#63435]: https://github.com/home-assistant/core/pull/63435
+[#63446]: https://github.com/home-assistant/core/pull/63446
+[#63533]: https://github.com/home-assistant/core/pull/63533
+[#63548]: https://github.com/home-assistant/core/pull/63548
+[#63627]: https://github.com/home-assistant/core/pull/63627
+[#63628]: https://github.com/home-assistant/core/pull/63628
+[#63638]: https://github.com/home-assistant/core/pull/63638
+[#63641]: https://github.com/home-assistant/core/pull/63641
+[#63651]: https://github.com/home-assistant/core/pull/63651
+[#63652]: https://github.com/home-assistant/core/pull/63652
+[#63654]: https://github.com/home-assistant/core/pull/63654
+[#63680]: https://github.com/home-assistant/core/pull/63680
+[#63686]: https://github.com/home-assistant/core/pull/63686
+[#63712]: https://github.com/home-assistant/core/pull/63712
+[#63713]: https://github.com/home-assistant/core/pull/63713
+[#63718]: https://github.com/home-assistant/core/pull/63718
+[#63769]: https://github.com/home-assistant/core/pull/63769
+[#63794]: https://github.com/home-assistant/core/pull/63794
+[#63812]: https://github.com/home-assistant/core/pull/63812
+[#63854]: https://github.com/home-assistant/core/pull/63854
+[#63858]: https://github.com/home-assistant/core/pull/63858
+[#63866]: https://github.com/home-assistant/core/pull/63866
+[@Knodd]: https://github.com/Knodd
+[@RenierM26]: https://github.com/RenierM26
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@dieselrabbit]: https://github.com/dieselrabbit
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jjlawren]: https://github.com/jjlawren
+[@k-korn]: https://github.com/k-korn
+[@leahoswald]: https://github.com/leahoswald
+[@ludeeus]: https://github.com/ludeeus
+[@raman325]: https://github.com/raman325
+[@starkillerOG]: https://github.com/starkillerOG
+[august docs]: /integrations/august/
+[cast docs]: /integrations/cast/
+[cloud docs]: /integrations/cloud/
+[flux_led docs]: /integrations/flux_led/
+[frontend docs]: /integrations/frontend/
+[harmony docs]: /integrations/harmony/
+[homekit docs]: /integrations/homekit/
+[netgear docs]: /integrations/netgear/
+[screenlogic docs]: /integrations/screenlogic/
+[sonos docs]: /integrations/sonos/
+[switchbot docs]: /integrations/switchbot/
+[tradfri docs]: /integrations/tradfri/
+[tuya docs]: /integrations/tuya/
+[waze_travel_time docs]: /integrations/waze_travel_time/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zwave_js docs]: /integrations/zwave_js/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
@@ -328,14 +1005,10 @@ Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 
-{% details "Customization UI" %}
+{% details "customize.yaml UI (customization)" %}
 
-The customization UI/frontend has been removed. The YAML configuration
-for this is recommended and remains available.
-
-In case you used this to change how, for example, a cover or door contact
-entity is shown, you can now change that by editing the entity in the UI.
-For these cases, customizing the `device_class` is no longer needed.
+The customize.yaml UI (customization) has been removed. The YAML configuration
+for this is recommended and remains available. To customize entities, use the entity settings available via the icon in the top right of the entity "more info" dialog (when clicking on an entity). Entity settings now also allows customizing `device_class` for certain `binary_sensor` and `cover` cases.
 
 A small explanation why it has been removed:
 
@@ -398,7 +1071,7 @@ so it has been changed to `AUTO` instead.
 
 The following services/sensors have been removed due to not being available
 using the My BMW API:
- 
+
 - `alltrips_*`
 - `lasttrips_*`
 - `chargingconnectiontype`
@@ -498,7 +1171,10 @@ To enable any (new) light entities for Hue groups:
 Open settings --> integrations --> Hue --> Entities --> Click one of the
 disabled entities and enable it.
 
-Existing Hue group lights will be migrated as enabled entities.
+Existing Hue group lights for rooms/zones will be migrated as enabled entities.
+
+Legacy Hue groups of type `LightGroup` (which are not visible in the official Hue
+app) will no longer be supported!
 
 **Entities for Hue scenes**
 
@@ -776,6 +1452,26 @@ dedicated `number` entities.
 
 {% enddetails %}
 
+{% details "Statistics" %}
+
+All statistical characteristics were removed from sensor attributes and are
+now selectable through `state_characteristic` as the state of the sensor.
+The parameter `state_characteristic` will become mandatory in a future release.
+
+Please adapt the configuration of your statistics sensor(s) and expose the
+characteristic you are interested in directly through `state_characteristic`.
+Existing template sensors to access individual characteristics can be removed.
+In case you are interested in multiple characteristics, you need to define
+multiple statistics sensors.
+
+Many characteristics were renamed and additional ones were added, including
+a few for binary source sensors. Consider opening a feature request if your
+use case is not directly covered.
+
+([@ThomDietrich] - [#59867]) ([statistics docs])
+
+{% enddetails %}
+
 {% details "Templates: `timestamp_local` and `timestamp_utc`" %}
 
 The `timestamp_local` and `timestamp_utc` template functions/filters have
@@ -1035,7 +1731,7 @@ The value of `ATTR_HA_MATCHING_DOMAINS` constant has been updated to replace the
 {% details "MQTT/DHCP/ZeroConf/USB/SSDP Discovery" %}
 
 MQTT, DHCP, ZerConf, USB and SSDP discovery now provides a dataclass
-object, instead of using a dictionary. 
+object, instead of using a dictionary.
 
 The dataclass objects have implemented dictionary access for temporary
 backwards compatibility during this deprecation period.

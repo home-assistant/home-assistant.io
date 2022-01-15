@@ -487,16 +487,16 @@ template:
   - binary_sensor:
       - name: "Homematic is sending updates"
         state: >-
-          {{ now() - as_timestamp(state_attr('sensor.office_voltage', 'last_changed'), 601) < 600 }}
+          {{ (now() - states.sensor.office_voltage.last_changed).seconds < 600 }}
 
 automation:
   - alias: "Homematic Reconnect"
     trigger:
       platform: state
-      entity_id: binary_sensor.homematic_up
+      entity_id: binary_sensor.homematic_is_sending_updates
       to: "off"
     action:
-      # Reconnect, if sensor has not been updated for over 3 hours
+      # Reconnect, if sensor has not been updated for over 10 minutes
       service: homematic.reconnect
 ```
 

@@ -61,7 +61,7 @@ This is a separate account from the one you made for the app. You cannot log in 
 1. Log in to the [Tuya IoT Platform](https://iot.tuya.com/).
 2. In the left navigation bar, click `Cloud` > `Development`. 
 3. On the page that appears, click `Create Cloud Project`.
-4. In the `Create Cloud Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in.
+4. In the `Create Cloud Project` dialog box, configure `Project Name`, `Description`, `Industry`, and `Data Center`. For the `Development Method` field, select `Smart Home` from the dropdown list. For the `Data Center` field, select the zone you are located in. Refer to the country/data center mapping list [here](https://github.com/tuya/tuya-home-assistant/blob/main/docs/regions_dataCenters.md) to choose the right data center for the country you are in.
   ![](/images/integrations/tuya/image_001.png)
 5. Click `Create` to continue with the project configuration.
 6. In Configuration Wizard, make sure you add `Device Status Notification` API. The list of API should look like this:
@@ -77,7 +77,7 @@ This is a separate account from the one you made for the app. You cannot log in 
   ![](/images/integrations/tuya/image_004.png)
 4. Click `Confirm` in the app.
 5. To confirm that everything worked, navigate to the `All Devices` tab. Here you should be able to find the devices from the app.
-6. If zero devices are imported, try changing the DataCenter.
+6. If zero devices are imported. Try changing the DataCenter and check the account used is the "Home Owner".
 
 ![](/images/integrations/tuya/image_005.png)
 
@@ -100,10 +100,10 @@ Click the created project to enter the `Project Overview` page and get the `Auth
     description: Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/). Find the **Access Secret** under [Authorization Key](#get-authorization-key) on the **Project Overview** tab.
 
   Account:
-    description: Tuya Smart or Smart Life app account.
+    description: Tuya Smart or Smart Life **app** account.
 
   Password:
-    description: The password of your app account.
+    description: The password of your **app** account.
 
 {% endconfiguration_basic %}
 
@@ -118,7 +118,7 @@ Click the created project to enter the `Project Overview` page and get the `Auth
   description: >
     - App account not linked with cloud project: On the [Tuya IoT Platform](https://iot.tuya.com/cloud/), you have linked devices by using Tuya Smart or Smart Life app in your cloud project. For more information, see [Link devices by app account](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx&_source=7a356dd493196a01bb9021b7680a2a45#title-3-Link%20devices%20by%20app%20account).
 
-    - Incorrect username or password: Enter the correct account and password of the Tuya Smart or Smart Life app in the **Account** and **Password** fields. Note that the app account depends on which app (Tuya Smart or Smart Life) you used to link devices on the [Tuya IoT Platform](https://iot.tuya.com/cloud/).
+    - Incorrect username or password: Enter the correct account and password of the Tuya Smart or Smart Life app in the **Account** and **Password** fields (social login, which the Tuya Smart app allows, may not work, and thus should be avoided for use with the Home Assistant integration). Note that the app account depends on which app (Tuya Smart or Smart Life) you used to link devices on the [Tuya IoT Platform](https://iot.tuya.com/cloud/).
 
     - Incorrect country. You must select the region of your account of the Tuya Smart app or Smart Life app.
 
