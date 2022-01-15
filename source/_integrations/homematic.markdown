@@ -469,11 +469,6 @@ lock:
 
 {% endraw %}
 
-Since 2021.12.0 a sensor for the lock status is available. It can be be used as seen in the value template above.
-
-Before 2021.12.0 the same could be achieved with a system variable on the CCU. Use `value_template: "{{ state_attr('homematic.ccu2', 'base_lock_status') }}"` and
-create a program on CCU, which updates the variable with every change of the lock level to `true` for locked and `false` for unlocked.
-
 #### Detecting lost connections
 
 When the connection to your Homematic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your Homematic integrations are still updated properly, in order to detect connection losses. This can be done in several ways through an automation:
