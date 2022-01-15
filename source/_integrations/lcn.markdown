@@ -48,21 +48,62 @@ There is currently support for the following device types within Home Assistant:
 
 </div>
 
-## Configuration
+{% include integrations/config_flow.md %}
+
+## Connection
+
+The connection parameters to the host device (LCN-VISU, LCN-PKE, LCN-PCHK) are configured from the integrations panel.
+
+The options are as follows:
+
+- `Name`: Connection identifier used in ([address configuration (#lcn-addresses)).
+- `IP`: IP address of host device.
+- `Port`: Port of host device (default: 4114).
+- `Username`: User name for authentication.
+- `Password`: Password for authentication.
+- `Segment coupler scan attempts`: Number of segment coupler scans. Increase this number if you have at least one segment coupler in your system.
+- `Dimming mode`: Dimming mode for connected modules. The operation mode is programmed into the LCN modules by the LCN-PRO software and depends on their firmware. If you experience unexpected dimming behavior, the connection is probably in the wrong operation mode. Possible values: _steps50_, _steps200_
+
+## LCN Addresses
+
+LCN hardware devices connected to the LCN bus are called _modules_. LCN modules are addressed by their numeric id in the range (5..254).
+
+Modules can be arranged in _segments_. Segments can be addressed by their numeric id (5..128) or 0 (= no segment exist) or 3 (= target all segments).
+
+LCN Modules within the _same_ segment can be grouped by their group id (5..254) or 3 (= target all groups.)
+
+The LCN integration allows the connection to more than one hardware coupler. In this case, it has to be specified which hardware coupler should be used for addressing the specified module.
+
+Whenever the address of a module or a group has to be specified, it can be addressed using one of the following syntaxes:
+
+Example for modules:
+
+```txt
+connid.s000.m007
+connid.s0.m7
+s0.m7
+0.7
+```
+
+Example for groups:
+
+```txt
+connid.s000.g007
+connid.s0.g7
+s0.g7
+0.g7
+```
+
+Leading zeroes in the segment id or module/group id can be omitted. If the `connection_id` is omitted, it is assumed to be `pchk`. Ensure that your LCN integration's host name is set accordingly.
+
+## Basic Configuration
 
 To use your LCN system in your installation, add the following lines to your `configuration.yaml` file.
-You have to specify at least one IP/port with login credentials for a PCHK host.
+You have to specify at least one IP/port with login credentials for a PCHK host via the integrations page.
 Consider to store your credentials in a [`secrets.yaml`](/docs/configuration/secrets).
 
 ```yaml
 lcn:
-  connections:
-    - name: myhome
-      host: 192.168.2.41
-      port: 4114
-      username: lcn
-      password: lcn
-
   binary_sensors:
     - name: Kitchen window
       address: myhome.s0.m7
@@ -95,7 +136,7 @@ lcn:
       address: myhome.s0.m7
       register: 1
       scene: 4
-      outputs: [output1, output2, relais1, relais3, relais4]
+      outputs: [output1, output2, relay1, relay3, relay4]
       transition: 5
 
   sensors:
@@ -111,43 +152,6 @@ lcn:
 ```
 
 {% configuration %}
-connections:
-  description: List of your connections.
-  required: true
-  type: map
-  keys:
-    host:
-      description: IP address of the LCN-PCHK host.
-      required: true
-      type: string
-    port:
-      description: Port of the LCN-PCHK host.
-      required: true
-      type: integer
-    username:
-      description: Login username for the LCN-PCHK host.
-      required: true
-      type: string
-    password:
-      description: Login password for the LCN-PCHK host.
-      required: true
-      type: string
-    name:
-      description: Optional connection identifier. If omitted, the connections will be named consecutively as _pchk_, _pchk1_, _pchk2_, ...
-      required: false
-      default: pchk
-      type: string
-    sk_num_tries:
-      description: Segment coupler scans. Increase this number if you have at least one segment coupler in your system.
-      required: false
-      default: 0
-      type: integer
-    dim_mode:
-      description: "Dimming mode for connected modules. The operation mode is programmed into the LCN modules by the LCN-PRO software and depends on their firmware. If you experience unexpected dimming behavior, the connection is probably in the wrong operation mode. Possible values: _steps50_, _steps200_"
-      required: false
-      default: steps50
-      type: string
-
 binary_sensors:
   description: List of your binary sensors.
   required: false
@@ -331,38 +335,6 @@ switches:
       type: string
 {% endconfiguration %}
 
-## LCN Addresses
-
-LCN hardware devices connected to the LCN bus are called _modules_. LCN modules are addressed by their numeric id in the range (5..254).
-
-Modules can be arranged in _segments_. Segments can be addressed by their numeric id (5..128) or 0 (= no segment exist) or 3 (= target all segments).
-
-LCN Modules within the _same_ segment can be grouped by their group id (5..254) or 3 (= target all groups.)
-
-The LCN integration allows the connection to more than one hardware coupler. In this case, it has to be specified which hardware coupler should be used for addressing the specified module.
-
-Whenever the address of a module or a group has to be specified, it can be addressed using one of the following syntaxes:
-
-Example for modules:
-
-```txt
-connid.s000.m007
-connid.s0.m7
-s0.m7
-0.7
-```
-
-Example for groups:
-
-```txt
-connid.s000.g007
-connid.s0.g7
-s0.g7
-0.g7
-```
-
-Leading zeroes in the segment id or module/group id can be omitted. If the `connection_id` is omitted, the first connection defined in the [configuration](#configuration) will be used.
-
 ## LCN Constants
 
 The platforms and service calls use several predefined constants as parameters.
@@ -391,7 +363,6 @@ The [MOTOR_PORT](#ports) values specify which hardware relay or outputs configur
 | :-------: | :-------: | :---------: |
 | `outputs` | `output1` | `output2`   |
 
-
 ### Variables and Units
 
 | Constant | Values |
@@ -405,7 +376,7 @@ The [MOTOR_PORT](#ports) values specify which hardware relay or outputs configur
 | RELVARREF | `current`, `prog` |
 | REVERSE_TIME | `rt70`, `rt600`, `rt1200` |
 
-### States:
+### States
 
 | Constant | Values |
 | -------- | ------ |
@@ -413,7 +384,7 @@ The [MOTOR_PORT](#ports) values specify which hardware relay or outputs configur
 | LOGICOP_STATE | `none`, `some`, `all` |
 | KEY_STATE | `hit`, `make`, `break`, `dontsend` |
 
-### Keys:
+### Keys
 
 Whenever a key has to be provided, it is defined by a joint string consisting of the table identifier (`a`, `b`, `c`, `d`) and the corresponding key number.
 Examples: `a1`, `a5`, `d8`.
@@ -456,7 +427,6 @@ For the reverse time, you may choose one of the following constants: `RT70` (70m
 If you are using the module's output ports for motor control, ensure that you have configured the output ports as motor controllers in the LCN Pro software!
 Otherwise, the output ports are not mutually interlocked and you run the risk of destroying the motor.
 </p>
-
 
 ### Light
 
@@ -920,6 +890,7 @@ If `time_unit` is not defined, it is assumed to be `seconds`.
 Examples:
 
 Send keys immediately:
+
 ```yaml
 service: lcn.send_keys
 data:
@@ -929,6 +900,7 @@ data:
 ```
 
 Send keys deferred:
+
 ```yaml
 service: lcn.send_keys
 data:
@@ -957,6 +929,7 @@ If `time_unit` is not defined, it is assumed to be `seconds`.
 Examples:
 
 Lock keys forever:
+
 ```yaml
 service: lcn.lock_keys
 data:
@@ -966,6 +939,7 @@ data:
 ```
 
 Lock keys for a specified time period:
+
 ```yaml
 service: lcn.lock_keys
 data:
@@ -980,7 +954,6 @@ data:
 Send dynamic text to LCN-GTxD displays.
 The displays support four rows for text messages.
 Each row can be set independently and can store up to 60 characters (encoded in UTF-8).
-
 
 | Service data attribute | Optional | Description  | Values |
 | ---------------------- | -------- | -----------  | ------ |
