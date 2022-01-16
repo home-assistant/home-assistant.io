@@ -154,6 +154,20 @@ action:
         name: Big Buck Bunny
 ```
 
+## Camera Integration
+
+The `camera.play_stream` service may be used to send camera streams (HLS) directly to your device. This feature requires the `stream` integration and makes use of the built-in PlayOnRoku application.
+
+### Example
+```yaml
+action:
+  service: camera.play_stream
+    target:
+      entity_id: camera.camera
+    data:
+      media_player: media_player.roku
+```
+
 ## Content Deeplinking
 
 The `media_player.play_media` service may be used to deep link to content within an application.
