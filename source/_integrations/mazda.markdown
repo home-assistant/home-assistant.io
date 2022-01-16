@@ -25,8 +25,9 @@ This integration requires an active Mazda Connected Services subscription and a 
 
 - Mazda3: 2019+
 - CX-30: 2020+
-- CX-9: 2021+
 - CX-5: 2021+
+- CX-9: 2021+
+- MX-30: 2020+
 
 {% include integrations/config_flow.md %}
 
@@ -39,10 +40,12 @@ This integration requires an active Mazda Connected Services subscription and a 
 ### Sensor
 
 The following sensor entities are available:
-- Fuel remaining
-- Fuel distance remaining
+- Fuel remaining (only for gas vehicles)
+- Fuel distance remaining (only for gas vehicles)
 - Odometer
 - Tire pressure (not available for CX-5 and CX-9 models)
+- Charge level (only for electric vehicles)
+- Remaining range (only for electric vehicles)
 
 ### Device tracker
 
