@@ -102,7 +102,7 @@ action:
   data:
     message: "Person detected on Front Camera!"
     data:
-      verifySsl: False
+      verify_ssl: false
       urls:
         - "http://homeassistant.local/api/frigate/notifications/<event-id>/thumbnail.jpg"
 ```
