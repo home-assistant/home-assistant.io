@@ -543,7 +543,7 @@ You can also try to use `avahi-daemon` in reflector mode together with the optio
 
 Configure the network mode as `networkbridge`. Otherwise the Home Assistant Bridge won't be exposed to the network.
 
-#### `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - Libvirt QEMU/KVM virtual machine with macvtap adapter
+#### Accessory does not appear in the Home App (for pairing) - Libvirt QEMU/KVM virtual machine with macvtap adapter
 
 By default, the macvtap adapter created by libvirt does not allow the guest to receive multicast traffic.
 
