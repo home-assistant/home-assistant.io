@@ -128,6 +128,33 @@ action:
       media_content_type: channel
 ```
 
+## Play on Roku
+
+The `media_player.play_media` service may be used to send media URLs (primarily videos) for direct playback on your device. This feature makes use of the built-in PlayOnRoku application.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | no | Target a specific media player. To target all media players, use `all`. |                                                                                                                    |
+| `media_content_id` | no | A media URL. | http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+| `media_content_type` | no | A media type. | `url`
+| `extra.format` | no | A media format. Should be one of `mp4` (supports mov and m4v), `wma`, `mp3`, `hls`, `ism` (smooth streaming), `dash` (MPEG-DASH), `mkv`, `mka`, `mks` | `mp4`
+| `extra.name` | yes | A name for the media. | Big Buck Bunny
+
+### Example
+
+```yaml
+action:
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.roku
+    data:
+      media_content_id: http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+      media_content_type: url
+      extra:
+        format: mp4
+        name: Big Buck Bunny
+```
+
 ## Camera Stream Integration
 
 The `camera.play_stream` service may be used to send camera streams (HLS) directly to your device. This feature requires the `stream` integration and makes use of the built-in PlayOnRoku application.
@@ -179,33 +206,6 @@ Content IDs are unique to each streaming service and vary in format but are ofte
 | Hulu | 2285 | hulu.com/series/american-dad-977c8e25-cde0-41b7-80ce-e746f2d2093f | american-dad-977c8e25-cde0-41b7-80ce-e746f2d2093f | series
 | Spotify | 22297 | open.spotify.com/playlist/5xddIVAtLrZKtt4YGLM1SQ | spotify:playlist:5xddIVAtLrZKtt4YGLM1SQ | playlist
 | YouTube | 837 | youtu.be/6ZMXE5PXPqU | 6ZMXE5PXPqU | live
-
-## Play on Roku
-
-The `media_player.play_media` service may be used to send media URLs (primarily videos) for direct playback on your device. This feature makes use of the built-in PlayOnRoku application.
-
-| Service data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | no | Target a specific media player. To target all media players, use `all`. |                                                                                                                    |
-| `media_content_id` | no | A media URL. | http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
-| `media_content_type` | no | A media type. | `url`
-| `extra.format` | no | A media format. Should be one of `mp4` (supports mov and m4v), `wma`, `mp3`, `hls`, `ism` (smooth streaming), `dash` (MPEG-DASH), `mkv`, `mka`, `mks` | `mp4`
-| `extra.name` | yes | A name for the media. | Big Buck Bunny
-
-### Example
-
-```yaml
-action:
-  - service: media_player.play_media
-    target:
-      entity_id: media_player.roku
-    data:
-      media_content_id: http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
-      media_content_type: url
-      extra:
-        format: mp4
-        name: Big Buck Bunny
-```
 
 ## Services
 
