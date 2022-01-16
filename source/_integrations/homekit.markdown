@@ -545,21 +545,7 @@ Configure the network mode as `networkbridge`. Otherwise the Home Assistant Brid
 
 #### Accessory does not appear in the Home App (for pairing) - Libvirt QEMU/KVM virtual machine with macvtap adapter
 
-By default, the macvtap adapter created by libvirt does not allow the guest to receive multicast traffic.
-
-Configure the virtual machine's macvtap adapter to accept multicast traffic by adding the `trustGuestRxFilters="yes"` setting in the adapter's XML. For example:
-
-```xml
-<interface type="direct" trustGuestRxFilters="yes">
-  <mac address="xx:xx:xx:xx:xx:xx"/>
-  <source dev="eno1" mode="bridge"/>
-  <model type="virtio"/>
-  <link state="up"/>
-  <address type="pci" domain="0x0000" bus="0x01" slot="0x00" function="0x0"/>
-</interface>
-```
-
-This only works with the `virtio` network adapter type and it is disabled by default for security reasons. See [the libvirt documentation](https://libvirt.org/formatdomain.html#elementsNICS) for more details.
+Please see the [zeroconf](/integrations/zeroconf/#troubleshooting) integration for more details.
 
 #### Pairing hangs - zeroconf error
 
