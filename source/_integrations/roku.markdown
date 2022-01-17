@@ -100,7 +100,7 @@ The `media_player.select_source` service may be used to launch specific applicat
 action:
 - service: media_player.select_source
   target:
-    entity_id: media_player.
+    entity_id: media_player.roku
   data:
     source: "Prime Video"
 ```
