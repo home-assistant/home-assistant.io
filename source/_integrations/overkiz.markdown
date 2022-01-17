@@ -10,6 +10,7 @@ ha_category:
   - Light
   - Scene
   - Binary Sensor
+  - Switch
   - Select
 ha_release: 2022.1.0
 ha_config_flow: true
@@ -27,6 +28,7 @@ ha_platforms:
   - light
   - scene
   - binary_sensor
+  - switch
   - select
 ---
 
