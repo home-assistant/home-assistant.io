@@ -128,7 +128,7 @@ The `media_player.play_media` service may be used to tune to specific channels o
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | no | Target a specivic media player. | 
+| `entity_id` | no | Target a specific media player. | 
 | `media_content_id` | no | A channel number. | 5.1
 | `media_content_type` | no | A media type. | `channel`
 
@@ -191,7 +191,7 @@ The `media_player.play_media` service may be used to deep link to content within
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | no | Target a specific media player. To target all media players, use `all`. |                                                                                                                    |
+| `entity_id` | no | Target a specific media player. | 
 | `media_content_id` | no | A media identifier. | 291097
 | `media_content_type` | no | A media type. | `app`
 | `extra.content_id` | no | A unique content identifier passed to app. | 8e06a8b7-d667-4e31-939d-f40a6dd78a88
