@@ -596,9 +596,9 @@ You can also keep track of the Roadmap for the Z-Wave JS integration [here](http
 
 #### Which Z-Wave controller should I buy?
 
-Z-Wave JS supports all known 500 and 700 series Z-Wave controllers.
+Z-Wave JS supports all known 500 and 700 series Z-Wave controllers. If you are just starting out, we recommend that you purchase a 500 series controller. 
 
-If you are just starting out, we recommend that you purchase a 500 series controller. For more information, see [Supported Z-Wave dongles](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules)
+For more information, see [Supported Z-Wave dongles](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules)
 
 #### Why was I (or why was I not) automatically prompted to install Z-Wave JS?
 
