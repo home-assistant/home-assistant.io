@@ -83,7 +83,14 @@ data:
 
 ## Media Player
 
-When the Home Assistant Roku integration is enabled and a Roku device has been configured, in the Home Assistant UI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device. This action can also be automated. Channels can be launched by `name` using a configuration similar to the one below:
+When the Home Assistant Roku integration is enabled and a Roku device has been configured, in the Home Assistant UI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device.
+
+## Source Automation
+
+The `media_player.select_source` service may be used to launch specific applications/streaming channels on your Roku device.
+
+### Examples
+
 ```yaml
 action:
 - target:
@@ -93,20 +100,7 @@ action:
   service: media_player.select_source
 ```
 
-Alternatively, the `appID` for the channel can be used for `source:` Although this information is gathered by the Roku integration, at the moment it is not exposed to the end-user. This item might be added in a future release. For now, you can easily get the information yourself. All you need to do is a GET API call on the same network as your device.
-
-The API calls are like this:
-
-```txt
-GET http://ROKU_IP:8060/query/apps
-POST http://ROKU_IP:8060/launch/APP_ID
-```
-
-One method of performing the GET request is to open `http://ROKU_IP:8060/query/apps` in your web browser of choice. The Roku will return an XML-formatted list of available channels, including their full name and appID. 
-
-More details can be found on the [Roku dev pages](https://developer.roku.com/docs/developer-program/debugging/external-control-api.md)
-
-To use this information in Home Assistant, the format is as follows. Note that `source:` is the appID you discovered in the API call:
+Alternatively, the application id can be used for `source`.
 
 ```yaml
 action:
@@ -116,6 +110,12 @@ action:
     data:
       source: 20197
 ```
+
+### Obtaining Application IDs
+
+The currently active application ID can be found in the `Active App ID` diagnostic sensor.
+
+Alternatively, you can make a manual HTTP request (GET) to `http://ROKU_IP:8060/query/apps`, in either your browser or terminal, to retrieve a complete list of installed applications in XML format.
 
 ## TV Channel Tuning
 
