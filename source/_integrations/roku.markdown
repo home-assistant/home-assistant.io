@@ -117,7 +117,17 @@ action:
       source: 20197
 ```
 
-It is also possible to tune directly to specific channels if you have a Roku TV and use an OTA antenna. This service only supports `media_channel_type` of 'channel'. `media_content_id` corresponds to the TV channel, which you should see when navigating to these on your TV UI. 
+## TV Channel Tuning
+
+The `media_player.play_media` service may be used to tune to specific channels on your Roku TV device with OTA antenna.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | no | Target a specific media player. To target all media players, use `all`. |                                                                                                                    |
+| `media_content_id` | no | A channel number. | 5.1
+| `media_content_type` | no | A media type. | `channel`
+
+### Example
 
 ```yaml
 action:
@@ -164,7 +174,7 @@ The `media_player.play_media` service may be used to deep link to content within
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | no | Target a specific media player. To target all media players, use `all`. |                                                                                                                    |
 | `media_content_id` | no | A media identifier. | 291097
-| `media_content_type` | no | A media type. | channel
+| `media_content_type` | no | A media type. | `app`
 | `extra.content_id` | no | A unique content identifier passed to app. | 8e06a8b7-d667-4e31-939d-f40a6dd78a88
 | `extra.media_type` | no | A media type passed to app. Should be one of `movie`, `episode`, `season`, `series`, `shortFormVideo`, `special`, `live` | movie
 
