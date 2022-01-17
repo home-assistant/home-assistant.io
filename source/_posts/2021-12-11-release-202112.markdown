@@ -1008,6 +1008,9 @@ like before. Done by [@marvin-w].
 - Ignore unavailable entities when creating zwave_js device actions list ([@raman325] - [#64184]) ([zwave_js docs])
 - Fix KNX onboarding when there is no yaml config defined yet ([@farmio] - [#64216]) ([knx docs])
 - Bump bimmer_connected to 0.8.10 ([@rikroe] - [#64314]) ([bmw_connected_drive docs])
+- Ensure status is correct at start for older august bridges ([@bdraco] - [#64144]) ([august docs])
+- Bump flux_led to 0.28.4 to fix setting white temp on 0x35 devices ([@bdraco] - [#64326]) ([flux_led docs])
+- Orphaned MAC addresses breaks UniFi options flow ([@Kane610] - [#64327]) ([unifi docs])
 
 [#59964]: https://github.com/home-assistant/core/pull/59964
 [#60220]: https://github.com/home-assistant/core/pull/60220
@@ -1020,9 +1023,13 @@ like before. Done by [@marvin-w].
 [#64119]: https://github.com/home-assistant/core/pull/64119
 [#64129]: https://github.com/home-assistant/core/pull/64129
 [#64143]: https://github.com/home-assistant/core/pull/64143
+[#64144]: https://github.com/home-assistant/core/pull/64144
 [#64184]: https://github.com/home-assistant/core/pull/64184
 [#64216]: https://github.com/home-assistant/core/pull/64216
 [#64314]: https://github.com/home-assistant/core/pull/64314
+[#64326]: https://github.com/home-assistant/core/pull/64326
+[#64327]: https://github.com/home-assistant/core/pull/64327
+[@Kane610]: https://github.com/Kane610
 [@agners]: https://github.com/agners
 [@bdraco]: https://github.com/bdraco
 [@bieniu]: https://github.com/bieniu
@@ -1041,6 +1048,7 @@ like before. Done by [@marvin-w].
 [nexia docs]: /integrations/nexia/
 [picnic docs]: /integrations/picnic/
 [shelly docs]: /integrations/shelly/
+[unifi docs]: /integrations/unifi/
 [zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
