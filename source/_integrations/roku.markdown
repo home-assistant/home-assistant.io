@@ -89,18 +89,23 @@ When the Home Assistant Roku integration is enabled and a Roku device has been c
 
 The `media_player.select_source` service may be used to launch specific applications/streaming channels on your Roku device.
 
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | no | Target a specific media player. | 
+| `source` | no | An application name or application ID. | Prime Video
+
 ### Examples
 
 ```yaml
 action:
-- target:
+- service: media_player.select_source
+  target:
     entity_id: media_player.
   data:
     source: "Prime Video"
-  service: media_player.select_source
 ```
 
-Alternatively, the application id can be used for `source`.
+Alternatively, the application id can be used for `source`. See [Obtaining Application IDs](#obtaining-application-ids).
 
 ```yaml
 action:
@@ -123,7 +128,7 @@ The `media_player.play_media` service may be used to tune to specific channels o
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | no | Target a specific media player. To target all media players, use `all`. |                                                                                                                    |
+| `entity_id` | no | Target a specivic media player. | 
 | `media_content_id` | no | A channel number. | 5.1
 | `media_content_type` | no | A media type. | `channel`
 
