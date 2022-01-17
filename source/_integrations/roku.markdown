@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Media Player
   - Remote
+  - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.86
 ha_domain: roku
@@ -19,6 +20,7 @@ ha_platforms:
   - binary_sensor
   - media_player
   - remote
+  - sensor
 ---
 
 The Roku integration allows you to control a [Roku](https://www.roku.com/) device.
