@@ -1,8 +1,9 @@
 ---
 title: GitHub
-description: How to integrate the GitHub sensor into Home Assistant.
+description: How to integrate the GitHub into Home Assistant.
 ha_category:
   - Sensor
+ha_config_flow: true
 ha_release: 0.88
 ha_iot_class: Cloud Polling
 ha_domain: github
@@ -13,45 +14,16 @@ ha_codeowners:
   - '@ludeeus'
 ---
 
-The GitHub sensor allows you to monitor your favorite [GitHub](https://github.com/) repositories. Monitored information includes the amount of stargazers, forks, open issues and pull requests, the latest commit message, and more. 
+The GitHub integration allows you to monitor your favorite [GitHub][github] repositories.
 
-## Setup
+{% include integrations/config_flow.md %}
 
-To set up this sensor you will need a GitHub [personal access token](https://github.com/settings/tokens). You will need to check the `repo` scope for the sensor to function.
+When you setup this integration, you will first be guided to allow the integration to use the [GitHub API][github_api] on your behalf. If you do not yet have a [GitHub][github] account you will be promoted to create one during the configuration of the integration.
 
-## Configuration
+When you have authorized the integration, you select repositories you want to monitor, the list of repositories contain repositories you have [starred][github_starred] on GitHub with your account.
 
-To enable this platform, add the following to your `configuration.yaml` file:
+Most of the entities provided by this integration are disabled by default, you can enable these by going to the {% my entities title="entities panel" %}.
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: github
-    access_token: !secret github_access_token
-    repositories:
-      - path: 'home-assistant/core'
-```
-
-{% configuration %}
-access_token:
-  description: Your GitHub Access Token
-  required: true
-  type: string
-url:
-  description: If you are using a GitHub Enterprise server, add its URL here. For example, `https://mygithubserver.com`
-  required: false
-  type: string
-repositories:
-  description: A list of repository paths and optionally a name
-  required: true
-  type: list
-  keys:
-    path:
-      description: Path to the repository. For Home Assistant this will be `home-assistant/core`
-      required: true
-      type: string
-    name:
-      description: Name of the sensor. Gives the sensor a custom name in Home Assistant. Defaults to the repository name from GitHub if not specified.
-      required: false
-      type: string
-{% endconfiguration %}
+[github]: https://github.com/
+[github_api]: https://docs.github.com/en/rest
+[github_starred]: https://github.com/stars
