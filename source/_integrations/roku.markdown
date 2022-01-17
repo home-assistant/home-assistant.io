@@ -150,7 +150,7 @@ The `media_player.play_media` service may be used to send media URLs (primarily 
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | no | Target a specific media player. To target all media players, use `all`. |                                                                                                                    |
+| `entity_id` | no | Target a specific media player. | 
 | `media_content_id` | no | A media URL. | http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
 | `media_content_type` | no | A media type. | `url`
 | `extra.format` | no | A media format. Should be one of `mp4` (supports mov and m4v), `wma`, `mp3`, `hls`, `ism` (smooth streaming), `dash` (MPEG-DASH), `mkv`, `mka`, `mks` | `mp4`
