@@ -127,7 +127,7 @@ The _HVAC mode_ of the device is the currently active operational modes that the
 
 The _target humidity_ is the humidity set point of the thermostat when a humidifier is connected and in manual control or "On" mode.
 
-When enabling the Auxilary heat toggle, the Ecobee thermostat HVAC mode will be changed to "Aux". However, Home Assistant will reflect that the thermostat is in "heat" mode. Disabling Auxilary heat will change the thermostat back to last active HVAC mode (heat, auto, etc).
+When enabling the auxiliary heat toggle, the ecobee thermostat HVAC mode will be changed to "Aux". However, Home Assistant will reflect that the thermostat is in "heat" mode. Disabling auxiliary heat will change the thermostat back to last active HVAC mode (heat, auto, etc).
 
 ## Attributes
 
