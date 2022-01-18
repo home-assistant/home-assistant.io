@@ -49,7 +49,7 @@ Services accept either device IDs or entity IDs, depending on the nature of the 
 
 ### `rainmachine.pause_watering`
 
-Pause all watering activities for a number of seconds. After the pause is complete, the previous watering activities will resume.
+Pause all watering activities for a number of seconds. After the pause is complete, the previous watering activities will resume. Note that controllers can only be paused for a maximum of 12 hours.
 
 | Service Data Attribute | Optional | Description                    |
 | ---------------------- | -------- | ------------------------------ |
