@@ -39,8 +39,10 @@ Services accept either device IDs or entity IDs, depending on the nature of the 
 - Services that require a device ID as a target:
   - `rainmachine.pause_watering`
   - `rainmachine.push_weather_data`
+  - `rainmachine.restrict_watering`
   - `rainmachine.stop_all`
   - `rainmachine.unpause_watering`
+  - `rainmachine.unrestrict_watering`
 - Services that require an entity ID as a target (note that the correct entity ID type must be provided, such as a program for a program-related service)
   - `rainmachine.start_program`
   - `rainmachine.start_zone`
