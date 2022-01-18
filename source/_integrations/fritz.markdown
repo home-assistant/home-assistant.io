@@ -69,7 +69,7 @@ If no additional parameter is set, the password will be auto-generated with a le
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
 | `device_id`            | no       | Only act on a specific  router                                                                                 |
 | `password`             | yes      | New password for the guest wifi                                                                                |
-| `length`               | yes      | Length of the new password. The password will be auto-generated, if no password is set.                        |
+| `length`               | yes      | Length of the auto-generated password. (_default 12_)                        |
 
 ## Integration Options
 
