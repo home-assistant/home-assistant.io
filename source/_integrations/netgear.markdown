@@ -22,6 +22,7 @@ This platform allows you to detect presence by looking at connected devices to a
 {% include integrations/config_flow.md %}
 
 Most NETGEAR routers use port 5000 to communicate, however the following list of models are known to use port 80:
+- Nighthawk RAX50
 - Nighthawk X4S - AC2600 (R7800)
 - Orbi
 - XR500
