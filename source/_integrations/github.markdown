@@ -18,9 +18,9 @@ The GitHub integration allows you to monitor your favorite [GitHub][github] repo
 
 {% include integrations/config_flow.md %}
 
-When you setup this integration, you will first be guided to allow the integration to use the [GitHub API][github_api] on your behalf. If you do not yet have a [GitHub][github] account you will be promoted to create one during the configuration of the integration.
+When you set up this integration, you will first be guided to allow the integration to use the [GitHub API][github_api] on your behalf. If you do not yet have a [GitHub][github] account you will be prompted to create one during the configuration of the integration.
 
-When you have authorized the integration, you select repositories you want to monitor, the list of repositories contain repositories you have [starred][github_starred] on GitHub with your account.
+When you have authorized the integration, you select repositories you want to monitor, the list contains repositories you have [starred][github_starred] on GitHub with your account.
 
 Most of the entities provided by this integration are disabled by default, you can enable these by going to the {% my entities title="entities panel" %}.
 
