@@ -4,7 +4,7 @@ description: Instructions on how to integrate Frontier Silicon Internet Radios i
 ha_category:
   - Media Player
 ha_iot_class: Local Push
-ha_release: '0.40'
+ha_release: '2022.1'
 ha_domain: frontier_silicon
 ha_platforms:
   - media_player
@@ -17,49 +17,20 @@ This integration provides support for Internet Radios based on the [Frontier Sil
 * Medion: [Medion Radios]
 * Silvercrest: [SIRD 14 C2]
 * Teufel: [Radio 3sixty(2019)]
+* Roberts: [Roberts Stream 94i]
 * Some models from: Auna, Technisat, Revo, Pinell, Como Audio
 
-This integration was developed and tested with a Hama [DIR3110] and a Medion [MD 87466].
+This integration was developed and tested with a [Roberts Stream 94i].
 
 ## Configuration
 
-Your Frontier Silicon based device should be automatically discovered by Home Assistant. The auto-discovery service assumes that the device uses the default PIN code: *1234*. If you have changed the PIN code, the auto-discovery will fail as Home Assistant will not be able to connect to the device. You can set the PIN code of your device (depending on manufacturer) under:
+The integration supports automatic discovery of your Internet Radio. If you need to setup the device manually, please provide the device URL, which is typically something like `http://[host]/device`. Some models use a separate port (2244) for API access, this can be verified by visiting http://[host]:[port]/device.
 
+The default PIN for Frontier Silicon-based devices is 1234. You can set the PIN code of your device (depending on manufacturer) under:
 *MENU button > Main Menu > System setting > Network > NetRemote PIN setup*
 
-If your device was not automatically discovered or you have changed the PIN you can alternatively add the following to your `configuration.yaml` file:
+The "Force session usage" option [can typically remain unchecked](#fsapi-session-note).
 
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: frontier_silicon
-    host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: The host name or the IP address of the device.
-  required: true
-  default: 192.168.1.11
-  type: string
-port:
-  description: The port number of the device.
-  required: false
-  default: 80
-  type: integer
-password:
-  description: PIN code of the Internet Radio.
-  required: false
-  default: 1234
-  type: string
-name:
-  description: Friendly name of the Internet Radio. If present this will override the friendly name reported by the radio itself.
-  required: false
-  default: empty
-  type: string
-{% endconfiguration %}
-
-Some models use a separate port (2244) for API access, this can be verified by visiting http://[host]:[port]/device.
 
 In case your device (friendly name) is called *badezimmer*, an example automation can look something like this:
 
@@ -90,14 +61,16 @@ Overview of the info dialog:
 
 ## Development
 
-Support is provided through the Python [fsapi] module. The Python module was developed by using the documentation provided by [flammy] and
+Support is provided through the Python [afsapi] module. The Python module was developed by using the documentation provided by [flammy] and
 is based on [tiwillam]'s fsapi project. Special thanks to both developers, this integration would have not been possible without their work.
 
 ## Notes and Limitations
 
-<div class='note warning'>
+<div class='note warning' name="fsapi-session-note">
 
-The Frontier Silicon API does not provide a multi-user environment. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. This renders the usage of [UNDOK] almost impossible, as the Home Assistant integration polls the device state every 30 seconds or issues a command by creating a new session.
+Some older devices may require setting up a session to process requests. If this is the case, check the "Force session usage" to get the legacy implementation of this integration.
+
+The legacy implementation of the Frontier Silicon API does not provide a multi-user environment. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. This renders the usage of [UNDOK] almost impossible, as the Home Assistant integration polls the device state every 30 seconds or issues a command by creating a new session.
 *If you want to prevent Home Assistant to auto connect to your device, simply change the PIN code of the device to something else than: 1234*
 
 </div>
@@ -108,8 +81,9 @@ The Frontier Silicon API does not provide a multi-user environment. There is alw
 [DIR3110]: https://www.hama.com/00054824/hama-digitalradio-dir3110-internetradio-dab+-fm-multiroom-app-steuerung
 [MD 87466]: https://www.medion.com/gb/service/start/_product.php?msn=50051273&gid=14
 [Radio 3sixty(2019)]: https://teufel.de/radio-3sixty-2019-105437000
-[SIRD 14 C2]: https://www.silvercrest-multiroom.de/fileadmin/user_upload/pdf/handbucher/Bedienungsanleitungen/IR/279398_SIRD_14_C2_ML4_V1.1_GB_CZ_SK_DE.pdf
-[fsapi]: https://github.com/zhelev/python-fsapi
+[SIRD 14 C2]: https://www.silvercrest-multiroom.de/fileadmin/user_upload/pdf/handbucher/Bedienungsanleitungen/IR/279398_SIRD_14_C2_ML4_V1.1_GB_CZ_SK_DE.
+[Roberts Stream 94i]: https://www.robertsradio.com/en-gb/stream-94i
+[afsapi]: https://github.com/zhelev/python-afsapi
 [UNDOK]: https://www.frontier-silicon.com/undok
 [flammy]: https://github.com/flammy/fsapi/
 [tiwillam]: https://github.com/tiwilliam/fsapi
