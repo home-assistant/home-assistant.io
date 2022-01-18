@@ -1,6 +1,6 @@
 ---
 title: GitHub
-description: How to integrate the GitHub into Home Assistant.
+description: Instructions on how to integrate the GitHub integration into Home Assistant.
 ha_category:
   - Sensor
 ha_config_flow: true
@@ -24,6 +24,16 @@ When you have authorized the integration, you select repositories you want to mo
 
 Most of the entities provided by this integration are disabled by default, you can enable these by going to the {% my entities title="entities panel" %}.
 
+## Remove authorization
+
+After you have removed the integration from {% my integrations title="Configuration -> Devices & Services" %}, you need to manually revoke OAuth app authorization.
+
+1. Go to your [Authorized OAuth Apps][github_apps]
+2. Find the "Home Assistant GitHub Integration" application
+3. Click the 3 dots (`...`) to the right of the name
+4. Select "Revoke"
+
 [github]: https://github.com/
 [github_api]: https://docs.github.com/en/rest
 [github_starred]: https://github.com/stars
+[github_apps]: https://github.com/settings/applications
