@@ -755,7 +755,7 @@ If the interview is complete, then the device does not yet have a device file fo
 
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow the menu:
 
-**Configuration** -> **Devices & Services** -> **Z-Wave JS** -> **Configure** -> **Download a dump of your network to help diagnose issues**
+**Configuration** -> **Devices & Services** -> **Z-Wave JS** -> **...** -> **Download diagnostics**
 
 ### Interference issues
 
