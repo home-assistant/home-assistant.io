@@ -63,7 +63,7 @@ A device is identified as stale when it's still present on Home Assistant but no
 
 Set a new password for the guest wifi.
 The password must be between 8 and 63 characters long.
-If no additional parameter is set, the password will be auto-generated with a length of 12 characters.
+If no password is given, it will be auto-generated.
 
 | Service data attribute | Optional | Description                                                                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
