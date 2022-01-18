@@ -15,8 +15,8 @@ ha_platforms:
 
 [Flashforge](https://www.flashforge.com/) is the brand of a 3D printer manufactory.
 This is the integration to integrate your 3D printer to Home Assistant.
-Communication with the printer is done locally over you network, thus it's
-necessary to that your printer is connected to wifi/ethernet.
+Communication with the printer is done locally over network, thus it's
+necessary to that the printer is connected to wifi/ethernet.
 
 The following printers from Flashforge have been tested with this
 integration:
