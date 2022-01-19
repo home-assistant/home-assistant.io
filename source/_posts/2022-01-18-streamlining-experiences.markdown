@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Streamlining Experiences"
-description: "In 2022 we will focus on making "
+description: "We have a new motto for 2022. We're going to take our existing features and make them even easier to use."
 date: 2022-01-19 00:00:00
 date_formatted: "January 19, 2022"
 author: Paulus Schoutsen
