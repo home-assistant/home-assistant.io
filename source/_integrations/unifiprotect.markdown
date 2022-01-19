@@ -46,6 +46,7 @@ This Integration supports all UniFi OS Consoles that can run UniFi Protect. Curr
 * UniFi Protect Network Video Recorder (**UNVR**)
 * UniFi Protect Network Video Recorder Pro (**UNVRPRO**)
 * UniFi Dream Machine Pro (**UDMP**)
+* UniFi Dream Machine SE (**UDMSE**)
 * UniFi Cloud Key Gen2 Plus (**CKGP**) firmware version v2.0.24+
 
 CKGP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2.0.24 or newer.
