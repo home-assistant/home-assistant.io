@@ -95,7 +95,7 @@ action:
 
 To attach files from outside of HomeAssistant, the URLs must be added to the [allowlist_external_urls](/docs/configuration/basic/#allowlist_external_urls) list.
 
-Note there is a 50mb size limit for attachments retrieved via URLs. You can also set `verify_ssl` to `False` to ignore SSL errors (default `True`)
+Note there is a 50MB size limit for attachments retrieved via URLs. You can also set `verify_ssl` to `false` to ignore SSL errors (default `true`).
 
 ```yaml
 ...
