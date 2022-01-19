@@ -18,7 +18,7 @@ When a `state_topic` is not available, the siren will work in optimistic mode. I
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect operation.
 
-The MQTT siren platform has a built-in integration with the notify platform. If `message_command_topic` is configured the siren platform will also setup the mqtt notify platform. The `{service_name}` is derived from `target`, or if `target` is not configured from `name` and will finally fallback to `message_command_topic`. Invalid characters in the service name will be removed. For each siren entity that is set up with `message_command_topic` a notify service is registered with name `notify.mqtt_{service_name}`.
+The MQTT siren platform has a built-in integration with the notify platform. If `message_command_topic` is configured the siren platform will also setup the MQTT notify platform. The `{service_name}` is derived from `target`, or if `target` is not configured from `name` and will finally fallback to `message_command_topic`. Invalid characters in the service name will be removed. For each siren entity that is set up with `message_command_topic` a notify service is registered with name `notify.mqtt_{service_name}`.
 
 Additional there is a common service `notify.mqtt`. This service can be called using the `target` attribute that takes a list of siren targets that should be notified. The following target naming is supported:
 
