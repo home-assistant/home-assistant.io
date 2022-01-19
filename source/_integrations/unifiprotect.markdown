@@ -43,9 +43,8 @@ The UniFi Protect integration, adds support for retrieving Camera feeds and Sens
 
 This Integration supports all UniFi OS Consoles that can run UniFi Protect. Currently, this includes:
 
-* UniFi Protect Network Video Recorder (**UNVR**)
-* UniFi Protect Network Video Recorder Pro (**UNVRPRO**)
-* UniFi Dream Machine Pro (**UDMP**)
+* Any UniFi Protect Network Video Recorder (**UNVR** or **UNVRPRO**)
+* Any UniFi "Dream" device (**UDM**, **UDMPRO**, **UDR**, or **UDMSE**)
 * UniFi Cloud Key Gen2 Plus (**CKGP**) firmware version v2.0.24+
 
 CKGP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2.0.24 or newer.
