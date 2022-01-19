@@ -93,7 +93,7 @@ action:
 
 ### Text message with an attachment from a URL
 
-To attach files from outside of HomeAssistant, the URLs must be added to the [allowlist_external_urls](https://www.home-assistant.io/docs/configuration/basic/#allowlist_external_urls) list.
+To attach files from outside of HomeAssistant, the URLs must be added to the [allowlist_external_urls](/docs/configuration/basic/#allowlist_external_urls) list.
 
 Note there is a 50mb size limit for attachments retrieved via URLs. You can also set `verify_ssl` to `False` to ignore SSL errors (default `True`)
 
