@@ -32,12 +32,14 @@ IPv6 will automatically be enabled if one of the selected interfaces has an IPv6
 
 ## Troubleshooting
 
-### Integrations relying on zeroconf traffic are unresponsive
-Some integrations rely on zeroconf traffic to work, for example the [HomeKit](/integrations/homekit/) integration.
+### Integrations relying on Zeroconf traffic are unresponsive
+
+Some integrations rely on Zeroconf traffic to work, for example, the [HomeKit](/integrations/homekit/) integration.
 These integrations will not respond to traffic from other devices if the host device is not configured correctly.
 
 #### Libvirt virtual machine with macvtap adapter
-By default, the macvtap adapter created by libvirt does not allow the guest to receive zeroconf or multicast traffic.
+
+By default, the macvtap adapter created by libvirt does not allow the guest to receive Zeroconf or multicast traffic.
 
 Configure the virtual machine to accept this traffic by adding the `trustGuestRxFilters="yes"` setting in the adapter's XML. For example:
 
