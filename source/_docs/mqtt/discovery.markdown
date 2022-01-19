@@ -24,6 +24,7 @@ Supported by MQTT discovery:
 - [Scenes](/integrations/scene.mqtt/)
 - [Selects](/integrations/select.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
+- [Sirens](/integrations/siren.mqtt/)
 - [Switches](/integrations/switch.mqtt/)
 - [Tag Scanners](/integrations/tag.mqtt/)
 - [Vacuums](/integrations/vacuum.mqtt/)
@@ -83,6 +84,7 @@ Supported abbreviations:
     'aux_cmd_t':           'aux_command_topic',
     'aux_stat_tpl':        'aux_state_template',
     'aux_stat_t':          'aux_state_topic',
+    'av_tones':            'available_tones',
     'avty'                 'availability',
     'avty_mode':           'availability_mode',
     'avty_t':              'availability_topic',
@@ -120,6 +122,8 @@ Supported abbreviations:
     'dev_cla':             'device_class',
     'dock_t':              'docked_topic',
     'dock_tpl':            'docked_template',
+    'dur_cmd_t':           'duration_command_topic',
+    'dur_cmd_tpl':         'duration_command_template',
     'e':                   'encoding',
     'err_t':               'error_topic',
     'err_tpl':             'error_template',
@@ -162,6 +166,8 @@ Supported abbreviations:
     'min_temp':            'min_temp',
     'max_hum':             'max_humidity',
     'min_hum':             'min_humidity',
+    'mesg_cmd_t':          'message_command_topic',
+    'mesg_cmd_tpl':        'message_command_template',
     'mode_cmd_tpl':        'mode_command_template',
     'mode_cmd_t':          'mode_command_topic',
     'mode_stat_tpl':       'mode_state_template',
@@ -252,7 +258,11 @@ Supported abbreviations:
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
     'stype':               'subtype',
+    'sup_duration':        'supported_duration',
     'sup_feat':            'supported_features',
+    'sup_off':             'supported_turn_off',
+    'sup_on':              'supported_turn_on',
+    'sup_vol':             'supported_volume_set',
     'swing_mode_cmd_tpl':  'swing_mode_command_template',
     'swing_mode_cmd_t':    'swing_mode_command_topic',
     'swing_mode_stat_tpl': 'swing_mode_state_template',
@@ -280,10 +290,15 @@ Supported abbreviations:
     'tilt_opt':            'tilt_optimistic',
     'tilt_status_t':       'tilt_status_topic',
     'tilt_status_tpl':     'tilt_status_template',
+    'title':               'title',
+    'tone_cmd_t':          'tone_command_topic',
+    'tone_cmd_tpl':        'tone_command_template',
     't':                   'topic',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
     'val_tpl':             'value_template',
+    'vol_cmd_t':           'vol_command_topic',
+    'vol_cmd_tpl':         'vol_command_template',
     'whit_val_cmd_t':      'white_value_command_topic',
     'whit_val_scl':        'white_value_scale',
     'whit_val_stat_t':     'white_value_state_topic',
