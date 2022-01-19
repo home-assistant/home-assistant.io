@@ -28,7 +28,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Cover (WiLight model C-103).
 - [Fan](#fan) (WiLight model V-104).
-- Light (WiLight model I-100, I-102, I-107 and I-110).
+- Light (WiLight model I-100, I-102, I-107, I-110 and I-112).
 - [Irrigation](#irrigation) / Switch (WiLight model R-105).
 
 {% include integrations/config_flow.md %}
