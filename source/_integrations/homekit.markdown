@@ -545,7 +545,7 @@ Configure the network mode as `networkbridge`. Otherwise the Home Assistant Brid
 
 #### Accessory does not appear in the Home App (for pairing) - Libvirt QEMU/KVM virtual machine with macvtap adapter
 
-Please see the [zeroconf](/integrations/zeroconf/#troubleshooting) integration for more details.
+Please see the [Zero-configuration networking](/integrations/zeroconf/#troubleshooting) integration for more details.
 
 #### Pairing hangs - zeroconf error
 
