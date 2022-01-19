@@ -543,6 +543,10 @@ You can also try to use `avahi-daemon` in reflector mode together with the optio
 
 Configure the network mode as `networkbridge`. Otherwise the Home Assistant Bridge won't be exposed to the network.
 
+#### Accessory does not appear in the Home App (for pairing) - Libvirt QEMU/KVM virtual machine with macvtap adapter
+
+Please see the [Zero-configuration networking](/integrations/zeroconf/#troubleshooting) integration for more details.
+
 #### Pairing hangs - zeroconf error
 
 Pairing eventually fails, you might see the error message, `NonUniqueNameException`, you likely need to enable `default_interface: true` in the `zeroconf` integration configuration and set a unique name such as `name: MyHASS42`.
