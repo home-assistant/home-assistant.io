@@ -43,7 +43,9 @@ The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
 
 ## Video Walkthrough
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wghcd9xDdMs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wghcd9xDdMs" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## Device Access Registration
 
