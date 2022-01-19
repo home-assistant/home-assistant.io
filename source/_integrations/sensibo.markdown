@@ -38,6 +38,8 @@ id:
 If you create the API key using a dedicated user (and not your main user),
 then in the Sensibo app log you will be able to distinguish between actions
 done in the app and actions done by Home Assistant.
+  
+Once you have made the change to the configuration.yaml file and restarted HA core, you should find a 'climate' entity corresponding to each Sensibo device in your HA Entities List (for Home Assistant OS, this will be Configuration > Devices and Services > entities (search for climate).
 </div>
 
 ## Full configuration example
