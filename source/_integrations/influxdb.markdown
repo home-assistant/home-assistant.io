@@ -499,13 +499,46 @@ queries_flux:
       type: [string, list]
       description: Libraries to import in order to execute your query. Ex. `strings`, `date`, `experimental/query`, etc.
       required: false
+queries_raw:
+  type: list
+  description: 1.xx or 2.xx - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring an InfluxQL query or a Flux query depending of used API version. Queries can be tested using the query builder in the UI.  In API 1.xx mode, `queries_raw` can be mixed with `queries`, in API 2.xx mode, `queries_raw` can be mixed with `queries_flux` 
+  required: true
+  keys:
+    name:
+      type: string
+      description: The name of the sensor.
+      required: true
+    unit_of_measurement:
+      type: string
+      description: Defines the units of measurement of the sensor, if any.
+      required: false
+    value_template:
+      type: template
+      description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+      required: false
+	query:
+      type: template
+      description:
+        1.xx - Query in InluxQL format used to get to the data you want. Set to 'value' the name of the result field returned by the query or set in the `field` parameter the name returned by the query. Query should limit resultset to one value, or any beyond the first will be ignored. This supports [templates](/docs/configuration/templating/#building-templates).
+        2.xx - Query in Flux format used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/configuration/templating/#building-templates).
+      required: true
+    database:
+      type: string
+      description: 1.xx only - Name of the database to use.
+      required: false
+      default: home_assistant
+    field:
+      type: string
+      description:  1.xx only - "The field name of the query result if not set as 'value' in the query."
+      required: true
+      default: value
 {% endconfiguration %}
 
 ## Examples
 
 ### Full configuration for 1.xx installations
 
-The example configuration entry below create two request to your local InfluxDB instance, one to the database `db1`, the other to `db2`:
+The example configuration entries below create two request to your local InfluxDB instance, one to the database `db1`, the other to `db2`:
 
 - `select last(value) as value from "°C" where "name" = "foo"`
 - `select min(tmp) as value from "%" where "entity_id" = ''salon'' and time > now() - 1h`
@@ -534,6 +567,30 @@ sensor:
       where: '"entity_id" = ''salon'' and time > now() - 1h'
       measurement: '"%"'
       field: tmp
+      database: db2
+```
+
+{% endraw %}
+
+{% raw %}
+
+```yaml
+sensor:
+  platform: influxdb
+  host: localhost
+  username: home-assistant
+  password: password
+  queries_raw:
+    - name: week mean of day min value of foo
+      unit_of_measurement: °C
+      value_template: '{{ value | round(1) }}'
+      query: SELECT mean(min) AS value FROM (SELECT min("value") FROM "db1"."autogen"."°C" WHERE "entity_id"='foo'AND time > now()-7d GROUP BY time(1d))
+      database: db1
+    - name: Min for last hour
+      unit_of_measurement: "%"
+      value_template: '{{ value | round(1) }}'
+      query: SELECT min("value") FROM "db2"."autogen"."°C" WHERE "entity_id" = 'salon' and time > now() - 1h
+      field: min
       database: db2
 ```
 
@@ -571,6 +628,35 @@ sensor:
         name: "Average CPU temp today"
         query: "filter(fn: (r) => r._field == \"value\" and r.entity_id == \"glances_cpu_temperature\")"
         group_function: mean
+```
+
+{% endraw %}
+
+{% raw %}
+
+```yaml
+sensor:
+  - platform: influxdb
+    api_version: 2
+    token: GENERATED_AUTH_TOKEN
+    organization: RANDOM_16_DIGIT_HEX_ID
+    bucket: BUCKET_NAME
+    queries_raw:
+      - name: last value of foo
+        query: >
+          from(bucket: "BUCKET_NAME/autogen")
+          |> range(start: 0)
+          |> filter(fn: (r) => r.entity_id == "foo")
+          |> filter(fn: (r) => r._measurement == "°C" and r._field == "value")
+          |> last()
+        value_template: '{{ value | round(1) }}'
+      - name: Min for last hour
+        query: >
+          from(bucket: "BUCKET_NAME/autogen")
+          |> range(start: -1h)
+          |> filter(fn: (r) => r.entity_id == "salon")
+          |> filter(fn: (r) => r._measurement == "°C" and r._field == "value")
+          |> min()
 ```
 
 {% endraw %}
