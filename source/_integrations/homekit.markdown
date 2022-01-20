@@ -371,9 +371,7 @@ Filters are applied as follows:
       - If entity is included, pass (as #2 above)
       - If entity include and exclude, the entity exclude is ignored
 
-:::tip
 Categorized entities are not included (config, diagnostic, and system entities) unless they are explicitly matched by `include_entity_globs` or `include_entities` or selected in the UI in include mode.
-:::
 
 ## Docker Network Isolation
 
