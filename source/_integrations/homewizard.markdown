@@ -57,7 +57,5 @@ The HomeWizard Energy API only exposes properties that are used within the HomeW
 
 The Wifi Energy Socket (`HWE-SKT`) outlet state can be controlled the switch platform. There are two switches:
 
-| Name | Description |
-| --- | --- |
-| Energy Socket | Controls the outlet state of the Energy Socket. |
-| Switch Lock | Forces the outlet state in the `on` position and disables the button. This option is useful when the socket is used for a device that must not be turned off, such as a refrigerator. |
+- **Switch**: Controls the outlet state of the Energy Socket. This switch is locked out when `Switch Lock` is turned on. 
+- **Switch Lock**: Forces the outlet state in the `on` position and disables the physical button. This option is useful when the socket is used for a device that must not be turned off, such as a refrigerator.
