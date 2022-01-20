@@ -371,6 +371,10 @@ Filters are applied as follows:
       - If entity is included, pass (as #2 above)
       - If entity include and exclude, the entity exclude is ignored
 
+:::tip
+Categorized entites (config, diagnostic, and system entities) must be explictly included by `include_entity_globs` or `include_entities`.
+:::
+
 ## Docker Network Isolation
 
 The `advertise_ip` option can be used to run this integration even inside an ephemeral Docker container with network isolation enabled, e.g., not using the host network.
