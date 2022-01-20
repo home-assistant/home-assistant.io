@@ -516,11 +516,11 @@ queries_raw:
       type: template
       description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
       required: false
-	query:
+    query:
       type: template
-      description:
-        1.xx - Query in InluxQL format used to get to the data you want. Set to 'value' the name of the result field returned by the query or set in the `field` parameter the name returned by the query. Query should limit resultset to one value, or any beyond the first will be ignored. This supports [templates](/docs/configuration/templating/#building-templates).
-        2.xx - Query in Flux format used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/configuration/templating/#building-templates).
+      description: >
+      	1.xx - Query in InluxQL format used to get to the data you want. Set to 'value' the name of the result field returned by the query or set in the `field` parameter the name returned by the query. Query should limit resultset to one value, or any beyond the first will be ignored. This supports [templates](/docs/configuration/templating/#building-templates).
+	2.xx - Query in Flux format used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/configuration/templating/#building-templates).
       required: true
     database:
       type: string
@@ -530,7 +530,7 @@ queries_raw:
     field:
       type: string
       description:  1.xx only - "The field name of the query result if not set as 'value' in the query."
-      required: true
+      required: false
       default: value
 {% endconfiguration %}
 
