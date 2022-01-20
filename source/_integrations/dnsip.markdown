@@ -13,7 +13,7 @@ ha_platforms:
 
 The `dnsip` sensor will expose an IP address, fetched via DNS resolution, as its value. It provides both IPv4 and IPv6 lookup as separate sensors depending on accessability to resolvers.
 
-1. When you enable the sensor with default value, it will query the [OpenDNS](https://www.opendns.com/) nameservers with the hostname `myip.opendns.com`, which will resolve to your external/public IP address.
+1. When you enable the sensor with the default value, it will query the [OpenDNS](https://www.opendns.com/) nameservers with the hostname `myip.opendns.com`, which will resolve to your external/public IP address.
 2. If you specify a `hostname`, a regular DNS lookup will be performed, providing you the IP the hostname resolves to.
 
 You may also override the default nameservers that are being used by setting the `resolver` option in the integration to any nameserver you like.
