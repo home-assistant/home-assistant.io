@@ -1,6 +1,6 @@
 ---
 title: UniFi Protect
-description: Instructions on how to configure UniFi Protect integration by Ubiquiti.
+description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
 ha_category:
   - Hub
   - Binary Sensor
@@ -35,7 +35,7 @@ ha_platforms:
   - switch
 ---
 
-The UniFi Protect integration, adds support for retrieving Camera feeds and Sensor data from an [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on an UniFi OS Console.
+The UniFi Protect integration adds support for retrieving Camera feeds and Sensor data from a [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on a UniFi OS Console.
 
 ## Prerequisites
 
@@ -45,9 +45,9 @@ This Integration supports all UniFi OS Consoles that can run UniFi Protect. Curr
 
 * Any UniFi Protect Network Video Recorder (**UNVR** or **UNVRPRO**)
 * Any UniFi "Dream" device (**UDM**, **UDMPRO**, **UDR**, or **UDMSE**)
-* UniFi Cloud Key Gen2 Plus (**CKGP**) firmware version v2.0.24+
+* UniFi Cloud Key Gen2 Plus (**UCKP**) firmware version v2.0.24+
 
-CKGP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2.0.24 or newer.
+UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2.0.24 or newer.
 
 ### Software Support
 
@@ -64,8 +64,8 @@ You will need a local user created in your UniFi OS Console to log in with. Ubiq
 1. Click *Add Admin*, and fill out the form. Specific Fields to pay attention to:
     * Role: Must be *Limited Admin*
     * Account Type: *Local Access Only*
-    * CONTROLLER PERMISSIONS - Under UniFi Protect, select Administrators. **NOTE**: Other roles may work, but only the default Administrators rule is fully tested.
-1. Click *Add* in at the bottom Right.
+    * CONTROLLER PERMISSIONS - Under UniFi Protect, select Administrators. **NOTE**: Other roles may work, but only the default Administrators role is fully tested.
+1. Click *Add* in the bottom Right.
 
 ![ADMIN_UNIFIOS](/images/integrations/unifiprotect/unifi_os_admin.png)
 
@@ -82,7 +82,7 @@ The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs 
 
 ## Features
 
-All known UniFi Protect devices are should be supported. Each UniFi Protect device will get a variety of entities added for each of the different entity platforms.
+All known UniFi Protect devices should be supported. Each UniFi Protect device will get a variety of entities added for each of the different entity platforms.
 
 ### UniFi Protect Cameras
 
@@ -121,7 +121,7 @@ Each UniFi Protect floodlight will get a device in Home Assistant with the follo
 
 ### UniFi Protect Smart Sensors
 
-Each UniFi Protect smart sensors are a bit different than normal sensors. They are a multi-sensor that can act as a contact sensor (door/window), a motion detector, a light level detector, a humidity sensor, a temperature level sensor, an alarm sound sensor, and/or a leak detector. Each sensor function can be enabled or disabled dynamically. Disabled sensors will be marked as "unavailable".
+UniFi Protect smart sensors are a bit different than normal sensors. They are a multi-sensor that can act as a contact sensor (door/window), a motion detector, a light level detector, a humidity sensor, a temperature level sensor, an alarm sound sensor, and/or a leak detector. Each sensor function can be enabled or disabled dynamically. Disabled sensors will be marked as "unavailable".
 
 * **Sensors** - A sensor is provided for each major function of the smart sensor device:
   * **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
@@ -155,7 +155,7 @@ Sets the default doorbell message. This will be the message that is automaticall
 
 | Service data attribute | Optional | Description                                                                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances.  |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances.  |
 | `message`              | No       | The default message for your Doorbell. Must be less than 30 characters.                                      |
 
 ### Service unifiprotect.add_doorbell_text
@@ -164,7 +164,7 @@ Adds a new custom message for Doorbells.
 
 | Service data attribute | Optional | Description                                                                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances.  |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances.  |
 | `message`              | No       | New custom message to add for Doorbells. Must be less than 30 characters.                                    |
 
 ### Service unifiprotect.remove_doorbell_text
@@ -173,7 +173,7 @@ Removes an existing message for Doorbells.
 
 | Service data attribute | Optional | Description                                                                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances.  |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances.  |
 | `message`              | No       | Existing custom message to remove for Doorbells.                                                             |
 
 ### Service unifiprotect.set_doorbell_message
