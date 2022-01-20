@@ -4,7 +4,7 @@ description: Instructions on the IntelliFire Fireplace integration for Home Assi
 ha_category:
   - Binary Sensor
 ha_iot_class: Local Polling
-ha_release: 0.47
+ha_release: 2022.2
 ha_codeowners:
   - '@jeeftor'
 ha_domain: intellifire
