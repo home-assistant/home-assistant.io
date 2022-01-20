@@ -501,7 +501,7 @@ queries_flux:
       required: false
 queries_raw:
   type: list
-  description: 1.xx or 2.xx - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring an InfluxQL query or a Flux query depending of used API version. Queries can be tested using the query builder in the UI.  In API 1.xx mode, `queries_raw` can be mixed with `queries`, in API 2.xx mode, `queries_raw` can be mixed with `queries_flux` 
+  description: 1.xx or 2.xx - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring an InfluxQL query or a Flux query depending of used API version. Queries can be tested using the query builder in the UI.  In API 1.xx mode, `queries_raw` can be mixed with `queries`, in API 2.xx mode, `queries_raw` can be mixed with `queries_flux`
   required: true
   keys:
     name:
@@ -518,9 +518,7 @@ queries_raw:
       required: false
     query:
       type: template
-      description: >
-      	1.xx - Query in InluxQL format used to get to the data you want. Set to 'value' the name of the result field returned by the query or set in the `field` parameter the name returned by the query. Query should limit resultset to one value, or any beyond the first will be ignored. This supports [templates](/docs/configuration/templating/#building-templates).
-	2.xx - Query in Flux format used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/configuration/templating/#building-templates).
+      description: 1.xx - Query in InluxQL format used to get to the data you want. Set to 'value' the name of the result field returned by the query or set in the `field` parameter the name returned by the query. Query should limit resultset to one value, or any beyond the first will be ignored. This supports [templates](/docs/configuration/templating/#building-templates). 2.xx - Query in Flux format used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/configuration/templating/#building-templates).
       required: true
     database:
       type: string
@@ -529,7 +527,7 @@ queries_raw:
       default: home_assistant
     field:
       type: string
-      description:  1.xx only - "The field name of the query result if not set as 'value' in the query."
+      description:  1.xx only - The field name of the query result if not set as 'value' in the query.
       required: false
       default: value
 {% endconfiguration %}
