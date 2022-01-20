@@ -16,6 +16,6 @@ The `dnsip` sensor will expose an IP address, fetched via DNS resolution, as its
 1. When you enable the sensor with default value, it will query the [OpenDNS](https://www.opendns.com/) nameservers with the hostname `myip.opendns.com`, which will resolve to your external/public IP address.
 2. If you specify a `hostname`, a regular DNS lookup will be performed, providing you the IP the hostname resolves to.
 
-You may also override the default nameservers that is being used by setting the `resolver` option in the integration to any nameserver you like.
+You may also override the default nameservers that are being used by setting the `resolver` option in the integration to any nameserver you like.
 
 {% include integrations/config_flow.md %}
