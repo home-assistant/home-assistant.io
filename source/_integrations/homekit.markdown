@@ -372,7 +372,7 @@ Filters are applied as follows:
       - If entity include and exclude, the entity exclude is ignored
 
 :::tip
-Categorized entites (config, diagnostic, and system entities) must be explictly included by `include_entity_globs` or `include_entities`.
+Categorized entites are not excluded (config, diagnostic, and system entities) unless they are explictly included by `include_entity_globs` or `include_entities`.
 :::
 
 ## Docker Network Isolation
