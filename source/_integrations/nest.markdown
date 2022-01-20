@@ -41,6 +41,12 @@ The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
 
 </div>
 
+## Video Walkthrough
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wghcd9xDdMs" frameborder="0" allowfullscreen></iframe>
+</div>
+
 ## Device Access Registration
 
 For the first phase, you will turn on the API and create the necessary credentials to have Home Assistant talk to the Nest API.
