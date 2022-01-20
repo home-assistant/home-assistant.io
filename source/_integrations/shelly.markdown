@@ -4,6 +4,7 @@ description: Integrate Shelly devices
 ha_category:
   - Binary Sensor
   - Cover
+  - Energy
   - Light
   - Sensor
   - Switch
