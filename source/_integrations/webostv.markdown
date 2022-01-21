@@ -4,7 +4,7 @@ description: Instructions on how to integrate a LG webOS Smart TV within Home As
 ha_category:
   - Media Player
   - Notifications
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: 0.18
 ha_codeowners:
   - '@bendavid'
