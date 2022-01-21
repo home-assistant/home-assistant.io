@@ -18,4 +18,11 @@ The `dnsip` integration will expose an IP address, fetched via DNS resolution, a
 
 {% include integrations/config_flow.md %}
 
-You may also override the default nameservers that are being used by setting the `resolver` options in the integration to any nameserver you like.
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+
+Resolver:
+  description: "You may override the default nameservers that are being used by setting any nameserver you like."
+  
+{% endconfiguration_basic %}
