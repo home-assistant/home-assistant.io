@@ -18,14 +18,6 @@ When a `state_topic` is not available, the siren will work in optimistic mode. I
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect operation.
 
-The MQTT siren platform has a built-in integration with the notify platform. If `message_command_topic` is configured the siren platform will also setup the mqtt notify platform. The `{service_name}` is derived from `target`, or if `target` is not configured from `name` and will finally fallback to `message_command_topic`. Invalid characters in the service name will be removed. For each siren entity that is set up with `message_command_topic` a notify service is registered with name `notify.mqtt_{service_name}`.
-
-Additional there is a common service `notify.mqtt`. This service can be called using the `target` attribute that takes a list of siren targets that should be notified. The following target naming is supported:
-
-- The value configured with `message_command_topic` (the `target_id`).
-- The value configured with `target` or `name`.
-- The derived `{service_name}`.
-
 To enable this siren in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -33,7 +25,6 @@ To enable this siren in your installation, add the following to your `configurat
 siren:
   - platform: mqtt
     command_topic: "home/bedroom/siren/set"
-    message_command_topic: "home/bedroom/siren/notify_set"
 ```
 
 {% configuration %}
@@ -165,14 +156,6 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
-message_command_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `message_command_topic`. The notify service parameters `message`, `name` (is `target` or `name`), `target_id` (is `message_command_topic`) and `title` can be used as variables in the template. Additional variables can be added by supplying them as a `dict` to the  `data` service parameter.
-  required: false
-  type: template
-message_command_topic:
-  description: The MQTT topic to publish a message sent thought to notify service. If `message_command_topic` is configured the siren will automatically register a notify service for the siren. The `target` for this siren can also be used when calling the the generic `notify.mqtt` service with the `target` parameter. The `message_command_topic` will be used as `target_id` as well and can also be used as `target` parameter when calling the the generic `notify.mqtt` service.
-  required: false
-  type: string
 name:
   description: The name to use when displaying this siren.
   required: false
@@ -251,15 +234,6 @@ supported_volume_set:
   required: false
   type: boolean
   default: true
-target:
-  description: If `message_command_topic` is configured a notify service will be configured. The `target` will be used to derive the notify service name. E.g. a target name `beer` will register `notify.mqtt_beer`. Invalid service name characters will be replaced automatically. The `target` name can also be used as a parameter when calling service `notify.mqtt`. If `target` is not configured `name` will be used as target name. If `name` is not configured either `message_command_topic` will be used as target name.
-  required: false
-  type: string
-title:
-  description: The default `title` to be used in `message_command_template` as a variable. If `title` is supplied as parameter with a notify service call, then the parameter will replace the `title` configuration option.
-  required: false
-  type: string
-  default: "Home Assistant"
 tone_command_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `tone_command_topic`. The variable `value` holds value of the `tone` parameter. The siren turn on service parameters `tone`, `volume_level` or `duration` can be used as variables in the template.
   required: false
@@ -316,8 +290,6 @@ siren:
       - siren
     duration_command_topic: "home/alarm/siren1/duration_set"
     volume_command_topic: "home/alarm/siren1/volume_set"
-    message_command_topic: "home/alarm/siren1/message_set"
-    message_command_template: "{{ title }}: {{ message }}"
     availability:
       - topic: "home/alarm/siren1/available"
     payload_on: "ON"
