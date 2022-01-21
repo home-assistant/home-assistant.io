@@ -117,7 +117,7 @@ sensor:
   - platform: sql
     queries:
       - name: Former_Temperature_In
-        query: "SELECT * FROM (SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 2) two_entity ORDER BY state_id ASC LIMIT 1;"
+        query: "SELECT * FROM (SELECT state, state_id FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 2) two_entity ORDER BY state_id ASC LIMIT 1;"
         column: "state"
 ```
 
