@@ -20,3 +20,13 @@ Home Assistant is an open platform and so home energy management is not restrict
 If you have a sensor that returns instantaneous power readings (W or kW), then to add a sensor that returns energy usage or generation (kWh) refer to [Riemann sum integral integration](/integrations/integration/#energy)
 
 <img src='/images/docs/energy/energy-overview.png' alt='Visual representation of how all different energy forms relate.' style='border: 0;box-shadow: none;'>
+
+## Configuration
+
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+
+Add the following section to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+energy:
