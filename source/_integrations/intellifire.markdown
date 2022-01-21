@@ -27,3 +27,11 @@ The following sensors are available as either a **Binary Sensor** when dealing w
 - **Pilot Light Sensor**: Whether the pilot light is turned on.
 - **Timer Sensor**: Whether the sleep timer is turned on.
 - **Thermostat Sensor**: Whether the thermostat is turned on.
+
+### Sensors
+
+- **Flame Height**: Numerical indicator of flame height.
+- **Temperature**: Current ambient temperature as read by the fireplace remote.
+- **Target Temperature**: If the thermostat is engaged this is the target temperature the fireplace will try to reach, as measured by the remote.
+- **Fan Speed**: Numerical indicator of fan speed.
+- **Timer Time Remaining**: If the sleep timer is enabled, this is an indicator of how many minutes remain.
