@@ -3,6 +3,7 @@ title: Onkyo & Pioneer Network Receivers
 description: Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant.
 ha_category:
   - Media Player
+  - Number
 ha_release: 0.17
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@klaashoekstra94'
 ha_platforms:
   - media_player
+  - number
 ha_integration_type: integration
 ---
 
@@ -23,11 +25,13 @@ Please be aware that you need to enable "Network Standby" for this integration t
  If your receiver has second or third zone’s available, they are displayed as additional media players.
 
 {% configuration_basic %}
-max_volume:
-  description: The maximum volume of the receiver. For older receivers this was 80, newer receivers use 200. If you find the maximum volume of the receiver too loud, you can set this to a lower value to set Home Assistant's 100% volume to be that value. i.e., if your receiver has a maximum volume of 200 and you set this to 100, your receiver volume will be set to 50% when you set the volume in Home Assistant to 100%.
 sources:
   description: A list of mappings from source to source name to give custom names to the available sources. Unused sources may also be disabled.
 {% endconfiguration_basic %}
+
+## Maximum volume
+
+Different models of receivers have different volume ranges to set. Older receivers range from `0` to `80`, newer receivers to `200`. Since it's not possible to retrieve the range from de receiver, a number entity is created to set the maximum volume for each device. If you find the maximum volume of the receiver too loud, you can set this to a lower value to set Home Assistant's 100% volume to be that value. i.e., if your receiver has a maximum volume of `200` and you set the maximum volume number entity value to `100`, your receiver's actual volume will be set to 50% when you set the volume in Home Assistant to 100%.
 
 ## Playing media
 
