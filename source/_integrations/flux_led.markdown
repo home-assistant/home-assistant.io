@@ -32,6 +32,7 @@ Examples of controllers with strips:
 
 Examples of controllers:
 
+- [Single color](https://www.amazon.com/gp/product/B07J5B3R5L/)
 - [RGB](https://www.amazon.com/gp/product/B07C1LN7FZ/)
 - [RGBW](https://www.amazon.com/gp/product/B07J9QCQNN/)
 - [RGBCW](https://www.amazon.com/gp/product/B09BMC4JNJ/)
