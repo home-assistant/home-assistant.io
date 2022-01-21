@@ -355,6 +355,7 @@ cover:
   - platform: mqtt
     name: "MQTT Cover"
     command_topic: "home-assistant/cover/set"
+    state_topic: "home-assistant/cover/state"
     position_topic: "home-assistant/cover/position"
     availability:
       - topic: "home-assistant/cover/availability"
