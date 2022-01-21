@@ -47,6 +47,15 @@ The following sensor entities are available:
 - Charge level (only for electric vehicles)
 - Remaining range (only for electric vehicles)
 
+### Binary sensor
+
+The following binary sensor entities are available:
+ - Doors (open/closed, also includes state attributes showing the state of each individual door)
+ - Trunk (open/closed)
+ - Hood (open/closed)
+ - Plugged in (plugged in/unplugged, only for electric vehicles)
+ - Charging (charging/not charging, only for electric vehicles)
+
 ### Device tracker
 
 Tracks the current location of the vehicle. This will generally update when the vehicle is switched off.
