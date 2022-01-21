@@ -33,7 +33,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: Hostname or IP address of the FortiGate. Optionally portname can be added like this "10.10.10.10:443". Remember qoutes if portnumber is added.
+  description: Hostname or IP address of the FortiGate. Optionally port name can be added like this "10.10.10.10:443". Remember quotes if port number is added.
   required: true
   type: string
 token:
