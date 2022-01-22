@@ -22,9 +22,9 @@ This integration provides support for Internet Radios based on the [Frontier Sil
 
 This integration was developed and tested with a [Roberts Stream 94i].
 
-## Configuration
+## Prerequisites
 
-The integration supports automatic discovery of your Internet Radio. If you need to setup the device manually, please provide the device URL, which is typically something like `http://[host]/device`. Some models use a separate port (2244) for API access, this can be verified by visiting http://[host]:[port]/device.
+The integration supports automatic discovery of your Internet Radio. If you need to set up the device manually, please provide the device URL, which is typically something like `http://[host]/device`. Some models use a separate port (2244) for API access, this can be verified by visiting `http://[host]:[port]/device`.
 
 The default PIN for Frontier Silicon-based devices is 1234. You can set the PIN code of your device (depending on manufacturer) under:
 *MENU button > Main Menu > System setting > Network > NetRemote PIN setup*
