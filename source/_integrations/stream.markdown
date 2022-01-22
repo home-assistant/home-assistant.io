@@ -24,15 +24,16 @@ The `stream` integration is automatically loaded by `default_config` and enabled
 stream:
 ```
 
-## LL-HLS
+## LL-HLS - Low Latency HLS
 
-There is the option to enable LL-HLS for lower latency. Please note that LL-HLS has strict timing and network requirements that can be hard to meet, so this option may not work on all setups. As HTTP/2 is required by the LL-HLS specification, the use of an HTTP/2 enabled reverse proxy is strongly recommended.
-To enable LL-HLS, add the following to your `configuration.yaml`:
+Low Latency HLS reduces the start time and delay for a stream, but has strict timing and network requirements. LL-HLS is on by default, but may be disabled based on network setup -- specifically, it is strongly recommended to use an HTTP/2 proxy (e.g.  nginix, haproxy, etc) to take advantage of request pipelining.
+
+You can further adjust LL-HLS settings in `configuration.yaml`:
 
 ```yaml
 # Example LL-HLS configuration.yaml entry.
 stream:
-  ll_hls: true
+  ll_hls: true  # On by default
   part_duration: 0.75  # Range of 0.2 to 1.5
   segment_duration: 6  # Range of 2 to 10
 ```
