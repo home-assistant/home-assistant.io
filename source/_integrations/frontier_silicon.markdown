@@ -77,9 +77,9 @@ is based on [tiwillam]'s fsapi project. Special thanks to both developers, this 
 
 <div class='note warning' name="fsapi-session-note">
 
-Some older devices may require setting up a session to process requests. This is automatically detected by the underlying library. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. This renders the usage of [UNDOK] almost impossible, as the Home Assistant integration polls the device state every 30 seconds or issues a command by creating a new session.
+Some older devices may require setting up a session to process requests. This is automatically detected by the underlying library. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. 
 
-You have to disable the integration if you want to use [UNDOK]
+This renders the usage of [UNDOK] almost impossible for these older devices, as the Home Assistant integration polls the device state every 30 seconds or issues a command by creating a new session. In that case, you have to disable the integration if you want to use [UNDOK].
 
 </div>
 
