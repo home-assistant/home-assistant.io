@@ -4,15 +4,25 @@ description: Instructions on how to integrate Frontier Silicon Internet Radios i
 ha_category:
   - Media Player
 ha_iot_class: Local Push
-ha_release: '2022.1'
+ha_release: '0.40'
 ha_domain: frontier_silicon
 ha_platforms:
   - media_player
+ha_codeowners:
+  - '@wlcrs'
+ha_ssdp: true
+ha_config_flow: true
 ---
 
 This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the [UNDOK] app.
 
+{% include integrations/config_flow.md %}
+
 ## Supported Models
+Frontier Silicon is used by many different brands of radio manufacturers.
+
+Supported devices include, but are not limited to:
+
 * Hama: [IR110], [DIR3110]
 * Medion: [Medion Radios]
 * Silvercrest: [SIRD 14 C2]
@@ -22,15 +32,14 @@ This integration provides support for Internet Radios based on the [Frontier Sil
 
 This integration was developed and tested with a [Roberts Stream 94i].
 
+If your device supports the [UNDOK] app, then it supported by this integration.
+
 ## Prerequisites
 
-The integration supports automatic discovery of your Internet Radio. If you need to set up the device manually, please provide the device URL, which is typically something like `http://[host]/device`. Some models use a separate port (2244) for API access, this can be verified by visiting `http://[host]:[port]/device`.
+The integration supports automatic discovery of your Internet Radio. If you need to set up the device manually, please provide the device IP-address. Some models use a separate port (2244) for API access, this can be verified by visiting `http://[host]:[port]/device`.
 
 The default PIN for Frontier Silicon-based devices is 1234. You can set the PIN code of your device (depending on manufacturer) under:
 *MENU button > Main Menu > System setting > Network > NetRemote PIN setup*
-
-The "Force session usage" option [can typically remain unchecked](#fsapi-session-note).
-
 
 In case your device (friendly name) is called *badezimmer*, an example automation can look something like this:
 
@@ -68,10 +77,9 @@ is based on [tiwillam]'s fsapi project. Special thanks to both developers, this 
 
 <div class='note warning' name="fsapi-session-note">
 
-Some older devices may require setting up a session to process requests. If this is the case, check the "Force session usage" to get the legacy implementation of this integration.
+Some older devices may require setting up a session to process requests. This is automatically detected by the underlying library. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. This renders the usage of [UNDOK] almost impossible, as the Home Assistant integration polls the device state every 30 seconds or issues a command by creating a new session.
 
-The legacy implementation of the Frontier Silicon API does not provide a multi-user environment. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. This renders the usage of [UNDOK] almost impossible, as the Home Assistant integration polls the device state every 30 seconds or issues a command by creating a new session.
-*If you want to prevent Home Assistant to auto connect to your device, simply change the PIN code of the device to something else than: 1234*
+You have to disable the integration if you want to use [UNDOK]
 
 </div>
 
