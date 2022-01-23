@@ -386,6 +386,8 @@ This feature is enabled by the following permissions:
 
 ## Troubleshooting
 
+- The error *The component is not configured. Please follow the documentation.* means that Home Assistant is expecting a `configuration.yaml` entry for Nest, however that is no longer required by the current version of Home Assistant. Make sure to upgrade to the current version of Home Assitant and follow the instructions on this page.
+
 - You can manage devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Restart Home Assistant to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
 
 - For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
