@@ -219,13 +219,15 @@ Note that purging will not immediately decrease disk space usage but it will sig
 
 ### Service `purge_entities`
 
-Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains` and `entity_globs` fields. Note: leaving all three parameters empty will result in all entities being selected for purging.
+Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains` and `entity_globs` fields. Leaving all three parameters empty will result in all entities being selected for purging.
 
 | Service data attribute | Optional | Description                                                                                                                                                                                              |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | A list of entity_ids that should be purged from the recorder database. |
+| `entity_id`            | yes<sup>*</sup>      | A list of entity_ids that should be purged from the recorder database. |
 | `domains`               | yes      | A list of domains that should be purged from the recorder database. |
 | `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database. |
+
+Note: The `entity_id` is only optional when used in `automations.yaml` or `scripts.yaml`. When using the UI to call this service then it is mandatory to specify at least one `entity_id` using the Target Picker or via YAML mode.
 
 ### Service `disable`
 

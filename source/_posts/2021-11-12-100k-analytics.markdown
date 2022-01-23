@@ -8,7 +8,7 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories:
-- Announcement
+- Announcements
 og_image: /images/blog/2021-11-analytics/social.png
 ---
 

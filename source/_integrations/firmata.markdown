@@ -142,7 +142,7 @@ binary_sensor:
       required: true
       type: string
     pin:
-      description: The digital or analog pin number on the board.
+      description: The digital or analog pin number on the board. For analog pins the corresponding digital number must be used. Please use the pinout that corresponds to your board. For example, on the Arduino Uno, pin A2 corresponds to the digital pin number 16.
       required: true
       type: [integer, string]
     pin_mode:
@@ -232,7 +232,7 @@ firmata:
         negate: true
       - name: my_other_door
         pin_mode: INPUT
-        pin: A1
+        pin: 16   # A2
         negate: true
     sensors:
       - name: my_sensor

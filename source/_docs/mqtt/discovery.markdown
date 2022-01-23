@@ -4,7 +4,7 @@ description: "Instructions on how to setup MQTT Discovery within Home Assistant.
 logo: mqtt.png
 ---
 
-The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier and the remaining device configuration without the device type.
+The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
 
 Supported by MQTT discovery:
 
@@ -314,6 +314,7 @@ The following software has built-in support for MQTT discovery:
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
+- [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
@@ -501,7 +502,7 @@ The entity id is automatically generated from the entity's name. All MQTT entity
 {
   "name":"My Super Device",
   "object_id":"device1",
-  "state_topic": "homeassistant/sensor/device1/state",
+  "state_topic": "homeassistant/sensor/device1/state"
  }
 ```
 

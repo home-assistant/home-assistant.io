@@ -31,14 +31,25 @@ This integration will provide local control over your LED lights/strips and can 
 
 Example of bulbs:
 
-- [Flux Smart Lighting](https://www.fluxsmartlighting.com/)
-- [Flux WiFi Smart LED Light Bulb4](https://amzn.to/2X0dVwu)
-- [WIFI smart LED light Bulb1](https://amzn.to/2J2fksr)
+- [MagicLight Smart Bulbs](https://www.magiclightbulbs.com/lightbulbs) or [Amazon](https://www.amazon.com/gp/product/B081YJHHB1/)
+- [RGBCW Downlights](https://www.amazon.com/gp/product/B093Q83G7S/)
+- [RGBCW Floodlights](https://www.amazon.com/gp/product/B09J38NKPN)
+
+Examples of controllers with strips:
+
+- [MagicLight Strip Lights](https://www.magiclightbulbs.com/strip-lights) or [Amazon](https://www.amazon.com/gp/product/B08LPSS4J3/)
 
 Examples of controllers:
 
-- [Ledenet WiFi RGBW Controller](https://amzn.to/2WZKXNa)
-- [SUPERNIGHT WiFi Wireless LED Smart Controller](https://amzn.to/2WURx7w)
+- [Single color](https://www.amazon.com/gp/product/B07J5B3R5L/)
+- [RGB](https://www.amazon.com/gp/product/B07C1LN7FZ/)
+- [RGBW](https://www.amazon.com/gp/product/B07J9QCQNN/)
+- [RGBCW](https://www.amazon.com/gp/product/B09BMC4JNJ/)
+- [RGB/W/CW](https://www.amazon.com/gp/product/B01DY56N8U/)
+
+Examples of addressable controllers:
+
+- [Addressable v3](https://www.amazon.com/gp/product/B09BMBSCRF/)
 
 These devices have been sold under at least the following brands:
 
@@ -111,7 +122,6 @@ These devices have been sold under at least the following brands:
 {% include integrations/config_flow.md %}
 
 After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
-
 
 **Custom Effect**\
 A list of RGB colors can be entered to create an effect. The effect speed can be adjusted using the slider underneath.

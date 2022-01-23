@@ -548,7 +548,7 @@ The Z-Wave network can be configured via the built-in Z-Wave JS control panel in
 
 **Option 3: The Zwavejs2Mqtt Docker container**
 
-This is the recommended approach if you're running Home Assistant Container. See the [Zwavejs2Mqtt documentation](https://zwave-js.github.io/Zwavejs2Mqtt/#/getting-started/quick-start) for instructions.
+This is the recommended approach if you're running Home Assistant Container. See the [Zwavejs2Mqtt documentation](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) for instructions.
 
 This method provides the same server application and UI as the Zwavejs2Mqtt add-on. After installing the Docker image, make sure you enable the WS Server in the Home Assistant section of Settings page.
 
@@ -596,7 +596,7 @@ You can also keep track of the Roadmap for the Z-Wave JS integration [here](http
 
 #### Which Z-Wave controller should I buy?
 
-Z-Wave JS supports all known 500 and 700 series Z-Wave controllers. If you are just starting out, we recommend that you purchase a 700 series controller to take advantage of the latest improvements.
+Z-Wave JS supports all known 500 and 700 series Z-Wave controllers. If you are just starting out, we recommend that you purchase a 500 series controller. 
 
 For more information, see [Supported Z-Wave dongles](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules)
 
@@ -680,8 +680,8 @@ Names set in Home Assistant will not import into Zwavejs2Mqtt.
 #### How can I add (include) a new device to my Z-Wave network?
 
 1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
-2. Press `Add node`.
-3. Press `Start Inclusion`. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
+2. Press `+ ADD DEVICE`.
+3. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
 4. Put the device you want to add in inclusion mode. Refer to its manual how this is done.
 5. The UI should confirm that the node was added and it will be immediately visible in Home Assistant. After a short while (seconds to minutes) the entities should also be created.
 6. If the controller fails to add/find your device, cancel the inclusion process (to unblock your network again). In some cases it might help to first remove a node (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet. Another approach would be to factory reset the device. Info about that is in the manual of your device.
@@ -704,8 +704,8 @@ S2 security does not impose additional network traffic and provides additional b
 #### How do I remove (exclude) a device from my Z-Wave network?
 
 1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
-2. Press `Remove node`.
-3. Press `Start Exclusion`. The Z-Wave controller is now in exclusion mode and will not respond to other commands.
+2. Press `REMOVE DEVICE`.
+3. Press `START EXCLUSION`. The Z-Wave controller is now in exclusion mode and will not respond to other commands.
 4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
 5. The UI should confirm that the node was removed and the device and entities will be removed from Home Assistant.
 
@@ -760,3 +760,11 @@ When trying to determine why something isn't working as you expect, or when repo
 ### Interference issues
 
 Many users have reported issues with interference when the USB stick was directly connected to the machine (proximity). If you are having issues try to use a short USB 2.0 A male to female extension cord.
+
+#### How to access the Z-Wave JS logs
+
+Z-Wave JS writes details to its logs. To access these logs go to the following.
+
+   **Configuraton** -> **Devices & Services** -> **Integrations(tab)** -> **Z-Wave JS (CONFIGURE)** -> **Logs(tab)**
+
+You need to keep this browser tab open for logging to be active.

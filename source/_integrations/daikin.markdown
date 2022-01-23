@@ -5,6 +5,7 @@ ha_category:
   - Climate
   - Sensor
   - Switch
+  - Energy
 ha_release: 0.59
 ha_iot_class: Local Polling
 ha_config_flow: true
