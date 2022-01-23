@@ -19,7 +19,7 @@ The GoodWe integration will poll a [GoodWe](http://www.goodwe.com/) solar invert
 It works with GoodWe ET, EH, BT, BH, ES, EM, DT, MS, D-NS, XS and BP families of inverters. Different inverter families/models expose different sets of sensors, the newer models have usually broader support.
 
 <div class='note'>
-If you can't communicate with the inverter despite your model is listed above, it is possible you have old ARM firmware version. You should ask manufacturer support to upgrade your ARM firmware (not just inverter firmware) to be able to communicate with the inverter via UDP.
+If you can't communicate with the inverter despite your model is listed above, it is possible you have an old ARM firmware version. You should ask manufacturer support to upgrade your ARM firmware (not just inverter firmware) to be able to communicate with the inverter via UDP.
 
 It may work on other inverter families as well, as long as they listen on UDP port 8899 and respond to one of supported communication protocols. In general, if you can communicate with the inverter via official mobile application (PvMaster, SolarGo), it is very likely the integration will work too.
 </div>
