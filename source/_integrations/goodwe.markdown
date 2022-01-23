@@ -21,7 +21,7 @@ It works with GoodWe ET, EH, BT, BH, ES, EM, DT, MS, D-NS, XS and BP families of
 <div class='note'>
 If you can't communicate with the inverter despite your model is listed above, it is possible you have an old ARM firmware version. You should ask manufacturer support to upgrade your ARM firmware (not just inverter firmware) to be able to communicate with the inverter via UDP.
 
-It may work on other inverter families as well, as long as they listen on UDP port 8899 and respond to one of supported communication protocols. In general, if you can communicate with the inverter via official mobile application (PvMaster, SolarGo), it is very likely the integration will work too.
+It may work on other inverter families as well, as long as they listen on UDP port 8899 and respond to one of the supported communication protocols. In general, if you can communicate with the inverter via an official mobile application (PvMaster, SolarGo), it is very likely the integration will work too.
 </div>
 
 {% include integrations/config_flow.md %}
