@@ -14,7 +14,7 @@ ha_platforms:
   - sensor
 ---
 
-The `goodwe` integration will poll a [GoodWe](http://www.goodwe.com/) solar inverter over the local network and present its runtime values as sensors in Home Assistant.
+The GoodWe integration will poll a [GoodWe](http://www.goodwe.com/) solar inverter over the local network and present its runtime values as sensors in Home Assistant.
 
 It works with GoodWe ET, EH, BT, BH, ES, EM, DT, MS, D-NS, XS and BP families of inverters. Different inverter families/models expose different sets of sensors, the newer models have usually broader support.
 
@@ -26,33 +26,30 @@ It may work on other inverter families as well, as long as they listen on UDP po
 
 {% include integrations/config_flow.md %}
 
-## Inverter polling frequency
-
-The integration will poll the inverter for new values every 10 seconds. If you wish to receive fresh inverter data less (or more) frequently, you can disable the automatic refresh in the integration's system options (Enable polling for updates) and create your own automation with your desired polling frequency.
-
-```yaml
-- id: goodwe_polling
-  alias: Goodwe inverter data polling
-  trigger:
-  - platform: time_pattern
-    hours: '*'
-    minutes: '*'
-    seconds: /30
-  action:
-  - service: homeassistant.update_entity
-    target:
-      entity_id: sensor.ppv
-  initial_state: 'off'
-  mode: single
-```
-
-<div class='note'>
-It has been observed in some rare situations that frequent polling conflicts with update to Goodwe SEMS cloud portal and does not receive any updates anymore. Reducing polling frequence to 30 seconds or 1 minute seems to help in such case.
-</div>
-
 ## Energy dashboard
 
 The plugin provides several values suitable for the energy dashboard.
 The best supported are the inverters of ET/EH families, where the sensors `Meter Total Energy (export)`, `Meter Total Energy (import)`, `Total PV Generation`, `Total Battery Charge` and `Total Battery Discharge` are the most suitable for the dashboard measurements and statistics.
 
-For the other inverter families, if such sensors are not directly available by the inverter, they can be calculated from existing sensors. [Template Sensor](https://www.home-assistant.io/integrations/template/) can be used to separate buy and sell power values and [Riemann Sum](https://www.home-assistant.io/integrations/integration/) can be used to convert these instant power (W) values into cumulative energy values (Wh), which then can be used within the energy dashboard.
+For the other inverter families, if such sensors are not directly available by the inverter, they can be calculated from existing sensors. [Template Sensor](/integrations/template/) can be used to separate buy and sell power values and [Riemann Sum](/integrations/integration/) can be used to convert these instant power (W) values into cumulative energy values (Wh), which then can be used within the energy dashboard.
+
+## Inverter polling frequency
+
+The integration will poll the inverter for new values every 10 seconds. If you wish to receive fresh inverter data less (or more) frequently, you can disable the automatic refresh in the integration's system options (Enable polling for updates) and create your own automation with your desired polling frequency.
+
+```yaml
+- alias: "Goodwe inverter data polling"
+  trigger:
+    - platform: time_pattern
+      hours: "*"
+      minutes: "*"
+      seconds: "/30"
+  action:
+    - service: homeassistant.update_entity
+      target:
+        entity_id: sensor.ppv
+```
+
+<div class='note'>
+It has been observed in some rare situations that frequent polling conflicts with update to Goodwe SEMS cloud portal and does not receive any updates anymore. Reducing polling frequence to 30 seconds or 1 minute seems to help in such case.
+</div>
