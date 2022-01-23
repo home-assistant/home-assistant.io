@@ -18,22 +18,6 @@ This integration provides support for Internet Radios based on the [Frontier Sil
 
 {% include integrations/config_flow.md %}
 
-## Supported Models
-Frontier Silicon is used by many different brands of radio manufacturers.
-
-Supported devices include, but are not limited to:
-
-* Hama: [IR110], [DIR3110]
-* Medion: [Medion Radios]
-* Silvercrest: [SIRD 14 C2]
-* Teufel: [Radio 3sixty(2019)]
-* Roberts: [Roberts Stream 94i]
-* Some models from: Auna, Technisat, Revo, Pinell, Como Audio
-
-This integration was developed and tested with a [Roberts Stream 94i].
-
-If your device supports the [UNDOK] app, then it supported by this integration.
-
 ## Prerequisites
 
 The integration supports automatic discovery of your Internet Radio. If you need to set up the device manually, please provide the device IP-address. Some models use a separate port (2244) for API access, this can be verified by visiting `http://[host]:[port]/device`.
@@ -57,7 +41,25 @@ action:
     entity_id: "media_player.badezimmer"
 ```
 
+## Supported Models
+
+Frontier Silicon is used by many different brands of radio manufacturers.
+
+Supported devices include, but are not limited to:
+
+* Hama: [IR110], [DIR3110]
+* Medion: [Medion Radios]
+* Silvercrest: [SIRD 14 C2]
+* Teufel: [Radio 3sixty(2019)]
+* Roberts: [Roberts Stream 94i]
+* Some models from: Auna, Technisat, Revo, Pinell, Como Audio
+
+This integration was developed and tested with a [Roberts Stream 94i].
+
+If your device supports the [UNDOK] app, then it supported by this integration.
+
 ## Screenshots:
+
 Overview DAB+ (Badezimmer) and Spotify (Küche):
 <p class='img'>
 <img src='/images/screenshots/frontier_silicon_overview.png' />
