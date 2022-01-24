@@ -140,6 +140,13 @@ Each UniFi Protect viewer will get a device in Home Assistant with the following
 * **Liveview Select** - A select control will be added for each viewer device that will allow you to select which liveview is being displayed on the viewer.
 * **Button** - A disabled by default button is added for each viewer device. The button will let you reboot your viewer device.
 
+### UniFi Protect DoorLock
+
+Each UniFi Protect door lock will get a device in Home Assistant with the following:
+
+* **Device Configuration** - Door locks will get configuration controls for the Auto-Lock Timeout, selecting the Paired Camera, and Status Light switch
+* **Button** - A disabled by default button is added for each door lock device. The button will let you reboot your door lock device.
+
 ### NVR
 
 Your main UniFi Protect NVR device also gets a number of diagnostics sensors that can be used for tracking the state of your UniFi Protect system:
