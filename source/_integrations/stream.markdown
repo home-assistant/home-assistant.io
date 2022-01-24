@@ -24,7 +24,7 @@ ll_hls:
   description: Allows disabling Low Latency HLS (LL-HLS)
   required: false
   type: boolean
-  default: True
+  default: true
 segment_duration:
   description: The duration of each HLS segment, in seconds (between 2 and 10)
   type: float
