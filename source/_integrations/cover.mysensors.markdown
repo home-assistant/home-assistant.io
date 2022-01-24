@@ -152,6 +152,6 @@ void receive(const MyMessage &message) {
 
 ## Sketch example with position measurement based on motor running time
 
-This sketch is ideally for star topology wiring. You can run up to 12 covers with a single Arduino Mega board and some releys. All you need to set is one line of parameters for one Cover. However you can also use it for a single cover based on an arduino nano or even ESP8266 board.
+This sketch is ideally for star topology wiring. You can run up to 12 covers with a single Arduino Mega board and some relays. All you need to set is one line of parameters for one Cover. However, you can also use it for a single cover based on an Arduino Nano or even an ESP8266 board.
 
 [Check out the code on github.](https://github.com/gryzli133/RollerShutterSplit)
