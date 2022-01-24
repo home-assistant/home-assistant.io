@@ -90,7 +90,7 @@ Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevi
 
 ### Gateway Features
 
-- Gateway alarm control (Turn on/off; see status `armed_away`, `disarmed`, `arming`, status `triggering` (needs token_enc and will be push instead of poll))
+- Gateway alarm control (Turn on/off; see status `armed_away`, `disarmed`, `arming`, status `triggering` (push instead of poll))
 - Gateway light control (Turn on/off; change brightness; change color; see status)
 - Gateway illuminance sensor readout (illuminance value in lux)
 
@@ -127,26 +127,24 @@ These subdevices are fully implemented in Home Assistant:
 | IKEA smart bulb E27 white        | ikea.light.led1623g12   | LED1623G12      | on/off, brightness, color temperature            |                                                                                                                                                           |
 | IKEA smart bulb GU10 white       | ikea.light.led1650r5    | LED1650R5       | on/off, brightness, color temperature            |                                                                                                                                                           |
 | IKEA smart bulb E12 white        | ikea.light.led1649c5    | LED1649C5       | on/off, brightness, color temperature            |                                                                                                                                                           |
-| Door sensor                      | lumi.sensor_magnet.v2   | MCCGQ01LM       | is_open (needs token_enc)                        | xiaomi_miio.Magnet open/close                                                                                                                             |
-| Door sensor                      | lumi.sensor_magnet.aq2  | MCCGQ11LM       | is_open (needs token_enc)                        | xiaomi_miio.Magnet open/close                                                                                                                             |
-| Motion sensor                    | lumi.sensor_motion.v2   | RTCGQ01LM       | motion (needs token_enc)                         | xiaomi_miio.Motion motion/no_motion                                                                                                                       |
-| Motion sensor                    | lumi.sensor_motion.aq2  | RTCGQ11LM       | motion (needs token_enc)                         | xiaomi_miio.Motion motion/no_motion                                                                                                                       |
-| Cube                             | lumi.sensor_cube.v1     | MFKZQ01LM       | last_event (needs token_enc)                     | xiaomi_miio.Cube move/flip90/flip180/taptap/shakeair/rotate                                                                                               |
-| Cube                             | lumi.sensor_cube.aqgl01 | MFKZQ01LM       | last_event (needs token_enc)                     | xiaomi_miio.Cube move/flip90/flip180/taptap/shakeair/rotate                                                                                               |
-| Vibration sensor                 | lumi.vibration.aq1      | DJT11LM         | last_event (needs token_enc)                     | xiaomi_miio.VibrationSensor vibrate/tilt/free_fall                                                                                                        |
-| Button                           | lumi.sensor_switch.v2   | WXKG01LM        | last_press (needs token_enc)                     | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0                                                                                        |
-| Button                           | lumi.sensor_switch.aq2  | WXKG11LM 2015   | last_press (needs token_enc)                     | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0                                                                                        |
-| Button                           | lumi.sensor_switch.aq3  | WXKG12LM        | last_press (needs token_enc)                     | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0/long_click_press/shake                                                                 |
-| Button                           | lumi.remote.b1acn01     | WXKG11LM 2018   | last_press (needs token_enc)                     | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0                                                                                        |
-| Remote switch single             | lumi.sensor_86sw1.v1    | WXKG03LM 2016   | last_press (needs token_enc)                     | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0                                                                                        |
-| Remote switch single             | lumi.remote.b186acn01   | WXKG03LM 2018   | last_press (needs token_enc)                     | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0                                                                                        |
-| D1 remote switch single          | lumi.remote.b186acn02   | WXKG06LM        | last_press (needs token_enc)                     | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0                                                                                        |
-| Remote switch double             | lumi.sensor_86sw2.v1    | WXKG02LM 2016   | last_press (needs token_enc)                     | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0/long_click_ch1/click_ch1/double_click_ch1/both_long_click/both_click/both_double_click |
-| Remote switch double             | lumi.remote.b286acn01   | WXKG02LM 2018   | last_press (needs token_enc)                     | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0/long_click_ch1/click_ch1/double_click_ch1/both_long_click/both_click/both_double_click |
-| D1 remote switch double          | lumi.remote.b286acn02   | WXKG07LM        | last_press (needs token_enc)                     | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0/long_click_ch1/click_ch1/double_click_ch1/both_long_click/both_click/both_double_click |
+| Door sensor                      | lumi.sensor_magnet.v2   | MCCGQ01LM       | is_open                                          | xiaomi_miio.Magnet open/close                                                                                                                             |
+| Door sensor                      | lumi.sensor_magnet.aq2  | MCCGQ11LM       | is_open                                          | xiaomi_miio.Magnet open/close                                                                                                                             |
+| Motion sensor                    | lumi.sensor_motion.v2   | RTCGQ01LM       | motion                                           | xiaomi_miio.Motion motion/no_motion                                                                                                                       |
+| Motion sensor                    | lumi.sensor_motion.aq2  | RTCGQ11LM       | motion                                           | xiaomi_miio.Motion motion/no_motion                                                                                                                       |
+| Cube                             | lumi.sensor_cube.v1     | MFKZQ01LM       | last_event                                       | xiaomi_miio.Cube move/flip90/flip180/taptap/shakeair/rotate                                                                                               |
+| Cube                             | lumi.sensor_cube.aqgl01 | MFKZQ01LM       | last_event                                       | xiaomi_miio.Cube move/flip90/flip180/taptap/shakeair/rotate                                                                                               |
+| Vibration sensor                 | lumi.vibration.aq1      | DJT11LM         | last_event                                       | xiaomi_miio.VibrationSensor vibrate/tilt/free_fall                                                                                                        |
+| Button                           | lumi.sensor_switch.v2   | WXKG01LM        | last_press                                       | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0                                                                                        |
+| Button                           | lumi.sensor_switch.aq2  | WXKG11LM 2015   | last_press                                       | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0                                                                                        |
+| Button                           | lumi.sensor_switch.aq3  | WXKG12LM        | last_press                                       | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0/long_click_press/shake                                                                 |
+| Button                           | lumi.remote.b1acn01     | WXKG11LM 2018   | last_press                                       | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0                                                                                        |
+| Remote switch single             | lumi.sensor_86sw1.v1    | WXKG03LM 2016   | last_press                                       | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0                                                                                        |
+| Remote switch single             | lumi.remote.b186acn01   | WXKG03LM 2018   | last_press                                       | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0                                                                                        |
+| D1 remote switch single          | lumi.remote.b186acn02   | WXKG06LM        | last_press                                       | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0                                                                                        |
+| Remote switch double             | lumi.sensor_86sw2.v1    | WXKG02LM 2016   | last_press                                       | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0/long_click_ch1/click_ch1/double_click_ch1/both_long_click/both_click/both_double_click |
+| Remote switch double             | lumi.remote.b286acn01   | WXKG02LM 2018   | last_press                                       | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0/long_click_ch1/click_ch1/double_click_ch1/both_long_click/both_click/both_double_click |
+| D1 remote switch double          | lumi.remote.b286acn02   | WXKG07LM        | last_press                                       | xiaomi_miio.RemoteSwitch long_click_ch0/click_ch0/double_click_ch0/long_click_ch1/click_ch1/double_click_ch1/both_long_click/both_click/both_double_click |
 
-Some of these subdevices require a encrypted token to work with this integration, this is a 32-digit string that needs to be supplyed in the options flow of the integration for each configured gateway (after setting up the integration, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Miio Gateway integration).
-[Instructions to retrieve this encrypted token can be found below](#encrypted-token-retrieval). 
 The push events can be observed by going to the `Developer Tools` in the sidebar of Home Assistant --> `EVENTS` --> `Listen to events`, then fill in eather `*` or one of the specific events listed in the table above, for example `xiaomi_miio.Magnet`.
 The events will have a event_type as specifyed in the table above and will include as data the `entity_id` that caused the event, the `action` as listed above in the table and possibly aditional parameters.
 A example of such a event is:
@@ -194,31 +192,6 @@ These subdevices are recognized by the python-miio code but are still being work
 | Door lock S2 pro                 | lumi.lock.acn03         | ZNMS13LM        |
 | Vima cylinder lock               | lumi.lock.v1            | A6121           |
 | Thermostat S2                    | lumi.airrtc.tcpecn02    | KTWKQ03ES       |
-
-### Encrypted token retrieval
-
-The 32-digit encrypted token is probably derived from the normal token used in all other communication.
-unfortunately the way in which this encrypted token can be calculated from the normal token is not yet known.
-Therefore the encrypted token needs to be retrieved from a packet capture of the Xiaomi Home app.
-To do this you will need 3 programs running on a PC:
- - [BlueStacks](https://www.bluestacks.com) to emulate the Xiaomi Home app on windows
- - [WireShark](https://www.wireshark.org) to capture the network packets send by the Xiaomi Home app in BlueStacks
- - [Miio Tool](https://github.com/aholstenson/miio) to decode the captured packets of WireShark
-
-1. Install BlueStacks, WireShark and Miio Tool.
-2. Set up Xiaomi Home app in BlueStacks and login to synchronize devices.
-3. Open WireShark, select all your interfaces, apply a filter "ip.src==192.168.1.GATEWAY_IP or ip.dst==192.168.1.GATEWAY_IP" in which GATEWAY_IP is the Ip-address of your gateway, and start capturing packets
-4. In the Xiaomi Home app go to `scene` --> `+` --> for "If" select your gateway --> select `Alarm` --> for "Then" select the same gateway again --> select "Control nightlight" --> select "Switch gateway light color" --> click the finish checkmark and accept the default name.
-5. Repeat step 4 for all gateways you have.
-6. Stop capturing packets in WireShark, you can now delete the `scene` again you just created in the Xiaomi Home app.
-7. In WireShark go to `file` --> `Export Packet Dissections` --> `As JSON...` --> save the file on your computer
-8. Get the regular token of your gateway from the Home Assistant `core.config_entries` file located in your `config\.storage` folder of Home Assistant (search for `"domain": "xiaomi_miio"`)
-9. open a command line --> `miio protocol json-dump C:\path\to\the\file\you\just\saved\filename.json --token TokenTokenToken` in which you will need to fill in the path and the token.
-10. You schould now see the decoded communication of the Xiaomi Home app to your gateway and back during the packet capture.
-11. One of the packets schould look like this: {"id":1234,"method":"send_data_frame","params":{"cur":0,"data":"[[\"x.scene.1234567890\",[\"1.0\",1234567890,[\"0\",{\"did\":\"12345678\",\"extra\":\"[1,19,1,111,[0,1],2,0]\",\"key\":\"event.lumi.gateway.v3.arming\",\"model\":\"lumi.gateway.v3\",\"src\":\"device\",\"timespan\":[\"0 0 * * 0,1,2,3,4,5,6\",\"0 0 * * 0,1,2,3,4,5,6\"],\"token\":\"regular0token0we0already0know000\"}],[{\"command\":\"lumi.gateway.v3.set_rgb\",\"did\":\"12345678\",\"extra\":\"[1,19,7,85,[40,123456],0,0]\",\"id\":1,\"ip\":\"192.168.1.IP\",\"model\":\"lumi.gateway.v3\",\"token\":\"encrypted0token0we0need000000000\",\"value\":123456}]]]]","data_tkn":12345,"total":1,"type":"scene"}}
-12. Search for something looking like \"token\":\"123456789abcdefghijklmnopqrstuvw\", note that there schould be two different tokens occurring in the captured packets, one will be the regular token you just supplied to decode these packets, the other one will be the encrypted token we need.
-
-You might need to repeat the packet capture again if it did not show up the first time, if it still does not show up, make sure you do not have a VPN enabled while executing steps 3 to 6 and make sure you use the correct token for decoding the packets (each gateway has its own token).
 
 ## Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)
 
