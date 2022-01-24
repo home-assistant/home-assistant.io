@@ -35,11 +35,9 @@ ha_platforms:
   - switch
 ---
 
-This integration allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way](https://z-wave.me/z-way/). This is the recommended Z-Wave integration for Home Assistant for owners of Z-Wave.Me controllers.
+This integration allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way](https://z-wave.me/z-way/). It combines the performance and the power of the diagnostics tools built in Z-Way with the flexibility of Home Assistant. The integration brings all Z-Way devices in Home Assistant (Z-Wave, EnOcean, HTTP based and others).
 
-## Quick start (Home Assistant including Supervisor)
-
-To add Z-Wave.Me to your installation, go to {% my integrations title="Configuration > Devices & Services" %} in the UI. Click the "Add integration" button in the bottom right and from the list of integrations, select "Z-Wave.Me" and follow the instructions shown.
+{% include integrations/config_flow.md %}
 
 Note: You can use Z-Wave.Me UI with it's enhanced diagnostics tools together with the Home Assistant UI.
 
@@ -53,4 +51,4 @@ Z-Wave.Me Z-Way runs on various platforms: Raspberry Pi OS, Linux, Windows. Inst
 
 ## Migration to Z-Way
 
-To migrate from any Z-Wave controller to Z-Way, include Z-Way as a secondary controller (with security to let Z-Way learn the network key). Use Z-Way migration tool to make the controller primary in your network.
+To migrate from any other Z-Wave controller to Z-Way, include Z-Way as a secondary controller (with security to let Z-Way learn the network key). Use the Z-Way migration tool to make the controller primary in your network.
