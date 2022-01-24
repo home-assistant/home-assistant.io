@@ -101,7 +101,7 @@ Not yet implemented features (but possible):
 
 ### Supported subdevices
 
-These subdevices are fully implemented in HomeAssistant:
+These subdevices are fully implemented in Home Assistant:
 
 | Subdevice name                   | Zigbee id               | model           | features                                         | push events                                                                                                                                               |
 | -------------------------------- | ----------------------- | --------------- | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -147,7 +147,7 @@ These subdevices are fully implemented in HomeAssistant:
 
 Some of these subdevices require a encrypted token to work with this integration, this is a 32-digit string that needs to be supplyed in the options flow of the integration for each configured gateway (after setting up the integration, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Miio Gateway integration).
 [Instructions to retrieve this encrypted token can be found below](#encrypted-token-retrieval). 
-The push events can be observed by going to the `Developer Tools` in the sidebar of HomeAssistant --> `EVENTS` --> `Listen to events`, then fill in eather `*` or one of the specific events listed in the table above, for example `xiaomi_miio.Magnet`.
+The push events can be observed by going to the `Developer Tools` in the sidebar of Home Assistant --> `EVENTS` --> `Listen to events`, then fill in eather `*` or one of the specific events listed in the table above, for example `xiaomi_miio.Magnet`.
 The events will have a event_type as specifyed in the table above and will include as data the `entity_id` that caused the event, the `action` as listed above in the table and possibly aditional parameters.
 A example of such a event is:
 ```yaml
@@ -198,7 +198,7 @@ These subdevices are recognized by the python-miio code but are still being work
 ### Encrypted token retrieval
 
 The 32-digit encrypted token is probably derived from the normal token used in all other communication.
-Unfortunatly the way in which this encrypted token can be calculated from the normal token is not yet known.
+unfortunately the way in which this encrypted token can be calculated from the normal token is not yet known.
 Therefore the encrypted token needs to be retrieved from a packet capture of the Xiaomi Home app.
 To do this you will need 3 programs running on a PC:
  - [BlueStacks](https://www.bluestacks.com) to emulate the Xiaomi Home app on windows
@@ -207,16 +207,16 @@ To do this you will need 3 programs running on a PC:
 
 1. Install BlueStacks, WireShark and Miio Tool.
 2. Set up Xiaomi Home app in BlueStacks and login to synchronize devices.
-3. Open WireShark, select all your interfaces, apply a filter "ip.src==192.168.1.GATEWAY_IP or ip.dst==192.168.1.GATEWAY_IP" in which GATEWAY_IP is the Ip-adress of your gateway, and start capturing packets
+3. Open WireShark, select all your interfaces, apply a filter "ip.src==192.168.1.GATEWAY_IP or ip.dst==192.168.1.GATEWAY_IP" in which GATEWAY_IP is the Ip-address of your gateway, and start capturing packets
 4. In the Xiaomi Home app go to `scene` --> `+` --> for "If" select your gateway --> select `Alarm` --> for "Then" select the same gateway again --> select "Control nightlight" --> select "Switch gateway light color" --> click the finish checkmark and accept the default name.
 5. Repeat step 4 for all gateways you have.
 6. Stop capturing packets in WireShark, you can now delete the `scene` again you just created in the Xiaomi Home app.
 7. In WireShark go to `file` --> `Export Packet Dissections` --> `As JSON...` --> save the file on your computer
-8. Get the regular token of your gateway from the homeassistant `core.config_entries` file located in your `config\.storage` folder of homeassistant (search for `"domain": "xiaomi_miio"`)
+8. Get the regular token of your gateway from the Home Assistant `core.config_entries` file located in your `config\.storage` folder of Home Assistant (search for `"domain": "xiaomi_miio"`)
 9. open a command line --> `miio protocol json-dump C:\path\to\the\file\you\just\saved\filename.json --token TokenTokenToken` in which you will need to fill in the path and the token.
 10. You schould now see the decoded communication of the Xiaomi Home app to your gateway and back during the packet capture.
 11. One of the packets schould look like this: {"id":1234,"method":"send_data_frame","params":{"cur":0,"data":"[[\"x.scene.1234567890\",[\"1.0\",1234567890,[\"0\",{\"did\":\"12345678\",\"extra\":\"[1,19,1,111,[0,1],2,0]\",\"key\":\"event.lumi.gateway.v3.arming\",\"model\":\"lumi.gateway.v3\",\"src\":\"device\",\"timespan\":[\"0 0 * * 0,1,2,3,4,5,6\",\"0 0 * * 0,1,2,3,4,5,6\"],\"token\":\"regular0token0we0already0know000\"}],[{\"command\":\"lumi.gateway.v3.set_rgb\",\"did\":\"12345678\",\"extra\":\"[1,19,7,85,[40,123456],0,0]\",\"id\":1,\"ip\":\"192.168.1.IP\",\"model\":\"lumi.gateway.v3\",\"token\":\"encrypted0token0we0need000000000\",\"value\":123456}]]]]","data_tkn":12345,"total":1,"type":"scene"}}
-12. Search for something looking like \"token\":\"123456789abcdefghijklmnopqrstuvw\", note that there schould be two diffrent tokens occurring in the captured packets, one will be the regular token you just supplied to decode these packets, the other one will be the encrypted token we need.
+12. Search for something looking like \"token\":\"123456789abcdefghijklmnopqrstuvw\", note that there schould be two different tokens occurring in the captured packets, one will be the regular token you just supplied to decode these packets, the other one will be the encrypted token we need.
 
 You might need to repeat the packet capture again if it did not show up the first time, if it still does not show up, make sure you do not have a VPN enabled while executing steps 3 to 6 and make sure you use the correct token for decoding the packets (each gateway has its own token).
 
