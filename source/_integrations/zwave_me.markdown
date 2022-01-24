@@ -15,7 +15,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
-ha_release: '2021.12'
+ha_release: 2022.2
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -35,11 +35,11 @@ ha_platforms:
   - switch
 ---
 
-This integration allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way](https://z-wave.me/z-way/). It combines the performance and the power of the diagnostics tools built in Z-Way with the flexibility of Home Assistant. The integration brings all Z-Way devices in Home Assistant (Z-Wave, EnOcean, HTTP based and others).
+This integration allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way](https://z-wave.me/z-way/). It combines the performance and the power of the diagnostics tools built-in Z-Way with the flexibility of Home Assistant. The integration brings all Z-Way devices in Home Assistant (Z-Wave, EnOcean, HTTP based, and others).
 
 {% include integrations/config_flow.md %}
 
-Note: You can use Z-Wave.Me UI with it's enhanced diagnostics tools together with the Home Assistant UI.
+Note: You can use Z-Wave.Me UI with its enhanced diagnostics tools together with the Home Assistant UI.
 
 ## Hardware requirements
 
