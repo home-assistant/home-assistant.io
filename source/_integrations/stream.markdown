@@ -39,7 +39,7 @@ part_duration:
 
 ## LL-HLS - Low Latency HLS
 
-LL-HLS reduces the start time and delay for a stream, but it has strict timing and network requirements and opens additional browser connections. To avoid running into browser limits it is strongly recommended to use an HTTP/2 proxy (e.g. nginx or haproxy) to take advantage of request pipelining. LL-HLS is enabled by default, but when not using HTTP/2, the Home Assistant frontend will revert back to regular HLS if too many streams are open.
+LL-HLS reduces the start time and delay for a stream, but it has strict timing and network requirements and opens additional browser connections. To avoid running into browser limits it is strongly recommended to use an HTTP/2 proxy (e.g., NGINX or haproxy) to take advantage of request pipelining. LL-HLS is enabled by default, but when not using HTTP/2, the Home Assistant frontend will revert back to regular HLS if too many streams are open.
 
 You can further adjust LL-HLS settings in `configuration.yaml` as it may perform better or worse with different values depending on your network setup, cameras, or whether or not they are local or cloud.
 
