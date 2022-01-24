@@ -13,21 +13,26 @@ ha_platforms:
   - sensor
 ---
 
-The SleepIQ implementation lets you view sensor data from [SleepIQ by SleepNumber](https://www.sleepnumber.com/sleepiq-sleep-tracker). In particular, it lets you see the occupancy and current SleepNumber (ie current firmness) of each side of a SleepNumber bed.
+The SleepIQ integration lets you view sensor data from [SleepIQ by SleepNumber](https://www.sleepnumber.com/sleepiq-sleep-tracker). In particular, it lets you see the occupancy and current SleepNumber (ie current firmness) of each side of a SleepNumber bed.
 
-## Setup
-
-You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this component.
+You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this integration.
 
 ## Configuration
 
-To set it up, add the following information to your `configuration.yaml` file:
+1. In the **Configuration** > **Devices & Services** menu, click **+** and then select "SleepIQ" from the pop-up menu.
+2. In the pop-up box, enter your username and password for your SleepIQ account. Optionally, choose a custom scan interval (the default is to check for updates every 60 seconds).
+3. Click **Submit**. If the account information is valid, a configuration entry will be created and your SleepNumber sensors will be available in Home Assistant.
+
+## Manual Configuration
+
+If you prefer to set up the integration in `configuration.yaml`, add your username and password as follows:
 
 ```yaml
 # Example configuration.yaml entry
 sleepiq:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
+  scan_interval: 60
 ```
 
 {% configuration %}
@@ -39,4 +44,8 @@ password:
   description: Your SleepIQ password.
   required: true
   type: string
+scan_interval:
+  description: Frequency to update sensor data.
+  required: false
+  type: integer
 {% endconfiguration %}
