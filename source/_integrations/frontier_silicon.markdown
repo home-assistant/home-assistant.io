@@ -14,9 +14,24 @@ ha_ssdp: true
 ha_config_flow: true
 ---
 
-This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the [UNDOK] app.
+This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will usually be controllable by the [UNDOK] app.
 
-{% include integrations/config_flow.md %}
+## Supported Models
+
+Frontier Silicon is used by many different brands of radio manufacturers.
+
+Supported devices include, but are not limited to:
+
+* Hama: [IR110], [DIR3110]
+* Medion: [Medion Radios]
+* Silvercrest: [SIRD 14 C2]
+* Teufel: [Radio 3sixty(2019)]
+* Roberts: [Roberts Stream 94i]
+* Some models from: Auna, Technisat, Revo, Pinell, Como Audio
+
+This integration was developed and tested with a [Roberts Stream 94i].
+
+If your device is supported by the [UNDOK] app, then it is also supported by this integration.
 
 ## Prerequisites
 
@@ -41,22 +56,7 @@ action:
     entity_id: "media_player.badezimmer"
 ```
 
-## Supported Models
-
-Frontier Silicon is used by many different brands of radio manufacturers.
-
-Supported devices include, but are not limited to:
-
-* Hama: [IR110], [DIR3110]
-* Medion: [Medion Radios]
-* Silvercrest: [SIRD 14 C2]
-* Teufel: [Radio 3sixty(2019)]
-* Roberts: [Roberts Stream 94i]
-* Some models from: Auna, Technisat, Revo, Pinell, Como Audio
-
-This integration was developed and tested with a [Roberts Stream 94i].
-
-If your device supports the [UNDOK] app, then it supported by this integration.
+{% include integrations/config_flow.md %}
 
 ## Screenshots:
 
