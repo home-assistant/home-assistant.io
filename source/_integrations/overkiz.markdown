@@ -4,6 +4,7 @@ description: Instructions on how to integrate hubs whom use the Overkiz platform
 ha_category:
   - Binary Sensor
   - Button
+  - Cover
   - Hub
   - Light
   - Lock
@@ -23,6 +24,7 @@ ha_domain: overkiz
 ha_platforms:
   - binary_sensor
   - button
+  - cover
   - light
   - lock
   - number
