@@ -17,26 +17,42 @@ The stream integration provides a way to proxy live streams through Home Assista
 
 ## Configuration
 
-The `stream` integration is automatically loaded by `default_config` and enabled by the `camera` platforms that support it. If `default_config` is used, no separate `configuration.yaml` entry is necessary. If `default_config` is not used, the `stream` integration can be activated with the entry below:
+The `stream` integration is automatically loaded by `default_config` and enabled by the `camera` platforms that support it. If `default_config` is used, no separate `configuration.yaml` entry is necessary. However, there are some extra options you can configure.
 
-```yaml
-# Example configuration.yaml entry. There are no additional options.
-stream:
-```
+{% configuration %}
+ll_hls:
+  description: Allows disabling Low Latency HLS (LL-HLS)
+  required: false
+  type: boolean
+  default: True
+segment_duration:
+  description: The duration for the HLS segment between 2 and 10 seconds
+  type: float
+  required: false
+  default: 6
+part_duration:
+  description: The duration for a part within a segment between 0.2 and 1.5 seconds
+  type: float
+  required: false
+  default: 1
+{% endconfiguration %}
 
 ## LL-HLS - Low Latency HLS
 
-Low Latency HLS reduces the start time and delay for a stream, but has strict timing and network requirements. LL-HLS is on by default, but may be disabled based on network setup -- specifically, it is strongly recommended to use an HTTP/2 proxy (e.g.  nginix, haproxy, etc) to take advantage of request pipelining.
+LL-HLS reduces the start time and delay for a stream, but has strict timing and network requirements and opens additional browser connections. To avoid running into browser limits it is strongly recommended to use an HTTP/2 proxy (e.g. nginix, haproxy, etc) to take advantage of request pipelining. LL-HLS is enabled by default, but when not using HTTP/2 the Home Assistant frontend will revert back to HLS if too many streams are open.
 
-You can further adjust LL-HLS settings in `configuration.yaml`:
+You can further adjust LL-HLS settings in `configuration.yaml` as it may perform better or worse with different values depending on your network setup, cameras, or whether or not they are local or cloud.
+
+Example confiugration:
 
 ```yaml
 # Example LL-HLS configuration.yaml entry.
 stream:
-  ll_hls: true  # On by default
-  part_duration: 0.75  # Range of 0.2 to 1.5
-  segment_duration: 6  # Range of 2 to 10
+  ll_hls: true
+  part_duration: 0.75
+  segment_duration: 6
 ```
+
 
 ## Technical Details
 
