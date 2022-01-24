@@ -26,12 +26,12 @@ ll_hls:
   type: boolean
   default: True
 segment_duration:
-  description: The duration for the HLS segment between 2 and 10 seconds
+  description: The duration of each HLS segment, in seconds (between 2 and 10)
   type: float
   required: false
   default: 6
 part_duration:
-  description: The duration for a part within a segment between 0.2 and 1.5 seconds
+  description: The duration of each part within a segment, in seconds (between 0.2 and 1.5)
   type: float
   required: false
   default: 1
@@ -39,11 +39,11 @@ part_duration:
 
 ## LL-HLS - Low Latency HLS
 
-LL-HLS reduces the start time and delay for a stream, but has strict timing and network requirements and opens additional browser connections. To avoid running into browser limits it is strongly recommended to use an HTTP/2 proxy (e.g. nginix, haproxy, etc) to take advantage of request pipelining. LL-HLS is enabled by default, but when not using HTTP/2 the Home Assistant frontend will revert back to HLS if too many streams are open.
+LL-HLS reduces the start time and delay for a stream, but it has strict timing and network requirements and opens additional browser connections. To avoid running into browser limits it is strongly recommended to use an HTTP/2 proxy (e.g. nginx or haproxy) to take advantage of request pipelining. LL-HLS is enabled by default, but when not using HTTP/2, the Home Assistant frontend will revert back to regular HLS if too many streams are open.
 
 You can further adjust LL-HLS settings in `configuration.yaml` as it may perform better or worse with different values depending on your network setup, cameras, or whether or not they are local or cloud.
 
-Example confiugration:
+Example configuration:
 
 ```yaml
 # Example LL-HLS configuration.yaml entry.
