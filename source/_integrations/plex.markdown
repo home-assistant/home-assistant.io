@@ -19,7 +19,7 @@ ha_zeroconf: true
 
 The Plex integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [Media Players](/integrations/media_player/) and report playback status and library sizes via [Sensors](/integrations/sensor/) in Home Assistant. Media Players will allow you to control media playback and see the current playing item.
 
-Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is available for users with an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription. More information [here](#sonos-playback).
+Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is available [here](#sonos-playback).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -273,10 +273,9 @@ The search will attempt to guess the type of media based on the search parameter
 
 To play Plex music directly to Sonos speakers, the following requirements must be met:
 
-1. Have an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription.
-2. Remote access enabled for your Plex server.
-3. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
-4. [Sonos](/integrations/sonos/) integration configured.
+1. Remote access enabled for your Plex server.
+2. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
+3. [Sonos](/integrations/sonos/) integration configured.
 
 Call the `media_player.play_media` service with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both [music](#music) and [playlist](#playlist) `media_content_type` values are supported.
 
