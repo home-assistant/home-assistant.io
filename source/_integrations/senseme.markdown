@@ -7,6 +7,7 @@ ha_category:
   - Light
   - Select
   - Switch
+ha_dhcp: true
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_codeowners:
