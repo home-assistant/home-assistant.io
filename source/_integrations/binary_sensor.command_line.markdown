@@ -9,10 +9,6 @@ ha_iot_class: Local Polling
 ha_domain: command_line
 ha_platforms:
   - binary_sensor
-  - cover
-  - notify
-  - sensor
-  - switch
 ---
 
 The `command_line` binary sensor platform issues specific commands to get data.
