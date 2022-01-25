@@ -1,5 +1,5 @@
 ---
-title: "Legacy Command Line Sensor"
+title: "Command Line Sensor"
 description: "Instructions on how to integrate command line sensors into Home Assistant."
 ha_category:
   - Utility
@@ -14,15 +14,13 @@ The `command_line` sensor platform simply issues specific commands to get its da
 
 ## Configuration
 
-_This format still works but is no longer recommended. [Use modern configuration](/integrations/command_line.sensor/)._
-
 To enable it, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    command: SENSOR_COMMAND
+command_line:
+  - sensor:
+    - command: SENSOR_COMMAND
 ```
 
 {% configuration %}
@@ -86,13 +84,13 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    name: CPU Temperature
-    command: "cat /sys/class/thermal/thermal_zone0/temp"
-    # If errors occur, make sure configuration file is encoded as UTF-8
-    unit_of_measurement: "°C"
-    value_template: "{{ value | multiply(0.001) | round(1) }}"
+command_line:
+  - sensor:
+    - name: CPU Temperature
+      command: "cat /sys/class/thermal/thermal_zone0/temp"
+      # If errors occur, make sure configuration file is encoded as UTF-8
+      unit_of_measurement: "°C"
+      value_template: "{{ value | multiply(0.001) | round(1) }}"
 ```
 
 {% endraw %}
@@ -103,10 +101,10 @@ If you'd like to know how many failed login attempts are made to Home Assistant,
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    name: badlogin
-    command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
+command_line:
+  - sensor:
+    - name: badlogin
+      command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
 ```
 
 Make sure to configure the [Logger integration](/integrations/logger) to monitor the [HTTP integration](/integrations/http/) at least the `warning` level.
@@ -124,10 +122,10 @@ logger:
 You can see directly in the frontend (**Developer tools** -> **About**) what release of Home Assistant you are running. The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
 
 ```yaml
-sensor:
-  - platform: command_line
-    command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
-    name: HA release
+command_line:
+  - sensor:
+    - command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
+      name: HA release
 ```
 
 ### Read value out of a remote text file
@@ -135,10 +133,10 @@ sensor:
 If you own devices which are storing values in text files which are accessible over HTTP then you can use the same approach as shown in the previous section. Instead of looking at the JSON response we directly grab the sensor's value.
 
 ```yaml
-sensor:
-  - platform: command_line
-    command: python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"
-    name: File value
+command_line:
+  - sensor:
+    - command: python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"
+      name: File value
 ```
 
 ### Use an external script
@@ -165,10 +163,10 @@ To use the script you need to add something like the following to your `configur
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    name: Brightness
-    command: "python3 /path/to/script/arest-value.py"
+command_line:
+  - sensor:
+    - name: Brightness
+      command: "python3 /path/to/script/arest-value.py"
 ```
 
 ### Usage of templating in `command:`
@@ -179,11 +177,11 @@ sensor:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    name: wind direction
-    command: "sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}"
-    unit_of_measurement: "Direction"
+command_line:
+  - sensor:
+    - name: wind direction
+      command: "sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}"
+      unit_of_measurement: "Direction"
 ```
 
 {% endraw %}
@@ -196,14 +194,14 @@ The example shows how you can retrieve multiple values with one sensor (where th
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    name: JSON time
-    json_attributes:
-      - date
-      - milliseconds_since_epoch
-    command: "python3 /home/pi/.homeassistant/scripts/datetime.py"
-    value_template: "{{ value_json.time }}"
+command_line:
+  - sensor:
+    - name: JSON time
+      json_attributes:
+        - date
+        - milliseconds_since_epoch
+      command: "python3 /home/pi/.homeassistant/scripts/datetime.py"
+      value_template: "{{ value_json.time }}"
 ```
 
 {% endraw %}

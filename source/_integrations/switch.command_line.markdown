@@ -1,5 +1,5 @@
 ---
-title: "Command line Switch"
+title: "Legacy Command Line Switch"
 description: "Instructions on how to have switches call command line commands."
 ha_category:
   - Switch
@@ -7,6 +7,8 @@ ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: command_line
 ---
+
+_This format still works but is no longer recommended. [Use modern configuration](/integrations/command_line.switch/)._
 
 The `command_line` switch platform issues specific commands when it is turned on
 and off. This might very well become our most powerful platform as it allows

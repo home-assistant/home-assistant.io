@@ -1,5 +1,5 @@
 ---
-title: "Command Line Cover"
+title: "Legacy Command Line Cover"
 description: "How to control a cover with the command line."
 ha_category:
   - Cover
@@ -7,6 +7,8 @@ ha_release: 0.14
 ha_iot_class: Local Polling
 ha_domain: command_line
 ---
+
+_This format still works but is no longer recommended. [Use modern configuration](/integrations/command_line.cover/)._
 
 A `command_line`cover platform that issues specific commands when it is moved up, down and stopped. It allows anyone to integrate any type of cover into Home Assistant that can be controlled from the command line.
 
