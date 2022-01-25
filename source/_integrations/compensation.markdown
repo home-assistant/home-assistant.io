@@ -33,7 +33,7 @@ compensation:
 
 {% configuration %}
 source:
-  description: The entity to monitor.
+  description: The entity to monitor/compensate.
   required: true
   type: string
 data_points:
@@ -45,7 +45,7 @@ unique_id:
   required: false
   type: string
 attribute:
-  description: Attribute to monitor.
+  description: Attribute from the source to monitor/compensate. When omitted the state value of the source will be used.
   required: false
   type: string
 degree:
