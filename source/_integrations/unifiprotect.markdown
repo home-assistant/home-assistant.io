@@ -7,6 +7,7 @@ ha_category:
   - Button
   - Camera
   - Light
+  - Lock
   - Media Player
   - Number
   - Select
@@ -28,6 +29,7 @@ ha_platforms:
   - button
   - camera
   - light
+  - lock
   - media_player
   - number
   - select
@@ -144,6 +146,7 @@ Each UniFi Protect viewer will get a device in Home Assistant with the following
 
 Each UniFi Protect door lock will get a device in Home Assistant with the following:
 
+* **Lock** - A lock control will be added to lock and unlock your door lock device.
 * **Device Configuration** - Door locks will get configuration controls for the Auto-Lock Timeout, selecting the Paired Camera, and Status Light switch
 * **Button** - A disabled by default button is added for each door lock device. The button will let you reboot your door lock device.
 
