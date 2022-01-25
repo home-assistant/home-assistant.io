@@ -33,7 +33,7 @@ The `moehlenhoff_alpha2` climate platform provides current and target temperatur
 information, HVAC and preset mode.
 
 A climate entity will be created automatically for every available heat area.
-The name of the entity is taken from the name of the thermal area defined in the Alpha 2 base.
+The name of the entity is taken from the name of the heat area defined in the Alpha 2 base.
 
 The state is polled from the base every 60 seconds.
 
