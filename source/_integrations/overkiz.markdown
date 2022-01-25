@@ -21,6 +21,8 @@ ha_codeowners:
   - '@imicknl'
   - '@vlebourl'
 ha_domain: overkiz
+ha_dhcp: true
+ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - button
