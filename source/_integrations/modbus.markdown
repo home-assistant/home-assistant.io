@@ -733,10 +733,10 @@ fans:
           required: false
           default: same as command_off
           type: integer
-        unique_id:
-          description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
-          required: false
-          type: string
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Configuring platform light
@@ -826,10 +826,10 @@ lights:
           required: false
           default: same as command_off
           type: integer
-        unique_id:
-          description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
-          required: false
-          type: string
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Configuring platform sensor
@@ -909,11 +909,11 @@ sensors:
     state_class:
       description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
       required: false
-    type: string
-      unique_id:
-        description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
-        required: false
-        type: string
+      type: string
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
 <div class='note'>
@@ -1033,10 +1033,10 @@ switches:
           required: false
           default: same as command_off
           type: integer
-          unique_id:
-            description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
-            required: false
-            type: string
+        unique_id:
+          description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+          required: false
+          type: string
 {% endconfiguration %}
 
 ## Opening an issue
