@@ -87,12 +87,12 @@ Screenshot from GitHub PR, needs to be replaced
 Sonos, VLC (via Telnet) and Roku now support playing local media.
 And Sonos can now even browse other supported media. For example, if you have
 set up the Spotify and Sonos integration, you can now browse your Spotify to
-play it on your Sonos devices.
+play it on your Sonos devices. Cast also has support for Plex in the media browser.
 
 ## Diagnostics for Integration & Device
 
 To make debugging and reporting issues easier, both in terms of reporting it,
-but also for developers to fix them, we have introduce an new integration:
+but also for developers to fix them, we have introduce an new feature:
 Diagnostics.
 
 Diagnostics can be provided by integrations, to allow you to download
