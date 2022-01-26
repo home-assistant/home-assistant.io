@@ -17,11 +17,7 @@ The SleepIQ integration lets you view sensor data from [SleepIQ by SleepNumber](
 
 You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this integration.
 
-## Configuration
-
-1. In the **Configuration** > **Devices & Services** menu, click **+** and then select "SleepIQ" from the pop-up menu.
-2. In the pop-up box, enter your username and password for your SleepIQ account. Optionally, choose a custom scan interval (the default is to check for updates every 60 seconds).
-3. Click **Submit**. If the account information is valid, a configuration entry will be created and your SleepNumber sensors will be available in Home Assistant.
+{% include integrations/config_flow.md %}
 
 ## Manual Configuration
 
