@@ -45,7 +45,7 @@ If you'd like to use those `grouped lights`, you can enable them from Configurat
 
 In the Hue concept you can create (dynamic) scenes for the lights within rooms and zones. You can create, edit and delete Hue scenes from the (official) Hue app on iOS and Android. Each Zone/Room can have it's own scenes assigned and there is a large library of precreated scenes for specific moods. These Hue scenes are automatically imported in Home Assistant and they're available as `scene entities`. Creating or editing Hue scenes in Home Assistant is not supported.
 
-`It is advised to use Hue scenes for controlling multiple lights at once for a smooth experience. If you individually control multiple lights and/or use Home Assistant scenes, each light command will be sent to each light one by one which doesn't give a very good user experience, while using a Hue scene sends commands to all lights at once in an optimized way, resulting in a smooth experience.`
+It is advised to use Hue scenes for controlling multiple lights at once for a smooth experience. If you individually control multiple lights and/or use Home Assistant scenes, each light command will be sent to each light one by one which doesn't give a very good user experience, while using a Hue scene sends commands to all lights at once in an optimized way, resulting in a smooth experience.
 
 ### Service `hue.activate_scene`
 
