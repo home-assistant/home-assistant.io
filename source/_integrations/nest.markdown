@@ -267,15 +267,11 @@ All Google Nest Thermostat models are exposed as a `climate` entity that use the
 
 Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
 
-- *Error 400: redirect_uri_mismatch*: This means you have an existing *Web Application* credential. It is recommended to delete the existing OAuth Client id and create a new *Desktop App* credential using the instructions above. This has the advantage of not requiring SSL or a public DNS name.
-
-- *Thermostat does not appear or is unavailable* happens due to a bug where the SDM API does return the devices. A common fix get the API to work again is to:
+<div class='note'>
 
 This feature is enabled by the following permissions:
 
-- Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
-- In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
-- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Devices & Services**, click `...` next to *Nest* and choose **Reload**.
+- *Allow Home Assistant to access and control your thermostat*
 
 </div>
 
