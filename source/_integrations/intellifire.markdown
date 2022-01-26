@@ -30,7 +30,7 @@ The following sensors are available as either a **Binary Sensor** when dealing w
 
 ### Sensors
 
-- **Flame Height**: Numerical indicator of flame height.
+- **Flame Height**: Numerical indicator of flame height, where `0` is the lowest setting.
 - **Temperature**: Current ambient temperature as read by the fireplace remote.
 - **Target Temperature**: If the thermostat is engaged this is the target temperature the fireplace will try to reach, as measured by the remote.
 - **Fan Speed**: Numerical indicator of fan speed.
