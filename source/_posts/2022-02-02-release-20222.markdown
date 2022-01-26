@@ -214,7 +214,7 @@ Screenshot from Discord, needs to be replaced
 Screenshot from GitHub PR, needs to be replaced
 </p>
 
-- Search in top left of configuration dashboard (needs screenshot)
+- Search in top right of configuration dashboard (needs screenshot)
 
 - Scenes now have a state, last activated timestamp (like a button entity, last pressed)
 
