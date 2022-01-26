@@ -22,7 +22,7 @@ Please make sure the base station is turned on and connected to your local netwo
 Fill in the hostname or the IP address of your base station.
 If using a hostname, make sure the name resolution works as expected.
 
-After pressing `Submit` the integration will connect to your base and setup.
+After pressing `Submit` the integration will connect to your base station.
 
 It is also possible to repeat these steps to setup another base.
 
