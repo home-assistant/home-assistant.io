@@ -129,7 +129,7 @@
 /components/binary_sensor.blink /integrations/blink
 /components/binary_sensor.bloomsky /integrations/bloomsky#binary-sensor
 /components/binary_sensor.bmw_connected_drive /integrations/bmw_connected_drive
-/components/binary_sensor.command_line /integrations/command_line
+/components/binary_sensor.command_line /integrations/binary_sensor.command_line
 /components/binary_sensor.concord232 /integrations/concord232#binary-sensor
 /components/binary_sensor.danfoss_air /integrations/danfoss_air#binary-sensor
 /components/binary_sensor.deconz /integrations/deconz#binary-sensor

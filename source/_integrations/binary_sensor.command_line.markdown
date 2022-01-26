@@ -1,23 +1,19 @@
 ---
-title: Command Line
-description: Instructions on how to integrate Command binary sensors within Home Assistant.
+title: Legacy Command Line Binary Sensor
+description: Instructions on how to integrate Command line binary sensors within Home Assistant.
 ha_category:
   - Utility
   - Binary Sensor
 ha_release: 0.12
 ha_iot_class: Local Polling
 ha_domain: command_line
-ha_platforms:
-  - binary_sensor
-  - cover
-  - notify
-  - sensor
-  - switch
 ---
 
 The `command_line` binary sensor platform issues specific commands to get data.
 
 ## Configuration
+
+_This format still works but is no longer recommended. [Use modern configuration](/integrations/command_line.binary_sensor/)._
 
 To use your Command binary sensor in your installation, add the following to your `configuration.yaml` file:
 
