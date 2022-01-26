@@ -15,6 +15,7 @@ ha_platforms:
   - light
   - media_player
   - remote
+  - switch
 ---
 
 The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.

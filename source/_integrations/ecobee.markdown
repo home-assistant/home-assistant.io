@@ -22,6 +22,8 @@ ha_platforms:
   - notify
   - sensor
   - weather
+ha_zeroconf: true
+ha_homekit: true
 ---
 
 The `ecobee` integration lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.

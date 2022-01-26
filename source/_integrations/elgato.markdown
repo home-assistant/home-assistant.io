@@ -13,6 +13,7 @@ ha_domain: elgato
 ha_zeroconf: true
 ha_platforms:
   - button
+  - diagnostics
   - light
 ---
 

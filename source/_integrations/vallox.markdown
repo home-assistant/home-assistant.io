@@ -9,10 +9,13 @@ ha_release: 0.96
 ha_iot_class: Local Polling
 ha_domain: vallox
 ha_platforms:
+  - binary_sensor
   - fan
   - sensor
 ha_codeowners:
   - '@andre-richter'
+  - '@slovdahl'
+  - '@viiru-'
 ---
 
 The `vallox` integration lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).

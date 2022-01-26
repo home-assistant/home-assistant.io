@@ -10,10 +10,10 @@ ha_config_flow: true
 ha_domain: vicare
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - sensor
   - water_heater
-  - button
 ha_dhcp: true
 ---
 
@@ -130,4 +130,3 @@ Additional data from ViCare is available as separate sensors. The sensors are au
 ## Button
 
 Button entities are available for triggering like a one-time charge of the water heater.
- 

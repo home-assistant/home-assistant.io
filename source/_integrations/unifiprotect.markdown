@@ -26,14 +26,14 @@ ha_codeowners:
 ha_domain: unifiprotect
 ha_platforms:
   - binary_sensor
-  - button
   - camera
+  - button
   - light
   - lock
   - media_player
   - number
-  - select
   - sensor
+  - select
   - switch
 ---
 

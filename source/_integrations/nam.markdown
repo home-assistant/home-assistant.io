@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: nam
 ha_platforms:
   - button
+  - diagnostics
   - sensor
 ha_quality_scale: platinum
 ha_zeroconf: true

@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: uptimerobot
 ha_platforms:
   - binary_sensor
-  - sensor
+  - diagnostics
 ha_quality_scale: platinum
 ha_config_flow: true
 ---

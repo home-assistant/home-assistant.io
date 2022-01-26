@@ -6,7 +6,6 @@ ha_category:
 ha_config_flow: true
 ha_release: 2022.2
 ha_iot_class: Local Push
-ha_quality_scale: internal
 ha_codeowners:
   - '@allenporter'
 ha_domain: rtsp_to_webrtc

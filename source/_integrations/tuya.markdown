@@ -26,9 +26,11 @@ ha_codeowners:
   - '@METISU'
   - '@frenck'
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - camera
   - button
+  - diagnostics
   - climate
   - cover
   - fan

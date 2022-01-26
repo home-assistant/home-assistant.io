@@ -17,22 +17,23 @@ ha_release: 2022.2
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@tetienne'
   - '@imicknl'
   - '@vlebourl'
+  - '@tetienne'
 ha_domain: overkiz
 ha_dhcp: true
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - cover
   - light
   - lock
   - number
   - scene
-  - select
   - sensor
+  - select
   - switch
 ---
 

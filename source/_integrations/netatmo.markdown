@@ -18,6 +18,7 @@ ha_domain: netatmo
 ha_homekit: true
 ha_platforms:
   - camera
+  - diagnostics
   - climate
   - light
   - sensor

@@ -10,6 +10,7 @@ ha_release: 2021.11
 ha_iot_class: Local Push
 ha_codeowners:
   - '@ANMalko'
+  - '@bdraco'
 ha_domain: lookin
 ha_config_flow: true
 ha_platforms:

@@ -13,6 +13,7 @@ ha_release: 0.67
 ha_domain: nanoleaf
 ha_platforms:
   - button
+  - diagnostics
   - light
 ha_zeroconf: true
 ha_ssdp: true
