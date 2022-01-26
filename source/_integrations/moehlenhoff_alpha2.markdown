@@ -24,7 +24,7 @@ If using a hostname, make sure the name resolution works as expected.
 
 After pressing `Submit` the integration will connect to your base station.
 
-It is also possible to repeat these steps to setup another base.
+It is also possible to repeat these steps to setup another base station.
 
 ## Climate
 
