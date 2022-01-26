@@ -385,7 +385,7 @@ The Media Source APIs can be used in [Companion App Attachments](https://compani
 
 * `/api/nest/event_media/DEVICE_ID/EVENT_ID/thumbnail`: A thumbnail preview of the media, which supports image snapshots (jpg) or clip previews (gif) depending on the camera type.
 
-You can use the event payload fields `trigger.event.data.device_id` and `trigger.event.data.nest_event_id` to the device trigger payload by the automation.  Below are example [actions](/getting-started/automation-action/) you can use in an [automation](/getting-started/automation/) to send a notification.
+You can use the event payload fields `device_id` and `event_id` in an [automation](/getting-started/automation/) to send a notification from an [actions](/getting-started/automation-action/) as shown in the examples below.
 
 {% details "Example Action: Clip Preview (mp4) attachment for iOS %}
 
@@ -432,7 +432,7 @@ data:
 
 {% details "Example Action: Snapshot (jpg) attachment for Android or iOS %}
 
-This is an example of cameras that support Snaphot (jpg) on either Android or iOS.
+Example for cameras that support Snaphot (jpg) on either Android or iOS.
 
 {% raw %}
 
