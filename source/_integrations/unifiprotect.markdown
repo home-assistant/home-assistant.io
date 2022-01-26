@@ -55,7 +55,7 @@ UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2
 
 The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported. Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release comes out to ensure the new version is fully supported.
 
-Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0-beta.3` is the newest UniFi Protect version. So the recommended versions of UniFi Protect to run for a `2022.2.0` version of Home Assistant are `1.20.0`, `1.20.1`, `1.20.2`, `1.20.3`, `1.21.0-beta.1`, `1.21.0-beta.2`, and `1.21.0-beta.3`.
+Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0-beta.5` is the newest UniFi Protect version. So the recommended versions of UniFi Protect to run for a `2022.2.0` version of Home Assistant are `1.20.0`, `1.20.1`, `1.20.2`, `1.20.3`, `1.21.0-beta.1`, `1.21.0-beta.2`, `1.21.0-beta.3`, and `1.21.0-beta.5`.
 
 ### Local User
 
@@ -142,7 +142,7 @@ Each UniFi Protect viewer will get a device in Home Assistant with the following
 * **Liveview Select** - A select control will be added for each viewer device that will allow you to select which liveview is being displayed on the viewer.
 * **Button** - A disabled by default button is added for each viewer device. The button will let you reboot your viewer device.
 
-### UniFi Protect DoorLock
+### UniFi Protect DoorLocks
 
 Each UniFi Protect door lock will get a device in Home Assistant with the following:
 
@@ -156,6 +156,34 @@ Your main UniFi Protect NVR device also gets a number of diagnostics sensors tha
 
 * **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
 * **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
+
+## Blueprints
+
+An officially maintained list of blueprints for the UniFi Protect integration can be found on the [Blueprint Exchange on the forums](https://community.home-assistant.io/t/unifi-protect-blueprints/362604). Full details can be found on the forums, but a quick overview of the blueprints are
+
+### Doorbell Notifications
+
+Receive notifications when someone rings your doorbell.
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2FAngellusMortis%2Funifiprotect_blueprints%2Fmain%2Fblueprints%2Fautomation%2Funifiprotect%2Fpush_notification_doorbell_event.yaml)
+
+### Motion / Smart Detection Notifications
+
+Receive notifications when motion or a smart detection event is trigger by one of your UniFi Protect cameras. Split out into 2 blueprints for performance (one for motion only, one for smart detections only).
+
+#### Motion
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2FAngellusMortis%2Funifiprotect_blueprints%2Fmain%2Fblueprints%2Fautomation%2Funifiprotect%2Fpush_notification_motion_event.yaml)
+
+#### Smart Detections
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2FAngellusMortis%2Funifiprotect_blueprints%2Fblob%2Fmain%2Fblueprints%2Fautomation%2Funifiprotect%2Fpush_notification_smart_event.yaml)
+
+### Dynamic Doorbell
+
+Allows you to set your Doorbell text on your G4 Doorbell dynamically.
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2FAngellusMortis%2Funifiprotect_blueprints%2Fmain%2Fblueprints%2Fautomation%2Funifiprotect%2Fdynamic_doorbell.yaml)
 
 ## Services
 
