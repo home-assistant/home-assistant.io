@@ -17,7 +17,7 @@ The `moehlenhoff_alpha2` platform allows you to control a [Möhlenhoff Alpha 2](
 ## Setup
 
 Please make sure the base is turned on and connected to your local network.
-Go to the integrations page in your configuration and click on new integration -> Möhlenhoff Alpha 2.
+{% include integrations/config_flow.md %}
 
 Fill in the hostname or the IP address of your base.
 If using a hostname, make sure the name resolution works as expected.
