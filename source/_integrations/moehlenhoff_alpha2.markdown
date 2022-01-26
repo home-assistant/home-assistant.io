@@ -16,14 +16,13 @@ The `moehlenhoff_alpha2` platform allows you to control a [Möhlenhoff Alpha 2](
 
 ## Setup
 
-Please make sure the base is turned on and connected to your local network.
+Please make sure the base station is turned on and connected to your local network.
 {% include integrations/config_flow.md %}
 
 Fill in the hostname or the IP address of your base.
 If using a hostname, make sure the name resolution works as expected.
 
 After pressing `Submit` the integration will connect to your base and setup.
-No further configuration is required.
 
 It is also possible to repeat these steps to setup another base.
 
