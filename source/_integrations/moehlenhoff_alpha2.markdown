@@ -37,7 +37,7 @@ The name of the entity is taken from the name of the heat area defined in the Al
 
 The state is polled from the base every 60 seconds.
 
-Please note that after a state change due to the integration,
+Please note that after changing the temperature in Home Assistant,
 it may take up to 10 minutes for your room control units to display these changes.
 
 ### Integration services
