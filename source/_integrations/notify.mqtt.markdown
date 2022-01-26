@@ -89,7 +89,7 @@ In this section, you will find some real-life examples of how to use the notify 
 
 ### Full configuration
 
-The example below shows a full configuration for a mqtt notify service. The example will register a service `notify.intrusion_text_notification`, `notify.intrusion_text_notification_panel1` and `notify.intrusion_text_notification_panel2` that will publish at topic `home/alarm/notify/message`.
+The example below shows a full configuration for a MQTT notify service. The example will register a service `notify.intrusion_text_notification`, `notify.intrusion_text_notification_panel1` and `notify.intrusion_text_notification_panel2` that will publish at topic `home/alarm/notify/message`.
 
 {% raw %}
 
