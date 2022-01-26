@@ -65,19 +65,19 @@ availability_topic:
   required: false
   type: string
 available_tones:
-  description: A list of available tones the siren supports. Works together with `tone_command_topic`.
+  description: A list of available tones the siren supports. When configured, this enables the support for setting a `tone` and enables the `tone` state attribute.
   required: false
   type: list
 command_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic`. The siren turn on service parameters `tone`, `volume_level` or `duration` can be used as variables in the template.
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic`. The variable `value` will be assigned with the configured `payload_on` or `payload_off` setting. The siren turn on service parameters `tone`, `volume_level` or `duration` can be used as variables in the template. When operation in optimistic mode the corresponding state attributes will be set. Turn parameters will be filtered if a device misses the support.
   required: false
   type: template
 command_off_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic` when the siren turn off service is called. By default `command_template` will be used as template for service turn off.
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic` when the siren turn off service is called. By default `command_template` will be used as template for service turn off. The variable `value` will be assigned with the configured `payload_off` setting. The siren state attributes `tone`, `volume_level` or `duration` can also be used as variables in the template. When operation in optimistic mode the corresponding state attributes can be set with the turn on service.
   required: false
   type: template
 command_topic:
-  description: The MQTT topic to publish commands to change the siren state.
+  description: The MQTT topic to publish commands to change the siren state. To set `duration`, `tone` or `volume_level` use `command_template` and optional `command_template_off` to format the payload.
   required: false
   type: string
 device:
@@ -121,14 +121,6 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
-duration_command_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `duration_command_topic`. The variable `value` holds value of the `duration` parameter. The siren turn on service parameters `tone`, `volume_level` or `duration` can also be used as variables in the template.
-  required: false
-  type: template
-duration_command_topic:
-  description: The MQTT topic to publish commands to change the siren's duration if a `duration` parameter is supplied with the siren turn on service.
-  required: false
-  type: string
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
@@ -211,51 +203,25 @@ state_on:
   type: string
   default: "`payload_on` if defined, else ON"
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: "The MQTT topic subscribed to receive state updates. When a JSON payload is detected the `state` value of the JSON payload should supply the `payload_on` or `payload_off` defined payload to turn the siren on or off. Additional the state attributes `duration`, `tone` and `volume_level` can be updated. Use `value_template` to update render custom payload to a compliant JSON payload. Attributes will only be set if the function is supported by the device and a valid value is supplied."
   required: false
   type: string
-supported_duration:
-  description: Set to `true` if the MQTT siren supports the `duration` service turn on parameter.
+support_duration:
+  description: Set to `true` if the MQTT siren supports the `duration` service turn on parameter and enables the `duration` state attribute.
   required: false
   type: boolean
   default: true
-supported_turn_on:
-  description: Set to `true` if the MQTT siren supports the siren turn on service.
+support_volume_set:
+  description: Set to `true` if the MQTT siren supports the `volume_set` service turn on parameter and enables the `volume_level` state attribute.
   required: false
   type: boolean
   default: true
-supported_turn_off:
-  description: Set to `true` if the MQTT siren supports the siren turn off service.
-  required: false
-  type: boolean
-  default: true
-supported_volume_set:
-  description: Set to `true` if the MQTT siren supports the `volume_set` service turn on parameter.
-  required: false
-  type: boolean
-  default: true
-tone_command_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `tone_command_topic`. The variable `value` holds value of the `tone` parameter. The siren turn on service parameters `tone`, `volume_level` or `duration` can be used as variables in the template.
-  required: false
-  type: template
-tone_command_topic:
-  description: The MQTT topic to publish commands to change the siren's tone if a `tone` parameter is supplied with the siren turn on service. The configuration parameter `available_tones` must be configured together with `tone_command_topic`.
-  required: false
-  type: string
 unique_id:
   description: An ID that uniquely identifies this siren device. If two sirens have the same unique ID, Home Assistant will raise an exception.
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's state from the `state_topic`. To determine the siren's state result of this template will be compared to `state_on` and `state_off`."
-  required: false
-  type: string
-volume_command_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `volume_command_topic`. The variable `value` holds value of the `volume_level` parameter. The siren turn on service parameters `tone`, `volume_level` or `duration` can be used as variables in the template.
-  required: false
-  type: template
-volume_command_topic:
-  description: The MQTT topic to publish commands to change the siren's volume level if a `volume_level` parameter is supplied with the siren turn on service.
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's state from the `state_topic`. To determine the siren's state result of this template will be compared to `state_on` and `state_off`. Alternatively `value_template` can be used to render to a valid JSON payload."
   required: false
   type: string
 {% endconfiguration %}
@@ -284,12 +250,9 @@ siren:
     name: "Intrusion siren"
     state_topic: "home/alarm/siren1"
     command_topic: "home/alarm/siren1/set"
-    tone_command_topic: "home/alarm/siren1/tone_set"
     available_tones:
       - ping
       - siren
-    duration_command_topic: "home/alarm/siren1/duration_set"
-    volume_command_topic: "home/alarm/siren1/volume_set"
     availability:
       - topic: "home/alarm/siren1/available"
     payload_on: "ON"
