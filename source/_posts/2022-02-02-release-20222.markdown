@@ -636,7 +636,7 @@ are now deprecated from the `manifest.json` file and should
 be moved into a `properties` dict.
 
 For example:
-```
+```diff
 -    {"type":"_airplay._tcp.local.","model":"appletv*"}
 +    {"type":"_airplay._tcp.local.","properties":{"model":"appletv*"}}
 ```
