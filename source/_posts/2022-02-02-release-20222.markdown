@@ -484,7 +484,7 @@ the MQTT IO project, and many more.
 We do not forbid the use of GPIO, but we are merely deprecating and removing
 built-in integrations, providing GPIO functionality from Core. We welcome
 custom integrations (existing or new ones) to provide alternatives. However,
-for most cases we recommend on using dedicated hardware, like a ESP device,
+for most cases we recommend on using dedicated hardware, like an ESP device,
 instead.
 
 The following integrations have been deprecated and will be removed in
