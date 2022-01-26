@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_domain: trafikverket_weatherstation
 ha_codeowners:
   - '@endor-force'
+  - '@gjohansson-ST'
 ha_platforms:
   - sensor
 ---

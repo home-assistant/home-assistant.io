@@ -23,6 +23,7 @@ ha_codeowners:
 ha_domain: zwave_js
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - climate
   - cover
   - fan

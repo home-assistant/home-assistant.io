@@ -11,6 +11,7 @@ ha_codeowners:
   - '@DCSBL'
 ha_platforms:
   - sensor
+  - switch
 ha_zeroconf: true
 ---
 

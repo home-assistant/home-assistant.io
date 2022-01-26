@@ -12,6 +12,7 @@ ha_codeowners:
   - '@mammuth'
   - '@AaronDavidSchneider'
   - '@chemelli74'
+  - '@mib1185'
 ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor

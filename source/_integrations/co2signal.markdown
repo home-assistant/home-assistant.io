@@ -7,6 +7,7 @@ ha_release: 0.87
 ha_iot_class: Cloud Polling
 ha_domain: co2signal
 ha_platforms:
+  - diagnostics
   - sensor
 ha_config_flow: true
 ---
