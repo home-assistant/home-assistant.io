@@ -48,7 +48,6 @@ commonmark:
 highlighter: none
 
 plugins:
-  - jekyll-time-to-read
   - jekyll-toc
 
 paginate: 10 # Posts per page on the blog index
