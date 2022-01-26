@@ -398,9 +398,10 @@ This release adds support for long-term statistics to the following integrations
 - Add state class to nexia sensors ([@bdraco] - [#64932]) ([nexia docs])
 - Add state classes to august sensors ([@bdraco] - [#64931]) ([august docs])
 - Add edl21 sensor state class and device class ([@StephanU] - [#56968]) ([edl21 docs])
-- - Add state class support to Luftdaten ([@frenck] - [#62585]) ([luftdaten docs])
+- Add state class support to Luftdaten ([@frenck] - [#62585]) ([luftdaten docs])
 - Add SensorStateClass to Kraken sensors ([@eifinger] - [#63590]) ([kraken docs])
 - Add long term statistics to buienradar ([@tedvdb] - [#58917]) ([buienradar docs])
+- Revamp github integration ([@ludeeus] - [#64190]) ([github docs])
 
 
 And the following integrations now have entity categories:
@@ -412,6 +413,7 @@ And the following integrations now have entity categories:
 - Motion blinds add entity category ([@starkillerOG] - [#62266]) ([motion_blinds docs])
 - Hyperion add entity category ([@starkillerOG] - [#62268]) ([hyperion docs])
 - Use entity class attributes for Mazda integration ([@bdr99] - [#59869]) ([mazda docs])
+- Revamp github integration ([@ludeeus] - [#64190]) ([github docs])
 
 
 ## New Integrations
@@ -443,6 +445,7 @@ The following integrations are now available via the Home Assistant UI:
 - [Android TV][androidtv docs], done by [@ollo69]
 - [CPU Speed][cpuspeed docs], done by [@frenck]
 - [DNS IP][dnsip docs], done by [@gjohansson-ST]
+- [GitHub][github docs], done by [@ludeeus]
 - [Launch Library][launch_library docs], done by [@DurgNomis-drol]
 - [LG webOS Smart TV][webostv docs], done by [@thecode]
 - [PVOutput][pvoutput docs], done by [@frenck]
