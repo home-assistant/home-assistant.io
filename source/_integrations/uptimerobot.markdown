@@ -10,11 +10,12 @@ ha_codeowners:
 ha_domain: uptimerobot
 ha_platforms:
   - binary_sensor
+  - sensor
 ha_quality_scale: platinum
 ha_config_flow: true
 ---
 
-The `uptimerobot` integration provides binary sensors to get the status for all of your monitors from your account on [UptimeRobot]( https://uptimerobot.com).
+The `uptimerobot` integration provides entities to get the status for all of your monitors from your account on [UptimeRobot]( https://uptimerobot.com).
 
 {% include integrations/config_flow.md %}
 
