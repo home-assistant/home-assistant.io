@@ -6,7 +6,15 @@ ha_category: Notifications
 ha_iot_class: Configurable
 ---
 
-The MQTT notification support is different than the other [notification](/integrations/notify/) platforms. It is a service. This means that you don't have to create a configuration entry but you need to provide more details when calling the service.
+The MQTT notification support is different than the other [notification](/integrations/notify/) platforms. It is a service.
+
+## Use the the MQTT notify platform
+
+The [MQTT notify service platform](/integrations/notify.mqtt/) allows you to use [MQTT discovery](/docs/mqtt/discovery/), or manual setup through `configuration.yaml` to enable a custom MQTT notify service.
+
+## Direct publishing
+
+You can also publish directly, this means that you don't have to create a configuration entry but you need to provide more details when calling the service.
 
 **Call Service** section from **Developer Tools** -> **Services** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
