@@ -483,7 +483,6 @@ modbus:
         device_class: door
         input_type: coil
         address: 117
-        device_class: door
         state_open: 1
         state_opening: 2
         state_closed: 0
@@ -491,7 +490,7 @@ modbus:
         status_register: 119
         status_register_type: holding
       - name: "Door2"
-        address: 117
+        address: 118
 ```
 
 {% configuration %}
@@ -1033,10 +1032,10 @@ switches:
           required: false
           default: same as command_off
           type: integer
-        unique_id:
-          description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
-          required: false
-          type: string
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Opening an issue
