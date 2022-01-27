@@ -12,7 +12,8 @@ ha_codeowners:
 ha_domain: huawei_solar
 ---
 
-The `huawei_solar` integration connects to the Modbus-interface from a Huawei SUN2000(L) inverter and integrates it into Home Assistant.
+The Huawei Solar integration connects to the Modbus interface from a Huawei SUN2000(L) inverter and integrates it into Home Assistant.
+
 
 ## Prerequisites
 
@@ -72,9 +73,9 @@ A power meter is typically only installed when a battery is attached to the syst
 
 Recommended energy dashboard configuration for meter location in feed in path (`Meter location: 0`):
 
-- For `Grid consumption` use the `Grid Consumption` sensor from the power meter.
-- For `Return to grid` use the 'Grid Exported` sensor from the power meter.
-- For `Solar production`: 
-  - If no battery is connected to an inverter: Add each inverters `Daily Yield` sensor.
-  - If a battery is connected to an inverter: Use [Riemann sum](/integrations/integration/) over the `Input Power` sensor 
-- For `Battery systems` use the `Battery Total Charge` and `Battery Total Discharge` sensors
+- For "Grid consumption" use the "Grid Consumption" sensor from the power meter.
+- For "Return to grid" use the "Grid Exported" sensor from the power meter.
+- For "Solar production":
+  - If no battery is connected to an inverter: Add each inverter's "Daily Yield" sensor.
+  - If a battery is connected to an inverter: Use [Riemann sum](/integrations/integration/) over the "Input Power" sensor .
+- For "Battery systems" use the "Battery Total Charge" and "Battery Total Discharge" sensors
