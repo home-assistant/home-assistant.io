@@ -246,7 +246,7 @@ zha:
 
 This is a good reference for channel selection [Zigbee and Wifi Coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
 
-Note that recommendation is however not to change Zigbee channel from default as not all Zigbee devices support all channels. If you have issues overlaying frequencies then it will generally be a better idea to only change Wi-Fi channels on your WiFi-router and/or WiFi Access Points.
+Note that the recommendation is, however, not to change the Zigbee channel from default as not all Zigbee devices support all channels. If you have issues with overlapping frequencies, then it will generally be a better idea to change Wi-Fi channels on your Wi-Fi-router or Wi-Fi Access Points.
 
 ### Modifying the device type
 
