@@ -73,11 +73,11 @@ command_template:
   required: false
   type: template
 command_off_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic` when the siren turn off service is called. By default `command_template` will be used as template for service turn off. The variable `value` will be assigned with the configured `payload_off` setting. The siren state attributes `tone`, `volume_level` or `duration` can also be used as variables in the template. When operation in optimistic mode the corresponding state attributes can be set with the turn on service.
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic` when the siren turn off service is called. By default `command_template` will be used as template for service turn off. The variable `value` will be assigned with the configured `payload_off` setting.
   required: false
   type: template
 command_topic:
-  description: The MQTT topic to publish commands to change the siren state. To set `duration`, `tone` or `volume_level` use `command_template` and optional `command_template_off` to format the payload.
+  description: The MQTT topic to publish commands to change the siren state. Without command template a JSON payload is published. When the siren turn on service is called, the startup parameters will be added to the JSON payload. The `state` value of the JSON payload will be set to the the `payload_on` or `payload_off` configured payload.
   required: false
   type: string
 device:
@@ -196,14 +196,14 @@ state_off:
   description: The payload that represents the `off` state. Used when value that represents `off` state in the `state_topic` is different from value that should be sent to the `command_topic` to turn the device `off`.
   required: false
   type: string
-  default: "`payload_off` if defined, else OFF"
+  default: "`payload_off` if defined, else `'OFF'`"
 state_on:
   description: The payload that represents the `on` state. Used when value that represents `on` state in the `state_topic` is different from value that should be sent to the `command_topic` to turn the device `on`.
   required: false
   type: string
-  default: "`payload_on` if defined, else ON"
+  default: "`payload_on` if defined, else `'ON'`"
 state_topic:
-  description: "The MQTT topic subscribed to receive state updates. When a JSON payload is detected the `state` value of the JSON payload should supply the `payload_on` or `payload_off` defined payload to turn the siren on or off. Additional the state attributes `duration`, `tone` and `volume_level` can be updated. Use `value_template` to update render custom payload to a compliant JSON payload. Attributes will only be set if the function is supported by the device and a valid value is supplied."
+  description: "The MQTT topic subscribed to receive state updates. When a JSON payload is detected, the `state` value of the JSON payload should supply the `payload_on` or `payload_off` defined payload to turn the siren on or off. Additional the state attributes `duration`, `tone` and `volume_level` can be updated. Use `value_template` to update render custom payload to a compliant JSON payload. Attributes will only be set if the function is supported by the device and a valid value is supplied."
   required: false
   type: string
 support_duration:
