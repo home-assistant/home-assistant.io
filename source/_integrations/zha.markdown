@@ -244,7 +244,9 @@ zha:
       channels: [15, 20, 25]  # Channel mask
 ```
 
-This is a good reference for channel selection [Zigbee and Wifi Coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence)
+This is a good reference for channel selection [Zigbee and Wifi Coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
+
+Note that the recommendation is, however, not to change the Zigbee channel from default as not all Zigbee devices support all channels. If you have issues with overlapping frequencies, then it will generally be a better idea to change Wi-Fi channels on your Wi-Fi-router or Wi-Fi Access Points.
 
 ### Modifying the device type
 
