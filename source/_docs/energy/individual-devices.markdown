@@ -24,6 +24,9 @@ We recommend the Shelly brand because they have a local API that updates Home As
 - [Shelly 2.5](https://shop.shelly.cloud/shelly-2.5-ce-ul-wifi-smart-home-automation?tracking=A7FsiPIfUWsFpnfKHa8SRyUYLXjr2hPq)
  {% endcomment %}
 
+### Devices with current (W) sensors
+Some smart devices, such as air conditioning, boilers and others, may provive a "current" sensor, measured in Watts. You can use the [Integration (Riemann sum integral) integration](https://www.home-assistant.io/integrations/integration/#energy) to calculate the kWh statistics for each of those machines. Then, those details can be included in the Energy Dashboard, as individual devices.
+
 <img src='/images/docs/energy/devices.png' alt='Graphic showing energy flowing from the home to individual devices.' style='border: 0;box-shadow: none; display: block; max-height: 400px; margin: 0 auto;'>
 
 _Disclaimer: Some links on this page are affiliate links._
