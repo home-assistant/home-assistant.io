@@ -462,6 +462,21 @@ automation:
 
 This integration emits events as `homekit_state_change` on the event bus. This can be used for example in automations to known whether an entity's state got changed from HomeKit specifically. 
 
+```yaml
+# Example for handling a HomeKit event
+automation:
+  trigger:
+    - platform: event
+      event_type: homekit_state_change
+      event_data:
+        entity_id: cover.garage_door
+        service: open_cover
+  action:
+    - service: persistent_notification.create
+      data:
+        message: "The garage door got opened via HomeKit"
+```
+
 ## Troubleshooting
 
 ### All or some devices are intermittently unresponsive
