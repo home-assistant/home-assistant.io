@@ -15,7 +15,7 @@ ha_platforms:
 ha_config_flow: true
 ---
 
-The `launch_library` sensor will provide you with information about the next planned space launch.
+The `launch_library` sensor will provide you with information about the next planned space launch and SpaceX Starship event.
 
 {% include integrations/config_flow.md %}
 
