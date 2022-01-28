@@ -432,7 +432,7 @@ We welcome the following new integration this release:
 - [Oncue by Kohler][oncue docs], added by [@bdraco]
 - [Open-Meteo][open_meteo docs], added by [@frenck]
 - [Overkiz][overkiz docs], added by [@iMicknl]
-- [RTSPtoWebRTC][webrtc docs], added by [@allenporter]
+- [RTSPtoWebRTC][rtsp_to_webrtc docs], added by [@allenporter]
 - [SenseME][senseme docs], added by [@bdraco]
 - [Steamist][steamist docs], added by [@bdraco]
 - [UniFi Protect][unifiprotect docs], added by [@AngellusMortis]
