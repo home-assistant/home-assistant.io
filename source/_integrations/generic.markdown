@@ -17,7 +17,7 @@ Home Assistant will serve the images via its server, making it possible to view 
 
 Home Assistant offers the Generic IP Camera through **Configuration -> Integrations -> Generic IP Camera**.
 
-You must enter a url in at least one of the fields **Still Image URL** or **Stream Source URL**, the others are optional. Click next to continue.
+You must enter a URL in at least one of the fields **Still Image URL** or **Stream Source URL**, the others are optional. Click next to continue.
 
 Alternatively, Home Assistant can load this integration via `configuration.yaml`; add the following to your `configuration.yaml` file:
 
