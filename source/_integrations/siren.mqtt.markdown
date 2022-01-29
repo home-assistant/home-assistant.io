@@ -203,7 +203,11 @@ state_on:
   type: string
   default: "`payload_on` if defined, else `'ON'`"
 state_topic:
-  description: "The MQTT topic subscribed to receive state updates. When a JSON payload is detected, the `state` value of the JSON payload should supply the `payload_on` or `payload_off` defined payload to turn the siren on or off. Additional the state attributes `duration`, `tone` and `volume_level` can be updated. Use `value_template` to update render custom payload to a compliant JSON payload. Attributes will only be set if the function is supported by the device and a valid value is supplied."
+  description: "The MQTT topic subscribed to receive state updates. When a JSON payload is detected, the `state` value of the JSON payload should supply the `payload_on` or `payload_off` defined payload to turn the siren on or off. Additional the state attributes `duration`, `tone` and `volume_level` can be updated. Use `value_template` to update render custom payload to a compliant JSON payload. Attributes will only be set if the function is supported by the device and a valid value is supplied. The initial state will be `unknown`. The state will be reset to `unknown` if a `None` payload or `null` JSON value is received as a state update."
+  required: false
+  type: string
+state_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's state from the `state_topic`. To determine the siren's state result of this template will be compared to `state_on` and `state_off`. Alternatively `value_template` can be used to render to a valid JSON payload."
   required: false
   type: string
 support_duration:
@@ -218,10 +222,6 @@ support_volume_set:
   default: true
 unique_id:
   description: An ID that uniquely identifies this siren device. If two sirens have the same unique ID, Home Assistant will raise an exception.
-  required: false
-  type: string
-value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's state from the `state_topic`. To determine the siren's state result of this template will be compared to `state_on` and `state_off`. Alternatively `value_template` can be used to render to a valid JSON payload."
   required: false
   type: string
 {% endconfiguration %}
