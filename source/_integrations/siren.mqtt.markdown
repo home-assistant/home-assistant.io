@@ -3,7 +3,7 @@ title: "MQTT Siren"
 description: "Instructions on how to integrate MQTT sirens into Home Assistant."
 ha_category:
   - Siren
-ha_release: 2022.2
+ha_release: 2022.3
 ha_iot_class: Configurable
 ha_domain: mqtt
 ---
