@@ -112,7 +112,7 @@ The following describes trigger data associated with all platforms.
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `webhook`
 | `trigger.webhook_id` | The webhook ID that was triggered.
-| `trigger.json` | The JSON data of the request (if it had a JSON content type).
+| `trigger.json` | The JSON data of the request (if it had a JSON content type) as a dict.
 | `trigger.data` | The form data of the request (if it had a form data content type).
 | `trigger.query` | The URL query parameters of the request (if provided).
 
