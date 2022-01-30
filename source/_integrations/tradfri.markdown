@@ -29,6 +29,8 @@ You will be prompted to configure the gateway through the Home Assistant interfa
 If you see an "Unable to connect" message, restart the gateway and try again. Don't forget to assign a permanent IP address to your IKEA Trådfri Gateway on your router or DHCP server.
 </div>
 
+{% include integrations/config_flow.md %}
+
 ## Troubleshooting
 
 ### Incorrect security key
