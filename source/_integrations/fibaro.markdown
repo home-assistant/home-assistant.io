@@ -40,8 +40,6 @@ There is currently support for the following device types within Home Assistant:
 
 They will be automatically added when the `fibaro` hub is connected to Home Assistant.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
 <div class='note'>
