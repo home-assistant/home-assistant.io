@@ -24,7 +24,7 @@ rise of the station, its current coordinates, and the number of people in space.
 
 <div class='note warning'>
 
-If you enable "Show on map" when configurating this integration then the location attributes 
+If you enable "Show on map" in the options for this integration then the location attributes 
 are named `latitude` and `longitude`. The default name of the location attributes is
 `lat` and `long` to avoid showing them on the map.
 
