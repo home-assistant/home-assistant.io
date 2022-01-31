@@ -23,7 +23,7 @@ Retrieve train departure information from [Trafikverket](https://www.trafikverke
 - Retrieve information for specific departure time on a specific train line.
 - Set up an alert or perform actions if your train is delayed or canceled.
 
-## Data that is retrieved: 
+## Retrieved data
 
 - Next departure for the specific train line.
 - Canceled status.
