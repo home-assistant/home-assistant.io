@@ -14,11 +14,11 @@ ha_platforms:
   - sensor
 ---
 
-The integration allows you to control [Motion Blinds](https://motion-blinds.com) from [Coulisse B.V.](https://coulisse.com/products/motion).
+The integration allows you to control [Motion Blinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
 
 Additionally the following brands have been reported to also work with this integration:
 
-- [Motion Blinds](https://motion-blinds.com)
+- [Motion Blinds](https://motionblinds.com/)
 - [Dooya](http://www.dooya.com/)
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
