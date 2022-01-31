@@ -460,6 +460,22 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | `trigger.current_value`      | The current value for this Z-Wave value (translated to a state name when possible).        |
 | `trigger.current_value_raw`  | The raw current value for this Z-Wave value (the key of the state when a state is named).  |
 
+### `zwave_js_notification events`
+
+You may also trigger automations based on notification events, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in the [Developers Tools](/docs/tools/dev-tools/#subscribe-to-an-event).
+
+#### Example automation trigger configuration
+
+```yaml
+# Fires whenever the lock is unlocked by the keypad.
+trigger:
+  - platform: event
+    event_type: zwave_js_notification
+    event_data:
+      node_id: 14
+      event_label: "Keypad unlock operation"
+```
+
 ## Migrating from previous Z-Wave implementations
 
 If you are switching from the `zwave` or `ozw` integrations to the new Z-Wave JS integration, you will not need to recreate your entire network, as the network is **stored on your stick**. A few things, such as how you receive [central scene events](#events) will work differently than they did before.
