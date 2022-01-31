@@ -15,7 +15,7 @@ end
 group :jekyll_plugins do
   gem 'jekyll-paginate', '1.1.0'
   gem 'jekyll-sitemap', '1.4.0'
-  gem 'jekyll-commonmark', '1.3.1'
+  gem 'jekyll-commonmark', '1.4.0'
   gem 'jekyll-toc', '0.17.1'
 end
 
