@@ -6,6 +6,7 @@ ha_category:
   - Cover
   - Energy
   - Light
+  - Number
   - Sensor
   - Switch
 ha_release: 0.115
@@ -25,6 +26,7 @@ ha_platforms:
   - climate
   - cover
   - light
+  - number
   - sensor
   - switch
 ---
@@ -235,6 +237,16 @@ Trigger reboot of device.
 
 - Reboot
   - triggers the reboot
+
+## Shelly Thermostatic Radiator Valve (TRV)
+
+Shelly TRV generates 2 entities that can be used to control the device behavior: `climate` and `number`.
+The first will allow specifying a temperature, the second instead of a percentage of the valve position.
+
+**Note**: that if you change the valve position then automatic temperature control
+ will be disabled.
+As soon as you change the temperature, it gets enabled again.
+
 ## CoAP port (generation 1)
 
 In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
