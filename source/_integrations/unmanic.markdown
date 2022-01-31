@@ -2,7 +2,7 @@
 title: Unmanic
 description: Instructions on how to integrate Unmanic with Home Assistant
 ha_category:
-  - Downloading
+  - Multimedia
 ha_release: 2022.1
 ha_iot_class: Local Polling
 ha_domain: unmanic
