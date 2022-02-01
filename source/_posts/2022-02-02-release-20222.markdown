@@ -228,10 +228,6 @@ Screenshot from GitHub PR, needs to be replaced
 
 - Scenes now have a state, last activated timestamp (like a button entity, last pressed)
 
-- Zones now have a state! Instead of "zoning" they now show the counter of the
-  number of people entities in the zone. This means you easily automate
-  when "someone" gets home, or when everybody left home.
-
 ## More Advanced things
 
 Short hand condition nation is now supported in conditions actions as well.
