@@ -301,6 +301,18 @@ There are two types of events that are fired, notification events and value noti
 
 Check the [Z-Wave JS notification event documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) for an explanation of the notification event data. These events fire with the `zwave_js_notification` event type.
 
+Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in the [Developers Tools](/docs/tools/dev-tools/#subscribe-to-an-event).
+
+```yaml
+# Fires whenever the lock is unlocked by the keypad.
+trigger:
+  - platform: event
+    event_type: zwave_js_notification
+    event_data:
+      node_id: 14
+      event_label: "Keypad unlock operation"
+```
+
 #### Notification Command Class
 
 These are notification events fired by devices using the Notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
@@ -338,21 +350,6 @@ These are notification events fired by devices using the Entry Control command c
     "event_data": "555"
 }
 ```
-
-#### `Automation example`
-
-Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in the [Developers Tools](/docs/tools/dev-tools/#subscribe-to-an-event).
-
-```yaml
-# Fires whenever the lock is unlocked by the keypad.
-trigger:
-  - platform: event
-    event_type: zwave_js_notification
-    event_data:
-      node_id: 14
-      event_label: "Keypad unlock operation"
-```
-
 
 ### Scene events (Value Notification)
 
