@@ -36,18 +36,27 @@ Issues introduced in the beta are processed with priority.
 
 ---
 
-The release notes are currently a work in progress, and quite a bit has to
-be done. So bear with me during this beta, as I try to make some sense of
-a release that contains over 2.5K merged contributions! (An absolute record).
-
-I'm not sure if this is really fitting, it is Februari already... but since
+I'm not sure if this is really fitting; it is February already... but since
 this is the first release of the year, I'm still going to say it:
 
 **Happy New Year 🥂**
 
+And, since we have skipped the January release, this release became a big one.
+Over 2,500 contributions make this release the largest one we have ever
+shipped! Including 15 brand-new integrations and 13 existing integrations,
+which are now available to set up via the user interface.
+
 Now don't be scared when you look at the breaking changes section. It is a lot,
 however, most of those are cleanup of old deprecations or caused by things
-moving to the UI. No better way to start a fresh year, by cleaning up 🧹
+moving to the UI. No better way to start a fresh year, than by cleaning up 🧹
+
+By the way, in case you've missed it, [@balloob] published a blog post last
+week about the focus for Home Assistant in 2022: [Streamlining Experiences](/blog/2022/01/19/streamlining-experiences/). I'm stoked about it, and am really
+looking forward to what this year will do for Home Assistant! Go 2022!
+
+What is your new years' resolution for your smart home this year?
+
+Enjoy the release!
 
 ../Frenck
 
