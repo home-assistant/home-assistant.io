@@ -168,11 +168,10 @@ and Home Assistant Supervisor installation methods.
 
 To make debugging and reporting issues with integrations or devices easier,
 both in terms of reporting it, but also for developers to fix them, we introduce:
-
 **Diagnostics**.
 
 Diagnostics can be provided by integrations and allow you to download diagnostic
-information, bout an integration or device you have set up,
+information, about an integration or device you have set up,
 directly from the Home Assistant UI.
 
 <p class='img'>
@@ -180,17 +179,17 @@ directly from the Home Assistant UI.
 Screenshot of the Download Diagnostics button on the device page
 </p>
 
-The above screenshot is from the device page of a Sonos speaker in Home
-Assistant. The downloadable diagnostics file can be viewed, as a text file,
+The above screenshot is from the device page of a Sonos speaker. The
+downloadable diagnostics file can be viewed, as a text file,
 and can be used for sharing when reporting an issue in our issue tracker.
 
-The diagnostics data can be extremely helpful in finding the root causes of
-issues and getting them fixed. As a matter of fact, it helped us pin-pointing
+Diagnostics data can be extremely helpful in finding the root causes of
+an issue and to get them fixed. As a matter of fact, it helped us pin-pointing
 and fixing issues during the beta of this release.
 
-The good news is, that **61**! integrations already added support this new
-diagnostics feature in this release, including Z-Wave JS, ESPHome, Sonos,
-Tuya, Shelly, WLED, Unifi, Nest, deCONZ, KNX, Roku, Samsung TV, and many more!
+The good news is that **61**! integrations already added support for this new
+diagnostics feature, including Z-Wave JS, ESPHome, Sonos, Shelly, WLED,
+Unifi, Nest, deCONZ, KNX, Tuya, Roku, Samsung TV, and many more!
 
 ## Finding known integration issues and where to report them
 
