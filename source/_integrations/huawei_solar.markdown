@@ -104,7 +104,7 @@ The integration will poll the inverter for new values every 30 seconds. If you w
 
 If you have any problems and intend to write an issue, make sure you have the relevant logs included. For this integration, you can enable them like this:
 
-```
+```yaml
 logger:
   logs:
     pymodbus: debug # only include this if you're having connectivity issues
