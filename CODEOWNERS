@@ -560,7 +560,7 @@ source/_integrations/upc_connect.markdown @pvizeli @fabaff
 source/_integrations/upcloud.markdown @scop
 source/_integrations/updater.markdown @home-assistant/core
 source/_integrations/upnp.markdown @StevenLooman @ehendrix23
-source/_integrations/uptimerobot.markdown @ludeeus
+source/_integrations/uptimerobot.markdown @ludeeus @chemelli74
 source/_integrations/usb.markdown @bdraco
 source/_integrations/usgs_earthquakes_feed.markdown @exxamalte
 source/_integrations/utility_meter.markdown @dgomes

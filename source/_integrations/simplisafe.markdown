@@ -13,6 +13,7 @@ ha_domain: simplisafe
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - diagnostics
   - lock
   - sensor
 ha_dhcp: true
