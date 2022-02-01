@@ -6,12 +6,12 @@ ha_category:
   - Light
 ha_iot_class: Local Push
 featured: true
-ha_release: "0.60"
+ha_release: '0.60'
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - "@balloob"
-  - "@marcelveldt"
+  - '@balloob'
+  - '@marcelveldt'
 ha_domain: hue
 ha_ssdp: true
 ha_homekit: true

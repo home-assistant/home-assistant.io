@@ -10,6 +10,7 @@ ha_domain: homewizard
 ha_codeowners:
   - '@DCSBL'
 ha_platforms:
+  - diagnostics
   - sensor
   - switch
 ha_zeroconf: true
