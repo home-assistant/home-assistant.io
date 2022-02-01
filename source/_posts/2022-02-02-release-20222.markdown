@@ -228,6 +228,22 @@ will be enabled by default.
 This keeps our Home Assistant nice and tidy, but also gives you the possibility
 to enable those extra ones you like to have, yourself.
 
+## Scenes now have a state
+
+Scenes never had a state, well that is not entirely true, it would always
+say: "scening". That is not really helpful with anything.
+
+To make the state of a scene more useful, it will now have the last timestamp of when the scene was activated. This has a couple of advantages:
+
+- The timestamp in the state of the scene tells you when the scene was last used.
+- You can now see history of when a scene was activated in the logbook,
+  and who did that.
+- You can now automate on a scene being activated.
+
+The last one is pretty useful as a scene can now be used to trigger even more
+actions via automations. For example, you could start playing media or send
+a TTS announcement when a scene is used.
+
 ## Streamlining experiences
 
 We recently published a blog on our focus for this year:
