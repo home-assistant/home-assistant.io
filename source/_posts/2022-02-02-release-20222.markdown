@@ -256,21 +256,6 @@ Things done in this release with that focus:
   go to that device (instead of showing the table with a single device).
   (Single device links to device page (#11387) @balloob)
 
-- "Check for updates" in configuration screen. This will check
-  for Core, Operating System & Add-on updates with a single click.
-
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/1444314/150729893-cca5bb34-5765-44f4-838e-b2ffb191940b.png' alt='Screenshot from GitHub PR, needs to be replaced'>
-Screenshot from GitHub PR, needs to be replaced
-</p>
-
-- Finding known issues for an integration in our issue trackers
-
-<p class='img'>
-<img class="no-shadow" src='https://cdn.discordapp.com/attachments/657921261816774677/935466835422363668/unknown.png' alt='Screenshot from GitHub PR, needs to be replaced'>
-Screenshot from Discord, needs to be replaced
-</p>
-
 - Visit device/service and documention on discovered items.
 
 <p class='img'>
