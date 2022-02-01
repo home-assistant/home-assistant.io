@@ -37,7 +37,7 @@ Issues introduced in the beta are processed with priority.
 ---
 
 I'm not sure if this is really fitting; it is February already... but since
-this is the first release of the year, I'm still going to say it:
+this is the first release of the year, I'm going to say it anyway:
 
 **Happy New Year 🥂**
 
@@ -47,12 +47,13 @@ shipped! Including 15 brand-new integrations and 13 existing integrations,
 which are now available to set up via the user interface.
 
 Now don't be scared when you look at the breaking changes section. It is a lot,
-however, most of those are cleanup of old deprecations or caused by things
+however, most of those are cleanup of old deprecations, or caused by things
 moving to the UI. No better way to start a fresh year, than by cleaning up 🧹
 
 By the way, in case you've missed it, [@balloob] published a blog post last
-week about the focus for Home Assistant in 2022: [Streamlining Experiences](/blog/2022/01/19/streamlining-experiences/). I'm stoked about it, and am really
-looking forward to what this year will do for Home Assistant! Go 2022!
+week about the focus for Home Assistant in 2022: [Streamlining Experiences](/blog/2022/01/19/streamlining-experiences/).
+I'm stoked about it, and am really looking forward to what this year will do
+for Home Assistant! Go 2022!
 
 What is your new years' resolution for your smart home this year?
 
@@ -106,7 +107,7 @@ months, including local currency support for Canada, Europe and the United Kingd
 Our new payment system is part of our revamped cloud system that we are rolling
 out, and this will bring more improvements the Home Assistant Cloud services.
 
-We already improved our remove access infrastructure to make sure it's routing
+We already improved our remote access infrastructure to make sure it's routing
 as close to you as possible. Last week we have rolled out improvements
 to the infrastructure that has significantly improved the speed of the
 Google Assistant and Amazon Alexa integrations.
