@@ -24,8 +24,6 @@ If your system is compatible with this integration, then you will be able access
 This integration will add Home Assistant sensors for the following:
 |Sensor|Value|
 --- | ---
-|Indoor temperature|Average temperature of all Honeywell Wireless Indoor Sensors|
-|Indoor humidity | Average humidity of all Honeywell Wireless Indoor Sensors|
 |Outdoor temperature | Average temperature of all Honeywell Wireless Outdoor Sensors|
 |Outdoor humidity | Average humidity of all Honeywell Wireless Outdoor Sensors|
 
