@@ -261,6 +261,12 @@ action:
 
 {% endraw %}
 
+## Network requirements
+
+To work optimally, the Sonos devices must be able to connect back to the Home Assistant host on TCP port 1400. This will allow the push-based updates to work properly. If this port is blocked or otherwise unreachable from the Sonos devices, the integration will fall back to a polling mode which is slower to update and much less efficient. The integration will alert the user if this problem is detected.
+
+See [Advanced use](#advanced-use) below for additional configuration options which may be needed to address this issue in setups with more complex network topologies.
+
 ## Advanced use
 
 For advanced uses, there are some manual configuration options available. These are usually only needed if you have a complex network setup where Home Assistant and Sonos are not on the same subnet.
@@ -277,7 +283,7 @@ sonos:
       - 192.0.2.27
 ```
 
-If your Home Assistant instance has multiple IP addresses, you can enable the IP address that should be used for Sonos auto-discovery with the [Network](/integrations/network/) integration. This should only be necessary if the Sonos speakers are on a network segment not reachable from the default interface.
+If your Home Assistant instance has multiple IP addresses, you can select the specific IP address that should be used for Sonos auto-discovery with the [Network](/integrations/network/) integration. This should only be necessary if the Sonos speakers are on a network segment not reachable from the default interface.
 
 The Sonos speakers will attempt to connect back to Home Assistant to deliver change events. By default, Home Assistant will listen on port 1400 but will try the next 100 ports above 1400 if it is in use. You can change the IP address that Home Assistant advertises to Sonos speakers. This can help in NAT scenarios such as when _not_ using the Docker option `--net=host`:
 
