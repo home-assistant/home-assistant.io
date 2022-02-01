@@ -22,6 +22,7 @@ To use Apprise supported notifications, add the following to your `configuration
 # Example configuration.yaml entry using URLs
 notify:
   - platform: apprise
+    name: apprise
     url: YOUR_APPRISE_URLS
 ```
 
@@ -32,6 +33,7 @@ You can also pre-define your own configuration files while storing them either r
 # Configuration Files/Sites:
 notify:
   - platform: apprise
+    name: apprise
     config: YOUR_APPRISE_CONFIG_URLS
 ```
 
@@ -41,6 +43,7 @@ There is no restriction on the number of URLs or Apprise Configuration locations
 # Example configuration.yaml entry using all options
 notify:
   - platform: apprise
+    name: apprise
     config: YOUR_APPRISE_CONFIG_URLS
     url: YOUR_APPRISE_URLS
 ```
