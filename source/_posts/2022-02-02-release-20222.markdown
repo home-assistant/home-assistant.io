@@ -89,8 +89,8 @@ Before we dive into this release, we have some news and updates from
 ### Annual subscriptions now available for the US
 
 The ability to subscribe to the [Home Assistant Cloud](https://www.nabucasa.com)
-was one of the most requested features sinds Nabu Casa was founded and was
-announced to become available during the [State of the Open Home](/state-of-the-open-home/) in December.
+anually, was one of the most requested features sinds Nabu Casa was founded and has been
+announced at the [State of the Open Home](/state-of-the-open-home/) in December.
 
 As of today, the annual subscriptions to Home Assistant Cloud are available
 for the United States. 🎉
