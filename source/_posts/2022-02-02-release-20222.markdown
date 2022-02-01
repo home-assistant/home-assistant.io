@@ -81,6 +81,50 @@ Examples use cases of button entities.
 
 <!--<img class="no-shadow" src='/images/blog/2022-2/configuration-menu.png' alt='Screenshot of the new areas panel'>-->
 
+## Updates from Nabu Casa
+
+Before we dive into this release, we have some news and updates from
+[Nabu Casa](https://www.nabucasa.com) to share with you.
+
+### Annual subscriptions now available for the US
+
+The ability to subscribe to the [Home Assistant Cloud](https://www.nabucasa.com)
+was one of the most requested features sinds Nabu Casa was founded and was
+announced to become available during the [State of the Open Home](/state-of-the-open-home/) in December.
+
+As of today, the annual subscriptions to Home Assistant Cloud are available
+for the United States. 🎉
+
+Additionally, in regions where annual subscriptions are available, you be able
+to use Apple Pay and Google Pay now.
+
+Annual subscriptions will become available in other countries in the coming
+months, including local currency support for Canada, Europe and the United Kingdom.
+
+### Improved infrastructure
+
+Our new payment system is part of our revamped cloud system that we are rolling
+out, and this will bring more improvements the Home Assistant Cloud services.
+
+We already improved our remove access infrastructure to make sure it's routing
+as close to you as possible. Last week we have rolled out improvements
+to the infrastructure that has significantly improved the speed of the
+Google Assistant and Amazon Alexa integrations.
+
+### Zack Barett and Mike Degatano join Nabu Casa
+
+We are also happy to announce [Zack Barett](https://github.com/zsarnett) and
+[Mike Degatano](https://github.com/mdegat01) will be joining Nabu Casa to work
+on Home Assistant.
+
+Zack will be helping out on different aspects of Home Assistant, including the
+[Home Assistant YouTube channel](https://www.youtube.com/channel/UCbX3YkedQunLt7EQAdVxh7w), and the Home Assistant Frontend.
+
+Mike is going to be focussing on extending and improving the Home Assistant
+Supervisor and the eco system around it (like its internal plugins and add-ons).
+
+Welcome! We are excited to have you on board! 🎉
+
 ## New media player bar, local media...
 
 The media browser, has been renamed to: "Media". Nice, simple, and clean.
