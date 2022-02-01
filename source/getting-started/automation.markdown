@@ -18,10 +18,10 @@ The second step is defining what should trigger our automation to run. In this c
 In the trigger section, click on the dropdown menu and change the trigger type to "Sun." It allows us to choose sunrise or sunset, so go ahead and pick sunset. As we discussed, we want our automation to be triggered a little before the sun actually sets, so let's add `-00:30` as the offset. This indicates that the automation will be triggered 30 minutes before the sun actually sets. Neat!
 ![A new automation with a sun trigger filled in.](/images/getting-started/new-trigger.png)
 
-Once we have defined our trigger, scroll down to the action section. Make sure the action type is set to “Call service,” and change the service to light.turn_on. For this automation we’re going to turn on all lights, so let’s change the service data to:
+Once we have defined our trigger, scroll down to the action section. Make sure the action type is set to “Call service,” and change the service to light.turn_on. For this automation, we’re going to turn on all the lights in an [area](https://www.home-assistant.io/blog/2020/04/08/release-108/#area-configuration-page). Select `Choose area` in the targets row and select an area from the list. The example below uses `lounge` area:
 ![A new automation with the action set up to turn on the lights.](/images/getting-started/action.png)
 
-Click the orange button to save the automation. Now wait till it's 30 minutes until the sun sets and see your automation magic!
+Click the `Save` button. Now wait till it's 30 minutes until the sun sets and see your automation magic!
 
 {% include getting-started/next_step.html step="Presence detection" link="/getting-started/presence-detection/" %}
 
