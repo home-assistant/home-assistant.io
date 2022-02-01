@@ -22,9 +22,8 @@ The Nanoleaf integration allows you to control and monitor Nanoleaf Light Panels
 
 This integration does not support the Nanoleaf Remote and Essentials lights.
 
+{% include integrations/config_flow.md %}
+
 # Transition and brightness
 
 When using a transition in service calls (such as `light.turn_on`), the transition is only applied to brightness and does not apply to color. When a service call has a transition set but no brightness is included, the light will automatically transition to 100% brightness.
-
-
-{% include integrations/config_flow.md %}
