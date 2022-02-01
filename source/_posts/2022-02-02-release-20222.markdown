@@ -10,10 +10,10 @@ comments: true
 categories:
 - Release-Notes
 - Core
-og_image: /images/blog/2022-2/social.png
+og_image: /images/blog/2022-02/social.png
 ---
 
-<!--<a href='/integrations/#version/2022.2'><img src='/images/blog/20212-2/social.png' style='border: 0;box-shadow: none;'></a>-->
+<a href='/integrations/#version/2022.2'><img src='/images/blog/2022-02/social.png' style='border: 0;box-shadow: none;'></a>
 
 These are the beta release notes for Home Assistant Core 2022.2 (and is thus a
 work in progress).
