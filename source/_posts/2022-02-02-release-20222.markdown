@@ -453,6 +453,7 @@ We welcome the following new integration this release:
 The following integrations are now available via the Home Assistant UI:
 
 - [Android TV][androidtv docs], done by [@ollo69]
+- [Azure Event Hub][azure_event_hub docs], done by[@eavanvalkenburg] 
 - [CPU Speed][cpuspeed docs], done by [@frenck]
 - [DNS IP][dnsip docs], done by [@gjohansson-ST]
 - [GitHub][github docs], done by [@ludeeus]
@@ -460,6 +461,7 @@ The following integrations are now available via the Home Assistant UI:
 - [LG webOS Smart TV][webostv docs], done by [@thecode]
 - [PVOutput][pvoutput docs], done by [@frenck]
 - [Sensibo][sensibo docs], done by [@gjohansson-ST]
+- [SolaX Power][solax docs], done by [@tokenize47]
 - [Vallox][vallox docs], done by [@slovdahl]
 - [Version][version docs], done by [@ludeeus]
 - [Whois][whois docs], done by [@frenck]
@@ -477,6 +479,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
+
+{% details "Python 3.8 support dropped" %}
+
+Python 3.8 support has previously been deprecated and now has been removed.
+Home Assistant now requires Python 3.9 to run.
+
+If you are using Home Assistant OS, Home Assistant Container, or Home Assistant Supervised installation method, you don't have to do anything. In those cases, we all handle this for you. Your system has been using Python 3.9 for quite some time already.
+
+([@frenck] - [#63883])
+
+{% enddetails %}
 
 {% details "GPIO Integrations" %}
 
@@ -538,7 +551,40 @@ connecting to a remote owfs server is not.
 
 {% enddetails %}
 
-{% details "Fan/Humidifer/Light/Remote/Siren/Switch/Vaccuum" %}
+{% details "Binary Sensors" %}
+
+Previously, `binary_sensor` entities could have the state `on`, `off`, and
+in case the device was unreachable: `unavailable`.
+
+However, compared to other entities, it wasn't able to have the `unknown` state,
+which has been added this release.
+
+So, a `binary_sensor` entity can now have the `on`, `off`, `unavailable`, or `unknown` state.
+
+You might need to adapt your automations or scripts to take this new
+`unknown` state into account.
+
+([@frenck] - [#60193]) ([binary_sensor docs])
+
+{% enddetails %}
+
+{% details "Groups: Locks" %}
+
+The behavior of grouped locks has been reversed such that "unlocked" is
+mapped to `on` and "locked" to off.
+
+This means that:
+
+- A group with mixed domains will be considered `on` if any lock included in
+  the group is unlocked.
+- A group of locks will be considered "unlocked" if any lock included in the
+- group is unlocked.
+
+([@emontnemery] - [#62580]) ([lock docs]) ([group docs])
+
+{% enddetails %}
+
+{% details "Fan/Humidifer/Light/Remote/Siren/Switch/Vacuum" %}
 
 Previously, toggle-based entities (like `fan`, `light`, `switch`, `remote`, `siren`, `vacuum`, `humidifier`) could have the state `on` or `off`, and in case the device was unreachable: `unavailable`. However, compared to other entities, toggle entities aren't able to have an `unknown` state, this now has changed.
 
@@ -550,149 +596,61 @@ You might need to adapt your automations or scripts to take this new `unknown` s
 
 {% enddetails %}
 
-{% details "iOS" %}
+{% details "Advantage Air" %}
 
-The Home Assistant iOS/macOS app supports notification actions defined [in the notification itself](https://companion.home-assistant.io/docs/notifications/actionable-notifications/); the old method of defining push categories in the iOS integration is now deprecated and will be removed in the future.
+The `advantage_air.set_myzone` service has been depreciated and will be removed
+in a future version of Home Assistant.
 
-([@zacwest] - [#61078]) ([ios docs])
+Please use the `select.select_option` service on the MyZone select entity to change this value on supported systems instead.
 
-{% enddetails %}
-
-{% details "Flume" %}
-
-The previously deprecated YAML configuration of the Flume integration has been removed.
-
-Flume is now configured via the UI, any existing YAML configuration has been imported
-in previous releases and can now be safely removed from your YAML configuration files.
-
-([@tkdrob] - [#61517]) ([flume docs])
+([@Bre77] - [#58777]) ([advantage_air docs])
 
 {% enddetails %}
 
-{% details "Sensor.Community (previously: Luftdaten)" %}
+{% details "Android TV" %}
 
-The Luftdaten integration has been renamed to Sensor.Community; which is
-the new name of the Luftdaten project.
-
-The previously deprecated YAML configuration of this integration
-has been removed.
-
-Sensor.Community is now configured via the UI, any existing YAML configuration
-has been imported in previous releases and can now be safely removed from your
-YAML configuration files.
-
-([@frenck] - [#61748] [#62865]) ([luftdaten docs])
-
-{% enddetails %}
-
-{% details "Foscam" %}
-
-The previously deprecated YAML configuration of the Foscam integration
-has been removed.
-
-Foscam is now configured via the UI, any existing YAML configuration
-has been imported in previous releases and can now be safely removed from your
-YAML configuration files.
-
-([@tkdrob] - [#61761]) ([foscam docs])
-
-{% enddetails %}
-
-{% details "Enphase Envoy" %}
-
-The previously deprecated YAML configuration of the Enphase Envoy integration
-has been removed.
-
-Enphase Envoy is now configured via the UI, any existing YAML configuration
-has been imported in previous releases and can now be safely removed from your
-YAML configuration files.
-
-([@tkdrob] - [#61840]) ([enphase_envoy docs])
-
-{% enddetails %}
-
-{% details "Azure Event Hub" %}
-
-The Azure Event Hub integration migrated to configuration via the
-UI. Configuring Azure Event Hub via YAML configuration has been
+The Android TV integration migrated to configuration via the
+UI. Configuring Android TV via YAML configuration has been
 deprecated and will be removed in a future Home Assistant release.
 
 Your existing YAML configuration is automatically imported on upgrade to this
 release; and thus can be safely removed from your YAML configuration after upgrading.
 
-([@eavanvalkenburg] - [#61155]) ([azure_event_hub docs])
+- Add config_flow to AndroidTV integration ([@ollo69] - [#54444]) ([androidtv docs]) (breaking-change)
 
 {% enddetails %}
 
-{% details "FortiOS" %}
+{% details "API" %}
 
-The integration now requires FortiOS 6.4.3 and newer.
+The `/api/discovery_info` endpoint was deprecated in 2021.10, and has since only
+returned blank values. From this version, the `/api/discovery_info` endpoint has
+been removed completly.
 
-([@kimfrellsen] - [#61970]) ([fortios docs])
-
-{% enddetails %}
-
-{% details "Zero-configuration networking (zeroconf)" %}
-
-This change is only a concern for custom integration developers.
-
-Currently zeroconf matching only allows matching the `macaddress`, `model`, and `manufacturer` properties along with the `name` from the ZeroconfServiceInfo.
-
-Since properties are arbitrarily defined by the zeroconf service,
-the list of named properties has grown over time.
-
-Matching now allows for any arbitrarily defined property.
-All property matches must be lowercase, wildcards are supported
-
-The top level keys `model`, `manufacturer`, and `macaddress`
-are now deprecated from the `manifest.json` file and should
-be moved into a `properties` dict.
-
-For example:
-```diff
--    {"type":"_airplay._tcp.local.","model":"appletv*"}
-+    {"type":"_airplay._tcp.local.","properties":{"model":"appletv*"}}
-```
-
-([@bdraco] - [#62133]) ([zeroconf docs])
+([@ludeeus] - [#64534]) ([api docs])
 
 {% enddetails %}
 
-{% details "Environment Canada" %}
+{% details "Apple iCloud" %}
 
-The previously deprecated YAML configuration of the Environment Canada
-integration has been removed.
+The Apple iCloud integration migrated to configuration via the
+UI in a previous release already. Configuring Apple iCloud via YAML configuration
+has now been deprecated and will be removed in a future Home Assistant release.
 
-Environment Canada is now configured via the UI, any existing YAML configuration
-has been imported in previous releases and can now be safely removed from your
-YAML configuration files.
+Your existing YAML configuration is already automatically imported; and thus
+can be safely removed from your YAML configuration.
 
-([@tkdrob] - [#61839]) ([environment_canada docs])
-
----
-
-The sensors no longer have `Timestamp` as an extra state attribute, instead,
-use the new `timestamp` sensor that can be used in automations that track state changes.
-
-The sensors alert sensors (`advisories`, `endings`, `statements`, `warnings`, and `watches`) state is now a count of the number of active alerts for the sensor type
-and the extra state attributes contain the alert text and alert timestamp.
-
-The attributes are named `alert_<x>` and `alert_time_<x>` where <x> is 1 for alert 1, 2 for alert 2, etc.
-
-([@gwww] - [#58615]) ([environment_canada docs])
+([@epenet] - [#63875]) ([icloud docs])
 
 {% enddetails %}
 
-{% details "OpenGarage" %}
+{% details "Apple Push Notification Service (APNS)" %}
 
-The previously deprecated YAML configuration of the OpenGarage
-integration has been removed.
+The Apple Push Notification Service (APNS) integration has been deprecated and
+will be removed in Home Assistant 2022.4. Please note, this does not affect
+our mobile companion apps; as they do not use this integration for their
+notifications.
 
-OpenGarage is now configured via the UI, any existing YAML configuration
-has been imported in previous releases and can now be safely removed from your
-YAML configuration files.
-
-- Remove deprecated yaml config from opengarage ([@tkdrob] - [#61961]) ([opengarage docs]) (breaking-change)
+([@frenck] - [#64629]) ([apns docs])
 
 {% enddetails %}
 
@@ -709,29 +667,71 @@ removed from your YAML configuration files.
 
 {% enddetails %}
 
-{% details "Efergy" %}
+{% details "AVM FRITZ!Box Tools" %}
 
-The previously deprecated YAML configuration of the Efergy
+The previously deprecated YAML configuration of the AVM FRITZ!Box Tools
 integration has been removed.
 
-Efergy is now configured via the UI, any existing YAML configuration
-has been imported in previous releases and can now be safely removed from your
-YAML configuration files.
+AVM FRITZ!Box Tools is now configured via the UI, any existing YAML
+configurationhas been imported in previous releases and can now be safely
+removed from your YAML configuration files.
 
-([@tkdrob] - [#61520]) ([efergy docs])
+[@epenet] - [#63857]) ([fritz docs])
+
+----
+
+The `reboot` and `reconnect` services are deprecated and will be removed in future release. Please use the newly provided button entities instead.
+
+([@chemelli74] - [#61483]) ([fritz docs])
 
 {% enddetails %}
 
-{% details "Magic Home" %}
+{% details "AVM FRITZ!SmartHome" %}
 
-The previously deprecated YAML configuration of the Magic Home
-integration has been removed.
+The `lock` and `devicelock` attributes are removed from all entities and now exposed as own sensors.
 
-Magic Home is now configured via the UI, any existing YAML configuration
-has been imported in previous releases and can now be safely removed from your
-YAML configuration files.
+([@mib1185] - [#60426]) ([fritzbox docs])
 
-([@tkdrob] - [#61844]) ([flux_led docs])
+{% enddetails %}
+
+{% details "Azure Event Hub" %}
+
+The Azure Event Hub integration migrated to configuration via the
+UI. Configuring Azure Event Hub via YAML configuration has been
+deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration after upgrading.
+
+([@eavanvalkenburg] - [#61155]) ([azure_event_hub docs])
+
+{% enddetails %}
+
+{% details "BMW Connected Drive" %}
+
+The `charging_time_remaining` (in hours) has been replaced with
+`charging_end_time` (timestamp) to not clutter the Home Assistant state machine.
+
+You might need to adapt your automations or scripts for this change.
+
+([@rikroe] - [#60942]) ([bmw_connected_drive docs])
+
+---
+
+All ``bmw_connected_drive.*` services are deprecated.
+Please use the new button entities with the `button.press` service instead.
+
+([@rikroe] - [#63136]) ([bmw_connected_drive docs])
+
+{% enddetails %}
+
+{% details "Bond" %}
+
+The custom `start_increasing_brightness`, `start_decreasing_brightness` and `stop` services are now deprecated and will be removed in a future release.
+
+Please use the new button entities, that replace those, instead.
+
+([@bdraco] - [#64725]) ([bond docs])
 
 {% enddetails %}
 
@@ -761,6 +761,19 @@ YAML configuration files.
 
 {% enddetails %}
 
+{% details "CPU Speed" %}
+
+The CPU Speed integration migrated to configuration via the
+UI. Configuring CPU Speed via YAML configuration has been
+deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration after upgrading.
+
+([@frenck] - [#62929]) ([cpuspeed docs])
+
+{% enddetails %}
+
 {% details "DLNA Digital Media Renderer" %}
 
 The previously deprecated YAML configuration of the DLNA Digital Media Renderer
@@ -774,29 +787,206 @@ removed from your YAML configuration files.
 
 {% enddetails %}
 
-{% details "Android TV" %}
+{% details "DNS IP" %}
 
-The Android TV integration migrated to configuration via the
-UI. Configuring Android TV via YAML configuration has been
+The DNS IP integration migrated to configuration via the
+UI. Configuring DNS IP via YAML configuration has been
 deprecated and will be removed in a future Home Assistant release.
 
 Your existing YAML configuration is automatically imported on upgrade to this
 release; and thus can be safely removed from your YAML configuration after upgrading.
 
-- Add config_flow to AndroidTV integration ([@ollo69] - [#54444]) ([androidtv docs]) (breaking-change)
+([@gjohansson-ST] - [#62843]) ([dnsip docs])
 
 {% enddetails %}
 
-{% details "Nuki" %}
+{% details "DoorBird" %}
 
-The previously deprecated YAML configuration of the Nuki
+The relays and IR light switches are removed and replaced with corresponding
+buttons entities. Any scripts or automations which reference these switches to
+turn them on should change to instead press the button instead.
+
+([@flacjacket] - [#63995]) ([doorbird docs])
+
+{% enddetails %}
+
+{% details "DSMR" %}
+
+The `sensor.energy_consumption_total` sensor for DSMR versions 2.2 and 4 has
+been removed. Meters with these versions do not provide this data,
+so this sensor can be safely removed. You might need to clean up
+the orphaned entity in your setup.
+
+([@rhpijnacker] - [#63436]) ([dsmr docs])
+
+{% enddetails %}
+
+{% details "Efergy" %}
+
+The previously deprecated YAML configuration of the Efergy
 integration has been removed.
 
-Nuki is now configured via the UI, any existing YAML
+Efergy is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from your
+YAML configuration files.
+
+([@tkdrob] - [#61520]) ([efergy docs])
+
+{% enddetails %}
+
+{% details "Enphase Envoy" %}
+
+The previously deprecated YAML configuration of the Enphase Envoy integration
+has been removed.
+
+Enphase Envoy is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from your
+YAML configuration files.
+
+([@tkdrob] - [#61840]) ([enphase_envoy docs])
+
+{% enddetails %}
+
+{% details "Environment Canada" %}
+
+The previously deprecated YAML configuration of the Environment Canada
+integration has been removed.
+
+Environment Canada is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from your
+YAML configuration files.
+
+([@tkdrob] - [#61839]) ([environment_canada docs])
+
+---
+
+The sensors no longer have `Timestamp` as an extra state attribute, instead,
+use the new `timestamp` sensor that can be used in automations that track state changes.
+
+The sensors alert sensors (`advisories`, `endings`, `statements`, `warnings`, and `watches`) state is now a count of the number of active alerts for the sensor type
+and the extra state attributes contain the alert text and alert timestamp.
+
+The attributes are named `alert_<x>` and `alert_time_<x>` where <x> is 1 for alert 1, 2 for alert 2, etc.
+
+([@gwww] - [#58615]) ([environment_canada docs])
+
+{% enddetails %}
+
+{% details "Fan" %}
+
+This is more a breaking change for custom integration developers.
+
+Now that all core fans are using the new fan entity model, the compatibility shim
+has been removed. Custom integrations that have not yet switched to the new
+fan model. For more information see:
+
+<https://developers.home-assistant.io/docs/core/entity/fan/#deprecated-properties>
+
+Preset modes and percentages will continue to be translated back to legacy speeds
+until 2022.3 in order to give users a bit more time to update automations.
+
+([@bdraco] - [#59781]) ([fan docs])
+
+{% enddetails %}
+
+{% details "Fibaro" %}
+
+The energy values are exposed now as separate sensor entities and therefore the
+state attribute `current_energy_kwh` was removed from all other entities.
+
+If you use the state attribute `current_energy_kwh` you need to change
+that to use the new energy sensors instead.
+
+([@rappenze] - [#63697]) ([fibaro docs])
+
+{% enddetails %}
+
+{% details "Flume" %}
+
+The previously deprecated YAML configuration of the Flume integration has been removed.
+
+Flume is now configured via the UI, any existing YAML configuration has been imported
+in previous releases and can now be safely removed from your YAML configuration files.
+
+([@tkdrob] - [#61517]) ([flume docs])
+
+{% enddetails %}
+
+{% details "FortiOS" %}
+
+The integration now requires FortiOS 6.4.3 and newer.
+
+([@kimfrellsen] - [#61970]) ([fortios docs])
+
+{% enddetails %}
+
+{% details "Foscam" %}
+
+The previously deprecated YAML configuration of the Foscam integration
+has been removed.
+
+Foscam is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from your
+YAML configuration files.
+
+([@tkdrob] - [#61761]) ([foscam docs])
+
+{% enddetails %}
+
+{% details "Foursquare" %}
+
+The data associated with `foursquare.checkin` event is now available as a
+dictionary item with key "text".
+
+If you use this event in your automation or scripts, you'd need to adjust to
+to match this change.
+
+([@epenet] - [#63982]) ([foursquare docs])
+
+{% enddetails %}
+
+{% details "GitHub" %}
+
+The YAML configuration for the `github` sensor platform has been removed.
+
+There was no viable automatic migration of the configuration, so you need to
+manually remove the configuration from your configuration file and set it up
+again in the integration panel.
+
+Previously this integration created 1 sensor for each repository, now this
+is split out to multiple entities which are mostly disabled by default
+(you can enable the entities you want this integration to provide).
+
+Support for GitHub enterprise has been removed.
+
+([@ludeeus] - [#64190]) ([github docs])
+
+{% enddetails %}
+
+{% details "Google Maps Travel Time" %}
+
+The previously deprecated YAML configuration of the Google Maps Travel Time
+integration has been removed.
+
+Google Maps Travel Time is now configured via the UI, any existing YAML
 configurationhas been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
-([@tkdrob] - [#62470]) ([nuki docs])
+([@tkdrob] - [#62468]) ([google_travel_time docs])
+
+{% enddetails %}
+
+{% details "HomeKit" %}
+
+HomeKit will now automatically exclude entities with an entity category such as
+a configuration or diagnostic entity unless they have been explicitly included.
+
+To explicitly include an entity:
+
+- YAML: Add the entity to the filter in either the `include_entities` or `include_entity_globs` fields.
+- UI: Select the entity in the UI in include mode. If you are using exclude mode, a second bridge can be created in include mode.
+
+([@bdraco] - [#64492]) ([homekit docs])
 
 {% enddetails %}
 
@@ -814,395 +1004,24 @@ removed from your YAML configuration files.
 
 {% enddetails %}
 
-{% details "Google Maps Travel Time" %}
+{% details "iOS" %}
 
-The previously deprecated YAML configuration of the Google Maps Travel Time
+The Home Assistant iOS/macOS app supports notification actions defined [in the notification itself](https://companion.home-assistant.io/docs/notifications/actionable-notifications/); the old method of defining push categories in the iOS integration is now deprecated and will be removed in the future.
+
+([@zacwest] - [#61078]) ([ios docs])
+
+{% enddetails %}
+
+{% details "Keenetic NDMS2 Router" %}
+
+The previously deprecated YAML configuration of the Keenetic NDMS2 Router
 integration has been removed.
 
-Google Maps Travel Time is now configured via the UI, any existing YAML
+Keenetic NDMS2 Router is now configured via the UI, any existing YAML
 configurationhas been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
-([@tkdrob] - [#62468]) ([google_travel_time docs])
-
-{% enddetails %}
-
-{% details "Philips TV" %}
-
-The previously deprecated YAML configuration of the Philips TV
-integration has been removed.
-
-Philips TV is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@tkdrob] - [#62471]) ([philips_js docs])
-
-{% enddetails %}
-
-{% details "TP-Link Kasa Smart" %}
-
-The previously deprecated YAML configuration of the TP-Link Kasa Smart
-integration has been removed.
-
-TP-Link Kasa Smart is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@bdraco] - [#62457]) ([tplink docs])
-
-{% enddetails %}
-
-{% details "RIVM Stookalert" %}
-
-The previously deprecated YAML configuration of the Stookalert
-integration has been removed.
-
-Stookalert is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@frenck] - [#61007]) ([stookalert docs])
-
-{% enddetails %}
-
-{% details "VLC media player Telnet" %}
-
-The previously deprecated YAML configuration of the VLC media player Telnet
-integration has been removed.
-
-VLC media player Telnet is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@tkdrob] - [#62542]) ([vlc_telnet docs])
-
-{% enddetails %}
-
-{% details "Logitech Squeezebox" %}
-
-The previously deprecated YAML configuration of the Logitech Squeezebox
-integration has been removed.
-
-Logitech Squeezebox is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@tkdrob] - [#62537]) ([squeezebox docs])
-
-{% enddetails %}
-
-{% details "Groups: Locks" %}
-
-The behavior of grouped locks has been reversed such that "unlocked" is
-mapped to `on` and "locked" to off.
-
-This means that:
-
-- A group with mixed domains will be considered `on` if any lock included in
-  the group is unlocked.
-- A group of locks will be considered "unlocked" if any lock included in the
-- group is unlocked.
-
-([@emontnemery] - [#62580]) ([lock docs]) ([group docs])
-
-{% enddetails %}
-
-{% details "Binary Sensors" %}
-
-Previously, `binary_sensor` entities could have the state `on`, `off`, and
-in case the device was unreachable: `unavailable`.
-
-However, compared to other entities, it wasn't able to have the `unknown` state,
-which has been added this release.
-
-So, a `binary_sensor` entity can now have the `on`, `off`, `unavailable`, or `unknown` state.
-
-You might need to adapt your automations or scripts to take this new
-`unknown` state into account.
-
-([@frenck] - [#60193]) ([binary_sensor docs])
-
-{% enddetails %}
-
-{% details "BMW Connected Drive" %}
-
-The `charging_time_remaining` (in hours) has been replaced with
-`charging_end_time` (timestamp) to not clutter the Home Assistant state machine.
-
-You might need to adapt your automations or scripts for this change.
-
-([@rikroe] - [#60942]) ([bmw_connected_drive docs])
-
----
-
-All ``bmw_connected_drive.*` services are deprecated.
-Please use the new button entities with the `button.press` service instead.
-
-([@rikroe] - [#63136]) ([bmw_connected_drive docs])
-
-{% enddetails %}
-
-{% details "Sensibo" %}
-
-The Sensibo integration migrated to configuration via the
-UI. Configuring Sensibo via YAML configuration has been
-deprecated and will be removed in a future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this
-release; and thus can be safely removed from your YAML configuration after upgrading.
-
-([@gjohansson-ST] - [#60900]) ([sensibo docs])
-
-{% enddetails %}
-
-{% details "SwitchBot" %}
-
-The SwitchBot integration migrated to configuration via the
-UI in a previous release already. Configuring SwitchBot via YAML configuration
-has now been deprecated and will be removed in a future Home Assistant release.
-
-Your existing YAML configuration is already automatically imported; and thus
-can be safely removed from your YAML configuration.
-
-([@tkdrob] - [#62583]) ([switchbot docs])
-
-{% enddetails %}
-
-{% details "Trafikverket Train" %}
-
-The planned time, estimated time and and actual time sensor attributes have
-been correct to be UTC isoformatted string which is standard in Home Assistant.
-
-Previously displayed as `2021-12-23T09:07:00` and now correctly set as `2021-12-23T09:07:00+00:00`.
-
-This may affect templates or automations based on these attributes.
-
-([@gjohansson-ST] - [#62636]) ([trafikverket_train docs])
-
-{% enddetails %}
-
-{% details "Samsung SyncThru Printer" %}
-
-The previously deprecated YAML configuration of the Samsung SyncThru Printer
-integration has been removed.
-
-Samsung SyncThru Printer is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@tkdrob] - [#62541]) ([syncthru docs])
-
-{% enddetails %}
-
-{% details "Version" %}
-
-The Version integration migrated to configuration via the
-UI. Configuring Version via YAML configuration has been
-deprecated and will be removed in a future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this
-release; and thus can be safely removed from your YAML configuration after upgrading.
-
-Additionally, the `source` and `channel` attributes have been removed from
-the Version sensor for the local source.
-
-([@ludeeus] - [#54642] [#64827]) ([version docs])
-
-{% enddetails %}
-
-{% details "Templates: Binary Sensors" %}
-
-Template trigger binary sensor should start with `unknown` value rather than always starting with `false`/`off`. This matches the template binary sensor behavior
-with other sensors.
-
-([@amosyuen] - [#62769]) ([template docs])
-
-{% enddetails %}
-
-{% details "PVOutput" %}
-
-The PVOutput integration migrated to configuration via the
-UI. Configuring PVOutput via YAML configuration has been
-deprecated and will be removed in a future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this
-release; and thus can be safely removed from your YAML configuration after upgrading.
-
-Additionally, all sensor attributes of the PVOutput sensor,
-have been extracted in their own dedicated sensors.
-
-This applies to the following PVOutput attributes:
-
-- `energy_generation`
-- `power_generation`
-- `energy_consumption`
-- `power_consumption`
-- `efficiency`
-- `temperature`
-- `voltage`
-
-If you relied on these in your automation or scripts, you need to adopt those to use the new separate sensors instead. The attributes are currently available, however, deprecated and will be removed in Home Assistant Core 2022.4.
-
-([@frenck] - [#62667] [#62894]) ([pvoutput docs])
-
-{% enddetails %}
-
-{% details "Vallox" %}
-
-The Vallox integration migrated to configuration via the
-UI. Configuring Vallox via YAML configuration has been
-deprecated and will be removed in a future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this
-release; and thus can be safely removed from your YAML configuration after upgrading.
-
-([@slovdahl] - [#62780]) ([vallox docs])
-
-{% enddetails %}
-
-{% details "CPU Speed" %}
-
-The CPU Speed integration migrated to configuration via the
-UI. Configuring CPU Speed via YAML configuration has been
-deprecated and will be removed in a future Home Assistant release.
-
-Your existing YAML configuration is automatically imported on upgrade to this
-release; and thus can be safely removed from your YAML configuration after upgrading.
-
-([@frenck] - [#62929]) ([cpuspeed docs])
-
-{% enddetails %}
-
-{% details "Nest" %}
-
-The Legacy "Works With Nest API" is deprecated and support will be removed
-in Home Assistant Core 2022.5; See our [documentation for using the Smart Device
-Management API](/integrations/nest/) instead.
-
-([@allenporter] - [#63027]) ([nest docs])
-
-{% enddetails %}
-
-{% details "MQTT" %}
-
-The MQTT lights no longer support, the previously deprecated, `value_template`;`state_value_template` should be used instead.
-
-([@emontnemery] - [#62682]) ([mqtt docs])
-
-----
-
-Previouysly MQTT climate would only publish to `hold_command_topic` or ` away_mode_command_topic` if the new mode is not the same as the current state.
-
-As of this release MQTT always publishes on both command topics (`hold_command_topic` and ` away_mode_command_topic`) (if defined) which makes it more predictable
-what update the MQTT device will receive.
-
-([@jbouwh] - [#63463]) ([mqtt docs])
-
-----
-
-The `send_if_off` config parameter of the climate platform, which limits
-publishing if the current operation mode is `HVAC_MODE_OFF`, is now
-deprecated.
-
-This will break applications that depend on this feature.
-
-([@jbouwh] - [#63814]) ([mqtt docs])
-
-{% enddetails %}
-
-{% details "Waze Travel Time" %}
-
-The previously deprecated YAML configuration of the Waze Travel Time
-integration has been removed.
-
-Waze Travel Time is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@tkdrob] - [#62543]) ([waze_travel_time docs])
-
-{% enddetails %}
-
-{% details "SMA Solar" %}
-
-The previously deprecated YAML configuration of the SMA Solar
-integration has been removed.
-
-SMA Solar is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@tkdrob] - [#62472]) ([sma docs])
-
-{% enddetails %}
-
-{% details "Nanoleaf" %}
-
-The Nanoleaf integration migrated to configuration via the
-UI in a previous release already. Configuring Nanoleaf via YAML configuration
-has now been deprecated and will be removed in a future Home Assistant release.
-
-Your existing YAML configuration is already automatically imported; and thus
-can be safely removed from your YAML configuration.
-
-([@milanmeu] - [#63404]) ([nanoleaf docs])
-
-{% enddetails %}
-
-
-{% details "Viessmann ViCare" %}
-
-The scan interval option has been removed, since the default should be fine
-in almost all cases.
-
-If you really need more fine-grained control you can disable automatic updates
-in the system settings for the Viessmann ViCare integration and automate the
-polling of the entities with the
-[`homeassistant.update_entity`](/docs/scripts/service-calls#homeassistant-services) 
-service.
-
-([@oischinger] - [#63343]) ([vicare docs])
-
-{% enddetails %}
-
-{% details "DSMR" %}
-
-The `sensor.energy_consumption_total` sensor for DSMR versions 2.2 and 4 has
-been removed. Meters with these versions do not provide this data,
-so this sensor can be safely removed. You might need to clean up
-the orphaned entity in your setup.
-
-([@rhpijnacker] - [#63436]) ([dsmr docs])
-
-{% enddetails %}
-
-{% details "Nissan Leaf" %}
-
-The service to start a charge has been deprecated; it is replaced with a button. 
-
-Replace the `nissan_leaf.start_charge` service in any existing automations with `button.press` for the new `button.start_NICKNAME_charging` entity.
-
-The `nissan_leaf.start_charge` service is now deprecated and will be removed
-in a future release.
-
-([@filcole] - [#62948]) ([nissan_leaf docs])
-
-{% enddetails %}
-
-{% details "ReCollect Waste" %}
-
-ReCollect Waste no longer stories "next pickup" information as attributes of the "current pickup" sensor; instead, both pickups are now their own sensors.
-
-([@bachya] - [#62558]) ([recollect_waste docs])
-
-{% enddetails %}
-
-{% details "AVM FRITZ!SmartHome" %}
-
-The `lock` and `devicelock` attributes are removed from all entities and now exposed as own sensors.
-
-([@mib1185] - [#60426]) ([fritzbox docs])
+([@epenet] - [#63860]) ([keenetic_ndms2 docs])
 
 {% enddetails %}
 
@@ -1231,146 +1050,6 @@ And finally, the attribute `launch_time` moved into it's own sensor. This made
 it possible to add some information about the launch window start and end as attributes for the new sensor. This sensor will also contain the `stream_live` attribute.
 
 ([@DurgNomis-drol] - [#64203]) ([launch_library docs])
-
-{% enddetails %}
-
-{% details "Media Player Classic Home Cinema (MPC-HC)" %}
-
-The Media Player Classic Home Cinema (MPC-HC) integration has been deprecated
-and will be removed in Home Assistant Core 2022.4.
-
-This integration is removed under [Architectural Decision Record 0004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
-
-([@frenck] - [#63598]) ([mpchc docs])
-
-{% enddetails %}
-
-{% details "VeSync" %}
-
-Previous versions of this integration exposed power and energy usage from
-VeSync outlets as state attributes on the `switch` entity itself. This used the deprecated properties: `current_power_w` and `today_energy_kwh`.
-
-In this version, these two attributes have been removed from the `switch`
-entity and split into two new diagnostic sensor entities that are attached to
-the same Device.
-
-Automations and template entities based on the state attribute mechanism should
-be updated accordingly.
-
-([@decompil3d] - [#61837]) ([vesync docs])
-
-{% enddetails %}
-
-{% details "NETGEAR" %}
-
-The previously deprecated YAML configuration of the NETGEAR
-integration has been removed.
-
-NETGEAR is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@epenet] - [#63862]) ([netgear docs])
-
-{% enddetails %}
-
-{% details "Apple iCloud" %}
-
-The Apple iCloud integration migrated to configuration via the
-UI in a previous release already. Configuring Apple iCloud via YAML configuration
-has now been deprecated and will be removed in a future Home Assistant release.
-
-Your existing YAML configuration is already automatically imported; and thus
-can be safely removed from your YAML configuration.
-
-([@epenet] - [#63875]) ([icloud docs])
-
-{% enddetails %}
-
-{% details "Nmap Tracker" %}
-
-The previously deprecated YAML configuration of the Nmap Tracker
-integration has been removed.
-
-Nmap Tracker is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@epenet] - [#63863]) ([nmap_tracker docs])
-
-{% enddetails %}
-
-{% details "Keenetic NDMS2 Router" %}
-
-The previously deprecated YAML configuration of the Keenetic NDMS2 Router
-integration has been removed.
-
-Keenetic NDMS2 Router is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@epenet] - [#63860]) ([keenetic_ndms2 docs])
-
-{% enddetails %}
-
-{% details "AVM FRITZ!Box Tools" %}
-
-The previously deprecated YAML configuration of the AVM FRITZ!Box Tools
-integration has been removed.
-
-AVM FRITZ!Box Tools is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-[@epenet] - [#63857]) ([fritz docs])
-
-----
-
-The `reboot` and `reconnect` services are deprecated and will be removed in future release. Please use the newly provided button entities instead.
-
-([@chemelli74] - [#61483]) ([fritz docs])
-
-{% enddetails %}
-
-{% details "Python 3.8 support dropped" %}
-
-Python 3.8 support has previously been deprecated and now has been removed.
-Home Assistant now requires Python 3.9 to run.
-
-If you are using Home Assistant OS, Home Assistant Container, or Home Assistant Supervised installation method, you don't have to do anything. In those cases, we all handle this for you. Your system has been using Python 3.9 for quite some time already.
-
-([@frenck] - [#63883])
-
-{% enddetails %}
-
-{% details "Foursquare" %}
-
-The data associated with `foursquare.checkin` event is now available as a
-dictionary item with key "text".
-
-If you use this event in your automation or scripts, you'd need to adjust to
-to match this change.
-
-([@epenet] - [#63982]) ([foursquare docs])
-
-{% enddetails %}
-
-{% details "VIZIO SmartCast" %}
-
-If an integrated `vizio` TV supports apps and the source is currently a non-app
-input (e.g. HDMI-1), the `app_id` and `app_name` attributes will no longer be in the media player entity's state.
-
-When the TV is using an app, the `app_name` will still always be visible and the `app_id` will continue to only be shown if the app is not recognized.
-
-([@raman325] - [#64025]) ([vizio docs])
-
-{% enddetails %}
-
-{% details "Twinkly" %}
-
-Key `host` is removed from the (extra) state attribute of the light entity.
-
-([@RobBie1221] - [#64139]) ([twinkly docs])
 
 {% enddetails %}
 
@@ -1403,132 +1082,298 @@ automation:
 
 {% enddetails %}
 
-{% details "DoorBird" %}
+{% details "Logitech Squeezebox" %}
 
-The relays and IR light switches are removed and replaced with corresponding
-buttons entities. Any scripts or automations which reference these switches to
-turn them on should change to instead press the button instead.
+The previously deprecated YAML configuration of the Logitech Squeezebox
+integration has been removed.
 
-([@flacjacket] - [#63995]) ([doorbird docs])
+Logitech Squeezebox is now configured via the UI, any existing YAML
+configurationhas been imported in previous releases and can now be safely
+removed from your YAML configuration files.
 
-{% enddetails %}
-
-{% details "GitHub" %}
-
-The YAML configuration for the `github` sensor platform has been removed.
-
-There was no viable automatic migration of the configuration, so you need to
-manually remove the configuration from your configuration file and set it up
-again in the integration panel.
-
-Previously this integration created 1 sensor for each repository, now this
-is split out to multiple entities which are mostly disabled by default
-(you can enable the entities you want this integration to provide).
-
-Support for GitHub enterprise has been removed.
-
-([@ludeeus] - [#64190]) ([github docs])
+([@tkdrob] - [#62537]) ([squeezebox docs])
 
 {% enddetails %}
 
-{% details "Z-Wave JS" %}
+{% details "Magic Home" %}
 
-Due to a schema change, `zwave-js-server` version 1.14.0 or greater is required.
-Ensure you are using the latest version of `zwave-js-server` (or the add-ons
-that provides those).
+The previously deprecated YAML configuration of the Magic Home
+integration has been removed.
 
-([@raman325] - [#64407]) ([zwave_js docs])
+Magic Home is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from your
+YAML configuration files.
 
-{% enddetails %}
-
-{% details "Fibaro" %}
-
-The energy values are exposed now as separate sensor entities and therefore the
-state attribute `current_energy_kwh` was removed from all other entities.
-
-If you use the state attribute `current_energy_kwh` you need to change
-that to use the new energy sensors instead.
-
-([@rappenze] - [#63697]) ([fibaro docs])
+([@tkdrob] - [#61844]) ([flux_led docs])
 
 {% enddetails %}
 
-{% details "HomeKit" %}
+{% details "Media Player Classic Home Cinema (MPC-HC)" %}
 
-HomeKit will now automatically exclude entities with an entity category such as
-a configuration or diagnostic entity unless they have been explicitly included.
+The Media Player Classic Home Cinema (MPC-HC) integration has been deprecated
+and will be removed in Home Assistant Core 2022.4.
 
-To explicitly include an entity:
+This integration is removed under [Architectural Decision Record 0004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
 
-- YAML: Add the entity to the filter in either the `include_entities` or `include_entity_globs` fields.
-- UI: Select the entity in the UI in include mode. If you are using exclude mode, a second bridge can be created in include mode.
-
-([@bdraco] - [#64492]) ([homekit docs])
+([@frenck] - [#63598]) ([mpchc docs])
 
 {% enddetails %}
 
-{% details "API" %}
+{% details "MQTT" %}
 
-The `/api/discovery_info` endpoint was deprecated in 2021.10, and has since only
-returned blank values. From this version, the `/api/discovery_info` endpoint has
-been removed completly.
+The MQTT lights no longer support, the previously deprecated, `value_template`;`state_value_template` should be used instead.
 
-([@ludeeus] - [#64534]) ([api docs])
+([@emontnemery] - [#62682]) ([mqtt docs])
+
+----
+
+Previouysly MQTT climate would only publish to `hold_command_topic` or ` away_mode_command_topic` if the new mode is not the same as the current state.
+
+As of this release MQTT always publishes on both command topics (`hold_command_topic` and ` away_mode_command_topic`) (if defined) which makes it more predictable
+what update the MQTT device will receive.
+
+([@jbouwh] - [#63463]) ([mqtt docs])
+
+----
+
+The `send_if_off` config parameter of the climate platform, which limits
+publishing if the current operation mode is `HVAC_MODE_OFF`, is now
+deprecated.
+
+This will break applications that depend on this feature.
+
+([@jbouwh] - [#63814]) ([mqtt docs])
 
 {% enddetails %}
 
-{% details "DNS IP" %}
+{% details "Nanoleaf" %}
 
-The DNS IP integration migrated to configuration via the
-UI. Configuring DNS IP via YAML configuration has been
+The Nanoleaf integration migrated to configuration via the
+UI in a previous release already. Configuring Nanoleaf via YAML configuration
+has now been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is already automatically imported; and thus
+can be safely removed from your YAML configuration.
+
+([@milanmeu] - [#63404]) ([nanoleaf docs])
+
+{% enddetails %}
+
+{% details "Nest" %}
+
+The Legacy "Works With Nest API" is deprecated and support will be removed
+in Home Assistant Core 2022.5; See our [documentation for using the Smart Device
+Management API](/integrations/nest/) instead.
+
+([@allenporter] - [#63027]) ([nest docs])
+
+{% enddetails %}
+
+{% details "NETGEAR" %}
+
+The previously deprecated YAML configuration of the NETGEAR
+integration has been removed.
+
+NETGEAR is now configured via the UI, any existing YAML
+configurationhas been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@epenet] - [#63862]) ([netgear docs])
+
+{% enddetails %}
+
+{% details "Nissan Leaf" %}
+
+The service to start a charge has been deprecated; it is replaced with a button. 
+
+Replace the `nissan_leaf.start_charge` service in any existing automations with `button.press` for the new `button.start_NICKNAME_charging` entity.
+
+The `nissan_leaf.start_charge` service is now deprecated and will be removed
+in a future release.
+
+([@filcole] - [#62948]) ([nissan_leaf docs])
+
+{% enddetails %}
+
+{% details "Nmap Tracker" %}
+
+The previously deprecated YAML configuration of the Nmap Tracker
+integration has been removed.
+
+Nmap Tracker is now configured via the UI, any existing YAML
+configurationhas been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@epenet] - [#63863]) ([nmap_tracker docs])
+
+{% enddetails %}
+
+{% details "Nuki" %}
+
+The previously deprecated YAML configuration of the Nuki
+integration has been removed.
+
+Nuki is now configured via the UI, any existing YAML
+configurationhas been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@tkdrob] - [#62470]) ([nuki docs])
+
+{% enddetails %}
+
+{% details "OpenGarage" %}
+
+The previously deprecated YAML configuration of the OpenGarage
+integration has been removed.
+
+OpenGarage is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from your
+YAML configuration files.
+
+- Remove deprecated yaml config from opengarage ([@tkdrob] - [#61961]) ([opengarage docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "Philips TV" %}
+
+The previously deprecated YAML configuration of the Philips TV
+integration has been removed.
+
+Philips TV is now configured via the UI, any existing YAML
+configurationhas been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@tkdrob] - [#62471]) ([philips_js docs])
+
+{% enddetails %}
+
+{% details "PVOutput" %}
+
+The PVOutput integration migrated to configuration via the
+UI. Configuring PVOutput via YAML configuration has been
 deprecated and will be removed in a future Home Assistant release.
 
 Your existing YAML configuration is automatically imported on upgrade to this
 release; and thus can be safely removed from your YAML configuration after upgrading.
 
-([@gjohansson-ST] - [#62843]) ([dnsip docs])
+Additionally, all sensor attributes of the PVOutput sensor,
+have been extracted in their own dedicated sensors.
+
+This applies to the following PVOutput attributes:
+
+- `energy_generation`
+- `power_generation`
+- `energy_consumption`
+- `power_consumption`
+- `efficiency`
+- `temperature`
+- `voltage`
+
+If you relied on these in your automation or scripts, you need to adopt those to use the new separate sensors instead. The attributes are currently available, however, deprecated and will be removed in Home Assistant Core 2022.4.
+
+([@frenck] - [#62667] [#62894]) ([pvoutput docs])
 
 {% enddetails %}
 
-{% details "Apple Push Notification Service (APNS)" %}
+{% details "ReCollect Waste" %}
 
-The Apple Push Notification Service (APNS) integration has been deprecated and
-will be removed in Home Assistant 2022.4. Please note, this does not affect
-our mobile companion apps; as they do not use this integration for their
-notifications.
+ReCollect Waste no longer stories "next pickup" information as attributes of the "current pickup" sensor; instead, both pickups are now their own sensors.
 
-([@frenck] - [#64629]) ([apns docs])
+([@bachya] - [#62558]) ([recollect_waste docs])
 
 {% enddetails %}
 
-{% details "WebSocket API / Media Source" %}
+{% details "RIVM Stookalert" %}
 
-This concerns custom integration developers only.
+The previously deprecated YAML configuration of the Stookalert
+integration has been removed.
 
-The parameters for `async_sign_path` have changed. Refresh token is now a keyword parameter. If called as part of a HTTP or WebSocket request, the users refresh token will automatically be used.
+Stookalert is now configured via the UI, any existing YAML
+configurationhas been imported in previous releases and can now be safely
+removed from your YAML configuration files.
 
-([@balloob] - [#64337])
-
-{% enddetails %}
-
-{% details "Bond" %}
-
-The custom `start_increasing_brightness`, `start_decreasing_brightness` and `stop` services are now deprecated and will be removed in a future release.
-
-Please use the new button entities, that replace those, instead.
-
-([@bdraco] - [#64725]) ([bond docs])
+([@frenck] - [#61007]) ([stookalert docs])
 
 {% enddetails %}
 
-{% details "Advantage Air" %}
+{% details "Samsung SyncThru Printer" %}
 
-The `advantage_air.set_myzone` service has been depreciated and will be removed
-in a future version of Home Assistant.
+The previously deprecated YAML configuration of the Samsung SyncThru Printer
+integration has been removed.
 
-Please use the `select.select_option` service on the MyZone select entity to change this value on supported systems instead.
+Samsung SyncThru Printer is now configured via the UI, any existing YAML
+configurationhas been imported in previous releases and can now be safely
+removed from your YAML configuration files.
 
-([@Bre77] - [#58777]) ([advantage_air docs])
+([@tkdrob] - [#62541]) ([syncthru docs])
+
+{% enddetails %}
+
+{% details "Sensibo" %}
+
+The Sensibo integration migrated to configuration via the
+UI. Configuring Sensibo via YAML configuration has been
+deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration after upgrading.
+
+([@gjohansson-ST] - [#60900]) ([sensibo docs])
+
+{% enddetails %}
+
+{% details "Sensor.Community (previously: Luftdaten)" %}
+
+The Luftdaten integration has been renamed to Sensor.Community; which is
+the new name of the Luftdaten project.
+
+The previously deprecated YAML configuration of this integration
+has been removed.
+
+Sensor.Community is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from your
+YAML configuration files.
+
+([@frenck] - [#61748] [#62865]) ([luftdaten docs])
+
+{% enddetails %}
+
+{% details "SMA Solar" %}
+
+The previously deprecated YAML configuration of the SMA Solar
+integration has been removed.
+
+SMA Solar is now configured via the UI, any existing YAML
+configurationhas been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@tkdrob] - [#62472]) ([sma docs])
+
+{% enddetails %}
+
+{% details "SolaX Power" %}
+
+The SolaX Power integration migrated to configuration via the
+UI. Configuring SolaX Power via YAML configuration has been
+deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration after upgrading.
+
+([@tokenize47] - [#56620]) ([solax docs])
+
+{% enddetails %}
+
+{% details "SwitchBot" %}
+
+The SwitchBot integration migrated to configuration via the
+UI in a previous release already. Configuring SwitchBot via YAML configuration
+has now been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is already automatically imported; and thus
+can be safely removed from your YAML configuration.
+
+([@tkdrob] - [#62583]) ([switchbot docs])
 
 {% enddetails %}
 
@@ -1540,20 +1385,153 @@ The `reboot` and `shutdown` services are deprecated and will be removed in futur
 
 {% enddetails %}
 
-{% details "Fan" %}
+{% details "Templates: Binary Sensors" %}
 
-This is more a breaking change for custom integration developers.
+Template trigger binary sensor should start with `unknown` value rather than always starting with `false`/`off`. This matches the template binary sensor behavior
+with other sensors.
 
-Now that all core fans are using the new fan entity model, the compatibility shim
-has been removed. Custom integrations that have not yet switched to the new
-fan model. For more information see:
+([@amosyuen] - [#62769]) ([template docs])
 
-<https://developers.home-assistant.io/docs/core/entity/fan/#deprecated-properties>
+{% enddetails %}
 
-Preset modes and percentages will continue to be translated back to legacy speeds
-until 2022.3 in order to give users a bit more time to update automations.
+{% details "TP-Link Kasa Smart" %}
 
-([@bdraco] - [#59781]) ([fan docs])
+The previously deprecated YAML configuration of the TP-Link Kasa Smart
+integration has been removed.
+
+TP-Link Kasa Smart is now configured via the UI, any existing YAML
+configurationhas been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@bdraco] - [#62457]) ([tplink docs])
+
+{% enddetails %}
+
+{% details "Trafikverket Train" %}
+
+The planned time, estimated time and and actual time sensor attributes have
+been correct to be UTC isoformatted string which is standard in Home Assistant.
+
+Previously displayed as `2021-12-23T09:07:00` and now correctly set as `2021-12-23T09:07:00+00:00`.
+
+This may affect templates or automations based on these attributes.
+
+([@gjohansson-ST] - [#62636]) ([trafikverket_train docs])
+
+{% enddetails %}
+
+{% details "Twinkly" %}
+
+Key `host` is removed from the (extra) state attribute of the light entity.
+
+([@RobBie1221] - [#64139]) ([twinkly docs])
+
+{% enddetails %}
+
+{% details "Vallox" %}
+
+The Vallox integration migrated to configuration via the
+UI. Configuring Vallox via YAML configuration has been
+deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration after upgrading.
+
+([@slovdahl] - [#62780]) ([vallox docs])
+
+{% enddetails %}
+
+{% details "Version" %}
+
+The Version integration migrated to configuration via the
+UI. Configuring Version via YAML configuration has been
+deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration after upgrading.
+
+Additionally, the `source` and `channel` attributes have been removed from
+the Version sensor for the local source.
+
+([@ludeeus] - [#54642] [#64827]) ([version docs])
+
+{% enddetails %}
+
+{% details "VeSync" %}
+
+Previous versions of this integration exposed power and energy usage from
+VeSync outlets as state attributes on the `switch` entity itself. This used the deprecated properties: `current_power_w` and `today_energy_kwh`.
+
+In this version, these two attributes have been removed from the `switch`
+entity and split into two new diagnostic sensor entities that are attached to
+the same Device.
+
+Automations and template entities based on the state attribute mechanism should
+be updated accordingly.
+
+([@decompil3d] - [#61837]) ([vesync docs])
+
+{% enddetails %}
+
+{% details "Viessmann ViCare" %}
+
+The scan interval option has been removed, since the default should be fine
+in almost all cases.
+
+If you really need more fine-grained control you can disable automatic updates
+in the system settings for the Viessmann ViCare integration and automate the
+polling of the entities with the
+[`homeassistant.update_entity`](/docs/scripts/service-calls#homeassistant-services) 
+service.
+
+([@oischinger] - [#63343]) ([vicare docs])
+
+{% enddetails %}
+
+{% details "VIZIO SmartCast" %}
+
+If an integrated `vizio` TV supports apps and the source is currently a non-app
+input (e.g. HDMI-1), the `app_id` and `app_name` attributes will no longer be in the media player entity's state.
+
+When the TV is using an app, the `app_name` will still always be visible and the `app_id` will continue to only be shown if the app is not recognized.
+
+([@raman325] - [#64025]) ([vizio docs])
+
+{% enddetails %}
+
+{% details "VLC media player Telnet" %}
+
+The previously deprecated YAML configuration of the VLC media player Telnet
+integration has been removed.
+
+VLC media player Telnet is now configured via the UI, any existing YAML
+configurationhas been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@tkdrob] - [#62542]) ([vlc_telnet docs])
+
+{% enddetails %}
+
+{% details "Waze Travel Time" %}
+
+The previously deprecated YAML configuration of the Waze Travel Time
+integration has been removed.
+
+Waze Travel Time is now configured via the UI, any existing YAML
+configurationhas been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@tkdrob] - [#62543]) ([waze_travel_time docs])
+
+{% enddetails %}
+
+{% details "WebSocket API / Media Source" %}
+
+This concerns custom integration developers only.
+
+The parameters for `async_sign_path` have changed. Refresh token is now a keyword parameter. If called as part of a HTTP or WebSocket request, the users refresh token will automatically be used.
+
+([@balloob] - [#64337])
 
 {% enddetails %}
 
@@ -1570,17 +1548,39 @@ release; and thus can be safely removed from your YAML configuration after upgra
 
 {% enddetails %}
 
+{% details "Z-Wave JS" %}
 
-{% details "SolaX Power" %}
+Due to a schema change, `zwave-js-server` version 1.14.0 or greater is required.
+Ensure you are using the latest version of `zwave-js-server` (or the add-ons
+that provides those).
 
-The SolaX Power integration migrated to configuration via the
-UI. Configuring SolaX Power via YAML configuration has been
-deprecated and will be removed in a future Home Assistant release.
+([@raman325] - [#64407]) ([zwave_js docs])
 
-Your existing YAML configuration is automatically imported on upgrade to this
-release; and thus can be safely removed from your YAML configuration after upgrading.
+{% enddetails %}
 
-([@tokenize47] - [#56620]) ([solax docs])
+{% details "Zero-configuration networking (zeroconf)" %}
+
+This change is only a concern for custom integration developers.
+
+Currently zeroconf matching only allows matching the `macaddress`, `model`, and `manufacturer` properties along with the `name` from the ZeroconfServiceInfo.
+
+Since properties are arbitrarily defined by the zeroconf service,
+the list of named properties has grown over time.
+
+Matching now allows for any arbitrarily defined property.
+All property matches must be lowercase, wildcards are supported
+
+The top level keys `model`, `manufacturer`, and `macaddress`
+are now deprecated from the `manifest.json` file and should
+be moved into a `properties` dict.
+
+For example:
+```diff
+-    {"type":"_airplay._tcp.local.","model":"appletv*"}
++    {"type":"_airplay._tcp.local.","properties":{"model":"appletv*"}}
+```
+
+([@bdraco] - [#62133]) ([zeroconf docs])
 
 {% enddetails %}
 
