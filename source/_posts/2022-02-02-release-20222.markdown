@@ -166,6 +166,16 @@ Integrations that have adopted it this release (needs to be writte out nicely)
 - Add diagnostics to Tile ([@bachya] - [#64875]) ([tile docs])
 - Add diagnostics to Ridwell ([@bachya] - [#64863]) ([ridwell docs])
 - Add diagnostics to WattTime ([@bachya] - [#64887]) ([watttime docs])
+- Add diagnostics download to ESPHome ([@jesserockz] - [#65008]) ([esphome docs]) (beta fix)
+- Add diagnostics support to P1 Monitor ([@klaasnicolaas] - [#65060]) ([p1_monitor docs]) (beta fix)
+- Add diagnostics support to onewire ([@epenet] - [#65131]) ([onewire docs]) (beta fix)
+- Add diagnostics for rtsp_to_webrtc ([@allenporter] - [#65138]) ([rtsp_to_webrtc docs]) (beta fix)
+- Update nest diagnostics ([@allenporter] - [#65141]) ([nest docs]) (beta fix)
+- Add diagnostics to Advantage Air ([@Bre77] - [#65006]) ([advantage_air docs]) (beta fix)
+- Add HomeWizard diagnostics ([@DCSBL] - [#65297]) ([homewizard docs]) (beta fix) (new-integration)
+- Add diagnostics support to WLED ([@frenck] - [#65317]) ([wled docs]) (beta fix)
+- Add diagnostics for SamsungTV ([@chemelli74] - [#65342]) ([samsungtv docs]) (beta fix
+
 
 ## Improved handling of device tracker entities
 
@@ -3694,7 +3704,114 @@ The following integrations are no longer available as of this release:
 - Abort rachio config entry setup when not connected to cloud ([@emontnemery] - [#64975]) ([rachio docs])
 - Abort plaato flows when not connected to home assistant cloud ([@emontnemery] - [#64969]) ([plaato docs])
 - Abort owntracks config flow when not connected to home assistant cloud ([@emontnemery] - [#64968]) ([owntracks docs])
-
+- Fix MQTT climate action null warnings ([@jbouwh] - [#64658]) (beta fix)
+- Update Arris TG2492LG dependency to 1.2.1 ([@vanbalken] - [#64999]) ([arris_tg2492lg docs]) (beta fix)
+- Add diagnostics download to ESPHome ([@jesserockz] - [#65008]) ([esphome docs]) (beta fix)
+- Handle Tuya sendings strings instead of numeric values ([@frenck] - [#65009]) ([tuya docs]) (beta fix)
+- Bump flux_led to fix push updates on newer devices ([@bdraco] - [#65011]) ([flux_led docs]) (beta fix)
+- Set ping data to None instead of False ([@ludeeus] - [#65013]) ([ping docs]) (beta fix)
+- Bump pymazda to 0.3.2 ([@bdr99] - [#65025]) ([mazda docs]) (beta fix)
+- Catch connection reset error ([@balloob] - [#65027]) ([hassio docs]) (beta fix)
+- Update rokuecp to 0.12.0 ([@ctalkington] - [#65030]) ([roku docs]) (beta fix)
+- Fix Shelly battery powered devices unavailable ([@thecode] - [#65031]) ([shelly docs]) (beta fix)
+- Correct zone state ([@emontnemery] - [#65040]) ([device_tracker docs]) ([zone docs]) (beta fix)
+- Unset Alexa authorized flag in additional case ([@emontnemery] - [#65044]) ([cloud docs]) (beta fix)
+- Add `flow_title` for HomeWizard Energy ([@DCSBL] - [#65047]) ([homewizard docs]) (beta fix)
+- Fix typo in entity name for launchlibrary ([@DurgNomis-drol] - [#65048]) ([launch_library docs]) (beta fix)
+- Fix notify leaving zone blueprint ([@MartinHjelmare] - [#65056]) ([automation docs]) (beta fix)
+- Remove `backports.zoneinfo` dependency ([@cdce8p] - [#65069]) (beta fix)
+- Update PyVicare to 2.16.1 ([@oischinger] - [#65073]) ([vicare docs]) (beta fix)
+- Guard browsing Spotify if setup failed ([@jjlawren] - [#65074]) ([spotify docs]) (beta fix)
+- Bump frontend to 20220127.0 ([@balloob] - [#65075]) ([frontend docs]) (beta fix)
+- Update Renault to 0.1.7 ([@epenet] - [#65076]) ([renault docs]) (beta fix)
+- Check explicitly for None value in Overkiz integration ([@tetienne] - [#65045]) ([overkiz docs]) (beta fix)
+- Better names for energy related homekit_controller sensors ([@Jc2k] - [#65055]) ([homekit_controller docs]) (beta fix)
+- Fix Shelly detached switches automation triggers ([@thecode] - [#65059]) ([shelly docs]) (beta fix)
+- Add diagnostics support to P1 Monitor ([@klaasnicolaas] - [#65060]) ([p1_monitor docs]) (beta fix)
+- Support unpairing homekit accessories from homekit_controller ([@Jc2k] - [#65065]) ([homekit_controller docs]) (beta fix)
+- Fix Yale optionsflow ([@gjohansson-ST] - [#65072]) ([yale_smart_alarm docs]) (beta fix)
+- Reconnect client service tried to connect even if device didn't exist ([@Kane610] - [#65082]) ([unifi docs]) (beta fix)
+- Add support for proxy-selected intent ([@balloob] - [#65094]) ([google_assistant docs]) (beta fix)
+- Fix Shelly 1/1PM external temperature sensor unavailable ([@thecode] - [#65096]) ([shelly docs]) (beta fix)
+- Downgrade homekit linked humidity sensor error to debug ([@bdraco] - [#65098]) ([homekit docs]) (beta fix)
+- Handle vicare I/O in executor ([@oischinger] - [#65105]) ([vicare docs]) (beta fix)
+- Fix cast support for browsing local media source ([@emontnemery] - [#65115]) ([cast docs]) (beta fix)
+- Goodwe - fix value errors ([@starkillerOG] - [#65121]) ([goodwe docs]) (beta fix)
+- Handle FritzInternalError exception for Fritz ([@chemelli74] - [#65124]) ([fritz docs]) (beta fix)
+- Add diagnostics support to onewire ([@epenet] - [#65131]) ([onewire docs]) (beta fix)
+- Use new withings oauth2 refresh token endpoint ([@nbogojevic] - [#65134]) ([withings docs]) (beta fix)
+- Bump google-nest-sdm to 1.6.0 (diagnostics) ([@allenporter] - [#65135]) ([nest docs]) (beta fix)
+- Add diagnostics for rtsp_to_webrtc ([@allenporter] - [#65138]) ([rtsp_to_webrtc docs]) (beta fix)
+- Move `install_requires` to `setup.cfg` ([@cdce8p] - [#65095]) (beta fix)
+- Move version metadata key to setup.cfg ([@cdce8p] - [#65091]) (beta fix)
+- Move `project_urls` to `setup.cfg` ([@cdce8p] - [#65129]) (beta fix)
+- Update nest diagnostics ([@allenporter] - [#65141]) ([nest docs]) (beta fix)
+- Use isolated build environments ([@cdce8p] - [#65145]) (beta fix)
+- Fix excepton for SamsungTV getting device info ([@chemelli74] - [#65151]) ([samsungtv docs]) (beta fix)
+- Fix status for Fritz device tracker ([@chemelli74] - [#65152]) ([fritz docs]) (beta fix)
+- Move remaining keys to `setup.cfg` ([@cdce8p] - [#65154]) (beta fix)
+- Fix setting speed of Tuya fan ([@frenck] - [#65155]) ([tuya docs]) (beta fix)
+- Add OUI for KL430 tplink light strip to discovery ([@bdraco] - [#65159]) ([tplink docs]) (beta fix)
+- Add dhcp discovery to oncue ([@bdraco] - [#65160]) ([oncue docs]) (beta fix)
+- Add additional roomba OUIs to DHCP discovery ([@bdraco] - [#65161]) ([roomba docs]) (beta fix)
+- Add additional blink OUIs to DHCP discovery ([@bdraco] - [#65162]) ([blink docs]) (beta fix)
+- Fix uncaught exception during isy994 dhcp discovery with ignored entry ([@bdraco] - [#65165]) ([isy994 docs]) (beta fix)
+- Add tests for KNX diagnostic and expose ([@marvin-w] - [#64938]) ([knx docs]) (beta fix)
+- Fix KNX Expose for strings longer than 14 bytes ([@marvin-w] - [#63026]) ([knx docs]) (beta fix)
+- Minor refactoring of cast media_player ([@emontnemery] - [#65125]) ([cast docs]) (beta fix)
+- Aqara restore door sensor state on start ([@starkillerOG] - [#65128]) ([xiaomi_aqara docs]) (beta fix)
+- Clean up SimpliSafe config flow tests ([@bachya] - [#65167]) (beta fix)
+- Ensure diagnostics redaction can handle lists of lists ([@bachya] - [#65170]) ([diagnostics docs]) (beta fix)
+- Add diagnostics to SimpliSafe ([@bachya] - [#65171]) ([simplisafe docs]) (beta fix)
+- Better manage of nested lists ([@Kane610] - [#65176]) ([unifi docs]) (beta fix)
+- Fix "internet access" switch for Fritz connected device without known IP address ([@mib1185] - [#65190]) ([fritz docs]) (beta fix)
+- Fix webostv configure sources when selected source is missing ([@thecode] - [#65195]) ([webostv docs]) (beta fix)
+- Add logic to avoid creating the same scene multiple times ([@Kane610] - [#65207]) ([deconz docs]) (beta fix)
+- Add activity statistics to Sonos diagnostics ([@jjlawren] - [#65214]) ([sonos docs]) (beta fix)
+- Fix senseme fan lights ([@bdraco] - [#65217]) ([senseme docs]) (beta fix)
+- Increase the timeout for flux_led directed discovery ([@bdraco] - [#65222]) ([flux_led docs]) (beta fix)
+- Use .json.txt for diagnostics download filetype ([@ludeeus] - [#65236]) (beta fix)
+- Fix webostv live TV source missing when configuring sources ([@thecode] - [#65243]) ([webostv docs]) (beta fix)
+- Fix powerwall login retry when hitting rate limit ([@bdraco] - [#65245]) ([powerwall docs]) (beta fix)
+- Fix flux_led not generating unique ids when discovery fails ([@bdraco] - [#65250]) ([flux_led docs]) (beta fix)
+- Fix debugpy blocking the event loop at startup ([@bdraco] - [#65252]) ([debugpy docs]) (beta fix)
+- Handle missing attrs in whois results ([@bdraco] - [#65254]) ([whois docs]) (beta fix)
+- Simplify whois value_fn ([@bdraco] - [#65265]) ([whois docs]) (beta fix)
+- Bump aiowebostv to 0.1.2 ([@thecode] - [#65267]) ([webostv docs]) (beta fix)
+- Fix flick_electric auth failures ([@ZephireNZ] - [#65274]) ([flick_electric docs]) (beta fix)
+- Update xknx to 0.19.1 ([@farmio] - [#65275]) ([knx docs]) (beta fix)
+- Bump python-kasa to 0.4.1 for tplink integration ([@rytilahti] - [#64123]) ([tplink docs]) (beta fix)
+- Add diagnostics to Advantage Air ([@Bre77] - [#65006]) ([advantage_air docs]) (beta fix)
+- Send notification to alert of Sonos networking issues ([@jjlawren] - [#65084]) ([sonos docs]) (beta fix)
+- Add cast platform for extending Google Cast media_player ([@emontnemery] - [#65149]) ([cast docs]) ([plex docs]) (beta fix)
+- Tuya fan percentage fix ([@fOmey] - [#65225]) ([tuya docs]) (beta fix)
+- Increase august timeout and make failure to sync at startup non-fatal ([@bdraco] - [#65281]) ([august docs]) (beta fix)
+- Bump pyatmo to v.6.2.4 ([@cgtobi] - [#65285]) ([netatmo docs]) (beta fix)
+- Correct cast media browse filter for audio groups ([@emontnemery] - [#65288]) ([cast docs]) (beta fix)
+- Bump pynetgear to 0.9.1 ([@starkillerOG] - [#65290]) ([netgear docs]) (beta fix)
+- Bump pyoverkiz to 1.3.2 ([@iMicknl] - [#65293]) ([overkiz docs]) (beta fix)
+- Fix HomeWizard unclosed clientsession error when closing Home Assistant ([@DCSBL] - [#65296]) ([homewizard docs]) (beta fix)
+- Add HomeWizard diagnostics ([@DCSBL] - [#65297]) ([homewizard docs]) (beta fix) (new-integration)
+- Update adguard to 0.5.1 ([@frenck] - [#65305]) ([adguard docs]) (beta fix)
+- Update wled to 0.13.0 ([@frenck] - [#65312]) ([wled docs]) (beta fix)
+- Fix missing expiration data in Whois information ([@frenck] - [#65313]) ([whois docs]) (beta fix)
+- Improve reliability of august setup with recent api changes ([@bdraco] - [#65314]) ([august docs]) (beta fix)
+- Bump androidtv to 0.0.61 ([@JeffLIrion] - [#65315]) (beta fix)
+- Add diagnostics support to WLED ([@frenck] - [#65317]) ([wled docs]) (beta fix)
+- Update tailscale to 0.2.0 ([@frenck] - [#65318]) ([tailscale docs]) (beta fix)
+- Ensure PVOutput connection error is logged ([@frenck] - [#65319]) ([pvoutput docs]) (beta fix)
+- Bump pyps4-2ndscreen to 1.3.1 ([@pascalwinters] - [#65320]) ([ps4 docs]) (beta fix)
+- Alexa to handle brightness and catch exceptions ([@balloob] - [#65322]) ([alexa docs]) (beta fix)
+- Fritz tests cleanup ([@chemelli74] - [#65054]) ([fritz docs]) (beta fix)
+- Improve debugging and error handling in Fritz!Tools ([@mib1185] - [#65324]) ([fritz docs]) (beta fix)
+- Fix guardian being rediscovered via dhcp ([@bdraco] - [#65332]) ([guardian docs]) (beta fix)
+- Add diagnostics support to Fritz ([@chemelli74] - [#65334]) ([fritz docs]) (beta fix)
+- Prevent unifiprotect from being rediscovered on UDM-PROs ([@bdraco] - [#65335]) ([unifiprotect docs]) (beta fix)
+- Bump version tag on async_timeout warning ([@balloob] - [#65339]) (beta fix)
+- Bump aiohue to 4.0.1 ([@balloob] - [#65340]) ([hue docs]) (beta fix)
+- Bump zeroconf to 0.38.3 ([@bdraco] - [#65341]) ([zeroconf docs]) (beta fix)
+- Add diagnostics for SamsungTV ([@chemelli74] - [#65342]) ([samsungtv docs]) (beta fix)
+- I zone, you zone, we zoning ([@balloob] - [#65344]) ([zone docs]) (beta fix)
 
 {% enddetails %}
 
@@ -4679,6 +4796,7 @@ The following integrations are no longer available as of this release:
 [#63020]: https://github.com/home-assistant/core/pull/63020
 [#63022]: https://github.com/home-assistant/core/pull/63022
 [#63023]: https://github.com/home-assistant/core/pull/63023
+[#63026]: https://github.com/home-assistant/core/pull/63026
 [#63027]: https://github.com/home-assistant/core/pull/63027
 [#63032]: https://github.com/home-assistant/core/pull/63032
 [#63034]: https://github.com/home-assistant/core/pull/63034
@@ -5257,6 +5375,7 @@ The following integrations are no longer available as of this release:
 [#64117]: https://github.com/home-assistant/core/pull/64117
 [#64121]: https://github.com/home-assistant/core/pull/64121
 [#64122]: https://github.com/home-assistant/core/pull/64122
+[#64123]: https://github.com/home-assistant/core/pull/64123
 [#64126]: https://github.com/home-assistant/core/pull/64126
 [#64130]: https://github.com/home-assistant/core/pull/64130
 [#64131]: https://github.com/home-assistant/core/pull/64131
@@ -5584,6 +5703,7 @@ The following integrations are no longer available as of this release:
 [#64655]: https://github.com/home-assistant/core/pull/64655
 [#64656]: https://github.com/home-assistant/core/pull/64656
 [#64657]: https://github.com/home-assistant/core/pull/64657
+[#64658]: https://github.com/home-assistant/core/pull/64658
 [#64660]: https://github.com/home-assistant/core/pull/64660
 [#64661]: https://github.com/home-assistant/core/pull/64661
 [#64662]: https://github.com/home-assistant/core/pull/64662
@@ -5766,6 +5886,7 @@ The following integrations are no longer available as of this release:
 [#64935]: https://github.com/home-assistant/core/pull/64935
 [#64936]: https://github.com/home-assistant/core/pull/64936
 [#64937]: https://github.com/home-assistant/core/pull/64937
+[#64938]: https://github.com/home-assistant/core/pull/64938
 [#64939]: https://github.com/home-assistant/core/pull/64939
 [#64940]: https://github.com/home-assistant/core/pull/64940
 [#64941]: https://github.com/home-assistant/core/pull/64941
@@ -5802,6 +5923,110 @@ The following integrations are no longer available as of this release:
 [#64993]: https://github.com/home-assistant/core/pull/64993
 [#64994]: https://github.com/home-assistant/core/pull/64994
 [#64995]: https://github.com/home-assistant/core/pull/64995
+[#64999]: https://github.com/home-assistant/core/pull/64999
+[#65006]: https://github.com/home-assistant/core/pull/65006
+[#65008]: https://github.com/home-assistant/core/pull/65008
+[#65009]: https://github.com/home-assistant/core/pull/65009
+[#65011]: https://github.com/home-assistant/core/pull/65011
+[#65013]: https://github.com/home-assistant/core/pull/65013
+[#65025]: https://github.com/home-assistant/core/pull/65025
+[#65027]: https://github.com/home-assistant/core/pull/65027
+[#65030]: https://github.com/home-assistant/core/pull/65030
+[#65031]: https://github.com/home-assistant/core/pull/65031
+[#65040]: https://github.com/home-assistant/core/pull/65040
+[#65044]: https://github.com/home-assistant/core/pull/65044
+[#65045]: https://github.com/home-assistant/core/pull/65045
+[#65047]: https://github.com/home-assistant/core/pull/65047
+[#65048]: https://github.com/home-assistant/core/pull/65048
+[#65054]: https://github.com/home-assistant/core/pull/65054
+[#65055]: https://github.com/home-assistant/core/pull/65055
+[#65056]: https://github.com/home-assistant/core/pull/65056
+[#65059]: https://github.com/home-assistant/core/pull/65059
+[#65060]: https://github.com/home-assistant/core/pull/65060
+[#65065]: https://github.com/home-assistant/core/pull/65065
+[#65069]: https://github.com/home-assistant/core/pull/65069
+[#65072]: https://github.com/home-assistant/core/pull/65072
+[#65073]: https://github.com/home-assistant/core/pull/65073
+[#65074]: https://github.com/home-assistant/core/pull/65074
+[#65075]: https://github.com/home-assistant/core/pull/65075
+[#65076]: https://github.com/home-assistant/core/pull/65076
+[#65082]: https://github.com/home-assistant/core/pull/65082
+[#65084]: https://github.com/home-assistant/core/pull/65084
+[#65091]: https://github.com/home-assistant/core/pull/65091
+[#65094]: https://github.com/home-assistant/core/pull/65094
+[#65095]: https://github.com/home-assistant/core/pull/65095
+[#65096]: https://github.com/home-assistant/core/pull/65096
+[#65098]: https://github.com/home-assistant/core/pull/65098
+[#65105]: https://github.com/home-assistant/core/pull/65105
+[#65115]: https://github.com/home-assistant/core/pull/65115
+[#65121]: https://github.com/home-assistant/core/pull/65121
+[#65124]: https://github.com/home-assistant/core/pull/65124
+[#65125]: https://github.com/home-assistant/core/pull/65125
+[#65128]: https://github.com/home-assistant/core/pull/65128
+[#65129]: https://github.com/home-assistant/core/pull/65129
+[#65131]: https://github.com/home-assistant/core/pull/65131
+[#65134]: https://github.com/home-assistant/core/pull/65134
+[#65135]: https://github.com/home-assistant/core/pull/65135
+[#65138]: https://github.com/home-assistant/core/pull/65138
+[#65141]: https://github.com/home-assistant/core/pull/65141
+[#65145]: https://github.com/home-assistant/core/pull/65145
+[#65149]: https://github.com/home-assistant/core/pull/65149
+[#65151]: https://github.com/home-assistant/core/pull/65151
+[#65152]: https://github.com/home-assistant/core/pull/65152
+[#65154]: https://github.com/home-assistant/core/pull/65154
+[#65155]: https://github.com/home-assistant/core/pull/65155
+[#65159]: https://github.com/home-assistant/core/pull/65159
+[#65160]: https://github.com/home-assistant/core/pull/65160
+[#65161]: https://github.com/home-assistant/core/pull/65161
+[#65162]: https://github.com/home-assistant/core/pull/65162
+[#65165]: https://github.com/home-assistant/core/pull/65165
+[#65167]: https://github.com/home-assistant/core/pull/65167
+[#65170]: https://github.com/home-assistant/core/pull/65170
+[#65171]: https://github.com/home-assistant/core/pull/65171
+[#65176]: https://github.com/home-assistant/core/pull/65176
+[#65190]: https://github.com/home-assistant/core/pull/65190
+[#65195]: https://github.com/home-assistant/core/pull/65195
+[#65207]: https://github.com/home-assistant/core/pull/65207
+[#65214]: https://github.com/home-assistant/core/pull/65214
+[#65217]: https://github.com/home-assistant/core/pull/65217
+[#65222]: https://github.com/home-assistant/core/pull/65222
+[#65225]: https://github.com/home-assistant/core/pull/65225
+[#65236]: https://github.com/home-assistant/core/pull/65236
+[#65243]: https://github.com/home-assistant/core/pull/65243
+[#65245]: https://github.com/home-assistant/core/pull/65245
+[#65250]: https://github.com/home-assistant/core/pull/65250
+[#65252]: https://github.com/home-assistant/core/pull/65252
+[#65254]: https://github.com/home-assistant/core/pull/65254
+[#65265]: https://github.com/home-assistant/core/pull/65265
+[#65267]: https://github.com/home-assistant/core/pull/65267
+[#65274]: https://github.com/home-assistant/core/pull/65274
+[#65275]: https://github.com/home-assistant/core/pull/65275
+[#65281]: https://github.com/home-assistant/core/pull/65281
+[#65285]: https://github.com/home-assistant/core/pull/65285
+[#65288]: https://github.com/home-assistant/core/pull/65288
+[#65290]: https://github.com/home-assistant/core/pull/65290
+[#65293]: https://github.com/home-assistant/core/pull/65293
+[#65296]: https://github.com/home-assistant/core/pull/65296
+[#65297]: https://github.com/home-assistant/core/pull/65297
+[#65305]: https://github.com/home-assistant/core/pull/65305
+[#65312]: https://github.com/home-assistant/core/pull/65312
+[#65313]: https://github.com/home-assistant/core/pull/65313
+[#65314]: https://github.com/home-assistant/core/pull/65314
+[#65315]: https://github.com/home-assistant/core/pull/65315
+[#65317]: https://github.com/home-assistant/core/pull/65317
+[#65318]: https://github.com/home-assistant/core/pull/65318
+[#65319]: https://github.com/home-assistant/core/pull/65319
+[#65320]: https://github.com/home-assistant/core/pull/65320
+[#65322]: https://github.com/home-assistant/core/pull/65322
+[#65324]: https://github.com/home-assistant/core/pull/65324
+[#65332]: https://github.com/home-assistant/core/pull/65332
+[#65334]: https://github.com/home-assistant/core/pull/65334
+[#65335]: https://github.com/home-assistant/core/pull/65335
+[#65339]: https://github.com/home-assistant/core/pull/65339
+[#65340]: https://github.com/home-assistant/core/pull/65340
+[#65341]: https://github.com/home-assistant/core/pull/65341
+[#65342]: https://github.com/home-assistant/core/pull/65342
+[#65344]: https://github.com/home-assistant/core/pull/65344
 [@ANMalko]: https://github.com/ANMalko
 [@Adminiuga]: https://github.com/Adminiuga
 [@Aeroid]: https://github.com/Aeroid
@@ -5904,6 +6129,7 @@ The following integrations are no longer available as of this release:
 [@emontnemery]: https://github.com/emontnemery
 [@epenet]: https://github.com/epenet
 [@esev]: https://github.com/esev
+[@fOmey]: https://github.com/fOmey
 [@farmio]: https://github.com/farmio
 [@filcole]: https://github.com/filcole
 [@flacjacket]: https://github.com/flacjacket
@@ -5957,6 +6183,7 @@ The following integrations are no longer available as of this release:
 [@mletenay]: https://github.com/mletenay
 [@mtdcr]: https://github.com/mtdcr
 [@natekspencer]: https://github.com/natekspencer
+[@nbogojevic]: https://github.com/nbogojevic
 [@ngdio]: https://github.com/ngdio
 [@nickw444]: https://github.com/nickw444
 [@niecore]: https://github.com/niecore
@@ -5966,6 +6193,7 @@ The following integrations are no longer available as of this release:
 [@ol-iver]: https://github.com/ol-iver
 [@ollo69]: https://github.com/ollo69
 [@orcema]: https://github.com/orcema
+[@pascalwinters]: https://github.com/pascalwinters
 [@petslane]: https://github.com/petslane
 [@postlund]: https://github.com/postlund
 [@ppetru]: https://github.com/ppetru
@@ -5999,6 +6227,7 @@ The following integrations are no longer available as of this release:
 [@tausen]: https://github.com/tausen
 [@tedvdb]: https://github.com/tedvdb
 [@teharris1]: https://github.com/teharris1
+[@tetienne]: https://github.com/tetienne
 [@thecode]: https://github.com/thecode
 [@timmo001]: https://github.com/timmo001
 [@tkdrob]: https://github.com/tkdrob
@@ -6009,6 +6238,7 @@ The following integrations are no longer available as of this release:
 [@tschnilo]: https://github.com/tschnilo
 [@ufodone]: https://github.com/ufodone
 [@uvjustin]: https://github.com/uvjustin
+[@vanbalken]: https://github.com/vanbalken
 [@vauriga]: https://github.com/vauriga
 [@viiru-]: https://github.com/viiru-
 [@yozik04]: https://github.com/yozik04
@@ -6122,6 +6352,7 @@ The following integrations are no longer available as of this release:
 [daikin docs]: /integrations/daikin/
 [danfoss_air docs]: /integrations/danfoss_air/
 [darksky docs]: /integrations/darksky/
+[debugpy docs]: /integrations/debugpy/
 [deconz docs]: /integrations/deconz/
 [default_config docs]: /integrations/default_config/
 [delijn docs]: /integrations/delijn/
