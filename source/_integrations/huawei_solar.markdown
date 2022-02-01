@@ -87,7 +87,7 @@ Recommended energy dashboard configuration for meter location in feed in path (`
 The integration will poll the inverter for new values every 30 seconds. If you wish to receive fresh inverter data less (or more) frequently, you can disable the automatic refresh in the integration's system options (Enable polling for updates) and create your own automation with your desired polling frequency.
 
 ```yaml
-- alias: "Goodwe inverter data polling"
+- alias: "Huawei Solar inverter data polling"
   trigger:
     - platform: time_pattern
       hours: "*"
