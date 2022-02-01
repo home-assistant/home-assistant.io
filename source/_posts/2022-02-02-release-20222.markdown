@@ -164,74 +164,34 @@ Checking for any update, is now just a single click.
 This feature is currently available for the Home Assistant OS,
 and Home Assistant Supervisor installation methods.
 
-Integrations that have adopted it this release (needs to be writte out nicely)
+## Diagnostics for integrations and devices
 
-- Add diagnostics support to Sonos ([@jjlawren] - [#64576]) ([sonos docs])
-- Add diagnostics support to Tuya ([@frenck] - [#64374]) ([tuya docs])
-- Add diagnostics support to Verisure ([@frenck] - [#64789]) ([verisure docs])
-- Add diagnostics to Launch Library ([@ludeeus] - [#64871]) ([launch_library docs])
-- Add diagnostics support to RDW ([@frenck] - [#64787])
-- Add diagnostics support to Stookalert ([@frenck] - [#64747]) ([stookalert docs])
-- Add diagnostics support to CPU Speed ([@frenck] - [#64745]) ([cpuspeed docs])
-- Add diagnostics support to Whois ([@frenck] - [#64855]) ([whois docs])
-- Add event statistics to Sonos diagnostics ([@jjlawren] - [#64845]) ([sonos docs])
-- Add diagnostics to Notion ([@bachya] - [#64713]) ([notion docs])
-- Add diagnostics to Flu Near You ([@bachya] - [#64597]) ([flunearyou docs])
-- Add diagnostics to ReCollect Waste ([@bachya] - [#64814]) ([recollect_waste docs])
-- Add diagnostics support to Tailscale ([@frenck] - [#64649]) ([tailscale docs])
-- Add diagnostics support to Sensor.Community ([@frenck] - [#64636]) ([luftdaten docs])
-- Add diagnostics support to Elgato ([@frenck] - [#64652]) ([elgato docs])
-- Add diagnostics to NAM ([@bieniu] - [#64743]) ([nam docs])
-- Add diagnostics support to PVOutput ([@frenck] - [#64625]) ([pvoutput docs])
-- Add diagnostics support to Open-Meteo ([@frenck] - [#64645]) ([open_meteo docs])
-- Add diagnostics to Renault integration ([@epenet] - [#64531]) ([renault docs]) ([diagnostics docs])
-- Add rainforest diagnostics ([@balloob] - [#64647]) ([rainforest_eagle docs])
-- Add diagnostics support to TwenteMilieu ([@frenck] - [#64627]) ([twentemilieu docs])
-- Add diagnostics to Brother integration ([@bieniu] - [#64478]) ([brother docs])
-- Add CO2signal diagnostics ([@balloob] - [#64646]) ([co2signal docs])
-- Add diagnostics platform to AVM Fritz!Smarthome ([@mib1185] - [#64657]) ([fritzbox docs])
-- Add diagnostics support to Axis integration ([@Kane610] - [#64637]) ([axis docs])
-- Add diagnostics support for homekit_controller ([@Jc2k] - [#64773]) ([homekit_controller docs])
-- Add diagnostics support to roku ([@ctalkington] - [#64729]) ([roku docs])
-- Add diagnostics platform to Shelly ([@mib1185] - [#64660]) ([shelly docs])
-- Add diagnostics to OpenUV ([@bachya] - [#64716]) ([openuv docs])
-- Add diagnostics support to UniFi Network integration ([@Kane610] - [#64640]) ([unifi docs])
-- Add diagnostics to IQVIA ([@bachya] - [#64602]) ([iqvia docs])
-- Add diagnostics to Elexa Guardian ([@bachya] - [#64599]) ([guardian docs])
-- Add diagnostics integration ([@balloob] - [#64330]) ([default_config docs]) ([diagnostics docs]) (new-integration)
-- Add zwave_js support for diagnostics ([@raman325] - [#64336]) ([zwave_js docs])
-- Add diagnostics to RainMachine ([@bachya] - [#64788]) ([rainmachine docs])
-- Add diagnostics to Nanoleaf ([@ludeeus] - [#64835]) ([nanoleaf docs])
-- Add diagnostics to Synology DSM integration ([@mib1185] - [#64480]) ([synology_dsm docs])
-- Add diagnostics to Mazda integration ([@bdr99] - [#64606]) ([mazda docs])
-- Add diagnostics to deCONZ integration ([@Kane610] - [#64585]) ([deconz docs])
-- Tibber diagnostics ([@Danielhiversen] - [#64472]) ([tibber docs])
-- Add evil genius labs diagnostics ([@balloob] - [#64339]) ([evil_genius_labs docs])
-- Add diagnostic information for nest ([@allenporter] - [#64405]) ([nest docs])
-- Add diagnostics to the core files ([@epenet] - [#64417])
-- Fix attr spelling error in Nest SDM SensorBase ([@iMicknl] - [#64490]) ([nest docs])
-- Add diagnostics for the AirVisual integration ([@bachya] - [#64479]) ([airvisual docs])
-- Add diagnostics to KNX ([@farmio] - [#64471]) ([knx docs])
-- Add diagnostics to Overkiz integration ([@iMicknl] - [#64427]) ([overkiz docs])
-- Add zwave_js device diagnostics ([@raman325] - [#64504])
-- Add device diagnostics support to Tuya ([@frenck] - [#64537]) ([tuya docs])
-- Add diagnostics to Netatmo integration ([@cgtobi] - [#64392]) ([netatmo docs])
-- Add diagnostics to Ambient PWS ([@bachya] - [#64489]) ([ambient_station docs]) ([airvisual docs])
-- Add diagnostics to GitHub integration ([@ludeeus] - [#64385]) ([github docs])
-- Add diagnostics to UptimeRobot ([@ludeeus] - [#64905]) ([uptimerobot docs])
-- Add diagnostics for Coinbase ([@TomBrien] - [#64900])
-- Add diagnostics to Tile ([@bachya] - [#64875]) ([tile docs])
-- Add diagnostics to Ridwell ([@bachya] - [#64863]) ([ridwell docs])
-- Add diagnostics to WattTime ([@bachya] - [#64887]) ([watttime docs])
-- Add diagnostics download to ESPHome ([@jesserockz] - [#65008]) ([esphome docs]) (beta fix)
-- Add diagnostics support to P1 Monitor ([@klaasnicolaas] - [#65060]) ([p1_monitor docs]) (beta fix)
-- Add diagnostics support to onewire ([@epenet] - [#65131]) ([onewire docs]) (beta fix)
-- Add diagnostics for rtsp_to_webrtc ([@allenporter] - [#65138]) ([rtsp_to_webrtc docs]) (beta fix)
-- Update nest diagnostics ([@allenporter] - [#65141]) ([nest docs]) (beta fix)
-- Add diagnostics to Advantage Air ([@Bre77] - [#65006]) ([advantage_air docs]) (beta fix)
-- Add HomeWizard diagnostics ([@DCSBL] - [#65297]) ([homewizard docs]) (beta fix) (new-integration)
-- Add diagnostics support to WLED ([@frenck] - [#65317]) ([wled docs]) (beta fix)
-- Add diagnostics for SamsungTV ([@chemelli74] - [#65342]) ([samsungtv docs]) (beta fix
+To make debugging and reporting issues with integrations or devices easier,
+both in terms of reporting it, but also for developers to fix them, we introduce:
+
+**Diagnostics**.
+
+Diagnostics can be provided by integrations and allow you to download diagnostic
+information, bout an integration or device you have set up,
+directly from the Home Assistant UI.
+
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-02/diagnostics.png' alt='SScreenshot showing the Download Diagnostics button on a Sonos device page'>
+Screenshot of the Download Diagnostics button on the device page
+</p>
+
+The above screenshot is from the device page of a Sonos speaker in Home
+Assistant. The downloadable diagnostics file can be viewed, as a text file,
+and can be used for sharing when reporting an issue in our issue tracker.
+
+The diagnostics data can be extremely helpful in finding the root causes of
+issues and getting them fixed. As a matter of fact, it helped us pin-pointing
+and fixing issues during the beta of this release.
+
+The good news is, that **61**! integrations already added support this new
+diagnostics feature in this release, including Z-Wave JS, ESPHome, Sonos,
+Tuya, Shelly, WLED, Unifi, Nest, deCONZ, KNX, Roku, Samsung TV, and many more!
+
 
 
 ## Improved handling of device tracker entities
