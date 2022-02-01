@@ -34,3 +34,5 @@ about automations, we recommend the following page.
 
 Please note, these pages require a bit more experience with Home Assistant
 than you probably have at this point of this tutorial.
+
+Alernatively, use [blueprint](https://www.home-assistant.io/docs/automation/using_blueprints/) based automations.
