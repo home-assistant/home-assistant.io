@@ -142,23 +142,27 @@ And Sonos can now even browse other supported media. For example, if you have
 set up the Spotify and Sonos integration, you can now browse your Spotify to
 play it on your Sonos devices. Cast also has support for Plex in the media browser.
 
-## Diagnostics for Integration & Device
+## Check for updates
 
-To make debugging and reporting issues easier, both in terms of reporting it,
-but also for developers to fix them, we have introduce an new feature:
-Diagnostics.
+A common question, directly seen after a Home Assistant Core, Operating System,
+or add-on release announcement: "I don't see the update yet? How do I update?"
 
-Diagnostics can be provided by integrations, to allow you to download
-information about your integration instance or a device, directly from the
-Home Assistant frontend.
+Checking for updates is done by your system - every few hours - automatically.
+However, at times you want to check for updates, without waiting for
+this to happen.
+
+This made us realize that doing that was scattered and hidden in several places
+depending on which part you wanted to check updates for. Therefore, we
+have added a nice and simple "Check for updates" button in the main
+configuration screen.
 
 <p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/1444314/150234170-0477c105-5d62-41c4-9452-221b0f2c20dd.png' alt='Screenshot from GitHub PR, needs to be replaced'>
-Screenshot from GitHub PR, needs to be replaced
+<img class="no-shadow" src='/images/blog/2022-02/check-for-updates.png' alt='Screenshot showing the new Check for Updates button in the configuration screen'>
+Checking for any update, is now just a single click.
 </p>
 
-This data can be extremely helpful in finding the root causes of issues
-and getting them fixed.
+This feature is currently available for the Home Assistant OS,
+and Home Assistant Supervisor installation methods.
 
 Integrations that have adopted it this release (needs to be writte out nicely)
 
