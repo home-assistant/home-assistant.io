@@ -162,7 +162,7 @@ The sensor can filter the timetables by one or more routes, directions and types
 | `type` | Transport type |
 | `route` | Route code |
 | `direction` | Destination stop |
-| `final_stop` | Final stop (if departure doesn't go all the way to the destionation stop) |
+| `final_stop` | Final stop (if departure doesn't go all the way to the destination stop) |
 | `stop` | Departure stop |
 | `stop_id` | ID of departure stop |
 | `track` | Departure track (if available) |
@@ -180,6 +180,6 @@ The sensor can filter the timetables by one or more routes, directions and types
 | `type` | Transport type |
 | `route` | Route code |
 | `direction` | Destination stop |
-| `final_stop` | Final stop (if departure doesn't go all the way to the destionation stop) |
+| `final_stop` | Final stop (if departure doesn't go all the way to the destination stop) |
 | `stop` | Departure stop |
 | `track` | Departure track (if available) |

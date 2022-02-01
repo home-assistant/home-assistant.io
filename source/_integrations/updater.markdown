@@ -13,7 +13,10 @@ ha_platforms:
   - binary_sensor
 ---
 
-The `updater` binary sensor will check daily for new releases. The state will be "on" when an update is available. Otherwise, the state will be "off". The newer version, as well as the link to the release notes, are attributes of the updater.
+The `updater` binary sensor will check daily for new releases of the Home
+Assistant Core. The state will be "on" when an update is available. Otherwise,
+the state will be "off". The newer version, as well as the link to the release
+notes, are attributes of the updater.
 
 ## Configuration
 
@@ -32,16 +35,16 @@ For an added bonus, an automation integration can be created to send a message w
 ```yaml
 # Example configuration.yaml entry
 automation:
-  alias: "Update Available Notification"
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.updater
-      from: "off"
-      to: "on"
-  action:
-    - service: notify.notify
-      data:
-        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
+  - alias: "Update Available Notification"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.updater
+        from: "off"
+        to: "on"
+    action:
+      - service: notify.notify
+        data:
+          message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 ```
 
 {% endraw %}

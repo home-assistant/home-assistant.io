@@ -1,11 +1,12 @@
 ---
-title: Nexia
-description: Instructions on how to integrate Nexia Thermostats (Trane/American Standard) into Home Assistant.
+title: Nexia/American Standard/Trane
+description: Instructions on how to integrate Trane and American Standard thermostats into Home Assistant.
 ha_category:
   - Binary Sensor
   - Sensor
   - Climate
   - Scene
+  - Switch
 ha_release: 0.108
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -18,9 +19,10 @@ ha_platforms:
   - climate
   - scene
   - sensor
+  - switch
 ---
 
-The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com/) thermostats into Home Assistant.
+The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com/) (Trane) thermostats or [American Standard](https://asairhome.com/) thermostats into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -28,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Sensor](#sensor)
 - [Scene](#scene)
+- [Switch](#switch)
 
 {% include integrations/config_flow.md %}
 
@@ -39,7 +42,7 @@ The following binary sensors are added for each thermostat:
 
 ### Sensor
 
-The following binary sensors are added for each thermostat:
+The following sensors are added for each thermostat:
 
 - Air Cleaner Mode
 - Current Compressor Speed
@@ -48,7 +51,7 @@ The following binary sensors are added for each thermostat:
 - Relative Humidity
 - System Status
 
-The following binary sensors are added for each thermostat zone:
+The following sensors are added for each thermostat zone:
 
 - Zone Temperature
 - Zone Setpoint Status
@@ -56,17 +59,23 @@ The following binary sensors are added for each thermostat zone:
 
 ### Climate
 
-The `nexia` climate platform lets you control a thermostat.
+The climate platform lets you control a thermostat.
 
-The following thermostats are supported: `XL1050`, `XL850`, `XL824`
+The following Trane thermostats are supported: `XL1050`, `XL850`, `XL824`
 
-The following thermostats are not supported: `XL624`
+The following American Standard thermostats have been reported to work: `AZONE1050`, `AZONE850`, `ACONT824`
+
+The following thermostats are not supported: `XL624`, `XL950`, `AZONE950`, `AZEMT500`, `AZEMT400B`
 
 Other thermostats may work, but they have not been tested.
 
 ### Scene
 
-The `nexia` scene platform lets you activate a nexia automation.
+The scene platform lets you activate a nexia automation.
+
+### Switch
+
+The switch platform lets you enable or disable hold mode for each thermostat.
 
 ### Service `nexia.set_aircleaner_mode`
 

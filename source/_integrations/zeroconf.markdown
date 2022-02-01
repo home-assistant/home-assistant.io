@@ -24,27 +24,33 @@ This integration is by default enabled, unless you've disabled or removed the [`
 zeroconf:
 ```
 
-{% configuration %}
-zeroconf:
-  description: 
-  type: map
-  keys:
-   default_interface:
-     description: By default, `zeroconf` will attempt to detect the best value based on available routing information. For systems that require broadcasting mDNS on all interfaces, change this option to `false` if `zeroconf` does not function.
-     required: false
-     type: boolean
-     default: true
-   ipv6:
-     description: By default, `zeroconf` will enable IPv6 support. If your network has trouble with IPv6 being enabled, you can set this option to `false`.
-     required: false
-     type: boolean
-     default: true
-{% endconfiguration %}
+## Network interfaces and auto detection
 
-## `default_interface` auto detection
+Zeroconf chooses which interfaces to broadcast on based on the [Network](/integrations/network/) integration.
 
-If the `default_interface` is unset, the value is auto-detected based on the system routing next hop for the mDNS broadcast address (`224.0.0.251`).
+IPv6 will automatically be enabled if one of the selected interfaces has an IPv6 address that is enabled via the Network integration.
 
-If the next-hop cannot be detected or is a loopback address, `zeroconf` will broadcast on all interfaces. If the next hop is a non-loopback address, `zeroconf` will only broadcast on the default interface.
+## Troubleshooting
 
-Setting the `default_interface` to `true` or `false` will override the auto detection.
+### Integrations relying on Zeroconf traffic are unresponsive
+
+Some integrations rely on Zeroconf traffic to work, for example, the [HomeKit](/integrations/homekit/) integration.
+These integrations will not respond to traffic from other devices if the host device is not configured correctly.
+
+#### Libvirt virtual machine with macvtap adapter
+
+By default, the macvtap adapter created by libvirt does not allow the guest to receive Zeroconf or multicast traffic.
+
+Configure the virtual machine to accept this traffic by adding the `trustGuestRxFilters="yes"` setting in the adapter's XML. For example:
+
+```xml
+<interface type="direct" trustGuestRxFilters="yes">
+  <mac address="xx:xx:xx:xx:xx:xx"/>
+  <source dev="eno1" mode="bridge"/>
+  <model type="virtio"/>
+  <link state="up"/>
+  <address type="pci" domain="0x0000" bus="0x01" slot="0x00" function="0x0"/>
+</interface>
+```
+
+This only works with the `virtio` network adapter type and it is disabled by default for security reasons. See [the libvirt documentation](https://libvirt.org/formatdomain.html#elementsNICS) for more details.

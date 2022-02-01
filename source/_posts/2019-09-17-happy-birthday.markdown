@@ -23,7 +23,7 @@ Thanks to all the people working on the Home Assistant frontend.
 
 Thanks to all the people working on Hass.io.
 
-Thanks to all the people workin on the mobile apps.
+Thanks to all the people working on the mobile apps.
 
 Thanks to all the people working on Hass.io add-ons.
 
@@ -43,7 +43,7 @@ Thanks to all the people making videos sharing their achievements using Home Ass
 
 Thanks to all the people writing blog posts about Home Assistant.
 
-Thanks to all the people invovled in making the Home Asssistant Podcast.
+Thanks to all the people involved in making the Home assistant Podcast.
 
 Thanks to all the people moderating our community, maintaining its high quality.
 

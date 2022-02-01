@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Vertical Stack Card"
 sidebar_label: Vertical Stack
 description: "The Vertical Stack card allows you to group multiple cards so they always sit in the same column."

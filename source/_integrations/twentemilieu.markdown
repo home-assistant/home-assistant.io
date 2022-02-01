@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: twentemilieu
 ha_platforms:
   - sensor
+ha_quality_scale: platinum
 ---
 
 The Twente Milieu integration allows you to track the next scheduled waste
@@ -27,16 +28,4 @@ This integration provides sensors for the following waste pickup dates from Twen
 - Next organic waste pickup date.
 - Next paper waste pickup date.
 - Next non-recyclable waste pickup date.
-
-## Services
-
-The Twente Milieu integration exposes a service that allows you to manually update
-the pickup date from Twente Milieu.
-
-### Service `update`
-
-Update pickup dates from Twente Milieu
-
-| Service data attribute | Optional | Description                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------ |
-| `id`                   | Yes      | The unique address ID to update.                             |
+- Next Christmas Tree pickup date.

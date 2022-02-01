@@ -9,7 +9,7 @@ ha_quality_scale: internal
 ha_domain: group
 ---
 
-The group light platform lets you combine multiple lights into one entity. All child lights of a light group can still be used as usual, but controlling the state of the grouped light will forward the command to each child light.
+The light group platform lets you combine multiple lights into one entity. All child lights of a light group can still be used as usual, but controlling the state of the grouped light will forward the command to each child light.
 
 To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -26,14 +26,18 @@ light:
 ```
 
 {% configuration %}
-  name:
-    description: The name of the light group. Defaults to "Light Group".
-    required: false
-    type: string
-  entities:
-    description: A list of entities to be included in the light group.
-    required: true
-    type: [string, list]
+entities:
+  description: A list of entities to be included in the light group.
+  required: true
+  type: [string, list]
+name:
+  description: The name of the light group. Defaults to "Light Group".
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this light group. If two lights have the same unique ID, Home Assistant will raise an error.
+  required: false
+  type: string
 {% endconfiguration %}
 
 <p class='img'>

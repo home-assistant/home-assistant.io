@@ -1,6 +1,6 @@
-{% unless page.feedback == false %}
-<div class="material-card text feedback">
-  <b>Help us to improve our documentation</b><br />
+{% unless page.feedback == false  or page.layout == "landingpage"  %}
+<div class="material-card text feedback" id="feedback_section">
+  <h4><a href="#feedback_section" class="title-link"><b> Help us to improve our documentation</b></a></h4>
   Suggest an edit to this page, or provide/view feedback for this page.
   <div class="links">
     <a

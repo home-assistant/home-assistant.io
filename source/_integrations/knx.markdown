@@ -4,12 +4,15 @@ description: Instructions on how to integrate KNX components with Home Assistant
 ha_category:
   - Hub
   - Binary Sensor
+  - Button
   - Climate
   - Cover
   - Fan
   - Light
   - Notifications
+  - Number
   - Scene
+  - Select
   - Sensor
   - Switch
   - Weather
@@ -23,15 +26,19 @@ ha_domain: knx
 ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - fan
   - light
   - notify
+  - number
   - scene
   - sensor
+  - select
   - switch
   - weather
+ha_config_flow: true
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.
@@ -47,23 +54,22 @@ Please note, the KNX platform does not support KNX Secure.
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
+- [Button](#button)
 - [Climate](#climate)
 - [Cover](#cover)
 - [Fan](#fan)
 - [Light](#light)
 - [Notify](#notify)
+- [Number](#number)
 - [Scene](#scene)
+- [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Weather](#weather)
 
+{% include integrations/config_flow.md %}
+
 ## Basic Configuration
-
-To use your KNX devices from Home Assistant, add the following lines to your `configuration.yaml` file:
-
-```yaml
-knx:
-```
 
 In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main `configuration.yaml` file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files. See [Splitting up the configuration](/docs/configuration/splitting_configuration/).
 
@@ -80,33 +86,6 @@ knx:
 
 Please see the dedicated platform sections below about how to configure them correctly.
 
-{% configuration %}
-individual_address:
-  description: The KNX individual address (IA) that shall be used for routing or if a tunneling server doesn't assign an IA at connection.
-  required: false
-  type: string
-  default: "15.15.250"
-multicast_group:
-  description: The multicast group to use for automatic interface discovery and routing communication.
-  required: false
-  type: string
-  default: "224.0.23.12"
-multicast_port:
-  description: The port for multicast communication.
-  required: false
-  type: integer
-  default: 3671
-rate_limit:
-  description: Defines the maximum number of telegrams to be sent to the bus per second (range 1-100).
-  required: false
-  default: 20
-  type: integer
-state_updater:
-  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home Assistant. Set this option to False to prevent this behavior.
-  required: false
-  default: true
-  type: boolean
-{% endconfiguration %}
 
 ### Group addresses
 
@@ -137,77 +116,45 @@ knx:
 
 ## Connection
 
-Under normal conditions no connection configuration should be needed. The integration will auto-detect KNX/IP interfaces and connect to one. This requires multicast communication to work in your environment.
+Connection parameters are set up when adding the integration and can be changed from the `Integrations` panel.
 
-### Tunneling
-
-If you want to connect to a specific tunneling server or if the auto detection of the KNX/IP device does not work the IP or/and port of the tunneling device can be configurated.
-
-```yaml
-knx:
-  tunneling:
-    host: "192.168.2.23"
-```
-
-{% configuration %}
-host:
-  description: IP address of the KNX/IP tunneling device.
-  type: string
-  required: true
-port:
-  description: Port of the KNX/IP tunneling device.
-  type: integer
-  required: false
-local_ip:
-  description: IP address of the local interface.
-  type: string
-  required: false
-route_back:
-  description: When True the KNXnet/IP Server shall use the IP address and the port number from the IP package received as the target IP address or port number for the response to the KNXnet/IP Client (for NAT / Docker).
-  type: boolean
-  default: false
-  required: false
-{% endconfiguration %}
-
-### Routing
-
-Explicit connection via KNX/IP routing. This requires multicast communication to work in your environment.
-
-```yaml
-knx:
-  routing:
-```
-
-{% configuration %}
-local_ip:
-  description: The local IP address of the interface that shall be used to send multicast packets. If omitted the default multicast interface is used.
-  type: string
-  required: false
-{% endconfiguration %}
+Use `route back` if your tunneling server is located on a different network.
 
 ## Events
 
 ```yaml
 knx:
-  event_filter: 
-    - "1/0/*"
-    - "6/2,3,4-6/*"
+  event:
+    - address:
+        - "0/1/*"
+    - address:
+        - "1/2/*"
+        - "1/3/2-4"
+      type: "2byte_unsigned"
+    - address:
+        - "3/4/5"
+      type: "2byte_float"
 ```
 
 {% configuration %}
-event_filter:
-  description: Defines a list of patterns for filtering KNX group addresses. Telegrams with destination addresses matching this pattern are sent to the Home Assistant event bus as `knx_event`.
-  required: false
+address:
+  description: Defines a list of patterns for matching KNX group addresses. Telegrams with destination addresses matching one of the patterns are sent to the Home Assistant event bus as `knx_event`.
+  required: true
   type: [list, string]
+type:
+  description: Telegram payloads in `knx_event` events will be decoded using the configured type (DPT) for the addresses in the same block. The decoded value will be written to the event data `value` key. If not configured the `value` key will be `None` - the `data` key will still hold the raw payload (use this for DPT 1, 2, 3). All sensor types are valid types - see [KNX Sensor](#sensor) (e.g., "2byte_float" or "1byte_signed").
+  type: [string, integer]
+  required: false
 {% endconfiguration %}
 
-Every telegram that matches the filter with its destination field will be announced on the event bus as a `knx_event` event containing data attributes
+Every telegram that matches an address pattern with its destination field will be announced on the event bus as a `knx_event` event containing data attributes
 
 - `data` contains the raw payload data (e.g., 1 or "[12, 55]").
 - `destination` the KNX group address the telegram is sent to as string (e.g., "1/2/3).
 - `direction` the direction of the telegram as string ("Incoming" / "Outgoing").
 - `source` the KNX individual address of the sender as string (e.g., "1.2.3").
 - `telegramtype` the APCI service of the telegram. "GroupValueWrite", "GroupValueRead" or "GroupValueResponse" generate a knx_event.
+- `value` contains the decoded payload value if `type` is configured for the address. Will be `None` for "GroupValueRead" telegrams.
 
 ## Services
 
@@ -231,6 +178,10 @@ payload:
 type:
   description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values - see table in [KNX Sensor](#sensor).
   type: [string, integer, float]
+response:
+  description: If set to `true`, the telegram will be sent as a `GroupValueResponse` instead of a `GroupValueWrite`.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Read
@@ -283,7 +234,7 @@ automation:
 
 ### Register Event
 
-The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses matching the `event_filter` attribute in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
+The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses configured in the `event` key in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
 
 {% configuration %}
 address:
@@ -295,6 +246,10 @@ remove:
   required: false
   type: boolean
   default: false
+type:
+  description: If set, the payload will be decoded as given DPT in the event data `value` key. KNX sensor types are valid values [KNX Sensor](#sensor) (e.g., "2byte_float" or "1byte_signed").
+  type: [string, integer]
+  required: false
 {% endconfiguration %}
 
 ### Register Exposure
@@ -348,7 +303,7 @@ address:
   required: true
 type:
   description: Type of the exposed value. Either `binary`, `time`, `date`, `datetime` or any supported type of [KNX Sensor](#sensor) (e.g., "temperature" or "humidity").
-  type: string
+  type: [string, integer]
   required: true
 entity_id:
   description: Entity ID to be exposed. Not needed for types `time`, `date` and `datetime`.
@@ -418,6 +373,11 @@ context_timeout:
   required: false
   type: float
   default: None
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ### Support for automations
@@ -478,6 +438,73 @@ action:
   description: Specify a list of actions analog to the [automation rules](/docs/automation/action/).
   required: false
   type: list
+{% endconfiguration %}
+
+## Button
+
+The KNX button platform allows to send concurrent predefined values via the frontend or a platform service. When a user presses the button, the assigned generic raw payload is sent to the KNX bus.
+
+<div class='note'>
+
+Telegrams received on the KNX bus for the group address of a button are not reflected in a new button state. Use `knx_event` if you want to automate on a specific payload received on a group address.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  button:
+    - name: "DPT 1 - True button"
+      address: "0/0/1"
+    - name: "100% button"
+      address: "0/0/2"
+      payload: 0xFF
+      payload_length: 1
+    - name: "Temperature button"
+      address: "0/0/3"
+      value: 21.5
+      type: temperature
+```
+
+<div class='note'>
+
+When `type` is used `value` is required, `payload` is invalid.
+When `payload_length` is used `value` is invalid.
+
+</div>
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address to send to.
+  required: true
+  type: [string, list]
+payload:
+  description: The raw payload that shall be sent.
+  required: false
+  type: integer
+  default: 1
+payload_length:
+  description: The length of the payload data in the telegram. Use `0` for DPT 1, 2 or 3.
+  required: false
+  type: integer
+  default: 0
+value:
+  description: The value that shall be sent encoded by `type`.
+  required: false
+  type: [integer, float, string]
+type:
+  description: A type from the [value types table](/integrations/knx/#value-types) to encode the configured `value`.
+  required: false
+  type: [string, integer]
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Climate
@@ -569,8 +596,8 @@ The following values are valid for the Home Assistant [Climate](/integrations/cl
 
 - `Off` (maps internally to `HVAC_MODE_OFF` within Home Assistant)
 - `Auto` (maps internally to `HVAC_MODE_AUTO` within Home Assistant)
-- `Heat` (maps internally to `HVAC_MDOE_HEAT` within Home Assistant)
-- `Cool` (maps internally to `HVAC_MDOE_COOL` within Home Assistant)
+- `Heat` (maps internally to `HVAC_MODE_HEAT` within Home Assistant)
+- `Cool` (maps internally to `HVAC_MODE_COOL` within Home Assistant)
 - `Fan only` (maps internally to `HVAC_MODE_FAN_ONLY` within Home Assistant)
 - `Dry` (maps internally to `HVAC_MODE_DRY` within Home Assistant)
 
@@ -614,10 +641,10 @@ setpoint_shift_state_address:
   required: false
   type: [string, list]
 setpoint_shift_mode:
-  description: Defines the internal device DPT used. Either 'DPT6010' or 'DPT9002'.
+  description: Defines the internal device DPT used. Either 'DPT6010', 'DPT9002' or None. When `None` or omitted the DPT is auto-assigned from the first incoming telegram.
   required: false
   type: string
-  default: DPT6010
+  default: None
 setpoint_shift_min:
   description: Minimum value of setpoint shift.
   required: false
@@ -628,6 +655,14 @@ setpoint_shift_max:
   required: false
   default: 6
   type: float
+active_state_address:
+  description: KNX address for reading current activity. `0` is idle, `1` is active. *DPT 1*
+  required: false
+  type: [string, list]
+command_value_state_address:
+  description: KNX address for reading current command value in percent. `0` sets the climate entity to idle if `active_state_address` is not set. *DPT 5.001*
+  required: false
+  type: [string, list]
 operation_mode_address:
   description: KNX address for setting operation mode (Frost protection/night/comfort). *DPT 20.102*
   required: false
@@ -684,6 +719,11 @@ controller_modes:
   description: Overrides the supported controller modes. Provide the supported `hvac_mode` values for your device.
   required: false
   type: list
+default_controller_mode:
+  description: Overrides the default controller mode. Any Home Assistant `hvac_mode` can be configured. This can, for example, be set to "cool" for cooling-only devices.
+  required: false
+  default: "heat"
+  type: string
 on_off_address:
   description: KNX address for switching the climate device on/off. *DPT 1*
   required: false
@@ -705,16 +745,22 @@ max_temp:
   description: Override the maximum temperature.
   required: false
   type: float
-create_temperature_sensors:
-  description: If true, dedicated sensor entities are created for current and target temperature.
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
-  type: boolean
-  default: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Cover
 
 The KNX cover platform is used as an interface to KNX covers.
+
+<div class='note'>
+
+Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully open in regards to covers. The corresponding value inversion is done internally by the KNX integration.
+
+</div>
 
 To use your KNX covers in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
@@ -743,11 +789,11 @@ move_long_address:
   required: false
   type: [string, list]
 move_short_address:
-  description: KNX group address for moving the cover short time up or down. Used by some covers also as the means to stop the cover, if no dedicated `stop_address` exists on the actuator. *DPT 1*
+  description: KNX group address for moving the cover stepwise up or down. Used by some covers also as the means to stop the cover, if no dedicated `stop_address` exists on the actuator. *DPT 1*
   required: false
   type: [string, list]
 stop_address:
-  description: KNX group address for stopping the current movement from the cover. *DPT 1*
+  description: KNX group address for stopping the current movement of the cover. *DPT 1*
   required: false
   type: [string, list]
 position_address:
@@ -759,11 +805,11 @@ position_state_address:
   required: false
   type: [string, list]
 angle_address:
-  description: KNX group address for moving the cover to the dedicated angle. *DPT 5.001*
+  description: KNX group address for tilting the cover to the dedicated angle. *DPT 5.001*
   required: false
   type: [string, list]
 angle_state_address:
-  description: Separate KNX group address for requesting the current angle of cover. *DPT 5.001*
+  description: Separate KNX group address for requesting the current tilt angle of the cover. *DPT 5.001*
   required: false
   type: [string, list]
 travelling_time_down:
@@ -777,12 +823,12 @@ travelling_time_up:
   default: 25
   type: integer
 invert_position:
-  description: Set this to `true` if your actuator reports fully closed as 0% in KNX.
+  description: Set this to `true` if your actuator reports fully closed position as 0% in KNX.
   required: false
   default: false
   type: boolean
 invert_angle:
-  description: Set this to `true` if your actuator reports tilt fully closed as 0% in KNX.
+  description: Set this to `true` if your actuator reports fully closed tilt as 0% in KNX.
   required: false
   default: false
   type: boolean
@@ -790,6 +836,11 @@ device_class:
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Fan
@@ -835,6 +886,11 @@ max_step:
   description: The maximum amount of steps for a step-controlled fan. If set, the integration will convert percentages to steps automatically.
   required: false
   type: integer
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Light
@@ -893,8 +949,32 @@ rgbw_state_address:
   description: KNX group address for retrieving the RGBW color of the light. *DPT 251.600*
   required: false
   type: [string, list]
+hue_address:
+  description: KNX group address for setting the hue of the light color in degrees. *DPT 5.003*
+  required: false
+  type: [string, list]
+hue_state_address:
+  description: KNX group address for retrieving the hue of the light color in degrees. *DPT 5.003*
+  required: false
+  type: [string, list]
+saturation_address:
+  description: KNX group address for setting the saturation of the light color in percent. *DPT 5.001*
+  required: false
+  type: [string, list]
+saturation_state_address:
+  description: KNX group address for retrieving the saturation of the light color in percent. *DPT 5.001*
+  required: false
+  type: [string, list]
+xyy_address:
+  description: KNX group address for setting the xyY color of the light. *DPT 242.600*
+  required: false
+  type: [string, list]
+xyy_state_address:
+  description: KNX group address for retrieving the xyY color of the light. *DPT 242.600*
+  required: false
+  type: [string, list]
 individual_colors:
-  description: Used when the actuator only supports individual group addresses for colors. When `address` is specified for all 3 (or 4) individual colors the root `address` key can be omitted.
+  description: Used when the actuator only supports individual group addresses for colors. When `individual_colors` is used the root `address` key may be omitted.
   required: false
   type: map
   keys:
@@ -954,9 +1034,14 @@ max_kelvin:
   required: false
   type: integer
   default: 6000
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
-Many KNX devices can change their state internally without a message to the switch address on the KNX bus, e.g., if you configure a scene or a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given `state_address` (in most cases from the light actuator), it will overwrite the state of the switch object.
+Many KNX devices can change their state internally without a message to the switch address on the KNX bus, e.g., if you configure a scene or a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given `state_address` (in most cases from the light actuator), it will overwrite the state of the object.
 
 For switching/light actuators that are only controlled by a single group address and don't have dedicated state communication objects you can set `state_address` to the same value as `address`.
 
@@ -968,23 +1053,70 @@ For switching/light actuators that are only controlled by a single group address
 knx:
   light:
     # dimmable light
-    - name: "Bedroom Light 1"
+    # color mode: brightness
+    - name: "Dimmable light"
       address: "1/0/9"
       state_address: "1/1/9"
       brightness_address: "1/2/9"
       brightness_state_address: "1/3/9"
-    #
-    # RGB light
-    - name: "Bathroom Light 1"
+    # XYY light
+    # color mode: xy
+    - name: "XYY light"
       address: "1/0/9"
       state_address: "1/1/9"
-      brightness_address: "1/2/9"
+      brightness_address: "1/2/9"  # optional - if not set brightness will be sent over the xyy data point
+      brightness_state_address: "1/3/9"
+      xyy_address: "1/4/9"
+      xyy_state_address: "1/5/9"
+    # HS light
+    # color mode: hs
+    - name: "HS light"
+      address: "1/0/9"
+      state_address: "1/1/9"
+      brightness_address: "1/2/9"  # required for HS
+      brightness_state_address: "1/3/9"
+      hue_address: "1/4/8"
+      hue_state_address: "1/5/8"  # required for HS
+      saturation_address: "1/4/9"
+      saturation_state_address: "1/5/9"  # required for HS
+    # RGB light
+    # color mode: rgb
+    - name: "RGB light"
+      address: "1/0/9"
+      state_address: "1/1/9"
+      brightness_address: "1/2/9"  # optional for RGB lights
       brightness_state_address: "1/3/9"
       color_address: "1/4/9"
       color_state_address: "1/5/9"
-    #
+    # RGBW light
+    # color mode: rgbw
+    - name: "RGBW light"
+      address: "0/4/83"
+      state_address: "0/4/84"
+      brightness_address: "0/4/85"  # optional for RGBW lights
+      brightness_state_address: "0/4/86"
+      rgbw_address: "0/4/87"
+      rgbw_state_address: "0/4/88"
+    # RGB(W) individual object light
+    # color mode: rgb / rgbw
+    - name: "RGBW individual light"
+      address: "1/0/9"  # optional for individual color lights
+      individual_colors:
+        red:
+          brightness_address: "0/4/61"
+          brightness_state_address: "0/5/61"
+        green:
+          brightness_address: "0/4/62"
+          brightness_state_address: "0/5/62"
+        blue:
+          brightness_address: "0/4/63"
+          brightness_state_address: "0/5/63"
+        white:
+          brightness_address: "0/4/64"
+          brightness_state_address: "0/5/64"
     # tunable white light
-    - name: "Office Light 1"
+    # color mode: color_temp
+    - name: "TW light"
       address: "1/0/21"
       state_address: "1/1/21"
       brightness_address: "1/2/21"
@@ -994,9 +1126,9 @@ knx:
       color_temperature_mode: absolute
       min_kelvin: 2550
       max_kelvin: 6200
-    #
     # actuator without dedicated state communication object
-    - name: "Cellar Light 1"
+    # color mode: onoff
+    - name: "Simple light"
       address: "1/0/5"
       state_address: "1/0/5"
 ```
@@ -1021,6 +1153,85 @@ name:
   description: A name for this device used within Home Assistant.
   required: false
   type: string
+{% endconfiguration %}
+
+## Number
+
+The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
+
+<div class='note'>
+
+Number entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Numbers having a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  number:
+    - name: "Duration"
+      address: "0/0/1"
+      type: time_period_sec
+    - name: "Volume"
+      address: "0/0/2"
+      state_address: "0/0/3"
+      type: percent
+    - name: "Temperature threshold"
+      address: "0/0/4"
+      respond_to_read: true
+      type: temperature
+      min: 20
+      max: 24.5
+      step: 0.1
+      mode: slider
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address new values will be sent to.
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus.
+  required: false
+  type: [string, list]
+type:
+  description: Any supported type of [KNX Sensor](#sensor) representing a numeric value (e.g., "percent" or "temperature").
+  required: true
+  type: [string, integer]
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+min:
+  description: Minimum value that can be sent. Defaults to the `type` DPT minimum value.
+  required: false
+  type: float
+max:
+  description: Maximum value that can be sent. Defaults to the `type` DPT maximum value.
+  required: false
+  type: float
+step:
+  description: Step value. Defaults to the step size defined for the DPT in the KNX specifications.
+  required: false
+  type: float
+mode:
+  description: Specifies the mode used in the UI. `auto`, `box` or `slider` are valid.
+  required: false
+  type: string
+  default: auto
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Scene
@@ -1049,13 +1260,108 @@ name:
   description: A name for this device used within Home Assistant.
   required: false
   type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
+
+## Select
+
+The KNX select platform allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, the assigned generic raw payload is sent to the KNX bus. A received telegram updates the state of the select entity. It can optionally respond to read requests from the KNX bus with its current state.
+
+<div class='note'>
+
+Select entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Selects having a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  select:
+    - name: "DPT 2 selector"
+      address: "0/0/1"
+      payload_length: 0
+      options:
+        - option: "No control"
+          payload: 0
+        - option: "Control On"
+          payload: 0b10
+        - option: "Control Off"
+          payload: 0b11
+    - name: "DHWMode"
+      address: "0/0/2"
+      state_address: "0/0/3"
+      payload_length: 1
+      options:
+        - option: "Auto"
+          payload: 0
+        - option: "LegioProtect"
+          payload: 1
+        - option: "Normal"
+          payload: 2
+        - option: "Reduced"
+          payload: 3
+        - option: "Off/FrostProtect"
+          payload: 4
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address new values will be sent to.
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus.
+  required: false
+  type: [string, list]
+payload_length:
+  description: The length of the payload expected for the DPT. Use `0` for DPT 1, 2 or 3.
+  required: true
+  type: integer
+options:
+  description: List of options to choose from. Each `option` and `payload` have to be unique.
+  type: list
+  required: true
+  keys:
+    option:
+      description: The name of the option used to trigger the assigned `payload`.
+      required: true
+      type: string
+    payload:
+      description: The raw payload assigned to the `option`.
+      required: true
+      type: integer
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+sync_state:
+  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
+  required: false
+  type: [boolean, string, integer]
+  default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Sensor
 
 The KNX sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors.
 
-Sensors are read-only. To write to the KNX bus configure an exposure [KNX Integration Expose](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus) or use the `knx.send` service.
+Sensors are read-only. To write to the KNX bus configure a [Number](#number), an exposure [KNX Integration Expose](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus) or use the `knx.send` service.
 
 ```yaml
 # Example configuration.yaml entry
@@ -1084,9 +1390,9 @@ state_address:
   required: true
   type: [string, list]
 type:
-  description: A type from the value types table below must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
+  description: A type from the [value types table](/integrations/knx/#value-types) below must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
   required: true
-  type: string
+  type: [string, integer]
 name:
   description: A name for this device used within Home Assistant.
   required: false
@@ -1101,161 +1407,170 @@ always_callback:
   required: false
   type: boolean
   default: false
+state_class:
+  description: Sets the [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  required: false
+  type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ### Value Types
 
-| KNX DPT | type                          | size in byte | range                      | unit           |
-|--------:|-------------------------------|-------------:|:--------------------------:|----------------|
-| 5       | 1byte_unsigned                | 1            | 0 ... 255                  |                |
-| 5.001   | percent                       | 1            | 0 ... 100                  | %              |
-| 5.003   | angle                         | 1            | 0 ... 360                  | °              |
-| 5.004   | percentU8                     | 1            | 0 ... 255                  | %              |
-| 5.005   | decimal_factor                | 1            | 0 ... 255                  |                |
-| 5.006   | tariff                        | 1            | 0 ... 254                  |                |
-| 5.010   | pulse                         | 1            | 0 ... 255                  | counter pulses |
-| 6       | 1byte_signed                  | 1            | -128 ... 127               |                |
-| 6.001   | percentV8                     | 1            | -128 ... 127               | %              |
-| 6.010   | counter_pulses                | 1            | -128 ... 127               | counter pulses |
-| 7       | 2byte_unsigned                | 2            | 0 ... 65535                |                |
-| 7.001   | pulse_2byte                   | 2            | 0 ... 65535                | pulses         |
-| 7.002   | time_period_msec              | 2            | 0 ... 65535                | ms             |
-| 7.003   | time_period_10msec            | 2            | 0 ... 65535                | ms             |
-| 7.004   | time_period_100msec           | 2            | 0 ... 65535                | ms             |
-| 7.005   | time_period_sec               | 2            | 0 ... 65535                | s              |
-| 7.006   | time_period_min               | 2            | 0 ... 65535                | min            |
-| 7.007   | time_period_hrs               | 2            | 0 ... 65535                | h              |
-| 7.011   | length_mm                     | 2            | 0 ... 65535                | mm             |
-| 7.012   | current                       | 2            | 0 ... 65535                | mA             |
-| 7.013   | brightness                    | 2            | 0 ... 65535                | lx             |
-| 7.600   | color_temperature             | 2            | 0 ... 65535                | K              |
-| 8       | 2byte_signed                  | 2            | -32768 ... 32767           |                |
-| 8.001   | pulse_2byte_signed            | 2            | -32768 ... 32767           | pulses         |
-| 8.002   | delta_time_ms                 | 2            | -32768 ... 32767           | ms             |
-| 8.003   | delta_time_10ms               | 2            | -32768 ... 32767           | ms             |
-| 8.004   | delta_time_100ms              | 2            | -32768 ... 32767           | ms             |
-| 8.005   | delta_time_sec                | 2            | -32768 ... 32767           | s              |
-| 8.006   | delta_time_min                | 2            | -32768 ... 32767           | min            |
-| 8.007   | delta_time_hrs                | 2            | -32768 ... 32767           | h              |
-| 8.010   | percentV16                    | 2            | -32768 ... 32767           | %              |
-| 8.011   | rotation_angle                | 2            | -32768 ... 32767           | °              |
-| 9       | 2byte_float                   | 2            | -671088.64 ... 670760.96   |                |
-| 9.001   | temperature                   | 2            | -273 ... 670760            | °C             |
-| 9.002   | temperature_difference_2byte  | 2            | -670760 ... 670760         | K              |
-| 9.003   | temperature_a                 | 2            | -670760 ... 670760         | K/h            |
-| 9.004   | illuminance                   | 2            | 0 ... 670760               | lx             |
-| 9.005   | wind_speed_ms                 | 2            | 0 ... 670760               | m/s            |
-| 9.006   | pressure_2byte                | 2            | 0 ... 670760               | Pa             |
-| 9.007   | humidity                      | 2            | 0 ... 670760               | %              |
-| 9.008   | ppm                           | 2            | -671088.64 ... 670760.96   | ppm            |
-| 9.010   | time_1                        | 2            | -670760 ... 670760         | s              |
-| 9.011   | time_2                        | 2            | -670760 ... 670760         | ms             |
-| 9.020   | voltage                       | 2            | -671088.64 ... 670760.96   | mV             |
-| 9.021   | curr                          | 2            | -671088.64 ... 670760.96   | mA             |
-| 9.022   | power_density                 | 2            | -671088.64 ... 670760.96   | W/m²           |
-| 9.023   | kelvin_per_percent            | 2            | -671088.64 ... 670760.96   | K/%            |
-| 9.024   | power_2byte                   | 2            | -671088.64 ... 670760.96   | kW             |
-| 9.025   | volume_flow                   | 2            | -671088.64 ... 670760.96   | l/h            |
-| 9.026   | rain_amount                   | 2            | -671088.64 ... 670760.96   | l/m²           |
-| 9.027   | temperature_f                 | 2            | -459.6 ... 670760          | °F             |
-| 9.028   | wind_speed_kmh                | 2            | 0 ... 670760               | km/h           |
-| 9.?     | enthalpy                      | 2            | -671088.64 ... 670760.96   | H              |
-| 12      | 4byte_unsigned                | 4            | 0 ... 4294967295           |                |
-| 12.1200 | volume_liquid_litre           | 4            | 0 ... 4294967295           | l              |
-| 12.1201 | volume_m3                     | 4            | 0 ... 4294967295           | m³             |
-| 13      | 4byte_signed                  | 4            | -2147483648 ... 2147483647 |                |
-| 13.001  | pulse_4byte                   | 4            | -2147483648 ... 2147483647 | pulses         |
-| 13.002  | flow_rate_m3h                 | 4            | -2147483648 ... 2147483647 | m³/h           |
-| 13.010  | active_energy                 | 4            | -2147483648 ... 2147483647 | Wh             |
-| 13.011  | apparant_energy               | 4            | -2147483648 ... 2147483647 | VAh            |
-| 13.012  | reactive_energy               | 4            | -2147483648 ... 2147483647 | VARh           |
-| 13.013  | active_energy_kwh             | 4            | -2147483648 ... 2147483647 | kWh            |
-| 13.014  | apparant_energy_kvah          | 4            | -2147483648 ... 2147483647 | kVAh           |
-| 13.015  | reactive_energy_kvarh         | 4            | -2147483648 ... 2147483647 | kVARh          |
-| 13.100  | long_delta_timesec            | 4            | -2147483648 ... 2147483647 | s              |
-| 14      | 4byte_float                   | 4            |                            |                |
-| 14.000  | acceleration                  | 4            |                            | m/s²           |
-| 14.001  | acceleration_angular          | 4            |                            | rad/s²         |
-| 14.002  | activation_energy             | 4            |                            | J/mol          |
-| 14.003  | activity                      | 4            |                            | s⁻¹            |
-| 14.004  | mol                           | 4            |                            | mol            |
-| 14.005  | amplitude                     | 4            |                            |                |
-| 14.006  | angle_rad                     | 4            |                            | rad            |
-| 14.007  | angle_deg                     | 4            |                            | °              |
-| 14.008  | angular_momentum              | 4            |                            | J s            |
-| 14.009  | angular_velocity              | 4            |                            | rad/s          |
-| 14.010  | area                          | 4            |                            | m²             |
-| 14.011  | capacitance                   | 4            |                            | F              |
-| 14.012  | charge_density_surface        | 4            |                            | C/m²           |
-| 14.013  | charge_density_volume         | 4            |                            | C/m³           |
-| 14.014  | compressibility               | 4            |                            | m²/N           |
-| 14.015  | conductance                   | 4            |                            | S              |
-| 14.016  | electrical_conductivity       | 4            |                            | S/m            |
-| 14.017  | density                       | 4            |                            | kg/m³          |
-| 14.018  | electric_charge               | 4            |                            | C              |
-| 14.019  | electric_current              | 4            |                            | A              |
-| 14.020  | electric_current_density      | 4            |                            | A/m²           |
-| 14.021  | electric_dipole_moment        | 4            |                            | C m            |
-| 14.022  | electric_displacement         | 4            |                            | C/m²           |
-| 14.023  | electric_field_strength       | 4            |                            | V/m            |
-| 14.024  | electric_flux                 | 4            |                            | c              |
-| 14.025  | electric_flux_density         | 4            |                            | C/m²           |
-| 14.026  | electric_polarization         | 4            |                            | C/m²           |
-| 14.027  | electric_potential            | 4            |                            | V              |
-| 14.028  | electric_potential_difference | 4            |                            | V              |
-| 14.029  | electromagnetic_moment        | 4            |                            | A m²           |
-| 14.030  | electromotive_force           | 4            |                            | V              |
-| 14.031  | energy                        | 4            |                            | J              |
-| 14.032  | force                         | 4            |                            | N              |
-| 14.033  | frequency                     | 4            |                            | Hz             |
-| 14.034  | angular_frequency             | 4            |                            | rad/s          |
-| 14.035  | heatcapacity                  | 4            |                            | J/K            |
-| 14.036  | heatflowrate                  | 4            |                            | W              |
-| 14.037  | heat_quantity                 | 4            |                            | J              |
-| 14.038  | impedance                     | 4            |                            | Ω              |
-| 14.039  | length                        | 4            |                            | m              |
-| 14.040  | light_quantity                | 4            |                            | lm s           |
-| 14.041  | luminance                     | 4            |                            | cd/m²          |
-| 14.042  | luminous_flux                 | 4            |                            | lm             |
-| 14.043  | luminous_intensity            | 4            |                            | cd             |
-| 14.044  | magnetic_field_strength       | 4            |                            | A/m            |
-| 14.045  | magnetic_flux                 | 4            |                            | Wb             |
-| 14.046  | magnetic_flux_density         | 4            |                            | T              |
-| 14.047  | magnetic_moment               | 4            |                            | A m²           |
-| 14.048  | magnetic_polarization         | 4            |                            | T              |
-| 14.049  | magnetization                 | 4            |                            | A/m            |
-| 14.050  | magnetomotive_force           | 4            |                            | A              |
-| 14.051  | mass                          | 4            |                            | kg             |
-| 14.052  | mass_flux                     | 4            |                            | kg/s           |
-| 14.053  | momentum                      | 4            |                            | N/s            |
-| 14.054  | phaseanglerad                 | 4            |                            | rad            |
-| 14.055  | phaseangledeg                 | 4            |                            | °              |
-| 14.056  | power                         | 4            |                            | W              |
-| 14.057  | powerfactor                   | 4            |                            | cosΦ           |
-| 14.058  | pressure                      | 4            |                            | Pa             |
-| 14.059  | reactance                     | 4            |                            | Ω              |
-| 14.060  | resistance                    | 4            |                            | Ω              |
-| 14.061  | resistivity                   | 4            |                            | Ω m            |
-| 14.062  | self_inductance               | 4            |                            | H              |
-| 14.063  | solid_angle                   | 4            |                            | sr             |
-| 14.064  | sound_intensity               | 4            |                            | W/m²           |
-| 14.065  | speed                         | 4            |                            | m/s            |
-| 14.066  | stress                        | 4            |                            | Pa             |
-| 14.067  | surface_tension               | 4            |                            | N/m            |
-| 14.068  | common_temperature            | 4            |                            | °C             |
-| 14.069  | absolute_temperature          | 4            |                            | K              |
-| 14.070  | temperature_difference        | 4            |                            | K              |
-| 14.071  | thermal_capacity              | 4            |                            | J/K            |
-| 14.072  | thermal_conductivity          | 4            |                            | W/mK           |
-| 14.073  | thermoelectric_power          | 4            |                            | V/K            |
-| 14.074  | time_seconds                  | 4            |                            | s              |
-| 14.075  | torque                        | 4            |                            | N m            |
-| 14.076  | volume                        | 4            |                            | m³             |
-| 14.077  | volume_flux                   | 4            |                            | m³/s           |
-| 14.078  | weight                        | 4            |                            | N              |
-| 14.079  | work                          | 4            |                            | J              |
-| 16.000  | string                        | 14           |                            |                |
-| 17.001  | scene_number                  | 1            | 1 ... 64                   |                |
+| KNX DPT | type                          | size in byte |           range            | unit           |
+| ------: | ----------------------------- | -----------: | :------------------------: | -------------- |
+|       5 | 1byte_unsigned                |            1 |         0 ... 255          |                |
+|   5.001 | percent                       |            1 |         0 ... 100          | %              |
+|   5.003 | angle                         |            1 |         0 ... 360          | °              |
+|   5.004 | percentU8                     |            1 |         0 ... 255          | %              |
+|   5.005 | decimal_factor                |            1 |         0 ... 255          |                |
+|   5.006 | tariff                        |            1 |         0 ... 254          |                |
+|   5.010 | pulse                         |            1 |         0 ... 255          | counter pulses |
+|       6 | 1byte_signed                  |            1 |        -128 ... 127        |                |
+|   6.001 | percentV8                     |            1 |        -128 ... 127        | %              |
+|   6.010 | counter_pulses                |            1 |        -128 ... 127        | counter pulses |
+|       7 | 2byte_unsigned                |            2 |        0 ... 65535         |                |
+|   7.001 | pulse_2byte                   |            2 |        0 ... 65535         | pulses         |
+|   7.002 | time_period_msec              |            2 |        0 ... 65535         | ms             |
+|   7.003 | time_period_10msec            |            2 |        0 ... 65535         | ms             |
+|   7.004 | time_period_100msec           |            2 |        0 ... 65535         | ms             |
+|   7.005 | time_period_sec               |            2 |        0 ... 65535         | s              |
+|   7.006 | time_period_min               |            2 |        0 ... 65535         | min            |
+|   7.007 | time_period_hrs               |            2 |        0 ... 65535         | h              |
+|   7.011 | length_mm                     |            2 |        0 ... 65535         | mm             |
+|   7.012 | current                       |            2 |        0 ... 65535         | mA             |
+|   7.013 | brightness                    |            2 |        0 ... 65535         | lx             |
+|   7.600 | color_temperature             |            2 |        0 ... 65535         | K              |
+|       8 | 2byte_signed                  |            2 |      -32768 ... 32767      |                |
+|   8.001 | pulse_2byte_signed            |            2 |      -32768 ... 32767      | pulses         |
+|   8.002 | delta_time_ms                 |            2 |      -32768 ... 32767      | ms             |
+|   8.003 | delta_time_10ms               |            2 |      -32768 ... 32767      | ms             |
+|   8.004 | delta_time_100ms              |            2 |      -32768 ... 32767      | ms             |
+|   8.005 | delta_time_sec                |            2 |      -32768 ... 32767      | s              |
+|   8.006 | delta_time_min                |            2 |      -32768 ... 32767      | min            |
+|   8.007 | delta_time_hrs                |            2 |      -32768 ... 32767      | h              |
+|   8.010 | percentV16                    |            2 |      -32768 ... 32767      | %              |
+|   8.011 | rotation_angle                |            2 |      -32768 ... 32767      | °              |
+|       9 | 2byte_float                   |            2 |  -671088.64 ... 670760.96  |                |
+|   9.001 | temperature                   |            2 |      -273 ... 670760       | °C             |
+|   9.002 | temperature_difference_2byte  |            2 |     -670760 ... 670760     | K              |
+|   9.003 | temperature_a                 |            2 |     -670760 ... 670760     | K/h            |
+|   9.004 | illuminance                   |            2 |        0 ... 670760        | lx             |
+|   9.005 | wind_speed_ms                 |            2 |        0 ... 670760        | m/s            |
+|   9.006 | pressure_2byte                |            2 |        0 ... 670760        | Pa             |
+|   9.007 | humidity                      |            2 |        0 ... 670760        | %              |
+|   9.008 | ppm                           |            2 |  -671088.64 ... 670760.96  | ppm            |
+|   9.010 | time_1                        |            2 |     -670760 ... 670760     | s              |
+|   9.011 | time_2                        |            2 |     -670760 ... 670760     | ms             |
+|   9.020 | voltage                       |            2 |  -671088.64 ... 670760.96  | mV             |
+|   9.021 | curr                          |            2 |  -671088.64 ... 670760.96  | mA             |
+|   9.022 | power_density                 |            2 |  -671088.64 ... 670760.96  | W/m²           |
+|   9.023 | kelvin_per_percent            |            2 |  -671088.64 ... 670760.96  | K/%            |
+|   9.024 | power_2byte                   |            2 |  -671088.64 ... 670760.96  | kW             |
+|   9.025 | volume_flow                   |            2 |  -671088.64 ... 670760.96  | l/h            |
+|   9.026 | rain_amount                   |            2 |  -671088.64 ... 670760.96  | l/m²           |
+|   9.027 | temperature_f                 |            2 |     -459.6 ... 670760      | °F             |
+|   9.028 | wind_speed_kmh                |            2 |        0 ... 670760        | km/h           |
+|     9.? | enthalpy                      |            2 |  -671088.64 ... 670760.96  | H              |
+|      12 | 4byte_unsigned                |            4 |      0 ... 4294967295      |                |
+| 12.1200 | volume_liquid_litre           |            4 |      0 ... 4294967295      | l              |
+| 12.1201 | volume_m3                     |            4 |      0 ... 4294967295      | m³             |
+|      13 | 4byte_signed                  |            4 | -2147483648 ... 2147483647 |                |
+|  13.001 | pulse_4byte                   |            4 | -2147483648 ... 2147483647 | pulses         |
+|  13.002 | flow_rate_m3h                 |            4 | -2147483648 ... 2147483647 | m³/h           |
+|  13.010 | active_energy                 |            4 | -2147483648 ... 2147483647 | Wh             |
+|  13.011 | apparant_energy               |            4 | -2147483648 ... 2147483647 | VAh            |
+|  13.012 | reactive_energy               |            4 | -2147483648 ... 2147483647 | VARh           |
+|  13.013 | active_energy_kwh             |            4 | -2147483648 ... 2147483647 | kWh            |
+|  13.014 | apparant_energy_kvah          |            4 | -2147483648 ... 2147483647 | kVAh           |
+|  13.015 | reactive_energy_kvarh         |            4 | -2147483648 ... 2147483647 | kVARh          |
+|  13.100 | long_delta_timesec            |            4 | -2147483648 ... 2147483647 | s              |
+|      14 | 4byte_float                   |            4 |                            |                |
+|  14.000 | acceleration                  |            4 |                            | m/s²           |
+|  14.001 | acceleration_angular          |            4 |                            | rad/s²         |
+|  14.002 | activation_energy             |            4 |                            | J/mol          |
+|  14.003 | activity                      |            4 |                            | s⁻¹            |
+|  14.004 | mol                           |            4 |                            | mol            |
+|  14.005 | amplitude                     |            4 |                            |                |
+|  14.006 | angle_rad                     |            4 |                            | rad            |
+|  14.007 | angle_deg                     |            4 |                            | °              |
+|  14.008 | angular_momentum              |            4 |                            | J s            |
+|  14.009 | angular_velocity              |            4 |                            | rad/s          |
+|  14.010 | area                          |            4 |                            | m²             |
+|  14.011 | capacitance                   |            4 |                            | F              |
+|  14.012 | charge_density_surface        |            4 |                            | C/m²           |
+|  14.013 | charge_density_volume         |            4 |                            | C/m³           |
+|  14.014 | compressibility               |            4 |                            | m²/N           |
+|  14.015 | conductance                   |            4 |                            | S              |
+|  14.016 | electrical_conductivity       |            4 |                            | S/m            |
+|  14.017 | density                       |            4 |                            | kg/m³          |
+|  14.018 | electric_charge               |            4 |                            | C              |
+|  14.019 | electric_current              |            4 |                            | A              |
+|  14.020 | electric_current_density      |            4 |                            | A/m²           |
+|  14.021 | electric_dipole_moment        |            4 |                            | C m            |
+|  14.022 | electric_displacement         |            4 |                            | C/m²           |
+|  14.023 | electric_field_strength       |            4 |                            | V/m            |
+|  14.024 | electric_flux                 |            4 |                            | c              |
+|  14.025 | electric_flux_density         |            4 |                            | C/m²           |
+|  14.026 | electric_polarization         |            4 |                            | C/m²           |
+|  14.027 | electric_potential            |            4 |                            | V              |
+|  14.028 | electric_potential_difference |            4 |                            | V              |
+|  14.029 | electromagnetic_moment        |            4 |                            | A m²           |
+|  14.030 | electromotive_force           |            4 |                            | V              |
+|  14.031 | energy                        |            4 |                            | J              |
+|  14.032 | force                         |            4 |                            | N              |
+|  14.033 | frequency                     |            4 |                            | Hz             |
+|  14.034 | angular_frequency             |            4 |                            | rad/s          |
+|  14.035 | heatcapacity                  |            4 |                            | J/K            |
+|  14.036 | heatflowrate                  |            4 |                            | W              |
+|  14.037 | heat_quantity                 |            4 |                            | J              |
+|  14.038 | impedance                     |            4 |                            | Ω              |
+|  14.039 | length                        |            4 |                            | m              |
+|  14.040 | light_quantity                |            4 |                            | lm s           |
+|  14.041 | luminance                     |            4 |                            | cd/m²          |
+|  14.042 | luminous_flux                 |            4 |                            | lm             |
+|  14.043 | luminous_intensity            |            4 |                            | cd             |
+|  14.044 | magnetic_field_strength       |            4 |                            | A/m            |
+|  14.045 | magnetic_flux                 |            4 |                            | Wb             |
+|  14.046 | magnetic_flux_density         |            4 |                            | T              |
+|  14.047 | magnetic_moment               |            4 |                            | A m²           |
+|  14.048 | magnetic_polarization         |            4 |                            | T              |
+|  14.049 | magnetization                 |            4 |                            | A/m            |
+|  14.050 | magnetomotive_force           |            4 |                            | A              |
+|  14.051 | mass                          |            4 |                            | kg             |
+|  14.052 | mass_flux                     |            4 |                            | kg/s           |
+|  14.053 | momentum                      |            4 |                            | N/s            |
+|  14.054 | phaseanglerad                 |            4 |                            | rad            |
+|  14.055 | phaseangledeg                 |            4 |                            | °              |
+|  14.056 | power                         |            4 |                            | W              |
+|  14.057 | powerfactor                   |            4 |                            | cosΦ           |
+|  14.058 | pressure                      |            4 |                            | Pa             |
+|  14.059 | reactance                     |            4 |                            | Ω              |
+|  14.060 | resistance                    |            4 |                            | Ω              |
+|  14.061 | resistivity                   |            4 |                            | Ω m            |
+|  14.062 | self_inductance               |            4 |                            | H              |
+|  14.063 | solid_angle                   |            4 |                            | sr             |
+|  14.064 | sound_intensity               |            4 |                            | W/m²           |
+|  14.065 | speed                         |            4 |                            | m/s            |
+|  14.066 | stress                        |            4 |                            | Pa             |
+|  14.067 | surface_tension               |            4 |                            | N/m            |
+|  14.068 | common_temperature            |            4 |                            | °C             |
+|  14.069 | absolute_temperature          |            4 |                            | K              |
+|  14.070 | temperature_difference        |            4 |                            | K              |
+|  14.071 | thermal_capacity              |            4 |                            | J/K            |
+|  14.072 | thermal_conductivity          |            4 |                            | W/mK           |
+|  14.073 | thermoelectric_power          |            4 |                            | V/K            |
+|  14.074 | time_seconds                  |            4 |                            | s              |
+|  14.075 | torque                        |            4 |                            | N m            |
+|  14.076 | volume                        |            4 |                            | m³             |
+|  14.077 | volume_flux                   |            4 |                            | m³/s           |
+|  14.078 | weight                        |            4 |                            | N              |
+|  14.079 | work                          |            4 |                            | J              |
+|  16.000 | string                        |           14 |                            |                |
+|  17.001 | scene_number                  |            1 |          1 ... 64          |                |
 
 ### More examples
 
@@ -1271,6 +1586,7 @@ knx:
       state_address: "6/2/1"
       sync_state: every 60
       type: temperature
+      state_class: measurement
 ```
 
 ## Switch
@@ -1303,10 +1619,22 @@ invert:
   required: false
   type: boolean
   default: false
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
-Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
-For switching actuators that are only controlled by a single group address and can't change their state internally, you don't have to configure the state address.
+The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
+
+Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+Switches having a `state_address` configured request their current state from the KNX bus.
 
 ## Weather
 
@@ -1331,7 +1659,6 @@ knx:
       address_day_night: "7/0/8"
       address_air_pressure: "7/0/9"
       address_humidity: "7/0/10"
-      create_sensors: false
       sync_state: true
 ```
 
@@ -1393,14 +1720,91 @@ address_humidity:
   description: KNX address for reading current humidity. *DPT 9.007*
   required: false
   type: [string, list]
-create_sensors:
-  description: If true, dedicated sensor entities are created for all configured properties.
-  required: false
-  type: boolean
-  default: false
 sync_state:
   description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus.
   required: false
   type: boolean
   default: true
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
+
+## Troubleshooting / Common issues
+
+### Logs for the KNX integration
+
+`xknx`, the library used for KNX communication, provides various logging handlers for monitoring and debug purposes.
+Add the following lines to your Home Assistant `configuration.yaml` to activate them:
+
+```yaml
+logger:
+  default: warning
+  logs:
+    # For most debugging needs `xnx.log` and one of `xknx.knx` or `xknx.telegram` are a good choice.
+    xknx: debug  # sets the level of all loggers
+    xknx.log: debug  # provides general information (connection, etc.)
+    xknx.raw_socket: debug  # logs incoming UDP frames in raw hex format
+    xknx.knx: debug  # logs incoming and outgoing KNX/IP frames at socket level
+    xknx.telegram: debug  # logs telegrams before they are being processed at device level or sent to an interface
+    xknx.state_updater: debug  # provides information about the state updater
+```
+
+You can use the service `logger.set_level` to change the log level of a handler on a running instance.
+{% my developer_call_service badge service="logger.set_level" %}
+
+### Group address can not be read
+
+Every `*_state_address` is read on startup sequentially if not configured differently. If you see the following errors in your log, a group address could not be read by a GroupValueRead request from Home Assistant in time.
+
+```log
+> Could not sync group address '1/2/3' (Entity name - Feature)
+> Error: KNX bus did not respond in time (2.0 secs) to GroupValueRead request for: '1/2/3'
+```
+
+#### No communication object (CO) assigned to the group address (GA) has the Read-Flag set in ETS
+
+- Enable the read flag for *one* CO assigned to the GA. Use the one most likely to hold the current state (e.g., for a light entity's `brightness_state_address` the according CO of the dimming actuator).
+
+#### Response telegrams are not passing a line coupler, router or other filter in the installation
+
+- Use a dummy device in ETS for Home Assistant. These can be found in the ETS online catalog. Assign it to the line your interface connects Home Assistant to and link its communication objects to the group addresses you are using in Home Assistant. ETS will generate filter tables that are applied to your line couplers after updating their application.
+
+#### Unresponsive system
+
+- The timeout for logging the errors (2 seconds) is started when the GroupValueRead request is scheduled to be sent. On systems experiencing high loads sending can be delayed (e.g., Raspberry Pi running lots of integrations at startup).
+Incoming response telegrams are always processed, so no information gets lost.
+
+### Duplicate entities
+
+If you find following error in your log you seem to have a duplicated entity in your configuration.
+
+```log
+Platform knx does not generate unique IDs. ID 1/2/3 already exists - ignoring platform.name
+```
+
+The `unique_id` for KNX entities is generated based on required configuration values.
+
+- binary_sensor: `state_address`
+- climate: `temperature_address` `target_temperature_state_address` `target_temperature_address` `setpoint_shift_address`
+- cover: `move_long_address` `position_address`
+- fan: `address`
+- light: `address` or all combined `brightness_address` if only `individual_colors` is used
+- notify: `address`
+- scene: `address` and `scene_number`
+- sensor: `state_address`
+- switch: `address`
+- weather: `address_temperature`
+
+There can not be multiple entities on the same platform sharing these exact group addresses, even if they differ in other configuration.
+
+### xknx.yaml configuration
+
+```log
+> The 'config_file' option near /homeassistant/configuration.yaml:42 is deprecated, please remove it from your configuration
+> Invalid config for [knx]: [config_file] is an invalid option for [knx]. Check: knx->knx->config_file.
+```
+
+The feature to specify a xknx configuration schema file in the Home Assistant configuration YAML file (via `config_file:`) is deprecated since Home Assistant 2021.4. You can use the [xknx.yaml config converter](https://xknx.io/config-converter/) to convert it to a Home Assistant compatible `configuration.yaml` schema.

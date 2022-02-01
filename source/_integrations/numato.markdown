@@ -179,7 +179,7 @@ documentation](https://numato.com/docs/32-channel-usb-gpio-module-with-analog-in
 
 ## Device IDs
 
-This integration uses a internal device ID to identify the device, which is
+This integration uses an internal device ID to identify the device, which is
 _not_ the Linux device path. The Linux device path (e.g., `/dev/ttyACM0`) can
 change, for example, when you disconnect and re-connect the device or if you
 connect the device to a different USB port.

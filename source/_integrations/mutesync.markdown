@@ -1,5 +1,5 @@
 ---
-title: Mutesync
+title: mutesync
 description: Instructions on how to integrate Mutesync button with Home Assistant.
 ha_category:
   - Presence Detection
@@ -22,3 +22,7 @@ There is currently support for the following platforms within Home Assistant:
 - Binary sensor - mic muted/unmuted and meeting live/not-live
 
 {% include integrations/config_flow.md %}
+
+Please note, when setting the integration, the UI will ask for "Host". This is
+the hostname or IP address of the machine you run MuteSync on (which is most
+likely your desktop computer).

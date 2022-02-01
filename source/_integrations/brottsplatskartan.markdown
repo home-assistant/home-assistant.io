@@ -43,7 +43,6 @@ longitude:
   default: Your home zone longitude defined in your configuration.
 {% endconfiguration %}
 
-
 ## Notes
 
 ### Area

@@ -26,7 +26,7 @@ tts:
 
 <div class='note'>
 
-Depending on your setup, you might need to set a external URL (`external_url`) inside the [configuration](/docs/configuration/basic/) or in the parameters of this component.
+Depending on your setup, you might need to set an external URL (`external_url`) inside the [configuration](/docs/configuration/basic/) or in the parameters of this component.
 
 </div>
 
@@ -97,7 +97,7 @@ The Google cast devices (Google Home, Chromecast, etc.) present the following pr
 
 * They [reject self-signed certificates](#self-signed-certificates).
 
-* They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). If you are _not_ using SSL then setting a internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
+* They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). If you are _not_ using SSL then setting an internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
 
 * If you are using an SSL (e.g., `https://yourhost.example.org/...`) then you _must_ use the hostname in the certificate (e.g., `base_url: https://yourhost.example.org`). You cannot use an IP address since the certificate won't be valid for the IP address, and the cast device will refuse the connection.
 
@@ -110,26 +110,26 @@ Say to all `media_player` device entities:
 ```yaml
 # Replace google_translate_say with <platform>_say when you use a different platform.
 service: tts.google_translate_say
-entity_id: "all"
 data:
-  message: "May the Force be with you."
+  entity_id: all
+  message: "May the force be with you."
 ```
 
 Say to the `media_player.floor` device entity:
 
 ```yaml
 service: tts.google_translate_say
-entity_id: media_player.floor
 data:
-  message: "May the Force be with you."
+  entity_id: media_player.floor
+  message: "May the force be with you."
 ```
 
 Say to the `media_player.floor` device entity in French:
 
 ```yaml
 service: tts.google_translate_say
-entity_id: media_player.floor
 data:
+  entity_id: media_player.floor
   message: "Que la force soit avec toi."
   language: "fr"
 ```

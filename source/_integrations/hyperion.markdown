@@ -12,6 +12,7 @@ ha_quality_scale: platinum
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
+  - camera
   - light
   - switch
 ---
@@ -50,6 +51,16 @@ extra effects will be available:
 - 'Platform Capture': Use a 'Platform Capture' grabber that is configured in Hyperion.
 - 'USB Capture': Use a 'USB Capture' device that is configured in Hyperion.
 - 'Solid': Use a solid color only.
+
+## Hyperion Camera
+
+A Hyperion camera entity is created that shows a stream of the input to Hyperion (e.g., a
+USB Capture device). This could be used to show a small "preview window" next to TV
+controls, for example.
+
+Please note that only the currently live Hyperion priority can be streamed, and only
+streamable sources will actually stream content (e.g., USB Capture Devices will work, but
+static colors will not).
 
 ## Advanced Entities
 

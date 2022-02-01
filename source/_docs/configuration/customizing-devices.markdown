@@ -1,31 +1,22 @@
 ---
 title: "Customizing entities"
-description: "Simple customization for entities in the frontend."
+description: "Simple customization for entities."
 ---
 
-## Changing the entity_id
+## Changing the entity ID
 
-You can use the UI to change the `entity_id` and friendly name of supported entities. To do this:
+You can use the UI to change the entity ID and friendly name of supported entities. To do this:
 
 1. Select the entity, either from the frontend or by clicking the info button next to the entity in the Developer Tools "States" tab.
-2. Click on the cog in the right corner of the entity's dialog
+2. Click on the cog icon in the right corner of the entity's dialog
 3. Enter the new name or the new entity ID (remember not to change the domain of the entity - the part before the `.`)
 4. Select *Save*
 
-If your entity is not supported, or you cannot customize what you need via this method, please see below for more options:
+If your entity is not supported, or you cannot customize what you need via this method, please see below for more options.
 
 ## Customizing entities
 
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
-
-### Customization using the UI
-
-Under the *Configuration* menu you'll find the *Customizations* menu. If this menu item is not visible, enable advanced mode on your [profile page](/docs/authentication/#your-account-profile) first. When you select an entity to customize, you'll see all the existing attributes listed and you can customize those or select an additional supported attribute ([see below](/docs/configuration/customizing-devices/#possible-values)). You may also need to add the following to your `configuration.yaml` file, depending when you started using Home Assistant:
-
-```yaml
-homeassistant:
-  customize: !include customize.yaml
-```
 
 #### Possible values
 
@@ -39,7 +30,7 @@ entity_picture:
   required: false
   type: string
 icon:
-  description: "Any icon from [MaterialDesignIcons.com](http://materialdesignicons.com). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
+  description: "Any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
   required: false
   type: string
 assumed_state:

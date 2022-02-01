@@ -56,7 +56,7 @@ Before beginning make sure that you have the following:
 
    - `host` (*Optional*): The IP address to listen on for client requests. This defaults to all IP addresses on the server. To listen only locally, choose `127.0.0.1`
    - `port` (*Optional*): The port to listen on for client requests. Defaults to 12345.
-   - `password` (*Required*): A password shared between client and server.  Use only alpha-numeric characters and spaces
+   - `password` (*Required*): A password shared between client and server.  Use only alphanumeric characters and spaces
    - `mbox_path` (*Required*): The path to the storage location of mailbox files. This is typically `/var/spool/asterisk/voicemail/default/<mailbox>/`
    - `cache_file` (*Required*): A fully-qualified path to a file that can be written by the server containing transcriptions of voicemails. Example: `/var/spool/asterisk/transcription.cache`
    - `google_key` (*Required*): Your 40 characters Google API key.

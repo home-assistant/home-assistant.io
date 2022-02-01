@@ -23,7 +23,7 @@ ha_platforms:
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.
 
-The `enocean` integration adds support for some of these devices. You will need a controller like the [USB300](https://www.enocean.com/en/enocean_modules/usb-300-oem/) in order for it to work.
+The EnOcean integration adds support for some of these devices. You will need a controller like the [USB300](https://www.enocean.com/en/enocean_modules/usb-300/) in order for it to work.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -43,17 +43,13 @@ The following devices have been confirmed to work out of the box:
 - EnOcean STM-330 temperature sensor
 - Hoppe SecuSignal window handle from Somfy
 
-If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). 
-If it does, it will most likely work. 
-The available profiles are usually listed somewhere in the device manual. 
+If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). If it does, it will most likely work. The available profiles are usually listed somewhere in the device manual.
 
 Support for tech-in messages is not implemented.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
-Despite the UI-based configuration of the hub, the entities are still configured using YAML see mext chapters).
+Despite the UI-based configuration of the hub, the entities are still configured using YAML see next chapters).
 
 ## Binary Sensor
 
@@ -149,7 +145,7 @@ sender_id:
   required: true
   type: list
 name:
-  description: An identifier for the Ligh in the frontend.
+  description: An identifier for the light in the frontend.
   required: false
   default: EnOcean Light
   type: string
@@ -237,6 +233,7 @@ The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what
 - **A5-10-01** to **A5-10-14** - Room Operating Panels
 - **A5-04-01** - Temp. and Humidity Sensor, Range 0°C to +40°C and 0% to 100%
 - **A5-04-02** - Temp. and Humidity Sensor, Range -20°C to +60°C and 0% to 100%
+- **A5-10-03** - Temp. Sensor, Set point control
 - **A5-10-10** - Temp. and Humidity Sensor and Set Point
 - **A5-10-12** - Temp. and Humidity Sensor, Set Point and Occupancy Control
 
@@ -285,6 +282,7 @@ However, some EEPs have a different, inverted range, which goes from 0 to 250. T
 - **A5-04-01**
 - **A5-04-02**
 - **A5-10-10** to **A5-10-14**
+- **A5-20-01** - Battery powered actuator (bi-dir)
 
 Adapt the `configuration.yaml` for those sensors:
 

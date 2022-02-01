@@ -9,16 +9,20 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@OttoWinter'
+  - '@jesserockz'
 ha_domain: esphome
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - camera
+  - button
   - climate
   - cover
   - fan
   - light
+  - number
   - sensor
+  - select
   - switch
 ---
 

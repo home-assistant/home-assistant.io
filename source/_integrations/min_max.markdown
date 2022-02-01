@@ -4,7 +4,7 @@ description: Instructions on how to integrate min/max sensors into Home Assistan
 ha_category:
   - Utility
   - Sensor
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: 0.31
 ha_quality_scale: internal
 ha_codeowners:

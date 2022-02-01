@@ -27,7 +27,7 @@ The AEMET OpenData service is completely free but is limited to the Spanish terr
 
 ## Configuration
 
-To add AEMET OpenData integration go to **Configuration** >> **Integrations** and find the integration in the list.
+To add AEMET OpenData integration go to **Configuration** >> **Devices & Services** and find the integration in the list.
 
 {% configuration_basic %}
 API Key:

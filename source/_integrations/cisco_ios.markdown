@@ -65,7 +65,7 @@ host:
   required: true
   type: string
 username:
-  description: The username of an user with administrative privileges.
+  description: The username of a user with administrative privileges.
   required: true
   type: string
 password:

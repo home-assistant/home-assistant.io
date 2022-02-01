@@ -21,13 +21,13 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor: Reports on zone or output statuses
 - Switch: allows for setting states of selected outputs 
-- Alarm Control Panel: represents the partition (in Polish: "strefa"). Reports its status, and can be used to arm/disarm the the partition
+- Alarm Control Panel: represents the zones (in Polish: "strefa"). Reports its status, and can be used to arm/disarm the partition
 
 The module communicates via Satel's open TCP protocol published on their website. It subscribes for new events coming from alarm system and reacts to them immediately.
 
 ## Setup
 
-Please note that **ETHM-1 module is currently not supported**: it does not provide functionality used by this extension. At the moment only ETHM-1 Plus module is supported. That might change in the future, but no promisses are given.
+Please note that **ETHM-1 module is currently not supported**: it does not provide functionality used by this extension. At the moment only ETHM-1 Plus module is supported. That might change in the future, but no promises are given.
 
 The library currently doesn't support encrypted connection to your alarm, so you need **to turn off encryption for integration protocol**. In Polish: "koduj integracje" must be unchecked. You will find this setting in your DloadX program.
 
@@ -57,7 +57,7 @@ port:
   default: 7094
   type: integer
 code:
-  description: The INTEGRA ID (found in DLOADX under "Communication configuration" or in polish "Komunikacja Konfiguracji" section), it's needed for making use of the switchable_outputs.
+  description: User password, it's needed for making use of the switchable_outputs. It's recommended not to use admin password.
   required: false
   type: string
 partitions:

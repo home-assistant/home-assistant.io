@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Entities Card"
 sidebar_label: Entities
 description: "The Entities card is the most common type of card. It groups items together into lists."
@@ -135,6 +136,10 @@ suffix:
 name:
   required: false
   description: Overwrites friendly entity name.
+  type: string
+icon:
+  required: false
+  description: Icon to use. Defaults to icon of entity.
   type: string
 format:
   required: false

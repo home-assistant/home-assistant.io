@@ -89,11 +89,10 @@ The sensor returns n/a if no stop event is found within the next 24h. A `templat
 
 ```yaml
 # Sample template sensor
-- platform: template
-  sensors:
-    busmonitor:
-      friendly_name: "Bus Mon 199"
-      value_template: >-
+template:
+  - sensor:
+    - name: "Bus monitor 199"
+      state: >-
         {% if is_state_attr('sensor.bus', 'due', 'n/a') %}
           No schedule found
         {% else %}

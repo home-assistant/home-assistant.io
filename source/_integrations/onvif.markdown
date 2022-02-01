@@ -24,7 +24,7 @@ The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/)
 </div>
 
 <div class='note'>
-If running Home Asssistant Core in a venv, ensure that libxml2 and libxslt python interfaces are installed via your package manager.
+If running Home assistant Core in a venv, ensure that libxml2 and libxslt python interfaces are installed via your package manager.
 </div>
 
 ### Configuration Notes
@@ -77,6 +77,6 @@ If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your ca
 | `speed` | Speed coefficient. Sets how fast PTZ will be executed. Allowed values: floating point numbers, 0 to 1. Default : 0.5 |
 | `preset` | PTZ preset profile token. Sets the preset profile token which is executed with GotoPreset. |
 | `move_mode` | PTZ moving mode. Allowed values: `ContinuousMove`, `RelativeMove`, `AbsoluteMove`, `GotoPreset`, `Stop`. Default :`RelativeMove` |
-| `continuous_duration` | Set ContinuousMove delay in seconds before stoping the move. Allowed values: floating point numbers or integer. Default : 0.5 |
+| `continuous_duration` | Set ContinuousMove delay in seconds before stopping the move. Allowed values: floating point numbers or integer. Default : 0.5 |
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).

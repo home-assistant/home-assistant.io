@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Shopping List Card"
 sidebar_label: Shopping List
 description: "The Shopping List card allows you to add, edit, check-off, and clear items from your shopping list."

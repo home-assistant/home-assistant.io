@@ -9,6 +9,7 @@ ha_release: 0.44
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@mezz64'
+  - '@raman325'
 ha_domain: eight_sleep
 ha_platforms:
   - binary_sensor
@@ -55,12 +56,47 @@ partner:
 
 ### Supported features
 
-Sensors:
+Sensors and associated attributes:
 
 - eight_left/right_bed_state
+  - Attributes:
+    - Target Heating Level
+    - Heating Active
+    - Heating Time Remaining
 - eight left/right_sleep_fitness
+  - Attributes:
+    - Fitness Date
+    - Fitness Duration Score
+    - Fitness Asleep Score
+    - Fitness Out-of-Bed Score
+    - Fitness Wakeup Score
 - eight_left/right_sleep_session
+  - Attributes:
+    - Session Start
+    - Tosses & Turns
+    - Processing (True/False)
+    - Time Slept (s)
+    - Light Sleep %
+    - Deep Sleep %
+    - REM Sleep %
+    - Respiratory Rate
+    - Heart Rate
+    - Sleep Stage
+    - Room Temperature
+    - Bed Temperature
 - eight_left/right_previous_sleep_session
+  - Attributes:
+    - Session Start
+    - Tosses & Turns
+    - Processing (True/False)
+    - Time Slept (s)
+    - Light Sleep %
+    - Deep Sleep %
+    - REM Sleep %
+    - Average Respiratory Rate
+    - Average Heart Rate
+    - Average Room Temperature
+    - Average Bed Temperature
 - eight_left/right_bed_temperature
 - eight_left/right_sleep_stage
 - eight_room_temperature
@@ -92,3 +128,7 @@ script:
           target: 35
           duration: 3600
 ```
+
+### Notice
+
+Please note this component relies on an undocumented API utilized by the Eight Sleep mobile app to communicate with the Eight Sleep servers.  It is not supported by Eight Sleep and may malfunction if changes are made to either the mobile app operation or the API format.

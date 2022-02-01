@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: omnilogic
 ha_platforms:
   - sensor
+  - switch
 ---
 
 [Hayward OmniLogic](https://www.hayward-pool.com/shop/en/pools/omnilogic-i-auomni--1) smart pool and spa technology control.

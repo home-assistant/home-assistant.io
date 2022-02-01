@@ -1,0 +1,85 @@
+---
+layout: landingpage
+title: "Home Energy Management"
+date: 2021-07-28
+description: "Monitor your energy usage, transition to sustainable energy and save money"
+hero_image: /images/energy/hero.jpg
+og_image: /images/blog/2021-08-energy/social.png
+frontpage_image: /images/frontpage/energy-frontpage.jpg
+tagline: The world is heating up. Together we can fix that.
+sections:
+  - title: "Monitor usage"
+    description: "Easily track your different power sources and their tariffs."
+    image: /images/energy/vector-graph.png
+    entries:
+      - title: "Know where it goes."
+        description: "Home Assistant shows at a glance how much you're consuming, producing and where this energy is going."
+        image: /images/energy/distribution.png
+      - title: "Keep an eye on your devices."
+        description: "Track the energy use of individual devices to see their impact on your energy consumption."
+        image: /images/energy/individual_devices.png
+
+  - title: "Supercharge your solar panels"
+    description: "Schedule power usage based on solar production predictions."
+    image: /images/energy/vector-sun.png
+    entries:
+      - title: "Time your usage."
+        description: "It’s cheaper to consume the energy you produce than to give it back to the grid. Home Assistant helps you conserve the energy you don't use for later."
+        image: /images/blog/2021-08-energy/solar-production.png
+    style: >-
+      background: rgb(255,244,201);
+      background: radial-gradient(at bottom left, rgb(255, 244, 201) 0%, rgb(255, 252, 223) 15%, rgb(255, 221, 80) 100%);
+      border-radius: 15px;
+
+  - title: "Use any hardware"
+    description: ""
+    image: /images/energy/vector-connect.png
+    entries:
+      - title: "Bring your own hardware"
+        description: "Home Assistant is vendor agnostic and there is no vendor lock-in: we work with any device or service that allows us to retrieve the data."
+        image: /images/blue/blue_hero.jpg
+        read_more: /integrations/#energy
+      - title: "SlimmeLezer"
+        description: >
+          We created SlimmeLezer, a device that connects to electricity meters with P1 ports and makes the data locally available in Home Assistant.
+        image: /images/docs/energy/slimmelezer.jpg
+        read_more: /docs/energy/electricity-grid/#connect-using-a-p1-port
+      - title: "Home Assistant Glow."
+        description: "We created Home Assistant Glow, a device that reads the consumption LED on your electricity meter and make it locally available in Home Assistant."
+        image: /images/docs/energy/home-assistant-glow.jpg
+        image_description: "Home Assistant Glow attached to an energy meter"
+        read_more: /docs/energy/electricity-grid/#reading-the-meter-via-a-pulse-counter
+
+  - title: "Track your costs"
+    description: "Home Assistant helps you keep track of the costs and compensation for your energy consumption and production."
+    image: /images/energy/vector-money.png
+    entries:
+      - title: "Consumption overview."
+        description: "Get an overview of your energy consumption."
+        image: /images/energy/cost.png
+    style: >-
+      background: rgb(201,255,224);
+      background: linear-gradient(90deg, rgba(0,255,102,0.3925770991990546) 0%, rgba(223,255,235,1) 85%, rgba(201,255,224,1) 100%);
+      border-radius: 15px;
+
+---
+
+<div class="material-card text banner-overlay">
+    <div>
+        <div class="banner-overlay-header">Home Energy Management</div>
+        <div class="banner-overlay-content">
+          With Home Assistant we want to do our part to help take on the climate crisis, and help you do the same. One part of fighting the climate crisis is making sure our homes are energy efficient and use low-carbon energy sources.
+          <br><br>
+          Home Assistant helps you monitor your energy usage, transition to sustainable energy and save money.
+        </div>
+    </div>
+    <div class="links">
+      <a href="/getting-started">
+        Get started
+      </a>
+      <a href="https://demo.home-assistant.io/#/energy" target="_blank">
+        View Demo
+      </a>
+    </div>
+</div>
+<div style='text-align: center; margin-top: 10px; font-size: .9em;'>Already have Home Assistant? {% my energy title="Start here" %}</div>

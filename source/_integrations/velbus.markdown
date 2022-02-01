@@ -48,11 +48,25 @@ The port string used in the user interface or the configuration file can have 2 
 ## Services
 
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
+- `velbus.scan`: Scan the bus for new devices.
 - `velbus.set_memo_text`: Show memo text on Velbus display modules.
 
 ### Service `velbus.sync_clock`
 
-You can use the service `velbus.sync clock` to synchronize the clock of the Velbus modules to the clock of the machine running Home Assistant. This is the same as the 'sync clock' button at the VelbusLink software.
+You can use the service `velbus.sync_clock` to synchronize the clock of the Velbus modules to the clock of the machine running Home Assistant. This is the same as the 'sync clock' button at the VelbusLink software.
+
+| Service data attribute | Optional | Description                              |
+| ---------------------- | -------- | ---------------------------------------- |
+| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
+
+### Service `velbus.scan`
+
+You can use the service `velbus.scan` to synchronize the modules between the bus and Home Assistant. This is the same as the 'scan' button at the VelbusLink software.
+
+| Service data attribute | Optional | Description                              |
+| ---------------------- | -------- | ---------------------------------------- |
+| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
+
 
 ### Service `velbus.set_memo_text`
 
@@ -60,6 +74,7 @@ You can use the service `velbus.set_memo_text` to provide the memo text to be di
 
 | Service data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
+| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `address`              | no       | The module address in decimal format, which is displayed at the device list at the integration page. |
 | `memo_text`            | yes      | Text to be displayed on module. When no memo text is supplied the memo text will be cleared. |
 
@@ -73,6 +88,7 @@ script:
     - data:
         address: 65
         memo_text: "It's trash day"
+        interface: "tls://192.168.1.9:27015"
       service: velbus.set_memo_text
 ```
 

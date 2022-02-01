@@ -11,20 +11,111 @@ ha_config_flow: true
 ha_domain: sonos
 ha_codeowners:
   - '@cgtobi'
+  - '@jjlawren'
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - media_player
+  - number
   - sensor
+  - switch
+ha_zeroconf: true
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
 
 {% include integrations/config_flow.md %}
 
-## Battery support
+## Feature controls & sensors
 
-Battery sensors are currently supported for the `Sonos Roam` and `Sonos Move` devices. For each speaker with a battery, a `sensor` showing the current battery charge level and a `binary_sensor` showing the power state of the speaker are created. The `binary_sensor` reports if the speaker is currently powered by an external source and its `power_source` attribute shows which specific source is providing the current power. This source attribute can be one of `BATTERY`, `SONOS_CHARGING_RING` if using wireless charging, or `USB_POWER` if charging via USB cable. Note that the Roam will report `SONOS_CHARGING_RING` even when using a generic Qi charger.
+Speaker-level controls are exposed as `number` or `switch` entities. Additionally, various `sensor` and `binary_sensor` entities are provided.
+
+### Controllable features
+
+- **All devices**: Alarms, Bass, Treble, Crossfade, Status Light, Touch Controls
+- **Home theater devices**: Audio Delay (aka "Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled
+- **When paired with a sub**: Subwoofer Enabled
+
+### Sensors
+
+- **Devices with battery**: Battery level, Power state
+- **Home theater devices**: Audio Input Format
+- **Voice-enabled devices**: Microphone Enabled
+
+### Battery support notes
+
+Battery sensors are fully supported for the `Sonos Roam` and `Sonos Move` devices on S2 firmware. `Sonos Move` speakers still on S1 firmware are supported but may update infrequently.
+
+For each speaker with a battery, a `sensor` showing the current battery charge level and a `binary_sensor` showing the power state of the speaker are created. The `binary_sensor` reports if the speaker is currently powered by an external source and its `power_source` attribute shows which specific source is providing the current power. This source attribute can be one of `BATTERY`, `SONOS_CHARGING_RING` if using wireless charging, or `USB_POWER` if charging via USB cable. Note that the Roam will report `SONOS_CHARGING_RING` even when using a generic Qi charger.
+
+<div class='note'>
+
+The battery sensors rely on working change events or updates will be delayed. S1 battery sensors **require** working events to report any data. See more details in [Advanced use](#advanced-use). 
+
+</div>
+
+### Alarm support notes
+
+The Sonos integration adds one `switch` for each alarm set in the Sonos app. The alarm switches are detected, deleted and assigned automatically and come with several attributes that help to monitor Sonos alarms.
+
+### Microphone support notes
+
+The microphone can only be enabled/disabled from physical buttons on the Sonos device and cannot be controlled from Home Assistant. A `binary_sensor` reports its current state.
+
+## Playing media
+
+Sonos accepts a variety of `media_content_id` formats in the `media_player.play_media` service, but most commonly as URIs. For example, both Spotify and Tidal share links can be provided as-is. Playback of [music hosted on a Plex server](/integrations/plex#sonos-playback) is possible. Direct HTTP/HTTPS links to local or remote media files can also be used if the Sonos device can reach the URI directly, but specific media encoding support may vary.
+
+Music services which require an account (e.g., Spotify) must first be configured using the Sonos app.
+
+An optional `enqueue` argument can be added to the service call. If `true`, the media will be appended to the end of the playback queue. If not provided or `false` then the queue will be replaced.
+
+### Examples:
+
+This is an example service call that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver):
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: "music"
+  media_content_id: "http://192.168.1.50:8123/local/sound_files/doorbell-front.mp3"
+```
+
+Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. An example service call using a playlist URI:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: "playlist"
+  media_content_id: "spotify:playlist:abcdefghij0123456789XY"
+  enqueue: true
+```
+
+An example service call using a Spotify URL:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: "music"
+  media_content_id: "https://open.spotify.com/album/abcdefghij0123456789YZ"
+```
+
+Run a [Plex Media Server](/integrations/plex#sonos-playback) in your home? The Sonos integration can work with that as well. This example plays music directly from your Plex server:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: "music"
+  media_content_id: 'plex://{ "library_name": "Music", "artist_name": "M83", "album_name": "Hurry Up, We're Dreaming" }'
+```
 
 ## Services
 
@@ -111,19 +202,6 @@ Update an existing Sonos alarm.
 | `enabled` | yes | Boolean for whether or not to enable this alarm.
 | `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players.
 
-### Service `sonos.set_option`
-
-Set Sonos speaker options.
-
-Night Sound and Speech Enhancement modes are only supported when playing from the TV source of products like Sonos Playbar and Sonos Beam. Other speaker types will ignore these options.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of `entity_id`s that will have their options set.
-| `night_sound` | yes | Boolean to control Night Sound mode.
-| `speech_enhance` | yes | Boolean to control Speech Enhancement mode.
-| `status_light` | yes | Boolean to control the Status (LED) Light.
-
 ### Service `sonos.play_queue`
 
 Starts playing the Sonos queue.
@@ -199,14 +277,7 @@ sonos:
       - 192.0.2.27
 ```
 
-If your Home Assistant instance has multiple IP addresses, you can provide the IP address that should be used for Sonos auto-discovery. This is rarely needed since all addresses should be tried by default.
-
-```yaml
-# Example configuration.yaml entry using Sonos discovery on a specific interface
-sonos:
-  media_player:
-    interface_addr: 192.0.2.1
-```
+If your Home Assistant instance has multiple IP addresses, you can enable the IP address that should be used for Sonos auto-discovery with the [Network](/integrations/network/) integration. This should only be necessary if the Sonos speakers are on a network segment not reachable from the default interface.
 
 The Sonos speakers will attempt to connect back to Home Assistant to deliver change events. By default, Home Assistant will listen on port 1400 but will try the next 100 ports above 1400 if it is in use. You can change the IP address that Home Assistant advertises to Sonos speakers. This can help in NAT scenarios such as when _not_ using the Docker option `--net=host`:
 

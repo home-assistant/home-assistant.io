@@ -28,7 +28,7 @@ The Synology DSM sensor platform provides access to various statistics from your
 
 This sensor will wake up your Synology NAS if it's in hibernation mode.
 
-You can change the scan interal within the configuration options (default is 15 min).
+You can change the scan interval within the configuration options (default is 15 min).
 
 Having cameras or the Home mode toggle from [Surveillance Station](https://www.synology.com/en-us/surveillance) will fetch every 30 seconds. Disable those entities if you don't want your NAS to be fetch as frequently.
 
@@ -85,6 +85,12 @@ Entities reporting status, total size (TB), used size (TB), % of volume used, av
 
 Entities reporting the update and security status of the NAS.
 
+<div class='note'>
+
+The security status corresponds with the analysis of the DSM Security Advisor, e.g., an `outOfDate` state for the `Update` attribute not only reflects the update status of the installed DSM version but also the status of the installed DSM packages.
+
+</div>
+
 ### Disk sensors
 
 Similar to the [normal disk sensors](#disk-sensors), there are binary sensors reporting each drive's status. These sensors report if a drive has exceeded the maximum threshold for detected bad sectors and if a drive has dropped below the threshold for its remaining life.
@@ -97,20 +103,12 @@ A switch is available to enable/disable the [Surveillance Station](https://www.s
 
 For each camera added in [Surveillance Station](https://www.synology.com/en-us/surveillance), a camera will be created in Home Assistant.
 
-## Services
+## Buttons
 
-### Service `synology_dsm.reboot`
+### Button `reboot`
 
-Reboot the specified NAS by `serial`. If only one DSM is configured, `serial` is optional.
+Reboot the NAS.
 
-  | Service data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
-  | `serial` | yes, when multiple NAS are configured | serial of DSM |
+### Button `shutdown`
 
-### Service `synology_dsm.shutdown`
-
-Shutdown the specified NAS by `serial`. If only one DSM is configured, `serial` is optional.
-
-  | Service data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
-  | `serial` | yes, when multiple NAS are configured | serial of DSM |
+Shutdown the NAS.

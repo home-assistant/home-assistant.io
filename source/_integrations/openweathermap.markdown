@@ -40,7 +40,7 @@ not be activated yet.
 | Name                 | Name of the integration                                                                                                                                                                                                                    |
 | Latitude             | Latitude for weather forecast and sensor                                                                                                                                                                                                   |
 | Longitude            | Longitude for weather forecast and sensor                                                                                                                                                                                                  |
-| Mode                 | Forecast mode, `hourly` for a three-hour forecast, `daily` for daily forecast using a paid API tier, `onecall_hourly` for an hourly forecast up to 2 days, or `onecall_daily` for a daily forecast up to 7 days (ideal for the free tier). |
+| Mode                 | Forecast mode, `hourly` for a three-hour forecast, `daily` for daily forecast using a paid API tier, `onecall_hourly` for an hourly forecast up to 2 days, or `onecall_daily` for a daily forecast up to 7 days (ideal for the free tier, default). |
 | Language             | Language for receiving data (only for `sensor`)                                                                                                                                                                                            |
 
 The integration creates a weather entity as well as sensors for supported weather conditions.
@@ -90,6 +90,7 @@ The time period these sensors use depends on the forecast mode selected when con
 
 | Condition                            | Description                                                                                                                                                    |
 | :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
+| `forecast_cloud_coverage`         | Cloudiness, %.                                                                                                                    |
 | `forecast_condition`                 | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition) for the forecast's time period. |
 | `forecast_precipitation`             | Combined Rain and Snow volume for the forecast's time period, mm.                                                                                              |
 | `forecast_precipitation_probability` | Probability of precipitation for the forecast's time period.                                                                                                   |

@@ -1,7 +1,6 @@
 ---
 title: Home Connect
 description: Instructions on how to set up the Home Connect integration within Home Assistant.
-logo: homeconnect.png
 ha_category:
   - Hub
   - Binary Sensor

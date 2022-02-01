@@ -4,12 +4,15 @@ description: Instructions on how to integrate Vallox ventilation units into Home
 ha_category:
   - Fan
   - Sensor
+ha_config_flow: true
 ha_release: 0.96
 ha_iot_class: Local Polling
 ha_domain: vallox
 ha_platforms:
   - fan
   - sensor
+ha_codeowners:
+  - '@andre-richter'
 ---
 
 The `vallox` integration lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
@@ -23,24 +26,7 @@ The **fan** platform of this integration allows you to either turn on/off the co
 
 Also, there is a **sensor** platform that exposes a number of relevant metrics like fan speed, various air temperatures and humidity.
 
-## Configuration
-
-```yaml
-vallox:
-  host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: The IP or hostname of the ventilation unit in your home network.
-  required: true
-  type: string
-name:
-  description: The name of this device as you want to see it in Home Assistant.
-  required: false
-  default: Vallox
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Profile Switching
 

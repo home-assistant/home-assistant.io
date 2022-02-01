@@ -13,6 +13,14 @@ ha_platforms:
   - sensor
 ---
 
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.4.
+
+For more information see: [Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+</div>
+
 There is currently support for the following device types within Home Assistant:
 
 - [Light](#light)
@@ -60,7 +68,7 @@ display_options:
     pressure:
       description: Pressure
 name:
-  description: Change the name of te sensor, for in the frontend.
+  description: Change the name of the sensor, for in the frontend.
   required: false
   type: string
 is_hat_attached:
@@ -185,7 +193,7 @@ sudo reboot
 ```
 
 Unfortunately enabling the SenseHAT Sensor integration for a Virtual Environment install of Home Assistant fails with errors.
-_(The Raspberry Pi All-In-One installer run Home Assistant in an virtual environment)._
+_(The Raspberry Pi All-In-One installer run Home Assistant in a virtual environment)._
 These issues have been discussed in the repository issue [#5093](https://github.com/home-assistant/home-assistant/issues/5093)
 
 This fix has been tested with a clean install of:

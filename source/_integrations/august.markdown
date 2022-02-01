@@ -21,7 +21,23 @@ ha_platforms:
   - sensor
 ---
 
-The `august` integration allows you to integrate your [August](https://august.com/) devices in Home Assistant.
+The `august` integration allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.
+
+{% include integrations/config_flow.md %}
+
+## Known Working Devices
+
+| Device                            | Requires [Connect Bridge](https://august.com/products/august-connect/) or Doorbell |
+| --------------------------------- | ------------------------------------|
+| August Wi-Fi Smart Lock (Gen 4) | no |
+| August Smart Lock Pro (Gen 3) | yes |
+| August Smart Lock (Gen 2) | yes |
+| August Smart Lock (Gen 1) | no |
+| August Doorbell Cam (Gen 1, Gen2) | no |
+| August View | no |
+| Yale Assure Lock | yes |
+| Yale Conexis L1 | yes |
+| Yale Linus | yes |
 
 There is currently support for the following device types within Home Assistant:
 
@@ -32,12 +48,16 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 
 <div class='note'>
-August Lock 2nd Gen will need either August Connect or Doorbell to connect to Home Assistant.
+Most devices will need either August Connect Bridge or Doorbell to connect to Home Assistant.
 </div>
 
-{% include integrations/config_flow.md %}
+## Known Unsupported Devices
 
-### Binary Sensor
+- The Yale Doorman L3
+
+Other devices not listed above have not been tested and may not function as expected.
+
+## Binary Sensor
 
 If you have an August Doorbell, once you have enabled the August component, you should see following sensors:
 
@@ -49,11 +69,11 @@ If you have an August Smart Lock with DoorSense, once you have enabled the Augus
 
 - Door sensor
 
-### Camera
+## Camera
 
 The `august` camera platform allows you to view the latest camera image (triggered by motion) by your [August](https://august.com/) device in Home Assistant.
 
-### Sensor
+## Sensor
 
 If you have an August Doorbell with a battery, once you have enabled the August component, you should see the following sensors:
 
@@ -68,7 +88,7 @@ If you have an August Keypad, once you have enabled the August component, you sh
 
 - Keypad Battery
 
-### Presence Detection with Lock Operation
+## Presence Detection with Lock Operation
 
 Using the lock operation sensors, you can detect when a user operates a lock and is physically present (not remote). The below automation example (added to `automations.yaml`) will trigger when the user named “John Doe” in August locks or unlocks the door from the keypad (if present), via Bluetooth from their phone, or by auto-unlock. The state of the sensor will be the name of the party operating the lock as returned by August.
 

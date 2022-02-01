@@ -23,7 +23,22 @@ You need two Google accounts. Account A is the account that has to be set up to 
 
 ### Note for existing location sharing users
 
-If you already have other people sharing their location to your existing Account A and do not wish to ask them to also share their location with a new Account B. Create the new Google account (account B) and share the location of Account B back to Account A. Follow the steps listed, substituting the instructions stating “Account B” for “Account A” (i.e., a cookie file is from Account A, slugified username of Account A), then ensure both Account A and Account B are logged in on your mobile device.
+If you already have other people sharing their location with your existing Account A and do not wish to ask them to also share their location with a new Account B. Simply repeat the steps above to obtain a valid cookie from Google for Account A. Then add both accounts to the device tracker configuration (don’t forget to include the multiple cookie files, one for each account being added to the integration).
+
+```yaml
+# Example configuration.yaml entry
+device_tracker:
+  - platform: google_maps
+    username: "ACCOUNT_A_EMAIL"
+  - platform: google_maps
+    username: "ACCOUNT_B_EMAIL"
+```
+
+<div class='note'>
+If using more than one account, your own device may show twice, however, the parameters returned from Account A will not include a value for battery_level or entity_picture. These parameters will be present in your device tracker entity from Account B. Therefore, disregard the device tracker entity with is missing those parameters. 
+</div>
+
+
 
 
 ## Configuration

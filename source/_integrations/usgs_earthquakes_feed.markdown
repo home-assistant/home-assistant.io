@@ -8,6 +8,8 @@ ha_release: 0.84
 ha_codeowners:
   - '@exxamalte'
 ha_domain: usgs_earthquakes_feed
+ha_platforms:
+  - geo_location
 ---
 
 The `usgs_earthquakes_feed` platform lets you integrate a GeoJSON feed provided by the [U.S. Geological Survey](https://earthquake.usgs.gov/) with information about seismic events like earthquakes. It retrieves incidents from a feed and shows information of those incidents filtered by distance to Home Assistant's location.
@@ -123,7 +125,6 @@ geo_location:
 Assuming you configure this service using `feed_type: past_week_all_earthquakes`, you can create a corresponding map card in the Lovelace UI with the following card:
 ```yaml
 type: map
-name: Earthquakes
 geo_location_sources:
   - usgs_earthquakes_feed
 entities:

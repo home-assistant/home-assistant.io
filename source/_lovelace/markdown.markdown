@@ -1,4 +1,5 @@
 ---
+type: card
 title: "Markdown Card"
 sidebar_label: Markdown
 description: "The Markdown card is used to render Markdown"
@@ -111,7 +112,7 @@ For example:
 ```yaml
 type: markdown
 content: |
-  <ha-icon icon="mdi:home-assistant"></ha-icon>
+  <ha-icon icon="mdi:home-assistant" />
 ```
 
 {% endraw %}

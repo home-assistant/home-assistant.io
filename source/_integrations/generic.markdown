@@ -1,5 +1,5 @@
 ---
-title: Generic
+title: Generic Camera
 description: Instructions on how to integrate IP cameras within Home Assistant.
 ha_category:
   - Camera
@@ -28,11 +28,11 @@ camera:
 
 {% configuration %}
 still_image_url:
-  description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/topics/templating/)."
-  required: true
+  description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/topics/templating/). At least one of still_image_url or stream_source must be provided."
+  required: false
   type: string
 stream_source:
-  description: "The URL your camera serves the live stream on, e.g., `rtsp://192.168.1.21:554/`. Can be a [template](/topics/templating/)."
+  description: "The URL your camera serves the live stream on, e.g., `rtsp://user:pass@192.168.1.21:554/`. Can be a [template](/topics/templating/). Usernames and passwords must be embedded in the URL. At least one of still_image_url or stream_source must be provided."
   required: false
   type: string
 name:
@@ -40,11 +40,11 @@ name:
   required: false
   type: string
 username:
-  description: The username for accessing your camera.
+  description: The username for accessing your camera. Note that this username applies only to still_image_url and not to stream_source.
   required: false
   type: string
 password:
-  description: The password for accessing your camera.
+  description: The password for accessing your camera. Note that this password applies only to still_image_url and not to stream_source.
   required: false
   type: string
 authentication:
@@ -65,6 +65,7 @@ content_type:
 framerate:
   description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
   required: false
+  default: 2
   type: integer
 verify_ssl:
   description: Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
@@ -120,6 +121,7 @@ camera:
     name: Host instance camera feed
     still_image_url: https://127.0.0.5:8123/api/camera_proxy/camera.live_view
 ```
+
 ### Image from HTTP only camera
 
 To access a camera which is only available via HTTP, you must turn off SSL verification.
@@ -141,7 +143,18 @@ camera:
   - platform: generic
     name: Streaming Enabled
     still_image_url: http://194.218.96.92/jpg/image.jpg
-    stream_source: rtsp://194.218.96.92:554
+    username: user
+    password: pass
+    stream_source: rtsp://user:pass@194.218.96.92:554
+```
+
+If a camera only has a live stream URL and no snapshot URL, the [stream](/integrations/stream/) component can also generate still images from the live stream URL.
+
+```yaml
+camera:
+  - platform: generic
+    name: Streaming
+    stream_source: rtsp://user:pass@194.218.96.92:554
 ```
 
 ### Secured access to the camera

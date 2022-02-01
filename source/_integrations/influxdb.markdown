@@ -61,7 +61,7 @@ port:
   default: 8086
 path:
   type: string
-  description: Path to use if your InfuxDB is running behind an reverse proxy.
+  description: Path to use if your InfuxDB is running behind a reverse proxy.
   required: false
 username:
   type: string
@@ -417,7 +417,7 @@ bucket:
   default: Home Assistant
 queries:
   type: list
-  description: 1.xx only - List of InfluxQL queries.
+  description: 1.xx only - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring an InfluxQL query.
   required: true
   keys:
     name:
@@ -457,7 +457,7 @@ queries:
       default: value
 queries_flux:
   type: list
-  description: 2.xx only - List of Flux queries.
+  description: 2.xx only - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring a Flux query.
   required: true
   keys:
     name:

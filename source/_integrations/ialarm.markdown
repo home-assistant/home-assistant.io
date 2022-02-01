@@ -1,7 +1,6 @@
 ---
 title: Antifurto365 iAlarm
 description: Instructions on how to integrate iAlarms alarms into Home Assistant.
-logo: antifurto365-ialarm.png
 ha_category:
   - Alarm
 ha_iot_class: Local Polling
@@ -15,6 +14,7 @@ ha_platforms:
 ---
 
 The iAlarm integration provides connectivity with the [Antifurto365](https://www.antifurtocasa365.it/) iAlarm alarm systems and has also been confirmed to work with the alarm system brands Meian and Emooluxr.
+Please note that the latest iAlarm-XR alarm system is not supported.
 
 This platform supports the following services:
 

@@ -17,26 +17,7 @@ The `solax` integration connects Home Assistant to Solax solar power inverters. 
 
 ## Configuration
 
-To use the Solax sensors in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: solax
-    ip_address: IP_ADDRESS
-```
-
-{% configuration %}
-ip_address:
-  description: The IP address of your Solax system.
-  required: true
-  type: string
-port:
-  required: false
-  type: integer
-  default: 80
-  description: The port number
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ### Optional template sensor
 
@@ -46,17 +27,14 @@ If you would like to convert the values from multiple panels or view the total p
 
 ```yaml
 # Example configuration.yaml entry for template platform
-sensors:
-- platform: template
-  sensors:
-    total_pv_power:
-      friendly_name: "Total PV Power"
-      unit_of_measurement: "W"
-      value_template: "{{ (states('sensor.pv1_power') | float) + (states('sensor.pv2_power') | float) }}"
-    load_power:
-      friendly_name: "Load Power"
-      unit_of_measurement: "W"
-      value_template: "{{ (states('sensor.power_now') | float) - (states('sensor.exported_power') | float) }}"
+template:
+- sensor
+  - name: Total PV power
+    unit_of_measurement: "W"
+    state: "{{ (states('sensor.pv1_power') | float(default=0)) + (states('sensor.pv2_power') | float(default=0)) }}"
+  - name: Load power
+    unit_of_measurement: "W"
+    state: "{{ (states('sensor.power_now') | float(default=0)) - (states('sensor.exported_power') | float(default=0)) }}"
 ```
 
 {% endraw %}

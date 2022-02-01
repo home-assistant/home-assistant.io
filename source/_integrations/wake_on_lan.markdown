@@ -32,7 +32,7 @@ wake_on_lan:
 
 Available services: `send_magic_packet`.
 
-#### Service `wake_on_lan/send_magic_packet`
+#### Service `wake_on_lan.send_magic_packet`
 
 Send a _magic packet_ to wake up a device with 'Wake-On-LAN' capabilities.
 
@@ -112,7 +112,7 @@ Here are some real-life examples of how to use the **turn_off** variable.
 Suggested recipe for letting the `turn_off` script suspend a Linux computer (the **target**)
 from Home Assistant running on another Linux computer (the **server**).
 
-1. On the **server**, log in as the user account Home Assistant is running under. In this exampleit's `hass`.
+1. On the **server**, log in as the user account Home Assistant is running under. In this example it's `hass`.
 2. On the **server**, create SSH keys by running `ssh-keygen`. Just press enter on all questions.
 3. On the **target**, create a new account that Home Assistant can ssh into: `sudo adduser hass`. Just press enter on all questions except password. It's recommended using the same user name as on the server. If you do, you can leave out `hass@` in the SSH commands below.
 4. On the **server**, transfer your public SSH key by `ssh-copy-id hass@TARGET` where TARGET is your target machine's name or IP address. Enter the password you created in step 3.

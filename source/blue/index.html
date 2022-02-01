@@ -1,17 +1,9 @@
 ---
+layout: landingpage
 title: "Home Assistant Blue!"
 description: "Where style and performance meet privacy"
-sidebar: false
-is_homepage: true
-feedback: false
-body_id: blue
-show_title: false
-og_image: /images/blue/blue_hero.jpg
----
-
-<div class="banner">
-  <img src="/images/blue/blue_hero.jpg" />
-  <div class="title">
+date: 2020-12-12
+tagline: >-
     Home Assistant
     <svg
       width="212"
@@ -28,41 +20,39 @@ og_image: /images/blue/blue_hero.jpg
       />
       <text x="40" y="78" stroke="white" fill="white">Blue</text>
     </svg>
-  </div>
-</div>
+tagline_wide: false
+og_image: /images/blue/blue_hero.jpg
+frontpage_image: /images/frontpage/blue-frontpage.jpg
+---
 
 <div class="content">
-  <div class="material-card text missing-piece">
+  <div class="material-card text banner-overlay with-box">
     <div>
-      <div class="missing-piece-header">The missing piece</div>
-      <div class="missing-piece-content">
-        We challenged ourselves: what would the perfect home automation hub look
-        like. Not just software, but also hardware and looks.
-      </div>
-      <div class="missing-piece-content secondary">
-        The result is the limited edition Home Assistant Blue bundle. Hardware
-        that is affordable and fast, packed in a gorgeous case and powered by
-        the most powerful home automation software on the planet: Home
-        Assistant.
+      <div class="banner-overlay-header">Available today</div>
+      <div class="banner-overlay-content">
+        The limited edition Home Assistant Blue bundle is hardware that is affordable
+        and fast, packed in a custom-designed and gorgeous case, and powered by the most powerful home
+        automation software on the planet: Home Assistant.
       </div>
     </div>
-    <div class="material-card text missing-piece-overlay">
-      <div class="missing-piece-overlay-header">LIMITED EDITION</div>
-      <div class="missing-piece-overlay-price">
-        $140
+    <div class="material-card text box">
+      <div class="banner-overlay-header">LIMITED EDITION</div>
+      <div class="banner-overlay-price">
+        $146
         <div>*</div>
       </div>
-      <div class="missing-piece-overlay-images">
+      <div class="banner-overlay-images">
         <div class="img-container"><img src="/images/blue/blue1.png" /></div>
         <div class="img-container"><img src="/images/blue/blue2.png" /></div>
         <div class="img-container"><img src="/images/blue/blue3.png" /></div>
       </div>
-      <div class="missing-piece-overlay-button" onclick="showBuyDialog()">
+      <div class="banner-overlay-button" onclick="showBuyDialog()">
         <div>BUY NOW</div>
       </div>
+      <div class='below-button'>Limited stock left</div>
     </div>
   </div>
-  <div class="missing-piece-disclaimer">
+  <div class="banner-overlay-disclaimer">
     * Price does not include taxes and import fees
   </div>
 
@@ -368,7 +358,7 @@ og_image: /images/blue/blue_hero.jpg
         <div class="spec-content">
           No Wi-Fi or Bluetooth
           <div class="spec-content-additional">
-            Support for Z-Wave and Zigbee by external USB adaptor
+            Support for Z-Wave and Zigbee by external USB adapter
             (not&nbsp;included)
           </div>
         </div>
@@ -595,10 +585,24 @@ All other parts of the bundle will remain available for purchase.
 
 {% enddetails %}
 
+{% details "What is the difference with Home Assistant Yellow?" %}
+
+We partnered with a single-board computer (SBC) manufacturer to introduce Home Assistant Blue, our first foray into creating hardware that runs Home Assistant. Home Assistant Blue was always meant to be a limited edition and its production has been discontinued.
+<br><br>
+Though Home Assistant Blue has been limited, we will continue to support it and, just like Home Assistant Yellow, it is able to run the latest version of Home Assistant.
+
+{% enddetails %}
+
 {% details "I already own an ODROID-N2+. Do I run the same software?" %}
 
 Yes! Home Assistant Blue runs the exact same software as that you're
 currently using and you're benefitting from all the improvements.
+
+{% enddetails %}
+
+{% details "Will Home Assistant keep supporting the Blue even when it's limited?" %}
+
+Yes! We are committed to keep supporting all platforms that are currently available.
 
 {% enddetails %}
 
@@ -654,11 +658,7 @@ Nope! We are committed to keep supporting all platforms that are currently avail
               <div>Hardkernel</div>
               <div>Located in Korea</div>
             </div>
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path
-                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-              />
-            </svg>
+            <div>Sold out</div>
           </div>
         </a>
         <a
@@ -671,11 +671,7 @@ Nope! We are committed to keep supporting all platforms that are currently avail
               <div>ameriDroid</div>
               <div>Located in USA</div>
             </div>
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path
-                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-              />
-            </svg>
+            <div>Sold out</div>
           </div>
         </a>
         <a
@@ -688,11 +684,7 @@ Nope! We are committed to keep supporting all platforms that are currently avail
               <div>m.nu</div>
               <div>Located in Sweden</div>
             </div>
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path
-                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-              />
-            </svg>
+            <div>Sold out</div>
           </div>
         </a>
         <a href="https://www.webhallen.com/329102" target="_blank">
@@ -731,7 +723,7 @@ Nope! We are committed to keep supporting all platforms that are currently avail
       </div>
     </div>
   </div>
-  <div class="blue-buy-fab" onclick="showBuyDialog()" title="buy blue">
+  <div class="fab" onclick="showBuyDialog()" title="buy blue">
     <svg style="width: 32px; height: 32px" viewBox="0 0 32 32">
       <path
         fill="currentColor"
@@ -742,7 +734,7 @@ Nope! We are committed to keep supporting all platforms that are currently avail
   </div>
   <script>
     const buyDialog = document.getElementById("buy-dialog");
-    const buyFab = document.querySelector(".blue-buy-fab");
+    const buyFab = document.querySelector(".fab");
 
     function showBuyDialog() {
       buyDialog.style.display = "flex";
@@ -759,23 +751,5 @@ Nope! We are committed to keep supporting all platforms that are currently avail
         closeDialog();
       }
     };
-
-    if (document.documentElement.clientWidth < 480) {
-      document.querySelector(".page-content").addEventListener(
-        "scroll",
-        function (e) {
-          const header = document.querySelector(".site-header");
-          const fab = document.querySelector(".blue-buy-fab");
-          if (e.currentTarget.scrollTop > 180) {
-            header.style.backgroundColor = "#ffffff";
-            fab.style.display = "flex";
-          } else {
-            header.style.backgroundColor = "#ffffff66";
-            fab.style.display = "none";
-          }
-        },
-        { passive: true, capture: true }
-      );
-    }
   </script>
 </div>

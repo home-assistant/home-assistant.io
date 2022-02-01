@@ -204,6 +204,6 @@ Number 6 sends an image from a templated URL.
 
 {% endraw %}
 
-The possible source of a file is prioritized and only one will be picked up. `url_template` has the hightest priority; next is `url` then `path_template` and finally if none of them are defined `path` would be used. `path` will be used to eliminate file extension guessing for unknown URL downloads. Only the file extension will be left, as Home Assistant changes the filename to a random string for added privacy.
+The possible source of a file is prioritized and only one will be picked up. `url_template` has the highest priority; next is `url` then `path_template` and finally if none of them are defined `path` would be used. `path` will be used to eliminate file extension guessing for unknown URL downloads. Only the file extension will be left, as Home Assistant changes the filename to a random string for added privacy.
 
 To find out more about notifications, please see the [getting started with automation page](/getting-started/automation/).

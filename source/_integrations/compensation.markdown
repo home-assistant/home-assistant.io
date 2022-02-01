@@ -24,6 +24,8 @@ To enable the compensation sensor, add the following lines to your `configuratio
 compensation:
   media_player_db_volume:
     source: media_player.yamaha_receiver
+    attribute: volume_level
+    unit_of_measurement: dB
     data_points:
       - [0.2, -80.0]
       - [1.0, 0.0]
@@ -31,7 +33,7 @@ compensation:
 
 {% configuration %}
 source:
-  description: The entity to monitor.
+  description: The entity to monitor/compensate.
   required: true
   type: string
 data_points:
@@ -43,7 +45,7 @@ unique_id:
   required: false
   type: string
 attribute:
-  description: Attribute to monitor.
+  description: Attribute from the source to monitor/compensate. When omitted the state value of the source will be used.
   required: false
   type: string
 degree:

@@ -16,6 +16,7 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - switch
+ha_zeroconf: true
 ---
 
 The `rachio` platform allows you to control your [Rachio irrigation system](https://rachio.com/).
@@ -25,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - **Binary Sensor** - Allows you to view the status of your [Rachio irrigation system](https://rachio.com/).
 - [**Switch**](#switch)
 
-They will be automatically added if the Rachio integration integration is loaded.
+They will be automatically added if the Rachio integration is loaded.
 
 ## Getting your Rachio API Key
 
@@ -142,6 +143,14 @@ This service will not be available if only a Generation 1 controller is on the a
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `devices` | yes | Name of the controller(s) to resume. If not given, will resume all paused controllers on the account.
+
+### Service `rachio.stop_watering`
+
+Stops all currently running schedules.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `devices` | yes | Name of the controller(s) to stop. If not given, will stop all running controllers on the account.
 
 ## Examples
 

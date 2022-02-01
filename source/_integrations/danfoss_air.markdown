@@ -42,7 +42,7 @@ host:
 
 The following binary sensor is supported.
 
-- **Bypass active:** Indicator if heat recovery is currrently bypassed.
+- **Bypass active:** Indicator if heat recovery is currently bypassed.
 
 ## Sensor
 
@@ -57,7 +57,7 @@ The following sensors are supported.
 - **Fan step:** Fan step.
 - **Exhaust fan speed:** Exhausted fan speed.
 - **Supply fan speed:** Supply fan speed.
-- **Dial battery:** Dial bettery level in percent.
+- **Dial battery:** Dial battery level in percent.
 
 ## Switch
 

@@ -80,6 +80,6 @@ sensor:
     source: sensor.temperature
     name: Temperature change per hour
     round: 1
-    unit_time: h # the resulting "unit_of_measurement" will be °C/h if the sensor.temperate has set °C as it's unit
+    unit_time: h # the resulting "unit_of_measurement" will be °C/h if the sensor.temperate has set °C as its unit
     time_window: "00:30:00"  # we look at the change over the last half hour
 ```

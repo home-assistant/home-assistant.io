@@ -104,7 +104,7 @@ device_class:
 
 ## Light
 
-The `ads` light platform allows you to control your connecte ADS lights.
+The `ads` light platform allows you to control your connected ADS lights.
 
 To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
 file:

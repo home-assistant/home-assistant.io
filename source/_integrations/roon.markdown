@@ -36,7 +36,7 @@ Roon uses a path based on the roon browser hierarchy to specify which media to p
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`.                                                                                                                       |
 | `media_content_id`     |       no | A path to specify the media you want to play, see examples below.                   |
-| `media_content_type`   |       no | Only `music` is suppported  |
+| `media_content_type`   |       no | Only `music` is supported  |
 
  For example to play the album Harvest by Neil Young you should set `media_content_id` to `Library/Artists/Neil Young/Harvest` and to play BBC Radio 4 you would set `media_content_id` to `My Live Radio/BBC Radio 4`
 
@@ -47,4 +47,4 @@ Transfer playback from one player to another.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | id of the source player.
-| `transfer_name` | no | id of the destination player.
+| `transfer_id` | no | id of the destination player.

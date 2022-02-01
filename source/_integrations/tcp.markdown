@@ -67,6 +67,16 @@ buffer_size:
   required: false
   default: "`1024`"
   type: integer
+ssl:
+  description: If `true`, use SSL/TLS.
+  required: false
+  default: false
+  type: boolean
+verify_ssl:
+  description: Set this to `false` if the server is using a self-signed certificate.
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 ### Examples
@@ -193,4 +203,14 @@ timeout:
   required: false
   type: integer
   default: 10
+ssl:
+  description: If `true`, use SSL/TLS.
+  required: false
+  default: false
+  type: boolean
+verify_ssl:
+  description: Set this to `false` if the server is using a self-signed certificate.
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}

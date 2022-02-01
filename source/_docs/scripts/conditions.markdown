@@ -1,6 +1,8 @@
 ---
 title: "Conditions"
 description: "Documentation about all available conditions."
+toc: true
+no_toc: true
 ---
 
 Conditions can be used within a script or automation to prevent further execution. When a condition does not return true, the script or automation stops executing. A condition will look at the system at that moment. For example, a condition can test if a switch is currently turned on or off.
@@ -9,7 +11,11 @@ Unlike a trigger, which is always `or`, conditions are `and` by default - all co
 
 All conditions support an optional `alias`.
 
-## AND condition
+{{ page.content | markdownify | toc_only }}
+
+## Logical conditions
+
+### AND condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are valid.
 
@@ -31,7 +37,6 @@ If you do not want to combine AND and OR conditions, you can list them sequentia
 The following configuration works the same as the one listed above:
 
 ```yaml
-alias: "Paulus home AND temperature below 20"
 condition:
   - condition: state
     entity_id: "device_tracker.paulus"
@@ -43,7 +48,7 @@ condition:
 
 Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
 
-## OR condition
+### OR condition
 
 Test multiple conditions in one condition statement. Passes if any embedded condition is valid.
 
@@ -60,7 +65,7 @@ condition:
       below: 20
 ```
 
-## MIXED AND and OR conditions
+### Mixed AND and OR conditions
 
 Test multiple AND and OR conditions in one condition statement. Passes if any embedded condition is valid.
 This allows you to mix several AND and OR conditions together.
@@ -82,7 +87,7 @@ condition:
           below: 20
 ```
 
-## NOT condition
+### NOT condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** valid.
 
@@ -154,7 +159,8 @@ condition:
   below: 25
 ```
 
-Number helpers (`input_number` entities) can be used in the `above` and `below`
+Number helpers (`input_number` entities), `number` and `sensor` entities that
+contain a numeric value, can be used in the `above` and `below`
 options to make the condition more dynamic.
 
 ```yaml
@@ -317,6 +323,15 @@ condition:
   after_offset: "-01:00:00"
 ```
 
+This is an example of 1 hour offset after sunset.
+
+```yaml
+condition:
+  - condition: sun
+    after: sunset
+    before: sunrise
+```
+
 This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`.
 
 ```yaml
@@ -409,7 +424,7 @@ condition:
 
 {% endraw %}
 
-But also in the `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option:
+It's also supported in the `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option:
 
 {% raw %}
 
@@ -432,15 +447,15 @@ But also in the `repeat` action's `while` or `until` option, or in a `choose` ac
 
 {% endraw %}
 
-<div class="note warning">
+It's also supported in script or automation `condition` actions:
 
-While conditions can be used in script sequences or automation actions, the
-shorthand for template conditions cannot be used directly in those constructs.
+{% raw %}
 
-However, if an used action supports conditions itself, like `choose` and
- `repeat`, the shorthand template conditions will be accepted in those cases.
+```yaml
+- condition: "{{ is_state('device_tracker.iphone', 'away') }}"
+```
 
-</div>
+{% endraw %}
 
 [template]: /topics/templating/
 [automation-templating]: /getting-started/automation-templating/
@@ -473,13 +488,60 @@ A better weekday condition could be by using the [Workday Binary Sensor](/integr
 
 </div>
 
-For the `after` and `before` options a time helper (`input_datetime` entity) can be used instead.
+For the `after` and `before` options a time helper (`input_datetime` entity)
+or another `sensor` entity containing a timestamp with the "timestamp" device
+class, can be used instead.
 
 ```yaml
 condition:
-  condition: time
-  after: input_datetime.house_silent_hours_start
-  before: input_datetime.house_silent_hours_end
+  - alias: "Example referencing a time helper"
+    condition: time
+    after: input_datetime.house_silent_hours_start
+    before: input_datetime.house_silent_hours_end
+
+  - alias: "Example referencing another sensor"
+    after: sensor.groceries_delivery_time
+```
+
+<div class='note warning'>
+
+Please note that the time condition only takes the time into account. If
+an referenced sensor or helper entity contains a timestamp with a date, the
+date part is fully ignored.
+
+</div>
+
+## Trigger condition
+
+The trigger condition can test if an automation was triggered by a certain trigger, identified by the trigger's `id`.
+
+```yaml
+condition:
+  condition: trigger
+  id: event_trigger
+```
+
+For a trigger identified by its index, both a string and integer is allowed:
+```yaml
+condition:
+  condition: trigger
+  id: "0"
+```
+
+```yaml
+condition:
+  condition: trigger
+  id: 0
+```
+
+It is possible to give a list of triggers:
+
+```yaml
+condition:
+  condition: trigger
+  id:
+    - event_1_trigger
+    - event_2_trigger
 ```
 
 ## Zone condition

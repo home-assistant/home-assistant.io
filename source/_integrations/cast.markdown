@@ -32,18 +32,19 @@ Ignore CEC:
 
 ## Home Assistant Cast
 
-Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/lovelace/entities/#cast) to your Lovelace UI, or by calling the `cast.show_lovelace_view` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your Lovelace YAML for each view, as outlined in the [views documentation](/lovelace/views/#path). The `dashboard_path` is the part of the Lovelace UI URL that follows the defined `base_url` Typically "lovelace". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the service call):
+Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/lovelace/entities/#cast) to your Lovelace UI, or by calling the `cast.show_lovelace_view` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your Lovelace YAML for each view, as outlined in the [views documentation](/lovelace/views/#path). The `dashboard_path` is the part of the Lovelace UI URL that follows the defined `base_url`, typically "lovelace". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the service call):
 
 ```yaml
 cast_downstairs_on_kitchen:
   alias: "Show Downstairs on kitchen"
   sequence:
     - data:
-        dashboard_path: lovelace
+        dashboard_path: lovelace-cast
         entity_id: media_player.kitchen
         view_path: downstairs
       service: cast.show_lovelace_view
 ```
+
 <div class='note'>
 
 Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `external_url` in your [configuration](/docs/configuration/basic).
@@ -51,6 +52,14 @@ Home Assistant Cast requires your Home Assistant installation to be accessible v
 </div>
 
 ## Playing media
+
+<div class='note'>
+
+Chromecasts generally ignore DNS servers from DHCP and will instead use Google's DNS servers, 8.8.8.8 and 8.8.4.4. This means media URLs must either be specifying the IP-address of the server directly, e.g. `http://192.168.1.1:8123/movie.mp4`, or be publicly resolvable, e.g. `http://homeassistant.internal.mydomain.com:8123/movie.mp4` where `homeassistant.internal.mydomain.com` resolves to `192.168.1.1`. A hostname which can't be publicly resolved, e.g. `http://homeassistant.local:8123/movie.mp4` will fail to play.
+
+This is important when casting TTS or local media sources; the cast integration will cast such media from the `external_url` if [configured](/docs/configuration/basic), otherwise from the Home Assistant Cloud if configured, otherwise from the [`internal_url`](/docs/configuration/basic). Note that the Home Assistant Cloud will not be used if an `external_url` is configured.
+
+</div>
 
 ### Using the built in media player app (Default Media Receiver)
 
@@ -137,7 +146,7 @@ Optional:
 
 - `media_type`: Media type, e.g. `video/mp4`, `audio/mp3`, `image/jpeg`, defaults to `video/mp4`.
 
-#### Example:
+#### Example
 
 ```yaml
 'cast_bubbleupnp_to_my_chromecast':
@@ -170,7 +179,7 @@ Optional:
 - `enqueue`: Enqueue only
 - `playlist_id`: Play video with `media_id` from this playlist
 
-#### Example:
+#### Example
 
 ```yaml
 'cast_youtube_to_my_chromecast':
@@ -190,16 +199,20 @@ Optional:
 
 ### [Supla](https://www.supla.fi/)
 
-Example values to cast the item at <https://www.supla.fi/audio/3601824>
+#### Media parameters
+
+Mandatory:
 
 - `app_name`: `supla`
 - `media_id`: Supla item ID
 
-
 Optional:
+
 - `is_live`: Item is a livestream
 
-#### Example:
+#### Example
+
+Example values to cast the item at <https://www.supla.fi/audio/3601824>
 
 ```yaml
 'cast_supla_to_my_chromecast':
@@ -231,6 +244,97 @@ To cast media directly from a configured Plex server, set the fields [as documen
     data:
       media_content_type: movie
       media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
+```
+
+### [BBC Sounds](https://www.bbc.co.uk/sounds)
+
+This app doesn't retrieve its own metadata, so if you want the cast interface or media player card to show titles and/or images you will have to provide the data yourself. See the examples below.
+
+#### Media parameters
+
+Mandatory:
+
+- `app_name`: `bbcsounds`
+- `media_id`: Item ID
+
+Optional:
+
+- `is_live`: Item is a live stream
+
+#### Example
+
+Example values to cast [BBC Radio 1](https://www.bbc.co.uk/sounds/play/live:bbc_radio_one)
+
+```yaml
+  alias: "Cast BBC Sounds to My Chromecast"
+  sequence:
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "bbcsounds",
+            "media_id": "bbc_radio_one",
+            "is_live": true
+          }'
+        extra: 
+          metadata: 
+            metadataType: 0
+            title: "Radio 1"
+            images:
+              - url: "https://sounds.files.bbci.co.uk/2.3.0/networks/bbc_radio_one/background_1280x720.png"
+```
+
+### [BBC iPlayer](https://www.bbc.co.uk/iplayer)
+
+This app doesn't retrieve its own metadata, so if you want the cast interface or media player card to show titles and/or images you will have to provide the data yourself. See the examples below.
+
+Note: Media ID is NOT the 8 digit alphanumeric in the URL, it can be found by right-clicking the playing video. E.g., [this episode](https://www.bbc.co.uk/iplayer/episode/b09w7fd9/bitz-bob-series-1-1-castle-makeover) shows:
+
+|     |     |
+| --- | --- |
+| 2908kbps | dash (mf_cloudfront_dash_https) |
+| b09w70r2 | 960x540 |
+
+With b09w70r2 being the `media_id`
+
+#### Media parameters
+
+Mandatory:
+
+- `app_name`: `bbciplayer`
+- `media_id`: Item ID
+
+Optional:
+
+- `is_live`: Item is a live stream
+
+#### Example
+
+Example values to cast [this episode](https://www.bbc.co.uk/iplayer/episode/b09w7fd9/bitz-bob-series-1-1-castle-makeover)
+
+```yaml
+  alias: "Cast BBC iPlayer to My Chromecast"
+  sequence:
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "bbciplayer",
+            "media_id": "b09w70r2"
+          }'
+        extra: 
+          metadata: 
+            metadataType: 0
+            title: "Bitz & Bob"
+            subtitle: "Castle Makeover"
+            images:
+              - url: "https://ichef.bbci.co.uk/images/ic/1280x720/p07j4m3r.jpg"
 ```
 
 ## Troubleshooting automatic discovery

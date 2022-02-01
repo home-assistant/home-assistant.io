@@ -48,7 +48,7 @@ Make sure that you don't post your username, password, API key, access token or 
 
 ### Traceback (if applicable)
 
-If things go wrong there will be a so-called traceback or an error message in other words in your log. Please include this. It starts with **Traceback** and can contain informations where the error was triggered in the code.
+If things go wrong there will be a so-called traceback or an error message in other words in your log. Please include this. It starts with **Traceback** and can contain information where the error was triggered in the code.
 
 ```bash
 Traceback (most recent call last):

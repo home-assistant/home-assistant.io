@@ -14,6 +14,7 @@ ha_platforms:
   - climate
   - cover
   - sensor
+  - select
   - switch
 ---
 
@@ -41,7 +42,7 @@ The integration will create sensor entities for a variety of aspects:
 
 - The air filter sensor shows if it needs to be replaced.
 - Two sensor entities will be created for the 'time to on' and 'time to off' features. Use the `advantage_air.set_time_to` service to change these.
-- Each zone that is temperature-controlled will have a sensor to show how open the damper is.
+- Each zone that is temperature-controlled will have a sensor to show the temperature (disabled by default), and how open the damper is.
 - Each zone with a wireless temperature or motion sensor will have a sensor that reports its wireless RSSI.
 
 ### Binary Sensor
@@ -51,6 +52,10 @@ The `advantage_air` binary sensor platform will create a binary sensor for each 
 ### Switch
 
 The `advantage_air` switch platform will create a switch entity to toggle fresh air mode, if it is supported.
+
+### Select
+
+The `advantage_air` select platform allows you to change the zone used for the "MyZone" feature.
 
 ## Services
 

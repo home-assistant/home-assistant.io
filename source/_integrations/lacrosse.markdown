@@ -31,6 +31,10 @@ Or, when using Docker containers:
 docker exec -it <containername> pylacrosse -d /dev/ttyUSB0 scan
 ```
 
+If you are using the Home Assistant OS or Supervised installation method, these
+methods are not available for you. The use of an additional computer to figure
+out the ID is advised.
+
 For TX 29 DTH-IT sensors you can also read the ID from the display and calculate the ID as followed: `hex2dec(ID_on_display) / 4`.
 
 ## Configuration

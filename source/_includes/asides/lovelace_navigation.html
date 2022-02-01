@@ -1,10 +1,44 @@
 <section class="aside-module grid__item one-whole lap-one-half">
-  {% assign cards = site.lovelace | sort_natural: 'title' %}
+  {% assign elements = site.lovelace | sort_natural: 'title' %}
 
   <div class="section">
     <h1 class="title delta">Lovelace UI</h1>
     <ul class="divided sidebar-menu">
       <li>{% active_link /lovelace/ Introduction %}</li>
+      <li>
+        {% active_link /lovelace/dashboards/ Dashboards %}
+      </li>
+      <li>
+        {% active_link /lovelace/views/ Views %}
+      </li>
+      <li>
+        {% active_link /lovelace/cards/ Cards %}
+      </li>
+      <li>
+        {% active_link /lovelace/badges/ Badges %}
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h1 class="title delta">Views</h1>
+    <ul class="divided sidebar-menu">
+      {% for element in elements %}
+        {% if element.type == "view" %}
+          <li>{% active_link {{element.url}} {{element.sidebar_label}} %}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h1 class="title delta">Cards</h1>
+    <ul class="divided sidebar-menu">
+      {% for element in elements %}
+        {% if element.type == "card" %}
+          <li>{% active_link {{element.url}} {{element.sidebar_label}} %}</li>
+        {% endif %}
+      {% endfor %}
     </ul>
   </div>
 
@@ -12,10 +46,6 @@
     <h1 class="title delta">Advanced</h1>
     <ul class="divided sidebar-menu">
       <li>{% active_link /lovelace/header-footer/ Headers & Footers %}</li>
-      <li>
-        {% active_link /lovelace/dashboards-and-views/ Dashboards & Views %}
-      </li>
-      <li>{% active_link /lovelace/badges/ Badges %}</li>
       <li>{% active_link /lovelace/actions/ Actions %}</li>
       <li>
         <a
@@ -24,15 +54,6 @@
           <i class="icon-external-link"></i>
         </a>
       </li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h1 class="title delta">Cards</h1>
-    <ul class="divided sidebar-menu">
-      {% for card in cards %}
-      <li>{% active_link {{card.url}} {{card.sidebar_label}} %}</li>
-      {% endfor %}
     </ul>
   </div>
 </section>

@@ -50,7 +50,7 @@ Please note that each camera reports two different states: one as `sensor.blink_
 
 ## Services
 
-Any sequential calls to services relating to blink should have a minimum of a 5 second delay in between them to prevent the calls fro being throttled and ignored.
+Any sequential calls to services relating to blink should have a minimum of a 5 second delay in between them to prevent the calls from being throttled and ignored.
 
 ### `blink.blink_update`
 

@@ -218,8 +218,11 @@ When auto setup is enabled the following products will be found in the IHC proje
 - Wireless lamp outlet dimmer
 - Wireless dimmer
 - Wireless combi dimmer 4 buttons
+- Wireless combi dimmer 4 buttons touch
+- Wireless combi dimmer 2 buttons touch
 - Wireless lamp outlet relay
 - Wireless combi relay 4 buttons
+- Wireless combi relay 2 buttons
 - Wireless mobile dimmer
 - Dataline lamp outlet
 

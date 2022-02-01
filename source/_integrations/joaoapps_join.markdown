@@ -56,7 +56,7 @@ device_names:
   required: false
   type: string
 name:
-  description: The name parameter is optional but needed if you want to use multiple notification platforms.  The platform will be exposed as service `notify.<name>`. The name will defailt to `notify` if not supplied. See the [Notifications Component](/integrations/notify) for more details.
+  description: The name parameter is optional but needed if you want to use multiple notification platforms.  The platform will be exposed as service `notify.<name>`. The name will default to `notify` if not supplied. See the [Notifications Component](/integrations/notify) for more details.
   required: false
   type: string
 {% endconfiguration %}

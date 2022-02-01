@@ -12,6 +12,7 @@ ha_platforms:
   - binary_sensor
   - device_tracker
 ha_config_flow: true
+ha_ssdp: true
 ---
 
 This platform offers presence detection by examining devices connected to a [Keenetic](https://keenetic.net/)
@@ -19,4 +20,4 @@ Router running NDMS firmware versions 2.05 and up. It uses telnet connection so 
 
 ## Configuration
 
-To add Keenetic router to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Keenetic NDMS2 Router**.
+To add Keenetic router to your installation, go to **Configuration** >> **Devices & Services** in the UI, click the button with `+` sign and from the list of integrations select **Keenetic NDMS2 Router**.

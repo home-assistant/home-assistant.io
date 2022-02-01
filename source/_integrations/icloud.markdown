@@ -28,18 +28,16 @@ It does require that your devices are registered with the [Find My](https://www.
 {% include integrations/config_flow.md %}
 
 <div class='note warning'>
-Low `max_interval` may cause battery drainage as it wakes up your device to get the current location.
-</div>
-
-<div class='note warning'>
 You may receive an email and a notification from Apple saying that someone has logged into your account.
 
 For the notification, press "Allow", then "OK".
 </div>
 
-If two-step authentication is enabled for your iCloud account, some time after Home Assistant startup the integration will ask to enter the verification code you receive on your device via a notification in the Home Assistant UI. The duration of this authentication is determined by Apple, so you will need to verify your account every now and then.
-
 To prevent excessive battery drainage, a dynamic interval is used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
+
+## Two Factor Authentication
+
+If two-step authentication is enabled for your iCloud account, some time after Home Assistant startup the integration will ask to enter the verification code you receive on your device via a notification in the Home Assistant UI. The duration of this authentication is determined by Apple, so you will need to verify your account every now and then.
 
 ## In case of troubleshooting
 
@@ -61,7 +59,7 @@ The iCloud integration will add a battery sensor for each iCloud devices availab
 
 ### Service `icloud.update`
 
-This service can be used to ask an update of a certain iDevice or all devices linked to an iCloud account. Request will result in new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing current iPhone location. It can be used in automations when a manual location update is needed, e.g., to check if anyone is home when a door been opened.
+This service can be used to ask an update of a certain iDevice or all devices linked to an iCloud account. Request will result in new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing current iPhone location. It can be used in automations when a manual location update is needed, e.g., to check if anyone is home when a door has been opened.
 
 ### Service `icloud.play_sound`
 

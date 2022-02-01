@@ -106,10 +106,19 @@ Note that the SQL sensor state corresponds to the last row of the SQL result set
 
 ### Previous state of an entity
 
-This example only works with *binary_sensors*:
-
+Based on previous example with temperature, the query to get the former state is :
 ```sql
-SELECT * FROM states WHERE entity_id = 'binary_sensor.xyz789' GROUP BY state ORDER BY last_changed DESC LIMIT 1;
+SELECT * FROM (SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 2) two_entity ORDER BY state_id ASC LIMIT 1;
+```
+Thus in yaml
+```yaml
+# Example configuration.yaml
+sensor:
+  - platform: sql
+    queries:
+      - name: Former_Temperature_In
+        query: "SELECT * FROM (SELECT state, state_id FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 2) two_entity ORDER BY state_id ASC LIMIT 1;"
+        column: "state"
 ```
 
 ### Database size
@@ -176,7 +185,7 @@ Use the same `db_url` as for the `recorder` integration. Change `DB_NAME` to the
 ```yaml
 sensor:
   - platform: sql
-    db_url: "mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={FreeTDS};Port=1433;"
+    db_url: "mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=FreeTDS"
     queries:
       - name: DB size
         query: "SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';"

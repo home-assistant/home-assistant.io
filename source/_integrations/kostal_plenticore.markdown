@@ -10,6 +10,8 @@ ha_codeowners:
 ha_domain: kostal_plenticore
 ha_platforms:
   - sensor
+  - select
+  - switch
 ---
 
 The Kostal Plenticore integration allows you to get data from [Kostal Plenticore](https://www.kostal-solar-electric.com/) solar inverters and integrate them into your Home Assistant installation. It allows you also to change some of settings values of the inverter.
@@ -42,6 +44,13 @@ The following sensors are available in the library:
 | AC Power                | W    | Output power of the inverter. |
 | DC1 Power               | W    | Power of string 1. |
 | DC2 Power               | W    | Power of string 2. |
+| DC3 Power               | W    | Power of string 3. |
+| DC1 Voltage             | V    | Voltage of string 1. |
+| DC2 Voltage             | V    | Voltage of string 2. |
+| DC3 Voltage             | V    | Voltage of string 3. |
+| DC1 Current             | A    | Current of string 1. |
+| DC2 Current             | A    | Current of string 2. |
+| DC3 Current             | A    | Current of string 3. |
 | PV to Battery Power     | W    | Power used to charge the battery. |
 | Energy Manager State    |      | State of the energy manager. |
 | Battery Cycles          |      | Number of full charge/discharge cylces. |
@@ -79,6 +88,10 @@ The following sensors are available in the library:
 | Energy PV2 Month        | kWh  | Energy of PV string 2 of the current month. |
 | Energy PV2 Year         | kWh  | Energy of PV string 2 of the current year. |
 | Energy PV2 Total        | kWh  | Energy of PV string 2 total. |
+| Energy PV3 Day          | kWh  | Energy of PV string 3 of the current day. |
+| Energy PV3 Month        | kWh  | Energy of PV string 3 of the current month. |
+| Energy PV3 Year         | kWh  | Energy of PV string 3 of the current year. |
+| Energy PV3 Total        | kWh  | Energy of PV string 3 total. |
 | Energy Yield Day        | kWh  | Energy yield of the current day. |
 | Energy Yield Month      | kWh  | Energy yield of the current month. |
 | Energy Yield Year       | kWh  | Energy yield of the current year. |
@@ -100,23 +113,3 @@ The following sensors are available in the library:
 <div class='note'>
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
 </div>
-
-## Services
-
-### Service `kostal_plenticore.write_setting_value`
-
-Write a new value to a setting.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String that point to a setting `entity_id`.
-| `value` | no  | The new value to write to the setting.
-
-Example:
-
-Set the minimal SoC of the battery:
-
-```yaml
-entity_id: sensor.plenticore_battery_min_soc
-value: 10
-```

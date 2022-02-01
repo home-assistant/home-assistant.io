@@ -10,11 +10,15 @@ ha_platforms:
   - sensor
 ---
 
-The `bme280` sensor platform allows you to read temperature, humidity and pressure values of a [Bosch BME280 Environmental sensor](https://cdn-shop.adafruit.com/datasheets/BST-BME280_DS001-10.pdf) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins). It allows you to use all the operation modes of the sensor described in its datasheet.
+<div class='note warning'>
 
-Tested devices:
+This integration is deprecated and will be removed in Home Assistant Core 2022.4.
 
-- [Raspberry Pi](https://www.raspberrypi.org/)
+For more information see: [Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+</div>
+
+The Bosch BME280 integration allows you to read temperature, humidity and pressure values of a [Bosch BME280 Environmental sensor](https://cdn-shop.adafruit.com/datasheets/BST-BME280_DS001-10.pdf) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins) or connected via SPI. It allows you to use all the operation modes of the sensor described in its datasheet.
 
 ## Configuration
 
@@ -22,8 +26,8 @@ To use your BME280 sensor in your installation, add the following to your `confi
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: bme280
+bme280:
+  - name: Ambient
 ```
 
 {% configuration %}
@@ -68,7 +72,7 @@ oversampling_humidity:
   default: 1
   type: integer
 filter_mode:
-  description: IIR filter coeficient as described in the sensor datasheet.
+  description: IIR filter coefficient as described in the sensor datasheet.
   required: false
   default: 0
   type: integer
@@ -82,6 +86,14 @@ monitored_conditions:
   required: false
   default: All three conditions
   type: list
+spi_bus:
+  description: sensor SPI bus number.
+  required: false
+  type: integer
+spi_dev:
+  description: sensor SPI device number.
+  required: false
+  type: integer
 {% endconfiguration %}
 
 ## Full Examples
@@ -90,9 +102,8 @@ If you want to specify the working mode of the digital sensor or need to change 
 
 ```yaml
 # Example of customized configuration.yaml entry
-sensor:
-  - platform: bme280
-    name: Ambient
+bme280:
+  - name: Ambient
     i2c_address: 0x77
     operation_mode: 2  # forced mode
     time_standby: 5
@@ -142,6 +153,10 @@ group:
 
 ## Directions for installing smbus support on Raspberry Pi
 
+<div class="note">
+This section only applies to devices running the Home Assistant Core installation method.
+</div>
+
 Enable I2c interface with the Raspberry Pi configuration utility:
 
 ```bash
@@ -187,3 +202,81 @@ It will output a table like this:
 ```
 
 So you can see the sensor address what you are looking for is **0x77** (there are more i2c sensors in that Raspberry Pi).
+
+## SPI Support
+
+Alternatively, this integration can also be used with SPI.
+
+### Config example
+
+```yaml
+# Example of customized configuration.yaml entry
+bme280:
+  - name: Stary_Oskol
+    spi_bus: 0
+    spi_dev: 1
+    time_standby: 5
+    oversampling_temperature: 4
+    oversampling_pressure: 4
+    oversampling_humidity: 4
+    monitored_conditions:
+      - temperature
+      - humidity
+      - pressure
+    scan_interval: 40
+```
+
+## Directions for installing SPI support on Raspberry Pi
+
+<div class="note">
+This section only applies to devices running the Home Assistant Core installation method.
+</div>
+
+Enable SPI interface with the Raspberry Pi:
+
+```bash
+sudo groupadd spi
+# Add homeassistant user to the spi group
+sudo usermod -a -G spi user
+# Add udev rules
+sudo echo 'SUBSYSTEM=="spidev", GROUP="spi", MODE="0660"' > /etc/udev/rules.d/77-spi.rules
+# apply changes without logout
+newgrp spi
+sudo udevadm control --reload-rules && udevadm trigger
+```
+
+```bash
+sudo echo 'dtparam=spi=on' >> /boot/firmware/config.txt
+sudo echo 'dtoverlay=spi1-3cs' >> /boot/firmware/config.txt
+sudo reboot
+```
+
+### Check the spi devices
+
+```bash
+ls /dev/spidev*
+/dev/spidev0.0  /dev/spidev0.1  /dev/spidev1.0  /dev/spidev1.1  /dev/spidev1.2
+```
+
+## Connect sensors
+
+### SPI0 (available on J8/P1 headers on all Raspberry Pi versions)
+
+|SPI Function|Header Pin|Broadcom Pin Name|Broadcom Pin Function|
+|------------|----------|-----------------|---------------------|
+|MOSI        |19        |GPIO10           |SPI0_MOSI
+|MISO        |21        |GPIO09           |SPI0_MISO
+|SCLK        |23        |GPIO11           |SPI0_SCLK
+|CE0         |24        |GPIO08           |SPI0_CE0_N
+|CE1         |26        |GPIO07           |SPI0_CE1_N
+
+### SPI1 (available only on 40-pin J8 header)
+
+|SPI Function|Header Pin|Broadcom Pin Name|Broadcom Pin Function|
+|------------|----------|-----------------|---------------------|
+|MOSI        |38        |GPIO20           |SPI1_MOSI
+|MISO        |35        |GPIO19           |SPI1_MISO
+|SCLK        |40        |GPIO21           |SPI1_SCLK
+|CE0         |12        |GPIO18           |SPI1_CE0_N
+|CE1         |11        |GPIO17           |SPI1_CE1_N
+|CE2         |36        |GPIO16           |SPI1_CE2_N

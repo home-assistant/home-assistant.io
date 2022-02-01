@@ -85,10 +85,10 @@ Minimal configuration. All Feeds are added as sensors with the unit of measureme
 
 ```yaml
 sensor:
-  platform: emoncms
-  api_key: API_KEY
-  url: https://emoncms.org
-  id: 1
+  - platform: emoncms
+    api_key: API_KEY
+    url: https://emoncms.org
+    id: 1
 ```
 
 Display only feeds with their feed IDs specified in `include_only_feed_id`.

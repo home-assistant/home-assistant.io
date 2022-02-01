@@ -19,7 +19,7 @@ TL;DR:
 
 ---
 
-Voice assistants are a great way to interact with your house, ask a quick question, set a timer or control your devices. The more an assistant knows about you, your home and it's other inhabitants, the better it is able to help you.
+Voice assistants are a great way to interact with your house, ask a quick question, set a timer or control your devices. The more an assistant knows about you, your home and its other inhabitants, the better it is able to help you.
 
 Today's available virtual assistants work great, but they have a big problem: They store your data in the cloud, don't provide APIs to allow other companies to build products on top and are run by companies whose core business is building profiles on their users to help serve ads and product suggestions.
 

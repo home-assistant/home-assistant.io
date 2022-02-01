@@ -37,7 +37,7 @@ You have two options to choose from: webhook and `auth_token.` The webhook is on
 
 ### Auth Token
 
-To be able to query the API an `auth_token` is required which can be obtained by following [these](https://plaato.zendesk.com/hc/en-us/articles/360003234717-Auth-token) instructions.
+To be able to query the API an `auth_token` is required which can be obtained by following [these](https://intercom.help/plaato/en/articles/5004720-auth_token) instructions.
 
 ### Webhook (Airlock only)
 

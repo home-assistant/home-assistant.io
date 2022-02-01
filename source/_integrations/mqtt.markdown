@@ -14,13 +14,16 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - camera
+  - button
   - climate
   - cover
   - fan
+  - humidifier
   - lock
   - number
   - scene
   - sensor
+  - select
   - switch
 ---
 
@@ -62,3 +65,9 @@ mqtt:
 - [Birth and last will messages](/docs/mqtt/birth_will/)
 - [Testing your setup](/docs/mqtt/testing/)
 - [Logging](/docs/mqtt/logging/)
+
+## Event `event_mqtt_reloaded`
+
+Event `event_mqtt_reloaded` is fired when Manually configured MQTT entities have been reloaded and entities thus might have changed.
+
+This event has no additional data.
