@@ -24,6 +24,7 @@ Supported by MQTT discovery:
 - [Scenes](/integrations/scene.mqtt/)
 - [Selects](/integrations/select.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
+- [Sirens](/integrations/siren.mqtt/)
 - [Switches](/integrations/switch.mqtt/)
 - [Tag Scanners](/integrations/tag.mqtt/)
 - [Vacuums](/integrations/vacuum.mqtt/)
@@ -83,6 +84,7 @@ Supported abbreviations:
     'aux_cmd_t':           'aux_command_topic',
     'aux_stat_tpl':        'aux_state_template',
     'aux_stat_t':          'aux_state_topic',
+    'av_tones':            'available_tones',
     'avty'                 'availability',
     'avty_mode':           'availability_mode',
     'avty_t':              'availability_topic',
@@ -252,7 +254,10 @@ Supported abbreviations:
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
     'stype':               'subtype',
+    'sup_duration':        'support_duration',
+    'sup_vol':             'support_volume_set',
     'sup_feat':            'supported_features',
+    'sup_off':             'supported_turn_off',
     'swing_mode_cmd_tpl':  'swing_mode_command_template',
     'swing_mode_cmd_t':    'swing_mode_command_topic',
     'swing_mode_stat_tpl': 'swing_mode_state_template',
