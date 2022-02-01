@@ -192,7 +192,28 @@ The good news is, that **61**! integrations already added support this new
 diagnostics feature in this release, including Z-Wave JS, ESPHome, Sonos,
 Tuya, Shelly, WLED, Unifi, Nest, deCONZ, KNX, Roku, Samsung TV, and many more!
 
+## Finding known integration issues and where to report them
 
+Experiencing an issue with an integration? Want to know if your issue
+is already known and reported? Or, maybe you are not sure where our
+issue tracker can be found?
+
+We added a small menu option to each integration, solving just that.
+
+<!--<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-02/diagnostics.png' alt='SScreenshot showing the Download Diagnostics button on a Sonos device page'>
+Screenshot of the Download Diagnostics button on the device page
+</p>-->
+
+**TODO: Screenshot**
+
+This button will bring you to our issue tracker, showing all currently known
+and open issues for this integration.
+
+Is your issue not listed? Well, if this integration provides diagnostics,
+download those. Next, go back to issue tracker, using the new known issues link,
+and click the "New issue" button in the top right corner to report your issue
+by filling out the form.
 
 ## Improved handling of device tracker entities
 
