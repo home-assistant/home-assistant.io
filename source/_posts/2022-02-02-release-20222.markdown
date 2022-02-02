@@ -159,7 +159,7 @@ A common question, directly seen after a Home Assistant Core, Operating System,
 or add-on release announcement: "I don't see the update yet? How do I update?"
 
 Checking for updates is done by your system - every few hours - automatically.
-However, at times you want to check for updates, without waiting for
+However, you sometimes want to check for updates without waiting for
 this to happen.
 
 This made us realize that doing that was scattered and hidden in several places
@@ -169,7 +169,7 @@ configuration screen.
 
 <p class='img'>
 <img class="no-shadow" src='/images/blog/2022-02/check-for-updates.png' alt='Screenshot showing the new Check for Updates button in the configuration screen'>
-Checking for any update, is now just a single click.
+Checking for any update is now just a single click.
 </p>
 
 This feature is currently available for the Home Assistant OS,
