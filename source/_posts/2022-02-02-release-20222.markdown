@@ -3814,6 +3814,29 @@ The following integrations are no longer available as of this release:
 - Bump zeroconf to 0.38.3 ([@bdraco] - [#65341]) ([zeroconf docs]) (beta fix)
 - Add diagnostics for SamsungTV ([@chemelli74] - [#65342]) ([samsungtv docs]) (beta fix)
 - I zone, you zone, we zoning ([@balloob] - [#65344]) ([zone docs]) (beta fix)
+- Fix MotionEye config flow ([@ZuluWhiskey] - [#64360]) ([motioneye docs]) (beta fix)
+- Fix honeywell hold mode ([@schreyack] - [#65327]) ([honeywell docs]) (beta fix)
+- Simplify unifi cleanup logic ([@balloob] - [#65345]) ([unifi docs]) (beta fix)
+- Improve CastProtocol ([@emontnemery] - [#65357]) ([cast docs]) ([plex docs]) (beta fix)
+- Fix options for dnsip ([@gjohansson-ST] - [#65369]) ([dnsip docs]) (beta fix)
+- Allow removing keys from automation ([@bramkragten] - [#65374]) ([config docs]) (beta fix)
+- Fix wan_access switch for disconnected devices in Fritz!Tools ([@mib1185] - [#65378]) ([fritz docs]) (beta fix)
+- Redact host address in UniFi diagnostics ([@Kane610] - [#65379]) ([unifi docs]) (beta fix)
+- Bump frontend to 20220201.0 ([@balloob] - [#65380]) ([frontend docs]) (beta fix)
+- Report unmet dependencies for failing config flows ([@emontnemery] - [#65061]) (beta fix)
+- Fix MQTT expire_after effects after reloading ([@jbouwh] - [#65359]) ([mqtt docs]) (beta fix)
+- Handle brightness being None for senseme ([@bdraco] - [#65372]) ([senseme docs]) (beta fix)
+- Detect battery-operated Sonos devices going offline ([@jjlawren] - [#65382]) ([sonos docs]) (beta fix)
+- Fix disconnect bug in Apple TV integration ([@postlund] - [#65385]) ([apple_tv docs]) (beta fix)
+- Sort Apple TV app list by name ([@postlund] - [#65386]) ([apple_tv docs]) (beta fix)
+- Fix Sonos diagnostics with offline device ([@jjlawren] - [#65393]) ([sonos docs]) (beta fix)
+- Bump lutron_caseta to 0.13.1 to fix setup when no button devices are present ([@bdraco] - [#65400]) ([lutron_caseta docs]) (beta fix)
+- Ensure unifiprotect discovery can be ignored ([@bdraco] - [#65406]) ([unifiprotect docs]) (beta fix)
+- Bump aladdin_connect to 0.4 to fix integration for some users due to API changes ([@shoejosh] - [#65407]) ([aladdin_connect docs]) (beta fix)
+- Don't warn on time.sleep injected by the debugger ([@emontnemery] - [#65420]) (beta fix)
+- Bump velbus-aio to 2022.2.1 ([@Cereal2nd] - [#65422]) ([velbus docs]) (beta fix)
+- Stringify MQTT payload in mqtt/debug/info WS response ([@emontnemery] - [#65429]) ([mqtt docs]) (beta fix)
+- Update frontend to 20220202.0 ([@bramkragten] - [#65432]) ([frontend docs]) (beta fix)
 
 {% enddetails %}
 
@@ -5515,6 +5538,7 @@ The following integrations are no longer available as of this release:
 [#64354]: https://github.com/home-assistant/core/pull/64354
 [#64355]: https://github.com/home-assistant/core/pull/64355
 [#64358]: https://github.com/home-assistant/core/pull/64358
+[#64360]: https://github.com/home-assistant/core/pull/64360
 [#64367]: https://github.com/home-assistant/core/pull/64367
 [#64368]: https://github.com/home-assistant/core/pull/64368
 [#64374]: https://github.com/home-assistant/core/pull/64374
@@ -5945,6 +5969,7 @@ The following integrations are no longer available as of this release:
 [#65056]: https://github.com/home-assistant/core/pull/65056
 [#65059]: https://github.com/home-assistant/core/pull/65059
 [#65060]: https://github.com/home-assistant/core/pull/65060
+[#65061]: https://github.com/home-assistant/core/pull/65061
 [#65065]: https://github.com/home-assistant/core/pull/65065
 [#65069]: https://github.com/home-assistant/core/pull/65069
 [#65072]: https://github.com/home-assistant/core/pull/65072
@@ -6021,6 +6046,7 @@ The following integrations are no longer available as of this release:
 [#65320]: https://github.com/home-assistant/core/pull/65320
 [#65322]: https://github.com/home-assistant/core/pull/65322
 [#65324]: https://github.com/home-assistant/core/pull/65324
+[#65327]: https://github.com/home-assistant/core/pull/65327
 [#65332]: https://github.com/home-assistant/core/pull/65332
 [#65334]: https://github.com/home-assistant/core/pull/65334
 [#65335]: https://github.com/home-assistant/core/pull/65335
@@ -6029,6 +6055,26 @@ The following integrations are no longer available as of this release:
 [#65341]: https://github.com/home-assistant/core/pull/65341
 [#65342]: https://github.com/home-assistant/core/pull/65342
 [#65344]: https://github.com/home-assistant/core/pull/65344
+[#65345]: https://github.com/home-assistant/core/pull/65345
+[#65357]: https://github.com/home-assistant/core/pull/65357
+[#65359]: https://github.com/home-assistant/core/pull/65359
+[#65369]: https://github.com/home-assistant/core/pull/65369
+[#65372]: https://github.com/home-assistant/core/pull/65372
+[#65374]: https://github.com/home-assistant/core/pull/65374
+[#65378]: https://github.com/home-assistant/core/pull/65378
+[#65379]: https://github.com/home-assistant/core/pull/65379
+[#65380]: https://github.com/home-assistant/core/pull/65380
+[#65382]: https://github.com/home-assistant/core/pull/65382
+[#65385]: https://github.com/home-assistant/core/pull/65385
+[#65386]: https://github.com/home-assistant/core/pull/65386
+[#65393]: https://github.com/home-assistant/core/pull/65393
+[#65400]: https://github.com/home-assistant/core/pull/65400
+[#65406]: https://github.com/home-assistant/core/pull/65406
+[#65407]: https://github.com/home-assistant/core/pull/65407
+[#65420]: https://github.com/home-assistant/core/pull/65420
+[#65422]: https://github.com/home-assistant/core/pull/65422
+[#65429]: https://github.com/home-assistant/core/pull/65429
+[#65432]: https://github.com/home-assistant/core/pull/65432
 [@ANMalko]: https://github.com/ANMalko
 [@Adminiuga]: https://github.com/Adminiuga
 [@Aeroid]: https://github.com/Aeroid
@@ -6079,6 +6125,7 @@ The following integrations are no longer available as of this release:
 [@ThomDietrich]: https://github.com/ThomDietrich
 [@TomBrien]: https://github.com/TomBrien
 [@ZephireNZ]: https://github.com/ZephireNZ
+[@ZuluWhiskey]: https://github.com/ZuluWhiskey
 [@agners]: https://github.com/agners
 [@ajschmidt8]: https://github.com/ajschmidt8
 [@albertogeniola]: https://github.com/albertogeniola
@@ -6216,9 +6263,11 @@ The following integrations are no longer available as of this release:
 [@rsteckler]: https://github.com/rsteckler
 [@rytilahti]: https://github.com/rytilahti
 [@sagioto]: https://github.com/sagioto
+[@schreyack]: https://github.com/schreyack
 [@scop]: https://github.com/scop
 [@sebfortier2288]: https://github.com/sebfortier2288
 [@shbatm]: https://github.com/shbatm
+[@shoejosh]: https://github.com/shoejosh
 [@simontegelid]: https://github.com/simontegelid
 [@slovdahl]: https://github.com/slovdahl
 [@slydiman]: https://github.com/slydiman
