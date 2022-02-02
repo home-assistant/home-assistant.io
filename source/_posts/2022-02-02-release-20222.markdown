@@ -125,22 +125,33 @@ Supervisor and the eco system around it (like its internal plugins and add-ons).
 
 Welcome! We are excited to have you on board! 🎉
 
-## New media player bar, local media...
+## Media improvements
 
-The media browser, has been renamed to: "Media". Nice, simple, and clean.
+The media browser has been renamed to: "Media". Nice, simple, and clean.
 
-And it now has an nice media bar in the button to control the media you
+And, it now has a nice media bar in the bottom to control the media you
 are playing:
 
 <p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/18730868/151005663-fd93a8f5-d516-4b35-b03a-bf0bd5e109a1.png' alt='Screenshot from GitHub PR, needs to be replaced'>
-Screenshot from GitHub PR, needs to be replaced
-</p>
+<img class="no-shadow" src='/images/blog/2022-02/media-bar.png' alt='Screenshot showing media with the new media bar'>
+</div>
 
-Sonos, VLC (via Telnet) and Roku now support playing local media.
-And Sonos can now even browse other supported media. For example, if you have
-set up the Spotify and Sonos integration, you can now browse your Spotify to
-play it on your Sonos devices. Cast also has support for Plex in the media browser.
+The experience of browsing the media has been improved and extended with
+new capabilities. An integration can now browse media of supported
+sources provided by other integrations.
+
+For example, if you have set up the Spotify and Sonos integration, you can now
+browse your Spotify to play it on your Sonos devices; and Cast now has support
+for playing Plex media straight from the browser.
+
+Sonos, VLC (via Telnet), and Roku added support for playing local media! Combing
+this with the VLC add-on can turn your Home Assistant device into a
+media player for your local media. In the video below, Zack will demonstrate how
+that works:
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oq3gek41_-I" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## Check for updates
 
