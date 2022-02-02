@@ -318,7 +318,6 @@ Examples:
 - Add slugify as a template filter ([@ZephireNZ] - [#58724])
 - Add is_number as a test for use in select, selectattr, reject, and re… ([@Petro31] - [#63732])
 
-
 ## Other noteworthy changes
 
 There is much more juice in this release; here are some of the other
@@ -431,7 +430,6 @@ From things from the frontend that might be of interest:
 * use motion-sensor/-off (#11142) @Mariusthvdb
 * Single device links to device page (#11387) @balloob
 * Add Search Icon to Config Dashboard (#11375) @zsarnett
-* Move energy to Dashboards (#11386) @zsarnett
 * Add backup size to backup table (#11365) @ludeeus
 * Allow downloading device diagnostics (#11370) @balloob
 * Allow tab to show/hide password button for keyboard accessibility (#11416) @steverep
@@ -514,6 +512,19 @@ Experiencing issues introduced by this release? Please report them in our [issue
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
+
+{% details "Energy Dashboard" %}
+
+The configuration of the Energy Dashboard has moved.
+
+Previously this was found as a menu item in the configuration screen,
+but has now been moved into the "Dashboard" menu item.
+
+This keeps the configuration of all dashboard in a single place.
+
+([@zsarnett] - [#11386](https://github.com/home-assistant/frontend/pull/11386))
+
+{% enddetails %}
 
 {% details "Python 3.8 support dropped" %}
 
