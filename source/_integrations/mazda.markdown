@@ -14,6 +14,7 @@ ha_codeowners:
   - '@bdr99'
 ha_domain: mazda
 ha_platforms:
+  - binary_sensor
   - device_tracker
   - lock
   - sensor
