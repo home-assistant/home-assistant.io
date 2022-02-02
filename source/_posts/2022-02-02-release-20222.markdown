@@ -315,15 +315,6 @@ Examples:
 - Add is_number as a test for use in select, selectattr, reject, and re… ([@Petro31] - [#63732])
 
 
-## Python 3.8 dropped
-
-Python 3.8 was previously deprecated and support for is has been dropped.
-Home Assistant currently requires Python 3.9.
-
-If you run Home Assistant OS, Home Assistant Container or Home Assistant
-Supervised: We have taken care of this for you and no action from your end
-is required for this.
-
 ## Other noteworthy changes
 
 There is much more juice in this release; here are some of the other
