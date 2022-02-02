@@ -224,16 +224,17 @@ dropping it into the form.
 
 ## Improved handling of device tracker entities
 
-If you run an integration that provides device tracker, from lets say, your
-router or somehting like a UniFi integration; than you are probably aware those
-can create lots of entities!
+If you run an integration that provides device trackers from your router or
+something like the UniFi Network integration, you are probably aware those
+can create many entities!
 
-For some this may be overwhelming, this as of today, by default, only device
-tracker enties that match up with an existing - known by Home Assistant - device
-will be enabled by default.
+This has been improved now. As of today, by default, only device tracker
+entities that match up with an existing - known by Home Assistant - device
+will be enabled by default. This keeps Home Assistant nice and tidy.
 
-This keeps our Home Assistant nice and tidy, but also gives you the possibility
-to enable those extra ones you like to have, yourself.
+If Home Assistant does not know the device, but you still would like to track
+a specific one, that is still possible. In that case, you can enable the
+particular device tracker entities you’d like to have.
 
 ## Scenes now have a state
 
