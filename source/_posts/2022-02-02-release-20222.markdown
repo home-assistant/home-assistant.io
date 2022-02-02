@@ -434,30 +434,28 @@ From things from the frontend that might be of interest:
 
 This release adds support for long-term statistics to the following integrations:
 
-- Add state class to screenlogic sensors ([@bdraco] - [#64941]) ([screenlogic docs])
-- Add state class to powerwall charge sensor ([@bdraco] - [#64939]) ([powerwall docs])
-- Add state class to hunterdouglas_powerview ([@bdraco] - [#64936]) ([hunterdouglas_powerview docs])
-- Add state class to emonitor sensors ([@bdraco] - [#64934]) ([emonitor docs])
-- Add state class to nexia sensors ([@bdraco] - [#64932]) ([nexia docs])
-- Add state classes to august sensors ([@bdraco] - [#64931]) ([august docs])
-- Add edl21 sensor state class and device class ([@StephanU] - [#56968]) ([edl21 docs])
-- Add state class support to Luftdaten ([@frenck] - [#62585]) ([luftdaten docs])
-- Add SensorStateClass to Kraken sensors ([@eifinger] - [#63590]) ([kraken docs])
-- Add long term statistics to buienradar ([@tedvdb] - [#58917]) ([buienradar docs])
-- Revamp github integration ([@ludeeus] - [#64190]) ([github docs])
-
+- [August][august docs] (thanks [@bdraco])
+- [Buienradar][buienradar docs] (thanks [@tedvdb])
+- [EDL21][edl21 docs] (thanks [@StephanU])
+- [GitHub][github docs] (thanks [@ludeeus])
+- [Hunter Douglas PowerView][hunterdouglas_powerview docs] (thanks [@bdraco])
+- [Kraken][kraken docs] (thanks [@eifinger])
+- [Nexia/American Standard/Trane][nexia docs] (thanks [@bdraco])
+- [Pentair ScreenLogic][screenlogic docs] (thanks [@bdraco])
+- [Sensor.Community][luftdaten docs] (thanks [@frenck])
+- [SiteSage Emonitor][emonitor docs] (thanks [@bdraco])
+- [Tesla Powerwall][powerwall docs] (thanks [@bdraco])
 
 And the following integrations now have entity categories:
 
-- Add entity categories. ([@stegm] - [#63165]) ([kostal_plenticore docs])
-- Aurora ABB add entity category ([@davet2001] - [#61231]) ([aurora_abb_powerone docs])
-- Add Netgear entity category and configuration url ([@starkillerOG] - [#62260]) ([netgear docs])
-- Add entity category to DSMR ([@starkillerOG] - [#62262]) ([dsmr docs])
-- Motion blinds add entity category ([@starkillerOG] - [#62266]) ([motion_blinds docs])
-- Hyperion add entity category ([@starkillerOG] - [#62268]) ([hyperion docs])
-- Use entity class attributes for Mazda integration ([@bdr99] - [#59869]) ([mazda docs])
-- Revamp github integration ([@ludeeus] - [#64190]) ([github docs])
-
+- [Aurora ABB PowerOne Solar PV][aurora_abb_powerone docs] (thanks [@davet2001])
+- [DSMR][dsmr docs] (thanks [@starkillerOG])
+- [GitHub][github docs] (thanks [@ludeeus])
+- [Hyperion][hyperion docs] (thanks [@starkillerOG])
+- [Kostal Plenticore Solar Inverter][kostal_plenticore docs] (thanks [@stegm])
+- [Mazda Connected Services][mazda docs] (thanks [@bdr99])
+- [Motion Blinds][motion_blinds docs] (thanks [@starkillerOG])
+- [NETGEAR][netgear docs] (thanks [@starkillerOG])
 
 ## New Integrations
 
