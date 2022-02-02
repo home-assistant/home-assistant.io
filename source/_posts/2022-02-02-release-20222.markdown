@@ -77,11 +77,11 @@ for the United States. 🎉
 ### Improved infrastructure<!-- omit in toc -->
 
 Nabu Casa's new payment system is part of revamped cloud system that they are
-rolling out, and this will bring more improvements the Home Assistant Cloud
+rolling out, and this will bring more improvements to the Home Assistant Cloud
 services.
 
 They already improved our remote access infrastructure to make sure it's routing
-as close to you as possible. Last week they rolle rolled out improvements
+as close to you as possible. Last week they rolled out improvements
 to the infrastructure that significantly improved the speed of the
 Google Assistant and Amazon Alexa integrations.
 
@@ -95,7 +95,7 @@ Zack will be helping out on different aspects of Home Assistant, including the
 [Home Assistant YouTube channel](https://www.youtube.com/channel/UCbX3YkedQunLt7EQAdVxh7w),
 and the Home Assistant Frontend.
 
-Mike is going to be focussing on extending and improving the Home Assistant
+Mike is going to be focusing on extending and improving the Home Assistant
 Supervisor and the eco system around it (like its internal plugins and add-ons).
 
 Welcome! Excited to have you on board! 🎉
@@ -359,7 +359,7 @@ noteworthy changes this release:
 - Magic Home (also known as FluxLED) had lots of improvements of love from [@bdraco]!
 - [@Danielhiversen] added support for local access to Adax and Mill heaters. Nice!
 - Tuya now supports Pet Feeders (thanks [@vauriga]), Circuit Breakers (thanks [@slydiman]),
-  and Alarms (thanks [@leeyuentuen]). Additionally, support for Fans had been improved.
+  and Alarms (thanks [@leeyuentuen]). Additionally, support for Fans has been improved.
 - The generic thermostat integration now supports presets, thanks [@brianegge]!
 - Home Connect added support for refrigerators and cook processors,
   thanks [@BraveChicken1] and [@noxhirsch]
@@ -411,7 +411,7 @@ And the following integrations now have entity categories:
 
 ## New Integrations
 
-We welcome the following new integration this release:
+We welcome the following new integrations this release:
 
 - [`input_button`][input_button docs], added by [@frenck]
 - [Aseko Pool Live][aseko_pool_live docs], added by [@milanmeu]
@@ -470,7 +470,7 @@ The configuration of the Energy Dashboard has moved.
 Previously this was found as a menu item in the configuration screen,
 but has now been moved into the "Dashboard" menu item.
 
-This keeps the configuration of all dashboard in a single place.
+This keeps the configuration of all dashboards in a single place.
 
 ([@zsarnett] - [#11386])
 
@@ -484,7 +484,10 @@ This keeps the configuration of all dashboard in a single place.
 Python 3.8 support has previously been deprecated and now has been removed.
 Home Assistant now requires Python 3.9 to run.
 
-If you are using Home Assistant OS, Home Assistant Container, or Home Assistant Supervised installation method, you don't have to do anything. In those cases, we all handle this for you. Your system has been using Python 3.9 for quite some time already.
+If you are using Home Assistant OS, Home Assistant Container, or Home Assistant
+Supervised installation method, you don't have to do anything. In those cases,
+we handle this all for you. Your system has been using Python 3.9 for quite
+some time already.
 
 ([@frenck] - [#63883])
 
@@ -492,15 +495,15 @@ If you are using Home Assistant OS, Home Assistant Container, or Home Assistant 
 
 {% details "GPIO Integrations" %}
 
-As of this release, all integration intefacing with GPIO directly, have been
+As of this release, all integrations interfacing with GPIO directly, have been
 deprecated.
 
 There are multiple reasons for this, which includes a general low usage of
-these integrations. For most Home Assistant installation, GPIO isn't easily
-usable and more often the integrations are unmainted.
+these integrations. For most Home Assistant installations, GPIO isn't easily
+usable and more often the integrations are unmaintained.
 
 More information can be found in
-[Architectural Decission Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+[Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
 
 Additionally, there are many projects around that handle these purposes of GPIO
 better than Home Assistant. For example, our sister project ESPHome, or
@@ -585,9 +588,9 @@ This means that:
 
 {% details "Fan/Humidifer/Light/Remote/Siren/Switch/Vacuum" %}
 
-Previously, toggle-based entities (like `fan`, `light`, `switch`, `remote`, `siren`, `vacuum`, `humidifier`) could have the state `on` or `off`, and in case the device was unreachable: `unavailable`. However, compared to other entities, toggle entities aren't able to have an `unknown` state, this now has changed.
+Previously, toggle-based entities (like `fan`, `light`, `switch`, `remote`, `siren`, `vacuum`, `humidifier`) could have the state `on` or `off`, and in case the device was unreachable: `unavailable`. However, compared to other entities, toggle entities weren't able to have an `unknown` state, this now has changed.
 
-As of now, toggle-based entities can now have the `on`, `off`, `unavailable`, or `unknown` state.
+As of now, toggle-based entities can have the `on`, `off`, `unavailable`, or `unknown` state.
 
 You might need to adapt your automations or scripts to take this new `unknown` state into account.
 
@@ -597,7 +600,7 @@ You might need to adapt your automations or scripts to take this new `unknown` s
 
 {% details "Advantage Air" %}
 
-The `advantage_air.set_myzone` service has been depreciated and will be removed
+The `advantage_air.set_myzone` service has been deprecated and will be removed
 in a future version of Home Assistant.
 
 Please use the `select.select_option` service on the MyZone select entity to change this value on supported systems instead.
@@ -623,7 +626,7 @@ release; and thus can be safely removed from your YAML configuration after upgra
 
 The `/api/discovery_info` endpoint was deprecated in 2021.10, and has since only
 returned blank values. From this version, the `/api/discovery_info` endpoint has
-been removed completly.
+been removed completely.
 
 ([@ludeeus] - [#64534]) ([api docs])
 
@@ -672,7 +675,7 @@ The previously deprecated YAML configuration of the AVM FRITZ!Box Tools
 integration has been removed.
 
 AVM FRITZ!Box Tools is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 [@epenet] - [#63857]) ([fritz docs])
@@ -779,7 +782,7 @@ The previously deprecated YAML configuration of the DLNA Digital Media Renderer
 integration has been removed.
 
 DLNA Digital Media Renderer is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@tkdrob] - [#62344]) ([dlna_dmr docs])
@@ -862,7 +865,7 @@ YAML configuration files.
 The sensors no longer have `Timestamp` as an extra state attribute, instead,
 use the new `timestamp` sensor that can be used in automations that track state changes.
 
-The sensors alert sensors (`advisories`, `endings`, `statements`, `warnings`, and `watches`) state is now a count of the number of active alerts for the sensor type
+The alert sensors (`advisories`, `endings`, `statements`, `warnings`, and `watches`) state is now a count of the number of active alerts for the sensor type
 and the extra state attributes contain the alert text and alert timestamp.
 
 The attributes are named `alert_<x>` and `alert_time_<x>` where <x> is 1 for alert 1, 2 for alert 2, etc.
@@ -877,7 +880,7 @@ This is more a breaking change for custom integration developers.
 
 Now that all core fans are using the new fan entity model, the compatibility shim
 has been removed. Custom integrations that have not yet switched to the new
-fan model. For more information see:
+fan model may be affected. For more information see:
 
 <https://developers.home-assistant.io/docs/core/entity/fan/#deprecated-properties>
 
@@ -938,7 +941,7 @@ The data associated with `foursquare.checkin` event is now available as a
 dictionary item with key "text".
 
 If you use this event in your automation or scripts, you'd need to adjust to
-to match this change.
+match this change.
 
 ([@epenet] - [#63982]) ([foursquare docs])
 
@@ -968,7 +971,7 @@ The previously deprecated YAML configuration of the Google Maps Travel Time
 integration has been removed.
 
 Google Maps Travel Time is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@tkdrob] - [#62468]) ([google_travel_time docs])
@@ -995,7 +998,7 @@ The previously deprecated YAML configuration of the Honeywell Total Connect Comf
 integration has been removed.
 
 Honeywell Total Connect Comfort is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 
@@ -1017,7 +1020,7 @@ The previously deprecated YAML configuration of the Keenetic NDMS2 Router
 integration has been removed.
 
 Keenetic NDMS2 Router is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@epenet] - [#63860]) ([keenetic_ndms2 docs])
@@ -1026,7 +1029,7 @@ removed from your YAML configuration files.
 
 {% details "Launch Library" %}
 
-The Launch Libraryintegration migrated to configuration via the
+The Launch Library integration migrated to configuration via the
 UI. Configuring Launch Library via YAML configuration has been
 deprecated and will be removed in a future Home Assistant release.
 
@@ -1042,10 +1045,10 @@ changed to better describe what information they provide. (Ex. `agency` changed
 name to `provider` as this is the more correct terminology.) New attributes are
 added to give more information about where it takes place.
 
-The `stream` attribute ios moved to the new sensor, and changed it's name to `stream_live` as it represent if the stream is live and not if a stream is
+The `stream` attribute ios moved to the new sensor, and changed its name to `stream_live` as it represents if the stream is live and not if a stream is
 available.
 
-And finally, the attribute `launch_time` moved into it's own sensor. This made
+And finally, the attribute `launch_time` moved into its own sensor. This made
 it possible to add some information about the launch window start and end as attributes for the new sensor. This sensor will also contain the `stream_live` attribute.
 
 ([@DurgNomis-drol] - [#64203]) ([launch_library docs])
@@ -1062,7 +1065,7 @@ Your existing YAML configuration is automatically imported on upgrade to this
 release; and thus can be safely removed from your YAML configuration after upgrading.
 
 The [turn on action](/integrations/webostv/#turn-on-action) for turning on the
-TV via `WakeOnLan` or `HDMI-CEC` was using a service call via YAML, the turn on action is changed to use a custom automation trigger `webostv.turn_on` or a device trigger automation that can be setup from the UI.
+TV via `WakeOnLan` or `HDMI-CEC` was using a service call via YAML, and the turn on action is changed to use a custom automation trigger `webostv.turn_on` or a device trigger automation that can be setup from the UI.
 
 **Example trigger automation:**
 
@@ -1087,7 +1090,7 @@ The previously deprecated YAML configuration of the Logitech Squeezebox
 integration has been removed.
 
 Logitech Squeezebox is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@tkdrob] - [#62537]) ([squeezebox docs])
@@ -1174,7 +1177,7 @@ The previously deprecated YAML configuration of the NETGEAR
 integration has been removed.
 
 NETGEAR is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@epenet] - [#63862]) ([netgear docs])
@@ -1200,7 +1203,7 @@ The previously deprecated YAML configuration of the Nmap Tracker
 integration has been removed.
 
 Nmap Tracker is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@epenet] - [#63863]) ([nmap_tracker docs])
@@ -1213,7 +1216,7 @@ The previously deprecated YAML configuration of the Nuki
 integration has been removed.
 
 Nuki is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@tkdrob] - [#62470]) ([nuki docs])
@@ -1239,7 +1242,7 @@ The previously deprecated YAML configuration of the Philips TV
 integration has been removed.
 
 Philips TV is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@tkdrob] - [#62471]) ([philips_js docs])
@@ -1268,7 +1271,7 @@ This applies to the following PVOutput attributes:
 - `temperature`
 - `voltage`
 
-If you relied on these in your automation or scripts, you need to adopt those to use the new separate sensors instead. The attributes are currently available, however, deprecated and will be removed in Home Assistant Core 2022.4.
+If you relied on these in your automation or scripts, you need to adapt those to use the new separate sensors instead. The attributes are currently available, however, deprecated and will be removed in Home Assistant Core 2022.4.
 
 ([@frenck] - [#62667] [#62894]) ([pvoutput docs])
 
@@ -1288,7 +1291,7 @@ The previously deprecated YAML configuration of the Stookalert
 integration has been removed.
 
 Stookalert is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@frenck] - [#61007]) ([stookalert docs])
@@ -1301,7 +1304,7 @@ The previously deprecated YAML configuration of the Samsung SyncThru Printer
 integration has been removed.
 
 Samsung SyncThru Printer is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@tkdrob] - [#62541]) ([syncthru docs])
@@ -1343,7 +1346,7 @@ The previously deprecated YAML configuration of the SMA Solar
 integration has been removed.
 
 SMA Solar is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@tkdrob] - [#62472]) ([sma docs])
@@ -1378,7 +1381,7 @@ can be safely removed from your YAML configuration.
 
 {% details "Synology DSM" %}
 
-The `reboot` and `shutdown` services are deprecated and will be removed in future release. Please use the new button entities instead.
+The `reboot` and `shutdown` services are deprecated and will be removed in a future release. Please use the new button entities instead.
 
 ([@mib1185] - [#57352]) ([synology_dsm docs]) (breaking-change)
 
@@ -1399,7 +1402,7 @@ The previously deprecated YAML configuration of the TP-Link Kasa Smart
 integration has been removed.
 
 TP-Link Kasa Smart is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@bdraco] - [#62457]) ([tplink docs])
@@ -1408,8 +1411,8 @@ removed from your YAML configuration files.
 
 {% details "Trafikverket Train" %}
 
-The planned time, estimated time and and actual time sensor attributes have
-been correct to be UTC isoformatted string which is standard in Home Assistant.
+The planned time, estimated time and actual time sensor attributes have
+been corrected to be UTC isoformatted strings which is standard in Home Assistant.
 
 Previously displayed as `2021-12-23T09:07:00` and now correctly set as `2021-12-23T09:07:00+00:00`.
 
@@ -1504,7 +1507,7 @@ The previously deprecated YAML configuration of the VLC media player Telnet
 integration has been removed.
 
 VLC media player Telnet is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@tkdrob] - [#62542]) ([vlc_telnet docs])
@@ -1517,7 +1520,7 @@ The previously deprecated YAML configuration of the Waze Travel Time
 integration has been removed.
 
 Waze Travel Time is now configured via the UI, any existing YAML
-configurationhas been imported in previous releases and can now be safely
+configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
 ([@tkdrob] - [#62543]) ([waze_travel_time docs])
@@ -1551,7 +1554,7 @@ release; and thus can be safely removed from your YAML configuration after upgra
 
 Due to a schema change, `zwave-js-server` version 1.14.0 or greater is required.
 Ensure you are using the latest version of `zwave-js-server` (or the add-ons
-that provides those).
+that provide those).
 
 ([@raman325] - [#64407]) ([zwave_js docs])
 
@@ -1592,7 +1595,7 @@ The following integrations are no longer available as of this release:
   ([@iMicknl] - [#62607])
 - **Arduino** the now long time deprecated integration has been removed.
   ([@frenck] - [#63406])
-- **EE Bright Box** has been broken en disabled for over a year now.
+- **EE Bright Box** has been broken and disabled for over a year now.
   It has now been removed. ([@epenet] - [#63839])
 
 ## All changes
