@@ -87,7 +87,7 @@ Examples use cases of button entities.
 Before we dive into this release, we have some news and updates from
 [Nabu Casa](https://www.nabucasa.com) to share with you.
 
-### Annual subscriptions now available for the US
+### Annual subscriptions now available for the United States
 
 The ability to subscribe to the [Home Assistant Cloud](https://www.nabucasa.com)
 anually, was one of the most requested features sinds Nabu Casa was founded and has been
@@ -96,8 +96,7 @@ announced at the [State of the Open Home](/state-of-the-open-home/) in December.
 As of today, the annual subscriptions to Home Assistant Cloud are available
 for the United States. 🎉
 
-Additionally, in regions where annual subscriptions are available, you be able
-to use Apple Pay and Google Pay now.
+Additionally, in regions where annual subscriptions are available, Apple Pay and Google Pay will be available as extra options.
 
 Annual subscriptions will become available in other countries in the coming
 months, including local currency support for Canada, Europe and the United Kingdom.
@@ -269,7 +268,7 @@ Screenshot from GitHub PR, needs to be replaced
 
 ## More Advanced things
 
-Short hand condition nation is now supported in conditions actions as well.
+Short hand condition notion is now supported in conditions actions as well.
 For use in automations and scripts.
 
 For example (needs better example):
@@ -488,7 +487,7 @@ We welcome the following new integration this release:
 The following integrations are now available via the Home Assistant UI:
 
 - [Android TV][androidtv docs], done by [@ollo69]
-- [Azure Event Hub][azure_event_hub docs], done by[@eavanvalkenburg] 
+- [Azure Event Hub][azure_event_hub docs], done by[@eavanvalkenburg]
 - [CPU Speed][cpuspeed docs], done by [@frenck]
 - [DNS IP][dnsip docs], done by [@gjohansson-ST]
 - [GitHub][github docs], done by [@ludeeus]
@@ -1071,7 +1070,7 @@ release; and thus can be safely removed from your YAML configuration after upgra
 
 ([@DurgNomis-drol] - [#62416]) ([launch_library docs])
 
---- 
+---
 
 Attributes on the current sensor is changed. Names of these attributes are
 changed to better describe what information they provide. (Ex. `agency` changed
@@ -1219,7 +1218,7 @@ removed from your YAML configuration files.
 
 {% details "Nissan Leaf" %}
 
-The service to start a charge has been deprecated; it is replaced with a button. 
+The service to start a charge has been deprecated; it is replaced with a button.
 
 Replace the `nissan_leaf.start_charge` service in any existing automations with `button.press` for the new `button.start_NICKNAME_charging` entity.
 
@@ -1516,7 +1515,7 @@ in almost all cases.
 If you really need more fine-grained control you can disable automatic updates
 in the system settings for the Viessmann ViCare integration and automate the
 polling of the entities with the
-[`homeassistant.update_entity`](/docs/scripts/service-calls#homeassistant-services) 
+[`homeassistant.update_entity`](/docs/scripts/service-calls#homeassistant-services)
 service.
 
 ([@oischinger] - [#63343]) ([vicare docs])
