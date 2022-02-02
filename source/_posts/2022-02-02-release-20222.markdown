@@ -15,27 +15,6 @@ og_image: /images/blog/2022-02/social.png
 
 <a href='/integrations/#version/2022.2'><img src='/images/blog/2022-02/social.png' style='border: 0;box-shadow: none;'></a>
 
-These are the beta release notes for Home Assistant Core 2022.2 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
-
 I'm not sure if this is really fitting; it is February already... but since
 this is the first release of the year, I'm going to say it anyway:
 
@@ -61,12 +40,16 @@ Enjoy the release!
 
 ../Frenck
 
-- [New media player bar, local media...](#new-media-player-bar-local-media)
-- [Diagnostics for Integration & Device](#diagnostics-for-integration--device)
+- [Updates from Nabu Casa](#updates-from-nabu-casa)
+- [Media improvements](#media-improvements)
+- [Check for updates](#check-for-updates)
+- [Diagnostics for integrations and devices](#diagnostics-for-integrations-and-devices)
+- [Finding known issues and where to report new ones](#finding-known-issues-and-where-to-report-new-ones)
 - [Improved handling of device tracker entities](#improved-handling-of-device-tracker-entities)
-- [Streamlining experiences](#streamlining-experiences)
-- [More Advanced things](#more-advanced-things)
-- [Python 3.8 dropped](#python-38-dropped)
+- [Scenes now have a state](#scenes-now-have-a-state)
+- [Search in the configuration panel](#search-in-the-configuration-panel)
+- [Button helper and template](#button-helper-and-template)
+- [Templating enhancements](#templating-enhancements)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -80,7 +63,7 @@ Enjoy the release!
 Before we dive into this release, we have some news and updates from
 [Nabu Casa](https://www.nabucasa.com) to share with you.
 
-### Annual subscriptions now available for the United States
+### Annual subscriptions now available for the United States <!-- omit in toc -->
 
 The ability to subscribe to the [Home Assistant Cloud](https://www.nabucasa.com)
 anually, was one of the most requested features since Nabu Casa was founded and has been
@@ -94,7 +77,7 @@ Additionally, in regions where annual subscriptions are available, Apple Pay and
 Annual subscriptions will become available in other countries in the coming
 months, including local currency support for Canada, Europe and the United Kingdom.
 
-### Improved infrastructure
+### Improved infrastructure<!-- omit in toc -->
 
 Our new payment system is part of our revamped cloud system that we are rolling
 out, and this will bring more improvements the Home Assistant Cloud services.
@@ -104,7 +87,7 @@ as close to you as possible. Last week we have rolled out improvements
 to the infrastructure that has significantly improved the speed of the
 Google Assistant and Amazon Alexa integrations.
 
-### Zack Barett and Mike Degatano join Nabu Casa
+### Zack Barett and Mike Degatano join Nabu Casa <!-- omit in toc -->
 
 We are also happy to announce [Zack Barett](https://github.com/zsarnett) and
 [Mike Degatano](https://github.com/mdegat01) will be joining Nabu Casa to work
@@ -297,10 +280,15 @@ template:
 
 ## Templating enhancements
 
-Short hand condition notion is now supported in conditions actions as well.
-For use in automations and scripts.
+There are a couple of nice enhancements to this release for the more advanced
+use cases that stand out.
 
-For example (needs better example):
+### Shorthand condition notations in actions  <!-- omit in toc -->
+
+Shorthand condition notations are pretty helpful and are now supported in
+conditions actions; For use in automations and scripts.
+
+For example:
 
 {% raw %}
 
@@ -311,15 +299,14 @@ sequence:
 
 {% endraw %}
 
-- Support shorthand templates in condition actions ([@emontnemery] - [#61177])
+### Immediate if (`iif`)  <!-- omit in toc -->
 
+We now have an [immediate if (`iif`)](/docs/configuration/templating/#immediate-if-iif)
+template function and filter that can be used as a short alternative version
+to an if/else statement.
 
-We now have an [immediate if (`iif`)](/docs/configuration/templating/#immediate-if-iif) template function that can be used:
-
-Syntax: `iif(condition, if_true, if_false, if_none)`
-
-Examples:
-
+These can help shortening a lot of if/else constructs that for example, return
+a "Yes" or "No" (or similar) value in templates. Some examples:
 {% raw %}
 
 ```yaml
@@ -330,126 +317,66 @@ Examples:
 
 {% endraw %}
 
-- Add iif (immediate if) template function/filter ([@frenck] - [#61428])
-
-- Add slugify as a template filter ([@ZephireNZ] - [#58724])
-- Add is_number as a test for use in select, selectattr, reject, and re… ([@Petro31] - [#63732])
-
 ## Other noteworthy changes
 
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-This list needs to be sorted, reduced and styled.
-Interesting PRs found in Core:
+- When an integration has a single device, clicking on the "1 device" link will
+  now navigate to that device directly and skip the addition page with a table
+  showing 1 item. This makes navigating those cases quicker, thanks [@balloob]!
+- There is now a tiny menu on discovered devices and services, which allows
+  you to visit the device/service and find the documentation that belongs to
+  this discovered item.
 
-- Enable local fulfillment google assistant ([@LoekSangers] - [#63218]) ([google_assistant docs])
-- Add unique_id to the statistics component ([@ThomDietrich] - [#59205]) ([statistics docs])
-- Add Venstar runtimes and battery sensors ([@garbled1] - [#60414]) ([venstar docs])
-- Update Apple TV integration to support tvOS 15 ([@postlund] - [#58665]) ([apple_tv docs])
-- Add support for app launching in Apple TV ([@postlund] - [#61732]) ([apple_tv docs])
-- Add Yamaha MusicCast Select Entities ([@micha91] - [#60645]) ([yamaha_musiccast docs])
-- Add local access for Adax ([@Danielhiversen] - [#60019]) ([adax docs])
-- Add sensors to Mill local heaters ([@Danielhiversen] - [#61247]) ([mill docs])
-- Add media_player platform to Lookin ([@ANMalko] - [#61337]) ([lookin docs]) (new-platform)
-- Add Tibber estimated hour consumption sensor ([@Danielhiversen] - [#62003]) ([tibber docs])
-- Add hardware version to the device registry ([@bdraco] - [#61650])
-- Add hardware version support to homekit controller ([@bdraco] - [#61743]) ([homekit_controller docs])
-- Add Tibber peak hour, monthly consumption and monthly cost sensors ([@Danielhiversen] - [#61853]) ([tibber docs])
-- Add battery entity for Maxcube devices ([@petslane] - [#58699]) ([maxcube docs])
-- Add xiaomi miio gateway hw version ([@starkillerOG] - [#62274]) ([xiaomi_miio docs])
-- Add hardware version to bond ([@bdraco] - [#62256]) ([bond docs])
-- Add reboot button to Magic Home/flux_led ([@bdraco] - [#62323]) ([flux_led docs])
-- Add switch to enable/disable music mode in Magic Home/flux_led ([@bdraco] - [#62320]) ([flux_led docs])
-- Support Plex resuming and playback offset ([@jjlawren] - [#61468]) ([plex docs])
-- Add zones support to flux_led ([@bdraco] - [#61072]) ([flux_led docs])
-- Add support for changing Magic Home socket power restore state ([@bdraco] - [#62301]) ([flux_led docs])
-- Add USB discover for Sonoff zigbee dongle plus ([@OpenMyDog] - [#62171]) ([zha docs])
-- Add set_music_mode service to flux_led for detailed music mode control ([@bdraco] - [#62429]) ([flux_led docs])
-- Add input_button support to HomeKit ([@frenck] - [#62590]) ([homekit docs])
-- Add input_button support to Alexa ([@frenck] - [#62592]) ([alexa docs])
-- Add input_button support to Google Assistant ([@frenck] - [#62593]) ([google_assistant docs])
-- Add connectsense to homekit_controller ([@ecoen66] - [#62675]) ([homekit_controller docs])
-- Add identify buttons to ZHA devices ([@dmulcahey] - [#61495]) ([zha docs])
-- Generic thermostat presets ([@brianegge] - [#56080]) ([generic_thermostat docs])
-- Add new buttons for Shelly Gas ([@bieniu] - [#63099]) ([shelly docs])
-- Add hardware version to Roku device info ([@ctalkington] - [#63249]) ([roku docs])
-- Add unique_id configuration variable to command_line integration ([@rautesamtr] - [#58596]) ([command_line docs])
-- Add mqtt entity attributes command templates ([@jbouwh] - [#61937]) ([mqtt docs])
-- Add support for Pet Feeder (cwwsq) in Tuya ([@vauriga] - [#61359]) ([tuya docs])
-- Add philips.light.hbulb support ([@syssi] - [#62417]) ([xiaomi_miio docs])
-- Add hardware revision support to homekit ([@bdraco] - [#63336]) ([homekit docs])
-- Add support for Sonos microphone binary_sensor ([@jjlawren] - [#63097]) ([sonos docs])
-- Prometheus to support input_number ([@yozik04] - [#58964]) ([prometheus docs])
-- Add Goodwe solar inverter integration ([@mletenay] - [#58503]) ([goodwe docs]) (new-integration)
-- Add additional service to set advanced Hue scene options ([@marcelveldt] - [#63035]) ([hue docs])
-- Add support for curtain device class to google assistant ([@emontnemery] - [#63380]) ([google_assistant docs])
-- Updated the support of Tuya Circuit Breaker 'dlq' ([@slydiman] - [#63519]) ([tuya docs])
-- Add support for Levoit Core 300S air purifier to VeSync integration ([@RefineryX] - [#62488]) ([vesync docs])
-- Tuya Alarm Initial commit ([@leeyuentuen] - [#60080]) ([tuya docs]) (new-platform) (new-integration)
-- Give scenes last activated state ([@frenck] - [#62673]) ([scene docs]) ([homeassistant docs])
-- Tibber cost statistics ([@Danielhiversen] - [#63626]) ([tibber docs])
-- Add is_number as a test for use in select, selectattr, reject, and re… ([@Petro31] - [#63732])
-- Add DSMR config options for EasyMeter/Q3D ([@Aeroid] - [#63669]) ([dsmr docs])
-- Expose WLED configuration URL of discovered device ([@frenck] - [#63983]) ([wled docs])
-- Add light platform to LOOKin ([@ANMalko] - [#64076]) ([lookin docs]) (new-platform)
-- Add HomeConnect Refrigerator ([@BraveChicken1] - [#63850]) ([home_connect docs])
-- Set unique id for config entry in smhi ([@gjohansson-ST] - [#63547]) ([smhi docs])
-- Add electric vehicle sensors to Mazda integration ([@bdr99] - [#64099]) ([mazda docs])
-- Revamp github integration ([@ludeeus] - [#64190]) ([github docs]) (breaking-change)
-- Add AQHI sensor for Environment Canada ([@gwww] - [#63644]) ([environment_canada docs])
-- Add HVAC modes of climate entities to Prometheus exporter ([@rnurgaliyev] - [#62144]) ([prometheus docs])
-- Extract fibaro switch energy attributes into sensors ([@rappenze] - [#63697]) ([fibaro docs]) (breaking-change)
-- Initial Tuya support for FSD based fans ([@candreacchio] - [#64283]) ([tuya docs]) (new-integration)
-- Add Volumio repeat support ([@m4rkireland] - [#64132])
-- Expose deCONZ configuration url from discovered entry ([@Kane610] - [#64519]) ([deconz docs])
-- Add Home Assistant Content user ([@balloob] - [#64337]) ([http docs]) ([websocket_api docs]) ([auth docs]) ([cast docs]) ([media_source docs]) (breaking-change)
-- Allow Sonos to browse and play local media via media browser ([@balloob] - [#64603])
-- Add support for Soma Tilt devices ([@sebfortier2288] - [#49734]) ([soma docs])
-- Add siren platform to devolo Home Control ([@Shutgun] - [#53400]) ([devolo_home_control docs])
-- Add dishwasher program to Home Connect Integration ([@jan-loeffler] - [#61237]) ([home_connect docs])
-- Add local media browser to VLC ([@balloob] - [#64655]) ([media_source docs]) ([vlc_telnet docs])
-- Fix webostv media player ([@thecode] - [#64690]) ([webostv docs])
-- Add tests for LCN switch platform ([@alengwenus] - [#52590]) ([lcn docs])
-- Refactor Tuya DPCode and data type handling ([@frenck] - [#64707]) ([tuya docs])
-- Add warning when calling deprecated bond services ([@bdraco] - [#64744]) ([bond docs])
-- Allow toggles (switches) state to be None ([@frenck] - [#64621]) (breaking-change)
-- Add command template for MQTT button ([@jbouwh] - [#63838]) ([mqtt docs])
-- Add service send command in Tuya Vacuum ([@dougiteixeira] - [#63417]) ([tuya docs])
-- Expose entity device temperature from cluster in ZHA ([@rforro] - [#64189]) ([zha docs])
-- Enable Low Latency HLS (LL-HLS) by default to lower stream latency ([@allenporter] - [#64643]) ([stream docs])
-- Add option to select quality of camera snapshots taken from Synology DSM connected cameras ([@mib1185] - [#58306]) ([synology_dsm docs])
-- Add support for preset modes to bond fans ([@bdraco] - [#64786]) ([bond docs])
-- Start depreciation of custom services in Advantage Air ([@Bre77] - [#58777]) ([advantage_air docs]) (breaking-change)
-- ESPHome prevent connecting to different hosts when IP reassigned ([@OttoWinter] - [#64559]) ([esphome docs])
-- Update method names reflecting changes in UniFi library ([@Kane610] - [#64817]) ([unifi docs])
-- Make sensor name consistent with other homekit_controller entity names ([@Jc2k] - [#64821]) ([homekit_controller docs])
-- Remove source and channel attributes from local version ([@ludeeus] - [#64827]) ([version docs]) (breaking-change)
-- Add more vicare binary sensors and clean up constants ([@oischinger] - [#64780]) ([vicare docs])
-- Add missing voices to Amazon Polly ([@aomann] - [#64708])
-- Add Home Connect CookProcessor (Bosch Cookit) ([@noxhirsch] - [#62445]) ([home_connect docs])
-- Add a reboot button for ONVIF devices ([@esev] - [#61522]) ([onvif docs])
-- Allow roku to browse and play local media ([@ctalkington] - [#64799]) ([roku docs])
-- Add additional energy sensors to Eve Energy ([@Jc2k] - [#64826]) ([homekit_controller docs])
-- Refactor Tuya Fans ([@frenck] - [#64765]) ([tuya docs])
-- Allow browsing the Spotify media player in Sonos ([@balloob] - [#64921]) ([sonos docs]) ([spotify docs])
-- Use local Sonos API for Plex music playback ([@jjlawren] - [#63357]) ([sonos docs]) ([cast docs]) ([plex docs])
-- Add unique_id to modbus entities ([@Tathar] - [#64634]) ([modbus docs])
+  <p class='img'>
+  <img class="no-shadow" src='/images/blog/2022-02/discovered-menu.png' alt='Screenshot showing the new menu on a discovered item'>
+  </div>
 
-From things from the frontend that might be of interest:
+- When viewing backups, it will now display the size of each backup in the
+  table. Thanks, [@ludeeus]!
+- Thanks to [@bramkragten], you can now select the period in the options of
+  the statistics card.
+- The Apple TV integration has been updated to support tvOS 15 and can now
+  launch apps too! Thanks, [@postlund]!
+- Thanks to [@bdraco], a device can now also display its hardware version in
+  Home Assistant. The HomeKit, Xiaomi Miio, Bond, Roku, and WLED integrations
+  have already adopted this.
+- The Google Assistant integration can now be set up to use local
+  fulfillment, thanks to [@LoekSangers]! Please note that this only applies to
+  manual setups. This is already handled automatically when using the Home
+  Assistant Cloud.
+- ZHA devices now have identify buttons, so you know which light you are
+  dealing with, thanks [@dmulcahey]! (Tip: also nice for visual notifications)
+- We now enable Low Latency HLS (LL-HLS) by default to lower stream latency,
+  thanks [@allenporter]!
+- Magic Home (also known as FluxLED) had lots of improvements of love from [@bdraco]!
+- [@Danielhiversen] added support for local access to Adax and Mill heaters. Nice!
+- Tuya now supports Pet Feeders (thanks [@vauriga]), Circuit Breakers (thanks [@slydiman]),
+  and Alarms (thanks [@leeyuentuen]). Additionally, support for Fans had been improved.
+- The generic thermostat integration now supports presets, thanks [@brianegge]!
+- Home Connect added support for refrigerators and cook processors,
+  thanks [@BraveChicken1] and [@noxhirsch]
+- [@Shutgun] added support for sirens to devolo Home Control.
+- Tibber added sensors for estimated hourly and monthly consumption, costs, and
+  more! Thanks, [@Danielhiversen]!
+- We now have a `slugify` template filter, thanks to [@ZephireNZ]!
+- [@Petro31] make `is_number` available as tests in templates.
+- Volumio has now repeat, repeat, repeat, ... support. Thanks, [@m4rkireland]!
+- [@marcelveldt] added a service to the Hue integration for setting more
+  advanced scene options. Thanks!
+- Sonos now has a binary sensor that can tell you if the microphone is on or off.
+  Helpful for a notification in case it shouldn't be on or off. Thanks, [@jjlawren]!
+- [@sebfortier2288] add support for tilt devices to Soma. Nice!
+- Google Assistant now supports the curtain device classes, thanks [@emontnemery]!
+- If you are using Synology DSM connected cameras, you can now select the
+  quality of the snapshots taken. Thanks, [@mib1185]!
+- A whole bunch of entities have been added to configure Yamaha MusicCast,
+  really nice [@micha91]!
+- Environment Canada now has an AQHI sensor. Thanks, [@gwww]!
 
-* Allow downloading diagnostics of a config entry (#11345) @balloob
-* Reflect media browser panel state in URL (#11317) @balloob
-* Ensure disabled device entity names are shown (#11334) @spacegaier
-* Allow pressing enter to pick item at the top  of the list (#11139) @balloob
-* Add period option to statistics card (#10982) @bramkragten
-* Add overflow menu to discovered integration item (#11165) @frenck
-* use motion-sensor/-off (#11142) @Mariusthvdb
-* Single device links to device page (#11387) @balloob
-* Add Search Icon to Config Dashboard (#11375) @zsarnett
-* Add backup size to backup table (#11365) @ludeeus
-* Allow downloading device diagnostics (#11370) @balloob
-* Allow tab to show/hide password button for keyboard accessibility (#11416) @steverep
+And honestly, this list is far from complete! There is so much this release.
+Feel free to check and search the "All Changes" section to find more!
 
 This release adds support for long-term statistics to the following integrations:
 
