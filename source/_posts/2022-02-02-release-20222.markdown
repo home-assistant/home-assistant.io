@@ -332,6 +332,13 @@ noteworthy changes this release:
   <img class="no-shadow" src='/images/blog/2022-02/discovered-menu.png' alt='Screenshot showing the new menu on a discovered item'>
   </div>
 
+- Editing trigger IDs in automations has moved into the trigger menu, making
+  the automation editor a little more compact.
+
+  <p class='img'>
+  <img class="no-shadow" src='/images/blog/2022-02/edit-trigger-id.png' alt='Screenshot showing the moved trigger ID feature'>
+  </div>
+
 - When viewing backups, it will now display the size of each backup in the
   table. Thanks, [@ludeeus]!
 - Thanks to [@bramkragten], you can now select the period in the options of
