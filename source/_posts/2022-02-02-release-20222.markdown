@@ -2,7 +2,7 @@
 layout: post
 title: "2022.2: Beta release notes"
 description: "The work in progress beta release notes for 2022.2."
-date: 2022-01-25 00:00:00
+date: 2022-02-02 00:00:00
 date_formatted: "Februari 02, 2022"
 author: Franck Nijhof
 author_twitter: frenck
