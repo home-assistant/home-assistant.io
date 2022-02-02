@@ -239,18 +239,23 @@ particular device tracker entities you’d like to have.
 ## Scenes now have a state
 
 Scenes never had a state, well that is not entirely true, it would always
-say: "scening". That is not really helpful with anything.
+say: "scening".
 
-To make the state of a scene more useful, it will now have the last timestamp of when the scene was activated. This has a couple of advantages:
+To make the state of a scene more valuable, it will now have the last timestamp
+of when the scene was activated. This has a couple of advantages:
 
-- The timestamp in the state of the scene tells you when the scene was last used.
-- You can now see history of when a scene was activated in the logbook,
-  and who did that.
+- You can see when a scene was last activated.
+- History of when a scene was activated in the logbook, and who did that.
 - You can now automate on a scene being activated.
 
 The last one is pretty useful as a scene can now be used to trigger even more
 actions via automations. For example, you could start playing media or send
-a TTS announcement when a scene is used.
+a TTS announcement when a scene activated.
+
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-02/scenes.png' alt='Screenshot of the logbook of a scene'>
+Now the scene has a state; it also got logbook entries.
+</p>
 
 ## Streamlining experiences
 
@@ -272,8 +277,6 @@ Screenshot from GitHub PR, needs to be replaced
 </p>
 
 - Search in top right of configuration dashboard (needs screenshot)
-
-- Scenes now have a state, last activated timestamp (like a button entity, last pressed)
 
 ## More Advanced things
 
