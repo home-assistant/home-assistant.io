@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2022.2: Beta release notes"
-description: "The work in progress beta release notes for 2022.2."
+title: "2022.2: Let's start streamlining!"
+description: "Starting 2022 with media and device tracker improvements, diagnostics, added states to scenes, and streamlining lots of things!"
 date: 2022-02-02 00:00:00
 date_formatted: "Februari 02, 2022"
 author: Franck Nijhof
@@ -69,22 +69,20 @@ The ability to subscribe to [Home Assistant Cloud](https://www.nabucasa.com)
 anually, was one of the most requested features since Nabu Casa was founded and has been
 announced at the [State of the Open Home](/state-of-the-open-home/) in December.
 
-As of today, the annual subscriptions to Home Assistant Cloud are available
+As of today, annual subscriptions to Home Assistant Cloud are available
 for the United States. 🎉
 
-Additionally, Apple Pay and Google Pay are now available as extra payment options.
-
-Annual subscriptions will become available in other countries in the coming
-months, including local currency support for Canada, Europe and the United Kingdom.
+[Read more about the announcement on the Nabu Casa website](https://www.nabucasa.com/more-info/subscriptions-feb-22/)
 
 ### Improved infrastructure<!-- omit in toc -->
 
-Our new payment system is part of our revamped cloud system that we are rolling
-out, and this will bring more improvements the Home Assistant Cloud services.
+Nabu Casa's new payment system is part of revamped cloud system that they are
+rolling out, and this will bring more improvements the Home Assistant Cloud
+services.
 
-We already improved our remote access infrastructure to make sure it's routing
-as close to you as possible. Last week we have rolled out improvements
-to the infrastructure that has significantly improved the speed of the
+They already improved our remote access infrastructure to make sure it's routing
+as close to you as possible. Last week they rolle rolled out improvements
+to the infrastructure that significantly improved the speed of the
 Google Assistant and Amazon Alexa integrations.
 
 ### Zack Barett and Mike Degatano join Nabu Casa <!-- omit in toc -->
@@ -94,12 +92,13 @@ We are also happy to announce [Zack Barett](https://github.com/zsarnett) and
 on Home Assistant.
 
 Zack will be helping out on different aspects of Home Assistant, including the
-[Home Assistant YouTube channel](https://www.youtube.com/channel/UCbX3YkedQunLt7EQAdVxh7w), and the Home Assistant Frontend.
+[Home Assistant YouTube channel](https://www.youtube.com/channel/UCbX3YkedQunLt7EQAdVxh7w),
+and the Home Assistant Frontend.
 
 Mike is going to be focussing on extending and improving the Home Assistant
 Supervisor and the eco system around it (like its internal plugins and add-ons).
 
-Welcome! We are excited to have you on board! 🎉
+Welcome! Excited to have you on board! 🎉
 
 ## Media improvements
 
