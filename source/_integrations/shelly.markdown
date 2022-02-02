@@ -22,6 +22,7 @@ ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - climate
   - cover
   - light

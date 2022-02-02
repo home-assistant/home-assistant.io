@@ -23,6 +23,7 @@ ha_codeowners:
 ha_domain: zwave_js
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - climate
   - cover
   - fan
@@ -767,7 +768,11 @@ If the interview is complete, then the device does not yet have a device file fo
 
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow the menu:
 
-**Configuration** -> **Integrations** -> **Z-Wave JS** -> **Configure** -> **Download a dump of your network to help diagnose issues**
+{% my integrations title="**Configuration** -> **Devices & Services**" %} -> **Z-Wave JS** -> **...** -> **Download diagnostics**
+
+### Interference issues
+
+Many users have reported issues with interference when the USB stick was directly connected to the machine (proximity). If you are having issues try to use a short USB 2.0 A male to female extension cord.
 
 #### How to access the Z-Wave JS logs
 

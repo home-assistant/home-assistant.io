@@ -27,6 +27,7 @@ ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - climate
   - cover
   - fan
@@ -178,6 +179,10 @@ payload:
 type:
   description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values - see table in [KNX Sensor](#sensor).
   type: [string, integer, float]
+response:
+  description: If set to `true`, the telegram will be sent as a `GroupValueResponse` instead of a `GroupValueWrite`.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Read

@@ -16,6 +16,7 @@ ha_domain: renault
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - device_tracker
   - sensor
   - select

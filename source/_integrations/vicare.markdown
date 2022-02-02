@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_domain: vicare
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - sensor
   - water_heater
@@ -24,6 +25,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate) (Heating)
 - [Water Heater](#water-heater) (Domestic Hot Water)
 - [Sensor](#sensor) (Sensor)
+- [Button](#button) (Button)
 
 {% include integrations/config_flow.md %}
 
@@ -123,4 +125,8 @@ Sets the target temperature of domestic hot water to the given temperature.
 
 ## Sensor
 
-Additional data from ViCare is available as separate sensors. The sensors are automatically created based on the configured `heating_type`.
+Additional data from ViCare is available as separate sensors. The sensors are automatically discovered based on the available API data points.
+
+## Button
+
+Button entities are available for triggering like a one-time charge of the water heater.

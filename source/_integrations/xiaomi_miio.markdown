@@ -1402,13 +1402,17 @@ Main Brush Left*:
   description: How long the main brush can be used in seconds
 Sensor Dirty Left*:
   description: How long the sensor can  be used in seconds
+Current Clean Time:
+  description: The current cleaning time of the vacuum. If the vaccuum is not cleaning, this sensor will have the same value as the "Last Clean Duration" sensor.
+Current Clean Area:
+  description: The current area that has been cleaned. If the vacuum is not cealning, this sensor will have the same value as the "Last Clean Area" sensor.
 Last Clean Area*:
   description: The last cleaned area in square meters
 Last Clean Duration*:
   description: The last clean duration in seconds
-Last Clean End*:
+Last Clean End:
   description: The last clean end time as a timestamp
-Last Clean Start*:
+Last Clean Start:
   description: The last clean start time as a timestamp
 Mop Attached**:
   description: If the mop is attached
