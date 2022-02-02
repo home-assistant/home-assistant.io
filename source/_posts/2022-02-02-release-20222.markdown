@@ -178,24 +178,22 @@ and Home Assistant Supervisor installation methods.
 ## Diagnostics for integrations and devices
 
 To make debugging and reporting issues with integrations or devices easier,
-both in terms of reporting it, but also for developers to fix them, we introduce:
+both in terms of reporting it, and for developers to fix them, we introduce:
 **Diagnostics**.
 
 Diagnostics can be provided by integrations and allow you to download diagnostic
-information, about an integration or device you have set up,
-directly from the Home Assistant UI.
+information about an integration or device you have set up.
 
 <p class='img'>
-<img class="no-shadow" src='/images/blog/2022-02/diagnostics.png' alt='SScreenshot showing the Download Diagnostics button on a Sonos device page'>
+<img class="no-shadow" src='/images/blog/2022-02/diagnostics.png' alt='Screenshot showing the Download Diagnostics button on a Sonos device page'>
 Screenshot of the Download Diagnostics button on the device page
 </p>
 
-The above screenshot is from the device page of a Sonos speaker. The
-downloadable diagnostics file can be viewed, as a text file,
-and can be used for sharing when reporting an issue in our issue tracker.
+The downloadable diagnostics file can be viewed as a text file,
+and can be shared when reporting an issue in our issue tracker.
 
 Diagnostics data can be extremely helpful in finding the root causes of
-an issue and to get them fixed. As a matter of fact, it helped us pin-pointing
+an issue and getting them fixed. As a matter of fact, it helped us pinpointing
 and fixing issues during the beta of this release.
 
 The good news is that **61**! integrations already added support for this new
