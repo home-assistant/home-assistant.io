@@ -65,14 +65,14 @@ Before we dive into this release, we have some news and updates from
 
 ### Annual subscriptions now available for the United States <!-- omit in toc -->
 
-The ability to subscribe to the [Home Assistant Cloud](https://www.nabucasa.com)
+The ability to subscribe to [Home Assistant Cloud](https://www.nabucasa.com)
 anually, was one of the most requested features since Nabu Casa was founded and has been
 announced at the [State of the Open Home](/state-of-the-open-home/) in December.
 
 As of today, the annual subscriptions to Home Assistant Cloud are available
 for the United States. 🎉
 
-Additionally, in regions where annual subscriptions are available, Apple Pay and Google Pay will be available as extra options.
+Additionally, Apple Pay and Google Pay are now available as extra payment options.
 
 Annual subscriptions will become available in other countries in the coming
 months, including local currency support for Canada, Europe and the United Kingdom.
@@ -121,7 +121,7 @@ For example, if you have set up the Spotify and Sonos integration, you can now
 browse your Spotify to play it on your Sonos devices; and Cast now has support
 for playing Plex media straight from the browser.
 
-Sonos, VLC (via Telnet), and Roku added support for playing local media! Combing
+Sonos, VLC (via Telnet), and Roku added support for playing local media! Combining
 this with the VLC add-on can turn your Home Assistant device into a
 media player for your local media. In the video below, Zack will demonstrate how
 that works:
