@@ -75,13 +75,6 @@ Enjoy the release!
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-<!---<p class='img'>
-<img class="no-shadow" src='/images/blog/2022-2/buttons.png' alt='Examples use cases of button entities'>
-Examples use cases of button entities.
-</p>-->
-
-<!--<img class="no-shadow" src='/images/blog/2022-2/configuration-menu.png' alt='Screenshot of the new areas panel'>-->
-
 ## Updates from Nabu Casa
 
 Before we dive into this release, we have some news and updates from
@@ -136,8 +129,9 @@ are playing:
 <img class="no-shadow" src='/images/blog/2022-02/media-bar.png' alt='Screenshot showing media with the new media bar'>
 </div>
 
-The experience of browsing the media has been improved and extended with
-new capabilities. An integration can now browse media of supported
+The experience of browsing the media has been improved and extended with new
+capabilities. The URL in your browser will change when browsing media, so you
+can now bookmark these pages. An integration can now browse media of supported
 sources provided by other integrations.
 
 For example, if you have set up the Spotify and Sonos integration, you can now
@@ -257,28 +251,51 @@ a TTS announcement when a scene activated.
 Now the scene has a state; it also got logbook entries.
 </p>
 
-## Streamlining experiences
+## Search in the configuration panel
 
-We recently published a blog on our focus for this year:
-[Streamlining experiences](/blog/2022/01/19/streamlining-experiences/).
+There is now a search in the top right of the configuration dashboard, which
+opens the [Quick Bar](/docs/tools/quick-bar/). This also works on mobile devices.
 
-Things done in this release with that focus:
-
-- When a integration has a single device or a single service, if you now
-  click on the "1 device" shown in the integration card, it will directly
-  go to that device (instead of showing the table with a single device).
-  (Single device links to device page (#11387) @balloob)
-
-- Visit device/service and documention on discovered items.
+It allows you to access and search for just about anything within
+Home Assistant. From accessing add-ons, configuration panels,
+and even entities and devices.
 
 <p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/195327/149141022-f8cdd29c-55d2-470a-8304-051740df9208.png' alt='Screenshot from GitHub PR, needs to be replaced'>
-Screenshot from GitHub PR, needs to be replaced
-</p>
+<img class="no-shadow" src='/images/blog/2022-02/configuration-search.png' alt='Screenshot showing the new search in the configuration screen'>
+</div>
 
-- Search in top right of configuration dashboard (needs screenshot)
+Tip: Did you know you can press `c` (for command) and `e` (for entity) on you
+keyboard from anywhere in Home Assistant to bring up that same Quick Bar?
 
-## More Advanced things
+## Button helper and template
+
+In the [previous release, we introduced](/blog/2021/12/11/release-202112/#the-button-entity)
+the button entity. One of the most asked questions about the button has been:
+"How can I create my own button entity?"
+
+This release introduces the button helper, and those can be created via
+the UI and using YAML ( as the `input_button`).
+
+{% my helpers badge %}
+
+These button helpers can be used to trigger automations and we have ensured they
+work with Alexa, Google Assistant, and HomeKit.
+
+Additionally, there is now a template entity for buttons available as well.
+Here is an example:
+
+```yaml
+# Example configuration.yaml
+template:
+  button:
+    - name: "Send message"
+      press:
+        - service: notify.frenck
+          data:
+            message: "My button has been pressed!"
+```
+
+## Templating enhancements
 
 Short hand condition notion is now supported in conditions actions as well.
 For use in automations and scripts.
@@ -522,7 +539,10 @@ but has now been moved into the "Dashboard" menu item.
 
 This keeps the configuration of all dashboard in a single place.
 
-([@zsarnett] - [#11386](https://github.com/home-assistant/frontend/pull/11386))
+([@zsarnett] - [#11386])
+
+[@zsarnett]: https://github.com/zsarnett
+[#11386]: https://github.com/home-assistant/frontend/pull/11386
 
 {% enddetails %}
 
