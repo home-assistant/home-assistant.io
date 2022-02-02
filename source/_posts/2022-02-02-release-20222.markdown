@@ -1005,7 +1005,7 @@ removed from your YAML configuration files.
 
 {% details "iOS" %}
 
-The Home Assistant iOS/macOS app supports notification actions defined [in the notification itself](https://companion.home-assistant.io/docs/notifications/actionable-notifications/); the old method of defining push categories in the iOS integration is now deprecated and will be removed in the future.
+The Home Assistant iOS/macOS app supports notification actions defined [in the notification itself](https://companion.home-assistant.io/docs/notifications/actionable-notifications/); the old method of defining push categories in the iOS integration is now deprecated and will be removed in 2022.4.
 
 ([@zacwest] - [#61078]) ([ios docs])
 
