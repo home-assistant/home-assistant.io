@@ -1385,9 +1385,9 @@ automation:
 {% configuration_basic %}
 
 DnD Start*:
-  description: The timestamp when the next DnD will start
+  description: The timestamp when the next DnD (Do not disturb) period will start
 DnD End*:
-  description: The timestamp when the current or next DnD will end
+  description: The timestamp when the current or next DnD (Do not disturb) period will end
 Total duration*:
   description: The total cleaning duration in seconds
 Total Clean Area*:
