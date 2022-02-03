@@ -20,6 +20,7 @@ This integration is a meta-component and configures a default set of integration
 - [History](/integrations/history/) (`history`)
 - [Image](/integrations/image/) (`image`)
 - [Input boolean](/integrations/input_boolean/) (`input_boolean`)
+- [Input button](/integrations/input_button/) (`input_button`)
 - [Input datetime](/integrations/input_datetime/) (`input_datetime`)
 - [Input number](/integrations/input_number/) (`input_number`)
 - [Input select](/integrations/input_select/) (`input_select`)
