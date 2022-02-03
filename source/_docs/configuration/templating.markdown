@@ -374,7 +374,6 @@ Examples using `iif`:
 
 {% endraw %}
 
-
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
@@ -507,6 +506,20 @@ The temperature is 25°C
 ```
 
 {% endraw %}
+
+### Is defined
+
+Sometimes a template should only return if a value or object is defined, if not, the supplied default value could be returned. This can be useful to validate a JSON payload.
+The `is_defined` filter allows to throw an error if a value or object is not defined.
+
+Example using `is_defined` to parse a JSON payload:
+
+```text
+{{ value_json.val | is_defined }}
+```
+
+This will throw an error `UndefinedError: 'value_json' is undefined` if the JSON payload has no `val` attribute.
+
 
 ### Distance
 
