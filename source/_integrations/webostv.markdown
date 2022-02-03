@@ -51,10 +51,8 @@ wake_on_lan: # enables `wake_on_lan` integration
 automation:
   - alias: Turn On Living Room TV with WakeOnLan
     trigger:
-      - platform: device
-        device_id: abcdefabcdefabcdefabcdefabcdef
-        domain: webostv
-        type: webostv.turn_on
+      - platform: webostv.turn_on
+        entity_id: media_player.lg_webos_smart_tv
     action:
       - service: wake_on_lan.send_magic_packet
         data:
