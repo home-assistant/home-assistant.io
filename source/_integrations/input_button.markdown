@@ -67,7 +67,7 @@ means we can use it in our automations. For example:
 ```yaml
 trigger:
   - platform: state
-    entity_id: button.my_button
+    entity_id: input_button.my_button
 action:
   - service: notify.frenck
     data:
