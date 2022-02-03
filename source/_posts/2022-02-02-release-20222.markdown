@@ -392,6 +392,7 @@ This release adds support for long-term statistics to the following integrations
 - [GitHub][github docs] (thanks [@ludeeus])
 - [Hunter Douglas PowerView][hunterdouglas_powerview docs] (thanks [@bdraco])
 - [Kraken][kraken docs] (thanks [@eifinger])
+- [Mazda Connected Services][mazda docs] (thanks [@bdr99])
 - [Nexia/American Standard/Trane][nexia docs] (thanks [@bdraco])
 - [Pentair ScreenLogic][screenlogic docs] (thanks [@bdraco])
 - [Sensor.Community][luftdaten docs] (thanks [@frenck])
@@ -405,7 +406,6 @@ And the following integrations now have entity categories:
 - [GitHub][github docs] (thanks [@ludeeus])
 - [Hyperion][hyperion docs] (thanks [@starkillerOG])
 - [Kostal Plenticore Solar Inverter][kostal_plenticore docs] (thanks [@stegm])
-- [Mazda Connected Services][mazda docs] (thanks [@bdr99])
 - [Motion Blinds][motion_blinds docs] (thanks [@starkillerOG])
 - [NETGEAR][netgear docs] (thanks [@starkillerOG])
 
@@ -550,6 +550,8 @@ Home Assistant Core **2022.6**:
 Note: 1-Wire is a special case, as it supports both the SysBus and connecting
 to a remote owfs server. The use of the SysBus is deprecated, however,
 connecting to a remote owfs server is not.
+
+**Update**: We've been notified by a developer that the Raspberry Pi GPIO integration will be made available via HACS.
 
 {% enddetails %}
 
@@ -1166,6 +1168,8 @@ can be safely removed from your YAML configuration.
 The Legacy "Works With Nest API" is deprecated and support will be removed
 in Home Assistant Core 2022.5; See our [documentation for using the Smart Device
 Management API](/integrations/nest/) instead.
+
+[Read why and about potential alternatives.](https://community.home-assistant.io/t/legacy-nest/383229/7)
 
 ([@allenporter] - [#63027]) ([nest docs])
 
