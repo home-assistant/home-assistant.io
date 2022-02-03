@@ -688,6 +688,10 @@ Some examples:
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.
 
+### Utilities
+
+- Filter `is_defined` will make a template fail if a `jinja2.Undefined` error is raised. This can for example be used to abort rendering of a template referencing a key in the value parsed as JSON if it does not exist.
+
 ## Processing incoming data
 
 The other part of templating is processing incoming data. It allows you to modify incoming data and extract only the data you care about. This will only work for platforms and integrations that mention support for this in their documentation.
