@@ -109,11 +109,7 @@ If you want to support active reporting of state to Google's server (configurati
 
 ### Enable Local Fulfillment
 
-<div class='note'>
-
-Local fulfillment will be disabled if Home Assistant is configured to use HTTPS.
-
-</div>
+If you want to use local fulfillment Home Assistant must be configured to not use HTTPS. If you need to serve Home Assistant over HTTPS consider using a reverse proxy.
 
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
