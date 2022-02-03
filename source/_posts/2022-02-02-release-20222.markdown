@@ -53,6 +53,7 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2022.2.1 - February 3](#release-202221---february-3)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -448,6 +449,85 @@ The following integrations are now available via the Home Assistant UI:
 - [Vallox][vallox docs], done by [@slovdahl]
 - [Version][version docs], done by [@ludeeus]
 - [Whois][whois docs], done by [@frenck]
+
+## Release 2022.2.1 - February 3
+
+- Get wind speed unit from AccuWeather data ([@bieniu] - [#65425]) ([accuweather docs])
+- Fix Shodan sensor ([@ColinRobbins] - [#65443]) ([shodan docs])
+- Fix script / automation repeat with count 0 fails ([@mk-maddin] - [#65448])
+- Fix `unknown alarm websocket event` error for restored SimpliSafe connections ([@bachya] - [#65457]) ([simplisafe docs])
+- Catch correct error during OpenUV startup ([@bachya] - [#65459]) ([openuv docs])
+- Fix vanished checks on old Sonos firmware ([@jjlawren] - [#65477]) ([sonos docs])
+- Allow Flu Near You to re-attempt startup on error ([@bachya] - [#65481]) ([flunearyou docs])
+- Bump pytile to 2022.02.0 ([@bachya] - [#65482]) ([tile docs])
+- Fix SIA availability ([@eavanvalkenburg] - [#65509]) ([sia docs])
+- Fix missing windspeed in Tuya climate ([@frenck] - [#65511]) ([tuya docs])
+- Return current state if template throws ([@jbouwh] - [#65534]) ([mqtt docs])
+- Do not update unifiprotect host from discovery if its not an ip ([@bdraco] - [#65548]) ([unifiprotect docs])
+- Fix data update when guest client disappears in Fritz!Tools ([@mib1185] - [#65564]) ([fritz docs])
+- Add missing Tuya vacuum states ([@frenck] - [#65567]) ([tuya docs])
+- Add back resolvers config flow dnsip ([@gjohansson-ST] - [#65570]) ([dnsip docs])
+- Guard against empty Tuya data types ([@frenck] - [#65571]) ([tuya docs])
+- Update frontend to 20220203.0 ([@bramkragten] - [#65572]) ([frontend docs]) (breaking-change)
+- Extend diagnostics data in Fritz!Tools ([@mib1185] - [#65573]) ([fritz docs])
+- Update pvo to 0.2.1 ([@frenck] - [#65584]) ([pvoutput docs])
+- Log traceback in debug for Sonos unsubscribe errors ([@jjlawren] - [#65596]) ([sonos docs])
+- Fix lutron_caseta button events including area name in device name ([@bdraco] - [#65601]) ([lutron_caseta docs])
+- Fix Shelly Plus i4 KeyError ([@thecode] - [#65604]) ([shelly docs])
+
+[#65601]: https://github.com/home-assistant/core/pull/65601
+[#65604]: https://github.com/home-assistant/core/pull/65604
+[@bdraco]: https://github.com/bdraco
+[@thecode]: https://github.com/thecode
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[shelly docs]: /integrations/shelly/
+[#65425]: https://github.com/home-assistant/core/pull/65425
+[#65443]: https://github.com/home-assistant/core/pull/65443
+[#65448]: https://github.com/home-assistant/core/pull/65448
+[#65457]: https://github.com/home-assistant/core/pull/65457
+[#65459]: https://github.com/home-assistant/core/pull/65459
+[#65477]: https://github.com/home-assistant/core/pull/65477
+[#65481]: https://github.com/home-assistant/core/pull/65481
+[#65482]: https://github.com/home-assistant/core/pull/65482
+[#65509]: https://github.com/home-assistant/core/pull/65509
+[#65511]: https://github.com/home-assistant/core/pull/65511
+[#65534]: https://github.com/home-assistant/core/pull/65534
+[#65548]: https://github.com/home-assistant/core/pull/65548
+[#65564]: https://github.com/home-assistant/core/pull/65564
+[#65567]: https://github.com/home-assistant/core/pull/65567
+[#65570]: https://github.com/home-assistant/core/pull/65570
+[#65571]: https://github.com/home-assistant/core/pull/65571
+[#65572]: https://github.com/home-assistant/core/pull/65572
+[#65573]: https://github.com/home-assistant/core/pull/65573
+[#65584]: https://github.com/home-assistant/core/pull/65584
+[#65596]: https://github.com/home-assistant/core/pull/65596
+[@ColinRobbins]: https://github.com/ColinRobbins
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@eavanvalkenburg]: https://github.com/eavanvalkenburg
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@jjlawren]: https://github.com/jjlawren
+[@mib1185]: https://github.com/mib1185
+[@mk-maddin]: https://github.com/mk-maddin
+[accuweather docs]: /integrations/accuweather/
+[dnsip docs]: /integrations/dnsip/
+[flunearyou docs]: /integrations/flunearyou/
+[fritz docs]: /integrations/fritz/
+[frontend docs]: /integrations/frontend/
+[mqtt docs]: /integrations/mqtt/
+[openuv docs]: /integrations/openuv/
+[pvoutput docs]: /integrations/pvoutput/
+[shodan docs]: /integrations/shodan/
+[sia docs]: /integrations/sia/
+[simplisafe docs]: /integrations/simplisafe/
+[sonos docs]: /integrations/sonos/
+[tile docs]: /integrations/tile/
+[tuya docs]: /integrations/tuya/
+[unifiprotect docs]: /integrations/unifiprotect/
 
 ## If you need help...
 
