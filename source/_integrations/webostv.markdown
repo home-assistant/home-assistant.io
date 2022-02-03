@@ -49,14 +49,17 @@ Automations can also be created using an automation action:
 wake_on_lan: # enables `wake_on_lan` integration
 
 automation:
-  trigger:
-    - platform: webostv.turn_on
-      entity_id: media_player.lg_webos_smart_tv
-  action:
-    - service: wake_on_lan.send_magic_packet
-      data:
-        broadcast_address: 192.168.1.255
-        mac: AA-BB-CC-DD-EE-FF
+  - alias: Turn On Living Room TV with WakeOnLan
+    trigger:
+      - platform: device
+        device_id: abcdefabcdefabcdefabcdefabcdef
+        domain: webostv
+        type: webostv.turn_on
+    action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          broadcast_address: 192.168.1.255
+          mac: aa:bb:cc:dd:ee:ff
 ```
 
 Any other [actions](/docs/automation/action/) to power on the device can be configured.
