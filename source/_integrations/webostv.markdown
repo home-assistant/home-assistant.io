@@ -55,7 +55,6 @@ automation:
   action:
     - service: wake_on_lan.send_magic_packet
       data:
-        broadcast_address: 192.168.1.255
         mac: AA-BB-CC-DD-EE-FF
 ```
 
