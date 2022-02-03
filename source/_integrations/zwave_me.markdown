@@ -1,7 +1,6 @@
 ---
 title: Z-Wave.Me Z-Way
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave.Me Z-Way.
-featured: true
 ha_category:
   - Binary Sensor
   - Climate
@@ -15,7 +14,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
-ha_release: 2022.2
+ha_release: 2022.3
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -23,15 +22,12 @@ ha_codeowners:
 ha_domain: zwave_me
 ha_platforms:
   - binary_sensor
+  - button
   - climate
-  - cover
-  - fan
   - light
   - lock
   - number
   - sensor
-  - select
-  - siren
   - switch
 ---
 
