@@ -78,14 +78,19 @@ Cover entity with integrated rain sensor has extra attributes to represent the s
 
 The value can used as a `binary_sensor` for rain detection `True` or no rain `False`
 
+{% raw %}
+
 ```yaml
-- platform: template
-  sensors:
-    rainsensor_kitchen:
-      device_class: moisture
-      value_template: >
-        {{ state_attr('cover.kitchen', 'limitation_min') >= 93 }}
+binary_sensor:
+  - platform: template
+    sensors:
+      rainsensor_kitchen:
+        device_class: moisture
+        value_template: >
+          {{ state_attr('cover.kitchen', 'limitation_min') >= 93 }}
 ```
+
+{% endraw %}
 
 ## Velux Active (KIX 300)
 
