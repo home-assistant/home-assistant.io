@@ -683,6 +683,19 @@ You might need to adapt your automations or scripts to take this new `unknown` s
 
 {% enddetails %}
 
+{% details "Command-line arguments and OS check" %}
+
+Home Assistant no longer supports managing a PID file or creation of a daemon process. Users who use a customized core or container installation may need to update their startup scripts.
+
+The `--runner` option is no longer supported by the hass command. Requesting a restart from the UI will now always exit with exit code `100`. You will need to update your startup scripts to handle the restart, like our [Systemd service example](https://community.home-assistant.io/t/autostart-using-systemd/199497).
+
+Home Assistant will exit immediately if not started from a supported operating system according to ADR-0016: Linux (including WSL) or OSX. A new command line parameter `--ignore-os-check` has been added to allow overriding this check.
+
+([@emontnemery] - [#64345]) [#64347]) [#64352])
+
+{% enddetails %}
+
+
 {% details "Advantage Air" %}
 
 The `advantage_air.set_myzone` service has been deprecated and will be removed
@@ -6162,6 +6175,9 @@ The following integrations are no longer available as of this release:
 [#65422]: https://github.com/home-assistant/core/pull/65422
 [#65429]: https://github.com/home-assistant/core/pull/65429
 [#65432]: https://github.com/home-assistant/core/pull/65432
+[#64352]: https://github.com/home-assistant/core/pull/64352
+[#64347]: https://github.com/home-assistant/core/pull/64347
+[#64345]: https://github.com/home-assistant/core/pull/64345
 [@ANMalko]: https://github.com/ANMalko
 [@Adminiuga]: https://github.com/Adminiuga
 [@Aeroid]: https://github.com/Aeroid
