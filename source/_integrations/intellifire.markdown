@@ -26,7 +26,7 @@ The following sensors are available as either a **Binary Sensor** when dealing w
 
 ### Binary Sensors
 
-- **Power Sensor**: Whether the fire is on.
+- **Flame Sensor**: Whether the fire is on.
 - **Pilot Light Sensor**: Whether the pilot light is turned on.
 - **Timer Sensor**: Whether the sleep timer is turned on.
 - **Thermostat Sensor**: Whether the thermostat is turned on.
