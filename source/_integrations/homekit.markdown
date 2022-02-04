@@ -460,7 +460,7 @@ automation:
 
 ## Events
 
-This integration emits events as `homekit_state_change` on the event bus. This can be used for example in automations to known whether an entity's state got changed from HomeKit specifically. 
+The HomeKit integration emits `homekit_state_change` events. These events can be used in automations to know when an entity's state was changed from HomeKit.
 
 ```yaml
 # Example for handling a HomeKit event
