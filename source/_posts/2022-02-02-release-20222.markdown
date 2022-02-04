@@ -356,7 +356,7 @@ noteworthy changes this release:
 - ZHA devices now have identify buttons, so you know which light you are
   dealing with, thanks [@dmulcahey]! (Tip: also nice for visual notifications)
 - We now enable Low Latency HLS (LL-HLS) by default to lower stream latency,
-  thanks [@allenporter]!
+  thanks [@uvjustin] and [@allenporter]!
 - Magic Home (also known as FluxLED) had lots of improvements of love from [@bdraco]!
 - [@Danielhiversen] added support for local access to Adax and Mill heaters. Nice!
 - Tuya now supports Pet Feeders (thanks [@vauriga]), Circuit Breakers (thanks [@slydiman]),
