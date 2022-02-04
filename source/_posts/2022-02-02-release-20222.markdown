@@ -150,7 +150,7 @@ Checking for any update is now just a single click.
 </p>
 
 This feature is currently available for the Home Assistant OS,
-and Home Assistant Supervisor installation methods.
+and Home Assistant Supervised installation methods.
 
 ## Diagnostics for integrations and devices
 
