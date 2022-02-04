@@ -67,6 +67,26 @@ automation:
     - service: velux.reboot_gateway
 ```
 
+## Attributes
+
+Cover entity with integrated rain sensor has extra attributes to represent the state of the limitation sensor.
+
+| Name | Description |
+| ---- | ----------- |
+| `limitation_min` | Min limitation of window. `limitation_min` => 0 no rain; `limitation_min` => 93 the velux can only open for 7 % , so it means, its raining
+| `limitation_max` | Max limitation of window.
+
+The value can used as a `binary_sensor` for rain detection `True` or no rain `False`
+
+```yaml
+- platform: template
+  sensors:
+    rainsensor_kitchen:
+      device_class: moisture
+      value_template: >
+        {{ state_attr('cover.kitchen', 'limitation_min') >= 93 }}
+```
+
 ## Velux Active (KIX 300)
 
 The Velux Active (KIX 300) set is not supported by this integration. To integrate Velux Active (KIX 300) with Home Assistant, you can use the [HomeKit Controller](/integrations/homekit_controller) integration and get full control over your windows, curtains, covers, the air quality sensor KLA 300, etc.
