@@ -177,6 +177,8 @@ The good news is that **61**! integrations already added support for this new
 diagnostics feature, including Z-Wave JS, ESPHome, Sonos, Shelly, WLED,
 Unifi, Nest, deCONZ, KNX, Tuya, Roku, Samsung TV, and many more!
 
+If you use `default_config:` in your configuration, you get this feature for free. If you don't, you can add it to your installation by adding the `diagnostics:` directive to your configuration and restarting.
+
 ## Finding known issues and where to report new ones
 
 Are you experiencing an issue with an integration? Want to know if your issue
