@@ -54,6 +54,7 @@ Enjoy the release!
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.2.1 - February 3](#release-202221---february-3)
+- [Release 2022.2.2 - February 4](#release-202222---february-4)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -531,6 +532,79 @@ The following integrations are now available via the Home Assistant UI:
 [tile docs]: /integrations/tile/
 [tuya docs]: /integrations/tuya/
 [unifiprotect docs]: /integrations/unifiprotect/
+
+## Release 2022.2.2 - February 4
+
+- Bumped boschshcpy 0.2.28 to 0.2.29 ([@tschamm] - [#65328]) ([bosch_shc docs])
+- Add migration to migrate 'homewizard_energy' to 'homewizard' ([@DCSBL] - [#65594]) ([homewizard docs])
+- Raise when zwave_js device automation fails validation ([@raman325] - [#65610]) ([zwave_js docs])
+- Bump androidtv to 0.0.62 ([@JeffLIrion] - [#65440])
+- Bump androidtv to 0.0.63 (fix MAC issues) ([@JeffLIrion] - [#65615])
+- Bump homematicip to 1.0.2 ([@balloob] - [#65620]) ([homematicip_cloud docs])
+- Bump flux_led to 0.28.20 ([@bdraco] - [#65621]) ([flux_led docs])
+- Fix Z-Wave lights ([@alexanv1] - [#65638]) ([zwave docs])
+- Remove limit of amount of duplicated statistics ([@emontnemery] - [#65641]) ([recorder docs])
+- Don't use shared session during recorder migration ([@emontnemery] - [#65672]) ([recorder docs])
+- Improve recorder migration for PostgreSQL when columns already exist ([@emontnemery] - [#65680]) ([recorder docs])
+- Only remove duplicated statistics on error ([@emontnemery] - [#65653]) ([recorder docs])
+- Bump renault-api to 0.1.8 ([@epenet] - [#65670]) ([renault docs])
+- Fix warm/cold reversal in rgbww_to_color_temperature ([@bdraco] - [#65677])
+- Call out 3rd party containers more clearly ([@balloob] - [#65684])
+- Fix "vevent" KeyError in caldav component again ([@jkuettner] - [#65685]) ([caldav docs])
+- Allow selecting own repositories ([@ludeeus] - [#65695]) ([github docs])
+- Move scene and button restore to internal hook ([@balloob] - [#65696]) ([scene docs])
+- Fix passing a string to device registry disabled_by ([@balloob] - [#65701]) ([config docs])
+- Fix tuya diagnostics mutating cached state objects ([@balloob] - [#65708]) ([tuya docs])
+- Depend on diagnostics in the frontend ([@frenck] - [#65710]) ([frontend docs]) ([default_config docs])
+
+[#65328]: https://github.com/home-assistant/core/pull/65328
+[#65440]: https://github.com/home-assistant/core/pull/65440
+[#65594]: https://github.com/home-assistant/core/pull/65594
+[#65610]: https://github.com/home-assistant/core/pull/65610
+[#65615]: https://github.com/home-assistant/core/pull/65615
+[#65620]: https://github.com/home-assistant/core/pull/65620
+[#65621]: https://github.com/home-assistant/core/pull/65621
+[#65638]: https://github.com/home-assistant/core/pull/65638
+[#65641]: https://github.com/home-assistant/core/pull/65641
+[#65653]: https://github.com/home-assistant/core/pull/65653
+[#65670]: https://github.com/home-assistant/core/pull/65670
+[#65672]: https://github.com/home-assistant/core/pull/65672
+[#65677]: https://github.com/home-assistant/core/pull/65677
+[#65680]: https://github.com/home-assistant/core/pull/65680
+[#65684]: https://github.com/home-assistant/core/pull/65684
+[#65685]: https://github.com/home-assistant/core/pull/65685
+[#65695]: https://github.com/home-assistant/core/pull/65695
+[#65696]: https://github.com/home-assistant/core/pull/65696
+[#65701]: https://github.com/home-assistant/core/pull/65701
+[#65708]: https://github.com/home-assistant/core/pull/65708
+[#65710]: https://github.com/home-assistant/core/pull/65710
+[@DCSBL]: https://github.com/DCSBL
+[@JeffLIrion]: https://github.com/JeffLIrion
+[@alexanv1]: https://github.com/alexanv1
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@jkuettner]: https://github.com/jkuettner
+[@ludeeus]: https://github.com/ludeeus
+[@raman325]: https://github.com/raman325
+[@tschamm]: https://github.com/tschamm
+[bosch_shc docs]: /integrations/bosch_shc/
+[caldav docs]: /integrations/caldav/
+[config docs]: /integrations/config/
+[default_config docs]: /integrations/default_config/
+[flux_led docs]: /integrations/flux_led/
+[frontend docs]: /integrations/frontend/
+[github docs]: /integrations/github/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[homewizard docs]: /integrations/homewizard/
+[recorder docs]: /integrations/recorder/
+[renault docs]: /integrations/renault/
+[scene docs]: /integrations/scene/
+[tuya docs]: /integrations/tuya/
+[zwave docs]: /integrations/zwave/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
