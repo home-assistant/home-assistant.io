@@ -109,7 +109,15 @@ If you want to support active reporting of state to Google's server (configurati
 
 ### Enable Local Fulfillment
 
+Google devices can send their commands locally to Home Assistant. This allows Google to respond faster to your commands. If a local connection is unavailable it will automatically fallback to the cloud.
+
+Google Assistant will consider sending commands locally if it does not involve a [secure device](#secure-device).
+
+Your Home Assistant instance needs to be connected to the same network as the Google Assistant device that you’re talking to. The Google Assistant device will discover your Home Assistant instance via mDNS discovery (UDP broadcasts).
+
 Your Home Assistant instance should not have the [HTTP integration](/integrations/http) configured to use an SSL certificate. This is necessary because the Google device will connect directly to the IP of your Home Assistant installation and will fail if it encounters an invalid SSL certificate. For secure external ingress, the NGINX Home Assistant SSL proxy Home Assistant Add-on or other proxy solution must be used.
+
+The Google device still needs to be connected to the internet to be able to sync entities via Home Assistant Cloud, get credentials to establish a local connection and as a fallback for secure devices or if your Home Assistant instance cannot be reached.
 
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
