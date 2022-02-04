@@ -49,7 +49,7 @@ Automations can also be created using an automation action:
 wake_on_lan: # enables `wake_on_lan` integration
 
 automation:
-  - alias: Turn On Living Room TV with WakeOnLan
+  - alias: "Turn On Living Room TV with WakeOnLan"
     trigger:
       - platform: webostv.turn_on
         entity_id: media_player.lg_webos_smart_tv
