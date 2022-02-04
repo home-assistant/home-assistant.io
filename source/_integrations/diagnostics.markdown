@@ -23,7 +23,7 @@ as a text file on the device page, and from the integrations dashboard.
 
 Integrations are required to redact sensitive information from the diagnostics
 data, you can always open the text file and check it, before you send
-it in an public issue.
+it in a public issue.
 
 The diagnostics integration is by default enabled, no action is required to
 enable it. However, not all integrations provide the possibility to download
