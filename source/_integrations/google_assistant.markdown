@@ -109,13 +109,16 @@ If you want to support active reporting of state to Google's server (configurati
 
 ### Enable Local Fulfillment
 
+Your Home Assistant instance should not have the [HTTP integration](/integrations/http) configured to use an SSL certificate. This is necessary because the Google device will connect directly to the IP of your Home Assistant installation and will fail if it encounters an invalid SSL certificate. For secure external ingress, the NGINX Home Assistant SSL proxy Home Assistant Add-on or other proxy solution must be used.
+
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
 3. Upload [this Javascript file](/assets/integrations/google_assistant/app.js) for both Node and Chrome by clicking the `Upload Javascript files` button.
 4. Add device scan configuration:
-  1. Click `+ New scan config`
+  1. Click `+ New scan config` if no configuration exists
   2. Select `MDNS`
-  3. set mDNS service name to `_home-assistant._tcp.local`
+  3. Set `MDNS service name` to `_home-assistant._tcp.local`
+  4. Add a `Name` field set to `.*\._home-assistant\._tcp\.local`
 5. `Save` your changes.
 6. Either wait for 30 minutes, or restart your connected Google device.
 7. Restart Home Assistant Core.
