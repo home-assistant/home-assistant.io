@@ -687,7 +687,7 @@ You might need to adapt your automations or scripts to take this new `unknown` s
 
 Home Assistant no longer supports managing a PID file or creation of a daemon process. Users who use a customized core or container installation may need to update their startup scripts.
 
-The `--runner` option is no longer supported by the hass command.
+The `--runner` option is no longer supported by the hass command. Requesting a restart from the UI will now always exit with exit code `100`. You will need to update your startup scripts to handle the restart, like our [Systemd service example](https://community.home-assistant.io/t/autostart-using-systemd/199497).
 
 Home Assistant will exit immediately if not started from a supported operating system according to ADR-0016: Linux (including WSL) or OSX. A new command line parameter `--ignore-os-check` has been added to allow overriding this check.
 
