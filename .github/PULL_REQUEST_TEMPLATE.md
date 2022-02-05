@@ -30,7 +30,7 @@
 
 - Link to parent pull request in the codebase: 
 - Link to parent pull request in the Brands repository: 
-- This PR fixes or closes issue: 
+- This PR fixes or closes issue: fixes #
 
 ## Checklist
 <!--
