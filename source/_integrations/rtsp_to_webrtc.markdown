@@ -40,4 +40,4 @@ See [Getting started with peer connections](https://webrtc.org/getting-started/p
 
 The integration may not work for your particular setup, and Home Assistant cannot support and troubleshoot user problems that are unrelated to the actual integration in Home Assistant.
 
-The WebRTC stream negotiation process and streaming can very a lot depending on your network setup and camera setup. See the specific audio and video codecs supported at [RTSPtoWeb Limitations](https://github.com/deepch/RTSPtoWeb#limitations) and [RTSPtoWebRTC Limitations](https://github.com/deepch/RTSPtoWebRTC#limitations).
+The WebRTC stream negotiation process and streaming can vary a lot depending on your network setup and camera setup. See the specific audio and video codecs supported at [RTSPtoWeb Limitations](https://github.com/deepch/RTSPtoWeb#limitations) and [RTSPtoWebRTC Limitations](https://github.com/deepch/RTSPtoWebRTC#limitations).
