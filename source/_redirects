@@ -563,7 +563,6 @@
 /components/notify.file /integrations/file
 /components/notify.flock /integrations/flock
 /components/notify.free_mobile /integrations/free_mobile
-/components/notify.gntp /integrations/gntp
 /components/notify.hangouts /integrations/hangouts
 /components/notify.homematic /integrations/homematic
 /components/notify.html5 /integrations/html5
@@ -1357,7 +1356,6 @@
 /components/gitlab_ci /integrations/gitlab_ci
 /components/gitter /integrations/gitter
 /components/glances /integrations/glances
-/components/gntp /integrations/gntp
 /components/goalfeed /integrations/goalfeed
 /components/gogogate2 /integrations/gogogate2
 /components/google_assistant /integrations/google_assistant
@@ -2356,3 +2354,6 @@
 /components/device_tracker.ee_brightbox /more-info/removed-integration 301
 /components/ee_brightbox /more-info/removed-integration 301
 /integrations/ee_brightbox /more-info/removed-integration 301
+/components/gntp /more-info/removed-integration 301
+/components/notify.gntp /more-info/removed-integration 301
+/integrations/gntp /more-info/removed-integration 301
