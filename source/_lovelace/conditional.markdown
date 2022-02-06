@@ -31,15 +31,38 @@ conditions:
       required: false
       description: Entity state is unequal to this value.*
       type: string
+    state_filter:
+      required: false
+      description: List of strings representing states or `filter` objects, see below.
+      type: list
 card:
   required: true
   description: Card to display if all conditions match.
   type: map
 {% endconfiguration %}
 
-*one is required (`state` or `state_not`)
+*one is required (`state`, `state_not` or `state_filter`)
 
 Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
+
+### Options For state_filter
+
+If you define state_filter as objects instead of strings (by adding `value:` before your state value), you can add more customization to your filter:
+
+{% configuration state_filter %}
+value:
+  required: true
+  description: String representing the state.
+  type: string
+operator:
+  required: false
+  description: Operator to use in the comparison. Can be `==`, `<=`, `<`, `>=`, `>`, `!=` or `regex`.
+  type: string
+attribute:
+  required: false
+  description: Attribute of the entity to use instead of the state.
+  type: string
+{% endconfiguration %}
 
 ## Examples
 
