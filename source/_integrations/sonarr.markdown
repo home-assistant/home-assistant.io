@@ -14,7 +14,7 @@ ha_platforms:
   - sensor
 ---
 
-The `Sonarr` integration pulls data from a given [Sonarr](https://sonarr.tv/) instance.
+The `Sonarr` integration pulls data from a given [Sonarr](https://sonarr.tv/) instance. This integration only supports Sonarr v3 instances.
 
 {% include integrations/config_flow.md %}
 
