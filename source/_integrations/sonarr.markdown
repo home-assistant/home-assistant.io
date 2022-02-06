@@ -14,6 +14,10 @@ ha_platforms:
   - sensor
 ---
 
+<div class='note warning'>
+Since Home Assistant 2022.3.0, Sonarr v2 is no longer supported and has been deemed End of Life by its developers since early 2021.
+</div>
+
 The `Sonarr` integration pulls data from a given [Sonarr](https://sonarr.tv/) instance. This integration only supports Sonarr v3 instances.
 
 {% include integrations/config_flow.md %}
