@@ -369,7 +369,7 @@ Examples using `iif`:
 
 {{ is_state('light.kitchen', 'on') | iif('Yes', 'No') }}
 
-{{ (state('light.kitchen') == 'on') | iif('Yes', 'No') }}
+{{ (states('light.kitchen') == 'on') | iif('Yes', 'No') }}
 ```
 
 {% endraw %}
