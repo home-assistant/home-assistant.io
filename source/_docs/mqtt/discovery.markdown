@@ -338,11 +338,12 @@ A motion detection device which can be represented by a [binary sensor](/integra
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
 - Payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}`
+- Retain: The -r switch is added to retain the configuration topic in the broker.  Without this the sensor will not be available after Home Assistant restarts.
 
 To create a new sensor manually.
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}'
+mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}'
 ```
 
 Update the state.
@@ -377,9 +378,10 @@ Setting up a switch is similar but requires a `command_topic` as mentioned in th
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
 - Payload:  `{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}`
+- Retain: The -r switch is added to retain the configuration topic in the broker.  Without this the sensor will not be available after Home Assistant restarts.
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
+mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
   -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}'
 ```
 
