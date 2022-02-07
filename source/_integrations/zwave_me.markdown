@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Climate
+  - Hub
   - Light
   - Lock
   - Number
