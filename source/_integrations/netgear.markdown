@@ -34,26 +34,32 @@ The 'consider_home' time is the amount of seconds to wait till marking someone a
 The NETGEAR router will have the following entities:
 
 ### Traffic meter data
+
 The total and average amount of downloaded/uploaded data through the router can be tracked per day/week/month.
 In order for these entities to display the data (instead of 0), the "Traffic Meter" schould be enabled in the router settings.
-Log into your router > Select ADVANCED > Advanced Setup > Traffic Meter > Enable Traffic Meter check box.
+Log into your router > Select **ADVANCED** > **Advanced Setup** > **Traffic Meter** > **Enable Traffic Meter** check box.
 
 ## Connected device entities
 For each device connected to the NETGEAR router the following entities will be available:
 
 ### Device tracker
+
 Displays if the device is currently connected to the router (Home) or not (Away).
 
 ### Allowed on Network
+
 Switch that lets you Allow or Block a device on the Network.
 For this entity to actually Block the device, "Access Control" needs to be turned on in the Router settings.
-Log into your router > Select **ADVANCED** > **Security** > **Access Control** > Turn on Access Control check box.
+Log into your router > Select **ADVANCED** > **Security** > **Access Control** > **Turn on Access Control** check box.
 
 ### Signal strength
+
 Displays the wifi signal strength of the device
 
 ### Link rate
+
 Displays the current link rate of the device indicating the maximum possible data speed with the current connection.
 
 ### Link type
+
 Displays the current link type: wired, 2.4GHz or 5GHz.
