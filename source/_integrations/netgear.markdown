@@ -9,6 +9,7 @@ ha_domain: netgear
 ha_platforms:
   - device_tracker
   - sensor
+  - switch
 ha_config_flow: true
 ha_codeowners:
   - '@hacf-fr'
@@ -17,15 +18,41 @@ ha_codeowners:
 ha_ssdp: true
 ---
 
-This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device.
+This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device and control the Netgear device.
+Both routers and acces points can be used with this integration, some acces points will not be automatically discoverd and need to be set up manually.
 
 {% include integrations/config_flow.md %}
 
-Most NETGEAR routers use port 5000 to communicate, however the following list of models are known to use port 80:
-- Nighthawk RAX50
-- Nighthawk X4S - AC2600 (R7800)
-- Orbi
-- XR500
-When setup through ssdp discovery the port schould be automatically detected.
+## Optional settings
+The options flow of the NETGEAR integration allows you to tweak the behaviour of the Netgear integration and can be accesed as followes: in the sidebar of your Home Assistant instance click on "Configuration" -> "Integrations" -> find the NETGEAR integration and click "Configure".
 
-The options flow of the NETGEAR integration (in the sidebar of your Home Assistant instance click on "Configuration" -> "Integrations" -> find the NETGEAR integration and click "Configure") allows you to specify the 'consider_home' time. This is the amount of seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. consider_home helps prevent false alarms in presence detection.
+### Consider_home
+The 'consider_home' time is the amount of seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. consider_home helps prevent false alarms in presence detection.
+
+## Router entities
+The Netgear router will have the following entities:
+
+### Traffic meter data
+The total and average amount of downloaded/uploaded data through the router can be tracked per day/week/month.
+In order for these entities to display the data (instead of 0), the "Traffic Meter" schould be enabeld in the router settings.
+Log into your router > Select ADVANCED > Advanced Setup > Traffic Meter > Enable Traffic Meter check box.
+
+## Connected device entities
+For each device connected to the Netgear router the following entities will be available:
+
+### Device tracker
+Displays if the device is currently connected to the router (Home) or not (Away).
+
+### Allowed on Network
+Switch that lets you Allow or Block a device on the Network.
+For this entity to actually Block the device, "Access Control" needs to be turned on in the Router settings.
+Log into your router > Select ADVANCED > Security > Access Control > Turn on Access Control check box.
+
+### Signal strength
+Displays the wifi signal strenght of the device
+
+### Link rate
+Displays the current link rate of the device indicating the maximum posible data speed with the current connection.
+
+### Link type
+Displays the current link type: wired, 2.4GHz or 5GHz.
