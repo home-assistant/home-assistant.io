@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Improved HomeMatic Support - Action Required"
+title: "New Add-on for HomeMatic/homematicIP support - Action Required"
 description: "To improve HomeMatic support in the future we are deprecating the current HomeMatic CCU Add-on in favor of the more feature rich RaspberryMatic CCU Add-on."
 date: 2022-02-07 00:00:00
 date_formatted: "February 07, 2022"
