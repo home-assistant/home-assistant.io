@@ -213,7 +213,9 @@ Supported devices:
 | Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | |
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3  | |
 | Air Purifier 3C        | zhimi.airpurifier.mb4  | |
+| Air Fresh A1           | dmaker.airfresh.a1     | MJXFJ-150-A1 |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
+| Air Fresh T2017        | dmaker.airfresh.t2017  | MJXFJ-300-G1 |
 | Air Humidifier         | zhimi.humidifier.v1    | |
 | Air Humidifier CA1     | zhimi.humidifier.ca1   | |
 | Air Humidifier CA4     | zhimi.humidifier.ca4   | |
@@ -491,6 +493,38 @@ Buzzer                  | Turn on/off the buzzer
 Child Lock              | Turn on/off the child lock
 LED                     | Turn on/off the LED
 
+### Air Fresh A1 (dmaker.airfresh.a1)
+
+- Power (on, off)
+- Operation modes (Auto, Sleep, Favorite)
+- Sensor entities
+
+Sensor                          | Description                                                    | Enabled by default
+------------------------------- | -------------------------------------------------------------- | -----------------------
+Carbon Dioxide                  | The current carbon dioxide measured in ppm                     | True
+Dust filter life remaining      | The remaining life of the filter                               | True
+Dust filter life remaining days | Filter usage time in day                                       | True
+PM2.5                           | The current particulate matter 2.5 measured                    | True
+Temperature                     | The current outside temperature measured                       | True
+Control Speed                   | The current motor speed measured in rpm                        | True
+Favorite Speed                  | The favorite motor speed measured in rpm                       | True
+Ptc status                      | The heater status                                              | True
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+Display                 | Turn on/off `display`
+Ptc                     | Turn on/off `heater`
+
+- Button entities
+
+Button                  | Description                                | Enabled by default
+----------------------- | ------------------------------------------ | ---------------------
+Reset dust filter       | Resets filter lifetime of the dust filter  | False
+
 ### Air Fresh VA2
 
 - Power (on, off)
@@ -523,6 +557,49 @@ Switch                  | Description
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
 LED                     | Turn on/off `led`
+
+
+### Air Fresh T2017 (dmaker.airfresh.t2017)
+
+- Power (on, off)
+- Operation modes (Auto, Sleep, Favorite)
+- Sensor entities
+
+Sensor                           | Description                                                    | Enabled by default
+-------------------------------- | -------------------------------------------------------------- | -----------------------
+Carbon Dioxide                   | The current carbon dioxide measured in ppm                     | True
+Dust filter life remaining       | The remaining life of the dust filter                          | True
+Dust filter life remaining days  | Dust filter usage time in day                                  | True
+Upper filter life remaining      | The remaining life of the upper filter                         | True
+Upper filter life remaining days | Upper filter usage time in day                                 | True
+PM2.5                            | The current particulate matter 2.5 measured                    | True
+Temperature                      | The current outside temperature measured                       | True
+Control Speed                    | The current motor speed measured in rpm                        | True
+Favorite Speed                   | The favorite motor speed measured in rpm                       | True
+Ptc status                       | The heater status                                              | True
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+Display Orientation     | Controls the orientation of the display (forward, left, right)
+Ptc Level               | Controls the level of the heater (low, medium, high)
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+Display                 | Turn on/off `display`
+Ptc                     | Turn on/off `heater`
+
+- Button entities
+
+Button                  | Description                                | Enabled by default
+----------------------- | ------------------------------------------ | ---------------------
+Reset dust filter       | Resets filter lifetime of the dust filter  | False
+Reset upper filter      | Resets filter lifetime of the upper filter | False
 
 ### Air Humidifier (zhimi.humidifier.v1)
 
