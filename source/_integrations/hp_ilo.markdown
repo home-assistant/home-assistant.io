@@ -68,6 +68,16 @@ monitored_variables:
       description: The sensor type, has to be one of the valid sensor types specified below.
       required: true
       type: string
+    device_class:
+      description: The [device_class](/integrations/sensor/#device-class) of the sensor.
+      required: false
+      type: device_class
+      default: None
+    state_class:
+      description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+      required: false
+      type: string
+      default: None
     unit_of_measurement:
       description: The sensors' unit of measurement.
       required: false
@@ -79,12 +89,13 @@ monitored_variables:
 {% endconfiguration %}
 
 Valid sensor_types:
+
 - **server_name**: Get the name of the server this iLO is managing.
 - **server_fqdn**: Get the fqdn of the server this iLO is managing.
 - **server_host_data**: Get SMBIOS records that describe the host.
 - **server_oa_info**: Get information about the Onboard Administrator of the enclosing chassis.
 - **server_power_status**: Whether the server is powered on or not.
-- **server_power_readings**: Get current, min, max and average power readings.
+- **server_power_readings**: Get current, min, max and average power readings. (Default: `unit_of_measurement: W` `device_class: power` and `state_class: measurement`)
 - **server_power_on_time**: How many minutes ago has the server been powered on (Non-resetting counter, akin to hours used).
 - **server_asset_tag**: Gets the server asset tag.
 - **server_uid_status**: Get the status of the UID light.
@@ -115,6 +126,11 @@ sensor:
       - name: Server Health
         sensor_type: server_health
         value_template: '{{ ilo_data.health_at_a_glance }}'
+      - name: Power Reading
+        sensor_type: server_power_readings
+        device_class: power
+        state_class: measurement
+        value_template: "{{ ilo_data.present_power_reading[0] }}"
 ```
 
 {% endraw %}
