@@ -55,6 +55,7 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.2.1 - February 3](#release-202221---february-3)
 - [Release 2022.2.2 - February 4](#release-202222---february-4)
+- [Release 2022.2.3 - February 6](#release-202223---february-6)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -605,6 +606,93 @@ The following integrations are now available via the Home Assistant UI:
 [tuya docs]: /integrations/tuya/
 [zwave docs]: /integrations/zwave/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.2.3 - February 6
+
+- check wan access type ([@mib1185] - [#65389]) ([fritz docs])
+- Fix OVO Energy NoneType error occurring for some users ([@timmo001] - [#65714]) ([ovo_energy docs])
+- Fix Amcrest service calls ([@flacjacket] - [#65717]) ([amcrest docs])
+- Add coverage for color_rgbww_to_rgb, fix divzero case ([@bdraco] - [#65721])
+- Fix wind speed unit ([@bieniu] - [#65723]) ([accuweather docs])
+- Bump simplisafe-python to 2022.02.0 ([@bachya] - [#65748]) ([simplisafe docs])
+- Improve androidtv mac address handling and test coverage ([@ollo69] - [#65749]) ([androidtv docs])
+- Add redacted subscription data to SimpliSafe diagnostics ([@bachya] - [#65751]) ([simplisafe docs])
+- Prevent multiple dhcp flows from being started for the same device/domain ([@bdraco] - [#65753]) ([dhcp docs])
+- Update Pillow to 9.0.1 ([@frenck] - [#65779]) ([qrcode docs]) ([proxy docs]) ([seven_segments docs]) ([doods docs]) ([sighthound docs]) ([image docs])
+- Fix the restart when the saj device is down ([@Smitplaza] - [#65796]) ([saj docs])
+- Bump aioshelly to 1.0.9 ([@thecode] - [#65803]) ([shelly docs])
+- Fix legacy nest diagnostics to return empty rather than fail ([@allenporter] - [#65824]) ([nest docs])
+- Fix flash at turn on with newer 0x04 Magic Home models ([@bdraco] - [#65836]) ([flux_led docs])
+- Fix Spotify, Tidal, Apple Music playback on Sonos groups ([@jjlawren] - [#65838]) ([sonos docs])
+- feat: bumped version ([@jeeftor] - [#65863]) ([intellifire docs])
+- Fix loss of ability to control white channel in HomeKit on RGB&W lights ([@bdraco] - [#65864]) ([homekit docs])
+- Update xknx to 0.19.2 - fix TCP tunnelling ([@farmio] - [#65920]) ([knx docs])
+- disabled_by can be None when updating devices ([@ludeeus] - [#65934]) ([config docs])
+- Improve device shutdown and unload of Synology DSM integration ([@mib1185] - [#65936]) ([synology_dsm docs])
+- Add diagnostics support to HomeKit ([@bdraco] - [#65942]) ([homekit docs])
+- Bump soco to 0.26.2 Bump soco to 0.26.2 ([@mfrister] - [#65919])
+
+[#65919]: https://github.com/home-assistant/core/pull/65919
+[#65389]: https://github.com/home-assistant/core/pull/65389
+[#65714]: https://github.com/home-assistant/core/pull/65714
+[#65717]: https://github.com/home-assistant/core/pull/65717
+[#65721]: https://github.com/home-assistant/core/pull/65721
+[#65723]: https://github.com/home-assistant/core/pull/65723
+[#65748]: https://github.com/home-assistant/core/pull/65748
+[#65749]: https://github.com/home-assistant/core/pull/65749
+[#65751]: https://github.com/home-assistant/core/pull/65751
+[#65753]: https://github.com/home-assistant/core/pull/65753
+[#65779]: https://github.com/home-assistant/core/pull/65779
+[#65796]: https://github.com/home-assistant/core/pull/65796
+[#65803]: https://github.com/home-assistant/core/pull/65803
+[#65824]: https://github.com/home-assistant/core/pull/65824
+[#65836]: https://github.com/home-assistant/core/pull/65836
+[#65838]: https://github.com/home-assistant/core/pull/65838
+[#65863]: https://github.com/home-assistant/core/pull/65863
+[#65864]: https://github.com/home-assistant/core/pull/65864
+[#65920]: https://github.com/home-assistant/core/pull/65920
+[#65934]: https://github.com/home-assistant/core/pull/65934
+[#65936]: https://github.com/home-assistant/core/pull/65936
+[#65942]: https://github.com/home-assistant/core/pull/65942
+[@mfrister]: https://github.com/mfrister
+[@Smitplaza]: https://github.com/Smitplaza
+[@allenporter]: https://github.com/allenporter
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@farmio]: https://github.com/farmio
+[@flacjacket]: https://github.com/flacjacket
+[@frenck]: https://github.com/frenck
+[@jeeftor]: https://github.com/jeeftor
+[@jjlawren]: https://github.com/jjlawren
+[@ludeeus]: https://github.com/ludeeus
+[@mib1185]: https://github.com/mib1185
+[@ollo69]: https://github.com/ollo69
+[@thecode]: https://github.com/thecode
+[@timmo001]: https://github.com/timmo001
+[accuweather docs]: /integrations/accuweather/
+[amcrest docs]: /integrations/amcrest/
+[androidtv docs]: /integrations/androidtv/
+[config docs]: /integrations/config/
+[dhcp docs]: /integrations/dhcp/
+[doods docs]: /integrations/doods/
+[flux_led docs]: /integrations/flux_led/
+[fritz docs]: /integrations/fritz/
+[homekit docs]: /integrations/homekit/
+[image docs]: /integrations/image/
+[intellifire docs]: /integrations/intellifire/
+[knx docs]: /integrations/knx/
+[nest docs]: /integrations/nest/
+[ovo_energy docs]: /integrations/ovo_energy/
+[proxy docs]: /integrations/proxy/
+[qrcode docs]: /integrations/qrcode/
+[saj docs]: /integrations/saj/
+[seven_segments docs]: /integrations/seven_segments/
+[shelly docs]: /integrations/shelly/
+[sighthound docs]: /integrations/sighthound/
+[simplisafe docs]: /integrations/simplisafe/
+[sonos docs]: /integrations/sonos/
+[synology_dsm docs]: /integrations/synology_dsm/
 
 ## If you need help...
 
