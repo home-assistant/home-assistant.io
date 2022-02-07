@@ -133,3 +133,49 @@ Limits:
  - The integration does not expose current ambilight measured values since it would
 overload the event bus in Home Assistant.
  - There is no support to control the standard, non-expert, styles of the TV.
+
+## Selecting apps, channels, or favorites
+
+Apps, channels, and favorites are exposed as media content to the integration. You can see which ones are available by clicking the media button in the media player more info card for your TV. To capture the `content_id` for the one you want to use in an automation or script, turn your logging on to debug level and tail the log while choosing the media content in the media player more info card. You will find a log message that looks like this when you choose the media:
+
+```txt
+2021-11-22 01:45:14 DEBUG (MainThread) [homeassistant.core] Bus:Handling <Event call_service[L]: domain=media_player, service=play_media, service_data=entity_id=media_player.philips936_tv, media_content_id=com.amazon.ignition.IgnitionActivity-com.amazon.amazonvideo.livingroom, media_content_type=app>
+```
+
+Then you can turn that into a service call for the script or automation like the following, which can then open the app/channel/favorite automatically.
+
+```yaml
+service: media_player.play_media
+data:
+  media_content_id: com.amazon.ignition.IgnitionActivity-com.amazon.amazonvideo.livingroom
+  media_content_type: app
+target:
+  entity_id:
+    - media_player.philips936_tv
+```
+
+Here are some example media_content_id's for apps that have been discovered with this method. These might not be the same for every TV, so YMMV.
+
+| App Name         | Media Content ID                                                                                |
+| ---------------- | ----------------------------------------------------------------------------------------------- |
+| Hulu             | com.hulu.livingroomplus.WKFactivity-com.hulu.livingroomplus                                     |
+| Google Play      | com.google.android.videos.tv.presenter.activity.TvLauncherActivity-com.google.android.videos    |
+| TV1 Russia       | ru.kino1tv.android.tv.ui.activity.MainActivity-ru.tv1.android.tv                                |
+| YouTube          | com.google.android.apps.youtube.tv.activity.ShellActivity-com.google.android.youtube.tv         |
+| Curiosity Stream | com.curiosity.activities.OnboardingActivity-com.curiosity.curiositystream.androidtv             |
+| HBO Max          | com.hbo.go.LaunchActivity-com.hbo.hbonow                                                        |
+| PBS              | com.pbs.video.ui.main.activities.StartupActivity-com.pbs.video                                  |
+| Plex             | com.plexapp.plex.activities.SplashActivity-com.plexapp.android                                  |
+| PBS Kids         | org.pbskids.video.splash.ui.SplashScreenActivity-org.pbskids.video                              |
+
+## Selecting HDMI Input
+
+Selecting the HDMI Input on the TV is done as follows
+
+```yaml
+service: media_player.select_source
+data:
+  source: HDMI 4
+target:
+  entity_id: media_player.philips936_tv
+```
