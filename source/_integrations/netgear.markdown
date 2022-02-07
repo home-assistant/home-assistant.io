@@ -19,7 +19,7 @@ ha_ssdp: true
 ---
 
 This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device and control the NETGEAR device.
-Both routers and acces points can be used with this integration, some acces points will not be automatically discoverd and need to be set up manually.
+Both routers and access points can be used with this integration. Some access points will not be automatically discovered and need to be set up manually.
 
 {% include integrations/config_flow.md %}
 
