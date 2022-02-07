@@ -168,7 +168,7 @@ cover:
 
 The configuration above shows that the `type` property may be omitted. When the ID starts with `newkaku`, the component will make sure that the on and off commands are inverted. When the ID does not start with `newkaku`, the on and off commands are not inverted.
 
-## Setting up a Dooya, Zemismart or Brel motor device
+## Setting up a non-RTS cover
 
 Configure `automatic_add` for the light domain (yes, the light domain)
 ```yaml
@@ -189,7 +189,7 @@ logger:
     homeassistant.components.rflink: debug
 ```
 
-Configuring device as a cover:
+Once the `device_id` is known, the light domain configuration can be removed and configure the device as a cover:
 
 ```yaml
 # Example configuration.yaml entry
