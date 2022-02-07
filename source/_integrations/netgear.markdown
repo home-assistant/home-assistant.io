@@ -27,6 +27,7 @@ Both routers and access points can be used with this integration. Some access po
 The optional configuration settings of the NETGEAR integration allows you to tweak the behavior of the NETGEAR integration.
 
 ### Consider_home
+
 The 'consider_home' time is the amount of seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. consider_home helps prevent false alarms in presence detection.
 
 ## Router entities
