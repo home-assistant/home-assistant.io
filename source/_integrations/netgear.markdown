@@ -52,7 +52,7 @@ Log into your router > Select ADVANCED > Security > Access Control > Turn on Acc
 Displays the wifi signal strength of the device
 
 ### Link rate
-Displays the current link rate of the device indicating the maximum posible data speed with the current connection.
+Displays the current link rate of the device indicating the maximum possible data speed with the current connection.
 
 ### Link type
 Displays the current link type: wired, 2.4GHz or 5GHz.
