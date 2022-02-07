@@ -46,7 +46,7 @@ Displays if the device is currently connected to the router (Home) or not (Away)
 ### Allowed on Network
 Switch that lets you Allow or Block a device on the Network.
 For this entity to actually Block the device, "Access Control" needs to be turned on in the Router settings.
-Log into your router > Select ADVANCED > Security > Access Control > Turn on Access Control check box.
+Log into your router > Select **ADVANCED** > **Security** > **Access Control** > Turn on Access Control check box.
 
 ### Signal strength
 Displays the wifi signal strength of the device
