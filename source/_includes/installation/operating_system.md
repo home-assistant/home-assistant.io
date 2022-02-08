@@ -144,9 +144,9 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 
 {% if page.installation_type == 'generic-x86-64' %}
 1. If you used your Desktop system to write to your boot media, install the boot media ({{site.installation.types[page.installation_type].installation_media}}) in the generic-x86-64 system. Otherwise, shutdown the live operating system and make sure to remove the USB flash drive you have been using for the live system.
-2. Make sure an ethernet cable for network is plugged in.
+2. Make sure an Ethernet cable is plugged in for network.
 3. Power the system on. 
-- Wait for the Home Assistant welcome banner to show in the console of the generic-x86-64 system. 
+- Wait for the Home Assistant welcome banner to show up in the console of the generic-x86-64 system. 
 {% else %}
 1. Insert the boot media ({{site.installation.types[page.installation_type].installation_media}}) you just created.
 2. Attach an Ethernet cable for network.
