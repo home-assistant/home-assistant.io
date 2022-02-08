@@ -13,7 +13,7 @@ ha_platforms:
   - diagnostics
 ---
 
-The RTSPtoWebRTC integration registers with [camera integration](/integration/camera) to provide WebRTC live streams for any RTSP camera. The integration initiates a connection to a [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb) or [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
+The RTSPtoWebRTC integration registers with [camera integration](/integrations/camera) to provide WebRTC live streams for any RTSP camera. The integration initiates a connection to a [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb) or [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
 
 The integration configuration requires the URL to your server (e.g. `http://example.com:8083`) and will automatically discover which type of server you have.
 
