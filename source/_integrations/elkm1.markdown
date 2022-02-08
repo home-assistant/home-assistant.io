@@ -12,6 +12,7 @@ ha_category:
   - Switch
 ha_iot_class: Local Push
 ha_domain: elkm1
+ha_dhcp: true
 ha_config_flow: true
 ha_codeowners:
   - '@gwww'
