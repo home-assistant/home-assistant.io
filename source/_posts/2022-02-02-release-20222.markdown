@@ -56,6 +56,7 @@ Enjoy the release!
 - [Release 2022.2.1 - February 3](#release-202221---february-3)
 - [Release 2022.2.2 - February 4](#release-202222---february-4)
 - [Release 2022.2.3 - February 6](#release-202223---february-6)
+- [Release 2022.2.4 - February 8](#release-202224---february-8)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -693,6 +694,58 @@ The following integrations are now available via the Home Assistant UI:
 [simplisafe docs]: /integrations/simplisafe/
 [sonos docs]: /integrations/sonos/
 [synology_dsm docs]: /integrations/synology_dsm/
+
+## Release 2022.2.4 - February 8
+
+- Fix UPNP access to SSDP info ([@balloob] - [#65728]) ([upnp docs])
+- Fix TOD incorrectly determining the state between sunrise and sunset ([@nvx] - [#65884]) ([tod docs])
+- Bump plexapi to 4.9.2 ([@jjlawren] - [#65972]) ([plex docs])
+- Add diagnostics to Version integration ([@ludeeus] - [#65999]) ([version docs])
+- Suppress unwanted error messages during recorder migration ([@emontnemery] - [#66004]) ([recorder docs])
+- Revert "Make idle chromecasts appear as idle instead of off" ([@emontnemery] - [#66005]) ([cast docs])
+- Use strings directly instead of Enums in version config ([@ludeeus] - [#66007]) ([version docs])
+- Speed up deletion of duplicated statistics ([@emontnemery] - [#66014]) ([recorder docs])
+- Clean up Sonos unsubscribe/resubscribe exception handling and logging ([@jjlawren] - [#66025]) ([sonos docs])
+- Fix decoding discovery with old Magic Home firmwares ([@bdraco] - [#66038]) ([flux_led docs])
+- Fix race in MQTT sensor and binary_sensor expire_after ([@emontnemery] - [#66040]) ([mqtt docs])
+- Fix missing exception catch in august to prevent failed setup ([@bdraco] - [#66045]) ([august docs])
+- Fix schema for zwave_js WS API ([@raman325] - [#66052]) ([zwave_js docs])
+- Fix cleanup of MQTT debug info ([@emontnemery] - [#66104]) ([mqtt docs])
+- Fix ENTITY_CATEGORIES_SCHEMA ([@emontnemery] - [#66108])
+
+[#65728]: https://github.com/home-assistant/core/pull/65728
+[#65884]: https://github.com/home-assistant/core/pull/65884
+[#65972]: https://github.com/home-assistant/core/pull/65972
+[#65999]: https://github.com/home-assistant/core/pull/65999
+[#66004]: https://github.com/home-assistant/core/pull/66004
+[#66005]: https://github.com/home-assistant/core/pull/66005
+[#66007]: https://github.com/home-assistant/core/pull/66007
+[#66014]: https://github.com/home-assistant/core/pull/66014
+[#66025]: https://github.com/home-assistant/core/pull/66025
+[#66038]: https://github.com/home-assistant/core/pull/66038
+[#66040]: https://github.com/home-assistant/core/pull/66040
+[#66045]: https://github.com/home-assistant/core/pull/66045
+[#66052]: https://github.com/home-assistant/core/pull/66052
+[#66104]: https://github.com/home-assistant/core/pull/66104
+[#66108]: https://github.com/home-assistant/core/pull/66108
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@jjlawren]: https://github.com/jjlawren
+[@ludeeus]: https://github.com/ludeeus
+[@nvx]: https://github.com/nvx
+[@raman325]: https://github.com/raman325
+[august docs]: /integrations/august/
+[cast docs]: /integrations/cast/
+[flux_led docs]: /integrations/flux_led/
+[mqtt docs]: /integrations/mqtt/
+[plex docs]: /integrations/plex/
+[recorder docs]: /integrations/recorder/
+[sonos docs]: /integrations/sonos/
+[tod docs]: /integrations/tod/
+[upnp docs]: /integrations/upnp/
+[version docs]: /integrations/version/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
