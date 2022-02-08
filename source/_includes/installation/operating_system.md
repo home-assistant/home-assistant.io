@@ -60,22 +60,31 @@ This guide assumes that you have a dedicated generic x86 PC (typically an Intel 
 You will need to write the HAOS (Home Assistant OS) disk image directly to your boot media, and then configure your x86 to boot from this media, using UEFI boot mode.
 </div>
 
-### Configure the BIOS
+### Configure the BIOS on your x86-64 hardware
 
-To boot Home Assistant OS the BIOS needs to have UEFI boot mode enabled and Secure Boot disabled. The following screenshots are from a 7th generation Intel NUC system. The BIOS menu will likely look different on your systems. However, the options should still be present and named similarly.
+To boot Home Assistant OS, the BIOS needs to have UEFI boot mode enabled and Secure Boot disabled. The following screenshots are from a 7th generation Intel NUC system. The BIOS menu will likely look different on your systems. However, the options should still be present and named similarly.
 
-1. Enter the BIOS using the can enter using the `F2` key (on some systems this might be `Del`, `F1` or `F10`).
+1. To enter the BIOS, start up your x86-64 hardware and repeatedly press the `F2` key (on some systems this might be `Del`, `F1` or `F10`).
 ![Enter BIOS using F2, Del, F1 or F10 key](/images/installation/intel-nuc-enter-bios.jpg)
 
-1. Make sure the UEFI Boot mode is enabled
+1. Make sure the UEFI Boot mode is enabled.
 ![Enable UEFI Boot mode](/images/installation/intel-nuc-uefi-boot.jpg)
 
-1. Disable Secure Boot
+1. Disable Secure Boot.
 ![Disable Secure Boot mode](/images/installation/intel-nuc-disable-secure-boot.jpg)
 
-As a next step, we need to write the Operating System image to the target boot media (Your "boot media" is the disk, SSD, or eMMC that your x86-64 hardware will boot from when it is running Home Assistant). Depending on your system this can be a S-ATA hard disk, S-ATA SSD, a M.2 SSD or even a eMMC. Home Assistant Operating System has no integrated installer. You need to use your Desktop computer (e.g. by using a USB to S-ATA adapter) or boot a live operating system on your target system to install Home Assistant Operating System, by writing the disk image directly onto the boot media for your x86 system.
+1. Save the changes and exit.
+- The BIOS configuration is complete.
 
-If you prefer to use a live operating system, follow the instructions of your Live distribution (e.g., [this Ubuntu guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Once you booted the live operating system, the following steps on how to write the image to your boot media can be followed.
+As a next step, we need to write the HA Operating System image to the target boot medium. The HA OS has no integrated installer. This means, the Operating System is not copied automatically to the internal disk.
+- Your "boot medium" is the medium your x86-64 hardware will boot from when it is running Home Assistant. 
+- Typically, an internal medium is used for the x86-64 hardware. Internal media are S-ATA hard disk, S-ATA SSD, a M.2 SSD or a non-removable eMMC.
+- Alternatively, an external medium can be used to boot HA OS such as an USB SDD (not recommended).
+
+To install the HA OS internally on your x86-64 hardware, there are 2 methods:
+1. Copying the HA OS disk image from your Desktop computer onto your boot medium (e.g. by using a USB to S-ATA adapter). This is not an option for a non-removable eMMC on your x86-64 hardware, of course. To use this method, follow the steps described in the procedure below: [Write the image to your boot media](https://www.home-assistant.io/installation/generic-x86-64#write-the-image-to-your-boot-media).
+2. Copying a live operating system (e.g. Ubuntu) onto a USB device. Then, insert this USB device to your x86-64 hardware and start the Ubuntu.
+- If you prefer to use a live operating system, follow the instructions of your Live distribution (e.g., [this Ubuntu guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Once you booted the live operating system, follow the steps described in the procedure below: [Write the image to your boot media](https://www.home-assistant.io/installation/generic-x86-64#write-the-image-to-your-boot-media).
 
 {% endif %}
 
@@ -134,15 +143,17 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
 {% if page.installation_type == 'generic-x86-64' %}
-1. If you used your Desktop system to write to your boot media, install the boot media ({{site.installation.types[page.installation_type].installation_media}}) into the target system. Otherwise, shutdown the live operating system and make sure to remove the USB flash drive you have been using for the live system.
-2. Make sure an ethernet cable for network is plugged in
-3. Power the system on.
+1. If you used your Desktop system to write to your boot media, install the boot media ({{site.installation.types[page.installation_type].installation_media}}) in the generic-x86-64 system. Otherwise, shutdown the live operating system and make sure to remove the USB flash drive you have been using for the live system.
+2. Make sure an ethernet cable for network is plugged in.
+3. Power the system on. 
+- Wait for the Home Assistant welcome banner to show in the console of the generic-x86-64 system. 
 {% else %}
-1. Insert the boot media ({{site.installation.types[page.installation_type].installation_media}}) you just created
-2. Attach a ethernet cable for network.
-3. Attach a cable for power
+1. Insert the boot media ({{site.installation.types[page.installation_type].installation_media}}) you just created.
+2. Attach an Ethernet cable for network.
+3. Attach the power cable.
 {% endif %}
-4. Within a few minutes you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+4. In the browser of your Desktop system, within a few minutes you will be able to reach your new Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. 
+- If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 
 {% else %}
 
@@ -167,7 +178,7 @@ Follow this guide if you already are running a supported virtual machine hypervi
 
 ### Create the Virtual Machine
 
-Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
+Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs).
 
 Minimum recommended assignments:
 
