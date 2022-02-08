@@ -136,11 +136,7 @@ overload the event bus in Home Assistant.
 
 ## Selecting apps, channels, or favorites
 
-Apps, channels, and favorites are exposed as media content to the integration. You can see which ones are available by clicking the media button in the media player more info card for your TV. To capture the `content_id` for the one you want to use in an automation or script, turn your logging on to debug level and tail the log while choosing the media content in the media player more info card. You will find a log message that looks like this when you choose the media:
-
-```txt
-2021-11-22 01:45:14 DEBUG (MainThread) [homeassistant.core] Bus:Handling <Event call_service[L]: domain=media_player, service=play_media, service_data=entity_id=media_player.philips936_tv, media_content_id=com.amazon.ignition.IgnitionActivity-com.amazon.amazonvideo.livingroom, media_content_type=app>
-```
+Apps, channels, and favorites are exposed as media content to the integration. You can see which ones are available by clicking the media button in the media player more info card for your TV. To capture the `content_id` for the one you want to use in an automation or script, watch the properties of the `media_content_id` attribute of the media_player entity as you launch different apps, and you can find the ones you use (some examples are included in the table below).
 
 Then you can turn that into a service call for the script or automation like the following, which can then open the app/channel/favorite automatically.
 
