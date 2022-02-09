@@ -57,6 +57,7 @@ Enjoy the release!
 - [Release 2022.2.2 - February 4](#release-202222---february-4)
 - [Release 2022.2.3 - February 6](#release-202223---february-6)
 - [Release 2022.2.4 - February 8](#release-202224---february-8)
+- [Release 2022.2.5 - February 9](#release-202225---february-9)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
