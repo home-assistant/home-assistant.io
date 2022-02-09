@@ -354,7 +354,7 @@ This is an example of what the `nest_event` payload looks like for a Device Trig
 
 * `device_id`: The Home Assistant device identifier for the camera
 * `nest_event_id`: is an opaque identifier that can be used with the Media Source Attachments described below for supported cameras.
-* `zones`: Zones that triggered the event. Zones are set up in the Google Home App for supporting cameras. A zone with the empty string is passed when in an unnamed area.
+* `zones`: Zones triggering the event if available. Zones are configured in the Google Home App, though not supported by all cameras. Events in the area outside of a named zone will be an empty zone name.
 
 {% enddetails %}
 
