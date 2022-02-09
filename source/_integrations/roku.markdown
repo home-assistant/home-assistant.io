@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Media Player
   - Remote
+  - Select
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.86
