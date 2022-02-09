@@ -4,6 +4,7 @@ description: Instructions on how to integrate Z-Wave with Home Assistant via Z-W
 featured: true
 ha_category:
   - Binary Sensor
+  - Button
   - Climate
   - Cover
   - Fan
@@ -23,14 +24,15 @@ ha_codeowners:
 ha_domain: zwave_js
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - fan
   - light
   - lock
   - number
-  - sensor
   - select
+  - sensor
   - siren
   - switch
 ---
@@ -237,6 +239,8 @@ This service will set a value on multiple Z-Wave devices using multicast. It is 
 | `options`   	          | no        	| Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set. 	                                                                                                                |
 
 ### Service `zwave_js.ping`
+
+> NOTE: This service has been deprecated and replaced with a new button entity. The service will still work for now but will be removed in a future release. Users are advised to move their automations to use the `button.press` service with the new entity which is a like for like replacement.
 
 Calling this service forces Z-Wave JS to try to reach a node. This can be used to update the status of the node in Z-Wave JS when you think it doesn't accurately reflect reality, e.g. reviving a failed/dead node or marking the node as asleep.
 
