@@ -13,7 +13,6 @@ ha_codeowners:
 ha_domain: tibber
 ha_config_flow: true
 ha_platforms:
-  - diagnostics
   - notify
   - sensor
 ---
