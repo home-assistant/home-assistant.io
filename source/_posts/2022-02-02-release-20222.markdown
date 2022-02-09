@@ -747,6 +747,37 @@ The following integrations are now available via the Home Assistant UI:
 [version docs]: /integrations/version/
 [zwave_js docs]: /integrations/zwave_js/
 
+## Release 2022.2.5 - February 9
+
+- Fix generic camera typo in attr_frame_interval ([@davet2001] - [#65390]) ([generic docs])
+- Fix flaky homewizard test ([@emontnemery] - [#65490]) ([homewizard docs])
+- Change detection of router devices for Fritz ([@chemelli74] - [#65965]) ([fritz docs])
+- Bump amcrest to 1.9.4 ([@rkben] - [#66124]) ([amcrest docs])
+- Fix system is loaded flag during reboot/shutdown of Synology DSM ([@mib1185] - [#66125]) ([synology_dsm docs])
+- Bump simplisafe-python to 2022.02.1 ([@bachya] - [#66140]) ([simplisafe docs])
+- Fix MQTT debug info ([@emontnemery] - [#66146]) ([mqtt docs])
+
+[#65390]: https://github.com/home-assistant/core/pull/65390
+[#65490]: https://github.com/home-assistant/core/pull/65490
+[#65965]: https://github.com/home-assistant/core/pull/65965
+[#66124]: https://github.com/home-assistant/core/pull/66124
+[#66125]: https://github.com/home-assistant/core/pull/66125
+[#66140]: https://github.com/home-assistant/core/pull/66140
+[#66146]: https://github.com/home-assistant/core/pull/66146
+[@bachya]: https://github.com/bachya
+[@chemelli74]: https://github.com/chemelli74
+[@davet2001]: https://github.com/davet2001
+[@emontnemery]: https://github.com/emontnemery
+[@mib1185]: https://github.com/mib1185
+[@rkben]: https://github.com/rkben
+[amcrest docs]: /integrations/amcrest/
+[fritz docs]: /integrations/fritz/
+[generic docs]: /integrations/generic/
+[homewizard docs]: /integrations/homewizard/
+[mqtt docs]: /integrations/mqtt/
+[simplisafe docs]: /integrations/simplisafe/
+[synology_dsm docs]: /integrations/synology_dsm
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
