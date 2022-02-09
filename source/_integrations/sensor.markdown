@@ -40,6 +40,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **power_factor**: Power factor in %.
 - **power**: Power in W or kW.
 - **pressure**: Pressure in hPa or mbar.
+- **radon**: Radon level in Bq/m³ or pCi/L.
 - **reactive_power**: Reactive power in var.
 - **signal_strength**: Signal strength in dB or dBm.
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
