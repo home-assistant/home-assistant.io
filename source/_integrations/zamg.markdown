@@ -40,6 +40,11 @@ name:
   description: A name for the weather platform.
   required: false
   type: string
+unique_id:
+  required: false
+  description: Additional unique_id for the weather sensor. Defaults to platform name.
+  default: "Defaults to name or station_id."
+  type: string
 latitude:
   description: "Latitude coordinate to monitor weather of (required if **longitude** is specified)."
   required: false
@@ -71,6 +76,11 @@ name:
   required: false
   description: Additional name for the sensors. Defaults to platform name.
   default: zamg
+  type: string
+unique_id:
+  required: false
+  description: Additional unique_id as prefix for the sensors. Defaults to platform name.
+  default: "Defaults to name or station_id."
   type: string
 latitude:
   required: false
@@ -120,6 +130,7 @@ sensor:
   - platform: zamg
     station_id: 11035
     name: Wien
+    unique_id: zamg_wien
     monitored_conditions:
       - temperature
       - humidity
