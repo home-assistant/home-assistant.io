@@ -10,6 +10,13 @@ ha_platforms:
   - notify
 ---
 
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.4.
+We recommend using our mobile companion applications instead.
+
+</div>
+
 The `apns` platform uses the Apple Push Notification service (APNS) to deliver notifications from Home Assistant.
 
 ## Setup

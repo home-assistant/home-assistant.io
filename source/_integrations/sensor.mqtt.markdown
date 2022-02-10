@@ -110,7 +110,7 @@ enabled_by_default:
   type: boolean
   default: true
 encoding:
-  description: The encoding of the payload received at `state_topic` and availability topics `availability_topic` and `topic`. Set to `""` to disable decoding.
+  description: The encoding of the payloads received. Set to `""` to disable decoding of incoming payload.
   required: false
   type: string
   default: "utf-8"
@@ -187,7 +187,7 @@ unit_of_measurement:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes. If the template throws an error, the current state will be used instead."
   required: false
   type: template
 {% endconfiguration %}

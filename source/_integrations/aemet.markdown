@@ -7,8 +7,6 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_codeowners:
-  - '@noltari'
 ha_domain: aemet
 ha_platforms:
   - sensor

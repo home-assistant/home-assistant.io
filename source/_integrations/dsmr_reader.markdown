@@ -4,7 +4,7 @@ description: Instructions on how to integrate DSMR Reader.
 ha_category:
   - Energy
   - Sensor
-ha_iot_class: Cloud Polling
+ha_iot_class: Local Push
 ha_release: 0.103
 ha_codeowners:
   - '@depl0y'

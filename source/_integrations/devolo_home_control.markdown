@@ -7,6 +7,7 @@ ha_category:
   - Cover
   - Light
   - Sensor
+  - Siren
   - Switch
 ha_release: '0.110'
 ha_iot_class: Local Push
@@ -22,6 +23,7 @@ ha_platforms:
   - cover
   - light
   - sensor
+  - siren
   - switch
 ha_zeroconf: true
 ---
@@ -91,3 +93,9 @@ The integration provides support for the following features:
 - Temperature and brightness of devolo Sensors, that support it
 - Consumptions of devolo and Qubino devices, that support it
 - Voltage of devolo Metering Plug v2
+
+## Siren
+
+The integration provides support for the following Z-Wave devices:
+
+- devolo Siren

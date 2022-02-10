@@ -9,6 +9,7 @@ ha_release: '0.30'
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
+  - '@ThomDietrich'
 ha_domain: statistics
 ha_platforms:
   - sensor
@@ -140,5 +141,9 @@ quantile_method:
   description: Indicates whether quantiles are computed using the `exclusive` method (default) or `inclusive`. The `exclusive` method assumes the population data have more extreme values than the sample, and therefore, the part under the *i*-th of *m* sorted data points is computed as `i / (m + 1)`. The `inclusive` method assumes that the sample data includes the more extreme values from the population, and therefore, the part under the *i*-th of *m* sorted data points is computed as `(i - 1) / (m - 1)`.
   required: false
   default: exclusive
+  type: string
+unique_id:
+  description: An ID that uniquely identifies the statistics sensor. Set this to a unique value to allow customization through the UI. Change the unique ID after switching the `state_characteristic` of a previously configured sensor, to start with a fresh recorder history.
+  required: false
   type: string
 {% endconfiguration %}

@@ -333,7 +333,6 @@
 /components/device_tracker.bt_smarthub /integrations/bt_smarthub
 /components/device_tracker.cisco_ios /integrations/cisco_ios
 /components/device_tracker.ddwrt /integrations/ddwrt
-/components/device_tracker.ee_brightbox /integrations/ee_brightbox
 /components/device_tracker.freebox /integrations/freebox
 /components/device_tracker.fritz /integrations/fritz
 /components/device_tracker.geofency /integrations/geofency
@@ -634,7 +633,6 @@
 /components/sensor.api_stream /integrations/websocket_api
 /components/sensor.api_streams /integrations/websocket_api
 /components/sensor.aqualogic /integrations/aqualogic#sensor
-/components/sensor.arduino /integrations/arduino#sensor
 /components/sensor.arest /integrations/arest#sensor
 /components/sensor.arlo /integrations/arlo#sensor
 /components/sensor.arwn /integrations/arwn
@@ -928,7 +926,6 @@
 /components/switch.android_ip_webcam /integrations/android_ip_webcam
 /components/switch.anel_pwrctrl /integrations/anel_pwrctrl
 /components/switch.aqualogic /integrations/aqualogic#switch
-/components/switch.arduino /integrations/arduino#switch
 /components/switch.arest /integrations/arest#switch
 /components/switch.bbb_gpio /integrations/bbb_gpio#switch
 /components/switch.broadlink /integrations/broadlink#switch
@@ -1110,7 +1107,6 @@
 /components/aqualogic /integrations/aqualogic
 /components/aquostv /integrations/aquostv
 /components/arcam_fmj /integrations/arcam_fmj
-/components/arduino /integrations/arduino
 /components/arest /integrations/arest
 /components/arlo /integrations/arlo
 /components/aruba /integrations/aruba
@@ -1275,7 +1271,6 @@
 /components/ecovacs /integrations/ecovacs
 /components/eddystone_temperature /integrations/eddystone_temperature
 /components/edimax /integrations/edimax
-/components/ee_brightbox /integrations/ee_brightbox
 /components/efergy /integrations/efergy
 /components/egardia /integrations/egardia
 /components/eight_sleep /integrations/eight_sleep
@@ -2353,3 +2348,11 @@
 /components/loopenergy /more-info/removed-integration 301
 /components/sensor.loop_energy /more-info/removed-integration 301
 /components/sensor.loopenergy /more-info/removed-integration 301
+/integrations/tahoma /more-info/removed-integration 301
+/components/arduino /more-info/removed-integration 301
+/components/sensor.arduino /more-info/removed-integration 301
+/components/switch.arduino /more-info/removed-integration 301
+/integrations/arduino /more-info/removed-integration 301
+/components/device_tracker.ee_brightbox /more-info/removed-integration 301
+/components/ee_brightbox /more-info/removed-integration 301
+/integrations/ee_brightbox /more-info/removed-integration 301

@@ -15,6 +15,7 @@ ha_codeowners:
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - media_player
   - number
   - sensor
@@ -28,13 +29,21 @@ The `sonos` integration allows you to control your [Sonos](https://www.sonos.com
 
 ## Feature controls & sensors
 
-Speaker-level features are exposed as `number` or `switch` entities which report current values and allow direct control.
+Speaker-level controls are exposed as `number` or `switch` entities. Additionally, various `sensor` and `binary_sensor` entities are provided.
 
-- **All devices**: Bass, Treble, Crossfade, Status Light, Touch Controls
-- **Home theater devices**: Night Sound, Speech Enhancement, Surround Enabled, Audio Input Format (read-only)
+### Controllable features
+
+- **All devices**: Alarms, Bass, Treble, Crossfade, Status Light, Touch Controls
+- **Home theater devices**: Audio Delay (aka "Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled
 - **When paired with a sub**: Subwoofer Enabled
 
-## Battery support
+### Sensors
+
+- **Devices with battery**: Battery level, Power state
+- **Home theater devices**: Audio Input Format
+- **Voice-enabled devices**: Microphone Enabled
+
+### Battery support notes
 
 Battery sensors are fully supported for the `Sonos Roam` and `Sonos Move` devices on S2 firmware. `Sonos Move` speakers still on S1 firmware are supported but may update infrequently.
 
@@ -46,9 +55,13 @@ The battery sensors rely on working change events or updates will be delayed. S1
 
 </div>
 
-## Alarm support
+### Alarm support notes
 
 The Sonos integration adds one `switch` for each alarm set in the Sonos app. The alarm switches are detected, deleted and assigned automatically and come with several attributes that help to monitor Sonos alarms.
+
+### Microphone support notes
+
+The microphone can only be enabled/disabled from physical buttons on the Sonos device and cannot be controlled from Home Assistant. A `binary_sensor` reports its current state.
 
 ## Playing media
 

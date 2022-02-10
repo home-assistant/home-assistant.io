@@ -15,6 +15,14 @@ ha_platforms:
   - switch
 ---
 
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.4.
+
+For more information see: [Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+</div>
+
 The `pcal9535a` integration is the base for all related pcal9535a platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms, please check their corresponding sections.
 
 One of the use cases is [Seeed studio Raspberry Pi Relay Board](http://wiki.seeedstudio.com/Raspberry_Pi_Relay_Board_v1.0/).

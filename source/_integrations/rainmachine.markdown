@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: rainmachine
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
   - switch
 ha_zeroconf: true
@@ -39,8 +40,10 @@ Services accept either device IDs or entity IDs, depending on the nature of the 
 - Services that require a device ID as a target:
   - `rainmachine.pause_watering`
   - `rainmachine.push_weather_data`
+  - `rainmachine.restrict_watering`
   - `rainmachine.stop_all`
   - `rainmachine.unpause_watering`
+  - `rainmachine.unrestrict_watering`
 - Services that require an entity ID as a target (note that the correct entity ID type must be provided, such as a program for a program-related service)
   - `rainmachine.start_program`
   - `rainmachine.start_zone`
@@ -49,7 +52,7 @@ Services accept either device IDs or entity IDs, depending on the nature of the 
 
 ### `rainmachine.pause_watering`
 
-Pause all watering activities for a number of seconds.
+Pause all watering activities for a number of seconds. After the pause is complete, the previous watering activities will resume. Note that controllers can only be paused for a maximum of 12 hours.
 
 | Service Data Attribute | Optional | Description                    |
 | ---------------------- | -------- | ------------------------------ |
@@ -81,6 +84,14 @@ See details of RainMachine API here:
 | `pressure`             | no       | Barametric Pressure (kPa)                                                                                             |
 | `dewpoint`             | no       | Dew Point (°C)                                                                                                        |
 
+### `rainmachine.restrict_watering`
+
+Restrict any and all watering activities from staring for a time period.
+
+| Service Data Attribute | Optional | Description                    |
+| ---------------------- | -------- | ------------------------------ |
+| `duration`              | no       | The time period to restrict (e.g., "01:00:00") |
+
 ### `rainmachine.start_program`
 
 Start a RainnMachine program.
@@ -107,7 +118,11 @@ Stop a RainMachine zone.
 
 ### `rainmachine.unpause_watering`
 
-Unpause all watering activities.
+Unpause all paused watering activities.
+
+### `rainmachine.unrestrict_watering`
+
+Remove all watering restrictions enforced by `rainmachine.restrict_watering`.
 
 ## Switch
 

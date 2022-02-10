@@ -338,7 +338,7 @@ To add a single entity in accessory mode:
 
 ## Configure Filter
 
-By default, no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
+By default, all entities except categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -370,6 +370,8 @@ Filters are applied as follows:
    - Neither include or exclude specifies domains or glob patterns
       - If entity is included, pass (as #2 above)
       - If entity include and exclude, the entity exclude is ignored
+
+Categorized entities are not included (config, diagnostic, and system entities) unless they are explicitly matched by `include_entity_globs` or `include_entities` or selected in the UI in include mode.
 
 ## Docker Network Isolation
 
@@ -456,6 +458,25 @@ automation:
     service: broadlink.send
     host: 192.168.1.55
     packet: XXXXXXXX
+```
+
+## Events
+
+The HomeKit integration emits `homekit_state_change` events. These events can be used in automations to know when an entity's state was changed from HomeKit.
+
+```yaml
+# Example for handling a HomeKit event
+automation:
+  trigger:
+    - platform: event
+      event_type: homekit_state_change
+      event_data:
+        entity_id: cover.garage_door
+        service: open_cover
+  action:
+    - service: persistent_notification.create
+      data:
+        message: "The garage door got opened via HomeKit"
 ```
 
 ## Troubleshooting

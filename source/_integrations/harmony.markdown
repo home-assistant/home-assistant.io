@@ -32,6 +32,8 @@ Supported units:
 
 {% include integrations/config_flow.md %}
 
+**Note:** Depending on the firmware, you may need to enable XMPP for this integration to work. From your Harmony app, go to: **Menu** > **Harmony Setup** > **Add/Edit Devices & Activities** > **Remote & Hub** > **Enable XMPP**.
+
 Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Configuration** >> **Devices & Services** >> **Your Logitech Harmony Hub**
 
 ### Configuration file
