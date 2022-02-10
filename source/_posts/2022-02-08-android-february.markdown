@@ -12,7 +12,7 @@ og_image: /images/blog/2022-02-android/Companion.png
 
 ![Screenshot of Companion](/images/blog/2022-02-android/Companion.png)
 
-Hey Everyone! Its time for the next Android release and we are really excited to get this one out. Lots of chagnes for all versions of the app, including Wear OS and Quest devices.
+Hey Everyone! Its time for the next Android release and we are really excited to get this one out. Lots of changes for all versions of the app, including Wear OS and Quest devices.
 
 ## Breaking Changes
 
