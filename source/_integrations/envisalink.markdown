@@ -25,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor: Reports on zone status (Check the [type/class](/integrations/binary_sensor/#device-class) list for a possible visualization of your zone.)
 - Sensor: Emulates an alphanumeric keypad attached to the alarm panel
 - Alarm Control Panel: Reports on partition status, and can be used to arm/disarm the system
-- Switch: Bypass individual zones. Bypass switches are only available on DSC alarm panels due to limitations in the Honeywell interface.
+- Switch: Bypass individual zones. Bypass switches are only available on DSC alarm panels due to limitations in the Honeywell interface. Turn this feature on using the `create_zone_bypass_switches` configuration.
 
 This is a fully event-based component. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.
 
@@ -47,6 +47,7 @@ envisalink:
   zonedump_interval: 30
   timeout: 10
   panic_type: Police
+  create_zone_bypass_switches: false
   zones:
     11:
       name: "Back Door"
@@ -133,6 +134,11 @@ partitions:
       description: Partition name
       required: true
       type: string
+create_zone_bypass_switches:
+  description: If enabled and the panel type is DSC then switches will be created to allow individual zones to be bypassed.  DO NOT enable this feature if your DSC panel is configured to require a code to bypass zones as it can prevent your physical keypads from working properly while the integration is running.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 Supported services:
