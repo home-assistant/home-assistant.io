@@ -137,7 +137,7 @@ partitions:
 create_zone_bypass_switches:
   description: If enabled and the panel type is DSC then switches will be created to allow individual zones to be bypassed.  DO NOT enable this feature if your DSC panel is configured to require a code to bypass zones as it can prevent your physical keypads from working properly while the integration is running.
   required: false
-  type: bool
+  type: boolean
   default: false
 {% endconfiguration %}
 
