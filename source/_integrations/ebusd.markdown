@@ -42,6 +42,11 @@ name:
   type: string
   required: false
   default: ebusd
+cache_ttl:
+  description: The lifetime in seconds of cached circuit values returned by ebus daemon without accessing physical bus (0 to 86400).
+  type: integer
+  required: false
+  default: 900
 monitored_conditions:
   description: List of conditions to monitor. Note that not all monitored_conditions listed here can be supported by your circuit. This integration maps limited set of keys to circuit specific ebusd values.
   type: list
