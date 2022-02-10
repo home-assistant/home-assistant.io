@@ -10,7 +10,7 @@ The MQTT notification support is different than the other [notification](/integr
 
 ## Use the the MQTT notify platform
 
-The [MQTT notify service platform](/integrations/notify.mqtt/) allows you to use [MQTT discovery](/docs/mqtt/discovery/), or manual setup through `configuration.yaml` to enable a custom MQTT notify service.
+The [MQTT notify service platform](/integrations/notify.mqtt/) allows you to use [MQTT discovery](/docs/mqtt/discovery/), or manual setup through `configuration.yaml` to enable a custom MQTT notify service. The notify platform helps to implement notification services on IoT notification screens, notification gateways, or for digital signage applications. An example is showing a text alert message on a climate control unit, e.g. an error, alert or informal message. The device can advertize the notification message service through discovery.
 
 ## Direct publishing
 
