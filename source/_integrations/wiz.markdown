@@ -18,7 +18,9 @@ ha_platforms:
   - switch
 ---
 
-The WiZ integration allows you to control your WiZ lights, occupancy sensors, and smart sockets.
+The WiZ integration allows you to control your WiZ lights and smart sockets.
+
+The integration can report the state of occupancy sensors that have been linked to a device.
 
 {% include integrations/config_flow.md %}
 
