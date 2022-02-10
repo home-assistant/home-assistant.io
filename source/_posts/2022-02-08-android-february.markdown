@@ -1,6 +1,6 @@
 ---
 title: "Android 2022.2: Local Push Notifications!"
-description: "Local Push Notifications, In-App Changelog and Amazon App Store!"
+description: "Local Push Notifications, In-App Changelog and more!"
 date: 2022-02-07 00:00:00
 date_formatted: "February 08, 2022"
 comments: true
