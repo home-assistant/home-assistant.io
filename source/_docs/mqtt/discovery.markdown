@@ -29,20 +29,14 @@ Supported by MQTT discovery:
 - [Tag Scanners](/integrations/tag.mqtt/)
 - [Vacuums](/integrations/vacuum.mqtt/)
 
-MQTT discovery is enabled by default. To disable MQTT discovery, add the following to your `configuration.yaml` file:
+## Configuration
+MQTT discovery is enabled by default, but can be disable. To do this, click on "Configure" in the integration page in the UI, then "Re-configure MQTT" and then "Next".
 
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  discovery: false
-```
+### Advanced discovery configuration
+
+It's possible to configure the prefix of the discovery topic through `configuration.yaml`.
 
 {% configuration %}
-discovery:
-  description: If the MQTT discovery should be enabled or not.
-  required: false
-  default: true
-  type: boolean
 discovery_prefix:
   description: The prefix for the discovery topic.
   required: false
@@ -50,7 +44,7 @@ discovery_prefix:
   type: string
 {% endconfiguration %}
 
-### Discovery topic
+## Discovery topic
 
 The discovery topic need to follow a specific format:
 
