@@ -515,9 +515,13 @@ The `is_defined` filter allows to throw an error if a value or object is not def
 
 Example using `is_defined` to parse a JSON payload:
 
+{% raw %}
+
 ```text
 {{ value_json.val | is_defined }}
 ```
+
+{% endraw %}
 
 This will throw an error `UndefinedError: 'value_json' is undefined` if the JSON payload has no `val` attribute.
 
