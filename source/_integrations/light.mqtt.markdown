@@ -303,7 +303,7 @@ rgb_value_template:
   required: false
   type: string
 schema:
-  description: The schema to use. Must be `default` or omitted to select the default schema".
+  description: The schema to use. Must be `default` or omitted to select the default schema.
   required: false
   type: string
   default: default
@@ -648,7 +648,7 @@ retain:
   type: boolean
   default: false
 schema:
-  description: The schema to use. Must be `json` to select the JSON schema".
+  description: The schema to use. Must be `json` to select the JSON schema.
   required: false
   type: string
   default: default
@@ -1004,7 +1004,7 @@ red_template:
   required: false
   type: string
 schema:
-  description: The schema to use. Must be `template` to select the template schema".
+  description: The schema to use. Must be `template` to select the template schema.
   required: false
   type: string
   default: default
