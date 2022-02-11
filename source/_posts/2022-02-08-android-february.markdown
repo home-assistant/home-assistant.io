@@ -1,5 +1,5 @@
 ---
-title: "Android 2022.2: Local Push Notifications!"
+title: "Android Companion 2022.2: Local Push Notifications!"
 description: "Local Push Notifications, In-App Changelog and more!"
 date: 2022-02-11 00:00:00
 date_formatted: "February 11, 2022"
