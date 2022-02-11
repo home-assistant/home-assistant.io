@@ -181,6 +181,6 @@ Filters are applied as follows:
 As the setup is complete, data is being sent to Azure Data Explorer, and you can start exploring your data.
 Here are som rescources to learn to use Azure Data Explorer
 
-MS Learn: [https://aka.ms/learn.kql](https://aka.ms/learn.kql), [https://aka.ms/learn.adx](https://aka.ms/learn.adx)
-You tube: [Offical Microsoft Azure Data Explorer youtube channal](https://www.youtube.com/channel/UCPgPN-0DLaImaaDR_TtKR8A)
-Blog: [Official Microsoft Data Explorer blog](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/bg-p/AzureDataExplorer)
+* MS Learn: [https://aka.ms/learn.kql](https://aka.ms/learn.kql), [https://aka.ms/learn.adx](https://aka.ms/learn.adx)
+* You tube: [Offical Microsoft Azure Data Explorer youtube channal](https://www.youtube.com/channel/UCPgPN-0DLaImaaDR_TtKR8A)
+* Blog: [Official Microsoft Data Explorer blog](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/bg-p/AzureDataExplorer)
