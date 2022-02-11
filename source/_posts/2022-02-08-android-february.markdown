@@ -20,9 +20,13 @@ We have a pretty big release this month with a lot of changes going on. Some of 
 
 ### Local Push Notifications
 
-The first major change that we want to cover is for [Local Push Notifications]. Before this release if you wanted to get notifications from the app you had to have Google Services on your device as notifications used [Firebase]. Now notifications can be delivered directly from your Home Assistant server, given that you have remote access setup. These notifications do not count towards the rate limit and are shown on the device immediately, everytime. So why the breaking change? The app needs to establish and maintain a constant connection to your Home Assistant server with WebSockets. In order to do this, we have to create a persistent notification and this can be upsetting to some users.
+The first major change that we want to cover is for [Local Push Notifications]. Before this release all notifications were routed via Google. Now notifications can be delivered directly from your Home Assistant server if you have remote access setup. These notifications do not count towards the rate limit and are shown on the device immediately, everytime.
 
-Why the persistent notification? It is to let Android know the app has important ongoing tasks where we do not want the background process stopped. In order for the app and its services to continue working in the background, we need to create the notification. The purpose of this notification is identical to our Sensor Worker, that allows the app to continue sending sensor updates while in the background. Just like Sensor Worker, our WebSockets notification also has its own notification channel to allow you to customize the appearance. You are free to minimize (or silence) this notification to hide the icon from appearing in your status bar. Some users may also decide to turn off the channel. While there is nothing preventing you from turning it off, if you run into connection issues you will be asked to turn the channel back on.
+So what's the breaking change? The app needs to establish and maintain a constant connection to your Home Assistant server with WebSockets. In order to do this, we have to create a persistent notification and this can be upsetting to some users.
+
+A persistent notification lets Android know the app has important ongoing tasks where we do not want the background process stopped. The purpose of this notification is identical to our Sensor Worker, that allows the app to continue sending sensor updates while in the background. Just like Sensor Worker, our WebSockets notification also has its own notification channel to allow you to customize the appearance. You are free to minimize (or silence) this notification to hide the icon from appearing in your status bar.
+
+Some users may also decide to turn off the channel. While there is nothing preventing you from turning it off, if you run into connection issues you will be asked to turn the channel back on.
 
 ![Screenshot of websocket settings](/images/blog/2022-02-android/websocket_setting.png)
 
@@ -38,8 +42,8 @@ A big thank you to [JBassett] for kicking off this feature and working hard to s
 
 The remaining breaking changes in this release are related to 2 sensors offered by all versions of the app.
 
-*  [Do Not Disturb Sensor] - This sensor, which was previously offered to all supported Android versions, has been updated to use the official Android API as opposed to the undocumented method being done. The Android API is only available on devices running Android 6+ so if you are not on any supported versions you will no longer see this sensor in the Manage Sensors screen.
-*  [Last Used App Sensor] - This sensor previously reported its state as the application label however, it is not always unique. You may have multiple apps with the exact same label. In order to make this as unique as possible the state will now report the package name as that is guaranteed to be unique from app to app. The old state will be reported as an attribute of the sensor.
+*  [Do Not Disturb Sensor] - No longer available on devices running Android 5 or lower. This sensor, which was previously offered to all supported Android versions, has been updated to use the official Android API instead of the undocumented one. The Android API is only available on devices running Android 6+. Older devices will no longer see this sensor in the Manage Sensors screen.
+*  [Last Used App Sensor] - This sensor previously reported its state as the application label. We realized that this is not always unique, multiple apps can have the exact same name. The state has changed to report the package id which is guaranteed to be unique. The application name is now available as an attribute.
 
 ## In-App Changelog
 
