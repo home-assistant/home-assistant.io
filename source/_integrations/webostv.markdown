@@ -119,7 +119,40 @@ Available services: `button`, `command`
 | Service data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
-| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `NETFLIX`, `GUIDE`, `AMAZON`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
+| `button`               | no       | Name of the button. Known possible values are listed below. |
+
+
+#### Known button values ####
+
+| Button type | Buttons | Description |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------- |
+| Home | HOME | | 
+| Numbers            | 1, 2, 3, 4, 5, 6, 7, 8, 9, 0       | Keypad numbers     |
+| Volume              | MUTE, VOLUMEUP, VOLUMEDOWN       |   |
+| Arrows              |UP, DOWN, LEFT, RIGHT, CLICK, BACK, EXIT, ENTER | | 
+| Info | INFO ||
+| Program | PROGRAM ||
+| Channel control | CHANNELUP, CHANNELDOWN | |
+| Guide/channel view | DASH, LIST, GUIDE | |
+| Audio description | AD | |
+| Media Control | PLAY, PAUSE, REWIND, FASTFORWARD, RECORD, EJECT, FLASHBACK | |
+| Subtitles | CC | |
+| On/Off | POWER | |
+| Color buttons | RED, GREEN, YELLOW, BLUE | |
+| Menu/apps | MENU, QMENU, FAVORITES, MYAPPS, RECENT | |
+| Zoom | LIVE_ZOOM, MAGNIFIER_ZOOM | |
+| Aspect ratio | ASPECT_RATIO | |
+| Screen remote | SCREEN_REMOTE | This is the three-dots button on magic remotes |
+| Teletext | TELETEXT | |
+| BS | BS, BS_NUM_# (1-12) | eg BS_NUM_1| 
+| CS1 | CS1, CS1_NUM_# (1-12) | eg CS1_NUM_1| 
+| CS2 | CS2, CS2_NUM_# (1-12) | eg CS2_NUM_1| 
+| TER | TER, CS2_NUM_# (1-12) | eg TER_NUM_1| 
+| 3D | 3D_MODE| |
+| Apps | NETFLIX, AMAZON, ALEXA ||
+| Unknown/untested| 3DIGIT_INPUT, GOTOPREV, GOTONEXT, SAP, BML_DATA, JAPAN_DISPLAY,TEXTOPTION, ASTERISK | |
+
+
 
 ### Service `webostv.command`
 
