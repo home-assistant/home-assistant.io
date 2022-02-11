@@ -14,14 +14,6 @@ og_image: /images/blog/2022-02-android/Companion.png
 
 Hey Everyone! It's time for the next Android release and we are really excited to get this one out. Lots of changes for all versions of the app, including Wear OS and Quest devices.
 
-## Hello Amazon App Store
-
-This month we are saying hello to the Amazon App Store by releasing the [minimal version] of the app. As Amazon devices run Android, some of you probably already have the app installed. Typically you would install another app store in order to get updates as opposed to sideloading. Now, you no longer need to install another app store to get updates.
-
-Microsoft has also recently [announced] that Windows 11 will support Android apps. Microsoft has linked up with Amazon to allow for easy installation for apps found on the Amazon App Store. Once the official update rolls out to Windows 11 devices you will be able to have the Android app installed!
-
-<a href="https://www.amazon.com/gp/product/B09RP3DM5T" style="display:inline-block"><img width="200" class="download-badge" alt="Get it on Amazon" src="https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-appstore-badge-english-white.png" style='box-shadow:none;border:0'></a>
-
 ## Breaking Changes
 
 We have a pretty big release this month with a lot of changes going on. Some of these changes are noticeable as soon as you update the app, so let's cover those first.
