@@ -20,7 +20,7 @@ This month we are saying hello to the Amazon App Store by releasing the [minimal
 
 Microsoft has also recently [announced] that Windows 11 will support Android apps. Microsoft has linked up with Amazon to allow for easy installation for apps found on the Amazon App Store. Once the official update rolls out to Windows 11 devices you will be able to have the Android app installed!
 
-<a href="https://amazon.com" style="display:inline-block"><img width="200" class="download-badge" alt="Get it on Amazon" src="https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-appstore-badge-english-white.png" style='box-shadow:none;border:0'></a>
+<a href="https://www.amazon.com/gp/product/B09RP3DM5T" style="display:inline-block"><img width="200" class="download-badge" alt="Get it on Amazon" src="https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-appstore-badge-english-white.png" style='box-shadow:none;border:0'></a>
 
 ## Breaking Changes
 
