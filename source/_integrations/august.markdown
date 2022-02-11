@@ -74,7 +74,7 @@ If you have an August Smart Lock with DoorSense, once you have enabled the Augus
 
 ## Button
 
-A button is created to wake the lock from a deep sleep. If your lock is not reporting a status, it may be in a deep sleep, and the button can be used to wake it. Locks are not automatically woken from deep sleep to preserve battery life.
+Buttons are created to wake locks from a deep sleep. If your lock is not reporting a status, it may be in a deep sleep, and the button can be used to wake it. Locks are not automatically woken from deep sleep to preserve battery life.
 
 ## Camera
 
