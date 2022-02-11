@@ -1,6 +1,6 @@
 ---
 title: Azure Data Explorer
-description: Setup for Azure Event Hub integration
+description: Setup for Azure Data Explorer integration
 ha_category:
   - History
 ha_release: 
@@ -9,41 +9,42 @@ ha_codeowners:
   - '@kaareseras'
 ha_domain: azure_data_explorer
 ---
+[Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/)  is a high performace timeseries database, query engine and dashboarding tool.
 
-The `Azure Data Explorer` integration allows you to hook into the Home Assistant event bus and send events to [Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/) 
+The Home Assistant `Azure Data Explorer` integration allows you to hook into the Home Assistant event bus and forward events to Azure Data Explorer for analytics and dashboarding.
 
 ## Create a free Azure account
 * Create a  [free Azure account](https://azure.microsoft.com/free/). you will be asked for creditcard info, but all rescources created here are free.
 
-
 ## Create a Service Principal (App registration)
-For Home Assistant to authenticate with Azure Data Explorer, you need to create a **Service Principal**
+For Home Assistant to authenticate with Azure Data Explorer, it need a **Service Principal**
 1. Create a [Service Principal](https://docs.microsoft.com/en-us/azure/data-explorer/provision-azure-ad-app) follow guide step 1-7
-2. Copy values for:
-    * Application (client) ID  <--From App restration owerwiev
-    * Directory (tenant) ID    <--From App restration owerwiev
+2. Copy values for later use:
+    * Application (client) ID  <--From App registration owerwiev
+    * Directory (tenant) ID    <--From App registration owerwiev
     * Secret value             <--From when the secret was created in 1.7
 
-## Create the Azure Dataexplorer cluster and Database
-There are two ways of creating an Azure Dataesplorer Cluster: **Paid** and **Free**
+## Create Azure Dataexplorer cluster and Database
+There are two ways of creating an Azure Data Explorer Cluster: **Pay as you go (PAYG)** or **Free**
 to create a paid cluster follow instructions from here: [Microsoft quickstart](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal)
-However Microsoft has released a free offer and this guide describes how to set up a free Azure Dataexplorer database:
+However Microsoft has released a free offer and this guide describes how to set up a free Azure Data Explorer Cluster and database:
 
-There are a few different between the **Paid** and **Free** versions:
-| Feature    | Paid Cluster          | Free Cluster                    |
-| --------  | ---------------------- | ------------------------------- |
-| Ingestion | Streaming and Queueing | Queueing only (for now)         |
-| VM size   | Scalable               | 4 vCPU, 8GB Menory, ~100GB data |
-
+There are a few different between the **PAYG** and **Free** versions:
+| Feature         | PAYG Cluster           | Free Cluster                    |
+| --------------- | ---------------------- | ------------------------------- |
+| Ingestion       | Streaming and Queueing | Queueing only (for now)         |
+| Cluster size    | Fully scalable         | 4 vCPU, 8GB Menory, ~100GB data |
 
 1. Navigate to [aka.ms/kustofree](https://aka.ms/kustofree).
 2. Navigate to **My Cluster** .
 3. And click the **Create Cluster** button.
 4. Name the Cluster and database.
-5. Copy the database name
+5. Copy the **database name** for later use
 5. Check terms and condition (after reading them) and click **Create Cluster**.
 
 Within a minute, you will have a Azure Data Explorer cluster ready
+
+After the creation of the database, copy the **Data ingestion URI** from the top of the page
 
 ## Create Azure Data Table
 1. Navigate to [aka.ms/kustofree](https://aka.ms/kustofree).
@@ -51,11 +52,11 @@ Within a minute, you will have a Azure Data Explorer cluster ready
 3. Write and execute the foloing statements one by one, replacing the content between the <> with the copied values
 
 ```KQL
-// Give the Service Pricipal access to write data to the database
+// Give the Service Pricipal write access to the database
 .add database <databasename> ingestors ('aadapp=<ApplicationID>;<DirectoryID>');
 
-// Give the Service Pricipal access to read data from the database, to make connectivity checks later
-.add database <databasename> ingestors ('aadapp=<ApplicationID>;<DirectoryID>');
+// Give the Service Pricipal read access to database (used for connectivity checks) 
+.add database <databasename> viewers ('aadapp=<ApplicationID>;<DirectoryID>');
 
 // Create a table for the data to be ingested into (Replace name and copy inserted *name* for later use)
 .create table *name* (entity_id: string, state: string, attributes: dynamic, last_changed: datetime, last_updated: datetime, context: dynamic)
@@ -64,7 +65,7 @@ Within a minute, you will have a Azure Data Explorer cluster ready
 .create table *name* ingestion json mapping 'ha_json_mapping' '[{"column":"entity_id","path":"$.entity_id"},{"column":"state","path":"$.state"},{"column":"attributes","path":"$.attributes"},{"column":"last_changed","path":"$.last_canged"},{"column":"last_updated","path":"$.last_updated"},{"column":"context","path":"$.context"}]'
 ```
 
-Here is a full example with a free cluster crated with a database name of **HomeAssistant**
+This is an example with a free cluster crated with a database name of **HomeAssistant** for refrence
 
 ```KQL
 .add database HomeAssistant ingestors ('aadapp=b5253d02-c8f4-1234-a0f0-818491ba2a1f;72f123bf-86f1-41af-91ab-2d7cd011db93');
@@ -77,16 +78,21 @@ Here is a full example with a free cluster crated with a database name of **Home
 ```
 
 ## Configuration
+>if using a free cluste, check the **Use Queueing client** in the form
 
 {% include integrations/config_flow.md %}
 
+After completiing the flow, Home Assistant is sending data to Azure Data Explorer. 
 
+> Home Assistant is buffering for defualt 5 seconds before sending, and Batching Policy in Azure Data Explorer will futher batch up for default 
 
-Optinaly add the following lines to your `configuration.yaml` file for filtering what to send.:
+## Filters
+
+Optinaly add the following lines to your `configuration.yaml` file for filtering data ingested into Azure Data Explorer:
 
 ```yaml
 # Example configuration.yaml entry
-azure_event_hub:
+azure_data_explorer:
   filter:
     include_domains:
     - homeassistant
@@ -171,8 +177,10 @@ Filters are applied as follows:
       - If entity include and exclude, the entity exclude is ignored
 
 
-## Using the data in Azure
+## Using Azure Data Explorer
+As the setup is complete, data is being sent to Azure Data Explorer, and you can start exploring your data.
+Here are som rescources to learn to use Azure Data Explorer
 
-
-
-
+MS Learn: [https://aka.ms/learn.kql](https://aka.ms/learn.kql), [https://aka.ms/learn.adx](https://aka.ms/learn.adx)
+You tube: [Offical Microsoft Azure Data Explorer youtube channal](https://www.youtube.com/channel/UCPgPN-0DLaImaaDR_TtKR8A)
+Blog: [Official Microsoft Data Explorer blog](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/bg-p/AzureDataExplorer)
