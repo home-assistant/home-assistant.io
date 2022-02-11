@@ -58,6 +58,7 @@ Enjoy the release!
 - [Release 2022.2.3 - February 6](#release-202223---february-6)
 - [Release 2022.2.4 - February 8](#release-202224---february-8)
 - [Release 2022.2.5 - February 9](#release-202225---february-9)
+- [Release 2022.2.6 - February 11](#release-202226---february-11)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -778,6 +779,92 @@ The following integrations are now available via the Home Assistant UI:
 [mqtt docs]: /integrations/mqtt/
 [simplisafe docs]: /integrations/simplisafe/
 [synology_dsm docs]: /integrations/synology_dsm
+
+## Release 2022.2.6 - February 11
+
+- Reduce Spotify API usage ([@frenck] - [#66315]) ([spotify docs])
+- Fix hdmi-cec initialization ([@epenet] - [#66172]) ([hdmi_cec docs])
+- Fix controlling nested groups ([@emontnemery] - [#66176]) ([group docs])
+- Bump aioesphomeapi from 10.8.1 to 10.8.2 ([@OttoWinter] - [#66189]) ([esphome docs])
+- Handle more Sonos favorites in media browser ([@jjlawren] - [#66205]) ([sonos docs])
+- Add missing nina warnings ([@DeerMaximum] - [#66211]) ([nina docs])
+- bump py-synologydsm-api to 1.0.6 ([@mib1185] - [#66226]) ([synology_dsm docs])
+- Bump aioaseko to 0.0.2 to fix issue ([@milanmeu] - [#66240]) ([aseko_pool_live docs])
+- Disable zone bypass switch feature ([@ufodone] - [#66243]) ([envisalink docs])
+- Catch ConnectionResetError when writing MJPEG in camera ([@uvjustin] - [#66245]) ([camera docs])
+- Correct philips_js usage of the overloaded coordinator ([@elupus] - [#66287]) ([philips_js docs])
+- Fix august token refresh when data contains characters outside of latin1 ([@bdraco] - [#66303])
+- Bump python-nest to 4.2.0 for python 3.10 fixes ([@allenporter] - [#66090]) ([nest docs])
+- Bump google-nest-sdm to 1.7.0 ([@allenporter] - [#66145]) ([nest docs])
+- Bump google-nest-sdm to 1.7.1 (minor patch) ([@allenporter] - [#66304]) ([nest docs])
+- Add guard for invalid EntityCategory value ([@ludeeus] - [#66316])
+- bump motionblinds to 0.5.11 ([@starkillerOG] - [#65988]) ([motion_blinds docs])
+- bump motionblinds to 0.5.12 ([@starkillerOG] - [#66323]) ([motion_blinds docs])
+- Reduce number of parallel api calls to august ([@bdraco] - [#66328]) ([august docs])
+- Fix raspihats initialization ([@epenet] - [#66330]) ([raspihats docs])
+- Fix nest streams that get stuck broken ([@allenporter] - [#66334]) ([stream docs])
+- Fix PVOutput when no data is available ([@frenck] - [#66338]) ([pvoutput docs])
+- Fix CPUSpeed with missing info ([@frenck] - [#66339]) ([cpuspeed docs])
+- Add unique id to lutron caseta config entry when missing ([@bdraco] - [#66346]) ([lutron_caseta docs])
+
+[#65988]: https://github.com/home-assistant/core/pull/65988
+[#66090]: https://github.com/home-assistant/core/pull/66090
+[#66145]: https://github.com/home-assistant/core/pull/66145
+[#66172]: https://github.com/home-assistant/core/pull/66172
+[#66176]: https://github.com/home-assistant/core/pull/66176
+[#66189]: https://github.com/home-assistant/core/pull/66189
+[#66205]: https://github.com/home-assistant/core/pull/66205
+[#66211]: https://github.com/home-assistant/core/pull/66211
+[#66226]: https://github.com/home-assistant/core/pull/66226
+[#66240]: https://github.com/home-assistant/core/pull/66240
+[#66243]: https://github.com/home-assistant/core/pull/66243
+[#66245]: https://github.com/home-assistant/core/pull/66245
+[#66287]: https://github.com/home-assistant/core/pull/66287
+[#66303]: https://github.com/home-assistant/core/pull/66303
+[#66304]: https://github.com/home-assistant/core/pull/66304
+[#66315]: https://github.com/home-assistant/core/pull/66315
+[#66316]: https://github.com/home-assistant/core/pull/66316
+[#66323]: https://github.com/home-assistant/core/pull/66323
+[#66328]: https://github.com/home-assistant/core/pull/66328
+[#66330]: https://github.com/home-assistant/core/pull/66330
+[#66334]: https://github.com/home-assistant/core/pull/66334
+[#66338]: https://github.com/home-assistant/core/pull/66338
+[#66339]: https://github.com/home-assistant/core/pull/66339
+[#66346]: https://github.com/home-assistant/core/pull/66346
+[@DeerMaximum]: https://github.com/DeerMaximum
+[@OttoWinter]: https://github.com/OttoWinter
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@jjlawren]: https://github.com/jjlawren
+[@ludeeus]: https://github.com/ludeeus
+[@mib1185]: https://github.com/mib1185
+[@milanmeu]: https://github.com/milanmeu
+[@starkillerOG]: https://github.com/starkillerOG
+[@ufodone]: https://github.com/ufodone
+[@uvjustin]: https://github.com/uvjustin
+[aseko_pool_live docs]: /integrations/aseko_pool_live/
+[august docs]: /integrations/august/
+[camera docs]: /integrations/camera/
+[cpuspeed docs]: /integrations/cpuspeed/
+[envisalink docs]: /integrations/envisalink/
+[esphome docs]: /integrations/esphome/
+[group docs]: /integrations/group/
+[hdmi_cec docs]: /integrations/hdmi_cec/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[motion_blinds docs]: /integrations/motion_blinds/
+[nest docs]: /integrations/nest/
+[nina docs]: /integrations/nina/
+[philips_js docs]: /integrations/philips_js/
+[pvoutput docs]: /integrations/pvoutput/
+[raspihats docs]: /integrations/raspihats/
+[sonos docs]: /integrations/sonos/
+[spotify docs]: /integrations/spotify/
+[stream docs]: /integrations/stream/
+[synology_dsm docs]: /integrations/synology_dsm/
 
 ## If you need help...
 
