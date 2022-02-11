@@ -6,23 +6,81 @@ ha_category:
 ha_release: 
 ha_iot_class: Cloud Push
 ha_codeowners:
-  - '@eavanvalkenburg'
+  - '@kaareseras'
 ha_domain: azure_data_explorer
 ---
 
 The `Azure Data Explorer` integration allows you to hook into the Home Assistant event bus and send events to [Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/) 
 
-## First time setup
+## Create a free Azure account
+* Create a  [free Azure account](https://azure.microsoft.com/free/). you will be asked for creditcard info, but all rescources created here are free.
 
-* An Azure subscription. Create a [free Azure account](https://azure.microsoft.com/free/).
-* Create [a cluster and database](create-cluster-database-portal.md).
-* Azure Data Explorer Cluster setup:
-    * Create Azure Active Directory (Azure AD) app by [provisioning an Azure AD application](./provision-azure-ad-app.md).
-    * Grant access to your Azure AD App on your Azure Data Explorer database by [managing Azure Data Explorer database permissions](manage-database-permissions.md).
-* Create a table in the database
 
+## Create a Service Principal (App registration)
+For Home Assistant to authenticate with Azure Data Explorer, you need to create a **Service Principal**
+1. Create a [Service Principal](https://docs.microsoft.com/en-us/azure/data-explorer/provision-azure-ad-app) follow guide step 1-7
+2. Copy values for:
+    * Application (client) ID  <--From App restration owerwiev
+    * Directory (tenant) ID    <--From App restration owerwiev
+    * Secret value             <--From when the secret was created in 1.7
+
+## Create the Azure Dataexplorer cluster and Database
+There are two ways of creating an Azure Dataesplorer Cluster: **Paid** and **Free**
+to create a paid cluster follow instructions from here: [Microsoft quickstart](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal)
+However Microsoft has released a free offer and this guide describes how to set up a free Azure Dataexplorer database:
+
+There are a few different between the **Paid** and **Free** versions:
+| Feature    | Paid Cluster          | Free Cluster                    |
+| --------  | ---------------------- | ------------------------------- |
+| Ingestion | Streaming and Queueing | Queueing only (for now)         |
+| VM size   | Scalable               | 4 vCPU, 8GB Menory, ~100GB data |
+
+
+1. Navigate to [aka.ms/kustofree](https://aka.ms/kustofree).
+2. Navigate to **My Cluster** .
+3. And click the **Create Cluster** button.
+4. Name the Cluster and database.
+5. Copy the database name
+5. Check terms and condition (after reading them) and click **Create Cluster**.
+
+Within a minute, you will have a Azure Data Explorer cluster ready
+
+## Create Azure Data Table
+1. Navigate to [aka.ms/kustofree](https://aka.ms/kustofree).
+2. Navigate to **Query**.
+3. Write and execute the foloing statements one by one, replacing the content between the <> with the copied values
+
+```KQL
+// Give the Service Pricipal access to write data to the database
+.add database <databasename> ingestors ('aadapp=<ApplicationID>;<DirectoryID>');
+
+// Give the Service Pricipal access to read data from the database, to make connectivity checks later
+.add database <databasename> ingestors ('aadapp=<ApplicationID>;<DirectoryID>');
+
+// Create a table for the data to be ingested into (Replace name and copy inserted *name* for later use)
+.create table *name* (entity_id: string, state: string, attributes: dynamic, last_changed: datetime, last_updated: datetime, context: dynamic)
+
+// Creat a mapping from the incomming JSON to the table and collums just created (replace *name* with table name from previous step)
+.create table *name* ingestion json mapping 'ha_json_mapping' '[{"column":"entity_id","path":"$.entity_id"},{"column":"state","path":"$.state"},{"column":"attributes","path":"$.attributes"},{"column":"last_changed","path":"$.last_canged"},{"column":"last_updated","path":"$.last_updated"},{"column":"context","path":"$.context"}]'
+```
+
+Here is a full example with a free cluster crated with a database name of **HomeAssistant**
+
+```KQL
+.add database HomeAssistant ingestors ('aadapp=b5253d02-c8f4-1234-a0f0-818491ba2a1f;72f123bf-86f1-41af-91ab-2d7cd011db93');
+
+.add database HomeAssistant viewers ('aadapp=b5253d02-c8f4-1234-a0f0-818491ba2a1f;72f123bf-86f1-41af-91ab-2d7cd011db93');
+
+.create table raw (entity_id: string, state: string, attributes: dynamic, last_changed: datetime, last_updated: datetime, context: dynamic)
+
+.create table raw ingestion json mapping 'ha_json_mapping' '[{"column":"entity_id","path":"$.entity_id"},{"column":"state","path":"$.state"},{"column":"attributes","path":"$.attributes"},{"column":"last_changed","path":"$.last_canged"},{"column":"last_updated","path":"$.last_updated"},{"column":"context","path":"$.context"}]'
+```
 
 ## Configuration
+
+{% include integrations/config_flow.md %}
+
+
 
 Optinaly add the following lines to your `configuration.yaml` file for filtering what to send.:
 
@@ -114,3 +172,7 @@ Filters are applied as follows:
 
 
 ## Using the data in Azure
+
+
+
+
