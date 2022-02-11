@@ -1,7 +1,7 @@
 ---
 title: "Android 2022.2: Local Push Notifications!"
 description: "Local Push Notifications, In-App Changelog and more!"
-date: 2022-02-09 00:00:00
+date: 2022-02-11 00:00:00
 date_formatted: "February 11, 2022"
 comments: true
 author: Daniel Shokouhi
