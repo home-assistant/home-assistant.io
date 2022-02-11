@@ -2,8 +2,9 @@
 title: August
 description: Instructions on how to integrate your August devices into Home Assistant.
 ha_category:
-  - Doorbell
   - Binary Sensor
+  - Button
+  - Doorbell
   - Sensor
   - Camera
   - Lock
@@ -16,6 +17,7 @@ ha_domain: august
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
   - lock
   - sensor
@@ -43,6 +45,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Doorbell
 - Binary Sensor
+- Button
 - Sensor
 - Camera
 - Lock
@@ -68,6 +71,10 @@ If you have an August Doorbell, once you have enabled the August component, you 
 If you have an August Smart Lock with DoorSense, once you have enabled the August component, you should see the following sensors:
 
 - Door sensor
+
+## Button
+
+A button is created to wake the lock from a deep sleep. If your lock is not reporting a status, it may be in a deep sleep, and the button can be used to wake it. Locks are not automatically woken from deep sleep to preserve battery life.
 
 ## Camera
 
