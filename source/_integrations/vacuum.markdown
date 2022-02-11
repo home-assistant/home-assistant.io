@@ -22,7 +22,7 @@ vacuum:
 
 ### Component services
 
-Available services: `turn_on`, `turn_off`, `start_pause`, `start`, `pause`, `stop`, `return_to_base`, `locate`, `clean_spot`, `set_fanspeed` and `send_command`.
+Available services: `turn_on`, `turn_off`, `start_pause`, `start`, `pause`, `stop`, `return_to_base`, `locate`, `clean_spot`, `set_fan_speed` and `send_command`.
 
 Before calling one of these services, make sure your vacuum platform supports it.
 
