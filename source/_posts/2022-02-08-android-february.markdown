@@ -12,29 +12,29 @@ og_image: /images/blog/2022-02-android/Companion.png
 
 ![Screenshot of Companion](/images/blog/2022-02-android/Companion.png)
 
-Hey Everyone! Its time for the next Android release and we are really excited to get this one out. Lots of changes for all versions of the app, including Wear OS and Quest devices.
+Hey Everyone! It's time for the next Android release and we are really excited to get this one out. Lots of changes for all versions of the app, including Wear OS and Quest devices.
 
 ## Breaking Changes
 
-We have a pretty big release this month with a lot of changes going on. Some of these changes are noticeable as soon as you update the app, so lets cover those first.
+We have a pretty big release this month with a lot of changes going on. Some of these changes are noticeable as soon as you update the app, so let's cover those first.
 
 ### Local Push Notifications
 
-The first major change that we want to cover is for [Local Push Notifications]. Before this release all notifications were routed via Google. Now notifications can be delivered directly from your Home Assistant server if you have remote access setup. These notifications do not count towards the rate limit and are shown on the device immediately, everytime.
+The first major change that we want to cover is for [Local Push Notifications]. Before this release, all notifications were routed via Google. Now notifications can be delivered directly from your Home Assistant server if you have remote access set up. These notifications do not count towards the rate limit and are shown on the device immediately, every time.
 
 So what's the breaking change? The app needs to establish and maintain a constant connection to your Home Assistant server with WebSockets. In order to do this, we have to create a persistent notification and this can be upsetting to some users.
 
-A persistent notification lets Android know the app has important ongoing tasks where we do not want the background process stopped. The purpose of this notification is identical to our Sensor Worker, that allows the app to continue sending sensor updates while in the background. Just like Sensor Worker, our WebSockets notification also has its own notification channel to allow you to customize the appearance. You are free to minimize (or silence) this notification to hide the icon from appearing in your status bar.
+A persistent notification lets Android know the app has important ongoing tasks where we do not want the background process stopped. The purpose of this notification is identical to our Sensor Worker, which allows the app to continue sending sensor updates while in the background. Just like Sensor Worker, our WebSockets notification also has its own notification channel to allow you to customize the appearance. You are free to minimize (or silence) this notification to hide the icon from appearing in your status bar.
 
-Some users may also decide to turn off the channel. While there is nothing preventing you from turning it off, if you run into connection issues you will be asked to turn the channel back on.
+You may also decide to turn off the channel. While there is nothing preventing you from turning it off, if you run into connection issues you will be asked to turn the channel back on.
 
 ![Screenshot of websocket settings](/images/blog/2022-02-android/websocket_setting.png)
 
 The persistent notification will contain an actionable button taking you directly to the settings page. From here you can adjust the WebSocket connection behavior and modify the notification channel. The persistent notification will only be present when an active connection to your server is being maintained.
 
-Users who are on the [minimal version] of the app will have the default WebSocket connection set to "Always" as this is the only way the app can receive notifications from your server. All other users will have the default setting "While Screen On", where the app will continue to receive notifications from Firebase when the WebSocket connection is not active. If you are on the minimal version you will need to be on Home Assistant Core 2022.2 or later in order to use this feature.
+If you are on the [minimal version] of the app will have the default WebSocket connection set to "Always" as this is the only way the app can receive notifications from your server. If not, you will have the default setting "While Screen On", where the app will continue to receive notifications from Firebase when the WebSocket connection is not active. If you are on the minimal version you will need to be on Home Assistant Core 2022.2 or later in order to use this feature.
 
-We have seen varying reports from users who either do not notice much of a change in terms of battery usage while others have noticed a big difference. Please feel free to adjust the settings based on your usage and desire for the feature. Some of us developers have opted to keep the option set to "Always" and do not notice much of a change in battery usage. Personally I keep mine on "Always" and I have not had to change my daily charging habits to enjoy this feature, your experience may be different.
+We have seen varying reports from users who either do not notice much of a change in terms of battery usage while others have noticed a big difference. Please feel free to adjust the settings based on your usage and desire for the feature. Some of us developers have opted to keep the option set to "Always" and do not notice much of a change in battery usage. Personally, I keep mine on "Always" and I have not had to change my daily charging habits to enjoy this feature, your experience may be different.
 
 A big thank you to [JBassett] for kicking off this feature and working hard to solve all the reported beta issues! Thank you to [jpelgrom], [SkechyWolf] and [dshokouhi] for helping out in finalizing the user experience.
 
