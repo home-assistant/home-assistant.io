@@ -255,7 +255,9 @@ zha:
 
 This is a good reference for channel selection [Zigbee and Wifi Coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
 
-Note that the recommendation is, however, not to change the Zigbee channel from default as not all Zigbee devices support all channels. If you have issues with overlapping frequencies, then it will generally be a better idea to change Wi-Fi channels on your Wi-Fi-router or Wi-Fi Access Points.
+The general recommedation is to only use channel 11, 15, 20, or 25 in order to avoid problems with devices that are limited to supporting ZLL (Zigbee Light Link) channels.
+
+Note that the best practice recommendation is, however, not to change the Zigbee channel from default as not all Zigbee devices support all channels. If you have issues with overlapping frequencies, then it will generally be a better idea to change Wi-Fi channels on your Wi-Fi-router or Wi-Fi Access Points.
 
 ### Modifying the device type
 
