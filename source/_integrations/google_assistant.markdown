@@ -128,7 +128,7 @@ The Google device still needs to be connected to the internet to be able to sync
   3. Set `MDNS service name` to `_home-assistant._tcp.local`
   4. Add a `Name` field set to `.*\._home-assistant\._tcp\.local`
 5. `Save` your changes.
-6. Either wait for 30 minutes, or restart all your connected Google device.
+6. Either wait for 30 minutes, or restart all your connected Google devices.
 7. Restart Home Assistant Core.
 
 You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome)
