@@ -124,6 +124,8 @@ binary_sensors:
       description: "Return `on` when a tripwire is tripping is detected, `off` when not. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
     online:
       description: "Return `on` when camera is available (i.e., responding to commands), `off` when not."
+    doorbell:
+      description: "Return `on` momentarily when doorbell button is pressed."
 sensors:
   description: >
     Conditions to display in the frontend.
@@ -421,6 +423,15 @@ amcrest:
     stream_source: snapshot
     sensors:
       - ptz_preset
+
+  # Add doorbell camera device
+  - host: IP_ADDRESS_CAMERA_3
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    name: Front Door Camera
+    sensors:
+      - motion_detected
+      - doorbell
 ```
 
 To check if your Amcrest camera is supported/tested, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) link from the `python-amcrest` project.
