@@ -5,7 +5,6 @@ ha_category:
   - Alarm
   - Binary Sensor
   - Sensor
-  - Switch
 ha_release: 0.23
 ha_iot_class: Local Push
 ha_domain: envisalink
@@ -13,7 +12,6 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - sensor
-  - switch
 ---
 
 The `envisalink` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this integration is built. Currently, the Envisalink version 4 is the latest model. This integration supports both the evl3 and the evl4.
@@ -25,7 +23,6 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor: Reports on zone status (Check the [type/class](/integrations/binary_sensor/#device-class) list for a possible visualization of your zone.)
 - Sensor: Emulates an alphanumeric keypad attached to the alarm panel
 - Alarm Control Panel: Reports on partition status, and can be used to arm/disarm the system
-- Switch: Bypass individual zones. Bypass switches are only available on DSC alarm panels due to limitations in the Honeywell interface. Turn this feature on using the `create_zone_bypass_switches` configuration.
 
 This is a fully event-based component. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.
 
@@ -47,7 +44,6 @@ envisalink:
   zonedump_interval: 30
   timeout: 10
   panic_type: Police
-  create_zone_bypass_switches: false
   zones:
     11:
       name: "Back Door"
@@ -134,11 +130,6 @@ partitions:
       description: Partition name
       required: true
       type: string
-create_zone_bypass_switches:
-  description: If enabled and the panel type is DSC then switches will be created to allow individual zones to be bypassed.  DO NOT enable this feature if your DSC panel is configured to require a code to bypass zones as it can prevent your physical keypads from working properly while the integration is running.
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration %}
 
 Supported services:
