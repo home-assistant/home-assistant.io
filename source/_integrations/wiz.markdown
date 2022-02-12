@@ -2,7 +2,6 @@
 title: WiZ
 description: Instructions on setting up WiZ within Home Assistant.
 ha_category:
-  - Binary Sensor
   - Light
   - Switch
 ha_iot_class: Local Push
@@ -13,7 +12,6 @@ ha_codeowners:
   - "@sbidy"
 ha_domain: wiz
 ha_platforms:
-  - binary_sensor
   - light
   - switch
 ---
@@ -26,7 +24,7 @@ The integration can report the state of occupancy sensors that have been linked 
 
 ### Occupancy Sensors
 
-The occupancy sensors will only be added once a motion event is detected. Home Assistant can detect the sensors if they turn on at least one device when the room is occupied, and turn off at least one device when the room is not occupied. Sensors that are not linked to a device cannot be detected.
+The occupancy sensor state is available as the `occupancy` state attribute. Home Assistant can detect the sensors if they turn on at least one device when the room is occupied, and turn off at least one device when the room is not occupied. Sensors that are not linked to a device cannot be detected.
 
 When a device is linked to an occupancy sensor, by default, the sensor will be disabled for 30 minutes after manual control.
 
