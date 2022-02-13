@@ -156,6 +156,8 @@ The `media_player.play_media` service may be used to send media URLs (primarily 
 | `media_content_type` | no | A media type. | `url`
 | `extra.format` | no | A media format. Should be one of `mp4` (supports mov and m4v), `wma`, `mp3`, `hls`, `ism` (smooth streaming), `dash` (MPEG-DASH), `mkv`, `mka`, `mks` | `mp4`
 | `extra.name` | yes | A name for the media. | Big Buck Bunny
+| `extra.thumbnail` | yes | A thumbnail URL for the media. | 
+| `extra.artist_name` | yes | The name of the media artist. | Blender
 
 ### Example
 
