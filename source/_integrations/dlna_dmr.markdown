@@ -49,3 +49,11 @@ DLNA devices can support a range of features. Depending on the device itself, th
 * `media_player.shuffle_set`
 * `media_player.repeat_set`
 * `media_player.select_sound_mode`
+
+## Playing media
+
+Most DLNA DMR devices can play media from local HTTP servers. For best results, use HTTP instead of HTTPS, and refer to the server using an IP address instead of a host name, e.g. `http://192.168.1.1:8123/song.mp3`.
+
+### Media sources
+
+The `dlna_dmr` platform can browse any configured [media_source](/integrations/media_source/). Displayed media will be filtered based on the capabilities of the DLNA DMR device.
