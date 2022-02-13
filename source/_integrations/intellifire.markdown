@@ -48,12 +48,12 @@ The following sensors are available as either a **Binary Sensor** when dealing w
 
 - **SSL Connectivity**: If you are operating in a "strange" network environment such as behind a corporate firewall or behind a zero-trust network you may have to explore either of the two SSL options in the configuration.
 
-  - Disable SSL Certificate Verification: If you are in a corporate network that uses SSL Inspection you may have have to disable checking client SSL certificates. Communications between HomeAssistant and IFTAPI.net will still be encrypted.
+  - Disable SSL Certificate Verification: If you are in a corporate network that uses SSL Inspection you may have have to disable checking client SSL certificates. Communications between Home Assistant and IFTAPI.net will still be encrypted.
   - Insecure (HTTP) Mode: Entirely disable SSL and operate in HTTP mode. 
 
 # Debug Logging
 
-If you want to debug a potential issue make sure to enable `debug` logging for both the integration `homeassistant.components.intellifire` and the backing module `intellifire4py`. Debug mode will give you some insight into the messages sent back and forth between the fireplace and homeassistant.
+If you want to debug a potential issue make sure to enable `debug` logging for both the integration `homeassistant.components.intellifire` and the backing module `intellifire4py`. Debug mode will give you some insight into the messages sent back and forth between the fireplace and Home Assistant.
 
 ```yaml
 logger:
