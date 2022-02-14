@@ -59,10 +59,10 @@ After the creation of the database, copy the **Data ingestion URI** from the top
 .add database ['<databasename>'] viewers ('aadapp=<ApplicationID>;<DirectoryID>');
 
 // Create a table for the data to be ingested into (Replace name and copy inserted *name* for later use)
-.create table *name* (entity_id: string, state: string, attributes: dynamic, last_changed: datetime, last_updated: datetime, context: dynamic)
+.create table ['<name_to_be_replaced>'] (entity_id: string, state: string, attributes: dynamic, last_changed: datetime, last_updated: datetime, context: dynamic)
 
 // Creat a mapping from the incomming JSON to the table and collums just created (replace name with table name from previous step)
-.create table ['name'] ingestion json mapping ['ha_json_mapping'] '[{"column":"entity_id","path":"$.entity_id"},{"column":"state","path":"$.state"},{"column":"attributes","path":"$.attributes"},{"column":"last_changed","path":"$.last_canged"},{"column":"last_updated","path":"$.last_updated"},{"column":"context","path":"$.context"}]'
+.create table ['<name_to_be_replaced>'] ingestion json mapping ['ha_json_mapping'] '[{"column":"entity_id","path":"$.entity_id"},{"column":"state","path":"$.state"},{"column":"attributes","path":"$.attributes"},{"column":"last_changed","path":"$.last_canged"},{"column":"last_updated","path":"$.last_updated"},{"column":"context","path":"$.context"}]'
 ```
 
 This is an example with a free cluster crated with a database name of **HomeAssistant** for refrence
