@@ -16,7 +16,7 @@ ha_platforms:
   - sensor
 ---
 
-FiveM allow players to play the game [Grand Theft Auto V](https://www.rockstargames.com/V) by [Rockstar Games](https://www.rockstargames.com) online with other players. FiveM adds support for custom resources. The `FiveM` integration lets you retrieve information from a FiveM server within Home Assistant.
+FiveM allows players to play the game [Grand Theft Auto V](https://www.rockstargames.com/V) by [Rockstar Games](https://www.rockstargames.com) online with other players. FiveM adds support for custom resources. The FiveM integration lets you retrieve information from a FiveM server within Home Assistant.
 
 {% include integrations/config_flow.md %}
 
