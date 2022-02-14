@@ -27,7 +27,7 @@ If you have further questions, please have a look at the [WiZ Support Page](http
 
 ### Enable local connectivity
 
-The integration needs to communicated locally with the WiZ device. This setting **Allow local communication** can be disabled or enabled in WiZ app.
+The integration needs to communicate locally with the WiZ device. This setting **Allow local communication** can be disabled or enabled in WiZ app.
 This setting should be enabled by default.
 
 Steps to enable:
