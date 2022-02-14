@@ -65,7 +65,7 @@ After the creation of the database, copy the **Data ingestion URI** from the top
 .create table ['<name_to_be_replaced>'] ingestion json mapping ['ha_json_mapping'] '[{"column":"entity_id","path":"$.entity_id"},{"column":"state","path":"$.state"},{"column":"attributes","path":"$.attributes"},{"column":"last_changed","path":"$.last_canged"},{"column":"last_updated","path":"$.last_updated"},{"column":"context","path":"$.context"}]'
 ```
 
-This is an example with a free cluster crated with a database name of **HomeAssistant** for refrence
+This is an example with a free cluster for reference
 
 ```KQL
 .add database ['HomeAssistant'] ingestors ('aadapp=b5253d02-c8f4-1234-a0f0-818491ba2a1f;72f123bf-86f1-41af-91ab-2d7cd011db93');
@@ -182,5 +182,5 @@ As the setup is complete, data is being sent to Azure Data Explorer, and you can
 Here are som rescources to learn to use Azure Data Explorer
 
 * MS Learn: [https://aka.ms/learn.kql](https://aka.ms/learn.kql), [https://aka.ms/learn.adx](https://aka.ms/learn.adx)
-* You tube: [Offical Microsoft Azure Data Explorer youtube channal](https://www.youtube.com/channel/UCPgPN-0DLaImaaDR_TtKR8A)
+* You tube: [Official Microsoft Azure Data Explorer YouTube channal](https://www.youtube.com/channel/UCPgPN-0DLaImaaDR_TtKR8A)
 * Blog: [Official Microsoft Data Explorer blog](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/bg-p/AzureDataExplorer)
