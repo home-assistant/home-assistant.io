@@ -4,6 +4,7 @@ description: Instructions on setting up WiZ within Home Assistant.
 ha_category:
   - Binary Sensor
   - Light
+  - Number
   - Switch
 ha_iot_class: Local Push
 ha_release: "2022.3"
@@ -16,6 +17,7 @@ ha_domain: wiz
 ha_platforms:
   - binary_sensor
   - light
+  - number
   - switch
 ---
 
@@ -32,3 +34,7 @@ The occupancy sensors will only be added once a motion event is detected. Home A
 When a device is linked to an occupancy sensor, by default, the sensor will be disabled for 30 minutes after manual control.
 
 Devices linked to the occupancy sensor that was last controlled manually will show an unknown at startup. The state will be known the next time the light is controlled by the sensor.
+
+### Effect Speed
+
+The speed of an effect can be controlled via a `number` entity. The entity will only be available when an effect has been set that allows the speed to be adjusted.
