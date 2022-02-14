@@ -23,7 +23,7 @@ The devices are set up through your Wi-Fi network and don't need any additional 
 ## Connect WiZ devices to your network
 
 To connect a WiZ device to your Wi-Fi network, please follow the instructions in the [WiZ app](https://www.wizconnected.com/en/consumer/app/) (available for iOS and Android).
-If you have further questions, please have a look into the [WiZ Support Page](https://www.wizconnected.com/en/consumer/support/).
+If you have further questions, please have a look at the [WiZ Support Page](https://www.wizconnected.com/en/consumer/support/).
 
 ### Enable local connectivity
 
