@@ -36,9 +36,3 @@ Steps to enable:
 2. Click on the settings menu in the upper-left corner
 3. Scroll down to the security settings
 4. Enable the switch **Allow local communication**
-
-## Using discovery in container
-
-For discovering WiZ devices in your network, the Home Assistant container must be able to send and receive UDP broadcast packages.
-This requires that the container has access to the host network. This can be achieved by setting `--network host` as start parameter for the Home Assistant Docker container.
-More details can be found in the [official Docker documentation](https://docs.docker.com/network/host/).
