@@ -32,7 +32,7 @@ This setting should be enabled by default.
 
 Steps to enable:
 
-1. Open the WiZ app on your phone
-2. Click on the settings menu in the upper-left corner
-3. Scroll down to the security settings
-4. Enable the switch **Allow local communication**
+1. Open the WiZ app on your phone.
+2. Click on the settings menu in the upper-left corner.
+3. Scroll down to the security settings.
+4. Enable the switch **Allow local communication**.
