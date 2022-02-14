@@ -52,7 +52,7 @@ DLNA devices can support a range of features. Depending on the device itself, th
 
 ## Playing media
 
-Most DLNA DMR devices can play media from local HTTP servers. For best results, use HTTP instead of HTTPS, and refer to the server using an IP address instead of a host name, e.g. `http://192.168.1.1:8123/song.mp3`.
+Most DLNA DMR devices can play media from local HTTP servers. For best results, use HTTP instead of HTTPS, and refer to the server using an IP address instead of a host name, e.g. `http://192.168.1.1:8080/song.mp3`.
 
 ### Media sources
 
