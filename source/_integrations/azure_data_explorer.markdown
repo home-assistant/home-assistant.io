@@ -14,7 +14,7 @@ ha_domain: azure_data_explorer
 The Home Assistant `Azure Data Explorer` integration allows you to hook into the Home Assistant event bus and forward events to Azure Data Explorer for analytics and dashboarding.
 
 ## Create a free Azure account
-* Create a  [free Azure account](https://azure.microsoft.com/free/). you will be asked for creditcard info, but all rescources created here are free.
+* Create a  [free Azure account](https://azure.microsoft.com/). you will be asked for creditcard info, but all rescources created here are free.
 
 ## Create a Service Principal (App registration)
 For Home Assistant to authenticate with Azure Data Explorer, it need a **Service Principal**
