@@ -122,6 +122,7 @@ If you want to support active reporting of state to Google's server (configurati
 6. `Save` your changes.
 7. Either wait for 30 minutes, or restart your connected Google device.
 8. Restart Home Assistant Core.
+9. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
 
 You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome)
 
