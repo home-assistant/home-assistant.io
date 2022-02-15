@@ -109,6 +109,10 @@ If you want to support active reporting of state to Google's server (configurati
 
 ### Enable Local Fulfillment
 
+<div class='note'>
+The [ssl_certificate option](https://www.home-assistant.io/integrations/http/#ssl_certificate) in `http` must not have a value or this feature won't work. This is because Google requires a valid certificate and the way it connects to Home Assistant for local fulfillment makes that impossible. Consider using a reverse proxy such as the [Nginx SSL](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_nginx_proxy) or [NGinx Proxy Manager](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_nginxproxymanager) addons instead of directing external traffic directly to Home Assistant.
+</div>
+
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
 3. Upload [this Javascript file](/assets/integrations/google_assistant/app.js) for both Node and Chrome by clicking the `Upload Javascript files` button.
