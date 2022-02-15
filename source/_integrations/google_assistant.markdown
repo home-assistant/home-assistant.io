@@ -113,7 +113,7 @@ If you want to support active reporting of state to Google's server (configurati
 
 The [`ssl_certificate` option](/integrations/http/#ssl_certificate) in the `http` integration must not have a value or this feature won't work.
 
-This is because Google requires a valid certificate and the way it connects to Home Assistant for local fulfillment makes that impossible. Consider using a reverse proxy such as the {% my addon="core_nginx_proxy" title="Nginx SSL" %} addon instead of directing external traffic directly to Home Assistant.
+This is because Google requires a valid certificate and the way it connects to Home Assistant for local fulfillment makes that impossible. Consider using a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic directly to Home Assistant.
 
 </div>
 
