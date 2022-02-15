@@ -13,9 +13,13 @@ ha_platforms:
   - diagnostics
 ---
 
-The RTSPtoWebRTC integration registers with [camera integration](/integration/camera) to provide WebRTC live streams for any RTSP camera. The integration initiates a connection to a [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb) or [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
+The RTSPtoWebRTC integration registers with [camera integration](/integrations/camera) to provide WebRTC live streams for any RTSP camera. The integration initiates a connection to a [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb) or [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
 
 The integration configuration requires the URL to your server (e.g. `http://example.com:8083`) and will automatically discover which type of server you have.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6hJXenSZJ5M" frameborder="0" allowfullscreen></iframe>
+</div>
 
 {% include integrations/config_flow.md %}
 
@@ -40,4 +44,4 @@ See [Getting started with peer connections](https://webrtc.org/getting-started/p
 
 The integration may not work for your particular setup, and Home Assistant cannot support and troubleshoot user problems that are unrelated to the actual integration in Home Assistant.
 
-The WebRTC stream negotiation process and streaming can very a lot depending on your network setup and camera setup. See the specific audio and video codecs supported at [RTSPtoWeb Limitations](https://github.com/deepch/RTSPtoWeb#limitations) and [RTSPtoWebRTC Limitations](https://github.com/deepch/RTSPtoWebRTC#limitations).
+The WebRTC stream negotiation process and streaming can vary a lot depending on your network setup and camera setup. See the specific audio and video codecs supported at [RTSPtoWeb Limitations](https://github.com/deepch/RTSPtoWeb#limitations) and [RTSPtoWebRTC Limitations](https://github.com/deepch/RTSPtoWebRTC#limitations).

@@ -715,21 +715,35 @@ automation:
       webhook_id: "some_hook_id"
 ```
 
-You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an empty data payload:
+You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example data payload:
 
 ```shell
-curl -X POST -d '{ "key": "value"}' https://your-home-assistant:8123/api/webhook/some_hook_id
+curl -X POST -d '{ "key": "value" }' https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
-Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
+Webhooks support HTTP POST, PUT, and HEAD requests; POST requests are recommended. HTTP GET requests are not supported.
+
+Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 
 Note that a given webhook can only be used in one automation at a time. That is, only one automation trigger can use a specific webhook ID.
+
+### Webhook data
+
+You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`.
 
 In order to reference `trigger.json`, the `Content-Type` header must be specified with a value of `application/json`, e.g.:
 
 ```bash
 curl -X POST -H "Content-Type: application/json" https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
+
+### Webhook security
+
+Webhook endpoints don't require authentication, other than knowing a valid webhook ID. Security best practices for webhooks include:
+
+- Do not use webhooks to trigger automations that are destructive, or that can create safety issues. For example, do not use a webhook to unlock a lock, or open a garage door.
+- Treat a webhook ID like a password: use a unique, non-guessable value, and keep it secret.
+- Do not copy-and-paste webhook IDs from public sources, including blueprints. Always create your own.
 
 ## Zone trigger
 

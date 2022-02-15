@@ -369,7 +369,7 @@ Examples using `iif`:
 
 {{ is_state('light.kitchen', 'on') | iif('Yes', 'No') }}
 
-{{ (state('light.kitchen') == 'on') | iif('Yes', 'No') }}
+{{ (states('light.kitchen') == 'on') | iif('Yes', 'No') }}
 ```
 
 {% endraw %}
@@ -765,8 +765,8 @@ The following overview contains a couple of options to get the needed values:
 # Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
 
-# Extract third prime number
-{{ value_json.primes[2] }}
+# Extract first prime number 
+{{ value_json.primes[0] }}
 
 # Format output
 {{ "%+.1f" | value_json }}
