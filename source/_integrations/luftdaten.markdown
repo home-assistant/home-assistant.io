@@ -24,4 +24,10 @@ The Sensor.Communtiy integration will query the open data API of [Sensor.Communi
 To get the ID of a particle, pressure, noise, temperature, or humidity sensor by selecting it on the [Sensor.Community map](https://maps.sensor.community/).
 After selecting the sensor, it will show the needed ID in the sidebar with a `#` in front of it.
 
+Please note the filters at the bottom left of the map. The entities such as temperature and / or air particles can also have multiple IDs on the same hardware device.
+
+## Sensor Owners
+For owners of a sensor it can be confusing that the board # ID also returns some values. (Just use the IDs on the map and don't get confused)
+If data of the sensor is still missing, please check the correct transmission to sensor.community and if necessary change the temperature sensors like BME280 or DHT22 manually.
+
 {% include integrations/config_flow.md %}
