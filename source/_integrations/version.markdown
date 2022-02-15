@@ -1,6 +1,6 @@
 ---
 title: Version
-description: Instructions on how to integrate a version sensor into Home Assistant.
+description: Instructions on how to integrate the Version integration into Home Assistant.
 ha_category:
   - Utility
   - Sensor
@@ -12,6 +12,7 @@ ha_codeowners:
   - '@ludeeus'
 ha_domain: version
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_config_flow: true
 ---
