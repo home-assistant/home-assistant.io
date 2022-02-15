@@ -113,12 +113,16 @@ If you want to support active reporting of state to Google's server (configurati
 2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
 3. Upload [this Javascript file](/assets/integrations/google_assistant/app.js) for both Node and Chrome by clicking the `Upload Javascript files` button.
 4. Add device scan configuration:
-  1. Click `+ New scan config`
-  2. Select `MDNS`
-  3. set mDNS service name to `_home-assistant._tcp.local`
-5. `Save` your changes.
-6. Either wait for 30 minutes, or restart your connected Google device.
-7. Restart Home Assistant Core.
+   1. Click `+ New scan config`
+   2. Select `MDNS`
+   3. Set mDNS service name to `_home-assistant._tcp.local`
+   4. Click `Add field`, then under `Select a field` select `name`
+   5. Enter a new `value` field set to `.*\._home-assistant\._tcp\.local`
+5. Check the box `Support local query` under `Add capabilities`.
+6. `Save` your changes.
+7. Either wait for 30 minutes, or restart your connected Google device.
+8. Restart Home Assistant Core.
+9. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
 
 You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome)
 
