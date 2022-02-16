@@ -776,10 +776,10 @@ automation:
   trigger:
     - platform: webhook
       webhook_id: "some_hook_id"
-      allow_methods:
+      allowed_methods:
         - POST
         - PUT
-      allow_internet: false
+      local_only: true
 ```
 
 You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example data payload:
@@ -788,9 +788,9 @@ You can run this automation by sending an HTTP POST request to `http://your-home
 curl -X POST -d '{ "key": "value" }' https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
-Webhooks support HTTP POST, PUT, HEAD, and GET requests; PUT requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the _allow_methods_ option. The request methods can also be configured in the UI by clicking the overflow menu button beside the Webhook ID.
+Webhooks support HTTP POST, PUT, HEAD, and GET requests; PUT requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the _allowed_methods_ option. The request methods can also be configured in the UI by clicking the settings gear menu button beside the Webhook ID.
 
-By default webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The _allow_internet_ option should be set to _true_ to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by clicking the overflow menu button beside the Webhook ID.
+By default webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The _local_only_ option should be set to _false_ to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by clicking the settings gear menu button beside the Webhook ID.
 
 Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 
@@ -810,10 +810,10 @@ curl -X POST -H "Content-Type: application/json" https://your-home-assistant:812
 
 Webhook endpoints don't require authentication, other than knowing a valid webhook ID. Security best practices for webhooks include:
 
-- Avoid enabling the _allow_internet_ option for webhooks if that is not required.
 - Do not use webhooks to trigger automations that are destructive, or that can create safety issues. For example, do not use a webhook to unlock a lock, or open a garage door.
 - Treat a webhook ID like a password: use a unique, non-guessable value, and keep it secret.
 - Do not copy-and-paste webhook IDs from public sources, including blueprints. Always create your own.
+- Keep the _local_only_ option enabled for webhooks if access from the internet is not required.
 
 ## Zone trigger
 
