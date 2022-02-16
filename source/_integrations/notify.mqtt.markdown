@@ -24,11 +24,11 @@ command_template:
   type: template
 command_topic:
   description: The MQTT topic to publish the notification message. To use `title`, `target` config or `data` service parameters in the payload, use `command_template` to format the payload.
-  required: false
+  required: true
   type: string
 device:
   description: "Information about the device this device trigger is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). At least one of identifiers or connections must be present to identify the device."
-  required: true
+  required: false
   type: map
   keys:
     configuration_url:
@@ -69,7 +69,7 @@ device:
       type: string
 name:
   description: "The name for the notify service. The name will be available as variable `name` in the `command_template`. The actual `service_name` will be derived from the name and cannot contain other then lowercase characters numbers and `_`. The notify service will be exposed as service `notify.{service_name}`. The `service_name` must be unique. If a service with the specified name already is registered, the setup will fail."
-  required: false
+  required: true
   type: string
   default: "mqtt"
 targets:
