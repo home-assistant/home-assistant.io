@@ -62,10 +62,10 @@ name:
   default: GTFS Sensor
   type: string
 offset:
-  description: A minimum delay to look for. If a departure is in less time than `offset`, it will be ignored.
+  description: A minimum delay to look for. If a departure is in less time than `offset`, it will be ignored. Supported `time` formats: `offset: 'HH:MM:SS'`, `offset: 'HH:MM'`. 
   required: false
   default: 0
-  type: [integer, time]
+  type: [integer (seconds), time]
 include_tomorrow:
   description: Also search through tomorrow's schedule if no more departures are set for today.
   required: false
