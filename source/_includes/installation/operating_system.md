@@ -80,8 +80,8 @@ To boot Home Assistant OS, the BIOS needs to have UEFI boot mode enabled and Sec
 As a next step, we need to write the Home Assistant Operating System image to the target boot medium. The HAOS has no integrated installer. This means the Operating System is not copied automatically to the internal disk.
 
 - The "boot medium" is the medium your x86-64 hardware will boot from when it is running Home Assistant.
-- Typically, an internal medium is used for the x86-64 hardware. Internal media are S-ATA hard disk, S-ATA SSD, a M.2 SSD or a non-removable eMMC.
-- Alternatively, an external medium can be used to boot HAOS such as an USB SDD (not recommended).
+- Typically, an internal medium is used for the x86-64 hardware. Examples of internal media are S-ATA hard disk, S-ATA SSD, M.2 SSD, or a non-removable eMMC.
+- Alternatively, an external medium can be used to boot HAOS such as a USB SDD (not recommended).
 
 To install the HAOS internally on your x86-64 hardware, there are 2 methods:
 
