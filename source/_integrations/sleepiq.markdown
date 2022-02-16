@@ -18,30 +18,3 @@ The SleepIQ integration lets you view sensor data from [SleepIQ by SleepNumber](
 You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this integration.
 
 {% include integrations/config_flow.md %}
-
-## Manual Configuration
-
-If you prefer to set up the integration in `configuration.yaml`, add your username and password as follows:
-
-```yaml
-# Example configuration.yaml entry
-sleepiq:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  scan_interval: 60
-```
-
-{% configuration %}
-username:
-  description: Your SleepIQ username (usually an e-mail address).
-  required: true
-  type: string
-password:
-  description: Your SleepIQ password.
-  required: true
-  type: string
-scan_interval:
-  description: Frequency to update sensor data.
-  required: false
-  type: integer
-{% endconfiguration %}
