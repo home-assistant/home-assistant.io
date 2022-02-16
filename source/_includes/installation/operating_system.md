@@ -87,7 +87,7 @@ To install the HAOS internally on your x86-64 hardware, there are 2 methods:
 
 1. Copying the HAOS disk image from your Desktop computer onto your boot medium (e.g. by using a USB to S-ATA adapter). This is not an option for a non-removable eMMC on your x86-64 hardware, of course.
 To use this method, follow the steps described in the procedure below: [Write the image to your boot media](#write-the-image-to-your-boot-media).
-2. Copying a live operating system (e.g. Ubuntu) onto a USB device. Then, insert this USB device to your x86-64 hardware and start the Ubuntu.
+2. Copying a live operating system (e.g. Ubuntu) onto a USB device. Then, insert this USB device into your x86-64 hardware and start the Ubuntu.
 
 - To use this method, follow the instructions of your Live distribution (e.g., [this Ubuntu guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Once you booted the live operating system, follow the steps described in the procedure below: [Write the image to your boot media](#write-the-image-to-your-boot-media).
 
