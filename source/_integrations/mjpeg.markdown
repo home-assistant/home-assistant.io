@@ -33,7 +33,7 @@ Password:
   description: The password for accessing your camera.
 Verify SSL:
   description: Validate the SSL certificate for this camera.
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 This integration support both basic and digest authentication, which one to
 use is automatically detected when using a username and password.
