@@ -60,6 +60,7 @@ Enjoy the release!
 - [Release 2022.2.5 - February 9](#release-202225---february-9)
 - [Release 2022.2.6 - February 11](#release-202226---february-11)
 - [Release 2022.2.7 - February 15](#release-202227---february-15)
+- [Release 2022.2.8 - February 16](#release-202228---february-16)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -937,6 +938,48 @@ The following integrations are now available via the Home Assistant UI:
 [vicare docs]: /integrations/vicare/
 [vizio docs]: /integrations/vizio/
 [zha docs]: /integrations/zha/
+
+## Release 2022.2.8 - February 16
+
+- Bump pysher to 1.0.7 ([@craigjmidwinter] - [#59445]) ([goalfeed docs])
+- Bump aiohue to 4.2.0 ([@balloob] - [#66670]) ([hue docs])
+- Do not pass client session to Brunt ([@frenck] - [#66671]) ([brunt docs])
+- Fix type of value in MQTT binary sensor ([@bieniu] - [#66675]) ([mqtt docs])
+- Cloud to avoid setting up Alexa/Google during setup phase ([@balloob] - [#66676]) ([cloud docs])
+- Fix last_activated timestamp on Hue scenes ([@marcelveldt] - [#66679]) ([hue docs])
+- Add tests for samsungtv diagnostics ([@epenet] - [#66563]) ([samsungtv docs])
+- Cleanup samsungtv tests ([@epenet] - [#66570]) ([samsungtv docs])
+- Fix SamsungTVWS mocking in samsungtv tests ([@epenet] - [#66650]) ([samsungtv docs])
+- Fix token refresh in samsungtv ([@epenet] - [#66533]) ([samsungtv docs])
+- Fix scaling of numeric Tuya values ([@SaSa1983] - [#66644]) ([tuya docs])
+- Add current temp fallback in Tuya climate ([@frenck] - [#66664]) ([tuya docs])
+
+[#59445]: https://github.com/home-assistant/core/pull/59445
+[#66533]: https://github.com/home-assistant/core/pull/66533
+[#66563]: https://github.com/home-assistant/core/pull/66563
+[#66570]: https://github.com/home-assistant/core/pull/66570
+[#66644]: https://github.com/home-assistant/core/pull/66644
+[#66650]: https://github.com/home-assistant/core/pull/66650
+[#66664]: https://github.com/home-assistant/core/pull/66664
+[#66670]: https://github.com/home-assistant/core/pull/66670
+[#66671]: https://github.com/home-assistant/core/pull/66671
+[#66675]: https://github.com/home-assistant/core/pull/66675
+[#66676]: https://github.com/home-assistant/core/pull/66676
+[#66679]: https://github.com/home-assistant/core/pull/66679
+[@SaSa1983]: https://github.com/SaSa1983
+[@balloob]: https://github.com/balloob
+[@bieniu]: https://github.com/bieniu
+[@craigjmidwinter]: https://github.com/craigjmidwinter
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@marcelveldt]: https://github.com/marcelveldt
+[brunt docs]: /integrations/brunt/
+[cloud docs]: /integrations/cloud/
+[goalfeed docs]: /integrations/goalfeed/
+[hue docs]: /integrations/hue/
+[mqtt docs]: /integrations/mqtt/
+[samsungtv docs]: /integrations/samsungtv/
+[tuya docs]: /integrations/tuya/
 
 ## If you need help...
 
