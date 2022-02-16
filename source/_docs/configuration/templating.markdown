@@ -74,7 +74,7 @@ Not supported in [limited templates](#limited-templates).
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
-- `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
+- `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist. You can also provide a default value as a third argument which will be returned if attribute doesn't exist - for example, `state_attr('device_tracker.paulus', 'battery', 0)`
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
 <div class='note warning'>
 
@@ -173,6 +173,16 @@ With strings:
 {% else %}
   ??
 {% endif %}
+```
+
+{% endraw %}
+
+With default value:
+
+{% raw %}
+
+```
+{{ state_attr('device_tracker.paulus', 'battery', '??') }}
 ```
 
 {% endraw %}
