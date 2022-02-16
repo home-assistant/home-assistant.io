@@ -181,7 +181,7 @@ With default value:
 
 {% raw %}
 
-```
+```text
 {{ state_attr('device_tracker.paulus', 'battery', '??') }}
 ```
 
