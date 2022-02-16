@@ -151,7 +151,7 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 
 1. If you used your Desktop system to write the HAOS your boot media, install the boot media ({{site.installation.types[page.installation_type].installation_media}}) in the generic-x86-64 system.
 
-- If you used a live operating system (e.g. Ubuntu), shutdown the live operating system and make sure to remove the USB flash drive you used for the live system.
+- If you used a live operating system (e.g. Ubuntu), shut down the live operating system and make sure to remove the USB flash drive you used for the live system.
 
 2. Make sure an Ethernet cable is plugged in for network.
 3. Power the system on.
