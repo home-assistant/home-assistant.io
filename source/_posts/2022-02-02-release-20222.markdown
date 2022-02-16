@@ -59,6 +59,7 @@ Enjoy the release!
 - [Release 2022.2.4 - February 8](#release-202224---february-8)
 - [Release 2022.2.5 - February 9](#release-202225---february-9)
 - [Release 2022.2.6 - February 11](#release-202226---february-11)
+- [Release 2022.2.7 - February 15](#release-202227---february-15)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -865,6 +866,77 @@ The following integrations are now available via the Home Assistant UI:
 [spotify docs]: /integrations/spotify/
 [stream docs]: /integrations/stream/
 [synology_dsm docs]: /integrations/synology_dsm/
+
+## Release 2022.2.7 - February 15
+
+- Fix Spotify session token refresh ([@frenck] - [#66390]) ([spotify docs])
+- Correct modbus address limits ([@uSlackr] - [#66367]) ([modbus docs])
+- Fix mesh role for Fritz old devices ([@chemelli74] - [#66369]) ([fritz docs])
+- Fix missing refactors of EntityCategory.XXX ([@davet2001] - [#66379]) ([zha docs]) ([fritzbox docs]) ([onvif docs]) ([fritz docs]) ([vicare docs]) ([goodwe docs])
+- revert change in vizio logic to fix bug ([@raman325] - [#66424]) ([vizio docs])
+- Reset the stream backoff timeout when the url updates ([@allenporter] - [#66426]) ([stream docs])
+- Increase switcher_kis timeouts ([@thecode] - [#66465]) ([switcher_kis docs])
+- Bump Advantage Air to 0.2.6 ([@Bre77] - [#65849]) ([advantage_air docs])
+- Bump Advantage Air 0.3.0 ([@Bre77] - [#66488]) ([advantage_air docs])
+- Fix utility meter restore state ([@dgomes] - [#66490]) ([utility_meter docs])
+- Fix access to hass.data in hdmi-cec ([@epenet] - [#66504]) ([hdmi_cec docs])
+- Revert "Fix raspihats callbacks (#64122)" ([@epenet] - [#66517]) ([raspihats docs])
+- Fix flux_led turn on with slow responding devices ([@bdraco] - [#66527]) ([flux_led docs])
+- Add fallback for serialnumber ([@elupus] - [#66553]) ([philips_js docs])
+- Fix Tuya Covers without state in their control data point ([@frenck] - [#66564]) ([tuya docs])
+- Override and disable nest stream `unavailable` behavior ([@allenporter] - [#66571]) ([nest docs])
+- Bump aiohue to version 4.1.2 ([@marcelveldt] - [#66609]) ([hue docs])
+
+[#65849]: https://github.com/home-assistant/core/pull/65849
+[#66367]: https://github.com/home-assistant/core/pull/66367
+[#66369]: https://github.com/home-assistant/core/pull/66369
+[#66379]: https://github.com/home-assistant/core/pull/66379
+[#66390]: https://github.com/home-assistant/core/pull/66390
+[#66424]: https://github.com/home-assistant/core/pull/66424
+[#66426]: https://github.com/home-assistant/core/pull/66426
+[#66465]: https://github.com/home-assistant/core/pull/66465
+[#66488]: https://github.com/home-assistant/core/pull/66488
+[#66490]: https://github.com/home-assistant/core/pull/66490
+[#66504]: https://github.com/home-assistant/core/pull/66504
+[#66517]: https://github.com/home-assistant/core/pull/66517
+[#66527]: https://github.com/home-assistant/core/pull/66527
+[#66553]: https://github.com/home-assistant/core/pull/66553
+[#66564]: https://github.com/home-assistant/core/pull/66564
+[#66571]: https://github.com/home-assistant/core/pull/66571
+[#66609]: https://github.com/home-assistant/core/pull/66609
+[@Bre77]: https://github.com/Bre77
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@davet2001]: https://github.com/davet2001
+[@dgomes]: https://github.com/dgomes
+[@elupus]: https://github.com/elupus
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@marcelveldt]: https://github.com/marcelveldt
+[@raman325]: https://github.com/raman325
+[@thecode]: https://github.com/thecode
+[@uSlackr]: https://github.com/uSlackr
+[advantage_air docs]: /integrations/advantage_air/
+[flux_led docs]: /integrations/flux_led/
+[fritz docs]: /integrations/fritz/
+[fritzbox docs]: /integrations/fritzbox/
+[goodwe docs]: /integrations/goodwe/
+[hdmi_cec docs]: /integrations/hdmi_cec/
+[hue docs]: /integrations/hue/
+[modbus docs]: /integrations/modbus/
+[nest docs]: /integrations/nest/
+[onvif docs]: /integrations/onvif/
+[philips_js docs]: /integrations/philips_js/
+[raspihats docs]: /integrations/raspihats/
+[spotify docs]: /integrations/spotify/
+[stream docs]: /integrations/stream/
+[switcher_kis docs]: /integrations/switcher_kis/
+[tuya docs]: /integrations/tuya/
+[utility_meter docs]: /integrations/utility_meter/
+[vicare docs]: /integrations/vicare/
+[vizio docs]: /integrations/vizio/
+[zha docs]: /integrations/zha/
 
 ## If you need help...
 
