@@ -256,15 +256,23 @@ If the Shelly devices and Home Assistant are co-located on the same subnet then 
 
 The following ports need to be opened between Home Assistant and the Shelly:
 
-| Source 			 | Destination   	| Port   		 | Description   |
-| ------------------ | ------------- 	| ------------- | ------------- |
-| `Home Assistant`   | `Shelly`      	| `80`      	 | `REST API`    |
-| `Shelly`           | `Home Assistant` | `double`      | `double`      |
-| `SSS`              | `triple`      	| `triple`      | `triple`      |
-| `L`                | `long`        	| `long`        | `long`        |
-| `SL`               | `single_long` 	| `single_long` | `single_long` |
-| `LS`               | `long_single` 	| `long_single` | `long_single` |
+| Source 			 | Destination   	| Port   		| Description   		|
+| ------------------ | ------------- 	| ------------- | ------------- 		|
+| Home Assistant   	 | Shelly     		| 80/TCP      	| REST API    			|
+| Home Assistant   	 | 224.0.0.251		| 5353/UDP     	| mDNS	    			|
+| Shelly           	 | Home Assistant	| 5683/UDP	    | CoIoT/CoAP Unicast   	|
+| Shelly           	 | 224.0.1.187		| 5683/UDP	    | CoIoT/CoAP Multicast 	|
+| Shelly           	 | 224.0.0.251		| 5353/UDP	    | mDNS    				|
 
+mDNS is used for auto-discovery of Shelly devices in Home Assistant. Both Home Assistant and Shelly devices multicast mDNS messages and both need to be received for the functionality to work.
+
+mDNS messages are multicasted to `224.0.0.251:5353`. Firewalls will need a UDP Broadcast Relay to listen for messages on this multicast address and relay them to other interfaces. The source IP and source port should NOT be modified by the relay.
+
+CoIoT/CoAP is used to instantly update Home Assistant of Shelly state changes. A message is sent out from a Shelly every 15 seconds to multicast address `224.0.1.187:5683`. Note that this can be changed in the Shelly device settings to be unicasted directly to Home Assistant.
+
+For CoIoT multicast to work, a firewall will need to be configured with a UDP broadcast relay. The source IP and source port should NOT be modified by the relay.
+
+Firewall vendors differ on how security rules need to be configured when it comes to multicast. If opening ports to the multicast address does not work, experiment with opening the ports between HA and Shelly instead.
 
 ## Additional info
 
