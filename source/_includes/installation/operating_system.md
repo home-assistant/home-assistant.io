@@ -149,7 +149,7 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 
 {% if page.installation_type == 'generic-x86-64' %}
 
-1. If you used your Desktop system to write the HAOS your boot media, install the boot media ({{site.installation.types[page.installation_type].installation_media}}) in the generic-x86-64 system.
+1. If you used your desktop system to write the HAOS your boot media, install the boot media ({{site.installation.types[page.installation_type].installation_media}}) in the generic-x86-64 system.
 
 - If you used a live operating system (e.g. Ubuntu), shut down the live operating system and make sure to remove the USB flash drive you used for the live system.
 
