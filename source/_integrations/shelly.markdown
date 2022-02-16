@@ -250,7 +250,7 @@ shelly:
 
 ## Network and Firewall
 
-This integration uses REST to communicate directly to Shelly devices. Home assistant will also listen for CoAP (CoIoT) updates from Shelly devices.
+This integration uses REST to communicate directly to Shelly devices. Home Assistant will also listen for CoAP (CoIoT) updates from Shelly devices.
 
 If the Shelly devices and Home Assistant are co-located on the same subnet then there are no additional network requirements. However, if the Shelly devices are on another subnet and behind a firewall, there are some requirements to enable the full functionality of this integration.
 
