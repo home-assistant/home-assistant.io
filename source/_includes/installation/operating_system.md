@@ -60,7 +60,7 @@ This guide assumes that you have a dedicated generic x86 PC (typically an Intel 
 You will need to write the HAOS (Home Assistant OS) disk image directly to your boot media, and configure your x86 to use UEFI boot mode when booting from this media.
 </div>
 
-### Configure the BIOS on your x86-64 Hardware
+### Configure the BIOS on your x86-64 hardware
 
 To boot Home Assistant OS, the BIOS needs to have UEFI boot mode enabled and Secure Boot disabled. The following screenshots are from a 7th generation Intel NUC system. The BIOS menu will likely look different on your systems. However, the options should still be present and named similarly.
 
