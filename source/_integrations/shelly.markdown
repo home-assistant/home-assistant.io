@@ -248,6 +248,24 @@ shelly:
   coap_port: 12345
 ```
 
+## Network and Firewall
+
+This integration uses REST to communicate directly to Shelly devices. Home assistant will also listen for CoAP (CoIoT) updates from Shelly devices.
+
+If the Shelly devices and Home Assistant are co-located on the same subnet then there are no additional network requirements. However, if the Shelly devices are on another subnet and behind a firewall, there are some requirements to enable the full functionality of this integration.
+
+The following ports need to be opened between Home Assistant and the Shelly:
+
+| Source 			 | Destination   	| Port   		 | Description   |
+| ------------------ | ------------- 	| ------------- | ------------- |
+| `Home Assistant`   | `Shelly`      	| `80`      	 | `REST API`    |
+| `Shelly`           | `Home Assistant` | `double`      | `double`      |
+| `SSS`              | `triple`      	| `triple`      | `triple`      |
+| `L`                | `long`        	| `long`        | `long`        |
+| `SL`               | `single_long` 	| `single_long` | `single_long` |
+| `LS`               | `long_single` 	| `long_single` | `long_single` |
+
+
 ## Additional info
 
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
