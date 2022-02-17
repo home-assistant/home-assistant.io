@@ -40,7 +40,7 @@ Button entity to restart the router.
 ### Traffic meter data
 
 The total and average amount of downloaded/uploaded data through the router can be tracked per day/week/month.
-In order for these entities to display the data (instead of 0), the "Traffic Meter" schould be enabled in the router settings.
+In order for these entities to display the data (instead of 0), the "Traffic Meter" should be enabled in the router settings.
 Log into your router > Select **ADVANCED** > **Advanced Setup** > **Traffic Meter** > **Enable Traffic Meter** check box.
 
 ## Connected device entities
