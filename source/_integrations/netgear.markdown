@@ -27,7 +27,7 @@ Both routers and access points can be used with this integration. Some access po
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
 Consider_home:
-  description: "The 'consider_home' time is the amount of seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. consider_home helps prevent false alarms in presence detection."
+  description: "The consider home time is the number of seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. This option helps prevent false alarms in presence detection."
 {% endconfiguration_basic %}
 
 ## Router entities
