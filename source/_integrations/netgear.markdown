@@ -44,6 +44,7 @@ In order for these entities to display the data (instead of 0), the "Traffic Met
 Log into your router > Select **ADVANCED** > **Advanced Setup** > **Traffic Meter** > **Enable Traffic Meter** check box.
 
 ## Connected device entities
+
 For each device connected to the NETGEAR router the following entities will be available:
 
 ### Device tracker
