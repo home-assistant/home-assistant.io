@@ -128,9 +128,9 @@ The `bmw_connected_drive` integration offers several buttons to trigger actions 
 
 Using these buttons will impact the state of your vehicle. So use these services with care!
 
-### Air condition
+### Air conditioning
 
-The air condition of the vehicle can be activated with the `button.<your_vehicle>_activate_air_conditioning` button.
+The air conditioning of the vehicle can be activated with the `button.<your_vehicle>_activate_air_conditioning` button.
 
 What exactly is started here depends on the type of vehicle. It might range from just ventilation over auxiliary heating to real air conditioning. If your vehicle is equipped with auxiliary heating, only trigger this service if the vehicle is parked in a location where it is safe to use it (e.g., not in an underground parking or closed garage).
 
