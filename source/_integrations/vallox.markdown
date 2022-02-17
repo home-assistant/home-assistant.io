@@ -20,12 +20,7 @@ ha_codeowners:
 
 The `vallox` integration lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
 
-The **fan** platform of this integration allows you to turn on/off the complete unit via the toggle switch and to select a ventilation profile either through the GUI, or the service `fan/set_preset_mode`. The four standard Vallox profiles are provided:
-
-- `At Home`
-- `Away`
-- `Boost`
-- `Fireplace`
+The **fan** platform of this integration allows you to turn on/off the complete unit via the toggle switch and to select a ventilation profile.
 
 Also, there is a **sensor** platform that exposes a number of relevant metrics like fan speed, various air temperatures and humidity.
 
@@ -33,56 +28,14 @@ Also, there is a **sensor** platform that exposes a number of relevant metrics l
 
 ## Profile Switching
 
-For convenient switching of ventilation profiles in the GUI, just click on the `Vallox` fan entity to get a drop-down menu to select from. Alternatively, consider using an [input_select](../input_select) hooked to an automation, which calls the fan platform's `set_preset_mode` service. For example:
+For convenient switching of ventilation profiles in the GUI, just click on the `Vallox` fan entity to get a drop-down menu to select from. Alternatively, the service `fan/set_preset_mode` can be used.
 
-{% raw %}
+The four standard Vallox profiles are supported:
 
-```yaml
-input_select:
-  ventilation_profile:
-    name: Ventilation profile select
-    options:
-      - "Home"
-      - "Away"
-      - "Boost"
-      - "Fireplace"
-    icon: mdi:fan
-
-automation:
-  - alias: "Set Ventilation Profile"
-    trigger:
-      platform: state
-      entity_id: input_select.ventilation_profile
-    action:
-      service: fan.set_preset_mode
-      data:
-        preset_mode: "{{ states('input_select.ventilation_profile') }}"
-      target:
-        entity_id: fan.vallox
-```
-
-{% endraw %}
-
-In order to also update the input select in case some external event changes the Vallox profile (web interface, mechanical switch, reboot, etc...) you can use the following automation:
-
-{% raw %}
-
-```yaml
-automation:
-  - alias: "Update Vallox input_select"
-    description: Update input_select when external event changes the profile
-    trigger:
-      - entity_id: sensor.vallox_current_profile
-        platform: state
-    action:
-      - service: input_select.select_option
-        target:
-          entity_id: input_select.ventilation_profile
-        data:
-          option: "{{ states('sensor.vallox_current_profile') }}"
-```
-
-{% endraw %}
+- `At Home`
+- `Away`
+- `Boost`
+- `Fireplace`
 
 ## Fan Services
 
