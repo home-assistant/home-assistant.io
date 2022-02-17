@@ -64,6 +64,7 @@ file.
 | network_out            | Interface, e.g., `eth0`   | yes                       |
 | throughput_network_in  | Interface, e.g., `eth0`   | yes                       |
 | throughput_network_out | Interface, e.g., `eth0`   | yes                       |
+| network_use_percent    | Interface, e.g., `eth0`   | yes                       |
 | packets_in             | Interface, e.g., `eth0`   | yes                       |
 | packets_out            | Interface, e.g., `eth0`   | yes                       |
 | ipv4_address           | Interface, e.g., `eth0`   | yes                       |
