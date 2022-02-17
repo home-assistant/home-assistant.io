@@ -58,7 +58,7 @@ Log into your router > Select **ADVANCED** > **Security** > **Access Control** >
 
 ### Signal strength
 
-Displays the wifi signal strength of the device
+Displays the wifi signal strength of the device.
 
 ### Link rate
 
