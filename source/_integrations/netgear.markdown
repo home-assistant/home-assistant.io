@@ -7,6 +7,7 @@ ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_domain: netgear
 ha_platforms:
+  - button
   - device_tracker
   - sensor
   - switch
@@ -31,6 +32,10 @@ Consider_home:
 
 ## Router entities
 The NETGEAR router will have the following entities:
+
+### Reboot button
+
+Button entity to restart the router.
 
 ### Traffic meter data
 
