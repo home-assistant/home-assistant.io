@@ -347,12 +347,14 @@ This is an example of what the `nest_event` payload looks like for a Device Trig
         "type": "doorbell_chime",
         "timestamp": "2022-01-26T04:56:54.031000+00:00",
         "nest_event_id": "EXAMPLE_EVENT_ID",
+        "zones": ["Zone 1"],
     },
 }
 ```
 
 * `device_id`: The Home Assistant device identifier for the camera
 * `nest_event_id`: is an opaque identifier that can be used with the Media Source Attachments described below for supported cameras.
+* `zones`: Zones triggering the event if available. Zones are configured in the Google Home App, though not supported by all cameras. Events in the area outside of a named zone will be an empty zone name.
 
 {% enddetails %}
 
