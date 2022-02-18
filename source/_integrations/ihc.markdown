@@ -28,11 +28,6 @@ You must enter the URL for your IHC Controller, the username and password.
 Auto setup is enabled by default (see auto setup below).
 You can uncheck it if you want to manually add all your IHC products.
 
-The IHC integrations has an options dialog where your can set the "info" option.
-When the "info" option is enabled the attributes IHC "name", "note" and "position" will be added to each component.
-This will make it easier to identify the IHC products within Home Assistant.
-If you have multiple controllers an additional controller id attribute is added.
-
 ## Auto setup of IHC products
 
 If the auto setup is enabled, the `ihc` integration will automatically find IHC products and insert these as devices in Home Assistant.
