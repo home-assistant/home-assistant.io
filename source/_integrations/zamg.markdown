@@ -17,6 +17,8 @@ The `zamg` platform uses meteorological details published by the Austrian weathe
 
 Only observations for capital cities are publicly available. You can check the list of stations in [CSV format](https://www.zamg.ac.at/ogd).
 
+{% include integrations/config_flow.md %}
+
 There is currently support for the following device types within Home Assistant:
 
 - **Weather** - It displays the current temperature, humidity, pressure and wind speed, but it doesn't have support for conditions which is a key feature of the `weather` platforms.
