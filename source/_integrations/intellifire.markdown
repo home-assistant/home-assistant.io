@@ -38,10 +38,9 @@ The following sensors are available as either a **Binary Sensor** when dealing w
 
 ### Diagnostic Sensors
 
-- **Connection Quality** - Local network connection quality.
-- **Downtime** - Unit downtime.
-- **ECM Latency** - Electronic Control Module Latency value.
+- **Connection Quality** - Local network connection quality _(disabled by default)_.
+- **Downtime** - Unit downtime. Will read `Unknown` if there is currently no downtime.
+- **ECM Latency** - Electronic Control Module Latency value _(disabled by default)_.
 - **IP** - IP Address of the unit.
-- **Serial** - Unit serial number.
 - **Uptime** - Unit uptime.
 
