@@ -290,11 +290,6 @@ retain:
   required: false
   type: boolean
   default: false
-send_if_off:
-  description: "Set to `false` to suppress sending of all MQTT messages when the current mode is `Off`."
-  required: false
-  type: boolean
-  default: true
 swing_mode_command_template:
   description: A template to render the value sent to the `swing_mode_command_topic` with.
   required: false
