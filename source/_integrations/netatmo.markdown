@@ -250,7 +250,7 @@ After completing the configuration flow, the Netatmo integration will be availab
 
 ### Receiving events
 
-To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% developer_events title="Developer Tools -> Events" %}.
+To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my developer_events title="Developer Tools -> Events" %}.
 
 ### Light
 
