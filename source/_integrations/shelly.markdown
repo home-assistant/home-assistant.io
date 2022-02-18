@@ -248,6 +248,18 @@ shelly:
   coap_port: 12345
 ```
 
+## Debugging
+
+It can greatly assist issue reports to include detailed logging informtion whch can be enabled with the following configuration
+
+```yaml
+logger:
+  default: info
+  logs:
+    homeassistant.components.shelly: debug
+    aioshelly: debug
+```
+
 ## Additional info
 
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
@@ -261,3 +273,4 @@ Please check from the device Web UI that the configured server is reachable.
 - Device authentication for generation 2 devices is not supported
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - OTA update service does not support battery-powered devices
+
