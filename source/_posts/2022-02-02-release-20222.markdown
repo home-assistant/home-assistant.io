@@ -61,6 +61,7 @@ Enjoy the release!
 - [Release 2022.2.6 - February 11](#release-202226---february-11)
 - [Release 2022.2.7 - February 15](#release-202227---february-15)
 - [Release 2022.2.8 - February 16](#release-202228---february-16)
+- [Release 2022.2.9 - February 18](#release-202229---february-18)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -980,6 +981,35 @@ The following integrations are now available via the Home Assistant UI:
 [mqtt docs]: /integrations/mqtt/
 [samsungtv docs]: /integrations/samsungtv/
 [tuya docs]: /integrations/tuya/
+
+## Release 2022.2.9 - February 18
+
+- Bump frontend to 20220203.1 ([@balloob] - [#66827]) ([frontend docs])
+- Correct current temperature for tuya thermostats ([@SaSa1983] - [#66715]) ([tuya docs])
+- Ensure new samsungtv token is updated in the config_entry ([@epenet] - [#66731]) ([samsungtv docs])
+- Bump pyinsteon to 1.0.16 ([@teharris1] - [#66759]) ([insteon docs])
+- Fix webostv notify service ([@thecode] - [#66760]) ([webostv docs])
+- Handle default notify data in webostv ([@thecode] - [#66770]) ([webostv docs])
+- Bump aiohue to 4.2.1 ([@balloob] - [#66823]) ([hue docs])
+
+[#66715]: https://github.com/home-assistant/core/pull/66715
+[#66731]: https://github.com/home-assistant/core/pull/66731
+[#66759]: https://github.com/home-assistant/core/pull/66759
+[#66760]: https://github.com/home-assistant/core/pull/66760
+[#66770]: https://github.com/home-assistant/core/pull/66770
+[#66823]: https://github.com/home-assistant/core/pull/66823
+[#66827]: https://github.com/home-assistant/core/pull/66827
+[@SaSa1983]: https://github.com/SaSa1983
+[@balloob]: https://github.com/balloob
+[@epenet]: https://github.com/epenet
+[@teharris1]: https://github.com/teharris1
+[@thecode]: https://github.com/thecode
+[frontend docs]: /integrations/frontend/
+[hue docs]: /integrations/hue/
+[insteon docs]: /integrations/insteon/
+[samsungtv docs]: /integrations/samsungtv/
+[tuya docs]: /integrations/tuya/
+[webostv docs]: /integrations/webostv/
 
 ## If you need help...
 
