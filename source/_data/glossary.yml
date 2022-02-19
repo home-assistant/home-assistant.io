@@ -53,7 +53,7 @@
 - topic: Packages
   description: "[Packages](/docs/configuration/packages/) allow you to bundle different component configurations together."
 - topic: Platform
-  description: "[Platforms](/docs/configuration/platform_options/) are building blocks provided by some integrations to be used by other integrations. For example, the `light` integration provides the `light platform` that is utilized by all integrations providing `light` entities such as e.g. `hue`."
+  description: "[Platforms](/docs/configuration/platform_options/) are building blocks provided by some integrations to be used by other integrations. For example, the [Light](/integrations/light) integration provides the `light platform` that is utilized by all integrations providing `light` entities such as e.g. [Hue](/integrations/hue)."
 - topic: Scene
   description: "[Scenes](/integrations/scene/) capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red."
 - topic: Script
