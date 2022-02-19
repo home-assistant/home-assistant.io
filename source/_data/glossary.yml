@@ -21,7 +21,7 @@
 - topic: Discovery
   description: "[Discovery](/integrations/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
 - topic: Domain
-  description: "Entities and services belong to a domain, which is the first part of the entity or service, before the `.`. For example `light.kitchen` is an entity in the `light` domain, while `homeassistant.turn_on` is the `turn_on` service for the `homeassistant` domain."
+  description: "Domains provide generic interfaces for high-level concepts such as `light`, `switch` or `sensor`. These are then implemented by `integrations`. Entities and services belong to a domain, which is the first part of the entity or service, before the `.`. For example `light.kitchen` is an entity in the `light` domain, while `homeassistant.turn_on` is the `turn_on` service for the `homeassistant` domain."
 - topic: Entity
   description: "An [entity](/docs/configuration/platform_options/) is the representation of a function of a single device, unit, or web service. There may be multiple entities for a single device, unit, or web service, or there may be only one."
 - topic: Event
@@ -43,7 +43,7 @@
 - topic: Home Assistant Operating System
   description: "Home Assistant OS, the Home Assistant Operating System, is an embedded, minimalistic, operating system designed to run the Home Assistant ecosystem on single board computers (like the Raspberry Pi) or Virtual Machines. The Home Assistant Supervisor can keep it up to date, removing the need for you to manage an operating system."
 - topic: Integration
-  description: "[Integrations](/integrations/) provide the core logic for the functionality in Home Assistant. Like `notify` provides sending notifications."
+  description: "[Integrations](/integrations/) are the abstraction layer that connects devices, web services and more to Home Assistant by mapping their functionality to existing Home Assistant domains. They contain all the logic that takes care of vendor- and device-specific stuff such as authentication or special protocols.
 - topic: Lovelace
   description: "[Lovelace](/lovelace/) is the name of the current frontend."
 - topic: Light
@@ -53,7 +53,7 @@
 - topic: Packages
   description: "[Packages](/docs/configuration/packages/) allow you to bundle different component configurations together."
 - topic: Platform
-  description: "[Platforms](/docs/configuration/platform_options/) make the connection to a specific software or hardware platform. For example, the `pushbullet` platform works with the service pushbullet.com to send notifications."
+  description: "[Platforms](/docs/configuration/platform_options/) is just a different name for integrations that isn't used that often anymore."
 - topic: Scene
   description: "[Scenes](/integrations/scene/) capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red."
 - topic: Script
