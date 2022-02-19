@@ -28,6 +28,7 @@ Tested smart meters:
 - DZG DWS76 (enable InF as described in manual to retrieve full data)
 - Iskraemeco MT175 (ISKRA MT175-D2A51-V22-K0t)
 - EMH metering eHZ Generation K (enable InF as described in manual to retrieve full data)
+- efr SGM-C4 (enable InF as described in manual to retrieve full data)
 
 ## Configuration
 
@@ -49,6 +50,20 @@ serial_port:
   required: true
   type: string
 {% endconfiguration %}
+
+## InF Mode
+
+To enable InF mode there are different steps needed based on the meter type but most commonly you have to enter the PIN you received from your grid operator. Once you have it, enter it to the meter and switch to the InF menu where you can switch from InF=Off to InF=On. 
+Entering this can be done using a flashlight or (if available) via physical button on the meter.
+
+For my efr SGM-C4 it is: 
+- flashing three times to enter pin mode
+- entering pin using quicker flashes, wait for 3 seconds for next digit
+- pin accepted
+- flashing 7 times to get to InF=OFF
+- 5 second flash to switch to InF=OFF
+
+Now you will get more readings like current Power, Voltage and phase angle. Some meters don´t even have this so you are stuck with with overall reading.
 
 ### ser2net
 
