@@ -15,7 +15,7 @@
 - topic: Customize
   description: "[Customization](/docs/configuration/customizing-devices/) allows you to overwrite the default parameters of your devices in the configuration."
 - topic: Device
-  description: "A device is usually a physical unit which can do or observe something."
+  description: "A device is a named collection of entities that all represent the same physical/logical unit, which can do or observe something. An example for a device would be a smart plug named "Coffee Machine" which provides a `switch` entity plus one or more `sensor` entities for power monitoring or similar."
 - topic: Device tracker
   description: "[Device trackers](/integrations/device_tracker) are used to track the presence, or location, of a device."
 - topic: Discovery
@@ -23,7 +23,7 @@
 - topic: Domain
   description: "Entities and services belong to a domain, which is the first part of the entity or service, before the `.`. For example `light.kitchen` is an entity in the `light` domain, while `homeassistant.turn_on` is the `turn_on` service for the `homeassistant` domain."
 - topic: Entity
-  description: "An [entity](/docs/configuration/platform_options/) is the representation of a function of a single device, unit, or web service. There may be multiple entities for a single device, unit, or web service, or there may be only one."
+  description: "Entities are things with a unique ID, a name and some kind of state that may be any primitive type such as a number or a string. As the core building block of state in Home Assistant, an [entity](/docs/configuration/platform_options/) is the representation of a functionality of a single device, unit, or web service. There may be multiple entities for a single device, unit, or web service."
 - topic: Event
   description: "An [event](/docs/configuration/events/) is when something happens."
 - topic: Frontend
