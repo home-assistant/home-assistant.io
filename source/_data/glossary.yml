@@ -21,7 +21,7 @@
 - topic: Discovery
   description: "[Discovery](/integrations/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
 - topic: Domain
-  description: "Domains provide generic interfaces for high-level concepts such as `light`, `switch` or `sensor`. These are then implemented by `integrations`. Entities and services belong to a domain, which is the first part of the entity or service, before the `.`. For example `light.kitchen` is an entity in the `light` domain, while `homeassistant.turn_on` is the `turn_on` service for the `homeassistant` domain."
+  description: "Entities and services belong to a domain, which is the first part of the entity or service, before the `.`. For example `light.kitchen` is an entity in the `light` domain, while `homeassistant.turn_on` is the `turn_on` service for the `homeassistant` domain."
 - topic: Entity
   description: "An [entity](/docs/configuration/platform_options/) is the representation of a function of a single device, unit, or web service. There may be multiple entities for a single device, unit, or web service, or there may be only one."
 - topic: Event
@@ -53,7 +53,7 @@
 - topic: Packages
   description: "[Packages](/docs/configuration/packages/) allow you to bundle different component configurations together."
 - topic: Platform
-  description: "[Platforms](/docs/configuration/platform_options/) is just a different name for integrations that isn't used that often anymore."
+  description: "[Platforms](/docs/configuration/platform_options/) are building blocks provided by some integrations to be used by other integrations. For example, the `light` integration provides the `light platform` that is utilized by all integrations providing `light` entities such as e.g. `hue`."
 - topic: Scene
   description: "[Scenes](/integrations/scene/) capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red."
 - topic: Script
