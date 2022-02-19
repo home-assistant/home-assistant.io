@@ -43,7 +43,7 @@
 - topic: Home Assistant Operating System
   description: "Home Assistant OS, the Home Assistant Operating System, is an embedded, minimalistic, operating system designed to run the Home Assistant ecosystem on single board computers (like the Raspberry Pi) or Virtual Machines. The Home Assistant Supervisor can keep it up to date, removing the need for you to manage an operating system."
 - topic: Integration
-  description: "[Integrations](/integrations/) connect and integration Home Assistant with devices, services, and more. Such an integration contains all the logic that takes care of vendor- and device-specific implementations such as authentication or special protocols and brings those into Home Assistant in a standardized way. For example, the [Hue](/integrations/hue) integration integrates the Philips Hue bridge and its connected bulbs into Home Assistant, making them available as Home Assistant light entities you can control.
+  description: "[Integrations](/integrations/) connect and integrates Home Assistant with devices, services, and more. Such an integration contains all the logic that takes care of vendor- and device-specific implementations such as authentication or special protocols and brings those into Home Assistant in a standardized way. For example, the [Hue](/integrations/hue) integration integrates the Philips Hue bridge and its connected bulbs into Home Assistant, making them available as Home Assistant light entities you can control.
 - topic: Lovelace
   description: "[Lovelace](/lovelace/) is the name of the current frontend."
 - topic: Light
