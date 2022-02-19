@@ -45,8 +45,8 @@ the community provides feedback, and new functionality is added.
 While there's no built-in functionality to update a blueprint you've already imported, you can manually edit
 its YAML content to keep it up to date:
 
-1. Navigate to the blueprints directory (`/blueprints/automation/`).
-   The location of this diectory depends on the installation method and it's
+1. Navigate to the blueprints directory (`blueprints/automation/`).
+   The location of this directory depends on the installation method and it's
    similar to how you find [`configuration.yaml`](/docs/configuration/#editing-configurationyaml).
 1. Next, you must find the blueprint to update. The path name of a blueprint consists of:
    - The username of the user that created it, which depends from where you imported the blueprint,
