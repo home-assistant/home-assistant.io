@@ -23,7 +23,7 @@
 - topic: Domain
   description: "Entities and services belong to a domain, which is the first part of the entity or service, before the `.`. For example `light.kitchen` is an entity in the `light` domain, while `homeassistant.turn_on` is the `turn_on` service for the `homeassistant` domain."
 - topic: Entity
-  description: "An entity is the representation of a single functionality of a device or service inside of Home Assistant. Every entity has an ID and a state, which may change over time. Futhermore, entities may feature attributes that provide context or other metadata. An example of an entity of the `sensor` domain would be a temperature sensor with the ID `sensor.temperature_outdoor` state `23.75` and attribute `unit_of_measurement: °C`."
+  description: "An entity is the representation of a single functionality of a device or service inside of Home Assistant. Every entity has an ID and a state, which may change over time. Futhermore, entities may feature attributes that provide context or other metadata. An example of an entity of the `sensor` domain would be a temperature sensor with the ID `sensor.temperature_outdoor`, state `23.75` and attribute `unit_of_measurement: °C`."
 - topic: Event
   description: "An [event](/docs/configuration/events/) is when something happens."
 - topic: Frontend
