@@ -11,9 +11,10 @@ ha_codeowners:
 ha_platforms:
   - media_player
 ha_ssdp: true
+ha_config_flow: true
 ---
 
-The `openhome` platform allows you to connect an [Openhome Compliant Renderer](http://openhome.org/) to Home Assistant such as a [Linn Products Ltd](https://www.linn.co.uk) HiFi streamer. It will allow you to control media playback, volume, source and see the current playing item. Openhome devices should be discovered by using [the discovery component](/integrations/discovery/), their device names are taken from the name of the room configured on the device.
+The Linn / OpenHome integration allows you to connect an [Openhome Compliant Renderer](http://openhome.org/) to Home Assistant such as a [Linn Products Ltd](https://www.linn.co.uk) HiFi streamer. It will allow you to control media playback, volume, source and see the current playing item. Their device names are taken from the name of the room configured on the device.
 
 {% include integrations/config_flow.md %}
 
