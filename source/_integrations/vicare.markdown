@@ -40,6 +40,8 @@ The required Client ID can be obtained as follows:
   Redirect URIs: vicare://oauth-callback/everest
   ```
 
+The `heating_type` can either be `auto` to automatically find the most suitable type for your device or one of `gas`, `oil`, `pellets`, `heatpump`, `fuelcell`, `hybrid`.
+
 Multiple device instances might be generated depending on the number of burners and/or circuits of your installation. If there is more than a single instance all devices are suffixed with the circuit or burner ID.
 
 ## Viessmann API limits
