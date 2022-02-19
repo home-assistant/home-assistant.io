@@ -3,7 +3,7 @@
 - topic: Add-on
   description: "Add-ons provide additional, standalone, applications that can run beside Home Assistant. Most of these, add-on provided, applications can be integrated into Home Assistant using integrations. Examples of add-ons are: an MQTT broker, database service or a file server."
 - topic: Automation
-  description: "[Automations](/docs/automation/) connect one or more triggers to one or more actions in a "when trigger then do action" fashion with additional optional conditions. For example, an automation might connect the trigger "sunset" to the action "turn the lights on" but only if the condition "someone is home" is met. Pre-made automations for common use-cases are available via [the blueprints feature](/docs/automation/using_blueprints/).
+  description: "[Automations](/docs/automation/) connect one or more triggers to one or more actions in a 'when trigger then do action' fashion with additional optional conditions. For example, an automation might connect the trigger 'sunset' to the action 'turn the lights on' but only if the condition 'someone is home' is met. Pre-made automations for common use-cases are available via [the blueprints feature](/docs/automation/using_blueprints/).
 - topic: Binary sensor
   description: "A [binary sensor](/integrations/binary_sensor) returns information about things that only have two states - such as on or off."
 - topic: Component
