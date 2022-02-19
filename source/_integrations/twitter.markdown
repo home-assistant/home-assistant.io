@@ -18,15 +18,15 @@ Make sure you have a developer account registered with Twitter, then go to [Twit
 
 ### App permissions
 
-If you do not perform this step, your application will only receive read permissions and will not be able to post tweets on behalf of your account on twitter.
+If you do not perform this step, your application will only receive read permissions and will not be able to post tweets on behalf of your account on Twitter.
 
 1. Visit "Settings" of the application.
 2. Click on `Set up` under "User authentication settings".
 3. Check the box for `OAuth 1.0a`.
 4. Set the app permission to `Read and write`.
-5. Enter a `callback` and `website` url and click save.
+5. Enter a `callback` and `website` URL and click save.
 
-It does not matter for the integration what you enter as a callback or website url.
+It does not matter for the integration what you enter as a callback or website URL.
 
 ### Generate tokens and secrets
 
