@@ -12,6 +12,7 @@ ha_category:
   - Scene
   - Select
   - Sensor
+  - Siren
   - Switch
 ha_release: 2022.2
 ha_config_flow: true
@@ -33,6 +34,7 @@ ha_platforms:
   - scene
   - select
   - sensor
+  - siren
   - switch
 ---
 
