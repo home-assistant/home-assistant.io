@@ -21,7 +21,7 @@
 - topic: Discovery
   description: "[Discovery](/integrations/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
 - topic: Domain
-  description: "Entities and services belong to a domain, which is the first part of the entity or service, before the `.`. For example `light.kitchen` is an entity in the `light` domain, while `homeassistant.turn_on` is the `turn_on` service for the `homeassistant` domain."
+  description: "Each integration in Home Assitant has a unique identifier: a domain. All of the entities and services available in Home Assistant are provided by integrations and thus belong to such a domain. The first part of the entity or service, before the `.` shows the domain they belong to. For example `light.kitchen` is an entity in the `light` domain from the [light integration](/integrations/light), while `hue.activate_scene` is the `activate_scene` service for the `hue` domain which belongs to the [Hue integration](/integrations/hue)."
 - topic: Entity
   description: "An [entity](/docs/configuration/platform_options/) is the representation of a function of a single device, unit, or web service. There may be multiple entities for a single device, unit, or web service, or there may be only one."
 - topic: Event
@@ -43,7 +43,7 @@
 - topic: Home Assistant Operating System
   description: "Home Assistant OS, the Home Assistant Operating System, is an embedded, minimalistic, operating system designed to run the Home Assistant ecosystem on single board computers (like the Raspberry Pi) or Virtual Machines. The Home Assistant Supervisor can keep it up to date, removing the need for you to manage an operating system."
 - topic: Integration
-  description: "[Integrations](/integrations/) connect and integrates Home Assistant with devices, services, and more. Such an integration contains all the logic that takes care of vendor- and device-specific implementations such as authentication or special protocols and brings those into Home Assistant in a standardized way. For example, the [Hue](/integrations/hue) integration integrates the Philips Hue bridge and its connected bulbs into Home Assistant, making them available as Home Assistant light entities you can control.
+  description: "[Integrations](/integrations/) connect and integrates Home Assistant with devices, services, and more. Such an integration contains all the logic that takes care of vendor- and device-specific implementations such as authentication or special protocols and brings those into Home Assistant in a standardized way. For example, the [Hue](/integrations/hue) integration integrates the Philips Hue bridge and its connected bulbs into Home Assistant, making them available as Home Assistant light entities you can control."
 - topic: Lovelace
   description: "[Lovelace](/lovelace/) is the name of the current frontend."
 - topic: Light
