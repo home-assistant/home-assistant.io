@@ -462,7 +462,9 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 ### `zwave_js.event`
 
-This trigger platform can be used to trigger automations on any Z-Wave JS event, including events that may not be handled by Home Assistant automatically.
+This trigger platform can be used to trigger automations on any [Z-Wave JS controller, driver, or node event](https://zwave-js.github.io/node-zwave-js/#/), including events that may not be handled by Home Assistant automatically. Refer to the linked [Z-Wave JS docs](https://zwave-js.github.io/node-zwave-js/#/) to learn more about the available events and the data that is sent along with it.
+
+There is strict validation in place based on all known event types, so if you come across an event type that isn't supported, please open a GitHub issue in the `home-assistant/core` repo.
 
 #### Example automation trigger configuration
 
