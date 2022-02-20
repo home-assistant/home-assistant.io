@@ -23,3 +23,4 @@ Azure DevOps instance in Home Assistant.
 This integration provides a sensor for Azure DevOps:
 
 - Latest build - This includes attributes with additional info about the build.
+- Work Items - A count of work items and work items by type
