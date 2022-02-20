@@ -22,8 +22,6 @@ When you set up this integration, you will first be guided to allow the integrat
 
 When you have authorized the integration, you select repositories you want to monitor, the list contains repositories you have created and [starred][github_starred] on GitHub with your account.
 
-Most of the entities provided by this integration are disabled by default, you can enable these by going to the {% my entities title="entities panel" %}.
-
 ## Remove authorization
 
 After you have removed the integration from {% my integrations title="Configuration -> Devices & Services" %}, you need to manually revoke OAuth app authorization.
