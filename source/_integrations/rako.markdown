@@ -14,7 +14,7 @@ ha_domain: rako
 
 Rako smart lighting controls lead the way in providing state-of-the-art digital dimming technology, providing innovative solutions to meet the needs of a diverse range of applications.
 
-The [Rako Controls Hub](https://rakocontrols.com/wkhub/) and its predecessor, the Rako Controls Bridge module, offer local network control of Rako's lighting modules. The Bridge has since been discontinued in favour of the Hub.
+The [Rako Controls Hub](https://rakocontrols.com/wkhub/) and its predecessor, the Rako Controls Bridge module, offer local network control of Rako's lighting modules. The Bridge has since been discontinued in favor of the Hub.
 
 This integration was tested working with both the Rako Hub and the discontinued Rako Bridge. 
 
