@@ -480,7 +480,7 @@ trigger:
   config_entry_id:
   # `event_source` and `event` are required
   event_source: node   # options are node, controller, and driver
-  event: "interview failed"  # event names can be retrieved from the Z-Wave JS docs: https://zwave-js.github.io/node-zwave-js/#/
+  event: "interview failed"  # event names can be retrieved from the Z-Wave JS docs (see links above)
   # `event_data` and `partial_dict_match` are optional. If `event_data` isn't included, all events of a given type for the given context will trigger the automation. When the `interview failed` event is fired, all argument live in a dictionary within the `event_data` dictionary under the `args` key. The default behavior is to require a full match of the event_data dictionary below and the dictionary that is passed to the event. By setting `partial_dict_match` to true, Home Assistant will check if the isFinal argument is true and ignore any other values in the dictionary. If this setting was false, this trigger would never fire because the dictionary always contains more keys than `isFinal` so the comparsion check would never evaluate to true.
   event_data:
     args:
