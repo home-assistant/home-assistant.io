@@ -35,3 +35,9 @@ The Syncthing integration adds one sensor per syncing folder:
 ![Syncthing Sensors](/images/integrations/syncthing/sensors.png)
 
 ![Syncthing Sensors](/images/integrations/syncthing/sensor.png)
+
+The Syncthing integration also adds one sensor per syncing device:
+
+![Syncthing Sensors](/images/integrations/syncthing/devices.png)
+
+![Syncthing Sensors](/images/integrations/syncthing/details.png)
