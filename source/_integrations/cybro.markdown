@@ -19,8 +19,8 @@ The `cybro` integration polls data from Cybro 2/3 PLC from [cybrotech](https://w
 
 To run this integration you need to have `CybroScgiServer` configured and running.
 
-- Scgi server as python service [Download CybroScgiServer](https://www.cybrotech.com/software-category/tools/)
-- Scgi server as docker container [hub.docker.com](https://hub.docker.com/r/killer007/cybroscgiserver)
+- Scgi server as Python service [Download CybroScgiServer](https://www.cybrotech.com/software-category/tools/)
+- Scgi server as Docker container [hub.docker.com](https://hub.docker.com/r/killer007/cybroscgiserver)
 
 {% include integrations/config_flow.md %}
 
