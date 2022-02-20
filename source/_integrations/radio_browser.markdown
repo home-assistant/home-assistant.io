@@ -15,6 +15,14 @@ The Radio Browser integration allows you to use the directory of
 radio stations collected on [Radio Browser](https://www.radio-browser.info)
 in Home Assistant.
 
+All radio stations can be browsed and played via the Media panel in
+Home Assistant.
+
+Additionally, when creating automations, the "Play Media" action can be used
+to pick a station from the directory. This makes it possible to create
+an automation that e.g., starts playing your favorite radio station on your
+Cast devices.
+
 {% include integrations/config_flow.md %}
 
 ## Sensors
