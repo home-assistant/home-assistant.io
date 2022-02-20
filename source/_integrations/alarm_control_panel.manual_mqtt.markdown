@@ -1,5 +1,5 @@
 ---
-title: Manual MQTT
+title: Manual MQTT Alarm
 description: Instructions on how to integrate manual alarms into Home Assistant with MQTT support.
 ha_category:
   - Alarm
@@ -10,7 +10,7 @@ ha_platforms:
   - alarm_control_panel
 ---
 
-The `mqtt` platform extends the [manual alarm](/integrations/manual) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.
+The `mqtt` platform extends the [manual alarm](/integrations/alarm_control_panel.manual) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.
 
 It's essentially the opposite of the [MQTT Alarm Panel](/integrations/alarm_control_panel.mqtt/) which allows Home Assistant to observe an existing, fully-featured alarm where all of the alarm logic is embedded in that physical device.
 
@@ -111,7 +111,7 @@ armed_home/armed_away/armed_night/armed_vacation/disarmed/triggered:
       type: integer
 {% endconfiguration %}
 
-See the documentation for the [manual alarm platform](/integrations/manual) for a description.
+See the documentation for the [manual alarm platform](/integrations/alarm_control_panel.manual) for a description.
 
 Additionally, the following MQTT configuration variables are also available.
 
@@ -183,7 +183,7 @@ alarm_control_panel:
       pending_time: 0
 ```
 
-Refer to the [Manual Alarm Control page](/integrations/manual#examples) for more real-life examples on how to use this panel.
+Refer to the [Manual Alarm Control page](/integrations/alarm_control_panel.manual#examples) for more real-life examples on how to use this panel.
 
 ## MQTT Control
 
@@ -191,18 +191,18 @@ The state of this alarm can be controlled using [MQTT](/integrations/mqtt/). Ens
 
 To change the state of the alarm, publish one of the following messages to the `command_topic`:
 
- - `DISARM`
- - `ARM_HOME`
- - `ARM_AWAY`
- - `ARM_NIGHT`
- - `ARM_VACATION`
+- `DISARM`
+- `ARM_HOME`
+- `ARM_AWAY`
+- `ARM_NIGHT`
+- `ARM_VACATION`
 
 To receive state updates from HA, subscribe to the `state_topic`. Home Assistant will publish a new message whenever the state changes:
 
- - `disarmed`
- - `armed_home`
- - `armed_away`
- - `armed_night`
- - `armed_vacation`
- - `pending`
- - `triggered`
+- `disarmed`
+- `armed_home`
+- `armed_away`
+- `armed_night`
+- `armed_vacation`
+- `pending`
+- `triggered`
