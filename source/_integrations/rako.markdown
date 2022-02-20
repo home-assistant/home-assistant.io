@@ -18,17 +18,7 @@ The [Rako Controls Hub](https://rakocontrols.com/wkhub/) and its predecessor, th
 
 This integration was tested working with the both the Rako Hub and the discontinued Rako Bridge. 
 
-
-## Configuration
-
-This integration can be configured using the integrations screen in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-Rako's lighting modules will be automatically discovered by
-Home Assistant. They are listed on the Entities page.
-
+{% include integrations/config_flow.md %}
 
 ## Lights
 
