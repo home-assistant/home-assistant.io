@@ -18,18 +18,17 @@ The `dlna_dms` integration allows you to browse and play media from a [DLNA Digi
 
 {% include integrations/config_flow.md %}
 
-## Options
+## Renaming
 
-Options for DLNA DMS devices can be set going to **Configuration** -> **Devices & Services** -> **DLNA Digital Media Source** -> **Configure**.
-
-{% configuration_basic %}
-Source ID:
-  description: "Akin to an entity_id, refers to the DMS device in media-source URIs."
-{% endconfiguration_basic %}
+The name/title of the DMS device is the same as the title of the config entry. It can be changed on the Integrations Configuration page from the three-dot menu.
 
 ## Media source URIs
 
-Media source URIs for DLNA DMS look like `media-source://dlna_dms/<source_id>/<media_identifier>`. Here `<source_id>` is the Source ID set in the device configuration and `<media_identifier>` can have one of three forms:
+Media source URIs for DLNA DMS look like `media-source://dlna_dms/<source_id>/<media_identifier>`.
+
+Here `<source_id>` is the a slugified name of the DMS device. E.g. "DLNA Server" becomes "dlna_server". If multiple DMS devices have the same name, an underscore and unique number will be appended to the end of some of them, e.g. "server", "server_1", "server_2".
+
+The `<media_identifier>` can have one of three forms:
 * `path/to/file` or `/path/to/file`: Slash-separated path through the Content Directory. This must refer to a unique media item.
 * `:ObjectID`: Colon followed by a server-assigned ID for an object.
 * `?query`: Question mark followed by a query string to search for, see [DLNA ContentDirectory SearchCriteria](http://www.upnp.org/specs/av/UPnP-av-ContentDirectory-v1-Service.pdf) for the syntax. The first result found will be used.
