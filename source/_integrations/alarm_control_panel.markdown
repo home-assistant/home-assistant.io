@@ -9,25 +9,11 @@ ha_domain: alarm_control_panel
 ---
 
 Home Assistant can give you an interface which is similar to a classic alarm system.
-Please see [manual alarm](/integrations/manual) for alarm configuration.
-
-### Attributes
-
-Alarm system exposes the following attributes:
-
-- `code_format` - i.e., `text`, `number` or `null` if no code is needed
-- `code_arm_required` - whether code is required to control the alarm
-- `supported_features` - a bitmask representing which features are supported by the alarm. See values for each feature below. For example, if alarm supports "arm home", "arm away" and "trigger" features this value will be 11 (1 + 2 + 8).
-  - 1 - arm home
-  - 2 - arm away
-  - 4 - arm night
-  - 8 - trigger
-  - 16 - custom bypass
-  - 32 - arm vacation
+Please see [manual alarm](/integrations/manual) or [template alarm](/integrations/alarm_control_panel.template) for alarm configuration.
 
 ### Services
 
-Depending on supported features alarm may expose the following services:
+Depending on features supported by a specific integration alarm may expose the following services:
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
