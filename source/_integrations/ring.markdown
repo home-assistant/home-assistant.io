@@ -80,7 +80,7 @@ automation:
 
 {% endraw %}
 
-You may consider some modifications in the subdir and the filename to suit your needs. For example you can add the date and the time and extension to the downloaded file: 
+You may consider some modifications in the subdirectory and the filename to suit your needs. For example, you can add the date and the time and extension to the downloaded file: 
 
 {% raw %}
 ```yaml
