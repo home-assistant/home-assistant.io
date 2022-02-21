@@ -24,8 +24,3 @@ an automation that e.g., starts playing your favorite radio station on your
 Cast devices.
 
 {% include integrations/config_flow.md %}
-
-## Sensors
-
-This integration provides a single sensor: The number of stations
-available in the Radio Browser directory.
