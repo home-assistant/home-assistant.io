@@ -17,3 +17,5 @@ The `Internet Printing Protocol (IPP)` integration allows you to read current da
 It provides information about the printer's state and remaining ink levels.
 
 {% include integrations/config_flow.md %}
+
+Currently, this integration shows ink levels as unavailable when a printer is offline. To save the levels an automation can be used to save them into an input_number helper when the printer comes online or the level is updated. Then a template sensor can be used to display them as sensors even when the printer is offline.
