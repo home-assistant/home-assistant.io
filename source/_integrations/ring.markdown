@@ -86,7 +86,7 @@ You may consider some modifications in the subdir and the filename to suit your 
 ```yaml
     data:
       url: "{{ state_attr('camera.front_door', 'video_url') }}"
-      subdir: "{{state_attr('camera.front_door', 'friendly_name')}}/{{ now().strftime("%m.%Y") }}"
+      subdir: "{{ state_attr('camera.front_door', 'friendly_name') }}/{{ now().strftime("%m.%Y") }}"
       filename: "{{ now().strftime("%Y-%m-%d-at-%H-%M-%S") }}.mp4"
 ```
 {% endraw %}
