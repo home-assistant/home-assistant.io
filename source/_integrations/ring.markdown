@@ -91,7 +91,7 @@ You may consider some modifications in the subdir and the filename to suit your 
 ```
 {% endraw %}
 
-the above modification will save the video file under `<config>/downloads/<camera_name>/YYYY-MM/YYYY-MM-DD-at-HH-MM-SS.mp4`. You can change the date according to your language format.
+the above modification will save the video file under `<config>/downloads/<camera_name>/YYYY-MM/YYYY-MM-DD-at-HH-MM-SS.mp4`. You can change the date according to your localization format.
 
 If you want to use `python_script`, enable it your `configuration.yaml` file first:
 
