@@ -8,6 +8,7 @@ ha_release: 0.88
 ha_iot_class: Cloud Polling
 ha_domain: github
 ha_platforms:
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@timmo001'

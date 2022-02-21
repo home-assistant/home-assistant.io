@@ -25,10 +25,10 @@ This integration provides the following sensors. Some sensors are disabled by de
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Cart items count               | The amount of different products currently in the cart.                                                                                             |
 | Cart total price               | The total price for products currently in the cart.                                                                                                 |
-| Selected slot start            | Start of the selected delivery slot, `unavailable` if none is selected.                                                                             |
-| Selected slot end              | End of the selected delivery slot, `unavailable` if none is selected.                                                                               |
-| Selected slot max order time   | Maximum time it's still possible to place an order for the selected delivery slot, `unavailable` if none is selected.                               |
-| Selected slot min order value  | The minimum order value needed to be able to place an order for the selected delivery window slot, `unavailable` if none is selected.               |
+| Selected slot start            | Start of the selected delivery slot, `unknown` if none is selected.                                                                             |
+| Selected slot end              | End of the selected delivery slot, `unknown` if none is selected.                                                                               |
+| Selected slot max order time   | Maximum time it's still possible to place an order for the selected delivery slot, `unknown` if none is selected.                               |
+| Selected slot min order value  | The minimum order value needed to be able to place an order for the selected delivery window slot, `unknown` if none is selected.               |
 | Last order slot start          | Start of the last placed order's delivery slot                                                                                                      |
 | Last order slot end            | End of the last placed order's delivery slot                                                                                                        |
 | Last order status              | Status of the last order, either `CURRENT`, `CANCELLED` or `COMPLETED`. Will only transition to `COMPLETED` after the invoice email has been sent.  |

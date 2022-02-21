@@ -340,11 +340,12 @@ A motion detection device which can be represented by a [binary sensor](/integra
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
 - Payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}`
+- Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
-To create a new sensor manually. For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
+To create a new sensor manually.
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}'
+mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}'
 ```
 
 Update the state.
@@ -358,6 +359,8 @@ Delete the sensor by sending an empty message.
  ```bash
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
+
+For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
 
 ### Sensors with multiple values
 
@@ -377,9 +380,10 @@ Setting up a switch is similar but requires a `command_topic` as mentioned in th
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
 - Payload:  `{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}`
+- Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
+mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
   -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}'
 ```
 
@@ -455,7 +459,7 @@ Setting up a climate integration (heat only):
 {
   "mode":"off",
   "target_temp":"21.50",
-  "current_temp":"23.60",
+  "current_temp":"23.60"
 }
 ```
 
@@ -479,7 +483,7 @@ Setting up a device tracker:
 - State topic: `homeassistant/device_tracker/paulus/state`
 - Example state payload: `home` or `not_home` or `location name`
 
-If the device supports gps coordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
+If the device supports GPS coordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
 
 - Attributes topic: `homeassistant/device_tracker/paulus/attributes`
 - Example attributes payload:
@@ -508,5 +512,5 @@ The entity id is automatically generated from the entity's name. All MQTT entity
  }
 ```
 
-In the example above, the the entity_id will be `sensor.device1` instead of `sensor.my_super_device`.
+In the example above, the entity_id will be `sensor.device1` instead of `sensor.my_super_device`.
 

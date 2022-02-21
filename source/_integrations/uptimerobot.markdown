@@ -7,9 +7,11 @@ ha_release: 0.72
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@ludeeus'
+  - '@chemelli74'
 ha_domain: uptimerobot
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_quality_scale: platinum
 ha_config_flow: true

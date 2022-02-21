@@ -128,7 +128,7 @@ const reachableDevicesHandler = async (request) => {
     console.log("REACHABLE_DEVICES intent:", request);
     const hassCustomData = findHassCustomDeviceDataByDeviceId(request.requestId, request.devices, request.inputs[0].payload.device.id);
     try {
-        return forwardRequest(hassCustomData, 
+        return forwardRequest(hassCustomData,
         // Old code would sent it to the proxy ID: hassCustomData.proxyDeviceId
         // But tutorial claims otherwise, but maybe it is not for hub devices??
         // https://developers.google.com/assistant/smarthome/develop/local#implement_the_execute_handler
@@ -155,27 +155,31 @@ const executeHandler = async (request) => {
         throw err;
     }
 };
-const app = new App("1.0.0");
+const queryHandler = async (request) => {
+    console.log("QUERY intent:", request);
+    const device = request.inputs[0].payload.devices[0];
+    try {
+        return await forwardRequest(device.customData, device.id, request);
+    } catch (err) {
+        if (err instanceof UnknownInstance) {
+            err.throwHandlerError();
+        }
+        throw err;
+    }
+};
+
+const app = new App("1.1.0");
 app
     .onIdentify(identifyHandler)
     .onReachableDevices(reachableDevicesHandler)
     .onExecute(executeHandler)
-    // Undocumented in TypeScript
-    // Suggested by Googler, seems to work :shrug:
-    // https://github.com/actions-on-google/smart-home-local/issues/1#issuecomment-515706997
-    // @ts-ignore
-    .onProxySelected((req) => {
-    console.log("ProxySelected", req);
-    return createResponse(req, {});
-})
+    .onQuery(queryHandler)
     // @ts-ignore
     .onIndicate((req) => console.log("Indicate", req))
     // @ts-ignore
     .onParseNotification((req) => console.log("ParseNotification", req))
     // @ts-ignore
     .onProvision((req) => console.log("Provision", req))
-    // @ts-ignore
-    .onQuery((req) => console.log("Query", req))
     // @ts-ignore
     .onRegister((req) => console.log("Register", req))
     // @ts-ignore
@@ -184,6 +188,6 @@ app
     .onUpdate((req) => console.log("Update", req))
     .listen()
     .then(() => {
-    console.log("Ready!");
-})
+        console.log("Ready!");
+    })
     .catch((e) => console.error(e));

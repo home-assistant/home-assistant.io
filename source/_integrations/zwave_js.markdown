@@ -25,6 +25,7 @@ ha_domain: zwave_js
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - climate
   - cover
   - fan

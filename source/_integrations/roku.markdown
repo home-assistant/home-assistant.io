@@ -19,6 +19,7 @@ ha_ssdp: true
 ha_homekit: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - media_player
   - remote
   - sensor

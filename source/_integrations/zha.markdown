@@ -35,8 +35,8 @@ ha_platforms:
   - light
   - lock
   - number
-  - select
   - sensor
+  - select
   - siren
   - switch
 ha_zeroconf: true
@@ -228,7 +228,7 @@ Note that the `otau_directory` setting is optional and can be used for any firmw
 service: zha.issue_zigbee_cluster_command
 data:
   ieee: "xx:xx:xx:xx:xx:xx:xx:xx"
-  endpoint_id: 11
+  endpoint_id: 1
   cluster_id: 25
   cluster_type: out
   command: 0

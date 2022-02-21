@@ -15,6 +15,7 @@ ha_codeowners:
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - media_player
   - number
   - sensor
