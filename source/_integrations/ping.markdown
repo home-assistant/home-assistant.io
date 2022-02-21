@@ -47,6 +47,11 @@ name:
   required: false
   type: string
   default: Ping [hostname]
+scan_interval:
+  description: Default polling interval in seconds
+  required: false
+  type: integer
+  default: 300
 {% endconfiguration %}
 
 The sensor exposes the different round trip times values measured by `ping` as attributes:
