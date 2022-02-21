@@ -14,7 +14,7 @@ ha_platforms:
 ha_ssdp: true
 ---
 
-The `dlna_dms` integration allows you to browse and play media from a [DLNA Digital Media Server](https://www.dlna.org/). Configured DMS devices act as a [Media Source](/integrations/media_source/) and can be browsed in the Media panel.
+The DLNA Digital Media Server integration allows you to browse and play media from a [DLNA Digital Media Server](https://www.dlna.org/). Configured DMS devices act as a [Media Source](/integrations/media_source/) and can be browsed in the Media panel.
 
 {% include integrations/config_flow.md %}
 
@@ -26,14 +26,15 @@ The name/title of the DMS device is the same as the title of the config entry. I
 
 Media source URIs for DLNA DMS look like `media-source://dlna_dms/<source_id>/<media_identifier>`.
 
-Here `<source_id>` is the a slugified name of the DMS device. E.g. "DLNA Server" becomes "dlna_server". If multiple DMS devices have the same name, an underscore and unique number will be appended to the end of some of them, e.g. "server", "server_1", "server_2".
+Here `<source_id>` is the slugified name of the DMS device. For example, "DLNA Server" becomes "dlna_server". If multiple DMS devices have the same name, an underscore and a unique number will be appended to the end of some of them, e.g., "server", "server_1", "server_2".
 
 The `<media_identifier>` can have one of three forms:
-* `path/to/file` or `/path/to/file`: Slash-separated path through the Content Directory. This must refer to a unique media item.
-* `:ObjectID`: Colon followed by a server-assigned ID for an object.
-* `?query`: Question mark followed by a query string to search for, see [DLNA ContentDirectory SearchCriteria](http://www.upnp.org/specs/av/UPnP-av-ContentDirectory-v1-Service.pdf) for the syntax. The first result found will be used.
 
-URIs generated while browsing will look like the Object ID form above. However, all three forms will work with the [media_player.play_media service](integrations/media_player/#service-media_playerplay_media). 
+- `path/to/file` or `/path/to/file`: Slash-separated path through the Content Directory. This must refer to a unique media item.
+- `:ObjectID`: Colon followed by a server-assigned ID for an object.
+- `?query`: Question mark followed by a query string to search for, see [DLNA ContentDirectory SearchCriteria](http://www.upnp.org/specs/av/UPnP-av-ContentDirectory-v1-Service.pdf) for the syntax. The first result found will be used.
+
+URIs generated while browsing will look like the Object ID form above. However, all three forms will work with the [media_player.play_media service](integrations/media_player/#service-media_playerplay_media).
 
 ### Examples
 
