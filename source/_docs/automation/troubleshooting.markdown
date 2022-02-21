@@ -40,6 +40,6 @@ It is also useful to go to **{% my server_controls title="Configuration -> Serve
 If your automation uses templates in any part, you can do the following to make sure it works as expected:
 
 1. Go to **{% my developer_template title="Developer tools -> Template" %}** tab.
-1. In your trace go through the steps preceeding the one with your template and copy what you need from the `changed variables` tabs into `Context data for template` in the Template tab. *Tip: `trigger` and `this` are set in the very first step*
+1. In your trace go through the steps preceding the one with your template and copy what you need from the `changed variables` tabs into `Context data for template` in the Template tab. *Tip: `trigger` and `this` are set in the very first step*
 1. Copy your template code and paste it in Template editor straight after your variables.
 1. Change the template and (if necessary) sources' value until the template works as expected without errors.
