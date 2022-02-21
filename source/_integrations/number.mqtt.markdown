@@ -51,7 +51,7 @@ availability_mode:
    type: string
    default: latest
 command_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic`.
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic`. Available variables: `value`."
   required: false
   type: template
 command_topic:
