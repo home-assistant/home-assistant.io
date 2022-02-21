@@ -775,19 +775,41 @@ The following overview contains a couple of options to get the needed values:
 
 {% endraw %}
 
-To evaluate a response, go to **{% my developer_template title="Developer Tools -> Template" %}**, create your output in "Template editor", and check the result.
+To evaluate a response, go to **{% my developer_template title="Developer Tools -> Template" %}**, create your output in "Template editor", and check the result. You can use the `Context data for template` field to set the value of `value_json` before your template runs like what would normally happen at runtime. For example you could put this in context data:
 
 {% raw %}
 
 ```yaml
-{% set value_json=
-    {"name":"Outside",
+value_json:
+  name: Outside
+  device: weather-ha
+  data:
+    temp: 24C
+    hum: 35%
+```
+
+{% endraw %}
+
+Or this if you have an existing JSON sample you want to use:
+
+{% raw %}
+
+```yaml
+value_json: {"name":"Outside",
      "device":"weather-ha",
      "data":
         {"temp":"24C",
          "hum":"35%"
-         } }%}
+         } }
+```
 
+{% endraw %}
+
+And then you can put in your template and see the result:
+
+{% raw %}
+
+```text
 {{value_json.data.hum[:-1]}}
 ```
 
