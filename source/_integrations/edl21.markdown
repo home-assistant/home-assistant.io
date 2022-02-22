@@ -53,17 +53,18 @@ serial_port:
 
 ## InF Mode
 
-To enable InF mode there are different steps needed based on the meter type but most commonly you have to enter the PIN you received from your grid operator. Once you have it, enter it to the meter and switch to the InF menu where you can switch from InF=Off to InF=On. 
-Entering this can be done using a flashlight or (if available) via physical button on the meter.
+To enable InF mode there are different steps needed based on the meter type but most commonly you have to enter the PIN you received from your grid operator. Once you have it, enter it into the meter and switch to the InF menu where you can switch from InF=Off to InF=On. 
+Entering this can be done using a flashlight or (if available) via the physical button on the meter.
 
-For my efr SGM-C4 it is: 
+For the efr SGM-C4 it is:
+
 - flashing three times to enter pin mode
 - entering pin using quicker flashes, wait for 3 seconds for next digit
 - pin accepted
 - flashing 7 times to get to InF=OFF
-- 5 second flash to switch to InF=OFF
+- 5-second flash to switch to InF=OFF
 
-Now you will get more readings like current Power, Voltage and phase angle. Some meters don´t even have this so you are stuck with with overall reading.
+You will now get more readings like current Power, Voltage, and phase angle. Some meters don´t have this, in that case only an overall reading is provided.
 
 ### ser2net
 
