@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - sensor
+  - switch
 ha_quality_scale: platinum
 ha_config_flow: true
 ---
@@ -22,5 +23,7 @@ The `uptimerobot` integration provides entities to get the status for all of you
 {% include integrations/config_flow.md %}
 
 To get your API key, go to [My Settings](https://uptimerobot.com/dashboard#mySettings) on the UptimeRobot website, at the bottom you will find your "Read-Only API Key".
+
+**NOTE**: If you want to be able to use the active monitor switch then you need to find your "Main API Key".
 
 All the data will be fetched from [UptimeRobot](https://uptimerobot.com).
