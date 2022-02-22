@@ -178,7 +178,7 @@ light:
     automatic_add: true
 ```
 
-When you press the remote buttons, a new light will be available at [![Open your Home Assistant instance and show your entities.](https://my.home-assistant.io/badges/entities.svg)](https://my.home-assistant.io/redirect/entities/).
+When you press the remote buttons, a new light will show up in {% my entities title="the list of entities" %}.
 
 Also you can enable rflink logs and look for the device_id, for example: `dooya_v4_654321_0f` or `brelmotor_3b35c7_47`.
 
