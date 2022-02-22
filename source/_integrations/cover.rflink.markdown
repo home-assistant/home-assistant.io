@@ -198,7 +198,7 @@ cover:
   - platform: rflink
     devices:
       dooya_v4_654321_0f:
-        name: room blinds
+        name: "Room blinds"
 ```
 
 ## Device support
