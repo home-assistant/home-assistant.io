@@ -503,7 +503,7 @@ Sensor                          | Description                                   
 ------------------------------- | -------------------------------------------------------------- | -----------------------
 Carbon Dioxide                  | The current carbon dioxide measured in ppm                     | True
 Dust filter life remaining      | The remaining life of the filter                               | True
-Dust filter life remaining days | Filter usage time in day                                       | True
+Dust filter life remaining days | The remaining life of the filter in day                        | True
 PM2.5                           | The current particulate matter 2.5 measured                    | True
 Temperature                     | The current outside temperature measured                       | True
 Control Speed                   | The current motor speed measured in rpm                        | True
@@ -569,9 +569,9 @@ Sensor                           | Description                                  
 -------------------------------- | -------------------------------------------------------------- | -----------------------
 Carbon Dioxide                   | The current carbon dioxide measured in ppm                     | True
 Dust filter life remaining       | The remaining life of the dust filter                          | True
-Dust filter life remaining days  | Dust filter usage time in day                                  | True
+Dust filter life remaining days  | The remaining life of the dust filter in day                   | True
 Upper filter life remaining      | The remaining life of the upper filter                         | True
-Upper filter life remaining days | Upper filter usage time in day                                 | True
+Upper filter life remaining days | The remaining life of the upper filter in day                  | True
 PM2.5                            | The current particulate matter 2.5 measured                    | True
 Temperature                      | The current outside temperature measured                       | True
 Control Speed                    | The current motor speed measured in rpm                        | True
