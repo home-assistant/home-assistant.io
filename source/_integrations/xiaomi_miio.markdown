@@ -521,9 +521,9 @@ Auxiliary Heat          | Turn on/off `heater`
 
 - Button entities
 
-Button                  | Description                                | Enabled by default
------------------------ | ------------------------------------------ | ---------------------
-Reset dust filter       | Resets filter lifetime of the dust filter  | False
+Button                  | Description                                
+----------------------- | ------------------------------------------ 
+Reset dust filter       | Resets filter lifetime of the dust filter  
 
 ### Air Fresh VA2
 
@@ -596,10 +596,10 @@ Auxiliary Heat          | Turn on/off `heater`
 
 - Button entities
 
-Button                  | Description                                | Enabled by default
------------------------ | ------------------------------------------ | ---------------------
-Reset dust filter       | Resets filter lifetime of the dust filter  | False
-Reset upper filter      | Resets filter lifetime of the upper filter | False
+Button                  | Description                                
+----------------------- | ------------------------------------------ 
+Reset dust filter       | Resets filter lifetime of the dust filter  
+Reset upper filter      | Resets filter lifetime of the upper filter 
 
 ### Air Humidifier (zhimi.humidifier.v1)
 
