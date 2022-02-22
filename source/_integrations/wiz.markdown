@@ -26,17 +26,28 @@ The devices are set up through your Wi-Fi network and don't need any additional 
 
 These devices have been sold under at least the following brands:
 
-- [Philips Smart LED lights with WiZ Connected](https://www.usa.lighting.philips.com/consumer/smart-wifi-led)
-- [Brilliant](https://www.brilliantlightsource.com/)
-- [Fischer & Honsel](https://www.fischer-honsel.de/de/)
-- iDual
-- [Trio](https://wiz.trio-lighting.com/en/)
-- [Lutec](https://www.lutec.com/highlight/wiz)
+- [4Lite](https://4liteuk.com/)
 - AEG
+- [Altair](https://altairlighting.com/default.dmx)
+- [Ansell](https://anselluk.com/)
 - [Atom Lighting](https://atomlighting.com.au/)
-- [SLV](https://www.slv.com/)
-- [Wofi](https://wofi-wiz.com/)
+- [ATX LED](https://atxledinc.com/)
+- [Brilliant](https://www.brilliantlightsource.com/)
+- [Designers Fountain](https://designersftn.com/default.dmx)
+- [Evoluziona](https://tecnolite.mx/)
+- [Fischer & Honsel](https://www.fischer-honsel.de/de/)
+- [Gauss](https://gauss.ru/smartlight/products/)
+- iDual
+- [KSR](https://www.ksrlighting.com/)
+- [Laurie Lumiere](https://www.laurielumiere.com/)
 - [Lednify](https://lednify.com/)
+- [Leyton](https://www.leyton-lighting.co.uk/)
+- [Liteline](https://www.liteline.com/)
+- [Lutec](https://www.lutec.com/highlight/wiz)
+- [Philips Smart LED lights with WiZ Connected](https://www.usa.lighting.philips.com/consumer/smart-wifi-led)
+- [SLV](https://www.slv.com/)
+- [Trio](https://wiz.trio-lighting.com/en/)
+- [Wofi](https://wofi-wiz.com/)
 
 The integration can report the state of occupancy sensors that have been linked to a device.
 
