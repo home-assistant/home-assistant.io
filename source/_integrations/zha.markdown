@@ -259,7 +259,7 @@ The Zigbee specification standards divide the 2.4Ghz ISM radio band into 16 Zigb
 
 The general recommendation is to only use channels 15, 20, or 25 in order to avoid interoperability problems with Zigbee devices that are limited to only being compatible with the ZLL (Zigbee Light Link) channels as well as lessen the chance of Wi-Fi networks interfering too much with the Zigbee network. Note that especially using Zigbee channels 11, 24, 25, or 26 on your Zigbee Coordinator could mean it will probably not be accessible to older devices as those Zigbee channels are commonly only supported by relatively modern Zigbee hardware devices with newer Zigbee firmware.
 
-Regardless, note that the best practice recommendation is, however, not to change the Zigbee channel from default as not all Zigbee devices support all channels. If you have issues with overlapping frequencies, then it will generally be a better idea to just change Wi-Fi channels on all your Wi-Fi Router or Wi-Fi Access Points instead.
+Regardless, note that the best practice recommendation is, however, not to change the Zigbee channel from default as not all Zigbee devices support all channels. If you have issues with overlapping frequencies, then it will generally be a better idea to just change Wi-Fi channels on your Wi-Fi Router or all your Wi-Fi Access Points instead.
 
 ### Modifying the device type
 
