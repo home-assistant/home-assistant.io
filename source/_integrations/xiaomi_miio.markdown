@@ -508,7 +508,7 @@ PM2.5                           | The current particulate matter 2.5 measured   
 Temperature                     | The current outside temperature measured                       | True
 Control Speed                   | The current motor speed measured in rpm                        | True
 Favorite Speed                  | The favorite motor speed measured in rpm                       | True
-Ptc status                      | The heater status                                              | True
+Auxiliary Heat Status           | The heater status                                              | True
 
 - Switch entities
 
@@ -517,7 +517,7 @@ Switch                  | Description
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
 Display                 | Turn on/off `display`
-Ptc                     | Turn on/off `heater`
+Auxiliary Heat          | Turn on/off `heater`
 
 - Button entities
 
@@ -576,14 +576,14 @@ PM2.5                            | The current particulate matter 2.5 measured  
 Temperature                      | The current outside temperature measured                       | True
 Control Speed                    | The current motor speed measured in rpm                        | True
 Favorite Speed                   | The favorite motor speed measured in rpm                       | True
-Ptc status                       | The heater status                                              | True
+Auxiliary Heat Status            | The heater status                                              | True
 
 - Select entities
 
 Select                  | Description
 ----------------------- | -----------------------
 Display Orientation     | Controls the orientation of the display (forward, left, right)
-Ptc Level               | Controls the level of the heater (low, medium, high)
+Auxiliary Heat Level    | Controls the level of the heater (low, medium, high)
 
 - Switch entities
 
@@ -592,7 +592,7 @@ Switch                  | Description
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
 Display                 | Turn on/off `display`
-Ptc                     | Turn on/off `heater`
+Auxiliary Heat          | Turn on/off `heater`
 
 - Button entities
 
