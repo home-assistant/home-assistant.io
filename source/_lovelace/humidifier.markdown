@@ -41,7 +41,7 @@ theme:
 ### Example
 
 ```yaml
-- type: humidifier
-  entity: humidifier.bedroom
-  name: Bedroom Humidifier
+type: humidifier
+entity: humidifier.bedroom
+name: Bedroom Humidifier
 ```

@@ -52,16 +52,16 @@ theme:
 Basic example:
 
 ```yaml
-- type: area
-  area: bedroom
+type: area
+area: bedroom
 ```
 
 Complex example
 
 ```yaml
-- type: area
-  area: bedroom
-  navigation_path: my_bedroom
-  show_camera: true
-  theme: green
+type: area
+area: bedroom
+navigation_path: my_bedroom
+show_camera: true
+theme: green
 ```

@@ -35,3 +35,12 @@ theme:
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 {% endconfiguration %}
+
+### Example
+
+Basic example:
+
+```yaml
+type: media-control
+entity: media_player.lounge_room
+```

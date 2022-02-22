@@ -377,7 +377,7 @@ download:
 
 ### Examples
 
-### Entity rows
+#### Entity rows
 
 ```yaml
 type: entities
@@ -395,7 +395,7 @@ entities:
   - group.all_locks
 ```
 
-### Buttons row
+#### Buttons row
 
 Above the divider are regular entity rows, below one of type `buttons`. Note that regular entity rows automatically show the entity name, whereas for buttons you have to explicitly specify a label / name.
 
@@ -418,7 +418,7 @@ entities:
         name: Dining Ceiling
 ```
 
-### Other special rows
+#### Other special rows
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_entity_row_special.jpg' alt='Screenshot of other special rows'>

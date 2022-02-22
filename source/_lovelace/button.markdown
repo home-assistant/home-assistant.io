@@ -105,6 +105,13 @@ theme:
 
 ### Examples
 
+Basic example:
+
+```yaml
+type: button
+entity: light.living_room
+```
+
 Button Card with a button name and a script that runs when card is tapped:
 
 ```yaml

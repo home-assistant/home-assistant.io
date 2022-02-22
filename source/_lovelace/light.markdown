@@ -51,7 +51,14 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Examples
+### Examples
+
+Basic example:
+
+```yaml
+type: light
+entity: light.bedroom
+```
 
 Overwriting names example:
 

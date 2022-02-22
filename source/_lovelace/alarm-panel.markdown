@@ -57,9 +57,9 @@ theme:
 Title example:
 
 ```yaml
-- type: alarm-panel
-  name: House Alarm
-  entity: alarm_control_panel.alarm
+type: alarm-panel
+name: House Alarm
+entity: alarm_control_panel.alarm
 ```
 
 <p class='img'>

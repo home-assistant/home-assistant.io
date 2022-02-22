@@ -63,7 +63,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### Example
+### Examples
 
 ```yaml
 type: history-graph
