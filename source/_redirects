@@ -2,6 +2,7 @@
 #
 
 # General use redirects
+/community https://community.home-assistant.io
 /join-chat https://discord.gg/home-assistant
 /twitter https://twitter.com/home_assistant/
 /newsletter https://landing.mailerlite.com/webforms/landing/j9n5n6
