@@ -76,7 +76,7 @@ Cover entity with integrated rain sensor has extra attributes to represent the s
 | `limitation_min` | Min limitation of window. `limitation_min` => 0 no rain; `limitation_min` => 93 the window can only open for 7 % , so it means, its raining
 | `limitation_max` | Max limitation of window.
 
-The value can used as a `binary_sensor` for rain detection `True` or no rain `False`
+The value can be used as a `binary_sensor` for rain detection `True` or no rain `False`
 
 {% raw %}
 
