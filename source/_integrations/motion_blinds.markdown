@@ -19,6 +19,7 @@ The integration allows you to control [Motion Blinds](https://motionblinds.com/)
 Additionally the following brands have been reported to also work with this integration:
 
 - [Motion Blinds](https://motionblinds.com/)
+- [Smart Blinds](https://www.smartblinds.nl/)
 - [Dooya](http://www.dooya.com/)
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)

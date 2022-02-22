@@ -56,6 +56,12 @@ Enjoy the release!
 - [Release 2022.2.1 - February 3](#release-202221---february-3)
 - [Release 2022.2.2 - February 4](#release-202222---february-4)
 - [Release 2022.2.3 - February 6](#release-202223---february-6)
+- [Release 2022.2.4 - February 8](#release-202224---february-8)
+- [Release 2022.2.5 - February 9](#release-202225---february-9)
+- [Release 2022.2.6 - February 11](#release-202226---february-11)
+- [Release 2022.2.7 - February 15](#release-202227---february-15)
+- [Release 2022.2.8 - February 16](#release-202228---february-16)
+- [Release 2022.2.9 - February 18](#release-202229---february-18)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -693,6 +699,317 @@ The following integrations are now available via the Home Assistant UI:
 [simplisafe docs]: /integrations/simplisafe/
 [sonos docs]: /integrations/sonos/
 [synology_dsm docs]: /integrations/synology_dsm/
+
+## Release 2022.2.4 - February 8
+
+- Fix UPNP access to SSDP info ([@balloob] - [#65728]) ([upnp docs])
+- Fix TOD incorrectly determining the state between sunrise and sunset ([@nvx] - [#65884]) ([tod docs])
+- Bump plexapi to 4.9.2 ([@jjlawren] - [#65972]) ([plex docs])
+- Add diagnostics to Version integration ([@ludeeus] - [#65999]) ([version docs])
+- Suppress unwanted error messages during recorder migration ([@emontnemery] - [#66004]) ([recorder docs])
+- Revert "Make idle chromecasts appear as idle instead of off" ([@emontnemery] - [#66005]) ([cast docs])
+- Use strings directly instead of Enums in version config ([@ludeeus] - [#66007]) ([version docs])
+- Speed up deletion of duplicated statistics ([@emontnemery] - [#66014]) ([recorder docs])
+- Clean up Sonos unsubscribe/resubscribe exception handling and logging ([@jjlawren] - [#66025]) ([sonos docs])
+- Fix decoding discovery with old Magic Home firmwares ([@bdraco] - [#66038]) ([flux_led docs])
+- Fix race in MQTT sensor and binary_sensor expire_after ([@emontnemery] - [#66040]) ([mqtt docs])
+- Fix missing exception catch in august to prevent failed setup ([@bdraco] - [#66045]) ([august docs])
+- Fix schema for zwave_js WS API ([@raman325] - [#66052]) ([zwave_js docs])
+- Fix cleanup of MQTT debug info ([@emontnemery] - [#66104]) ([mqtt docs])
+- Fix ENTITY_CATEGORIES_SCHEMA ([@emontnemery] - [#66108])
+
+[#65728]: https://github.com/home-assistant/core/pull/65728
+[#65884]: https://github.com/home-assistant/core/pull/65884
+[#65972]: https://github.com/home-assistant/core/pull/65972
+[#65999]: https://github.com/home-assistant/core/pull/65999
+[#66004]: https://github.com/home-assistant/core/pull/66004
+[#66005]: https://github.com/home-assistant/core/pull/66005
+[#66007]: https://github.com/home-assistant/core/pull/66007
+[#66014]: https://github.com/home-assistant/core/pull/66014
+[#66025]: https://github.com/home-assistant/core/pull/66025
+[#66038]: https://github.com/home-assistant/core/pull/66038
+[#66040]: https://github.com/home-assistant/core/pull/66040
+[#66045]: https://github.com/home-assistant/core/pull/66045
+[#66052]: https://github.com/home-assistant/core/pull/66052
+[#66104]: https://github.com/home-assistant/core/pull/66104
+[#66108]: https://github.com/home-assistant/core/pull/66108
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@jjlawren]: https://github.com/jjlawren
+[@ludeeus]: https://github.com/ludeeus
+[@nvx]: https://github.com/nvx
+[@raman325]: https://github.com/raman325
+[august docs]: /integrations/august/
+[cast docs]: /integrations/cast/
+[flux_led docs]: /integrations/flux_led/
+[mqtt docs]: /integrations/mqtt/
+[plex docs]: /integrations/plex/
+[recorder docs]: /integrations/recorder/
+[sonos docs]: /integrations/sonos/
+[tod docs]: /integrations/tod/
+[upnp docs]: /integrations/upnp/
+[version docs]: /integrations/version/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.2.5 - February 9
+
+- Fix generic camera typo in attr_frame_interval ([@davet2001] - [#65390]) ([generic docs])
+- Fix flaky homewizard test ([@emontnemery] - [#65490]) ([homewizard docs])
+- Change detection of router devices for Fritz ([@chemelli74] - [#65965]) ([fritz docs])
+- Bump amcrest to 1.9.4 ([@rkben] - [#66124]) ([amcrest docs])
+- Fix system is loaded flag during reboot/shutdown of Synology DSM ([@mib1185] - [#66125]) ([synology_dsm docs])
+- Bump simplisafe-python to 2022.02.1 ([@bachya] - [#66140]) ([simplisafe docs])
+- Fix MQTT debug info ([@emontnemery] - [#66146]) ([mqtt docs])
+
+[#65390]: https://github.com/home-assistant/core/pull/65390
+[#65490]: https://github.com/home-assistant/core/pull/65490
+[#65965]: https://github.com/home-assistant/core/pull/65965
+[#66124]: https://github.com/home-assistant/core/pull/66124
+[#66125]: https://github.com/home-assistant/core/pull/66125
+[#66140]: https://github.com/home-assistant/core/pull/66140
+[#66146]: https://github.com/home-assistant/core/pull/66146
+[@bachya]: https://github.com/bachya
+[@chemelli74]: https://github.com/chemelli74
+[@davet2001]: https://github.com/davet2001
+[@emontnemery]: https://github.com/emontnemery
+[@mib1185]: https://github.com/mib1185
+[@rkben]: https://github.com/rkben
+[amcrest docs]: /integrations/amcrest/
+[fritz docs]: /integrations/fritz/
+[generic docs]: /integrations/generic/
+[homewizard docs]: /integrations/homewizard/
+[mqtt docs]: /integrations/mqtt/
+[simplisafe docs]: /integrations/simplisafe/
+[synology_dsm docs]: /integrations/synology_dsm
+
+## Release 2022.2.6 - February 11
+
+- Reduce Spotify API usage ([@frenck] - [#66315]) ([spotify docs])
+- Fix hdmi-cec initialization ([@epenet] - [#66172]) ([hdmi_cec docs])
+- Fix controlling nested groups ([@emontnemery] - [#66176]) ([group docs])
+- Bump aioesphomeapi from 10.8.1 to 10.8.2 ([@OttoWinter] - [#66189]) ([esphome docs])
+- Handle more Sonos favorites in media browser ([@jjlawren] - [#66205]) ([sonos docs])
+- Add missing nina warnings ([@DeerMaximum] - [#66211]) ([nina docs])
+- bump py-synologydsm-api to 1.0.6 ([@mib1185] - [#66226]) ([synology_dsm docs])
+- Bump aioaseko to 0.0.2 to fix issue ([@milanmeu] - [#66240]) ([aseko_pool_live docs])
+- Disable zone bypass switch feature ([@ufodone] - [#66243]) ([envisalink docs])
+- Catch ConnectionResetError when writing MJPEG in camera ([@uvjustin] - [#66245]) ([camera docs])
+- Correct philips_js usage of the overloaded coordinator ([@elupus] - [#66287]) ([philips_js docs])
+- Fix august token refresh when data contains characters outside of latin1 ([@bdraco] - [#66303])
+- Bump python-nest to 4.2.0 for python 3.10 fixes ([@allenporter] - [#66090]) ([nest docs])
+- Bump google-nest-sdm to 1.7.0 ([@allenporter] - [#66145]) ([nest docs])
+- Bump google-nest-sdm to 1.7.1 (minor patch) ([@allenporter] - [#66304]) ([nest docs])
+- Add guard for invalid EntityCategory value ([@ludeeus] - [#66316])
+- bump motionblinds to 0.5.11 ([@starkillerOG] - [#65988]) ([motion_blinds docs])
+- bump motionblinds to 0.5.12 ([@starkillerOG] - [#66323]) ([motion_blinds docs])
+- Reduce number of parallel api calls to august ([@bdraco] - [#66328]) ([august docs])
+- Fix raspihats initialization ([@epenet] - [#66330]) ([raspihats docs])
+- Fix nest streams that get stuck broken ([@allenporter] - [#66334]) ([stream docs])
+- Fix PVOutput when no data is available ([@frenck] - [#66338]) ([pvoutput docs])
+- Fix CPUSpeed with missing info ([@frenck] - [#66339]) ([cpuspeed docs])
+- Add unique id to lutron caseta config entry when missing ([@bdraco] - [#66346]) ([lutron_caseta docs])
+
+[#65988]: https://github.com/home-assistant/core/pull/65988
+[#66090]: https://github.com/home-assistant/core/pull/66090
+[#66145]: https://github.com/home-assistant/core/pull/66145
+[#66172]: https://github.com/home-assistant/core/pull/66172
+[#66176]: https://github.com/home-assistant/core/pull/66176
+[#66189]: https://github.com/home-assistant/core/pull/66189
+[#66205]: https://github.com/home-assistant/core/pull/66205
+[#66211]: https://github.com/home-assistant/core/pull/66211
+[#66226]: https://github.com/home-assistant/core/pull/66226
+[#66240]: https://github.com/home-assistant/core/pull/66240
+[#66243]: https://github.com/home-assistant/core/pull/66243
+[#66245]: https://github.com/home-assistant/core/pull/66245
+[#66287]: https://github.com/home-assistant/core/pull/66287
+[#66303]: https://github.com/home-assistant/core/pull/66303
+[#66304]: https://github.com/home-assistant/core/pull/66304
+[#66315]: https://github.com/home-assistant/core/pull/66315
+[#66316]: https://github.com/home-assistant/core/pull/66316
+[#66323]: https://github.com/home-assistant/core/pull/66323
+[#66328]: https://github.com/home-assistant/core/pull/66328
+[#66330]: https://github.com/home-assistant/core/pull/66330
+[#66334]: https://github.com/home-assistant/core/pull/66334
+[#66338]: https://github.com/home-assistant/core/pull/66338
+[#66339]: https://github.com/home-assistant/core/pull/66339
+[#66346]: https://github.com/home-assistant/core/pull/66346
+[@DeerMaximum]: https://github.com/DeerMaximum
+[@OttoWinter]: https://github.com/OttoWinter
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@jjlawren]: https://github.com/jjlawren
+[@ludeeus]: https://github.com/ludeeus
+[@mib1185]: https://github.com/mib1185
+[@milanmeu]: https://github.com/milanmeu
+[@starkillerOG]: https://github.com/starkillerOG
+[@ufodone]: https://github.com/ufodone
+[@uvjustin]: https://github.com/uvjustin
+[aseko_pool_live docs]: /integrations/aseko_pool_live/
+[august docs]: /integrations/august/
+[camera docs]: /integrations/camera/
+[cpuspeed docs]: /integrations/cpuspeed/
+[envisalink docs]: /integrations/envisalink/
+[esphome docs]: /integrations/esphome/
+[group docs]: /integrations/group/
+[hdmi_cec docs]: /integrations/hdmi_cec/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[motion_blinds docs]: /integrations/motion_blinds/
+[nest docs]: /integrations/nest/
+[nina docs]: /integrations/nina/
+[philips_js docs]: /integrations/philips_js/
+[pvoutput docs]: /integrations/pvoutput/
+[raspihats docs]: /integrations/raspihats/
+[sonos docs]: /integrations/sonos/
+[spotify docs]: /integrations/spotify/
+[stream docs]: /integrations/stream/
+[synology_dsm docs]: /integrations/synology_dsm/
+
+## Release 2022.2.7 - February 15
+
+- Fix Spotify session token refresh ([@frenck] - [#66390]) ([spotify docs])
+- Correct modbus address limits ([@uSlackr] - [#66367]) ([modbus docs])
+- Fix mesh role for Fritz old devices ([@chemelli74] - [#66369]) ([fritz docs])
+- Fix missing refactors of EntityCategory.XXX ([@davet2001] - [#66379]) ([zha docs]) ([fritzbox docs]) ([onvif docs]) ([fritz docs]) ([vicare docs]) ([goodwe docs])
+- revert change in vizio logic to fix bug ([@raman325] - [#66424]) ([vizio docs])
+- Reset the stream backoff timeout when the url updates ([@allenporter] - [#66426]) ([stream docs])
+- Increase switcher_kis timeouts ([@thecode] - [#66465]) ([switcher_kis docs])
+- Bump Advantage Air to 0.2.6 ([@Bre77] - [#65849]) ([advantage_air docs])
+- Bump Advantage Air 0.3.0 ([@Bre77] - [#66488]) ([advantage_air docs])
+- Fix utility meter restore state ([@dgomes] - [#66490]) ([utility_meter docs])
+- Fix access to hass.data in hdmi-cec ([@epenet] - [#66504]) ([hdmi_cec docs])
+- Revert "Fix raspihats callbacks (#64122)" ([@epenet] - [#66517]) ([raspihats docs])
+- Fix flux_led turn on with slow responding devices ([@bdraco] - [#66527]) ([flux_led docs])
+- Add fallback for serialnumber ([@elupus] - [#66553]) ([philips_js docs])
+- Fix Tuya Covers without state in their control data point ([@frenck] - [#66564]) ([tuya docs])
+- Override and disable nest stream `unavailable` behavior ([@allenporter] - [#66571]) ([nest docs])
+- Bump aiohue to version 4.1.2 ([@marcelveldt] - [#66609]) ([hue docs])
+
+[#65849]: https://github.com/home-assistant/core/pull/65849
+[#66367]: https://github.com/home-assistant/core/pull/66367
+[#66369]: https://github.com/home-assistant/core/pull/66369
+[#66379]: https://github.com/home-assistant/core/pull/66379
+[#66390]: https://github.com/home-assistant/core/pull/66390
+[#66424]: https://github.com/home-assistant/core/pull/66424
+[#66426]: https://github.com/home-assistant/core/pull/66426
+[#66465]: https://github.com/home-assistant/core/pull/66465
+[#66488]: https://github.com/home-assistant/core/pull/66488
+[#66490]: https://github.com/home-assistant/core/pull/66490
+[#66504]: https://github.com/home-assistant/core/pull/66504
+[#66517]: https://github.com/home-assistant/core/pull/66517
+[#66527]: https://github.com/home-assistant/core/pull/66527
+[#66553]: https://github.com/home-assistant/core/pull/66553
+[#66564]: https://github.com/home-assistant/core/pull/66564
+[#66571]: https://github.com/home-assistant/core/pull/66571
+[#66609]: https://github.com/home-assistant/core/pull/66609
+[@Bre77]: https://github.com/Bre77
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@davet2001]: https://github.com/davet2001
+[@dgomes]: https://github.com/dgomes
+[@elupus]: https://github.com/elupus
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@marcelveldt]: https://github.com/marcelveldt
+[@raman325]: https://github.com/raman325
+[@thecode]: https://github.com/thecode
+[@uSlackr]: https://github.com/uSlackr
+[advantage_air docs]: /integrations/advantage_air/
+[flux_led docs]: /integrations/flux_led/
+[fritz docs]: /integrations/fritz/
+[fritzbox docs]: /integrations/fritzbox/
+[goodwe docs]: /integrations/goodwe/
+[hdmi_cec docs]: /integrations/hdmi_cec/
+[hue docs]: /integrations/hue/
+[modbus docs]: /integrations/modbus/
+[nest docs]: /integrations/nest/
+[onvif docs]: /integrations/onvif/
+[philips_js docs]: /integrations/philips_js/
+[raspihats docs]: /integrations/raspihats/
+[spotify docs]: /integrations/spotify/
+[stream docs]: /integrations/stream/
+[switcher_kis docs]: /integrations/switcher_kis/
+[tuya docs]: /integrations/tuya/
+[utility_meter docs]: /integrations/utility_meter/
+[vicare docs]: /integrations/vicare/
+[vizio docs]: /integrations/vizio/
+[zha docs]: /integrations/zha/
+
+## Release 2022.2.8 - February 16
+
+- Bump pysher to 1.0.7 ([@craigjmidwinter] - [#59445]) ([goalfeed docs])
+- Bump aiohue to 4.2.0 ([@balloob] - [#66670]) ([hue docs])
+- Do not pass client session to Brunt ([@frenck] - [#66671]) ([brunt docs])
+- Fix type of value in MQTT binary sensor ([@bieniu] - [#66675]) ([mqtt docs])
+- Cloud to avoid setting up Alexa/Google during setup phase ([@balloob] - [#66676]) ([cloud docs])
+- Fix last_activated timestamp on Hue scenes ([@marcelveldt] - [#66679]) ([hue docs])
+- Add tests for samsungtv diagnostics ([@epenet] - [#66563]) ([samsungtv docs])
+- Cleanup samsungtv tests ([@epenet] - [#66570]) ([samsungtv docs])
+- Fix SamsungTVWS mocking in samsungtv tests ([@epenet] - [#66650]) ([samsungtv docs])
+- Fix token refresh in samsungtv ([@epenet] - [#66533]) ([samsungtv docs])
+- Fix scaling of numeric Tuya values ([@SaSa1983] - [#66644]) ([tuya docs])
+- Add current temp fallback in Tuya climate ([@frenck] - [#66664]) ([tuya docs])
+
+[#59445]: https://github.com/home-assistant/core/pull/59445
+[#66533]: https://github.com/home-assistant/core/pull/66533
+[#66563]: https://github.com/home-assistant/core/pull/66563
+[#66570]: https://github.com/home-assistant/core/pull/66570
+[#66644]: https://github.com/home-assistant/core/pull/66644
+[#66650]: https://github.com/home-assistant/core/pull/66650
+[#66664]: https://github.com/home-assistant/core/pull/66664
+[#66670]: https://github.com/home-assistant/core/pull/66670
+[#66671]: https://github.com/home-assistant/core/pull/66671
+[#66675]: https://github.com/home-assistant/core/pull/66675
+[#66676]: https://github.com/home-assistant/core/pull/66676
+[#66679]: https://github.com/home-assistant/core/pull/66679
+[@SaSa1983]: https://github.com/SaSa1983
+[@balloob]: https://github.com/balloob
+[@bieniu]: https://github.com/bieniu
+[@craigjmidwinter]: https://github.com/craigjmidwinter
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@marcelveldt]: https://github.com/marcelveldt
+[brunt docs]: /integrations/brunt/
+[cloud docs]: /integrations/cloud/
+[goalfeed docs]: /integrations/goalfeed/
+[hue docs]: /integrations/hue/
+[mqtt docs]: /integrations/mqtt/
+[samsungtv docs]: /integrations/samsungtv/
+[tuya docs]: /integrations/tuya/
+
+## Release 2022.2.9 - February 18
+
+- Bump frontend to 20220203.1 ([@balloob] - [#66827]) ([frontend docs])
+- Correct current temperature for tuya thermostats ([@SaSa1983] - [#66715]) ([tuya docs])
+- Ensure new samsungtv token is updated in the config_entry ([@epenet] - [#66731]) ([samsungtv docs])
+- Bump pyinsteon to 1.0.16 ([@teharris1] - [#66759]) ([insteon docs])
+- Fix webostv notify service ([@thecode] - [#66760]) ([webostv docs])
+- Handle default notify data in webostv ([@thecode] - [#66770]) ([webostv docs])
+- Bump aiohue to 4.2.1 ([@balloob] - [#66823]) ([hue docs])
+
+[#66715]: https://github.com/home-assistant/core/pull/66715
+[#66731]: https://github.com/home-assistant/core/pull/66731
+[#66759]: https://github.com/home-assistant/core/pull/66759
+[#66760]: https://github.com/home-assistant/core/pull/66760
+[#66770]: https://github.com/home-assistant/core/pull/66770
+[#66823]: https://github.com/home-assistant/core/pull/66823
+[#66827]: https://github.com/home-assistant/core/pull/66827
+[@SaSa1983]: https://github.com/SaSa1983
+[@balloob]: https://github.com/balloob
+[@epenet]: https://github.com/epenet
+[@teharris1]: https://github.com/teharris1
+[@thecode]: https://github.com/thecode
+[frontend docs]: /integrations/frontend/
+[hue docs]: /integrations/hue/
+[insteon docs]: /integrations/insteon/
+[samsungtv docs]: /integrations/samsungtv/
+[tuya docs]: /integrations/tuya/
+[webostv docs]: /integrations/webostv/
 
 ## If you need help...
 
