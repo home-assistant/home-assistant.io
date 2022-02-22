@@ -35,11 +35,12 @@ Configuration options for the OpenSky Network sensor:
 - **opensky_entry**: Fired when a flight enters the region.
 - **opensky_exit**: Fired when a flight exits the region.
 
-Both events have three attributes:
+Both events have four attributes:
 
 - **sensor**: Name of `opensky` sensor that fired the event.
 - **callsign**: Callsign of the flight.
 - **altitude**: Altitude of the flight in meters.
+- **icao24**: The ICAO 24-bit address of the aircraft's transponder.
 
 To receive notifications of the entering flights using the [Home Assistant Companion App](https://companion.home-assistant.io/), add the following lines to your `configuration.yaml` file:
 
