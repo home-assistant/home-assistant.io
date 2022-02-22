@@ -12,6 +12,10 @@ The Picture Glance card shows an image and corresponding entity states as an ico
   Picture glance card for a living room.
 </p>
 
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+
 {% configuration %}
 type:
   required: true
@@ -82,7 +86,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Options For Entities
+### Options For Entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -126,7 +130,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Options For Exemptions
+### Options For Exemptions
 
 {% configuration badges %}
 user:
@@ -135,7 +139,7 @@ user:
   type: string
 {% endconfiguration %}
 
-## How to use state_filter
+### How to use state_filter
 
 Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
 
@@ -146,7 +150,7 @@ state_filter:
 entity: switch.decorative_lights
 ```
 
-## Examples
+### Examples
 
 ```yaml
 type: picture-glance

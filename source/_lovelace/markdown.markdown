@@ -14,7 +14,9 @@ The renderer uses [Marked.js](https://marked.js.org), which supports [several sp
 Screenshot of the Markdown card.
 </p>
 
-To add the Markdown card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Markdown** from the card picker.
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -46,9 +48,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-## Example
-
-The card can also be configured using YAML, some examples below:
+### Example
 
 ```yaml
 type: markdown
@@ -58,13 +58,11 @@ content: >
   Starting with Home Assistant 0.72, we're experimenting with a new way of defining your interface. We're calling it the **Lovelace UI**.
 ```
 
-## Template variables
+### Template variables
 
 A special template variable - `config` is set up for the `content` of the card. It contains the configuration of the card.
 
 For example:
-
-{% raw %}
 
 ```yaml
 type: entity-filter
@@ -85,13 +83,9 @@ card:
     And the door is {% if is_state('binary_sensor.door', 'on') %} open {% else %} closed {% endif %}.
 ```
 
-{% endraw %}
-
 A special template variable - `user` is set up for the `content` of the card. It contains the currently logged in user.
 
 For example:
-
-{% raw %}
 
 ```yaml
 type: markdown
@@ -99,20 +93,14 @@ content: |
   Hello, {{user}}
 ```
 
-{% endraw %}
-
-## Icons
+### Icons
 
 You can also use [materialdesignicons.com](https://materialdesignicons.com/) icons in the `content` of the card.
 
 For example:
-
-{% raw %}
 
 ```yaml
 type: markdown
 content: |
   <ha-icon icon="mdi:home-assistant" />
 ```
-
-{% endraw %}

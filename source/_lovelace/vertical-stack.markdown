@@ -7,11 +7,9 @@ description: "The Vertical Stack card allows you to group multiple cards so they
 
 The Vertical Stack card allows you to group multiple cards so they always sit in the same column.
 
-To add the Vertical Stack card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Vertical Stack** from the card picker.
-
 ## YAML Configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI:
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:

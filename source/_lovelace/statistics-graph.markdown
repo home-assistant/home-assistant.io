@@ -21,7 +21,11 @@ Screenshot of the Statistics Graph card with none metered entities and `chart_ty
 Screenshot of the Statistics Graph card with a metered entity and `chart_type` `bar`.
 </p>
 
-To add the Statistics Graph card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Statistics Graph** from the card picker. All options for this card can be configured via the user interface.
+All options for this card can be configured via the user interface.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -55,7 +59,7 @@ period:
   type: string  
 {% endconfiguration %}
 
-## Options For Entities
+### Options For Entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -70,9 +74,7 @@ name:
   type: string
 {% endconfiguration %}
 
-## Example
-
-Alternatively, the card can be configured using YAML:
+### Example
 
 ```yaml
 type: statistics-graph

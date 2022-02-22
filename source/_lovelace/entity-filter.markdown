@@ -14,6 +14,10 @@ This type of card can also be used together with rest of cards that allow multip
 Screenshot of the Entity Filter card.
 </p>
 
+## YAML Configuration
+
+This card can only be configured in YAML.
+
 {% configuration %}
 type:
   required: true
@@ -39,7 +43,7 @@ show_empty:
   default: true
 {% endconfiguration %}
 
-## Options for Entities
+### Options For Entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configurations:
 
@@ -74,7 +78,7 @@ state_filter:
   type: list
 {% endconfiguration %}
 
-## Options for state_filter
+### Options For state_filter
 
 If you define `state_filter` as objects instead of strings (by adding `value:` before your state value), you can add more customization to your filter:
 

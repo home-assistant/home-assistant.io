@@ -14,13 +14,11 @@ Setup of the [Shopping List integration](/integrations/shopping_list/) is requir
 Screenshot of the Shopping List card.
 </p>
 
-To add the Shopping List card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Shopping List** from the card picker. All options for this card can be configured via the user interface.
+All options for this card can be configured via the user interface.
 
-Alternatively, the card can be configured using YAML:
+## YAML Configuration
 
-```yaml
-type: shopping-list
-```
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -37,7 +35,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-## Examples
+### Examples
 
 Title Example:
 

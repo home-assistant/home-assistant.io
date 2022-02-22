@@ -16,7 +16,11 @@ You can't embed sites using HTTP if you are using HTTPS for your Home Assistant.
   Windy weather radar as Webpage.
 </p>
 
-To add the Webpage card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Webpage** from the card picker. All options for this card can be configured via the user interface.
+All options for this card can be configured via the user interface.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -38,9 +42,7 @@ title:
   type: string
 {% endconfiguration %}
 
-## Examples
-
-The card can also be configured using YAML, some examples below:
+### Examples
 
 ```yaml
 type: iframe

@@ -14,6 +14,10 @@ The cards allow you to position icons or text and even services on an image base
   A functional floorplan powered by picture elements.
 </p>
 
+## YAML Configuration
+
+This card can only be configured in YAML.
+
 {% configuration %}
 type:
   required: true

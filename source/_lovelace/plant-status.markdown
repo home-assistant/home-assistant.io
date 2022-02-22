@@ -12,7 +12,11 @@ The Plant Status card is for all the lovely botanists out there.
 Screenshot of the plant status card.
 </p>
 
-To add the Plant Status card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Plant Status** from the card picker. All options for this card can be configured via the user interface.
+All options for this card can be configured via the user interface.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -33,12 +37,3 @@ theme:
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 {% endconfiguration %}
-
-## Example
-
-Alternatively, the card can be configured using YAML:
-
-```yaml
-type: plant-status
-entity: plant.bonsai
-```
