@@ -607,11 +607,9 @@ Templates that do not contain an entity will be rendered once per minute.
 
 <div class='note warning'>
 
-Use of the 'for:' option will not survive Home Assistant server restarts or upon re-loading automations. If this option is used in an automation trigger and the referenced entity has changed to the desired state but the 'for:' time hasn't been reached and Home Assistant is restarted or automations are re-loaded the trigger will never occur.
-  
-For this reason it is not recopmmended to use the 'for:' option for automation triggers that are critical that they actually occur at the time interval specified.
-  
-In those cases it is more reliable to use the automation to set an input_datetime to the desired time and then use that input_datetime as the automastion trigger to perform the desired actions.
+Use of the `for` option will not survive Home Assistant restart or the reload of automations. During restart or reload, automations that were awaiting `for` the trigger to pass, are reset.
+
+If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
 
 </div>
 
