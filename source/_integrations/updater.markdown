@@ -13,6 +13,12 @@ ha_platforms:
   - binary_sensor
 ---
 
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.5.
+
+</div>
+
 The `updater` binary sensor will check daily for new releases of the Home
 Assistant Core. The state will be "on" when an update is available. Otherwise,
 the state will be "off". The newer version, as well as the link to the release
