@@ -24,6 +24,20 @@ ha_platforms:
 The WiZ integration allows you to control your WiZ lights and smart sockets.
 The devices are set up through your Wi-Fi network and don't need any additional bridge or gateway.
 
+These devices have been sold under at least the following brands:
+
+- [Philips Smart LED lights with WiZ Connected](https://www.usa.lighting.philips.com/consumer/smart-wifi-led)
+- [Brilliant](https://www.brilliantlightsource.com/)
+- [Fischer & Honsel](https://www.fischer-honsel.de/de/)
+- iDual
+- [Trio](https://wiz.trio-lighting.com/en/)
+- [Lutec](https://www.lutec.com/highlight/wiz)
+- AEG
+- [Atom Lighting](https://atomlighting.com.au/)
+- [SLV](https://www.slv.com/)
+- [Wofi](https://wofi-wiz.com/)
+- [Lednify](https://lednify.com/)
+
 The integration can report the state of occupancy sensors that have been linked to a device.
 
 {% include integrations/config_flow.md %}
