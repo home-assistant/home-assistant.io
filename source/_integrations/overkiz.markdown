@@ -4,6 +4,7 @@ description: Instructions on how to integrate hubs whom use the Overkiz platform
 ha_category:
   - Binary Sensor
   - Button
+  - Climate
   - Cover
   - Hub
   - Light
@@ -27,6 +28,7 @@ ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - diagnostics
   - cover
   - light
