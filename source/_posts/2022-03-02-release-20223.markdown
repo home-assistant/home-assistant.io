@@ -54,7 +54,7 @@ Enjoy the (beta) release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
-- [If you need help...](#if-you-need-help)
+- [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
 - [Farewell to the following](#farewell-to-the-following)
@@ -71,7 +71,7 @@ In that case, you might like to sign-up for our newsletter instead! We'll
 send you a new email when a new release drops with the release's highlights
 and interesting things we found in our community.
 
-[Sign up for the Home Assistant newletter](/newsletter)
+[Sign up for the Home Assistant newsletter](/newsletter)
 
 [Twitter]: /twitter
 [Discord chat]: /join-chat
