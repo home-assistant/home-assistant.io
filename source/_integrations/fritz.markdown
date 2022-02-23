@@ -79,6 +79,7 @@ It is possible to change some behaviors through the integration options.
 These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrations page.
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
+- **Enable old discovery method**: Needed on some scenarios like no mesh support (fw <= 6.x), mixed brands network devices or LAN switches.
 
 ## Additional info
 
@@ -109,11 +110,11 @@ The following script can be used to easily add a reconnect button to your UI. If
 
 ```yaml
 fritz_box_reconnect:
-  alias: "Reboot FRITZ!Box"
+  alias: "Reconnect FRITZ!Box"
   sequence:
     - service: button.press
       target:
-        entity_id: button.fritzbox_7530_reboot
+        entity_id: button.fritzbox_7530_reconnect
 
 ```
 
