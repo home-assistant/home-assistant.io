@@ -149,10 +149,10 @@ trigger:
 
 Every item of **actions** has the following properties:
 
-| Property | Required | Description      |
-|----------|----------|------------------|
-| `name`   | True     | File source.     |
-| `title`  | True     | Result file name |
+| Property | Required | Description           |
+|----------|----------|-----------------------|
+| `name`   | True     | Action name (type)    |
+| `title`  | True     | Action (button) title |
 
 **Notice**: don't forget to make sure that your Home Assistant instance is reachable from the web and you've set the `external_url` parameter in your `configuration.yaml`.
 
