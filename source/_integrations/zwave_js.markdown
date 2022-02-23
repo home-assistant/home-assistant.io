@@ -16,6 +16,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+  - Humidifier
 ha_release: '2021.2'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -36,6 +37,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - humidifier
 ---
 
 This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're migrating from the deprecated `zwave` or `ozw` integrations, see [our migration instructions](#migrating-from-previous-z-wave-implementations).
