@@ -394,7 +394,7 @@ action:
 
 {% configuration %}
 parse_mode:
-  description: Parser for the message text: `markdownv2`, `html` or `markdown`.
+  description: "Parser for the message text: `markdownv2`, `html` or `markdown`."
   required: false
   type: string
 disable_notification:
