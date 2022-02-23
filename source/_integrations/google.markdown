@@ -56,8 +56,8 @@ You can then switch back the timezone to your original one and restart Home Assi
 
 If you get an `autorization error 403 Access Denied`, your Google App is probably lacking a test user or your app is not *published*. For several reasons it is sufficient to let the App in Testing status and add yourself as Test user. 
 
-To add a Test user, you must go back to your Google developers console, make sure you select the right project in the dropdown on the left in the top navbar and navigate in the left menu to `OAuth consent screen`. There under the **Test users** heading you'll see a button that says `ADD USERS`. Clicking on that opens a drawer at the right where you need to add your own gmail email adress as a test user. 
-Make sure the email adres is added in the list of test users.
+To add a Test user, you must go back to your Google developers console, make sure you select the right project in the dropdown on the left in the top navbar and navigate in the left menu to `OAuth consent screen`. There under the **Test users** heading you'll see a button that says `ADD USERS`. Clicking on that opens a drawer at the right where you need to add your own gmail email address as a test user. 
+Make sure the email address is added in the list of test users.
 
 Once this is done, the connection should be established flawless, after a restart of your HA and entering the code you are given in the notification once the restart has finished.
 
