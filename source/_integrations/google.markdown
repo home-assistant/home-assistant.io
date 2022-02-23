@@ -43,12 +43,23 @@ If you will later be adding more scopes than just the "Google Calendar API" to t
 
 ## Troubleshooting
 
+### Authentication code expired
+
 If you are trying to switch to a new Google account then you would run into the following error message. Make sure to delete the existing **.google.token** file from your `config` folder and restart Home Assistant to try again.
 
 'oauth2client.client.HttpAccessTokenRefreshError: deleted_client: The OAuth client was deleted'
 
 In case you get an `Authentication code expired, please restart Home-Assistant and try again` error message, switch your timezone to `Etc/GMT` and restart Home Assistant. This should fix the issue and the `google_calendars.yaml` configuration file will be created.
 You can then switch back the timezone to your original one and restart Home Assistant again.
+
+### Error 403: access_denied
+
+If you get an `autorization error 403 Access Denied`, your Google App is probably lacking a test user or your app is not *published*. For several reasons it is sufficient to let the App in Testing status and add yourself as Test user. 
+
+To add a Test user, you must go back to your Google developers console, make sure you select the right project in the dropdown on the left in the top navbar and navigate in the left menu to `OAuth consent screen`. There under the **Test users** heading you'll see a button that says `ADD USERS`. Clicking on that opens a drawer at the right where you need to add your own gmail email adress as a test user. 
+Make sure the email adres is added in the list of test users.
+
+Once this is done, the connection should be established flawless, after a restart of your HA and entering the code you are given in the notification once the restart has finished.
 
 ## Configuration
 
