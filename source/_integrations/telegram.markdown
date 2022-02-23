@@ -400,6 +400,7 @@ parse_mode:
 disable_notification:
   description: True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound.
   required: false
+  default: false
   type: boolean
 message_tag:
   description: Tag for sent message.
