@@ -123,7 +123,7 @@ Your Google Assistant devices will still communicate via the internet to:
 
 The [HTTP integration](/integrations/http) must **not** be configured to use an SSL certificate with the [`ssl_certificate` option](/integrations/http/#ssl_certificate).
   
-This is because the Google Assistant device will connect directly to the IP of your Home Assistant installation and will fail if it encounters an invalid SSL certificate.
+This is because the Google Assistant device will connect directly to the IP of your Home Assistant instance and will fail if it encounters an invalid SSL certificate.
   
 For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic straight to Home Assistant.
 
