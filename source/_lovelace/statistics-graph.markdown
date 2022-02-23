@@ -7,10 +7,6 @@ description: "The Statistics Graph card allows you to display a graph with stati
 
 The Statistics Graph card allows you to display a graph of statistics data for each of the entities listed.
 
-Statistics are gathered every hour for sensors that support it. It will either keep the `min`, `max` and `mean` of a sensors value for a specific hour, or the `sum` for a metered entity.
-
-If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
-
 <p class='img'>
 <img src='/images/lovelace/lovelace_statistics_graph_line.png' alt='Screenshot of the statistics graph card for power entities'>
 Screenshot of the Statistics Graph card with none metered entities and `chart_type` `line`.
@@ -20,6 +16,12 @@ Screenshot of the Statistics Graph card with none metered entities and `chart_ty
 <img src='/images/lovelace/lovelace_statistics_graph_bar.png' alt='Screenshot of the statistics graph card for energy entities'>
 Screenshot of the Statistics Graph card with a metered entity and `chart_type` `bar`.
 </p>
+
+Statistics are gathered every hour for sensors that support it. It will either keep the `min`, `max` and `mean` of a sensors value for a specific hour, or the `sum` for a metered entity.
+
+If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
+
+To add the Statistics Graph card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
 All options for this card can be configured via the user interface.
 

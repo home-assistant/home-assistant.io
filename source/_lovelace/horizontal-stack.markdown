@@ -7,6 +7,8 @@ description: "The Horizontal Stack card allows you to stack together multiple ca
 
 The Horizontal Stack card allows you to stack together multiple cards, so they always sit next to each other in the space of one column.
 
+To add the Horizontal Stack card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
 All options for this card can be configured via the user interface.
 
 ## YAML Configuration

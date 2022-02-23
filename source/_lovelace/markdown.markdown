@@ -7,12 +7,14 @@ description: "The Markdown card is used to render Markdown"
 
 The Markdown card is used to render [Markdown](https://commonmark.org/help/).
 
-The renderer uses [Marked.js](https://marked.js.org), which supports [several specifications of Markdown](https://marked.js.org/#specifications), including CommonMark, GitHub Flavored Markdown (GFM) and `markdown.pl`.
-
 <p class='img'>
 <img src='/images/lovelace/lovelace_markdown.png' alt='Screenshot of the markdown card'>
 Screenshot of the Markdown card.
 </p>
+
+The renderer uses [Marked.js](https://marked.js.org), which supports [several specifications of Markdown](https://marked.js.org/#specifications), including CommonMark, GitHub Flavored Markdown (GFM) and `markdown.pl`.
+
+To add the Markdown card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
 ## YAML Configuration
 

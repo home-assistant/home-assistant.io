@@ -7,12 +7,14 @@ description: "The Entity Filter card allows you to define a list of entities tha
 
 The Entity Filter card allows you to define a list of entities that you want to track only when in a certain state. Very useful for showing lights that you forgot to turn off or show a list of people only when they're at home.
 
-This type of card can also be used together with rest of cards that allow multiple entities, allowing you to use [glance](/lovelace/glance/) or [picture-glance](/lovelace/picture-glance/). By default it uses [entities](/lovelace/entities/) card model.
-
 <p class='img'>
 <img src='/images/lovelace/lovelace_entity_filter.png' alt='Screenshot of the Entity Filter card'>
 Screenshot of the Entity Filter card.
 </p>
+
+This type of card can also be used together with rest of cards that allow multiple entities, allowing you to use [glance](/lovelace/glance/) or [picture-glance](/lovelace/picture-glance/). By default it uses [entities](/lovelace/entities/) card model.
+
+To add the Entity Filter card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
 ## YAML Configuration
 

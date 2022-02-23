@@ -7,9 +7,11 @@ description: The Conditional card displays another card based on entity states.
 
 The Conditional card displays another card based on entity states.
 
-All options for this card can be configured via the user interface.
-
 Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
+
+To add the Conditional card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+All options for this card can be configured via the user interface.
 
 ## YAML Configuration
 

@@ -12,6 +12,8 @@ The Grid card allows you to show multiple cards in a grid. It will first fill th
   Screenshot of the Grid card.
 </p>
 
+To add the Grid card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
 All options for this card can be configured via the user interface.
 
 ## YAML Configuration

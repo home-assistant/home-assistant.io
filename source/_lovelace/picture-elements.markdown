@@ -7,12 +7,14 @@ description: "The Picture Elements card is one of the most versatile types of ca
 
 The Picture Elements card is one of the most versatile types of cards.
 
-The cards allow you to position icons or text and even services on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/lovelace/picture-glance/) with no restrictions!
-
 <p class='img'>
   <img src='/images/lovelace/lovelace_picture_elements.gif' alt='A functional floorplan powered by picture elements'>
   A functional floorplan powered by picture elements.
 </p>
+
+The cards allow you to position icons or text and even services on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/lovelace/picture-glance/) with no restrictions!
+
+To add the Picture Elements card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
 ## YAML Configuration
 

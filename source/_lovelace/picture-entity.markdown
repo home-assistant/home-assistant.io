@@ -12,6 +12,8 @@ The Picture Entity card displays an entity in the form of an image. Instead of i
   Background changes according to the entity state.
 </p>
 
+To add the Picture Entity card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
 ## YAML Configuration
 
 The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
