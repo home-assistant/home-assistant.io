@@ -124,6 +124,7 @@ Send a sticker.
 |---------------------------|----------|--------------------------------------------------|
 | `url`                     |       no | Remote path to a static .webp or animated .tgs sticker. |
 | `file`                    |       no | Local path to a static .webp or animated .tgs sticker.  |
+| `sticker_id`              |       no | ID of a sticker that exists  on telegram servers. The ID can be found by sending a sticker to your bot and querying the telegram-api method [getUpdates](https://core.telegram.org/bots/api#getting-updates) or by using the [@idstickerbot](https://t.me/idstickerbot) |
 | `username`                |      yes | Username for a URL which requires HTTP authentication. |
 | `password`                |      yes | Password (or bearer token) for a URL which require HTTP authentication. |
 | `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.  |
