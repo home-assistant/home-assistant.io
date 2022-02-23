@@ -23,6 +23,7 @@ ha_platforms:
   - media_player
   - remote
   - sensor
+  - select
 ---
 
 The Roku integration allows you to control a [Roku](https://www.roku.com/) device.

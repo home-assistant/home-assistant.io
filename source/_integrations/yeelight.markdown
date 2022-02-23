@@ -10,6 +10,7 @@ ha_codeowners:
   - '@zewelor'
   - '@shenxn'
   - '@starkillerOG'
+  - '@alexyao2015'
 ha_domain: yeelight
 ha_platforms:
   - binary_sensor

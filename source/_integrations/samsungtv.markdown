@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@escoand'
   - '@chemelli74'
+  - '@epenet'
 ha_domain: samsungtv
 ha_ssdp: true
 ha_platforms:

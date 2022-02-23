@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: version
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_config_flow: true
 ---

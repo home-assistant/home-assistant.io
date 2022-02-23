@@ -21,6 +21,7 @@ ha_platforms:
   - cover
   - fan
   - light
+  - lock
   - number
   - sensor
   - select
