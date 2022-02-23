@@ -535,7 +535,7 @@ action:
 - service: notify.telegrambot
   data:
     title: Example Message
-    message: 'Message with tag'
+    message: "Message with tag"
     data:
       message_tag: "example_tag"
 ```
