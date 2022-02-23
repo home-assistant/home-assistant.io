@@ -140,7 +140,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
    5. Enter a new `Value` field set to `.*\._home-assistant\._tcp\.local`
 5. Check the box `Support local query` under `Add capabilities`.
 6. `Save` your changes.
-7. Either wait for 30 minutes, or restart all your connected Google devices.
+7. Either wait for 30 minutes, or restart all your connected Google Assistant devices.
 8. Restart Home Assistant Core.
 9. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
 
