@@ -115,9 +115,17 @@ Google Assistant will consider sending commands locally if it does not involve a
 
 Your Home Assistant instance needs to be connected to the same network as the Google Assistant device that you’re talking to. The Google Assistant device will discover your Home Assistant instance via mDNS discovery (UDP broadcasts).
 
-Your Home Assistant instance should not have the [HTTP integration](/integrations/http) configured to use an SSL certificate. This is necessary because the Google device will connect directly to the IP of your Home Assistant installation and will fail if it encounters an invalid SSL certificate. For secure external ingress, the NGINX Home Assistant SSL proxy Home Assistant Add-on or other proxy solution must be used.
-
 The Google device still needs to be connected to the internet to be able to sync entities via Home Assistant Cloud, get credentials to establish a local connection and as a fallback for secure devices or if your Home Assistant instance cannot be reached.
+
+<div class='note'>
+
+The [HTTP integration](/integrations/http) must **not** be configured to use an SSL certificate with the [`ssl_certificate` option](/integrations/http/#ssl_certificate).
+  
+This is because the Google device will connect directly to the IP of your Home Assistant installation and will fail if it encounters an invalid SSL certificate.
+  
+For secure external ingress, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic directly to Home Assistant.
+
+</div>
 
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
@@ -134,7 +142,7 @@ The Google device still needs to be connected to the internet to be able to sync
 8. Restart Home Assistant Core.
 9. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
 
-You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome)
+You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome).
 
 ### YAML Configuration
 

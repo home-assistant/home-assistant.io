@@ -30,9 +30,9 @@ You may also decide to turn off the channel. While there is nothing preventing y
 
 ![Screenshot of websocket settings](/images/blog/2022-02-android/websocket_setting.png)
 
-The persistent notification will contain an actionable button taking you directly to the settings page. From here you can adjust the WebSocket connection behavior and modify the notification channel. The persistent notification will only be present when an active connection to your server is being maintained.
+The persistent notification will contain an actionable button taking you directly to the settings page. From here you can adjust the persistent connection behavior and modify the notification channel. The persistent notification will only be present when an active connection to your server is being maintained.
 
-If you are on the [minimal version] of the app will have the default WebSocket connection set to "Always" as this is the only way the app can receive notifications from your server. If not, you will have the default setting "While Screen On", where the app will continue to receive notifications from Firebase when the WebSocket connection is not active. If you are on the minimal version you will need to be on Home Assistant Core 2022.2 or later in order to use this feature.
+If you are on the [minimal version] of the app will have the default persistent connection set to "Always" as this is the only way the app can receive notifications from your server. If not, you will have the default setting "Never", where the app will continue to receive notifications from Firebase. If you are on the minimal version you will need to be on Home Assistant Core 2022.2 or later in order to use this feature.
 
 We have seen varying reports from users who either do not notice much of a change in terms of battery usage while others have noticed a big difference. Please feel free to adjust the settings based on your usage and desire for the feature. Some of us developers have opted to keep the option set to "Always" and do not notice much of a change in battery usage. Personally, I keep mine on "Always" and I have not had to change my daily charging habits to enjoy this feature, your experience may be different.
 
@@ -94,6 +94,7 @@ Special thank you to all other contributors who have helped in bug fixing and ot
 ## Changelog
 
 - 2022.2.0 - https://github.com/home-assistant/android/releases/tag/2022.2.0
+- 2022.2.1 - https://github.com/home-assistant/android/releases/tag/2022.2.1
 
 
 [dshokouhi]: https://github.com/dshokouhi

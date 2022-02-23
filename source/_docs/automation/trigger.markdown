@@ -292,6 +292,14 @@ automation:
 
 The `for` template(s) will be evaluated when an entity changes as specified.
 
+<div class='note warning'>
+
+Use of the `for` option will not survive Home Assistant restart or the reload of automations. During restart or reload, automations that were awaiting `for` the trigger to pass, are reset.
+
+If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
+
+</div>
+
 ## State trigger
 
 Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
@@ -449,6 +457,14 @@ Use quotes around your values for `from` and `to` to avoid the YAML parser from 
 
 </div>
 
+<div class='note warning'>
+
+Use of the `for` option will not survive Home Assistant restart or the reload of automations. During restart or reload, automations that were awaiting `for` the trigger to pass, are reset.
+
+If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
+
+</div>
+
 ## Sun trigger
 
 ### Sunset / Sunrise trigger
@@ -588,6 +604,14 @@ automation:
 The `for` template(s) will be evaluated when the `value_template` becomes 'true'.
 
 Templates that do not contain an entity will be rendered once per minute.
+
+<div class='note warning'>
+
+Use of the `for` option will not survive Home Assistant restart or the reload of automations. During restart or reload, automations that were awaiting `for` the trigger to pass, are reset.
+
+If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
+
+</div>
 
 ## Time trigger
 

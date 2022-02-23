@@ -51,7 +51,6 @@ The preferred way to enable the `bmw_connected_drive` integration is via **Confi
 | Setting | Description |
 |---------|-------------|
 | Read-only | No execution of services to the vehicle. Still possible to send messages and POIs via `notify` and to request a status update via `bmw_connected_drive.update_state`.
-| Use Home Assistant location for car location polls | Older cars (non i3/i8 build before 7/2014) require the phone to be close to the car to get location updates. Enable this option to use the location of your Home Assistant instance for these queries, so updates are available when your car is in the surrounding of your home. |
 
 The following settings in your `configuration.yaml` file are considered legacy. They will be imported into **Configuration** > **Devices & Services** and you can set the options from above. Changes to `configuration.yaml` after the first import will be ignored.
 
@@ -128,9 +127,9 @@ The `bmw_connected_drive` integration offers several buttons to trigger actions 
 
 Using these buttons will impact the state of your vehicle. So use these services with care!
 
-### Air condition
+### Air conditioning
 
-The air condition of the vehicle can be activated with the `button.<your_vehicle>_activate_air_conditioning` button.
+The air conditioning of the vehicle can be activated with the `button.<your_vehicle>_activate_air_conditioning` button.
 
 What exactly is started here depends on the type of vehicle. It might range from just ventilation over auxiliary heating to real air conditioning. If your vehicle is equipped with auxiliary heating, only trigger this service if the vehicle is parked in a location where it is safe to use it (e.g., not in an underground parking or closed garage).
 
