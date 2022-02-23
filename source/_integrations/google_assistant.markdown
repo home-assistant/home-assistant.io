@@ -109,21 +109,23 @@ If you want to support active reporting of state to Google's server (configurati
 
 ### Enable Local Fulfillment
 
-Google devices can send their commands locally to Home Assistant. This allows Google to respond faster to your commands. If a local connection is unavailable it will automatically fallback to the cloud.
+Google Assistant devices can send their commands locally to Home Assistant allowing them to respond faster.
 
-Google Assistant will consider sending commands locally if it does not involve a [secure device](#secure-device).
+Your Home Assistant instance needs to be connected to the same network as the Google Assistant device that you’re talking to so that it can be discovered via mDNS discovery (UDP broadcasts).
 
-Your Home Assistant instance needs to be connected to the same network as the Google Assistant device that you’re talking to. The Google Assistant device will discover your Home Assistant instance via mDNS discovery (UDP broadcasts).
-
-The Google device still needs to be connected to the internet to be able to sync entities via Home Assistant Cloud, get credentials to establish a local connection and as a fallback for secure devices or if your Home Assistant instance cannot be reached.
+Your Google Assistant devices will still communicate via the internet to:
+- sync entities
+- get credentials to establish a local connection
+- send commands that involve a [secure device](#secure-device)
+- send commands if local fulfillment fails
 
 <div class='note'>
 
 The [HTTP integration](/integrations/http) must **not** be configured to use an SSL certificate with the [`ssl_certificate` option](/integrations/http/#ssl_certificate).
   
-This is because the Google device will connect directly to the IP of your Home Assistant installation and will fail if it encounters an invalid SSL certificate.
+This is because the Google Assistant device will connect directly to the IP of your Home Assistant installation and will fail if it encounters an invalid SSL certificate.
   
-For secure external ingress, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic directly to Home Assistant.
+For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic directly to Home Assistant.
 
 </div>
 
