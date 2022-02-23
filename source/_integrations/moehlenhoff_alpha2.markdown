@@ -2,7 +2,7 @@
 title: Möhlenhoff Alpha 2
 description: Instructions on how to integrate a Möhlenhoff Alpha 2 temperature control system into Home Assistant.
 ha_category: Climate
-ha_release: 2022.1
+ha_release: 2022.3
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -12,32 +12,30 @@ ha_platforms:
   - climate
 ---
 
-The `moehlenhoff_alpha2` platform allows you to control a [Möhlenhoff Alpha 2](https://www.moehlenhoff.de/en/products/room-by-room-control/oem-alpha-2-system) temperature control system.
+The Möhlenhoff Alpha 2 integration allows you to control a
+[Möhlenhoff Alpha 2](https://www.moehlenhoff.de/en/products/room-by-room-control/oem-alpha-2-system)
+temperature control system.
 
-## Setup
+## Prerequisites
 
 Please make sure the base station is turned on and connected to your local network.
+
+
 {% include integrations/config_flow.md %}
-
-Fill in the hostname or the IP address of your base station.
-If using a hostname, make sure the name resolution works as expected.
-
-After pressing `Submit` the integration will connect to your base station.
-
-It is also possible to repeat these steps to setup another base station.
 
 ## Climate
 
-The `moehlenhoff_alpha2` climate platform provides current and target temperature
-information, HVAC and preset mode.
+The  climate platform provides current and target temperature information,
+HVAC and preset mode.
 
-A climate entity will be created for each area.
-The name of the entity is taken from the name of the heat area defined in the Alpha 2 base station.
+A climate entity will be created for each area. The name of the entity is
+taken from the name of the heat area defined in the Alpha 2 base station.
 
 The state is polled from the base every 60 seconds.
 
 Please note that after changing the temperature in Home Assistant,
-it may take up to 10 minutes for your room control units to display these changes.
+it may take up to 10 minutes for your room control units to display these
+changes.
 
 ### Integration services
 
