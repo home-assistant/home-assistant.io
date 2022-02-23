@@ -9,6 +9,7 @@ ha_category:
   - Cover
   - Fan
   - Hub
+  - Humidifier
   - Light
   - Lock
   - Number
@@ -16,7 +17,6 @@ ha_category:
   - Sensor
   - Siren
   - Switch
-  - Humidifier
 ha_release: '2021.2'
 ha_iot_class: Local Push
 ha_config_flow: true
