@@ -136,7 +136,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
    1. Click `+ New scan config` if no configuration exists
    2. Select `MDNS`
    3. Set `MDNS service name` to `_home-assistant._tcp.local`
-   4. Click `Add field`, then under `Select a field` select `Name`
+   4. Click `Add field`, then under `Select a field` choose `Name`
    5. Enter a new `Value` field set to `.*\._home-assistant\._tcp\.local`
 5. Check the box `Support local query` under `Add capabilities`.
 6. `Save` your changes.
