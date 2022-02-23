@@ -501,13 +501,13 @@ LED                     | Turn on/off the LED
 
 Sensor                          | Description                                                    
 ------------------------------- | -------------------------------------------------------------- 
-Carbon Dioxide                  | The current carbon dioxide measured in ppm                     
+Carbon Dioxide                  | The current carbon dioxide in ppm                     
 Dust filter life remaining      | The remaining life of the filter                              
 Dust filter life remaining days | The remaining life of the filter in day                        
-PM2.5                           | The current particulate matter 2.5 measured                    
-Temperature                     | The current outside temperature measured                      
-Control Speed                   | The current motor speed measured in rpm                       
-Favorite Speed                  | The favorite motor speed measured in rpm                       
+PM2.5                           | The current particulate matter 2.5                    
+Temperature                     | The current outside temperature                      
+Control Speed                   | The current motor speed in rpm                       
+Favorite Speed                  | The favorite motor speed in rpm                       
 
 - Switch entities
 
@@ -558,15 +558,15 @@ LED                     | Turn on/off `led`
 
 Sensor                           | Description                                                   
 -------------------------------- | -------------------------------------------------------------- 
-Carbon Dioxide                   | The current carbon dioxide measured in ppm                    
-Dust filter life remaining       | The remaining life of the dust filter                         
-Dust filter life remaining days  | The remaining life of the dust filter in day                   
+Carbon Dioxide                   | The current carbon dioxide in ppm                    
+Dust filter life remaining       | The remaining life of the dust filter                       
+Dust filter life remaining days  | The remaining life of the dust filter in days                   
 Upper filter life remaining      | The remaining life of the upper filter                         
-Upper filter life remaining days | The remaining life of the upper filter in day                  
-PM2.5                            | The current particulate matter 2.5 measured                    
-Temperature                      | The current outside temperature measured                       
-Control Speed                    | The current motor speed measured in rpm                        
-Favorite Speed                   | The favorite motor speed measured in rpm                       
+Upper filter life remaining days | The remaining life of the upper filter in days                  
+PM2.5                            | The current particulate matter 2.5                    
+Temperature                      | The current outside temperature                       
+Control Speed                    | The current motor speed in rpm                        
+Favorite Speed                   | The favorite motor speed in rpm                       
 
 - Switch entities
 
