@@ -24,19 +24,7 @@ There is [an issue](https://github.com/rabbitmq/rabbitmq-mqtt/issues/154) with t
 
 ## Connect to a public broker
 
-The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home.
-
-```yaml
-mqtt:
-  broker: test.mosquitto.org
-  port: 1883 or 8883
-
-  # Optional, replace port 1883 with following if you want encryption
-  # (doesn't really matter because broker is public)
-  port: 8883
-  # Download certificate from https://test.mosquitto.org/ssl/mosquitto.org.crt
-  certificate: /home/paulus/downloads/mosquitto.org.crt
-```
+The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, confiure the MQTT integration to connect to broker `test.mosquitto.org` on port 1183 or 8883.
 
 <div class='note'>
 
