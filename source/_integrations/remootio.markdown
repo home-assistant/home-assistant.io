@@ -1,7 +1,7 @@
 ---
 title: Remootio
 description: Instructions on how to integrate Remootio controlled garage door or garden gate into Home Assistant.
-ha_release: ???
+ha_release: 2022.3.0
 ha_category:
   - Cover
 ha_iot_class: Local Push
