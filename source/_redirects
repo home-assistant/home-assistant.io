@@ -1855,7 +1855,6 @@
 /components/timer /integrations/timer
 /components/tod /integrations/tod
 /components/todoist /integrations/todoist
-/components/tof /integrations/tof
 /components/tomato /integrations/tomato
 /components/toon /integrations/toon
 /components/torque /integrations/torque
@@ -2360,3 +2359,5 @@
 /components/apns /more-info/removed-integration 301
 /components/notify.apns /more-info/removed-integration 301
 /integrations/apns /more-info/removed-integration 301
+/components/tof /more-info/removed-integration 301
+/integrations/tof /more-info/removed-integration 301
