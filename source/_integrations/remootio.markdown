@@ -33,6 +33,8 @@ The integration fires an event under the type `remootio_left_open` if the Remoot
 
 You can subscribe to the `remootio_left_open` event type in [Developer Tools/Events](/docs/tools/dev-tools/) in order to examine the event data JSON for the correct parameters to use in your automations. For example, `remootio_left_open` returns event data JSON similar to the following.
 
+{% raw %}
+
 ```json
 {
     "event_type": "remootio_left_open",
@@ -50,3 +52,5 @@ You can subscribe to the `remootio_left_open` event type in [Developer Tools/Eve
     }
 }
 ```
+
+{% endraw %}
