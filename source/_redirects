@@ -405,7 +405,6 @@
 /components/light.ads /integrations/ads#light
 /components/light.avion /integrations/avion
 /components/light.blinksticklight /integrations/blinksticklight
-/components/light.blinkt /integrations/blinkt
 /components/light.deconz /integrations/deconz#light
 /components/light.decora /integrations/decora
 /components/light.decora_wifi /integrations/decora_wifi
@@ -551,7 +550,6 @@
 /components/media_player.yamaha /integrations/yamaha
 /components/media_player.yamaha_musiccast /integrations/yamaha_musiccast
 /components/media_player.ziggo_mediabox_xl /integrations/ziggo_mediabox_xl
-/components/notify.apns /integrations/apns
 /components/notify.ciscospark /integrations/ciscospark
 /components/notify.clickatell /integrations/clickatell
 /components/notify.clicksend /integrations/clicksend
@@ -639,7 +637,6 @@
 /components/sensor.asuswrt /integrations/asuswrt
 /components/sensor.awair /integrations/awair
 /components/sensor.bbox /integrations/bbox#sensor
-/components/sensor.bh1750 /integrations/bh1750
 /components/sensor.bitcoin /integrations/bitcoin
 /components/sensor.blink /integrations/blink
 /components/sensor.blockchain /integrations/blockchain
@@ -1100,7 +1097,6 @@
 /components/apache_kafka /integrations/apache_kafka
 /components/apcupsd /integrations/apcupsd
 /components/api /integrations/api
-/components/apns /integrations/apns
 /components/apple_tv /integrations/apple_tv
 /components/aprs /integrations/aprs
 /components/aqualogic /integrations/aqualogic
@@ -1129,7 +1125,6 @@
 /components/bayesian /integrations/bayesian
 /components/bbox /integrations/bbox
 /components/beewi_smartclim /integrations/beewi_smartclim
-/components/bh1750 /integrations/bh1750
 /components/binary_sensor /integrations/binary_sensor
 /components/binary_sensor.knx /integrations/binary_sensor.knx
 /components/binary_sensor.modbus /integrations/binary_sensor.modbus
@@ -1144,7 +1139,6 @@
 /components/blackbird /integrations/blackbird
 /components/blink /integrations/blink
 /components/blinksticklight /integrations/blinksticklight
-/components/blinkt /integrations/blinkt
 /components/blockchain /integrations/blockchain
 /components/bloomsky /integrations/bloomsky
 /components/bluesound /integrations/bluesound
@@ -1854,7 +1848,6 @@
 /components/timer /integrations/timer
 /components/tod /integrations/tod
 /components/todoist /integrations/todoist
-/components/tof /integrations/tof
 /components/tomato /integrations/tomato
 /components/toon /integrations/toon
 /components/torque /integrations/torque
@@ -2360,3 +2353,14 @@
 /components/binary_sensor.bbb_gpio /more-info/removed-integration 301
 /components/switch.bbb_gpio /more-info/removed-integration 301
 /integrations/bbb_gpio /more-info/removed-integration 301
+/components/bh1750 /more-info/removed-integration 301
+/components/sensor.bh1750 /more-info/removed-integration 301
+/integrations/bh1750 /more-info/removed-integration 301
+/components/apns /more-info/removed-integration 301
+/components/notify.apns /more-info/removed-integration 301
+/integrations/apns /more-info/removed-integration 301
+/components/blinkt /more-info/removed-integration 301
+/components/light.blinkt /more-info/removed-integration 301
+/integrations/blinkt /more-info/removed-integration 301
+/components/tof /more-info/removed-integration 301
+/integrations/tof /more-info/removed-integration 301
