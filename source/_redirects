@@ -127,7 +127,6 @@
 /components/binary_sensor.aurora /integrations/aurora
 /components/binary_sensor.axis /integrations/axis#binary-sensor
 /components/binary_sensor.bayesian /integrations/bayesian
-/components/binary_sensor.bbb_gpio /integrations/bbb_gpio#binary-sensor
 /components/binary_sensor.blink /integrations/blink
 /components/binary_sensor.bloomsky /integrations/bloomsky#binary-sensor
 /components/binary_sensor.bmw_connected_drive /integrations/bmw_connected_drive
@@ -925,7 +924,6 @@
 /components/switch.anel_pwrctrl /integrations/anel_pwrctrl
 /components/switch.aqualogic /integrations/aqualogic#switch
 /components/switch.arest /integrations/arest#switch
-/components/switch.bbb_gpio /integrations/bbb_gpio#switch
 /components/switch.broadlink /integrations/broadlink#switch
 /components/switch.danfoss_air /integrations/danfoss_air#switch
 /components/switch.deconz /integrations/deconz#switch
@@ -1125,7 +1123,6 @@
 /components/azure_event_hub /integrations/azure_event_hub
 /components/baidu /integrations/baidu
 /components/bayesian /integrations/bayesian
-/components/bbb_gpio /integrations/bbb_gpio
 /components/bbox /integrations/bbox
 /components/beewi_smartclim /integrations/beewi_smartclim
 /components/binary_sensor /integrations/binary_sensor
@@ -2352,6 +2349,10 @@
 /components/gntp /more-info/removed-integration 301
 /components/notify.gntp /more-info/removed-integration 301
 /integrations/gntp /more-info/removed-integration 301
+/components/bbb_gpio /more-info/removed-integration 301
+/components/binary_sensor.bbb_gpio /more-info/removed-integration 301
+/components/switch.bbb_gpio /more-info/removed-integration 301
+/integrations/bbb_gpio /more-info/removed-integration 301
 /components/bh1750 /more-info/removed-integration 301
 /components/sensor.bh1750 /more-info/removed-integration 301
 /integrations/bh1750 /more-info/removed-integration 301
