@@ -154,6 +154,21 @@ rflink:
 
 This configuration will ignore the button `1` of the `newkaku` device with ID `000001`, all devices of the `digitech` protocol and all switches of the `kaku` protocol device with codewheel ID `1`.
 
+### Invert cover
+Devices can be configure to work in inverted mode by adding option in configuration.yaml
+```yaml
+# Example configuration.yaml entry for inverted RTS cover
+cover:
+  - platform: rflink
+    devices:
+      RTS_0a0a0a_1:      ###Rfloader created remote control wich is used by Home assistant
+        name: Blind_office
+        aliases: 
+          - rts_0f1f2f_01      #### Id of the remote control (Somfy smove for this example)
+        type: inverted
+ ```
+This configuration uses `0a0a0a` to control the inverted shutter (send UP to close and Down to open) and listen commands sent by `0f1f2f` remote control.
+
 ### Device support
 
 Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration please consider testing and adding support yourself.
