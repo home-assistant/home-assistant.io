@@ -517,7 +517,6 @@
 /components/media_player.lg_soundbar /integrations/lg_soundbar
 /components/media_player.mediaroom /integrations/mediaroom
 /components/media_player.monoprice /integrations/monoprice
-/components/media_player.mpchc /integrations/mpchc
 /components/media_player.mpd /integrations/mpd
 /components/media_player.nad /integrations/nad
 /components/media_player.onkyo /integrations/onkyo
@@ -1536,7 +1535,6 @@
 /components/mold_indicator /integrations/mold_indicator
 /components/monoprice /integrations/monoprice
 /components/moon /integrations/moon
-/components/mpchc /integrations/mpchc
 /components/mpd /integrations/mpd
 /components/mqtt /integrations/mqtt
 /components/mqtt_eventstream /integrations/mqtt_eventstream
@@ -2364,3 +2362,6 @@
 /integrations/blinkt /more-info/removed-integration 301
 /components/tof /more-info/removed-integration 301
 /integrations/tof /more-info/removed-integration 301
+/components/media_player.mpchc /more-info/removed-integration 301
+/components/mpchc /more-info/removed-integration 301
+/integrations/mpchc /more-info/removed-integration 301
