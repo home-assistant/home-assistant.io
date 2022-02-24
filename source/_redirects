@@ -754,7 +754,6 @@
 /components/sensor.magicseaweed /integrations/magicseaweed
 /components/sensor.meteo_france /integrations/meteo_france
 /components/sensor.mfi /integrations/mfi#sensor
-/components/sensor.mhz19 /integrations/mhz19
 /components/sensor.miflora /integrations/miflora
 /components/sensor.min_max /integrations/min_max
 /components/sensor.mitemp_bt /integrations/mitemp_bt
@@ -1517,7 +1516,6 @@
 /components/meteoalarm /integrations/meteoalarm
 /components/metoffice /integrations/metoffice
 /components/mfi /integrations/mfi
-/components/mhz19 /integrations/mhz19
 /components/microsoft /integrations/microsoft
 /components/microsoft_face /integrations/microsoft_face
 /components/microsoft_face_detect /integrations/microsoft_face_detect
@@ -2364,3 +2362,6 @@
 /integrations/blinkt /more-info/removed-integration 301
 /components/tof /more-info/removed-integration 301
 /integrations/tof /more-info/removed-integration 301
+/components/mhz19 /more-info/removed-integration 301
+/components/sensor.mhz19 /more-info/removed-integration 301
+/integrations/mhz19 /more-info/removed-integration 301
