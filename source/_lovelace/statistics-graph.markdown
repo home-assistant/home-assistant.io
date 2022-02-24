@@ -43,7 +43,7 @@ chart_type:
   type: string
 stat_types:
   required: false
-  description: The statistics types to render. `min`, `max`, `mean`, `sum`
+  description: The statistics types to render. `min`, `max`, `mean`, `sum`, `state`
   type: list
 title:
   required: false
