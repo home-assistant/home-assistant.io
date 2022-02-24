@@ -552,7 +552,6 @@
 /components/media_player.yamaha /integrations/yamaha
 /components/media_player.yamaha_musiccast /integrations/yamaha_musiccast
 /components/media_player.ziggo_mediabox_xl /integrations/ziggo_mediabox_xl
-/components/notify.apns /integrations/apns
 /components/notify.ciscospark /integrations/ciscospark
 /components/notify.clickatell /integrations/clickatell
 /components/notify.clicksend /integrations/clicksend
@@ -1102,7 +1101,6 @@
 /components/apache_kafka /integrations/apache_kafka
 /components/apcupsd /integrations/apcupsd
 /components/api /integrations/api
-/components/apns /integrations/apns
 /components/apple_tv /integrations/apple_tv
 /components/aprs /integrations/aprs
 /components/aqualogic /integrations/aqualogic
@@ -2359,3 +2357,6 @@
 /components/gntp /more-info/removed-integration 301
 /components/notify.gntp /more-info/removed-integration 301
 /integrations/gntp /more-info/removed-integration 301
+/components/apns /more-info/removed-integration 301
+/components/notify.apns /more-info/removed-integration 301
+/integrations/apns /more-info/removed-integration 301
