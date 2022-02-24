@@ -2,6 +2,7 @@
 title: Overkiz (by Somfy)
 description: Instructions on how to integrate hubs whom use the Overkiz platform with Home Assistant.
 ha_category:
+  - Alarm Control Panel
   - Binary Sensor
   - Button
   - Cover
@@ -25,6 +26,7 @@ ha_domain: overkiz
 ha_dhcp: true
 ha_zeroconf: true
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - diagnostics
