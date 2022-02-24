@@ -823,7 +823,6 @@
 /components/sensor.serial_pm /integrations/serial_pm
 /components/sensor.seventeentrack /integrations/seventeentrack
 /components/sensor.shodan /integrations/shodan
-/components/sensor.sht31 /integrations/sht31
 /components/sensor.sigfox /integrations/sigfox
 /components/sensor.simulated /integrations/simulated
 /components/sensor.skybeacon /integrations/skybeacon
@@ -1736,7 +1735,6 @@
 /components/shiftr /integrations/shiftr
 /components/shodan /integrations/shodan
 /components/shopping_list /integrations/shopping_list
-/components/sht31 /integrations/sht31
 /components/sigfox /integrations/sigfox
 /components/simplepush /integrations/simplepush
 /components/simplisafe /integrations/simplisafe
@@ -2364,3 +2362,6 @@
 /integrations/blinkt /more-info/removed-integration 301
 /components/tof /more-info/removed-integration 301
 /integrations/tof /more-info/removed-integration 301
+/components/sensor.sht31 /more-info/removed-integration 301
+/integrations/sht31 /more-info/removed-integration 301
+/components/sht31 /more-info/removed-integration 301
