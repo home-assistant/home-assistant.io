@@ -406,7 +406,6 @@
 /components/light.ads /integrations/ads#light
 /components/light.avion /integrations/avion
 /components/light.blinksticklight /integrations/blinksticklight
-/components/light.blinkt /integrations/blinkt
 /components/light.deconz /integrations/deconz#light
 /components/light.decora /integrations/decora
 /components/light.decora_wifi /integrations/decora_wifi
@@ -1145,7 +1144,6 @@
 /components/blackbird /integrations/blackbird
 /components/blink /integrations/blink
 /components/blinksticklight /integrations/blinksticklight
-/components/blinkt /integrations/blinkt
 /components/blockchain /integrations/blockchain
 /components/bloomsky /integrations/bloomsky
 /components/bluesound /integrations/bluesound
@@ -2360,3 +2358,6 @@
 /components/apns /more-info/removed-integration 301
 /components/notify.apns /more-info/removed-integration 301
 /integrations/apns /more-info/removed-integration 301
+/components/blinkt /more-info/removed-integration 301
+/components/light.blinkt /more-info/removed-integration 301
+/integrations/blinkt /more-info/removed-integration 301
