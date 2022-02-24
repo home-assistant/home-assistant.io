@@ -59,6 +59,9 @@ Enjoy the release!
 - [Release 2022.2.4 - February 8](#release-202224---february-8)
 - [Release 2022.2.5 - February 9](#release-202225---february-9)
 - [Release 2022.2.6 - February 11](#release-202226---february-11)
+- [Release 2022.2.7 - February 15](#release-202227---february-15)
+- [Release 2022.2.8 - February 16](#release-202228---february-16)
+- [Release 2022.2.9 - February 18](#release-202229---february-18)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -865,6 +868,148 @@ The following integrations are now available via the Home Assistant UI:
 [spotify docs]: /integrations/spotify/
 [stream docs]: /integrations/stream/
 [synology_dsm docs]: /integrations/synology_dsm/
+
+## Release 2022.2.7 - February 15
+
+- Fix Spotify session token refresh ([@frenck] - [#66390]) ([spotify docs])
+- Correct modbus address limits ([@uSlackr] - [#66367]) ([modbus docs])
+- Fix mesh role for Fritz old devices ([@chemelli74] - [#66369]) ([fritz docs])
+- Fix missing refactors of EntityCategory.XXX ([@davet2001] - [#66379]) ([zha docs]) ([fritzbox docs]) ([onvif docs]) ([fritz docs]) ([vicare docs]) ([goodwe docs])
+- revert change in vizio logic to fix bug ([@raman325] - [#66424]) ([vizio docs])
+- Reset the stream backoff timeout when the url updates ([@allenporter] - [#66426]) ([stream docs])
+- Increase switcher_kis timeouts ([@thecode] - [#66465]) ([switcher_kis docs])
+- Bump Advantage Air to 0.2.6 ([@Bre77] - [#65849]) ([advantage_air docs])
+- Bump Advantage Air 0.3.0 ([@Bre77] - [#66488]) ([advantage_air docs])
+- Fix utility meter restore state ([@dgomes] - [#66490]) ([utility_meter docs])
+- Fix access to hass.data in hdmi-cec ([@epenet] - [#66504]) ([hdmi_cec docs])
+- Revert "Fix raspihats callbacks (#64122)" ([@epenet] - [#66517]) ([raspihats docs])
+- Fix flux_led turn on with slow responding devices ([@bdraco] - [#66527]) ([flux_led docs])
+- Add fallback for serialnumber ([@elupus] - [#66553]) ([philips_js docs])
+- Fix Tuya Covers without state in their control data point ([@frenck] - [#66564]) ([tuya docs])
+- Override and disable nest stream `unavailable` behavior ([@allenporter] - [#66571]) ([nest docs])
+- Bump aiohue to version 4.1.2 ([@marcelveldt] - [#66609]) ([hue docs])
+
+[#65849]: https://github.com/home-assistant/core/pull/65849
+[#66367]: https://github.com/home-assistant/core/pull/66367
+[#66369]: https://github.com/home-assistant/core/pull/66369
+[#66379]: https://github.com/home-assistant/core/pull/66379
+[#66390]: https://github.com/home-assistant/core/pull/66390
+[#66424]: https://github.com/home-assistant/core/pull/66424
+[#66426]: https://github.com/home-assistant/core/pull/66426
+[#66465]: https://github.com/home-assistant/core/pull/66465
+[#66488]: https://github.com/home-assistant/core/pull/66488
+[#66490]: https://github.com/home-assistant/core/pull/66490
+[#66504]: https://github.com/home-assistant/core/pull/66504
+[#66517]: https://github.com/home-assistant/core/pull/66517
+[#66527]: https://github.com/home-assistant/core/pull/66527
+[#66553]: https://github.com/home-assistant/core/pull/66553
+[#66564]: https://github.com/home-assistant/core/pull/66564
+[#66571]: https://github.com/home-assistant/core/pull/66571
+[#66609]: https://github.com/home-assistant/core/pull/66609
+[@Bre77]: https://github.com/Bre77
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@davet2001]: https://github.com/davet2001
+[@dgomes]: https://github.com/dgomes
+[@elupus]: https://github.com/elupus
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@marcelveldt]: https://github.com/marcelveldt
+[@raman325]: https://github.com/raman325
+[@thecode]: https://github.com/thecode
+[@uSlackr]: https://github.com/uSlackr
+[advantage_air docs]: /integrations/advantage_air/
+[flux_led docs]: /integrations/flux_led/
+[fritz docs]: /integrations/fritz/
+[fritzbox docs]: /integrations/fritzbox/
+[goodwe docs]: /integrations/goodwe/
+[hdmi_cec docs]: /integrations/hdmi_cec/
+[hue docs]: /integrations/hue/
+[modbus docs]: /integrations/modbus/
+[nest docs]: /integrations/nest/
+[onvif docs]: /integrations/onvif/
+[philips_js docs]: /integrations/philips_js/
+[raspihats docs]: /integrations/raspihats/
+[spotify docs]: /integrations/spotify/
+[stream docs]: /integrations/stream/
+[switcher_kis docs]: /integrations/switcher_kis/
+[tuya docs]: /integrations/tuya/
+[utility_meter docs]: /integrations/utility_meter/
+[vicare docs]: /integrations/vicare/
+[vizio docs]: /integrations/vizio/
+[zha docs]: /integrations/zha/
+
+## Release 2022.2.8 - February 16
+
+- Bump pysher to 1.0.7 ([@craigjmidwinter] - [#59445]) ([goalfeed docs])
+- Bump aiohue to 4.2.0 ([@balloob] - [#66670]) ([hue docs])
+- Do not pass client session to Brunt ([@frenck] - [#66671]) ([brunt docs])
+- Fix type of value in MQTT binary sensor ([@bieniu] - [#66675]) ([mqtt docs])
+- Cloud to avoid setting up Alexa/Google during setup phase ([@balloob] - [#66676]) ([cloud docs])
+- Fix last_activated timestamp on Hue scenes ([@marcelveldt] - [#66679]) ([hue docs])
+- Add tests for samsungtv diagnostics ([@epenet] - [#66563]) ([samsungtv docs])
+- Cleanup samsungtv tests ([@epenet] - [#66570]) ([samsungtv docs])
+- Fix SamsungTVWS mocking in samsungtv tests ([@epenet] - [#66650]) ([samsungtv docs])
+- Fix token refresh in samsungtv ([@epenet] - [#66533]) ([samsungtv docs])
+- Fix scaling of numeric Tuya values ([@SaSa1983] - [#66644]) ([tuya docs])
+- Add current temp fallback in Tuya climate ([@frenck] - [#66664]) ([tuya docs])
+
+[#59445]: https://github.com/home-assistant/core/pull/59445
+[#66533]: https://github.com/home-assistant/core/pull/66533
+[#66563]: https://github.com/home-assistant/core/pull/66563
+[#66570]: https://github.com/home-assistant/core/pull/66570
+[#66644]: https://github.com/home-assistant/core/pull/66644
+[#66650]: https://github.com/home-assistant/core/pull/66650
+[#66664]: https://github.com/home-assistant/core/pull/66664
+[#66670]: https://github.com/home-assistant/core/pull/66670
+[#66671]: https://github.com/home-assistant/core/pull/66671
+[#66675]: https://github.com/home-assistant/core/pull/66675
+[#66676]: https://github.com/home-assistant/core/pull/66676
+[#66679]: https://github.com/home-assistant/core/pull/66679
+[@SaSa1983]: https://github.com/SaSa1983
+[@balloob]: https://github.com/balloob
+[@bieniu]: https://github.com/bieniu
+[@craigjmidwinter]: https://github.com/craigjmidwinter
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@marcelveldt]: https://github.com/marcelveldt
+[brunt docs]: /integrations/brunt/
+[cloud docs]: /integrations/cloud/
+[goalfeed docs]: /integrations/goalfeed/
+[hue docs]: /integrations/hue/
+[mqtt docs]: /integrations/mqtt/
+[samsungtv docs]: /integrations/samsungtv/
+[tuya docs]: /integrations/tuya/
+
+## Release 2022.2.9 - February 18
+
+- Bump frontend to 20220203.1 ([@balloob] - [#66827]) ([frontend docs])
+- Correct current temperature for tuya thermostats ([@SaSa1983] - [#66715]) ([tuya docs])
+- Ensure new samsungtv token is updated in the config_entry ([@epenet] - [#66731]) ([samsungtv docs])
+- Bump pyinsteon to 1.0.16 ([@teharris1] - [#66759]) ([insteon docs])
+- Fix webostv notify service ([@thecode] - [#66760]) ([webostv docs])
+- Handle default notify data in webostv ([@thecode] - [#66770]) ([webostv docs])
+- Bump aiohue to 4.2.1 ([@balloob] - [#66823]) ([hue docs])
+
+[#66715]: https://github.com/home-assistant/core/pull/66715
+[#66731]: https://github.com/home-assistant/core/pull/66731
+[#66759]: https://github.com/home-assistant/core/pull/66759
+[#66760]: https://github.com/home-assistant/core/pull/66760
+[#66770]: https://github.com/home-assistant/core/pull/66770
+[#66823]: https://github.com/home-assistant/core/pull/66823
+[#66827]: https://github.com/home-assistant/core/pull/66827
+[@SaSa1983]: https://github.com/SaSa1983
+[@balloob]: https://github.com/balloob
+[@epenet]: https://github.com/epenet
+[@teharris1]: https://github.com/teharris1
+[@thecode]: https://github.com/thecode
+[frontend docs]: /integrations/frontend/
+[hue docs]: /integrations/hue/
+[insteon docs]: /integrations/insteon/
+[samsungtv docs]: /integrations/samsungtv/
+[tuya docs]: /integrations/tuya/
+[webostv docs]: /integrations/webostv/
 
 ## If you need help...
 
