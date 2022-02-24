@@ -638,7 +638,6 @@
 /components/sensor.asuswrt /integrations/asuswrt
 /components/sensor.awair /integrations/awair
 /components/sensor.bbox /integrations/bbox#sensor
-/components/sensor.bh1750 /integrations/bh1750
 /components/sensor.bitcoin /integrations/bitcoin
 /components/sensor.blink /integrations/blink
 /components/sensor.blockchain /integrations/blockchain
@@ -1129,7 +1128,6 @@
 /components/bbb_gpio /integrations/bbb_gpio
 /components/bbox /integrations/bbox
 /components/beewi_smartclim /integrations/beewi_smartclim
-/components/bh1750 /integrations/bh1750
 /components/binary_sensor /integrations/binary_sensor
 /components/binary_sensor.knx /integrations/binary_sensor.knx
 /components/binary_sensor.modbus /integrations/binary_sensor.modbus
@@ -1853,7 +1851,6 @@
 /components/timer /integrations/timer
 /components/tod /integrations/tod
 /components/todoist /integrations/todoist
-/components/tof /integrations/tof
 /components/tomato /integrations/tomato
 /components/toon /integrations/toon
 /components/torque /integrations/torque
@@ -2355,9 +2352,14 @@
 /components/gntp /more-info/removed-integration 301
 /components/notify.gntp /more-info/removed-integration 301
 /integrations/gntp /more-info/removed-integration 301
+/components/bh1750 /more-info/removed-integration 301
+/components/sensor.bh1750 /more-info/removed-integration 301
+/integrations/bh1750 /more-info/removed-integration 301
 /components/apns /more-info/removed-integration 301
 /components/notify.apns /more-info/removed-integration 301
 /integrations/apns /more-info/removed-integration 301
 /components/blinkt /more-info/removed-integration 301
 /components/light.blinkt /more-info/removed-integration 301
 /integrations/blinkt /more-info/removed-integration 301
+/components/tof /more-info/removed-integration 301
+/integrations/tof /more-info/removed-integration 301
