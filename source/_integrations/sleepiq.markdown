@@ -8,19 +8,27 @@ ha_category:
 ha_release: 0.29
 ha_iot_class: Cloud Polling
 ha_domain: sleepiq
+ha_config_flow: true
+ha_dhcp: true
+ha_codeowners:
+  - '@kbickar'
+  - '@mfugate1'
 ha_platforms:
   - binary_sensor
   - button
   - sensor
   - switch
-ha_codeowners:
-  - '@mfugate1'
-  - '@kbickar'
-ha_config_flow: true
-ha_dhcp: true
 ---
 
-The SleepIQ integration lets you view sensor data from [SleepIQ by SleepNumber](https://www.sleepnumber.com/sleepiq-sleep-tracker). In particular, it lets you see the occupancy and current SleepNumber (ie current firmness) of each side of a SleepNumber bed.
+The SleepIQ integration lets you integrate your SleepNumber Bed via [SleepIQ by SleepNumber](https://www.sleepnumber.com/sleepiq-sleep-tracker).
+
+There is currently support for the following platforms within Home Assistant:
+
+- Binary Sensor - View occupancy of each side
+- Sensor - View Current SleepNumber (ie current firmness) of each side
+- Switch - Toggle Privacy mode
+- Button - Calibrate the bed
+- Button - Stop the pump
 
 You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this integration.
 
