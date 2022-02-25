@@ -228,7 +228,7 @@ Some battery-powered devices send commands or data with a randomly generated id.
 
 ### Delete device
 
-To delete device(s) from the configuration, select one or more devices under *Select device to delete*. Press *Submit* to delete the selected devices.
+To delete device(s) from the configuration, select the delete button on the device info page.
 
 ## Events
 
