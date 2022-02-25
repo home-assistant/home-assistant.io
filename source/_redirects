@@ -446,7 +446,6 @@
 /components/light.osramlightify /integrations/osramlightify
 /components/light.plum_lightpad /integrations/plum_lightpad
 /components/light.qwikswitch /integrations/qwikswitch
-/components/light.rpi_gpio_pwm /integrations/rpi_gpio_pwm
 /components/light.rfxtrx /integrations/rfxtrx#light
 /components/light.scsgate /integrations/scsgate#light
 /components/light.sensehat /integrations/sensehat#light
@@ -1684,7 +1683,6 @@
 /components/rova /integrations/rova
 /components/rpi_camera /integrations/rpi_camera
 /components/rpi_gpio /integrations/rpi_gpio
-/components/rpi_gpio_pwm /integrations/rpi_gpio_pwm
 /components/rpi_pfio /integrations/rpi_pfio
 /components/rpi_rf /integrations/rpi_rf
 /components/rss_feed_template /integrations/rss_feed_template
@@ -2355,6 +2353,9 @@
 /integrations/blinkt /more-info/removed-integration 301
 /components/tof /more-info/removed-integration 301
 /integrations/tof /more-info/removed-integration 301
+/components/light.rpi_gpio_pwm /more-info/removed-integration 301
+/components/rpi_gpio_pwm /more-info/removed-integration 301
+/integrations/rpi_gpio_pwm /more-info/removed-integration 301
 /components/mhz19 /more-info/removed-integration 301
 /components/sensor.mhz19 /more-info/removed-integration 301
 /integrations/mhz19 /more-info/removed-integration 301

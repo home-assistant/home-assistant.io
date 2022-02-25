@@ -436,7 +436,6 @@ source/_integrations/rmvtransport.markdown @cgtobi
 source/_integrations/roku.markdown @ctalkington
 source/_integrations/roomba.markdown @pschmitt @cyr-ius @shenxn
 source/_integrations/roon.markdown @pavoni
-source/_integrations/rpi_gpio_pwm.markdown @soldag
 source/_integrations/rpi_power.markdown @shenxn @swetoast
 source/_integrations/rtsp_to_webrtc.markdown @allenporter
 source/_integrations/ruckus_unleashed.markdown @gabe565
