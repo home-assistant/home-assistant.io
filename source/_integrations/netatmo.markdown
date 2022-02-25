@@ -9,6 +9,7 @@ ha_category:
   - Climate
   - Camera
   - Light
+  - Media Source
 ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ha_codeowners:
