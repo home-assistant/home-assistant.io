@@ -444,7 +444,6 @@
 /components/light.niko_home_control /integrations/niko_home_control
 /components/light.opple /integrations/opple
 /components/light.osramlightify /integrations/osramlightify
-/components/light.piglow /integrations/piglow
 /components/light.plum_lightpad /integrations/plum_lightpad
 /components/light.qwikswitch /integrations/qwikswitch
 /components/light.rpi_gpio_pwm /integrations/rpi_gpio_pwm
@@ -1621,7 +1620,6 @@
 /components/philips_js /integrations/philips_js
 /components/pi_hole /integrations/pi_hole
 /components/picotts /integrations/picotts
-/components/piglow /integrations/piglow
 /components/pilight /integrations/pilight
 /components/ping /integrations/ping
 /components/pioneer /integrations/pioneer
@@ -2367,3 +2365,6 @@
 /integrations/bme280 /more-info/removed-integration 301
 /components/orangepi_gpio /more-info/removed-integration 301
 /integrations/orangepi_gpio /more-info/removed-integration 301
+/components/light.piglow /more-info/removed-integration 301
+/components/piglow /more-info/removed-integration 301
+/integrations/piglow /more-info/removed-integration 301
