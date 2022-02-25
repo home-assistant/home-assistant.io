@@ -8,6 +8,7 @@ ha_category:
   - Switch
   - Binary Sensor
   - Sensor
+  - Siren
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_config_flow: true
@@ -22,6 +23,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - siren
 ---
 
 The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
@@ -33,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switches)
 - [Sensor](#sensors)
 - [Binary Sensor](#binary-sensors)
+- [Siren](#sirens)
 
 {% include integrations/config_flow.md %}
 
@@ -95,6 +98,10 @@ Also, several switches and other devices will also expose sensor entities with b
 #### Binary Sensors
 
 The RFXtrx integration support binary sensors that communicate in the frequency range of 433.92 MHz. The RFXtrx binary sensor integration provides support for them. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol, but most of them are recognized under the *Lighting4* protocol. The RFXtrx binary sensor integration provides some special options for them, while other RFXtrx protocols should work too.
+
+#### Sirens
+
+The RFXtrx integration supports sirens entites for a few types of security systems and chimes. This entity allow triggering the chime or siren from home assistant as well as monitoring their status. Most of chimes and security systems need a configured off-delay to work correctly since they only transmit when active.
 
 ### Add a device by event code
 
