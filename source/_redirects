@@ -640,7 +640,6 @@
 /components/sensor.bitcoin /integrations/bitcoin
 /components/sensor.blink /integrations/blink
 /components/sensor.blockchain /integrations/blockchain
-/components/sensor.bme280 /integrations/bme280
 /components/sensor.bme680 /integrations/bme680
 /components/sensor.bmw_connected_drive /integrations/bmw_connected_drive
 /components/sensor.broadlink /integrations/broadlink#sensor
@@ -1143,7 +1142,6 @@
 /components/bluesound /integrations/bluesound
 /components/bluetooth_le_tracker /integrations/bluetooth_le_tracker
 /components/bluetooth_tracker /integrations/bluetooth_tracker
-/components/bme280 /integrations/bme280
 /components/bme680 /integrations/bme680
 /components/bmw_connected_drive /integrations/bmw_connected_drive
 /components/braviatv /integrations/braviatv
@@ -1608,7 +1606,6 @@
 /components/openuv /integrations/openuv
 /components/openweathermap /integrations/openweathermap
 /components/opple /integrations/opple
-/components/orangepi_gpio /integrations/orangepi_gpio
 /components/orvibo /integrations/orvibo
 /components/osramlightify /integrations/osramlightify
 /components/otp /integrations/otp
@@ -2365,3 +2362,8 @@
 /components/mhz19 /more-info/removed-integration 301
 /components/sensor.mhz19 /more-info/removed-integration 301
 /integrations/mhz19 /more-info/removed-integration 301
+/components/bme280 /more-info/removed-integration 301
+/components/sensor.bme280 /more-info/removed-integration 301
+/integrations/bme280 /more-info/removed-integration 301
+/components/orangepi_gpio /more-info/removed-integration 301
+/integrations/orangepi_gpio /more-info/removed-integration 301
