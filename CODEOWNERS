@@ -622,6 +622,5 @@ source/_integrations/zha.markdown @dmulcahey @adminiuga
 source/_integrations/zodiac.markdown @JulienTant
 source/_integrations/zone.markdown @home-assistant/core
 source/_integrations/zoneminder.markdown @rohankapoorcom
-source/_integrations/zwave.markdown @home-assistant/z-wave
 source/_integrations/zwave_js.markdown @home-assistant/z-wave
 source/_integrations/zwave_me.markdown @lawfulchaos @Z-Wave-Me
