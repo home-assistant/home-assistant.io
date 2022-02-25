@@ -8,6 +8,7 @@ ha_category:
   - Climate
   - Doorbell
   - Sensor
+  - Media Source
 ha_iot_class: Cloud Push
 ha_release: 0.7
 ha_config_flow: true
