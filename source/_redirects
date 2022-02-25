@@ -444,10 +444,8 @@
 /components/light.niko_home_control /integrations/niko_home_control
 /components/light.opple /integrations/opple
 /components/light.osramlightify /integrations/osramlightify
-/components/light.piglow /integrations/piglow
 /components/light.plum_lightpad /integrations/plum_lightpad
 /components/light.qwikswitch /integrations/qwikswitch
-/components/light.rpi_gpio_pwm /integrations/rpi_gpio_pwm
 /components/light.rfxtrx /integrations/rfxtrx#light
 /components/light.scsgate /integrations/scsgate#light
 /components/light.sensehat /integrations/sensehat#light
@@ -517,7 +515,6 @@
 /components/media_player.lg_soundbar /integrations/lg_soundbar
 /components/media_player.mediaroom /integrations/mediaroom
 /components/media_player.monoprice /integrations/monoprice
-/components/media_player.mpchc /integrations/mpchc
 /components/media_player.mpd /integrations/mpd
 /components/media_player.nad /integrations/nad
 /components/media_player.onkyo /integrations/onkyo
@@ -640,7 +637,6 @@
 /components/sensor.bitcoin /integrations/bitcoin
 /components/sensor.blink /integrations/blink
 /components/sensor.blockchain /integrations/blockchain
-/components/sensor.bme280 /integrations/bme280
 /components/sensor.bme680 /integrations/bme680
 /components/sensor.bmw_connected_drive /integrations/bmw_connected_drive
 /components/sensor.broadlink /integrations/broadlink#sensor
@@ -754,7 +750,6 @@
 /components/sensor.magicseaweed /integrations/magicseaweed
 /components/sensor.meteo_france /integrations/meteo_france
 /components/sensor.mfi /integrations/mfi#sensor
-/components/sensor.mhz19 /integrations/mhz19
 /components/sensor.miflora /integrations/miflora
 /components/sensor.min_max /integrations/min_max
 /components/sensor.mitemp_bt /integrations/mitemp_bt
@@ -1143,7 +1138,6 @@
 /components/bluesound /integrations/bluesound
 /components/bluetooth_le_tracker /integrations/bluetooth_le_tracker
 /components/bluetooth_tracker /integrations/bluetooth_tracker
-/components/bme280 /integrations/bme280
 /components/bme680 /integrations/bme680
 /components/bmw_connected_drive /integrations/bmw_connected_drive
 /components/braviatv /integrations/braviatv
@@ -1516,7 +1510,6 @@
 /components/meteoalarm /integrations/meteoalarm
 /components/metoffice /integrations/metoffice
 /components/mfi /integrations/mfi
-/components/mhz19 /integrations/mhz19
 /components/microsoft /integrations/microsoft
 /components/microsoft_face /integrations/microsoft_face
 /components/microsoft_face_detect /integrations/microsoft_face_detect
@@ -1535,7 +1528,6 @@
 /components/mold_indicator /integrations/mold_indicator
 /components/monoprice /integrations/monoprice
 /components/moon /integrations/moon
-/components/mpchc /integrations/mpchc
 /components/mpd /integrations/mpd
 /components/mqtt /integrations/mqtt
 /components/mqtt_eventstream /integrations/mqtt_eventstream
@@ -1609,7 +1601,6 @@
 /components/openuv /integrations/openuv
 /components/openweathermap /integrations/openweathermap
 /components/opple /integrations/opple
-/components/orangepi_gpio /integrations/orangepi_gpio
 /components/orvibo /integrations/orvibo
 /components/osramlightify /integrations/osramlightify
 /components/otp /integrations/otp
@@ -1625,7 +1616,6 @@
 /components/philips_js /integrations/philips_js
 /components/pi_hole /integrations/pi_hole
 /components/picotts /integrations/picotts
-/components/piglow /integrations/piglow
 /components/pilight /integrations/pilight
 /components/ping /integrations/ping
 /components/pioneer /integrations/pioneer
@@ -1692,7 +1682,6 @@
 /components/rova /integrations/rova
 /components/rpi_camera /integrations/rpi_camera
 /components/rpi_gpio /integrations/rpi_gpio
-/components/rpi_gpio_pwm /integrations/rpi_gpio_pwm
 /components/rpi_pfio /integrations/rpi_pfio
 /components/rpi_rf /integrations/rpi_rf
 /components/rss_feed_template /integrations/rss_feed_template
@@ -2365,3 +2354,20 @@
 /components/sensor.sht31 /more-info/removed-integration 301
 /integrations/sht31 /more-info/removed-integration 301
 /components/sht31 /more-info/removed-integration 301
+/components/light.rpi_gpio_pwm /more-info/removed-integration 301
+/components/rpi_gpio_pwm /more-info/removed-integration 301
+/integrations/rpi_gpio_pwm /more-info/removed-integration 301
+/components/mhz19 /more-info/removed-integration 301
+/components/sensor.mhz19 /more-info/removed-integration 301
+/integrations/mhz19 /more-info/removed-integration 301
+/components/bme280 /more-info/removed-integration 301
+/components/sensor.bme280 /more-info/removed-integration 301
+/integrations/bme280 /more-info/removed-integration 301
+/components/orangepi_gpio /more-info/removed-integration 301
+/integrations/orangepi_gpio /more-info/removed-integration 301
+/components/media_player.mpchc /more-info/removed-integration 301
+/components/mpchc /more-info/removed-integration 301
+/integrations/mpchc /more-info/removed-integration 301
+/components/light.piglow /more-info/removed-integration 301
+/components/piglow /more-info/removed-integration 301
+/integrations/piglow /more-info/removed-integration 301
