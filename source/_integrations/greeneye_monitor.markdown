@@ -17,7 +17,39 @@ ha_platforms:
 
 The [GreenEye Monitor (GEM)](https://www.brultech.com/greeneye/) integration for Home Assistant allows you to create sensors for the various data channels of the GEM. Each current transformer (CT) channel, pulse counter, and temperature sensor appears in Home Assistant as a sensor, and can be used in automations.
 
-Configure your GEM(s) to produce binary-format packets (for example, "Bin32 NET" for a 32-channel GEM with some channels configured for net metering) and send them to an unused port on your Home Assistant machine. (These settings are in the "Packet Send" and "Network" pages of the GEM UI.) Then specify that port and information about your monitor(s) and the data channels you wish to monitor in your `configuration.yaml`:
+This integration does not (yet) support the Energy dashboard and long-term statistics, but we're working on it! 
+
+<div class='note'>
+The UI configuration currently does not allow specifying what quantity is being measured by the GEM's pulse counters. If that is needed, use the YAML configuration instead for now.
+</div>
+
+{% include integrations/config_flow.md %}
+
+### Configuration details
+Set up {{ name }} using the UI as follows:
+
+- Specify an unused port number in the configuration UI
+- Configure the GEM(s) to send binary-format packets (for example, "Bin32 NET" for a 32-channel GEM with some channels configured for net metering) to that port on your Home Assistant machine. (These settings are in the "Packet Send" and "Network" pages of the GEM UI.) 
+- Home Assistant will automatically add entities for all devices on all GEMs that send data to that port
+- Use the Home Assistant entities configuration screen to give entities more meaningful names and disable any that are not needed
+- By default, GEM will send updates every 5 seconds. That's a lot of data, and the databases used by the [`recorder`](/integrations/recorder) integration for history don't do well with that much data, so it is recommended to configure the [`influxdb`](/integrations/influxdb) integration and exclude the GEM sensors from `recorder`.
+
+## Migrating from the YAML configuration
+
+If you previously set up {{ name }} via `configuration.yaml`, and you don't need the ability to specify what quantity is being measured by the pulse counters, you may migrate to using the UI configuration instead. This will allow {{ name }} to appear in the list of installed integrations, and will unlock other functionality (such as the Energy dashboard and long-term statistics) in future releases.
+
+Follow these steps to migrate from YAML configuration to UI configuration:
+
+- Run the UI configuration as described above, specifying the same port number that was specified in the YAML configuration
+- {{ name }} will then appear in the list of installed integrations. Existing entities will remain unchanged. New entities may be created for sensors that were not previously configured; these entities can be renamed or disabled via Home Assistant's entities configuration UI.
+
+## YAML configuration (don't use this unless you need it)
+
+<div class='note'>
+The YAML configuration is being replaced by UI configuration (described above). The only difference between the two right now is that the YAML configuration is able to specify what quantity is being measured by a GEM's pulse counters. If you don't need that, use the UI configuration instead.
+</div>
+
+Then specify that port and information about your monitor(s) and the data channels you wish to monitor in your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -97,10 +129,6 @@ monitors:
       description: Configuration for temperature sensors
       required: false
       keys:
-        temperature_unit:
-          description: The unit of measure to use for the temperature (F or C)
-          type: string
-          required: true
         sensors:
           description: The list of temperature sensors that should appear in Home Assistant for this monitor. Data from other sensors will be ignored.
           required: true
