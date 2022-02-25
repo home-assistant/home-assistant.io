@@ -1608,7 +1608,6 @@
 /components/openuv /integrations/openuv
 /components/openweathermap /integrations/openweathermap
 /components/opple /integrations/opple
-/components/orangepi_gpio /integrations/orangepi_gpio
 /components/orvibo /integrations/orvibo
 /components/osramlightify /integrations/osramlightify
 /components/otp /integrations/otp
@@ -2365,3 +2364,5 @@
 /components/bme280 /more-info/removed-integration 301
 /components/sensor.bme280 /more-info/removed-integration 301
 /integrations/bme280 /more-info/removed-integration 301
+/components/orangepi_gpio /more-info/removed-integration 301
+/integrations/orangepi_gpio /more-info/removed-integration 301
