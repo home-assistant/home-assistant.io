@@ -101,7 +101,7 @@ The RFXtrx integration support binary sensors that communicate in the frequency 
 
 #### Sirens
 
-The RFXtrx integration supports sirens entites for a few types of security systems and chimes. This entity allow triggering the chime or siren from Home Assistant as well as monitoring their status. Most of chimes and security systems need a configured off-delay to work correctly since they only transmit when active.
+The RFXtrx integration supports siren entites for a few types of security systems and chimes. This entity allows triggering the chime or siren from Home Assistant as well as monitoring their status. Most of the chimes and security systems need a configured off-delay to work correctly since they only transmit when active.
 
 ### Add a device by event code
 
