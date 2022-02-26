@@ -46,15 +46,15 @@ Enjoy the (beta) release!
 
 - [The Home Assistant Newsletter](#the-home-assistant-newsletter)
 - [Media Selector and the new "Play media" action](#media-selector-and-the-new-play-media-action)
-- [More media sources!](#more-media-sources)
+- [More media sources](#more-media-sources)
 - [Upload your media straight from the browser](#upload-your-media-straight-from-the-browser)
 - [UI Upgrades](#ui-upgrades)
-- [Triggered!](#triggered)
+- [Triggered](#triggered)
 - [Entity ID autocompletion](#entity-id-autocompletion)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
-- [Need help? Join the community!](#need-help-join-the-community)
+- [Need help? Join the community](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
 - [Farewell to the following](#farewell-to-the-following)
@@ -71,6 +71,14 @@ In that case, you might like to sign-up for our newsletter instead! We'll
 send you a new email when a new release drops with the release's highlights
 and interesting things we found in our community.
 
+Our newsletter will be free of any analytics and tracking and only focused on bring the best content
+to your inbox. We want to make sure everyone knows what is going on in order to
+make the community as strong as we can.
+
+You can even share this newsletter with anyone you may know to bring them into the community.
+They can easily see the best features of Home Assistant and the highlights from the community to see what they are missing out
+on. The sign-up is below and we have enabled double opt-in to make sure no emails are sent if users don't want them.
+
 [Sign up for the Home Assistant newsletter](/newsletter)
 
 [Twitter]: /twitter
@@ -79,6 +87,7 @@ and interesting things we found in our community.
 ## Media Selector and the new "Play media" action
 
 TODO:
+
 - Extend story line
 - Zack, maybe a video? Using a camera entity to play as media?
 - Improve screenshots, maybe arrows or animation?
@@ -92,11 +101,14 @@ media that you want it to play! Done! 🚀
 
 <img class="no-shadow" src='/images/blog/2022-03/media-selector.png' alt='Screenshot showing the new media selector and play media action'>
 
-## More media sources!
+Have you ever wanted to play your front door camera stream on your television when the doorbell rings? Well this is
+now very possible with this update. Check out this video on how to set that up in only 1.5 minutes. 🤯
+
+## More media sources
 
 The above shown "Play media" action and selector, of course, is cool. But,
-you'd need some media to select! And of course, we already support local media
-and things like Spotify, but it would be cool if we had more!?
+you'd need some media to select! We already supported local media
+and things like Spotify, but wouldn't it be cool if we had more!?
 
 So, this release will bring in a bunch of new media sources.
 
@@ -105,9 +117,6 @@ or Lovelace dashboards and "Play" them on a supported device
 (like a Google Nest Hub or television). But also text to speech!
 
 <img class="no-shadow" src='/images/blog/2022-03/pick-tts.png' alt='Screenshot showing playing TTS as a media action'>
-
-Or, what about playing your front door camera stream on your television when
-the doorbell rings? 🤯
 
 But that's not it, we also have new integrations adding new media sources.
 This release adds the [DLNA Digital Media Server] and [Radio Browser]
@@ -140,13 +149,16 @@ TODO: Temporary screenshot for the beta release notes, needs replacement
 ## UI Upgrades
 
 TODO:
+
 - Needs story line
 - Need before/after screenshots?
 
 We have been working hard on upgrading the Home Assistant frontend to use
 Material Web Components everywhere, saying goodbye to our old paper style.
+This allows our frontend to be up-to-date with the latest features and the latest style.
+As you'll notice these elements have a different look from the older style, so don't be alarmed if your inputs are a bit different.
 
-## Triggered!
+## Triggered
 
 When working an automation, triggers now show live in the UI when they are
 triggering. Allowing you to validate you set it up correctly.
@@ -227,9 +239,6 @@ noteworthy changes this release:
   installed TV apps as media sources!
 - Thanks to [@chemelli74], you can now control the valves of those brand new
   [Shelly] TRVs!
-- When creating automations with state triggers or conditions, you can now
-  easily select attributes to use in those from a dropdown list.
-  Thanks, [@zsarnett]!
 
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
@@ -304,7 +313,7 @@ The following integrations are now available via the Home Assistant UI:
 [International Space Station (ISS)]: /integrations/iss
 [MJPEG IP Camera]: /integrations/mjpeg
 
-## Need help? Join the community!
+## Need help? Join the community
 
 Home Assistant has a great community of users who are all more than willing
 to help each other out. So, join us!
@@ -413,7 +422,7 @@ can be safely removed from your YAML configuration.
 A typo was fixed in the ebusd integration for monitored condition
 `WaterPressure`. It is incorrectly named "WaterPreasure" in the code.
 
-The [documentation](/integrations/ebusd/#waterpressure) represents the correct value. 
+The [documentation](/integrations/ebusd/#waterpressure) represents the correct value.
 
 ([@nklebedev] - [#66355]) ([documentation](/integrations/ebusd))
 
@@ -495,7 +504,7 @@ This change was made to make the make the MQTT entities more consistent with
 how these entities behave in other parts of Home Assistant. You may need
 to adopt your script and automations to adapt to this change.
 
-([@jbouwh] - [#65183] [#65308] [#65301] [#65302] [#65294]) ([documentation](/integrations/mqtt)) 
+([@jbouwh] - [#65183] [#65308] [#65301] [#65302] [#65294]) ([documentation](/integrations/mqtt))
 
 [@jbouwh]: https://github.com/jbouwh
 [#65183]: https://github.com/home-assistant/core/pull/65183
@@ -504,12 +513,13 @@ to adopt your script and automations to adapt to this change.
 [#65302]: https://github.com/home-assistant/core/pull/65302
 [#65308]: https://github.com/home-assistant/core/pull/65308
 
---- 
+---
 
 An MQTT configuration in `configuration.yaml` no longer results in an
 imported integration entry, MQTT must now be set up from the frontend.
 
 Please note that:
+
 - Any previously imported configuration is still valid, this PR does not
   remove or otherwise modify imported configurations.
 - It's still possible to configure MQTT entities and advanced broker
@@ -612,7 +622,7 @@ you will need to adopt those to this change.
 
 {% details "Picnic" %}
 
-The sensors for the "last order ETA start/end" have been renamed to 
+The sensors for the "last order ETA start/end" have been renamed to
 "next delivery ETA start/end" and will now contain the ETA of the first
 upcoming delivery.
 
