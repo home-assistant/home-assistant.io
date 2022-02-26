@@ -13,7 +13,7 @@ ha_codeowners:
   - '@tkdrob'
 ---
 
-The `steam` integration will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.
+The Steam integration will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.
 
 {% include integrations/config_flow.md %}
 
