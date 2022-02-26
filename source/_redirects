@@ -816,7 +816,6 @@
 /components/sensor.serial_pm /integrations/serial_pm
 /components/sensor.seventeentrack /integrations/seventeentrack
 /components/sensor.shodan /integrations/shodan
-/components/sensor.sht31 /integrations/sht31
 /components/sensor.sigfox /integrations/sigfox
 /components/sensor.simulated /integrations/simulated
 /components/sensor.skybeacon /integrations/skybeacon
@@ -976,7 +975,6 @@
 /components/switch.rfxtrx /integrations/rfxtrx#switch
 /components/switch.rpi_gpio /integrations/rpi_gpio#switch
 /components/switch.rpi_pfio /integrations/rpi_pfio#switch
-/components/switch.rpi_rf /integrations/rpi_rf
 /components/switch.scsgate /integrations/scsgate#switch
 /components/switch.skybell /integrations/skybell#switch
 /components/switch.smappee /integrations/smappee
@@ -1682,7 +1680,6 @@
 /components/rpi_camera /integrations/rpi_camera
 /components/rpi_gpio /integrations/rpi_gpio
 /components/rpi_pfio /integrations/rpi_pfio
-/components/rpi_rf /integrations/rpi_rf
 /components/rss_feed_template /integrations/rss_feed_template
 /components/rtorrent /integrations/rtorrent
 /components/russound_rio /integrations/russound_rio
@@ -1722,7 +1719,6 @@
 /components/shiftr /integrations/shiftr
 /components/shodan /integrations/shodan
 /components/shopping_list /integrations/shopping_list
-/components/sht31 /integrations/sht31
 /components/sigfox /integrations/sigfox
 /components/simplepush /integrations/simplepush
 /components/simplisafe /integrations/simplisafe
@@ -2350,6 +2346,9 @@
 /integrations/blinkt /more-info/removed-integration 301
 /components/tof /more-info/removed-integration 301
 /integrations/tof /more-info/removed-integration 301
+/components/sensor.sht31 /more-info/removed-integration 301
+/integrations/sht31 /more-info/removed-integration 301
+/components/sht31 /more-info/removed-integration 301
 /components/light.rpi_gpio_pwm /more-info/removed-integration 301
 /components/rpi_gpio_pwm /more-info/removed-integration 301
 /integrations/rpi_gpio_pwm /more-info/removed-integration 301
@@ -2371,3 +2370,7 @@
 /components/sensehat /more-info/removed-integration 301
 /components/sensor.sensehat /more-info/removed-integration 301
 /integrations/sensehat /more-info/removed-integration 301
+/integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
+/components/rpi_rf /more-info/removed-integration 301
+/components/switch.rpi_rf /more-info/removed-integration 301
+/integrations/rpi_rf /more-info/removed-integration 301
