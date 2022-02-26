@@ -977,7 +977,6 @@
 /components/switch.rfxtrx /integrations/rfxtrx#switch
 /components/switch.rpi_gpio /integrations/rpi_gpio#switch
 /components/switch.rpi_pfio /integrations/rpi_pfio#switch
-/components/switch.rpi_rf /integrations/rpi_rf
 /components/switch.scsgate /integrations/scsgate#switch
 /components/switch.skybell /integrations/skybell#switch
 /components/switch.smappee /integrations/smappee
@@ -1683,7 +1682,6 @@
 /components/rpi_camera /integrations/rpi_camera
 /components/rpi_gpio /integrations/rpi_gpio
 /components/rpi_pfio /integrations/rpi_pfio
-/components/rpi_rf /integrations/rpi_rf
 /components/rss_feed_template /integrations/rss_feed_template
 /components/rtorrent /integrations/rtorrent
 /components/russound_rio /integrations/russound_rio
@@ -2372,3 +2370,6 @@
 /components/piglow /more-info/removed-integration 301
 /integrations/piglow /more-info/removed-integration 301
 /integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
+/components/rpi_rf /more-info/removed-integration 301
+/components/switch.rpi_rf /more-info/removed-integration 301
+/integrations/rpi_rf /more-info/removed-integration 301
