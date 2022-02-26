@@ -114,7 +114,6 @@ source/_integrations/devolo_home_control.markdown @2Fake @Shutgun
 source/_integrations/devolo_home_network.markdown @2Fake @Shutgun
 source/_integrations/dexcom.markdown @gagebenne
 source/_integrations/dhcp.markdown @bdraco
-source/_integrations/dht.markdown @thegardenmonkey
 source/_integrations/digital_ocean.markdown @fabaff
 source/_integrations/discogs.markdown @thibmaek
 source/_integrations/dlna_dmr.markdown @StevenLooman @chishm

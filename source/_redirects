@@ -656,7 +656,6 @@
 /components/sensor.deconz /integrations/deconz#sensor
 /components/sensor.deluge /integrations/deluge#sensor
 /components/sensor.deutsche_bahn /integrations/deutsche_bahn
-/components/sensor.dht /integrations/dht
 /components/sensor.discogs /integrations/discogs
 /components/sensor.dnsip /integrations/dnsip
 /components/sensor.dovado /integrations/dovado#sensor
@@ -1219,7 +1218,6 @@
 /components/device_tracker.mqtt /integrations/device_tracker.mqtt
 /components/device_tracker.mysensors /integrations/device_tracker.mysensors
 /components/device_tracker.xiaomi /integrations/device_tracker.xiaomi
-/components/dht /integrations/dht
 /components/dialogflow /integrations/dialogflow
 /components/digital_ocean /integrations/digital_ocean
 /components/digitalloggers /integrations/digitalloggers
@@ -2366,6 +2364,9 @@
 /components/light.piglow /more-info/removed-integration 301
 /components/piglow /more-info/removed-integration 301
 /integrations/piglow /more-info/removed-integration 301
+/components/sensor.dht /more-info/removed-integration 301
+/integrations/dht /more-info/removed-integration 301
+/components/dht /more-info/removed-integration 301
 /components/light.sensehat /more-info/removed-integration 301
 /components/sensehat /more-info/removed-integration 301
 /components/sensor.sensehat /more-info/removed-integration 301
