@@ -721,7 +721,6 @@
 /components/sensor.homematicip_cloud /integrations/homematicip_cloud
 /components/sensor.hp_ilo /integrations/hp_ilo
 /components/sensor.http /integrations/http#sensor
-/components/sensor.htu21d /integrations/htu21d
 /components/sensor.huawei_lte /integrations/huawei_lte#sensor
 /components/sensor.hydrawise /integrations/hydrawise#sensor
 /components/sensor.ihc /integrations/ihc#sensor
@@ -1389,7 +1388,6 @@
 /components/hp_ilo /integrations/hp_ilo
 /components/html5 /integrations/html5
 /components/http /integrations/http
-/components/htu21d /integrations/htu21d
 /components/huawei_lte /integrations/huawei_lte
 /components/hue /integrations/hue
 /components/hunterdouglas_powerview /integrations/hunterdouglas_powerview
@@ -2371,3 +2369,6 @@
 /components/light.piglow /more-info/removed-integration 301
 /components/piglow /more-info/removed-integration 301
 /integrations/piglow /more-info/removed-integration 301
+/components/htu21d /more-info/removed-integration 301
+/components/sensor.htu21d /more-info/removed-integration 301
+/integrations/htu21d /more-info/removed-integration 301
