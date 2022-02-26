@@ -388,7 +388,6 @@ source/_integrations/panel_iframe.markdown @home-assistant/frontend
 source/_integrations/pcal9535a.markdown @Shulyaka
 source/_integrations/persistent_notification.markdown @home-assistant/core
 source/_integrations/philips_js.markdown @elupus
-source/_integrations/pi4ioe5v9xxxx.markdown @antonverburg
 source/_integrations/pi_hole.markdown @fabaff @johnluetke @shenxn
 source/_integrations/picnic.markdown @corneyl
 source/_integrations/pilight.markdown @trekky12
