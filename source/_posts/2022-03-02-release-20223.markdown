@@ -158,7 +158,7 @@ Material Web Components everywhere, saying goodbye to our old paper style.
 This allows our frontend to be up-to-date with the latest features and the latest style.
 As you'll notice these elements have a different look from the older style, so don't be alarmed if your inputs are a bit different.
 
-## Triggered
+## Triggered!
 
 When working an automation, triggers now show live in the UI when they are
 triggering. Allowing you to validate you set it up correctly.
@@ -313,7 +313,7 @@ The following integrations are now available via the Home Assistant UI:
 [International Space Station (ISS)]: /integrations/iss
 [MJPEG IP Camera]: /integrations/mjpeg
 
-## Need help? Join the community
+## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
 to help each other out. So, join us!
