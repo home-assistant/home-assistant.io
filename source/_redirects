@@ -448,7 +448,6 @@
 /components/light.qwikswitch /integrations/qwikswitch
 /components/light.rfxtrx /integrations/rfxtrx#light
 /components/light.scsgate /integrations/scsgate#light
-/components/light.sensehat /integrations/sensehat#light
 /components/light.sisyphus /integrations/sisyphus
 /components/light.skybell /integrations/skybell#light
 /components/light.smartthings /integrations/smartthings#light
@@ -813,7 +812,6 @@
 /components/sensor.scrape /integrations/scrape
 /components/sensor.season /integrations/season
 /components/sensor.sense /integrations/sense
-/components/sensor.sensehat /integrations/sensehat#sensor
 /components/sensor.serial /integrations/serial
 /components/sensor.serial_pm /integrations/serial_pm
 /components/sensor.seventeentrack /integrations/seventeentrack
@@ -1700,7 +1698,6 @@
 /components/season /integrations/season
 /components/sendgrid /integrations/sendgrid
 /components/sense /integrations/sense
-/components/sensehat /integrations/sensehat
 /components/sensibo /integrations/sensibo
 /components/sensor /integrations/sensor
 /components/sensor.buienradar /integrations/sensor.buienradar
@@ -2370,3 +2367,7 @@
 /components/light.piglow /more-info/removed-integration 301
 /components/piglow /more-info/removed-integration 301
 /integrations/piglow /more-info/removed-integration 301
+/components/light.sensehat /more-info/removed-integration 301
+/components/sensehat /more-info/removed-integration 301
+/components/sensor.sensehat /more-info/removed-integration 301
+/integrations/sensehat /more-info/removed-integration 301
