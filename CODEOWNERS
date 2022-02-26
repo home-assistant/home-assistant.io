@@ -295,7 +295,6 @@ source/_integrations/lyric.markdown @timmo001
 source/_integrations/mastodon.markdown @fabaff
 source/_integrations/matrix.markdown @tinloaf
 source/_integrations/mazda.markdown @bdr99
-source/_integrations/mcp23017.markdown @jardiamj
 source/_integrations/media_source.markdown @hunterjm
 source/_integrations/mediaroom.markdown @dgomes
 source/_integrations/melcloud.markdown @vilppuvuorinen

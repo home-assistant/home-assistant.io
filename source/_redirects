@@ -1498,7 +1498,6 @@
 /components/mastodon /integrations/mastodon
 /components/matrix /integrations/matrix
 /components/maxcube /integrations/maxcube
-/components/mcp23017 /integrations/mcp23017
 /components/media_extractor /integrations/media_extractor
 /components/media_player /integrations/media_player
 /components/mediaroom /integrations/mediaroom
@@ -2372,3 +2371,5 @@
 /components/piglow /more-info/removed-integration 301
 /integrations/piglow /more-info/removed-integration 301
 /integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
+/components/mcp23017 /more-info/removed-integration 301
+/integrations/mcp23017 /more-info/removed-integration 301
