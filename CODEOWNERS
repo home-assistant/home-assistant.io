@@ -385,7 +385,6 @@ source/_integrations/ozw.markdown @cgarwood @marcelveldt @MartinHjelmare
 source/_integrations/p1_monitor.markdown @klaasnicolaas
 source/_integrations/panel_custom.markdown @home-assistant/frontend
 source/_integrations/panel_iframe.markdown @home-assistant/frontend
-source/_integrations/pcal9535a.markdown @Shulyaka
 source/_integrations/persistent_notification.markdown @home-assistant/core
 source/_integrations/philips_js.markdown @elupus
 source/_integrations/pi4ioe5v9xxxx.markdown @antonverburg
