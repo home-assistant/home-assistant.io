@@ -46,12 +46,12 @@ If NZ model, the password you configured
 
 A few notes:
 
-- This uses the [JVC Projectors Improved python library](https://github.com/iloveicedgreentea/jvc_projector_improved) under the hood. All improvements should be made there.◊
+- This uses the [JVC Projectors Improved Python library](https://github.com/iloveicedgreentea/jvc_projector_improved) under the hood. All improvements should be made there.
 - JVC's network implementation only allows a single connection at a time. Because of this, polling is not currently supported as the current implementation can cause cascading network errors. Queuing/Blocking to prevent connection errors is a work in progress.
 
 #### Service `remote.get_command`
 
-Send a supported command to the projector. Refer to the library for supported commands. \*A list of commands can be provided instead of a single command at a time. This has major performance improvements as it reuses the connection.
+Send a supported command to the projector. Refer to the library for supported commands. _A list of commands can be provided instead of a single command at a time. This has major performance improvements as it reuses the connection._
 
 ```yaml
 service: remote.send_command
