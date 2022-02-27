@@ -460,6 +460,25 @@ automation:
     packet: XXXXXXXX
 ```
 
+## Events
+
+The HomeKit integration emits `homekit_state_change` events. These events can be used in automations to know when an entity's state was changed from HomeKit.
+
+```yaml
+# Example for handling a HomeKit event
+automation:
+  trigger:
+    - platform: event
+      event_type: homekit_state_change
+      event_data:
+        entity_id: cover.garage_door
+        service: open_cover
+  action:
+    - service: persistent_notification.create
+      data:
+        message: "The garage door got opened via HomeKit"
+```
+
 ## Troubleshooting
 
 ### All or some devices are intermittently unresponsive
@@ -544,6 +563,10 @@ You can also try to use `avahi-daemon` in reflector mode together with the optio
 #### `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - VirtualBox
 
 Configure the network mode as `networkbridge`. Otherwise the Home Assistant Bridge won't be exposed to the network.
+
+#### Accessory does not appear in the Home App (for pairing) - Libvirt QEMU/KVM virtual machine with macvtap adapter
+
+Please see the [Zero-configuration networking](/integrations/zeroconf/#troubleshooting) integration for more details.
 
 #### Pairing hangs - zeroconf error
 

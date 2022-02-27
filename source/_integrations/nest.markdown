@@ -8,6 +8,7 @@ ha_category:
   - Climate
   - Doorbell
   - Sensor
+  - Media Source
 ha_iot_class: Cloud Push
 ha_release: 0.7
 ha_config_flow: true
@@ -19,6 +20,7 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - camera
+  - diagnostics
   - climate
   - sensor
 ---
@@ -39,6 +41,12 @@ You are in control of the information and capabilities exposed to Home Assistant
 
 The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
 
+</div>
+
+## Video Walkthrough
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wghcd9xDdMs" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ## Device Access Registration
@@ -261,15 +269,11 @@ All Google Nest Thermostat models are exposed as a `climate` entity that use the
 
 Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
 
-- *Error 400: redirect_uri_mismatch*: This means you have an existing *Web Application* credential. It is recommended to delete the existing OAuth Client id and create a new *Desktop App* credential using the instructions above. This has the advantage of not requiring SSL or a public DNS name.
-
-- *Thermostat does not appear or is unavailable* happens due to a bug where the SDM API does return the devices. A common fix get the API to work again is to:
+<div class='note'>
 
 This feature is enabled by the following permissions:
 
-- Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
-- In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
-- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Devices & Services**, click `...` next to *Nest* and choose **Reload**.
+- *Allow Home Assistant to access and control your thermostat*
 
 </div>
 
@@ -318,7 +322,7 @@ All cameras have motion and person triggers, however only some support capturing
 | Nest Cam (indoor, wired)<br>Nest Cam (outdoor, battery) | WebRTC | Motion<br>Person | N/A |
 | Nest Cam Indoor<br>Nest Cam IQ Indoor<br>Nest Cam IQ Outdoor<br>Nest Cam Outdoor | RTSP<br>Recording | Motion<br>Person<br>Sound | Snapshot (jpg) |
 | Nest Cam with floodlight | WebRTC | Motion<br>Person | N/A |
-| Nest Doorbell (battery) | WebRTC | Motion<br>Person<br>Chime | Clip Preview (mp4) |
+| Nest Doorbell (battery) | WebRTC | Motion<br>Person<br>Chime | Clip Preview (mp4, gif) |
 | Nest Doorbell (wired) | RTSP<br>Recording | Motion<br>Person<br>Sound<br>Chime | Snapshot (jpg) |
 | Nest Hub Max | RTSP<br>Recording | Motion<br>Person<br>Sound<br><sub><sup>* [SDM API known issue](https://github.com/home-assistant/core/issues/58482)</sup></sub> | Snapshot (jpg) |
 
@@ -327,12 +331,36 @@ Given a camera named `Front Yard` then the camera is created with a name such as
 
 ## Automation and Device Triggers
 
-The Nest integration makes [device triggers](/docs/automation/trigger/#device-triggers) available to enable automation
-in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
+The Nest integration provides [device triggers](/docs/automation/trigger/#device-triggers) to enable automation in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
 
 {% my automations badge %}
 
 ![Screenshot Device Triggers](/images/integrations/nest/device_triggers.png)
+
+{% details "Example Device Trigger / Event payload %}
+
+This is an example of what the `nest_event` payload looks like for a Device Trigger that you can use to power automations.
+
+```json
+{
+    "event_type": "nest_event",
+    "data": {
+        "device_id": "EXAMPLE_DEVICE_ID",
+        "type": "doorbell_chime",
+        "timestamp": "2022-01-26T04:56:54.031000+00:00",
+        "nest_event_id": "EXAMPLE_EVENT_ID",
+        "zones": ["Zone 1"],
+    },
+}
+```
+
+* `device_id`: The Home Assistant device identifier for the camera
+* `nest_event_id`: is an opaque identifier that can be used with the Media Source Attachments described below for supported cameras.
+* `zones`: Zones triggering the event if available. Zones are configured in the Google Home App, though not supported by all cameras. Events in the area outside of a named zone will be an empty zone name.
+
+{% enddetails %}
+
+Continue reading below to *Media Source Attachments* to see how to use media with notification actions.
 
 <div class='note'>
 
@@ -343,36 +371,84 @@ This feature is enabled by the following permissions:
 - *Other permissions in the Nest or Google Home apps*.
 </div>
 
-
-## Example
-
-This automation will trigger when a `nest_event` event type with a type of `camera_motion` is received from the specified `device_id`.
-
-```yaml
-alias: "motion alert"
-trigger:
-  - platform: event
-    event_type: nest_event
-    event_data:
-      device_id: YOUR_DEVICE_ID
-      type: camera_motion
-action:
-  - service: notify.mobile_app_pixel_2
-    data:
-      title: motion detected
-      message: front door motion detected
-      data:
-        image: /api/camera_proxy/camera.front_door
-```
-
-The action in this section uses the [Android Companion App](https://companion.home-assistant.io/docs/notifications/notifications-basic/) and the camera proxy to send a notification with a snapshot from the camera.
-
-
 ## Media Source
 
 The Nest [Media Source](/integrations/media_source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
 
 The table above describes which devices support event image snapshots or 10-frame mp4 video clips for recent events.
+
+### Media Attachments
+
+The Media Source APIs can be used in [Companion App Attachments](https://companion.home-assistant.io/docs/notifications/notification-attachments) for Notifications as actions for Device Triggers above like *Doorbell Pressed*. You will need to be familiar with both the Media Sources supported for your camera, as well as the media capabilities of the companion apps.
+
+* `/api/nest/event_media/DEVICE_ID/EVENT_ID`: Media for the event, which supports image snapshots (jpg) or clip previews (mp4) depending on the camera type.
+
+* `/api/nest/event_media/DEVICE_ID/EVENT_ID/thumbnail`: A thumbnail preview of the media, which supports image snapshots (jpg) or clip previews (gif) depending on the camera type.
+
+You can use the event payload fields `device_id` and `event_id` in an [automation](/getting-started/automation/) to send a notification from an [actions](/getting-started/automation-action/) as shown in the examples below.
+
+{% details "Example Action: Clip Preview (mp4) attachment for iOS %}
+
+Example for cameras that support Clip Previews used with iOS which can render video in notifications.
+
+{% raw %}
+
+```yaml
+service: notify.mobile_app_iphone
+data:
+  message: Doorbell Pressed
+  title: Someone pressed the doorbell
+  data:
+    image: >-
+      /api/nest/event_media/{{ trigger.event.data.device_id }}/{{ trigger.event.data.nest_event_id }}/thumbnail
+    video: >-
+      /api/nest/event_media/{{ trigger.event.data.device_id }}/{{ trigger.event.data.nest_event_id  }}
+mode: single
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+{% details "Example Action: Clip Preview thumbnail (gif) for Android or iOS %}
+
+Example for cameras that support Clip Previews, but transcoded to an animated gif (Android does not render video notifications).
+
+{% raw %}
+
+```yaml
+service: notify.mobile_app_android
+data:
+  message: Doorbell Pressed
+  title: Someone pressed the doorbell
+  data:
+    image: >-
+      /api/nest/event_media/{{ trigger.event.data.device_id }}/{{ trigger.event.data.nest_event_id }}/thumbnail
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+{% details "Example Action: Snapshot (jpg) attachment for Android or iOS %}
+
+Example for cameras that support Snaphot (jpg) on either Android or iOS.
+
+{% raw %}
+
+```yaml
+service: notify.mobile_app
+data:
+  message: Doorbell Pressed
+  title: Someone pressed the doorbell
+  data:
+    image: >-
+      /api/nest/event_media/{{ trigger.event.data.device_id }}/{{ trigger.event.data.nest_event_id }}/thumbnail
+```
+
+{% endraw %}
+
+{% enddetails %}
 
 <div class='note'>
 

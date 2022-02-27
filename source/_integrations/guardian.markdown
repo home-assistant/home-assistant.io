@@ -14,6 +14,7 @@ ha_domain: guardian
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
   - switch
 ha_dhcp: true

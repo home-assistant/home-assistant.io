@@ -14,11 +14,12 @@ ha_platforms:
   - sensor
 ---
 
-The integration allows you to control [Motion Blinds](https://motion-blinds.com) from [Coulisse B.V.](https://coulisse.com/products/motion).
+The integration allows you to control [Motion Blinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
 
 Additionally the following brands have been reported to also work with this integration:
 
-- [Motion Blinds](https://motion-blinds.com)
+- [Motion Blinds](https://motionblinds.com/)
+- [Smart Blinds](https://www.smartblinds.nl/)
 - [Dooya](http://www.dooya.com/)
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
@@ -39,6 +40,8 @@ Please note that "-" characters need to be included in the key when providing it
 <img src='/images/integrations/motion_blinds/Motion_App__get_key_1.jpg' />
 <img src='/images/integrations/motion_blinds/Motion_App__get_key_2.jpg' />
 </p>
+
+Note that it has been reported that the official Bloc Blinds app doesn't seem to hand out the API key on Android, it does seem to provide the API key on the iOS version of the official Bloc Blinds app.
 
 ## Top Down Bottom Up (TDBU) blinds
 

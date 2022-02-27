@@ -2,37 +2,46 @@
 title: Overkiz (by Somfy)
 description: Instructions on how to integrate hubs whom use the Overkiz platform with Home Assistant.
 ha_category:
-  - Hub
-  - Sensor
+  - Binary Sensor
   - Button
+  - Climate
+  - Cover
+  - Hub
+  - Light
   - Lock
   - Number
-  - Light
   - Scene
-  - Binary Sensor
-  - Switch
   - Select
-ha_release: 2022.1.0
+  - Sensor
+  - Siren
+  - Switch
+ha_release: 2022.2
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@tetienne'
   - '@imicknl'
   - '@vlebourl'
+  - '@tetienne'
 ha_domain: overkiz
+ha_dhcp: true
+ha_zeroconf: true
 ha_platforms:
-  - sensor
+  - binary_sensor
   - button
+  - climate
+  - diagnostics
+  - cover
+  - light
   - lock
   - number
-  - light
   - scene
-  - binary_sensor
-  - switch
+  - sensor
+  - siren
   - select
+  - switch
 ---
 
-The Overkiz (by Somfy) integration platform is used by many different vendors, like Somfy, Hitachi and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
+The Overkiz (by Somfy) integration platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
 
 ## Supported hubs
 
@@ -62,21 +71,17 @@ Over 6000 devices from 60 brands are compatible with the Overkiz platform. This 
 
 ### Z-Wave, Hue and Sonos not supported
 
-Even though most Overkiz hubs supports adding Z-Wave, Hue and Sonos devices, this isn't supported in the Overkiz integration. All these platforms have native integrations in Home Assistant which are more stable and feature rich.
+Even though most Overkiz hubs support adding Z-Wave, Hue, and Sonos devices, this isn't supported in the Overkiz integration. All these platforms have native integrations in Home Assistant which are more stable and feature-rich.
 
 ### Overkiz API limits
 
-**Execution queue is full on gateway: #xxxx-xxxx-xxxx (soft limit: 10)**
-
-The Overkiz has a limit of 10 actions that can be executed in parallel. Currently this can only be solved by adding a time-out in between your executions, where you need to take the execution time into account.
-
 **Server busy, please try again later. (Too many executions)**
 
-During peak hours, it could happen that the Overkiz platform is unable to execute your command. The integration will try to retry this command, however this is not guaranteed to succeed. 
+During peak hours, it could happen that the Overkiz platform is unable to execute your command. The integration will try to retry this command, however, this is not guaranteed to succeed.
 
 ### Internet connectivity required
 
-This integration communicates via the cloud based Overkiz API, since Overkiz doesn't expose a local API on their hubs. If you are only using Somfy IO compatible devices, you could purchase a Velux KLF200 hub and use to [the Velux integration](/integrations/velux/) which has a local API.
+This integration communicates via the cloud-based Overkiz API, since Overkiz doesn't expose a local API on their hubs. If you are only using Somfy IO compatible devices, you could purchase a Velux KLF200 hub and use [the Velux integration](/integrations/velux/) which has a local API.
 
 #### Local API via HomeKit Controller
 

@@ -26,9 +26,11 @@ ha_codeowners:
   - '@METISU'
   - '@frenck'
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - camera
   - button
+  - diagnostics
   - climate
   - cover
   - fan
@@ -44,7 +46,7 @@ ha_platforms:
 ha_dhcp: true
 ---
 
-The Tuya integration integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps. Tuya officially maintains this integration.
+The Tuya integration integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps.
 
 All Home Assistant platforms are supported by the Tuya integration, except the lock and remote platform.
 
@@ -77,7 +79,7 @@ This is a separate account from the one you made for the app. You cannot log in 
   ![](/images/integrations/tuya/image_004.png)
 4. Click `Confirm` in the app.
 5. To confirm that everything worked, navigate to the `All Devices` tab. Here you should be able to find the devices from the app.
-6. If zero devices are imported, try changing the DataCenter.
+6. If zero devices are imported. Try changing the DataCenter and check the account used is the "Home Owner".
 
 ![](/images/integrations/tuya/image_005.png)
 
@@ -100,10 +102,10 @@ Click the created project to enter the `Project Overview` page and get the `Auth
     description: Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/). Find the **Access Secret** under [Authorization Key](#get-authorization-key) on the **Project Overview** tab.
 
   Account:
-    description: Tuya Smart or Smart Life app account.
+    description: Tuya Smart or Smart Life **app** account.
 
   Password:
-    description: The password of your app account.
+    description: The password of your **app** account.
 
 {% endconfiguration_basic %}
 
@@ -146,6 +148,10 @@ Click the created project to enter the `Project Overview` page and get the `Auth
     - IoT Data Analytics
 
 {% endconfiguration_basic %}
+
+## Scenes
+
+Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
 
 ## Related Documents
 

@@ -107,6 +107,33 @@ If you want to support active reporting of state to Google's server (configurati
     3. Click Enable HomeGraph API.
 3. Try "OK Google, sync my devices" - the Google Home app should import your exposed Home Assistant devices and prompt you to assign them to rooms.
 
+### Enable Local Fulfillment
+
+<div class='note'>
+
+The [`ssl_certificate` option](/integrations/http/#ssl_certificate) in the `http` integration must not have a value or this feature won't work.
+
+This is because Google requires a valid certificate and the way it connects to Home Assistant for local fulfillment makes that impossible. Consider using a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic directly to Home Assistant.
+
+</div>
+
+1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
+2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
+3. Upload [this Javascript file](/assets/integrations/google_assistant/app.js) for both Node and Chrome by clicking the `Upload Javascript files` button.
+4. Add device scan configuration:
+   1. Click `+ New scan config`
+   2. Select `MDNS`
+   3. Set mDNS service name to `_home-assistant._tcp.local`
+   4. Click `Add field`, then under `Select a field` select `name`
+   5. Enter a new `value` field set to `.*\._home-assistant\._tcp\.local`
+5. Check the box `Support local query` under `Add capabilities`.
+6. `Save` your changes.
+7. Either wait for 30 minutes, or restart your connected Google device.
+8. Restart Home Assistant Core.
+9. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
+
+You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome)
+
 ### YAML Configuration
 
 Now add your setup to your `configuration.yaml` file, such as:

@@ -47,6 +47,9 @@ If you are trying to switch to a new Google account then you would run into the 
 
 'oauth2client.client.HttpAccessTokenRefreshError: deleted_client: The OAuth client was deleted'
 
+In case you get an `Authentication code expired, please restart Home-Assistant and try again` error message, switch your timezone to `Etc/GMT` and restart Home Assistant. This should fix the issue and the `google_calendars.yaml` configuration file will be created.
+You can then switch back the timezone to your original one and restart Home Assistant again.
+
 ## Configuration
 
 To integrate Google Calendar in Home Assistant,

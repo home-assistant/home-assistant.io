@@ -8,6 +8,7 @@ ha_category:
   - Switch
   - Binary Sensor
   - Sensor
+  - Siren
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_config_flow: true
@@ -22,6 +23,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - siren
 ---
 
 The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
@@ -33,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switches)
 - [Sensor](#sensors)
 - [Binary Sensor](#binary-sensors)
+- [Siren](#sirens)
 
 {% include integrations/config_flow.md %}
 
@@ -42,7 +45,9 @@ To receive debug logging from the RFXCOM device, add the following lines to `con
 
 ```yaml
 logger:
+  default: warning
   logs:
+    homeassistant.components.rfxtrx: debug
     RFXtrx: debug
 ```
 
@@ -94,6 +99,10 @@ Also, several switches and other devices will also expose sensor entities with b
 
 The RFXtrx integration support binary sensors that communicate in the frequency range of 433.92 MHz. The RFXtrx binary sensor integration provides support for them. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol, but most of them are recognized under the *Lighting4* protocol. The RFXtrx binary sensor integration provides some special options for them, while other RFXtrx protocols should work too.
 
+#### Sirens
+
+The RFXtrx integration supports siren entities for a few types of security systems and chimes. This entity allows triggering the chime or siren from Home Assistant as well as monitoring their status. Most of the chimes and security systems need a configured off-delay to work correctly since they only transmit when active.
+
 ### Add a device by event code
 
 To manually add a device, in the options window, an event code can be added in the field *Enter event code to add*.
@@ -102,7 +111,9 @@ See [Generate codes](#generate-codes) how to generate event codes.
 
 #### Somfy RTS
 
-The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) or later versions like [RFXtrx433XL](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ObjectPath=/Shops/78165469/Products/18103) is required for support, however, it does not support receive for the Somfy RTS protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. E.g., if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, e.g., id: `1` `02` `04` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
+The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) or later versions like [RFXtrx433XL](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ObjectPath=/Shops/78165469/Products/18103) is required for support, however, it does not support receive for the Somfy RTS protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. E.g., if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, e.g., id: `1` `02` `03` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
+
+To add the device, enter the value unaltered in the Event Code field, and click Submit.
 
 #### Convert switch event to dimming event
 
@@ -217,7 +228,7 @@ Some battery-powered devices send commands or data with a randomly generated id.
 
 ### Delete device
 
-To delete device(s) from the configuration, select one or more devices under *Select device to delete*. Press *Submit* to delete the selected devices.
+To delete device(s) from the configuration, select the delete button on the device info page.
 
 ## Events
 

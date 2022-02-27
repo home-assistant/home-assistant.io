@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: airvisual
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ---
 

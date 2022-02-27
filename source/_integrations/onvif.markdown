@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - camera
+  - button
   - sensor
 ---
 

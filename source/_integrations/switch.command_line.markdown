@@ -56,7 +56,7 @@ switches:
           description: The name used to display the switch in the frontend.
           required: false
           type: string
-        icon:
+        icon_template:
           description: Defines a template for the icon of the entity.
           required: false
           type: template

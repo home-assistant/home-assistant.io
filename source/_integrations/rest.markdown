@@ -156,6 +156,11 @@ params:
   description: The query params for the requests.
   required: false
   type: [list, template]
+scan_interval:
+  description: Define the refrequency to call the REST endpoint in seconds.
+  required: false
+  type: integer
+  default: 30
 sensor:
   description: A list of [RESTful Sensor](/integrations/sensor.rest) to create from the shared data. All configuration settings that the supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
   required: false

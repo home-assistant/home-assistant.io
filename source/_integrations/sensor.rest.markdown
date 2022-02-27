@@ -271,7 +271,7 @@ sensor:
 
 {% endraw %}
 
-### Fetch multiple JSON values and present them as attributes
+### Fetch multiple JSON attributes and present them as values
 
 [JSON Test](https://www.jsontest.com/) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
 

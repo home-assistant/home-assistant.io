@@ -16,6 +16,7 @@ ha_platforms:
   - binary_sensor
   - camera
   - button
+  - diagnostics
   - climate
   - cover
   - fan

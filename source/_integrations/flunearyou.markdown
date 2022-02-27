@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: flunearyou
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ---
 

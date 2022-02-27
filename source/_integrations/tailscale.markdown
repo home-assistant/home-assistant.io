@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: tailscale
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_quality_scale: platinum
 ---
@@ -20,6 +21,10 @@ ha_quality_scale: platinum
 The Tailscale integration integrates the [Tailscale](https://www.tailscale.com) API
 with Home Assistant; giving you the possibility to monitor and automate on
 the state of the devices in your Tailscale VPN network (Tailnet).
+
+Please, note that this integration integrates with data from the Tailscale API,
+it is not a Tailscale client itself, and thus add Home Assistant to your
+Tailscale VPN network.
 
 ## Prerequisites
 
