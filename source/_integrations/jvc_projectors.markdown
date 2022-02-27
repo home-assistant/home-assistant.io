@@ -1,17 +1,14 @@
 ---
 title: JVC Projectors
 description: Instructions on how to integrate JVC Projectors into Home Assistant.
-ha_category:
-  - Media Player
+ha_category: Media Player
 ha_iot_class: Local Polling
 ha_release: 2022
 ha_domain: jvc_projectors
-ha_codeowners:
-  - "@iloveicedgreentea"
+ha_codeowners: "@iloveicedgreentea"
 ha_config_flow: false
 ha_ssdp: false
-ha_platforms:
-  - remote
+ha_platforms: remote
 ---
 
 The `jvc_projectors` platform allows you to control [JVC Projectors](https://www.us.jvc.com/projectors/) from Home Assistant. It is likely that your device is supported by the [jvc_projectors] platform.
