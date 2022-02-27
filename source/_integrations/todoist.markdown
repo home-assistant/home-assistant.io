@@ -16,7 +16,7 @@ This platform allows you to connect to your [Todoist Projects](https://todoist.c
 
 ### Prerequisites
 
-You need to determine your Todoist API token. This is fairly simple to do; just go [to the Integrations section on your Todoist settings page](https://todoist.com/Users/viewPrefs?page=authorizations) and find the section labeled "API token" at the bottom of the page. Copy that token and use it in your configuration file.
+You need to determine your Todoist API token. This is fairly simple to do; just go [to the Integrations section on your Todoist settings page](https://todoist.com/app/settings/integrations) and find the section labeled "API token" at the bottom of the page. Copy that token and use it in your configuration file.
 
 ### Basic Setup
 
@@ -78,8 +78,6 @@ calendar:
           - Mathematical Structures II
           - Calculus II
 ```
-
-(See [here](/docs/configuration/secrets/) for more details about what that `!secret` does -- it's not exclusive to Todoist, and can help keep your API keys and passwords a little safer!)
 
 As you can see, there are 4 custom projects here:
 
@@ -155,6 +153,8 @@ Here are two example JSON payloads resulting in the same task:
 - **project** (*Optional*): The project to put the task in.
 
 - **labels** (*Optional*): Any labels you want to add to the task, separated by commas.
+
+- **assignee** (*Optional*): A member's username of a shared project to assign this task to. You find the username formatted as bold text in the collaborator menu of a shared project. 
 
 - **priority** (*Optional*): The priority of the task, from 1-4. Again, 1 means least important, and 4 means most important.
 

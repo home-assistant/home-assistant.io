@@ -16,7 +16,7 @@ The website [https://www.home-assistant.io](/) was launched on December 18, 2014
 
 ## Logo
 
-The current logo was created by [Jeremy Geltman](http://jeremygeltman.com/). Further details can be found in the [announcement](/blog/2015/03/08/new-logo/).
+The current logo was created by [Jeremy Geltman](https://jeremygeltman.com/). Further details can be found in the [announcement](/blog/2015/03/08/new-logo/).
 
 ## License
 

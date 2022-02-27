@@ -46,7 +46,7 @@ name:
   type: string
 cycle:
   description: How often to reset the counter. Valid values are `quarter-hourly`, `hourly`, `daily`, `weekly`, `monthly`, `bimonthly`, `quarterly` and `yearly`. Cycle value `bimonthly` will reset the counter once in two months.
-  required: true
+  required: false
   type: string
 offset:
   description: "Cycle reset occur at the beginning of the period (0 minutes, 0h00 hours, Monday, day 1, January). This option enables the offsetting of these beginnings. Supported formats: `offset: 'HH:MM:SS'`, `offset: 'HH:MM'` and Time period dictionary (see example below)."
@@ -55,9 +55,14 @@ offset:
   type: time
   type: integer
 cron:
-  description: This option is *mutually exclusive* of `cycle` and `offset`. It provides an advanced method of defining when should the counter be reset. It follows common [crontab syntax](https://crontab.guru).
+  description: This option is *mutually exclusive* of `cycle` and `offset`. It provides an advanced method of defining when should the counter be reset. It follows common [crontab syntax](https://crontab.guru) but extended to support more advanced scheduling. See the [croniter](https://github.com/kiorky/croniter) library.
   required: true
   type: string
+delta_values:
+  description: Set this to True if the source values are delta values since the last reading instead of absolute values. When this option is enabled, each new value received will be added as-is to the utility meter instead of adding the _difference_ between the new value and previous value. For example, you should enable this when the source sensor returns readings like "1", "0.5", "0.75" versus "1", "1.5", "2.25".
+  required: false
+  default: false
+  type: boolean
 net_consumption:
   description: Set this to True if you would like to treat the source as a net meter. This will allow your counter to go both positive and negative.
   required: false
@@ -69,6 +74,10 @@ tariffs:
   default: []
   type: list
 {% endconfiguration %}
+
+<p class='note warning'>
+When using the `offset` configuration parameter, the defined period must not be longer then 28 days.
+</p>
 
 ### Time period dictionary example
 
@@ -120,7 +129,7 @@ This service must be called by the user for the tariff switching logic to occur 
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 | `tariff` | no | String that is equal to one of the defined tariffs.
 
-# Advanced Configuration
+## Advanced Configuration
 
 The following configuration shows an example where 2 utility_meters (`daily_energy` and `monthly_energy`) track daily and monthly energy consumptions.
 
@@ -172,6 +181,20 @@ automation:
         entity_id: utility_meter.monthly_energy
 ```
 
+Assuming your utility provider cycle is offset from the last day of the month
+
+- cycles at 17h00 on the last day of the month
+
+a cron(extended syntax used for last day of month) based utility meter can be used:
+
+```yaml
+utility_meter:
+  monthly_energy:
+    source: sensor.energy
+    name: Monthly Energy
+    cron: "0 17 L * *"
+```
+
 ## Advanced Configuration for DSMR users
 
 When using the [DSMR component](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` component.
@@ -212,22 +235,34 @@ utility_meter:
     cycle: monthly
 ```
 
-Additionally, you can add template sensors to compute daily and monthly total usage.
+Additionally, you can add template sensors to compute daily and monthly total usage. Important note, in these examples,
+we use the `is_number()` [function](/docs/configuration/templating/#numeric-functions-and-filters) to verify the values
+returned from the sensors are numeric. If this evalutes to false, `None` is returned.
 
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: template
-    sensors:
-      daily_energy:
-        friendly_name: Daily Energy
-        unit_of_measurement: kWh
-        value_template: "{{ states('sensor.daily_energy_offpeak')|float + states('sensor.daily_energy_peak')|float }}"
-      monthly_energy:
-        friendly_name: Monthly Energy
-        unit_of_measurement: kWh
-        value_template: "{{ states('sensor.monthly_energy_offpeak')|float + states('sensor.monthly_energy_peak')|float }}"
+template:
+  - sensor:
+    - name: 'Daily Energy Total'
+      device_class: energy
+      unit_of_measurement: kWh
+      state: >
+        {% if is_number(states('sensor.daily_energy_offpeak')) and is_number(states('sensor.daily_energy_peak')) %}
+          {{ states('sensor.daily_energy_offpeak') | float + states('sensor.daily_energy_peak') | float }}
+        {% else %}
+          None
+        {% endif %}
+
+    - name: 'Monthly Energy Total'
+      device_class: energy
+      unit_of_measurement: kWh
+      state: >
+        {% if is_number(states('sensor.monthly_energy_offpeak')) and is_number(states('sensor.monthly_energy_peak')) %}
+          {{ states('sensor.monthly_energy_offpeak') | float + states('sensor.monthly_energy_peak') | float }}
+        {% else %}
+          None
+        {% endif %}
 ```
 
 {% endraw %}

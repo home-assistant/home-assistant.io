@@ -41,6 +41,10 @@ This integration provides the following sensors:
 | Name                   | Description                                         |
 | ---------------------- | --------------------------------------------------- |
 | Battery                | Battery level of the device                         |
+| Displays Connected     | Number of displays connected                        |
+| Display Resolution X   | Display resolution (across)                         |
+| Display Resolution Y   | Display resolution (down)                           |
+| Display Refresh Rate   | Display refresh rate                                |
 | CPU Speed              | The current CPU speed                               |
 | Filesystem(s)          | Space used for each drive letter / filesystem mount |
 | GPU Memory Free        | GPU memory free in GB                               |
@@ -127,4 +131,26 @@ service: system_bridge.open
 data:
   bridge: "device"
   path: "steam://rungameid/814380"
+```
+
+### Service `system_bridge.send_keypress`
+
+Send a keypress to the server.
+
+```yaml
+service: system_bridge.send_keypress
+data:
+  bridge: "device"
+  key: "a"
+```
+
+### Service `system_bridge.send_text`
+
+Sends text for the server to type.
+
+```yaml
+service: system_bridge.send_text
+data:
+  bridge: "device"
+  text: "Hello"
 ```

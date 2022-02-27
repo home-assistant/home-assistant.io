@@ -93,7 +93,7 @@ automation:
           custom_field: 123
           custom_object:
             trigger_more: true
-            explain: "Its starting to get dark"
+            explain: "It's starting to get dark"
 ```
 
 The message that can be retrieved from a queue or topic subscription:
@@ -106,7 +106,7 @@ The message that can be retrieved from a queue or topic subscription:
   "custom_field": 123,
   "custom_object": {
     "trigger_more": true,
-    "explain": "Its starting to get dark"
+    "explain": "It's starting to get dark"
   }
 }
 ```

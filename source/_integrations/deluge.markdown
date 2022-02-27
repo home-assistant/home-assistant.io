@@ -18,6 +18,8 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
+To be able to use this integration, you have to enable the following option in deluge settings: Daemon > Allow Remote Connections
+
 ## Sensor
 
 The `deluge` platform allows you to monitor your downloads with [Deluge](https://deluge-torrent.org/) from within Home Assistant and setup automation based on the information.

@@ -17,12 +17,16 @@ Some of these sensors are built-in to Home Assistant, some are created automatic
 The type of data a sensor returns impacts how it is displayed in the frontend. This is controlled by the sensor's device class designation. Built-in sensors and many created from an integration will have this designation predefined. Those can be modified in the [customize section](/docs/configuration/customizing-devices/). When manually creating a new sensor the device class may be optionally assigned. A full list of available sensor device classes is below:
 
 - **None**: Generic sensor. This is the default and doesn't need to be set.
+- **apparent_power**: Apparent power in VA.
 - **aqi**: Air Quality Index
 - **battery**: Percentage of battery that is left.
 - **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke)
 - **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG)
 - **current**: Current in A.
-- **energy**: Energy in Wh or kWh.
+- **date**: Date string (ISO 8601).
+- **energy**: Energy in Wh, kWh or MWh.
+- **frequency**: Frequency in Hz, kHz, MHz or GHz.
+- **gas**: Gasvolume in m³ or ft³.
 - **humidity**: Percentage of humidity in the air.
 - **illuminance**: The current light level in lx or lm.
 - **monetary**: The monetary value.
@@ -36,6 +40,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **power_factor**: Power factor in %.
 - **power**: Power in W or kW.
 - **pressure**: Pressure in hPa or mbar.
+- **reactive_power**: Reactive power in var.
 - **signal_strength**: Signal strength in dB or dBm.
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C or °F.

@@ -243,7 +243,7 @@ input_number:
     icon: mdi:clock-start
     initial: 30
     min: 0
-    max: 60
+    max: 59
     step: 10
     
 automation:

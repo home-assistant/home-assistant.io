@@ -121,27 +121,23 @@ Below is the template sensor which extracts the information from the body of the
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: template
-  sensors:
-    previous_day_energy_use:
-      friendly_name: Previous Day Energy Use
-      unit_of_measurement: kWh
-      value_template: >
+template:
+  - sensor:
+    - name: "Previous Day Energy Use"
+      unit_of_measurement: "kWh"
+      state: >
        {{ state_attr('sensor.energy_email','body')
-         |regex_findall_index("\*Yesterday's Energy Use:\* ([0-9]+) kWh") }}
-    previous_day_cost:
-      friendly_name: Previous Day Cost
-      unit_of_measurement: $
-      value_template: >
+         | regex_findall_index("\*Yesterday's Energy Use:\* ([0-9]+) kWh") }}
+    - name: "Previous Day Cost"
+      unit_of_measurement: "$"
+      state: >
         {{ state_attr('sensor.energy_email', 'body')
-          |regex_findall_index("\*Yesterday's estimated energy cost:\* \$([0-9.]+)") }}
-    billing_cycle_total:
-      friendly_name: Billing Cycle Total
-      unit_of_measurement: $
-      value_template: >
+          | regex_findall_index("\*Yesterday's estimated energy cost:\* \$([0-9.]+)") }}
+    - name: "Billing Cycle Total"
+      unit_of_measurement: "$"
+      state: >
         {{ state_attr('sensor.energy_email', 'body')
-          |regex_findall_index("\ days:\* \$([0-9.]+)") }}
+          | regex_findall_index("\ days:\* \$([0-9.]+)") }}
 ```
 
 {% endraw %}

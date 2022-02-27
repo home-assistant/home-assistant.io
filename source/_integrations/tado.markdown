@@ -13,8 +13,6 @@ ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaelarnauts'
-  - '@bdraco'
-  - '@noltari'
 ha_domain: tado
 ha_config_flow: true
 ha_homekit: true
@@ -179,13 +177,13 @@ automation:
         - sensor.temp_sensor_room
         - sensor.tado_temperature
     
-    # Check if the room temp is more than 0.5 higher than the tado thermostat reading
+    # Check if the room temp is more than 0.5 away from the tado thermostat reading condition. The sensors default to room temperature (20) when the reading is in error:
     condition:
     - condition: template
       value_template: >
-        {% set tado_temp = states('sensor.tado_temperature')|float %}
-        {% set room_temp = states('sensor.temp_sensor_room')|float %}
-        {{ (tado_temp - room_temp) > 0.5 }}
+        {% set tado_temp = states('sensor.tado_temperature')|float(20) %}
+        {% set room_temp = states('sensor.temp_sensor_room')|float(20) %}
+        {{ (tado_temp - room_temp) | abs > 0.5 }}
     
     # Work out what the new offset should be (tado temp less the room temp but add the current offset value) and turn that to a negative value for setting as the new offset
     action:
@@ -194,9 +192,9 @@ automation:
         entity_id: climate.tado
       data:
         offset: >
-          {% set tado_temp = states('sensor.tado_temperature')|float %}
-          {% set room_temp = states('sensor.temp_sensor_room')|float %}
+          {% set tado_temp = states('sensor.tado_temperature')|float(20) %}
+          {% set room_temp = states('sensor.temp_sensor_room')|float(20) %}
           {% set current_offset = state_attr('climate.tado', 'offset_celsius') %}
-          {{ (-(tado_temp - room_temp) + current_offset)|round }}
+          {{ (-(tado_temp - room_temp) + current_offset)|round(1) }}
 ```
 {% endraw %}

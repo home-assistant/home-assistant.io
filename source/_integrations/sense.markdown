@@ -34,10 +34,10 @@ Sensors are added for both usage and production:
   - Usage: Current active power usage in Watts.
   - Production: Current active power production in Watts.
 - Trend sensors: Data provided for daily, weekly, monthly and yearly scales. Updated every 5 minutes.
-  - Usage: Power usage in kWh.
-  - Production: Power production in kWh.
-  - To Grid: Power exported to the grid in kWh.
-  - From Grid: Power imported from the grid in kWh.
+  - Usage: Energy usage in kWh.
+  - Production: Energy production in kWh.
+  - To Grid: Energy exported to the grid in kWh.
+  - From Grid: Energy imported from the grid in kWh.
   - Net Production: Measures total solar production against usage.
   - Net Production Percentage: Net production as a percentage value.
   - Solar Powered Percentage: Percentage of power used directly from solar.

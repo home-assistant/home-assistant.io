@@ -54,7 +54,7 @@ If your account includes multiple vehicles, the same PIN will be used for all ve
 
 Subaru integration options are set via:
 
-**Configuration** -> **Integrations** -> **Subaru** -> **Options**.
+**Configuration** -> **Devices & Services** -> **Subaru** -> **Options**.
 
 The only option is:
 

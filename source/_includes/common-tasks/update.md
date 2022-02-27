@@ -20,10 +20,10 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
   content: |
 
     1. Open your Home Assistant UI
-    2. Navigate to the Supervisor panel
-    3. On the Dashboard tab you will be presented with an update notification
+    2. Navigate to the Configuration panel
+    3. On the top you will be presented with an update notification
 
-    _If you do not see that notification you can navigate to the System tab. and click the "Reload Supervisor" button._
+    _If you do not see that notification you can navigate to the {% my supervisor_logs title="Configuration > Add-ons & Backups > System" %} panel. and click the "Reload Supervisor" button._
 
 - title: Using the CLI
   content: |
@@ -44,13 +44,7 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
     **First start with pulling the new container.**
 
     ```bash
-    docker pull {{ site.installation.container.base }}:stable
-    ```
-
-    You can also use specific containers for your hardware. Like Raspberry Pi 4:
-
-    ```bash
-    docker pull {{ site.installation.container.raspberrypi4 }}:stable
+    docker pull {{ site.installation.container }}:stable
     ```
 
     **[You then need to recreate the container with the new image.](/installation/linux#install-home-assistant-container)**

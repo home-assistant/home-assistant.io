@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: openuv
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ---
 

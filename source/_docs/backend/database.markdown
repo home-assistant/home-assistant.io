@@ -3,9 +3,9 @@ title: "Database"
 description: "Details about the database used by Home Assistant."
 ---
 
-Home Assistant uses database to store events and parametersis for history and tracking. The default database used is [SQLite](https://www.sqlite.org/) and the database file is stored in your [configuration directory](/getting-started/configuration/) (e.g., `<path to config dir>/home-assistant_v2.db`); however, other databases can be used. If you prefer to run a database server (e.g.,  PostgreSQL), use the [`recorder` component](/integrations/recorder/).
+Home Assistant uses database to store events and parameters for history and tracking. The default database used is [SQLite](https://www.sqlite.org/) and the database file is stored in your [configuration directory](/getting-started/configuration/) (e.g., `<path to config dir>/home-assistant_v2.db`); however, other databases can be used. If you prefer to run a database server (e.g.,  PostgreSQL), use the [`recorder` component](/integrations/recorder/).
 
-To work with SQLite database manually from the command-line, you will need an [installation](http://www.sqlitetutorial.net/download-install-sqlite/) of `sqlite3`. Alternatively [DB Browser for SQLite](http://sqlitebrowser.org/) provides a viewer for exploring the database data and an editor for executing SQL commands.
+To work with SQLite database manually from the command-line, you will need an [installation](https://www.sqlitetutorial.net/download-install-sqlite/) of `sqlite3`. Alternatively [DB Browser for SQLite](https://sqlitebrowser.org/) provides a viewer for exploring the database data and an editor for executing SQL commands.
 First load your database with `sqlite3`:
 
 ```bash
@@ -125,16 +125,6 @@ group.all_switches              8018
 
 ### Delete
 
-If you don't want to keep certain entities, you can delete them permanently:
-
-```bash
-sqlite> DELETE FROM states WHERE entity_id="sensor.cpu";
-```
-
-The `VACUUM` command cleans your database.
-
-```bash
-sqlite> VACUUM;
-```
+If you don't want to keep certain entities, you can delete them permanently by using the [services provided by the recorder](/integrations/recorder/#service-purge_entities).
 
 For a more interactive way of working with the database, check the [Data Science Portal](https://data.home-assistant.io/).

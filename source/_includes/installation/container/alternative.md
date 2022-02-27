@@ -15,7 +15,7 @@ The steps would be:
 - Set "Enable auto-restart" if you like
 - Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount path" has to be "/config", so that Home Assistant will use it for the configs and logs. It is therefore recommended that the folder you choose should be named "config" or "homeassistant/config" to avoid confusion when referencing it within service calls.
 - Within "Network" select "Use same network as Docker Host"
-- To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+- To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 - Confirm the "Advanced Settings"
 - Click on "Next" and then "Apply"
 - Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example `http://192.168.1.10:8123`)
@@ -37,15 +37,15 @@ Adjust the following Terminal command as follows :
 
 - Replace `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration
 - Replace `/PATH_TO_YOUR_USB_STICK` matches the path for your USB stick (e.g., `/dev/ttyACM0` for most Synology users)
-- Replace "Australia/Melbourne" with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+- Replace "Australia/Melbourne" with [your timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
-Run it in Terminal.  
+Run it in Terminal.
 
 ```bash
-sudo docker run --restart always -d --name homeassistant -v /PATH_TO_YOUR_CONFIG:/config --device=/PATH_TO_YOUR_USB_STICK -e TZ=Australia/Melbourne --net=host {{ site.installation.container.base }}:stable
+sudo docker run --restart always -d --name homeassistant -v /PATH_TO_YOUR_CONFIG:/config --device=/PATH_TO_YOUR_USB_STICK -e TZ=Australia/Melbourne --net=host {{ site.installation.container }}:stable
 ```
 
-Complete the remainder of the Z-Wave configuration by [following the instructions here.](/docs/z-wave/installation)
+Complete the remainder of the Z-Wave configuration by [following the instructions here.](/integrations/zwave_js)
 
 Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:
 
@@ -83,7 +83,7 @@ The steps would be:
 - Click on "Advanced Settings"
 - Within "Shared Folders" click on "Volume from host" > "Add" and choose either an existing folder or add a new folder. The "mount point has to be `/config`, so that Home Assistant will use it for the configuration and logs.
 - Within "Network" and select Network Mode to "Host"
-- To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+- To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 - Click on "Create"
 - Wait for some time until your NAS has created the container
 - Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Qnap NAS IP address - for example `http://192.xxx.xxx.xxx:8123`)
@@ -100,16 +100,16 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB stick with Home Assista
 - Find USB devices attached. Type command:
   `ls /dev/tty*`
   The above command should show you any USB devices plugged into your NAS. If you have more than one, you may get multiple items returned. Like : `ttyACM0`
-  
+
 - Run Docker command:
 
   ```bash
-  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London --device /dev/ttyACM0 {{ site.installation.container.base }}:stable
+  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London --device /dev/ttyACM0 {{ site.installation.container }}:stable
   ```
-  
+
   `-v` is your configuration path
   `-e` is set timezone
-  
+
 - Edit `configuration.yaml`
 
 ```yaml
@@ -125,12 +125,12 @@ That will tell Home Assistant where to look for our Z-Wave radio.
 - Run Docker command:
 
   ```bash
-  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus {{ site.installation.container.base }}:stable
+  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus {{ site.installation.container }}:stable
   ```
-  
+
   First `-v` is your configuration path
   `-e` is set timezone
-  
+
 - Edit the `configuration.yaml` file
 
 ```yaml
