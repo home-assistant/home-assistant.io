@@ -114,7 +114,6 @@ source/_integrations/devolo_home_control.markdown @2Fake @Shutgun
 source/_integrations/devolo_home_network.markdown @2Fake @Shutgun
 source/_integrations/dexcom.markdown @gagebenne
 source/_integrations/dhcp.markdown @bdraco
-source/_integrations/dht.markdown @thegardenmonkey
 source/_integrations/digital_ocean.markdown @fabaff
 source/_integrations/discogs.markdown @thibmaek
 source/_integrations/dlna_dmr.markdown @StevenLooman @chishm
@@ -295,7 +294,6 @@ source/_integrations/lyric.markdown @timmo001
 source/_integrations/mastodon.markdown @fabaff
 source/_integrations/matrix.markdown @tinloaf
 source/_integrations/mazda.markdown @bdr99
-source/_integrations/mcp23017.markdown @jardiamj
 source/_integrations/media_source.markdown @hunterjm
 source/_integrations/mediaroom.markdown @dgomes
 source/_integrations/melcloud.markdown @vilppuvuorinen
@@ -388,7 +386,6 @@ source/_integrations/panel_iframe.markdown @home-assistant/frontend
 source/_integrations/pcal9535a.markdown @Shulyaka
 source/_integrations/persistent_notification.markdown @home-assistant/core
 source/_integrations/philips_js.markdown @elupus
-source/_integrations/pi4ioe5v9xxxx.markdown @antonverburg
 source/_integrations/pi_hole.markdown @fabaff @johnluetke @shenxn
 source/_integrations/picnic.markdown @corneyl
 source/_integrations/pilight.markdown @trekky12
