@@ -58,6 +58,8 @@ I used this to re-create the JVC remote in HA. Add the YAML to your dashboard to
 
 Add this sensor to your configuration.yml. Replace the nz7 with the name of your entity. Restart Home Assistant.
 
+{% raw %}
+
 ```yaml
 sensor:
   platform: template
@@ -75,6 +77,7 @@ sensor:
         {% endif %}
 ```
 
+{% endraw %}
 Add this to Lovelace after your restart
 
 ```yaml
