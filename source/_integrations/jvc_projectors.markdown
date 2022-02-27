@@ -65,6 +65,8 @@ I used this to re-create the JVC remote in HA. Add the YAML to your dashboard to
 
 Add this sensor to your configuration.yml. Replace the nz7 with the name of your entity. Restart Home Assistant.
 
+{% raw %}
+
 ```yaml
 sensor:
   platform: template
@@ -82,7 +84,9 @@ sensor:
         {% endif %}
 ```
 
+{% endraw %}
 Add this to Lovelace after your restart:
+{% raw %}
 
 ```yaml
 type: grid
@@ -258,9 +262,12 @@ cards:
 columns: 5
 ```
 
+{% endraw %}
+
 #### Service `remote.get_command`
 
 Send a supported command to the projector. Refer to the library for supported commands. _A list of commands can be provided instead of a single command at a time. This has major performance improvements as it reuses the connection._
+{% raw %}
 
 ```yaml
 service: remote.send_command
@@ -273,10 +280,11 @@ target:
   entity_id: remote.nz7
 ```
 
-| Service data attribute | Optional | Description                                                 |
+{% endraw %}
+| Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------------------------------------------------------- |
-| `entity_id`            | no       | Name of entity to send command to. For example `remote.nz7` |
-| `command`              | no       | Command to send to device, e.g., `menu,left`                |
+| `entity_id` | no | Name of entity to send command to. For example `remote.nz7` |
+| `command` | no | Command to send to device, e.g., `menu,left` |
 
 #### Service `remote.turn_on`
 
