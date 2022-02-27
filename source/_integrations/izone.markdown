@@ -18,7 +18,9 @@ The `iZone` integration allows access of control of a local [iZone](https://izon
 
 ## Supported hardware
 
-Any current iZone unit with ducted reverse cycle airconditioning and the CB wired or wireless bridge device installed should currently work. There is currently no support for the iZone lights, reticulation, or other devices.
+Any current iZone unit with ducted reverse cycle airconditioning and the CB wired or wireless bridge device installed should currently work. 
+
+Support is available for climate control and power monitoring. There is currently no support for the iZone lights, reticulation, or other devices.
 
 {% include integrations/config_flow.md %}
 
@@ -103,6 +105,16 @@ hours_to_show: 24
 refresh_interval: 0
 type: history-graph
 ```
+
+## Power Monitoring
+
+Power monitoring channels and groups will be added as Home Assistant sensor entities, as part of the controller device.
+
+After adding or modifying power monitor names for each power monitor channel or monitor groups iZone, restart HA to ensure the integration is updated.
+
+When using power monitor groups their constituent channels are disabled by default in HA. If these sensors are re-enabled, note that they display a cumulative total for each sensor in order, not just the total for that individual sensor.
+
+Each power device's battery status is also available as a diagnostic sensor. This is displayed as a percentage, however only four levels exist: Full=100%, Normal=65%, Low=30%, and Critical=5%. The battery level text is available as an attribute on the sensor `battery_text`
 
 ## Debugging
 
