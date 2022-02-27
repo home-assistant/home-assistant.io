@@ -10,6 +10,7 @@ ha_codeowners:
   - '@cnico'
 ha_domain: flipr
 ha_platforms:
+  - binary_sensor
   - sensor
 ---
 

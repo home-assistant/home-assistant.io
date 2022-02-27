@@ -106,3 +106,13 @@ Say with break:
           Watson
       </speak>
 ```
+
+Optionally, specify a voice for the message:
+
+```yaml
+- service: tts.watson_tts_say
+  data:
+    message: "Hello from Watson"
+  options:
+    voice: en-US_EmilyV3Voice
+```

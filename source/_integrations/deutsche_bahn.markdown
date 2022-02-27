@@ -21,6 +21,7 @@ sensor:
     from: NAME_OF_START_STATION
     to: NAME_OF_FINAL_STATION
 ```
+
 {% configuration %}
 from:
   description: The name of the start station.
@@ -48,12 +49,10 @@ This sensor stores a lot of attributes which can be accessed by other sensors, e
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  platform: template
-  sensors:
-    next_departure:
-      value_template: "{{ state_attr('sensor.munich_to_ulm', 'next') }}"
-      friendly_name: "Next departure"
+template:
+  - sensor:
+    - name : "Next departure"
+      state: "{{ state_attr('sensor.munich_to_ulm', 'next') }}"
 ```
 
 {% endraw %}

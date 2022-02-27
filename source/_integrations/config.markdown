@@ -61,10 +61,6 @@ This section enables you to create and modify automations from within Home Assis
 
 Similar to the automation editor, this section enables you to create and modify scripts from within Home Assistant, without needing to write out the YAML code.
 
-### Z-Wave
-
-This section enables you to control your Z-Wave network and devices from within Home Assistant. You can add and remove devices, as well as change device specific configuration variables.
-
 ### Customizations
 
 This section enables you to customize entities within Home Assistant. Use this to set friendly names, change icons, and modify other attributes.

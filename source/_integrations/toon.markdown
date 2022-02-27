@@ -10,8 +10,6 @@ ha_category:
 ha_release: 0.56
 ha_iot_class: Cloud Push
 ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
 ha_domain: toon
 ha_dhcp: true
 ha_platforms:
@@ -133,6 +131,7 @@ The Toon integration provides the following sensors:
 - Gas Cost Today
 - Gas Meter
 - Gas Usage Today
+- Humidity*
 - Max Solar Power Production Today (only with solar module)
 - Solar Energy Produced Today (only with solar module)
 - Solar Power Production to Grid (only with solar module)

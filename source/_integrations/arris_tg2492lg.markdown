@@ -16,6 +16,7 @@ ha_platforms:
 This platform allows you to detect presence by looking at connected devices to an Arris TG2492LG router.
 
 This is one of the routers provided by:
+
 * [Ziggo](https://www.ziggo.nl/), a cable operator in the Netherlands, to their customers as the Ziggo Connectbox.
 * [Virgin Media](https://www.virginmedia.com/), a cable operator in the United Kingdom, to their customers as the Hub 3.
 

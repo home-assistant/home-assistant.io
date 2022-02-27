@@ -10,7 +10,9 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_domain: group
 ha_platforms:
+  - binary_sensor
   - cover
+  - fan
   - light
   - media_player
   - notify
@@ -63,6 +65,10 @@ icon:
 
 By default when any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`. If you set the `all` option to `true` though, this behavior is inverted and all members of the group have to be `on` for the group to turn on as well.
 
+## Group state update
+
+The group's state is updated when any group member's state is updated. Calling `homeassistant.update_entity` with the target set to the group will not be forwarded to the group members, instead the `expand()` template function can be used to force all group members to update state.
+
 ## Group state calculation
 
 The system can calculate group state with entities from the following domains:
@@ -87,13 +93,13 @@ The system can calculate group state with entities from the following domains:
 When entities all have a single on and off state, the group state will
 be calculated as follows:
 
-| Domain            | on     | off      |
-|-------------------|--------|----------|
-| device_tracker    | home   | not_home |
-| cover             | open   | closed   |
-| lock              | locked | unlocked |
-| person            | home   | not_home |
-| media_player      | ok     | problem  |
+| Domain            | on       | off      |
+|-------------------|----------|----------|
+| device_tracker    | home     | not_home |
+| cover             | open     | closed   |
+| lock              | unlocked | locked   |
+| person            | home     | not_home |
+| media_player      | ok       | problem  |
 
 When a group contains entities from domains that have multiple `on` states or only use `on`
 and `off`, the group state will be `on` or `off`.

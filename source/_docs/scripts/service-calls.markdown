@@ -108,6 +108,23 @@ data:
 ```
 
 {% endraw %}
+
+You can use a template returning a native dictionary as well, which is useful if the attributes to be set depend on the situation.
+
+{% raw %}
+
+```yaml
+service: climate.set_temperature
+data: >
+  {% if states('sensor.temperature_living') < 19 %}
+    {"hvac_mode": "heat", "temperature": 19 }
+  {% else %}
+    {"hvac_mode": "auto" }
+  {% endif %}
+```
+
+{% endraw %}
+
 ### `homeassistant` services
 
 There are four `homeassistant` services that aren't tied to any single domain, these are:

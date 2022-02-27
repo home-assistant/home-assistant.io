@@ -14,14 +14,16 @@ ha_platforms:
   - sensor
 ---
 
-The integration allows you to control [Motion Blinds](https://motion-blinds.com) from [Coulisse B.V.](https://coulisse.com/products/motion).
+The integration allows you to control [Motion Blinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
 
 Additionally the following brands have been reported to also work with this integration:
 
-- [Motion Blinds](https://motion-blinds.com)
+- [Motion Blinds](https://motionblinds.com/)
+- [Smart Blinds](https://www.smartblinds.nl/)
 - [Dooya](http://www.dooya.com/)
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
+- [Smart Home](https://www.smart-home.hu) 
 
 {% include integrations/config_flow.md %}
 
@@ -38,6 +40,8 @@ Please note that "-" characters need to be included in the key when providing it
 <img src='/images/integrations/motion_blinds/Motion_App__get_key_1.jpg' />
 <img src='/images/integrations/motion_blinds/Motion_App__get_key_2.jpg' />
 </p>
+
+Note that it has been reported that the official Bloc Blinds app doesn't seem to hand out the API key on Android, it does seem to provide the API key on the iOS version of the official Bloc Blinds app.
 
 ## Top Down Bottom Up (TDBU) blinds
 
@@ -108,3 +112,30 @@ Please make sure the motion gateway and the device running Home Assistant are on
 If using separate VLANs, make sure the 238.0.0.18:32100 and 238.0.0.18:32101 ports are open for communication between those VLANs (not tested or confirmed to work).
 
 For some routers "IGMP snooping" on the used wireless interface needs to be disabled to let the IGMP/multicast messages through.
+
+For Ubiquiti routers/access points the "Enable multicast enhancement (IGMPv3)" should be disabled.
+
+### Bypassing UDP multicast
+
+If UDP Multicast does not work in your setup (due to network limitations), this integration can be used in local polling mode.
+Go to Settings -> Integrations -> on the already set up Motion Blinds integration click "configure" --> disable the "Wait for push" option (disabled by default).
+
+The default update interval of the Motion Blinds integration is every 10 minutes. When UDP multicast pushes do not work, this polling interval can be a bit high.
+To increase the polling interval:
+Go to Settings -> Integrations -> on the already set up Motion Blinds integration click more options (three dots) and select "System options" -> disable "polling for updates".
+Now create an automation with as trigger a time pattern and select your desired polling time.
+As the action select "Call service" and select "Update entity", select one of the motion blinds covers as entity.
+You only have to create one automation with only one motion blind cover as entity, the rest will update at the same time.
+
+Example YAML automation for custom polling interval (every minute):
+```yaml
+alias: Motion blinds polling automation
+mode: single
+trigger:
+  - platform: time_pattern
+    minutes: "/1"
+action:
+  - service: homeassistant.update_entity
+    target:
+      entity_id: cover.motion_shade
+```

@@ -16,7 +16,7 @@ og_image: /images/blog/2017-10-0.56/components.png
 
 We reached another milestone aka number: 10000. GitHub is assigning numbers to pull requests and issues and the "10000" is a [PR](https://github.com/home-assistant/home-assistant/pull/10000). Our ratio is around 1/3 issues and 2/3 pull requests. To be more precise: 64% pull requests and 36% issues.
 
-If you haven't noticed, there is now a [glossary](/docs/glossary/) that collects some Home Assistant relevant terms. Talking about the documentation: [@DubhAd](https://github.com/DubhAd) rewrote large parts of the [Z-Wave section](/docs/z-wave/). More structure to get started and to find details during the setup and the configuration.
+If you haven't noticed, there is now a [glossary](/docs/glossary/) that collects some Home Assistant relevant terms. Talking about the documentation: [@DubhAd](https://github.com/DubhAd) rewrote large parts of the Z-Wave section. More structure to get started and to find details during the setup and the configuration.
 
 ## Google Assistant / Google Home integration
 This release includes a new component to integrate Home Assistant with Google Assistant by [Phil Kates][@philk]. We integrate via the Smart Home API, this means that you will be able to control your devices in Home Assistant via any device that has Google Assistant. Learn more in [the documentation][google_assistant docs].

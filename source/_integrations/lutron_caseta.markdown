@@ -40,21 +40,18 @@ The currently supported Caseta and RA2 Select devices are:
 - Lutron shades as [covers](#cover)
 - Lutron smart [fan](#fan) speed control
 - Lutron Occupancy/Vacancy [sensors](#sensor)
-
-Additionally RA2 Select Main Repeater (`RR-SEL-REP2-BL`) or Lutron Caséta Smart Bridge PRO (`L-BDGPRO2-WH`) models support:
-
 - Pico Remotes as [device triggers](/integrations/device_automation/)
 - Shade Remotes as [device triggers](/integrations/device_automation/)
 
+When configured, the Lutron Caséta integration will automatically discover the currently supported devices as set up in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g., a dimmer called 'Lamp' in a room called 'Bedroom' becomes `light.bedroom_lamp` in Home Assistant.
+
 {% include integrations/config_flow.md %}
 
-## Manual configuration
-
-Alternatively, if you already have `caseta.key`, `caseta.crt`, `caseta-bridge.crt`, and cannot physically access the bridge to press the button, pairing can be done manually using the following steps:
-
-When configured, the `lutron_caseta` integration will automatically discover the currently supported devices as setup in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g., a dimmer called 'Lamp' in a room called 'Bedroom' becomes `light.bedroom_lamp` in Home Assistant.
+## Manual hub configuration
 
 To use Lutron Caseta devices in your installation, you must first log in to your Lutron account and generate a certificate that allows Home Assistant to connect to your bridge. This can be accomplished by downloading and executing [get_lutron_cert.py](https://github.com/gurumitts/pylutron-caseta/blob/master/get_lutron_cert.py), which will generate three files: caseta.key, caseta.crt, caseta-bridge.crt when you run it. See the instructions at the top of the script for more information.
+
+If you already have `caseta.key`, `caseta.crt`, `caseta-bridge.crt`, and cannot physically access the bridge to press the button, pairing can be done by utilizing these existing files.
 
 Once you have the three necessary files, place them in your configuration directory and add the following to your `configuration.yaml`:
 
@@ -164,7 +161,7 @@ For more information on working with binary sensors in Home Assistant, see the [
 
 ## Pico and Shade Remotes
 
-Pico and Shade remotes require a RA2 Select Main Repeater (`RR-SEL-REP2-BL`) or Lutron Caséta Smart Bridge PRO (`L-BDGPRO2-WH`) with Telnet Support enabled in the Lutron app under `Settings` >> `Advanced` >> `Integration`
+Pico and Shade remotes are supported on the Smart Bridge (L-BDG2-WH), Smart Bridge PRO (L-BDGPRO2-WH), and RA2 Select (RR-SEL-REP2-BL) models.
 
 Device Triggers are implemented for `press` and `release` of each button on the remotes via watching for `lutron_caseta_button_event` events in the format:
 

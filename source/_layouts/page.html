@@ -13,9 +13,11 @@ layout: default
   {% if page.collection == "integrations" %}
     {% assign active_alert = "" %}
     {% for alert in site.data.alerts_data %}
-      {% if alert.integrations and alert.integrations[0].package == page.ha_domain %}
-        {% assign active_alert = alert.alert_url %}
-      {% endif %}
+      {% for integration in alert.integrations %}
+        {% if integration.package == page.ha_domain %}
+          {% assign active_alert = alert.alert_url %}
+        {% endif %}
+      {% endfor %}
     {% endfor %}
     {% if active_alert != "" %}
       <div class="integration-alert">

@@ -13,6 +13,7 @@ ha_platforms:
   - sensor
   - switch
 ha_config_flow: true
+ha_quality_scale: platinum
 ---
 
 This `Switcher` integration allows you to control your [Switcher Devices](https://www.switcher.co.il/).

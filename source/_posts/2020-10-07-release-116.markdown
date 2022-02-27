@@ -369,7 +369,7 @@ same type as it is in the attribute (instead of as a string).
   <summary><b>Canary</b></summary>
   <p>
 
-Canary is now available for configuration via the UI. This also means its no
+Canary is now available for configuration via the UI. This also means it's no
 longer configured in YAML. Existing configurations should be automatically
 transitioned to configuration via UI. You can safely remove you Canary YAML
 configuration after ugprading. YAML support will be fully removed in

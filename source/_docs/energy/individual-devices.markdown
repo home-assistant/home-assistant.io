@@ -3,7 +3,7 @@ title: "Integrating individual device energy usage"
 description: "Learn how to add information about individual device energy usage to Home Assistant home energy management."
 ---
 
-Home Assistant can integrate the energy usage of individual devices into Home Assistant. That way you can see the impact of individual devices on your total enery consumption.
+Home Assistant can integrate the energy usage of individual devices into Home Assistant. That way you can see the impact of individual devices on your total energy consumption.
 
 ## Hardware
 
@@ -20,8 +20,8 @@ Smart relays sit behind your "normal" switches and make them smart. It allows yo
 {% comment %}
 We recommend the Shelly brand because they have a local API that updates Home Assistant as soon as something happens and it has a high quality integration:
 
- - [Shelly 1PM](https://shop.shelly.cloud/shelly-1pm-wifi-smart-home-automation-1?tracking=A7FsiPIfUWsFpnfKHa8SRyUYLXjr2hPq)
- - [Shelly 2.5](https://shop.shelly.cloud/shelly-2.5-ce-ul-wifi-smart-home-automation?tracking=A7FsiPIfUWsFpnfKHa8SRyUYLXjr2hPq)
+- [Shelly 1PM](https://shop.shelly.cloud/shelly-1pm-wifi-smart-home-automation-1?tracking=A7FsiPIfUWsFpnfKHa8SRyUYLXjr2hPq)
+- [Shelly 2.5](https://shop.shelly.cloud/shelly-2.5-ce-ul-wifi-smart-home-automation?tracking=A7FsiPIfUWsFpnfKHa8SRyUYLXjr2hPq)
  {% endcomment %}
 
 <img src='/images/docs/energy/devices.png' alt='Graphic showing energy flowing from the home to individual devices.' style='border: 0;box-shadow: none; display: block; max-height: 400px; margin: 0 auto;'>

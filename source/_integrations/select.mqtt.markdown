@@ -45,6 +45,10 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -54,6 +58,14 @@ availability_mode:
    required: false
    type: string
    default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
+command_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic`.
+  required: false
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the selected option.
   required: true
@@ -63,6 +75,10 @@ device:
   required: false
   type: map
   keys:
+    configuration_url:
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      required: false
+      type: string
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
       required: false
@@ -100,6 +116,16 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -116,13 +142,17 @@ name:
   description: The name of the Select.
   required: false
   type: string
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 optimistic:
   description: Flag that defines if the select works in optimistic mode.
   required: false
   type: boolean
   default: "`true` if no `state_topic` defined, else `false`."
 options:
-  description: List of options that can be selected.
+  description: List of options that can be selected. An empty list or a list with a single item is allowed.
   required: true
   type: list
 qos:

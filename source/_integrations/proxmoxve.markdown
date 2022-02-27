@@ -6,7 +6,6 @@ ha_category:
 ha_release: 0.103
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@k4ds3'
   - '@jhollowe'
   - '@Corbeno'
 ha_domain: proxmoxve

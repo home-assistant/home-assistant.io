@@ -132,10 +132,14 @@ Using a combination of the available services and attributes, you can create swi
       value_template: "{{ is_state_attr('alarm_control_panel.alarm_panel', 'chime', true) }}"
       turn_on:
         service: alarmdecoder.alarm_toggle_chime
+        target:
+          entity_id: alarm_control_panel.alarm_panel
         data:
           code: !secret alarm_code
       turn_off:
         service: alarmdecoder.alarm_toggle_chime
+        target:
+          entity_id: alarm_control_panel.alarm_panel
         data:
           code: !secret alarm_code
       icon_template: >-
@@ -190,7 +194,6 @@ The tables below show the key press sequences used for arming for the different 
 The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Stay</em> and <em>Away</em> keypad keys respectively (as outlined in the <a href='http://www.alarmdecoder.com/wiki/index.php/Protocol#Special_Keys'>AlarmDecoder documentation</a>).
 
 </div>
-
 
 | Mode                                                    | Key Sequence                   |
 | ------------------------------------------------------- | ------------------------------ |

@@ -59,7 +59,7 @@ name:
   type: string
 {% endconfiguration %}
 
-## Example
+## Examples
 
 Alternatively, the card can be configured using YAML:
 
@@ -70,4 +70,18 @@ entities:
   - sensor.outside_temperature
   - entity: media_player.lounge_room
     name: Main player
+```
+
+Or with longer time frame, and multiple entities (as long as they share the same unit_of_measurement) in one graph:
+
+```yaml
+type: history-graph
+title: "Temperatures in the last 48 hours"
+hours_to_show: 48
+entities:
+  - sensor.outside_temperature
+  - entity: sensor.lounge_temperature
+    name: "Lounge"
+  - entity: sensor.attic_temperature
+    name: "Attic"
 ```
