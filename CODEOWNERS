@@ -65,7 +65,6 @@ source/_integrations/blebox.markdown @bbx-a @bbx-jp
 source/_integrations/blink.markdown @fronzbot
 source/_integrations/blueprint.markdown @home-assistant/core
 source/_integrations/bluesound.markdown @thrawnarn
-source/_integrations/bmp280.markdown @belidzs
 source/_integrations/bmw_connected_drive.markdown @gerard33 @rikroe
 source/_integrations/bond.markdown @bdraco @prystupa @joshs85
 source/_integrations/bosch_shc.markdown @tschamm

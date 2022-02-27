@@ -2373,6 +2373,7 @@
 /components/sensor.sensehat /more-info/removed-integration 301
 /integrations/sensehat /more-info/removed-integration 301
 /integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
+/integrations/bmp280 /more-info/removed-integration 301
 /components/mcp23017 /more-info/removed-integration 301
 /integrations/mcp23017 /more-info/removed-integration 301
 /components/rpi_rf /more-info/removed-integration 301
