@@ -216,9 +216,10 @@ noteworthy changes this release:
   for MQTT lights.
 - When selecting a date in the frontend, a beautiful new date picker is shown.
   Thanks, [@bramkragten]!
-- The [IKEA TRÅDFRI] integration has been worked on by [@ggravlingen] and [@martinhjelmare]. Lots
-  of stability issues have been resolved, battery sensors for blinds have been
-  added, and also support for the air purifier has been extended with sensors for air quality and filter time left.
+- The [IKEA TRÅDFRI] integration has been worked on by [@ggravlingen] and
+  [@martinhjelmare]. Lots of stability issues have been resolved, battery
+  sensors for blinds have been added, and also support for the air purifier
+  has been extended with sensors for air quality and filter time left.
 - [@rfleming71] added button entities to the OctoPrint integration, allowing
   you to control to resume, pause or stop a 3D print.
 - The following integrations have added an option to set a `unique_id` in their
@@ -253,6 +254,7 @@ noteworthy changes this release:
 [@kbickar]: https://github.com/kbickar
 [@kbickar]: https://github.com/kbickar
 [@ludeeus]: https://github.com/ludeeus
+[@martinhjelmare]: https://github.com/martinhjelmare
 [@rfleming71]: https://github.com/rfleming71
 [@rubenverhoef]: https://github.com/rubenverhoef
 [@Sanderhuisman]: https://github.com/@Sanderhuisman
