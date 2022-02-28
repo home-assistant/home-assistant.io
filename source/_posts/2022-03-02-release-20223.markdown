@@ -741,6 +741,21 @@ a configuration entity, since it is part of the primary functionality.
 
 {% enddetails %}
 
+{% details "Twitch" %}
+
+The old Twitch API, this integration previously relied on, is shutting down soon.
+
+Therefore, this release updated the Twitch integration to support the new API,
+and now requires a `client_secret` as well as a `client_id`, and new OAuth
+tokens need to be issued with the `user:read:subscriptions` scope.
+
+([@Doridian] - [#67153]) ([documentation](/integrations/twitch))
+
+[@Doridian]: https://github.com/Doridian
+[#67153]: https://github.com/home-assistant/core/pull/67153
+
+{% enddetails %}
+
 {% details "Updater" %}
 
 The Updater integration has been deprecated, all its functionality has now
@@ -842,6 +857,17 @@ With this release, you will need to update your zwave-js-server instance.
 
 [@raman325]: https://github.com/raman325
 [#66785]: https://github.com/home-assistant/core/pull/66785
+
+---
+
+Your Z-Wave controllers will no longer get a node status sensor. While this is
+technically a breaking change, in practice it should not be because the
+controller is always alive.
+
+([@raman325] - [#67209]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#66785]: https://github.com/home-assistant/core/pull/67209
 
 {% enddetails %}
 

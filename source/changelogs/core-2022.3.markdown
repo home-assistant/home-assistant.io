@@ -717,6 +717,46 @@ For a summary in a more readable format:
 - Tweak UniFi client tracker ([@Kane610] - [#67129]) ([unifi docs])
 - Improve typing [util.decorator] ([@cdce8p] - [#67087])
 - Update frontend to 20220223.0 ([@bramkragten] - [#67130]) ([frontend docs])
+- Don't try to resolve state if native_value is Null ([@soluga] - [#67134]) ([wolflink docs]) (beta fix)
+- Media source to verify domain to avoid KeyError ([@balloob] - [#67137]) ([media_source docs]) (beta fix)
+- Fix Sonos radio metadata processing with missing data ([@jjlawren] - [#67141]) ([sonos docs]) (beta fix)
+- Fix SQL sensor ([@balloob] - [#67144]) ([sql docs]) (beta fix)
+- Allow get_states to recover ([@balloob] - [#67146]) ([websocket_api docs]) (beta fix)
+- Use compact encoding for JSON websocket messages ([@bdraco] - [#67148]) ([websocket_api docs]) (beta fix)
+- Bump aiopyarr to 22.2.2 ([@tkdrob] - [#67149]) ([sonarr docs]) (beta fix)
+- Bump pydexcom to 0.2.3 ([@gagebenne] - [#67152]) ([dexcom docs]) (beta fix)
+- SleepIQ Dependency update ([@kbickar] - [#67154]) ([sleepiq docs]) (beta fix)
+- Fix MQTT config entry deprecation warnings ([@frenck] - [#67174]) ([mqtt docs]) (beta fix)
+- Move camera to after deps for HomeKit ([@bdraco] - [#67190]) ([homekit docs]) (beta fix)
+- Fix ElkM1 systems that do not use password authentication ([@bdraco] - [#67194]) ([elkm1 docs]) (beta fix)
+- Move media_source to after_deps ([@balloob] - [#67195]) ([nest docs]) ([motioneye docs]) ([dlna_dms docs]) (beta fix)
+- Bump aiohue to 4.3.0 ([@balloob] - [#67202]) ([hue docs]) (beta fix)
+- 20220224.0 ([@zsarnett] - [#67204]) ([frontend docs]) (beta fix)
+- Take Abode camera snapshot before fetching latest image ([@kevdliu] - [#67150]) ([abode docs]) (beta fix)
+- Fix Twitch component to use new API ([@Doridian] - [#67153]) ([twitch docs]) (breaking-change) (beta fix)
+- Fix nanoleaf white flashing when using scenes ([@martijnvanduijneveldt] - [#67168]) ([nanoleaf docs]) (beta fix)
+- Adjust Sonos visibility checks ([@jjlawren] - [#67196]) ([sonos docs]) (beta fix)
+- Add media source support to Kodi ([@balloob] - [#67203]) ([kodi docs]) (beta fix)
+- Bump the Twinkly dependency to fix the excessive debug output ([@Djelibeybi] - [#67207]) ([twinkly docs]) (beta fix)
+- Don't add extra entities for zwave_js controller ([@raman325] - [#67209]) ([zwave_js docs]) (breaking-change) (beta fix)
+- Add support for 8-gang switches to Tuya ([@frenck] - [#67218]) ([tuya docs]) (beta fix)
+- Move Phone Modem reject call deprecation warning ([@frenck] - [#67223]) ([modem_callerid docs]) (beta fix)
+- Fix zwave_js migration luminance sensor ([@MartinHjelmare] - [#67234]) ([zwave_js docs]) (beta fix)
+- Adjust serializing resolved media ([@balloob] - [#67240]) ([media_source docs]) (beta fix)
+- Add diagnostics to Kostal Plenticore ([@stegm] - [#66435]) ([kostal_plenticore docs]) (beta fix)
+- Fix powerwall data incompatibility with energy integration ([@bdraco] - [#67245]) ([powerwall docs]) (breaking-change) (beta fix)
+- Improve not shown handling ([@balloob] - [#67247]) ([camera docs]) ([media_source docs]) (beta fix)
+- Give Sonos media browse folders Sonos logos to distinguish from media… ([@balloob] - [#67248]) ([sonos docs]) (beta fix)
+- Prevent the wrong WiZ device from being used when the IP is a different device ([@bdraco] - [#67250]) ([wiz docs]) (beta fix)
+- Kodi/Roku: Add brand logos to brand folders at root level ([@balloob] - [#67251]) ([roku docs]) ([kodi docs]) (beta fix)
+- Bump hass-nabucasa to 0.54.0 ([@balloob] - [#67252]) ([cloud docs]) (beta fix)
+- Fix camera content type while browsing ([@balloob] - [#67256]) ([camera docs]) (beta fix)
+- Kodi: Mark MJPEG cameras using PNGs as incompatible ([@balloob] - [#67257]) ([kodi docs]) (beta fix)
+- Fix Doorbird warning if registering favorites fail ([@alandtse] - [#67262]) ([doorbird docs]) (beta fix)
+- Re-enable apcupsd ([@pailloM] - [#67264]) ([apcupsd docs]) (beta fix)
+- Fix dhcp None hostname ([@MartinHjelmare] - [#67289]) ([dhcp docs]) (beta fix)
+- Bump frontend to 20220226.0 ([@balloob] - [#67313]) ([frontend docs]) (beta fix)
+
 
 [#42771]: https://github.com/home-assistant/core/pull/42771
 [#44779]: https://github.com/home-assistant/core/pull/44779
@@ -1122,6 +1162,7 @@ For a summary in a more readable format:
 [#66427]: https://github.com/home-assistant/core/pull/66427
 [#66428]: https://github.com/home-assistant/core/pull/66428
 [#66429]: https://github.com/home-assistant/core/pull/66429
+[#66435]: https://github.com/home-assistant/core/pull/66435
 [#66437]: https://github.com/home-assistant/core/pull/66437
 [#66439]: https://github.com/home-assistant/core/pull/66439
 [#66446]: https://github.com/home-assistant/core/pull/66446
@@ -1425,6 +1466,44 @@ For a summary in a more readable format:
 [#67128]: https://github.com/home-assistant/core/pull/67128
 [#67129]: https://github.com/home-assistant/core/pull/67129
 [#67130]: https://github.com/home-assistant/core/pull/67130
+[#67134]: https://github.com/home-assistant/core/pull/67134
+[#67137]: https://github.com/home-assistant/core/pull/67137
+[#67141]: https://github.com/home-assistant/core/pull/67141
+[#67144]: https://github.com/home-assistant/core/pull/67144
+[#67146]: https://github.com/home-assistant/core/pull/67146
+[#67148]: https://github.com/home-assistant/core/pull/67148
+[#67149]: https://github.com/home-assistant/core/pull/67149
+[#67150]: https://github.com/home-assistant/core/pull/67150
+[#67152]: https://github.com/home-assistant/core/pull/67152
+[#67153]: https://github.com/home-assistant/core/pull/67153
+[#67154]: https://github.com/home-assistant/core/pull/67154
+[#67168]: https://github.com/home-assistant/core/pull/67168
+[#67174]: https://github.com/home-assistant/core/pull/67174
+[#67190]: https://github.com/home-assistant/core/pull/67190
+[#67194]: https://github.com/home-assistant/core/pull/67194
+[#67195]: https://github.com/home-assistant/core/pull/67195
+[#67196]: https://github.com/home-assistant/core/pull/67196
+[#67202]: https://github.com/home-assistant/core/pull/67202
+[#67203]: https://github.com/home-assistant/core/pull/67203
+[#67204]: https://github.com/home-assistant/core/pull/67204
+[#67207]: https://github.com/home-assistant/core/pull/67207
+[#67209]: https://github.com/home-assistant/core/pull/67209
+[#67218]: https://github.com/home-assistant/core/pull/67218
+[#67223]: https://github.com/home-assistant/core/pull/67223
+[#67234]: https://github.com/home-assistant/core/pull/67234
+[#67240]: https://github.com/home-assistant/core/pull/67240
+[#67245]: https://github.com/home-assistant/core/pull/67245
+[#67247]: https://github.com/home-assistant/core/pull/67247
+[#67248]: https://github.com/home-assistant/core/pull/67248
+[#67250]: https://github.com/home-assistant/core/pull/67250
+[#67251]: https://github.com/home-assistant/core/pull/67251
+[#67252]: https://github.com/home-assistant/core/pull/67252
+[#67256]: https://github.com/home-assistant/core/pull/67256
+[#67257]: https://github.com/home-assistant/core/pull/67257
+[#67262]: https://github.com/home-assistant/core/pull/67262
+[#67264]: https://github.com/home-assistant/core/pull/67264
+[#67289]: https://github.com/home-assistant/core/pull/67289
+[#67313]: https://github.com/home-assistant/core/pull/67313
 [@AnilDaoud]: https://github.com/AnilDaoud
 [@Bre77]: https://github.com/Bre77
 [@Cereal2nd]: https://github.com/Cereal2nd
@@ -1432,6 +1511,8 @@ For a summary in a more readable format:
 [@DCSBL]: https://github.com/DCSBL
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@DeerMaximum]: https://github.com/DeerMaximum
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@Doridian]: https://github.com/Doridian
 [@DurgNomis-drol]: https://github.com/DurgNomis-drol
 [@EiNSTeiN-]: https://github.com/EiNSTeiN-
 [@EtienneMD]: https://github.com/EtienneMD
@@ -1454,6 +1535,7 @@ For a summary in a more readable format:
 [@Tigger2014]: https://github.com/Tigger2014
 [@agners]: https://github.com/agners
 [@ajschmidt8]: https://github.com/ajschmidt8
+[@alandtse]: https://github.com/alandtse
 [@alengwenus]: https://github.com/alengwenus
 [@alexyao2015]: https://github.com/alexyao2015
 [@alim4r]: https://github.com/alim4r
@@ -1493,6 +1575,7 @@ For a summary in a more readable format:
 [@felipecrs]: https://github.com/felipecrs
 [@flabbamann]: https://github.com/flabbamann
 [@frenck]: https://github.com/frenck
+[@gagebenne]: https://github.com/gagebenne
 [@ggravlingen]: https://github.com/ggravlingen
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@gregsheremeta]: https://github.com/gregsheremeta
@@ -1512,11 +1595,13 @@ For a summary in a more readable format:
 [@jt-nti]: https://github.com/jt-nti
 [@julesxxl]: https://github.com/julesxxl
 [@kbickar]: https://github.com/kbickar
+[@kevdliu]: https://github.com/kevdliu
 [@klaasnicolaas]: https://github.com/klaasnicolaas
 [@kpine]: https://github.com/kpine
 [@ludeeus]: https://github.com/ludeeus
 [@madmat777]: https://github.com/madmat777
 [@marcelveldt]: https://github.com/marcelveldt
+[@martijnvanduijneveldt]: https://github.com/martijnvanduijneveldt
 [@masto]: https://github.com/masto
 [@mdegat01]: https://github.com/mdegat01
 [@mfugate1]: https://github.com/mfugate1
@@ -1528,6 +1613,7 @@ For a summary in a more readable format:
 [@oischinger]: https://github.com/oischinger
 [@ollo69]: https://github.com/ollo69
 [@oxan]: https://github.com/oxan
+[@pailloM]: https://github.com/pailloM
 [@pascalwinters]: https://github.com/pascalwinters
 [@patagonaa]: https://github.com/patagonaa
 [@pedrolamas]: https://github.com/pedrolamas
@@ -1545,9 +1631,11 @@ For a summary in a more readable format:
 [@sbidy]: https://github.com/sbidy
 [@scop]: https://github.com/scop
 [@slovdahl]: https://github.com/slovdahl
+[@soluga]: https://github.com/soluga
 [@sophof]: https://github.com/sophof
 [@starkillerOG]: https://github.com/starkillerOG
 [@stebet]: https://github.com/stebet
+[@stegm]: https://github.com/stegm
 [@sti0]: https://github.com/sti0
 [@stuart-c]: https://github.com/stuart-c
 [@tetienne]: https://github.com/tetienne
@@ -1559,13 +1647,16 @@ For a summary in a more readable format:
 [@uvjustin]: https://github.com/uvjustin
 [@vlebourl]: https://github.com/vlebourl
 [@w35l3y]: https://github.com/w35l3y
+[@zsarnett]: https://github.com/zsarnett
 [@zvldz]: https://github.com/zvldz
+[abode docs]: /integrations/abode/
 [advantage_air docs]: /integrations/advantage_air/
 [aftership docs]: /integrations/aftership/
 [agent_dvr docs]: /integrations/agent_dvr/
 [alarmdecoder docs]: /integrations/alarmdecoder/
 [alexa docs]: /integrations/alexa/
 [amcrest docs]: /integrations/amcrest/
+[apcupsd docs]: /integrations/apcupsd/
 [apprise docs]: /integrations/apprise/
 [aseko_pool_live docs]: /integrations/aseko_pool_live/
 [asuswrt docs]: /integrations/asuswrt/
@@ -1594,10 +1685,12 @@ For a summary in a more readable format:
 [derivative docs]: /integrations/derivative/
 [device_automation docs]: /integrations/device_automation/
 [device_tracker docs]: /integrations/device_tracker/
+[dexcom docs]: /integrations/dexcom/
 [dhcp docs]: /integrations/dhcp/
 [discord docs]: /integrations/discord/
 [dlna_dmr docs]: /integrations/dlna_dmr/
 [dlna_dms docs]: /integrations/dlna_dms/
+[doorbird docs]: /integrations/doorbird/
 [dsmr docs]: /integrations/dsmr/
 [ebusd docs]: /integrations/ebusd/
 [econet docs]: /integrations/econet/
@@ -1651,6 +1744,8 @@ For a summary in a more readable format:
 [isy994 docs]: /integrations/isy994/
 [kaiterra docs]: /integrations/kaiterra/
 [kmtronic docs]: /integrations/kmtronic/
+[kodi docs]: /integrations/kodi/
+[kostal_plenticore docs]: /integrations/kostal_plenticore/
 [lametric docs]: /integrations/lametric/
 [lg_netcast docs]: /integrations/lg_netcast/
 [lifx docs]: /integrations/lifx/
@@ -1751,6 +1846,8 @@ For a summary in a more readable format:
 [tts docs]: /integrations/tts/
 [tuya docs]: /integrations/tuya/
 [twilio docs]: /integrations/twilio/
+[twinkly docs]: /integrations/twinkly/
+[twitch docs]: /integrations/twitch/
 [unifi docs]: /integrations/unifi/
 [unifiprotect docs]: /integrations/unifiprotect/
 [upcloud docs]: /integrations/upcloud/
@@ -1772,6 +1869,7 @@ For a summary in a more readable format:
 [withings docs]: /integrations/withings/
 [wiz docs]: /integrations/wiz/
 [wiz_light docs]: /integrations/wiz_light/
+[wolflink docs]: /integrations/wolflink/
 [workday docs]: /integrations/workday/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [yale_smart_alarm docs]: /integrations/yale_smart_alarm/
