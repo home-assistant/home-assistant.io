@@ -154,9 +154,15 @@ TODO:
 - Need before/after screenshots?
 
 We have been working hard on upgrading the Home Assistant frontend to use
-Material Web Components everywhere, saying goodbye to our old paper style.
-This allows our frontend to be up-to-date with the latest features and the latest style.
-As you'll notice these elements have a different look from the older style, so don't be alarmed if your inputs are a bit different.
+Material Web Components (MWC) everywhere, saying goodbye to our old
+(and deprecated) paper style.
+
+This allows our frontend to be up-to-date with the latest features and the
+latest style. As you'll notice these elements have a different look from the
+older style, so don't be alarmed if your inputs are a bit different.
+
+Updating to MWC gives us many new oppertunaties for the future, but also makes
+Home Assistant more accesible, for example, when using a screen reader.
 
 ## Triggered!
 
