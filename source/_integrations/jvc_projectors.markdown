@@ -79,7 +79,7 @@ sensor:
 
 {% endraw %}
 Add this to Lovelace after your restart
-
+{% raw %}
 ```yaml
 type: grid
 cards:
@@ -253,11 +253,11 @@ cards:
     show_icon: false
 columns: 5
 ```
-
+{% endraw %}
 #### Service `remote.get_command`
 
 Send a supported command to the projector. Refer to the library for supported commands. _A list of commands can be provided instead of a single command at a time. This has major performance improvements as it reuses the connection._
-
+{% raw %}
 ```yaml
 service: remote.send_command
 data:
@@ -268,7 +268,7 @@ data:
 target:
   entity_id: remote.nz7
 ```
-
+{% endraw %}
 | Service data attribute | Optional | Description                                                 |
 | ---------------------- | -------- | ----------------------------------------------------------- |
 | `entity_id`            | no       | Name of entity to send command to. For example `remote.nz7` |
