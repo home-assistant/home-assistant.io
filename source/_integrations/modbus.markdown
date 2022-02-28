@@ -193,7 +193,8 @@ Description:
 | Attribute | Description |
 | --------- | ----------- |
 | hub       | Hub name (defaults to 'modbus_hub' when omitted) |
-| unit      | Slave address (0-255) |
+| unit      | Slave address (0-255), alternative to slave |
+| slave     | Slave address (0-255), alternative to unit |
 | address   | Address of the Register (e.g. 138) |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F |
@@ -370,6 +371,11 @@ binary_sensors:
       description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
       required: false
       type: string
+    slave_count:
+      description: Generates x-1 slave binary sensors, allowing read of multiple coils with a single read messsage.
+      required: false
+      type: integer
+
 {% endconfiguration %}
 
 ## Configuring platform climate
