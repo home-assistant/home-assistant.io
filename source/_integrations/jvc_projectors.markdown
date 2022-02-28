@@ -38,6 +38,7 @@ host: description: IP address of the device, e.g., 192.168.1.32
 name: friendly name to use as the entity name. Will appear as remote.{name}
 password: If NZ model, the password you configured
 {% endconfiguration_basic %}
+{% include integrations/config_flow.md %}
 
 #### Service `remote.get_command`
 
