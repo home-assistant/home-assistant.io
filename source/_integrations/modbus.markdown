@@ -370,6 +370,11 @@ binary_sensors:
       description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
       required: false
       type: string
+    slave_count:
+      description: Generates x-1 slave binary sensors, allowing read of multiple coils with a single read messsage.
+      required: false
+      type: integer
+
 {% endconfiguration %}
 
 ## Configuring platform climate
