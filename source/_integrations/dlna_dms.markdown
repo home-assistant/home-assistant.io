@@ -34,7 +34,7 @@ The `<media_identifier>` can have one of three forms:
 - `:ObjectID`: Colon followed by a server-assigned ID for an object.
 - `?query`: Question mark followed by a query string to search for, see [DLNA ContentDirectory SearchCriteria](http://www.upnp.org/specs/av/UPnP-av-ContentDirectory-v1-Service.pdf) for the syntax. The first result found will be used.
 
-URIs generated while browsing will look like the Object ID form above. However, all three forms will work with the [media_player.play_media](integrations/media_player/#service-media_playerplay_media) service.
+URIs generated while browsing will look like the Object ID form above. However, all three forms will work with the [media_player.play_media](/integrations/media_player/#service-media_playerplay_media) service.
 
 ### Examples
 
