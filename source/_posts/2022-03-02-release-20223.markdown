@@ -370,22 +370,6 @@ See our documentation for a guide on
 
 {% enddetails %}
 
-{% details "apcupsd" %}
-
-The apcupsd integration has been disabled due to the third-party library
-we depend on not being compatible with Python 3.10.
-
-Home Assistant is working towards adding support for Python 3.10, and
-we had to disable this integration now to be able to get our development and
-testing environments upgraded.
-
-([@frenck] - [#59729])
-
-[@frenck]: https://github.com/frenck
-[#59729]: https://github.com/home-assistant/core/pull/59729
-
-{% enddetails %}
-
 {% details "ASUSWRT" %}
 
 The previously deprecated YAML configuration of the ASUSWRT
