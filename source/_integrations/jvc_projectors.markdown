@@ -13,7 +13,7 @@ ha_platforms:
   - remote
 ---
 
-The `jvc_projectors` platform allows you to control [JVC Projectors](https://www.us.jvc.com/projectors/) from Home Assistant. It is likely that your device is supported by the [jvc_projectors] platform.
+The `jvc_projectors` integration allows you to control [JVC Projectors](https://www.us.jvc.com/projectors/) with Home Assistant.
 
 Known supported devices
 
@@ -42,7 +42,6 @@ password: If NZ model, the password you configured
 #### Service `remote.get_command`
 
 Send a supported command to the projector. Refer to the library for supported commands. _A list of commands can be provided instead of a single command at a time. This has major performance improvements as it reuses the connection._
-{% raw %}
 
 ```yaml
 service: remote.send_command
@@ -55,7 +54,6 @@ target:
   entity_id: remote.nz7
 ```
 
-{% endraw %}
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------------------------------------------------------- |
 | `entity_id` | no | Name of entity to send command to. For example `remote.nz7` |
@@ -109,4 +107,3 @@ Set optimal settings for Film when an SDR signal is present.
 | ---------------------- | -------- | ----------------------------------------------------------- |
 | `entity_id`            | no       | Name of entity to send command to. For example `remote.nz7` |
 
-[jvc projectors]: /integrations/jvc_projectors
