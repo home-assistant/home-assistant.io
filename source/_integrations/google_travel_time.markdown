@@ -25,7 +25,7 @@ A quota can be set against the API to avoid exceeding the free credit amount. Se
 
 Notes:
 
-- Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, an entity id with latitude and longitude attributes, or zone friendly name (case sensitive).
+- Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates have to be separated by a comma). You can also enter an entity ID that provides this information in its state, an entity ID with latitude and longitude attributes, or zone friendly name (case sensitive).
 
 ## Manual Polling
 
