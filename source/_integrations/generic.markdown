@@ -95,9 +95,10 @@ In this section, you find some real-life examples of how to use this camera plat
 camera:
   - platform: generic
     name: Weather
-    still_image_url: https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/meteogram.svg
+    still_image_url: https://www.yr.no/en/content/1-72837/meteogram.svg
     content_type: "image/svg+xml"
 ```
+Instructions on how to locate the SVG for your location is available at [developer.yr.no](https://developer.yr.no/doc/guides/deprecating-old-widgets/)
 
 ### Local image
 
