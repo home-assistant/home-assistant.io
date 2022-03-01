@@ -501,7 +501,7 @@ LED                     | Turn on/off the LED
 
 Binary sensor           | Description
 ----------------------- | -----------------
-Auxiliary Heat Status   | Indicates the heater actually is on or off
+Auxiliary Heat Status   | Indicates if the heater is actually on
 
 - Sensor entities
 
@@ -564,7 +564,7 @@ LED                     | Turn on/off `led`
 
 Binary sensor           | Description
 ----------------------- | -----------------
-Auxiliary Heat Status   | Indicates the heater actually is on or off
+Auxiliary Heat Status   | Indicates if the heater is actually on
 
 - Sensor entities
 
