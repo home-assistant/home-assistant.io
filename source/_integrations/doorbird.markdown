@@ -11,11 +11,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@oblogic7'
   - '@bdraco'
+  - '@flacjacket'
 ha_domain: doorbird
 ha_zeroconf: true
 ha_platforms:
-  - button
   - camera
+  - button
 ---
 
 The `doorbird` implementation allows you to integrate your [DoorBird](https://www.doorbird.com/) device in Home Assistant.

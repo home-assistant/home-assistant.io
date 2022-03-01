@@ -17,6 +17,7 @@ ha_platforms:
   - climate
   - fan
   - light
+  - number
   - sensor
   - select
 ha_dhcp: true
@@ -30,6 +31,7 @@ The integration allows for:
 - Setting the target temperature and target humidity
 - Controlling the fan (used for drying and cooling down the sauna)
 - Controlling the sauna lights (on/off, mode selection)
+- Configuring timers for automatic power shutdown, automatic fan shutdown and salt spray activation interval
 - Checking diagnostic information (water level, tank temperature, water in/out valves)
 
 {% include integrations/config_flow.md %}

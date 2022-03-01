@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_dhcp: true
 ha_codeowners:
   - '@dieselrabbit'
+  - '@bdraco'
 ha_domain: screenlogic
 ha_platforms:
   - binary_sensor

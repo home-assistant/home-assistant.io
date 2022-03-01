@@ -4,10 +4,12 @@ description: Instructions on how to integrate Z-Wave with Home Assistant via Z-W
 featured: true
 ha_category:
   - Binary Sensor
+  - Button
   - Climate
   - Cover
   - Fan
   - Hub
+  - Humidifier
   - Light
   - Lock
   - Number
@@ -23,16 +25,19 @@ ha_codeowners:
 ha_domain: zwave_js
 ha_platforms:
   - binary_sensor
+  - button
+  - diagnostics
   - climate
   - cover
   - fan
   - light
   - lock
   - number
-  - sensor
   - select
+  - sensor
   - siren
   - switch
+  - humidifier
 ---
 
 This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're migrating from the deprecated `zwave` or `ozw` integrations, see [our migration instructions](#migrating-from-previous-z-wave-implementations).
@@ -237,6 +242,8 @@ This service will set a value on multiple Z-Wave devices using multicast. It is 
 | `options`   	          | no        	| Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set. 	                                                                                                                |
 
 ### Service `zwave_js.ping`
+
+> NOTE: This service has been deprecated and replaced with a new button entity. The service will still work for now but will be removed in a future release. Users are advised to move their automations to use the `button.press` service with the new entity which is a like for like replacement.
 
 Calling this service forces Z-Wave JS to try to reach a node. This can be used to update the status of the node in Z-Wave JS when you think it doesn't accurately reflect reality, e.g. reviving a failed/dead node or marking the node as asleep.
 
@@ -471,6 +478,46 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | `trigger.previous_value_raw` | The raw previous value for this Z-Wave value (the key of the state when a state is named). |
 | `trigger.current_value`      | The current value for this Z-Wave value (translated to a state name when possible).        |
 | `trigger.current_value_raw`  | The raw current value for this Z-Wave value (the key of the state when a state is named).  |
+
+### `zwave_js.event`
+
+This trigger platform can be used to trigger automations on any Z-Wave JS controller, driver, or node event, including events that may not be handled by Home Assistant automatically. Refer to the linked [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/) to learn more about the available events and the data that is sent along with it.
+
+There is strict validation in place based on all known event types, so if you come across an event type that isn't supported, please open a GitHub issue in the `home-assistant/core` repository.
+
+#### Example automation trigger configuration
+
+```yaml
+# Fires whenever the `interview failed` event is fired on the three devices (devices will be derived from device and entity IDs).
+trigger:
+  platform: zwave_js.event
+  # At least one `device_id` or `entity_id` must be provided for `node` events. For any other events, a `config_entry_id` needs to be provided.
+  device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
+  entity_id:
+    - lock.front_lock
+    - lock.back_door
+  config_entry_id:
+  # `event_source` and `event` are required
+  event_source: node   # options are node, controller, and driver
+  event: "interview failed"  # event names can be retrieved from the Z-Wave JS docs (see links above)
+  # `event_data` and `partial_dict_match` are optional. If `event_data` isn't included, all events of a given type for the given context will trigger the automation. When the `interview failed` event is fired, all argument live in a dictionary within the `event_data` dictionary under the `args` key. The default behavior is to require a full match of the event_data dictionary below and the dictionary that is passed to the event. By setting `partial_dict_match` to true, Home Assistant will check if the isFinal argument is true and ignore any other values in the dictionary. If this setting was false, this trigger would never fire because the dictionary always contains more keys than `isFinal` so the comparsion check would never evaluate to true.
+  event_data:
+    args:
+      isFinal: true
+  partial_dict_match: true  # defaults to false
+```
+
+#### Available Trigger Data
+
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `zwave_js.event` trigger platform has additional trigger data available for use.
+
+| Template variable            | Data                                                                                       |
+|------------------------------|--------------------------------------------------------------------------------------------|
+| `trigger.device_id`          | Device ID for the device in the device registry (only included for node events).                                           |
+| `trigger.node_id`            | Z-Wave node ID (only included for node events).                                                                            |
+| `trigger.event_source`      | Source of event (node, controller, or driver).                                                                          |
+| `trigger.event`             | Name of event.                                                                        |
+| `trigger.event_data`           | Any data included in the event.                                                                   |
 
 ## Migrating from previous Z-Wave implementations
 

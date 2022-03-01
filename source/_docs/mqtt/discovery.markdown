@@ -29,20 +29,14 @@ Supported by MQTT discovery:
 - [Tag Scanners](/integrations/tag.mqtt/)
 - [Vacuums](/integrations/vacuum.mqtt/)
 
-MQTT discovery is enabled by default. To disable MQTT discovery, add the following to your `configuration.yaml` file:
+## Configuration
+MQTT discovery is enabled by default, but can be disable. To do this, click on "Configure" in the integration page in the UI, then "Re-configure MQTT" and then "Next".
 
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  discovery: false
-```
+### Advanced discovery configuration
+
+It's possible to configure the prefix of the discovery topic through `configuration.yaml`.
 
 {% configuration %}
-discovery:
-  description: If the MQTT discovery should be enabled or not.
-  required: false
-  default: true
-  type: boolean
 discovery_prefix:
   description: The prefix for the discovery topic.
   required: false
@@ -50,7 +44,7 @@ discovery_prefix:
   type: string
 {% endconfiguration %}
 
-### Discovery topic
+## Discovery topic
 
 The discovery topic need to follow a specific format:
 
@@ -94,6 +88,7 @@ Supported abbreviations:
     'away_mode_stat_t':    'away_mode_state_topic',
     'b_tpl':               'blue_template',
     'bri_cmd_t':           'brightness_command_topic',
+    'bri_cmd_tpl':         'brightness_command_template',
     'bri_scl':             'brightness_scale',
     'bri_stat_t':          'brightness_state_topic',
     'bri_tpl':             'brightness_template',
@@ -123,6 +118,7 @@ Supported abbreviations:
     'dock_t':              'docked_topic',
     'dock_tpl':            'docked_template',
     'e':                   'encoding',
+    'ent_cat':             'entity_category,
     'err_t':               'error_topic',
     'err_tpl':             'error_template',
     'fanspd_t':            'fan_speed_topic',
@@ -131,6 +127,7 @@ Supported abbreviations:
     'flsh_tlng':           'flash_time_long',
     'flsh_tsht':           'flash_time_short',
     'fx_cmd_t':            'effect_command_topic',
+    'fx_cmd_tpl':          'effect_command_template',
     'fx_list':             'effect_list',
     'fx_stat_t':           'effect_state_topic',
     'fx_tpl':              'effect_template',
@@ -343,11 +340,12 @@ A motion detection device which can be represented by a [binary sensor](/integra
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
 - Payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}`
+- Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
-To create a new sensor manually. For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
+To create a new sensor manually.
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}'
+mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}'
 ```
 
 Update the state.
@@ -361,6 +359,8 @@ Delete the sensor by sending an empty message.
  ```bash
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
+
+For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
 
 ### Sensors with multiple values
 
@@ -380,9 +380,10 @@ Setting up a switch is similar but requires a `command_topic` as mentioned in th
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
 - Payload:  `{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}`
+- Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
+mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
   -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}'
 ```
 
@@ -458,7 +459,7 @@ Setting up a climate integration (heat only):
 {
   "mode":"off",
   "target_temp":"21.50",
-  "current_temp":"23.60",
+  "current_temp":"23.60"
 }
 ```
 
@@ -482,7 +483,7 @@ Setting up a device tracker:
 - State topic: `homeassistant/device_tracker/paulus/state`
 - Example state payload: `home` or `not_home` or `location name`
 
-If the device supports gps coordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
+If the device supports GPS coordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
 
 - Attributes topic: `homeassistant/device_tracker/paulus/attributes`
 - Example attributes payload:
@@ -511,5 +512,5 @@ The entity id is automatically generated from the entity's name. All MQTT entity
  }
 ```
 
-In the example above, the the entity_id will be `sensor.device1` instead of `sensor.my_super_device`.
+In the example above, the entity_id will be `sensor.device1` instead of `sensor.my_super_device`.
 

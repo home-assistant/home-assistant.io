@@ -10,8 +10,10 @@ ha_config_flow: true
 ha_quality_scale: gold
 ha_codeowners:
   - '@fabaff'
+  - '@frenck'
 ha_domain: luftdaten
 ha_platforms:
+  - diagnostics
   - sensor
 ---
 

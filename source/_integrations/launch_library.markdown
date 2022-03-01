@@ -10,7 +10,9 @@ ha_codeowners:
   - '@DurgNomis-drol'
 ha_domain: launch_library
 ha_platforms:
+  - diagnostics
   - sensor
+ha_config_flow: true
 ---
 
 The `launch_library` sensor will provide you with information about the next planned space launch and SpaceX Starship event.
@@ -20,4 +22,3 @@ The `launch_library` sensor will provide you with information about the next pla
 The data this platform presents comes from [launchlibrary.net][launchlibrary].
 
 [launchlibrary]: https://launchlibrary.net/
-

@@ -10,6 +10,7 @@ ha_codeowners:
   - '@frenck'
 ha_domain: open_meteo
 ha_platforms:
+  - diagnostics
   - weather
 ---
 
