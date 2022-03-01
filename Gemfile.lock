@@ -48,7 +48,7 @@ GEM
     jekyll-commonmark (1.4.0)
       commonmarker (~> 0.22)
     jekyll-paginate (1.1.0)
-    jekyll-sass-converter (2.1.0)
+    jekyll-sass-converter (2.2.0)
       sassc (> 2.0.1, < 3.0)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
