@@ -45,7 +45,7 @@ Please note that "-" characters need to be included in the key when providing it
 ### Brel Home app
 
 In the Brel Home app on iOS go to the `me` page (home screen 4th tab), on the bottom of this page multi-tap on the “version x.x.x(xxxx)” gray info and a pop-up with the key will be shown.
-In the Brel Home app on Android go to the `me` page (home screen 4th tab), tap 5 times on the rightside of the photo place and a pop-up with the key will be shown.
+In the Brel Home app on Android go to the `me` page (home screen 4th tab), tap 5 times on the right side of the photo place and a pop-up with the key will be shown.
 
 ### Bloc Blinds app
 
