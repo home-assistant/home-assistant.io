@@ -507,7 +507,7 @@ Auxiliary Heat Status   | Indicates if the heater is actually on
 
 Button                  | Description                                
 ----------------------- | ------------------------------------------ 
-Reset dust filter       | Resets filter lifetime and usage of the dust filter  
+Reset Dust Filter       | Resets filter lifetime and usage of the dust filter  
 
 - Sensor entities
 
@@ -578,8 +578,8 @@ Auxiliary Heat Status   | Indicates if the heater is actually on
 
 Button                  | Description                                
 ----------------------- | ------------------------------------------ 
-Reset dust filter       | Resets filter lifetime and usage of the dust filter  
-Reset upper filter      | Resets filter lifetime and usage of the upper filter 
+Reset Dust Filter       | Resets filter lifetime and usage of the dust filter  
+Reset Upper Filter      | Resets filter lifetime and usage of the upper filter 
 
 - Sensor entities
 
