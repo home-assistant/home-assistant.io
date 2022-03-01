@@ -3,7 +3,7 @@ title: Backup
 description: Allow creating backups of container and core installations.
 ha_category:
   - Other
-ha_release: 2022.3
+ha_release: 2022.4
 ha_quality_scale: internal
 ha_domain: backup
 ---
@@ -16,7 +16,7 @@ If you use Home Assistant Operating System or Home Assistant Supervised, [back u
 
 </div>
 
-## Configuration
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,4 +26,4 @@ backup:
 You need to restart Home Assistant after you add this configuration.
 When it has started up again you will find a new "Backup" entry in the main menu (**Configuration** -> **Backup**).
 
-The backup files are stored in a new "backups" directory in the root of your configuration directory.
+The backup files are stored in a new "backups" subdirectory in the root of your configuration directory.
