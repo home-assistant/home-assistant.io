@@ -497,6 +497,12 @@ LED                     | Turn on/off the LED
 
 - Power (on, off)
 - Operation modes (Auto, Sleep, Favorite)
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------
+Auxiliary Heat Status   | Indicates if the heater is actually on
+
 - Sensor entities
 
 Sensor                          | Description                                                    
@@ -556,6 +562,12 @@ LED                     | Turn on/off `led`
 
 - Power (on, off)
 - Operation modes (Auto, Sleep, Favorite)
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------
+Auxiliary Heat Status   | Indicates if the heater is actually on
+
 - Sensor entities
 
 Sensor                           | Description                                                   
