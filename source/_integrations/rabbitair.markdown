@@ -56,11 +56,3 @@ access_token:
   required: true
   type: string
 {% endconfiguration_basic %}
-
-{% include integrations/option_flow.md %}
-{% configuration_basic %}
-Update interval:
-  description: "Interval for polling the device (in seconds)."
-  default: 10
-  type: integer
-{% endconfiguration_basic %}
