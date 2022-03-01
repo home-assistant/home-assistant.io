@@ -181,7 +181,6 @@
 /components/binary_sensor.raincloud /integrations/raincloud#binary-sensor
 /components/binary_sensor.rainmachine /integrations/rainmachine
 /components/binary_sensor.random /integrations/random#binary-sensor
-/components/binary_sensor.raspihats /integrations/raspihats#binary-sensor
 /components/binary_sensor.rfxtrx /integrations/rfxtrx#binary-sensors
 /components/binary_sensor.ring /integrations/ring#binary-sensor
 /components/binary_sensor.rpi_gpio /integrations/rpi_gpio#binary-sensor
@@ -965,7 +964,6 @@
 /components/switch.rainbird /integrations/rainbird#switch
 /components/switch.raincloud /integrations/raincloud#switch
 /components/switch.rainmachine /integrations/rainmachine#switch
-/components/switch.raspihats /integrations/raspihats#switch
 /components/switch.raspyrfm /integrations/raspyrfm
 /components/switch.recswitch /integrations/recswitch
 /components/switch.rfxtrx /integrations/rfxtrx#switch
@@ -1644,7 +1642,6 @@
 /components/rainforest_eagle /integrations/rainforest_eagle
 /components/rainmachine /integrations/rainmachine
 /components/random /integrations/random
-/components/raspihats /integrations/raspihats
 /components/raspyrfm /integrations/raspyrfm
 /components/recollect_waste /integrations/recollect_waste
 /components/recorder /integrations/recorder
@@ -2380,3 +2377,7 @@
 /components/rpi_rf /more-info/removed-integration 301
 /components/switch.rpi_rf /more-info/removed-integration 301
 /integrations/rpi_rf /more-info/removed-integration 301
+/components/binary_sensor.raspihats /more-info/removed-integration 301
+/components/raspihats /more-info/removed-integration 301
+/components/switch.raspihats /more-info/removed-integration 301
+/integrations/raspihats /more-info/removed-integration 301
