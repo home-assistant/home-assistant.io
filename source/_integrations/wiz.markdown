@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Light
   - Number
+  - Sensor
   - Switch
 ha_iot_class: Local Push
 ha_release: "2022.3"
@@ -18,6 +19,7 @@ ha_platforms:
   - binary_sensor
   - light
   - number
+  - sensor
   - switch
 ---
 
