@@ -919,6 +919,10 @@ sensors:
       description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
       required: false
       type: string
+    slave_count:
+      description: Generates x-1 slave sensors, allowing read of multiple registers with a single read messsage.
+      required: false
+      type: integer
 {% endconfiguration %}
 
 <div class='note'>
