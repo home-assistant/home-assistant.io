@@ -515,6 +515,8 @@ Switch                  | Description
 ----------------------- | -----------------------
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
+Display                 | Turn on/off `display`
+Auxiliary Heat          | Turn on/off `heater`
 
 ### Air Fresh VA2
 
@@ -574,6 +576,8 @@ Switch                  | Description
 ----------------------- | -----------------------
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
+Display                 | Turn on/off `display`
+Auxiliary Heat          | Turn on/off `heater`
 
 
 ### Air Humidifier (zhimi.humidifier.v1)
