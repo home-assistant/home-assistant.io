@@ -901,41 +901,6 @@ Ionizer                 | Turn on/off the Ionizer
 
 ### Platform Services
 
-### Service `humidifier.set_humidity`
-
-Set the target humidity.
-
-| Service data attribute    | Optional | Description                                                         |
-|---------------------------|----------|---------------------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO humidifier entity.               |
-| `humidity`                |       no | Target humidity                                                     |
-
-### Service `humidifier.set_mode`
-
-Set the humidifier operation mode.
-
-| Service data attribute    | Optional | Description                                                         |
-|---------------------------|----------|---------------------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO humidifier entity.               |
-| `mode`                    |       no | The Xiaomi miIO operation mode                                      |
-
-### Service `fan.set_percentage`
-
-Set the fan speed percentage.
-
-| Service data attribute    | Optional | Description                                                         |
-|---------------------------|----------|---------------------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                      |
-| `percentage`              |       no | Fan speed. Percentage speed setting                                 |
-
-### Service `fan.set_preset_mode`
-
-Set the fan operation mode.
-
-| Service data attribute    | Optional | Description                                                         |
-|---------------------------|----------|---------------------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.                      |
-| `preset_mode`             |       no | The Xiaomi miIO operation mode                                      |
 
 ### Service `xiaomi_miio.fan_reset_filter` (Air Purifier 2 only)
 
