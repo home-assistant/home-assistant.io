@@ -11,13 +11,11 @@ ha_domain: group
 
 The group binary_sensor platform lets you combine multiple binary_sensors into one entity. This integration presents itself as a single binary sensor in the UI. This allows the UI to use the text and icon of the type of sensor you are grouping. The sensor doesn't know what device class it should be, so this should be set to match the device class of the items in the group.
 
-## Group behavior
-
-By default when any member of a group is `on` then the group will also be `on`. If you set the `all` option to `true` though, this behavior is inverted and all members of the group have to be `on` for the group to turn on as well.
-
+## Configuration
 To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 binary_sensor:
     - platform: group
       name: Patio Doors
@@ -50,3 +48,18 @@ device_class:
   required: false
   type: string
 {% endconfiguration %}
+
+## Group behavior
+
+Group behavior differs depending on if the `all` option is `false` (the default) or `true`.
+If `all` is `false`(the default):
+- Group state is `unavailable` if all group members are `unavailable`
+- Otherwise, group state is `unknown` if all group members are `unknown`
+- Otherwise, group state is `on` if at least one group member is `on`
+- Otherwise, group state is `off`
+
+If `all` is `true`(the default):
+- Group state is `unavailable` if all group members are `unavailable`
+- Otherwise, group state is `unknown` if at least one group member is `unknown` or `unavailable`
+- Otherwise, group state is `off` if at least one group member is `off`
+- Otherwise, group state is `on`
