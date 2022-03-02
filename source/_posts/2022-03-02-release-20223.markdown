@@ -105,7 +105,7 @@ Check out this video on how to set that up in only 1.5 minutes. 🤯
 
 ## More media sources!
 
-The above shown "Play media" action and selector, of course, is cool. But,
+Of course, the above-shown “Play media” action and selector is incredible. But,
 you'd need some media to select! We already supported local media
 and things like Spotify, but wouldn't it be cool if we had more!?
 
@@ -117,14 +117,14 @@ or Lovelace dashboards and "Play" them on a supported device
 
 <img class="no-shadow" src='/images/blog/2022-03/pick-tts.png' alt='Screenshot showing playing TTS as a media action'>
 
-But that's not it, we also have new integrations adding new media sources.
+But that's not it; we also have new integrations adding new media sources.
 This release adds the [DLNA Digital Media Server] and [Radio Browser]
 integrations that allow the use of their sources with your media players.
 
 <img class="no-shadow" src='/images/blog/2022-03/radio-browser.png' alt='Screenshot showing the Radio Browser'>
 
 You can browse and listen to thirty thousand radio stations from all
-around the world. But what is even cooler, is that with the new "Play media"
+around the world. But what is even cooler is that with the new "Play media"
 action in automations, you can just select your favorite radio station to be
 playing when, for example, you arrive home!
 
