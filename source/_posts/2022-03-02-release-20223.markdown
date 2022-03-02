@@ -57,20 +57,14 @@ Enjoy the release!
 ## The Home Assistant Newsletter
 
 We realize you might like email more than watching this blog, our [Twitter],
-or notifications in our [Discord chat] constantly.
+or notifications in our [Discord chat] to stay on top of the latest Home Assistant news.
 
 In that case, you might like to sign-up for our newsletter instead! We'll
-send you a new email when a new release drops with the release's highlights
+send you a new email once a month when a new release drops with the release's highlights
 and interesting things we found in our community.
 
-Our newsletter will be free of any analytics and tracking and only focused on
-bringing the best content to your inbox. We want to make sure everyone knows
-what is going on to make the community as strong as possible.
-
-You can even share this newsletter with anyone you know to bring them into
-the community. They can easily see the best features of Home Assistant and
-the highlights from the community to see what they are missing out on. The
-sign-up is below, and we have enabled double opt-in to make sure no emails
+Our newsletter is free of any analytics and tracking. The
+sign-up is below, and we have enabled double opt-in to ensure no emails
 are sent if users don't want them.
 
 [Sign up for the Home Assistant newsletter](/newsletter)
@@ -1008,7 +1002,7 @@ discoveries they do not want.
 The following integration is no longer available as of this release:
 
 - **Growl (GnGNTP)** has been removed. The Growl project
-  [has retired](https://growl.github.io/growl/).  
+  [has retired](https://growl.github.io/growl/).
   ([@frenck] - [#65741])
 
 [@frenck]: https://github.com/frenck
