@@ -86,12 +86,6 @@ are sent if users don't want them.
 
 ## Media Selector and the new "Play media" action
 
-TODO:
-
-- Extend story line
-- Zack, maybe a video? Using a camera entity to play as media?
-- Improve screenshots, maybe arrows or animation?
-  
 This release brings a new media selector and a "Play media" action.
 These make it super easy to use media in your automations and scripts.
 
@@ -101,8 +95,13 @@ media that you want it to play! Done! 🚀
 
 <img class="no-shadow" src='/images/blog/2022-03/media-selector.png' alt='Screenshot showing the new media selector and play media action'>
 
-Have you ever wanted to play your front door camera stream on your television when the doorbell rings? Well this is
-now very possible with this update. Check out this video on how to set that up in only 1.5 minutes. 🤯
+Have you ever wanted to play your front door camera stream on your television
+when the doorbell rings? Well, this is now very possible with this update.
+Check out this video on how to set that up in only 1.5 minutes. 🤯
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/l2ppksDTq_w" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## More media sources!
 
