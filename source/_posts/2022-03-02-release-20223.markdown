@@ -124,7 +124,7 @@ playing when, for example, you arrive home!
 
 ## Upload your media straight from the browser
 
-Getting your media files (pictures, images, sounds bites, music) into your
+Getting your media files (pictures, images, soundbites, music) into your
 local media folder required you to use the
 {% my supervisor_addon addon="core_samba" title="Samba add-on" %} (or something
 similar).
@@ -134,10 +134,7 @@ Can we improve this experience? Sure we can!
 This release adds initial support for local media management straight from the
 Home Assistant frontend, allowing you to upload and remove files directly.
 
-<p class='img'>
 <img class="no-shadow" src='/images/blog/2022-03/media-management.png' alt='Screenshot showing media management'>
-TODO: Temporary screenshot for the beta release notes, needs replacement
-</p>
 
 ## UI Upgrades
 
