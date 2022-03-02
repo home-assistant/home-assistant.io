@@ -15,32 +15,26 @@ og_image: /images/blog/2022-03/social.png
 
 <a href='/integrations/#version/2022.3'><img src='/images/blog/2022-03/social.png' style='border: 0;box-shadow: none;'></a>
 
-These are the beta release notes for Home Assistant Core 2022.3 (and is thus a
-work in progress).
+Did you know that today - March 2nd - in 1949, the first automatic street
+light was lit in New Milford, Connecticut, USA? Thirty-seven years later, we
+automate our entire homes 😎
 
-If you encounter any issues with the beta release, please report them on GitHub:
+Anyways, back to 2022, Home Assistant Core 2022.3! And this release has
+a different and fresh "tune" to it! Yes, phun intended as this release brings
+tons of improvements involving media.
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+And what is so cool about it? It is not just about browsing media,
+it is even more about using it! Using media allows me to make the automations
+in our home more "personal".
 
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
+For example, having our favorite radio station playing when we get home
+or broadcasting announcements and sound bites to our speakers to notify
+us of stuff happening in and around our home. (I really need to install that
+camera at the front door now 😅.)
 
-Issues introduced in the beta are processed with priority.
+What are you using media for?
 
----
-
-This will become my intro... but haven't figured one out yet 😁
-
-So, lets do this beta first and I'll write about this part a bit later.
-
-Enjoy the (beta) release!
+Enjoy the release!
 
 ../Frenck
 
