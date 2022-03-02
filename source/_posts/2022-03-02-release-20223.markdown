@@ -147,21 +147,22 @@ TODO: Temporary screenshot for the beta release notes, needs replacement
 
 ## UI Upgrades
 
-TODO:
-
-- Needs story line
-- Need before/after screenshots?
-
 We have been working hard on upgrading the Home Assistant frontend to use
 Material Web Components (MWC) everywhere, saying goodbye to our old
 (and deprecated) paper style.
 
 This allows our frontend to be up-to-date with the latest features and the
-latest style. As you'll notice these elements have a different look from the
-older style, so don't be alarmed if your inputs are a bit different.
+latest style. As you'll notice, these elements have a different look from the
+older style, so don't be alarmed if your inputs look slightly different.
 
-Updating to MWC gives us many new oppertunaties for the future, but also makes
-Home Assistant more accesible, for example, when using a screen reader.
+Updating to MWC gives us many new opportunities for the future and makes
+Home Assistant more accessible, for example, when using a screen reader.
+
+<img class="no-shadow" src='/images/blog/2022-03/mwc-vs-paper.png' alt='Screenshot showing the styling difference between MWC and paper style'>
+
+The screenshot above shows the new MWC styling on the left and the previous
+paper styling from an older Home Assistant version on the right. The styling
+change mainly impacts input fields look and feel.
 
 ## Triggered!
 
