@@ -503,6 +503,12 @@ Binary sensor           | Description
 ----------------------- | -----------------
 Auxiliary Heat Status   | Indicates if the heater is actually on
 
+- Button entities
+
+Button                  | Description                                
+----------------------- | ------------------------------------------ 
+Reset Dust Filter       | Resets filter lifetime and usage of the dust filter  
+
 - Sensor entities
 
 Sensor                          | Description                                                    
@@ -567,6 +573,13 @@ LED                     | Turn on/off `led`
 Binary sensor           | Description
 ----------------------- | -----------------
 Auxiliary Heat Status   | Indicates if the heater is actually on
+
+- Button entities
+
+Button                  | Description                                
+----------------------- | ------------------------------------------ 
+Reset Dust Filter       | Resets filter lifetime and usage of the dust filter  
+Reset Upper Filter      | Resets filter lifetime and usage of the upper filter 
 
 - Sensor entities
 
