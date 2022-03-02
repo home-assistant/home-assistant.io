@@ -20,7 +20,7 @@ light was lit in New Milford, Connecticut, USA? Thirty-seven years later, we
 automate our entire homes 😎
 
 Anyways, back to 2022, Home Assistant Core 2022.3! And this release has
-a different and fresh "tune" to it! Yes, phun intended as this release brings
+a different and fresh "tune" to it! Yes, pun intended as this release brings
 tons of improvements involving media.
 
 And what is so cool about it? It is not just about browsing media,
