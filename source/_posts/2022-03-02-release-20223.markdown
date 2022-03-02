@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2022.3: Beta release notes"
-description: "Beta release notes for Home Assistant 2022.3!"
-date: 2022-02-23 00:00:00
+title: "2022.3: Select and play media"
+description: "Lots of media sources that can easily used with the Play media action!"
+date: 2022-03-02 00:00:00
 date_formatted: "March 02, 2022"
 author: Franck Nijhof
 author_twitter: frenck
