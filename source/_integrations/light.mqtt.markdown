@@ -13,18 +13,18 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 ## Comparison of light MQTT schemas
 
 | Function          | [`default`](#default-schema) | [`json`](#json-schema) | [`template`](#template-schema) |
-|-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
-| Brightness        | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| Color mode        | ✔                                                          | ✔                                                                    | ✘                                                                              |
-| Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| Effects           | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| Flashing          | ✘                                                          | ✔                                                                    | ✔                                                                            |
-| HS Color          | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| RGBW Color        | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| RGBWW Color       | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
-| XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| ----------------- | ---------------------------- | ---------------------- | ------------------------------ |
+| Brightness        | ✔                            | ✔                      | ✔                              |
+| Color mode        | ✔                            | ✔                      | ✘                              |
+| Color temperature | ✔                            | ✔                      | ✔                              |
+| Effects           | ✔                            | ✔                      | ✔                              |
+| Flashing          | ✘                            | ✔                      | ✔                              |
+| HS Color          | ✔                            | ✔                      | ✔                              |
+| RGB Color         | ✔                            | ✔                      | ✔                              |
+| RGBW Color        | ✔                            | ✔                      | ✘                              |
+| RGBWW Color       | ✔                            | ✔                      | ✘                              |
+| Transitions       | ✘                            | ✔                      | ✔                              |
+| XY Color          | ✔                            | ✔                      | ✘                              |
 
 
 ## Default schema
@@ -33,9 +33,9 @@ The `mqtt` light platform with default schema lets you control your MQTT enabled
 
 ## Default schema - Configuration
 
-In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the switch will be `false` / `off`.
+In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the switch will be `unknown`. A MQTT device can reset the current state to `unknown` using a `None` payload.
 
-When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from the device (message from `state_topic`).
+When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from the device (message from `state_topic`). The initial state is set to `False` / `off` in optimistic mode.
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect light operation.
 
@@ -88,6 +88,10 @@ availability_topic:
   type: string
 brightness_command_topic:
   description: The MQTT topic to publish commands to change the light’s brightness.
+  required: false
+  type: string
+brightness_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `brightness_command_topic`. Available variables: `value`."
   required: false
   type: string
 brightness_scale:
@@ -189,6 +193,10 @@ entity_category:
   default: None
 effect_command_topic:
   description: "The MQTT topic to publish commands to change the light's effect state."
+  required: false
+  type: string
+effect_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `effect_command_topic`. Available variables: `value`."
   required: false
   type: string
 effect_list:

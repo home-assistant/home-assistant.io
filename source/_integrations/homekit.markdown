@@ -11,6 +11,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ha_zeroconf: true
+ha_platforms:
+  - diagnostics
 ---
 
 The HomeKit integration allows you to make your Home Assistant entities available in Apple HomeKit,

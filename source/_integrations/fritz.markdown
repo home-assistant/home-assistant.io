@@ -61,12 +61,25 @@ A device is identified as stale when it's still present on Home Assistant but no
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
 | `device_id`            | no       | Only act on a specific  router                                                                                 |
 
+#### Service `fritz.set_guest_wifi_password`
+
+Set a new password for the guest wifi.
+The password must be between 8 and 63 characters long.
+If no password is given, it will be auto-generated.
+
+| Service data attribute | Optional | Description                                                                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `device_id`            | no       | Only act on a specific  router                                                                                 |
+| `password`             | yes      | New password for the guest wifi                                                                                |
+| `length`               | yes      | Length of the auto-generated password. (_default 12_)                        |
+
 ## Integration Options
 
 It is possible to change some behaviors through the integration options.
 These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrations page.
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
+- **Enable old discovery method**: Needed on some scenarios like no mesh support (fw <= 6.x), mixed brands network devices or LAN switches.
 
 ## Additional info
 
@@ -97,11 +110,11 @@ The following script can be used to easily add a reconnect button to your UI. If
 
 ```yaml
 fritz_box_reconnect:
-  alias: "Reboot FRITZ!Box"
+  alias: "Reconnect FRITZ!Box"
   sequence:
     - service: button.press
       target:
-        entity_id: button.fritzbox_7530_reboot
+        entity_id: button.fritzbox_7530_reconnect
 
 ```
 

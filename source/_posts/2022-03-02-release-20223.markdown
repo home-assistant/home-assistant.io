@@ -1,0 +1,1019 @@
+---
+layout: post
+title: "2022.3: Select and play media"
+description: "Lots of media sources that can easily used with the Play media action!"
+date: 2022-03-02 00:00:00
+date_formatted: "March 02, 2022"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2022-03/social.png
+---
+
+<a href='/integrations/#version/2022.3'><img src='/images/blog/2022-03/social.png' style='border: 0;box-shadow: none;'></a>
+
+Did you know that today - March 2nd - in 1949, the first automatic street
+light was lit in New Milford, Connecticut, USA? Thirty-seven years later, we
+automate our entire homes 😎
+
+Home Assistant Core 2022.3! And this release has a different and fresh "tune"
+to it! Yes, pun intended as this release brings tons of improvements
+involving media.
+
+And what is so cool about it? It is not just about browsing media,
+it is even more about using it! Using media allows us to make the automations
+in our home more "personal".
+
+For example, having our favorite radio station playing when we get home
+or broadcasting announcements and sound bites to our speakers to notify
+us of stuff happening in and around our home. (I really need to install that
+camera at the front door now 😅.)
+
+What are you using media for?
+
+Enjoy the release!
+
+../Frenck
+
+- [The Home Assistant Newsletter](#the-home-assistant-newsletter)
+- [Media Selector and the new "Play media" action](#media-selector-and-the-new-play-media-action)
+- [More media sources!](#more-media-sources)
+- [Upload your media straight from the browser](#upload-your-media-straight-from-the-browser)
+- [UI Upgrades](#ui-upgrades)
+- [Triggered!](#triggered)
+- [Entity ID autocompletion](#entity-id-autocompletion)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking Changes](#breaking-changes)
+- [Updates for custom integration developers](#updates-for-custom-integration-developers)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+## The Home Assistant Newsletter
+
+We realize you might like email more than watching this blog, our [Twitter],
+or notifications in our [Discord chat] to stay on top of the latest Home Assistant news.
+
+In that case, you might like to sign-up for our newsletter instead! We'll
+send you a new email once a month when a new release drops with the release's highlights
+and interesting things we found in our community.
+
+Our newsletter is free of any analytics and tracking. The
+sign-up is below, and we have enabled double opt-in to ensure no emails
+are sent if users don't want them.
+
+[Sign up for the Home Assistant newsletter](/newsletter)
+
+[Twitter]: /twitter
+[Discord chat]: /join-chat
+
+## Media Selector and the new "Play media" action
+
+This release brings a new media selector and a "Play media" action.
+These make it super easy to use media in your automations and scripts.
+
+Choose the "Play media" action when creating an automation, select the media
+player you'd like to play something on, and next... just browse and pick the
+media that you want it to play! Done! 🚀
+
+<img class="no-shadow" src='/images/blog/2022-03/media-selector.png' alt='Screenshot showing the new media selector and play media action'>
+
+Have you ever wanted to play your front door camera stream on your television
+when the doorbell rings? Well, this is now very possible with this update.
+Check out this video on how to set that up in only 1.5 minutes. 🤯
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/l2ppksDTq_w" frameborder="0" allowfullscreen></iframe>
+</div>
+
+## More media sources!
+
+Of course, the above-shown “Play media” action and selector is incredible. But,
+you'd need some media to select! We already supported local media
+and things like Spotify, but wouldn't it be cool if we had more!?
+
+So, this release will bring in a bunch of new media sources.
+
+Your Cameras! Your Lovelace Dashboards! You can just pick one of your cameras
+or Lovelace dashboards and "Play" them on a supported device
+(like a Google Nest Hub or television). But also text to speech!
+
+<img class="no-shadow" src='/images/blog/2022-03/pick-tts.png' alt='Screenshot showing playing TTS as a media action'>
+
+But that's not it; we also have new integrations adding new media sources.
+This release adds the [DLNA Digital Media Server] and [Radio Browser]
+integrations that allow the use of their sources with your media players.
+
+<img class="no-shadow" src='/images/blog/2022-03/radio-browser.png' alt='Screenshot showing the Radio Browser'>
+
+You can browse and listen to thirty thousand radio stations from all
+around the world. But what is even cooler is that with the new "Play media"
+action in automations, you can just select your favorite radio station to be
+playing when, for example, you arrive home!
+
+## Upload your media straight from the browser
+
+Getting your media files (pictures, images, soundbites, music) into your
+local media folder required you to use the
+{% my supervisor_addon addon="core_samba" title="Samba add-on" %} (or something
+similar).
+
+Can we improve this experience? Sure we can!
+
+This release adds initial support for local media management straight from the
+Home Assistant frontend, allowing you to upload and remove files directly.
+
+<img class="no-shadow" src='/images/blog/2022-03/media-management.png' alt='Screenshot showing media management'>
+
+## UI Upgrades
+
+We have been working hard on upgrading the Home Assistant frontend to use
+Material Web Components (MWC) everywhere, saying goodbye to our old
+(and deprecated) paper style.
+
+This allows our frontend to be up-to-date with the latest features and the
+latest style. As you'll notice, these elements have a different look from the
+older style, so don't be alarmed if your inputs look slightly different.
+
+Updating to MWC gives us many new opportunities for the future and makes
+Home Assistant more accessible, for example, when using a screen reader.
+
+<img class="no-shadow" src='/images/blog/2022-03/mwc-vs-paper.png' alt='Screenshot showing the styling difference between MWC and paper style'>
+
+The screenshot above shows the new MWC styling on the left and the previous
+paper styling from an older Home Assistant version on the right. The styling
+change mainly impacts input fields look and feel.
+
+## Triggered!
+
+When working an automation, triggers now show live in the UI when they are
+triggering. Allowing you to validate you set it up correctly.
+
+In this little animation below, the remote is pressed a couple of times.
+The automation editor will show the "TRIGGERED" bar.
+
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-03/triggered.gif' alt='Screen recording showing automations triggers triggering showing in the UI'>
+Each time the trigger triggers it will be indicated in the UI.
+</p>
+
+Additionally, you can now also trigger each individual action in your automation
+to test if the action you are creating runs as expected:
+
+<img class="no-shadow" src='/images/blog/2022-03/run-action.png' alt='Screenshot showing how to run an individual from the automation editor'>
+
+## Entity ID autocompletion
+
+Our YAML configuration and Jinja templates used in, for example, automations,
+scripts, and frontend dashboards can be a really powerful customization
+tool. You can definitely appreciate this feature if you use our code editor
+in the frontend at times.
+
+Thanks to [@kubawolanin], we now have entity ID autocompletion when using
+the built-in code editor in the Home Assistant frontend 😎.
+
+Just start typing an entity ID, and the code editor will try to suggest an
+entity ID and show the selected entity's current state.
+
+<img class="no-shadow" src='/images/blog/2022-03/autocompletion.png' alt='Screenshot showing the code editor with entity ID autocompletion'>
+
+_Theme: [Waves] by [Tim Cowell]._
+
+This works when you are configuring your [Lovelace cards],
+creating advanced template conditions in your {% my automations %},
+and even if you are testing out your Jinja-template in the
+{% my developer_template title="template developer tools" %}.
+
+Click the My button below to test it out on your Home Assistant instance:
+
+{% my developer_template badge %}
+
+[@kubawolanin]: https://github.com/kubawolanin
+[Lovelace cards]: /lovelace/cards
+[Tim Cowell]: https://github.com/tgcowell
+[Waves]: https://github.com/tgcowell/waves
+
+## Other noteworthy changes
+
+There is much more juice in this release; here are some of the other
+noteworthy changes this release:
+
+- [ESPHome] added support for locks! Thanks, [@kbickar]
+- The [HomeKit Controller] integration has improved support for the Ecobee
+  thermostats. Thanks, [@Jc2k]!
+- When playing media in the media browser, the media player bar in the bottom
+  will now have a volume control, thanks [@balloob]!
+- Thanks to [@kubawolanin], you can now filter and search the
+  {% my logs title="Home Assistant logs" %}!
+- When selecting a date in the frontend, a beautiful new date picker is shown.
+  Thanks, [@bramkragten]!
+- The [IKEA TRÅDFRI] integration has been worked on by [@ggravlingen] and
+  [@martinhjelmare]. Lots of stability issues have been resolved, battery
+  sensors for blinds have been added, and also support for the air purifier
+  has been extended with sensors for air quality and filter time left.
+- [@rfleming71] added button entities to the OctoPrint integration, allowing
+  you to control to resume, pause or stop a 3D print.
+- The following integrations have added an option to set a `unique_id` in their
+  YAML configuration; If set, you can customize those entities in the UI.
+  - [InfluxDB Sensor], thanks [@Sanderhuisman]
+  - [Filter][filter], thanks [@dgomes]
+- [@starkillerOG] has been chewing on [NETGEAR], adding traffic sensors,
+  a reboot button, but also switch to allow/block devices. Awesome!
+- Don't be alarmed now, but [@jbouwh] added support for [Sirens to MQTT]!
+- [@rubenverhoef] also dove into MQTT and added additional command templates
+  for MQTT lights.
+- The [Renault integration] added HVAC, door, and lock sensors, thanks [@epenet]
+- [@bdraco] added support to [HomeKit] for controlling the fan and oscillating
+  of fans in climate entities. Nice!
+- The [GitHub integration] became much more efficient and now has many more
+  sensors available! Thanks [@ludeeus] and [@timmo001], that is just amazing!
+- [@kbickar] hasn't been sleeping much as he modernized the [SleepIQ integration],
+  adding a bunch of new entities in the process.
+- If you have a [Samsung Smart TV], [@epenet] added support for showing your
+  installed TV apps as media sources!
+- Thanks to [@chemelli74], you can now control the valves of those brand new
+  [Shelly] TRVs!
+
+[@kubawolanin]: https://github.com/kubawolanin
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@dgomes]: https://github.com/dgomes
+[@epenet]: https://github.com/epenet
+[@epenet]: https://github.com/epenet
+[@ggravlingen]: https://github.com/ggravlingen
+[@jbouwh]: https://github.com/jbouwh
+[@Jc2k]: https://github.com/Jc2k
+[@kbickar]: https://github.com/kbickar
+[@kbickar]: https://github.com/kbickar
+[@ludeeus]: https://github.com/ludeeus
+[@martinhjelmare]: https://github.com/martinhjelmare
+[@rfleming71]: https://github.com/rfleming71
+[@rubenverhoef]: https://github.com/rubenverhoef
+[@Sanderhuisman]: https://github.com/@Sanderhuisman
+[@starkillerOG]: https://github.com/starkillerOG
+[@timmo001]: https://github.com/timmo001
+[@zsarnett]: https://github.com/zsarnett
+[ESPHome]: /integrations/esphome
+[filter]: /integrations/filter
+[GitHub integration]: /integrations/github
+[HomeKit Controller]: /integrations/homekit_controller
+[HomeKit]: /integrations/homekit
+[IKEA TRÅDFRI]: /integrations/tradfri
+[InfluxDB Sensor]: /integrations/influxdb#sensor
+[NETGEAR]: /integrations/netgear
+[Renault integration]: /integrations/renault
+[Samsung Smart TV]: /integrations/samsungtv
+[Shelly]: /integrations/shelly
+[Sirens to MQTT]: /integrations/siren.mqtt/
+[SleepIQ integration]: /integrations/sleepiq
+
+## New Integrations
+
+We welcome the following new integrations this release:
+
+- [DLNA Digital Media Server], added by [@chishm]
+- [Fivem], added by [@Sander0542]
+- [Moehlenhoff Alpha2], added by [@j-a-n]
+- [Pure Energie], added by [@klaasnicolaas]
+- [Radio Browser], added by [@frenck]
+- [WiZ], added by [@sbidy] and [@bdraco]
+- [Z-Wave.Me Z-Way], added by [@PoltoS]
+
+[@bdraco]: https://github.com/bdraco
+[@chishm]: https://github.com/chishm
+[@frenck]: https://github.com/frenck
+[@j-a-n]: https://github.com/j-a-n
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@PoltoS]: https://github.com/PoltoS
+[@Sander0542]: https://github.com/Sander0542
+[@sbidy]: https://github.com/sbidy
+[DLNA Digital Media Server]: /integrations/dlna_dms
+[Fivem]: /integrations/fivem
+[Moehlenhoff Alpha2]: /integrations/moehlenhoff_alpha2
+[Pure Energie]: /integrations/pure_energie
+[Radio Browser]: /integrations/radio_browser
+[WiZ]: /integrations/wiz
+[Z-Wave.Me Z-Way]: /integrations/zwave_me
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- [International Space Station (ISS)], done by [@DurgNomis-drol]
+- [MJPEG IP Camera], done by [@frenck]
+
+[@DurgNomis-drol]: https://github.com/DurgNomis-drol
+[@frenck]: https://github.com/frenck
+[International Space Station (ISS)]: /integrations/iss
+[MJPEG IP Camera]: /integrations/mjpeg
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our newsletter](/newsletter) to get
+the latest news about features and things happening in our community straight
+into your inbox.
+
+<!--more-->
+
+## Breaking Changes
+
+Below is a listing of the breaking change for this release, per subject or
+integration. Click on one of those to read more about the breaking change
+for that specific item.
+
+{% details "Z-Wave / OpenZWave" %}
+
+This breaking change does **NOT** apply to users of the [Z-Wave JS] integration.
+
+This is a breaking change notice regarding the older [Z-Wave] and [OpenZWave]
+integrations, which both have been previously deprecated.
+
+This release of Home Assistant Core 2022.3 will be the final release that
+provides these integrations. Both the old `zwave` and `ozw` integrations
+are pending removal for Home Assistant Core 2022.4.
+
+The `ozw` integration has been deprecated before as the upstream projects
+projects we depends on, for e.g., libraries and add-on containers,
+are no longer maintained.
+
+As Home Assistant is moving towards support for Python 3.10, it became clear
+that the old `zwave` integration isn't compatible and thus is going to
+be removed for that reason.
+
+If you are still running your Z-Wave network on either of those deprecated
+integrations, we highly recommend migrating
+to the newer [Z-Wave JS] integration after upgrading to this release.
+
+The new [Z-Wave JS] will provide you with a modern, more feature-rich,
+maintained, and stable Z-Wave stack for the future.
+
+See our documentation for a guide on
+[Migrating from previous Z-Wave implementations](/integrations/zwave_js/#migrating-from-previous-z-wave-implementations).
+
+[OpenZWave]: /integrations/openzwave
+[Z-Wave JS]: /integrations/zwave_js
+[Z-Wave]: /integrations/zwave
+
+{% enddetails %}
+
+{% details "ASUSWRT" %}
+
+The previously deprecated YAML configuration of the ASUSWRT
+integration has been removed.
+
+ASUSWRT is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@ollo69] - [#65904]) ([documentation](/integrations/asuswrt))
+
+[@ollo69]: https://github.com/ollo69
+[#65904]: https://github.com/home-assistant/core/pull/65904
+
+{% enddetails %}
+
+{% details "AVM FRITZ!Box Call Monitor" %}
+
+The AVM FRITZ!Box Call Monitor integration previously migrated to configuration
+via the UI. Therefore, configuring the AVM FRITZ!Box Call Monitor integration
+via YAML configuration has now been deprecated and will be removed
+in a future Home Assistant release.
+
+Your existing YAML configuration has been automatically imported and
+can be safely removed from your YAML configuration.
+
+([@tkdrob] - [#61762]) ([documentation](/integrations/fritzbox_callmonitor))
+
+[@tkdrob]: https://github.com/tkdrob
+[#61762]: https://github.com/home-assistant/core/pull/61762
+
+{% enddetails %}
+
+{% details "ebusd" %}
+
+A typo was fixed in the ebusd integration for monitored condition
+`WaterPressure`. It is incorrectly named "WaterPreasure" in the code.
+
+The [documentation](/integrations/ebusd/#waterpressure) represents the correct value.
+
+([@nklebedev] - [#66355]) ([documentation](/integrations/ebusd))
+
+[@nklebedev]: https://github.com/nklebedev
+[#66355]: https://github.com/home-assistant/core/pull/66355
+
+{% enddetails %}
+
+{% details "Elexa Guardian" %}
+
+Elexa Guardian no longer accepts the previously deprecated `entity_id` parameter
+in service calls; automations and scripts calling those services now require
+a `device_id` parameter.
+
+([@bachya] - [#65484]) ([documentation](/integrations/guardian))
+
+[@bachya]: https://github.com/bachya
+[#65484]: https://github.com/home-assistant/core/pull/65484
+
+{% enddetails %}
+
+{% details "Freebox" %}
+
+The `freebox.reboot` service is now deprecated and replaced by a dedicated
+reboot `button` entity; please use that entity to reboot the Freebox instead.
+
+([@epenet] - [#65501]) ([documentation](/integrations/freebox))
+
+[@epenet]: https://github.com/epenet
+[#65501]: https://github.com/home-assistant/core/pull/65501
+
+{% enddetails %}
+
+{% details "IKEA TRÅDFRI" %}
+
+The native IKEA Tradfri groups are now deprecated, and this feature will be
+removed from the integration in a future release.
+
+Tradfri groups rely on sending frequent requests (polling) to the gateway to
+check the states of the groups. Continuously polling the gateway causes
+stability issues of the gateway, sometimes causing it to crash and requiring
+a restart. We propose using [light groups](/integrations/light.group/) instead.
+
+Configuring IKEA Tradfri via YAML configuration has been deprecated and will
+be removed in a future Home Assistant release. Any remaining YAML configuration
+has been automatically imported for a long time and thus can be safely
+removed from your YAML configuration.
+
+([@ggravlingen] - [#65226]) ([documentation](/integrations/tradfri))
+
+[@ggravlingen]: https://github.com/ggravlingen
+[#65226]: https://github.com/home-assistant/core/pull/65226
+
+{% enddetails %}
+
+{% details "International Space Station (ISS)" %}
+
+The International Space Station (ISS) integration migrated to configuration
+via the UI. Configuring International Space Station (ISS) via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+([@DurgNomis-drol] - [#64987]) ([documentation](/integrations/iss))
+
+[@DurgNomis-drol]: https://github.com/DurgNomis-drol
+[#64987]: https://github.com/home-assistant/core/pull/64987
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+MQTT binary sensors, lights, fans, humidifiers, and switches can now have
+an `unknown` state in case the state is unknown.
+
+This change was made to make the MQTT entities more consistent with
+how these entities behave in other parts of Home Assistant. You may need
+to adapt your script and automations to this change.
+
+([@jbouwh] - [#65183] [#65308] [#65301] [#65302] [#65294]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#65183]: https://github.com/home-assistant/core/pull/65183
+[#65294]: https://github.com/home-assistant/core/pull/65294
+[#65301]: https://github.com/home-assistant/core/pull/65301
+[#65302]: https://github.com/home-assistant/core/pull/65302
+[#65308]: https://github.com/home-assistant/core/pull/65308
+
+---
+
+An MQTT configuration in `configuration.yaml` no longer results in an
+imported integration entry, MQTT must now be set up from the frontend.
+
+Please note that:
+
+- Any previously imported configuration is still valid, this PR does not
+  remove or modify imported configurations.
+- It's still possible to configure MQTT entities and advanced broker
+  configurations, such as SSL certificates, via YAML.
+
+([@emontnemery] - [#66160]) ([documentation](/integrations/mqtt))
+
+[@emontnemery]: https://github.com/emontnemery
+[#66160]: https://github.com/home-assistant/core/pull/66160
+
+---
+
+The MQTT climate `hold` and `away` mode configuration settings are now
+deprecated and removed in Home Assistant Core 2022.9.0.
+
+Please use the new `preset_mode` configuration options instead.
+
+([@jbouwh] - [#66062]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#66062]: https://github.com/home-assistant/core/pull/66062
+
+---
+
+Configuring basic MQTT broker options with YAML is now deprecated,
+this affects the following configuration variables:
+
+- `birth_message`
+- `broker`
+- `discovery`
+- `password`
+- `port`
+- `username`
+- `will_message`
+
+Configuring those options can instead be done via the UI.
+
+([@emontnemery] - [#66247]) ([documentation](/integrations/mqtt))
+
+[@emontnemery]: https://github.com/emontnemery
+[#66247]: https://github.com/home-assistant/core/pull/66247
+
+{% enddetails %}
+
+{% details "Nest" %}
+
+Older Nest cameras no longer use thumbnail images from events, and instead
+always use the live stream.
+
+You should use the newer [Nest Media Source APIs](/integrations/nest/#media-source)
+to fetch media for events.
+
+([@allenporter] - [#66427]) ([documentation](/integrations/nest))
+
+[@allenporter]: https://github.com/allenporter
+[#66427]: https://github.com/home-assistant/core/pull/66427
+
+{% enddetails %}
+
+{% details "NINA" %}
+
+Districts of Hamburg and Berlin have been removed.
+Alternatively, `Hamburg, Freie und Hansestadt` and `Berlin, Stadt` can be used.
+
+([@DeerMaximum] - [#65914]) ([documentation](/integrations/nina))
+
+[@DeerMaximum]: https://github.com/DeerMaximum
+[#65914]: https://github.com/home-assistant/core/pull/65914
+
+{% enddetails %}
+
+{% details "Overkiz (by Somfy)" %}
+
+Previously, a Myfox Camera Shutter was mapped to a (non-functional) `cover`
+entity. This is now changed to be a functional `switch` entity instead.
+
+([@iMicknl] - [#66088]) ([documentation](/integrations/overkiz))
+
+[@iMicknl]: https://github.com/iMicknl
+[#66088]: https://github.com/home-assistant/core/pull/66088
+
+{% enddetails %}
+
+{% details "Phone Modem" %}
+
+The `modem_callerid.reject_call` has been deprecated and will be removed in
+Home Assistant 2022.4.
+
+The integration now provides a button entity that can be used instead.
+
+If you have been using the `reject_call` service in your automation or scripts,
+you will need to adopt those to this change.
+
+([@tkdrob] - [#66742]) ([documentation](/integrations/modem_callerid))
+
+[@tkdrob]: https://github.com/tkdrob
+[#66742]: https://github.com/home-assistant/core/pull/66742
+
+{% enddetails %}
+
+{% details "Picnic" %}
+
+The sensors for the "last order ETA start/end" have been renamed to
+"next delivery ETA start/end" and will now contain the ETA of the first
+upcoming delivery.
+
+If multiple deliveries are planned, the `next_delivery_*` sensors
+contain information about the first upcoming delivery,
+while the `last_order_*` sensors contain information
+about the last-placed order.
+
+([@corneyl] - [#66474]) ([documentation](/integrations/picnic))
+
+[@corneyl]: https://github.com/corneyl
+[#66474]: https://github.com/home-assistant/core/pull/6666474062
+
+{% enddetails %}
+
+{% details "Plugwise" %}
+
+Changing the scan interval options of Plugwise devices in the integration
+configuration has been removed. Home Assistant will, by default, use a sane
+and safe interval.
+
+If you, however, still need to customize the interval, you can do so by
+disabling automatic updates for the integration and using an automation
+to trigger on your preferred interval and call `homeassistant.update_entity`
+service.
+
+([@frenck] - [#65808]) ([documentation](/integrations/plugwise))
+
+[@frenck]: https://github.com/frenck
+[#65808]: https://github.com/home-assistant/core/pull/65808
+
+---
+
+The Plugwise Auxiliary `sensor` entities for heating and cooling have been
+removed and replaced by equivalent `binary_sensor` entities.
+
+([@frenck] - [#66259]) ([documentation](/integrations/plugwise))
+
+[@frenck]: https://github.com/frenck
+[#66259]: https://github.com/home-assistant/core/pull/66259
+
+{% enddetails %}
+
+{% details "Radarr" %}
+
+The "Wanted" option for the Radarr integration has been removed, as this
+was an invalid endpoint.
+
+If you have this option configured in your YAML configuration, you will need
+to remove it.
+
+([@tkdrob] - [#63818]) ([documentation](/integrations/radarr))
+
+[@tkdrob]: https://github.com/tkdrob
+[#63818]: https://github.com/home-assistant/core/pull/63818
+
+{% enddetails %}
+
+{% details "Renault" %}
+
+Previously, Renault `binary_sensor` entities could have the
+state `on` or `off`, and in case the endpoint was unreachable: `unavailable`.
+
+However, it wasn't able to have the `unknown` state, which has been added.
+
+So, a `binary_sensor` entity can now have the `on`, `off`, `unavailable`,
+or `unknown` state.
+
+You might need to adapt your automations or scripts to account this new
+`unknown` state.
+
+([@epenet] - [#65997]) ([documentation](/integrations/renault))
+
+[@epenet]: https://github.com/epenet
+[#65997]: https://github.com/home-assistant/core/pull/65997
+
+{% enddetails %}
+
+{% details "Sensibo" %}
+
+The optional battery voltage attribute has been removed from the climate entity.
+If you used this attribute in your automations or scripts, you'll need
+to adjust them to handle this change.
+
+([@gjohansson-ST] - [#64753]) ([documentation](/integrations/sensibo))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#64753]: https://github.com/home-assistant/core/pull/64753
+
+{% enddetails %}
+
+{% details "SimpliSafe" %}
+
+SimpliSafe no longer accepts the, previously deprecated, `system_id` parameter
+in service calls; automations and scripts calling those services now require a
+`device_id` parameter instead.
+
+([@bachya] - [#65483]) ([documentation](/integrations/simplisafe))
+
+[@bachya]: https://github.com/bachya
+[#65483]: https://github.com/home-assistant/core/pull/65483
+
+{% enddetails %}
+
+{% details "Sonarr" %}
+
+Sonarr v2 is no longer supported and has been deemed End of Life by its
+developers since early 2021. Please upgrade to Sonarr v3 to continue
+using the Sonarr integration.
+
+The attribute date format of the Wanted sensor is now isoformated
+with a time of airing.
+
+([@ctalkington] - [#65349]) ([documentation](/integrations/sonarr))
+
+[@ctalkington]: https://github.com/ctalkington
+[#65349]: https://github.com/home-assistant/core/pull/65349
+
+{% enddetails %}
+
+{% details "Synology DSM" %}
+
+The Home-Mode switch of the Surveillance Station is no longer categorized to be
+a configuration entity since it is part of the primary functionality.
+
+([@mib1185] - [#65949]) ([documentation](/integrations/synology_dsm))
+
+[@mib1185]: https://github.com/mib1185
+[#65949]: https://github.com/home-assistant/core/pull/65949
+
+{% enddetails %}
+
+{% details "Twitch" %}
+
+The old Twitch API, this integration previously relied on, is shutting down soon.
+
+Therefore, this release updated the Twitch integration to support the new API,
+and now requires a `client_secret` as well as a `client_id`, and new OAuth
+tokens need to be issued with the `user:read:subscriptions` scope.
+
+([@Doridian] - [#67153]) ([documentation](/integrations/twitch))
+
+[@Doridian]: https://github.com/Doridian
+[#67153]: https://github.com/home-assistant/core/pull/67153
+
+{% enddetails %}
+
+{% details "Updater" %}
+
+The Updater integration has been deprecated; other integrations have replaced
+all its functionality. It is no longer a part of `default_config`,
+and if you have the `updater` integration defined directly in your YAML
+configuration, please remove it.
+
+- For the `binary_sensor.updater` entity, you can set up the
+  [Version integration](/integrations/version/) with the
+  "Home Assistant Website" source to get the same functionality back.
+- For the configuration options `reporting` and `include_used_components` for
+  the `updater:` configuration entry that was deprecated in 2021.4.
+  If you still want to share that,
+  please use the new [Analytics integration](/integrations/analytics/).
+
+([@ludeeus] - [#67038]) ([documentation](/integrations/updater))
+
+[@ludeeus]: https://github.com/ludeeus
+[#67038]: https://github.com/home-assistant/core/pull/67038
+
+{% enddetails %}
+
+{% details "Vallox" %}
+
+The previously deprecated `vallox.set_profile` service has now been removed,
+please use the standard `fan.set_preset_mode` service as a replacement.
+
+([@andre-richter] - [#66655]) ([documentation](/integrations/vallox))
+
+[@andre-richter]: https://github.com/andre-richter]
+[#66655]: https://github.com/home-assistant/core/pull/66655
+
+{% enddetails %}
+
+{% details "Viessmann ViCare" %}
+
+The sensor `solar power production` has been removed. This sensor was
+a collection of multiple values.
+
+Instead, we now provide four new sensors that each provides the data as single
+value:
+
+- `solar power production today`
+- `solar power production this week`
+- `solar power production this month`
+- `solar power production this year`
+
+You might need to adapt your automations or scripts to this change.
+The stale restored sensor can be safely removed.
+
+([@tschnilo] - [#63339]) ([documentation](/integrations/vicare))
+
+[@tschnilo]: https://github.com/tschnilo
+[#63339]: https://github.com/home-assistant/core/pull/63339
+
+{% enddetails %}
+
+{% details "XBee" %}
+
+The Xbee integration has been disabled due to the third-party library
+we depend on not being compatible with Python 3.10.
+
+Home Assistant is working towards adding support for Python 3.10, and
+we had to disable this integration now to be able to get our development and
+testing environments upgraded.
+
+([@frenck] - [#59729])
+
+[@frenck]: https://github.com/frenck
+[#59729]: https://github.com/home-assistant/core/pull/59729
+
+{% enddetails %}
+
+{% details "Z-Wave JS" %}
+
+The `zwave_js.ping` service is now deprecated in favor of a new ping `button`
+entity. You can replace any `zwave_js.ping` service calls in your automation
+with a `button.press` call against the new entity with no change in
+functionality.
+
+The `zwave_js.ping` service will be removed in a future release of Home Assistant.
+
+([@raman325] - [#66129]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#66129]: https://github.com/home-assistant/core/pull/66129
+
+---
+
+With this release, you will need to update your zwave-js-server instance.
+
+- If you use the zwave_js add-on, you need to have at least version `0.1.54.`.
+- If you use the Z-Wave JS 2 MQTT add-on, you need to have at least version `0.35.2`.
+- If you use the zwavejs2mqtt Docker container, you need to have at least version `6.5.2`.
+- If you run your own Docker container, or some other installation method,
+  you will need to update your zwave-js-server instance to at least `1.15.0`.
+
+([@raman325] - [#66785]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#66785]: https://github.com/home-assistant/core/pull/66785
+
+---
+
+Your Z-Wave controllers will no longer get a node status sensor. While this is
+technically a breaking change, in practice it should not be because the
+controller is always alive.
+
+([@raman325] - [#67209]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#67209]: https://github.com/home-assistant/core/pull/67209
+
+{% enddetails %}
+
+## Updates for custom integration developers
+
+If you are a custom integration developer, we have some updates in this
+release that you may want to take into account for your integration.
+
+Below is a listing of the breaking change for this release, per subject.
+Click on one of those to read more about the breaking change
+for that specific item.
+
+{% details "Integration dependencies and Python pip" %}
+
+In November 2020, with the release of Python pip 20.3, a new dependency
+resolver was introduced in pip, which is more strict.
+
+Home Assistant held back supporting the new pip version because of the
+large number of dependencies we have, it took time for us to adjust to this
+change. Meanwhile, Python pip would only warn for conflicts.
+
+As we have resolved almost all dependency conflicts, we have now lifted
+the pip version pinning, and thus now use the newer and stricter pip version.
+
+If you use external dependencies in your custom integration, you might be
+impacted by the new pip resolver. Your dependencies (and their version ranges)
+must be compatible with the dependencies Home Assistant has; otherwise,
+the installation of your custom integration will not succeed.
+
+You can find more information on the new dependency resolver in Python pip here:
+
+<https://pip.pypa.io/en/latest/user_guide/#changes-to-the-pip-dependency-resolver-in-20-3-2020>
+
+{% enddetails %}
+
+{% details "async_timeout()" %}
+
+We now use version 3.8+ of `aiohttp`, which requires `async_timeout` 4.0+
+which has multiple breaking changes:
+
+- `async_timeout.timeout` drops the `loop=` keyword arg.
+- `async_timeout.current_task` has been removed.
+- The `timeout.remaining` property has been removed.
+- The `timeout.timeout` property has been removed.
+
+Previously we had a backward-compatible layer in Home Assistant to
+ease this change, which has now been removed.
+
+([@frenck] - [#65732])
+
+[@frenck]: https://github.com/frenck
+[#65732]: https://github.com/home-assistant/core/pull/65732
+
+{% enddetails %}
+
+{% details "Helper: get_url()" %}
+
+If a user has the `http` integration configured to use SSL,
+it only accepts HTTPS traffic. This means that the internal URL needs
+to be set to use HTTPS too, and for the certificate to be valid,
+this needs to be a domain name.
+
+A lot of integrations that we send the URL to will fail if the
+certificate is not valid (ie. Sonos, Cast).
+
+To help the user get this right, the default for the `get_url` helper
+will now prefer the external address if SSL is configured.
+
+This has a higher chance of being correct, delivering a better out-of-the-box
+experience to a larger group of users.
+
+([@balloob] - [#66039])
+
+[@balloob]: https://github.com/balloob
+[#66039]: https://github.com/home-assistant/core/pull/66039
+
+{% enddetails %}
+
+{% details "Helper: split_entity_id()" %}
+
+`split_entity_id` will now raise a `ValueError` if the passed value
+does not follow the basic entity ID format
+(`<domain>.<object id>`).
+
+Previously it could return a list with a single item.
+
+([@balloob] - [#66835])
+
+[@balloob]: https://github.com/balloob
+[#66835]: https://github.com/home-assistant/core/pull/66835
+
+{% enddetails %}
+
+{% details "Sensors with date/time" %}
+
+When using `datetime` and `date` device classes in sensors, the returned
+native value must (respectively) be a datetime or date Python object.
+
+Returning an iso formatted date(time) string in these cases was
+previously deprecated and the fallback/backward compatibility has now
+been removed.
+
+([@frenck] - [#65734])
+
+[@frenck]: https://github.com/frenck
+[#65734]: https://github.com/home-assistant/core/pull/665734062
+
+{% enddetails %}
+
+{% details "Zero-configuration networking (zeroconf)" %}
+
+Currently, zeroconf returns IPv4 addresses in the `host` field. If there were
+no advertised IPv4 addresses, the discovery would fail. For example,
+a specific manufacturer's Thread Border Router advertised devices as
+IPv6-only zeroconf services.
+
+IPv6-only devices can now be discovered and an IPv6 address will
+be present in the `host` property for those devices.
+
+Developers who need to filter discovered devices by IP address version
+should use `homeassistant.util.network.is_ipv4_address` or
+`homeassistant.util.network.is_ipv6_address` to reject zeroconf
+discoveries they do not want.
+
+([@roysjosh] - [#66455])
+
+[@roysjosh]: https://github.com/roysjosh
+[#66455]: https://github.com/home-assistant/core/pull/66455
+
+{% enddetails %}
+
+## Farewell to the following
+
+The following integration is no longer available as of this release:
+
+- **Growl (GnGNTP)** has been removed. The Growl project
+  [has retired](https://growl.github.io/growl/).
+  ([@frenck] - [#65741])
+
+[@frenck]: https://github.com/frenck
+[#65741]: https://github.com/home-assistant/core/pull/65741
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2022.3](/changelogs/core-2022.3)

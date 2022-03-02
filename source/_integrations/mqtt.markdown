@@ -15,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - camera
   - button
+  - diagnostics
   - climate
   - cover
   - fan
@@ -24,6 +25,7 @@ ha_platforms:
   - scene
   - sensor
   - select
+  - siren
   - switch
 ---
 
@@ -33,29 +35,10 @@ Your first step to get MQTT and Home Assistant working is to choose a [broker](/
 
 {% include integrations/config_flow.md %}
 
-## Manual configuration
+### Advanced broker configuration
 
-Alternatively, if you want to manually configure MQTT, you will need to add the following to your `configuration.yaml` file.
-
-To connect to your [own MQTT broker](/docs/mqtt/broker#run-your-own):
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  broker: IP_ADDRESS_BROKER
-```
-
-Manual configuration is required when connecting to a broker over TLS.
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  certificate: "PATH_TO_CA.crt"
-  broker: "IP_ADDRESS_BROKER"
-  port: 8883
-  username: "MQTT_USERNAME"
-  password: !secret MQTT_PASSWORD
-```
+Some broker configuration options can't be set via the user interface, but require changes of your `configuration.yaml` file.
+This includes configuring SSL [certificate](/docs/mqtt/certificate/) options.
 
 ## Additional features
 
