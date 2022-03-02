@@ -215,7 +215,7 @@ noteworthy changes this release:
 
 - [ESPHome] added support for locks! Thanks, [@kbickar]
 - The [HomeKit Controller] integration has improved support for the Ecobee
-  thermostats. Modes can be controlled and thresholds adjusted. Thanks, [@Jc2k]!
+  thermostats. Thanks, [@Jc2k]!
 - When playing media in the media browser, the media player bar in the bottom
   will now have a volume control, thanks [@balloob]!
 - [@rubenverhoef] also dove into MQTT and added additional command templates
