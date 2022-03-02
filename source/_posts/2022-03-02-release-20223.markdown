@@ -816,6 +816,14 @@ The stale restored sensor can be safely removed.
 
 {% enddetails %}
 
+{% details "Workday" %}
+
+Work day now requires a 2-character [ISO 3166-1] country code instead of the country's name.
+
+[ISO 3166-1]: https://en.wikipedia.org/wiki/ISO_3166-1
+
+{% enddetails %}
+
 {% details "XBee" %}
 
 The Xbee integration has been disabled due to the third-party library
