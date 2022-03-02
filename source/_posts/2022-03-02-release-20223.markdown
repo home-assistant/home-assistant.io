@@ -162,6 +162,11 @@ The automation editor will show the "TRIGGERED" bar.
 Each time the trigger triggers it will be indicated in the UI.
 </p>
 
+Additionally, you can now also trigger each individual action in your automation
+to test if the action you are creating runs as expected:
+
+<img class="no-shadow" src='/images/blog/2022-03/run-action.png' alt='Screenshot showing how to run an individual from the automation editor'>
+
 ## Entity ID autocompletion
 
 Our YAML configuration and Jinja templates used in, for example, automations,
