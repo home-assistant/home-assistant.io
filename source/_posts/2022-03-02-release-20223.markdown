@@ -770,8 +770,8 @@ configuration, please remove it.
 - For the `binary_sensor.updater` entity, you can set up the
   [Version integration](/integrations/version/) with the
   "Home Assistant Website" source to get the same functionality back.
-- For the configuration options reporting and `include_used_components` for
-  the updater: configuration entry that was deprecated in 2021.4.
+- For the configuration options `reporting` and `include_used_components` for
+  the `updater:` configuration entry that was deprecated in 2021.4.
   If you still want to share that,
   please use the new [Analytics integration](/integrations/analytics/).
 
