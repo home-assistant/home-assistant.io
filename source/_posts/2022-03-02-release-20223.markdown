@@ -218,8 +218,8 @@ noteworthy changes this release:
   thermostats. Thanks, [@Jc2k]!
 - When playing media in the media browser, the media player bar in the bottom
   will now have a volume control, thanks [@balloob]!
-- [@rubenverhoef] also dove into MQTT and added additional command templates
-  for MQTT lights.
+- Thanks to [@kubawolanin], you can now filter and search the
+  {% my logs title="Home Assistant logs" %}!
 - When selecting a date in the frontend, a beautiful new date picker is shown.
   Thanks, [@bramkragten]!
 - The [IKEA TRÅDFRI] integration has been worked on by [@ggravlingen] and
