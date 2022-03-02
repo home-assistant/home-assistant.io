@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2022.3: Select and play media"
-description: "Lots of media sources that can easily used with the Play media action!"
+description: "Lots of media sources that can easily be used with the Play media action!"
 date: 2022-03-02 00:00:00
 date_formatted: "March 02, 2022"
 author: Franck Nijhof
@@ -152,20 +152,20 @@ change mainly impacts input fields look and feel.
 ## Triggered!
 
 When working an automation, triggers now show live in the UI when they are
-triggering. Allowing you to validate you set it up correctly.
+triggering, allowing you to validate you set it up correctly.
 
 In this little animation below, the remote is pressed a couple of times.
 The automation editor will show the "TRIGGERED" bar.
 
 <p class='img'>
-<img class="no-shadow" src='/images/blog/2022-03/triggered.gif' alt='Screen recording showing automations triggers triggering showing in the UI'>
+<img class="no-shadow" src='/images/blog/2022-03/triggered.gif' alt='Screen recording showing automation triggers triggering showing in the UI'>
 Each time the trigger triggers it will be indicated in the UI.
 </p>
 
 Additionally, you can now also trigger each individual action in your automation
 to test if the action you are creating runs as expected:
 
-<img class="no-shadow" src='/images/blog/2022-03/run-action.png' alt='Screenshot showing how to run an individual from the automation editor'>
+<img class="no-shadow" src='/images/blog/2022-03/run-action.png' alt='Screenshot showing how to run an individual action from the automation editor'>
 
 ## Entity ID autocompletion
 
@@ -349,7 +349,7 @@ This release of Home Assistant Core 2022.3 will be the final release that
 provides these integrations. Both the old `zwave` and `ozw` integrations
 are pending removal for Home Assistant Core 2022.4.
 
-The `ozw` integration has been deprecated before as the upstream projects
+The `ozw` integration has been deprecated before as the upstream
 projects we depends on, for e.g., libraries and add-on containers,
 are no longer maintained.
 
@@ -629,7 +629,7 @@ about the last-placed order.
 
 {% details "Plugwise" %}
 
-Changing the scan interval options of Plugwise devices in the integration
+Changing the scan interval option of Plugwise devices in the integration
 configuration has been removed. Home Assistant will, by default, use a sane
 and safe interval.
 
@@ -769,8 +769,8 @@ configuration, please remove it.
 - For the `binary_sensor.updater` entity, you can set up the
   [Version integration](/integrations/version/) with the
   "Home Assistant Website" source to get the same functionality back.
-- For the configuration options `reporting` and `include_used_components` for
-  the `updater:` configuration entry that was deprecated in 2021.4.
+- The configuration options `reporting` and `include_used_components` for
+  the `updater:` configuration entry was deprecated in 2021.4.
   If you still want to share that,
   please use the new [Analytics integration](/integrations/analytics/).
 
@@ -783,8 +783,8 @@ configuration, please remove it.
 
 {% details "Vallox" %}
 
-The previously deprecated `vallox.set_profile` service has now been removed,
-please use the standard `fan.set_preset_mode` service as a replacement.
+The previously deprecated `vallox.set_profile` service has now been removed.
+Please use the standard `fan.set_preset_mode` service as a replacement.
 
 ([@andre-richter] - [#66655]) ([documentation](/integrations/vallox))
 
