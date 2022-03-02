@@ -235,6 +235,8 @@ noteworthy changes this release:
 - [@starkillerOG] has been chewing on [NETGEAR], adding traffic sensors,
   a reboot button, but also switch to allow/block devices. Awesome!
 - Don't be alarmed now, but [@jbouwh] added support for [Sirens to MQTT]!
+- [@rubenverhoef] also dove into MQTT and added additional command templates
+  for MQTT lights.
 - The [Renault integration] added HVAC, door, and lock sensors, thanks [@epenet]
 - [@bdraco] added support to [HomeKit] for controlling the fan and oscillating
   of fans in climate entities. Nice!
