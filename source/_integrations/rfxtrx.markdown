@@ -54,6 +54,8 @@ logger:
 
 Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either. Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) and enable the required protocol.
 
+The `Undecoded` protocol is used for products where the RFXtrx device understands the protocol but does not how to decode the payload into a device, command, value, or similar. The `Undecoded` protocol cannot be persisted by RFXmgr and must be configured in Home Assistent, so that it can be enabled every time the RFXtrx device is connected.
+
 ## ser2net
 
 You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your Home Assistant configuration.
