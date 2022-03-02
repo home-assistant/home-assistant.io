@@ -16,7 +16,7 @@ og_image: /images/blog/2022-03/social.png
 <a href='/integrations/#version/2022.3'><img src='/images/blog/2022-03/social.png' style='border: 0;box-shadow: none;'></a>
 
 Did you know that today - March 2nd - in 1949, the first automatic street
-light was lit in New Milford, Connecticut, USA? Thirty-seven years later, we
+light was lit in New Milford, Connecticut, USA? Seventy-three years later, we
 automate our entire homes 😎
 
 Home Assistant Core 2022.3! And this release has a different and fresh "tune"
