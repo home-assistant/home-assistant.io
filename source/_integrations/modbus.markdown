@@ -302,7 +302,7 @@ precision:
   description: Number of valid decimals.
   required: false
   type: integer
-  default: 1
+  default: 0
 scale:
   description: Scale factor (output = scale * value + offset).
   required: false
