@@ -249,6 +249,7 @@ noteworthy changes this release:
 - Thanks to [@chemelli74], you can now control the valves of those brand new
   [Shelly] TRVs!
 
+[@kubawolanin]: https://github.com/kubawolanin
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
 [@bramkragten]: https://github.com/bramkragten
