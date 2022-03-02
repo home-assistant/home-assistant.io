@@ -346,10 +346,10 @@ for that specific item.
 
 This breaking change does **NOT** apply to users of the [Z-Wave JS] integration.
 
-This is breaking change notice regarding the older [Z-Wave] and [OpenZWave]
+This is a breaking change notice regarding the older [Z-Wave] and [OpenZWave]
 integrations, which both have been previously deprecated.
 
-This release of Home Assistant Core 2022.3, will be the final release that
+This release of Home Assistant Core 2022.3 will be the final release that
 provides these integrations. Both the old `zwave` and `ozw` integrations
 are pending removal for Home Assistant Core 2022.4.
 
@@ -426,9 +426,9 @@ The [documentation](/integrations/ebusd/#waterpressure) represents the correct v
 
 {% details "Elexa Guardian" %}
 
-Elexa Guardian no longer accepts the, previously deprecated, `entity_id`
-parameter in service calls; automations and scripts calling those services
-now require a `device_id` parameter instead.
+Elexa Guardian no longer accepts the previously deprecated `entity_id` parameter
+in service calls; automations and scripts calling those services now require
+a `device_id` parameter.
 
 ([@bachya] - [#65484]) ([documentation](/integrations/guardian))
 
@@ -440,7 +440,7 @@ now require a `device_id` parameter instead.
 {% details "Freebox" %}
 
 The `freebox.reboot` service is now deprecated and replaced by a dedicated
-reboot `button` entity; please use that entity to reboot the freebox instead.
+reboot `button` entity; please use that entity to reboot the Freebox instead.
 
 ([@epenet] - [#65501]) ([documentation](/integrations/freebox))
 
@@ -451,7 +451,7 @@ reboot `button` entity; please use that entity to reboot the freebox instead.
 
 {% details "IKEA TRÅDFRI" %}
 
-The native IKEA Tradfri groups are now deprecated and this feature will be
+The native IKEA Tradfri groups are now deprecated, and this feature will be
 removed from the integration in a future release.
 
 Tradfri groups rely on sending frequent requests (polling) to the gateway to
@@ -461,7 +461,7 @@ a restart. We propose using [light groups](/integrations/light.group/) instead.
 
 Configuring IKEA Tradfri via YAML configuration has been deprecated and will
 be removed in a future Home Assistant release. Any remaining YAML configuration
-has been automatically imported since a long time and thus can be safely
+has been automatically imported for a long time and thus can be safely
 removed from your YAML configuration.
 
 ([@ggravlingen] - [#65226]) ([documentation](/integrations/tradfri))
@@ -490,12 +490,12 @@ after upgrading.
 
 {% details "MQTT" %}
 
-MQTT binary sensors, lights, fans, humidifiers and switches can now have
+MQTT binary sensors, lights, fans, humidifiers, and switches can now have
 an `unknown` state in case the state is unknown.
 
-This change was made to make the make the MQTT entities more consistent with
+This change was made to make the MQTT entities more consistent with
 how these entities behave in other parts of Home Assistant. You may need
-to adopt your script and automations to adapt to this change.
+to adapt your script and automations to this change.
 
 ([@jbouwh] - [#65183] [#65308] [#65301] [#65302] [#65294]) ([documentation](/integrations/mqtt))
 
@@ -514,9 +514,9 @@ imported integration entry, MQTT must now be set up from the frontend.
 Please note that:
 
 - Any previously imported configuration is still valid, this PR does not
-  remove or otherwise modify imported configurations.
+  remove or modify imported configurations.
 - It's still possible to configure MQTT entities and advanced broker
-  configurations, such as SSL certificate, via YAML.
+  configurations, such as SSL certificates, via YAML.
 
 ([@emontnemery] - [#66160]) ([documentation](/integrations/mqtt))
 
@@ -525,7 +525,7 @@ Please note that:
 
 ---
 
-The MQTT climate `hold` and `away` mode configuration setting settings are now
+The MQTT climate `hold` and `away` mode configuration settings are now
 deprecated and removed in Home Assistant Core 2022.9.0.
 
 Please use the new `preset_mode` configuration options instead.
@@ -562,7 +562,7 @@ Configuring those options can instead be done via the UI.
 Older Nest cameras no longer use thumbnail images from events, and instead
 always use the live stream.
 
-You should use the newer[Nest Media Source APIs](/integrations/nest/#media-source)
+You should use the newer [Nest Media Source APIs](/integrations/nest/#media-source)
 to fetch media for events.
 
 ([@allenporter] - [#66427]) ([documentation](/integrations/nest))
@@ -586,7 +586,7 @@ Alternatively, `Hamburg, Freie und Hansestadt` and `Berlin, Stadt` can be used.
 
 {% details "Overkiz (by Somfy)" %}
 
-Previously, a Myfox Camera Shutter was mapped to a (non functional) `cover`
+Previously, a Myfox Camera Shutter was mapped to a (non-functional) `cover`
 entity. This is now changed to be a functional `switch` entity instead.
 
 ([@iMicknl] - [#66088]) ([documentation](/integrations/overkiz))
@@ -606,7 +606,7 @@ The integration now provides a button entity that can be used instead.
 If you have been using the `reject_call` service in your automation or scripts,
 you will need to adopt those to this change.
 
-([@tkdrob] - [#66742]) ([documentation](/integrations/modem_callerid)) (breaking-change)
+([@tkdrob] - [#66742]) ([documentation](/integrations/modem_callerid))
 
 [@tkdrob]: https://github.com/tkdrob
 [#66742]: https://github.com/home-assistant/core/pull/66742
@@ -619,7 +619,7 @@ The sensors for the "last order ETA start/end" have been renamed to
 "next delivery ETA start/end" and will now contain the ETA of the first
 upcoming delivery.
 
-If there are multiple deliveries planned, the `next_delivery_*` sensors
+If multiple deliveries are planned, the `next_delivery_*` sensors
 contain information about the first upcoming delivery,
 while the `last_order_*` sensors contain information
 about the last-placed order.
@@ -634,7 +634,7 @@ about the last-placed order.
 {% details "Plugwise" %}
 
 Changing the scan interval options of Plugwise devices in the integration
-configuration, has been removed. Home Assistant will, by default, use a sane
+configuration has been removed. Home Assistant will, by default, use a sane
 and safe interval.
 
 If you, however, still need to customize the interval, you can do so by
@@ -662,7 +662,7 @@ removed and replaced by equivalent `binary_sensor` entities.
 {% details "Radarr" %}
 
 The "Wanted" option for the Radarr integration has been removed, as this
-was actually an invalid endpoint.
+was an invalid endpoint.
 
 If you have this option configured in your YAML configuration, you will need
 to remove it.
@@ -684,8 +684,8 @@ However, it wasn't able to have the `unknown` state, which has been added.
 So, a `binary_sensor` entity can now have the `on`, `off`, `unavailable`,
 or `unknown` state.
 
-You might need to adapt your automations or scripts to take this
-new `unknown` state into account.
+You might need to adapt your automations or scripts to account this new
+`unknown` state.
 
 ([@epenet] - [#65997]) ([documentation](/integrations/renault))
 
@@ -697,7 +697,7 @@ new `unknown` state into account.
 {% details "Sensibo" %}
 
 The optional battery voltage attribute has been removed from the climate entity.
-If you used this attribute in your automations or scripts, than you'll need
+If you used this attribute in your automations or scripts, you'll need
 to adjust them to handle this change.
 
 ([@gjohansson-ST] - [#64753]) ([documentation](/integrations/sensibo))
@@ -738,8 +738,8 @@ with a time of airing.
 
 {% details "Synology DSM" %}
 
-The Home-Mode switch of Surveillance Station is no longer categorized to be
-a configuration entity, since it is part of the primary functionality.
+The Home-Mode switch of the Surveillance Station is no longer categorized to be
+a configuration entity since it is part of the primary functionality.
 
 ([@mib1185] - [#65949]) ([documentation](/integrations/synology_dsm))
 
@@ -765,10 +765,10 @@ tokens need to be issued with the `user:read:subscriptions` scope.
 
 {% details "Updater" %}
 
-The Updater integration has been deprecated, all its functionality has now
-been replaced by other integrations. It is no longer a part of `default_config`,
+The Updater integration has been deprecated; other integrations have replaced
+all its functionality. It is no longer a part of `default_config`,
 and if you have the `updater` integration defined directly in your YAML
-configuration please remove it.
+configuration, please remove it.
 
 - For the `binary_sensor.updater` entity, you can set up the
   [Version integration](/integrations/version/) with the
@@ -800,9 +800,9 @@ please use the standard `fan.set_preset_mode` service as a replacement.
 {% details "Viessmann ViCare" %}
 
 The sensor `solar power production` has been removed. This sensor was
-collection of multiple values.
+a collection of multiple values.
 
-Instead we now provide four new sensors, that each provides the data as single
+Instead, we now provide four new sensors that each provides the data as single
 value:
 
 - `solar power production today`
@@ -810,7 +810,7 @@ value:
 - `solar power production this month`
 - `solar power production this year`
 
-You might need to adopt your automations or scripts to this change.
+You might need to adapt your automations or scripts to this change.
 The stale restored sensor can be safely removed.
 
 ([@tschnilo] - [#63339]) ([documentation](/integrations/vicare))
@@ -822,7 +822,7 @@ The stale restored sensor can be safely removed.
 
 {% details "XBee" %}
 
-The Xbee integration has been disabled, due to the third-party library
+The Xbee integration has been disabled due to the third-party library
 we depend on not being compatible with Python 3.10.
 
 Home Assistant is working towards adding support for Python 3.10, and
@@ -874,7 +874,7 @@ controller is always alive.
 ([@raman325] - [#67209]) ([documentation](/integrations/zwave_js))
 
 [@raman325]: https://github.com/raman325
-[#66785]: https://github.com/home-assistant/core/pull/67209
+[#67209]: https://github.com/home-assistant/core/pull/67209
 
 {% enddetails %}
 
@@ -943,7 +943,7 @@ certificate is not valid (ie. Sonos, Cast).
 To help the user get this right, the default for the `get_url` helper
 will now prefer the external address if SSL is configured.
 
-This has a higher chance of being correct, delivering a better out of the box
+This has a higher chance of being correct, delivering a better out-of-the-box
 experience to a larger group of users.
 
 ([@balloob] - [#66039])
@@ -970,7 +970,7 @@ Previously it could return a list with a single item.
 
 {% details "Sensors with date/time" %}
 
-When using datetime and date device classes in sensors, the returned
+When using `datetime` and `date` device classes in sensors, the returned
 native value must (respectively) be a datetime or date Python object.
 
 Returning an iso formatted date(time) string in these cases was
@@ -986,8 +986,8 @@ been removed.
 
 {% details "Zero-configuration networking (zeroconf)" %}
 
-Currently zeroconf returns IPv4 addresses in the `host` field. If there were
-no advertised IPv4 addresses, the discovery would fail. As an example,
+Currently, zeroconf returns IPv4 addresses in the `host` field. If there were
+no advertised IPv4 addresses, the discovery would fail. For example,
 a specific manufacturer's Thread Border Router advertised devices as
 IPv6-only zeroconf services.
 
