@@ -330,6 +330,10 @@ Found a bug or issue? Please report it in our [issue tracker](https://github.com
 to get it fixed! Or, check [our help page](/help) for guidance for more
 places you can go.
 
+Are you more into email? [Sign-up for our newsletter](/newsletter) to get
+the latest news about features and things happening in our community straight
+into your inbox.
+
 <!--more-->
 
 ## Breaking Changes
