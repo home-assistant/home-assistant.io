@@ -186,8 +186,8 @@ in the frontend at times.
 Thanks to [@kubawolanin], we now have entity ID autocompletion when using
 the built-in code editor in the Home Assistant frontend 😎.
 
-Just start typing an entity ID, and the code editor will try to suggest
-an entity ID and shows the current state of the selected entity.
+Just start typing an entity ID, and the code editor will try to suggest an
+entity ID and show the selected entity's current state.
 
 <img class="no-shadow" src='/images/blog/2022-03/autocompletion.png' alt='Screenshot showing the code editor with entity ID autocompletion'>
 
@@ -198,7 +198,7 @@ creating advanced template conditions in your {% my automations %},
 and even if you are testing out your Jinja-template in the
 {% my developer_template title="template developer tools" %}.
 
-Click the My button below to test it out on your own Home Assistant instance:
+Click the My button below to test it out on your Home Assistant instance:
 
 {% my developer_template badge %}
 
