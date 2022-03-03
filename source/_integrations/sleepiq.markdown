@@ -27,6 +27,7 @@ There is currently support for the following platforms within Home Assistant:
 
 - Binary Sensor - View occupancy of each side
 - Sensor - View Current SleepNumber (ie current firmness) of each side
+- Sensor - View pressure of each side
 - Switch - Toggle Privacy mode
 - Button - Calibrate the bed
 - Button - Stop the pump
