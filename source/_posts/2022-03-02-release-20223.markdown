@@ -818,7 +818,7 @@ The stale restored sensor can be safely removed.
 
 {% details "Workday" %}
 
-Workday now requires a 2-character [ISO 3166-1] country code instead of the country's name.
+Workday now requires a 2-character [ISO 3166-1] country code instead of the country's name. States, provinces and consituent countries must now be listed using the `province` setting. Please see the [documentation](/integrations/workday) for examples.
 
 [ISO 3166-1]: https://en.wikipedia.org/wiki/ISO_3166-1
 
