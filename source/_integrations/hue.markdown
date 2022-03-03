@@ -17,6 +17,7 @@ ha_ssdp: true
 ha_homekit: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - light
   - scene
   - sensor

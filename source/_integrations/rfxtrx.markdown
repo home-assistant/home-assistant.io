@@ -58,8 +58,25 @@ Not all protocols as advertised are enabled on the initial setup of your transce
 
 You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your Home Assistant configuration.
 
+Configuration example for ser2net older than 4.x.x (check with command `ser2net -v`):
+
 ```text
 50000:raw:0:/dev/ttyUSB0:38400 8DATABITS NONE 1STOPBIT
+```
+
+Configuration example for ser2net 4.x.x:
+
+```yaml
+# Example /etc/ser2net.yaml for proxying USB/serial connections
+connection: &rfxtrx
+    accepter: tcp,5000
+    enable: on
+    options:
+      kickolduser: true
+      telnet-brk-on-sync: true
+    connector: serialdev,
+              /dev/ttyUSB0,
+              38400n81,local
 ```
 
 ## Settings options

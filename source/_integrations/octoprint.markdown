@@ -3,6 +3,7 @@ title: OctoPrint
 description: Integration between OctoPrint and Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
   - Sensor
 ha_config_flow: true
 ha_release: 0.19
@@ -14,6 +15,7 @@ ha_zeroconf: true
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - button
   - sensor
 ---
 
@@ -84,3 +86,11 @@ camera:
     still_image_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=snapshot
     mjpeg_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=stream
 ```
+
+## Buttons
+
+The OctoPrint integration provides the following buttons.
+
+- Pause Job
+- Resume Job
+- Stop Job

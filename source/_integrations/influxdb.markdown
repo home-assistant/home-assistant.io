@@ -424,6 +424,10 @@ queries:
       type: string
       description: The name of the sensor.
       required: true
+    unique_id:
+      type: string
+      description: The unique ID for this query. This allows changing the name, icon and entity_id from the web interface.
+      required: false
     unit_of_measurement:
       type: string
       description: Defines the units of measurement of the sensor, if any.
@@ -464,6 +468,10 @@ queries_flux:
       type: string
       description: The name of the sensor.
       required: true
+    unique_id:
+      type: string
+      description: The unique ID for this query. This allows changing the name, icon and entity_id from the web interface.
+      required: false
     unit_of_measurement:
       type: string
       description: Defines the units of measurement of the sensor, if any.

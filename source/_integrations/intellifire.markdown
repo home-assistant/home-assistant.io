@@ -31,10 +31,18 @@ The following sensors are available as either a **Binary Sensor** when dealing w
 - **Timer Sensor**: Whether the sleep timer is turned on.
 - **Thermostat Sensor**: Whether the thermostat is turned on.
 
-### Sensors
+### Sensor
 
 - **Flame Height**: Numerical indicator of flame height, where `0` is the lowest setting.
 - **Temperature**: Current ambient temperature as read by the fireplace remote.
 - **Target Temperature**: If the thermostat is engaged this is the target temperature the fireplace will try to reach, as measured by the remote.
 - **Fan Speed**: Numerical indicator of fan speed.
 - **Timer End Time**: If the sleep timer is enabled, this is time it will finish.
+
+### Diagnostic Sensors
+
+- **Connection Quality** - Local network connection quality _(disabled by default)_.
+- **Downtime** - Unit downtime. Will read `Unknown` if there is currently no downtime.
+- **ECM Latency** - Electronic Control Module Latency value _(disabled by default)_.
+- **IP** - IP Address of the unit.
+- **Uptime** - Unit uptime.
