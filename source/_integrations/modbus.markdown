@@ -904,7 +904,7 @@ sensors:
     unit_of_measurement:
       description: Unit to attach to value.
       required: false
-      type: integer
+      type: string
     state_class:
       description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
       required: false
