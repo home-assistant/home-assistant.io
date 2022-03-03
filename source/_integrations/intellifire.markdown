@@ -46,3 +46,20 @@ The following sensors are available as either a **Binary Sensor** when dealing w
 - **ECM Latency** - Electronic Control Module Latency value _(disabled by default)_.
 - **IP** - IP Address of the unit.
 - **Uptime** - Unit uptime.
+- **Errors** - Error status (see below)
+
+#### Error Messages
+
+*The following details the various error states and the descriptions associated with them in the IntelliFire Android application.*
+
+ - `ACCESSORY` - Your appliance has detected that an AUX port or accessory is not functional. Please contact your dealer and report this issue.
+ - `DISABLED` - Appliance Safely Disabled: Your appliance has been disabled. Please contact your dealer and report this issue.
+ - `ECM_OFFLINE` - ECM is offline.
+ - `FAN` - Fan Error. Your appliance has detected that an accessory is not functional. Please contact your dealer and report this issue.
+ - `FAN_DELAY` - Fan Information: Fan will turn on within 3 minutes. Your appliance has a built-in delay that prevents the fan from operating within the first 3 minutes of turning on the appliance. This allows the air to be heated prior to circulation.
+ - `FLAME` - Pilot Flame Error. Your appliance has been safely disabled. Please contact your dealer and report this issue.
+ - `LIGHTS` - Lights Error. Your appliance has detected that an accessory is not functional. Please contact your dealer and report this issue.
+ - `MAINTENANCE` - Maintenance: Your appliance is due for a routine maintenance check. Please contact your dealer to ensure your appliance is operating at peak performance.
+ - `OFFLINE` - Your appliance is currently offline.
+ - `PILOT_FLAME` - Pilot Flame Error: Your appliance has been safely disabled. Please contact your dealer and report this issue.
+ - `SOFT_LOCK_OUT` - Sorry your appliance did not start. Try again by pressing Flame ON.
