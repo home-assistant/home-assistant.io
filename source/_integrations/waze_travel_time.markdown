@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_domain: waze_travel_time
 ha_platforms:
   - sensor
+ha_codeowners:
+  - '@eifinger'
 ---
 
 The `waze_travel_time` sensor provides travel time from the [Waze](https://www.waze.com/).

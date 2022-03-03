@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: philips_js
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - light
   - media_player
   - remote

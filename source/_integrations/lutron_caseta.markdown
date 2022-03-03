@@ -21,6 +21,7 @@ ha_zeroconf: true
 ha_homekit: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - cover
   - fan
   - light

@@ -39,7 +39,6 @@ This integration is a meta-component and configures a default set of integration
 - [System Health](/integrations/system_health/) (`system_health`)
 - [Tag](/integrations/tag/) (`tag`)
 - [Timer](/integrations/timer/) (`timer`)
-- [Updater](/integrations/updater/) (`updater`)
 - [USB](/integrations/usb/) (`usb`)
 - [Webhooks](/integrations/webhook) (`webhook`)
 - [Zero-configuration networking (zeroconf)](/integrations/zeroconf/) (`zeroconf`)
