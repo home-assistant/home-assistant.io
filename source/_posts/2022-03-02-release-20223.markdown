@@ -121,7 +121,7 @@ Adding the Radio Browser to your Home Assistant instance is as easy as clicking
 the My Home Assistant button below. No other setup prerequisites, logins, or API
 keys are need.
 
-{% my confconfig_flow_start badge domain="radio_browser" %}
+{% my config_flow_start badge domain="radio_browser" %}
 
 ## Upload your media straight from the browser
 
