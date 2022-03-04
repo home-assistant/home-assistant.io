@@ -16,6 +16,7 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - button
+  - light
   - sensor
   - switch
 ---
@@ -29,6 +30,7 @@ There is currently support for the following platforms within Home Assistant:
 - Switch - Toggle Privacy mode
 - Button - Calibrate the bed
 - Button - Stop the pump
+- Light - Control lights on supported models
 
 You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this integration.
 
