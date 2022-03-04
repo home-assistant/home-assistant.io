@@ -3,6 +3,7 @@ title: Mazda Connected Services
 description: Instructions on how to integrate your Connected Services capable Mazda vehicle with Home Assistant.
 ha_release: '2021.3'
 ha_category:
+  - Binary Sensor
   - Car
   - Lock
   - Presence Detection
