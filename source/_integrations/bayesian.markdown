@@ -18,16 +18,16 @@ This allows for the detection of complex events that may not be readily observab
 
 ## Theory
 
-A key concept in Bayes' Theorum is the difference between the probability of the 'event given the observation' and the probability of the 'observation given the event'. In some cases these probabilities will be similar. The probability that someone is in the room given that motion is detected is similar to the probability motion is detected given that someone is in the room. In other cases, the distinction is much more important. The probability I have just arrived home (the event) each time the front door contact sensor reports `open` (the observation) (p=0.2) is not the same as the probability the front door contact sensor reports `open` (the observation) when I come home (the event) (p=0.999).
+A key concept in Bayes' Rule is the difference between the probability of the 'event given the observation' and the probability of the 'observation given the event'. In some cases these probabilities will be similar. The probability that someone is in the room given that motion is detected is similar to the probability motion is detected given that someone is in the room. In other cases, the distinction is much more important. The probability I have just arrived home (the event) each time the front door contact sensor reports `open` (the observation) (p=0.2) is not the same as the probability the front door contact sensor reports `open` (the observation) when I come home (the event) (p=0.999).
 
-In the configuration use the probability of the observation (the sensor state in question) given the event (the asumed state of the Bayesian binary_sensor).
+In the configuration use the probability of the observation (the sensor state in question) given the event (the assumed state of the Bayesian binary_sensor).
 
 ## Estimating probabilities
 
 1. Avoid `0` and `1`, these will mess with the odds and are rarely true - sensors fail.
 2. When using `0.99` and `0.001`. The number of `9`s and `0`s matters.
 3. Most probabilities will be time-based - the fraction of time something is true is also the probability it will be true.
-4. Use your homeassistant history to help estimate the probabilities.
+4. Use your Home Assistant history to help estimate the probabilities.
    - Select the sensor in question over a time range when the `Bayesian` sensor should be `true`.
 5. Define `prob_given_false` where you can, this will force you to think.
 6. If your Bayesian sensor ends up triggering `on` too easily increase `probability_threshold` and vice-versa.
@@ -95,11 +95,11 @@ observations:
       type: template
     prob_given_true:
       description: >
-        Assuming the bayesian binary_sensor is `true`, the probability of the entity state occuring.
+        Assuming the bayesian binary_sensor is `true`, the probability of the entity state occurring.
       required: true
       type: float
     prob_given_false:
-      description: Assuming the bayesian binary_sensor is `false` the probability of this entity state occuring.
+      description: Assuming the bayesian binary_sensor is `false` the probability of this entity state occurring.
       required: false
       type: float
       default: "`1 - prob_given_true` if `prob_given_false` is not set"
@@ -139,7 +139,7 @@ binary_sensor:
     - platform: "state"
       entity_id: "sensor.android_charger_type"
       prob_given_true: 0.95 # When I am in bed, I nearly always plug my phone in to charge
-      prob_given_false: 0.1 # When I am awake, I ocassionally AC charge my phone
+      prob_given_false: 0.1 # When I am awake, I occasionally AC charge my phone
       to_state: "ac"
 ```
 
