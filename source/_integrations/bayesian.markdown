@@ -24,9 +24,9 @@ In the configuration use the probability of the observation (the sensor state in
 
 ## Estimating probabilities
 
-1. Avoid 0 and 1, these will mess with the odds and are rarely true, sensors fail.
+1. Avoid `0` and `1`, these will mess with the odds and are rarely true - sensors fail.
 2. When using `0.99` and `0.001`. The number of `9`s and `0`s matters.
-3. Most will be time-based - the fraction of time something is true is also the probability it will be true.
+3. Most probabilities will be time-based - the fraction of time something is true is also the probability it will be true.
 4. Use your homeassistant history to help estimate the probabilities.
    - Select the sensor in question over a time range when the `Bayesian` sensor should be `true`.
 5. Define `prob_given_false` where you can, this will force you to think.
