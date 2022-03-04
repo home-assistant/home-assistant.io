@@ -52,7 +52,7 @@ The following sensor entities are available:
 ### Binary sensor
 
 The following binary sensor entities are available:
- - Doors (open/closed, also includes state attributes showing the state of each individual door)
+ - Doors (open/closed, individual entities for each door)
  - Trunk (open/closed)
  - Hood (open/closed)
  - Plugged in (plugged in/unplugged, only for electric vehicles)
