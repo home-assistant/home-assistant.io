@@ -48,6 +48,7 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2022.3.1 - March 3](#release-202231---march-3)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -322,6 +323,37 @@ The following integrations are now available via the Home Assistant UI:
 [International Space Station (ISS)]: /integrations/iss
 [MJPEG IP Camera]: /integrations/mjpeg
 [SleepIQ]: /integrations/sleepiq
+
+## Release 2022.3.1 - March 3
+
+- Bump soco to 0.26.4 ([@jjlawren] - [#67498]) ([sonos docs])
+- Check if UPnP is enabled on Fritz device ([@chemelli74] - [#67512]) ([fritz docs])
+- Fix MQTT config flow with advanced parameters ([@jbouwh] - [#67556]) ([mqtt docs])
+- Highlight in logs it is a custom component when setup fails ([@balloob] - [#67559])
+- Bump pyobihai ([@ejpenney] - [#67571]) ([obihai docs])
+- Fix data type for growatt lastdataupdate (#67511) ([@muppet3000] - [#67582]) ([growatt_server docs])
+- Add guards for HomeKit version/names that break apple watches ([@bdraco] - [#67585]) ([homekit docs])
+
+[#67498]: https://github.com/home-assistant/core/pull/67498
+[#67512]: https://github.com/home-assistant/core/pull/67512
+[#67556]: https://github.com/home-assistant/core/pull/67556
+[#67559]: https://github.com/home-assistant/core/pull/67559
+[#67571]: https://github.com/home-assistant/core/pull/67571
+[#67582]: https://github.com/home-assistant/core/pull/67582
+[#67585]: https://github.com/home-assistant/core/pull/67585
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@ejpenney]: https://github.com/ejpenney
+[@jbouwh]: https://github.com/jbouwh
+[@jjlawren]: https://github.com/jjlawren
+[@muppet3000]: https://github.com/muppet3000
+[fritz docs]: /integrations/fritz/
+[growatt_server docs]: /integrations/growatt_server/
+[homekit docs]: /integrations/homekit/
+[mqtt docs]: /integrations/mqtt/
+[obihai docs]: /integrations/obihai/
+[sonos docs]: /integrations/sonos/
 
 ## Need help? Join the community!
 
