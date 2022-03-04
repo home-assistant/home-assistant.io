@@ -28,7 +28,7 @@ In the configuration use the probability of the observation (the sensor state in
 2. When using `0.99` and `0.001`. The number of `9`s and `0`s matters.
 3. Most probabilities will be time-based - the fraction of time something is true is also the probability it will be true.
 4. Use your Home Assistant history to help estimate the probabilities.
-   - Select the sensor in question over a time range when the `Bayesian` sensor should be `true`.
+   - Select the sensor in question over a time range when you think `Bayesian` sensor should be `true`.
 5. Define `prob_given_false` where you can, this will force you to think.
 6. If your Bayesian sensor ends up triggering `on` too easily increase `probability_threshold` and vice-versa.
 
@@ -60,7 +60,7 @@ probability_threshold:
   description: >
     The posterior probability at which the sensor should trigger to `on`.
     use higher values to reduce false positives (and increase false negatives)
-    Note: if the threshold is higher than the prior then default state will be `off`
+    Note: If the threshold is higher than the prior then the default state will be `off`
   required: false
   type: float
   default: 0.5
@@ -70,7 +70,7 @@ name:
   type: string
   default: Bayesian Binary Sensor
 observations:
-  description: The observations which should influence the likelihood that the given event has occurred.
+  description: The observations which should influence the probability that the given event is occurring.
   required: true
   type: list
   keys:
@@ -95,11 +95,11 @@ observations:
       type: template
     prob_given_true:
       description: >
-        Assuming the bayesian binary_sensor is `true`, the probability of the entity state occurring.
+        Assuming the bayesian binary_sensor is `true`, the probability the entity state is occurring.
       required: true
       type: float
     prob_given_false:
-      description: Assuming the bayesian binary_sensor is `false` the probability of this entity state occurring.
+      description: Assuming the bayesian binary_sensor is `false` the probability of this entity state is occurring.
       required: false
       type: float
       default: "`1 - prob_given_true` if `prob_given_false` is not set"
