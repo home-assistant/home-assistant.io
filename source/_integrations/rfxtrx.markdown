@@ -162,14 +162,6 @@ To configure device options, select a device from the list under *Select device 
 If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
 </div>
 
-#### Signal repetitions
-
-Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the RFXtrx device to try to send each signal repeatedly.
-
-<div class='note warning'>
-The RFXtrx hardware generally handle signal repeats itself, and some protocols are timing sensitive when it comes to signal repeats so in general this should be avoided.
-</div>
-
 #### Off Delay
 
 Binary sensors have only two states - "on" and "off". Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their "on" state:
