@@ -77,7 +77,7 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 
 |           Event | Description |
 | --------------- | ----------- |
-| `timer.cancelled` | Fired when a timer has been cancelled |
+| `timer.cancelled` | Fired when a timer has been canceled |
 | `timer.finished` | Fired when a timer has completed and includes `finished_at` date/time in event data |
 | `timer.finished_while_homeassistant_stopped` | Fired when a timer completed while Home Assistant is stopped (see `restore` and `restore_grace_period` configuration options for more information) and includes `finished_at` date/time in event data |
 | `timer.started` | Fired when a timer has been started |
