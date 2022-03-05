@@ -22,19 +22,9 @@ The Kaleidescape integration allows for the automation of Kaleidescape movie pla
 
 ## Supported Models
 
-This integration is intended for the automation of Kaleidescape players with a movie zone. These players will automatically have a respective Home Assistant media player added. Any music zone in a player is ignored at this time.
-
-Testing was done on a Strato S with kOS `10.11.0-22557`.
+This integration is intended for the automation of Kaleidescape players with a movie zone. This includes all Strato and Premier players. Strato players support auto discovery in HomeAssistant, and all detected devices will show up in `Configuration` | `Devices and Services`. Premier players must be added manually by clicking `Add Integration` from the same screen, then searching for Kaleidescape.
 
 {% include integrations/config_flow.md %}
-
-<br/>
-
-<div class='note info'>
-
-A connection to a single Kaleidescape player enables control of all players in the system. The default hostname to connect to is: _my-kaleidescape.local_. If that fails try the hostname: _my-kaleidescape_. If that fails see the [Accessing the Browser Interface](https://support.kaleidescape.com/article/Accessing-the-Browser-Interface) support document from Kaleidescape, which will help you determine the correct hostname.
-
-</div>
 
 ## Services
 
