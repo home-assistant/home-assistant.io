@@ -20,7 +20,7 @@ The `waze_travel_time` sensor provides travel time from the [Waze](https://www.w
 Notes:
 
 - If a unit system is not specified, the integration will use the unit system configured on your Home Assistant instance.
-- Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, an entity id with latitude and longitude attributes, or zone friendly name (case sensitive).
+- Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, an entity id with latitude and longitude attributes, or zone friendly name (case sensitive). For origin, most people will want to use the device that tracks their location. I.e device_tracker.kevin_pixel_gps.
 - The string inputs for `Substring *` allow you to force the integration to use a particular route or avoid a particular route in its time travel calculation. These inputs are case insensitive matched against the description of the route.
 - When using the `Avoid Toll Roads?`, `Avoid Subscription Roads?` and `Avoid Ferries?` options be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behavior is that Waze will route you over roads having subscription options, so best is to set both `Avoid Toll Roads?` and `Avoid Subscription Roads?` or `Avoid Ferries?` if needed and experiment to ensure the desired outcome.
 
@@ -32,7 +32,7 @@ Some users will want to have more control over polling frequencies. To use more 
 
 Using the flexible option to set a sensor value to the `Destination`, you can setup a single Waze integration that will calculate travel time to multiple optional locations on demand.
 
-In the following example, the `Input Select` is converted into an address which is used to modify the destination for Waze route calculation from `device_tracker.myphone` location (It takes a few minutes for the value to update due to the interval of Waze data fetching).
+In the following example which needs to be added to your configuration.yaml file (or if you use a "split configuration" a yaml sensor file), the `Input Select` is converted into an address which is used to modify the destination for Waze route calculation from `device_tracker.myphone` location (It takes a few minutes for the value to update due to the interval of Waze data fetching).
 
 {% raw %}
 
@@ -62,6 +62,62 @@ template:
 ```
 
 {% endraw %}
+Automations / Scrips can be setup to poll Waze on any changes to the input_select.
+An example of a script:
+```
+sequence:
+  - service: homeassistant.update_entity
+    data: {}
+    target:
+      entity_id:
+        - sensor.waze_travel_time
+mode: single
+icon: mdi:train-car
+alias: waze
+```
+An example of an Automation that changes the polling frequency:
+```
+alias: Waze sensor update
+trigger:
+  - platform: time_pattern
+    minutes: '2'
+condition:
+  - condition: time
+    after: '07:00:00'
+    before: '17:00:00'
+  - condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+      - sat
+      - sun
+    before: '00:00:00'
+    after: '00:00:00'
+action:
+  - service: homeassistant.update_entity
+    target:
+      entity_id: sensor.waze_travel_time
+    data: {}
+initial_state: 'on'
+```
+An example of an automation to poll "now":
+```
+alias: Waze state change
+description: ''
+trigger:
+  - platform: state
+    entity_id: input_select.destination
+condition: []
+action:
+  - service: homeassistant.update_entity
+    data: {}
+    target:
+      entity_id: sensor.waze_travel_time
+mode: single
+```
 
 ### Various configurations that are supported
 
