@@ -61,6 +61,8 @@ timer:
       default: false
     restore_grace_period:
       description: If `restore` is true and the timer ends when Home Assistant is stopped, this property controls which event fires. If the difference in time between when Home Assistant started and when timer ended is **less** than the grace period time, the `timer.finished` event will fire. If the difference in time between when Home Assistant started and when timer ended is **greater** than the grace period time, the `timer.finished_while_homeassistant_stopped` event will fire.
+      required: false
+      type: [integer, time]
 {% endconfiguration %}
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
