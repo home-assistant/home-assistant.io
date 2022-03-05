@@ -32,7 +32,7 @@ Some users will want to have more control over polling frequencies. To use more 
 
 Using the flexible option to set a sensor value to the `Destination`, you can setup a single Waze integration that will calculate travel time to multiple optional locations on demand.
 
-In the following example which needs to be added to your configuration.yaml file (or if you use a "split configuration" a yaml sensor file), the `Input Select` is converted into an address which is used to modify the destination for Waze route calculation from `device_tracker.myphone` location (It takes a few minutes for the value to update due to the interval of Waze data fetching).
+In the following example which needs to be added to your configuration.yaml file (or if you use a "split configuration" the appropriate yaml file), the `Input Select` is converted into an address which is used to modify the destination for Waze route calculation from your `device_tracker.myphone` location (It takes a few minutes for the value to update due to the interval of Waze data fetching).
 
 {% raw %}
 
