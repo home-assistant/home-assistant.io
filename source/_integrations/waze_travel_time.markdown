@@ -64,7 +64,7 @@ template:
 {% endraw %}
 Automations / Scrips can be setup to poll Waze on any changes to the input_select.
 An example of a script:
-```
+```yaml
 sequence:
   - service: homeassistant.update_entity
     data: {}
@@ -76,7 +76,7 @@ icon: mdi:train-car
 alias: waze
 ```
 An example of an Automation that changes the polling frequency:
-```
+```yaml
 alias: Waze sensor update
 trigger:
   - platform: time_pattern
@@ -104,7 +104,7 @@ action:
 initial_state: 'on'
 ```
 An example of an automation to poll "now":
-```
+```yaml
 alias: Waze state change
 description: ''
 trigger:
