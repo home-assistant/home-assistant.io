@@ -20,7 +20,7 @@ The `waze_travel_time` sensor provides travel time from the [Waze](https://www.w
 Notes:
 
 - If a unit system is not specified, the integration will use the unit system configured on your Home Assistant instance.
-- Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, an entity id with latitude and longitude attributes, or zone friendly name (case sensitive). For origin, most people will want to use the device that tracks their location. I.e device_tracker.kevin_pixel_gps.
+- Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, an entity id with latitude and longitude attributes, or zone friendly name (case sensitive). For origin, most users will want to use the device that tracks their location. I.e device_tracker.kevin_pixel_gps.
 - The string inputs for `Substring *` allow you to force the integration to use a particular route or avoid a particular route in its time travel calculation. These inputs are case insensitive matched against the description of the route.
 - When using the `Avoid Toll Roads?`, `Avoid Subscription Roads?` and `Avoid Ferries?` options be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behavior is that Waze will route you over roads having subscription options, so best is to set both `Avoid Toll Roads?` and `Avoid Subscription Roads?` or `Avoid Ferries?` if needed and experiment to ensure the desired outcome.
 
