@@ -57,7 +57,7 @@ timer:
     restore:
       description: When true, active timer and paused timers will be restored on startup. If an active timer was supposed to end while Home Assistant is stopped, the `restore_grace_period` property controls which event fires.
       required: false
-      type: bool
+      type: boolean
       default: false
     restore_grace_period:
       description: If `restore` is true and the timer ends when Home Assistant is stopped, this property controls which event fires. If the difference in time between when Home Assistant started and when timer ended is **less** than the grace period time, the `timer.finished` event will fire. If the difference in time between when Home Assistant started and when timer ended is **greater** than the grace period time, the `timer.finished_while_homeassistant_stopped` event will fire.
