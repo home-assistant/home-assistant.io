@@ -54,4 +54,4 @@ For all sources the integration will create a [sensor](/integrations/sensor) ent
 
 ### Binary Sensor
 
-For all sources (except for the ["Local installation"](#local-installation) source) the integration will create a [binary_sensor](/integrations/binary_sensor) entity (binary_sensor.home_assistant_website_update_available) that show if there is a newer version than the one you are currently running published to that source.
+For all sources (except for the ["Local installation"](#local-installation) source) the integration will create a [binary_sensor](/integrations/binary_sensor) entity (`binary_sensor.home_assistant_website_update_available`) that show if there is a newer version than the one you are currently running published to that source.
