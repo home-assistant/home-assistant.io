@@ -65,7 +65,7 @@ The `wake_on_lan` (WOL) button platform allows you to turn on a [WOL](https://en
 
 The WOL button can only turn on your computer.
 
-To enable this switch in your installation, add the following to your `configuration.yaml` file:
+To enable this button in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -80,13 +80,9 @@ mac:
   required: true
   type: string
 name:
-  description: The name of the switch.
+  description: The name of the button.
   required: false
   default: Wake on LAN
-  type: string
-host:
-  description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
-  required: false
   type: string
 broadcast_address:
   description: The IP address of the host to send the magic packet to.
