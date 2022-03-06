@@ -19,6 +19,7 @@ The `wake_on_lan` integration enables the ability to send _magic packets_ to [Wa
 
 There is currently support for the following device types within Home Assistant:
 
+- [Button](#button)
 - [Switch](#switch)
 
 ## Configuration
