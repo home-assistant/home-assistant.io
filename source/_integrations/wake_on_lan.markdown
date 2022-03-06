@@ -8,6 +8,7 @@ ha_release: 0.49
 ha_iot_class: Local Push
 ha_domain: wake_on_lan
 ha_platforms:
+  - button
   - switch
 ha_codeowners:
   - '@ntilley905'
@@ -54,6 +55,48 @@ Sample service data:
 This usually only works if the Target Device is connected to the same network. Routing the WakeOnLan packet to a different subnet requires a special configuration on your router or may not be possible.
 The Service to Route the packet is most likely named "IP Helper" which may support WakeOnLan, but not all Routers support this.
 </div>
+
+## Button
+
+The `wake_on_lan` (WOL) button platform allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
+
+### Button configuration
+
+The WOL button can only turn on your computer.
+
+To enable this switch in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+button:
+  - platform: wake_on_lan
+    mac: MAC_ADDRESS
+```
+
+{% configuration %}
+mac:
+  description: "The MAC address to send the wake up command to, e.g, `00:01:02:03:04:05`."
+  required: true
+  type: string
+name:
+  description: The name of the switch.
+  required: false
+  default: Wake on LAN
+  type: string
+host:
+  description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
+  required: false
+  type: string
+broadcast_address:
+  description: The IP address of the host to send the magic packet to.
+  required: false
+  default: 255.255.255.255
+  type: string
+broadcast_port:
+  description: The port to send the magic packet to.
+  required: false
+  type: integer
+{% endconfiguration %}
 
 ## Switch
 
