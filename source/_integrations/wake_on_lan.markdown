@@ -3,6 +3,7 @@ title: Wake on LAN
 description: Instructions on how to setup the Wake on LAN integration in Home Assistant.
 ha_category:
   - Network
+  - Button
   - Switch
 ha_release: 0.49
 ha_iot_class: Local Push
