@@ -108,6 +108,11 @@ go_unavailable_timeout:
   required: false
   default: 7200
   type: integer
+scan_interval:
+  description: "Sensor scan interval in seconds"
+  required: false
+  default: 1200
+  type: integer
 {% endconfiguration %}
 
 <div class='note warning'>
@@ -129,6 +134,7 @@ sensor:
     force_update: true
     median: 3
     go_unavailable_timeout: 43200
+    scan_interval: 1200
     monitored_conditions:
       - moisture
       - light
