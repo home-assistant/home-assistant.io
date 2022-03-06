@@ -3,7 +3,7 @@ title: Kaleidescape
 description: Instructions on how to integrate Kaleidescape into Home Assistant.
 ha_category:
   - Media Player
-ha_release: '2021.10.7'
+ha_release: '2022.4'
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
