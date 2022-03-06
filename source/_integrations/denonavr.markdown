@@ -60,6 +60,9 @@ Known supported devices:
 - Denon AVR-S760H
 - Denon AVR-S960H
 - Denon DN-500AV
+- Marantz AV7702
+- Marantz AV7703
+- Marantz AV7704
 - Marantz M-CR510
 - Marantz M-CR511
 - Marantz M-CR603
