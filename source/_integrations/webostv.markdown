@@ -4,7 +4,7 @@ description: Instructions on how to integrate a LG webOS Smart TV within Home As
 ha_category:
   - Media Player
   - Notifications
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: 0.18
 ha_codeowners:
   - '@bendavid'
@@ -15,6 +15,7 @@ ha_ssdp: true
 ha_platforms:
   - media_player
   - notify
+ha_quality_scale: platinum
 ---
 
 The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS Smart TV.
@@ -48,14 +49,14 @@ Automations can also be created using an automation action:
 wake_on_lan: # enables `wake_on_lan` integration
 
 automation:
-  trigger:
-    - platform: webostv.turn_on
-      entity_id: media_player.lg_webos_smart_tv
-  action:
-    - service: wake_on_lan.send_magic_packet
-      data:
-        broadcast_address: 192.168.1.255
-        mac: AA-BB-CC-DD-EE-FF
+  - alias: "Turn On Living Room TV with WakeOnLan"
+    trigger:
+      - platform: webostv.turn_on
+        entity_id: media_player.lg_webos_smart_tv
+    action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: aa:bb:cc:dd:ee:ff
 ```
 
 Any other [actions](/docs/automation/action/) to power on the device can be configured.

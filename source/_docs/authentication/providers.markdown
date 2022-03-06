@@ -51,7 +51,7 @@ If you don't specify any `auth_providers` section in the `configuration.yaml` fi
 
 ### Trusted Networks
 
-The Trusted Networks auth provider defines a range of IP addresses for which no authentication will be required (also known as "whitelisting"). For example, you can whitelist your local network so you won't be prompted for a password if you access Home Assistant from inside your home.
+The Trusted Networks auth provider defines a range of IP addresses for which no authentication will be required (also known as "allowlisting"). For example, you can allowlist your local network so you won't be prompted for a password if you access Home Assistant from inside your home.
 
 When you log in from one of these networks, you will be asked which user account to use and won't need to enter a password.
 
@@ -74,7 +74,7 @@ homeassistant:
 
 {% configuration %}
 trusted_networks:
-  description: A list of IP address or IP network you want to whitelisted. It accepts both IPv4 and IPv6 IP address or network
+  description: A list of IP addresses or an IP network you want allowlisted. It accepts both IPv4 and IPv6 IP address or network
   required: true
   type: list
 trusted_users:

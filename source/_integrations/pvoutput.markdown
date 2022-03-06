@@ -11,7 +11,9 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: pvoutput
 ha_platforms:
+  - diagnostics
   - sensor
+ha_quality_scale: platinum
 ---
 
 The PVOutput integration consumes information from [PVOutput](https://pvoutput.org/) which was uploaded by your solar photovoltaic (PV) system.

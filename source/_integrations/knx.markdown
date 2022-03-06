@@ -27,6 +27,7 @@ ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - climate
   - cover
   - fan

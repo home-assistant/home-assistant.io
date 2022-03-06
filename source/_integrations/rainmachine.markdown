@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: rainmachine
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
   - switch
 ha_zeroconf: true

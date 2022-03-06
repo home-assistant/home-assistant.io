@@ -32,7 +32,7 @@ still_image_url:
   required: false
   type: string
 stream_source:
-  description: "The URL your camera serves the live stream on, e.g., `rtsp://user:pass@192.168.1.21:554/`. Can be a [template](/topics/templating/). Usernames and passwords must be embedded in the URL. At least one of still_image_url or stream_source must be provided."
+  description: "The URL your camera serves the live stream on, e.g., `rtsp://user:pass@192.168.1.21:554/`. Can be a [template](/topics/templating/). Usernames and passwords must be embedded in the URL. At least one of still_image_url or stream_source must be provided. Note that a stream_source without a still_image_url can only be used if the [stream integration](/integrations/stream/) is configured."
   required: false
   type: string
 name:
@@ -95,9 +95,10 @@ In this section, you find some real-life examples of how to use this camera plat
 camera:
   - platform: generic
     name: Weather
-    still_image_url: https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/meteogram.svg
+    still_image_url: https://www.yr.no/en/content/1-72837/meteogram.svg
     content_type: "image/svg+xml"
 ```
+Instructions on how to locate the SVG for your location is available at [developer.yr.no](https://developer.yr.no/doc/guides/deprecating-old-widgets/)
 
 ### Local image
 
