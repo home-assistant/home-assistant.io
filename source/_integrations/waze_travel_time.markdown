@@ -72,7 +72,7 @@ In this example we use a device_tracker entity ID as the origin and the sensor c
   - Name: "Me to some destination"
   - Origin: `device_tracker.myphone`
   - Destination: `sensor.dest_address`
-  - Region: `US`
+  - Region: "US"
 
 #### Tracking entity to zone friendly name
 
@@ -80,24 +80,24 @@ In this example we are using the entity ID of a zone as the origin and the frien
 
   - Name: "Home to Eddie's house"
   - Origin: `zone.home`
-  - Destination: `Eddies House`
-  - Region: `US`
+  - Destination: "Eddies House"
+  - Region: "US"
 
 #### Tracking entity in Imperial Units
 
   - Name: "Somewhere in New York"
   - Origin: `person.paulus`
-  - Destination: `725 5th Ave, New York, NY 10022, USA`
-  - Region: `US`
-  - Units: `imperial`
-  - Vehicle Type: `motorcycle`
+  - Destination: "725 5th Ave, New York, NY 10022, USA"
+  - Region: "US"
+  - Units: "imperial"
+  - Vehicle Type: "motorcycle"
 
 #### Avoiding toll, subscription
 
   - Name: "Westerscheldetunnel"
-  - Origin: `51.330436, 3.802043`
-  - Destination: `51.445677, 3.749929`
-  - Region: `EU`
+  - Origin: "51.330436, 3.802043"
+  - Destination: "51.445677, 3.749929"
+  - Region: "EU"
   - Avoid Toll Roads: `True`
   - Avoid Subscription Roads: `True`
 
