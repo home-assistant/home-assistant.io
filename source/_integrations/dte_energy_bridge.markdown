@@ -15,6 +15,10 @@ A sensor platform for the [DTE](https://www.newlook.dteenergy.com/) Energy Bridg
  - If the status LED is on the top, you have a v1.
  - If the status LED is on the front, you have a v2.
 
+*Note:* The firmware contained in DTE v2 bridges that started shipping circa mid-2020 will NOT work with this integration.  You can 
+check if your firmware is still supported by trying accessing `http://{ip_address}:8888/zigbee/se/instantaneousdemand` and see if
+you get any response.  If your firmware is not supported, see [this tread](https://github.com/home-assistant/core/issues/20170#issuecomment-478752765) for workarounds using MQTT
+
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
