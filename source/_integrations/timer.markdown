@@ -55,14 +55,10 @@ timer:
       required: false
       type: icon
     restore:
-      description: When true, active timer and paused timers will be restored on startup. If an active timer was supposed to end while Home Assistant is stopped, the `restore_grace_period` property controls which event fires.
+      description: When true, active and paused timers will be restored to the right state on startup. If an active timer was supposed to end while Home Assistant is stopped, the `time.finished` event will fire on startup for that timer. The `finished_at` property in the event data will provide you with the time that the timer was actually supposed to fire which you can use in automation conditions to decide whether or not to act on it.
       required: false
       type: boolean
       default: false
-    restore_grace_period:
-      description: If `restore` is true and the timer ends when Home Assistant is stopped, this property controls which event fires. If the difference in time between when Home Assistant started and when timer ended is **less** than the grace period time, the `timer.finished` event will fire. If the difference in time between when Home Assistant started and when timer ended is **greater** than the grace period time, the `timer.finished_while_homeassistant_stopped` event will fire.
-      required: false
-      type: [integer, time]
 {% endconfiguration %}
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
@@ -80,8 +76,7 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 |           Event | Description |
 | --------------- | ----------- |
 | `timer.cancelled` | Fired when a timer has been canceled |
-| `timer.finished` | Fired when a timer has completed and includes `finished_at` date/time in event data |
-| `timer.finished_while_homeassistant_stopped` | Fired when a timer completed while Home Assistant is stopped (see `restore` and `restore_grace_period` configuration options for more information) and includes `finished_at` date/time in event data |
+| `timer.finished` | Fired when a timer has completed and includes `finished_at` date/time in event data. `finished_at` should usually be now, or within the last several seconds, but if the `restore` property is true, `finished_at` may be further in the past since this event will fire on startup for any timers that would have ended while Home Assistant was stopped. |
 | `timer.started` | Fired when a timer has been started |
 | `timer.restarted` | Fired when a timer has been restarted |
 | `timer.paused` | Fired when a timer has been paused |
