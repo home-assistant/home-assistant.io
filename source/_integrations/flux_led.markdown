@@ -13,6 +13,7 @@ ha_release: 0.25
 ha_domain: flux_led
 ha_platforms:
   - button
+  - diagnostics
   - light
   - number
   - sensor

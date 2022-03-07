@@ -14,6 +14,7 @@ ha_codeowners:
   - '@thegardenmonkey'
 ha_domain: tplink
 ha_platforms:
+  - diagnostics
   - light
   - sensor
   - switch

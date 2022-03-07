@@ -15,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - camera
   - button
+  - diagnostics
   - climate
   - cover
   - fan
@@ -24,6 +25,7 @@ ha_platforms:
   - scene
   - sensor
   - select
+  - siren
   - switch
 ---
 

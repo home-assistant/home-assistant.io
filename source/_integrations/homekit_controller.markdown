@@ -37,6 +37,7 @@ ha_platforms:
   - media_player
   - number
   - sensor
+  - select
   - switch
 ---
 
