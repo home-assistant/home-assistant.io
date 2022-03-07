@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-The season integratin will provide the current astronomical or meteorological season (Spring, Summer, Autumn, Winter)
+The season integration will provide the current astronomical or meteorological season (Spring, Summer, Autumn, Winter)
 as a sensor.
 
 {% include integrations/config_flow.md %}
