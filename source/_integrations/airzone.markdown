@@ -17,9 +17,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Sensor
 
-## Configuration
-
-To add Airzone integration go to **Configuration** >> **Devices & Services** and find the integration in the list.
+{% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Host:
