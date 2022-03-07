@@ -13,6 +13,7 @@ ha_codeowners:
   - '@ollo69'
 ha_domain: asuswrt
 ha_platforms:
+  - diagnostics
   - device_tracker
   - sensor
 ---

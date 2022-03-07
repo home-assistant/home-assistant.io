@@ -26,13 +26,13 @@ The SleepIQ integration lets you integrate your SleepNumber Bed via [SleepIQ by 
 There is currently support for the following platforms within Home Assistant:
 
 - Binary Sensor - View occupancy of each side
-- Number - View/Set the actuator positions of the foundation
-- Sensor - View Current SleepNumber (ie current firmness) of each side
-- Sensor - View pressure of each side
-- Switch - Toggle Privacy mode
 - Button - Calibrate the bed
 - Button - Stop the pump
 - Light - Control lights on supported models
+- Number - View/Set the actuator positions of the foundation
+- Number - View/Set firmness for each side
+- Sensor - View pressure of each side
+- Switch - Toggle Privacy mode
 
 You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this integration.
 

@@ -46,4 +46,3 @@ The following sensors are available as either a **Binary Sensor** when dealing w
 - **ECM Latency** - Electronic Control Module Latency value _(disabled by default)_.
 - **IP** - IP Address of the unit.
 - **Uptime** - Unit uptime.
-

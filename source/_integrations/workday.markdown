@@ -43,7 +43,7 @@ country:
   required: true
   type: string
 province:
-  description: Province/State code according to [holidays](https://pypi.org/project/holidays/) notation.
+  description: Subdivision code according to [holidays](https://pypi.org/project/holidays/) notation.
   required: false
   type: string
 workdays:

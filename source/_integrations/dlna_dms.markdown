@@ -9,9 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@chishm'
 ha_domain: dlna_dms
-ha_platforms:
-  - media_source
 ha_ssdp: true
+ha_quality_scale: platinum
 ---
 
 The DLNA Digital Media Server integration allows you to browse and play media from a [DLNA Digital Media Server](https://www.dlna.org/). Configured DMS devices act as a [Media Source](/integrations/media_source/) and can be browsed in the Media panel.
@@ -57,4 +56,3 @@ target:
 data:
   media_content_id: 'media-source://dlna_dms/my_server/?dc:title="Big Buck Bunny"'
 ```
-

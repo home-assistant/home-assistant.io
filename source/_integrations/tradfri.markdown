@@ -14,6 +14,7 @@ ha_category:
 ha_domain: tradfri
 ha_homekit: true
 ha_platforms:
+  - diagnostics
   - cover
   - fan
   - light
