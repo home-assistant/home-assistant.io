@@ -37,7 +37,7 @@ There is support for the following platform types within Home Assistant:
 {% include integrations/config_flow.md %}
 
 <div class='note'>
-TR-064 needs to be enabled in the FRITZ!Box network settings for Home Assistant to login and read device info.
+Both TR-064 and UPnP need to be enabled in the FRITZ!Box ( Home Network -> Network -> Network settings -> Access Settings in the Home Network ) for Home Assistant to login and read device info.
 </div>
 
 ## Username

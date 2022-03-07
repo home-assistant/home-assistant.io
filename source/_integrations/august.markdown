@@ -17,8 +17,8 @@ ha_domain: august
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
-  - button
   - camera
+  - button
   - lock
   - sensor
 ---

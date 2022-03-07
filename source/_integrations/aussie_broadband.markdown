@@ -12,6 +12,7 @@ ha_codeowners:
   - '@Bre77'
 ha_domain: aussie_broadband
 ha_platforms:
+  - diagnostics
   - sensor
 ---
 

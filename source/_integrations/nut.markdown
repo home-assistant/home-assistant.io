@@ -12,6 +12,7 @@ ha_codeowners:
   - '@ollo69'
 ha_zeroconf: true
 ha_platforms:
+  - diagnostics
   - sensor
 ---
 

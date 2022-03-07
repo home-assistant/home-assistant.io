@@ -28,16 +28,16 @@ ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - button
-  - climate
   - diagnostics
+  - climate
   - cover
   - light
   - lock
   - number
   - scene
   - sensor
-  - siren
   - select
+  - siren
   - switch
 ---
 

@@ -303,7 +303,7 @@ precision:
   description: Number of valid decimals.
   required: false
   type: integer
-  default: 1
+  default: 0
 scale:
   description: Scale factor (output = scale * value + offset).
   required: false
@@ -910,7 +910,7 @@ sensors:
     unit_of_measurement:
       description: Unit to attach to value.
       required: false
-      type: integer
+      type: string
     state_class:
       description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
       required: false

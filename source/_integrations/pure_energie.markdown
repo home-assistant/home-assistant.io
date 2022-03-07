@@ -12,6 +12,7 @@ ha_domain: pure_energie
 ha_platforms:
   - sensor
 ha_quality_scale: platinum
+ha_zeroconf: true
 ---
 
 The Pure Energie integration integrates the [Pure Energie Monitor](https://pure-energie.nl/kennisbank/pure-energie-meter/)

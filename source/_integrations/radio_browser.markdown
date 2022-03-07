@@ -8,8 +8,8 @@ ha_release: 2022.3
 ha_iot_class: Cloud Polling
 ha_domain: radio_browser
 ha_config_flow: true
-ha_platforms:
-  - sensor
+ha_codeowners:
+  - '@frenck'
 ---
 
 The Radio Browser integration allows you to use the directory of

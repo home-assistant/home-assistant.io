@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_domain: google_travel_time
 ha_platforms:
   - sensor
+ha_codeowners:
+  - '@eifinger'
 ---
 
 The `google_travel_time` sensor provides travel time from the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/).
