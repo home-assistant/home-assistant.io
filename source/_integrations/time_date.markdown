@@ -70,3 +70,7 @@ template:
 ```
 
 {% endraw %}
+
+## More time-related resources
+
+For more information about using time related variables and sensors in templates (such as `today_at()`, `now()` or `as_timestamp()`) visit this [time section](/docs/configuration/templating/#time) on the templating page.
