@@ -33,10 +33,6 @@ There is currently support for the following platforms within Home Assistant:
 - Button - Stop the pump
 - Light - Control lights on supported models
 
-Deprecated:
-
-- Sensor - View current SleepNumber (ie current firmness) of each side. This functionality is replaced by the firmness Number entity, and this Sensor will be removed in a future release
-
 You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this integration.
 
 {% include integrations/config_flow.md %}
