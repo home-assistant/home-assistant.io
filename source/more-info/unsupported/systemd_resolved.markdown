@@ -5,12 +5,12 @@ description: "More information on why systemd-resolved marks the installation as
 
 ## The issue
 
-Systemd-resolved is used over DBus to resolve DNS queries made by Home Assistant, Supervisor,
-and Add-Ons. Without it, DNS will not work correctly in your installation.
+systemd-resolved is used over D-Bus to resolve DNS queries made by Home Assistant, Supervisor,
+and add-ons. Without it, DNS will not work correctly in your installation.
 
 ## The solution
 
-If you see a message about an issue with DBus, [fix that first](https://www.home-assistant.io/more-info/unsupported/dbus#the-solution).
+If you see a message about an issue with D-Bus, [resolve that first](/more-info/unsupported/dbus#the-solution).
 
 If the systemd-resolved service is not running or disabled, enable and start it.
 
