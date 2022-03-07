@@ -27,13 +27,10 @@ There is currently support for the following platforms within Home Assistant:
 
 - Binary Sensor - View occupancy of each side
 - Button - Calibrate the bed
-- Button - Calibrate the bed
-- Button - Stop the pump
 - Button - Stop the pump
 - Light - Control lights on supported models
-- Sensor - View Current SleepNumber (ie current firmness) of each side
+- Number - View/Set firmness for each side
 - Sensor - View pressure of each side
-- Switch - Toggle Privacy mode
 - Switch - Toggle Privacy mode
 
 You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this integration.
