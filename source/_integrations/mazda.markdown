@@ -48,9 +48,7 @@ Button entities are available to perform the following actions:
 - Turn on hazard lights (lights will flash briefly and then then turn off)
 - Turn off hazard lights (if they have been manually turned on from inside the vehicle - lights will turn back on if a door is opened)
 
-Additionally, the following button entities are available for electric vehicles:
-- Start charging
-- Stop charging
+Additionally, the following button entity is available for electric vehicles:
 - Refresh vehicle status (only refreshes electric vehicle related information)
 
 ### Sensor
@@ -77,7 +75,7 @@ Displays the current door lock status of the vehicle, and locks/unlocks the door
 
 ## Services
 
-This integration provides a single service:
+This integration provides the following services:
 
 ### Service `mazda.send_poi`
 
@@ -89,6 +87,22 @@ Send a GPS location to the vehicle's navigation system as a POI (Point of Intere
 | `latitude` | yes | The latitude of the location to send. |
 | `longitude` | yes | The longitude of the location to send. |
 | `poi_name` | yes | A friendly name for the location. |
+
+### Service `mazda.start_charging`
+
+Starts charging the vehicle battery. This only works with electric vehicles.
+
+| Service Data Attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | yes | The device ID of the vehicle to start charging |
+
+### Service `mazda.stop_charging`
+
+Stops charging the vehicle battery. This only works with electric vehicles.
+
+| Service Data Attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | yes | The device ID of the vehicle to stop charging |
 
 ## Disclaimer
 
