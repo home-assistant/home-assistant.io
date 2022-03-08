@@ -77,17 +77,6 @@ Displays the current door lock status of the vehicle, and locks/unlocks the door
 
 This integration provides the following services:
 
-### Service `mazda.send_poi`
-
-Send a GPS location to the vehicle's navigation system as a POI (Point of Interest). Requires a navigation SD card installed in the vehicle.
-
-| Service Data Attribute | Required | Description |
-| ---------------------- | -------- | ----------- |
-| `device_id` | yes | The device ID of the vehicle to send the GPS location to |
-| `latitude` | yes | The latitude of the location to send. |
-| `longitude` | yes | The longitude of the location to send. |
-| `poi_name` | yes | A friendly name for the location. |
-
 ### Service `mazda.start_charging`
 
 Starts charging the vehicle battery. This only works with electric vehicles.
@@ -103,6 +92,17 @@ Stops charging the vehicle battery. This only works with electric vehicles.
 | Service Data Attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
 | `device_id` | yes | The device ID of the vehicle to stop charging |
+
+### Service `mazda.send_poi`
+
+Send a GPS location to the vehicle's navigation system as a POI (Point of Interest). Requires a navigation SD card installed in the vehicle.
+
+| Service Data Attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | yes | The device ID of the vehicle to send the GPS location to |
+| `latitude` | yes | The latitude of the location to send. |
+| `longitude` | yes | The longitude of the location to send. |
+| `poi_name` | yes | A friendly name for the location. |
 
 ## Disclaimer
 
