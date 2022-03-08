@@ -127,7 +127,6 @@
 /components/binary_sensor.aurora /integrations/aurora
 /components/binary_sensor.axis /integrations/axis#binary-sensor
 /components/binary_sensor.bayesian /integrations/bayesian
-/components/binary_sensor.bbb_gpio /integrations/bbb_gpio#binary-sensor
 /components/binary_sensor.blink /integrations/blink
 /components/binary_sensor.bloomsky /integrations/bloomsky#binary-sensor
 /components/binary_sensor.bmw_connected_drive /integrations/bmw_connected_drive
@@ -182,7 +181,6 @@
 /components/binary_sensor.raincloud /integrations/raincloud#binary-sensor
 /components/binary_sensor.rainmachine /integrations/rainmachine
 /components/binary_sensor.random /integrations/random#binary-sensor
-/components/binary_sensor.raspihats /integrations/raspihats#binary-sensor
 /components/binary_sensor.rfxtrx /integrations/rfxtrx#binary-sensors
 /components/binary_sensor.ring /integrations/ring#binary-sensor
 /components/binary_sensor.rpi_gpio /integrations/rpi_gpio#binary-sensor
@@ -406,7 +404,6 @@
 /components/light.ads /integrations/ads#light
 /components/light.avion /integrations/avion
 /components/light.blinksticklight /integrations/blinksticklight
-/components/light.blinkt /integrations/blinkt
 /components/light.deconz /integrations/deconz#light
 /components/light.decora /integrations/decora
 /components/light.decora_wifi /integrations/decora_wifi
@@ -446,13 +443,10 @@
 /components/light.niko_home_control /integrations/niko_home_control
 /components/light.opple /integrations/opple
 /components/light.osramlightify /integrations/osramlightify
-/components/light.piglow /integrations/piglow
 /components/light.plum_lightpad /integrations/plum_lightpad
 /components/light.qwikswitch /integrations/qwikswitch
-/components/light.rpi_gpio_pwm /integrations/rpi_gpio_pwm
 /components/light.rfxtrx /integrations/rfxtrx#light
 /components/light.scsgate /integrations/scsgate#light
-/components/light.sensehat /integrations/sensehat#light
 /components/light.sisyphus /integrations/sisyphus
 /components/light.skybell /integrations/skybell#light
 /components/light.smartthings /integrations/smartthings#light
@@ -519,7 +513,6 @@
 /components/media_player.lg_soundbar /integrations/lg_soundbar
 /components/media_player.mediaroom /integrations/mediaroom
 /components/media_player.monoprice /integrations/monoprice
-/components/media_player.mpchc /integrations/mpchc
 /components/media_player.mpd /integrations/mpd
 /components/media_player.nad /integrations/nad
 /components/media_player.onkyo /integrations/onkyo
@@ -552,7 +545,6 @@
 /components/media_player.yamaha /integrations/yamaha
 /components/media_player.yamaha_musiccast /integrations/yamaha_musiccast
 /components/media_player.ziggo_mediabox_xl /integrations/ziggo_mediabox_xl
-/components/notify.apns /integrations/apns
 /components/notify.ciscospark /integrations/ciscospark
 /components/notify.clickatell /integrations/clickatell
 /components/notify.clicksend /integrations/clicksend
@@ -640,12 +632,9 @@
 /components/sensor.asuswrt /integrations/asuswrt
 /components/sensor.awair /integrations/awair
 /components/sensor.bbox /integrations/bbox#sensor
-/components/sensor.bh1750 /integrations/bh1750
 /components/sensor.bitcoin /integrations/bitcoin
 /components/sensor.blink /integrations/blink
 /components/sensor.blockchain /integrations/blockchain
-/components/sensor.bme280 /integrations/bme280
-/components/sensor.bme680 /integrations/bme680
 /components/sensor.bmw_connected_drive /integrations/bmw_connected_drive
 /components/sensor.broadlink /integrations/broadlink#sensor
 /components/sensor.brottsplatskartan /integrations/brottsplatskartan
@@ -665,7 +654,6 @@
 /components/sensor.deconz /integrations/deconz#sensor
 /components/sensor.deluge /integrations/deluge#sensor
 /components/sensor.deutsche_bahn /integrations/deutsche_bahn
-/components/sensor.dht /integrations/dht
 /components/sensor.discogs /integrations/discogs
 /components/sensor.dnsip /integrations/dnsip
 /components/sensor.dovado /integrations/dovado#sensor
@@ -688,7 +676,6 @@
 /components/sensor.enocean /integrations/enocean#sensor
 /components/sensor.enphase_envoy /integrations/enphase_envoy
 /components/sensor.entur_public_transport /integrations/entur_public_transport
-/components/sensor.envirophat /integrations/envirophat
 /components/sensor.envisalink /integrations/envisalink
 /components/sensor.etherscan /integrations/etherscan
 /components/sensor.fail2ban /integrations/fail2ban
@@ -729,7 +716,6 @@
 /components/sensor.homematicip_cloud /integrations/homematicip_cloud
 /components/sensor.hp_ilo /integrations/hp_ilo
 /components/sensor.http /integrations/http#sensor
-/components/sensor.htu21d /integrations/htu21d
 /components/sensor.huawei_lte /integrations/huawei_lte#sensor
 /components/sensor.hydrawise /integrations/hydrawise#sensor
 /components/sensor.ihc /integrations/ihc#sensor
@@ -758,7 +744,6 @@
 /components/sensor.magicseaweed /integrations/magicseaweed
 /components/sensor.meteo_france /integrations/meteo_france
 /components/sensor.mfi /integrations/mfi#sensor
-/components/sensor.mhz19 /integrations/mhz19
 /components/sensor.miflora /integrations/miflora
 /components/sensor.min_max /integrations/min_max
 /components/sensor.mitemp_bt /integrations/mitemp_bt
@@ -822,12 +807,10 @@
 /components/sensor.scrape /integrations/scrape
 /components/sensor.season /integrations/season
 /components/sensor.sense /integrations/sense
-/components/sensor.sensehat /integrations/sensehat#sensor
 /components/sensor.serial /integrations/serial
 /components/sensor.serial_pm /integrations/serial_pm
 /components/sensor.seventeentrack /integrations/seventeentrack
 /components/sensor.shodan /integrations/shodan
-/components/sensor.sht31 /integrations/sht31
 /components/sensor.sigfox /integrations/sigfox
 /components/sensor.simulated /integrations/simulated
 /components/sensor.skybeacon /integrations/skybeacon
@@ -928,7 +911,6 @@
 /components/switch.anel_pwrctrl /integrations/anel_pwrctrl
 /components/switch.aqualogic /integrations/aqualogic#switch
 /components/switch.arest /integrations/arest#switch
-/components/switch.bbb_gpio /integrations/bbb_gpio#switch
 /components/switch.broadlink /integrations/broadlink#switch
 /components/switch.danfoss_air /integrations/danfoss_air#switch
 /components/switch.deconz /integrations/deconz#switch
@@ -982,13 +964,11 @@
 /components/switch.rainbird /integrations/rainbird#switch
 /components/switch.raincloud /integrations/raincloud#switch
 /components/switch.rainmachine /integrations/rainmachine#switch
-/components/switch.raspihats /integrations/raspihats#switch
 /components/switch.raspyrfm /integrations/raspyrfm
 /components/switch.recswitch /integrations/recswitch
 /components/switch.rfxtrx /integrations/rfxtrx#switch
 /components/switch.rpi_gpio /integrations/rpi_gpio#switch
 /components/switch.rpi_pfio /integrations/rpi_pfio#switch
-/components/switch.rpi_rf /integrations/rpi_rf
 /components/switch.scsgate /integrations/scsgate#switch
 /components/switch.skybell /integrations/skybell#switch
 /components/switch.smappee /integrations/smappee
@@ -1102,7 +1082,6 @@
 /components/apache_kafka /integrations/apache_kafka
 /components/apcupsd /integrations/apcupsd
 /components/api /integrations/api
-/components/apns /integrations/apns
 /components/apple_tv /integrations/apple_tv
 /components/aprs /integrations/aprs
 /components/aqualogic /integrations/aqualogic
@@ -1129,10 +1108,8 @@
 /components/azure_event_hub /integrations/azure_event_hub
 /components/baidu /integrations/baidu
 /components/bayesian /integrations/bayesian
-/components/bbb_gpio /integrations/bbb_gpio
 /components/bbox /integrations/bbox
 /components/beewi_smartclim /integrations/beewi_smartclim
-/components/bh1750 /integrations/bh1750
 /components/binary_sensor /integrations/binary_sensor
 /components/binary_sensor.knx /integrations/binary_sensor.knx
 /components/binary_sensor.modbus /integrations/binary_sensor.modbus
@@ -1147,14 +1124,11 @@
 /components/blackbird /integrations/blackbird
 /components/blink /integrations/blink
 /components/blinksticklight /integrations/blinksticklight
-/components/blinkt /integrations/blinkt
 /components/blockchain /integrations/blockchain
 /components/bloomsky /integrations/bloomsky
 /components/bluesound /integrations/bluesound
 /components/bluetooth_le_tracker /integrations/bluetooth_le_tracker
 /components/bluetooth_tracker /integrations/bluetooth_tracker
-/components/bme280 /integrations/bme280
-/components/bme680 /integrations/bme680
 /components/bmw_connected_drive /integrations/bmw_connected_drive
 /components/braviatv /integrations/braviatv
 /components/broadcast /integrations/telegram_broadcast
@@ -1238,7 +1212,6 @@
 /components/device_tracker.mqtt /integrations/device_tracker.mqtt
 /components/device_tracker.mysensors /integrations/device_tracker.mysensors
 /components/device_tracker.xiaomi /integrations/device_tracker.xiaomi
-/components/dht /integrations/dht
 /components/dialogflow /integrations/dialogflow
 /components/digital_ocean /integrations/digital_ocean
 /components/digitalloggers /integrations/digitalloggers
@@ -1287,7 +1260,6 @@
 /components/enphase_envoy /integrations/enphase_envoy
 /components/entur_public_transport /integrations/entur_public_transport
 /components/environment_canada /integrations/environment_canada
-/components/envirophat /integrations/envirophat
 /components/envisalink /integrations/envisalink
 /components/ephember /integrations/ephember
 /components/epson /integrations/epson
@@ -1405,7 +1377,6 @@
 /components/hp_ilo /integrations/hp_ilo
 /components/html5 /integrations/html5
 /components/http /integrations/http
-/components/htu21d /integrations/htu21d
 /components/huawei_lte /integrations/huawei_lte
 /components/hue /integrations/hue
 /components/hunterdouglas_powerview /integrations/hunterdouglas_powerview
@@ -1514,7 +1485,6 @@
 /components/mastodon /integrations/mastodon
 /components/matrix /integrations/matrix
 /components/maxcube /integrations/maxcube
-/components/mcp23017 /integrations/mcp23017
 /components/media_extractor /integrations/media_extractor
 /components/media_player /integrations/media_player
 /components/mediaroom /integrations/mediaroom
@@ -1526,7 +1496,6 @@
 /components/meteoalarm /integrations/meteoalarm
 /components/metoffice /integrations/metoffice
 /components/mfi /integrations/mfi
-/components/mhz19 /integrations/mhz19
 /components/microsoft /integrations/microsoft
 /components/microsoft_face /integrations/microsoft_face
 /components/microsoft_face_detect /integrations/microsoft_face_detect
@@ -1545,7 +1514,6 @@
 /components/mold_indicator /integrations/mold_indicator
 /components/monoprice /integrations/monoprice
 /components/moon /integrations/moon
-/components/mpchc /integrations/mpchc
 /components/mpd /integrations/mpd
 /components/mqtt /integrations/mqtt
 /components/mqtt_eventstream /integrations/mqtt_eventstream
@@ -1619,7 +1587,6 @@
 /components/openuv /integrations/openuv
 /components/openweathermap /integrations/openweathermap
 /components/opple /integrations/opple
-/components/orangepi_gpio /integrations/orangepi_gpio
 /components/orvibo /integrations/orvibo
 /components/osramlightify /integrations/osramlightify
 /components/otp /integrations/otp
@@ -1635,7 +1602,6 @@
 /components/philips_js /integrations/philips_js
 /components/pi_hole /integrations/pi_hole
 /components/picotts /integrations/picotts
-/components/piglow /integrations/piglow
 /components/pilight /integrations/pilight
 /components/ping /integrations/ping
 /components/pioneer /integrations/pioneer
@@ -1676,7 +1642,6 @@
 /components/rainforest_eagle /integrations/rainforest_eagle
 /components/rainmachine /integrations/rainmachine
 /components/random /integrations/random
-/components/raspihats /integrations/raspihats
 /components/raspyrfm /integrations/raspyrfm
 /components/recollect_waste /integrations/recollect_waste
 /components/recorder /integrations/recorder
@@ -1702,9 +1667,7 @@
 /components/rova /integrations/rova
 /components/rpi_camera /integrations/rpi_camera
 /components/rpi_gpio /integrations/rpi_gpio
-/components/rpi_gpio_pwm /integrations/rpi_gpio_pwm
 /components/rpi_pfio /integrations/rpi_pfio
-/components/rpi_rf /integrations/rpi_rf
 /components/rss_feed_template /integrations/rss_feed_template
 /components/rtorrent /integrations/rtorrent
 /components/russound_rio /integrations/russound_rio
@@ -1720,7 +1683,6 @@
 /components/season /integrations/season
 /components/sendgrid /integrations/sendgrid
 /components/sense /integrations/sense
-/components/sensehat /integrations/sensehat
 /components/sensibo /integrations/sensibo
 /components/sensor /integrations/sensor
 /components/sensor.buienradar /integrations/sensor.buienradar
@@ -1745,7 +1707,6 @@
 /components/shiftr /integrations/shiftr
 /components/shodan /integrations/shodan
 /components/shopping_list /integrations/shopping_list
-/components/sht31 /integrations/sht31
 /components/sigfox /integrations/sigfox
 /components/simplepush /integrations/simplepush
 /components/simplisafe /integrations/simplisafe
@@ -1857,7 +1818,6 @@
 /components/timer /integrations/timer
 /components/tod /integrations/tod
 /components/todoist /integrations/todoist
-/components/tof /integrations/tof
 /components/tomato /integrations/tomato
 /components/toon /integrations/toon
 /components/torque /integrations/torque
@@ -2359,3 +2319,65 @@
 /components/gntp /more-info/removed-integration 301
 /components/notify.gntp /more-info/removed-integration 301
 /integrations/gntp /more-info/removed-integration 301
+/components/bbb_gpio /more-info/removed-integration 301
+/components/binary_sensor.bbb_gpio /more-info/removed-integration 301
+/components/switch.bbb_gpio /more-info/removed-integration 301
+/integrations/bbb_gpio /more-info/removed-integration 301
+/components/bh1750 /more-info/removed-integration 301
+/components/sensor.bh1750 /more-info/removed-integration 301
+/integrations/bh1750 /more-info/removed-integration 301
+/components/apns /more-info/removed-integration 301
+/components/notify.apns /more-info/removed-integration 301
+/integrations/apns /more-info/removed-integration 301
+/components/blinkt /more-info/removed-integration 301
+/components/light.blinkt /more-info/removed-integration 301
+/integrations/blinkt /more-info/removed-integration 301
+/components/tof /more-info/removed-integration 301
+/integrations/tof /more-info/removed-integration 301
+/components/sensor.sht31 /more-info/removed-integration 301
+/integrations/sht31 /more-info/removed-integration 301
+/components/sht31 /more-info/removed-integration 301
+/components/light.rpi_gpio_pwm /more-info/removed-integration 301
+/components/rpi_gpio_pwm /more-info/removed-integration 301
+/integrations/rpi_gpio_pwm /more-info/removed-integration 301
+/components/mhz19 /more-info/removed-integration 301
+/components/sensor.mhz19 /more-info/removed-integration 301
+/integrations/mhz19 /more-info/removed-integration 301
+/components/bme280 /more-info/removed-integration 301
+/components/sensor.bme280 /more-info/removed-integration 301
+/integrations/bme280 /more-info/removed-integration 301
+/components/orangepi_gpio /more-info/removed-integration 301
+/integrations/orangepi_gpio /more-info/removed-integration 301
+/components/media_player.mpchc /more-info/removed-integration 301
+/components/mpchc /more-info/removed-integration 301
+/integrations/mpchc /more-info/removed-integration 301
+/components/light.piglow /more-info/removed-integration 301
+/components/piglow /more-info/removed-integration 301
+/integrations/piglow /more-info/removed-integration 301
+/components/bme680 /more-info/removed-integration 301
+/components/sensor.bme680 /more-info/removed-integration 301
+/integrations/bme680 /more-info/removed-integration 301
+/components/htu21d /more-info/removed-integration 301
+/components/sensor.htu21d /more-info/removed-integration 301
+/integrations/htu21d /more-info/removed-integration 301
+/components/envirophat /more-info/removed-integration 301
+/components/sensor.envirophat /more-info/removed-integration 301
+/integrations/envirophat /more-info/removed-integration 301
+/components/sensor.dht /more-info/removed-integration 301
+/integrations/dht /more-info/removed-integration 301
+/components/dht /more-info/removed-integration 301
+/components/light.sensehat /more-info/removed-integration 301
+/components/sensehat /more-info/removed-integration 301
+/components/sensor.sensehat /more-info/removed-integration 301
+/integrations/sensehat /more-info/removed-integration 301
+/integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
+/integrations/bmp280 /more-info/removed-integration 301
+/components/mcp23017 /more-info/removed-integration 301
+/integrations/mcp23017 /more-info/removed-integration 301
+/components/rpi_rf /more-info/removed-integration 301
+/components/switch.rpi_rf /more-info/removed-integration 301
+/integrations/rpi_rf /more-info/removed-integration 301
+/components/binary_sensor.raspihats /more-info/removed-integration 301
+/components/raspihats /more-info/removed-integration 301
+/components/switch.raspihats /more-info/removed-integration 301
+/integrations/raspihats /more-info/removed-integration 301

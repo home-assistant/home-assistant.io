@@ -8,6 +8,7 @@ ha_category:
   - Switch
   - Binary Sensor
   - Sensor
+  - Siren
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_config_flow: true
@@ -22,6 +23,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - siren
 ---
 
 The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
@@ -33,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switches)
 - [Sensor](#sensors)
 - [Binary Sensor](#binary-sensors)
+- [Siren](#sirens)
 
 {% include integrations/config_flow.md %}
 
@@ -113,6 +116,10 @@ Also, several switches and other devices will also expose sensor entities with b
 
 The RFXtrx integration support binary sensors that communicate in the frequency range of 433.92 MHz. The RFXtrx binary sensor integration provides support for them. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol, but most of them are recognized under the *Lighting4* protocol. The RFXtrx binary sensor integration provides some special options for them, while other RFXtrx protocols should work too.
 
+#### Sirens
+
+The RFXtrx integration supports siren entities for a few types of security systems and chimes. This entity allows triggering the chime or siren from Home Assistant as well as monitoring their status. Most of the chimes and security systems need a configured off-delay to work correctly since they only transmit when active.
+
 ### Add a device by event code
 
 To manually add a device, in the options window, an event code can be added in the field *Enter event code to add*.
@@ -153,14 +160,6 @@ To configure device options, select a device from the list under *Select device 
 
 <div class='note warning'>
 If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
-</div>
-
-#### Signal repetitions
-
-Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the RFXtrx device to try to send each signal repeatedly.
-
-<div class='note warning'>
-The RFXtrx hardware generally handle signal repeats itself, and some protocols are timing sensitive when it comes to signal repeats so in general this should be avoided.
 </div>
 
 #### Off Delay
@@ -238,7 +237,7 @@ Some battery-powered devices send commands or data with a randomly generated id.
 
 ### Delete device
 
-To delete device(s) from the configuration, select one or more devices under *Select device to delete*. Press *Submit* to delete the selected devices.
+To delete device(s) from the configuration, select the delete button on the device info page.
 
 ## Events
 
