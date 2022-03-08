@@ -2,6 +2,7 @@
 title: Bosch SHC
 description: Integrate Bosch SHC.
 ha_category:
+  - Alarm Control Panel
   - Binary Sensor
   - Cover
   - Hub
@@ -14,6 +15,7 @@ ha_codeowners:
   - '@tschamm'
 ha_domain: bosch_shc
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - cover
   - sensor
@@ -25,12 +27,17 @@ The Bosch SHC integration allows you to connect your [Bosch Smart Home Controlle
 
 There is currently support for the following device types within Home Assistant:
 
+- [Alarm Control Panel](#alarm-control-panel)
 - [Binary Sensor](#binary-sensor)
 - [Cover](#cover)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
 {% include integrations/config_flow.md %}
+
+### Alarm Control Panel
+
+The alarm control panel platform integrates the intrusion detection system of the Bosch SHC.
 
 ### Binary Sensor
 
