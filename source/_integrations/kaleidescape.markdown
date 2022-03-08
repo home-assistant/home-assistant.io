@@ -23,7 +23,7 @@ Ideas for automation include:
 
 ## Supported Models
 
-This integration is intended for the automation of Kaleidescape players with a movie zone. This includes all Strato and Premier players. Strato players support auto discovery in Home Assistant. Premier players must be added manually by adding an instance of this integration, and specifying the IP address of the player.
+This integration is intended for the automation of Kaleidescape players with a movie zone. This includes all Strato and Premier players. Strato players support auto-discovery in Home Assistant. Premier players must be added manually by adding an instance of this integration and specifying the IP address of the player.
 
 {% include integrations/config_flow.md %}
 
