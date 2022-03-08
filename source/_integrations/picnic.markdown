@@ -53,18 +53,60 @@ The search result order is determined by Picnic, and can e.g. depend on what was
 | `device_id`            | yes      | The Picnic service to search against, defaults to the first registered service. |
 | `product_name`         | no       | The product name to search for.                                                 |
 
-Examples:
+Search result attributes:
 
-```yaml
-# Example automation action to search for a product.
-- service: picnic.search
-  data:
-    product_name: "Yoghurt"
-```
+| Search result attribute | Optional |
+|-------------------------|----------|
+| `id`                    | no       |
+| `name`                  | no       |
+| `price`                 | no       |
+| `quantity`              | no       |
+| `discount_price`        | yes      |
+| `discount_label`        | yes      |
+| `discount_validity`     | yes      |
+
+
+Example automation action to search for a product.
+  ```yaml 
+  - service: picnic.search
+    data:
+      product_name: "Yoghurt"
+  ```
 
 Example of the published event data:
 ```json
-
+{
+    "11474159": {
+        "id": "11474159",
+        "name": "Beyond Meat vegan burger",
+        "price": 3.99,
+        "quantity": "2 x 113 gram",
+        "discount_price": 3.19,
+        "discount_label": "20% korting",
+        "discount_validity": "2022-03-13"
+    },
+    "11474164": {
+        "id": "11474164",
+        "name": "Beyond Meat vegan worst",
+        "price": 3.99,
+        "quantity": "2 x 100 gram",
+        "discount_price": 3.19,
+        "discount_label": "20% korting",
+        "discount_validity": "2022-03-13"
+    },
+    "11474167": {
+        "id": "11474167",
+        "name": "Beyond Meat vegan balletjes",
+        "price": 3.99,
+        "quantity": "200 gram"
+    },
+    "11474170": {
+        "id": "11474170",
+        "name": "Beyond Meat vegan gehakt",
+        "price": 3.99,
+        "quantity": "300 gram"
+    }
+}
 ```
 
 ### Service `picnic.add_product`
