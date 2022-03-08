@@ -40,3 +40,48 @@ This integration provides the following sensors. Some sensors are disabled by de
 | Next delivery ETA end          | End of the ETA window of the next delivery. |
 | Next delivery slot start       | Start of the next delivery's delivery slot. |
 | Next delivery slot end         | End of the next delivery's delivery slot. |
+
+## Services
+
+### Service `picnic.search`
+
+Search for a product using the `picnic.search` service. The first 5 results will be published using the `picnic_serach_result` event.
+The search result order is determined by Picnic, and can e.g. depend on what was bought previously using the account.
+
+| Service data attribute | Optional | Description                                                                     |
+|------------------------|----------|---------------------------------------------------------------------------------|
+| `device_id`            | yes      | The Picnic service to search against, defaults to the first registered service. |
+| `product_name`         | no       | The product name to search for.                                                 |
+
+Examples:
+
+```yaml
+# Example automation action to search for a product.
+- service: picnic.search
+  data:
+    product_name: "Yoghurt"
+```
+
+Example of the published event data:
+```json
+
+```
+
+### Service `picnic.add_product`
+
+Add a product to you cart using the `picnic.add_product` service, either using a product ID found with the `picnic.search` service or using a product name.
+A search will be done and the first result will be added to the cart when one adds a product using a product name.
+The service call will fail when no product could be found or when no `product_id` or `product_name` were specified. 
+
+| Service data attribute | Optional | Description                                                                      |
+|------------------------|----------|----------------------------------------------------------------------------------|
+| `device_id`            | yes      | The Picnic service to search against, defaults to the first registered service.  |
+| `product_id`           | yes      | The Picnic product ID.                                                           |
+| `product_name`         | yes      | A product name to search for, the first search result will be added to the cart. |
+
+```yaml
+# Example automation action to add a product to the cart by name.
+- service: picnic.add_product
+  data:
+    product_name: "Picnic cola zero"
+```
