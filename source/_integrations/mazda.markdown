@@ -56,7 +56,6 @@ The following binary sensor entities are available:
  - Trunk (open/closed)
  - Hood (open/closed)
  - Plugged in (plugged in/unplugged, only for electric vehicles)
- - Charging (charging/not charging, only for electric vehicles)
 
 ### Device tracker
 
