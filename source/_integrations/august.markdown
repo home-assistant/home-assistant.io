@@ -56,9 +56,9 @@ Most devices will need either August Connect Bridge or Doorbell to connect to Ho
 
 ## Known Issues with battery reporting 
 
-The August Wi-Fi Smart Lock (Gen 4) uses different battery technology (lithium-ion) than the other locks. The battery charge percentage value reported by the lock detail API is frequently incorrect for these models.
+The August Wi-Fi Smart Lock (Gen 4) uses different battery technology (lithium-ion) than the other locks. The battery charge value reported by the lock detail API has frequently been reported as incorrect for these models.
 		
-Other august locks expect to be powered by AA alkaline (non-rechargeable) batteries. Rechargeable batteries in these locks will result in incorrect reporting of battery charge percentage.
+Other august locks expect to be powered by AA alkaline (non-rechargeable) batteries. Rechargeable batteries in these locks will result in incorrect reporting of battery charge.
 
 ## Known Unsupported Devices
 
