@@ -3,17 +3,19 @@ title: Technische Alternative C.M.I.
 description: Instructions on how to set up Technische Alternative C.M.I. sensors in Home Assistant.
 ha_category:
   - Sensor
+  - Binary Sensor
 ha_release:  2021.10.0
 ha_iot_class: Local Polling
-ha_config_flow: false
+ha_config_flow: true
 ha_codeowners:
   - '@DeerMaximum'
 ha_domain: ta_cmi
 ha_platforms:
   - sensor
+  - binary_sensor
 ---
 
-The `ta_cmi` sensor platform monitors the inputs and outputs of the devices connected to a C.M.I. from [Technische Alternative](https://www.ta.co.at/). It creates a separate sensor for each input and output which displays the current values.
+The `ta_cmi` sensor platform monitors the inputs and outputs of the devices connected to a C.M.I. from [Technische Alternative](https://www.ta.co.at/). It creates a separate (binary) sensor for each input and output which displays the current values.
 
 Currently supported devices:
 
