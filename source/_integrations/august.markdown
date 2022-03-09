@@ -54,6 +54,12 @@ There is currently support for the following device types within Home Assistant:
 Most devices will need either August Connect Bridge or Doorbell to connect to Home Assistant.
 </div>
 
+## Known Issues with battery reporting 
+
+August Wi-Fi Smart Lock (Gen 4) uses different battery technology than the other locks (lithium ion). It has been reported that the battery charge percentage value reported by the lock detail api is incorrect for these models.
+
+Other august locks expect to be powered by AA alkaline (non-rechargeable) batteries, using rechargable batteries in these locks will result in incorrect reporting of attery charge percentage.
+
 ## Known Unsupported Devices
 
 - The Yale Doorman L3
