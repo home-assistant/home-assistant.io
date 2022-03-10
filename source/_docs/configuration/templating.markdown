@@ -261,6 +261,7 @@ The same thing can also be expressed as a test:
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
 - `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter.
 - `area_devices(area_name_or_id)` returns the list of device IDs tied to a given area ID or name. Can also be used as a filter.
+- `in_area(entity_or_device_id, area_name_or_id)` returns true if the device or entity is in the given area. Can also be used as a test.
 
 #### Areas examples
 
@@ -296,6 +297,17 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ area_devices('Living Room') }}  # ['my_device_id']
+```
+
+```text
+{{ 'sensor.sony' is in_area('Living Room') }} # True
+```
+
+```text
+{{ in_area('my_device_id', 'deadbeefdeadbeefdeadbeefdeadbeef') }} # True
+
+```text
+{{ ['light.bedroom', 'light.kitchen'] | select('in_area', 'Bedroom') | list }} # ['light.bedroom']
 ```
 
 {% endraw %}
