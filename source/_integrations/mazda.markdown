@@ -50,6 +50,7 @@ Button entities are available to perform the following actions:
 - Turn off hazard lights (if they have been manually turned on from inside the vehicle - lights will turn back on if a door is opened)
 
 Additionally, the following button entity is available for electric vehicles:
+
 - Refresh vehicle status (only refreshes electric vehicle-related information)
 
 ### Sensor
