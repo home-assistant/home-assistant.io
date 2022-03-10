@@ -43,6 +43,7 @@ This integration requires an active Mazda Connected Services subscription and a 
 ### Button
 
 Button entities are available to perform the following actions:
+
 - Start engine (engine can only be started 2 consecutive times; to reset this counter, the vehicle must be driven)
 - Stop engine (only works if the engine was started remotely)
 - Turn on hazard lights (lights will flash briefly and then turn off)
