@@ -305,6 +305,7 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ in_area('my_device_id', 'deadbeefdeadbeefdeadbeefdeadbeef') }} # True
+```
 
 ```text
 {{ ['light.bedroom', 'light.kitchen'] | select('in_area', 'Bedroom') | list }} # ['light.bedroom']
