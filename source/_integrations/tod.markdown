@@ -42,19 +42,19 @@ name:
   required: true
   type: string
 before:
-  description: The absolute local time value or sun event for beginning of the time range.
-  required: true
-  type: [string, time]
-before_offset:
-  description: The time offset of the beginning time range.
-  required: false
-  type: time
-after:
   description: The absolute local time value or sun event for ending of the time range.
   required: true
   type: [string, time]
-after_offset:
+before_offset:
   description: The time offset of the ending time range.
+  required: false
+  type: time
+after:
+  description: The absolute local time value or sun event for beginning of the time range.
+  required: true
+  type: [string, time]
+after_offset:
+  description: The time offset of the beginning time range.
   type: time
   required: false
 {% endconfiguration %}
