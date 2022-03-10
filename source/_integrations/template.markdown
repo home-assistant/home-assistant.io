@@ -132,7 +132,7 @@ binary_sensor:
       required: true
       type: template
     delay_on:
-      description: The amount of time (ie `0:00:05`) the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
+      description: The amount of time (e.g. `0:00:05`) the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
       required: false
       type: time
     delay_off:
