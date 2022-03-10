@@ -62,7 +62,7 @@ template:
 ```
 
 {% endraw %}
-Automations / or Scrips can be setup to poll Waze on any changes to the input_select.
+Automations / or Scripts can be setup to poll Waze on any changes to the input_select.
 An example of an Automation that changes the polling frequency:
 ```yaml
 alias: Waze sensor update
