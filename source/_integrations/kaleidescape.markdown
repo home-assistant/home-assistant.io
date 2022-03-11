@@ -33,32 +33,167 @@ This integration is intended for the automation of Kaleidescape players with a m
 
 ## Media Player
 
-The Kaleidescape media player platform will create a Media Player entity the player. This entity will display the currently playing media and playback controls.
+The Kaleidescape media player platform will create a Media Player entity for the device. This entity will display the currently playing media and playback controls.
 
 ## Sensor
 
-The Kaleidescape sensor platform will create multiple Sensor entities for the player. The follow sensors are provided:
+The Kaleidescape sensor platform will create multiple Sensor entities for the device. The follow sensors are provided:
 
-- media_location
-- play_status
-- play_speed
-- video_mode
-- video_color_eotf
-- video_color_space
-- video_color_depth
-- video_color_sampling
-- screen_mask_ratio
-- screen_mask_top_trim_rel
-- screen_mask_bottom_trim_rel
-- screen_mask_conservative_ratio
-- screen_mask_top_mask_abs
-- screen_mask_bottom_mask_abs
-- screen_mask_bottom_mask_abs
-- cinemascape_mask
-- cinemascape_mode
+### Media Location
 
-Details about the values provided by the sensors can be found in Kaleidescape's [Control Protocol Reference Manual](https://www.kaleidescape.com/wp-content/uploads/Kaleidescape-System-Control-Protocol-Reference-Manual.pdf).
+The location in the current movie.
 
+- none
+- content
+- intermission
+- credits
+- disc_menu
+
+### Play Status
+
+The play status of the current movie.
+
+- none
+- paused
+- playing
+- forward
+- reverse
+
+### Play Speed
+
+The playback speed of the current movie. An integer between 1 (normal) and 3 (fast).
+
+### Video Mode
+
+The video mode of the current movie.
+
+- none
+- 480i60_4:3
+- 480i60_16:9
+- 480p60_4:3
+- 480p60_16:9
+- 576i50_4:3
+- 576i50_16:9
+- 576p50_4:3
+- 576p50_16:9
+- 720p60_ntsc_hd
+- 720p50_pal_hd
+- 1080i60_16:9
+- 1080i50_16:9
+- 1080p60_16:9
+- 1080p50_16:9
+- 1080p24_16:9
+- 480i60_64:27
+- 576i50_64:27
+- 1080i60_64:27
+- 1080i50_64:27
+- 1080p60_64:27
+- 1080p50_64:27
+- 1080p23976_64:27
+- 1080p24_64:27
+- 3840x2160p23976_16:9
+- 3840x2160p23976_64:27
+- 3840x2160p30_16:9
+- 3840x2160p30_64:27
+- 3840x2160p60_16:9
+- 3840x2160p60_64:27
+- 3840x2160p25_16:9
+- 3840x2160p25_64:27
+- 3840x2160p50_16:9
+- 3840x2160p50_64:27
+- 3840x2160p24_16:9
+- 3840x2160p24_64:27
+
+### Video Color EOTF
+
+The Electro-Optical Transfer Function standard of the current movie.
+
+- unknown
+- sdr
+- hdr
+- smtpest2084
+
+### Video Color Space
+
+The color space standard of the current movie.
+
+- default
+- rgb
+- bt601
+- bt709
+- bt2020
+
+### Video Color Depth
+
+The color depth standard of the current movie.
+
+- unknown
+- 24bit
+- 30bit
+- 36bit
+
+### Video Color Sampling
+
+The chroma color sampling standard of the current movie.
+
+- none
+- rgb
+- ycbcr422
+- ycbcr444
+- ycbcr420
+
+### Screen Mask Ratio
+
+The actual aspect ratio of the current movie.
+
+- none
+- 1.33
+- 1.66
+- 1.78
+- 1.85
+- 2.35
+
+### Screen Mask Top Trim Rel
+
+The top trim value, relative to the current Screen Mask Ratio. A percentage between -100% and +100%.
+
+### Screen Mask Bottom Trim Rel
+
+The bottom trim value, relative to the current Screen Mask Ratio. A percentage between -100% and +100%.
+
+### Screen Mask Conservative Ratio
+
+Has the same possible values as the Screen Mask Ratio, but represents a more conservative estimate of the image aspect ratio.
+
+### Screen Mask Top Mask Abs
+
+The position for the top mask in absolute terms, measured from the top of the screen. A percentage between -100% and +100%.
+
+### Screen Mask Bottom Mask Abs
+
+The position for the bottom mask in absolute terms, measured from the bottom of the screen. A percentage between -100% and +100%.
+
+### Cinemascape Mask
+
+The Cinemascape frame aspect ratio of the current movie.
+
+- 0
+- 133
+- 166
+- 178
+- 237
+- 240
+
+### Cinemascape Mode
+
+The Cinemascape mode of the current movie.
+
+- none
+- anamorphic
+- letterbox
+- native
+
+Additional details about the values provided by the sensors can be found in Kaleidescape's [Control Protocol Reference Manual](https://www.kaleidescape.com/wp-content/uploads/Kaleidescape-System-Control-Protocol-Reference-Manual.pdf).
 
 A typical automation might look like the example below. This turns up the lights when the `media_location` sensor leaves the `content` state.
 
