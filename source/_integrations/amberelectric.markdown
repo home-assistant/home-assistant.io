@@ -44,6 +44,7 @@ It exposes the following sensors for each channel type:
 
 - **Price** - Your current electricity price in $/kWh
 - **Forecast** - The forecasted prices for the next 12 hours
+- **Descriptor** - A description of the price. Useful if you want to create a Amber light that matches the app.
 
 There are two additional sensors:
 
