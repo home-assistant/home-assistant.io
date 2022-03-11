@@ -18,6 +18,8 @@ ha_integration_type: integration
 
 The Spotify media player integration allows you to control [Spotify](https://www.spotify.com/) playback from Home Assistant.
 
+Once an output [source]](#selecting-output-source) is selected you will be able to play content from Spotify using the standard Media Browser UI or `media_player` service.
+
 ## Prerequisites
 
 - Spotify account
@@ -92,7 +94,7 @@ modification to the `configuration.yaml` file is needed. Multiple Spotify
 accounts can be linked to a _single_ Spotify application. You will have to add those accounts into the **Users and Access** section of your application in the Spotify Developer Portal.
 
 To add an additional Spotify account to Home Assistant, go to the Spotify website and log out, then repeat _only_ the steps
-in the [Configuration](#configuration) section. 
+in the [Configuration](#configuration) section.
 
 ## Playing Spotify playlists
 
@@ -113,6 +115,8 @@ script:
 ```
 
 The `media_content_id` value can be obtained from the Spotify desktop app by clicking on the more options ("...") next to the album art picture, selecting "Share" and then "Copy Spotify URI" or "Copy Playlist Link" (also available in the Spotify phone and web app).
+
+The `media_content_id` can be a URL (e.g. `https://open.spotify.com/playlist/37i9dQZF1DWVFeEut75IAL`) or the Spotify URI string (e.g. `spotify:playlist:37i9dQZF1DWVFeEut75IAL`). (play_media)[https://www.home-assistant.io/integrations/media_player/#service-media_playerplay_media] requires the correct corresponding `media_content_type`.
 
 ## Selecting output source
 
