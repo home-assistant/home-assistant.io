@@ -51,6 +51,7 @@ Enjoy the release!
 - [Release 2022.3.1 - March 3](#release-202231---march-3)
 - [Release 2022.3.2 - March 6](#release-202232---march-6)
 - [Release 2022.3.3 - March 7](#release-202233---march-7)
+- [Release 2022.3.4 - March 11](#release-202234---march-11)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -460,6 +461,54 @@ The following integrations are now available via the Home Assistant UI:
 [sensibo docs]: /integrations/sensibo/
 [shelly docs]: /integrations/shelly/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
+
+## Release 2022.3.4 - March 11
+
+- Fix discord embed class initialization ([@cheng2wei] - [#67831]) ([discord docs])
+- Support playing local "file" media on Kodi ([@rigrig] - [#67832]) ([kodi docs])
+- Bump zwave-js-server-python to 0.35.2 ([@raman325] - [#67839]) ([zwave_js docs])
+- Add missing callback decorator to sun ([@bdraco] - [#67840]) ([sun docs])
+- Fix shelly duo scene restore ([@thecode] - [#67871]) ([shelly docs])
+- Make sure blueprint cache is flushed on script reload ([@elupus] - [#67899]) ([script docs])
+- Update radios to 0.1.1 ([@frenck] - [#67902]) ([radio_browser docs])
+- Correct local import of paho-mqtt ([@emontnemery] - [#67944]) ([mqtt docs])
+- Rollback pyinsteon ([@teharris1] - [#67956]) ([insteon docs])
+- Bump pysabnzbd to 1.1.1 ([@Shutgun] - [#67971]) ([sabnzbd docs])
+- Bump pymediaroom ([@dgomes] - [#68016]) ([mediaroom docs])
+
+[#67831]: https://github.com/home-assistant/core/pull/67831
+[#67832]: https://github.com/home-assistant/core/pull/67832
+[#67839]: https://github.com/home-assistant/core/pull/67839
+[#67840]: https://github.com/home-assistant/core/pull/67840
+[#67871]: https://github.com/home-assistant/core/pull/67871
+[#67899]: https://github.com/home-assistant/core/pull/67899
+[#67902]: https://github.com/home-assistant/core/pull/67902
+[#67944]: https://github.com/home-assistant/core/pull/67944
+[#67956]: https://github.com/home-assistant/core/pull/67956
+[#67971]: https://github.com/home-assistant/core/pull/67971
+[#68016]: https://github.com/home-assistant/core/pull/68016
+[@Shutgun]: https://github.com/Shutgun
+[@bdraco]: https://github.com/bdraco
+[@cheng2wei]: https://github.com/cheng2wei
+[@dgomes]: https://github.com/dgomes
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@raman325]: https://github.com/raman325
+[@rigrig]: https://github.com/rigrig
+[@teharris1]: https://github.com/teharris1
+[@thecode]: https://github.com/thecode
+[discord docs]: /integrations/discord/
+[insteon docs]: /integrations/insteon/
+[kodi docs]: /integrations/kodi/
+[mediaroom docs]: /integrations/mediaroom/
+[mqtt docs]: /integrations/mqtt/
+[radio_browser docs]: /integrations/radio_browser/
+[sabnzbd docs]: /integrations/sabnzbd/
+[script docs]: /integrations/script/
+[shelly docs]: /integrations/shelly/
+[sun docs]: /integrations/sun/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community!
 
