@@ -3,6 +3,8 @@ title: Sensibo
 description: Instructions on how to integrate Sensibo A/C controller into Home Assistant.
 ha_category:
   - Climate
+  - Number
+  - Sensor
 ha_release: 0.44
 ha_iot_class: Cloud Polling
 ha_config_flow: true
