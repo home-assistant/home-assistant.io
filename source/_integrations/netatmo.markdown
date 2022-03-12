@@ -9,6 +9,7 @@ ha_category:
   - Climate
   - Camera
   - Light
+  - Media Source
 ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -18,6 +19,7 @@ ha_domain: netatmo
 ha_homekit: true
 ha_platforms:
   - camera
+  - diagnostics
   - climate
   - light
   - sensor
@@ -105,7 +107,7 @@ It is therefore recommended to use [an individual development account](#developm
 
 </div>
 
-To be able to receive events from [Netatmo](https://www.netatmo.com/en-gb/), your Home Assistant instance needs to be accessible from the web over port `80` or `443`. To achieve this you can either use your Nabu Casa account or for example Duck DNS ([Home Assistant instructions](/addons/duckdns/)). You also need to have the external URL configured in the Home Assistant [configuration](/docs/configuration/basic).
+To be able to receive events from [Netatmo](https://www.netatmo.com/en-gb/), your Home Assistant instance needs to be accessible from the web over port `443`. To achieve this you can either use your Nabu Casa account or for example Duck DNS ([Home Assistant instructions](/addons/duckdns/)). You also need to have the external URL configured in the Home Assistant [configuration](/docs/configuration/basic).
 
 Events coming in from Netatmo will be available as an event in Home Assistant and are fired as `netatmo_event`, along with their data. You can use these events to trigger automations.
 
@@ -213,6 +215,12 @@ to declare a new application in the [Netatmo Developer Page](https://dev.netatmo
 
 Sign in using your username and password from your regular Netatmo account.
 
+<div class='note warning'>
+ 
+In your Netatmo Application configuration, do not enter a 'redirect URI' or a 'webhook URI'.  The 'webhook URI' is automatically registered by this integration based on the external URL configured in the Home Assistant [configuration](/docs/configuration/basic).
+  
+</div>
+
 Next, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -233,7 +241,7 @@ client_secret:
   type: string
 {% endconfiguration %}
 
-**After the client_id and client_secret is added to your `configuration.yaml` you must enable Netatmo through the integrations page.**
+**After the `client_id` and `client_secret` are added to your `configuration.yaml` you must restart Home Assistant and then enable Netatmo through the integrations page.**
 
 Menu: **Configuration** -> **Devices & Services**.
 
@@ -241,6 +249,10 @@ Click on the `+` sign to add an integration and click on **Netatmo**.
 After completing the configuration flow, the Netatmo integration will be available.
 
 ## Troubleshooting
+
+### Receiving events
+
+To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my developer_events title="Developer Tools -> Events" %}.
 
 ### Light
 

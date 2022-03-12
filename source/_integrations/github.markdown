@@ -8,6 +8,7 @@ ha_release: 0.88
 ha_iot_class: Cloud Polling
 ha_domain: github
 ha_platforms:
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@timmo001'
@@ -20,9 +21,7 @@ The GitHub integration allows you to monitor your favorite [GitHub][github] repo
 
 When you set up this integration, you will first be guided to allow the integration to use the [GitHub API][github_api] on your behalf. If you do not yet have a [GitHub][github] account you will be prompted to create one during the configuration of the integration.
 
-When you have authorized the integration, you select repositories you want to monitor, the list contains repositories you have [starred][github_starred] on GitHub with your account.
-
-Most of the entities provided by this integration are disabled by default, you can enable these by going to the {% my entities title="entities panel" %}.
+When you have authorized the integration, you select repositories you want to monitor, the list contains repositories you have created and [starred][github_starred] on GitHub with your account.
 
 ## Remove authorization
 

@@ -8,6 +8,7 @@ ha_release: 0.61
 ha_iot_class: Cloud Polling
 ha_domain: coinbase
 ha_platforms:
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@tombrien'

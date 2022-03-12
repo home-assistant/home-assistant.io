@@ -12,6 +12,7 @@ ha_category:
   - Switch
 ha_iot_class: Local Push
 ha_domain: elkm1
+ha_dhcp: true
 ha_config_flow: true
 ha_codeowners:
   - '@gwww'
@@ -174,11 +175,6 @@ prefix:
   description: The prefix to use, if any, for all the devices created for this controller. At most one host can omit the prefix, all others must have a unique prefix within the Home Assistant instance.
   require: false
   type: string
-temperature_unit:
-  description: The temperature unit that the Elk panel uses. Valid values are `C` and `F`.
-  required: false
-  type: string
-  default: F
 auto_configure:
   description: Auto configure `area`, `counter`, `keypad`, `output`, `setting`, `task`, `thermostat`, `plc`, and `zone` by only adding elements that ElkM1 reports on the initial sync.
   required: false

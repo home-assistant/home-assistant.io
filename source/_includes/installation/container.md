@@ -74,6 +74,10 @@ Start it by running:
 docker-compose up -d
 ```
 
+Once the Home Assistant Container is running Home Assistant should be accessible using `http://<host>:8123` (replace <host> with the hostname or IP of the system). You can continue with onboarding.
+
+{% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
+
 ### Exposing Devices
 
 In order to use Z-Wave, Zigbee or other integrations that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your container instructions:

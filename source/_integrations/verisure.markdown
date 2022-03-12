@@ -18,6 +18,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - camera
+  - diagnostics
   - lock
   - sensor
   - switch

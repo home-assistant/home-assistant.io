@@ -4,10 +4,12 @@ description: Instructions on how to integrate Z-Wave with Home Assistant via Z-W
 featured: true
 ha_category:
   - Binary Sensor
+  - Button
   - Climate
   - Cover
   - Fan
   - Hub
+  - Humidifier
   - Light
   - Lock
   - Number
@@ -23,9 +25,12 @@ ha_codeowners:
 ha_domain: zwave_js
 ha_platforms:
   - binary_sensor
+  - button
+  - diagnostics
   - climate
   - cover
   - fan
+  - humidifier
   - light
   - lock
   - number
@@ -238,6 +243,8 @@ This service will set a value on multiple Z-Wave devices using multicast. It is 
 
 ### Service `zwave_js.ping`
 
+> NOTE: This service has been deprecated and replaced with a new button entity. The service will still work for now but will be removed in a future release. Users are advised to move their automations to use the `button.press` service with the new entity which is a like for like replacement.
+
 Calling this service forces Z-Wave JS to try to reach a node. This can be used to update the status of the node in Z-Wave JS when you think it doesn't accurately reflect reality, e.g. reviving a failed/dead node or marking the node as asleep.
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
@@ -300,6 +307,18 @@ There are two types of events that are fired, notification events and value noti
 ### Node events (Notification)
 
 Check the [Z-Wave JS notification event documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) for an explanation of the notification event data. These events fire with the `zwave_js_notification` event type.
+
+Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in the [Developers Tools](/docs/tools/dev-tools/#subscribe-to-an-event).
+
+```yaml
+# Fires whenever the lock is unlocked by the keypad.
+trigger:
+  - platform: event
+    event_type: zwave_js_notification
+    event_data:
+      node_id: 14
+      event_label: "Keypad unlock operation"
+```
 
 #### Notification Command Class
 
@@ -460,6 +479,46 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | `trigger.current_value`      | The current value for this Z-Wave value (translated to a state name when possible).        |
 | `trigger.current_value_raw`  | The raw current value for this Z-Wave value (the key of the state when a state is named).  |
 
+### `zwave_js.event`
+
+This trigger platform can be used to trigger automations on any Z-Wave JS controller, driver, or node event, including events that may not be handled by Home Assistant automatically. Refer to the linked [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/) to learn more about the available events and the data that is sent along with it.
+
+There is strict validation in place based on all known event types, so if you come across an event type that isn't supported, please open a GitHub issue in the `home-assistant/core` repository.
+
+#### Example automation trigger configuration
+
+```yaml
+# Fires whenever the `interview failed` event is fired on the three devices (devices will be derived from device and entity IDs).
+trigger:
+  platform: zwave_js.event
+  # At least one `device_id` or `entity_id` must be provided for `node` events. For any other events, a `config_entry_id` needs to be provided.
+  device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
+  entity_id:
+    - lock.front_lock
+    - lock.back_door
+  config_entry_id:
+  # `event_source` and `event` are required
+  event_source: node   # options are node, controller, and driver
+  event: "interview failed"  # event names can be retrieved from the Z-Wave JS docs (see links above)
+  # `event_data` and `partial_dict_match` are optional. If `event_data` isn't included, all events of a given type for the given context will trigger the automation. When the `interview failed` event is fired, all argument live in a dictionary within the `event_data` dictionary under the `args` key. The default behavior is to require a full match of the event_data dictionary below and the dictionary that is passed to the event. By setting `partial_dict_match` to true, Home Assistant will check if the isFinal argument is true and ignore any other values in the dictionary. If this setting was false, this trigger would never fire because the dictionary always contains more keys than `isFinal` so the comparsion check would never evaluate to true.
+  event_data:
+    args:
+      isFinal: true
+  partial_dict_match: true  # defaults to false
+```
+
+#### Available Trigger Data
+
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `zwave_js.event` trigger platform has additional trigger data available for use.
+
+| Template variable            | Data                                                                                       |
+|------------------------------|--------------------------------------------------------------------------------------------|
+| `trigger.device_id`          | Device ID for the device in the device registry (only included for node events).                                           |
+| `trigger.node_id`            | Z-Wave node ID (only included for node events).                                                                            |
+| `trigger.event_source`      | Source of event (node, controller, or driver).                                                                          |
+| `trigger.event`             | Name of event.                                                                        |
+| `trigger.event_data`           | Any data included in the event.                                                                   |
+
 ## Migrating from previous Z-Wave implementations
 
 If you are switching from the `zwave` or `ozw` integrations to the new Z-Wave JS integration, you will not need to recreate your entire network, as the network is **stored on your stick**. A few things, such as how you receive [central scene events](#events) will work differently than they did before.
@@ -548,7 +607,7 @@ The Z-Wave network can be configured via the built-in Z-Wave JS control panel in
 
 **Option 3: The Zwavejs2Mqtt Docker container**
 
-This is the recommended approach if you're running Home Assistant Container. See the [Zwavejs2Mqtt documentation](https://zwave-js.github.io/Zwavejs2Mqtt/#/getting-started/quick-start) for instructions.
+This is the recommended approach if you're running Home Assistant Container. See the [Zwavejs2Mqtt documentation](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) for instructions.
 
 This method provides the same server application and UI as the Zwavejs2Mqtt add-on. After installing the Docker image, make sure you enable the WS Server in the Home Assistant section of Settings page.
 
@@ -596,7 +655,7 @@ You can also keep track of the Roadmap for the Z-Wave JS integration [here](http
 
 #### Which Z-Wave controller should I buy?
 
-Z-Wave JS supports all known 500 and 700 series Z-Wave controllers. If you are just starting out, we recommend that you purchase a 700 series controller to take advantage of the latest improvements.
+Z-Wave JS supports all known 500 and 700 series Z-Wave controllers. If you are just starting out, we recommend that you purchase a 500 series controller. 
 
 For more information, see [Supported Z-Wave dongles](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules)
 
@@ -680,8 +739,8 @@ Names set in Home Assistant will not import into Zwavejs2Mqtt.
 #### How can I add (include) a new device to my Z-Wave network?
 
 1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
-2. Press `Add node`.
-3. Press `Start Inclusion`. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
+2. Press `+ ADD DEVICE`.
+3. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
 4. Put the device you want to add in inclusion mode. Refer to its manual how this is done.
 5. The UI should confirm that the node was added and it will be immediately visible in Home Assistant. After a short while (seconds to minutes) the entities should also be created.
 6. If the controller fails to add/find your device, cancel the inclusion process (to unblock your network again). In some cases it might help to first remove a node (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet. Another approach would be to factory reset the device. Info about that is in the manual of your device.
@@ -704,8 +763,8 @@ S2 security does not impose additional network traffic and provides additional b
 #### How do I remove (exclude) a device from my Z-Wave network?
 
 1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
-2. Press `Remove node`.
-3. Press `Start Exclusion`. The Z-Wave controller is now in exclusion mode and will not respond to other commands.
+2. Press `REMOVE DEVICE`.
+3. Press `START EXCLUSION`. The Z-Wave controller is now in exclusion mode and will not respond to other commands.
 4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
 5. The UI should confirm that the node was removed and the device and entities will be removed from Home Assistant.
 
@@ -760,3 +819,11 @@ When trying to determine why something isn't working as you expect, or when repo
 ### Interference issues
 
 Many users have reported issues with interference when the USB stick was directly connected to the machine (proximity). If you are having issues try to use a short USB 2.0 A male to female extension cord.
+
+#### How to access the Z-Wave JS logs
+
+Z-Wave JS writes details to its logs. To access these logs go to the following.
+
+   **Configuraton** -> **Devices & Services** -> **Integrations(tab)** -> **Z-Wave JS (CONFIGURE)** -> **Logs(tab)**
+
+You need to keep this browser tab open for logging to be active.

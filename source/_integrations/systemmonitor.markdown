@@ -90,6 +90,17 @@ tmpfs           934M     0  934M   0% /dev/shm
 
 Defining a `disk_use` sensor for `/` and `/home/pi` is redundant and will return the same values, since they both belong to the same "disk". However, defining separate sensors for `/dev` and `/dev/shm` is possible and provides different values, since those are treated as separate "disks" by the integration.
 
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: disk_use
+        arg: /dev
+      - type: disk_use
+        arg: /dev/shm
+```
+
 ## Processor temperature
 
 - If no hardware sensor data is available (e.g., because the integration runs in a virtualized environment), the sensor entity will not be created.

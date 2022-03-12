@@ -10,7 +10,9 @@ ha_domain: homewizard
 ha_codeowners:
   - '@DCSBL'
 ha_platforms:
+  - diagnostics
   - sensor
+  - switch
 ha_zeroconf: true
 ---
 
@@ -19,7 +21,7 @@ Integration for the [HomeWizard Energy](https://www.homewizard.nl/energy) platfo
 **Supported devices**
 
 - [Wifi P1 Meter](https://www.homewizard.nl/p1-meter): Depending on the connected DSMR meter: sensors for power import/export, energy consumption (single or three phases) and gas. (Model: `HWE-P1`)
-- [Wifi Energy Socket](https://www.homewizard.nl/energy-socket): Sensors for power import/export and energy consumption. (model: `HWE-SKT`)
+- [Wifi Energy Socket](https://www.homewizard.nl/energy-socket): Sensors for power import/export and energy consumption and switches for controlling the outlet (model: `HWE-SKT`)
 - [Wifi kWh Meter](https://www.homewizard.nl/kwh-meter): Sensors for power import/export and energy consumption. (Models: `SDM230-wifi`, `SDM630-wifi`)
 
 ## Enable the API
@@ -52,3 +54,10 @@ The HomeWizard Energy API only exposes properties that are used within the HomeW
 | Total Gas | m3 | HWE-P1 | Current gas import reading, only available when your smart meter is connected to a gas meter. |
 | DSMR Version | | HWE-P1 | The detected DSMR version. |
 | Smart Meter Model | | HWE-P1 | The detected smart meter model. |
+
+## Switches
+
+The Wifi Energy Socket (`HWE-SKT`) outlet state can be controlled the switch platform. There are two switches:
+
+- **Switch**: Controls the outlet state of the Energy Socket. This switch is locked out when `Switch Lock` is turned on. 
+- **Switch Lock**: Forces the outlet state in the `on` position and disables the physical button. This option is useful when the socket is used for a device that must not be turned off, such as a refrigerator.

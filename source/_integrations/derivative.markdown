@@ -60,7 +60,7 @@ unit:
   required: false
   type: string
 time_window:
-  description: The time window in which to calculate the derivative. This is useful for sensor that output discrete values. By default the derivative is calculated between two consecutive updates.
+  description: The time window in which to calculate the derivative. Derivatives in this window will be averaged with a Simple Moving Average algorithm weighted by time. This is for instance useful for a sensor that outputs discrete values, or to filter out short duration noise. By default the derivative is calculated between two consecutive updates without any smoothing.
   default: 0
   required: false
   type: time

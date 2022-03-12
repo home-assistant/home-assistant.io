@@ -129,7 +129,7 @@ This service must be called by the user for the tariff switching logic to occur 
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 | `tariff` | no | String that is equal to one of the defined tariffs.
 
-# Advanced Configuration
+## Advanced Configuration
 
 The following configuration shows an example where 2 utility_meters (`daily_energy` and `monthly_energy`) track daily and monthly energy consumptions.
 

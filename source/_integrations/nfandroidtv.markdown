@@ -125,4 +125,24 @@ icon:
   auth: "digest"
 ```
 
+Example of an automation with an service call, full configuration:
+
+{% raw %}
+
+```yaml
+service: notify.living_room_tv
+data:
+  title: "Thanks for the water!"
+  message: "Nigel is {{ states('sensor.nigel_moisture') }}% moisture"
+  data:
+    duration: 4
+    position: "bottom-left"
+    fontsize: "medium"
+    transparency: "80%"
+    color: "teal"
+    interrupt: 0
+```
+
+{% endraw %}
+
 Please note that `path` is validated against the `allowlist_external_dirs` in the `configuration.yaml`.

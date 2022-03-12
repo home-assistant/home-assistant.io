@@ -12,6 +12,7 @@ ha_domain: brother
 ha_quality_scale: platinum
 ha_zeroconf: true
 ha_platforms:
+  - diagnostics
   - sensor
 ---
 

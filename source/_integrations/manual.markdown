@@ -1,5 +1,5 @@
 ---
-title: Manual
+title: Manual Alarm Control Panel
 description: Instructions on how to integrate manual alarms into Home Assistant.
 ha_category:
   - Alarm

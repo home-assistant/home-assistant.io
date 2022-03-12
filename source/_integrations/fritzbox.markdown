@@ -14,6 +14,7 @@ ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - climate
   - light
   - sensor
