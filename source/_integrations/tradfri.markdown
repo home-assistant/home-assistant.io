@@ -43,7 +43,6 @@ If you see an "Unable to connect" message, restart the gateway and try again. Do
 After updating your IKEA Trådfri Gateway firmware it might be necessary to repeat the configuration process. One error you might experience after a firmware update is `Fatal DTLS error: code 115`. If you encounter problems:
 - when configured using the integration: remove the integration through Settings > Integrations > Tradfri > delete (trash can icon)
 
-
 Then restart Home Assistant. When prompted, enter the security key and click *configure*, just like during initial setup.
 
 ### Compilation issues
