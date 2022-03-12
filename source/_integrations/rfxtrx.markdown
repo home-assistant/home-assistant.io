@@ -61,8 +61,25 @@ Not all protocols as advertised are enabled on the initial setup of your transce
 
 You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your Home Assistant configuration.
 
+Configuration example for ser2net older than 4.x.x (check with command `ser2net -v`):
+
 ```text
 50000:raw:0:/dev/ttyUSB0:38400 8DATABITS NONE 1STOPBIT
+```
+
+Configuration example for ser2net 4.x.x:
+
+```yaml
+# Example /etc/ser2net.yaml for proxying USB/serial connections
+connection: &rfxtrx
+    accepter: tcp,5000
+    enable: on
+    options:
+      kickolduser: true
+      telnet-brk-on-sync: true
+    connector: serialdev,
+              /dev/ttyUSB0,
+              38400n81,local
 ```
 
 ## Settings options
@@ -143,14 +160,6 @@ To configure device options, select a device from the list under *Select device 
 
 <div class='note warning'>
 If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
-</div>
-
-#### Signal repetitions
-
-Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the RFXtrx device to try to send each signal repeatedly.
-
-<div class='note warning'>
-The RFXtrx hardware generally handle signal repeats itself, and some protocols are timing sensitive when it comes to signal repeats so in general this should be avoided.
 </div>
 
 #### Off Delay

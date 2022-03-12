@@ -10,6 +10,7 @@ ha_codeowners:
   - '@milanmeu'
 ha_domain: aseko_pool_live
 ha_platforms:
+  - binary_sensor
   - sensor
 ---
 

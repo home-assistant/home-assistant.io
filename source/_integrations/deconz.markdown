@@ -24,6 +24,7 @@ ha_ssdp: true
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - diagnostics
   - climate
   - cover

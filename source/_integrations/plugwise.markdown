@@ -12,11 +12,13 @@ ha_codeowners:
   - '@CoMPaTech'
   - '@bouwew'
   - '@brefra'
+  - '@frenck'
 ha_config_flow: true
 ha_domain: plugwise
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - climate
   - sensor
   - switch

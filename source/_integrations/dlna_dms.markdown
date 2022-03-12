@@ -9,9 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@chishm'
 ha_domain: dlna_dms
-ha_platforms:
-  - media_source
 ha_ssdp: true
+ha_quality_scale: platinum
 ---
 
 The DLNA Digital Media Server integration allows you to browse and play media from a [DLNA Digital Media Server](https://www.dlna.org/). Configured DMS devices act as a [Media Source](/integrations/media_source/) and can be browsed in the Media panel.
@@ -34,7 +33,7 @@ The `<media_identifier>` can have one of three forms:
 - `:ObjectID`: Colon followed by a server-assigned ID for an object.
 - `?query`: Question mark followed by a query string to search for, see [DLNA ContentDirectory SearchCriteria](http://www.upnp.org/specs/av/UPnP-av-ContentDirectory-v1-Service.pdf) for the syntax. The first result found will be used.
 
-URIs generated while browsing will look like the Object ID form above. However, all three forms will work with the [media_player.play_media service](integrations/media_player/#service-media_playerplay_media).
+URIs generated while browsing will look like the Object ID form above. However, all three forms will work with the [media_player.play_media](/integrations/media_player/#service-media_playerplay_media) service.
 
 ### Examples
 
@@ -57,4 +56,3 @@ target:
 data:
   media_content_id: 'media-source://dlna_dms/my_server/?dc:title="Big Buck Bunny"'
 ```
-

@@ -3,6 +3,8 @@ title: Mazda Connected Services
 description: Instructions on how to integrate your Connected Services capable Mazda vehicle with Home Assistant.
 ha_release: '2021.3'
 ha_category:
+  - Binary Sensor
+  - Button
   - Car
   - Lock
   - Presence Detection
@@ -14,6 +16,8 @@ ha_codeowners:
   - '@bdr99'
 ha_domain: mazda
 ha_platforms:
+  - binary_sensor
+  - button
   - diagnostics
   - device_tracker
   - lock
@@ -38,6 +42,19 @@ This integration requires an active Mazda Connected Services subscription and a 
 
 ## Platforms
 
+### Button
+
+Button entities are available to perform the following actions:
+
+- Start engine (engine can only be started 2 consecutive times; to reset this counter, the vehicle must be driven)
+- Stop engine (only works if the engine was started remotely)
+- Turn on hazard lights (lights will flash briefly and then turn off)
+- Turn off hazard lights (if they have been manually turned on from inside the vehicle - lights will turn back on if a door is opened)
+
+Additionally, the following button entity is available for electric vehicles:
+
+- Refresh vehicle status (only refreshes electric vehicle-related information)
+
 ### Sensor
 
 The following sensor entities are available:
@@ -47,6 +64,14 @@ The following sensor entities are available:
 - Tire pressure (not available for CX-5 and CX-9 models)
 - Charge level (only for electric vehicles)
 - Remaining range (only for electric vehicles)
+
+### Binary sensor
+
+The following binary sensor entities are available:
+ - Doors (open/closed, individual entities for each door)
+ - Trunk (open/closed)
+ - Hood (open/closed)
+ - Plugged in (plugged in/unplugged, only for electric vehicles)
 
 ### Device tracker
 
@@ -62,23 +87,7 @@ Displays the current door lock status of the vehicle, and locks/unlocks the door
 
 ## Services
 
-This integration offers several services for interacting with Mazda vehicles.
-
-### Service `mazda.start_engine`
-
-Starts the vehicle engine. The vehicle engine can only be remotely started 2 consecutive times. To reset this counter, the vehicle must be driven.
-
-| Service Data Attribute | Required | Description |
-| ---------------------- | -------- | ----------- |
-| `device_id` | yes | The device ID of the vehicle to start |
-
-### Service `mazda.stop_engine`
-
-Stops the vehicle engine. This only works if the vehicle was remotely started.
-
-| Service Data Attribute | Required | Description |
-| ---------------------- | -------- | ----------- |
-| `device_id` | yes | The device ID of the vehicle to stop |
+This integration provides the following services:
 
 ### Service `mazda.start_charging`
 
@@ -106,22 +115,6 @@ Send a GPS location to the vehicle's navigation system as a POI (Point of Intere
 | `latitude` | yes | The latitude of the location to send. |
 | `longitude` | yes | The longitude of the location to send. |
 | `poi_name` | yes | A friendly name for the location. |
-
-### Service `mazda.turn_on_hazard_lights`
-
-Turn on the vehicle hazard lights. The lights will flash briefly and then turn off.
-
-| Service Data Attribute | Required | Description |
-| ---------------------- | -------- | ----------- |
-| `device_id` | yes | The device ID of the vehicle to turn hazard lights on |
-
-### Service `mazda.turn_off_hazard_lights`
-
-Temporarily turn off the vehicle hazard lights if they have been manually turned on from inside the vehicle. If a door is opened, the hazard lights will turn back on.
-
-| Service Data Attribute | Required | Description |
-| ---------------------- | -------- | ----------- |
-| `device_id` | yes | The device ID of the vehicle to turn hazard lights off |
 
 ## Disclaimer
 
