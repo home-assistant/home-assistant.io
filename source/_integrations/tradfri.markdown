@@ -33,23 +33,6 @@ If you see an "Unable to connect" message, restart the gateway and try again. Do
 
 You can add the following to your `configuration.yaml` file if you are not using the [`discovery:`](/integrations/discovery/) component:
 
-```yaml
-# Example configuration.yaml entry
-tradfri:
-  host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: "The IP address or hostname of your IKEA Trådfri Gateway."
-  required: true
-  type: string
-allow_tradfri_groups:
-  description: "Set this to `true` to allow Home Assistant to import the groups defined on the IKEA Trådfri Gateway."
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
 
 ## Troubleshooting
 
@@ -73,10 +56,7 @@ Then restart Home Assistant. When prompted, enter the security key and click *co
 
 Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this component. Also, installing some dependencies might take considerable time (more than one hour) on slow devices.
 
-### Setting the `api_key`
-
-Do not use the `api_key` variable in `configuration.yaml`. The API key is only needed once at initial setup and will be stored.
-
 ## Known limitations
 
 - The TRÅDFRI Shortcut button, Remotes and motion sensor only send information about their battery status, no events, to Home Assistant and thus can't be used to automate with. If you want to automate with these devices, you need to use something like [ZHA](/integrations/zha/).
+- The groups you find in the app are not imported into Home Assistant, as they are known to cause stability issues. We recommend that you use the native [light groups](/integrations/light.group/) instead.
