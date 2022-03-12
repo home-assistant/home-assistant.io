@@ -3,6 +3,8 @@ title: Sensibo
 description: Instructions on how to integrate Sensibo A/C controller into Home Assistant.
 ha_category:
   - Climate
+  - Number
+  - Sensor
 ha_release: 0.44
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -14,6 +16,7 @@ ha_platforms:
   - diagnostics
   - climate
   - number
+  - sensor
 ha_homekit: true
 ha_dhcp: true
 ---
@@ -37,6 +40,18 @@ For supported devices, this integration provides support to set the following mo
 
 - Horizontal swing
 - Light
+
+## Sensor Entities
+
+For motion sensors (supported by Sensibo Air devices), this integration provides the following sensors:
+
+- Temperature
+- Humidity
+
+For diagnostics, not automatically displayed on dashboards, these sensors are available:
+
+- Voltage
+- Rssi
 
 ## Adding a quick switch example
 
