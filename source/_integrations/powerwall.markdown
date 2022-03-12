@@ -47,6 +47,7 @@ The following sensors are added for each Powerwall:
 - Powerwall Load Now - Load usage in kW
 - Powerwall Solar Now - Solar usage in kW (if applicable)
 - Powerwall Site Now - Site usage in kW
+- Powerwall Backup Reserve - Percentage of battery which will be reserved for a grid outage
 
 The following sensors show the direction of energy:
 

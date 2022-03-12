@@ -14,6 +14,7 @@ ha_domain: yale_smart_alarm
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - diagnostics
   - lock
 ---
 

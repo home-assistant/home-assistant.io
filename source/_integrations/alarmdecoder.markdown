@@ -8,8 +8,6 @@ ha_category:
 ha_release: 0.43
 ha_iot_class: Local Push
 ha_domain: alarmdecoder
-ha_codeowners:
-  - '@ajschmidt8'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel

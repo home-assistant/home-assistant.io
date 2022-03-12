@@ -497,6 +497,18 @@ LED                     | Turn on/off the LED
 
 - Power (on, off)
 - Operation modes (Auto, Sleep, Favorite)
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------
+Auxiliary Heat Status   | Indicates if the heater is actually on
+
+- Button entities
+
+Button                  | Description                                
+----------------------- | ------------------------------------------ 
+Reset Dust Filter       | Resets filter lifetime and usage of the dust filter  
+
 - Sensor entities
 
 Sensor                          | Description                                                    
@@ -515,6 +527,8 @@ Switch                  | Description
 ----------------------- | -----------------------
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
+Display                 | Turn on/off `display`
+Auxiliary Heat          | Turn on/off `heater`
 
 ### Air Fresh VA2
 
@@ -554,6 +568,19 @@ LED                     | Turn on/off `led`
 
 - Power (on, off)
 - Operation modes (Auto, Sleep, Favorite)
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------
+Auxiliary Heat Status   | Indicates if the heater is actually on
+
+- Button entities
+
+Button                  | Description                                
+----------------------- | ------------------------------------------ 
+Reset Dust Filter       | Resets filter lifetime and usage of the dust filter  
+Reset Upper Filter      | Resets filter lifetime and usage of the upper filter 
+
 - Sensor entities
 
 Sensor                           | Description                                                   
@@ -574,6 +601,8 @@ Switch                  | Description
 ----------------------- | -----------------------
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
+Display                 | Turn on/off `display`
+Auxiliary Heat          | Turn on/off `heater`
 
 
 ### Air Humidifier (zhimi.humidifier.v1)

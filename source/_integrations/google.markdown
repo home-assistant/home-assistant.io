@@ -216,7 +216,7 @@ You either use `start_date_time` and `end_date_time`, or `start_date` and `end_d
 
 ## Using calendar in automations
 
-A calendar can be used as an external scheduler for special events or reoccurring events instead of hardcoding them in automations.
+A calendar can be used as an external scheduler for special events or reoccurring events instead of hardcoding them in automations. The calendar entry must have a duration greater than 1 minute. Events that are 0 minutes long will not trigger the automation.
 
 Trigger as soon as an event starts:
 
@@ -242,3 +242,5 @@ For example, the actions following this condition will only be executed for even
 ```
 
 {% endraw %}
+
+

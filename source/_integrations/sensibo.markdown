@@ -11,8 +11,11 @@ ha_codeowners:
   - '@gjohansson-ST'
 ha_domain: sensibo
 ha_platforms:
+  - diagnostics
   - climate
+  - number
 ha_homekit: true
+ha_dhcp: true
 ---
 
 Integrates [Sensibo](https://sensibo.com) Air Conditioning controller into Home Assistant.
@@ -27,6 +30,13 @@ done in the app and actions done by Home Assistant.
 </div>
 
 {% include integrations/config_flow.md %}
+
+## Select Entities
+
+For supported devices, this integration provides support to set the following modes by the select entity:
+
+- Horizontal swing
+- Light
 
 ## Adding a quick switch example
 

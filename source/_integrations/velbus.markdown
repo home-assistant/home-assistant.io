@@ -17,6 +17,7 @@ ha_codeowners:
 ha_domain: velbus
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - climate
   - cover
   - light
