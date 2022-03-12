@@ -3,6 +3,7 @@ title: Kaleidescape
 description: Instructions on how to integrate Kaleidescape into Home Assistant.
 ha_category:
   - Media Player
+  - Remote
   - Sensor
 ha_release: '2022.4'
 ha_iot_class: Local Push
@@ -13,10 +14,11 @@ ha_codeowners:
 ha_domain: kaleidescape
 ha_platforms:
   - media_player
+  - remote
   - sensor
 ---
 
-The Kaleidescape integration allows for the automation of Kaleidescape movie players.
+The Kaleidescape integration allows for the automation of [Kaleidescape](https://www.kaleidescape.com/) movie players.
 
 Ideas for automation include:
 
@@ -34,6 +36,33 @@ This integration is intended for the automation of Kaleidescape players with a m
 ## Media Player
 
 The Kaleidescape media player platform will create a Media Player entity for the device. This entity will display the currently playing media and playback controls.
+
+## Remote
+
+The Kaleidescape remote platform will create a Remote entity for the device. This entity allows you to send the following commands via the `remote/send_command` service.
+
+- select
+- up
+- down
+- left
+- right
+- cancel
+- replay
+- scan_forward
+- scan_reverse
+- go_movie_covers
+- menu_toggle
+
+A typical service call might look like the example below. This sends a command to the device to `select` the currently highlighted item.
+
+```yaml
+service: remote.send_command
+target:
+  entity_id: remote.kaleidescape_theater
+data:
+  command:
+    - select
+```
 
 ## Sensor
 
