@@ -6,11 +6,10 @@ ha_category:
   - Binary Sensor
   - Switch
   - Sensor
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: '0.70'
 ha_codeowners:
   - '@heythisisnate'
-  - '@kit-klein'
 ha_config_flow: true
 ha_domain: konnected
 ha_ssdp: true

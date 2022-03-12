@@ -21,6 +21,7 @@ To use this device tracker in your installation, add the following to your `conf
 sensor:
   - platform: mqtt_room
     device_id: 123testid
+    state_topic: "espresense/rooms"
 ```
 
 {% configuration %}

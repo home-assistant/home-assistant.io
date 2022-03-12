@@ -10,6 +10,7 @@ ha_codeowners:
   - '@klaasnicolaas'
 ha_domain: p1_monitor
 ha_platforms:
+  - diagnostics
   - sensor
 ha_quality_scale: platinum
 ---

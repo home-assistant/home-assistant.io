@@ -26,14 +26,14 @@ ha_codeowners:
 ha_domain: unifiprotect
 ha_platforms:
   - binary_sensor
-  - button
   - camera
+  - button
   - light
   - lock
   - media_player
   - number
-  - select
   - sensor
+  - select
   - switch
 ---
 
@@ -46,7 +46,7 @@ The UniFi Protect integration adds support for retrieving Camera feeds and Senso
 This Integration supports all UniFi OS Consoles that can run UniFi Protect. Currently, this includes:
 
 * Any UniFi Protect Network Video Recorder (**UNVR** or **UNVRPRO**)
-* Any UniFi "Dream" device (**UDM**, **UDMPRO**, **UDR**, or **UDMSE**)
+* Any UniFi "Dream" device (**UDMPRO**, **UDR**, or **UDMSE**), _except the base UniFi Dream Machine/UDM_
 * UniFi Cloud Key Gen2 Plus (**UCKP**) firmware version v2.0.24+
 
 UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2.0.24 or newer.
@@ -55,7 +55,7 @@ UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2
 
 The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported. Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release comes out to ensure the new version is fully supported.
 
-Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0-beta.3` is the newest UniFi Protect version. So the recommended versions of UniFi Protect to run for a `2022.2.0` version of Home Assistant are `1.20.0`, `1.20.1`, `1.20.2`, `1.20.3`, `1.21.0-beta.1`, `1.21.0-beta.2`, and `1.21.0-beta.3`.
+Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0` is the newest UniFi Protect version. So the recommended versions of UniFi Protect to run for a `2022.2.0` version of Home Assistant are `1.20.0`, `1.20.1`, `1.20.2`, `1.20.3`, `1.21.0`.
 
 ### Local User
 

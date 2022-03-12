@@ -15,6 +15,7 @@ ha_codeowners:
 ha_domain: unifi
 ha_ssdp: true
 ha_platforms:
+  - diagnostics
   - device_tracker
   - sensor
   - switch

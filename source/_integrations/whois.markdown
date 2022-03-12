@@ -8,8 +8,9 @@ ha_iot_class: Cloud Polling
 ha_domain: whois
 ha_config_flow: true
 ha_codeowners:
-  - "@frenck"
+  - '@frenck'
 ha_platforms:
+  - diagnostics
   - sensor
 ---
 

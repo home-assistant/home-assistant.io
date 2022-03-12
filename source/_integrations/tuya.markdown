@@ -26,9 +26,11 @@ ha_codeowners:
   - '@METISU'
   - '@frenck'
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - camera
   - button
+  - diagnostics
   - climate
   - cover
   - fan
@@ -44,7 +46,7 @@ ha_platforms:
 ha_dhcp: true
 ---
 
-The Tuya integration integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps. Tuya officially maintains this integration.
+The Tuya integration integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps.
 
 All Home Assistant platforms are supported by the Tuya integration, except the lock and remote platform.
 
@@ -146,6 +148,10 @@ Click the created project to enter the `Project Overview` page and get the `Auth
     - IoT Data Analytics
 
 {% endconfiguration_basic %}
+
+## Scenes
+
+Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
 
 ## Related Documents
 

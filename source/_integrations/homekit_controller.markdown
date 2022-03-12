@@ -27,6 +27,7 @@ ha_platforms:
   - binary_sensor
   - camera
   - button
+  - diagnostics
   - climate
   - cover
   - fan
@@ -36,6 +37,7 @@ ha_platforms:
   - media_player
   - number
   - sensor
+  - select
   - switch
 ---
 

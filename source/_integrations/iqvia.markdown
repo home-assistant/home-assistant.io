@@ -10,6 +10,7 @@ ha_codeowners:
   - '@bachya'
 ha_domain: iqvia
 ha_platforms:
+  - diagnostics
   - sensor
 ---
 

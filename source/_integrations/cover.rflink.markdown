@@ -168,6 +168,39 @@ cover:
 
 The configuration above shows that the `type` property may be omitted. When the ID starts with `newkaku`, the component will make sure that the on and off commands are inverted. When the ID does not start with `newkaku`, the on and off commands are not inverted.
 
+## Setting up a non-RTS cover
+
+Configure `automatic_add` for the light domain (yes, the light domain)
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: rflink
+    automatic_add: true
+```
+
+When you press the remote buttons, a new light will show up in {% my entities title="the list of entities" %}.
+
+Also you can enable rflink logs and look for the device_id, for example: `dooya_v4_654321_0f` or `brelmotor_3b35c7_47`.
+
+```yaml
+# Example configuration.yaml entry
+logger:
+  logs:
+    rflink: debug
+    homeassistant.components.rflink: debug
+```
+
+Once the `device_id` is known, the light domain configuration can be removed and configure the device as a cover:
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: rflink
+    devices:
+      dooya_v4_654321_0f:
+        name: "Room blinds"
+```
+
 ## Device support
 
 See [device support](/integrations/rflink/#device-support).

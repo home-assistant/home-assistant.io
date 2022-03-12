@@ -14,6 +14,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: freebox
 ha_platforms:
+  - button
   - device_tracker
   - sensor
   - switch

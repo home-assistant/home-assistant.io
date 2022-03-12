@@ -16,6 +16,8 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - camera
+  - button
+  - diagnostics
   - sensor
   - switch
 ---

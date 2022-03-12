@@ -7,10 +7,10 @@ ha_release: 0.32
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@rytilahti'
   - '@zewelor'
   - '@shenxn'
   - '@starkillerOG'
+  - '@alexyao2015'
 ha_domain: yeelight
 ha_platforms:
   - binary_sensor

@@ -10,6 +10,8 @@ ha_config_flow: true
 ha_domain: smhi
 ha_platforms:
   - weather
+ha_codeowners:
+  - '@gjohansson-ST'
 ---
 
 The `smhi` integration adds support for the [SMHI.se](https://www.smhi.se/) web service as a source for meteorological data for your location.
