@@ -3,6 +3,7 @@ title: Mazda Connected Services
 description: Instructions on how to integrate your Connected Services capable Mazda vehicle with Home Assistant.
 ha_release: '2021.3'
 ha_category:
+  - Binary Sensor
   - Button
   - Car
   - Lock
@@ -15,6 +16,7 @@ ha_codeowners:
   - '@bdr99'
 ha_domain: mazda
 ha_platforms:
+  - binary_sensor
   - button
   - diagnostics
   - device_tracker
@@ -62,6 +64,14 @@ The following sensor entities are available:
 - Tire pressure (not available for CX-5 and CX-9 models)
 - Charge level (only for electric vehicles)
 - Remaining range (only for electric vehicles)
+
+### Binary sensor
+
+The following binary sensor entities are available:
+ - Doors (open/closed, individual entities for each door)
+ - Trunk (open/closed)
+ - Hood (open/closed)
+ - Plugged in (plugged in/unplugged, only for electric vehicles)
 
 ### Device tracker
 
