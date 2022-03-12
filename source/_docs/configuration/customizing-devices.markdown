@@ -117,6 +117,8 @@ Home Assistant offers a service to reload the core configuration while Home Assi
 
 To reload customizations, navigate to Configuration > Server Controls and then press the "Reload Location & Customizations" button. If you don't see this, enable Advanced Mode on your user profile page first.
 
+You can also use the [Quick bar](/docs/tools/quick-bar/#command-palette), and choose "Reload Location & Customizations".
+
 Alternatively, you can reload via service call. Navigate to Developer Tools > Services tab, select `homeassistant.reload_core_config` from the dropdown and press the "Call Service" button.
 
 <div class='note warning'>
