@@ -38,6 +38,9 @@ For motion sensors (supported by Sensibo Air devices), this integration provides
 
 - Temperature
 - Humidity
+
+For diagnostics, not automatically displayed on dashboards, these sensors are available:
+
 - Voltage
 - Rssi
 
