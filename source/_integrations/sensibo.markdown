@@ -33,7 +33,7 @@ done in the app and actions done by Home Assistant.
 
 ## Select Entities
 
-For supported devices this integration provides support to set the following modes by the select entity
+For supported devices, this integration provides support to set the following modes by the select entity:
 
 - Horizontal swing
 - Light
