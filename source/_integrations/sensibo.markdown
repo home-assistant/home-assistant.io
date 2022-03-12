@@ -14,6 +14,7 @@ ha_platforms:
   - diagnostics
   - climate
   - number
+  - sensor
 ha_homekit: true
 ha_dhcp: true
 ---
@@ -30,6 +31,15 @@ done in the app and actions done by Home Assistant.
 </div>
 
 {% include integrations/config_flow.md %}
+
+## Sensor Entities
+
+For motion sensors (supported by Sensibo Air devices), this integration provides the following sensors:
+
+- Temperature
+- Humidity
+- Voltage
+- Rssi
 
 ## Adding a quick switch example
 
