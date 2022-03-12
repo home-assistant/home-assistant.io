@@ -184,7 +184,6 @@
 /components/binary_sensor.rfxtrx /integrations/rfxtrx#binary-sensors
 /components/binary_sensor.ring /integrations/ring#binary-sensor
 /components/binary_sensor.rpi_gpio /integrations/rpi_gpio#binary-sensor
-/components/binary_sensor.rpi_pfio /integrations/rpi_pfio#binary-sensor
 /components/binary_sensor.satel_integra /integrations/satel_integra
 /components/binary_sensor.sense /integrations/sense
 /components/binary_sensor.skybell /integrations/skybell#binary-sensor
@@ -968,7 +967,6 @@
 /components/switch.recswitch /integrations/recswitch
 /components/switch.rfxtrx /integrations/rfxtrx#switch
 /components/switch.rpi_gpio /integrations/rpi_gpio#switch
-/components/switch.rpi_pfio /integrations/rpi_pfio#switch
 /components/switch.scsgate /integrations/scsgate#switch
 /components/switch.skybell /integrations/skybell#switch
 /components/switch.smappee /integrations/smappee
@@ -2372,6 +2370,9 @@
 /components/sensor.sensehat /more-info/removed-integration 301
 /integrations/sensehat /more-info/removed-integration 301
 /integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
+/components/binary_sensor.rpi_pfio /more-info/removed-integration 301
+/components/switch.rpi_pfio /more-info/removed-integration 301
+/integrations/rpi_pfio /more-info/removed-integration 301
 /integrations/bmp280 /more-info/removed-integration 301
 /components/mcp23017 /more-info/removed-integration 301
 /integrations/mcp23017 /more-info/removed-integration 301
