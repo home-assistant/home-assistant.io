@@ -384,7 +384,6 @@ source/_integrations/opnsense.markdown @mtreinish
 source/_integrations/oru.markdown @bvlaicu
 source/_integrations/overkiz.markdown @imicknl @vlebourl @tetienne
 source/_integrations/ovo_energy.markdown @timmo001
-source/_integrations/ozw.markdown @cgarwood @marcelveldt @MartinHjelmare
 source/_integrations/p1_monitor.markdown @klaasnicolaas
 source/_integrations/panel_custom.markdown @home-assistant/frontend
 source/_integrations/panel_iframe.markdown @home-assistant/frontend
