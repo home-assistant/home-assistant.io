@@ -17,12 +17,23 @@ Supported devices (tested):
 - [DW6HD1-BZ](https://www.leviton.com/en/products/dw6hd-1bz) (Decora Smart Wi-Fi 600W Dimmer)
 - [DW15S-1BZ](https://www.leviton.com/en/products/dw15s-1bz) (Decora Smart Wi-Fi 15A Switch)
 - [DW15P-1BW](https://www.leviton.com/en/products/dw15p-1bw) (Decora Smart Wi-Fi Plug-in Outlet)
+- [DW4SF-1BW](https://www.leviton.com/en/products/dw4sf) (Decora Smart Wi-Fi Fan Speed Controller)
 
-To enable these lights, add the following lines to your `configuration.yaml` file:
+To enable lights, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 light:
+  - platform: decora_wifi
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+```
+
+To enable fans, add the following lines to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+fan:
   - platform: decora_wifi
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
