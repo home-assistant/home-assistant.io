@@ -32,6 +32,13 @@ done in the app and actions done by Home Assistant.
 
 {% include integrations/config_flow.md %}
 
+## Select Entities
+
+For supported devices, this integration provides support to set the following modes by the select entity:
+
+- Horizontal swing
+- Light
+
 ## Sensor Entities
 
 For motion sensors (supported by Sensibo Air devices), this integration provides the following sensors:
