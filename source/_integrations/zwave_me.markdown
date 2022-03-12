@@ -10,7 +10,6 @@ ha_category:
   - Lock
   - Number
   - Sensor
-  - Siren
   - Switch
 ha_release: 2022.3
 ha_iot_class: Local Push
@@ -27,7 +26,6 @@ ha_platforms:
   - lock
   - number
   - sensor
-  - siren
   - switch
 ha_zeroconf: true
 ---
