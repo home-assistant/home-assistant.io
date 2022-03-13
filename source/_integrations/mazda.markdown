@@ -89,7 +89,7 @@ Displays the current door lock status of the vehicle, and locks/unlocks the door
 
 ### Switch
 
-For electric vehicles, a "charging" switch entity will be created. This allows viewing and controlling the charging state of the vehicle battery.
+For electric vehicles, a "charging" switch entity will be created, which allows viewing and controlling the charging state of the vehicle battery.
 
 ## Services
 
