@@ -184,7 +184,7 @@ The way media players are displayed in the frontend can be modified in the [cust
 
 ## Example script
 
-The example script below combines a number of media player commands to set the output speaker for [Spotify](https://www.home-assistant.io/integrations/spotify) to 30% volume and plays a randomly shuffled track from the playlist Calming Classical.
+The example script below combines a number of media player commands to set the output speaker for [Spotify](/integrations/spotify) to 30% volume and plays a randomly shuffled track from the playlist Calming Classical.
 
 This demonstrates how steps a user would go through manually can be combined into a script that can then be called by a single button press or automation.
 
@@ -239,6 +239,6 @@ script:
 
 Documentation:
 
-- [Scripts](https://www.home-assistant.io/integrations/script) configuration details
-- [Scripts Editor](https://www.home-assistant.io/docs/scripts/editor/) for a UI that reads and writes `scripts.yaml`
-- [Spotify](https://www.home-assistant.io/integrations/spotify) integration details
+- [Scripts](/integrations/script) configuration details
+- [Scripts Editor](/docs/scripts/editor/) for a UI that reads and writes `scripts.yaml`
+- [Spotify](/integrations/spotify) integration details

@@ -116,7 +116,7 @@ script:
 
 The `media_content_id` value can be obtained from the Spotify desktop app by clicking on the more options ("...") next to the album art picture, selecting "Share" and then "Copy Spotify URI" or "Copy Playlist Link" (also available in the Spotify phone and web app).
 
-The `media_content_id` can be a URL (e.g. `https://open.spotify.com/playlist/37i9dQZF1DWVFeEut75IAL`) or the Spotify URI string (e.g. `spotify:playlist:37i9dQZF1DWVFeEut75IAL`). (play_media)[https://www.home-assistant.io/integrations/media_player/#service-media_playerplay_media] requires the correct corresponding `media_content_type`.
+The `media_content_id` can be a URL (e.g. `https://open.spotify.com/playlist/37i9dQZF1DWVFeEut75IAL`) or the Spotify URI string (e.g. `spotify:playlist:37i9dQZF1DWVFeEut75IAL`). (play_media)[/integrations/media_player/#service-media_playerplay_media] requires the correct corresponding `media_content_type`.
 
 ## Selecting output source
 
