@@ -21,7 +21,7 @@ Supported devices (tested):
 - [DW15P-1BW](https://www.leviton.com/en/products/dw15p-1bw) (Decora Smart Wi-Fi Plug-in Outlet)
 - [DW4SF-1BW](https://www.leviton.com/en/products/dw4sf) (Decora Smart Wi-Fi Fan Speed Controller)
 
-To enable the integration, configure it via the "Add Integration" workflow in the configuration section of the Home Assistant web UI.
+{% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 username:
