@@ -120,7 +120,7 @@ The `media_content_id` can be a URL (e.g. `https://open.spotify.com/playlist/37i
 
 ## Selecting output source
 
-To play media Spotify needs a device selected for audio output known as the `source`. Currently, this integration cannot initiate playback to a device not already available from the Spotify API. You need to first use Spotify on your smart speaker or phone to populate the source list.
+To play media Spotify needs a device selected for audio output known as the `source`. The Spotify API cannot initiate playback to a device not already known to the Spotify.
 
 ```yaml
 # Example code to select an AV receiver as the output device
@@ -130,12 +130,10 @@ data:
   source: "Denon AVR-X2000"
 ```
 
-The device name must be known to Spotify and therefore is often different from names given to entities in Home Assistant.
-
-The source list of available devices can be found in the Details section of the Spotify Media Player Control and the `source_list` attribute in the {% my developer_states title="Developer Tools States" %}.
+The source name must match the name in Spotify. The source list of available devices can be found in the Details section of the Spotify Media Player Control and the `source_list` attribute in the {% my developer_states title="Developer Tools States" %}.
 
 <div class='note'>
-  A known limitation with Spotify is that devices disappear from the source list over time. Many Spotify Connect devices tend to persist, other devices such as Amazon Alexa speakers may only be remembered for a while, and phones and Google Cast devices disappear as soon as playback stops.
+  Spotify devices are only visible in the list of media sources when they are actively used with the connected Spotify account. A known limitation with Spotify is that only certain Spotify Connect devices persist after playback stops allowing this integration to later initiate playback.
 </div>
 
 ## Unsupported Devices
