@@ -9,6 +9,7 @@ ha_category:
   - Lock
   - Presence Detection
   - Sensor
+  - Switch
 ha_iot_class: Cloud Polling
 ha_quality_scale: platinum
 ha_config_flow: true
@@ -22,6 +23,7 @@ ha_platforms:
   - device_tracker
   - lock
   - sensor
+  - switch
 ---
 
 The Mazda Connected Services integration allows you to retrieve data from a Mazda vehicle. In order to use this integration, you must first register your vehicle using the MyMazda app ([iOS](https://apps.apple.com/us/app/mymazda/id451886367)/[Android](https://play.google.com/store/apps/details?id=com.interrait.mymazda)).
@@ -85,25 +87,13 @@ Displays the current door lock status of the vehicle, and locks/unlocks the door
     The "Automatic Re-Lock" feature will automatically re-lock the doors if they are not opened shortly after being unlocked. This applies regardless of whether you are using the key, or unlocking the doors remotely using Home Assistant or the MyMazda app.
 </div>
 
+### Switch
+
+For electric vehicles, a "charging" switch entity will be created, which allows viewing and controlling the charging state of the vehicle battery.
+
 ## Services
 
-This integration provides the following services:
-
-### Service `mazda.start_charging`
-
-Starts charging the vehicle battery. This only works with electric vehicles.
-
-| Service Data Attribute | Required | Description |
-| ---------------------- | -------- | ----------- |
-| `device_id` | yes | The device ID of the vehicle to start charging |
-
-### Service `mazda.stop_charging`
-
-Stops charging the vehicle battery. This only works with electric vehicles.
-
-| Service Data Attribute | Required | Description |
-| ---------------------- | -------- | ----------- |
-| `device_id` | yes | The device ID of the vehicle to stop charging |
+This integration provides a single service:
 
 ### Service `mazda.send_poi`
 
