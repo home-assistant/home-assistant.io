@@ -59,7 +59,6 @@ After connecting to your account, you can set the following settings in the inte
 | Setting | Description |
 |---------|-------------|
 | Read-only | No execution of services to the vehicle. Still possible to send messages and POIs via `notify` and to request a status update via `bmw_connected_drive.update_state`.
-| Use Home Assistant location for car location polls | Older cars (non i3/i8 build before 7/2014) require the phone to be close to the car to get location updates. Enable this option to use the location of your Home Assistant instance for these queries, so updates are available when your car is in the surrounding of your home. |
 
 ## Notifications
 
