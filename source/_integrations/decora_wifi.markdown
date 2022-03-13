@@ -10,6 +10,7 @@ ha_domain: decora_wifi
 ha_platforms:
   - light
   - fan
+ha_config_flow: true
 ---
 
 Support for [Leviton Decora Wi-Fi](https://www.leviton.com/en/products/lighting-controls/decora-smart-with-wifi) dimmers/switches via the MyLeviton API.
