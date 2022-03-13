@@ -53,7 +53,7 @@ The Kaleidescape remote platform will create a Remote entity for the device. Thi
 - go_movie_covers
 - menu_toggle
 
-A typical service call might look like the example below. This sends a command to the device to `select` the currently highlighted item.
+A typical service call might look like the example below, which sends a command to the device to `select` the currently highlighted item.
 
 ```yaml
 service: remote.send_command
