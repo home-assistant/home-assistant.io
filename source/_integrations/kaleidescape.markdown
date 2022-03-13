@@ -39,7 +39,7 @@ The Kaleidescape media player platform will create a Media Player entity for the
 
 ## Remote
 
-The Kaleidescape remote platform will create a Remote entity for the device. This entity allows you to send the following commands via the `remote/send_command` service.
+The Kaleidescape remote platform will create a Remote entity for the device. This entity allows you to send the following commands via the `remote.send_command` service.
 
 - select
 - up
