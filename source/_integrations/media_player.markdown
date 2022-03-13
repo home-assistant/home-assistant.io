@@ -189,7 +189,7 @@ The example script below combines a number of media player commands to set the o
 This demonstrates how steps a user would go through manually can be combined into a script that can then be called by a single button press or automation.
 
 ```yaml
-# configuration.yaml
+# Example configuration.yaml entry
 script:
   demo_spotify:
     # Script demonstrating media player functionality

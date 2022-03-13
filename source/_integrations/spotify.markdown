@@ -132,11 +132,7 @@ data:
 
 The device name must be known to Spotify and therefore is often different from names given to entities in Home Assistant.
 
-The source list of available devices can be found in the Details section of the Spotify Media Player Control and the `source_list` attribute in the Developer tools States or templates using:
-
-```jinja
-{{ state_attr('media_player.spotify', 'source_list') }}
-```
+The source list of available devices can be found in the Details section of the Spotify Media Player Control and the `source_list` attribute in the {% my developer_states title="Developer Tools States" %}.
 
 <div class='note'>
   A known limitation with Spotify is that devices disappear from the source list over time. Many Spotify Connect devices tend to persist, other devices such as Amazon Alexa speakers may only be remembered for a while, and phones and Google Cast devices disappear as soon as playback stops.
