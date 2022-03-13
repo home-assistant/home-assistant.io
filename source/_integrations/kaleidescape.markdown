@@ -35,25 +35,25 @@ This integration is intended for the automation of Kaleidescape players with a m
 
 ## Media Player
 
-The Kaleidescape media player platform will create a Media Player entity for the device. This entity will display the currently playing media and playback controls.
+The Kaleidescape media player platform will create a [Media Player](/integrations/media_player/) entity for the device. This entity will display the currently playing media and playback controls.
 
 ## Remote
 
-The Kaleidescape remote platform will create a Remote entity for the device. This entity allows you to send the following commands via the `remote.send_command` service.
+The Kaleidescape remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) service.
 
-- select
-- up
-- down
-- left
-- right
-- cancel
-- replay
-- scan_forward
-- scan_reverse
-- go_movie_covers
-- menu_toggle
+- `select`
+- `up`
+- `down`
+- `left`
+- `right`
+- `cancel`
+- `replay`
+- `scan_forward`
+- `scan_reverse`
+- `go_movie_covers`
+- `menu_toggle`
 
-A typical service call might look like the example below, which sends a command to the device to `select` the currently highlighted item.
+A typical service call might look like the example below, which sends a command to the device to _select_ the currently highlighted item.
 
 ```yaml
 service: remote.send_command
@@ -66,7 +66,7 @@ data:
 
 ## Sensor
 
-The Kaleidescape sensor platform will create multiple Sensor entities for the device. The follow sensors are provided:
+The Kaleidescape sensor platform will create multiple [Sensor](/integrations/sensor/) entities for the device. The follow sensors are provided:
 
 ### Media Location
 
@@ -224,7 +224,7 @@ The Cinemascape mode of the current movie.
 
 Additional details about the values provided by the sensors can be found in Kaleidescape's [Control Protocol Reference Manual](https://www.kaleidescape.com/wp-content/uploads/Kaleidescape-System-Control-Protocol-Reference-Manual.pdf).
 
-A typical automation might look like the example below. This turns up the lights when the `media_location` sensor leaves the `content` state.
+A typical automation might look like the example below, which turns up the lights when the _media_location_ sensor leaves the _content_ state.
 
 ```yaml
 - alias: kaleidescape_theater_lights_up
