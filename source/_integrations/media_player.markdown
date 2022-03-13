@@ -181,3 +181,64 @@ The way media players are displayed in the frontend can be modified in the [cust
 - `tv`: Device is a television type device.
 - `speaker`: Device is speaker or stereo type device.
 - `receiver`: Device is audio video receiver type device taking audio and outputting to speakers and video to some display.
+
+## Example script
+
+The example script below combines a number of media player commands to set the output speaker for [Spotify](https://www.home-assistant.io/integrations/spotify) to 30% volume and plays a randomly shuffled track from the playlist Calming Classical.
+
+This demonstrates how steps a user would go through manually can be combined into a script that can then be called by a single button press or automation.
+
+```yaml
+# configuration.yaml
+script:
+  demo_spotify:
+    # Script demonstrating media player functionality
+    # To use this script you must update both media_player entity ids and Spotify's name for the source to match your Spotify integration and smart speaker device
+    alias: Demo Spotify
+    icon: mdi:music-box
+    mode: single
+    sequence:
+      # In this demo we first prepare a receiver that supports Spotify
+      - service: scene.apply
+        data:
+          entities:
+            media_player.denon_avr_x2000:
+              state: 'on'
+              sound_mode: STEREO # Only supported by select devices
+              volume_level: 0.3
+      # Set the output. See the documentation about how the concept of source differs for Spotify than for other media players
+      - service: media_player.select_source
+        entity_id: media_player.spotify
+        data:
+          source: "Denon AVR-X2000"
+
+      # If the script was too fast we may get a "No active playback device" error
+      - alias: Allow time for service to wake from idle
+        wait_template: "{{ not is_state('media_player.spotify', 'idle') }}"
+        timeout: '00:00:30'
+
+      # Start a playlist then set it to repeat, shuffle and skip to a random track
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.spotify
+          media_content_id: "spotify:playlist:37i9dQZF1DWVFeEut75IAL"
+          media_content_type: playlist
+
+      - service: media_player.repeat_set
+        data:
+          entity_id: media_player.spotify
+          repeat: all
+      - service: media_player.shuffle_set
+        data:
+          entity_id: media_player.spotify
+          shuffle: true
+      - service: media_player.media_next_track
+        data:
+          entity_id: media_player.spotify
+```
+
+Documentation:
+
+- [Scripts](https://www.home-assistant.io/integrations/script) configuration details
+- [Scripts Editor](https://www.home-assistant.io/docs/scripts/editor/) for a UI that reads and writes `scripts.yaml`
+- [Spotify](https://www.home-assistant.io/integrations/spotify) integration details
