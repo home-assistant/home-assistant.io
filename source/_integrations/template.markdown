@@ -561,6 +561,28 @@ template:
 
 {% endraw %}
 
+A more advanced use case could be to set the icon based on the sensor's own state like above, but when triggered by an event. This example demonstrates a binary sensor that turns on momentarily, such as when a doorbell button is pressed. When the button gets pressed, the first trigger will be triggered and the binary sensor's state will be updated. This in turn will trigger the second trigger, which will cause the icon template to be evaluated. The platform check in the state template is to avoid the update from going into an infinite loop of updating. 
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: event
+        event_type: YOUR_EVENT
+      - platform: state
+        entity_id: binary_sensor.doorbell_rang
+        to: ~
+    binary_sensor:
+      name: doorbell_rang
+      icon: "{{ 'mdi:bell-ring-outline' if is_state('binary_sensor.doorbell_rang', 'on') else 'mdi:bell-outline' }}"
+      state: "{{ trigger.platform == 'event' or states('binary_sensor.doorbell_rang') }}"
+      auto_off:
+        seconds: 5
+```
+
+{% endraw %}
+
 ## Legacy binary sensor configuration format
 
 _This format still works but is no longer recommended. [Use modern configuration](#configuration-variables)._
