@@ -2,8 +2,11 @@
 title: Sensibo
 description: Instructions on how to integrate Sensibo A/C controller into Home Assistant.
 ha_category:
+  - Binary Sensor
   - Climate
+  - Fan
   - Number
+  - Select
   - Sensor
 ha_release: 0.44
 ha_iot_class: Cloud Polling
@@ -13,6 +16,7 @@ ha_codeowners:
   - '@gjohansson-ST'
 ha_domain: sensibo
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - climate
   - number
@@ -33,6 +37,19 @@ done in the app and actions done by Home Assistant.
 </div>
 
 {% include integrations/config_flow.md %}
+
+## Binary sensors
+
+For motion sensors (supported by Sensibo Air devices), this integration provides the following sensors:
+
+- Motion
+- Alive
+- Main sensor
+
+For climate devices, these sensors are available:
+
+- Room presence
+- Update available
 
 ## Select Entities
 
