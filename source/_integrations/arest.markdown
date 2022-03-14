@@ -1,7 +1,6 @@
 ---
 title: aREST
 description: Instructions on how to integrate aREST within Home Assistant.
-logo: arest.png
 ha_category:
   - DIY
   - Binary Sensor
