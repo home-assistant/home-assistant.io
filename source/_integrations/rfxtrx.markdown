@@ -55,7 +55,9 @@ logger:
 
 ## Supported protocols
 
-Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either. Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) and enable the required protocol.
+Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either.
+
+If your 433.92 product is not showing in the logs, you may need to enable additional protocols. You can do this by configuring the device itself using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) to enable the required protocol, or you can configure the device in Home Assistant by configuring the [Protocols](#protocols).
 
 ## ser2net
 
@@ -153,6 +155,14 @@ Copy the event code from the state attribute of the switch, which shows up on th
 *Waveman:*<br>
 710030e4102 **01** 50<br>
 710030e4102 **02** 50
+
+### Protocols {#protocols}
+
+When no protocols are selected in the device configuration, the RFXtrx device will use the protocols enabled in its non-volatile memory. You can set these using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads).
+
+If you select protocols in the device configuration, these will be enabled each time the device is connected. They will not be stored in the RFXtrx device non-volatile memory.
+
+Some protocols, like `undecoded`, cannot be enabled in non-volatile memory and must be enabled on each connect. To enable these protocols you must use the device configuration instead of RFXmgr.
 
 ### Configure device options
 
