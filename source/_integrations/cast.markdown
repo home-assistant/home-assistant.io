@@ -177,7 +177,7 @@ Mandatory:
 Optional:
 
 - `enqueue`: Enqueue only
-- `playlist_id`: Play video with `media_id` from this playlist
+- `playlist_id`: Play video with `media_id` from this playlist. Note that only providing `playlist_id` but no `media_id` does not work.
 
 #### Example
 
