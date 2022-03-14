@@ -2,7 +2,7 @@
 layout: post
 title: "Content Trust with Home Assistant & Codenotary CAS"
 description: "Ability to verify that the updates which we deliver are the same as the update that you have fetched."
-date: 2022-03-13 00:00:00
+date: 2022-03-14 00:00:00
 date_formatted: "March 14, 2022"
 author: Pascal Vizeli
 author_twitter: falstaff_ch
