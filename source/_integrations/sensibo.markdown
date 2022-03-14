@@ -44,7 +44,7 @@ For motion sensors (supported by Sensibo Air devices), this integration provides
 
 - Motion
 - Alive
-- Is main sensor
+- Main sensor
 
 For climate devices, these sensors are available:
 
