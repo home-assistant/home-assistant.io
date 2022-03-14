@@ -94,5 +94,5 @@ It's possible to switch between the 2 sources `TV` and `HDMI`.
 
 #### Subnet/VLAN
 
-Samsung SmartTV do not allow websocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant this will fail.
+Samsung SmartTV does not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant this will fail.
 It may be possible to bypass this issue by using IP masquerading or a proxy.
