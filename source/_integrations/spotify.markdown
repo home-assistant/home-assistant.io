@@ -16,9 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Spotify media player integration allows you to control [Spotify](https://www.spotify.com/) playback from Home Assistant.
-
-Once an output [source]](#selecting-output-source) is selected you will be able to play content from Spotify using the standard Media Browser UI or `media_player` service.
+The Spotify media player integration allows you to control [Spotify](https://www.spotify.com/) playback from Home Assistant. For playback see your {% my media_browser title="Media Browser" %} or the [Media Player](/integrations/media_player) service.
 
 ## Prerequisites
 
