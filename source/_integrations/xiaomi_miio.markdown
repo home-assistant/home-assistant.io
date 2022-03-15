@@ -1103,7 +1103,7 @@ remote:
           - pronto:pronto_hex:[optional_repeat]
 ```
 
-### Add command as entity button in Lovelace UI
+### Add command as entity button to a dashboard
 
 ```yaml
 type: entity-button

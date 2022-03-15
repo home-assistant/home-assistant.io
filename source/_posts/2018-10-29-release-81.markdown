@@ -18,7 +18,7 @@ To go with the configuration entry support, MQTT also now also integrates with t
 Lovelace has another three new cards, the alarm panel, the button card, and the thermostat card:
 
 <p class='img'>
-  <img src='/images/lovelace/lovelace_thermostat_card.gif' alt='Screenshot of the thermostat card'>
+  <img src='/images/dashboards/lovelace_thermostat_card.gif' alt='Screenshot of the thermostat card'>
   Screenshot of the thermostat card.
 </p>
 

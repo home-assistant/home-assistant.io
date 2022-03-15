@@ -73,6 +73,6 @@ sensor:
       number_of_departures: 20
 ```
 
-## Custom Lovelace card
+## Custom dashboard card
 
-Works best with the following custom Lovelace card: <https://github.com/bollewolle/delijn-card>
+Works best with the following custom dashboard card: <https://github.com/bollewolle/delijn-card>

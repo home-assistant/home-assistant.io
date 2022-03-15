@@ -45,7 +45,7 @@
 - topic: Integration
   description: "[Integrations](/integrations/) connect and integrates Home Assistant with devices, services, and more. Such an integration contains all the logic that takes care of vendor- and device-specific implementations such as authentication or special protocols and brings those into Home Assistant in a standardized way. For example, the [Hue](/integrations/hue) integration integrates the Philips Hue bridge and its connected bulbs into Home Assistant, making them available as Home Assistant light entities you can control."
 - topic: Lovelace
-  description: "[Lovelace](/lovelace/) is the name of the current frontend."
+  description: "Lovelace is the original code name of the UI that is now known as [Home Assistant dashboards](/dashboards)."
 - topic: Light
   description: "A [light](/integrations/light) has a brightness you can control, and optionally color temperature or RGB color control."
 - topic: Notification
