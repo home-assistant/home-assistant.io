@@ -1,9 +1,9 @@
 ---
-title: "How Lovelace Works"
-description: "Explains how Lovelace works under the hood."
+title: "How Dashboard Works"
+description: "Explains how dashboard works under the hood."
 ---
 
-The old user interface relied solely on the state machine. This caused trouble as it meant that the state machine was now not only the source for device states, but also for user interface configuration. With Lovelace, we're taking a completely different approach. All user interface configuration will live in a separate file, controlled by the user.
+The old user interface relied solely on the state machine. This caused trouble as it meant that the state machine was now not only the source for device states, but also for user interface configuration. With the new dashboard, we're taking a completely different approach. All user interface configuration will live in a separate file, controlled by the user.
 
 <p class='img'>
 <img
