@@ -7,10 +7,10 @@ description: "The Entity Filter card allows you to define a list of entities tha
 
 The Entity Filter card allows you to define a list of entities that you want to track only when in a certain state. Very useful for showing lights that you forgot to turn off or show a list of people only when they're at home.
 
-This type of card can also be used together with rest of cards that allow multiple entities, allowing you to use [glance](/lovelace/glance/) or [picture-glance](/lovelace/picture-glance/). By default it uses [entities](/lovelace/entities/) card model.
+This type of card can also be used together with rest of cards that allow multiple entities, allowing you to use [glance](/dashboards/glance/) or [picture-glance](/dashboards/picture-glance/). By default it uses [entities](/dashboards/entities/) card model.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_filter.png' alt='Screenshot of the Entity Filter card'>
+<img src='/images/dashboards/lovelace_entity_filter.png' alt='Screenshot of the Entity Filter card'>
 Screenshot of the Entity Filter card.
 </p>
 
@@ -108,7 +108,7 @@ state_filter:
   - "on"
 ```
 
-Show only people that are at home using [glance](/lovelace/glance/):
+Show only people that are at home using [glance](/dashboards/glance/):
 
 ```yaml
 type: entity-filter
@@ -124,7 +124,7 @@ card:
 ```
 
 <p class='img'>
-  <img src='/images/lovelace/lovelace_entity_filter_glance.png' alt='Entity filter combined with glance card'>
+  <img src='/images/dashboards/lovelace_entity_filter_glance.png' alt='Entity filter combined with glance card'>
   Entity filter combined with glance card.
 </p>
 

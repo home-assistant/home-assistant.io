@@ -42,11 +42,11 @@ state_color:
   default: false
 header:
   required: false
-  description: Header widget to render. See [header documentation](/lovelace/header-footer/).
+  description: Header widget to render. See [header documentation](/dashboards/header-footer/).
   type: map
 footer:
   required: false
-  description: Footer widget to render. See [footer documentation](/lovelace/header-footer/).
+  description: Footer widget to render. See [footer documentation](/dashboards/header-footer/).
   type: map
 {% endconfiguration %}
 
@@ -94,15 +94,15 @@ state_color:
   default: false
 tap_action:
   required: false
-  description: Action taken on row tap. See [action documentation](/lovelace/actions/#tap-action).
+  description: Action taken on row tap. See [action documentation](/dashboards/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on row tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  description: Action taken on row tap and hold. See [action documentation](/dashboards/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on row double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  description: Action taken on row double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -176,15 +176,15 @@ action_name:
   default: "`Run`"
 tap_action:
   required: true
-  description: Action taken on button tap. See [action documentation](/lovelace/actions/#tap-action).
+  description: Action taken on button tap. See [action documentation](/dashboards/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on button tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  description: Action taken on button tap and hold. See [action documentation](/dashboards/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on button double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  description: Action taken on button double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -231,15 +231,15 @@ entities:
       default: "true"
     tap_action:
       required: false
-      description: Action taken on button tap. See [action documentation](/lovelace/actions/#tap-action).
+      description: Action taken on button tap. See [action documentation](/dashboards/actions/#tap-action).
       type: map
     hold_action:
       required: false
-      description: Action taken on button tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+      description: Action taken on button tap and hold. See [action documentation](/dashboards/actions/#hold-action).
       type: map
     double_tap_action:
       required: false
-      description: Action taken on button double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+      description: Action taken on button double tap. See [action documentation](/dashboards/actions/#double-tap-action).
       type: map
 {% endconfiguration %}
 
@@ -382,7 +382,7 @@ type: entities
 title: Entities card sample
 show_header_toggle: true
 header:
-  image: "https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png"
+  image: "https://www.home-assistant.io/images/dashboards/header-footer/balloons-header.png"
   type: picture
 entities:
   - entity: alarm_control_panel.alarm
@@ -398,7 +398,7 @@ entities:
 Above the divider are regular entity rows, below one of type `buttons`. Note that regular entity rows automatically show the entity name, whereas for buttons you have to explicitly specify a label / name.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_row_buttons.jpg' alt='Screenshot of buttons row'>
+<img src='/images/dashboards/lovelace_entity_row_buttons.jpg' alt='Screenshot of buttons row'>
 Screenshot of buttons row.
 </p>
 
@@ -419,7 +419,7 @@ entities:
 ### Other special rows
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_row_special.jpg' alt='Screenshot of other special rows'>
+<img src='/images/dashboards/lovelace_entity_row_special.jpg' alt='Screenshot of other special rows'>
 Screenshot of other special rows.
 </p>
 

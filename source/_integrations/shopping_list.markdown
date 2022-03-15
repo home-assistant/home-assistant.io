@@ -12,7 +12,7 @@ ha_domain: shopping_list
 
 The `shopping_list` integration allows you to keep track of shopping list items. 
 
-Your shopping list will be accessible from the sidebar, and you can optionally add the [Shopping List card](/lovelace/shopping-list/) to your Lovelace dashboard. With the [Conversation integration](/integrations/conversation/) you can add items to your shopping list using voice commands like "Add eggs to my shopping list." 
+Your shopping list will be accessible from the sidebar, and you can optionally add the [Shopping List card](/dashboards/shopping-list/) to your Lovelace dashboard. With the [Conversation integration](/integrations/conversation/) you can add items to your shopping list using voice commands like "Add eggs to my shopping list." 
 
 {% include integrations/config_flow.md %}
 

@@ -12,7 +12,7 @@ At the moment there are no configuration options available for these cards, you 
 ## Energy date picker
 
 <p class='img'>
-  <img src='/images/lovelace/energy/date-selection.png' alt='Screenshot of the energy date selection card'>
+  <img src='/images/dashboards/energy/date-selection.png' alt='Screenshot of the energy date selection card'>
   Screenshot of the Energy date selection card.
 </p>
 
@@ -26,7 +26,7 @@ type: energy-date-selection
 ## Energy usage graph
 
 <p class='img'>
-  <img src='/images/lovelace/energy/usage-graph.png' alt='Screenshot of the energy usage graph card'>
+  <img src='/images/dashboards/energy/usage-graph.png' alt='Screenshot of the energy usage graph card'>
   Screenshot of the Energy usage graph card.
 </p>
 
@@ -41,7 +41,7 @@ type: energy-usage-graph
 ## Solar production graph
 
 <p class='img'>
-  <img src='/images/lovelace/energy/solar-graph.png' alt='Screenshot of the solar graph card'>
+  <img src='/images/dashboards/energy/solar-graph.png' alt='Screenshot of the solar graph card'>
   Screenshot of the Solar production graph card.
 </p>
 
@@ -55,7 +55,7 @@ type: energy-solar-graph
 ## Gas consumption graph
 
 <p class='img'>
-  <img src='/images/lovelace/energy/gas-graph.png' alt='Screenshot of the gas consumption graph card'>
+  <img src='/images/dashboards/energy/gas-graph.png' alt='Screenshot of the gas consumption graph card'>
   Screenshot of the gas consumption graph card.
 </p>
 
@@ -70,7 +70,7 @@ type: energy-gas-graph
 ## Energy distribution
 
 <p class='img'>
-  <img src='/images/lovelace/energy/distribution.png' alt='Screenshot of the energy distribution card'>
+  <img src='/images/dashboards/energy/distribution.png' alt='Screenshot of the energy distribution card'>
   Screenshot of the Energy distribution card.
 </p>
 
@@ -89,7 +89,7 @@ link_dashboard: true
 ## Energy sources table
 
 <p class='img'>
-  <img src='/images/lovelace/energy/sources-table.png' alt='Screenshot of the energy sources table card'>
+  <img src='/images/dashboards/energy/sources-table.png' alt='Screenshot of the energy sources table card'>
   Screenshot of the Energy sources table card.
 </p>
 
@@ -104,7 +104,7 @@ type: energy-sources-table
 ## Grid neutrality gauge
 
 <p class='img'>
-  <img src='/images/lovelace/energy/grid-neutrality-gauge.png' alt='Screenshot of the grid neutrality gauge card'>
+  <img src='/images/dashboards/energy/grid-neutrality-gauge.png' alt='Screenshot of the grid neutrality gauge card'>
   Screenshot of the Grid neutrality gauge card.
 </p>
 
@@ -118,7 +118,7 @@ type: energy-grid-neutrality-gauge
 ## Solar consumed gauge
 
 <p class='img'>
-  <img src='/images/lovelace/energy/solar-consumed-gauge.png' alt='Screenshot of the solar consumed gauge card'>
+  <img src='/images/dashboards/energy/solar-consumed-gauge.png' alt='Screenshot of the solar consumed gauge card'>
   Screenshot of the Solar consumed gauge card.
 </p>
 
@@ -132,7 +132,7 @@ type: energy-solar-consumed-gauge
 ## Carbon consumed gauge
 
 <p class='img'>
-  <img src='/images/lovelace/energy/carbon-consumed-gauge.png' alt='Screenshot of the carbon consumed gauge card'>
+  <img src='/images/dashboards/energy/carbon-consumed-gauge.png' alt='Screenshot of the carbon consumed gauge card'>
   Screenshot of the Carbon consumed gauge card.
 </p>
 
@@ -146,7 +146,7 @@ type: energy-carbon-consumed-gauge
 ## Devices energy graph
 
 <p class='img'>
-  <img src='/images/lovelace/energy/devices-graph.png' alt='Screenshot of the devices energy graph card'>
+  <img src='/images/dashboards/energy/devices-graph.png' alt='Screenshot of the devices energy graph card'>
   Screenshot of the devices energy graph card.
 </p>
 

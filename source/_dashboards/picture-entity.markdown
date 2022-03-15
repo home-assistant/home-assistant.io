@@ -8,7 +8,7 @@ description: The Picture Entity card displays an entity in the form of an image.
 The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.
 
 <p class='img'>
-  <img src='/images/lovelace/lovelace_picture_entity.gif' alt='Picture entity card'>
+  <img src='/images/dashboards/lovelace_picture_entity.gif' alt='Picture entity card'>
   Background changes according to the entity state.
 </p>
 
@@ -66,15 +66,15 @@ theme:
   type: string
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 

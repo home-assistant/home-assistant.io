@@ -7,14 +7,14 @@ Some cards have support for tap actions. These actions define what will happen w
 
 Actions can be enabled on:
 
-- [Button](/lovelace/button/)
-- [Entities](/lovelace/entities/)
-- [Glance](/lovelace/glance/)
-- [Light](/lovelace/light/)
-- [Picture](/lovelace/picture/)
-- [Picture Element](/lovelace/picture-elements/)
-- [Picture Entity](/lovelace/picture-entity/)
-- [Picture Glance](/lovelace/picture-glance/)
+- [Button](/dashboards/button/)
+- [Entities](/dashboards/entities/)
+- [Glance](/dashboards/glance/)
+- [Light](/dashboards/light/)
+- [Picture](/dashboards/picture/)
+- [Picture Element](/dashboards/picture-elements/)
+- [Picture Entity](/dashboards/picture-entity/)
+- [Picture Glance](/dashboards/picture-glance/)
 
 ## Tap-Action
 

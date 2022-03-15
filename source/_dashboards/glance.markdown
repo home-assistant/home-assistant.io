@@ -5,10 +5,10 @@ sidebar_label: Glance
 description: "The Glance card is useful to group multiple sensors in a compact overview."
 ---
 
-The Glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/lovelace/entity-filter/) cards to create dynamic cards.
+The Glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/dashboards/entity-filter/) cards to create dynamic cards.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_glance_card.png' alt='Screenshot of the glance card'>
+<img src='/images/dashboards/lovelace_glance_card.png' alt='Screenshot of the glance card'>
 Screenshot of the Glance card.
 </p>
 
@@ -90,15 +90,15 @@ show_state:
   default: true
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/).
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -129,7 +129,7 @@ entities:
 ```
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_glance_card.png' alt='Screenshot of the glance card with custom title'>
+<img src='/images/dashboards/lovelace_glance_card.png' alt='Screenshot of the glance card with custom title'>
 Screenshot of the glance card with custom title.
 </p>
 

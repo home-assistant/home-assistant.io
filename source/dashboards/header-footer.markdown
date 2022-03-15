@@ -5,7 +5,7 @@ description: "Decorate your dashboard cards with header and footer widgets."
 
 Some dashboard cards have support for header and footer widgets. These widgets fill up the whole available space in a card.
 
-<p class='img'><img src='/images/lovelace/header-footer/screenshot-picture-buttons.png' alt="Screenshot of an entities card with a picture header.">
+<p class='img'><img src='/images/dashboards/header-footer/screenshot-picture-buttons.png' alt="Screenshot of an entities card with a picture header.">
 Screenshot of an entities card with a picture header and buttons footer.
 </p>
 
@@ -16,7 +16,7 @@ Widget to show a picture as a header or a footer. A picture can have touch actio
 ```yaml
 header:
   type: picture
-  image: "https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png"
+  image: "https://www.home-assistant.io/images/dashboards/header-footer/balloons-header.png"
 ```
 
 {% configuration header-footer %}
@@ -30,15 +30,15 @@ image:
   type: string
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action to take on tap-and-hold. See [action documentation](/lovelace/actions/#hold-action).
+  description: Action to take on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action to take on double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  description: Action to take on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -85,7 +85,7 @@ entities:
 
 Widget to show an entity in the sensor domain as a graph in the header or footer.
 
-<p class='img'><img src='/images/lovelace/header-footer/graph.png' alt="Screenshot of an entities card with a graph footer.">
+<p class='img'><img src='/images/dashboards/header-footer/graph.png' alt="Screenshot of an entities card with a graph footer.">
 Screenshot of an entities card with a graph footer.
 </p>
 

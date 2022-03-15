@@ -8,7 +8,7 @@ description: "The Weather Forecast card displays the weather. Very useful to inc
 The Weather Forecast card displays the weather. Very useful to include on interfaces that people display on the wall.
 
 <p class='img'>
-  <img src='/images/lovelace/lovelace_weather.png' alt='Screenshot of the weather card'>
+  <img src='/images/dashboards/lovelace_weather.png' alt='Screenshot of the weather card'>
   Screenshot of the Weather card.
 </p>
 
@@ -71,15 +71,15 @@ theme:
   type: string
 tap_action:
   required: false
-  description: The action taken on card tap. For more information, see the [action documentation](/lovelace/actions/#tap-action).
+  description: The action taken on card tap. For more information, see the [action documentation](/dashboards/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: The action taken on card tap and hold. For more information, see the [action documentation](/lovelace/actions/#hold-action).
+  description: The action taken on card tap and hold. For more information, see the [action documentation](/dashboards/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: The action taken on card double-tap. For more information, see the [action documentation](/lovelace/actions/#double-tap-action).
+  description: The action taken on card double-tap. For more information, see the [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 

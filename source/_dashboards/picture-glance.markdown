@@ -8,7 +8,7 @@ description: "The Picture Glance card shows an image and corresponding entity st
 The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog.
 
 <p class='img'>
-  <img src='/images/lovelace/lovelace_picture_glance.gif' alt='Picture glance card for a living room'>
+  <img src='/images/dashboards/lovelace_picture_glance.gif' alt='Picture glance card for a living room'>
   Picture glance card for a living room.
 </p>
 
@@ -70,15 +70,15 @@ theme:
   type: string
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/).
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/).
   type: map
 {% endconfiguration %}
 
@@ -114,15 +114,15 @@ show_state:
   default: true
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 

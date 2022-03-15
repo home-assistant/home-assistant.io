@@ -35,7 +35,7 @@ show_camera:
   default: false
 navigation_path:
   required: false
-  description: link to view. For more information about views, see the [view documentation](/lovelace/views/)
+  description: link to view. For more information about views, see the [view documentation](/dashboards/views/)
   type: string
 theme:
   required: false

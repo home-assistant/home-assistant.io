@@ -8,7 +8,7 @@ description: "The Entity card gives you a quick overview of your entity's state"
 The Entity card gives you a quick overview of your entity's state.
 
 <p class='img'>
-  <img src='/images/lovelace/lovelace_entity_card.png' alt='Screenshot of the entity card'>
+  <img src='/images/dashboards/lovelace_entity_card.png' alt='Screenshot of the entity card'>
   Screenshot of the Entity card.
 </p>
 
@@ -52,7 +52,7 @@ theme:
   type: string
 footer:
   required: false
-  description: Footer widget to render. See [footer documentation](/lovelace/header-footer/).
+  description: Footer widget to render. See [footer documentation](/dashboards/header-footer/).
   type: map
 {% endconfiguration %}
 

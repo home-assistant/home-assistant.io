@@ -205,7 +205,7 @@ Click the My button below to test it out on your Home Assistant instance:
 {% my developer_template badge %}
 
 [@kubawolanin]: https://github.com/kubawolanin
-[Lovelace cards]: /lovelace/cards
+[Lovelace cards]: /dashboards/cards
 [Tim Cowell]: https://github.com/tgcowell
 [Waves]: https://github.com/tgcowell/waves
 

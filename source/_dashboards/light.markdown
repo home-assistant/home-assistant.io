@@ -8,7 +8,7 @@ description: "The Light card allows you to change the brightness of the light."
 The Light card allows you to change the brightness of the light.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_light_card.png' alt='Screenshot of the Light card'>
+<img src='/images/dashboards/lovelace_light_card.png' alt='Screenshot of the Light card'>
 Screenshot of the Light card.
 </p>
 
@@ -46,11 +46,11 @@ theme:
   type: string
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -71,6 +71,6 @@ name: My Office
 ```
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_light_complex_card.png' alt='Screenshot of the Light card'>
+<img src='/images/dashboards/lovelace_light_complex_card.png' alt='Screenshot of the Light card'>
 Screenshot of the Light card names.
 </p>

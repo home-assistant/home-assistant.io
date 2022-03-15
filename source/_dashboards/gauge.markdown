@@ -8,12 +8,12 @@ description: "The Gauge card is a basic card that allows visually seeing sensor 
 The Gauge card is a basic card that allows visually seeing sensor data.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_gauge_card.gif' alt='Screenshot of the Gauge card'>
+<img src='/images/dashboards/lovelace_gauge_card.gif' alt='Screenshot of the Gauge card'>
 Screenshot of the Gauge card.
 </p>
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_gauge_needle_card.png' alt='Screenshot of the Gauge card in needle mode'>
+<img src='/images/dashboards/lovelace_gauge_needle_card.png' alt='Screenshot of the Gauge card in needle mode'>
 Screenshot of the Gauge card in needle mode.
 </p>
 
@@ -95,7 +95,7 @@ entity: sensor.cpu_usage
 ```
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_gauge_card.gif' alt='Screenshot of the gauge card with custom title and unit of measurement'>
+<img src='/images/dashboards/lovelace_gauge_card.gif' alt='Screenshot of the gauge card with custom title and unit of measurement'>
 Screenshot of the gauge card with custom title and unit of measurement.
 </p>
 

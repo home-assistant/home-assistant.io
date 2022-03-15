@@ -8,7 +8,7 @@ description: "The Picture card allows you to set an image to use for navigation 
 The Picture card allows you to set an image to use for navigation to various paths in your interface or to call a service.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_picture.png' alt='Screenshot of the picture card'>
+<img src='/images/dashboards/lovelace_picture.png' alt='Screenshot of the picture card'>
 Screenshot of the picture card.
 </p>
 
@@ -27,15 +27,15 @@ theme:
   type: string
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -60,7 +60,7 @@ tap_action:
   navigation_path: /lovelace/home
 ```
 
-Check the [views](/lovelace/views/) setup on how to setup custom IDs.
+Check the [views](/dashboards/views/) setup on how to setup custom IDs.
 
 Toggle entity using a service:
 

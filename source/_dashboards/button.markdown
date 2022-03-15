@@ -8,7 +8,7 @@ description: "The Button card allows you to add buttons to perform tasks."
 The Button card allows you to add buttons to perform tasks.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_button_card.png' alt='Screenshot of three Button Cards'>
+<img src='/images/dashboards/lovelace_entity_button_card.png' alt='Screenshot of three Button Cards'>
 Screenshot of three Button Cards.
 </p>
 
@@ -32,9 +32,9 @@ Icon Height:
 Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
 Tap Action:
-  description: The action taken on card tap. For more information, see the [action documentation](/lovelace/actions/#tap-action).
+  description: The action taken on card tap. For more information, see the [action documentation](/dashboards/actions/#tap-action).
 Hold Action:
-  description: The action taken on card tap and hold. For more information, see the [action documentation](/lovelace/actions/#hold-action).
+  description: The action taken on card tap and hold. For more information, see the [action documentation](/dashboards/actions/#hold-action).
 {% endconfiguration_basic %}
 
 ### YAML
@@ -87,15 +87,15 @@ state_color:
   default: true
 tap_action:
   required: false
-  description: The action taken on card tap. For more information, see the [action documentation](/lovelace/actions/#tap-action).
+  description: The action taken on card tap. For more information, see the [action documentation](/dashboards/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: The action taken on card tap and hold. For more information, see the [action documentation](/lovelace/actions/#hold-action).
+  description: The action taken on card tap and hold. For more information, see the [action documentation](/dashboards/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: The action taken on card double-tap. For more information, see the [action documentation](/lovelace/actions/#double-tap-action).
+  description: The action taken on card double-tap. For more information, see the [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 theme:
   required: false
@@ -135,6 +135,6 @@ tap_action:
 ```
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_button_complex_card.png' alt='Screenshot of the Button card with Script Service'>
+<img src='/images/dashboards/lovelace_entity_button_complex_card.png' alt='Screenshot of the Button card with Script Service'>
 Screenshot of the Button card with Script Service.
 </p>
