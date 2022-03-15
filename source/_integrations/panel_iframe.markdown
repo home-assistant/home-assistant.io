@@ -66,6 +66,6 @@ panel_iframe:
 
 <div class='note warning'>
 
-Do **not** create one that is named `lovelace` it will overwrite Lovelace causing it to never load.
+Do **not** create one that is named `lovelace` it will overwrite existing Dashboards, causing it to never load.
 
 </div>

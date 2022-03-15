@@ -53,7 +53,7 @@ The card can also be configured using YAML, some examples below:
 ```yaml
 type: markdown
 content: >
-  ## Lovelace
+  ## Dashboards
 
   Starting with Home Assistant 0.72, we're experimenting with a new way of defining your interface.
 ```
