@@ -38,7 +38,7 @@ tap_action:
       default: "`toggle` (some cards overwrite default to `more-info` if the provided entity cannot be toggled)"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g., `/dashboard/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
@@ -85,7 +85,7 @@ hold_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g., `/dashboard/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
@@ -132,7 +132,7 @@ double_tap_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g., `/dashboard/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     url_path:
