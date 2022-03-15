@@ -107,7 +107,7 @@ The integration setup will next give you instructions on how to authorize Home A
 
 1. Click on the link [https://www.google.com/device](https://www.google.com/device) to open a Google website which should open a new window where you can enter the code.
 
-1. Home Assistant will wait for a short time while you complete the authorization steps, checking in the background for the authorization to be copmlete.
+1. Home Assistant will wait for a short time while you complete the authorization steps, checking in the background for the authorization to be completed.
 
     ![Screenshot of Enter Code](/images/integrations/google/enter_code.png)
 
@@ -131,7 +131,7 @@ to all the Google Calendars available to your linked account.
 
 ## Troubleshooting
 
-If the set up process fails and you see an error message such as *Authentication code expired, please try again* you may want to try the flow again. You may also check the logs for additional error messages that may indicate a misconfiguration such as an invalid client id or secret.
+If the setup process fails and you see an error message such as *Authentication code expired, please try again* you may want to try the flow again. You may also check the logs for additional error messages that may indicate a misconfiguration such as an invalid client id or secret.
 
 ## Calendar Configuration
 
