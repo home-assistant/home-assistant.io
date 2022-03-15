@@ -5,6 +5,7 @@ ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
 ha_release: 0.33
+ha_config_flow: true
 ha_domain: google
 ha_platforms:
   - calendar
@@ -78,7 +79,58 @@ calendar_access:
   default: read_write
 {% endconfiguration %}
 
-The next time you run or restart Home Assistant, you should find a new notification (the little bell icon in the lower-left corner). Click on that notification it will give you a link and an authentication code. Click on that link to open a Google website where you should enter the code found in the notification (**NOTE**: You may get a message telling you that the API has not been verified and you will need to acknowledge that in order to proceed). This will grant your Home Assistant service `read-only` or `read-write` access (based on configuration) to all the Google Calendars that the account you authenticate with can read.
+Then make sure to restart Home Assistant under _**Server Controls**_.
+
+{% my server_controls badge %}
+
+After that, you need to add Google Calendars *Integration*.
+
+{% my config_flow_start badge domain=page.ha_domain %}
+
+{% details "Manual configuration steps" %}
+
+1. Browse to your Home Assistant instance.
+1. In the sidebar click on _**{% my config icon %}**_.
+1. From the configuration menu select: _**{% my integrations icon %}**_.
+1. In the bottom right, click on the
+  _**{% my config_flow_start icon domain=page.ha_domain %}**_ button.
+1. From the list, search and select _**"Google Calendars"**_ and follow the instructions.
+
+{% enddetails %}
+
+The integration setup will next give you instructions on how to authorize Home Assistant to access your account and Calendars.
+
+{% details "OAuth and Device Authorization steps" %}
+
+1. The first step shows a link and a code.
+
+    ![Screenshot of Link Account](/images/integrations/google/link_account.png)
+
+1. Click on the link [https://www.google.com/device](https://www.google.com/device) to open a Google website which should open a new window where you can enter the code.
+
+1. Home Assistant will wait for a short time while you complete the authorization steps, checking in the background for the authorization to be copmlete.
+
+    ![Screenshot of Enter Code](/images/integrations/google/enter_code.png)
+
+1. Continue through the steps of selecting the account you used when creating the credentials in the Google Developer Console.
+
+1. **NOTE**: You may get a message telling you that the app has not been verified and you will need to acknowledge that in
+order to proceed.
+
+1. Depending on your `configuration.yaml`, you will either be granting Home Assistant *read only* or *read write* access
+to all the Google Calendars available to your linked account.
+
+1. You should then see a *Success!* message from Google.
+
+    ![Screenshot of Device Connected](/images/integrations/google/device_connected.png)
+
+1. You may close the window, and return back to Home Assistant where you should see a *Success!* message from Home Assistant.
+
+    ![Screenshot of Success](/images/integrations/google/success.png)
+
+1. If this fails and you see an error message such as *Authentication code expired, please try again* you may want to try the flow again. You may also check the logs for additional error messages that may indicate a misconfiguration such as an invalid client id or secret.
+
+{% enddetails %}
 
 ## Troubleshooting
 
