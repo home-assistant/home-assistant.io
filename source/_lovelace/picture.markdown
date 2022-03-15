@@ -57,7 +57,7 @@ type: picture
 image: /local/home.jpg
 tap_action:
   action: navigate
-  navigation_path: /lovelace/home
+  navigation_path: /dashboard/home
 ```
 
 Check the [views](/lovelace/views/) setup on how to setup custom IDs.
