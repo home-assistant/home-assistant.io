@@ -10,7 +10,7 @@ ha_platforms:
   - calendar
 ---
 
-The `google` integration allows you to connect to your [Google Calendars](https://calendar.google.com) to Home Assistant. The integration adds a calendar entity that can trigger automations based on any event on the calendar, or limited to specific matching criteria.
+The `google` integration allows you to connect to your [Google Calendars](https://calendar.google.com) to Home Assistant. The integration adds calendar entities which are shown on the *Calendar* dashboard, and can be used for automations based on any event, or limited to specific matching criteria.
 
 ## Prerequisites
 
@@ -91,7 +91,7 @@ You can then switch back the timezone to your original one and restart Home Assi
 
 ## Calendar Configuration
 
-The integration will discover new calendars and write them into a configuration file `google_calendars.yaml` in your configuration directory. The configuration file can let you control which calendars appear, or setup more elaborate event matching criteria. The calendar entities are shown on the *Calendar* dashboard and can be used for autoamations.
+The integration will discover new calendars and write them into a configuration file `google_calendars.yaml` in your configuration directory. The configuration file can let you control which calendars appear, or setup more elaborate event matching criteria.
 
 A basic entry for a single calendar looks like:
 
