@@ -14,7 +14,7 @@ The renderer uses [Marked.js](https://marked.js.org), which supports [several sp
 Screenshot of the Markdown card.
 </p>
 
-To add the Markdown card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Markdown** from the card picker.
+To add the Markdown card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Markdown** from the card picker.
 
 {% configuration %}
 type:
@@ -34,7 +34,7 @@ card_size:
   required: false
   type: integer
   default: none
-  description: The algorithm for placing cards aesthetically in Lovelace may have problems with the Markdown card if it contains templates. You can use this value to help it estimate the height of the card in units of 50 pixels (approximately 3 lines of text in default size). (e.g., `4`)
+  description: The algorithm for placing cards aesthetically may have problems with the Markdown card if it contains templates. You can use this value to help it estimate the height of the card in units of 50 pixels (approximately 3 lines of text in default size). (e.g., `4`)
 entity_id:
   required: false
   type: [string, list]
@@ -55,7 +55,7 @@ type: markdown
 content: >
   ## Lovelace
 
-  Starting with Home Assistant 0.72, we're experimenting with a new way of defining your interface. We're calling it the **Lovelace UI**.
+  Starting with Home Assistant 0.72, we're experimenting with a new way of defining your interface.
 ```
 
 ## Template variables
