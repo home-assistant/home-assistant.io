@@ -147,7 +147,7 @@ tap_action:
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g., `/dashboard/0/`) when `action` defined as `navigate`."
+      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`."
       type: string
       default: none
     url_path:
