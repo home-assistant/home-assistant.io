@@ -3,7 +3,7 @@ title: "Badges"
 description: "Description of the various badges that are available."
 ---
 
-Badges are widgets that sit at the top of a Lovelace panel, above all the cards.
+Badges are widgets that sit at the top of a panel, above all the cards.
 
 ## State Label Badge
 
