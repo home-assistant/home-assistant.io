@@ -38,7 +38,6 @@ This section explains how to generate a Client ID and Client Secret on
 1. You will then be presented with a pop-up saying 'OAuth client created' showing `Your Client ID` and `Your Client Secret`. Make a note of these (for example, copy and paste them into a text editor) as you will need to put these in your `configuration.yaml` file shortly. Once you have noted these strings, click `OK`. If you need to find these credentials again at any point then simply navigate to `APIs & Services` > `Credentials` and you will see `Home Assistant Credentials` (or whatever you named them in the previous step) under `OAuth 2.0 Clident IDs`. To view both the `Client ID` and `Client secret`, click on the pencil icon, this will take you to the settings page for these credentials and the information will be on the right hand side of the page.
 1. We need to double check that the "Google Calendar API" has been automatically enabled. To do this, select `Library` from the menu, then search for "Google Calendar API". If it is enabled you will see `API Enabled` with a green tick next to it. If it is not enabled, then enable it.
 
-If you will later be adding more scopes than just the "Google Calendar API" to the OAuth for this application, you will need to delete your token file under your Home Assistant Profile. You will lose your refresh token due to the re-authenticating to add more API access. It's recommended to use different authorizations for different pieces of Google.
 {% enddetails %}
 
 
@@ -128,18 +127,11 @@ to all the Google Calendars available to your linked account.
 
     ![Screenshot of Success](/images/integrations/google/success.png)
 
-1. If this fails and you see an error message such as *Authentication code expired, please try again* you may want to try the flow again. You may also check the logs for additional error messages that may indicate a misconfiguration such as an invalid client id or secret.
-
 {% enddetails %}
 
 ## Troubleshooting
 
-If you are trying to switch to a new Google account then you would run into the following error message. Make sure to delete the existing **.google.token** file from your `config` folder and restart Home Assistant to try again.
-
-'oauth2client.client.HttpAccessTokenRefreshError: deleted_client: The OAuth client was deleted'
-
-In case you get an `Authentication code expired, please restart Home-Assistant and try again` error message, switch your timezone to `Etc/GMT` and restart Home Assistant. This should fix the issue and the `google_calendars.yaml` configuration file will be created.
-You can then switch back the timezone to your original one and restart Home Assistant again.
+If the set up process fails and you see an error message such as *Authentication code expired, please try again* you may want to try the flow again. You may also check the logs for additional error messages that may indicate a misconfiguration such as an invalid client id or secret.
 
 ## Calendar Configuration
 
