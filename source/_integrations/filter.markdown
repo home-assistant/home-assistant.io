@@ -31,6 +31,7 @@ To enable Filter Sensors in your installation, add the following to your `config
 sensor:
   - platform: filter
     name: "filtered realistic humidity"
+    unique_id: sensor.realistic_humidity_filtered
     entity_id: sensor.realistic_humidity
     filters:
       - filter: outlier
@@ -65,7 +66,7 @@ name:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies the filter sensor. Set this to a unique value to allow customization through the UI.
+  description: An ID that uniquely identifies the filter sensor. Set this to a unique value to allow customization through the UI. If you do not define it, it will be automatically derived from the ´name´ by HA
   required: false
   type: string
 filters:
