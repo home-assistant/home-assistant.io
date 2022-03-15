@@ -1060,7 +1060,7 @@
 /integrations/cover.modbus /integrations/modbus
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio
-/integrations/lovelace /lovelace
+/integrations/lovelace /dashboards
 /integrations/remote.xiaomi_miio /integrations/xiaomi_miio
 /integrations/sensor.websocket_api /integrations/websocket_api
 /integrations/sensor.modbus /integrations/modbus
@@ -2182,11 +2182,13 @@
 /tag/* /tag 200
 
 # Lovelace documentation
-/lovelace/entity-button /lovelace/button
-/lovelace/views /lovelace/dashboards-and-views
-/lovelace/yaml-mode /lovelace/dashboards-and-views
-/lovelace/calendar-card /lovelace/calendar
-/integrations/lovelace /lovelace
+/lovelace/entity-button /dashboards/button
+/lovelace/views /dashboards/dashboards-and-views
+/lovelace/yaml-mode /dashboards/dashboards-and-views
+/lovelace/calendar-card /dashboards/calendar
+/integrations/lovelace /dashboards
+/lovelace/* /dashboards/:splat
+
 
 # Removed documentation
 /docs/installation /getting-started

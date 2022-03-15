@@ -2,20 +2,20 @@
   {% assign elements = site.lovelace | sort_natural: 'title' %}
 
   <div class="section">
-    <h1 class="title delta">Lovelace UI</h1>
+    <h1 class="title delta">Dashboards</h1>
     <ul class="divided sidebar-menu">
-      <li>{% active_link /lovelace/ Introduction %}</li>
+      <li>{% active_link /dashboards/ Introduction %}</li>
       <li>
-        {% active_link /lovelace/dashboards/ Dashboards %}
+        {% active_link /dashboards/dashboards/ Multiple Dashboards %}
       </li>
       <li>
-        {% active_link /lovelace/views/ Views %}
+        {% active_link /dashboards/views/ Views %}
       </li>
       <li>
-        {% active_link /lovelace/cards/ Cards %}
+        {% active_link /dashboards/cards/ Cards %}
       </li>
       <li>
-        {% active_link /lovelace/badges/ Badges %}
+        {% active_link /dashboards/badges/ Badges %}
       </li>
     </ul>
   </div>
@@ -45,8 +45,8 @@
   <div class="section">
     <h1 class="title delta">Advanced</h1>
     <ul class="divided sidebar-menu">
-      <li>{% active_link /lovelace/header-footer/ Headers & Footers %}</li>
-      <li>{% active_link /lovelace/actions/ Actions %}</li>
+      <li>{% active_link /dashboards/header-footer/ Headers & Footers %}</li>
+      <li>{% active_link /dashboards/actions/ Actions %}</li>
       <li>
         <a
           href="https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card.html"

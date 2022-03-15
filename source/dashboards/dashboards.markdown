@@ -1,6 +1,6 @@
 ---
-title: "Dashboards"
-description: "A powerful and configurable interface for Home Assistant."
+title: "Multiple Dashboards"
+description: "Multiple powerful and configurable dashboards in Home Assistant."
 ---
 
 You can define multiple dashboards in Home Assistant. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.

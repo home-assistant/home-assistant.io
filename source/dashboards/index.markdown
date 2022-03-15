@@ -1,9 +1,9 @@
 ---
-title: "Dashboard"
-description: "A powerful and configurable dashboard for Home Assistant."
+title: "Dashboards"
+description: "Powerful and configurable dashboards for Home Assistant."
 ---
 
-The Home Assistant dashboard is a fast, customizable and powerful way for users to manage their home using their mobiles and desktops.
+Home Assistant dashboards are a fast, customizable and powerful way for users to manage their home using their mobiles and desktops.
 
 - 29 different cards to place and configure as you like.
 - Dashboard Editor: Allows you to manage your dashboard by including a live preview when editing cards.
