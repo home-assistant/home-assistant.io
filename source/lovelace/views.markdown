@@ -1,12 +1,12 @@
 ---
 title: "Views"
-description: "A Lovelace view is a tab inside a Lovelace dashboard."
+description: "A view is a tab inside a dashboard."
 ---
 
-A View is a tab inside a Lovelace dashboard.
+A View is a tab inside a dashboard.
 To display cards on the UI you have to define them in views.
 
-You can add a view to your user interface, by clicking the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. 
+You can add a view to your user interface, by clicking the menu (three dots at the top right of the screen) and then **Edit Dashboard**. 
 Click the `+` button in the top menu bar.
 
 <p class="img">

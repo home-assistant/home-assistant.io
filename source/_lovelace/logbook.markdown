@@ -12,7 +12,7 @@ The Logbook card displays entries from the logbook for specific entities.
   Screenshot of the Logbook card.
 </p>
 
-To add the Logbook card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Logbook** from the card picker.
+To add the Logbook card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Logbook** from the card picker.
 
 ## Card Settings
 

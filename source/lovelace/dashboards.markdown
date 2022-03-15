@@ -1,11 +1,11 @@
 ---
 title: "Dashboards"
-description: "The Lovelace UI is a powerful and configurable interface for Home Assistant."
+description: "A powerful and configurable interface for Home Assistant."
 ---
 
-You can define multiple dashboards in Lovelace. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
+You can define multiple dashboards in Home Assistant. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
 
-You can manage your dashboards via the user interface. Go to **Configuration** -> **Lovelace Dashboards**. Here you can see all defined dashboards and create new ones.
+You can manage your dashboards via the user interface. Go to **Configuration** -> **Dashboards**. Here you can see all defined dashboards and create new ones.
 
 ## Using YAML for the default dashboard
 
@@ -21,13 +21,13 @@ A good way to start this file is to copy and paste the "Raw configuration" from 
 - Click `Overview` in your sidebar.
 - Click the three dots menu (top-right) and click on `Edit Dashboard`.
 - Click the three dots menu again and click on `Raw configuration editor`.
-- There you see the configuration for your current Lovelace UI. Copy that into the `<config>/ui-lovelace.yaml` file.
+- There you see the configuration for your current dashboard. Copy that into the `<config>/ui-lovelace.yaml` file.
 
 Once you take control of your UI via YAML, the Home Assistant interface for modifying it won't be available anymore and new entities will not automatically be added to your UI.
 
 When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button in the menu at the top of the UI.
 
-To revert back to using the UI to edit your Lovelace interface, remove the `lovelace` section from your `configuration.yaml` and copy the contents of your `ui-lovelace.yaml` into the raw configuration section of Home Assistant and restart.
+To revert back to using the UI to edit your dashboard, remove the `lovelace` section from your `configuration.yaml` and copy the contents of your `ui-lovelace.yaml` into the raw configuration section of Home Assistant and restart.
 
 ## Adding more dashboards with YAML
 
@@ -36,7 +36,7 @@ It is also possible to use YAML to define multiple dashboards. Each dashboard wi
 ```yaml
 lovelace:
   mode: yaml
-  # Include external resources only add when mode is yaml, otherwise manage in the resources in the lovelace configuration panel.
+  # Include external resources only add when mode is yaml, otherwise manage in the resources in the dashboard configuration panel.
   resources:
     - url: /local/my-custom-card.js
       type: module
@@ -76,11 +76,11 @@ lovelace:
 {% configuration Lovelace %}
 mode:
   required: true
-  description: "In what mode should the main Lovelace panel be, `yaml` or `storage` (UI managed)."
+  description: "In what mode should the main dashboard be, `yaml` or `storage` (UI managed)."
   type: string
 resources:
   required: false
-  description: "List of resources that should be loaded when you use Lovelace. Only use this when mode is `yaml`. If you change anything here, click the three dots menu (top-right) and click on `Reload resources` for Lovelace to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` service directly."
+  description: "List of resources that should be loaded. Only use this when mode is `yaml`. If you change anything here, click the three dots menu (top-right) and click on `Reload resources` to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` service directly."
   type: list
   keys:
     url:
@@ -93,16 +93,16 @@ resources:
       type: string
 dashboards:
   required: false
-  description: Additional Lovelace YAML dashboards. The key is used for the URL and should contain a hyphen (`-`)
+  description: Additional YAML dashboards. The key is used for the URL and should contain a hyphen (`-`)
   type: map
   keys:
     mode:
       required: true
-      description: "The mode of the dashboard, this should always be `yaml`. Dashboards in `storage` mode can be created in the Lovelace configuration panel."
+      description: "The mode of the dashboard, this should always be `yaml`. Dashboards in `storage` mode can be created in the configuration panel."
       type: string
     filename:
       required: true
-      description: "The file in your `config` directory where the Lovelace configuration for this panel is."
+      description: "The file in your `config` directory where the configuration for this panel is."
       type: string
     title:
       required: true
@@ -124,7 +124,7 @@ dashboards:
       default: false
 {% endconfiguration %}
 
-As a super minimal example of a Lovelace dashboard config, here's the bare minimum you will need for it to work:
+As a super minimal example of a dashboard config, here's the bare minimum you will need for it to work:
 
 ```yaml
 title: My Awesome Home
@@ -134,9 +134,9 @@ views:
     cards:
         # The markdown card will render markdown text.
       - type: markdown
-        title: Lovelace
+        title: Dashboard
         content: >
-          Welcome to your **Lovelace UI**.
+          Welcome to your **dashboard**.
 ```
 
 A slightly more advanced example:
@@ -188,7 +188,7 @@ views:
 
         # The markdown card will render markdown text.
       - type: markdown
-        title: Lovelace
+        title: Dashboard
         content: >
-          Welcome to your **Lovelace UI**.
+          Welcome to your **dashboard**.
 ```
