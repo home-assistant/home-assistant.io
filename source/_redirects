@@ -2188,6 +2188,7 @@
 /lovelace/calendar-card /dashboards/calendar
 /integrations/lovelace /dashboards
 /lovelace/* /dashboards/:splat
+/images/lovelace/* /images/dashboards/:splat
 
 
 # Removed documentation
