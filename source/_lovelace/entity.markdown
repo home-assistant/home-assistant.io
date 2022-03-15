@@ -12,7 +12,7 @@ The Entity card gives you a quick overview of your entity's state.
   Screenshot of the Entity card.
 </p>
 
-To add the Entity card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Entity** from the card picker.
+To add the Entity card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Entity** from the card picker.
 
 {% configuration %}
 type:
