@@ -10,17 +10,15 @@ ha_platforms:
   - calendar
 ---
 
-The `google` calendar platform allows you to connect to your
-[Google Calendars](https://calendar.google.com) and generate binary sensors.
-The sensors created can trigger based on any event on the calendar or only for
-matching events. When you first setup this integration it will generate a new
-configuration file `google_calendars.yaml` in your configuration directory that will contain information about
-all of the calendars you can see.
-It also exposes a service to add an event to one of your Google Calendars.
+The `google` integration allows you to connect to your [Google Calendars](https://calendar.google.com) to Home Assistant. The integration adds a calendar entity that can trigger automations based on any event on the calendar, or limited to specific matching criteria.
 
 ## Prerequisites
 
-Generate a Client ID and Client Secret on
+You need to configure developer credentials to allow Home Assistant to access your Google Account.
+
+{% details "Generate Client ID and Client Secret" %}
+
+This section explains how to generate a Client ID and Client Secret on
 [Google Developers Console](https://console.developers.google.com/start/api?id=calendar).
 
 1. First go to the [Google Developers Console](https://console.developers.google.com/start/api?id=calendar)
@@ -40,15 +38,8 @@ Generate a Client ID and Client Secret on
 1. We need to double check that the "Google Calendar API" has been automatically enabled. To do this, select `Library` from the menu, then search for "Google Calendar API". If it is enabled you will see `API Enabled` with a green tick next to it. If it is not enabled, then enable it.
 
 If you will later be adding more scopes than just the "Google Calendar API" to the OAuth for this application, you will need to delete your token file under your Home Assistant Profile. You will lose your refresh token due to the re-authenticating to add more API access. It's recommended to use different authorizations for different pieces of Google.
+{% enddetails %}
 
-## Troubleshooting
-
-If you are trying to switch to a new Google account then you would run into the following error message. Make sure to delete the existing **.google.token** file from your `config` folder and restart Home Assistant to try again.
-
-'oauth2client.client.HttpAccessTokenRefreshError: deleted_client: The OAuth client was deleted'
-
-In case you get an `Authentication code expired, please restart Home-Assistant and try again` error message, switch your timezone to `Etc/GMT` and restart Home Assistant. This should fix the issue and the `google_calendars.yaml` configuration file will be created.
-You can then switch back the timezone to your original one and restart Home Assistant again.
 
 ## Configuration
 
@@ -89,9 +80,18 @@ calendar_access:
 
 The next time you run or restart Home Assistant, you should find a new notification (the little bell icon in the lower-left corner). Click on that notification it will give you a link and an authentication code. Click on that link to open a Google website where you should enter the code found in the notification (**NOTE**: You may get a message telling you that the API has not been verified and you will need to acknowledge that in order to proceed). This will grant your Home Assistant service `read-only` or `read-write` access (based on configuration) to all the Google Calendars that the account you authenticate with can read.
 
+## Troubleshooting
+
+If you are trying to switch to a new Google account then you would run into the following error message. Make sure to delete the existing **.google.token** file from your `config` folder and restart Home Assistant to try again.
+
+'oauth2client.client.HttpAccessTokenRefreshError: deleted_client: The OAuth client was deleted'
+
+In case you get an `Authentication code expired, please restart Home-Assistant and try again` error message, switch your timezone to `Etc/GMT` and restart Home Assistant. This should fix the issue and the `google_calendars.yaml` configuration file will be created.
+You can then switch back the timezone to your original one and restart Home Assistant again.
+
 ## Calendar Configuration
 
-With every restart all calendars of the configured Google account will get pulled and added to the `google_calendars.yaml` and preconfigured as a single entity. By setting the 'track' variable to `true` the calendar will get monitored for new events which can be used for automations and its content is shown on the 'Calendar' dashboard.
+The integration will discover new calendars and write them into a configuration file `google_calendars.yaml` in your configuration directory. The configuration file can let you control which calendars appear, or setup more elaborate event matching criteria. The calendar entities are shown on the *Calendar* dashboard and can be used for autoamations.
 
 A basic entry for a single calendar looks like:
 
@@ -177,7 +177,7 @@ entities:
       default: true
 {% endconfiguration %}
 
-### Sensor attributes
+### Calendar attributes
 
 - **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset in the title in minutes is reached. So the title `Very important meeting #Important !!-10` would trigger this attribute to be `on` 10 minutes before the event starts.
 - **all_day**: `true`/`false` if this is an all day event. Will be `false` if there is no event found.
