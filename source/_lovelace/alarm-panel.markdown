@@ -12,7 +12,7 @@ The Alarm Panel card allows you to arm and disarm your [alarm control panel](/in
 Screenshot of the Alarm Panel card.
 </p>
 
-To add the Alarm Panel card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Alarm Panel** from the card picker. All options for this card can be configured via the user interface.
+To add the Alarm Panel card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Alarm Panel** from the card picker. All options for this card can be configured via the user interface.
 
 Alternatively, the card can be configured using YAML:
 

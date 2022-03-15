@@ -1,9 +1,9 @@
 ---
-title: "Headers & Footers for Lovelace cards"
-description: "Decorate your Lovelace cards with header and footer widgets."
+title: "Headers & Footers for dashboard cards"
+description: "Decorate your dashboard cards with header and footer widgets."
 ---
 
-Some Lovelace cards have support for header and footer widgets. These widgets fill up the whole available space in a card.
+Some dashboard cards have support for header and footer widgets. These widgets fill up the whole available space in a card.
 
 <p class='img'><img src='/images/lovelace/header-footer/screenshot-picture-buttons.png' alt="Screenshot of an entities card with a picture header.">
 Screenshot of an entities card with a picture header and buttons footer.

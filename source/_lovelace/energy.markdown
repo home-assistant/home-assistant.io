@@ -5,7 +5,7 @@ sidebar_label: Energy Cards
 description: "An overview of the energy cards that are available."
 ---
 
-This is a list of all the cards used in the energy dashboard, you can also place them anywhere you want in your Lovelace dashboard.
+This is a list of all the cards used in the energy dashboard, you can also place them anywhere you want in your dashboard.
 
 At the moment there are no configuration options available for these cards, you can configure them on the {% my config_energy title="energy configuration page" %}.
 
