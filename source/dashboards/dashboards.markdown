@@ -70,10 +70,10 @@ lovelace:
       title: YAML
       icon: mdi:script
       show_in_sidebar: true
-      filename: lovelace.yaml
+      filename: dashboards.yaml
 ```
 
-{% configuration Lovelace %}
+{% configuration dashboards %}
 mode:
   required: true
   description: "In what mode should the main dashboard be, `yaml` or `storage` (UI managed)."
