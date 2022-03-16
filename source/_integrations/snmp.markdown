@@ -59,6 +59,7 @@ device_tracker:
     host: 192.168.1.1
     community: public
     baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
+    timeout: 1
 ```
 
 If you want to use encryption, you must enable SNMP version 3 by adding `auth_key` and `priv_key` variables and enabling SNMP version 3 on your router. Currently only SHA1 is supported for authentication and AES for encryption. Example of SNMPv3 configuration:
@@ -72,6 +73,7 @@ device_tracker:
     auth_key: AUTHPASS
     priv_key: PRIVPASS
     baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
+    timeout: 1
 ```
 
 {% configuration %}
@@ -95,6 +97,11 @@ priv_key:
   description: "Privacy key SNMPv3. Variable `auth_key` must also be set."
   required: inclusive
   type: string
+timeout:
+  description: "Set timeout of SNMP operations in seconds."
+  required: false
+  type: integer
+  default: 1
 {% endconfiguration %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
@@ -184,6 +191,11 @@ default_value:
   description: "Determines what value the sensor should take if `accept_errors` is set and the host is unreachable or not responding. If not set, the sensor will have value `unknown` in case of errors."
   required: false
   type: string
+timeout:
+  description: "Set timeout of SNMP operations in seconds."
+  required: false
+  type: integer
+  default: 1
 {% endconfiguration %}
 
 Valid values for `auth_protocol`:
@@ -240,6 +252,7 @@ sensor:
     accept_errors: true
     unit_of_measurement: "minutes"
     value_template: "{{((value | int) / 6000) | int}}"
+    timeout: 3
 ```
 
 {% endraw %}
@@ -247,6 +260,8 @@ sensor:
 The `accept_errors` option will allow the sensor to work even if the printer is not on when Home Assistant is first started: the sensor will just display a `-` instead of a minute count.
 
 The `value_template` option converts the original value to minutes.
+
+The `timeout` option will adjust the timeout of SNMP operation.  Useful for when the target device is responding slower than the default 1 second timeout.
 
 ## Switch
 
@@ -341,6 +356,11 @@ vartype:
   required: false
   type: string  
   default: 'none'
+timeout:
+  description: "Set timeout of SNMP operations in seconds."
+  required: false
+  type: integer
+  default: 1
 {% endconfiguration %}
 
 You should check with your device's vendor to find out the correct BaseOID and what values turn the switch on and off.
