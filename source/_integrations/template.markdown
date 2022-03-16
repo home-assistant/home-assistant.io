@@ -572,11 +572,11 @@ template:
         event_type: YOUR_EVENT
       - platform: state
         entity_id: binary_sensor.doorbell_rang
-        to: ~
+        to: "off"
     binary_sensor:
       name: doorbell_rang
-      icon: "{{ 'mdi:bell-ring-outline' if is_state('binary_sensor.doorbell_rang', 'on') else 'mdi:bell-outline' }}"
-      state: "{{ trigger.platform == 'event' or states('binary_sensor.doorbell_rang') }}"
+      icon: "{{ (trigger.platform == 'event') | iif('mdi:bell-ring-outline', 'mdi:bell-outline') }}"
+      state: "{{ trigger.platform == 'event' }}"
       auto_off:
         seconds: 5
 ```
