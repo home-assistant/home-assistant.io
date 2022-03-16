@@ -6,6 +6,7 @@ ha_category:
   - Cover
   - Hub
   - Sensor
+  - Switch
 ha_release: 2021.6
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -16,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - cover
   - sensor
+  - switch
 ha_zeroconf: true
 ---
 
@@ -26,6 +28,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Cover](#cover)
 - [Sensor](#sensor)
+- [Switch](#switch)
 
 {% include integrations/config_flow.md %}
 
@@ -47,6 +50,14 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Thermostat
 - Wall Thermostat
 - Twinguard
+- Smart Plug
+- Smart Plug Compact
+
+### Switch
+
+The switch platform allows you to control your outlets and light switches. Switches are added for each of the following devices:
+
+- Light Switch
 - Smart Plug
 - Smart Plug Compact
 

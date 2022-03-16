@@ -64,7 +64,6 @@ source/_integrations/blebox.markdown @bbx-a @bbx-jp
 source/_integrations/blink.markdown @fronzbot
 source/_integrations/blueprint.markdown @home-assistant/core
 source/_integrations/bluesound.markdown @thrawnarn
-source/_integrations/bmp280.markdown @belidzs
 source/_integrations/bmw_connected_drive.markdown @gerard33 @rikroe
 source/_integrations/bond.markdown @bdraco @prystupa @joshs85
 source/_integrations/bosch_shc.markdown @tschamm
@@ -113,7 +112,6 @@ source/_integrations/devolo_home_control.markdown @2Fake @Shutgun
 source/_integrations/devolo_home_network.markdown @2Fake @Shutgun
 source/_integrations/dexcom.markdown @gagebenne
 source/_integrations/dhcp.markdown @bdraco
-source/_integrations/dht.markdown @thegardenmonkey
 source/_integrations/diagnostics.markdown @home-assistant/core
 source/_integrations/digital_ocean.markdown @fabaff
 source/_integrations/discogs.markdown @thibmaek
@@ -300,7 +298,6 @@ source/_integrations/lyric.markdown @timmo001
 source/_integrations/mastodon.markdown @fabaff
 source/_integrations/matrix.markdown @tinloaf
 source/_integrations/mazda.markdown @bdr99
-source/_integrations/mcp23017.markdown @jardiamj
 source/_integrations/media_source.markdown @hunterjm
 source/_integrations/mediaroom.markdown @dgomes
 source/_integrations/melcloud.markdown @vilppuvuorinen
@@ -384,18 +381,14 @@ source/_integrations/opentherm_gw.markdown @mvn23
 source/_integrations/openuv.markdown @bachya
 source/_integrations/openweathermap.markdown @fabaff @freekode @nzapponi
 source/_integrations/opnsense.markdown @mtreinish
-source/_integrations/orangepi_gpio.markdown @pascallj
 source/_integrations/oru.markdown @bvlaicu
 source/_integrations/overkiz.markdown @imicknl @vlebourl @tetienne
 source/_integrations/ovo_energy.markdown @timmo001
-source/_integrations/ozw.markdown @cgarwood @marcelveldt @MartinHjelmare
 source/_integrations/p1_monitor.markdown @klaasnicolaas
 source/_integrations/panel_custom.markdown @home-assistant/frontend
 source/_integrations/panel_iframe.markdown @home-assistant/frontend
-source/_integrations/pcal9535a.markdown @Shulyaka
 source/_integrations/persistent_notification.markdown @home-assistant/core
 source/_integrations/philips_js.markdown @elupus
-source/_integrations/pi4ioe5v9xxxx.markdown @antonverburg
 source/_integrations/pi_hole.markdown @fabaff @johnluetke @shenxn
 source/_integrations/picnic.markdown @corneyl
 source/_integrations/pilight.markdown @trekky12
@@ -445,7 +438,6 @@ source/_integrations/rmvtransport.markdown @cgtobi
 source/_integrations/roku.markdown @ctalkington
 source/_integrations/roomba.markdown @pschmitt @cyr-ius @shenxn
 source/_integrations/roon.markdown @pavoni
-source/_integrations/rpi_gpio_pwm.markdown @soldag
 source/_integrations/rpi_power.markdown @shenxn @swetoast
 source/_integrations/rtsp_to_webrtc.markdown @allenporter
 source/_integrations/ruckus_unleashed.markdown @gabe565
