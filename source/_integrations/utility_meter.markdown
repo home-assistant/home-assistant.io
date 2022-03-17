@@ -110,25 +110,6 @@ Calibrate the Utility Meter. Change the value of a given sensor.
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 | `value` | no | Number | Value to calibrate the sensor with | 
 
-### Service `utility_meter.next_tariff`
-
-Change the current tariff to the next in the list.
-This service must be called by the user for the tariff switching logic to occur (e.g.,  using an automation)
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
-
-### Service `utility_meter.select_tariff`
-
-Change the current tariff to the given tariff.
-This service must be called by the user for the tariff switching logic to occur (e.g.,  using an automation)
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
-| `tariff` | no | String that is equal to one of the defined tariffs.
-
 ## Advanced Configuration
 
 The following configuration shows an example where 2 utility_meters (`daily_energy` and `monthly_energy`) track daily and monthly energy consumptions.
@@ -138,7 +119,7 @@ Both track the same sensor (`sensor.energy`) which continuously monitors the ene
 4 different sensors will be created, 2 per utility meter and corresponding to each tariff.
 Sensor `sensor.daily_energy_peak`, `sensor.daily_energy_offpeak`, `sensor.monthly_energy_peak` and `sensor.monthly_energy_offpeak` will automatically be created to track the consumption in each tariff for the given cycle.
 
-`utility_meter.daily_energy` and `utility_meter.monthly_energy` entities will track the current tariff and provide a service to change the tariff.
+The `select.daily_energy` and `select.monthly_energy` select entities will track the current tariff and allow changing the tariff.
 
 ```yaml
 utility_meter:
@@ -170,15 +151,21 @@ automation:
   trigger:
     - platform: time
       at: "09:00:00"
+      id: "peak"
     - platform: time
       at: "21:00:00"
+      id: "offpeak"
   action:
-    - service: utility_meter.next_tariff
+    - service: select.select_option
       target:
         entity_id: utility_meter.daily_energy
+      data:
+        option: "{{ trigger.id }}"
     - service: utility_meter.next_tariff
       target:
         entity_id: utility_meter.monthly_energy
+      data:
+        option: "{{ trigger.id }}"
 ```
 
 Assuming your utility provider cycle is offset from the last day of the month
