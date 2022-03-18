@@ -165,9 +165,11 @@
 /components /integrations
 
 # Renamed integrations
+/integrations/air_pollutants /integrations/air_quality
 /integrations/generic_ip_camera /integrations/generic
 /integrations/google /integrations/google_translate
 /integrations/input_slider /integrations/input_number
+/integrations/light.switch /integrations/switch_as_x
 /integrations/openalpr /integrations/openalpr_local
 /integrations/pca /integrations/elv
 /integrations/pollen /integrations/iqvia
@@ -178,7 +180,6 @@
 /integrations/vlc-telnet /integrations/vlc_telnet
 /integrations/xiaomi /integrations/xiaomi_aqara
 /integrations/zigbee /integrations/xbee
-/integrationss/air_pollutants /integrations/air_quality
 
 # Moved documentation
 /details/database /docs/backend/database
