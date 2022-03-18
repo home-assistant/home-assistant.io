@@ -21,7 +21,7 @@ of the values provided by a source sensor. The Riemann sum is an approximation
 of an **integral** by a finite sum.
 
 The integration sensors are updated upon changes of the **source**. Fast
-sampling source sensors provide better results. In this implementation, the
+sampling source sensors provide more accurate results. In this implementation, the
 default is the Trapezoidal method, but Left and Right methods can optionally
 be used.
 
