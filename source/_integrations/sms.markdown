@@ -32,6 +32,7 @@ You can also enable `SMS` via your `configuration.yaml` file:
 # Example configuration.yaml entry
 sms:
   device: /dev/ttyUSB2
+  baud_speed: 19200 # Optional
 ```
 
 To configure the notification service, edit your `configuration.yaml` file:
@@ -51,6 +52,10 @@ device:
   description: The gsm modem device.
   required: true
   type: string
+baud_speed:
+  description: Baud speed of the modem device. Only needed for modems that cannot auto configure this setting.
+  required: False
+  type: integer
 {% endconfiguration %}
 
 ## Notifications
