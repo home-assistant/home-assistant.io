@@ -28,10 +28,10 @@ With this integration you can select various sources to get a version from.
 
 {% configuration_basic %}
   "Local installation":
-    description: The will get the version you are currently running.
+    description: This will get the version you are currently running.
 
   "Home Assistant Versions":
-    description: This will use the same source that are used by the Supervisor to check for updates based on the channel and image you choose..
+    description: This will use the same source that are used by the Supervisor to check for updates based on the channel and image you choose.
 
   "Home Assistant Website":
     description: This will check the website you are reading this on to find the latest version.
@@ -46,7 +46,7 @@ With this integration you can select various sources to get a version from.
 
 ## Entities
 
-The entities created by this integration depends on which source you set it up with (You can also set up the integration multiple times to use more sources).
+The entities created by this integration depends on which source you set it up with (you can also set up the integration multiple times to use more sources).
 
 ### Sensor
 
