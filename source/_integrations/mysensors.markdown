@@ -487,6 +487,7 @@ All V_TYPES above are required. Use V_PERCENTAGE (or V_DIMMER) if you know the e
 #define MY_RADIO_NRF24
 
 #include <MySensors.h>
+
 #define SN "Cover"
 #define SV "1.1"
 
@@ -600,3 +601,86 @@ void receive(const MyMessage &message) {
 This sketch is ideally for star topology wiring. You can run up to 12 covers with a single Arduino Mega board and some relays. All you need to set is one line of parameters for one Cover. However, you can also use it for a single cover based on an Arduino Nano or even an ESP8266 board.
 
 [Check out the code on GitHub.](https://github.com/gryzli133/RollerShutterSplit)
+
+## Device Tracker
+
+The following sensor types are supported:
+
+#### MySensors version 2.0 and higher
+
+| S_TYPE | V_TYPE     |
+| ------ | ---------- |
+| S_GPS  | V_POSITION |
+
+#### Device Tracker example sketch for MySensors 2.x
+
+```cpp
+/**
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
+ *
+ * https://www.mysensors.org/build/gps
+ */
+
+// Enable debug prints to serial monitor
+#define MY_DEBUG
+#define MY_RADIO_NRF24
+
+#include <MySensors.h>
+
+#define SN "GPS Sensor"
+#define SV "1.0"
+
+// GPS position send interval (in milliseconds)
+#define GPS_SEND_INTERVAL 30000
+// The child id used for the gps sensor
+#define CHILD_ID_GPS 1
+
+MyMessage msg(CHILD_ID_GPS, V_POSITION);
+
+// Last time GPS position was sent to controller
+unsigned long lastGPSSent = -31000;
+
+// Some buffers
+char latBuf[11];
+char lngBuf[11];
+char altBuf[6];
+char payload[30];
+
+// Dummy values. Implementation of real GPS device is not done.
+float gpsLocationLat = 40.741895;
+float gpsLocationLng = -73.989308;
+float gpsAltitudeMeters = 12.0;
+
+void setup() {
+
+}
+
+void presentation() {
+  sendSketchInfo(SN, SV);
+  present(CHILD_ID_GPS, S_GPS);
+}
+
+void loop()
+{
+  unsigned long currentTime = millis();
+
+  // Evaluate if it is time to send a new position
+  bool timeToSend = currentTime - lastGPSSent > GPS_SEND_INTERVAL;
+
+  if (timeToSend) {
+    // Send current gps location
+    // Build position and altitude string to send
+    dtostrf(gpsLocationLat, 1, 6, latBuf);
+    dtostrf(gpsLocationLng, 1, 6, lngBuf);
+    dtostrf(gpsAltitudeMeters, 1, 0, altBuf);
+    sprintf(payload, "%s,%s,%s", latBuf, lngBuf, altBuf);
+
+    Serial.print(F("Position: "));
+    Serial.println(payload);
+
+    send(msg.set(payload));
+    lastGPSSent = currentTime;
+  }
+}
+```
