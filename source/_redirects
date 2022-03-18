@@ -206,26 +206,16 @@
 /docs/frontend/mobile https://companion.home-assistant.io
 /docs/script/editor /docs/scripts/editor
 /docs/z-wave /integrations/zwave_js
-/docs/z-wave/adding /integrations/zwave/#adding-and-removing-devices
-/docs/z-wave/control-panel /integrations/zwave/#control-panel
+/docs/z-wave/adding /integrations/zwave_js#how-can-i-add-include-a-new-device-to-my-z-wave-network
+/docs/z-wave/control-panel /integrations/zwave_js#using-z-wave-js
 /docs/z-wave/controllers/#aeotec-stick /docs/z-wave/controllers/#aeotec-z-stick
-/docs/z-wave/devices /integrations/zwave/#device-support
-/docs/z-wave/devices/#instant-status /integrations/zwave/#instant-status
-/docs/z-wave/devices/#polling /integrations/zwave/#polling
-/docs/z-wave/device-specific /integrations/zwave/#device-specific-information
-/docs/z-wave/device-specific/#device-categories /integrations/zwave/#device-support
-/docs/z-wave/device-specific/#motion-or-alarm-sensors /integrations/zwave/#binary-sensor
-/docs/z-wave/device-specific/#locks-and-other-secure-devices /integrations/zwave/#lock
-/docs/z-wave/device-specific/#specific-devices /integrations/zwave/#device-specific-information
-/docs/z-wave/device-specific/#aeotec-z-stick /docs/z-wave/controllers/#aeotec-z-stick
-/docs/z-wave/device-specific/#razberry-board /docs/z-wave/controllers/#razberry-board
-/docs/z-wave/device-specific/#raspberry-pi-3-procedure /docs/z-wave/controllers/#raspberry-pi-3-procedure
-/docs/z-wave/device-specific/#raspberry-pi-4-procedure /docs/z-wave/controllers/#raspberry-pi-4-procedure
-/docs/z-wave/entities /integrations/zwave/#device-support
-/docs/z-wave/events /integrations/zwave/#events
-/docs/z-wave/installation /integrations/zwave/#detailed-installation-instructions
-/docs/z-wave/query-stage /integrations/zwave/#query-stage
-/docs/z-wave/services /integrations/zwave/#services
+/docs/z-wave/device-specific /integrations/zwave_js
+/docs/z-wave/devices /integrations/zwave_js#supported-devices-and-command-classes
+/docs/z-wave/entities /integrations/zwave_js#using-z-wave-js
+/docs/z-wave/events /integrations/zwave_js#events
+/docs/z-wave/installation /integrations/zwave_js#configuration
+/docs/z-wave/query-stage /integrations/zwave_js
+/docs/z-wave/services /integrations/zwave_js#services
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io
@@ -481,3 +471,4 @@
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
+/components/zwave /integrations/zwave_js
