@@ -1,6 +1,6 @@
 ---
 title: MySensors
-description: Instructions on how to integrate MySensors sensors into Home Assistant.
+description: Instructions on how to integrate MySensors into Home Assistant.
 ha_category:
   - DIY
 ha_iot_class: Local Push
@@ -23,9 +23,7 @@ ha_config_flow: true
 
 The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
 
-## Configuration
-
-To integrate your Serial, Ethernet (LAN) or MQTT MySensors Gateway, go to **Configuration** >> **Devices & Services** in the UI, click the button with `+` sign and from the list of integration select **MySensors**.
+{% include integrations/config_flow.md %}
 
 Configuration depends on the type of Gateway you use:
 
@@ -41,8 +39,7 @@ In addition to the serial device you also need to enter the baud rate.
 
 ### MQTT gateway
 
-If you are using the MQTT gateway, enter `mqtt` instead of an IP address or serial device.
-You will also need to enter topic prefixes for input and output. These need to be swapped
+If you are using the MQTT gateway, you will need to enter topic prefixes for input and output. These need to be swapped
 with the settings of the gateway. I.e. the input topic for Home Assistant needs to be the output (publish) topic of the gateway.
 
 <div class='note'>
@@ -57,19 +54,13 @@ To use an Ethernet gateway, you need to configure the IP address and port of the
 
 A few options are available for all gateways:
 
-- optimistic  
-  If the optimistic option is selected, Home Assistant will assume any requested changes (turn on light, open cover) are applied immediately without waiting for feedback from the node.
+- persistence file:
+  Home Assistant will store detected nodes in a file. This means restarting Home Assistant will not require re-discovering of all the nodes. The persistence file option allows setting the path of the file. Leaving the option empty will make Home Assistant auto-generate a file name in the configuration directory.
 
-- persistence  
-  If the persistence option is selected, Home Assistant will store detected nodes in a file. This means restarting Home Assistant will not require re-discovering of all the nodes.
+- version:
+  Enter the version of MySensors that you use for your gateway.
 
-- versions  
-  Enter the version of MySensors that you use
-<div class='note'>
-Not all features of MySensors 2.x are supported by Home Assistant yet. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under "related components" to see what message types are currently supported.
-</div>
-
-### Presentation
+## Presentation
 
 Present a MySensors sensor or actuator, by following these steps:
 
@@ -162,13 +153,13 @@ void receive(const MyMessage &message) {
 }
 ```
 
-### SmartSleep
+## SmartSleep
 
 Sending a heartbeat, `I_HEARTBEAT_RESPONSE`, from the MySensors device to Home Assistant, using MySensors version 2.0 - 2.1, activates the SmartSleep functionality in Home Assistant. This means that messages are buffered and only sent to the device upon receiving a heartbeat from the device. State changes are stored so that only the last requested state change is sent to the device. Other types of messages are queued in a FIFO queue. SmartSleep is useful for battery powered actuators that are waiting for commands. See the MySensors library API for information on how to send heartbeats and sleep the device.
 
 In MySensors version 2.2 the serial API changed from using `I_HEARTBEAT_RESPONSE` to signal SmartSleep, to using `I_PRE_SLEEP_NOTIFICATION` and `I_POST_SLEEP_NOTIFICATION`. Home Assistant has been upgraded to support the new message types and will activate SmartSleep when receiving a message of type `I_PRE_SLEEP_NOTIFICATION`, if using MySensors version 2.2.x or higher. If Home Assistant is configured to use MySensors version 2.0 - 2.1 the old SmartSleep behavior is retained.
 
-### Message validation
+## Message validation
 
 Messages sent to or from Home Assistant from or to a MySensors device will be validated according to the MySensors [serial API](https://www.mysensors.org/download/serial_api_20). If a message doesn't pass validation, it will be dropped and not be passed forward either to or from Home Assistant. Make sure you follow the serial API for your version of MySensors when writing your Arduino sketch.
 
@@ -176,7 +167,7 @@ The log should warn you of messages that failed validation or if a child value i
 
 Message validation was introduced in version 0.52 of Home Assistant.
 
-### Debug logging
+## Debug logging
 
 If you experience dropped messages or that a device is not added to Home Assistant, please turn on debug logging for the `mysensors` integration and the `mysensors` package. This will help you see what is going on. Make sure you use these logging settings to collect a log sample if you report an issue about the `mysensors` integration in our GitHub issue tracker.
 
