@@ -12,7 +12,7 @@ ha_domain: sun
 ha_config_flow: true
 ---
 
-The sun integration will use the location your
+The sun integration will use the location as
 {% my general title="configured in your Home Assistant configuration" %} to
 track if the sun is above or below the horizon. The sun can be used within
 automation as
