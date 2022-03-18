@@ -27,7 +27,7 @@ ha_config_flow: true
 ha_dhcp: true
 ---
 
-The Magic Home integration supports several brands of switches, bulbs, and controllers that use the same protocol. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the Magic Home app.
+The Magic Home integration supports several brands of switches, bulbs, and controllers that use the same protocol. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the Magic Home app or the Surp Life app.
 
 This integration will provide local control over your LED lights/strips and can be configured to auto-scan your network for controllers or for you to manually configure individual lights by their IP address.
 
@@ -119,6 +119,7 @@ These devices have been sold under at least the following brands:
 - SMFX
 - [Sumaote](https://fvtled.com/)
 - [Superhome](https://superhome.com.cy/)
+- [SurpLife](http://www.zengge.com/newbrand)
 - [SuperlightingLED](https://www.superlightingled.com/)
 - Svipear
 - Tommox

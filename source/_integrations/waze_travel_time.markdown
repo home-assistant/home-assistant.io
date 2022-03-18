@@ -104,5 +104,5 @@ In this example we are using the entity ID of a zone as the origin and the frien
 ## Using the live map in an iFrame
 
 If you plan to use [Waze's live map](https://developers.google.com/waze/iframe/)
-in Lovelace [iframe](/lovelace/iframe/) then use
+in a dashboard [iframe](/dashboards/iframe/) then use
 [https://embed.waze.com/iframe](https://embed.waze.com/iframe) and not the live map URL itself.
