@@ -81,12 +81,13 @@ Note: When running Home Assistant, you need to install the SSH add-on.
 You will need a USB GSM stick modem or device like SIM800L v2 connected via USB UART.
 
 ### List of modems known to work
-
+- [SIM800C HAT form factor](https://www.amazon.com/gp/product/B07PQLRCNR/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1) Make sure to `enable_uart=1` on your `config.txt` boot file.
+- [SIM800C](https://www.amazon.com/gp/product/B087Z6F953/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 - [Huawei E3372-510](https://www.amazon.com/gp/product/B01N6P3HI2/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)(
 Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/convert-huawei-e3372h-153-from.html))
 - [Huawei E3531](https://www.amazon.com/Modem-Huawei-Unlocked-Caribbean-Desbloqueado/dp/B011YZZ6Q2/ref=sr_1_1?keywords=Huawei+E3531&qid=1581447800&sr=8-1)
 - [Huawei E3272](https://www.amazon.com/Huawei-E3272s-506-Unlocked-Americas-Europe/dp/B00HBL51OQ)
-- [SIM800C](https://www.amazon.com/gp/product/B087Z6F953/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
+
 
 ### List of modems known to NOT work
 
