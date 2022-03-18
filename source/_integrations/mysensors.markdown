@@ -205,7 +205,7 @@ The following binary sensor types are supported:
 | S_VIBRATION  | V_TRIPPED |
 | S_MOISTURE   | V_TRIPPED |
 
-#### Example sketch
+#### Binary Sensor example sketch
 
 ```cpp
 /**
@@ -253,6 +253,209 @@ void loop()
 }
 ```
 
+## Climate
+
+The following actuator types are supported:
+
+#### MySensors version 1.5 and higher
+
+| S_TYPE | V_TYPE                                                                               |
+| ------ | ------------------------------------------------------------------------------------ |
+| S_HVAC | V_HVAC_FLOW_STATE*, V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COOL, V_HVAC_SPEED, V_TEMP |
+
+V_HVAC_FLOW_STATE is mapped to the state of the Climate integration in Home Assistant as follows:
+
+| Home Assistant State | MySensors State |
+| -------------------- | --------------- |
+| HVAC_MODE_COOL       | CoolOn          |
+| HVAC_MODE_HEAT       | HeatOn          |
+| HVAC_MODE_AUTO       | AutoChangeOver  |
+| HVAC_MODE_OFF        | Off             |
+
+Currently humidity, away_mode, aux_heat, swing_mode is not supported. This will be included in later versions as feasible.
+
+Set the target temperature using V_HVAC_SETPOINT_HEAT in Heat mode, and V_HVAC_SETPOINT_COOL in Cool Mode. In case of any Auto Change Over mode you can use V_HVAC_SETPOINT_HEAT as well as V_HVAC_SETPOINT_COOL to set the both the low bound and the high bound temperature of the device.
+
+You can use V_HVAC_SPEED to control the Speed setting of the Fan in the HVAC.
+
+You can use V_TEMP to send the current temperature from the node to Home Assistant.
+
+#### Climate example sketch for MySensors 2.x
+
+```cpp
+/*
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
+ */
+
+// Enable debug prints to serial monitor
+#define MY_DEBUG
+#define MY_RADIO_NRF24
+
+#include <MySensors.h> // sketch tested with version 2.3.2
+
+#define SENSOR_NAME "Heatpump Sensor"
+#define SENSOR_VERSION "2.3"
+
+#define CHILD_ID_HVAC 0
+
+#define IR_PIN  3  // Arduino pin tied to the IR led using Arduino PWM
+
+
+// Uncomment your heatpump model
+//#include <FujitsuHeatpumpIR.h>
+//#include <PanasonicCKPHeatpumpIR.h>
+//#include <PanasonicHeatpumpIR.h>
+//#include <CarrierHeatpumpIR.h>
+//#include <MideaHeatpumpIR.h>
+//#include <MitsubishiHeatpumpIR.h>
+//#include <SamsungHeatpumpIR.h> // sketch tested with version 1.0.15, see http://librarymanager#HeatpumpIR by Toni Arte
+//#include <SharpHeatpumpIR.h>
+//#include <DaikinHeatpumpIR.h>
+
+//Some global variables to hold the numeric states sent to the airco unit
+int POWER_STATE;
+int TEMP_STATE;
+int FAN_STATE;
+int MODE_STATE;
+int VDIR_STATE;
+int HDIR_STATE;
+
+//Some global variables to hold the text states sent to the home assistant controller
+String FAN_STATE_TXT;  // possible values ("Min", "Normal", "Max", "Auto")
+String MODE_STATE_TXT; // possible values ("Off", "HeatOn", "CoolOn", or "AutoChangeOver")
+
+
+IRSenderPWM irSender(IR_PIN);
+
+//Change to your own Heatpump
+//HeatpumpIR *heatpumpIR = new SamsungAQV12MSANHeatpumpIR();
+/*
+new PanasonicDKEHeatpumpIR()
+new PanasonicJKEHeatpumpIR()
+new PanasonicNKEHeatpumpIR()
+new CarrierHeatpumpIR()
+new MideaHeatpumpIR()
+new FujitsuHeatpumpIR()
+new MitsubishiFDHeatpumpIR()
+new MitsubishiFEHeatpumpIR()
+new SamsungAQVHeatpumpIR()
+new SamsungFJMHeatpumpIR()
+// new SamsungHeatpumpIR() is a protected generic method, cannot be created directly
+new SharpHeatpumpIR()
+new DaikinHeatpumpIR()
+*/
+
+MyMessage msgHVACSetPointC(CHILD_ID_HVAC, V_HVAC_SETPOINT_COOL);
+MyMessage msgHVACSpeed(CHILD_ID_HVAC, V_HVAC_SPEED);
+MyMessage msgHVACFlowState(CHILD_ID_HVAC, V_HVAC_FLOW_STATE);
+
+bool initialValueSent = false;
+
+void presentation() {
+  // Send the sketch version information to the gateway and Controller
+  sendSketchInfo(SENSOR_NAME, SENSOR_VERSION);
+
+  // Register all sensors to gw (they will be created as child devices) by their ID and S_TYPE
+  present(CHILD_ID_HVAC, S_HVAC, "Thermostat");
+}
+
+void setup() {
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (!initialValueSent) {
+    FAN_STATE_TXT = "Auto"; // default fan start state
+    TEMP_STATE = 20; // default start temperature
+    MODE_STATE_TXT = "Off"; // default mode state
+
+    send(msgHVACSetPointC.set(TEMP_STATE));
+    send(msgHVACSpeed.set(FAN_STATE_TXT.c_str()));
+    send(msgHVACFlowState.set(MODE_STATE_TXT.c_str()));
+
+    initialValueSent = true;
+  }
+}
+
+void receive(const MyMessage &message) {
+  if (message.isAck()) {
+     Serial.println("This is an ack from gateway");
+     return;
+  }
+
+  Serial.print("Incoming message for: ");
+  Serial.print(message.sensor);
+
+  String recvData = message.data;
+  recvData.trim();
+
+  Serial.print(", New status: ");
+  Serial.println(recvData);
+  switch (message.type) {
+    case V_HVAC_SPEED:
+      Serial.println("V_HVAC_SPEED");
+
+      if(recvData.equalsIgnoreCase("auto")) FAN_STATE = 0;
+      else if(recvData.equalsIgnoreCase("min")) FAN_STATE = 1;
+      else if(recvData.equalsIgnoreCase("normal")) FAN_STATE = 2;
+      else if(recvData.equalsIgnoreCase("max")) FAN_STATE = 3;
+      FAN_STATE_TXT = recvData;
+    break;
+
+    case V_HVAC_SETPOINT_COOL:
+      Serial.println("V_HVAC_SETPOINT_COOL");
+      TEMP_STATE = message.getFloat();
+      Serial.println(TEMP_STATE);
+    break;
+
+    case V_HVAC_FLOW_STATE:
+      Serial.println("V_HVAC_FLOW_STATE");
+      if (recvData.equalsIgnoreCase("coolon")) {
+        POWER_STATE = 1;
+        MODE_STATE = MODE_COOL;
+      }
+      else if (recvData.equalsIgnoreCase("heaton")) {
+        POWER_STATE = 1;
+        MODE_STATE = MODE_HEAT;
+      }
+      else if (recvData.equalsIgnoreCase("autochangeover")) {
+        POWER_STATE = 1;
+        MODE_STATE = MODE_AUTO;
+      }
+      else if (recvData.equalsIgnoreCase("off")){
+        POWER_STATE = 0;
+      }
+      MODE_STATE_TXT = recvData;
+      break;
+  }
+  sendHeatpumpCommand();
+  sendNewStateToGateway();
+}
+
+void sendNewStateToGateway() {
+  Serial.println("Status update send to HA:");
+  Serial.println("*************************");
+  Serial.println("Mode = " + MODE_STATE_TXT + "(" + (String)MODE_STATE + ")");
+  Serial.println("Fan = " + FAN_STATE_TXT + "(" + (String)FAN_STATE + ")");
+  Serial.println("Temp = " + (String)TEMP_STATE);
+  send(msgHVACFlowState.set(MODE_STATE_TXT.c_str()));
+  send(msgHVACSpeed.set(FAN_STATE_TXT.c_str()));
+  send(msgHVACSetPointC.set(TEMP_STATE));
+}
+
+void sendHeatpumpCommand() {
+  Serial.println("Heatpump commands send to airco:");
+  Serial.println("********************************");
+  Serial.println("Power = " + (String)POWER_STATE);
+  Serial.println("Mode = " + (String)MODE_STATE);
+  Serial.println("Fan = " + (String)FAN_STATE);
+  Serial.println("Temp = " + (String)TEMP_STATE);
+
+  heatpumpIR->send(irSender, POWER_STATE, MODE_STATE, FAN_STATE, TEMP_STATE, VDIR_AUTO, HDIR_AUTO);
+}
+```
+
 ## Cover
 
 The following actuator types are supported:
@@ -271,7 +474,7 @@ The following actuator types are supported:
 
 All V_TYPES above are required. Use V_PERCENTAGE (or V_DIMMER) if you know the exact position of the cover in percent, use V_STATUS (or V_LIGHT) if you don't.
 
-#### Example sketch
+#### Cover example sketch
 
 ```cpp
 /*
@@ -392,7 +595,7 @@ void receive(const MyMessage &message) {
 }
 ```
 
-#### Sketch example with position measurement based on motor running time
+#### Cover sketch example with position measurement based on motor running time
 
 This sketch is ideally for star topology wiring. You can run up to 12 covers with a single Arduino Mega board and some relays. All you need to set is one line of parameters for one Cover. However, you can also use it for a single cover based on an Arduino Nano or even an ESP8266 board.
 
