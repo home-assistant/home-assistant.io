@@ -161,7 +161,7 @@
 /components/vacuum.* /integrations/:splat
 /components/water_heater.* /integrations/:splat
 /components/weather.* /integrations/:splat
-/components/* /integration/:splat
+/components/* /integrations/:splat
 /components /integrations
 
 # Renamed integrations
