@@ -31,16 +31,13 @@ Use the plus button in the bottom right to add a new integration called **SMS**.
 
 In the popup:
 
-- Serial Device Path - [See here for more info](./sms#huawei-modems-on-raspberry-pi-and-similar-devices)
+- Serial Device Path - [See here for more info](./sms.markdown#huawei-modems-on-raspberry-pi-and-similar-devices)
 - Buad Speed - By default speed is 0 which means that the modem automatically detect what speed to use.
 - Submit
 
 Press `Submit` and the integration will try to connect to the modem automatically. 
 
 ## Configuration - YAML (Deprecated)
-
-Activate `SMS` via the integrations menu and search for `SMS`.
-While activating the integration, it will ask for your serial device. Make sure the device is connected and have a valid SIM activated.
 
 You can also enable `SMS` via your `configuration.yaml` file:
 
