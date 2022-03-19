@@ -6,7 +6,7 @@ ha_category:
   - Health
   - Sensor
   - Weather
-ha_release: 2021.9
+ha_release: 2022.4
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
