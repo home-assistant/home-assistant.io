@@ -1,0 +1,19 @@
+Add documentation for tomorrowio as well as climacell deprecation
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    raman325 <7243222+raman325@users.noreply.github.com>
+#
+# interactive rebase in progress; onto 44c9be6b71
+# Last command done (1 command done):
+#    pick da16eec2c4 Add documentation for tomorrowio as well as climacell deprecation
+# Next commands to do (2 remaining commands):
+#    pick 25cc7742b7 Update climacell.markdown
+#    pick 16bf7b419a Update API limit
+# You are currently rebasing branch 'tomorrowio' on '44c9be6b71'.
+#
+# Changes to be committed:
+#	modified:   source/_integrations/climacell.markdown
+#	copied:     source/_integrations/climacell.markdown -> source/_integrations/tomorrowio.markdown
+#
