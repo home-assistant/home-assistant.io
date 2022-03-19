@@ -52,10 +52,6 @@ device:
   description: The gsm modem device.
   required: true
   type: string
-baud_speed:
-  description: Baud speed of the modem device. Only needed for modems that cannot auto configure this setting.
-  required: False
-  type: integer
 {% endconfiguration %}
 
 ## Notifications
