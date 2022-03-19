@@ -21,7 +21,23 @@ This integration provides the following platforms:
 
 - Notify
 
-## Configuration
+## Configuration - UI
+
+Connect your modem and restart Home Assistant.
+
+From the Home Assistant front page go to **Configuration** and then select **Integrations** from the list.
+
+Use the plus button in the bottom right to add a new integration called **SMS**.
+
+In the popup:
+
+- Serial Device Path - [See here for more info](./sms#huawei-modems-on-raspberry-pi-and-similar-devices)
+- Buad Speed - By default speed is 0 which means that the modem automatically detect what speed to use.
+- Submit
+
+Press `Submit` and the integration will try to connect to the modem automatically. 
+
+## Configuration - YAML (Deprecated)
 
 Activate `SMS` via the integrations menu and search for `SMS`.
 While activating the integration, it will ask for your serial device. Make sure the device is connected and have a valid SIM activated.
@@ -32,8 +48,16 @@ You can also enable `SMS` via your `configuration.yaml` file:
 # Example configuration.yaml entry
 sms:
   device: /dev/ttyUSB2
-  baud_speed: 19200 # Optional
 ```
+
+{% configuration %}
+device:
+  description: The gsm modem device.
+  required: true
+  type: string
+{% endconfiguration %}
+
+## Notifications
 
 To configure the notification service, edit your `configuration.yaml` file:
 
@@ -46,15 +70,6 @@ notify:
     name: sms_person2
     recipient: PHONE_NUMBER
 ```
-
-{% configuration %}
-device:
-  description: The gsm modem device.
-  required: true
-  type: string
-{% endconfiguration %}
-
-## Notifications
 
 You can also receive SMS messages that are sent to the SIM card number in your device.
 Every time there is a message received, `event: sms.incoming_sms` is fired with date, phone number and text message.
