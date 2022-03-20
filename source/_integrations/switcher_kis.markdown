@@ -62,3 +62,8 @@ Note: This does not affect the auto off timer.
 | ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
 | `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
 | `timer_minutes`    | Yes       | Integer containing timer minutes (valid range 1 to 150)                                      | 90                    |
+
+
+## Notes
+
+If Home Assistant and your Switcher are not on the same network, you need to create a firewall rule, which allows a connection on port 20002 with the UDP protocol from Switcher to your TV.
