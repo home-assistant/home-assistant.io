@@ -14,7 +14,7 @@ The `twitter` notification platform uses [Twitter](https://twitter.com) to deliv
 
 ## Setup
 
-Make sure you have a developer account registered with Twitter, then go to [Twitter Apps](https://developer.twitter.com/en/portal/projects-and-apps) and create an application. If you don't have a developer account you need to apply for one, it can take some time to get approved.
+Make sure you have a developer account registered with Twitter, then go to [Twitter Apps](https://developer.twitter.com/en/portal/dashboard) and create an application. If you don't have a developer account you need to apply for one, it can take some time to get approved.
 
 ### App permissions
 
