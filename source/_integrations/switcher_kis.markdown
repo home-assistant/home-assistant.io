@@ -23,7 +23,7 @@ Supported devices:
 - Switcher Power Plug
 - Switcher Touch (from firmware 1.51)
 - Switcher V2 (Espressif chipset - from firmware 3.21)
-- Switcher V2 (Qualcomm chipset - from firmware 72.32)
+- Switcher V2 (Qualcomm chipset - from firmware 72.32) Note: make sure port 20002 with udp is open.
 - Switcher V4
 
 If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
