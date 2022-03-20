@@ -9,9 +9,11 @@ ha_config_flow: true
 ha_codeowners:
   - '@escoand'
   - '@chemelli74'
+  - '@epenet'
 ha_domain: samsungtv
 ha_ssdp: true
 ha_platforms:
+  - diagnostics
   - media_player
 ha_zeroconf: true
 ha_dhcp: true
@@ -88,12 +90,9 @@ media_content_type: channel
 
 It's possible to switch between the 2 sources `TV` and `HDMI`.
 
-### Home Assistant Core additional requirements
+### Known issues and restrictions
 
-You will need to install the `websocket-client` Python package in your Home Assistant install. This will probably be done with:
+#### Subnet/VLAN
 
-```bash
-pip3 install websocket-client
-```
-
-Remembering to activate your venv if you're using a venv install.
+Samsung SmartTV does not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant this will fail.
+It may be possible to bypass this issue by using IP masquerading or a proxy.

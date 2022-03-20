@@ -164,7 +164,7 @@ automation:
 ```
 
 
-### Example Lovelace Dashboard
+### Example Dashboard
 
 ```yaml
 panel: true

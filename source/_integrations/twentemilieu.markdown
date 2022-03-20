@@ -11,6 +11,7 @@ ha_codeowners:
   - '@frenck'
 ha_domain: twentemilieu
 ha_platforms:
+  - diagnostics
   - sensor
 ha_quality_scale: platinum
 ---

@@ -26,6 +26,7 @@ Known supported devices:
 - Denon AVR-X1400H
 - Denon AVR-X1500H
 - Denon AVR-X1600H
+- Denon AVR-X1700H
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X2200W
@@ -38,6 +39,7 @@ Known supported devices:
 - Denon AVR-X3200W
 - Denon AVR-X3300W
 - Denon AVR-X3400H
+- Denon AVR-X3500H
 - Denon AVR-X3600H
 - Denon AVR-X3700H
 - Denon AVR-X4100W
@@ -58,6 +60,9 @@ Known supported devices:
 - Denon AVR-S760H
 - Denon AVR-S960H
 - Denon DN-500AV
+- Marantz AV7702
+- Marantz AV7703
+- Marantz AV7704
 - Marantz M-CR510
 - Marantz M-CR511
 - Marantz M-CR603
@@ -73,8 +78,10 @@ Known supported devices:
 - Marantz NR1506
 - Marantz NR1602
 - Marantz NR1604
+- Marantz NR1606
 - Marantz NR1607
 - Marantz NR1710
+- Marantz NR1711
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
 

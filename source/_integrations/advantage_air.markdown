@@ -11,6 +11,7 @@ ha_domain: advantage_air
 ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - climate
   - cover
   - sensor

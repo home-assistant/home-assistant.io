@@ -53,7 +53,7 @@ show_delivered:
 
 ## Examples
 
-### Lovelace summary card
+### Dashboard summary card
 
 Use the following templated Markdown card to list all packages in transit along with their status:
 

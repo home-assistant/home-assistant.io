@@ -10,10 +10,10 @@ ha_config_flow: true
 ha_domain: vicare
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - sensor
   - water_heater
-  - button
 ha_dhcp: true
 ---
 
@@ -39,6 +39,8 @@ The required Client ID can be obtained as follows:
   Google reCAPTCHA: Disabled
   Redirect URIs: vicare://oauth-callback/everest
   ```
+
+The `heating_type` can either be `auto` to automatically find the most suitable type for your device or one of `gas`, `oil`, `pellets`, `heatpump`, `fuelcell`, `hybrid`.
 
 Multiple device instances might be generated depending on the number of burners and/or circuits of your installation. If there is more than a single instance all devices are suffixed with the circuit or burner ID.
 
@@ -130,4 +132,3 @@ Additional data from ViCare is available as separate sensors. The sensors are au
 ## Button
 
 Button entities are available for triggering like a one-time charge of the water heater.
- 

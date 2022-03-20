@@ -27,7 +27,7 @@ or using an [input boolean helper](/integrations/input_boolean),
 ### Device Class
 
 Knowing a sensor is binary impacts how the sensor's current state may be
-represented in Home Assistant's UI (see [Lovelace](/lovelace/)). Opposing states
+represented in Home Assistant's UI (see [Dashboards](/dashboards/)). Opposing states
 may be given different icons, colors, and value labels to highlight a particular
 state over the other. This is set by the binary sensor's device class.
 

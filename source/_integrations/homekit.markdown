@@ -11,6 +11,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ha_zeroconf: true
+ha_platforms:
+  - diagnostics
 ---
 
 The HomeKit integration allows you to make your Home Assistant entities available in Apple HomeKit,
@@ -458,6 +460,25 @@ automation:
     service: broadlink.send
     host: 192.168.1.55
     packet: XXXXXXXX
+```
+
+## Events
+
+The HomeKit integration emits `homekit_state_change` events. These events can be used in automations to know when an entity's state was changed from HomeKit.
+
+```yaml
+# Example for handling a HomeKit event
+automation:
+  trigger:
+    - platform: event
+      event_type: homekit_state_change
+      event_data:
+        entity_id: cover.garage_door
+        service: open_cover
+  action:
+    - service: persistent_notification.create
+      data:
+        message: "The garage door got opened via HomeKit"
 ```
 
 ## Troubleshooting

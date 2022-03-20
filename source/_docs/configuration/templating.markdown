@@ -369,7 +369,7 @@ Examples using `iif`:
 
 {{ is_state('light.kitchen', 'on') | iif('Yes', 'No') }}
 
-{{ (state('light.kitchen') == 'on') | iif('Yes', 'No') }}
+{{ (states('light.kitchen') == 'on') | iif('Yes', 'No') }}
 ```
 
 {% endraw %}
@@ -507,6 +507,24 @@ The temperature is 25°C
 ```
 
 {% endraw %}
+
+### Is defined
+
+Sometimes a template should only return if a value or object is defined, if not, the supplied default value could be returned. This can be useful to validate a JSON payload.
+The `is_defined` filter allows to throw an error if a value or object is not defined.
+
+Example using `is_defined` to parse a JSON payload:
+
+{% raw %}
+
+```text
+{{ value_json.val | is_defined }}
+```
+
+{% endraw %}
+
+This will throw an error `UndefinedError: 'value_json' is undefined` if the JSON payload has no `val` attribute.
+
 
 ### Distance
 
@@ -683,7 +701,7 @@ Some examples:
 ### Regular expressions
 
 - Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
-- Test `string is search(find, ignorecase=True)` will match the find expression anywhere in the string using regex.
+- Test `string is search(find, ignorecase=False)` will match the find expression anywhere in the string using regex.
 - Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.
@@ -751,8 +769,8 @@ The following overview contains a couple of options to get the needed values:
 # Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
 
-# Extract third prime number
-{{ value_json.primes[2] }}
+# Extract first prime number 
+{{ value_json.primes[0] }}
 
 # Format output
 {{ "%+.1f" | value_json }}

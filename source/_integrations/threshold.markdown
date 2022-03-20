@@ -45,6 +45,10 @@ entity_id:
   description: "The entity to monitor. Only [sensors](/integrations/sensor/) are supported."
   required: true
   type: string
+device_class:
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 lower:
   description: The lower threshold which the observed value is compared against.
   required: false

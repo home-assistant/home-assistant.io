@@ -1,5 +1,5 @@
 ---
-title: VLC media player Telnet
+title: VLC media player via Telnet
 description: Instructions on how to integrate VLC media player into Home Assistant using the telnet interface.
 ha_category:
   - Media Player
@@ -7,7 +7,6 @@ ha_release: 0.95
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@rodripf'
-  - '@dmcc'
   - '@MartinHjelmare'
 ha_config_flow: true
 ha_domain: vlc_telnet
