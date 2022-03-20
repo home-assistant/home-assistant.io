@@ -42,3 +42,7 @@ The integration adds the following number entity:
 - Max Charging Current
 
 The number entity is only loaded if the supplied username has sufficient rights to change the Max. Charging Current.
+
+## Lock
+
+The integration adds a lock entity, allowing you to lock the charger. Please note, this only works with a user with admin rights.
