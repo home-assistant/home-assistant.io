@@ -4,7 +4,7 @@ description: "Get how many outages are in your county"
 ha_release: "2022.2.0"
 ha_category: Sensor
 ha_iot_class: "Cloud Polling"
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_config_flow: true
 ha_codeowners:
   - '@IceBotYT'
