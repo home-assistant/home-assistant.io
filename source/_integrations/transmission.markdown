@@ -87,6 +87,8 @@ Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), mag
 | ---------------------- | -------- | ----------- |
 | `name`    | yes | Name of the configured instance (Default: "Transmission")
 | `torrent` | no | Torrent to download
+| `download_dir` | yes | the directory to transmission should download to
+| `paused` | yes | If true the torrent will be paused when it is added
 
 ### Service `remove_torrent`
 
