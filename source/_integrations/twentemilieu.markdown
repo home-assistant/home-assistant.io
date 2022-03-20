@@ -2,8 +2,9 @@
 title: Twente Milieu
 description: Instructions on how to integrate Twente Milieu with Home Assistant.
 ha_category:
-  - Sensor
+  - Calendar
   - Environment
+  - Sensor
 ha_release: 0.97
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@frenck'
 ha_domain: twentemilieu
 ha_platforms:
+  - calendar
   - diagnostics
   - sensor
 ha_quality_scale: platinum
@@ -20,6 +22,11 @@ The Twente Milieu integration allows you to track the next scheduled waste
 pickups by Twente Milieu for each of the different waste types.
 
 {% include integrations/config_flow.md %}
+
+## Calendar
+
+The integration provide a calendar to Home Assistant. You can view
+all upcoming waste pickups in the calender dashboard.
 
 ## Sensors
 
