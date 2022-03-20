@@ -9,6 +9,7 @@ ha_domain: wallbox
 ha_platforms:
   - number
   - sensor
+  - lock
 ha_config_flow: true
 ha_codeowners:
   - '@hesselonline'
