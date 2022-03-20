@@ -180,6 +180,7 @@
 /integrations/vlc-telnet /integrations/vlc_telnet
 /integrations/xiaomi /integrations/xiaomi_aqara
 /integrations/zigbee /integrations/xbee
+/integrationss/air_pollutants /integrations/air_quality
 
 # Moved documentation
 /details/database /docs/backend/database
