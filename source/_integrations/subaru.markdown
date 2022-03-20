@@ -42,7 +42,7 @@ If your account includes multiple vehicles, the same PIN will be used for all ve
 
 ## Sensors
 
-Available sensors will vary by model, year, and subscription type. The integration will add all supported sensors for your vehicle. Sensor data is usually only updated when the vehicle is turned off, unless the [polling option](#options) is enabled.
+Available sensors will vary by model, year, and subscription type. The integration will add all supported sensors for your vehicle. Sensor data is usually only updated when the vehicle is turned off unless the [polling option](#options) is enabled.
 
 | Sensor                   | Gen 1   | Gen 2   |
 |--------------------------|---------|---------|
