@@ -25,7 +25,7 @@ pickups by Twente Milieu for each of the different waste types.
 
 ## Calendar
 
-The integration provide a calendar to Home Assistant. You can view
+The integration provides a calendar to Home Assistant. You can view
 all upcoming waste pickups in the calender dashboard.
 
 ## Sensors
