@@ -165,7 +165,6 @@
 /components /integrations
 
 # Renamed integrations
-/integrations/air_pollutants /integrations/air_quality
 /integrations/generic_ip_camera /integrations/generic
 /integrations/google /integrations/google_translate
 /integrations/input_slider /integrations/input_number
