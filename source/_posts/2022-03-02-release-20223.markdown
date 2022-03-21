@@ -52,6 +52,7 @@ Enjoy the release!
 - [Release 2022.3.2 - March 6](#release-202232---march-6)
 - [Release 2022.3.3 - March 7](#release-202233---march-7)
 - [Release 2022.3.4 - March 11](#release-202234---march-11)
+- [Release 2022.3.5 - March 15](#release-202235---march-15)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -204,7 +205,7 @@ Click the My button below to test it out on your Home Assistant instance:
 {% my developer_template badge %}
 
 [@kubawolanin]: https://github.com/kubawolanin
-[Lovelace cards]: /lovelace/cards
+[Lovelace cards]: /dashboards/cards
 [Tim Cowell]: https://github.com/tgcowell
 [Waves]: https://github.com/tgcowell/waves
 
@@ -509,6 +510,47 @@ The following integrations are now available via the Home Assistant UI:
 [shelly docs]: /integrations/shelly/
 [sun docs]: /integrations/sun/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.3.5 - March 15
+
+- Fix WebSocketTimeoutException in SamsungTV ([@epenet] - [#68114]) ([samsungtv docs])
+- 20220301.2 ([@zsarnett] - [#68130]) ([frontend docs])
+- Filter IPv6 addresses from doorbird discovery ([@bdraco] - [#68031]) ([doorbird docs])
+- Fix turning amcrest camera on and off ([@flacjacket] - [#68050]) ([amcrest docs])
+- Fix Shelly EM/3EM invalid energy value after reboot ([@thecode] - [#68052]) ([shelly docs])
+- Default somfy_mylink shade's _attr_is_closed to `None` ([@cthornton] - [#68053]) ([somfy_mylink docs])
+- Bump amcrest version to 1.9.7 ([@flacjacket] - [#68055]) ([amcrest docs])
+- Bump pyisy to 3.0.5 ([@bdraco] - [#68069]) ([isy994 docs])
+- Update home_connect to 0.7.0 ([@BraveChicken1] - [#68089]) ([home_connect docs])
+- Fix MQTT false positive deprecation warnings ([@jbouwh] - [#68117]) ([mqtt docs])
+
+[#68031]: https://github.com/home-assistant/core/pull/68031
+[#68050]: https://github.com/home-assistant/core/pull/68050
+[#68052]: https://github.com/home-assistant/core/pull/68052
+[#68053]: https://github.com/home-assistant/core/pull/68053
+[#68055]: https://github.com/home-assistant/core/pull/68055
+[#68069]: https://github.com/home-assistant/core/pull/68069
+[#68089]: https://github.com/home-assistant/core/pull/68089
+[#68114]: https://github.com/home-assistant/core/pull/68114
+[#68117]: https://github.com/home-assistant/core/pull/68117
+[#68130]: https://github.com/home-assistant/core/pull/68130
+[@BraveChicken1]: https://github.com/BraveChicken1
+[@bdraco]: https://github.com/bdraco
+[@cthornton]: https://github.com/cthornton
+[@epenet]: https://github.com/epenet
+[@flacjacket]: https://github.com/flacjacket
+[@jbouwh]: https://github.com/jbouwh
+[@thecode]: https://github.com/thecode
+[@zsarnett]: https://github.com/zsarnett
+[amcrest docs]: /integrations/amcrest/
+[doorbird docs]: /integrations/doorbird/
+[frontend docs]: /integrations/frontend/
+[home_connect docs]: /integrations/home_connect/
+[isy994 docs]: /integrations/isy994/
+[mqtt docs]: /integrations/mqtt/
+[samsungtv docs]: /integrations/samsungtv/
+[shelly docs]: /integrations/shelly/
+[somfy_mylink docs]: /integrations/somfy_mylink/
 
 ## Need help? Join the community!
 
