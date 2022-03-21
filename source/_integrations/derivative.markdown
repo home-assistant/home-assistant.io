@@ -7,7 +7,6 @@ ha_category:
   - Sensor
 ha_release: 0.105
 ha_iot_class: Calculated
-logo: derivative.png
 ha_qa_scale: internal
 ha_codeowners:
   - '@afaucogney'
