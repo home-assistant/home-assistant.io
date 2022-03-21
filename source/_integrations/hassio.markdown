@@ -55,7 +55,7 @@ For Home Assistant OS Supervisor provides following binary sensors:
 
 ## Update entities
 
-For all your installed add-ons, Home Assistant Core, Home Assistant Supervisor and for the Home Assistant Operating System (if you are running that), this integration will provide [update](/integrations/update) entities that provide information about bending updates, and will allow you to update to them.
+For all your installed add-ons, Home Assistant Core, Home Assistant Supervisor, and for the Home Assistant Operating System (if you are running that), this integration will provide [update](/integrations/update) entities that provide information about pending updates, and will allow you to update to them.
 
 ## Services
 
