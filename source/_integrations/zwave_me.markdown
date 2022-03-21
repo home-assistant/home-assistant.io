@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Climate
+  - Cover
   - Hub
   - Light
   - Lock
@@ -23,6 +24,7 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
+  - cover
   - light
   - lock
   - number
