@@ -11,6 +11,10 @@ ha_domain: group
 
 The light group platform lets you combine multiple lights into one entity. All child lights of a light group can still be used as usual, but controlling the state of the grouped light will forward the command to each child light.
 
+## Group behavior
+
+By default when any member of a group is `on` then the group will also be `on`. If you set the `all` option to `true` though, this behavior is inverted and all members of the group have to be `on` for the group to turn on as well.
+
 To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -38,6 +42,11 @@ unique_id:
   description: An ID that uniquely identifies this light group. If two lights have the same unique ID, Home Assistant will raise an error.
   required: false
   type: string
+all:
+  description: Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 <p class='img'>
