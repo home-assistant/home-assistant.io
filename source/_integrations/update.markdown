@@ -31,9 +31,9 @@ skipping the offered update.
 Update entities are here to be consumed and provided by other integrations and
 are are not designed to be created manually directly.
 
-This page, therefore, does not provide in instruction on how to create update
-entities. Please see the ["Update" category](/integrations/#updates) on the
-integrations page to find integration offering update capabilities.
+This page, therefore, does not provide instructions on how to create update
+entities. Please see the ["Updates" category](/integrations/#updates) on the
+integrations page to find integration offering update entities.
 
 </div>
 
