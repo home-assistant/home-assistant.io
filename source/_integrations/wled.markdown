@@ -107,7 +107,7 @@ Can be configured on the WLED itself under settings > Sync Interfaces > WLED Bro
 ## Firmware Updates
 
 The integration has an [update entity](/integrations/update/) that provides
-information on the latest available version of WLED and indicates if an
+information on the latest available version of WLED and indicates if a
 firmware update is available for installation.
 
 The firmware update can be triggered and installed onto your WLED device
