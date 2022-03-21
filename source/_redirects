@@ -134,6 +134,14 @@
 /components/telegram_bot.webhooks /integrations/telegram_webhooks
 /components/vacuum.mqtt /integrations/vacuum.mqtt
 /components/vacuum.template /integrations/vacuum.template
+/integrations/binary_sensor.mysensors /integrations/mysensors#binary-sensor
+/integrations/climate.mysensors /integrations/mysensors#climate
+/integrations/cover.mysensors /integrations/mysensors#cover
+/integrations/device_tracker.mysensors /integrations/mysensors#device-tracker
+/integrations/light.mysensors /integrations/mysensors#light
+/integrations/notify.mysensors /integrations/mysensors#notify
+/integrations/sensor.mysensors /integrations/mysensors#sensor
+/integrations/switch.mysensors /integrations/mysensors#switch
 
 /components/air_pollutants.* /integrations/:splat
 /components/air_quality.* /integrations/:splat
