@@ -165,6 +165,8 @@
 /components /integrations
 
 # Renamed integrations
+/integrationss/air_pollutants /integrations/air_quality
+/integrations/climacell /integrations/tomorrowio
 /integrations/generic_ip_camera /integrations/generic
 /integrations/google /integrations/google_translate
 /integrations/input_slider /integrations/input_number
@@ -178,7 +180,6 @@
 /integrations/vlc-telnet /integrations/vlc_telnet
 /integrations/xiaomi /integrations/xiaomi_aqara
 /integrations/zigbee /integrations/xbee
-/integrationss/air_pollutants /integrations/air_quality
 
 # Moved documentation
 /details/database /docs/backend/database
