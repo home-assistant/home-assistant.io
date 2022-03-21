@@ -18,7 +18,7 @@ ha_platforms:
 ---
 
 The derivative integration creates a sensor that estimates the derivative of the
-values provided by another source sensor. Derivative sensors are updated upon changes of the **source sensor** used.
+values provided by another sensor (the **source sensor**). Derivative sensors are updated upon changes of the **source sensor**.
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -29,11 +29,11 @@ Input sensor:
 Precision:
   description: Round the calculated integration value to at most N decimal places.
 Time window:
-  description: The time window in which to calculate the derivative. Derivatives in this window will be averaged with a Simple Moving Average algorithm weighted by time. This is for instance useful for a sensor that outputs discrete values, or to filter out short duration noise. By default the derivative is calculated between two consecutive updates without any smoothing.
+  description: The time window in which to calculate the derivative. Derivatives in this window will be averaged with a simple moving average algorithm (SMA) weighted by time. This is for instance useful for a sensor that outputs discrete values, or to filter out short duration noise. By default the derivative is calculated between two consecutive updates without any smoothing.
 Metric Prefix:
   description: Metric unit to prefix the derivative result ([Wikipedia](https://en.wikipedia.org/wiki/Unit_prefix)).
-Time unoit:
-  description: SI unit of time of the derivative. If this parameter is set, the unit of measurement will be set like x/y where x is the unit of the input sensor given and y is the value given here.
+Time unit:
+  description: SI unit of time of the derivative. If this parameter is set, the unit of measurement will be set to **x/y** where **x** is the unit of the source sensor and **y** is the value of this parameter.
 {% endconfiguration_basic %}
 
 ## YAML Configuration
