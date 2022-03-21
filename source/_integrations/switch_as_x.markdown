@@ -20,7 +20,7 @@ a Home Assistant Light, Cover, Fan, Lock, or Siren.
 
 In Home Assistant's world, a wall plug is a switch. And while that is correct
 for a wall plug in general, those plugs are often used with e.g, a light
-fixture or fan. General-purpose relays are similar, as sometimes used for
+fixture or a fan. General-purpose relays are similar, as they are sometimes used for
 things like locks or garage doors.
 
 Using the Switch as X integration, you can convert those switches into the
