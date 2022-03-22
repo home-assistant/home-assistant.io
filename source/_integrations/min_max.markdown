@@ -10,6 +10,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: min_max
+ha_config_flow: true
 ha_platforms:
   - sensor
 ---
