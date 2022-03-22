@@ -89,7 +89,7 @@ media_content_type: channel
 #### Selecting a source
 
 It's possible to switch between the 2 sources `TV` and `HDMI`.
-Some older models also expose the installed applications through the websocket, in which case the source list is adjusted accordingly.
+Some older models also expose the installed applications through the WebSocket, in which case the source list is adjusted accordingly.
 
 ### Known issues and restrictions
 
