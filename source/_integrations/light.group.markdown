@@ -13,7 +13,18 @@ The light group platform lets you combine multiple lights into one entity. All c
 
 ## Group behavior
 
-By default when any member of a group is `on` then the group will also be `on`. If you set the `all` option to `true` though, this behavior is inverted and all members of the group have to be `on` for the group to turn on as well.
+Group behavior differs depending on if the `all` option is `false` (the default) or `true`.
+If `all` is `false`(the default):
+- Group state is `unavailable` if all group members are `unavailable`
+- Otherwise, group state is `unknown` if all group members are `unknown`
+- Otherwise, group state is `on` if at least one group member is `on`
+- Otherwise, group state is `off`
+
+If `all` is `true`(the default):
+- Group state is `unavailable` if all group members are `unavailable`
+- Otherwise, group state is `unknown` if at least one group member is `unknown` or `unavailable`
+- Otherwise, group state is `off` if at least one group member is `off`
+- Otherwise, group state is `on`
 
 To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
