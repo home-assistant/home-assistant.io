@@ -6,7 +6,6 @@ ha_category:
   - Binary Sensor
   - Button
   - Light
-  - Number
   - Select
   - Sensor
   - Switch
@@ -22,7 +21,6 @@ ha_platforms:
   - binary_sensor
   - button
   - light
-  - number
   - select
   - sensor
   - switch
