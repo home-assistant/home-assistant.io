@@ -59,7 +59,7 @@ If `all` is `false`(the default):
 - Otherwise, group state is `on` if at least one group member is `on`
 - Otherwise, group state is `off`
 
-If `all` is `true`(the default):
+If `all` is `true`:
 - Group state is `unavailable` if all group members are `unavailable`
 - Otherwise, group state is `unknown` if at least one group member is `unknown` or `unavailable`
 - Otherwise, group state is `off` if at least one group member is `off`
