@@ -11,6 +11,21 @@ ha_domain: group
 
 The light group platform lets you combine multiple lights into one entity. All child lights of a light group can still be used as usual, but controlling the state of the grouped light will forward the command to each child light.
 
+## Group behavior
+
+Group behavior differs depending on if the `all` option is `false` (the default) or `true`.
+If `all` is `false`(the default):
+- Group state is `unavailable` if all group members are `unavailable`
+- Otherwise, group state is `unknown` if all group members are `unknown`
+- Otherwise, group state is `on` if at least one group member is `on`
+- Otherwise, group state is `off`
+
+If `all` is `true`(the default):
+- Group state is `unavailable` if all group members are `unavailable`
+- Otherwise, group state is `unknown` if at least one group member is `unknown` or `unavailable`
+- Otherwise, group state is `off` if at least one group member is `off`
+- Otherwise, group state is `on`
+
 To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -38,6 +53,11 @@ unique_id:
   description: An ID that uniquely identifies this light group. If two lights have the same unique ID, Home Assistant will raise an error.
   required: false
   type: string
+all:
+  description: Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 <p class='img'>
