@@ -151,21 +151,23 @@ automation:
   trigger:
     - platform: time
       at: "09:00:00"
-      id: "peak"
+      variables:
+        tariff: "peak"
     - platform: time
       at: "21:00:00"
-      id: "offpeak"
+      variables:
+        tariff: "offpeak"
   action:
     - service: select.select_option
       target:
         entity_id: utility_meter.daily_energy
       data:
-        option: "{{ trigger.id }}"
-    - service: utility_meter.next_tariff
+        option: "{{ tariff }}"
+    - service: select.select_option
       target:
         entity_id: utility_meter.monthly_energy
       data:
-        option: "{{ trigger.id }}"
+        option: "{{ tariff }}"
 ```
 
 Assuming your utility provider cycle is offset from the last day of the month
