@@ -3,8 +3,9 @@ title: SleepIQ
 description: Instructions for how to integrate SleepIQ beds within Home Assistant.
 ha_category:
   - Health
-  - Sensor
   - Binary Sensor
+  - Number
+  - Sensor
 ha_release: 0.29
 ha_iot_class: Cloud Polling
 ha_domain: sleepiq
@@ -17,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - button
   - light
+  - number
   - sensor
   - switch
 ---
