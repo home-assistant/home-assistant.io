@@ -22,7 +22,7 @@ If the sensor is configured with no hysteresis and the sensor value is equal to 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
 Name:
-  description:The name the sensor should have. You can change it again later.
+  description: The name the sensor should have. You can change it again later.
 Input sensor:
   description: The entity providing numeric readings to apply the threshold on.
 Hysteresis:
