@@ -99,4 +99,4 @@ It may be possible to bypass this issue by using IP masquerading or a proxy.
 
 #### H and J models
 
-Some televisions from H and J series use an encrypted protocol and require manual pairing with the TV. This should be detected automatically when attempting to send commands using the websocket connection, and trigger the corresponding authentication flow. Sending commands to these televisions is not yet supported.
+Some televisions from the H and J series use an encrypted protocol and require manual pairing with the TV. This should be detected automatically when attempting to send commands using the WebSocket connection, and trigger the corresponding authentication flow. Sending commands to these televisions is not yet supported.
