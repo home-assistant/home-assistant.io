@@ -65,4 +65,4 @@ Note: This does not affect the auto off timer.
 
 ## Notes
 
-If Home Assistant and your Switcher are not on the same network, you need to create a firewall rule, which allows a connection on port 20002 with the UDP protocol from Switcher to your TV.
+If Home Assistant and your Switcher are not on the same network, you need to create a firewall rule, which allows a connection on port 20002 with the UDP protocol from Switcher to your Home Assistant and port 9957 with the TCP protocol from Home Assistant to your Switcher.
