@@ -30,6 +30,7 @@ There is currently support for the following platforms within Home Assistant:
 - Button - Stop the pump
 - Light - Control lights on supported models
 - Number - View/Set firmness for each side
+- Select - Choose a foundation preset position
 - Sensor - View pressure of each side
 - Switch - Toggle Privacy mode
 
