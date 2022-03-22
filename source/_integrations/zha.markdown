@@ -206,7 +206,7 @@ custom_quirks_path:
 
 ZHA component has the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
 
-Online OTA providers for firmware updates are currently only available for IKEA, LEDVANCE/OSRAM and  SALUS/Computime devices. Support for OTA updates from other manufacturers could be supported in the future, if they publish their firmware images publicly.
+Online OTA providers for firmware updates are currently only available for IKEA, LEDVANCE/OSRAM, and SALUS/Computime devices. Support for OTA updates from other manufacturers could be supported in the future if they publish their firmware images publicly.
 
 To enable OTA firmware updates for the ZHA integration you need to add the following configuration to your `configuration.yaml` and restart Home Assistant:
 
@@ -216,7 +216,7 @@ zha:
     ota:
       ikea_provider: true                        # Auto update Trådfri devices
       ledvance_provider: true                    # Auto update LEDVANCE/OSRAM devices
-      salus_provider: true                       # Auto update  SALUS/Computime devices
+      salus_provider: true                       # Auto update SALUS/Computime devices
       #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
 ```
 
