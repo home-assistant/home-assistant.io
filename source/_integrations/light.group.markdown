@@ -11,20 +11,7 @@ ha_domain: group
 
 The light group platform lets you combine multiple lights into one entity. All child lights of a light group can still be used as usual, but controlling the state of the grouped light will forward the command to each child light.
 
-## Group behavior
-
-Group behavior differs depending on if the `all` option is `false` (the default) or `true`.
-If `all` is `false`(the default):
-- Group state is `unavailable` if all group members are `unavailable`
-- Otherwise, group state is `unknown` if all group members are `unknown`
-- Otherwise, group state is `on` if at least one group member is `on`
-- Otherwise, group state is `off`
-
-If `all` is `true`(the default):
-- Group state is `unavailable` if all group members are `unavailable`
-- Otherwise, group state is `unknown` if at least one group member is `unknown` or `unavailable`
-- Otherwise, group state is `off` if at least one group member is `off`
-- Otherwise, group state is `on`
+## Configuration
 
 To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -82,3 +69,18 @@ script:
       data:
         brightness: 100
 ```
+
+## Group behavior
+
+Group behavior differs depending on if the `all` option is `false` (the default) or `true`.
+If `all` is `false`(the default):
+- Group state is `unavailable` if all group members are `unavailable`
+- Otherwise, group state is `unknown` if all group members are `unknown`
+- Otherwise, group state is `on` if at least one group member is `on`
+- Otherwise, group state is `off`
+
+If `all` is `true`:
+- Group state is `unavailable` if all group members are `unavailable`
+- Otherwise, group state is `unknown` if at least one group member is `unknown` or `unavailable`
+- Otherwise, group state is `off` if at least one group member is `off`
+- Otherwise, group state is `on`
