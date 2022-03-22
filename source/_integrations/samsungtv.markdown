@@ -96,3 +96,7 @@ It's possible to switch between the 2 sources `TV` and `HDMI`.
 
 Samsung SmartTV does not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant this will fail.
 It may be possible to bypass this issue by using IP masquerading or a proxy.
+
+#### H and J models
+
+Some televisions from the H and J series use an encrypted protocol and require manual pairing with the TV. This should be detected automatically when attempting to send commands using the WebSocket connection, and trigger the corresponding authentication flow. Sending commands to these televisions is not yet supported.
