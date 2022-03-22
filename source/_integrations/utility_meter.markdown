@@ -146,6 +146,8 @@ Assuming your energy provider tariffs are time based according to:
 
 a time based automation can be used:
 
+{% raw %}
+
 ```yaml
 automation:
   trigger:
@@ -169,6 +171,8 @@ automation:
       data:
         option: "{{ tariff }}"
 ```
+
+{% endraw %}
 
 Assuming your utility provider cycle is offset from the last day of the month
 
