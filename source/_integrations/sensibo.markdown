@@ -48,6 +48,7 @@ switch:
           service: climate.set_hvac_mode
           target:
             entity_id: climate.ac
+          data:
             hvac_mode: cool
         turn_off:
           service: climate.set_hvac_mode

@@ -160,6 +160,6 @@ If you want to migrate your manual automations to use the editor, you'll have to
 
 When automations remain visible in the Home Assistant Dashboard, even after having deleted in the YAML file, you have to delete them in the UI.
 
-To delete them completely, go to UI **{% my entities title="Configuration -> Entities" %}** and find the automation in the search field or by scrolling down.
+To delete them completely, go to UI **{% my entities title="Configuration -> Devices & Services -> Entities" %}** and find the automation in the search field or by scrolling down.
 
 Check the square box aside of the automation you wish to delete and from the top-right of your screen, select 'REMOVE SELECTED'.

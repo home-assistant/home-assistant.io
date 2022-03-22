@@ -52,6 +52,8 @@ Enjoy the release!
 - [Release 2022.3.2 - March 6](#release-202232---march-6)
 - [Release 2022.3.3 - March 7](#release-202233---march-7)
 - [Release 2022.3.4 - March 11](#release-202234---march-11)
+- [Release 2022.3.5 - March 15](#release-202235---march-15)
+- [Release 2022.3.6 - March 21](#release-202236---march-21)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -204,7 +206,7 @@ Click the My button below to test it out on your Home Assistant instance:
 {% my developer_template badge %}
 
 [@kubawolanin]: https://github.com/kubawolanin
-[Lovelace cards]: /lovelace/cards
+[Lovelace cards]: /dashboards/cards
 [Tim Cowell]: https://github.com/tgcowell
 [Waves]: https://github.com/tgcowell/waves
 
@@ -509,6 +511,95 @@ The following integrations are now available via the Home Assistant UI:
 [shelly docs]: /integrations/shelly/
 [sun docs]: /integrations/sun/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.3.5 - March 15
+
+- Fix WebSocketTimeoutException in SamsungTV ([@epenet] - [#68114]) ([samsungtv docs])
+- 20220301.2 ([@zsarnett] - [#68130]) ([frontend docs])
+- Filter IPv6 addresses from doorbird discovery ([@bdraco] - [#68031]) ([doorbird docs])
+- Fix turning amcrest camera on and off ([@flacjacket] - [#68050]) ([amcrest docs])
+- Fix Shelly EM/3EM invalid energy value after reboot ([@thecode] - [#68052]) ([shelly docs])
+- Default somfy_mylink shade's _attr_is_closed to `None` ([@cthornton] - [#68053]) ([somfy_mylink docs])
+- Bump amcrest version to 1.9.7 ([@flacjacket] - [#68055]) ([amcrest docs])
+- Bump pyisy to 3.0.5 ([@bdraco] - [#68069]) ([isy994 docs])
+- Update home_connect to 0.7.0 ([@BraveChicken1] - [#68089]) ([home_connect docs])
+- Fix MQTT false positive deprecation warnings ([@jbouwh] - [#68117]) ([mqtt docs])
+
+[#68031]: https://github.com/home-assistant/core/pull/68031
+[#68050]: https://github.com/home-assistant/core/pull/68050
+[#68052]: https://github.com/home-assistant/core/pull/68052
+[#68053]: https://github.com/home-assistant/core/pull/68053
+[#68055]: https://github.com/home-assistant/core/pull/68055
+[#68069]: https://github.com/home-assistant/core/pull/68069
+[#68089]: https://github.com/home-assistant/core/pull/68089
+[#68114]: https://github.com/home-assistant/core/pull/68114
+[#68117]: https://github.com/home-assistant/core/pull/68117
+[#68130]: https://github.com/home-assistant/core/pull/68130
+[@BraveChicken1]: https://github.com/BraveChicken1
+[@bdraco]: https://github.com/bdraco
+[@cthornton]: https://github.com/cthornton
+[@epenet]: https://github.com/epenet
+[@flacjacket]: https://github.com/flacjacket
+[@jbouwh]: https://github.com/jbouwh
+[@thecode]: https://github.com/thecode
+[@zsarnett]: https://github.com/zsarnett
+[amcrest docs]: /integrations/amcrest/
+[doorbird docs]: /integrations/doorbird/
+[frontend docs]: /integrations/frontend/
+[home_connect docs]: /integrations/home_connect/
+[isy994 docs]: /integrations/isy994/
+[mqtt docs]: /integrations/mqtt/
+[samsungtv docs]: /integrations/samsungtv/
+[shelly docs]: /integrations/shelly/
+[somfy_mylink docs]: /integrations/somfy_mylink/
+
+## Release 2022.3.6 - March 21
+
+- Fix TypeError in SamsungTV ([@epenet] - [#68235]) ([samsungtv docs])
+- Fix lyric climate ([@nprez83] - [#67018]) ([lyric docs])
+- Fix finding matrix room that is already joined ([@antlarr] - [#67967]) ([matrix docs])
+- Respect disable_new_entities for new device_tracker entities ([@mib1185] - [#68148]) ([device_tracker docs])
+- Add missing await [velbus] ([@cdce8p] - [#68153]) ([velbus docs])
+- Fix point by adding authlib constraint ([@cdce8p] - [#68176]) ([point docs])
+- Update opensensemap-api to 0.2.0 ([@frenck] - [#68193]) ([opensensemap docs])
+- Bump renault-api to 0.1.10 ([@epenet] - [#68260]) ([renault docs])
+- Hue integration: update errors that should be supressed ([@marcelveldt] - [#68337]) ([hue docs])
+- Filter IPv6 addreses from enphase_envoy discovery ([@bdraco] - [#68362]) ([enphase_envoy docs])
+- Handle Hue discovery errors ([@balloob] - [#68392]) ([hue docs])
+- Fix tplink color temp conversion ([@bdraco] - [#68484]) ([tplink docs])
+
+[#67018]: https://github.com/home-assistant/core/pull/67018
+[#67967]: https://github.com/home-assistant/core/pull/67967
+[#68148]: https://github.com/home-assistant/core/pull/68148
+[#68153]: https://github.com/home-assistant/core/pull/68153
+[#68176]: https://github.com/home-assistant/core/pull/68176
+[#68193]: https://github.com/home-assistant/core/pull/68193
+[#68235]: https://github.com/home-assistant/core/pull/68235
+[#68260]: https://github.com/home-assistant/core/pull/68260
+[#68337]: https://github.com/home-assistant/core/pull/68337
+[#68362]: https://github.com/home-assistant/core/pull/68362
+[#68392]: https://github.com/home-assistant/core/pull/68392
+[#68484]: https://github.com/home-assistant/core/pull/68484
+[@antlarr]: https://github.com/antlarr
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@marcelveldt]: https://github.com/marcelveldt
+[@mib1185]: https://github.com/mib1185
+[@nprez83]: https://github.com/nprez83
+[device_tracker docs]: /integrations/device_tracker/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[hue docs]: /integrations/hue/
+[lyric docs]: /integrations/lyric/
+[matrix docs]: /integrations/matrix/
+[opensensemap docs]: /integrations/opensensemap/
+[point docs]: /integrations/point/
+[renault docs]: /integrations/renault/
+[samsungtv docs]: /integrations/samsungtv/
+[tplink docs]: /integrations/tplink/
+[velbus docs]: /integrations/velbus/
 
 ## Need help? Join the community!
 

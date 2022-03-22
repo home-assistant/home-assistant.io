@@ -89,13 +89,11 @@ media_content_type: channel
 #### Selecting a source
 
 It's possible to switch between the 2 sources `TV` and `HDMI`.
+Some older models also expose the installed applications through the WebSocket, in which case the source list is adjusted accordingly.
 
-### Home Assistant Core additional requirements
+### Known issues and restrictions
 
-You will need to install the `websocket-client` Python package in your Home Assistant install. This will probably be done with:
+#### Subnet/VLAN
 
-```bash
-pip3 install websocket-client
-```
-
-Remembering to activate your venv if you're using a venv install.
+Samsung SmartTV does not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant this will fail.
+It may be possible to bypass this issue by using IP masquerading or a proxy.

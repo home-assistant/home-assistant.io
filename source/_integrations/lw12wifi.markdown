@@ -4,7 +4,6 @@ description: Instructions on how to setup Lagute LW-12 Wifi LED controller withi
 ha_category:
   - Light
 ha_iot_class: Local Polling
-logo: lagute.png
 ha_release: 0.71
 ha_domain: lw12wifi
 ha_platforms:
