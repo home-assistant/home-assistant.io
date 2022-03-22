@@ -74,3 +74,13 @@ content: >
 ```
 
 {% endraw %}
+
+In a templated Markdown card of this type, the following attributes are available for each individual package:
+- package.destination_country
+- package.info_text
+- package.timestamp
+- package.location
+- package.origin_country
+- package.package_type
+- package.tracking_info_language
+- package.tracking_number
