@@ -4,7 +4,7 @@
 # General use redirects
 /join-chat https://discord.gg/home-assistant
 /twitter https://twitter.com/home_assistant/
-/newsletter https://newsletter.home-assistant.io/webforms/landing/j9n5n6
+/newsletter https://home-assistant.ghost.io/
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
 /latest-security-alert /blog/2021/01/23/security-disclosure2/
@@ -134,6 +134,14 @@
 /components/telegram_bot.webhooks /integrations/telegram_webhooks
 /components/vacuum.mqtt /integrations/vacuum.mqtt
 /components/vacuum.template /integrations/vacuum.template
+/integrations/binary_sensor.mysensors /integrations/mysensors#binary-sensor
+/integrations/climate.mysensors /integrations/mysensors#climate
+/integrations/cover.mysensors /integrations/mysensors#cover
+/integrations/device_tracker.mysensors /integrations/mysensors#device-tracker
+/integrations/light.mysensors /integrations/mysensors#light
+/integrations/notify.mysensors /integrations/mysensors#notify
+/integrations/sensor.mysensors /integrations/mysensors#sensor
+/integrations/switch.mysensors /integrations/mysensors#switch
 
 /components/air_pollutants.* /integrations/:splat
 /components/air_quality.* /integrations/:splat
