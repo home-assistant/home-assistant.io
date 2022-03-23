@@ -1,3 +1,5 @@
+---
+title: "Frontend of Home Assistant"
 description: "Frontend of Home Assistant."
 ---
 
