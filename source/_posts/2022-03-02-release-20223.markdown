@@ -54,6 +54,7 @@ Enjoy the release!
 - [Release 2022.3.4 - March 11](#release-202234---march-11)
 - [Release 2022.3.5 - March 15](#release-202235---march-15)
 - [Release 2022.3.6 - March 21](#release-202236---march-21)
+- [Release 2022.3.7 - March 23](#release-202237---march-23)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -600,6 +601,41 @@ The following integrations are now available via the Home Assistant UI:
 [samsungtv docs]: /integrations/samsungtv/
 [tplink docs]: /integrations/tplink/
 [velbus docs]: /integrations/velbus/
+
+## Release 2022.3.7 - March 23
+
+- Fix targeting all or none entities in service calls ([@emontnemery] - [#68513])
+- Add support for general API exception in Sense integration ([@kbickar] - [#68517]) ([sense docs]) ([emulated_kasa docs])
+- Add cooldown timer before Sonos resubscriptions ([@jjlawren] - [#68521]) ([sonos docs])
+- Hue handle HTTP errors ([@balloob] - [#68396]) ([hue docs])
+- Simplify Hue error handling a bit ([@marcelveldt] - [#68529]) ([hue docs])
+- Filter IPv6 addresses from AppleTV zeroconf discovery ([@bdraco] - [#68530]) ([apple_tv docs])
+- Bump aiohue to 4.4.0 ([@marcelveldt] - [#68556]) ([hue docs])
+- Bump aiohue to version 4.4.1 ([@marcelveldt] - [#68579]) ([hue docs])
+- Bump py-synologydsm-api to 1.0.7 ([@mib1185] - [#68584]) ([synology_dsm docs])
+
+[#68396]: https://github.com/home-assistant/core/pull/68396
+[#68513]: https://github.com/home-assistant/core/pull/68513
+[#68517]: https://github.com/home-assistant/core/pull/68517
+[#68521]: https://github.com/home-assistant/core/pull/68521
+[#68529]: https://github.com/home-assistant/core/pull/68529
+[#68530]: https://github.com/home-assistant/core/pull/68530
+[#68556]: https://github.com/home-assistant/core/pull/68556
+[#68579]: https://github.com/home-assistant/core/pull/68579
+[#68584]: https://github.com/home-assistant/core/pull/68584
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@jjlawren]: https://github.com/jjlawren
+[@kbickar]: https://github.com/kbickar
+[@marcelveldt]: https://github.com/marcelveldt
+[@mib1185]: https://github.com/mib1185
+[apple_tv docs]: /integrations/apple_tv/
+[emulated_kasa docs]: /integrations/emulated_kasa/
+[hue docs]: /integrations/hue/
+[sense docs]: /integrations/sense/
+[sonos docs]: /integrations/sonos/
+[synology_dsm docs]: /integrations/synology_dsm/
 
 ## Need help? Join the community!
 
