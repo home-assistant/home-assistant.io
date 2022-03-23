@@ -24,7 +24,8 @@ camera:
 ```
 
 The sample configuration above can be tested by publishing an image to the topic from the console:
-```
+
+```shell
 mosquitto_pub -h <mqtt_broker> -t zanzito/shared_locations/my-device -f <camera_imaga.jpg>
 ```
 
