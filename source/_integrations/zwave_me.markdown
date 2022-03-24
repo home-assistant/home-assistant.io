@@ -38,33 +38,51 @@ This integration allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way
 
 URL:
   description: The IP address with the port of the Z-Way server. The IP address can be prefixed with wss:// if HTTPS should be used instead of HTTP (when using find.z-wave.me remote access or public IP with SSL).
+  required: true
+  type: string
 API Token:
   description: Z-Way API access token of the Z-Way server. To get the token go to the Z-Way user interface Smart Home UI > Menu > Settings > Users > Administrator > API token.
+  required: true
+  type: string
 
 {% endconfiguration_basic %}
 
 When connecting via find.z-wave.me you need to use a token with a global scope (log-in to Z-Way via find.z-wave.me for this).
 
-    Example of connecting to Z-Way in the local network:
-    URL: 192.168.1.39:8083
-    API Token: /112f7a4a-0051-cc2b-3b61-1898181b9950
+Example of connecting to Z-Way in the local network:
+ - URL: 192.168.1.39:8083
+ - API Token: /112f7a4a-0051-cc2b-3b61-1898181b9950
 
-    Example of connecting to Z-Way via remote access find.z-wave.me:
-    URL: wss://find.z-wave.me
-    API Token: 0481effe8a5c6f757b455babb678dc0e764feae279/112f7a4a-0051-cc2b-3b61-1898181b9950
+Example of connecting to Z-Way via remote access find.z-wave.me:
+ - URL: wss://find.z-wave.me
+ - API Token: 0481effe8a5c6f757b455babb678dc0e764feae279/112f7a4a-0051-cc2b-3b61-1898181b9950
 
-    Example of connecting to Z-Way with a static public IP address:
-    URL: wss://87.250.250.242:8083
-    API Token: /112f7a4a-0051-cc2b-3b61-1898181b9950
+ Example of connecting to Z-Way with a static public IP address:
+ - URL: wss://87.250.250.242:8083
+ - API Token: /112f7a4a-0051-cc2b-3b61-1898181b9950
 
 
-Note: To grant access only to certain devices, create a new user and select the necessary devices from the list. Then use the API token of that user. It is suggested **not to use the API token of the admin**.
+<div class='note warning'>
 
-Note: You can use Z-Wave.Me UI with its enhanced Z-Wave network diagnostics tools together with the Home Assistant UI.
+  To grant access only to certain devices, create a new user and select the necessary devices from the list. Then use the API token of that user. It is suggested **not to use the API token of the admin**.
+
+</div>
+
+
+<div class='note warning'>
+
+  You can use Z-Wave.Me UI with its enhanced Z-Wave network diagnostics tools together with the Home Assistant UI.
+
+</div>
 
 ## Hardware requirements
 
-Z-Wave.Me Z-Way requires Z-Wave.Me RaZberry, RaZberry7, UZB1, Hub1 or any other Z-Wave.Me based controller.
+Z-Wave.Me Z-Way requires Z-Wave.Me hardware:
+ - [RaZberry 7](https://z-wave.me/products/razberry/) and [RaZberry 7 Pro](https://z-wave.me/products/razberry/)
+ - [RaZberry](https://z-wave.me/products/razberry-old/)
+ - [UZB1](https://z-wave.me/products/uzb/ )
+ - [Hub1](https://z-wave.me/products/hub/)
+ - or any other Z-Wave.Me based controller.
 
 ## Installing Z-Way
 
