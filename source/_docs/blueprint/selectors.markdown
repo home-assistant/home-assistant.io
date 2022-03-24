@@ -63,7 +63,9 @@ addon:
 
 ## Area selector
 
-The area selector shows an area finder that can pick a single or multiple areas based on the selector configuration. The value of the input will be the area ID, or a list of area IDs, based on if 'multiple' is set to true.
+The area selector shows an area finder that can pick a single or multiple areas
+based on the selector configuration. The value of the input will be the area ID,
+or a list of area IDs, based on if `multiple` is set to `true`.
 
 An area selector can filter the list of areas, based on properties of the devices
 and entities that are assigned to those areas. For example, the areas list could
@@ -131,8 +133,7 @@ entity:
       type: device_class
       required: false
 multiple:
-  description: >
-    Allows selecting multiple areas.
+  description: Allows selecting multiple areas. If set to `true`, the resulting value of this selector will be a list instead of a single string value.
   type: boolean
   default: false
   required: false
@@ -157,7 +158,7 @@ integration.
 ```yaml
 area:
   device:
-    multiple: True
+    multiple: true
     integration: deconz
     manufacturer: IKEA of Sweden
     model: TRADFRI remote control
@@ -182,7 +183,9 @@ boolean:
 
 ## Device selector
 
-The device selector shows a device finder that can pick a single or multiple devices based on the selector configuration. The value of the input will contain the device ID or a list of device IDs, based on if 'multiple' is set to true.
+The device selector shows a device finder that can pick a single or multiple
+devices based on the selector configuration. The value of the input will contain
+the device ID or a list of device IDs, based on if `multiple` is set to `true`.
 
 A device selector can filter the list of devices, based on things like the
 manufacturer or model of the device, the entities the device provides or based
@@ -243,8 +246,7 @@ entity:
       type: device_class
       required: false
 multiple:
-  description: >
-    Allows selecting multiple devices.
+  description: Allows selecting multiple devices. If set to `true`, the resulting value of this selector will be a list instead of a single string value.
   type: boolean
   default: false
   required: false
@@ -272,8 +274,10 @@ device:
 
 ## Entity selector
 
-The entity selector shows an entity finder that can pick a single entity or a list of entities based on the selector configuration.
-The value of the input will contain the entity ID, or list of entity IDs, based on if 'multiple' is set to true.
+The entity selector shows an entity finder that can pick a single entity or a
+list of entities based on the selector configuration. The value of the input
+will contain the entity ID, or list of entity IDs, based on if `multiple` is
+set to `true`.
 
 An entity selector can filter the list of entities, based on things like the
 class of the device, the domain of the entity or the domain that provided the
@@ -310,8 +314,7 @@ device_class:
   type: device_class
   required: false
 multiple:
-  description: >
-    Allows selecting multiple entities.
+  description: Allows selecting multiple entities. If set to `true`, the resulting value of this selector will be a list instead of a single string value.
   type: boolean
   default: false
   required: false
@@ -324,12 +327,13 @@ An example entity selector that, will only show entities that are:
 - Provided by the [ZHA](/integrations/zha) integration.
 - From the [Binary Sensor](/integrations/binary_sensor) domain.
 - Have presented themselves as devices of a motion device class.
+- Allows selecting one or more entities.
 
 And this is what it looks like in YAML:
 
 ```yaml
 entity:
-  multiple: True
+  multiple: true
   integration: zha
   domain: binary_sensor
   device_class: motion
