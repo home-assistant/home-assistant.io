@@ -75,6 +75,22 @@ The variables action allows you to set/override variables that will be accessibl
 
 {% endraw %}
 
+Variables can be templated.
+
+{% raw %}
+
+```yaml
+- alias: "Set a templated variable"
+  variables:
+    blind_state_message: "The blind is {{ states('cover.blind') }}."
+- alias: "Notify about the state of the blind"
+  service: notify.mobile_app_iphone
+  data:
+    message: "{{ blind_state_message }}"
+```
+
+{% endraw %}
+
 ### Scope of Variables
 
 Variables have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.

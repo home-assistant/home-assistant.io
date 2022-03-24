@@ -53,6 +53,7 @@ Enjoy the release!
 - [Release 2022.3.3 - March 7](#release-202233---march-7)
 - [Release 2022.3.4 - March 11](#release-202234---march-11)
 - [Release 2022.3.5 - March 15](#release-202235---march-15)
+- [Release 2022.3.6 - March 21](#release-202236---march-21)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -551,6 +552,54 @@ The following integrations are now available via the Home Assistant UI:
 [samsungtv docs]: /integrations/samsungtv/
 [shelly docs]: /integrations/shelly/
 [somfy_mylink docs]: /integrations/somfy_mylink/
+
+## Release 2022.3.6 - March 21
+
+- Fix TypeError in SamsungTV ([@epenet] - [#68235]) ([samsungtv docs])
+- Fix lyric climate ([@nprez83] - [#67018]) ([lyric docs])
+- Fix finding matrix room that is already joined ([@antlarr] - [#67967]) ([matrix docs])
+- Respect disable_new_entities for new device_tracker entities ([@mib1185] - [#68148]) ([device_tracker docs])
+- Add missing await [velbus] ([@cdce8p] - [#68153]) ([velbus docs])
+- Fix point by adding authlib constraint ([@cdce8p] - [#68176]) ([point docs])
+- Update opensensemap-api to 0.2.0 ([@frenck] - [#68193]) ([opensensemap docs])
+- Bump renault-api to 0.1.10 ([@epenet] - [#68260]) ([renault docs])
+- Hue integration: update errors that should be supressed ([@marcelveldt] - [#68337]) ([hue docs])
+- Filter IPv6 addreses from enphase_envoy discovery ([@bdraco] - [#68362]) ([enphase_envoy docs])
+- Handle Hue discovery errors ([@balloob] - [#68392]) ([hue docs])
+- Fix tplink color temp conversion ([@bdraco] - [#68484]) ([tplink docs])
+
+[#67018]: https://github.com/home-assistant/core/pull/67018
+[#67967]: https://github.com/home-assistant/core/pull/67967
+[#68148]: https://github.com/home-assistant/core/pull/68148
+[#68153]: https://github.com/home-assistant/core/pull/68153
+[#68176]: https://github.com/home-assistant/core/pull/68176
+[#68193]: https://github.com/home-assistant/core/pull/68193
+[#68235]: https://github.com/home-assistant/core/pull/68235
+[#68260]: https://github.com/home-assistant/core/pull/68260
+[#68337]: https://github.com/home-assistant/core/pull/68337
+[#68362]: https://github.com/home-assistant/core/pull/68362
+[#68392]: https://github.com/home-assistant/core/pull/68392
+[#68484]: https://github.com/home-assistant/core/pull/68484
+[@antlarr]: https://github.com/antlarr
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@marcelveldt]: https://github.com/marcelveldt
+[@mib1185]: https://github.com/mib1185
+[@nprez83]: https://github.com/nprez83
+[device_tracker docs]: /integrations/device_tracker/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[hue docs]: /integrations/hue/
+[lyric docs]: /integrations/lyric/
+[matrix docs]: /integrations/matrix/
+[opensensemap docs]: /integrations/opensensemap/
+[point docs]: /integrations/point/
+[renault docs]: /integrations/renault/
+[samsungtv docs]: /integrations/samsungtv/
+[tplink docs]: /integrations/tplink/
+[velbus docs]: /integrations/velbus/
 
 ## Need help? Join the community!
 

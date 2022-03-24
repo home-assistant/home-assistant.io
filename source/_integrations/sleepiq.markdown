@@ -2,10 +2,11 @@
 title: SleepIQ
 description: Instructions for how to integrate SleepIQ beds within Home Assistant.
 ha_category:
-  - Health
   - Binary Sensor
   - Button
+  - Health
   - Light
+  - Number
   - Select
   - Sensor
   - Switch
@@ -21,6 +22,7 @@ ha_platforms:
   - binary_sensor
   - button
   - light
+  - number
   - select
   - sensor
   - switch
@@ -34,6 +36,7 @@ There is currently support for the following platforms within Home Assistant:
 - Button - Calibrate the bed
 - Button - Stop the pump
 - Light - Control lights on supported models
+- Number - View/Set the actuator positions of the foundation
 - Number - View/Set firmness for each side
 - Select - Choose a foundation preset position
 - Sensor - View pressure of each side
