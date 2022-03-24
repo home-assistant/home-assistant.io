@@ -37,7 +37,7 @@ This integration allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way
 {% configuration_basic %}
 
 URL:
-  description: The IP address with the port of the Z-Way server. The IP address can be prefixed with wss:// if HTTPS should be used instead of HTTP (when using find.z-wave.me remote access or public IP with SSL).
+  description: The IP address with the port of the Z-Way server. The IP address can be prefixed with wss:// if HTTPS should be used instead of HTTP (when using find.z-wave.me remote access service or public IP with SSL).
   required: true
   type: string
 API Token:
@@ -47,7 +47,7 @@ API Token:
 
 {% endconfiguration_basic %}
 
-When connecting via find.z-wave.me you need to use a token with a global scope (log-in to Z-Way via find.z-wave.me for this).
+When connecting via find.z-wave.me remote access service you need to use a token with a global scope (log-in to Z-Way via [find.z-wave.me](https://find.z-wave.me) for this).
 
 Example of connecting to Z-Way in the local network:
  - URL: 192.168.1.39:8083
