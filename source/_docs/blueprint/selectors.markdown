@@ -164,6 +164,17 @@ area:
     model: TRADFRI remote control
 ```
 
+## Attribute selector
+
+TODO
+
+{% configuration attribute %}
+entity_id:
+  description: TODO.
+  type: string
+  required: true
+{% endconfiguration %}
+
 ## Boolean selector
 
 The boolean selector shows a toggle that allows the user to turn on or off
@@ -179,6 +190,43 @@ This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
 boolean:
+```
+
+## Color temperature selector
+
+TODO
+
+```yaml
+color_temp:
+```
+
+{% configuration color_temp %}
+min_mireds:
+  description: TODO.
+  type: integer
+  default: TODO
+  required: false
+max_mireds:
+  description: TODO.
+  type: integer
+  default: TODO
+  required: false
+{% endconfiguration %}
+
+## Date selector
+
+TODO
+
+```yaml
+date:
+```
+
+## Date & time selector
+
+TODO
+
+```yaml
+datetime:
 ```
 
 ## Device selector
@@ -272,6 +320,14 @@ device:
     device_class: battery
 ```
 
+## Duration selector
+
+TODO
+
+```yaml
+duration:
+```
+
 ## Entity selector
 
 The entity selector shows an entity finder that can pick a single entity or a
@@ -293,6 +349,14 @@ entity:
 ```
 
 {% configuration entity %}
+exclude_entities:
+  description: TODO
+  type: list
+  required: false
+include_entities:
+  description: TODO
+  type: list
+  required: false
 integration:
   description: >
     Can be set to an integration domain. Limits the list of entities to entities
@@ -337,6 +401,65 @@ entity:
   integration: zha
   domain: binary_sensor
   device_class: motion
+```
+
+## Icon selector
+
+TODO
+
+```yaml
+icon:
+```
+
+{% configuration entity %}
+placeholder:
+  description: TODO
+  type: string
+  required: false
+{% endconfiguration %}
+
+## Location selector
+
+TODO
+
+```yaml
+location:
+```
+
+{% configuration entity %}
+icon:
+  description: TODO
+  type: str
+  required: false
+radius:
+  description: TODO
+  type: bool
+  required: false
+{% endconfiguration %}
+
+Returns:
+
+```yaml
+latitude: X (float)
+longitude: X (float)
+radius: X (float)
+```
+
+## Media selector
+
+TODO
+
+```yaml
+media:
+```
+
+Returns:
+
+```yaml
+entity_id: X
+media_content_id: X
+media_content_type: X
+metadata: X`
 ```
 
 ## Number selector
@@ -422,6 +545,15 @@ This selector does not have any other options; therefore, it only has its key.
 object:
 ```
 
+## RGB color selector
+
+TODO
+
+```yaml
+color_rgb:
+```
+
+
 ## Select selector
 
 The select selector shows a list of available options from which the user can choose. The value of the input contains the value of the selected option. Only a single option can be selected at a time.
@@ -441,9 +573,17 @@ select:
 {% configuration select %}
 options:
   description: List of options that the user can choose from.
-  type: list
+  type: [list, mapping]
   required: true
 {% endconfiguration %}
+
+TODO: Add example / description of mapping
+
+```yaml
+select:
+  options:
+    X: Y
+```
 
 ## Target selector
 
@@ -555,6 +695,9 @@ target:
     model: TRADFRI remote control
 ```
 
+
+TODO: Describe target result/return values
+
 ## Text selector
 
 The text selector can be used to input a text string. The value of the input will contain the selected text.
@@ -573,7 +716,38 @@ multiline:
   type: boolean
   default: false
   required: false
+suffix:
+  description: TODO
+  type: string
+  required: false
+type:
+  description: TODO
+  type: string
+  required: false
 {% endconfiguration %}
+
+Types:
+  - "color"
+  - "date"
+  - "datetime-local"
+  - "email"
+  - "month"
+  - "number"
+  - "password"
+  - "search"
+  - "tel"
+  - "text"
+  - "time"
+  - "url"
+  - "week"
+
+## Theme selector
+
+TODO
+
+```yaml
+theme:
+```
 
 ## Time selector
 
