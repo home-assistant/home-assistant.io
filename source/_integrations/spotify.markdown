@@ -122,4 +122,3 @@ The `media_content_id` value can be obtained from the Spotify desktop app by cli
 ## Unsupported Devices
 
 - **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API.
-
