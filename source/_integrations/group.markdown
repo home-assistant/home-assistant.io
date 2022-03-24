@@ -38,17 +38,17 @@ Home Assistant can group multiple binary sensors, covers, fans, light, media pla
 
 By default, when any group member entity is `on`, the group will also be `on`. A complete overview of how groups behave:
 
-- The group state is `unavailable` if all group members are `unavailable`.
-- Otherwise, group state is `unknown` if all group members are `unknown`.
-- Otherwise, group state is `on` if at least one group member is `on`.
-- Otherwise, group state is `off`.
+- The group state is `on` if at least one group member is `on`.
+- Otherwise, the group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `unknown` if all group members are `unknown`.
+- Otherwise, the group state is `off`.
 
 Some groups, like the binary sensors and lights, allow you set "All entities" option. When enabled, this behavior is inverted, and all members of the group have to be `on` for the group to turn `on` as well. A complete over of how groups behave when the "All entities" option is enabled:
 
-- The group state is `unavailable` if all group members are `unavailable`.
-- Otherwise, group state is `unknown` if at least one group member is `unknown` or `unavailable`.
-- Otherwise, group state is `off` if at least one group member is `off`.
-- Otherwise, group state is `on`.
+- The group state is `off` if at least one group member is `off`.
+- Otherwise, the group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
+- Otherwise, the group state is `on`.
 
 ## YAML Configuration
 
