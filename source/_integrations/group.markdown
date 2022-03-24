@@ -43,7 +43,7 @@ By default, when any group member entity is `on`, the group will also be `on`. A
 - Otherwise, the group state is `unknown` if all group members are `unknown`.
 - Otherwise, the group state is `off`.
 
-Some groups, like the binary sensors and lights, allow you set "All entities" option. When enabled, this behavior is inverted, and all members of the group have to be `on` for the group to turn `on` as well. A complete over of how groups behave when the "All entities" option is enabled:
+Some groups, like the binary sensors and lights, allow you set the "All entities" option. When enabled, this behavior is inverted, and all members of the group have to be `on` for the group to turn `on` as well. A complete overview of how groups behave when the "All entities" option is enabled:
 
 - The group state is `off` if at least one group member is `off`.
 - Otherwise, the group state is `unavailable` if all group members are `unavailable`.
@@ -53,7 +53,7 @@ Some groups, like the binary sensors and lights, allow you set "All entities" op
 ## YAML Configuration
 
 Alternatlively, this integration can be configured and set up manually via YAML
-instead. Here are example of how to groups when using the `configuration.yaml` file.
+instead. Here are example of how to configure groups when using the `configuration.yaml` file.
 
 Example YAML configuration of a binary sensor group:
 
