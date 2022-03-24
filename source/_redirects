@@ -142,6 +142,12 @@
 /integrations/notify.mysensors /integrations/mysensors#notify
 /integrations/sensor.mysensors /integrations/mysensors#sensor
 /integrations/switch.mysensors /integrations/mysensors#switch
+/integrations/binary_sensor.group /integrations/group
+/integrations/cover.group /integrations/group
+/integrations/fan.group /integrations/group
+/integrations/light.group /integrations/group
+/integrations/media_player.group /integrations/group
+/integrations/notify.group /integrations/group#notify-groups
 
 /components/air_pollutants.* /integrations/:splat
 /components/air_quality.* /integrations/:splat
