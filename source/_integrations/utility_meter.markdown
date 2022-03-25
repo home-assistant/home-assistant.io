@@ -41,7 +41,7 @@ source:
   required: true
   type: string
 name:
-  description: The friendly name to use in the GUI.
+  description: The friendly name to use in the GUI. **This configuration option is deprecated and will be removed in a future release. You shoud use the UI or [Customization](/docs/configuration/customizing-devices/).**
   required: false
   type: string
 cycle:
