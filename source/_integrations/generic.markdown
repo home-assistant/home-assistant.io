@@ -19,7 +19,7 @@ Home Assistant will serve the images via its server, making it possible to view 
 
 You must enter a URL in at least one of the fields **Still Image URL** or **Stream Source URL**, the others are optional.
 
-[Templates](/topics/templating/) are allowed in the URL fields, which can be used to select different images or parameterize the URL depending on the status of sensors.  Template validity and network access is checked during the configuration steps.
+[Templates](/topics/templating/) are allowed in the URL fields, which can be used to select different images or parameterize the URL depending on the status of sensors.  Template validity and network access are checked during the configuration steps.
 
 {% configuration %}
 still_image_url:
