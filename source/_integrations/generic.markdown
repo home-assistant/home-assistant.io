@@ -133,7 +133,7 @@ To access a camera that requires secured access for still image or live stream (
 
 | Parameter | Setting |
 | - | - |
-| Still Image URL | "http://192.168.1.100/ISAPI/Streaming/Channels/101/picture" |
+| Still Image URL | http://192.168.1.100/ISAPI/Streaming/Channels/101/picture |
 | Stream Source | rtsp://USERNAME:PASSWORD@192.168.1.100:554/Streaming/Channels/102 |
 | Verify SSL | false |
 | Username | user |
