@@ -15,17 +15,9 @@ Home Assistant will serve the images via its server, making it possible to view 
 
 {% include integrations/config_flow.md %}
 
-You must enter a URL in at least one of the fields **Still Image URL** or **Stream Source URL**, the others are optional. Click next to continue.
+You must enter a URL in at least one of the fields **Still Image URL** or **Stream Source URL**, the others are optional.
 
-Alternatively, Home Assistant can load this integration via `configuration.yaml`; add the following to your `configuration.yaml` file:
-
-
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: generic
-    still_image_url: http://194.218.96.92/jpg/image.jpg
-```
+[Templates](/topics/templating/) are allowed in the URL fields, which can be used to select different images or parameterize the URL depending on the status of sensors.  Template validity and network access is checked during the configuration steps.
 
 {% configuration %}
 still_image_url:
@@ -34,10 +26,6 @@ still_image_url:
   type: string
 stream_source:
   description: "The URL your camera serves the live stream on, e.g., `rtsp://192.168.1.21:554/`. Can be a [template](/topics/templating/)."
-  required: false
-  type: string
-name:
-  description: This parameter allows you to override the name of your camera.
   required: false
   type: string
 username:
@@ -58,11 +46,6 @@ limit_refetch_to_url_change:
   required: false
   default: false
   type: boolean
-content_type:
-  description: Set the content type for the IP camera if it is not a jpg file. Use `image/svg+xml` to add a dynamic SVG file.
-  required: false
-  default: image/jpeg
-  type: string
 framerate:
   description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
   required: false
@@ -88,11 +71,7 @@ In this section, you find some real-life examples of how to use this camera plat
 ### Weather graph from yr.no
 
 ```yaml
-camera:
-  - platform: generic
-    name: Weather
     still_image_url: https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/meteogram.svg
-    content_type: 'image/svg+xml'
 ```
 
 ### Local image
@@ -100,9 +79,6 @@ camera:
 You can show a static image with this platform. Just place the image here: `/config/www/your_image.png`
 
 ```yaml
-camera:
-  - platform: generic
-    name: Some Image
     still_image_url: https://127.0.0.1:8123/local/your_image.png
     verify_ssl: false
 ```
@@ -112,9 +88,6 @@ camera:
 If you are running more than one Home Assistant instance (let's call them the 'host' and 'receiver' instances) you may wish to display the camera feed from the host instance on the receiver instance. You can use the [REST API](https://developers.home-assistant.io/docs/api/rest/#get-apicamera_proxycameraentity_id) to access the camera feed on the host (IP address 127.0.0.5) and display it on the receiver instance by configuring the receiver with the following:
 
 ```yaml
-camera:
-  - platform: generic
-    name: Host instance camera feed
     still_image_url: https://127.0.0.5:8123/api/camera_proxy/camera.live_view
 ```
 ### Image from HTTP only camera
@@ -122,9 +95,6 @@ camera:
 To access a camera which is only available via HTTP, you must turn off SSL verification.
 
 ```yaml
-camera:
-  - platform: generic
-    name: Some Image
     still_image_url: http://example.org/your_image.png
     verify_ssl: false
 ```
@@ -134,9 +104,6 @@ camera:
 To access a camera that has both a snapshot and live stream URL, utilizing the [stream](/integrations/stream/) component.
 
 ```yaml
-camera:
-  - platform: generic
-    name: Streaming Enabled
     still_image_url: http://194.218.96.92/jpg/image.jpg
     stream_source: rtsp://194.218.96.92:554
 ```
