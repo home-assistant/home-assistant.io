@@ -77,69 +77,65 @@ In this section, you find some real-life examples of how to use this camera plat
 
 ### Weather graph from yr.no
 
-```yaml
-    still_image_url: https://www.yr.no/en/content/1-72837/meteogram.svg
-```
+| Parameter | Setting |
+| - | - |
+| Still Image URL | https://www.yr.no/en/content/1-72837/meteogram.svg |
+
 Instructions on how to locate the SVG for your location is available at [developer.yr.no](https://developer.yr.no/doc/guides/deprecating-old-widgets/)
 
 ### Local image
 
 You can show a static image with this platform. Just place the image here: `/config/www/your_image.png`
 
-```yaml
-    still_image_url: https://127.0.0.1:8123/local/your_image.png
-    verify_ssl: false
-```
+| Parameter | Setting |
+| - | - |
+| Still Image URL | https://127.0.0.1:8123/local/your_image.png |
+| Verify SSL  | false |
+
 
 ### Sharing a camera feed from one Home Assistant instance to another
 
 If you are running more than one Home Assistant instance (let's call them the 'host' and 'receiver' instances) you may wish to display the camera feed from the host instance on the receiver instance. You can use the [REST API](https://developers.home-assistant.io/docs/api/rest/#get-apicamera_proxycameraentity_id) to access the camera feed on the host (IP address 127.0.0.5) and display it on the receiver instance by configuring the receiver with the following:
 
-```yaml
-    still_image_url: https://127.0.0.5:8123/api/camera_proxy/camera.live_view
-```
+| Parameter | Setting |
+| - | - |
+| Still Image URL | https://127.0.0.5:8123/api/camera_proxy/camera.live_view |
 
 ### Image from HTTP only camera
 
 To access a camera which is only available via HTTP, you must turn off SSL verification.
 
-```yaml
-    still_image_url: http://example.org/your_image.png
-    verify_ssl: false
-```
+| Parameter | Setting |
+| - | - |
+| Still Image URL | http://example.org/your_image.png |
+| Verify SSL | false |
 
 ### Live stream
 
 To access a camera that has both a snapshot and live stream URL, utilizing the [stream](/integrations/stream/) component.
 
-```yaml
-    still_image_url: http://194.218.96.92/jpg/image.jpg
-    username: user
-    password: pass
-    stream_source: rtsp://user:pass@194.218.96.92:554
-```
+| Parameter | Setting |
+| - | - |
+| Still Image URL | http://194.218.96.92/jpg/image.jpg |
+| Username | user |
+| Password | pass |
+| Stream Source | rtsp://user:pass@194.218.96.92:554 |
 
 If a camera only has a live stream URL and no snapshot URL, the [stream](/integrations/stream/) component can also generate still images from the live stream URL.
 
-```yaml
-camera:
-  - platform: generic
-    name: Streaming
-    stream_source: rtsp://user:pass@194.218.96.92:554
-```
+| Parameter | Setting |
+| - | - |
+| Stream Source | rtsp://user:pass@194.218.96.92:554 |
 
 ### Secured access to the camera
 
 To access a camera that requires secured access for still image or live stream (an HIK in my case).
 
-```yaml
-camera: 
-  - platform: generic
-    still_image_url: "http://192.168.1.100/ISAPI/Streaming/Channels/101/picture"
-    stream_source: "rtsp://USERNAME:PASSWORD@192.168.1.100:554/Streaming/Channels/102"
-    name: "My Camera"
-    verify_ssl: false
-    username: "USERNAME"
-    password: "PASSWORD"
-    authentication: digest
-```
+| Parameter | Setting |
+| - | - |
+| Still Image URL | "http://192.168.1.100/ISAPI/Streaming/Channels/101/picture" |
+| Stream Source | "rtsp://USERNAME:PASSWORD@192.168.1.100:554/Streaming/Channels/102" |
+| Verify SSL | false |
+| Username | user |
+| Password | pass |
+| Authentication | digest |
