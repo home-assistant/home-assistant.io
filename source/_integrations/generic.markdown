@@ -13,9 +13,7 @@ The `generic` camera platform allows you to integrate any IP camera or other URL
 
 Home Assistant will serve the images via its server, making it possible to view your IP cameras while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
-## Configuration
-
-Home Assistant offers the Generic IP Camera through **Configuration -> Integrations -> Generic IP Camera**.
+{% include integrations/config_flow.md %}
 
 You must enter a URL in at least one of the fields **Still Image URL** or **Stream Source URL**, the others are optional. Click next to continue.
 
