@@ -4,7 +4,6 @@ description: Instructions on how to integrate counters into Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.53
-ha_iot_class: Calculated
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
@@ -15,7 +14,17 @@ The `counter` integration allows one to count occurrences fired by automations.
 
 ## Configuration
 
-To add a counter to your installation, add the following to your `configuration.yaml` file:
+The preferred way to configure counter helpers is via the user interface. To add one, go to
+**{% my helpers title="Configuration -> Helpers" %}** and click the add button;
+next choose the "**Counter**" option.
+
+To be able to add **Helpers** via the user interface you should have
+`default_config:` in your `configuration.yaml`, it should already be there by
+default unless you removed it. If you removed `default_config:` from your
+configuration, you must add `counter:` to your `configuration.yaml` first,
+then you can use the UI.
+
+Counters can also be configured via `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -70,7 +79,7 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 
 This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity has `restore` set to `true`, which is the default. To disable this feature, set `restore` to `false`.
 
-If `restore` is set to `false`, the `initial` value will only be used when no previous state is found or when the counter is reset.
+If `restore` is set to `true`, the `initial` value will only be used when no previous state is found or when the counter is reset.
 
 ## Services
 
@@ -113,8 +122,6 @@ With this service the properties of the counter can be changed while running.
 | `initial`              |     yes  | Set new value for initial. |
 | `value`                |     yes  | Set the counters state to the given value. |
 
-
-
 ### Use the service
 
 Select the **Services** tab from within **Developer Tools**. Choose **counter** from the list of **Domains**, select the **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
@@ -143,7 +150,7 @@ system_log:
 # Example configuration.yaml entry
 automation:
 - id: 'errorcounterautomation'
-  alias: Error Counting Automation
+  alias: "Error Counting Automation"
   trigger:
     platform: event
     event_type: system_log_event
@@ -151,7 +158,7 @@ automation:
       level: ERROR
   action:
     service: counter.increment
-    data:
+    target:
       entity_id: counter.error_counter
     
 counter:

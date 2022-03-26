@@ -44,4 +44,4 @@ When each integration is done setting up, it will ask you to put the new devices
 
 When you're done, navigate back to the web interface and voila, your devices are ready for you to control.
 
-### [Next step: Automate Home Assistant &raquo;](/getting-started/automation/)
+{% include getting-started/next_step.html step="Automate Home Assistant" link="/getting-started/automation/" %}

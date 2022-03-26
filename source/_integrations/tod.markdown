@@ -7,6 +7,8 @@ ha_release: 0.89
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: tod
+ha_platforms:
+  - binary_sensor
 ---
 
 The `tod` platform supports binary sensors which get their values by checking if the current time is within defined time ranges.
@@ -25,13 +27,13 @@ binary_sensor:
   - platform: tod
     name: Early Morning
     after: sunrise
-    after_offset: '-02:00'
-    before: '07:00'
+    after_offset: "-02:00"
+    before: "07:00"
 
   - platform: tod
     name: Late Morning
-    after: '10:00'
-    before: '12:00'
+    after: "10:00"
+    before: "12:00"
 ```
 
 {% configuration %}
@@ -40,19 +42,19 @@ name:
   required: true
   type: string
 before:
-  description: The absolute local time value or sun event for beginning of the time range.
-  required: true
-  type: [string, time]
-before_offset:
-  description: The time offset of the beginning time range.
-  required: false
-  type: time
-after:
   description: The absolute local time value or sun event for ending of the time range.
   required: true
   type: [string, time]
-after_offset:
+before_offset:
   description: The time offset of the ending time range.
+  required: false
+  type: time
+after:
+  description: The absolute local time value or sun event for beginning of the time range.
+  required: true
+  type: [string, time]
+after_offset:
+  description: The time offset of the beginning time range.
   type: time
   required: false
 {% endconfiguration %}

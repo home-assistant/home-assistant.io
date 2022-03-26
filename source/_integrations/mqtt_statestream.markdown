@@ -4,11 +4,11 @@ description: Instructions on how to setup MQTT Statestream within Home Assistant
 ha_category:
   - Other
 ha_release: 0.54
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt_statestream
 ---
 
-The `mqtt_statestream` integration publishes state changes in Home Assistant to individual MQTT topics.
+The `mqtt_statestream` integration publishes state changes in Home Assistant to individual MQTT topics. [The MQTT integration](/integrations/mqtt/) is a prerequisite for MQTT Statestream to work.
 
 ## Configuration
 
@@ -77,8 +77,6 @@ include:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `MQTT Statestream`, you can use the `include` and `exclude` parameters.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 mqtt_statestream:
@@ -93,8 +91,6 @@ mqtt_statestream:
     entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 

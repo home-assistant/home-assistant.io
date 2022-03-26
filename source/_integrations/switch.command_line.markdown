@@ -56,11 +56,19 @@ switches:
           description: The name used to display the switch in the frontend.
           required: false
           type: string
+        icon_template:
+          description: Defines a template for the icon of the entity.
+          required: false
+          type: template
         command_timeout:
           description: Defines number of seconds for command timeout.
           required: false
           type: integer
           default: 15
+        unique_id:
+          description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
+          required: false
+          type: string
 {% endconfiguration %}
 
 A note on `friendly_name`:
@@ -81,12 +89,42 @@ See aREST device below for an example.
 
 In this section you find some real-life examples of how to use this switch.
 
+### Change the icon when a state changes
+
+This example demonstrates how to use template to change the icon as its state changes. This icon is referencing its own state.
+
+{% raw %}
+
+```yaml
+switch:
+  - platform: command_line
+    switches:
+
+      driveway_sensor_motion:
+        friendly_name: Driveway buiten sensor
+        command_on: >
+          curl -X PUT -d '{"on":true}' "http://ip_address/api/sensors/27/config/"
+        command_off: >
+          curl -X PUT -d '{"on":false}' "http://ip_address/api/sensors/27/config/"
+        command_state: curl http://ip_address/api/sensors/27/
+        value_template: >
+          {{value_json.config.on}}
+        icon_template: >
+          {% if value_json.config.on == true %} mdi:toggle-switch
+          {% else %} mdi:toggle-switch-off
+          {% endif %}
+```
+
+{% endraw %}
+
 ### aREST device
 
 The example below is doing the same as the
 [aREST switch](/integrations/arest#switch).
 The command line tool [`curl`](https://curl.haxx.se/) is used to toggle a pin
 which is controllable through REST.
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -97,9 +135,11 @@ switch:
         command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
         command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
         command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
-        value_template: '{% raw %}{{ value == "1" }}{% endraw %}'
+        value_template: '{{ value == "1" }}'
         friendly_name: Kitchen Lightswitch
 ```
+
+{% endraw %}
 
 Given this example, in the UI one would see the `friendly_name` of
 "Kitchen Light". However, the `identifier` is `arest_pin_four`, making the
@@ -145,6 +185,8 @@ Commands ([Source](https://www.iltucci.com/blog/wp-content/uploads/2018/12/Fosca
 This switch supports statecmd,
 which checks the current state of motion detection.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 switch:
@@ -154,8 +196,10 @@ switch:
         command_on: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
         command_off: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
         command_state: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
-        value_template: {% raw %}'{{ value == "1" }}'{% endraw %}
+        value_template: '{{ value == "1" }}'
 ```
+
+{% endraw %}
 
 - Replace admin and password with an "Admin" privileged Foscam user
 - Replace ipaddress with the local IP address of your Foscam

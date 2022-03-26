@@ -8,7 +8,6 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_domain: image
 ha_quality_scale: internal
-ha_iot_class:
 ---
 
 The Image integration allows Home Assistant to handle image assets in Home Assistant, for example,

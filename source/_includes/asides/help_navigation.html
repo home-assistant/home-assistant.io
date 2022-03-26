@@ -1,21 +1,20 @@
 <section class="aside-module grid__item one-whole lap-one-half">
-  {% include edit_github.html %}
-
   <div class="section">
     <h1 class="title delta">&nbsp;</h1>
     <ul class="divided sidebar-menu">
+      <li>{% active_link /help/ Help %}</li>
       <li>
-        {% active_link /help/ Help %}
-      </li>
-      <li>
-        <a href="https://developers.home-assistant.io">Developer documentation
+        <a href="https://developers.home-assistant.io"
+          >Developer documentation
           <i class="icon-external-link"></i>
         </a>
       </li>
       <li>
         Governance
         <ul>
-          <li>{% active_link /developers/cla/ Contributor License Agreement %}</li>
+          <li>
+            {% active_link /developers/cla/ Contributor License Agreement %}
+          </li>
           <li>{% active_link /privacy/ Privacy Policy %}</li>
           <li>{% active_link /tos/ Terms of Service %}</li>
           <li>{% active_link /code_of_conduct/ Code of Conduct %}</li>

@@ -10,6 +10,9 @@ ha_quality_scale: silver
 ha_codeowners:
   - '@frenck'
 ha_domain: spotify
+ha_zeroconf: true
+ha_platforms:
+  - media_player
 ---
 
 The Spotify media player integration allows you to control [Spotify](https://www.spotify.com/) playback from Home Assistant.
@@ -17,31 +20,47 @@ The Spotify media player integration allows you to control [Spotify](https://www
 ## Prerequisites
 
 - Spotify account
-- Spotify application configured for Home Assistant (see [below](#create-a-spotify-application))
+- (Optional) Spotify developer application configured for Home Assistant (see [below](#create-a-spotify-application))
 
 <div class='note'>
   Spotify integrated media controls (pause, play, next, etc.) require a Premium account.
   If you do not have a Premium account, the frontend will not show the controls.
 </div>
 
+{% include integrations/config_flow.md %}
+
+Unless configured otherwise, Home Assistant will use account linking provided by
+Nabu Casa for authenticating with Spotify. If this is not working or you don't
+want to use it, follow the steps for configuring a [developer application](#create-a-spotify-application)
+before configuring Spotify.
+
+<div class='note'>
+
+  If you receive an `INVALID_CLIENT: Invalid redirect URI` error while trying to
+  authenticate with your Spotify account, check the Redirect URI in
+  the address bar after adding the new integration. Compare this value with the
+  Redirect URI defined in the Spotify Developer Portal.
+
+</div>
+
 ### Create a Spotify application
 
-- Login to [Spotify Developer](https://developer.spotify.com).
+- Login to [Spotify Developer](https://developer.spotify.com) via Dashboard.
 - Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page.
 - Select **Create An App**. Enter any name and description.
 - Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant [configuration file below](#configuration).
 - Enter the **Edit Settings** dialog of your newly-created application and add a *Redirect URI*:
   - If you are not using SSL: `http://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
   - If you are using SSL: `https://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
+  - Note Spotify does a case-sensitive match of the fields above, as such ensure the Redirect URI is all lower case.
 - Click **Save** after adding the URI.
 
 <div class='note'>
   Your Home Assistant instance does not need to be exposed to the internet. It works just fine with local IP addresses.
 </div>  
 
-## Configuration
 
-To add Spotify to Home Assistant, add the following to your `configuration.yaml` file:
+Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -61,33 +80,18 @@ client_secret:
   type: string
 {% endconfiguration %}
 
-## Activating the Spotify integration
 
-- Access Home Assistant using the URL that you used in the **Redirect URI** step above 
-- Go to the **Configuration** page in the Home Assistant frontend.
-- Click on **Integrations**.
-- Click the orange **+** on the bottom-right.
-- Click on "Spotify".
-- Once the new Spotify tab opens, enter your Spotify credentials and allow Home Assistant to access your Spotify account.
-
-<div class='note'>
-
-  If you receive an `INVALID_CLIENT: Invalid redirect URI` error while trying to
-  authenticate with your Spotify account, check the Redirect URI in
-  the address bar after adding the new integration. Compare this value with the
-  Redirect URI defined in the Spotify Developer Portal.
-
-</div>
+Restart your Home Assistant instance before continuing with the next step.
 
 ## Using multiple Spotify accounts
 
 This integration supports multiple Spotify accounts at once. You don't need to
 create another Spotify application in the Spotify Developer Portal and no
 modification to the `configuration.yaml` file is needed. Multiple Spotify
-accounts can be linked to a _single_ Spotify application.
+accounts can be linked to a _single_ Spotify application. You will have to add those accounts into the **Users and Access** section of your application in the Spotify Developer Portal.
 
 To add an additional Spotify account to Home Assistant, go to the Spotify website and log out, then repeat _only_ the steps
-in the [Activating the Spotify integration](#activating-the-spotify-integration) section. 
+in the [Configuration](#configuration) section. 
 
 ## Playing Spotify playlists
 
@@ -100,9 +104,10 @@ script:
   play_jazz_guitar:
     sequence:
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.spotify
-          media_content_id: 'https://open.spotify.com/playlist/5xddIVAtLrZKtt4YGLM1SQ?si=YcvRqaKNTxOi043Qn4LYkg'
+        data:
+          media_content_id: "https://open.spotify.com/playlist/5xddIVAtLrZKtt4YGLM1SQ?si=YcvRqaKNTxOi043Qn4LYkg"
           media_content_type: playlist
 ```
 

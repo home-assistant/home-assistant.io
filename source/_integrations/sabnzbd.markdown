@@ -7,6 +7,8 @@ ha_category:
 ha_release: 0.7
 ha_iot_class: Local Polling
 ha_domain: sabnzbd
+ha_platforms:
+  - sensor
 ---
 
 The `sabnzbd` integration will allow you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from within Home Assistant and setup automations based on the information.

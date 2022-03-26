@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.16
 ha_iot_class: Local Polling
 ha_domain: yamaha
+ha_platforms:
+  - media_player
 ---
 
 The `yamaha` platform allows you to control [Yamaha Network Receivers](https://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.
@@ -17,6 +19,7 @@ Supported devices:
 - [RX-V573](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v573/specs.html)
 - [RX-V585](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
 - [RX-V673](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v673/specs.html)
+- [RX-V685](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
 - [RX-V773](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v773/specs.html)
 - And more
 
@@ -115,15 +118,17 @@ script:
     alias: "Radio Paradise Porch"
     sequence:
       - service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.living_room_stereo_zone_2
       - service: media_player.volume_set
-        data:
+        target:
           entity_id: media_player.living_room_stereo_zone_2
+        data:
           volume_level: 0.48
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.living_room_stereo_zone_2
+        data:
           media_content_type: "NET RADIO"
           media_content_id: "Bookmarks>Internet>Radio Paradise"
 
@@ -138,6 +143,15 @@ Enable or disable an output port (HDMI) on the receiver.
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
 | `port` | no | Port to enable or disable, e.g., `hdmi1`.
 | `enabled` | no | To enable set true, otherwise set to false.
+
+### Service `menu_cursor`
+
+Control the menu cursor.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
+| `cursor` | no | Name of the cursor key to press: `up`, `down`, `left`, `right`, `select`, `return`
 
 ### Service `select_scene`
 

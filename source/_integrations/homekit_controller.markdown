@@ -19,7 +19,26 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@Jc2k'
+  - '@bdraco'
 ha_domain: homekit_controller
+ha_zeroconf: true
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - camera
+  - button
+  - diagnostics
+  - climate
+  - cover
+  - fan
+  - humidifier
+  - light
+  - lock
+  - media_player
+  - number
+  - sensor
+  - select
+  - switch
 ---
 
 The [HomeKit](https://developer.apple.com/homekit/) controller integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
@@ -87,6 +106,10 @@ When you have filled in the rest of the form to create your migration it will sh
 <p class='img'>
 <img src='/images/integrations/homekit_controller/device_automation_finish.png' />
 </p>
+
+## Pairing with an insecure setup code
+
+Some device manufacturers do not follow the HomeKit spec and will use a fixed code or trivially guessable code such as `123-45-678` for pairing. HomeKit Controller will warn when pairing about the insecure nature of this configuration and require additional consent before pairing with the accessory. Consider finding a replacement device that implements code randomization.
 
 ## Troubleshooting
 
@@ -161,3 +184,7 @@ In these cases, HomeKit Controller will skip polling to avoid a buildup of back 
 ### I can't see any events generated for "stateless" accessories
 
 This is expected. The only way to use stateless accessories like some doorbells, buttons or remotes with Home Assistant is through device automations. Home Assistant doesn't create duplicate events for device automation triggers, so for example you won't be able to watch them with the events developer tools.
+
+### Home Assistant can't see my Homebridge device(s)
+
+In your Homebridge settings/config, make sure you are using `ciao` and not `Bonjour-HAP`. `Bonjour-HAP` is no longer recommended by `homebridge` and is considered broken/unsupported.

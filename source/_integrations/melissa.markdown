@@ -9,6 +9,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@kennedyshead'
 ha_domain: melissa
+ha_platforms:
+  - climate
 ---
 
 The `melissa` integration is the main integration to connect to a [Melissa Climate](https://seemelissa.com/) A/C control.

@@ -9,9 +9,12 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: time_date
+ha_platforms:
+  - sensor
 ---
 
-The time and date (`time_date`) sensor platform adds one or more sensors to your Home Assistant state machine.
+The time and date (`time_date`) integration allows one to show the current date or time in different formats. All values are based on the timezone which is set in "General Configuration". 
+
 To have these sensors available in your installation, add the following to your `configuration.yaml` file (each option creates a separate sensor that contains appropriate data, e.g.,  `sensor.date` for the `date` option):
 
 ```yaml
@@ -32,7 +35,7 @@ sensor:
 
 {% configuration %}
 display_options:
-  description: The option to display. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](https://www.swatch.com/en_us/internet-time).
+  description: The option to display. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](https://en.wikipedia.org/wiki/Swatch_Internet_Time).
   required: true
   type: list
 {% endconfiguration %}
@@ -59,12 +62,15 @@ sensor:
     display_options:
       - 'date_time_iso'
   # Build on the standard sensor to produce one that can be customized    
-  - platform: template
-    sensors:
-      time_formatted:
-        friendly_name: "Date and time"
-        value_template: "{{ as_timestamp(states('sensor.date_time_iso')) | timestamp_custom('%A %B %-m, %I:%M %p') }}"
-        icon_template: mdi:calendar-clock
-```        
+template:
+  - sensor:
+      - name: "Date and time"
+        state: "{{ as_timestamp(states('sensor.date_time_iso')) | timestamp_custom('%A %B %-d, %I:%M %p') }}"
+        icon: "mdi:calendar-clock"
+```
 
 {% endraw %}
+
+## More time-related resources
+
+For more information about using time related variables and sensors in templates (such as `today_at()`, `now()` or `as_timestamp()`) visit this [time section](/docs/configuration/templating/#time) on the templating page.

@@ -6,7 +6,7 @@ ha_release: 0.105
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: safe_mode
-ha_iot_class:
+ha_quality_scale: internal
 ---
 
 The `safe_mode` integration is an internally used integration by the

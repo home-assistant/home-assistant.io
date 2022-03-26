@@ -2,16 +2,21 @@
 title: DoorBird
 description: Instructions on how to integrate your DoorBird video doorbell with Home Assistant.
 ha_category:
-  - Doorbell
+  - Button
   - Camera
-  - Switch
+  - Doorbell
 ha_release: 0.54
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@oblogic7'
   - '@bdraco'
+  - '@flacjacket'
 ha_domain: doorbird
+ha_zeroconf: true
+ha_platforms:
+  - camera
+  - button
 ---
 
 The `doorbird` implementation allows you to integrate your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
@@ -19,7 +24,7 @@ The `doorbird` implementation allows you to integrate your [DoorBird](https://ww
 There is currently support for the following device types within Home Assistant:
 
 - [Camera](#camera) - View live and historical event based images.
-- [Switch](#switch) - Enable control of relays and camera night vision.
+- [Button](#button) - Enable control of relays and camera night vision.
 
 ## Setup
 
@@ -30,87 +35,11 @@ It is recommended to set up a new account on your Doorbird App for use with Home
 - "Motion" (last motion)
 - "API-Operator" (this needed to be enabled as a minimum)
 
-## Configuration
-
-To add `DoorBird` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **DoorBird**. After filling out UI prompts, click the gear icon to edit device settings. Enter device event names here to associate with a schedule in DoorBird app. See [Schedules](#schedules)
-
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-doorbird:
-  devices:
-    - host: DOORBIRD_IP_OR_HOSTNAME
-      username: YOUR_USERNAME
-      password: YOUR_PASSWORD
-      token: YOUR_DOORBIRD_TOKEN
-```
-
-{% configuration %}
-
-devices:
-  description: List of Doorbird devices.
-  required: true
-  type: list
-  keys:
-    host:
-      description: The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](https://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
-      required: true
-      type: string
-    username:
-      description: The username of a non-administrator user account on the device ([User setup](/integrations/doorbird/#setup))
-      required: true
-      type: string
-    password:
-      description: The password for the user specified.
-      required: true
-      type: string
-    token:
-      description: Token to be used to authenticate Doorbird calls to Home Assistant. This is a user defined value and should be unique across all Doorbird devices.
-      required: true
-      type: string
-    name:
-      description: Custom name for this device.
-      required: false
-      type: string
-    hass_url_override:
-      description: If your DoorBird cannot connect to the machine running Home Assistant because you are using dynamic DNS or some other HTTP configuration (such as HTTPS), specify the LAN IP of the machine here to force a LAN connection.
-      required: false
-      type: string
-    events:
-      description: Custom event names to be registered on the device. User defined values. Special characters should be avoided.
-      required: false
-      type: list
-      
-{% endconfiguration %}
-
-## Full example
-
-```yaml
-doorbird:
-  devices:
-    - host: DOORBIRD_IP_OR_HOSTNAME
-      username: YOUR_USERNAME
-      password: YOUR_PASSWORD
-      token: CUSTOM_TOKEN_1
-      hass_url_override: HASS_URL
-      name: Front Door
-    - host: DOORBIRD_IP_OR_HOSTNAME
-      username: YOUR_USERNAME
-      password: YOUR_PASSWORD
-      token: CUSTOM_TOKEN_2
-      name: Driveway Gate
-      events:
-        - doorbell_1
-        - somebody_pressed_the_button
-        - relay_unlocked
-        - unit_2_bell
-        - rfid_card_scanned
-```
+{% include integrations/config_flow.md %}
 
 ## Events
 
-Events can be defined for each configured DoorBird device independently. These events will be registered on the device and can be attached to a schedule via the DoorBird app. 
+Events can be defined for each configured DoorBird device independently. These events will be registered on the device and can be attached to a schedule via the DoorBird app.
 
 See [Schedules](#schedules) section below for details on how to configure schedules.
 
@@ -169,13 +98,14 @@ Note: Remember to complete the schedule assignment steps above for each event ty
 ### Automation Example
 
 ```yaml
-- alias: Doorbird Ring
+- alias: "Doorbird Ring"
   trigger:
     platform: event
     event_type: doorbird_driveway_gate_somebody_pressed_the_button
   action:
     service: light.turn_on
-      entity_id: light.side_entry_porch
+      target:
+        entity_id: light.side_entry_porch
 ```
 
 ## Camera
@@ -183,6 +113,6 @@ Note: Remember to complete the schedule assignment steps above for each event ty
 The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
 
 
-## Switch
+## Button
 
-The `doorbird` switch platform allows you to power connected relays and trigger the IR array in your [DoorBird](https://www.doorbird.com/) video doorbell device.
+The `doorbird` button platform allows you to power connected relays and trigger the IR array in your [DoorBird](https://www.doorbird.com/) video doorbell device.

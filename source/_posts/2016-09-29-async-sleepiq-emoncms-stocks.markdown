@@ -5,7 +5,9 @@ date: 2016-09-29 03:04:05 +0000
 date_formatted: "September 29, 2016"
 author: Paulus Schoutsen & Fabian Affolter
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Two weeks ago, September 17 marked our 3 year anniversary. In this time Home Assistant managed to grow from a simple script that turned on my lights when the sun set to a kick ass open source project with the best community an open-source project could wish for. This release contains features, bug fixes and performance tweaks by a total of **50** different people! We have also managed to cross the 1000 forks on GitHub. Talking about momentum!
@@ -41,7 +43,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 - Climate: [MySensors] is now supported ([@kaustubhphatak])
 - Control Home Assistant with [keyboard shortcuts][keyboard_remote] ([@deisi])
 - More voluptuous config validations ([@fabaff], [@kellerza], [@balloob])
-- New [Nuimo] controller support added ([@gross1989])
+- New Nuimo controller support added ([@gross1989])
 - Sensor: BOM Weather component ([@tinglis1])
 - Automation: Option added to hide entity ([@milaq])
 - Sensor: [Emoncms] feeds now supported ([@joyrider])
@@ -170,7 +172,6 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [Kodi]: /integrations/kodi
 [Modbus]: /integrations/modbus/
 [Nest]: /integrations/nest/
-[Nuimo]: /integrations/nuimo_controller/
 [OpenALPR]: /integrations/openalpr_local/
 [passwordless]: /integrations/http/
 [Simplepush]: /integrations/simplepush

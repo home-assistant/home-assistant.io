@@ -5,7 +5,9 @@ date: 2015-04-25 6:57 -0700
 date_formatted: "April 25, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's been a month since the latest update and a lot has happened again. Here a quick overview of the new things.

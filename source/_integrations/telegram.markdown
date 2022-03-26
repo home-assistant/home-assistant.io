@@ -4,8 +4,10 @@ description: Instructions on how to add Telegram notifications to Home Assistant
 ha_category:
   - Notifications
 ha_release: 0.7.5
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Polling
 ha_domain: telegram
+ha_platforms:
+  - notify
 ---
 
 The `telegram` platform uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
@@ -20,7 +22,7 @@ The requirements are:
 
 **Method 1:** You can get your `chat_id` by sending any message to the [GetIDs bot](https://t.me/getidsbot).
 
-**Method 2:** To retrieve your `chat_id` you can visit `https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` or to use `$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates` **after** you have sent the bot a message. Replace `YOUR_API_TOKEN` with your actual token.
+**Method 2:** To retrieve your `chat_id` you can visit `https://api.telegram.org/bot<YOUR_API_TOKEN>/getUpdates` or to use `$ curl -X GET https://api.telegram.org/bot<YOUR_API_TOKEN>/getUpdates` **after** you have sent the bot a message. Replace `<YOUR_API_TOKEN>` with your actual token.
 
 The result set will include your chat ID as `id` in the `chat` section:
 
@@ -118,7 +120,7 @@ To use notifications, please see the [getting started with automation page](/get
 action:
   service: notify.NOTIFIER_NAME
   data:
-    title: '*Send a message*'
+    title: "*Send a message*"
     message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
     data:
       inline_keyboard:
@@ -243,11 +245,11 @@ action:
 
 {% configuration %}
 url:
-  description: A remote path to an video. Either this or the `file` configuration option is required.
+  description: A remote path to a video. Either this or the `file` configuration option is required.
   required: true
   type: string
 file:
-  description: A local path to an video. Either this or the `url` configuration option is required.
+  description: A local path to a video. Either this or the `url` configuration option is required.
   required: true
   type: string
 caption:
@@ -374,4 +376,34 @@ inline_keyboard:
   description: List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
   required: false
   type: list
+{% endconfiguration %}
+
+### Extra data attributes support
+
+```yaml
+...
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: "*Send a message*"
+    message: "That's an example that sends a message with message_tag and disable_notification."
+    data:
+      message_tag: "example_tag"
+      disable_notification: True
+```
+
+{% configuration %}
+parse_mode:
+  description: "Parser for the message text: `markdownv2`, `html` or `markdown`."
+  required: false
+  type: string
+disable_notification:
+  description: True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound.
+  required: false
+  default: false
+  type: boolean
+message_tag:
+  description: Tag for sent message.
+  required: false
+  type: string
 {% endconfiguration %}

@@ -8,6 +8,8 @@ ha_release: 0.71
 ha_codeowners:
   - '@fabaff'
 ha_domain: flock
+ha_platforms:
+  - notify
 ---
 
 The `flock` platform uses [Flock.com](https://flock.com) to deliver notifications from Home Assistant.

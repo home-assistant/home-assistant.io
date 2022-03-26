@@ -10,11 +10,13 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
 ha_domain: filter
+ha_platforms:
+  - sensor
 ---
 
 The `filter` platform enables sensors that process the states of other entities.
 
-`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/lovelace/history-graph/) component.
+`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/dashboards/history-graph/) component.
 
 <p class='img'>
   <img src='/images/screenshots/filter-sensor.png' />
@@ -60,6 +62,10 @@ entity_id:
   type: string
 name:
   description: Name to use in the frontend.
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies the filter sensor. Set this to a unique value to allow customization through the UI.
   required: false
   type: string
 filters:
@@ -128,7 +134,7 @@ The returned value is rounded to the number of decimals defined in (`precision`)
 
 The Outlier filter (`outlier`) is a basic Band-pass filter, as it cuts out any value outside a specific range.
 
-The included Outlier filter will discard any value beyond a band centered on the median of the previous values, replacing it with the median value of the previous values. If inside the band, the
+The included Outlier filter will discard any value beyond a band centered on the median of the previous values, replacing it with the median value of the previous values. If inside the band, the current state is returned.
 
 ```python
 distance = abs(state - median(previous_states))

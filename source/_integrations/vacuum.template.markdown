@@ -65,7 +65,7 @@ vacuum:
             required: true
             type: template          
       availability_template:
-        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns either of `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"` or a non-zero number, the entity is `available`. If the template returns any other value, the device will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
         required: false
         type: template
         default: true
@@ -116,20 +116,23 @@ vacuum:
       living_room_vacuum:
         start:
           - service: remote.send_command
-            data:
+            target:
               entity_id: remote.harmony_hub
+            data:
               command: Clean
               device: 52840686
         return_to_base:
           - service: remote.send_command
-            data:
+            target:
               entity_id: remote.harmony_hub
+            data:
               command: Home
               device: 52840686
         clean_spot:
           - service: remote.send_command
-            data:
+            target:
               entity_id: remote.harmony_hub
+            data:
               command: SpotCleaning
               device: 52840686
 ```
@@ -177,6 +180,7 @@ vacuum:
 This example shows how to add custom attributes.
 
 {% raw %}
+
 ```yaml
 vacuum:
   - platform: template
@@ -195,4 +199,5 @@ vacuum:
               Charging
             {% endif %}
 ```
+
 {% endraw %}

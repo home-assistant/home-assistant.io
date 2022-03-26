@@ -8,6 +8,8 @@ ha_codeowners:
   - '@fabaff'
 ha_domain: mastodon
 ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
 ---
 
 The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver notifications from Home Assistant.

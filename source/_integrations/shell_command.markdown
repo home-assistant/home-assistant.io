@@ -17,6 +17,8 @@ Shell commands aren't allowed for a camel-case naming, please use lowercase nami
 [script]: /integrations/script/
 [automation]: /getting-started/automation/
 
+## Configuration
+
 ```yaml
 # Example configuration.yaml entry
 # Exposes service shell_command.restart_pow
@@ -37,11 +39,44 @@ Any service data passed into the service call to activate the shell command will
 
 `stdout` and `stderr` output from the command are both captured and will be logged by setting the [log level](/integrations/logger/) to debug.
 
-```yaml
+## Execution
 
+The `command` is executed within the [configuration directory](/docs/configuration/).
+
+<div class='note'>
+
+If you are using [Home Assistant Operating System](https://github.com/home-assistant/operating-system), the commands are executed in the `homeassistant` container context. So if you test or debug your script, it might make sense to do this in the context of this container to get the same runtime environment.
+
+</div>
+
+With a `0` exit code, the output (stdout) of the command is used as `value`. In case a command results in a non `0` exit code or is terminated after a timeout of 60 seconds, the result is only logged to Home Assistant log and the value of the sensor is not updated.
+
+## Examples
+
+### Defining multiple shell commands
+
+You can also define multiple shell commands at once. This is an example
+that defines three different (unrelated) shell commands.
+
+```yaml
+# Example configuration.yaml entry
+shell_command:
+  restart_pow: touch ~/.pow/restart.txt
+  call_remote: curl http://example.com/ping
+  my_script: bash /config/shell/script.sh
+```
+
+### Automation example
+
+This is an example of a shell command used in conjunction with an input
+helper and an automation.
+
+{% raw %}
+
+```yaml
 # Apply value of a GUI slider to the shell_command
 automation:
-  - alias: run_set_ac
+  - alias: "run_set_ac"
     trigger:
       platform: state
       entity_id: input_number.ac_temperature
@@ -56,8 +91,8 @@ input_number:
     max: 32
     step: 1
 
-{% raw %}
 shell_command:
   set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states("input_number.ac_temperature") }}_AUTO'
-{% endraw %}
 ```
+
+{% endraw %}

@@ -10,7 +10,7 @@ ha_domain: microsoft_face_detect
 
 The `microsoft_face_detect` image processing platform allows you to use the
 [Microsoft Face Identify](https://www.microsoft.com/cognitive-services/en-us/)
-API through Home Assistant. This platform enables you do detect face on camera
+API through Home Assistant. This platform enables you to detect face on camera
 and fire an event with attributes.
 
 Please refer to the [Microsoft Face component](/integrations/microsoft_face/) configuration on

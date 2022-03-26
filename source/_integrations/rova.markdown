@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.87
 ha_iot_class: Cloud Polling
 ha_domain: rova
+ha_platforms:
+  - sensor
 ---
 
 [ROVA](https://rova.nl) is a waste collection company that operates in the center and east of the Netherlands. The `rova` platform uses an unofficial [ROVA](https://rova.nl) API to allow you to get your waste collection schedule and integrate this in your Home Assistant installation.
@@ -84,10 +86,10 @@ To have your Home Assistant installation remind you of upcoming waste collection
 # Example configuration.yaml entry for Rova waste collection reminder
 automation:
   - id: rova-garbage-bio-reminder
-    alias: 'Send Rova Bio waste collection reminder'
+    alias: "Send Rova Bio waste collection reminder"
     trigger:
       - platform: time
-        at: '19:00:00'
+        at: "19:00:00"
     condition:
       - condition: template
         value_template: "{% if (as_timestamp(states('sensor.rova_garbage_gft')) - as_timestamp(now())) < 43200 %}true{% endif %}"
@@ -96,7 +98,7 @@ automation:
     action:
       - service: NOTIFICATION_SERVICE
         data:
-          message: 'Reminder: put out biowaste bin'
+          message: "Reminder: put out biowaste bin"
 ```
 
 {% endraw %}

@@ -10,6 +10,8 @@ ha_codeowners:
   - '@bollewolle'
   - '@Emilv2'
 ha_domain: delijn
+ha_platforms:
+  - sensor
 ---
 
 The `delijn` sensor will give you the departure time of the next bus, tram or subway at a specific stop of the De Lijn public transport network in Flanders (Belgium).
@@ -27,7 +29,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: delijn
-    api_key: 'API_SUBSCRIPTION_KEY'
+    api_key: "API_SUBSCRIPTION_KEY"
     next_departure:
     - stop_id: 'STOP_ID'
 ```
@@ -64,13 +66,13 @@ The example below shows a full configuration with two sensors, only the abcdefg 
 sensor:
   # De Lijn public transport
   - platform: delijn
-    api_key: 'abcdefg'
+    api_key: "abcdefg"
     next_departure:
     - stop_id: '200018'
     - stop_id: '201169'
       number_of_departures: 20
 ```
 
-## Custom Lovelace card
+## Custom dashboard card
 
-Works best with the following custom Lovelace card: <https://github.com/bollewolle/delijn-card>
+Works best with the following custom dashboard card: <https://github.com/bollewolle/delijn-card>

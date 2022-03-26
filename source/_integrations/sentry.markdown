@@ -32,12 +32,7 @@ Follow these steps to get the DSN:
 - Click **Get your DSN** link in top of the page.
 - Your DSN is now visible and looks like <https://sdasdasdasdsadsadas@sentry.io/sdsdfsdf>
 
-## Configuration
-
-Add the Sentry integration by going into: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Sentry** and follow the steps shown on screen. The DSN you've
-retrieved in the preparation step above, will be prompted.
+{% include integrations/config_flow.md %}
 
 ## Options
 
@@ -50,6 +45,6 @@ The Sentry integration provides settings to:
 - Ability to send out events originating from third-party Python packages.
 - Enable performance tracing and tune the tracing sample rate used.
 
-To change the settings go in **Configuration** -> **Integrations**, find the already installed **Sentry** box and click on **Options**.
+To change the settings go in **Configuration** -> **Devices & Services**, find the already installed **Sentry** box and click on **Options**.
 
 After changing Sentry settings, you'll need to restart Home Assistant in order to make them effective.

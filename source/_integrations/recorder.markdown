@@ -7,9 +7,11 @@ ha_release: pre 0.7
 ha_quality_scale: internal
 ha_domain: recorder
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
-The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` ](/integrations/history/) integration.
+The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history`](/integrations/history/) integration.
 
 <div class='note'>
 
@@ -17,9 +19,17 @@ This integration constantly saves data. If you use the default configuration, th
 
 </div>
 
-Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
+Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This makes it possible to use a number of database solutions.
 
-The default database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
+The supported database solutions are:
+- [MariaDB](https://mariadb.org/) ≥ 10.3
+- [MySQL](https://www.mysql.com/) ≥ 8.0
+- [PostgreSQL](https://www.postgresql.org/) ≥ 12
+- [SQLite](https://www.sqlite.org/) ≥ 3.31.0
+
+Although SQLAlchemy supports additional database solutions, it will behave differently on different databases, and features relied on by the recorder may work differently, or not at all, in different databases.
+
+The default, and recommended, database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
 
 To change the defaults for the `recorder` integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -35,7 +45,7 @@ recorder:
   type: map
   keys:
     db_url:
-      description: The URL that points to your database.
+      description: The URL that points to your database. Examples of these can be found [here](#custom-database-engines).
       required: false
       type: string
     db_max_retries:
@@ -47,12 +57,7 @@ recorder:
       description: The time in seconds, that the recorder sleeps when trying to connect to the database.
       required: false
       default: 3
-      type: integer
-    db_integrity_check:
-      description: When using SQLite, if Home Assistant does not restart cleanly or the recorder fails to shut down, a `quick_check` is performed on the database to ensure it is usable. If `db_integrity_check` is disabled, the system will only perform necessary sanity checks and skip the `quick_check`. Home Assistant may not be able to automatically recover and start the recorder in the event the database is malformed if `db_integrity_check` is disabled.
-      required: false
-      default: true
-      type: boolean      
+      type: integer 
     auto_purge:
       description: Automatically purge the database every night at 04:12 local time. Purging keeps the database from growing indefinitely, which takes up disk space and can make Home Assistant slow. If you disable `auto_purge` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically.
       required: false
@@ -110,9 +115,7 @@ recorder:
 
 ## Configure Filter
 
-By default, no entity will be excluded. To limit which entities are being exposed to `Recorder`, you can use the `include` and `exclude` parameters.
-
-{% raw %}
+By default, no entity will be excluded. To limit which entities are being exposed to `recorder`, you can use the `include` and `exclude` parameters.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -127,8 +130,6 @@ recorder:
     entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 
@@ -152,7 +153,7 @@ If you only want to hide events from your history, take a look at the [`history`
 
 ### Common filtering examples
 
-Defining domains and entities to `exclude` (i.e. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
+Defining domains and entities to `exclude` (i.e. blocklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
 
 ```yaml
 # Example configuration.yaml entry with exclude
@@ -173,7 +174,7 @@ recorder:
       - call_service # Don't record service calls
 ```
 
-Defining domains and entities to record by using the `include` configuration (i.e. whitelist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
+Defining domains and entities to record by using the `include` configuration (i.e. allowlist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
 
 ```yaml
 # Example configuration.yaml entry with include
@@ -203,6 +204,8 @@ recorder:
       - sensor.weather_*
 ```
 
+## Services
+
 ### Service `purge`
 
 Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
@@ -212,29 +215,84 @@ Note that purging will not immediately decrease disk space usage but it will sig
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                    |
 | `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
+| `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size. |
+
+### Service `purge_entities`
+
+Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains` and `entity_globs` fields. Leaving all three parameters empty will result in all entities being selected for purging.
+
+| Service data attribute | Optional | Description                                                                                                                                                                                              |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes<sup>*</sup>      | A list of entity_ids that should be purged from the recorder database. |
+| `domains`               | yes      | A list of domains that should be purged from the recorder database. |
+| `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database. |
+
+Note: The `entity_id` is only optional when used in `automations.yaml` or `scripts.yaml`. When using the UI to call this service then it is mandatory to specify at least one `entity_id` using the Target Picker or via YAML mode.
+
+### Service `disable`
+
+Call the service `recorder.disable` to stop saving events and states to the database.
+
+### Service `enable`
+
+Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
+
+## Recommended engines and minimum versions
+
+The following database engines are tested when major changes are made to the recorder. Other database engines do not have an active core maintainer at this time and may require additional work to maintain.
+
+- SQLite ≥ 3.32.1
+- MariaDB ≥ 10.3
+- MySQL ≥ 8.0
+- PostgreSQL ≥ 12
 
 ## Custom database engines
 
-| Database engine                | `db_url`                                                                                               |
-| :----------------------------- | :----------------------------------------------------------------------------------------------------- |
-| SQLite                         | `sqlite:////PATH/TO/DB_NAME`                                                                           |
-| MariaDB (omit pymysql)         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                                 |
-| MariaDB (omit pymysql, Socket) | `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8`         |
-| MySQL                          | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                               |
-| MySQL                          | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                                 |
-| MySQL (Socket)                 | `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8`         |
-| MariaDB                        | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                                       |
-| MariaDB                        | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                         |
-| MariaDB (Socket)               | `mysql+pymysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8` |
-| PostgreSQL                     | `postgresql://SERVER_IP/DB_NAME`                                                                       |
-| PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                                         |
-| PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                               |
-| PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                             |
-| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;`           |
+Here are examples to use with the [`db_url`](#db_url) configuration option.
+
+{% configuration_basic %}
+
+SQLite:
+  description: >
+    `sqlite:////PATH/TO/DB_NAME`
+MariaDB (omit pymysql):
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
+MariaDB (omit pymysql, using TLS encryption):
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4;ssl=true`
+MariaDB (omit pymysql, Socket):
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`
+MySQL:
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
+MySQL (using TLS encryption):
+  description: >
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4;ssl=true`
+MySQL (Socket):
+  description: >
+    `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`
+MariaDB:
+  description: >
+    `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
+MariaDB (Socket):
+  description: >
+    `mysql+pymysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`
+PostgreSQL:
+  description: >
+    `postgresql://user:password@SERVER_IP/DB_NAME`
+PostgreSQL (Socket):
+  description: >
+    `postgresql://@/DB_NAME`
+PostgreSQL (Custom socket dir):
+  description: >
+    `postgresql://@/DB_NAME?host=/path/to/dir`
+{% endconfiguration_basic %}
 
 <div class='note'>
 
-Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8`.
+Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8mb4`.
 
 </div>
 
@@ -255,12 +313,6 @@ Unix Socket connections always bring performance advantages over TCP, if the dat
 <div class='note warning'>
 
 If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)
-
-</div>
-
-<div class='note warning'>
-
-If you are using the default `FULL` recovery model for MS SQL Server you will need to manually backup your log file to prevent your transaction log from growing too large. It is recommended you change the recovery model to `SIMPLE` unless you are worried about data loss between backups.
 
 </div>
 
@@ -293,6 +345,7 @@ Not all Python bindings for the chosen database engine can be installed directly
 
 ### MariaDB and MySQL
 
+Make sure the default character set of your database server is set to `utf8mb4` (see [MariaDB documentation](https://mariadb.com/kb/en/setting-character-sets-and-collations/#example-changing-the-default-character-set-to-utf-8)).
 If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package described below.
 
 ```bash
@@ -323,6 +376,14 @@ Once Home Assistant finds the database, with the right level of permissions, all
 
 ### PostgreSQL
 
+Create the PostgreSQL database with `utf8` encoding. The PostgreSQL default encoding is `SQL_ASCII`. From the `postgres` user account;
+```bash
+createdb -E utf8 DB_NAME
+```
+Where `DB_NAME` is the name of your database
+
+If the Database in use is not `utf8`, adding `?client_encoding=utf8` to the `db_url` may solve any issue.
+
 For PostgreSQL you may have to install a few dependencies:
 
 ```bash
@@ -330,7 +391,13 @@ sudo apt-get install postgresql-server-dev-X.Y
 pip3 install psycopg2
 ```
 
-For using Unix Sockets, add the following line to your [`pg_hba.conf`](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html):
+For using Unix Sockets, first create your user from the `postgres` user account;
+```bash
+createuser USER_NAME
+```
+Where `USER_NAME` is the name of the user running the Home Assistant instance (see [securing your installation](/docs/configuration/securing/)).
+
+Then add the following line to your [`pg_hba.conf`](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html):
 
 `local  DB_NAME USER_NAME peer`
 
@@ -345,28 +412,3 @@ $ sudo -i -u postgres psql -c "SELECT pg_reload_conf();"
 (1 row)
 ```
 A service restart will work as well.
-
-### MS SQL Server
-
-For MS SQL Server you will have to install a few dependencies:
-
-```bash
-sudo apt-get install unixodbc-dev
-pip3 install pyodbc
-```
-
-If you are in a virtual environment, don't forget to activate it before installing the pyodbc package.
-
-```bash
-sudo -u homeassistant -H -s
-source /srv/homeassistant/bin/activate
-pip3 install pyodbc
-```
-
-You will also need to install an ODBC Driver. Microsoft ODBC drivers are recommended, however FreeTDS is available for systems that are not supported by Microsoft. Instructions for installing the Microsoft ODBC drivers can be found [here](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
-
-<div class='note'>
-
-If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={FreeTDS};Port=1433;`.
-
-</div>

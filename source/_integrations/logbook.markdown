@@ -5,7 +5,7 @@ ha_category:
   - History
 ha_release: 0.7
 ha_domain: logbook
-ha_iot_class:
+ha_quality_scale: internal
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />
@@ -18,7 +18,7 @@ the [`recorder`](/integrations/recorder/) integration for storing the data. This
 PostgreSQL as data store, the `logbook` integration does not use the default
 SQLite database to store data.
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -66,8 +66,6 @@ include:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 logbook:
@@ -81,8 +79,6 @@ logbook:
     entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 
@@ -171,7 +167,7 @@ component to fire an event.
 # Example configuration.yaml entry
 script:
   add_logbook_entry:
-    alias: Add Logbook
+    alias: "Add Logbook"
     sequence:
       - service: logbook.log
         data:
@@ -185,7 +181,7 @@ script:
 
 <div class="note warning">
 
-When calling the `logbook.log` service without a `domain` or `entity_id`, entries will be added with the the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
+When calling the `logbook.log` service without a `domain` or `entity_id`, entries will be added with the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
 
 </div>
 

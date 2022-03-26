@@ -1,12 +1,13 @@
 ---
 title: LimitlessLED
 description: Instructions on how to setup LimitlessLED within Home Assistant.
-logo: limitlessled_logo.png
 ha_category:
   - Light
 ha_iot_class: Assumed State
 ha_release: pre 0.7
 ha_domain: limitlessled
+ha_platforms:
+  - light
 ---
 
 `limitlessled` can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.
@@ -104,13 +105,16 @@ Note that the `brightness`, `color` and `temperature` attributes cannot be used 
 
 ```yaml
 automation:
-  - alias: ...
+  - alias: "..."
     trigger:
       # ...
     action:
       - service: light.turn_on
+        target:
+          entity_id:
+            - light.office
+            - light.kitchen
         data:
-          entity_id: light.office, light.kitchen
           effect: night
 ```
 

@@ -1,7 +1,6 @@
 ---
 title: SCSGate
 description: Instructions on how to integrate SCSGate into Home Assistant.
-logo: bus_scs.png
 ha_category:
   - Hub
   - Cover
@@ -10,6 +9,10 @@ ha_category:
 ha_release: 0.13
 ha_iot_class: Local Polling
 ha_domain: scsgate
+ha_platforms:
+  - cover
+  - light
+  - switch
 ---
 
 The SCSGate integration support the [SCSGate](https://translate.google.com/translate?hl=en&sl=it&tl=en&u=http%3A%2F%2Fguidopic.altervista.org%2Feibscsgt%2Finterface.html) device. This a home-brew device allows to interact with the MyHome system from BTicino/Legrande.

@@ -8,6 +8,8 @@ ha_release: pre 0.7
 ha_codeowners:
   - '@mzdrale'
 ha_domain: luci
+ha_platforms:
+  - device_tracker
 ---
 
 This is a presence detection scanner for OpenWrt using [luci](https://openwrt.org/docs/techref/luci).
@@ -35,7 +37,7 @@ host:
   required: true
   type: string
 username:
-  description: The username of an user with administrative privileges, usually `admin`.
+  description: The username of a user with administrative privileges, usually `admin`.
   required: true
   type: string
 password:

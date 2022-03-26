@@ -11,6 +11,10 @@ ha_codeowners:
 ha_domain: flo
 ha_iot_class: Cloud Polling
 ha_release: 0.115
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `flo` integration integrates
@@ -22,10 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - **Sensor**: reports on the device's system mode, water flow rate, temperature, water pressure, and daily water consumption.
 - **Switch**: allows the user to open and close the valve on the water shutoff device.
 
-## Configuration
-
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Flo**.
+{% include integrations/config_flow.md %}
 
 ## Services
 

@@ -1,12 +1,14 @@
 ---
-title: Generic
+title: Generic Camera
 description: Instructions on how to integrate IP cameras within Home Assistant.
 ha_category:
   - Camera
 logo: home-assistant.png
 ha_release: pre 0.7
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: generic
+ha_platforms:
+  - camera
 ---
 
 The `generic` camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.
@@ -21,19 +23,19 @@ You must enter a URL in at least one of the fields **Still Image URL** or **Stre
 
 {% configuration %}
 still_image_url:
-  description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/topics/templating/)."
-  required: true
+  description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/topics/templating/). At least one of still_image_url or stream_source must be provided."
+  required: false
   type: string
 stream_source:
-  description: "The URL your camera serves the live stream on, e.g., `rtsp://192.168.1.21:554/`. Can be a [template](/topics/templating/)."
+  description: "The URL your camera serves the live stream on, e.g., `rtsp://user:pass@192.168.1.21:554/`. Can be a [template](/topics/templating/). Usernames and passwords must be embedded in the URL. At least one of still_image_url or stream_source must be provided. Note that a stream_source without a still_image_url can only be used if the [stream integration](/integrations/stream/) is configured."
   required: false
   type: string
 username:
-  description: The username for accessing your camera.
+  description: The username for accessing your camera. Note that this username applies only to still_image_url and not to stream_source.
   required: false
   type: string
 password:
-  description: The password for accessing your camera.
+  description: The password for accessing your camera. Note that this password applies only to still_image_url and not to stream_source.
   required: false
   type: string
 authentication:
@@ -49,16 +51,21 @@ limit_refetch_to_url_change:
 framerate:
   description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
   required: false
+  default: 2
   type: integer
 verify_ssl:
   description: Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
   required: false
   default: true
   type: boolean
+rtsp_transport:
+  description: "Set the RTSP transport protocol to `tcp`, `udp`, `udp_multicast` or `http`."
+  required: false
+  type: string
 {% endconfiguration %}
 
 <p class='img'>
-  <a href='/cookbook/google_maps_card/'>
+  <a href='/examples/google_maps_card/'>
     <img src='/images/integrations/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
     Example showing the Generic camera platform pointing at a dynamic Google Map image.
   </a>
@@ -71,8 +78,9 @@ In this section, you find some real-life examples of how to use this camera plat
 ### Weather graph from yr.no
 
 ```yaml
-    still_image_url: https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/meteogram.svg
+    still_image_url: https://www.yr.no/en/content/1-72837/meteogram.svg
 ```
+Instructions on how to locate the SVG for your location is available at [developer.yr.no](https://developer.yr.no/doc/guides/deprecating-old-widgets/)
 
 ### Local image
 
@@ -90,6 +98,7 @@ If you are running more than one Home Assistant instance (let's call them the 'h
 ```yaml
     still_image_url: https://127.0.0.5:8123/api/camera_proxy/camera.live_view
 ```
+
 ### Image from HTTP only camera
 
 To access a camera which is only available via HTTP, you must turn off SSL verification.
@@ -105,5 +114,32 @@ To access a camera that has both a snapshot and live stream URL, utilizing the [
 
 ```yaml
     still_image_url: http://194.218.96.92/jpg/image.jpg
-    stream_source: rtsp://194.218.96.92:554
+    username: user
+    password: pass
+    stream_source: rtsp://user:pass@194.218.96.92:554
+```
+
+If a camera only has a live stream URL and no snapshot URL, the [stream](/integrations/stream/) component can also generate still images from the live stream URL.
+
+```yaml
+camera:
+  - platform: generic
+    name: Streaming
+    stream_source: rtsp://user:pass@194.218.96.92:554
+```
+
+### Secured access to the camera
+
+To access a camera that requires secured access for still image or live stream (an HIK in my case).
+
+```yaml
+camera: 
+  - platform: generic
+    still_image_url: "http://192.168.1.100/ISAPI/Streaming/Channels/101/picture"
+    stream_source: "rtsp://USERNAME:PASSWORD@192.168.1.100:554/Streaming/Channels/102"
+    name: "My Camera"
+    verify_ssl: false
+    username: "USERNAME"
+    password: "PASSWORD"
+    authentication: digest
 ```

@@ -6,7 +6,15 @@ ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@oischinger'
+ha_config_flow: true
 ha_domain: vicare
+ha_platforms:
+  - binary_sensor
+  - button
+  - climate
+  - sensor
+  - water_heater
+ha_dhcp: true
 ---
 
 The `ViCare` integration lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.
@@ -17,53 +25,28 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate) (Heating)
 - [Water Heater](#water-heater) (Domestic Hot Water)
 - [Sensor](#sensor) (Sensor)
+- [Button](#button) (Button)
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To set it up, add the following information to your `configuration.yaml` file:
+Set `username`and `password` to your Viessmann Developer Portal login credentials.
+The required Client ID can be obtained as follows:
+1. Register and login in the [Viessmann Developer Portal](https://developer.viessmann.com).
+2. In the menu navigate to API Keys.
+3. Create a new OAuth client using the following data:
+  ```txt
+  Name: PyViCare
+  Google reCAPTCHA: Disabled
+  Redirect URIs: vicare://oauth-callback/everest
+  ```
 
-```yaml
-vicare:
-  username: VICARE_EMAIL
-  password: VICARE_PASSWORD
-```
+The `heating_type` can either be `auto` to automatically find the most suitable type for your device or one of `gas`, `oil`, `pellets`, `heatpump`, `fuelcell`, `hybrid`.
 
-{% configuration %}
-username:
-  description: Your username for the ViCare App
-  required: true
-  type: string
-password:
-  description: Your password for the ViCare App
-  required: true
-  type: string
-name:
-  description: The friendly_name of the device (will be appended with *Heating* or *Water*)
-  required: false
-  default: ViCare
-  type: string
-circuit:
-  description: Heating circuit of your heating device if multiple exist 
-  required: false
-  type: integer
-heating_type:
-  description: One of `generic`, `gas` or `heatpump`. Specifying the heating_type provides additional attributes and sensors specific for the heating system.
-  required: false
-  type: string
-  default: generic
-scan_interval:
-  description: The update frequency of this component in seconds. See [Viessmann API limits](#viessmann-api-limits)
-  default: 60
-  required: false
-  type: integer
-{% endconfiguration %}
-
-Two components will be created: `climate.vicare_heating` and `water_heater.vicare_water` (for domestic hot water).
-Unless you specify a `circuit` parameter, it will pick up the first heating circuit of your installation.
+Multiple device instances might be generated depending on the number of burners and/or circuits of your installation. If there is more than a single instance all devices are suffixed with the circuit or burner ID.
 
 ## Viessmann API limits
 
-Recently Viessmann has introduced a rate limit on their REST API. If you exceed one of the limits below you will be banned for 24 hours:
+The Viessmann API is rate-limited. If you exceed one of the limits below you will be banned for 24 hours:
 
 - Limit 1: 120 calls for a time window of 10 minutes
 - Limit 2: 1450 calls for a time window of 24 hours
@@ -106,6 +89,15 @@ The `climate.vicare_heating` component has the following mapping of HVAC modes t
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
 | `hvac_mode` | no | New value of HVAC mode
 
+#### Service `climate.set_vicare_mode`
+
+Set the mode for the climate device as defined by Viessmann (see [set_hvac_mode](#service-climateset_hvac_mode) for a mapping to Home Assistant Climate modes. This allows more-fine grained control of the heating modes.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
+| `vicare_mode` | no | New value of ViCare mode. For supported values see the `vicare_modes` attribute of the climate entity.
+
 #### Service `set_preset_mode`
 
 Sets the preset mode. Supported preset modes are *eco* and *comfort*. These are identical to the respective Viessmann programs and are only active temporarily for 8 hours.
@@ -130,9 +122,13 @@ Sets the target temperature of domestic hot water to the given temperature.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. To target all entities, use `all` keyword instead of entity_id.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control.
 | `temperature` | no | New target temperature for water heater
 
 ## Sensor
 
-Additional data from ViCare is available as separate sensors. The sensors are automatically created based on the configured `heating_type`.
+Additional data from ViCare is available as separate sensors. The sensors are automatically discovered based on the available API data points.
+
+## Button
+
+Button entities are available for triggering like a one-time charge of the water heater.

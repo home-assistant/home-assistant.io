@@ -9,6 +9,9 @@ ha_release: 0.43
 ha_iot_class: Local Polling
 ha_quality_scale: internal
 ha_domain: ping
+ha_platforms:
+  - binary_sensor
+  - device_tracker
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -43,15 +46,15 @@ name:
   description: Let you overwrite the name of the device.
   required: false
   type: string
-  default: Binary sensor Ping [hostname]
+  default: Ping [hostname]
 {% endconfiguration %}
 
 The sensor exposes the different round trip times values measured by `ping` as attributes:
 
-- `round trip time mdev`
-- `round trip time avg`
-- `round trip time min`
-- `round trip time max`
+- `round_trip_time_mdev`
+- `round_trip_time_avg`
+- `round_trip_time_min`
+- `round_trip_time_max`
 
 The default polling interval is 5 minutes. As many integrations [based on the entity class](/docs/configuration/platform_options), it is possible to overwrite this scan interval by specifying a `scan_interval` configuration key (value in seconds). In the example below we setup the `ping` binary sensor to poll the device every 30 seconds.
 
@@ -86,18 +89,18 @@ To use this presence detection in your installation, add the following to your `
 device_tracker:
   - platform: ping
     hosts:
-      hostname: 192.168.2.10
+      device_name_1: 192.168.2.10
 ```
 
 {% configuration %}
 hosts:
-  description: List of device names and their corresponding IP address or hostname. Device names must conform to the standard requirements of lower case, numbers and underscore only - see [entity names](/docs/configuration/troubleshooting/#entity-names).
+  description: Map of device names and their corresponding IP address or hostname. Device names must conform to the standard requirements of lower case, numbers and underscore only - see [entity names](/docs/configuration/troubleshooting/#entity-names).
   required: true
-  type: list
+  type: map
 count:
   description: Number of packet used for each device (avoid false detection).
   required: false
   type: integer
 {% endconfiguration %}
 
-See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
+See the [person integration page](/integrations/person/) for instructions on how to configure the people to be tracked.

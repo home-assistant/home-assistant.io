@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.35
 ha_domain: voicerss
+ha_platforms:
+  - tts
 ---
 
 The `voicerss` text-to-speech platform uses [VoiceRSS](http://www.voicerss.org/) Text-to-Speech engine to read a text with natural sounding voices.
@@ -54,9 +56,9 @@ The configuration sample below shows how an entry can look like:
 tts:
   - platform: voicerss
     api_key: YOUR_API_KEY
-    language: 'de-de'
+    language: "de-de"
     codec: mp3
-    format: '8khz_8bit_mono'
+    format: "8khz_8bit_mono"
 ```
 
 Please note, some media_players require a certain format. For example the Sonos requires a format of '44khz_16bit_stereo'

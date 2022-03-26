@@ -5,54 +5,54 @@
       {
         "appID": "UTQFCBPQRF.io.robbie.HomeAssistant.dev",
         "paths": [
-          "/ios/*",
           "NOT /ios/beta",
           "NOT /ios/beta/*",
+          "/ios/*",
           "/tag/*"
         ]
       },
       {
         "appID": "UTQFCBPQRF.io.robbie.HomeAssistant.beta",
         "paths": [
-          "/ios/*",
           "NOT /ios/beta",
           "NOT /ios/beta/*",
+          "/ios/*",
           "/tag/*"
         ]
       },
       {
         "appID": "UTQFCBPQRF.io.robbie.HomeAssistant",
         "paths": [
-          "/ios/*",
           "NOT /ios/beta",
           "NOT /ios/beta/*",
+          "/ios/*",
           "/tag/*"
         ]
       },
       {
         "appID": "QMQYCKL255.io.robbie.HomeAssistant.dev",
         "paths": [
-          "/ios/*",
           "NOT /ios/beta",
           "NOT /ios/beta/*",
+          "/ios/*",
           "/tag/*"
         ]
       },
       {
         "appID": "QMQYCKL255.io.robbie.HomeAssistant.beta",
         "paths": [
-          "/ios/*",
           "NOT /ios/beta",
           "NOT /ios/beta/*",
+          "/ios/*",
           "/tag/*"
         ]
       },
       {
         "appID": "QMQYCKL255.io.robbie.HomeAssistant",
         "paths": [
-          "/ios/*",
           "NOT /ios/beta",
           "NOT /ios/beta/*",
+          "/ios/*",
           "/tag/*"
         ]
       }

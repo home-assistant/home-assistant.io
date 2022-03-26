@@ -20,14 +20,12 @@ To setup OpenCV with Home Assistant, add the following section to your `configur
 # Example configuration.yaml entry
 image_processing:
   - platform: opencv
-    name: Front Door Faces
     source:
       - entity_id: camera.front_door
     classifier:
       mom: /path/to/classifier.xml
 ```
 
-- **name** (*Required*): The name of the OpenCV image processor.
 - **source** array (*Required*): List of image sources.
   - **entity_id** (*Required*): A camera entity id to get picture from.
     - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.

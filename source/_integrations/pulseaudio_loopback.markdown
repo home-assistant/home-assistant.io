@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.16
 ha_iot_class: Local Polling
 ha_domain: pulseaudio_loopback
+ha_platforms:
+  - switch
 ---
 
 The goal behind this switch is to allow a very flexible whole home audio system based upon [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/).
@@ -52,6 +54,6 @@ port:
 
 <div class='note warning'>
 
-This integration relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with this component, `module-native-protocol` must be loaded on the PulseAudio server.
+This integration relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with this component, `module-native-protocol-tcp auth-ip-acl=<homeassistant ip>` must be loaded on the PulseAudio server.
 
 </div>

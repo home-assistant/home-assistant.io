@@ -4,7 +4,7 @@ description: Instructions on how to setup the browser integration with Home Assi
 ha_category:
   - Utility
 ha_release: pre 0.7
-ha_iot_class:
+ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: browser
 ---
@@ -20,12 +20,15 @@ To load this component, add the following lines to your `configuration.yaml`:
 browser:
 ```
 
-#### Service `browser/browse_url`
+### Services
+
+Once loaded, the `browser` platform will expose services that can be called to perform various actions.
+
+Available services: `browser/browse_url`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `url`                  |       no | The URL to open.
-
 
 ### Usage
 

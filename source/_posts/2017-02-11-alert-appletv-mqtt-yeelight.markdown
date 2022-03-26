@@ -5,7 +5,9 @@ date: 2017-02-11 08:04:05 +0000
 date_formatted: "February 11, 2017"
 author: Robbie Trencheny, Fabian Affolter
 author_twitter: robbie
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-02-0.38/social.png
 ---
 

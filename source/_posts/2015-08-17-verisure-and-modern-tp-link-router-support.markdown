@@ -5,7 +5,9 @@ date: 2015-08-17 20:00 0000
 date_formatted: "August 17, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 A minor bug fix release to fix some issues that have come up since the last release. Please upgrade as soon as possible by running `git pull` from the Home Assistant directory.

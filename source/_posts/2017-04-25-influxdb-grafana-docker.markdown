@@ -48,8 +48,8 @@ Instead of running [InfluxDB](https://www.influxdata.com/) and Grafana on a Rasp
     ```yaml
     panel_iframe:
       router:
-        title: 'Temperature'
-        url: 'http://192.168.2.113:3003/dashboard/db/temperature?edit&tab=time%20range'
+        title: "Temperature"
+        url: "http://192.168.2.113:3003/dashboard/db/temperature?edit&tab=time%20range"
     ```
     The URL can be obtained by clicking Share Dashboard link on your dashboard:
     <p class='img'>

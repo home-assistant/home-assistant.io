@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.62
 ha_iot_class: Cloud Polling
 ha_domain: waterfurnace
+ha_platforms:
+  - sensor
 ---
 
 The `waterfurnace` integration communicates with the WaterFurnace Symphony website's WebSocket to show you many of the sensors in your system. While not an official API, this is the same backend the Symphony website is based on, and should be reasonably stable.

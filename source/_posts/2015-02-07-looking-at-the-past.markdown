@@ -5,7 +5,9 @@ date: 2015-02-08 9:01:23 -0800
 date_formatted: "February 8, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Ever since the launch of Home Assistant you have been able to track the state of your house. But the view has always been limited to what the current state is. Not what it was. Today we are going to change that by introducing two brand new components:

@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.17
 ha_domain: gtfs
+ha_platforms:
+  - sensor
 ---
 
 The `gtfs` sensor will give you the next departure time and associated data from your public transit station/stop. The data comes from your chosen public transit authority and is formatted as [General Transit Feed Specification](https://developers.google.com/transit/gtfs/) data, commonly known as GTFS.
@@ -60,7 +62,7 @@ name:
   default: GTFS Sensor
   type: string
 offset:
-  description: A minimum delay to look for. If a departure is in less time than `offset`, it will be ignored.
+  description: "A minimum delay to look for. If a departure is in less time than `offset`, it will be ignored. Set the value either in seconds (`integer`), or using one of these `time` formats: `offset: 'HH:MM:SS'`, `offset: 'HH:MM'`. "
   required: false
   default: 0
   type: [integer, time]

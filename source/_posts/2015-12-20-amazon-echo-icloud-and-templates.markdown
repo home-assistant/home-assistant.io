@@ -5,7 +5,9 @@ date: 2015-12-22 01:30:00 -0800
 date_formatted: "December 22, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2015-12-release-10/alexa-fb.png
 ---
 
@@ -59,9 +61,13 @@ Alrighty, it's time for Home Assistant 0.10. A lot amazing things have changed a
 
 This release introduces templates. This will allow you to parse data before it gets processed or create messages for notifications on the fly based on data within Home Assistant. The notification component and the new Alexa/Amazon Echo component are both using the new template functionality to render responses. A template editor has been added to the developer tool section in the app so you can get instant feedback if your templates are working or not.
 
+{% raw %}
+
 ```text
-The temperature at home is {% raw %}{{ states('sensor.temperature') }}{% endraw %}.
+The temperature at home is {{ states('sensor.temperature') }}.
 ```
+
+{% endraw %}
 
 More information and examples can be found in the [template documentation][Template].
 

@@ -9,7 +9,19 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: rpi_gpio
+ha_platforms:
+  - binary_sensor
+  - cover
+  - switch
 ---
+
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.6.
+
+For more information see: [Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+</div>
 
 The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding pages.
 
@@ -133,14 +145,14 @@ cover:
   - platform: rpi_gpio
     relay_time: 0.2
     invert_relay: false
-    state_pull_mode: 'UP'
+    state_pull_mode: "UP"
     invert_state: true
     covers:
       - relay_pin: 10
         state_pin: 11
       - relay_pin: 12
         state_pin: 13
-        name: 'Right door'
+        name: "Right door"
 ```
 
 ## Remote Raspberry Pi Cover

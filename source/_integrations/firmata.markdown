@@ -12,6 +12,11 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@DaAwesomeP'
 ha_domain: firmata
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
+  - switch
 ---
 
 [Firmata](https://github.com/firmata/protocol) can be used to add analog and digital inputs and outputs to Home Assistant. This allows for buttons, switches, motion detectors, relay control, sensors, potentiometers, dimmers, etc. The component can currently connect to a Firmata board via serial or serial over USB.
@@ -45,7 +50,7 @@ You may configure multiple Firmata boards. Each board has the following options:
 
 {% configuration %}
 serial_port:
-  description: The port where your board is connected to your Home Assistant host. It is recommended to use the `by-id` reference (instead of numerical like `/dev/ttyACM0` or `/dev/ttyUSB0`) since these will never change after a reboot. If you are using HassOS, you can find a list of connected serial devices in the Hardware dialog on the System tab of the Supervisor.
+  description: The port where your board is connected to your Home Assistant host. It is recommended to use the `by-id` reference (instead of numerical like `/dev/ttyACM0` or `/dev/ttyUSB0`) since these will never change after a reboot. If you are using Home Assistant Operating System, you can find a list of connected serial devices in the Hardware dialog on the {% my supervisor_logs title="Configuration > Add-ons & Backups > System" %} panel.
   required: true
   type: string
 serial_baud_rate:
@@ -65,7 +70,7 @@ sleep_tune:
   required: false
   type: float
 sampling_interval:
-  description: Sampling interval in millseconds sent to Firmata. Most Firmata sketches will ignore any interval less than 10 milliseconds.
+  description: Sampling interval in milliseconds sent to Firmata. Most Firmata sketches will ignore any interval less than 10 milliseconds.
   required: false
   type: integer
 switches:
@@ -137,7 +142,7 @@ binary_sensor:
       required: true
       type: string
     pin:
-      description: The digital or analog pin number on the board.
+      description: The digital or analog pin number on the board. For analog pins the corresponding digital number must be used. Please use the pinout that corresponds to your board. For example, on the Arduino Uno, pin A2 corresponds to the digital pin number 16.
       required: true
       type: [integer, string]
     pin_mode:
@@ -227,7 +232,7 @@ firmata:
         negate: true
       - name: my_other_door
         pin_mode: INPUT
-        pin: A1
+        pin: 16   # A2
         negate: true
     sensors:
       - name: my_sensor

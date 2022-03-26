@@ -7,7 +7,9 @@ date_formatted: "November 18, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-11-0.118/social.png
 ---
 
@@ -50,6 +52,7 @@ All in all, a fine release, with an exciting one ahead of us.
 - [Release 0.118.2 - November 20](#release-01182---november-20)
 - [Release 0.118.3 - November 23](#release-01183---november-23)
 - [Release 0.118.4 - November 26](#release-01184---november-26)
+- [Release 0.118.5 - December 5](#release-01185---december-5)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -145,7 +148,7 @@ even if you made a list.
 ```yaml
 script:
   my_script:
-    alias: Example
+    alias: "Example"
     description: Example script with native lists in templates
     variables:
       entities:
@@ -154,8 +157,9 @@ script:
       color: [255, 0, 0]
     sequence:
       service: light.turn_on
-      data:
+      target:
         entity_id: "{{ entities }}"
+      data:
         rgb_color: "{{ color }}"
 ```
 
@@ -367,6 +371,25 @@ The following integrations are now available via the Home Assistant UI:
 [onewire docs]: /integrations/onewire/
 [zha docs]: /integrations/zha/
 
+## Release 0.118.5 - December 5
+
+- Bump pyatmo to v4.2.1 ([@cgtobi] - [#43713]) ([netatmo docs])
+- Increase timeout for snapshot upload ([@ludeeus] - [#43851]) ([hassio docs])
+- Implement new Google TTS API via dedicated library ([@marvin-w] - [#43863]) ([google_translate docs])
+- Pin pip < 20.3 ([@MartinHjelmare] - [#43771])
+
+[#43713]: https://github.com/home-assistant/core/pull/43713
+[#43771]: https://github.com/home-assistant/core/pull/43771
+[#43851]: https://github.com/home-assistant/core/pull/43851
+[#43863]: https://github.com/home-assistant/core/pull/43863
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@cgtobi]: https://github.com/cgtobi
+[@ludeeus]: https://github.com/ludeeus
+[@marvin-w]: https://github.com/marvin-w
+[google_translate docs]: /integrations/google_translate/
+[hassio docs]: /integrations/hassio/
+[netatmo docs]: /integrations/netatmo/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
@@ -389,7 +412,7 @@ The `ptvsd` integration has been marked as deprecated and will be removed in
 Home Assistant Core 0.120. A full-featured replacement is available with the
 [`debugpy`](/integrations/debugpy) integration, which is now considered stable.
 
-([@frenck] - [#42351]) ([ptvsd docs])
+([@frenck] - [#42351])
 
   </p>
 </details>
@@ -762,7 +785,7 @@ all erroneous entries to the new `controller_modes` parameter.
 - Create __init__.py in AlarmDecoder tests ([@Olen] - [#42388]) ([alarmdecoder docs])
 - Convert logbook tests to pytest ([@taiyeoguns] - [#42289]) ([logbook docs])
 - Cleanup log style and tests for ElkM1 ([@gwww] - [#42353]) ([elkm1 docs])
-- Deprecate ptvsd integration ([@frenck] - [#42351]) ([ptvsd docs]) (breaking-change)
+- Deprecate ptvsd integration ([@frenck] - [#42351]) (breaking-change)
 - Upgrade debugpy to 1.0.0 ([@frenck] - [#40929]) ([debugpy docs])
 - Rewrite pilight/test_init.py tests to pytest style test functions ([@erogleva] - [#42366]) ([pilight docs])
 - Add a test for template entities that reuse the template ([@bdraco] - [#42404]) ([template docs])
@@ -781,7 +804,7 @@ all erroneous entries to the new `controller_modes` parameter.
 - Use common strings in openuv config flow ([@springstan] - [#42480]) ([openuv docs])
 - Add platform services to Roon media player to allow grouping, ungrouping and transfer between players ([@pavoni] - [#42133]) ([roon docs])
 - Set the translations cache under the lock ([@bdraco] - [#42470])
-- Add color_extractor service ([@GenericStudent] - [#42129]) ([colorthief docs]) (new-integration)
+- Add color_extractor service ([@GenericStudent] - [#42129]) ([color_extractor docs]) (new-integration)
 - Remove zxdavb from honeywell codeowners ([@zxdavb] - [#42491]) ([honeywell docs])
 - Fix somfy device recreation on update ([@bdraco] - [#42462]) ([somfy docs])
 - Start homekit bridges with asyncio.gather ([@bdraco] - [#42498]) ([homekit docs])
@@ -1528,7 +1551,6 @@ all erroneous entries to the new `controller_modes` parameter.
 [cast docs]: /integrations/cast/
 [cloud docs]: /integrations/cloud/
 [color_extractor docs]: /integrations/color_extractor/
-[colorthief docs]: /integrations/colorthief/
 [config docs]: /integrations/config/
 [debugpy docs]: /integrations/debugpy/
 [device_tracker docs]: /integrations/device_tracker/
@@ -1613,7 +1635,6 @@ all erroneous entries to the new `controller_modes` parameter.
 [plex docs]: /integrations/plex/
 [plugwise docs]: /integrations/plugwise/
 [profiler docs]: /integrations/profiler/
-[ptvsd docs]: /integrations/ptvsd/
 [python_script docs]: /integrations/python_script/
 [rachio docs]: /integrations/rachio/
 [rainforest_eagle docs]: /integrations/rainforest_eagle/

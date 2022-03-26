@@ -15,6 +15,13 @@ ha_codeowners:
   - '@scop'
   - '@fphammerle'
 ha_domain: huawei_lte
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - device_tracker
+  - notify
+  - sensor
+  - switch
 ---
 
 The Huawei LTE router and modem integration for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/smart-home/).
@@ -35,7 +42,8 @@ enabled in Home Assistant, automatically discovered Huawei LTE devices
 which support and have UPnP enabled are made available for further
 optional configuration in the frontend.
 
-The integration can be run with or without
+The integration requires authentication using router credentials at
+initial configure time, but after that, it can be run with or without
 authentication. Authenticated mode enables all available integration
 features and entities, but may interfere with accessing the device web
 interface from another source such as a browser while the integration
@@ -45,7 +53,7 @@ integration will try to use all configured ones and fail gracefully if
 it detects one requiring authentication in unauthenticated mode.
 
 Only a subset of the entities provided by the target device by
-default: 
+default:
 
 - WAN IP address sensor
 - LTE signal sensors RSRQ, RSRP, RSSI, and SINR
@@ -60,20 +68,14 @@ entities varies by device model and firmware version.
 
 ### Configuration via the frontend
 
-Menu: **Configuration** -> **Integrations**.
+Menu: **Configuration** -> **Devices & Services**.
 
 Click on the `+` sign to add an integration and click on **Huawei
 LTE**, and follow the configuration flow. After finishing, the Huawei
 LTE integration will be available.
 
-To use unauthenticated mode, leave username and password empty. The
-integration will then attempt to first use empty strings to
-authenticate and fall back to unauthenticated mode in case that
-fails. If this process does not yield desired results, the YAML
-configuration (see below) is available for more fine grained control.
-
-Default list of notification recipient phone numbers can be set using
-the integration's configuration options.
+Unauthenticated mode and default list of notification recipient phone
+numbers can be set using the integration's configuration options.
 
 ### Configuration via YAML
 
@@ -84,6 +86,8 @@ To enable the component, add the following lines to your
 # Example configuration.yaml entry
 huawei_lte:
   - url: http://192.168.100.1/
+    username: ROUTER_USERNAME
+    password: ROUTER_PASSWORD
 ```
 For routers configured via the UI, each configuration item for the
 same router in YAML overrides and updates the values set in UI
@@ -95,11 +99,11 @@ url:
   required: true
   type: string
 username:
-  description: The username used for the device web interface in authenticated mode. Typically `admin`, or empty string (`""`) for USB stick modems. To use unauthenticated mode, leave this variable out altogether.
+  description: The username used for the device web interface. Typically `admin`, or empty string (`""`) for USB stick modems. Required when first setting up the device and in authenticated mode.
   required: false
   type: string
 password:
-  description: The password used for the device web interface in authenticated mode. Typically empty string (`""`) for USB stick modems. To use unauthenticated mode, leave this variable out altogether.
+  description: The password used for the device web interface. Typically empty string (`""`) for USB stick modems. Required when first setting up the device and in authenticated mode.
   required: false
   type: string
 notify:

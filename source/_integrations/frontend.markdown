@@ -4,14 +4,13 @@ description: Offers a frontend to Home Assistant.
 ha_category:
   - Other
 ha_release: 0.7
-ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/frontend'
 ha_domain: frontend
 ---
 
-This offers the official frontend to control Home Assistant. This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This offers the official frontend to control Home Assistant. This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -19,11 +18,6 @@ frontend:
 ```
 
 {% configuration %}
-  javascript_version:
-    description: "DEPRECATED, it is now done using feature detection in the browser. Version of the JavaScript to serve to clients. Options: `es5` - transpiled so old browsers understand it.  `latest` - not transpiled, so will work on recent browsers only. `auto` - select a version according to the browser user-agent. The value in the configuration can be overiden by putting `es5` or `latest` in the URL. For example `http://localhost:8123/states?es5` "
-    required: false
-    type: string
-    default: auto
   themes:
     description: Allow to define different themes. See below for further details.
     required: false
@@ -52,10 +46,11 @@ frontend:
     type: string
 {% endconfiguration %}
 
-
 ## Defining Themes
 
-Starting with version 0.49 you can define themes:
+### Theme format
+
+The frontend integration allows you to create custom themes to influence the look and feel of the user interface.
 
 ```yaml
 # Example configuration.yaml entry
@@ -63,22 +58,72 @@ frontend:
   themes:
     happy:
       primary-color: pink
+      text-primary-color: purple
+      mdc-theme-primary: plum
     sad:
-      primary-color: blue
+      primary-color: steelblue
 ```
 
-The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
+The example above defines two themes named `happy` and `sad`. For each theme, you can set values for CSS variables. If you want to provide hex color values, wrap those in apostrophes, since otherwise, YAML would consider them a comment (`primary-color: '#123456'`). For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
+
+### Dark mode support
+
+It is also possible to create themes that are based on the default dark mode theme. New themes can also support both light and dark mode and allow the user to switch between those on the user profile page:
+
+{% my profile badge %}
+
+Extended example to show the mode definitions.
+
+```yaml
+# Example configuration.yaml entry
+frontend:
+  themes:
+    happy:
+      primary-color: pink
+      text-primary-color: purple
+      mdc-theme-primary: plum
+    sad:
+      primary-color: steelblue
+      modes:
+        dark:
+          secondary-text-color: slategray
+    day_and_night:
+      primary-color: coral
+      modes:
+        light:
+          secondary-text-color: olive
+        dark:  
+          secondary-text-color: slategray
+```
+
+Theme `happy`: Same as in the previous example. This legacy format is still supported and will behave as before and automatically use the default light theme as the base.
+
+Theme `sad`: By using the new `modes` key plus the subkey `dark` this theme will now be based on the default dark theme. The final theme rules are determined in three steps: First, the default dark theme CSS variables will be applied, then second the CSS variables from the top level of the theme that are mode-independent (`primary-color: steelblue` in this example) and lastly the mode-specific CSS variables will be layered on top (`secondary-text-color: slategray`).
+
+Note: Since this example theme only has a `dark` mode defined, this mode will automatically be used.
+
+Theme `day_and_night`: This theme has both a `light` and a `dark` mode section. That tells the frontend to allow the user to choose which mode to use from the user profile (default selection is based on the system settings). Independent of the selection, the primary color will be set to green, but based on the chosen mode either the default light or dark theme will be used as the basis for rendering, plus the secondary text color will be either olive or slategray.
+
+### Theme configuration splitting
+
+As with all configuration, you can either:
+
+- Directly specify the themes inside your `configuration.yaml` file.
+- Put them into a separate file (e.g., `themes.yaml`) and include that in your configuration (`themes: !include themes.yaml`).
+- Create a dedicated folder (e.g., `my_themes`) and include all files from within this folder (`themes: !include_dir_merge_named my_themes`).
+
+For more details about splitting up the configuration into multiple files, see [this page](/docs/configuration/splitting_configuration/).
 
 Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
 
-### Setting themes
+## Setting Themes
 
-There are 2 themes-related services:
+There are two themes-related services:
 
- - `frontend.reload_themes`: reloads theme configuration from your `configuration.yaml` file.
- - `frontend.set_theme`: sets backend-preferred theme name.
+- `frontend.reload_themes`: Reloads theme configuration from your `configuration.yaml` file.
+- `frontend.set_theme`: Sets backend-preferred theme name.
 
- ### Service `set_theme`
+### Service `set_theme`
 
 | Service data attribute | Description                                                                                         |
 | ---------------------- | --------------------------------------------------------------------------------------------------- |

@@ -12,10 +12,14 @@ ha_codeowners:
   - '@danielhiversen'
 ha_domain: tibber
 ha_config_flow: true
+ha_platforms:
+  - diagnostics
+  - notify
+  - sensor
 ---
 
 The `tibber` integration provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
-If you have a [Tibber Pulse](https://norge.tibber.com/products/pulse/) or [Watty](https://tibber.com/se/store/produkt/watty-smart-energimatare) it will also show the electricity consumption in real time.
+If you have a [Tibber Pulse](https://norge.tibber.com/products/pulse/) or [Watty](https://tibber.com/se/store/produkt/watty-smart-energimatare) it will also show the electricity consumption in real-time. You get a sensor for monthly consumption, monthly cost, and monthly peak hour. If you do have a real-time meter it is updated once every hour, oterwise it is updated once per day. Statistics with hourly consumption and cost data is generated that can be used in the [Energy Dashboard](/docs/energy/). (The ids are `tibber:energy_consumption_HOMEID` and `tibber:energy_totalcost_HOMEID` )
 
 There is currently support for the following device types within Home Assistant:
 
@@ -26,14 +30,12 @@ There is currently support for the following device types within Home Assistant:
 
 Go to [developer.tibber.com/settings/accesstoken](https://developer.tibber.com/settings/accesstoken) to get your API token.
 
-To add Tibber to your installation, go to **Configuration** >> **Integrations** in the UI and enable the Tibber integration.
-
+{% include integrations/config_flow.md %}
 
 ## Notifications
 
 Tibber can send a notification by calling the [`notify` service](/integrations/notify/). It will send a notification to all devices registered in the Tibber account.
 
-The requirement is that you have setup the [`tibber` component](#setup).
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 ### Send message
@@ -49,9 +51,9 @@ action:
 ## Sensor
 
 The `tibber` sensor provides the current electricity price if you are a [Tibber](https://tibber.com/) customer.
+You also get sensors for monthly consumption, monthly cost, and monthly peak hour
 If you have a Tibber Pulse it will also show the electricity consumption in real time.
 
-The requirement is that you have setup the [`tibber` component](#setup). The sensor will show once the transfer date to tibber has been confirmed.
 
 ## Examples
 

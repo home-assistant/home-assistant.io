@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.59
 ha_domain: unifi_direct
+ha_platforms:
+  - device_tracker
 ---
 
 This platform allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ui.com/products/#unifi). This device tracker differs form [Ubiquiti UniFi](/integrations/unifi) because it doesn't require the UniFi controller software.

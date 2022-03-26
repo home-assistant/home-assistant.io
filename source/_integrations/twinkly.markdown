@@ -3,10 +3,16 @@ title: Twinkly
 description: Instructions on how to integrate Twinkly LED string to Home Assistant.
 ha_category:
   - Light
-ha_release: 0.119
+ha_release: 2020.12
 ha_config_flow: true
 ha_domain: twinkly
-ha_iot_class: Local pull
+ha_iot_class: Local Polling
+ha_codeowners:
+  - '@dr1rrb'
+  - '@Robbie1221'
+ha_platforms:
+  - light
+ha_dhcp: true
 ---
 
 The Twinkly integration allows you to control [Twinkly](https://twinkly.com/) LED string from Home Assistant.
@@ -15,14 +21,6 @@ The Twinkly devices does not store the effects locally, they are instead re-sent
 This means that this integration does not support to change the LED string effect.
 It only supports to configure the brightness and to turn the device on and off.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-You can setup this integration from the Home Assistant user interface:
-
-1. In Home Assistant, go to **Configuration > Integrations**.
-1. At the bottom right, click on the **+** button.
-1. In the list select the **Twinkly** integration.
-1. Configure the host (or IP address) of your twinkly device.
-
-   _If configured using an IP address, on your router / DHCP, you should assign a static IP to your Twinkly device._
-
+_If configured using an IP address, on your router / DHCP, you should assign a static IP to your Twinkly device._

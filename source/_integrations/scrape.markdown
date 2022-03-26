@@ -8,9 +8,11 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: scrape
+ha_platforms:
+  - sensor
 ---
 
-The `scrape` sensor platform is scraping information from websites. The sensor loads a HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
+The `scrape` sensor platform is scraping information from websites. The sensor loads an HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -53,6 +55,16 @@ unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
   type: string
+device_class:
+  description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
+  required: false
+  type: device_class
+  default: None
+state_class:
+  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  required: false
+  type: string
+  default: None
 authentication:
   description: Type of the HTTP authentication. Either `basic` or `digest`.
   required: false
@@ -85,6 +97,7 @@ In this section you find some real-life examples of how to use this sensor. Ther
 The current release Home Assistant is published on [https://www.home-assistant.io/](/)
 
 {% raw %}
+
 ```yaml
 sensor:
 # Example configuration.yaml entry
@@ -94,6 +107,7 @@ sensor:
     select: ".current-version h1"
     value_template: '{{ value.split(":")[1] }}'
 ```
+
 {% endraw %}
 
 ### Available implementations
@@ -101,6 +115,7 @@ sensor:
 Get the counter for all our implementations from the [Component overview](/integrations/) page.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -110,6 +125,7 @@ sensor:
     select: 'a[href="#all"]'
     value_template: '{{ value.split("(")[1].split(")")[0] }}'
 ```
+
 {% endraw %}
 
 ### Get a value out of a tag
@@ -122,9 +138,9 @@ sensor:
   - platform: scrape
     resource: http://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
     name: Coast Ostsee
-    select: 'p'
+    select: "p"
     index: 19
-    unit_of_measurement: 'UV Index'
+    unit_of_measurement: "UV Index"
 ```
 
 ### IFTTT status
@@ -137,7 +153,7 @@ sensor:
   - platform: scrape
     resource: https://status.ifttt.com/
     name: IFTTT status
-    select: '.component-status'
+    select: ".component-status"
 ```
 
 ### Get the latest podcast episode file URL
@@ -150,7 +166,7 @@ sensor:
   - platform: scrape
     resource: https://hasspodcast.io/feed/podcast
     name: Home Assistant Podcast
-    select: 'enclosure'
+    select: "enclosure"
     index: 1
     attribute: url
 ```
@@ -160,34 +176,17 @@ sensor:
 This example tries to retrieve the price for electricity.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: scrape
     resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
     name: Electricity price
-    select: ".elspot-content"
-    value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'
+    select: ".text-lg:is(span)"
+    index: 1
+    value_template: '{{ value | replace (",", ".") | float }}'
     unit_of_measurement: "öre/kWh"
 ```
-{% endraw %}
 
-### BOM Weather
-
-The Australian Bureau of Meteorology website returns an error if the User Agent header is not sent.
-
-{% raw %}
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: scrape
-    resource: http://www.bom.gov.au/vic/forecasts/melbourne.shtml
-    name: Melbourne Forecast Summary
-    select: ".main .forecast p"
-    value_template: '{{ value | truncate(255) }}'
-    # Request every hour
-    scan_interval: 3600
-    headers:
-      User-Agent: Mozilla/5.0
-```
 {% endraw %}

@@ -11,7 +11,7 @@ ha_domain: alert
 
 The `alert` integration is designed to notify you when problematic issues arise.
 For example, if the garage door is left open, the `alert` integration can be used
-remind you of this by sending you repeating notifications at customizable
+to remind you of this by sending you repeating notifications at customizable
 intervals. This is also used for low battery sensors,
 water leak sensors, or any condition that may need your attention.
 
@@ -27,7 +27,7 @@ State | Description
 
 ### Basic Example
 
-The `alert` integration makes use of any of the `notifications` integrations. To
+The `alert` integration makes use of any of the `notification` integrations. To
 setup the `alert` integration, first, you must setup a `notification` integration.
 Then, add the following to your configuration file:
 
@@ -38,7 +38,7 @@ alert:
     name: Garage is open
     done_message: Garage is closed
     entity_id: input_boolean.garage_door
-    state: 'on'
+    state: "on"
     repeat: 30
     can_acknowledge: true
     skip_first: true
@@ -137,7 +137,7 @@ alert:
   freshwater_temp_alert:
     name: "Warning: I have detected a problem with the freshwater tank temperature"
     entity_id: binary_sensor.freshwater_temperature_status
-    state: 'on'
+    state: "on"
     repeat: 5
     can_acknowledge: true
     skip_first: false
@@ -156,23 +156,24 @@ than one input. For all of these situations, it is best to use the alert in
 conjunction with a `Template Binary Sensor`. The following example does that.
 
 {% raw %}
+
 ```yaml
-binary_sensor:
-  - platform: template
-    sensors:
-      motion_battery_low:
-        value_template: "{{ state_attr('sensor.motion', 'battery') < 15 }}"
-        friendly_name: 'Motion battery is low'
+template:
+  - binary_sensor:
+      - name: "Motion Battery is Low"
+        state: "{{ state_attr('sensor.motion', 'battery') | float(default=0) < 15 }}"
+        device_class: battery
 
 alert:
   motion_battery:
     name: Motion Battery is Low
-    entity_id: binary_sensor.motion_battery_low
+    entity_id: binary_sensor.motion_battery_is_low
     repeat: 30
     notifiers:
       - ryans_phone
       - kristens_phone
 ```
+
 {% endraw %}
 
 This example will begin firing as soon as the entity `sensor.motion`'s `battery`
@@ -192,7 +193,7 @@ alert:
   garage_door:
     name: Garage is open
     entity_id: input_boolean.garage_door
-    state: 'on'   # Optional, 'on' is the default value
+    state: "on"   # Optional, 'on' is the default value
     repeat:
       - 15
       - 30
@@ -219,13 +220,14 @@ The following will show for a plant how to include the problem `attribute`
 of the entity.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 alert:
   office_plant:
     name: Plant in office needs help
     entity_id: plant.plant_office
-    state: 'problem'
+    state: "problem"
     repeat: 30
     can_acknowledge: true
     skip_first: true
@@ -235,11 +237,12 @@ alert:
       - ryans_phone
       - kristens_phone
 ```
+
 {% endraw %}
 
 The resulting message could be `Plant Officeplant needs help (moisture low)`.
 
-### Additional parameters for notifiers 
+### Additional parameters for notifiers
 
 Some notifiers support more parameters (e.g., to set text color or action
   buttons). These can be supplied via the `data` parameter:
@@ -248,9 +251,11 @@ Some notifiers support more parameters (e.g., to set text color or action
 # Example configuration.yaml entry
 alert:
   garage_door:
-    name: Garage is open
+    name: "Garage is open"
+    message: "The garage door is still open"
+    done_message: "The garage door is closed"
     entity_id: input_boolean.garage_door
-    state: 'on'   # Optional, 'on' is the default value
+    state: "on"   # Optional, 'on' is the default value
     repeat:
       - 15
       - 30
@@ -263,7 +268,24 @@ alert:
     notifiers:
       - frank_telegram
 ```
+
 This particular example relies on the `inline_keyboard` functionality of
 Telegram, where the user is presented with buttons to execute certain actions.
+
+Based on the example above you can make an automation to stop further messages,
+but you will still receive the done message.
+
+```yaml
+- alias: "Telegram callback to stop alerts for garage door"
+  trigger:
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/garage_acknowledge"
+  action:
+    - service: alert.turn_off
+      target:
+        entity_id: alert.garage_door
+```
 
 [template]: /docs/configuration/templating/

@@ -9,21 +9,21 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: iqvia
+ha_platforms:
+  - diagnostics
+  - sensor
 ---
 
 The `iqvia` sensor platform collects and displays allergy, asthma and disease
 information (based on a U.S. ZIP code) from [IQVIA](https://www.iqvia.com/).
 Data measured includes:
 
-* Indicies for allergies, asthma and cold/flu indices
+* Indices for allergies, asthma and cold/flu indices
 * Trends
 * Current outlook
 * more!
 
-## Configuring the Integration
-
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}
 
 ## Understanding the Indices
 

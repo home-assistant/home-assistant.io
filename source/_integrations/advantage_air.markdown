@@ -9,19 +9,23 @@ ha_codeowners:
   - '@Bre77'
 ha_domain: advantage_air
 ha_quality_scale: platinum
+ha_platforms:
+  - binary_sensor
+  - diagnostics
+  - climate
+  - cover
+  - sensor
+  - select
+  - switch
 ---
 
 The Advantage Air integration allows you to control [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
 
-## Configuration
+## Prerequisites
 
 The wall-mounted Android table running the [MyPlace](https://play.google.com/store/apps/details?id=com.air.advantage.myair5), [e-zone](https://play.google.com/store/apps/details?id=com.air.advantage.ezone), or [zone10e](https://play.google.com/store/apps/details?id=com.air.advantage.zone10) must have a static IP, which you will enter on the integrations page in Home Assistant.
 
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Advantage Air** (use typeahead if necessary).
-Enter the IP address, and leave the port as the default value.
-After completing the configuration flow, the Advantage Air integration will dynamically add relevant entities for each Air Conditioning system and controlled zones.
+{% include integrations/config_flow.md %}
 
 ## Entities
 
@@ -39,7 +43,7 @@ The integration will create sensor entities for a variety of aspects:
 
 - The air filter sensor shows if it needs to be replaced.
 - Two sensor entities will be created for the 'time to on' and 'time to off' features. Use the `advantage_air.set_time_to` service to change these.
-- Each zone that is temperature-controlled will have a sensor to show how open the damper is.
+- Each zone that is temperature-controlled will have a sensor to show the temperature (disabled by default), and how open the damper is.
 - Each zone with a wireless temperature or motion sensor will have a sensor that reports its wireless RSSI.
 
 ### Binary Sensor
@@ -49,6 +53,10 @@ The `advantage_air` binary sensor platform will create a binary sensor for each 
 ### Switch
 
 The `advantage_air` switch platform will create a switch entity to toggle fresh air mode, if it is supported.
+
+### Select
+
+The `advantage_air` select platform allows you to change the zone used for the "MyZone" feature.
 
 ## Services
 
@@ -60,3 +68,11 @@ Set the On/Off Timer using the relevant sensor entity.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | `sensor.[name]_time_to_on` or `sensor.[name]_time_to_off`
 | `minutes` | no | Number of minutes between `0` and `720`.
+
+### Service `advantage_air.set_myzone`
+
+Change the MyZone setting to the provided zone climate entity.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | `climate.[zone name]`

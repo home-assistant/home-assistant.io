@@ -5,7 +5,9 @@ date: 2018-11-09 00:01:00
 date_formatted: "November 9, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-11-release-82/lovelace-edit.png
 ---
 

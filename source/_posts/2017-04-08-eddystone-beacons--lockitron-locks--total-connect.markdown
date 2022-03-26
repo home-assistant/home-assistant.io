@@ -5,7 +5,9 @@ date: 2017-04-08 08:04:05 +0000
 date_formatted: "April 8, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-04-0.42/social.png
 ---
 

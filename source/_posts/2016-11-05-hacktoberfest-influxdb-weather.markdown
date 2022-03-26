@@ -5,7 +5,9 @@ date: 2016-11-05 03:04:05 +0000
 date_formatted: "November 05, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 

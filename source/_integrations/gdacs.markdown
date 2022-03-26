@@ -10,6 +10,9 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@exxamalte'
 ha_domain: gdacs
+ha_platforms:
+  - geo_location
+  - sensor
 ---
 
 The `gdacs` integration lets you use a GeoRSS feed provided by 
@@ -18,12 +21,12 @@ about major droughts, earthquakes, floods, tropical cyclones, tsunamis and
 volcanic activities worldwide.
 It retrieves alerts from a feed and shows information of those alerts filtered 
 by distance to Home Assistant's location.
+The filter is set in the configuration as categories, radius (kilometers or miles based on unit system set in Home Assistant), latitude and longatude.
 
 Entities are generated, updated and removed automatically with each update 
 from the feed. Each entity defines latitude and longitude and will be shown 
 on the default map automatically, or on a map card by defining the source 
-`gdacs`. The distance is available as the state of each entity, and 
-converted to the unit (kilometers or miles) configured in Home Assistant.
+`gdacs`. The distance is available as the state of each entity converted to the configured unit system (kilometers or miles).
 
 <p class='img'>
   <img src='/images/screenshots/gdacs-alerts-feed-map.png' />
@@ -42,38 +45,7 @@ Please refer to the [creator's disclaimer and terms of use notice](https://www.g
 
 </div>
 
-## Configuration
-
-To integrate the GDACS feed use the "Integrations" feature 
-in the GUI, you find it under Configurations - Integrations, or add the 
-following line to your `configuration.yaml`.
-
-```yaml
-# Example configuration.yaml entry
-gdacs:
-```
-
-{% configuration %}
-categories:
-  description: The categories of alerts to be included. Valid categories are 'Drought', 'Earthquake', 'Flood', 'Tropical Cyclone', 'Tsunami', 'Volcano'.
-  required: false
-  type: list
-radius:
-  description: The radius around your location to monitor; defaults to 500 km or mi (depending on the unit system defined in your `configuration.yaml`).
-  required: false
-  type: float
-  default: 500.0
-latitude:
-  description: Latitude of the coordinates around which alerts are considered.
-  required: false
-  type: float
-  default: Latitude defined in your configuration.
-longitude:
-  description: Longitude of the coordinates around which alerts are considered.
-  required: false
-  type: float
-  default: Longitude defined in your configuration.
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## State Attributes
 

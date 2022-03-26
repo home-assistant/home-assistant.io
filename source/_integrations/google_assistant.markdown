@@ -29,34 +29,40 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 </div>
 
+### Google Cloud Platform configuration
+
 1. Create a new project in the [Actions on Google console](https://console.actions.google.com/).
     1. Click `New Project` and give your project a name.
     2. Click on the `Smart Home` card, then click the `Start Building` button.
     3. Click `Name your Smart Home action` under `Quick Setup` to give your Action a name - Home Assistant will appear in the Google Home app as `[test] <Action Name>`
-    4. Click `Build your Action`, then click `Add Action(s)`.
-    5. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` in the `Fulfillment URL` box, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
-    6. Click `Save`.
-    7. Click on the `Overview` tab, which will lead you back to the app details screen.
+    4. Click on the `Overview` tab at the top of the page to go back.
+    5. Click `Build your Action`, then click `Add Action(s)`.
+    6. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` in the `Fulfillment URL` box, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
+    7. Click `Save`.
+    8. Click the three little dots (more) icon in the upper right corner, select `Project settings`
+    9. Make note of the `Project ID` that are listed on the `GENERAL` tab of the `Settings` page.
 2. `Account linking` is required for your app to interact with Home Assistant.
-    1. Set this up by clicking on `Setup account linking` under the `Quick Setup` section of the `Overview` page.
-    2. If asked, leave options as they default `No, I only want to allow account creation on my website` and select `Next`.
-    3. Then if asked, for the `Linking type` select `OAuth` and `Authorization Code`. Click `Next`
-    4. Enter the following:
-               1. Client ID: `https://oauth-redirect.googleusercontent.com/r/YOUR_PROJECT_ID`. (Find your YOUR_PROJECT_ID by clicking on the three little dots (more) icon in the upper right corner of the console, selecting `Project settings`, your Project ID will be listed on the `GENERAL` tab of the `Settings` page.)
-               2. Client Secret: Anything you like, Home Assistant doesn't need this field.
-               3. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
-               4. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`.
-               Click `Next`, then `Next` again.
-    5. In the `Configure your client` `Scopes` textbox, type `email` and click `Add scope`, then type `name` and click `Add scope` again.
-    6. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
-    7. Click `Next`, then click `Save`
+    1. Start by going back to the `Overview` tab.
+    2. Click on `Setup account linking` under the `Quick Setup` section of the `Overview` page.
+    3. If asked, leave options as they default `No, I only want to allow account creation on my website` and select `Next`.
+    4. Then if asked, for the `Linking type` select `OAuth` and `Authorization Code`. Click `Next`
+    5. Enter the following:
+        1. Client ID: `https://oauth-redirect.googleusercontent.com/r/[YOUR_PROJECT_ID]`. (Replace `[YOUR_PROJECT_ID]` with your project ID from above)
+        2. Client Secret: Anything you like, Home Assistant doesn't need this field.
+        3. Authorization URL: `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`. (Replace `[YOUR HOME ASSISTANT URL:PORT]` with your values.)
+        4. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`. (Replace `[YOUR HOME ASSISTANT URL:PORT]` with your values.)
+           Click `Next`, then `Next` again.
+    6. In the `Configure your client` `Scopes` textbox, type `email` and click `Add scope`, then type `name` and click `Add scope` again.
+    7. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
+    8. Click `Next`, then click `Save`
 
     <img src='/images/integrations/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 
 3. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App. If you don't see this option, go to the `Test` tab instead, click on the `Settings` button in the top right below the header, and ensure `On device testing` is enabled (if it isn't, enable it).
-4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
-5. (Note that app versions may be slightly different.) Open the Google Home app and go to `Settings`.
-6. Click `Add...`, `+ Set up or add`, `+ Set up device`, and click `Have something already setup?`. You should have `[test] your app name` listed under 'Add new'. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
+4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
+5. Add services in the Google Home App (Note that app versions may be slightly different.)
+    1. Open the Google Home app.
+    2. Click the `+` button on the top left corner, click `Set up device`, in the "Set up a device" screen click "Works with Google". You should have `[test] <Action Name>` listed under 'Add new'. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
 
 <div class='note'>
 
@@ -83,20 +89,52 @@ If you want to allow other household users to control the devices:
 
 If you want to support active reporting of state to Google's server (configuration option `report_state`) and synchronize Home Assistant devices with the Google Home app (`google_assistant.request_sync` service), you will need to create a service account. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device in Home Assistant that you wish to control via the Google Assistant integration. This allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting)).
 
-1. In the GCP Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
-2. At the top left of the page next to "Google Cloud Platform" logo, select your project created in the Actions on Google console. Confirm this by reviewing the `project_id` and it ensure it matches.
-3. From the Service account list, select New service account.
-4. In the Service account name field, enter a name.
-5. In the Service account ID field, enter an ID.
-6. From the Role list, select Service Accounts > Service Account Token Creator.
-7. For the Key type, select the JSON option.
-8. Click Create. A JSON file that contains your key downloads to your computer.
-9. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
-10. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
-11. Select your project and click Enable HomeGraph API.
-12. Try "OK Google, sync my devices" - the Google Home app should import your exposed Home Assistant devices and prompt you to assign them to rooms
+1. Service Account
+    1. In the Google Cloud Platform Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
+    2. At the top left of the page next to "Google Cloud Platform" logo, select your project created in the Actions on Google console. Confirm this by reviewing the project ID and it ensure it matches.
+    3. From the Service account list, select `CREATE SERVICE ACCOUNT`.
+    4. In the Service account name field, enter a name.
+    5. In the Service account ID field, enter an ID.
+    6. From the Role list, select `Service Accounts` > `Service Account Token Creator`.
+    7. Click `CONTINUE` and then `DONE`. You are returned to the service account list, and your new account is shown.
+    8. Click the three dots menu under `Actions` next to your new account, and click `Manage keys`. You are taken to a `Keys` page.
+    9. Click `ADD KEY` then `Create new key`. Leave the `key type` as `JSON` and click `CREATE`. A JSON file that contains your key downloads to your computer.
+    10. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
+    11. Click `Close`.
+2. HomeGraph API
+    1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
+    2. At the top left of the page next to "Google Cloud Platform" logo, select your project created in the Actions on Google console. Confirm this by reviewing the project ID and it ensure it matches.
+    3. Click Enable HomeGraph API.
+3. Try "OK Google, sync my devices" - the Google Home app should import your exposed Home Assistant devices and prompt you to assign them to rooms.
 
-### Configuration
+### Enable Local Fulfillment
+
+<div class='note'>
+
+The [`ssl_certificate` option](/integrations/http/#ssl_certificate) in the `http` integration must not have a value or this feature won't work.
+
+This is because Google requires a valid certificate and the way it connects to Home Assistant for local fulfillment makes that impossible. Consider using a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic directly to Home Assistant.
+
+</div>
+
+1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
+2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
+3. Upload [this Javascript file](/assets/integrations/google_assistant/app.js) for both Node and Chrome by clicking the `Upload Javascript files` button.
+4. Add device scan configuration:
+   1. Click `+ New scan config`
+   2. Select `MDNS`
+   3. Set mDNS service name to `_home-assistant._tcp.local`
+   4. Click `Add field`, then under `Select a field` select `name`
+   5. Enter a new `value` field set to `.*\._home-assistant\._tcp\.local`
+5. Check the box `Support local query` under `Add capabilities`.
+6. `Save` your changes.
+7. Either wait for 30 minutes, or restart your connected Google device.
+8. Restart Home Assistant Core.
+9. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
+
+You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome)
+
+### YAML Configuration
 
 Now add your setup to your `configuration.yaml` file, such as:
 
@@ -130,10 +168,6 @@ secure_devices_pin:
   required: false
   type: string
   default: ""
-api_key:
-  description: Your HomeGraph API key (for the `google_assistant.request_sync` service). This is not required if a service_account is specified.  This has been deprecated and will be removed in 0.105, you must setup a `service_account` now.
-  required: false
-  type: string
 service_account:
   description: Service account information. You can use an include statement with your downloaded JSON file, enter data here directly or use secrets file to populate.
   required: true
@@ -202,7 +236,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - scene (on)
 - script (on)
 - switch (on/off)
-- fan (on/off/speed)
+- fan (on/off/speed percentage/preset mode)
 - light (on/off/brightness/rgb color/color temp)
 - lock 
 - cover (on/off/set position)
@@ -242,6 +276,10 @@ Here are the modes that are currently available:
 - fan-only
 - dry
 - eco
+
+### TV Channels
+
+There is no TV channel object in Home Assistant. TV channel can only be changed by number, not by name (for example, `Turn to channel two`).
 
 ### Troubleshooting
 

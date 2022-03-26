@@ -35,7 +35,7 @@ host:
 port:
   description: Port to use.
   required: false
-  default: 8080
+  default: 8088
   type: integer
 ssl:
   description: Use HTTPS instead of HTTP to connect.
@@ -87,8 +87,6 @@ filter:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Splunk`, you can use the `filter` parameter.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 splunk:
@@ -102,8 +100,6 @@ splunk:
     exclude_entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 

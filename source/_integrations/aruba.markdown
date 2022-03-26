@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.7
 ha_iot_class: Local Polling
 ha_domain: aruba
+ha_platforms:
+  - device_tracker
 ---
 
 This platform allows you to detect presence by looking at connected devices to an [Aruba Instant](https://www.arubanetworks.com/products/networking/aruba-instant/) device.
@@ -35,7 +37,7 @@ host:
   required: true
   type: string
 username:
-  description: The username of an user with administrative privileges, usually `admin`.
+  description: The username of a user with administrative privileges, usually `admin`.
   required: true
   type: string
 password:

@@ -50,14 +50,14 @@ rest_command:
     method: get
 
 automation:
-  alias: HTTP to MQTT keep alive
+  alias: "HTTP to MQTT keep alive"
   trigger:
     platform: time_pattern
-    minutes: '/10'
+    minutes: "/10"
   condition:
     condition: time
-    after: '7:30:00'
-    before: '23:59:59'
+    after: "7:30:00"
+    before: "23:59:59"
   action:
     service: rest_command.http_to_mqtt_keep_alive
 ```

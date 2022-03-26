@@ -7,6 +7,8 @@ ha_iot_class: Cloud Push
 ha_release: 0.38
 ha_config_flow: true
 ha_domain: mailgun
+ha_platforms:
+  - notify
 ---
 
 To be able to receive webhooks from Mailgun, your Home Assistant instance needs to be accessible from the web and you need to have the extern URL [configured](/docs/configuration/basic)).
@@ -57,7 +59,8 @@ automation:
       action: call_service
   action:
     service: light.turn_on
-    entity_id: light.office
+    target:
+      entity_id: light.office
 ```
 
 ## Notifications

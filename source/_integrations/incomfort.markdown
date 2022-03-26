@@ -11,6 +11,11 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@zxdavb'
 ha_domain: incomfort
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - water_heater
 ---
 
 The `incomfort` integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
@@ -28,29 +33,6 @@ In addition, there is a **Sensor** for each of CV pressure, CV temperature, and 
 ### Rooms
 
 Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's `temperature` (setpoint, target temperature) and `current_temperature` and the setpoint can be changed.
-
-## Automation
-
-To send an alert if the CV pressure is too low or too high, consider the following example:
-
-{% raw %}
-```yaml
-- alias: Low CV Pressure Alert
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.cv_pressure
-    below: 1.0
-  action:
-  - service: notify.pushbullet_notifier
-    data:
-      title: "Warning: Low CH Pressure"
-      message: >-
-        {{ trigger.to_state.attributes.friendly_name }}
-        is low, {{ trigger.to_state.state }} bar.
-```
-{% endraw %}
-
-Other properties are available via each device's attributes.
 
 ## Configuration
 
@@ -94,3 +76,28 @@ password:
   required: inclusive
   type: string
 {% endconfiguration %}
+
+## Automation
+
+To send an alert if the CV pressure is too low or too high, consider the following example:
+
+{% raw %}
+
+```yaml
+- alias: "Low CV Pressure Alert"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.cv_pressure
+    below: 1.0
+  action:
+  - service: notify.pushbullet_notifier
+    data:
+      title: "Warning: Low CH Pressure"
+      message: >-
+        {{ trigger.to_state.attributes.friendly_name }}
+        is low, {{ trigger.to_state.state }} bar.
+```
+
+{% endraw %}
+
+Other properties are available via each device's attributes.

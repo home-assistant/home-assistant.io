@@ -6,6 +6,8 @@ ha_release: 0.65
 ha_category:
   - Notifications
 ha_domain: synology_chat
+ha_platforms:
+  - notify
 ---
 
 The `synology_chat` notification platform allows you to deliver notifications to your [Synology Chat](https://www.synology.com/en-us/dsm/feature/chat) install as a Synology Chat bot.

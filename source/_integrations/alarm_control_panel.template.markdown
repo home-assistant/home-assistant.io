@@ -36,21 +36,24 @@ alarm_control_panel:
         value_template: "{{ states('alarm_control_panel.real_alarm') }}"
         arm_away:
           service: alarm_control_panel.alarm_arm_away
-          data:
+          target:
             entity_id: alarm_control_panel.real_alarm
+          data:
             code: !secret alarm_code
         arm_home:
           service: alarm_control_panel.alarm_arm_home
-          data:
+          target:
             entity_id: alarm_control_panel.real_alarm
+          data:
             code: !secret alarm_code
         disarm:
           - condition: state
             entity_id: device_tracker.paulus
-            state: 'home'
+            state: "home"
           - service: alarm_control_panel.alarm_arm_home
-            data:
+            target:
               entity_id: alarm_control_panel.real_alarm
+            data:
               code: !secret alarm_code
 ```
 
@@ -100,11 +103,16 @@ panels:
           description: If true, the code is required to arm the alarm.
           required: false
           type: boolean
-          default: false
+          default: true
+        code_format:
+          description: One of `number`, `text` or `no_code`. Format for the code used to arm/disarm the alarm.
+          required: false
+          type: string
+          default: number
 {% endconfiguration %}
 
 ## Considerations
 
-If you are using the state of a integration that takes extra time to load, the Template Alarm Control Panel may get an `unknown` state during startup. This results in error messages in your log file until that integration has completed loading. If you use `is_state()` function in your template, you can avoid this situation.
+If you are using the state of an integration that takes extra time to load, the Template Alarm Control Panel may get an `unknown` state during startup. This results in error messages in your log file until that integration has completed loading. If you use `is_state()` function in your template, you can avoid this situation.
 
 For example, you would replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an unknown result: {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}

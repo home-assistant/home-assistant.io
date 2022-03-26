@@ -6,6 +6,8 @@ ha_category:
   - Presence Detection
 ha_iot_class: Cloud Polling
 ha_domain: google_maps
+ha_platforms:
+  - device_tracker
 ---
 
 The `google_maps` platform allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
@@ -19,6 +21,26 @@ You need two Google accounts. Account A is the account that has to be set up to 
 3. Save the cookie file to your Home Assistant configuration directory with the following name: `.google_maps_location_sharing.cookies.` followed by the slugified username of the NEW Google account (account B). 
    - For example: If your email address was `location.tracker@gmail.com`, the filename would be: `.google_maps_location_sharing.cookies.location_tracker_gmail_com`.
 
+### Note for existing location sharing users
+
+If you already have other people sharing their location with your existing Account A and do not wish to ask them to also share their location with a new Account B. Simply repeat the steps above to obtain a valid cookie from Google for Account A. Then add both accounts to the device tracker configuration (don’t forget to include the multiple cookie files, one for each account being added to the integration).
+
+```yaml
+# Example configuration.yaml entry
+device_tracker:
+  - platform: google_maps
+    username: "ACCOUNT_A_EMAIL"
+  - platform: google_maps
+    username: "ACCOUNT_B_EMAIL"
+```
+
+<div class='note'>
+If using more than one account, your own device may show twice, however, the parameters returned from Account A will not include a value for battery_level or entity_picture. These parameters will be present in your device tracker entity from Account B. Therefore, disregard the device tracker entity with is missing those parameters. 
+</div>
+
+
+
+
 ## Configuration
 
 To integrate Google Maps Location Sharing in Home Assistant, add the following section to your `configuration.yaml` file:
@@ -27,7 +49,7 @@ To integrate Google Maps Location Sharing in Home Assistant, add the following s
 # Example configuration.yaml entry
 device_tracker:
   - platform: google_maps
-    username: YOUR_USERNAME
+    username: "YOUR_EMAIL"
 ```
 
 Once enabled and you have rebooted devices discovered through this integration will be listed in the `known_devices.yaml` file within your configuration directory.

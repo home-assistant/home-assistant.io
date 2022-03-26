@@ -30,7 +30,7 @@ Hmmm, ...OK, that's a start. How to get the year? {% raw %}`{{ now() }}`{% endra
 
 For the year it would be: {% raw %}`{{ now().year }}`{% endraw %}. I guess that there are rare use cases for `now().resolution`, `now().min` and `now().max` too.
 
-[Hacktoberfest](/blog/2017/09/29/hacktoberfest/) is still running. Working on the documentation is pretty easy. If you know a nice [trick](/cookbook/), want to help improving the page of a platform or just fix typo then please do. Our [Website/Documentation section](/developers/documentation/) contains some requirements which are defined in the [Documentation Standards](/developers/documentation/standards/) and the "[Create a page](/developers/documentation/create_page/)" documentation for other useful details.
+[Hacktoberfest](/blog/2017/09/29/hacktoberfest/) is still running. Working on the documentation is pretty easy. If you know a nice [trick](/examples/), want to help improving the page of a platform or just fix typo then please do. Our [Website/Documentation section](/developers/documentation/) contains some requirements which are defined in the [Documentation Standards](/developers/documentation/standards/) and the "[Create a page](/developers/documentation/create_page/)" documentation for other useful details.
 
 Thanks to [Egor Tsinko](https://github.com/etsinko) for bringing this issue to our attention.
 

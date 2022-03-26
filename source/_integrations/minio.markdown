@@ -81,28 +81,29 @@ listen:
 Automations can be triggered on new files created on the Minio server using the `data_template`.
 
 {% raw %}
+
 ```yaml
 #Automatically upload new local files
 automation:
-- alias: Upload camera snapshot
+- alias: "Upload camera snapshot"
   trigger:
     platform: event
     event_type: folder_watcher
     event_data:
       event_type: created
   action:
-    - delay: '00:00:01'
+    - delay: "00:00:01"
     - service: minio.put
       data:
         file_path: "{{ trigger.event.data.path }}"
         bucket: "camera-image-object-detection"
         key: "input/{{ now().year }}/{{ (now().month | string).zfill(2) }}/{{ (now().day | string).zfill(2) }}/{{ trigger.event.data.file }}"
-    - delay: '00:00:01'
+    - delay: "00:00:01"
     - service: shell_command.remove_file
       data:
         file: "{{ trigger.event.data.path }}"
 
-- alias: Download new Minio file
+- alias: "Download new Minio file"
   trigger:
   - platform: event
     event_type: minio
@@ -115,6 +116,7 @@ automation:
       key: "{{trigger.event.data.key}}"
       file_path: "/tmp/{{ trigger.event.data.file_name }}"
 ```
+
 {% endraw %}
 
 ## Platform Services

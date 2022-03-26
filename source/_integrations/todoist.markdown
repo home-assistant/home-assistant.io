@@ -8,13 +8,15 @@ ha_release: 0.54
 ha_codeowners:
   - '@boralyl'
 ha_domain: todoist
+ha_platforms:
+  - calendar
 ---
 
 This platform allows you to connect to your [Todoist Projects](https://todoist.com) and generate binary sensors. A different sensor will be created for each individual project, or you can specify "custom" projects which match against criteria you set (more on that below). These sensors will be `on` if you have a task due in that project or `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. All tasks get updated roughly every 15 minutes.
 
 ### Prerequisites
 
-You need to determine your Todoist API token. This is fairly simple to do; just go [to the Integrations section on your Todoist settings page](https://todoist.com/Users/viewPrefs?page=authorizations) and find the section labeled "API token" at the bottom of the page. Copy that token and use it in your configuration file.
+You need to determine your Todoist API token. This is fairly simple to do; just go [to the Integrations section on your Todoist settings page](https://todoist.com/app/settings/integrations) and find the section labeled "API token" at the bottom of the page. Copy that token and use it in your configuration file.
 
 ### Basic Setup
 
@@ -76,8 +78,6 @@ calendar:
           - Mathematical Structures II
           - Calculus II
 ```
-
-(See [here](/docs/configuration/secrets/) for more details about what that `!secret` does -- it's not exclusive to Todoist, and can help keep your API keys and passwords a little safer!)
 
 As you can see, there are 4 custom projects here:
 
@@ -154,6 +154,8 @@ Here are two example JSON payloads resulting in the same task:
 
 - **labels** (*Optional*): Any labels you want to add to the task, separated by commas.
 
+- **assignee** (*Optional*): A member's username of a shared project to assign this task to. You find the username formatted as bold text in the collaborator menu of a shared project. 
+
 - **priority** (*Optional*): The priority of the task, from 1-4. Again, 1 means least important, and 4 means most important.
 
 - **due_date_string** (*Optional*): When the task should be due, in [natural language](https://get.todoist.help/hc/articles/205325931-Dates-and-Times). Mutually exclusive with `due_date`
@@ -161,6 +163,13 @@ Here are two example JSON payloads resulting in the same task:
 - **due_date_lang** (*Optional*): When `due_date_string` is set, it is possible to set the language.
   Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
 
-- **due_date** (*Optional*): When the task should be due, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format. Mutually exclusive with `due_date_string`.
+- **due_date** (*Optional*): When the task should be due, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format  (in UTC timezone). Mutually exclusive with `due_date_string`.
+
+- **reminder_date_string** (*Optional*):  When should user be reminded of this task, in [natural language](https://get.todoist.help/hc/articles/205325931-Dates-and-Times). Mutually exclusive with `reminder_date`
+
+- **reminder_date_lang** (*Optional*): When `reminder_date_string` is set, it is possible to set the language.
+  Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
+
+- **reminder_date** (*Optional*): When should user be reminded of this task, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format (in UTC timezone). Mutually exclusive with `reminder_date_string`.
 
 Note that there's (currently) no way to mark tasks as done through Home Assistant; task names do not necessarily have to be unique, so you could find yourself in a situation where you close the wrong task.

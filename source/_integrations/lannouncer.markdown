@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.36
 ha_domain: lannouncer
+ha_platforms:
+  - notify
 ---
 
 The `lannouncer` notification platform allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](https://play.google.com/store/apps/details?id=com.keybounce.lannouncer&hl=en_US). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.
@@ -57,7 +59,7 @@ Spoken messages is the default method (`speak`). You just invoke the `notify` se
 }
 ```
 
-The second method is to play notifications (`alarm`). There are 4 build-in sounds (`chime`, `doorbell`, `alarm` and `siren`).
+The second method is to play notifications (`alarm`). There are 4 built-in sounds (`chime`, `doorbell`, `alarm` and `siren`).
 
 ```json
 {

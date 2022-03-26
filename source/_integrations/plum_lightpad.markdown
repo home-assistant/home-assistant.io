@@ -10,6 +10,8 @@ ha_domain: plum_lightpad
 ha_codeowners:
   - '@ColinHarrington'
   - '@prystupa'
+ha_platforms:
+  - light
 ---
 
 Configurable/Dimmable Wi-Fi Lightswitch
@@ -20,31 +22,4 @@ Configurable/Dimmable Wi-Fi Lightswitch
 - Wi-Fi & Bluetooth connectivity
 - Phone Apps for iOS & Android
 
-## Configuration
-
-To use Plum Lightpad devices in your installation, add your Plum account from the integrations page.
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Plum Lightpad** (use typeahead if necessary).
-After completing the configuration flow, the Plum Lightpad integration will be available.
-
-Alternatively, add the following lines to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-plum_lightpad:
-  username: YOUR_CLOUD_USERNAME
-  password: YOUR_CLOUD_PASSWORD
-```
-
-{% configuration %}
-username:
-  required: true
-  description: Your Plum Cloud username.
-  type: string
-password:
-  required: true
-  description: Your Plum Cloud password.
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}

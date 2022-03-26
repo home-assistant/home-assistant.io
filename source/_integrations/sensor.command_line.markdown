@@ -54,31 +54,27 @@ json_attributes:
   description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
   required: false
   type: [string, list]
+unique_id:
+  description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 {% endconfiguration %}
+
+## Execution
+
+The `command` is executed within the [configuration directory](/docs/configuration/).
+
+<div class='note'>
+
+If you are using [Home Assistant Operating System](https://github.com/home-assistant/operating-system), the commands are executed in the `homeassistant` container context. So if you test or debug your script, it might make sense to do this in the context of this container to get the same runtime environment.
+
+</div>
+
+With a `0` exit code, the output (stdout) of the command is used as `value`. In case a command results in a non `0` exit code or is terminated by the `command_timeout`, the result is only logged to Home Assistant log and the value of the sensor is not updated.
 
 ## Examples
 
 In this section you find some real-life examples of how to use this sensor.
-
-### Hard drive temperature
-
-There are several ways to get the temperature of your hard drive. A simple solution is to use [hddtemp](https://savannah.nongnu.org/projects/hddtemp/).
-
-```bash
-hddtemp -n /dev/sda
-```
-
-To use this information, the entry for a command-line sensor in the `configuration.yaml` file will look like this.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    name: HD Temperature
-    command: "hddtemp -n /dev/sda"
-    # If errors occur, make sure configuration file is encoded as UTF-8
-    unit_of_measurement: "°C"
-```
 
 ### CPU temperature
 
@@ -94,7 +90,7 @@ sensor:
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     # If errors occur, make sure configuration file is encoded as UTF-8
     unit_of_measurement: "°C"
-    value_template: '{{ value | multiply(0.001) | round(1) }}'
+    value_template: "{{ value | multiply(0.001) | round(1) }}"
 ```
 
 {% endraw %}
@@ -204,8 +200,9 @@ sensor:
     json_attributes:
       - date
       - milliseconds_since_epoch
-    command: 'python3 /home/pi/.homeassistant/scripts/datetime.py'
-    value_template: '{{ value_json.time }}'
+    command: "python3 /home/pi/.homeassistant/scripts/datetime.py"
+    value_template: "{{ value_json.time }}"
 ```
 
 {% endraw %}
+

@@ -8,12 +8,11 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: scene
-ha_iot_class:
 ---
 
 You can create scenes that capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red.
 
-Scenes can be created and managed via the user interface using the [Scene Editor](/docs/scene/editor/). They can also be configured via `configuration.yaml`:
+Scenes can be created and managed via the user interface using the [Scene Editor](/docs/scene/editor/). They can also be manually configured via `configuration.yaml`. Note that the entity data is not service call parameters, it's a representation of the wanted state:
 
 ```yaml
 # Example configuration.yaml entry
@@ -24,17 +23,26 @@ scene:
       light.tv_back_light: "on"
       light.ceiling:
         state: "on"
-        xy_color: [0.33, 0.66]
         brightness: 200
+        color_mode: "xy"
+        xy_color: [0.33, 0.66]
   - name: Movies
     entities:
       light.tv_back_light:
         state: "on"
         brightness: 125
-      light.ceiling: off
+      light.ceiling: "off"
       media_player.sony_bravia_tv:
         state: "on"
         source: HDMI 1
+  - name: Standard
+    entities:
+      light.tv_back_light:
+        state: "off"
+      light.ceiling:
+        state: "on"
+        brightness: 125
+        color_mode: "white"
 ```
 
 {% configuration %}
@@ -69,7 +77,8 @@ automation:
     to: "home"
   action:
     service: scene.turn_on
-    entity_id: scene.romantic
+    target:
+      entity_id: scene.romantic
 ```
 
 ## Applying a scene without defining it
@@ -115,8 +124,9 @@ automation:
     to: "home"
   action:
     service: scene.turn_on
-    data:
+    target:
       entity_id: scene.romantic
+    data:
       transition: 2.5
 ```
 
@@ -160,12 +170,12 @@ The following example turns off some entities as soon as a window opens. The sta
 
 ```yaml
 # Example automation using snapshot
-- alias: Window opened
+- alias: "Window opened"
   trigger:
   - platform: state
     entity_id: binary_sensor.window
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   condition: []
   action:
   - service: scene.create
@@ -175,21 +185,22 @@ The following example turns off some entities as soon as a window opens. The sta
       - climate.ecobee
       - light.ceiling_lights
   - service: light.turn_off
-    data:
+    target:
       entity_id: light.ceiling_lights
   - service: climate.set_hvac_mode
-    data:
+    target:
       entity_id: climate.ecobee
-      hvac_mode: 'off'
-- alias: Window closed
+    data:
+      hvac_mode: "off"
+- alias: "Window closed"
   trigger:
   - platform: state
     entity_id: binary_sensor.window
-    from: 'on'
-    to: 'off'
+    from: "on"
+    to: "off"
   condition: []
   action:
   - service: scene.turn_on
-    data:
+    target:
       entity_id: scene.before
 ```

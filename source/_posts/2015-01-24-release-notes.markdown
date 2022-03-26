@@ -5,7 +5,9 @@ date: 2015-01-24 18:36 0000
 date_formatted: "January 24, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 I have just merged the latest version of the development branch into master. Here are some of the highlights of this release:

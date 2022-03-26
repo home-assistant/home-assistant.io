@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.27
 ha_domain: bluetooth_le_tracker
+ha_platforms:
+  - device_tracker
 ---
 
 This tracker discovers new devices on boot and in regular intervals and tracks Bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other.
@@ -56,7 +58,7 @@ Enabling the battery tracking might slightly decrease the duration of the batter
 
 For additional configuration variables check the [Device tracker page](/integrations/device_tracker/).
 
-## Home Assistant Core installs
+{% details "Notes for Home Assistant Core Installations" %}
 
 On Debian based Home Assistant Core installations, run:
 
@@ -66,8 +68,8 @@ sudo apt install bluetooth
 
 Before you get started with this platform, please note that:
 
- - This platform is incompatible with Windows
- - This platform requires access to the Bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
+- This platform is incompatible with Windows
+- This platform requires access to the Bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
 
 ### Rootless Setup on Core installs
 
@@ -80,3 +82,5 @@ sudo setcap 'cap_net_raw+ep' $(readlink -f $(which hcitool))
 ```
 
 A restart of Home Assistant is required.
+
+{% enddetails %}

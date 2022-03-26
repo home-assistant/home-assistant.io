@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.27
 ha_iot_class: Cloud Push
 ha_domain: html5
+ha_platforms:
+  - notify
 ---
 
 The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
@@ -63,7 +65,7 @@ vapid_prv_key:
   required: true
   type: string
 vapid_email:
-  description: The e-mail account associated with your Firebase project, [see configuring the platform](#configuring-the-platform).
+  description: The e-mail account of your Google account associated with your Firebase project, [see configuring the platform](#configuring-the-platform).
   required: true
   type: string
 gcm_api_key:
@@ -89,26 +91,24 @@ The `html5` platform can only function if all of the following requirements are 
 
 ### Configuring the platform
 
-1. Make sure you can access your Home Assistant installation from outside your network over HTTPS ([see documentation](/docs/configuration/remote/)) or can perform an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) on the domain used by Home Assistant.
-2. Create a new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard), this project will be imported into Firebase later (alternatively, the project can also be created during step 4).
-3. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain via Google Webmaster Central / Search Console - [see below](#verify-your-domain).
-4. With the domain verified, go to [https://console.firebase.google.com](https://console.firebase.google.com), select import Google project and select the project you created.
-5. Then, click the cogwheel on top left and select "Project settings".
-6. Select the ['Cloud Messaging' tab](https://console.firebase.google.com/project/_/settings/cloudmessaging).
-7. Generate a new key pair under the Web configuration listing at the bottom of the page. To view the private key click the three dots to the right and 'Show private key'.
-8. Select the ['Service Accounts' tab](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk).
-9. Get the email address for the project under the text that says "Firebase service account".
+1. Create a new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard), this project will be imported into Firebase later (alternatively, the project can also be created in the next step).
+2. Go to [https://console.firebase.google.com](https://console.firebase.google.com), and click the "Add project" button
+3. Choose your Google Cloud project for the name field (or create a new one). Decline analytics.
+4. Then, click the cogwheel on top left and select "Project settings".
+5. Select the "Cloud Messaging" tab.
+6. Generate a new key pair in "Web configuration" at the bottom of the page. Add the public key as `vapid_pub_key` in the config, then choose the 3 dots, and copy the private key for `vapid_prv_key` in the config.
+7. Input your Google email as `vapid_email` in the config.
 
 ### Setting up your browser
 
 Assuming you have already configured the platform:
 
-1. Open Home Assistant in Chrome or Firefox.
-2. Load profile page by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address (and that you have configured the `notify` HTML5 integration in Home Assistant). If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
-3. Slide it to the on position.
-4. Name the device you're using in the alert that appears.
-5. Within a few seconds you should be prompted to allow notifications from Home Assistant.
-6. Assuming you accept, that's all there is to it!
+{% my profile badge %}
+
+1. Open Home Assistant in Chrome or Firefox and load profile page by clicking the My button above or by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address (and that you have configured the `notify` HTML5 integration in Home Assistant). If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
+2. Turn on the slider, and name the device you're using in the alert that appears.
+3. Within a few seconds you should be prompted to allow notifications from Home Assistant.
+4. Assuming you accept, that's all there is to it!
 
 **Note:** If you aren't prompted for a device name when enabling notifications, open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
 
@@ -116,11 +116,12 @@ Assuming you have already configured the platform:
 
 Assuming the previous test completed successfully and your browser was registered, you can test the notification as follows:
 
-1. Open Home Assistant in Chrome or Firefox.
-2. Open the sidebar and click the Services button at the bottom (shaped like a remote control), located below the Developer Tools.
-3. From the Services dropdown, search for your HTML5 notify service (e.g., notify.NOTIFIER_NAME) and select it.
-4. In the Service Data text box enter: `{"message":"hello world"}`, then press the CALL SERVICE button.
-5. If everything worked you should see a popup notification.
+{% my developer_services badge %}
+
+1. Click on the My button above, or open Home Assistant in Chrome or Firefox, open the sidebar and click the Services button at the bottom (shaped like a remote control), located below the Developer Tools.
+2. From the Services dropdown, search for your HTML5 notify service (e.g., notify.NOTIFIER_NAME) and select it.
+3. In the Service Data text box enter: `{"message":"hello world"}`, then press the CALL SERVICE button.
+4. If everything worked you should see a popup notification.
 
 ### Usage
 
@@ -167,8 +168,9 @@ data:
 Example of adding a tag to your notification. This won't create new notification if there already exists one with the same tag.
 
 {% raw %}
+
 ```yaml
-  - alias: Push/update notification of sensor state with tag
+  - alias: "Push/update notification of sensor state with tag"
     trigger:
       - platform: state
         entity_id: sensor.sensor
@@ -178,8 +180,9 @@ Example of adding a tag to your notification. This won't create new notification
         message: "Last known sensor state is {{ states('sensor.sensor') }}."
       data:
         data:
-          tag: 'notification-about-sensor'
+          tag: "notification-about-sensor"
 ```
+
 {% endraw %}
 
 #### Targets
@@ -237,7 +240,7 @@ data:
 
 You can dismiss notifications by using service html5.dismiss like so:
 
-```json
+```yaml
 target: ['my phone']
 data:
   tag: notification_tag
@@ -268,7 +271,7 @@ You will receive an event named `html5_notification.received` when the
 notification is received on the device.
 
 ```yaml
-- alias: HTML5 push notification received and displayed on device
+- alias: "HTML5 push notification received and displayed on device"
   trigger:
     platform: event
     event_type: html5_notification.received
@@ -279,7 +282,7 @@ notification is received on the device.
 You will receive an event named `html5_notification.clicked` when the notification or a notification action button is clicked. The action button clicked is available as `action` in the `event_data`.
 
 ```yaml
-- alias: HTML5 push notification clicked
+- alias: "HTML5 push notification clicked"
   trigger:
     platform: event
     event_type: html5_notification.clicked
@@ -288,7 +291,7 @@ You will receive an event named `html5_notification.clicked` when the notificati
 or
 
 ```yaml
-- alias: HTML5 push notification action button clicked
+- alias: "HTML5 push notification action button clicked"
   trigger:
     platform: event
     event_type: html5_notification.clicked
@@ -301,7 +304,7 @@ or
 You will receive an event named `html5_notification.closed` when the notification is closed.
 
 ```yaml
-- alias: HTML5 push notification clicked
+- alias: "HTML5 push notification clicked"
   trigger:
     platform: event
     event_type: html5_notification.closed
@@ -331,28 +334,3 @@ If you still have the problem, even with mentioned rule, try to add this code:
     proxy_set_header Authorization $http_authorization;
     proxy_pass_header Authorization;
 ```
-
-#### Verify your domain
-
-If you need to verify domain ownership with Google Webmaster Central/Search Console while configuring this component, follow these steps:
-
-##### HTML file verification (only works for `/local` URLs)
-
-1. Enter your domain and add `/local` at the end, e.g., `https://example.com:8123/local`
-2. Select HTML file verification and download the google*.html file.
-3. Create a directory named `www` in your Home Assistant configuration directory (`/config/` share from Samba add-on).
-4. Place the downloaded `google*.html` file in the `www` directory.
-5. RESTART Home Assistant. **This is important!**
-6. Verify the file can be accessed in the browser, e.g., `https://example.com:8123/local/google123456789.html` (change filename). You should see a plain text message saying "google-site-verification: ...". If you see "404: Not Found" or something else, retry the above steps.
-7. Go back to Google Webmaster Central/Search Console and proceed with the verification.
-
-##### DNS verification (only if you control your DNS record or use DuckDNS)
-
-1. Enter your domain's base URL, like `https://example.com:8123/`
-2. Select DNS verification. If you're asked to choose your DNS provider, choose "Any DNS provider" or "Other".
-3. Add the TXT record to your DNS. If you use DuckDNS, use the format:
-   ```text
-   https://www.duckdns.org/update?domains={your Duck DNS subdomain (the part before .duckdns.org)}&token={your Duck DNS token}&txt={google-site-verification record}
-   ```
-4. Wait until the changes take effect. This can be anywhere from seconds to hours, so be patient. You can use [this site to test it](https://www.digwebinterface.com/).
-5. Go back to Google Webmaster Central/Search Console and proceed with the verification.

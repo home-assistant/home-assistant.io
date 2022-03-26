@@ -9,6 +9,9 @@ ha_release: 0.108
 ha_domain: nextcloud
 ha_codeowners:
   - '@meichthys'
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) information into Home Assistant.

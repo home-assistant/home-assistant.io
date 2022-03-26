@@ -14,6 +14,13 @@ ha_config_flow: true
 ha_codeowners:
   - '@balloob'
 ha_domain: ring
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - light
+  - sensor
+  - switch
 ---
 
 The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. Due to recent authentication changes of Ring, you will need to run at least Home Assistant 0.104.
@@ -29,11 +36,7 @@ There is currently support for the following device types within Home Assistant:
 This component does NOT allow for live viewing of your Ring camera within Home Assistant.
 </p>
 
-## Configuration
-
-Go to the integrations page in your configuration and click on new integration -> Ring.
-
-YAML configuration is no longer available because it cannot handle two-factor authentication.
+{% include integrations/config_flow.md %}
 
 ## Binary Sensor
 
@@ -56,16 +59,17 @@ downloader:
   download_dir: downloads
 ```
 
-Then you can use the following automation, with the entities from your system, which will save the video file under `<config>/downloads/ring_<camera_name>/`:
+Then you can use the following automation, with the entities from your system, which will save the video file under `<config>/downloads/<camera_name>/<camera_name>/`:
 
 {% raw %}
+
 ```yaml
 automation:
-  alias: 'Save the video when the doorbell is pushed'
+  alias: "Save the video when the doorbell is pushed"
   trigger:
   - platform: state
     entity_id: binary_sensor.front_doorbell_ding
-    to: 'on'
+    to: "on"
   action:
   - service: downloader.download_file
     data:
@@ -73,7 +77,21 @@ automation:
       subdir: "{{state_attr('camera.front_door', 'friendly_name')}}"
       filename: "{{state_attr('camera.front_door', 'friendly_name')}}"
 ```
+
 {% endraw %}
+
+You may consider some modifications in the subdirectory and the filename to suit your needs. For example, you can add the date and the time and extension to the downloaded file: 
+
+{% raw %}
+```yaml
+    data:
+      url: "{{ state_attr('camera.front_door', 'video_url') }}"
+      subdir: "{{ state_attr('camera.front_door', 'friendly_name') }}/{{ now().strftime("%m.%Y") }}"
+      filename: "{{ now().strftime("%Y-%m-%d-at-%H-%M-%S") }}.mp4"
+```
+{% endraw %}
+
+the above modification will save the video file under `<config>/downloads/<camera_name>/YYYY-MM/YYYY-MM-DD-at-HH-MM-SS.mp4`. You can change the date according to your localization format.
 
 If you want to use `python_script`, enable it your `configuration.yaml` file first:
 
