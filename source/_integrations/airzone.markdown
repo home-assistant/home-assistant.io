@@ -32,4 +32,4 @@ Port:
   description: "Network port"
 {% endconfiguration_basic %}
 
-Temperature and humidity sensors and air demand, floor demand and problems binary sensors for each HVAC zone are created, as well as their corresponding climate entities.
+Temperature and humidity sensors and air demand, floor demand, and problems binary sensors for each HVAC zone are created, as well as their corresponding climate entities.
