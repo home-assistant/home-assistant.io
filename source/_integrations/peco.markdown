@@ -1,7 +1,7 @@
 ---
 title: "PECO Outage Count"
 description: "Get how many outages are in your county"
-ha_release: "2022.2.0"
+ha_release: 2022.4
 ha_category: Sensor
 ha_iot_class: "Cloud Polling"
 ha_quality_scale: platinum
@@ -11,12 +11,25 @@ ha_codeowners:
 ha_domain: peco
 ---
 
-The PECO Outage Counter integration allows you to get the current count of power outages for the county, and total for the operating region too.
+PECO is a public utility company that provides electricity to the Philadelphia metro.
 
-{% include integrations/config_flow.md %}
+To learn more about PECO, visit [**their about page**](https://www.peco.com/AboutUs/Pages/Default.aspx).
 
-<div class='note'>
+<div class='note warning'>
 
-When you are configuring the skill, the county named `TOTAL` creates a sensor which gets the total of all of the counties in the region.
+This integration is only for PECO customers. To see if your county is supported, take a look at [**their outage map**](https://www.peco.com/Outages/CheckOutageStatus/Pages/OutageMap.aspx).
 
 </div>
+
+---
+
+The PECO Outage Counter integration allows you to get the current count of power outages for any county, and the total for the operating region too.
+
+This integration will create 4 entities:
+
+- `sensor.<county>_outage_count`
+- `sensor.<county>_customers_out`
+- `sensor.<county>_customers_served`
+- `sensor.<county>_percent_customers_out`
+
+{% include integrations/config_flow.md %}
