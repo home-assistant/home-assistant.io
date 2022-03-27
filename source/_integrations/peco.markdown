@@ -15,7 +15,7 @@ PECO is a public utility company that provides electricity to the Philadelphia m
 
 To learn more about PECO, visit [**their about page**](https://www.peco.com/AboutUs/Pages/Default.aspx).
 
-<div class='note warning'>
+<div class='note'>
 
 This integration is only for PECO customers. To see if your county is supported, take a look at [**their outage map**](https://www.peco.com/Outages/CheckOutageStatus/Pages/OutageMap.aspx).
 
@@ -25,11 +25,11 @@ This integration is only for PECO customers. To see if your county is supported,
 
 The PECO Outage Counter integration allows you to get the current count of power outages for any county, and the total for the operating region too.
 
-This integration will create 4 entities:
+This integration will create 4 entities.
 
-- `sensor.<county>_outage_count`
-- `sensor.<county>_customers_out`
-- `sensor.<county>_customers_served`
-- `sensor.<county>_percent_customers_out`
+- A sensor that shows how many outages are in your county.
+- A sensor that shows the total amount of customers with no power.
+- A sensor that shows the total amount of customers served in the county.
+- A sensor that shows the percentage of customers with no power.
 
 {% include integrations/config_flow.md %}
