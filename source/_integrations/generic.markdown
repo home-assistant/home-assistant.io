@@ -21,7 +21,7 @@ You must enter a URL in at least one of the fields **Still Image URL** or **Stre
 
 [Templates](/topics/templating/) are allowed in the URL fields, which can be used to select different images or parameterize the URL depending on the status of sensors.  Template validity and network access are checked during the configuration steps.
 
-{% configuration %}
+{% configuration_basic %}
 still_image_url:
   description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/topics/templating/). At least one of still_image_url or stream_source must be provided."
   required: false
@@ -62,7 +62,7 @@ rtsp_transport:
   description: "Set the RTSP transport protocol to `tcp`, `udp`, `udp_multicast` or `http`."
   required: false
   type: string
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 <p class='img'>
   <a href='/examples/google_maps_card/'>
