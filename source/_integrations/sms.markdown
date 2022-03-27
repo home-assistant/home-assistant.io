@@ -21,38 +21,9 @@ This integration provides the following platforms:
 
 - Notify
 
-## Configuration - UI
+## Configuration
 
-Connect your modem and restart Home Assistant.
-
-From the Home Assistant front page go to **Configuration** and then select **Integrations** from the list.
-
-Use the plus button in the bottom right to add a new integration called **SMS**.
-
-In the popup:
-
-- Serial Device Path - [See here for more info](./sms.markdown#huawei-modems-on-raspberry-pi-and-similar-devices)
-- Buad Speed - By default speed is 0 which means that the modem automatically detect what speed to use.
-- Submit
-
-Press `Submit` and the integration will try to connect to the modem automatically. 
-
-## Configuration - YAML (Deprecated)
-
-You can also enable `SMS` via your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sms:
-  device: /dev/ttyUSB2
-```
-
-{% configuration %}
-device:
-  description: The gsm modem device.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Notifications
 
