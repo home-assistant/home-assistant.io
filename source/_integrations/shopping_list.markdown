@@ -65,11 +65,11 @@ The simplest way to use the shopping list with automations (e.g., when entering 
 ```yaml
 - service: notify.notify
   data:
-    title: Time to shop?
-    message: Click to open the shopping list
+    title: "Time to shop?"
+    message: "Click to open the shopping list"
     data:
-      clickAction: /shopping-list
-      url: /shopping-list
+      clickAction: "/shopping-list"
+      url: "/shopping-list"
 ```
 
 {% endraw %}
