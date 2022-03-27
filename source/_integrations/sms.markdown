@@ -21,8 +21,6 @@ This integration provides the following platforms:
 
 - Notify
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
 ## Notifications
