@@ -213,14 +213,24 @@ area:
 
 ## Attribute selector
 
-TODO
+The attributes selector shows a list of state attribites from a provided entity
+of which one can be selected.
+
+This allows for selecting, e.g., the "Effect" attribute from a light entity, or the
+"Next dawn" attribute from the `sun` entity.
+
+![Screenshot of an attribute selector](/images/blueprints/selector-attribute.png)
 
 {% configuration attribute %}
 entity_id:
-  description: TODO.
+  description: The entity ID of which an state attribute can be selected from.
   type: string
   required: true
 {% endconfiguration %}
+
+The output of this selector is the selected attribute key (not the translated or
+prettified name shown in the frontend).
+For example: `next_dawn`.
 
 ## Boolean selector
 
