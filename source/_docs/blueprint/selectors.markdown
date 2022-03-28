@@ -150,7 +150,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of areas that provide entities of a certain domain(s_,
+        Limits the list of areas that provide entities of a certain domain(s),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection
@@ -281,25 +281,35 @@ The output of this selector is the number of mired selected, for example, `243`.
 
 ## Date selector
 
-TODO
+The date selector shows a date input that allows the user to specify a date. 
 
 ![Screenshot of the Date selector](/images/blueprints/selector-date.png)
 
+This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
 date:
 ```
 
+The output of this selector is will contain the date in Year-Month-Day
+(`YYYY-MM-DD`) format, for example, `2022-02-22`.
+
 ## Date & time selector
 
-TODO
+The date selector shows a date and time input that allows the user to specify a
+date with a specific time. 
 
 ![Screenshot of the Date & time selector](/images/blueprints/selector-datetime.png)
 
+This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
 datetime:
 ```
+
+The output of this selector is will contain the date in Year-Month-Day
+(`YYYY-MM-DD`) format and the time in 24-hour format, for example:
+`2022-02-22 13:30:00`.
 
 ## Device selector
 
@@ -354,9 +364,11 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of devices that provide entities of a certain domain,
-        for example, [`light`](/integrations/light)
-        or [`binary_sensor`](/integrations/binary_sensor).
+        Limits the list of devices that provide entities of a certain domain(s),
+        for example, [`light`](/integrations/light) or
+        [`binary_sensor`](/integrations/binary_sensor). Can be either a string
+        with a single domain, or a list of string domains to limit the selection
+        to.
       type: string
       required: false
     device_class:
@@ -373,6 +385,18 @@ multiple:
   default: false
   required: false
 {% endconfiguration %}
+
+The output of this selector is the device ID, or (in case `multiple` is set to
+`true`) a list of devices IDs.
+
+```yaml
+# Example Device selector output result, when multiple is set to false
+faadde5365842003e8ca55267fe9d1f4
+
+# Example Device selector output result, when multiple is set to true
+- faadde5365842003e8ca55267fe9d1f4
+- 3da77cb054352848b9544d40e19de562
+```
 
 ### Example device selector
 
@@ -396,12 +420,31 @@ device:
 
 ## Duration selector
 
-TODO
+The duration select allow the user to select a time duration. This can be
+helpful for, e.g., delays or offsets.
 
 ![Screenshot of the Duration selector](/images/blueprints/selector-duration.png)
 
 ```yaml
 duration:
+```
+
+{% configuration attribute %}
+enable_days:
+  description: When `true`, the duration selector will allow selecting days.
+  type: booleand
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is a mapping of the time values the user selected.
+For example:
+
+```yaml
+days: 1 # Only when enable_days was set to true
+hours: 12
+minutes: 30
+seconds: 15
 ```
 
 ## Entity selector
@@ -442,10 +485,12 @@ integration:
   required: false
 domain:
   description: >
-    Limits the list of entities to entities of a certain domain, for example,
+    Limits the list of entities to entities of a certain domain(s), for example,
     [`light`](/integrations/light) or
-    [`binary_sensor`](/integrations/binary_sensor).
-  type: string
+    [`binary_sensor`](/integrations/binary_sensor). Can be either a string
+    with a single domain, or a list of string domains to limit the selection
+    to.
+  type: [string, list]
   required: false
 device_class:
   description: >
@@ -461,6 +506,18 @@ multiple:
   default: false
   required: false
 {% endconfiguration %}
+
+The output of this selector is the entity ID, or (in case `multiple` is set to
+`true`) a list of entity IDs.
+
+```yaml
+# Example entity selector output result, when multiple is set to false
+light.living_room
+
+# Example entity selector output result, when multiple is set to true
+- light.living_room
+- light.kitchen
+```
 
 ### Example entity selector
 
@@ -483,7 +540,7 @@ entity:
 
 ## Icon selector
 
-TODO
+The icon selector shows an icon picker that allows the user to select an icon.
 
 ```yaml
 icon:
@@ -491,10 +548,13 @@ icon:
 
 {% configuration entity %}
 placeholder:
-  description: TODO
+  description: Placeholder icon to show, when no icon is selected.
   type: string
   required: false
 {% endconfiguration %}
+
+The output of this selector is a string containing the selected icon,
+for example: `mdi:bell`.
 
 ## Location selector
 
@@ -833,7 +893,8 @@ Types:
 
 ## Theme selector
 
-TODO
+The theme selector allows for selecting a theme from the available themes
+installed in Home Assistant.
 
 ![Screenshot of the Theme selector](/images/blueprints/selector-theme.png)
 
@@ -841,11 +902,15 @@ TODO
 theme:
 ```
 
+This selector does not have any other options; therefore, it only has its key.
+
+The output of this selector is will contain the selected theme, for example:
+`waves_dark`.
+
 ## Time selector
 
 The time selector shows a time input that allows the user to specify a time
-of the day. The value of the input will contain the time in 24-hour format,
-for example, `23:59:59`.
+of the day. 
 
 ![Screenshot of a time selector](/images/blueprints/selector-time.png)
 
@@ -854,3 +919,6 @@ This selector does not have any other options; therefore, it only has its key.
 ```yaml
 time:
 ```
+
+The output of this selector is will contain the time in 24-hour format,
+for example, `23:59:59`.
