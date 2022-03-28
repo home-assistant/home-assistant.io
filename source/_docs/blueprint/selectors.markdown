@@ -54,6 +54,16 @@ This selector does not have any other options; therefore, it only has its key.
 action:
 ```
 
+The output of this selector is a list of actions. For example:
+
+```yaml
+# Example Action selector output result
+- service: scene.turn_on
+  target:
+    entity_id: scene.watching_movies
+  metadata: {}
+```
+
 ## Add-on selector
 
 This can only be used on an installation with a Supervisor. For installations
