@@ -250,6 +250,8 @@ This selector does not have any other options; therefore, it only has its key.
 boolean:
 ```
 
+The output of this selector is `true` when the toggle was on, `false` otherwise.
+
 ## Color temperature selector
 
 TODO
