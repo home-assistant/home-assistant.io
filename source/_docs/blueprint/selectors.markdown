@@ -76,7 +76,6 @@ The add-on selector allows the user to input an add-on slug.
 On the user interface, it will list all installed add-ons and use the slug of the
 selected add-on.
 
-TODO: Update screenshot, with a multiple variant
 ![Screenshot of an add-on selector](/images/blueprints/selector-addon.png)
 
 This selector does not have any other options; therefore, it only has its key.
@@ -362,7 +361,9 @@ entity:
       type: device_class
       required: false
 multiple:
-  description: Allows selecting multiple devices. If set to `true`, the resulting value of this selector will be a list instead of a single string value.
+  description: >
+    Allows selecting multiple devices. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
   type: boolean
   default: false
   required: false
@@ -448,7 +449,9 @@ device_class:
   type: device_class
   required: false
 multiple:
-  description: Allows selecting multiple entities. If set to `true`, the resulting value of this selector will be a list instead of a single string value.
+  description: >
+    Allows selecting multiple entities. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
   type: boolean
   default: false
   required: false
@@ -501,11 +504,12 @@ location:
 {% configuration entity %}
 icon:
   description: TODO
-  type: str
+  type: string
   required: false
 radius:
   description: TODO
-  type: bool
+  type: boolean
+  default: false
   required: false
 {% endconfiguration %}
 
@@ -649,7 +653,7 @@ select:
 {% configuration select %}
 options:
   description: List of options that the user can choose from.
-  type: [list, mapping]
+  type: list
   required: true
 {% endconfiguration %}
 
@@ -658,7 +662,12 @@ TODO: Add example / description of mapping
 ```yaml
 select:
   options:
-    X: Y
+    - label: Red
+      value: r
+    - label: Green
+      value: g
+    - label: Blue
+      value: b
 ```
 
 ## Target selector
