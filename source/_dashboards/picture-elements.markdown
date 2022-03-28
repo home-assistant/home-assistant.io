@@ -353,7 +353,7 @@ state_image:
   type: map
 filter:
   required: false
-  description: Default CSS filter.
+  description: "Default: `grayscale(100%)` when entity state is `off`. Set to `none` to remove this."
   type: string
 state_filter:
   required: false

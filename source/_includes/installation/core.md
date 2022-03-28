@@ -71,7 +71,7 @@ Next up is to create and change to a virtual environment for Home Assistant Core
 ```bash
 sudo -u homeassistant -H -s
 cd /srv/homeassistant
-python{{site.installation.versions.python}} -m venv .
+python3 -m venv .
 source bin/activate
 ```
 

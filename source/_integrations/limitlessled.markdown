@@ -27,29 +27,29 @@ To add `limitlessled` to your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 light:
-  platform: limitlessled
-  bridges:
-    - host: 192.168.1.10
-      groups:
-      - number: 1
-        name: Bedroom
-      - number: 2
-        type: rgbw
-        name: Bathroom
-      - number: 3
-        type: rgbw
-        name: Kitchen
-        fade: true
-      - number: 4
-        type: dimmer
-        name: Livingroom
-    - host: 192.168.1.11
-      groups:
-      - number: 1
-        name: Living Room & Hall
-      - number: 1
-        type: bridge-led
-        name: Bridge Light
+  - platform: limitlessled
+    bridges:
+      - host: 192.168.1.10
+        groups:
+        - number: 1
+          name: Bedroom
+        - number: 2
+          type: rgbw
+          name: Bathroom
+        - number: 3
+          type: rgbw
+          name: Kitchen
+          fade: true
+        - number: 4
+          type: dimmer
+          name: Livingroom
+      - host: 192.168.1.11
+        groups:
+        - number: 1
+          name: Living Room & Hall
+        - number: 1
+          type: bridge-led
+          name: Bridge Light
 ```
 
 {% configuration %}
