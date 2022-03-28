@@ -431,7 +431,7 @@ duration:
 {% configuration attribute %}
 enable_days:
   description: When `true`, the duration selector will allow selecting days.
-  type: booleand
+  type: boolean
   default: false
   required: false
 {% endconfiguration %}
