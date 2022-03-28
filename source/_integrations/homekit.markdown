@@ -587,6 +587,10 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 
 ### Issues during normal use
 
+#### Bridge spontaneously unpairs
+
+Multiple users have reported that iOS 12 and earlier devices will spontaneously remove pairings. Ensure all iOS devices that have administator access to the Home are running iOS 13 or later. If you cannot update the device to iOS 13, disable `Home` in the device iCloud settings.
+
 #### My entity doesn't show up
 
 Check if the domain of your entity is [supported](#supported-components). If it is, check your [filter](#configure-filter) settings. Make sure the spelling is correct, especially if you use `include_entities`.
