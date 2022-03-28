@@ -254,10 +254,11 @@ The output of this selector is `true` when the toggle was on, `false` otherwise.
 
 ## Color temperature selector
 
-TODO
+The color temperature selector provides a select that allows for selecting
+a color temperature. The selector returns the number of mireds selected and
+allows limiting the range of selectable mireds.
 
 ![Screenshot of the Color temperature selector](/images/blueprints/selector-color-temp.png)
-
 
 ```yaml
 color_temp:
@@ -265,16 +266,18 @@ color_temp:
 
 {% configuration color_temp %}
 min_mireds:
-  description: TODO.
+  description: The minimum color temperature in mireds.
   type: integer
-  default: TODO
+  default: 153
   required: false
 max_mireds:
-  description: TODO.
+  description: The maximum color temperature in mireds.
   type: integer
-  default: TODO
+  default: 500
   required: false
 {% endconfiguration %}
+
+The output of this selector is the number of mired selected, for example, `243`.
 
 ## Date selector
 
