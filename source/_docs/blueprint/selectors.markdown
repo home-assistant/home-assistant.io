@@ -153,8 +153,7 @@ entity:
         Limits the list of areas that provide entities of a certain domain(s),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
-        with a single domain, or a list of string domains to limit the selection
-        to.
+        with a single domain, or a list of string domains to limit the selection to.
       type: [string, list]
       required: false
     device_class:
@@ -469,11 +468,11 @@ entity:
 
 {% configuration entity %}
 exclude_entities:
-  description: TODO
+  description: List of entity IDs to exclude from the selectable list.
   type: list
   required: false
 include_entities:
-  description: TODO
+  description: List of entity IDs to limit the selectable list to.
   type: list
   required: false
 integration:
@@ -558,7 +557,9 @@ for example: `mdi:bell`.
 
 ## Location selector
 
-TODO
+The location selector allow a user to pick a location from a map and returns
+the matching longitude and latitude coordinators. Optionally it supports
+selecting the radius of the location.
 
 ![Screenshot of the Location selector](/images/blueprints/selector-location.png)
 
@@ -568,27 +569,36 @@ location:
 
 {% configuration entity %}
 icon:
-  description: TODO
+  description: An optional icon to show on the map.
   type: string
   required: false
 radius:
-  description: TODO
+  description: >
+    Allow selecting the radius of the location. If enabled, the radius will
+    be returned in meters.
   type: boolean
   default: false
   required: false
 {% endconfiguration %}
 
-Returns:
+The output of this selector is a mapping containing the latitude and longitude
+of the selected location, and, if enabled, the radius.
+For example:
 
 ```yaml
-latitude: X (float)
-longitude: X (float)
-radius: X (float)
+latitude: 50.935
+longitude: 6.95
+radius: 500 # Only provided when radius was set to true.
 ```
 
 ## Media selector
 
-TODO
+The media selector is a powerful selector that allows a user to easily select
+media to play on a media device. Media can be a lot of things, for example,
+cameras, local media, text-to-speech, Home Assistant Dashboads, and many more.
+
+The user selects the device to play media on, and automatically limits the
+selectable media suitable for the selected device.
 
 ![Screenshot of the Media selector](/images/blueprints/selector-media.png)
 
@@ -596,13 +606,29 @@ TODO
 media:
 ```
 
-Returns:
+The output of the media selector, is an mapping with information about
+the selected media device and the selected media to play. There is also
+metadata, which is used by the frontend and should not be used in the
+backend.
+
+Example output:
 
 ```yaml
-entity_id: X
-media_content_id: X
-media_content_type: X
-metadata: X`
+entity_id: media_player.living_room
+media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+media_content_type: provider
+metadata:
+  title: TTS Message
+  thumbnail: https://brands.home-assistant.io/_/cloud/logo.png
+  media_class: app
+  children_media_class: null
+  navigateIds:
+    - {}
+    - media_content_type: app
+      media_content_id: media-source://tts
+    - media_content_type: provider
+      media_content_id: >-
+        media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
 ```
 
 ## Number selector
@@ -650,6 +676,8 @@ mode:
   default: slider
 {% endconfiguration %}
 
+The output of this selector is a number, for example: `42`
+
 ### Example number selectors
 
 An example number selector that allows a user a percentage, directly in a
@@ -688,9 +716,12 @@ This selector does not have any other options; therefore, it only has its key.
 object:
 ```
 
+The output of this selector is a YAML object.
+
 ## RGB color selector
 
-TODO
+The RGB color selector allows the user to select an color from a color picker
+from the user interface, and returns the RGB color value.
 
 ![Screenshot of the RGB Color selector](/images/blueprints/selector-color-rgb.png)
 
@@ -698,6 +729,9 @@ TODO
 color_rgb:
 ```
 
+This selector does not have any other options; therefore, it only has its key.
+
+The output of this selector is a list with the three (RGB) color value, for example: `[255, 0, 0]`.
 
 ## Select selector
 
@@ -717,12 +751,14 @@ select:
 
 {% configuration select %}
 options:
-  description: List of options that the user can choose from.
+  description: > 
+    List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used.
   type: list
   required: true
 {% endconfiguration %}
 
-TODO: Add example / description of mapping
+Alternatively, a mapping can be used for the options. When you want to return
+a different value compared to how it is displayed to the user.
 
 ```yaml
 select:
@@ -734,6 +770,27 @@ select:
     - label: Blue
       value: b
 ```
+
+{% configuration select_map %}
+options:
+  description: > 
+    List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used.
+  type: map
+  required: true
+  keys:
+    label:
+      description: The description to show in the UI for this item.
+      required: true
+      type: string
+    value:
+      description: The value to return when this label is selected.
+      required: true
+      type: string
+{% endconfiguration %}
+
+The output of this selector is the string of the selected option value.
+When selecting `Green` in the last example, it returns: `g`, in the first
+example it would return `Green`.
 
 ## Target selector
 
@@ -795,10 +852,12 @@ entity:
       required: false
     domain:
       description: >
-        Limits the targets to entities of a certain domain,
+        Limits the targets to entities of a certain domain(s),
         for example, [`light`](/integrations/light) or
-        [`binary_sensor`](/integrations/binary_sensor).
-      type: string
+        [`binary_sensor`](/integrations/binary_sensor). Can be either a
+        with a single domain, or a list of string domains to limit the
+        selection to.
+      type: [string, list]
       required: false
     device_class:
       description: >
@@ -845,9 +904,6 @@ target:
     model: TRADFRI remote control
 ```
 
-
-TODO: Describe target result/return values
-
 ## Text selector
 
 The text selector can be used to input a text string. The value of the input will contain the selected text.
@@ -867,29 +923,20 @@ multiline:
   default: false
   required: false
 suffix:
-  description: TODO
+  description: An optional suffix to show after the text input box.
   type: string
   required: false
 type:
-  description: TODO
+  description: > 
+    The type of input. This is a browser hint, which can improve
+    the client side validation of the input. The value isn't validated
+    by the backend. Possible types are:
+    `color`, `date`, `datetime-local`, `email`, `month`, `number`, `password`, `search`, `tel`, `text`, `time`, `url`, `week`.
   type: string
   required: false
 {% endconfiguration %}
 
-Types:
-  - "color"
-  - "date"
-  - "datetime-local"
-  - "email"
-  - "month"
-  - "number"
-  - "password"
-  - "search"
-  - "tel"
-  - "text"
-  - "time"
-  - "url"
-  - "week"
+The output of this selector is a single string value.
 
 ## Theme selector
 
