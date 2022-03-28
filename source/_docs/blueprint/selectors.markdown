@@ -103,7 +103,6 @@ integration.
 In its most basic form, this selector doesn't require any options, which will show
 all areas.
 
-TODO: Update screenshot to show multiple as well
 ![Screenshot of an area selector](/images/blueprints/selector-area.png)
 
 ```yaml
@@ -256,6 +255,9 @@ boolean:
 
 TODO
 
+![Screenshot of the Color temperature selector](/images/blueprints/selector-color-temp.png)
+
+
 ```yaml
 color_temp:
 ```
@@ -277,6 +279,9 @@ max_mireds:
 
 TODO
 
+![Screenshot of the Date selector](/images/blueprints/selector-date.png)
+
+
 ```yaml
 date:
 ```
@@ -284,6 +289,9 @@ date:
 ## Date & time selector
 
 TODO
+
+![Screenshot of the Date & time selector](/images/blueprints/selector-datetime.png)
+
 
 ```yaml
 datetime:
@@ -384,6 +392,8 @@ device:
 
 TODO
 
+![Screenshot of the Duration selector](/images/blueprints/selector-duration.png)
+
 ```yaml
 duration:
 ```
@@ -482,6 +492,8 @@ placeholder:
 
 TODO
 
+![Screenshot of the Location selector](/images/blueprints/selector-location.png)
+
 ```yaml
 location:
 ```
@@ -508,6 +520,8 @@ radius: X (float)
 ## Media selector
 
 TODO
+
+![Screenshot of the Media selector](/images/blueprints/selector-media.png)
 
 ```yaml
 media:
@@ -608,6 +622,8 @@ object:
 ## RGB color selector
 
 TODO
+
+![Screenshot of the RGB Color selector](/images/blueprints/selector-color-rgb.png)
 
 ```yaml
 color_rgb:
@@ -762,7 +778,7 @@ TODO: Describe target result/return values
 
 The text selector can be used to input a text string. The value of the input will contain the selected text.
 
-![Screenshot of a text selector](/images/blueprints/selector-text.png)
+![Screenshot of text selectors](/images/blueprints/selector-text.png)
 
 Unless `multiline` is set to `true`, this selector behaves exactly like if no selector at all was specified, and will display a single line text input box on the user interface.
 
@@ -804,6 +820,8 @@ Types:
 ## Theme selector
 
 TODO
+
+![Screenshot of the Theme selector](/images/blueprints/selector-theme.png)
 
 ```yaml
 theme:
