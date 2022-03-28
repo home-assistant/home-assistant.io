@@ -929,7 +929,7 @@ suffix:
 type:
   description: > 
     The type of input. This is a browser hint, which can improve
-    the client side validation of the input. The value isn't validated
+    the client-side validation of the input. The value isn't validated
     by the backend. Possible types are:
     `color`, `date`, `datetime-local`, `email`, `month`, `number`, `password`, `search`, `tel`, `text`, `time`, `url`, `week`.
   type: string
