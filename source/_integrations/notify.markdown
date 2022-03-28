@@ -12,7 +12,11 @@ ha_domain: notify
 
 The `notify` integration makes it possible to send notifications to a wide variety of platforms. To use it you have to setup at least one notification target (notifier), check the [integrations list](/integrations/#notifications) for one that fits your use case.
 
-If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/integrations/persistent_notification/).
+If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/integrations/persistent_notification/). 
+
+Sending notification via [Home Assistant Companion Apps](https://companion.home-assistant.io/docs/notifications/notifications-basic) can extended functionality with for example [actionable notifications](https://companion.home-assistant.io/docs/notifications/actionable-notifications) or [critical notifications](https://companion.home-assistant.io/docs/notifications/critical-notifications).
+
+
 
 ## Service
 
@@ -23,7 +27,7 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 | `message`              |       no | Body of the notification.
 | `title`                |      yes | Title of the notification.
 | `target`               |      yes | Some platforms allow specifying a recipient that will receive the notification. See your platform page if it is supported.
-| `data`                 |      yes | On platforms who have extended functionality. See your platform page if it is supported.
+| `data`                 |      yes | On platforms who have extended functionality. See your platform page if it is supported. Example: [Home Assistant Companion](https://companion.home-assistant.io/docs/notifications/notifications-basic)
 
 The notify integration supports specifying [templates](/topics/templating/). This will allow you to use the current state of Home Assistant in your notifications.
 
