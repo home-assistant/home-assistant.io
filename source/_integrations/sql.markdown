@@ -24,7 +24,7 @@ This can be used to present statistics about Home Assistant sensors if used with
 
 See [supported engines](/integrations/recorder/#custom-database-engines) for which you can connect with this integration.
 
-The SQL integration will by connect to default recorder if Database URL is not specified.
+The SQL integration will connect to default recorder if Database URL is not specified.
 
 There is no explicit configuration required for attributes. The integration will set all additional columns returned by the query as attributes. 
 
@@ -37,6 +37,13 @@ In this section, you find some real-life examples of how to use this sensor.
 ### Current state of an entity
 
 This example shows the previously *recorded* state of the sensor `sensor.temperature_in`.
+
+```yaml
+sensor:
+  - platform: random
+    name: Temperature in
+    unit_of_measurement: "°C"
+```
 
 The query will look like this:
 
