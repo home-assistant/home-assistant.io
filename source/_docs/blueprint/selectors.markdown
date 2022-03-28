@@ -73,13 +73,18 @@ The add-on selector allows the user to input an add-on slug.
 On the user interface, it will list all installed add-ons and use the slug of the
 selected add-on.
 
+TODO: Update screenshot, with a multiple variant
 ![Screenshot of an add-on selector](/images/blueprints/selector-addon.png)
 
 This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
+# Example Add-on selector
 addon:
 ```
+
+The output of this selector is the slug of the selected add-on.
+For example: `core_ssh`.
 
 ## Area selector
 
@@ -94,6 +99,9 @@ integration.
 
 In its most basic form, this selector doesn't require any options, which will show
 all areas.
+
+TODO: Update screenshot to show multiple as well
+![Screenshot of an area selector](/images/blueprints/selector-area.png)
 
 ```yaml
 area:
@@ -141,10 +149,12 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of areas that provide entities of a certain domain,
+        Limits the list of areas that provide entities of a certain domain(s_,
         for example, [`light`](/integrations/light) or
-        [`binary_sensor`](/integrations/binary_sensor).
-      type: string
+        [`binary_sensor`](/integrations/binary_sensor). Can be either a string
+        with a single domain, or a list of string domains to limit the selection
+        to.
+      type: [string, list]
       required: false
     device_class:
       description: >
@@ -153,30 +163,47 @@ entity:
       type: device_class
       required: false
 multiple:
-  description: Allows selecting multiple areas. If set to `true`, the resulting value of this selector will be a list instead of a single string value.
+  description: >
+    Allows selecting multiple areas. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
   type: boolean
   default: false
   required: false
 {% endconfiguration %}
 
+The output of this selector is the area ID, or (in case `multiple` is set to
+`true`) a list of area IDs.
+
+```yaml
+# Example Area selector output result, when multiple is set to false
+living_room
+
+# Example Area selector output result, when multiple is set to true
+- living_room
+- kitchen
+```
+
 ### Example area selectors
 
-An example area selector only shows areas that provide one or more lights
-provided by the [ZHA](/integrations/zha) integration.
+An example area selector only shows areas that provide one or more lights or
+switches provided by the [ZHA](/integrations/zha) integration.
 
 ```yaml
 area:
   entity:
     integration: zha
-    domain: light
+    domain:
+      - light
+      - switch
 ```
 
 Another example uses the area selector, which only shows areas that provide one
 or more remote controls provided by the [deCONZ](/integrations/deconz)
-integration.
+integration. Multiple areas can be selected.
 
 ```yaml
 area:
+  multiple: true
   device:
     multiple: true
     integration: deconz
