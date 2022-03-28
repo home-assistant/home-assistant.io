@@ -9,6 +9,7 @@ ha_category:
   - Media Player
   - Notifications
   - Organization
+  - Switch
 ha_release: pre 0.7
 ha_iot_class: Calculated
 ha_quality_scale: internal
@@ -21,6 +22,7 @@ ha_platforms:
   - cover
   - fan
   - light
+  - switch
   - media_player
   - notify
 ---
@@ -30,7 +32,7 @@ The group integration lets you combine multiple entities into a single entity. E
 This can be useful for cases where you want to control, for example, the
 multiple bulbs in a light fixture as a single light in Home Assistant.
 
-Home Assistant can group multiple binary sensors, covers, fans, light, media players as a single entity, with the option of hiding the individual member entities.
+Home Assistant can group multiple binary sensors, covers, fans, light, media players, switches as a single entity, with the option of hiding the individual member entities.
 
 {% include integrations/config_flow.md %}
 
@@ -118,6 +120,17 @@ media_player:
       - media_player.livivng_room_tv
 ```
 
+Example YAML configuration of a switch group:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: group
+    entities:
+      - switch.tv
+      - switch.soundbar
+```
+
 {% configuration %}
 entities:
   description: A list of entities to be included in the group.
@@ -132,7 +145,7 @@ unique_id:
   required: false
   type: string
 all:
-  description: Only available for `binary_sensor` and `light` groups. Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
+  description: Only available for `binary_sensor`, `light` and `switch` groups. Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
   required: false
   type: boolean
   default: false
