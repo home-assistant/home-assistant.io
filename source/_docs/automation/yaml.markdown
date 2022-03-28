@@ -30,10 +30,6 @@ id:
   description: A unique id for your automation, will allow you to make changes to the name and entity_id in the GUI, and will enable debug traces.
   required: false
   type: string
-icon:
-  description: Icon for the automation.
-  required: false
-  type: string
 description:
   description: A description of the automation.
   required: false
