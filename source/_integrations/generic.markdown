@@ -24,44 +24,22 @@ You must enter a URL in at least one of the fields **Still Image URL** or **Stre
 {% configuration_basic %}
 still_image_url:
   description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/topics/templating/). At least one of still_image_url or stream_source must be provided."
-  required: false
-  type: string
 stream_source:
   description: "The URL your camera serves the live stream on, e.g., `rtsp://user:pass@192.168.1.21:554/`. Can be a [template](/topics/templating/). Usernames and passwords must be embedded in the URL. At least one of still_image_url or stream_source must be provided. Note that a stream_source without a still_image_url can only be used if the [stream integration](/integrations/stream/) is configured."
-  required: false
-  type: string
 username:
   description: The username for accessing your camera. Note that this username applies only to still_image_url and not to stream_source.
-  required: false
-  type: string
 password:
   description: The password for accessing your camera. Note that this password applies only to still_image_url and not to stream_source.
-  required: false
-  type: string
 authentication:
   description: "Type for authenticating the requests `basic` or `digest`."
-  required: false
-  default: basic
-  type: string
 limit_refetch_to_url_change:
   description: Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
-  required: false
-  default: false
-  type: boolean
 framerate:
   description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
-  required: false
-  default: 2
-  type: integer
 verify_ssl:
   description: Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
-  required: false
-  default: true
-  type: boolean
 rtsp_transport:
   description: "Set the RTSP transport protocol to `tcp`, `udp`, `udp_multicast` or `http`."
-  required: false
-  type: string
 {% endconfiguration_basic %}
 
 <p class='img'>
