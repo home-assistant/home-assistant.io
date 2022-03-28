@@ -38,6 +38,9 @@ The following selectors are currently available:
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
 
+Interactive demos of each of these selectors can be found on the
+[Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
+
 If no selector is defined, a text input for a single line will be shown.
 
 ## Action selector
