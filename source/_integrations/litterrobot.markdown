@@ -80,6 +80,6 @@ target:
   entity_id: vacuum.litter_robot_litter_box
 data:
   enabled: true
-  start_time: '23:30:00'
+  start_time: "22:30:00"
 
 ```
