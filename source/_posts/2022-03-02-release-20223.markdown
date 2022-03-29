@@ -648,6 +648,7 @@ The following integrations are now available via the Home Assistant UI:
 - Fix ignoring elkm1 discovery ([@bdraco] - [#68750]) ([elkm1 docs])
 - Update sense library to 0.10.4 ([@kbickar] - [#68816]) ([sense docs]) ([emulated_kasa docs]) (dependency)
 - Pin click to fix typer issue ([@epenet] - [#68808])
+- Cleanup package constraints ([@epenet] - [#68833])
 
 [#68626]: https://github.com/home-assistant/core/pull/68626
 [#68687]: https://github.com/home-assistant/core/pull/68687
@@ -657,6 +658,7 @@ The following integrations are now available via the Home Assistant UI:
 [#68750]: https://github.com/home-assistant/core/pull/68750
 [#68808]: https://github.com/home-assistant/core/pull/68808
 [#68816]: https://github.com/home-assistant/core/pull/68816
+[#68833]: https://github.com/home-assistant/core/pull/68833
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@bdraco]: https://github.com/bdraco
 [@epenet]: https://github.com/epenet
