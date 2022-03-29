@@ -55,6 +55,7 @@ Enjoy the release!
 - [Release 2022.3.5 - March 15](#release-202235---march-15)
 - [Release 2022.3.6 - March 21](#release-202236---march-21)
 - [Release 2022.3.7 - March 23](#release-202237---march-23)
+- [Release 2022.3.8 - March 29](#release-202238---march-29)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -636,6 +637,40 @@ The following integrations are now available via the Home Assistant UI:
 [sense docs]: /integrations/sense/
 [sonos docs]: /integrations/sonos/
 [synology_dsm docs]: /integrations/synology_dsm/
+
+## Release 2022.3.8 - March 29
+
+- Revert "Take Abode camera snapshot before fetching latest image" ([@kevdliu] - [#68626]) ([abode docs])
+- Fix screenlogic to get the macaddress from discovery ([@bdraco] - [#68687]) ([screenlogic docs])
+- Ensure solaredge can still be setup with an ignored entry ([@bdraco] - [#68688]) ([solaredge docs])
+- Add option to connect to elkm1 non-secure when secure is discovered ([@bdraco] - [#68735]) ([elkm1 docs])
+- Increase zwave_js add-on start attempts before timeout ([@MartinHjelmare] - [#68736]) ([zwave_js docs])
+- Fix ignoring elkm1 discovery ([@bdraco] - [#68750]) ([elkm1 docs])
+- Update sense library to 0.10.4 ([@kbickar] - [#68816]) ([sense docs]) ([emulated_kasa docs]) (dependency)
+- Pin click to fix typer issue ([@epenet] - [#68808])
+- Cleanup package constraints ([@epenet] - [#68833])
+
+[#68626]: https://github.com/home-assistant/core/pull/68626
+[#68687]: https://github.com/home-assistant/core/pull/68687
+[#68688]: https://github.com/home-assistant/core/pull/68688
+[#68735]: https://github.com/home-assistant/core/pull/68735
+[#68736]: https://github.com/home-assistant/core/pull/68736
+[#68750]: https://github.com/home-assistant/core/pull/68750
+[#68808]: https://github.com/home-assistant/core/pull/68808
+[#68816]: https://github.com/home-assistant/core/pull/68816
+[#68833]: https://github.com/home-assistant/core/pull/68833
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bdraco]: https://github.com/bdraco
+[@epenet]: https://github.com/epenet
+[@kbickar]: https://github.com/kbickar
+[@kevdliu]: https://github.com/kevdliu
+[abode docs]: /integrations/abode/
+[elkm1 docs]: /integrations/elkm1/
+[emulated_kasa docs]: /integrations/emulated_kasa/
+[screenlogic docs]: /integrations/screenlogic/
+[sense docs]: /integrations/sense/
+[solaredge docs]: /integrations/solaredge/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community!
 

@@ -130,7 +130,7 @@ While executing a script you can add a condition in the main sequence to stop fu
 
 <div class='note'>
 
-The `condition` action only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#test-a-condition) action, only the actions within that `choose` will stop.
+The `condition` action only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#choose-a-group-of-actions) action, only the actions within that `choose` will stop.
 
 </div>
 
