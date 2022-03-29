@@ -47,7 +47,7 @@ trace:
   keys:
     stored_traces:
       description: The number of traces which will be stored
-      type: int
+      type: integer
       default: 5
       required: false
 variables:
