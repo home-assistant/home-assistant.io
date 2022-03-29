@@ -36,7 +36,7 @@ description:
   default: ''
   type: string
 initial_state:
-  description: Used to define the state of your automation at startup.
+  description: Used to define the state of your automation at startup. When not set, the state will be restored from the last run.
   required: false
   type: boolean
 trace:
