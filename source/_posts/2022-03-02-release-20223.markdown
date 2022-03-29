@@ -646,7 +646,8 @@ The following integrations are now available via the Home Assistant UI:
 - Add option to connect to elkm1 non-secure when secure is discovered ([@bdraco] - [#68735]) ([elkm1 docs])
 - Increase zwave_js add-on start attempts before timeout ([@MartinHjelmare] - [#68736]) ([zwave_js docs])
 - Fix ignoring elkm1 discovery ([@bdraco] - [#68750]) ([elkm1 docs])
-- Update sense library to 0.10.4 ([@kbickar] - [#68816]) ([sense docs]) ([emulated_kasa docs])
+- Update sense library to 0.10.4 ([@kbickar] - [#68816]) ([sense docs]) ([emulated_kasa docs]) (dependency)
+- Pin click to fix typer issue ([@epenet] - [#68808])
 
 [#68626]: https://github.com/home-assistant/core/pull/68626
 [#68687]: https://github.com/home-assistant/core/pull/68687
@@ -654,9 +655,11 @@ The following integrations are now available via the Home Assistant UI:
 [#68735]: https://github.com/home-assistant/core/pull/68735
 [#68736]: https://github.com/home-assistant/core/pull/68736
 [#68750]: https://github.com/home-assistant/core/pull/68750
+[#68808]: https://github.com/home-assistant/core/pull/68808
 [#68816]: https://github.com/home-assistant/core/pull/68816
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@bdraco]: https://github.com/bdraco
+[@epenet]: https://github.com/epenet
 [@kbickar]: https://github.com/kbickar
 [@kevdliu]: https://github.com/kevdliu
 [abode docs]: /integrations/abode/
