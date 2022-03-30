@@ -216,7 +216,7 @@ Sends a message to the given conversations.
 
 ### Service `hangouts.reconnect`
 
-Reconnects the google chat bot.
+Reconnects the Google Chat bot.
 
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
@@ -226,7 +226,7 @@ Reconnects the google chat bot.
 
 ### Automatic reconnect after IP change
 
-The google chat integration can't detect if your IP address changes, so it can't automatically reconnect to the Google servers. This is a workaround for this problem.
+The Google Chat integration can't detect if your IP address changes, so it can't automatically reconnect to the Google servers. This is a workaround for this problem.
 
 {% raw %}
 
