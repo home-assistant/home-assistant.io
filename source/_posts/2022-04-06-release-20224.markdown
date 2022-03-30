@@ -1,0 +1,1424 @@
+---
+layout: post
+title: "2022.4: Beta release notes"
+description: "Beta release notes for Home Assistant Core 2022.4"
+date: 2022-03-30 00:00:00
+date_formatted: "April 06, 2022"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2022-04/social.png
+---
+
+<!--<a href='/integrations/#version/2022.4'><img src='/images/blog/2022-04/social.png' style='border: 0;box-shadow: none;'></a>-->
+
+These are the beta release notes for Home Assistant Core 2022.4 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/Lovelace:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the Supervisor:<br>
+  <https://github.com/home-assistant/supervisor/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+
+This part of the release notes is where I usually write an introduction,
+however, since we are still in beta... I got time :)
+
+Enjoy the (beta) release!
+
+../Frenck
+
+- [Goodbye Lovelace, Hello Dashboards](#goodbye-lovelace-hello-dashboards)
+- [Hide entities](#hide-entities)
+- [Now available in the UI: Groups!](#now-available-in-the-ui-groups)
+- [Switch as X](#switch-as-x)
+- [More helpers now available via the UI](#more-helpers-now-available-via-the-ui)
+- [Introducing update entities](#introducing-update-entities)
+- [Backups for Home Assistant Core & Container installs](#backups-for-home-assistant-core--container-installs)
+- [Zones now have a state!](#zones-now-have-a-state)
+- [Adjusting long-term statistics](#adjusting-long-term-statistics)
+- [Database Performance](#database-performance)
+- [New and updated selectors!](#new-and-updated-selectors)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+
+<!--<img class="no-shadow" src='/images/blog/2022-04/media-selector.png' alt='Screenshot showing the new media selector and play media action'>-->
+
+
+<!--<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-04/triggered.gif' alt='Screen recording showing automation triggers triggering showing in the UI'>
+Each time the trigger triggers it will be indicated in the UI.
+</p>-->
+
+<!--<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/l2ppksDTq_w" frameborder="0" allowfullscreen></iframe>
+</div>-->
+
+
+## Goodbye Lovelace, Hello Dashboards
+
+TODO:
+  - Add screenshot? Or some graphic.
+
+This release, we finalize saying goodbye to "Lovelace"; we are
+renaming it to "Dashboards".
+
+Over a long period, we have been slowly introducing the term "Dashboards" more
+and more, so everybody could get used to it. As of this release, the term
+"Lovelace" has been fully replaced by "Dashboards".
+
+This is done to improve the user experience and streamline Home Assistant.
+For new users, the term "Lovelace" doesn't say much, and they would need to
+learn about it. "Dashboards", however, speaks for itself.
+
+So, what does your Home Assistant Dashboard look like?
+
+## Hide entities
+
+TODO:
+- Improve story
+- Add screenshot
+
+Besides enabling/disabling entities, it is now also possible to hide them.
+
+Hiding ententies will hide them from most places in the UI, but they are
+still there and are still being recorded.
+
+They are however, no longer shown on auto generated Dashboards; automatically
+hidden from HomeKit, Alexa & Google Assistant and also are not called
+when a service call is targeting the area they are in.
+
+This can be used to clean up your automatically generated Dashboards; or
+to hide those light entities that you have put into groups. About groups...
+
+## Now available in the UI: Groups!
+
+TODO:
+ - Improve story line
+ - Add graphics
+
+A group lets you combine multiple entities into a single entity. Entities that
+are members of a group can be controlled and monitored as a whole. This can be
+useful for cases where you want to control, for example,
+the multiple bulbs in a light fixture as a single light in Home Assistant.
+
+Using groups, is a very common use case, but, until now, an advanced use case
+as it groups where only available for YAML configuration. As of today, groups
+have been added to the UI!
+
+You can group multiple binary sensors, covers, fans, lights, media players; and
+added this release is support for lock and switch groups.
+
+You know what is amazing? When you create a new group in the UI, you can
+select to automatically hide all group members. Super helpful for hiding
+those individual light entities of your light fixture.
+
+Your groups can be found under {% my helpers title="Configuration > Automations & Scripts > Helpers" %},
+or click the my button below to add a new groups immediately:
+
+{% my config_flow_start badge domain="group" %}
+
+## Switch as X
+
+TODO:
+  - Improve story line
+  - Add screenshot(s)
+
+The Switch as X integrations lets you convert any Home Assistant switch into
+a Home Assistant Light, Cover, Fan, Lock, or Siren.
+
+In Home Assistant’s world, a wall plug is a switch. And while that is correct
+for a wall plug in general, those plugs are often used with e.g, a light
+fixture or a fan. General-purpose relays are similar, as they are sometimes
+used for things like locks or garage doors.
+
+Using the Switch as X integration, you can convert those switches into
+the entity types that best matches your use case.
+
+The newly created entity will appear in your original device.
+
+Switch as X can be found under {% my helpers title="Configuration > Automations & Scripts > Helpers" %},
+or click the my button below transform one of your switches right away:
+
+{% my config_flow_start badge domain="switch_as_x" %}
+
+## More helpers now available via the UI
+
+The above Groups and Switch as X, are to be found in what we call: Helpers.
+
+Helpers are integrations that expose a way for a user to provide input or
+consume existing data in Home Assistant to provide a new entity.
+
+The latter category has been very much extended this release! Not just
+groups and switch as X, but we have a lot more helper integrations that
+are now availble!
+
+This release brings the following helpers to the UI:
+
+- [Derivative]
+- [Groups]
+- [Integration - Riemann sum integral]
+- [Min/Max]
+- [Threshold]
+- [Times of day]
+- [Utility Meter]
+
+[Derivative]: /integrations/derivative
+[Groups]: /integrations/group
+[Integration - Riemann sum integral]: /integrations/integration
+[Min/Max]: /integrations/min_max
+[Threshold]: /integrations/threshold
+[Times of Day]: /integrations/tod
+[Utility Meter]: /integrations/utility_meter
+
+## Introducing update entities
+
+TODO:
+ - Much better story
+ - Needs screenshots/screenrecording of something updating
+
+This release we introduce a brand new entity type: `update` entities.
+
+Update entities can be provided by integrations, and indicate if there is
+an update for your device or service pending. If an update is pending,
+information for this update is provided.
+
+For example, it provides the version number of the new version available, links
+to release notes, and even summaries of release notes (if available).
+
+If an integration can, it can also offer you to install the update! Directly
+from the Home Assistant UI; or you can choose to skip the update and thus
+dismiss it.
+
+Update entities are now provided and available for the Supervisor, that provides
+an update entities for the Home Assistant Core, OS and all its installed add-ons.
+
+Additionally, WLED has implemented update entities to install firmware directly
+from Home Assistant, and Pi-hole and Synology DSM can indicate if an update
+is available.
+
+## Backups for Home Assistant Core & Container installs
+
+TODO:
+  - Improve story
+  - Add screenshots
+
+If you are running Home Assistant OS or Supervised, you already have access
+to some really helpful backup capabilities of Home Assistant. However,
+if you run Home Assistant Core in Python or used Home Assistant Container in,
+for example Docker, this feature was not available for you.
+
+This release introduces a Backup integration for Home Assistant Core and
+Container installation types. These backups are compatible with 
+Home Assistant OS installations. So, if you plan on migrating installation
+type in the future, that is also possible.
+
+You can find the backup dashboard in the configuration menu.
+
+## Zones now have a state!
+
+TODO:
+  - Needs better story
+  - Needs screenshot
+  - Could use some example automation/script/condition.
+
+If you have looked at a `zone` entity, you would have noticed it always said:
+_"Zoning"_. Not really helpful 🙃
+
+So, to improve on that, we changed that behavior. The state of a `zone` entity
+will now show the number of persons that are in that zone; that is helpful!
+
+This will greatly simplify automations and scripts that, for example, trigger
+on: Nobody is home, everybody is home, someone left home (or any other zone 
+for that matter). But it can also be used in conditions for other automations.
+
+For example, don't run a certain automation when nobody is home anyways.
+
+## Adjusting long-term statistics
+
+TODO:
+  - Improve story
+  - Screenshot
+
+Long-term statistics are great! Until... something went wrong 😅
+
+Unfortunately, things happens. For example, a big spike was registered, or
+your solar or electricity meter provided a one-off rogue measurement. This
+has impact on your long-term statistics; which might be forever have incorrect
+history.
+
+To solve this issue, we now have made available a little developer tool that
+allows you to correct/adjust long-term historical data. The new tool
+can be found in the developer statistics tools:
+
+{% my developer_statistics badge %}
+
+## Database Performance
+
+This release features write reductions intended to preserve SD card lifetimes,
+performance improvements designed to get data to the frontend faster, and
+database size reduction ranging from 10-35% for most installs. 
+
+When the same set of state attributes already exists in the database,
+newly recorded state changes now only store a reference to the state
+attributes instead of saving the whole set of state attributes.  
+
+As data stored in the database before 2022.4 does not get updated,
+the reduction in database size will occur over time with the recording
+of new data and the purging of old data.
+
+On top of that, most entity history graphs no longer need to fetch the
+attributes from the backend, and as a result, they load much faster after
+24 hours of running on 2022.4. This change is especially noticeable
+for energy sensors.  
+
+For a few a complete set of changes to the underlying database,
+check out the [Data Science Portal](https://data.home-assistant.io/docs/states#database)
+
+## New and updated selectors!
+
+TODO:
+  - Improve story
+  - Make visual
+
+Selectors are UI inputs that are used throughout Home Assistant. It is what
+powers our new UI helpers, but also what provides UIs for Blueprints and scripts.
+
+This release, we added a whole bunch of new selectors that can be used
+in your Blueprints; and extended the options for many existing selectors.
+
+For example, we now have a location selector that lets you pick coordinates
+from a map. An RGB color and color temperature selector, an icon, theme, time,
+date, datetime selector; The entity, device and area select can now be
+configured to accept multiple entities, devices or areas!
+
+[Check out the updated selectors documentation](/docs/blueprint/selectors/)
+
+## Variables on trigger
+
+TODO:
+  - Needs content
+
+We now support setting variables on trigger, that become available when that
+trigger triggers.
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion
+      variables:
+        trigger_message: "Motion sensor got triggered!"
+  action:
+    - service: notify.iphone
+      data:
+        message: "{{ trigger_message }}"
+```
+
+{% endraw %}
+
+[Updated selectors documentation](/docs/automation/trigger/#trigger-variables)
+
+## Other noteworthy changes
+
+TODO:
+  - Process frontend changes
+  - Write out the changes
+
+There is much more juice in this release; here are some of the other
+noteworthy changes this release:
+
+- [Lorem] added support for ipsum! Thanks, [@frenck]
+
+[@frenck]: https://github.com/frenck
+[Lorem]: /integrations/ipsum
+
+- Lots of updates for Samsung TV!
+- Media browser support for a lot more integrations
+  - Add media source support to panasonic_viera ([@balloob] - [#67568]) ([panasonic_viera docs]) (noteworthy)
+  - Add media source support to bluesound ([@balloob] - [#67563]) ([bluesound docs]) (noteworthy)
+  - Add media source support to mpd ([@balloob] - [#67565]) ([mpd docs]) (noteworthy)
+  - Add media browser support to forked_daapd ([@balloob] - [#67564]) ([forked_daapd docs]) (noteworthy)
+  - Add media source support to HeOS ([@balloob] - [#67562]) ([heos docs]) (noteworthy)
+  - Allow squeezebox to play media sources ([@balloob] - [#67561]) ([squeezebox docs]) (noteworthy)
+  - Add media source support to openhome ([@balloob] - [#67566]) ([openhome docs]) (noteworthy)
+  - Add media source support to unifiprotect ([@balloob] - [#67570]) ([unifiprotect docs]) (noteworthy)
+  - Add media source support to Yamaha MusicCast ([@balloob] - [#67572]) ([yamaha_musiccast docs]) (noteworthy)
+
+- Add support for rfxtrx sirens and chimes ([@elupus] - [#66416]) ([rfxtrx docs]) (noteworthy)
+- Repository event subscription ([@ludeeus] - [#67284]) ([github docs]) (noteworthy)
+- Restore state of template binary sensor with on or off delay ([@emontnemery] - [#67546]) ([template docs]) (breaking-change) (noteworthy)
+- Add homekit pm type sensor ([@lesterlo] - [#46060]) ([homekit docs]) (noteworthy)
+- Add Shelly gen2 cover support ([@thecode] - [#67705]) ([shelly docs]) (noteworthy)
+- Restore state of trigger based template binary sensor ([@emontnemery] - [#67538]) ([template docs]) (breaking-change) (noteworthy)
+- Add support for effects to tplink light strips ([@bdraco] - [#65166]) ([tplink docs]) (noteworthy)
+- Add basic support for SamsungTV encrypted models ([@epenet] - [#68500]) ([samsungtv docs]) (noteworthy)
+- Add boolean for certificate usage to analytics ([@ludeeus] - [#68254]) ([analytics docs]) (new-integration) (noteworthy)
+- Add inverter size to Forecast.Solar ([@klaasnicolaas] - [#68263]) ([forecast_solar docs]) (dependency) (noteworthy)
+- Hue aggregated control for grouped lights ([@marcelveldt] - [#68566]) ([hue docs]) (noteworthy)
+- Add effects feature to Hue lights ([@marcelveldt] - [#68567]) ([hue docs]) (noteworthy)
+- Add command support to SamsungTV H/J models ([@epenet] - [#68301]) ([samsungtv docs]) (noteworthy)
+- Bump androidtv to 0.0.66 (Android 11 support) ([@JeffLIrion] - [#68720]) (dependency) (noteworthy)
+
+## New Integrations
+
+We welcome the following new integrations this release:
+
+- [Airzone], added by [@Noltari]
+- [Backup], added by [@ludeeus]
+- [Kaleidescape], added by [@SteveEasley]
+- [PECO Outage Count], added by [@IceBotYT]
+- [Switch as X], added by [@emontnemery]
+- [Uonet+ Vulcan], added by [@Antoni-Czaplicki]
+- [Update], added by [@ludeeus] & [@frenck]
+
+[@Antoni-Czaplicki]: https://github.com/Antoni-Czaplicki
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@IceBotYT]: https://github.com/IceBotYT
+[@ludeeus]: https://github.com/ludeeus
+[@Noltari]: https://github.com/Noltari
+[@SteveEasley]: https://github.com/SteveEasley
+[Airzone]: /integrations/airzone
+[Backup]: /integrations/backup
+[Kaleidescape]: /integrations/kaleidescape
+[PECO Outage Count]: /integrations/peco
+[Switch as X]: /integrations/switch_as_x
+[Uonet+ Vulcan]: /integrations/vulcan
+[Update]: /integrations/update
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- [Deluge], done by [@tkdrob]
+- [Derivative], done by [@emontnemery]
+- [Discord], done by [@tkdrob]
+- [Fibaro], done by [@rappenze]
+- [File Size], done by [@gjohansson-ST]
+- [Generic Camera], done by [@davet2001]
+- [Google Calendars], done by [@allenporter]
+- [Groups], done by [@emontnemery]
+- [Integration - Riemann sum integral], by [@emontnemery]
+- [Min/Max], done by [@emontnemery]
+- [Moon], done by [@frenck]
+- [Season], done by [@frenck]
+- [Sun], done by [@frenck]
+- [Tankerkoenig], done by [@mib1185]
+- [Threshold], done by [@emontnemery]
+- [Times of day], done by [@emontnemery]
+- [Trafikverket Train], done by [@gjohansson-ST] 
+- [Uptime], done by [@frenck]
+- [Utility Meter], done by [@emontnemery]
+
+[@allenporter]: https://github.com/allenporter
+[@davet2001]: https://github.com/davet2001
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@mib1185]: https://github.com/mib1185
+[@rappenze]: https://github.com/rappenze
+[@tkdrob]: https://github.com/tkdrob
+[Deluge]: /integrations/deluge
+[Derivative]: /integrations/derivative
+[Discord]: /integrations/discord
+[Fibaro]: /integrations/fibaro
+[File Size]: /integrations/filesize
+[Generic Camera]: /integrations/generic
+[Google Calendars]: /integrations/google
+[Groups]: /integrations/group
+[Integration - Riemann sum integral]: /integrations/integration
+[Min/Max]: /integrations/min_max
+[Moon]: /integrations/moon
+[Season]: /integrations/season
+[Sun]: /integrations/sun
+[Tankerkoenig]: /integrations/tankerkoenig
+[Threshold]: /integrations/threshold
+[Times of Day]: /integrations/tod
+[Trafikverket Train]: /integrations/trafikverket_train
+[Uptime]: /integrations/uptime
+[Utility Meter]: /integrations/utility_meter
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Open Home Newsletter](/newsletter) to
+get the latest news about features, things happening in our community and
+other news about the Open Home; straight into your inbox.
+
+<!--more-->
+
+## Breaking Changes
+
+Below is a listing of the breaking change for this release, per subject or
+integration. Click on one of those to read more about the breaking change
+for that specific item.
+
+{% details "Service Calls" %}
+
+If an entity is explicitly referenced as a target for a service that the
+entity doesn't support, we now raise an error instead of silently ignoring it.
+
+This helps resolving issues with not working automations or scripts, that now
+just silently fail.
+
+([@balloob] - [#68394])
+
+[@balloob]: https://github.com/balloob
+[#68394]: https://github.com/home-assistant/core/pull/68394
+
+{% enddetails %}
+
+{% details "Switches - Energy attributes" %}
+
+In the August 2021 release, we deprecated all energy related attributes from
+switches. The attributes are: `current_power_w` and `today_energy_kwh`.
+Those attributes should have been seperate power and energy sensors instead.
+
+All integrations affected have been notified on July 22, 2021 of requiring
+a change.
+
+As of this release the attributes have been removed from the switch core
+entity platform, meaning the `current_power_w` and `today_energy_kwh` attributes
+are no longer available for the following:
+
+- ATEN Rack PDU
+- Belkin WeMo
+- D-Link Wi-Fi Smart Plugs
+- Edimax
+- ELV PCA
+- Emulated Kasa
+- Fibaro
+- Hive
+- HomematicIP Cloud
+- MQTT
+- myStrom
+- Netio
+- Ubiquiti mFi mPort
+- Vera
+
+([@balloob] - [#68821])
+
+[@balloob]: https://github.com/balloob
+[#68821]: https://github.com/home-assistant/core/pull/68821
+
+{% enddetails %}
+
+{% details "PVOutput" %}
+
+The previously deprecated YAML configuration of the PVOutput
+integration has been removed.
+
+PVOutput is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@frenck] - [#67162]) ([documentation](/integrations/pvoutput))
+
+[@frenck]: https://github.com/frenck
+[#67162]: https://github.com/home-assistant/core/pull/67162
+
+---
+
+All, previously deprecated, additional sensor attributes of the PVOutput sensor,
+have now been removed. All of these attributes now have their own dedicated
+sensor.
+
+This applies to the following PVOutput attributes:
+
+- `energy_generation`
+- `power_generation`
+- `energy_consumption`
+- `power_consumption`
+- `efficiency`
+- `temperature`
+- `voltage`
+
+If you relied on these in your automation or scripts, you need to adopt those
+to use the new separate sensors instead.
+
+([@bdraco] - [#68481]) ([documentation](/integrations/pvoutput))
+
+[@bdraco]: https://github.com/bdraco
+[#68481]: https://github.com/home-assistant/core/pull/68481
+
+{% enddetails %}
+
+{% details "Whois" %}
+
+The previously deprecated YAML configuration of the Whois
+integration has been removed.
+
+Whois is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@frenck] - [#67163]) ([documentation](/integrations/whois))
+
+[@frenck]: https://github.com/frenck
+[#67163]: https://github.com/home-assistant/core/pull/67163
+
+{% enddetails %}
+
+{% details "CPU Speed" %}
+
+The previously deprecated YAML configuration of the CPU Speed
+integration has been removed.
+
+CPU Speed is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@frenck] - [#67166]) ([documentation](/integrations/cpuspeed))
+
+[@frenck]: https://github.com/frenck
+[#67166]: https://github.com/home-assistant/core/pull/67166
+
+{% enddetails %}
+
+{% details "BMW Connected Drive" %}
+
+The previously deprecated YAML configuration of the BMW Connected Drive
+integration has been removed.
+
+BMW Connected Drive is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@rikroe] - [#66965]) ([documentation](/integrations/bmw_connected_drive))
+
+[@rikroe]: https://github.com/rikroe
+[#66965]: https://github.com/home-assistant/core/pull/66965
+
+{% enddetails %}
+
+{% details "Z-Wave JS" %}
+
+The Z-Wave JS siren entities will now return `unknown` as state if the
+corresponding driver value is missing.
+
+Previously the state defaulted to `off` in these cases. You might need to
+take this into consideration in automations and scripts that rely on a
+Z-Wave JS siren entity state.
+
+([@MartinHjelmare] - [#67172]) ([documentation](/integrations/zwave_js))
+
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[#67172]: https://github.com/home-assistant/core/pull/67172
+
+---
+
+The selected fan speed at certain percentages for Inovelli LZW36
+fan controllers has changed. Setting the percentage to 1% will no longer
+enable the 'breeze' mode; that functionality is
+instead accessed through a preset.
+
+([@mkowalchuk] - [#60947]) ([documentation](/integrations/zwave_js))
+
+[@mkowalchuk]: https://github.com/mkowalchuk
+[#60947]: https://github.com/home-assistant/core/pull/60947
+
+{% enddetails %}
+
+{% details "Modbus" %}
+
+Setting `reverse_order` has not been allowed (or worked) for a long time,
+and is removed.
+
+The previously deprecated `data_count` have been removed.
+
+([@janiversen] - [#67236]) ([documentation](/integrations/modbus))
+
+[@janiversen]: https://github.com/janiversen
+[#67236]: https://github.com/home-assistant/core/pull/67236
+
+---
+
+The previously deprecated data types `int`, `uint` and `float` have been removed.
+
+For the devices that use non-standard register size, "count" can be used to
+overwrite the default count of registers.
+
+([@janiversen] - [#67268]) ([documentation](/integrations/modbus))
+
+[@janiversen]: https://github.com/janiversen
+[#67268]: https://github.com/home-assistant/core/pull/67268
+
+---
+
+There is now an automatic distinction between calling `write_register`
+and `write_registers`, depending on the configured datatype
+(more than 16bits uses `write_registers`).
+
+The special situation, where `write_registers`, `count=1` is no longer supported.
+
+([@janiversen] - [#67268]) ([documentation](/integrations/modbus))
+
+[@janiversen]: https://github.com/janiversen
+[#68678]: https://github.com/home-assistant/core/pull/68678
+
+
+{% enddetails %}
+
+{% details "Template" %}
+
+Template binary sensors with on or off delay, or trigger-based binary sensors
+are now initialized to the last state on Home Assistant Core startup,
+instead of to `unknown`.
+
+([@emontnemery] - [#67546] [#67546]) ([documentation](/integrations/template))
+
+[@emontnemery]: https://github.com/emontnemery
+[#67546]: https://github.com/home-assistant/core/pull/67546
+[#67538]: https://github.com/home-assistant/core/pull/67538
+
+{% enddetails %}
+
+{% details "SleepIQ" %}
+
+The sleep number firmness sensor entity in the SleepIQ integration is
+deprecated and will be removed in a future release. A number entity is available
+providing the same information, that can be used instead.
+
+([@mfugate1] - [#65841]) ([documentation](/integrations/sleepiq))
+
+[@mfugate1]: https://github.com/mfugate1
+[#65841]: https://github.com/home-assistant/core/pull/65841
+
+{% enddetails %}
+
+{% details "Sensibo" %}
+
+Sensibo Air devices that has a room sensor active (as main measurement sensor)
+will now retrieve the temperature and humidity from the room sensor.
+
+([@gjohansson-ST] - [#66949]) ([documentation](/integrations/sensibo))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#66949]: https://github.com/home-assistant/core/pull/66949
+
+{% enddetails %}
+
+{% details "RFXCOM RFXtrx" %}
+
+Support for signal repetition for devices have been removed. RFXCOM internally
+repeat packets as needed per protocol.
+
+([@elupus] - [#67675]) ([documentation](/integrations/rfxtrx))
+
+[@elupus]: https://github.com/elupus
+[#67675]: https://github.com/home-assistant/core/pull/67675
+
+{% enddetails %}
+
+{% details "Sonos" %}
+
+Favorites are no longer included in the "Source" dropdown on Sonos devices.
+These have been moved to the Media Browser and are also available using
+the media selector (a.k.a. "Play Media") in automation/script builders.
+
+The selectable "Source" dropdown is now limited to static inputs,
+such as TV and line-in sources.
+
+The `media_player.select_source` service call will continue to accept
+favorite names. This compatibility feature may be removed in a future
+release but there are no current plans to do so.
+
+This change was done to minimize writes to the database. Each modification
+to the favorites would rewrite the complete list of favorites to the database
+for each Sonos device.
+
+([@jjlawren] - [#67931]) ([documentation](/integrations/sonos))
+
+[@jjlawren]: https://github.com/jjlawren
+[#67931]: https://github.com/home-assistant/core/pull/67931
+
+{% enddetails %}
+
+{% details "Recorder" %}
+
+The following breaking  changes are only breaking if you consume the Home
+Assistant Core database manually or in custom integrations; For example,
+when using custom queries or do data analytics on your database.
+
+---
+
+Attributes are now stored in a `state_attributes` table, which stores the
+same set of attributes once (many to one relationship).
+
+Attributes represent roughly 21% of the database size. (28% if you exclude
+statistics). On a few of of the analyzed production instances, attributes
+ranged from 82-88% duplicates of another set of attributes. Expected is
+that this change will reduce the size of the database roughly between 13-16%
+on average.
+
+([@bdraco] - [#68224]) ([documentation](/integrations/recorder))
+
+[@bdraco]: https://github.com/bdraco
+[#68224]: https://github.com/home-assistant/core/pull/68224
+
+---
+
+The `domain` column has been removed from the `states` table. The domain can
+be derived from the `entity_id`.
+
+([@bdraco] - [#68404]) ([documentation](/integrations/recorder))
+
+[@bdraco]: https://github.com/bdraco
+[#68404]: https://github.com/home-assistant/core/pull/68404
+
+---
+
+The token and URL to the entity picture URL for cameras attributes are
+no longer recorded in the database.
+
+The token is only valid for 5 minutes and it not useful afterwards.
+The entity picture url which also contained the token was only valid
+for 5 minutes as well.
+
+([@bdraco] - [#68404]) ([documentation](/integrations/recorder))
+
+[@bdraco]: https://github.com/bdraco
+[#68824]: https://github.com/home-assistant/core/pull/68824
+
+---
+
+The attributes for the `sun.sun` entity are no longer recorded in the database.
+
+As historical data can be derived from the `astral` library without the
+need to fetch it the database, it didn't seem like it needs to be copied
+there as well since it frequently generates new attributes rows in the database.
+
+([@bdraco] - [#68404]) ([documentation](/integrations/recorder))
+
+[@bdraco]: https://github.com/bdraco
+[#68887]: https://github.com/home-assistant/core/pull/68887
+
+{% enddetails %}
+
+{% details "UptimeRobot" %}
+
+This integration now provides a switch entity that will let you pause/resume
+monitoring of a monitor.
+
+Because of that, you need to use the 'main' UptimeRobot API key, if you
+previously used that, you will not have to do anything, but if you used
+the read-only API or a monitor-specific API key, the integration will
+ask you to reauthorize on the first startup.
+
+To get your API key, go to
+[My Settings](https://uptimerobot.com/dashboard#mySettings) on the
+UptimeRobot website, at the bottom you will find your key.
+
+([@chemelli74] - [#68224]) ([documentation](/integrations/uptimerobot))
+
+[@chemelli74]: https://github.com/chemelli74
+[#68224]: https://github.com/home-assistant/core/pull/65394
+
+{% enddetails %}
+
+{% details "Trafikverket Weather Station" %}
+
+The previously deprecated YAML configuration of the Trafikverket Weather Station
+integration has been removed.
+
+Trafikverket Weather Station is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@tkdrob] - [#68336]) ([documentation](/integrations/trafikverket_weatherstation))
+
+[@tkdrob]: https://github.com/tkdrob
+[#68336]: https://github.com/home-assistant/core/pull/68336
+
+{% enddetails %}
+
+{% details "Tesla Powerwall" %}
+
+The `frequency`, `current`, and `voltage` attributes on `powerwall` instant
+meter sensors are now their own entities.
+
+The `is_active` attribute has been removed as it can already be
+derived from the reading. As these sensors generated significant amount
+of state changes, the new sensors are not enabled by default.
+They can be enabled in the UI.
+
+([@bdraco] - [#68345]) ([documentation](/integrations/powerwall))
+
+[@bdraco]: https://github.com/bdraco
+[#68345]: https://github.com/home-assistant/core/pull/68345
+
+{% enddetails %}
+
+{% details "Climacell / Tomorrow.io" %}
+
+ClimaCell as a company [rebranded to Tomorrow.io](https://www.tomorrow.io/blog/my-last-day-as-ceo-of-climacell/)
+and as such we will be deprecating the `climacell` integration in favor of the
+new `tomorrowio` integration.
+
+For any `climacell` users using a v4 API key, the migration from the old
+integration to the new one will happen automatically. If you are a `climacell`
+user using a v3 API key, you will need to sign up for a v4 API key in order to
+complete the migration, but once you have provided the new key,
+your configuration (or configurations) will be migrated over automatically.
+
+For now, v3 users will still have access to their existing ClimaCell
+configurations before they submit the new API key so that your automations
+and dashboards still work.
+
+In a future release, we will be removing most of the code from the `climacell`
+integration so that the migrations will still happen
+but the original integration will no longer work.
+
+([@raman325] - [#68156]) ([documentation](/integrations/climacell))
+
+[@raman325]: https://github.com/raman325
+[#68156]: https://github.com/home-assistant/core/pull/68156
+
+{% enddetails %}
+
+{% details "Utility Meter" %}
+
+The `utility_meter` tariff selector entities are now standard select entities
+with entity_id `select.X` instead of custom entities with entity_id
+`utility_meter.X`.
+
+In addition:
+
+- The service call `utility_meter.select_tariff` with argument `tariff` is
+  deprecated in favor of service call `select.select_option` with
+  argument `option`.
+- The service call `utility_meter.next_tariff` is deprecated with no
+  replacement.
+
+Backwards compatibility until the Home Assistant Core release 2022.7:
+
+- The deprecated `utility_meter.X` entities are still available.
+- The service call `utility_meter.select_tariff` still works on
+  `utility_meter.X` enties, but a warning is logged when it's called.
+- The service call `utility_meter.next_tariff` still works
+  on `utility_meter.X` enties, but a warning is logged when it's called.
+
+In Home Assistant Core release 2022.7:
+
+- The deprecated `utility_meter.X` entities will no longer be available.
+- The service call `utility_meter.select_tariff` will be removed.
+- The service call `utility_meter.next_tariff` will be removed.
+
+([@dgomes] - [#55690]) ([documentation](/integrations/utility_meter))
+
+[@dgomes]: https://github.com/dgomes
+[#55690]: https://github.com/home-assistant/core/pull/55690
+
+{% enddetails %}
+
+{% details "WLED" %}
+
+The firm update `binary_sensor` and `button` entities are deprecated and
+will be removed in Home Assistant 2022.6.
+
+Instead, the WLED integration now provides a brand new `update` entity
+that replaces the functionality provided by those entities
+(and provide more functionality).
+
+([@frenck] - [#68454]) ([documentation](/integrations/wled))
+
+[@frenck]: https://github.com/frenck
+[#68454]: https://github.com/home-assistant/core/pull/68454
+
+{% enddetails %}
+
+{% details "Plugwise" %}
+
+The climate entity attributes `selected_schema` and `available_schemas` will
+be removed in a future release.
+
+This release introduces the `select` platform featuring these attribute values
+as well as the ability to switch a schedule.
+
+([@CoMPaTech] - [#68303]) ([documentation](/integrations/plugwise))
+
+[@CoMPaTech]: https://github.com/CoMPaTech
+[#68303]: https://github.com/home-assistant/core/pull/68303
+
+---
+
+The naming of the locally present outdoor temperature sensor connected to
+OpenTherm devices has been improved: `outdoor_air_temperature`.
+
+E.g. **former** `sensor.opentherm_outdoor_temperature` is now visible
+as `sensor.opentherm_outdoor_air_temperature`.
+
+Use of the zipcode based `outdoor_temperature` for other devices has
+not changed.
+
+([@CoMPaTech] - [#68303]) ([documentation](/integrations/plugwise))
+
+[@CoMPaTech]: https://github.com/CoMPaTech
+[#68255]: https://github.com/home-assistant/core/pull/68255
+
+{% enddetails %}
+
+{% details "Plex Media Server" %}
+
+Support for multiple Plex Media Servers in the media browser has been added.
+
+Automations and scripts which used the media picker to add Plex media items may
+need to be updated if more than one Plex integration/server is configured.
+
+([@jjlawren] - [#68321]) ([documentation](/integrations/plex))
+
+[@jjlawren]: https://github.com/jjlawren
+[#68321]: https://github.com/home-assistant/core/pull/68321
+
+{% enddetails %}
+
+{% details "SiteSage Emonitor" %}
+
+The `avg_power` and `max_power` extra attributes for Emonitor have been
+removed and now have their own sensors.
+
+([@bdraco] - [#68479]) ([documentation](/integrations/emonitor))
+
+[@bdraco]: https://github.com/bdraco
+[#68479]: https://github.com/home-assistant/core/pull/68479
+
+{% enddetails %}
+
+{% details "MySensors" %}
+
+The MySensors integration migrated to configuration via the UI a year ago.
+Configuring MySensors via YAML configuration has been deprecated and
+will be removed in a future Home Assistant release.
+
+Your existing YAML configuration has been automatically imported since a
+long time; and thus can be safely removed from your YAML configuration.
+
+([@MartinHjelmare] - [#68504]) ([documentation](/integrations/mysensors))
+
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[#68504]: https://github.com/home-assistant/core/pull/68504
+
+{% enddetails %}
+
+{% details "Supervisor" %}
+
+The binary sensor entities for the Supervisor integration that would show if
+there was an update available for Home Assistant OS and add-ons have been
+deprecated and will be removed in Home Assistant 2022.6.
+
+The Supervisor integration now provides `update` entities as
+a replacement for the deprecated entities.
+
+([@ludeeus] - [#68475]) ([documentation](/integrations/hassio))
+
+[@ludeeus]: https://github.com/ludeeus
+[#68475]: https://github.com/home-assistant/core/pull/68475
+
+{% enddetails %}
+
+{% details "Dune HD" %}
+
+The Dune HD integration has previously migrated to configuration via the UI.
+Configuring Dune HD via YAML configuration has now been deprecated and
+will be removed in a future Home Assistant release.
+
+Your existing YAML configuration has been automatically imported; and thus
+can be safely removed from your YAML configuration.
+
+([@tkdrob] - [#68381]) ([documentation](/integrations/dunehd))
+
+[@tkdrob]: https://github.com/tkdrob
+[#68381]: https://github.com/home-assistant/core/pull/68381
+
+{% enddetails %}
+
+{% details "Eight Sleep" %}
+
+The `partner` parameter was deprecated in 2021 but having it in your
+configuration was still accepted. The `partner` option has now been removed
+please remove the `partner` parameter from your YAML configuration
+before updating.
+
+
+([@raman325] - [#68381]) ([documentation](/integrations/eight_sleep))
+
+[@raman325]: https://github.com/raman325
+[#68495]: https://github.com/home-assistant/core/pull/68495
+
+{% enddetails %}
+
+{% details "Android TV" %}
+
+The previously deprecated YAML configuration of the Android TV
+integration has been removed.
+
+Android TV is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@tkdrob] - [#68339]) ([documentation](/integrations/androidtv))
+
+[@tkdrob]: https://github.com/tkdrob
+[#68339]: https://github.com/home-assistant/core/pull/68339
+
+{% enddetails %}
+
+{% details "Awair" %}
+
+The previously deprecated YAML configuration of the Awair
+integration has been removed.
+
+Awair is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@tkdrob] - [#68572]) ([documentation](/integrations/awair))
+
+[@tkdrob]: https://github.com/tkdrob
+[#68572]: https://github.com/home-assistant/core/pull/68572
+
+{% enddetails %}
+
+{% details "UniFi Protect" %}
+
+The Unifi Protect last tripped attributes are now their own timestamp sensors.
+The sensors are not enabled by default to minimize the amount of data stored
+in the state machine and database. The new sensors can be enabled in the UI.
+
+([@bdraco] - [#68347]) ([documentation](/integrations/awair))
+
+[@bdraco]: https://github.com/bdraco
+[#68347]: https://github.com/home-assistant/core/pull/68347
+
+{% enddetails %}
+
+{% details "File Size" %}
+
+The File Size integration migrated to configuration
+via the UI. Configuring File Size via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+([@gjohansson-ST] - [#67668]) ([documentation](/integrations/filesize))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#67668]: https://github.com/home-assistant/core/pull/67668
+
+---
+
+Additional attributes for the File Size sensors has been extracted into
+their own sensors which are disabled by default.
+
+If you were previously using any of these attributes your automations,
+scripts etc. needs to be updated to use the new sensors.
+
+([@gjohansson-ST] - [#67668]) ([documentation](/integrations/filesize))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#68702]: https://github.com/home-assistant/core/pull/68702
+
+{% enddetails %}
+
+{% details "Fibaro" %}
+
+The Fibaro integration migrated to configuration
+via the UI. Configuring Fibaro via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+([@rappenze] - [#65203]) ([documentation](/integrations/fibaro))
+
+[@rappenze]: https://github.com/rappenze
+[#65203]: https://github.com/home-assistant/core/pull/68702
+
+{% enddetails %}
+
+{% details "Deluge" %}
+
+The Deluge integration migrated to configuration
+via the UI. Configuring Deluge via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+([@tkdrob] - [#58789]) ([documentation](/integrations/deluge))
+
+[@rappenze]: https://github.com/tkdrob
+[#65203]: https://github.com/home-assistant/core/pull/58789
+
+{% enddetails %}
+
+{% details "Nest" %}
+
+Legacy Works with Net API deprecation is put on hold until issues with
+SDM API OAuth signups are resolved (so this is an un-breaking change).
+
+([@allenporter] - [#68715]) ([documentation](/integrations/nest))
+
+[@allenporter]: https://github.com/allenporter
+[#68715]: https://github.com/home-assistant/core/pull/68715
+
+{% enddetails %}
+
+{% details "Huawei LTE" %}
+
+The previously deprecated YAML configuration of the Huawei LTE
+integration has been removed.
+
+Huawei LTE is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@scop] - [#68728]) ([documentation](/integrations/huawei_lte))
+
+[@scop]: https://github.com/scop
+[#68728]: https://github.com/home-assistant/core/pull/68728
+
+{% enddetails %}
+
+{% details "Generic Camera" %}
+
+The Generic Camera integration migrated to configuration
+via the UI. Configuring Generic Camera via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+([@davet2001] - [#52360]) ([documentation](/integrations/huawei_lte))
+
+[@davet2001]: https://github.com/davet2001
+[#52360]: https://github.com/home-assistant/core/pull/52360
+
+{% enddetails %}
+
+{% details "Trafikverket Weather Station" %}
+
+- The attribute for measure time is now a proper iso formatted string.
+- The attribute for available has been removed and is now setting the entity
+  available or not.
+
+Any automation or script depending on these attributes has to be updated to
+reflect these changes.
+
+([@gjohansson-ST] - [#65233]) ([documentation](/integrations/huawei_lte))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#65233]: https://github.com/home-assistant/core/pull/65233
+
+{% enddetails %}
+
+{% details "Trafikverket Train" %}
+
+The Trafikverket Train integration migrated to configuration
+via the UI. Configuring Trafikverket Train via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+([@gjohansson-ST] - [#65182]) ([documentation](/integrations/trafikverket_train))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#65182]: https://github.com/home-assistant/core/pull/65182
+
+{% enddetails %}
+
+{% details "Pi-hole" %}
+
+The binary sensor entities that would show if there was an update available
+for the Core, Web or FTL component has been deprecated and will be removed
+in Home Assistant Core 2022.6.
+
+The PI-Hole integration now provides `update` entities as a replacement
+for the deprecated entities.
+
+([@mib1185] - [#68749]) ([documentation](/integrations/pi_hole))
+
+[@mib1185]: https://github.com/mib1185
+[#68749]: https://github.com/home-assistant/core/pull/68749
+
+{% enddetails %}
+
+{% details "Synology DSM" %}
+
+The binary sensor entity that would show if there was an update available for
+the Synology DSM firmware has been deprecated and will be removed in
+Home Assistant Core 2022.6.
+
+The Synology DSM integration now provides an `update` entity as
+a replacement for the deprecated entity.
+
+([@mib1185] - [#68664]) ([documentation](/integrations/synology_dsm))
+
+[@mib1185]: https://github.com/mib1185
+[#68664]: https://github.com/home-assistant/core/pull/68664
+
+{% enddetails %}
+
+
+{% details "Tankerkoenig" %}
+
+The Tankerkoenig integration migrated to configuration
+via the UI. Configuring Tankerkoenig via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+([@mib1185] - [#68386]) ([documentation](/integrations/tankerkoenig))
+
+[@mib1185]: https://github.com/mib1185
+[#68386]: https://github.com/home-assistant/core/pull/68386
+
+{% enddetails %}
+
+{% details "Enphase Envoy" %}
+
+The `last_reported` attribute for Enphase Envoy inverters is now
+a separate timestamp sensor.
+
+Each last reported sensor is disabled by default since it generates
+a significant amount of state changes and database rows. Each last reported
+sensor can be enabled in the UI.
+
+([@bdraco] - [#68360]) ([documentation](/integrations/enphase_envoy))
+
+[@bdraco]: https://github.com/bdraco
+[#68360]: https://github.com/home-assistant/core/pull/68360
+
+{% enddetails %}
+
+{% details "SoChain" %}
+
+The SoChain integration has been disabled, its functionality relies
+on older Python packages we can not provide.
+
+([@emontnemery] - [#68856]) ([documentation](/integrations/sochain))
+
+[@emontnemery-ST]: https://github.com/emontnemery
+[#68856]: https://github.com/home-assistant/core/pull/68856
+
+{% enddetails %}
+
+{% details "Discord" %}
+
+The Tankerkoenig integration migrated to configuration
+via the UI. Configuring Tankerkoenig via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+([@tkdrob] - [#61069]) ([documentation](/integrations/tankerkoenig))
+
+[@tkdrob]: https://github.com/tkdrob
+[#61069]: https://github.com/home-assistant/core/pull/61069
+
+{% enddetails %}
+
+## Farewell to the following
+
+The following GPIO Integrations have been previously deprecated and have now been removed.
+ 
+- BeagleBone Black GPIO
+- BH1750
+- Blinkt!
+- BMP280 Environmental Sensor
+- Bosch BME280 Environmental Sensor
+- Bosch BME680 Environmental Sensor
+- DHT Sensor
+- Enviro pHAT
+- HTU21D(F) Sensor
+- MCP23017 I/O Expander
+- MH-Z19 CO2 Sensor
+- Orange Pi GPIO
+- PCAL9535A I/O Expander
+- pi4ioe5v9xxxx IO Expander
+- PiFace Digital I/O (PFIO)
+- Piglow
+- pigpio Daemon PWM LED
+- Raspberry Pi RF
+- Raspihats
+- Sense HAT
+- Sensirion SHT31
+- Time of Flight
+
+More information about the removal of GPIO integrations can be found in
+[Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+The following integrations are also no longer available as of this release:
+
+- **Apple Push Notification Service (APNS)** has been removed. This does not
+  affect our mobile apps!
+  ([@frenck] - [#67158])
+- **Media Player Classic Home Cinema (MPC-HC)**, the integration is using
+  webscraping, which is no longer allowed.
+  ([@frenck] - [#67189])
+- **OpenZWave**, was previously deprecated and now removed. Please use
+  [Z-Wave JS] instead.
+  ([@frenck] - [#68054])
+- **SmartHab** has been removed. The company behind it has been shut down.
+  ([@outadoc] - [#67874])
+- **Z-Wave** (the old `zwave` integration), was previously deprecated and
+  now removed. Please use [Z-Wave JS] instead.
+  ([@frenck] - [#67221])
+
+[@frenck]: https://github.com/frenck
+[@outadoc]: https://github.com/outadoc
+[#67158]: https://github.com/home-assistant/core/pull/67158
+[#67189]: https://github.com/home-assistant/core/pull/67189
+[#67221]: https://github.com/home-assistant/core/pull/67221
+[#67874]: https://github.com/home-assistant/core/pull/67874
+[#68054]: https://github.com/home-assistant/core/pull/68054
+[Z-Wave JS]: /integrations/zwave_js
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2022.4](/changelogs/core-2022.4)
