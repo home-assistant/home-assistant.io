@@ -46,12 +46,6 @@ The [KNX](https://www.knx.org) integration for Home Assistant allows you to conn
 
 The integration requires a local KNX/IP interface or router. Through this, it will establish a connection between Home Assistant and your KNX bus.
 
-<div class='note warning'>
-
-Please note, the KNX platform does not support KNX Secure.
-
-</div>
-
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
@@ -120,6 +114,31 @@ knx:
 Connection parameters are set up when adding the integration and can be changed from the `Integrations` panel.
 
 Use `route back` if your tunneling server is located on a different network.
+
+### KNX Secure
+
+The KNX integration currently supports IP secure tunneling.
+IP secure via routing and data secure are currently not supported.
+
+In order to use IP Secure you will have to chose "Tunneling" -> "TCP with IP Secure" in the config flow.
+
+You can configure the IP Secure credentials either manually or by providing a `.knxkeys` file, which you can obtain by exporting the keyring in ETS as seen in the screenshot below.
+
+![Export Keyring in ETS5](/images/integrations/knx/export_keyring_ets.png)
+
+The `.knxkeys` file has to be placed in `config/.storage/knx/yourfile.knxkeys`.
+
+If you decide to configure IP Secure manually you will need the user ID, the user password and the device authentication password.
+
+The user id 0 is reserved and the user id 1 is used for management tasks, thus you will need to specify a user id that is 2 or higher according to the tunneling channel you would like to use. 
+
+The following screenshot will show how you can get the device authentication password in ETS.
+
+![Obtain device authentication password in ETS](/images/integrations/knx/device_authentication_password.png)
+
+The user password can be obtained almost the same way as seen in the below screenshot.
+
+![Obtain the user password in ETS](/images/integrations/knx/user_password.png)
 
 ## Events
 
