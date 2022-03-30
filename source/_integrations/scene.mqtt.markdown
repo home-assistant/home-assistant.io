@@ -59,14 +59,9 @@ availability_topic:
   required: false
   type: string
 command_topic:
-  description: The MQTT topic to publish commands to change the scene state.
+  description: The MQTT topic to publish `payload_on` to activate the scene.
   required: false
   type: string
-enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
-  required: false
-  type: boolean
-  default: true
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -96,7 +91,7 @@ payload_not_available:
   type: string
   default: offline
 payload_on:
-  description: The payload that represents `on` state. If specified, will be used for both comparing to the value in the `state_topic` (see `value_template` and `state_on`  for details) and sending as `on` command to the `command_topic`.
+  description: The payload that will be sent to `command_topic` when activating the MQTT scene.
   required: false
   type: string
   default: "ON"
