@@ -23,11 +23,11 @@ For each county/city it creates warning slots that change to Unsafe when warning
 
 | Attribute    | Description                            |
 | ------------ | -------------------------------------- |
-| `Headline` | *(str)* Official headline of the warning. |
-| `Description` | *(str)* Official description of the warning. |
-| `Sender` | *(str)* Sender of the warning. Can be empty. |
-| `Severity` | *(str)* Severity of the warning. <br>Extreme - Extraordinary threat to life or property <br>Severe - Significant threat to life or property <br>Moderate - Possible threat to life or property <br>Minor – Minimal to no known threat to life or property <br>Unknown - Severity unknown |
-| `ID` | *(str)* Individual ID for each warning. |
-| `Sent` | *(time)* Transmission time and date (UTC) of the issued warning. |
-| `Start` | *(time)* Starting time and date (UTC) of the issued warning. Can be empty. |
-| `Expires` | *(time)* Expiration time and date (UTC) of the issued warning. Can be empty. |
+| `headline` | *(str)* Official headline of the warning. |
+| `description` | *(str)* Official description of the warning. |
+| `sender` | *(str)* Sender of the warning. Can be empty. |
+| `severity` | *(str)* Severity of the warning. <br>Extreme - Extraordinary threat to life or property <br>Severe - Significant threat to life or property <br>Moderate - Possible threat to life or property <br>Minor – Minimal to no known threat to life or property <br>Unknown - Severity unknown |
+| `id` | *(str)* Individual ID for each warning. |
+| `sent` | *(time)* Transmission time and date (UTC) of the issued warning. |
+| `start` | *(time)* Starting time and date (UTC) of the issued warning. Can be empty. |
+| `expires` | *(time)* Expiration time and date (UTC) of the issued warning. Can be empty. |
