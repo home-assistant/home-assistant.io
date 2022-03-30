@@ -85,7 +85,7 @@ Entities reporting status, total size (TB), used size (TB), % of volume used, av
 
 ### General sensors
 
-Entities reporting the update and security status of the NAS.
+Entity reporting the security status of the NAS.
 
 <div class='note'>
 
