@@ -115,7 +115,7 @@ Connection parameters are set up when adding the integration and can be changed 
 
 Use `route back` if your tunneling server is located on a different network.
 
-## KNX Secure
+### KNX Secure
 
 The KNX integration currently supports IP secure tunneling.
 IP secure via routing and data secure are currently not supported.
@@ -130,7 +130,9 @@ You can configure the IP Secure credentials either manually or by providing a `.
 
 The `.knxkeys` file has to be placed in `config/.storage/knx/yourfile.knxkeys`.
 
-If you decide to configure IP Secure manually you will need the user ID (starts with 2), the user password and the device authentication password.
+If you decide to configure IP Secure manually you will need the user ID, the user password and the device authentication password.
+
+The user id 0 is reserved and the user id 1 is used for management tasks, thus you will need to specify a user id that is 2 or higher according to the tunneling channel you would like to use. 
 
 The following screenshot will show how you can get the device authentication password in ETS.
 
