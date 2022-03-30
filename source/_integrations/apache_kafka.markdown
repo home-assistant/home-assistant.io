@@ -8,6 +8,7 @@ ha_codeowners:
   - '@bachya'
 ha_domain: apache_kafka
 ha_iot_class: Local Push
+ha_integration_type: integration
 ---
 
 The `apache_kafka` integration sends all state changes to a

@@ -8,6 +8,7 @@ ha_release: 0.81
 ha_domain: lg_soundbar
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `lg_soundbar` platform allows you to control [LG Soundbars](https://www.lg.com/us/sound-bars) from Home Assistant.

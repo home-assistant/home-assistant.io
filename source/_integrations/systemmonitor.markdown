@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_domain: systemmonitor
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `systemmonitor` sensor platform allows you to monitor disk usage,

@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: gitter
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 This `gitter` sensor allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.

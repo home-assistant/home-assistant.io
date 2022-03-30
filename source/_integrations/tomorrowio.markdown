@@ -15,6 +15,7 @@ ha_domain: tomorrowio
 ha_platforms:
   - sensor
   - weather
+ha_integration_type: integration
 ---
 
 The Tomorrow.io integration allows you to obtain weather, air quality, pollen, and fire information from the [Tomorrow.io API](https://www.tomorrow.io/weather-api/).

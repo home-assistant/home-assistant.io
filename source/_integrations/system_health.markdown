@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.87
 ha_quality_scale: internal
 ha_domain: system_health
+ha_integration_type: integration
 ---
 
 The System Health integration provides an API to offer information on the system and its components. It also allows to run diagnostic tools to diagnose problems.

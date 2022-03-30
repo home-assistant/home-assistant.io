@@ -10,6 +10,7 @@ ha_codeowners:
   - '@ctalkington'
 ha_domain: cloudflare
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 With the `cloudflare` integration, you can keep your Cloudflare records up to date.

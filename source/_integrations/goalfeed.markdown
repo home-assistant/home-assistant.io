@@ -7,6 +7,7 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.63
 ha_domain: goalfeed
+ha_integration_type: integration
 ---
 
 The `goalfeed` integration lets you use your Goalfeed account to trigger events in Home Assistant whenever a NHL or MLB team scores. 

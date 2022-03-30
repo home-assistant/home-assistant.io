@@ -21,11 +21,12 @@ ha_platforms:
   - light
   - lock
   - number
-  - sensor
   - select
+  - sensor
   - switch
   - vacuum
   - weather
+ha_integration_type: integration
 ---
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.

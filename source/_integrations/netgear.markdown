@@ -17,6 +17,7 @@ ha_codeowners:
   - '@Quentame'
   - '@starkillerOG'
 ha_ssdp: true
+ha_integration_type: integration
 ---
 
 This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device and control the NETGEAR device.

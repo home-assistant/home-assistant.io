@@ -13,6 +13,9 @@ ha_platforms:
   - binary_sensor
   - climate
   - sensor
+ha_codeowners:
+  - '@Noltari'
+ha_integration_type: integration
 ---
 
 This integration allows getting values from the local API of Airzone HVAC zoning systems.

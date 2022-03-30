@@ -1,13 +1,13 @@
 ---
 title: Update
 description: Instructions on how to use update entities with Home Assistant.
-ha_category:
-  - Updates
+ha_category: []
 ha_release: 2022.4
 ha_quality_scale: internal
 ha_domain: update
 ha_codeowners:
   - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 An update entity is an entity that indicates if an update is available for a

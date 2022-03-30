@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: push
 ha_platforms:
   - camera
+ha_integration_type: integration
 ---
 
 The `push` camera platform allows you to integrate images sent over HTTP POST to Home Assistant as a camera. External applications/daemons/scripts are therefore able to "stream" images through Home Assistant.

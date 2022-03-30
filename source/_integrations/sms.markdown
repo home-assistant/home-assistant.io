@@ -13,6 +13,7 @@ ha_domain: sms
 ha_platforms:
   - notify
   - sensor
+ha_integration_type: integration
 ---
 
 The `sms` integration allows having a local execution SMS notification via [Gammu](https://wammu.eu/gammu/). This is ideal when the internet is offline or when the power goes out.

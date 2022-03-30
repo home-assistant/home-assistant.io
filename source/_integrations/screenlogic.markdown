@@ -3,9 +3,9 @@ title: Pentair ScreenLogic
 description: Instructions on how to integrate a ScreenLogic gateway within Home Assistant.
 ha_release: '2021.4'
 ha_category:
-  - Hub
   - Binary Sensor
   - Climate
+  - Hub
   - Sensor
   - Switch
 ha_iot_class: Local Polling
@@ -18,10 +18,12 @@ ha_domain: screenlogic
 ha_platforms:
   - binary_sensor
   - climate
+  - diagnostics
   - light
   - number
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Pentair ScreenLogic integration allows you to integrate your Pentair IntelliTouch or EasyTouch pool controller with Home Assistant via the [Pentair ScreenLogic](https://www.pentair.com/en-us/products/residential/pool-spa-equipment/pool-automation/screenlogic2_interfaceforintellitouchandeasytouchautomationsystems.html) gateway.

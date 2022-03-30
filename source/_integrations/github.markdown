@@ -13,6 +13,7 @@ ha_platforms:
 ha_codeowners:
   - '@timmo001'
   - '@ludeeus'
+ha_integration_type: integration
 ---
 
 The GitHub integration allows you to monitor your favorite [GitHub][github] repositories.

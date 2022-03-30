@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.37
 ha_domain: microsoft_face
+ha_integration_type: integration
 ---
 
 The `microsoft_face` integration platform is the main integration for Microsoft

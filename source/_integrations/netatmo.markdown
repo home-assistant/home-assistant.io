@@ -2,14 +2,14 @@
 title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
 ha_category:
-  - Hub
-  - Environment
-  - Weather
-  - Sensor
-  - Climate
   - Camera
+  - Climate
+  - Environment
+  - Hub
   - Light
   - Media Source
+  - Sensor
+  - Weather
 ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -19,11 +19,12 @@ ha_domain: netatmo
 ha_homekit: true
 ha_platforms:
   - camera
-  - diagnostics
   - climate
+  - diagnostics
   - light
-  - sensor
   - select
+  - sensor
+ha_integration_type: integration
 ---
 
 The Netatmo integration platform is the main integration to integrate all Netatmo related platforms.

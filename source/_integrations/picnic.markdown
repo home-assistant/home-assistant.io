@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: picnic
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Picnic integration allows one to get information from [Picnic](https://picnic.app) about orders, deliveries and cart content.

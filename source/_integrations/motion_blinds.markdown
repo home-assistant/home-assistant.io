@@ -12,6 +12,8 @@ ha_config_flow: true
 ha_platforms:
   - cover
   - sensor
+ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The integration allows you to control [Motion Blinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).

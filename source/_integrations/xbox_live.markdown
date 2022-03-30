@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: xbox_live
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Xbox Live integration is able to track [Xbox](https://xbox.com/) profiles.

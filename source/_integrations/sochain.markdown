@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: sochain
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `SoChain` sensor platform displays supported cryptocurrency wallet balances from [SoChain](https://sochain.com).

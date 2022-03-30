@@ -13,6 +13,7 @@ ha_platforms:
   - device_tracker
 ha_config_flow: true
 ha_ssdp: true
+ha_integration_type: integration
 ---
 
 This platform offers presence detection by examining devices connected to a [Keenetic](https://keenetic.net/)

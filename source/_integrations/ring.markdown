@@ -2,12 +2,12 @@
 title: Ring
 description: Instructions on how to integrate your Ring.com devices within Home Assistant.
 ha_category:
-  - Doorbell
   - Binary Sensor
   - Camera
+  - Doorbell
+  - Light
   - Sensor
   - Switch
-  - Light
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -21,6 +21,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. Due to recent authentication changes of Ring, you will need to run at least Home Assistant 0.104.

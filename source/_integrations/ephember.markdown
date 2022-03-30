@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: ephember
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 The `ephember` climate platform lets you control [EPH Controls](https://emberapp.ephcontrols.com/) thermostats. The module only works if you have a Wi-Fi gateway to control your EPH system and an account on the EMBER app.

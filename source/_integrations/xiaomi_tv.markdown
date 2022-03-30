@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: xiaomi_tv
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `xiaomi_tv` platform allows you to control a [Xiaomi TV](https://www.mi.com/en/mitv3s/65flat/).

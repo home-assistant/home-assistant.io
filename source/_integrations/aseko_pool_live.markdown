@@ -12,6 +12,7 @@ ha_domain: aseko_pool_live
 ha_platforms:
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 The Aseko Pool Live integration allows you to monitor your Aseko ASIN Aqua dosing systems.

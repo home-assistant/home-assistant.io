@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: dte_energy_bridge
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 A sensor platform for the [DTE](https://www.newlook.dteenergy.com/) Energy Bridge. To find out which version of the DTE Energy Bridge sensor you have, find the status LED on your box.

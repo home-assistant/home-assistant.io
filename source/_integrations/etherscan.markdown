@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: etherscan
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `Etherscan` sensor platform displays Ether and ERC-20 token balances from [Etherscan.io](https://etherscan.io).

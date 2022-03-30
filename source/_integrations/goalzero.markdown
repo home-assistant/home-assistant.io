@@ -15,6 +15,7 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@tkdrob'
+ha_integration_type: integration
 ---
 
 This Goal Zero Yeti integration pulls data from a Wifi-enabled [Goal Zero Yeti](https://www.goalzero.com).

@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: nilu
 ha_platforms:
   - air_quality
+ha_integration_type: integration
 ---
 
 The `nilu` air quality platform shows measurements of current air quality from NILU (Norsk Institutt for luftforskning/Norwegian Institute for Air Research) sensor stations within Norway. Makes data from the open API at [luftkvalitet.info](http://luftkvalitet.info/) and [nilu.no](https://nilu.no/) available in Home Assistant.

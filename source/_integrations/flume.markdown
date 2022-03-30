@@ -13,6 +13,7 @@ ha_domain: flume
 ha_dhcp: true
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `flume` sensor will show you the current [flume](https://portal.flumewater.com) status for the given Device ID.

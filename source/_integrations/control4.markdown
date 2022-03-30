@@ -2,7 +2,8 @@
 title: Control4
 description: Instructions on adding a Control4 system to Home Assistant.
 ha_release: '0.114'
-ha_category: Light
+ha_category:
+  - Light
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -11,6 +12,7 @@ ha_domain: control4
 ha_ssdp: true
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 The Control4 integration allows you to control and monitor lights from your local Control4 system. Your Control4 controller must be running OS 3.0+.

@@ -16,6 +16,7 @@ ha_platforms:
   - camera
   - sensor
   - weather
+ha_integration_type: integration
 ---
 
 The Buienradar integration uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.

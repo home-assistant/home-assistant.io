@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_domain: home_plus_control
 ha_platforms:
   - switch
+ha_integration_type: integration
 ---
 
 The Home+ Control integration platform allows you to control a range of Legrand in-wall switches and power outlets that have smart home functionality thanks to their "with Netatmo" capabilities.

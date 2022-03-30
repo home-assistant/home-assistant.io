@@ -2,8 +2,8 @@
 title: SCSGate
 description: Instructions on how to integrate SCSGate into Home Assistant.
 ha_category:
-  - Hub
   - Cover
+  - Hub
   - Light
   - Switch
 ha_release: 0.13
@@ -13,6 +13,7 @@ ha_platforms:
   - cover
   - light
   - switch
+ha_integration_type: integration
 ---
 
 The SCSGate integration support the [SCSGate](https://translate.google.com/translate?hl=en&sl=it&tl=en&u=http%3A%2F%2Fguidopic.altervista.org%2Feibscsgt%2Finterface.html) device. This a home-brew device allows to interact with the MyHome system from BTicino/Legrande.

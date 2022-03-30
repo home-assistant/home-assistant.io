@@ -7,19 +7,20 @@ ha_config_flow: true
 ha_release: 0.43
 ha_category:
   - Cover
+  - Fan
   - Light
   - Sensor
   - Switch
-  - Fan
 ha_domain: tradfri
 ha_homekit: true
 ha_platforms:
-  - diagnostics
   - cover
+  - diagnostics
   - fan
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `tradfri` integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it. Home Assistant will automatically discover the gateway's presence on your local network if `discovery:` is present in your `configuration.yaml` file.

@@ -2,9 +2,9 @@
 title: ZoneMinder
 description: How to integrate ZoneMinder into Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Camera
+  - Hub
   - Sensor
   - Switch
 ha_release: 0.31
@@ -17,6 +17,7 @@ ha_platforms:
   - camera
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `zoneminder` integration sets up Home Assistant with your [ZoneMinder](https://www.zoneminder.com) instance.

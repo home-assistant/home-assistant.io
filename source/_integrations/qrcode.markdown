@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Calculated
 ha_release: 0.87
 ha_domain: qrcode
+ha_integration_type: integration
 ---
 
 The `qrcode` image processing platform enables QR code recognition from cameras.

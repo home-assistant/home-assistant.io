@@ -8,6 +8,7 @@ ha_release: 0.76
 ha_domain: fleetgo
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 The `fleetgo` device tracker platform allows you to integrate your vehicles equipped with [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.

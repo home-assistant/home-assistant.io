@@ -1,18 +1,28 @@
 ---
-title: "Switch as X"
-description: "Instructions on how to convert any Home Assistant switch into something else."
+title: Switch as X
+description: Instructions on how to convert any Home Assistant switch into something else.
 ha_category:
   - Cover
   - Fan
+  - Helper
   - Light
   - Lock
   - Siren
   - Switch
 ha_release: 2022.4
-ha_iot_class: Local Push
+ha_iot_class: Calculated
 ha_quality_scale: internal
 ha_domain: switch_as_x
 ha_config_flow: true
+ha_codeowners:
+  - '@home-assistant/core'
+ha_platforms:
+  - cover
+  - fan
+  - light
+  - lock
+  - siren
+ha_integration_type: helper
 ---
 
 The Switch as X integrations lets you convert any Home Assistant switch into

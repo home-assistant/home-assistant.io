@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: epsonworkforce
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `epson workforce` platform allows you to monitor the ink levels of a Epson Workforce printer from Home

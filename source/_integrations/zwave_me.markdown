@@ -32,6 +32,7 @@ ha_platforms:
   - siren
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 This integration allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way](https://z-wave.me/z-way/). It combines the performance and the power of the diagnostics tools built-in Z-Way with the flexibility of Home Assistant. The integration brings all Z-Way devices in Home Assistant (Z-Wave, EnOcean, HTTP based, and others).

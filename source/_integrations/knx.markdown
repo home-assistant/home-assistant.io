@@ -2,12 +2,12 @@
 title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Button
   - Climate
   - Cover
   - Fan
+  - Hub
   - Light
   - Notifications
   - Number
@@ -27,19 +27,20 @@ ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
   - button
-  - diagnostics
   - climate
   - cover
+  - diagnostics
   - fan
   - light
   - notify
   - number
   - scene
-  - sensor
   - select
+  - sensor
   - switch
   - weather
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.

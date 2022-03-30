@@ -3,9 +3,9 @@ title: Nexia/American Standard/Trane
 description: Instructions on how to integrate Trane and American Standard thermostats into Home Assistant.
 ha_category:
   - Binary Sensor
-  - Sensor
   - Climate
   - Scene
+  - Sensor
   - Switch
 ha_release: 0.108
 ha_iot_class: Cloud Polling
@@ -17,9 +17,11 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - climate
+  - diagnostics
   - scene
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com/) (Trane) thermostats or [American Standard](https://asairhome.com/) thermostats into Home Assistant.

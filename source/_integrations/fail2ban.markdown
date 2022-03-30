@@ -8,6 +8,7 @@ ha_release: 0.57
 ha_domain: fail2ban
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `fail2ban` sensor allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.

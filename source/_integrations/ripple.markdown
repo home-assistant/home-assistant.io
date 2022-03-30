@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: ripple
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `ripple` sensor platform displays Ripple wallet balances from [Ripple.com](https://ripple.com).

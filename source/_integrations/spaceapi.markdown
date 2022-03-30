@@ -8,6 +8,7 @@ ha_release: '0.70'
 ha_codeowners:
   - '@fabaff'
 ha_domain: spaceapi
+ha_integration_type: integration
 ---
 
 The `spaceapi` integration allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](https://spaceapi.io/).

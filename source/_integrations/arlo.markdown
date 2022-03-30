@@ -2,9 +2,9 @@
 title: Arlo
 description: Instructions on how to integrate your Netgear Arlo cameras within Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Camera
+  - Hub
   - Sensor
 ha_release: 0.46
 ha_iot_class: Cloud Polling
@@ -13,6 +13,7 @@ ha_platforms:
   - alarm_control_panel
   - camera
   - sensor
+ha_integration_type: integration
 ---
 
 The `arlo` implementation allows you to integrate your [Arlo](https://arlo.netgear.com/) devices in Home Assistant.

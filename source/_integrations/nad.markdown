@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: nad
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `nad` platform allows you to control a [NAD receiver](https://nadelectronics.com/) through RS232, TCP and Telnet from Home Assistant.

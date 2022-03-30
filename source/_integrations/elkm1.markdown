@@ -3,9 +3,9 @@ title: Elk-M1 Control
 description: Instructions to setup the Elk-M1 controller.
 ha_release: 0.81
 ha_category:
-  - Hub
   - Alarm
   - Climate
+  - Hub
   - Light
   - Scene
   - Sensor
@@ -24,6 +24,7 @@ ha_platforms:
   - scene
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Elk-M1 is a home security and automation controller that is capable of alarm control panel functions and automation.

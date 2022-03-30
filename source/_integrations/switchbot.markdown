@@ -16,6 +16,7 @@ ha_platforms:
   - sensor
   - switch
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/).

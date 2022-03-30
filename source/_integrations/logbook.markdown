@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.7
 ha_domain: logbook
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />

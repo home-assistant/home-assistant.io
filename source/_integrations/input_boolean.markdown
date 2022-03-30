@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: input_boolean
+ha_integration_type: integration
 ---
 
 The Input Boolean helper integration allows you to define boolean values that

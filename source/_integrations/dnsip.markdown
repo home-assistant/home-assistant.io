@@ -11,6 +11,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@gjohansson-ST'
+ha_integration_type: integration
 ---
 
 The DNS IP integration will expose an IP address, fetched via DNS resolution, as its value. It provides both IPv4 and IPv6 lookup as separate sensors depending on accessibility to resolvers.

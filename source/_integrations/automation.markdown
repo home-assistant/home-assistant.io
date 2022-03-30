@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: automation
+ha_integration_type: integration
 ---
 
 <script>document.location.href = '/docs/automation/';</script>

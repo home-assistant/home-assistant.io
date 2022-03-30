@@ -8,6 +8,7 @@ ha_release: 0.36
 ha_domain: zengge
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 The `zengge` platform allows you to integrate your [Zengge Bluetooth bulbs](http://www.zengge.com/) into Home Assistant.

@@ -15,8 +15,9 @@ ha_codeowners:
 ha_domain: doorbird
 ha_zeroconf: true
 ha_platforms:
-  - camera
   - button
+  - camera
+ha_integration_type: integration
 ---
 
 The `doorbird` implementation allows you to integrate your [DoorBird](https://www.doorbird.com/) device in Home Assistant.

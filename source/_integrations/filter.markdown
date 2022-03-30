@@ -2,8 +2,8 @@
 title: Filter
 description: Instructions on how to integrate Data Filter Sensors into Home Assistant.
 ha_category:
-  - Utility
   - Sensor
+  - Utility
 ha_release: 0.65
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: filter
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `filter` platform enables sensors that process the states of other entities.

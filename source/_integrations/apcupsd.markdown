@@ -3,15 +3,16 @@ title: apcupsd
 description: Instructions on how to integrate apcupsd status with Home Assistant.
 logo: apcupsd.png
 ha_category:
-  - System Monitor
   - Binary Sensor
   - Sensor
+  - System Monitor
 ha_release: 0.13
 ha_iot_class: Local Polling
 ha_domain: apcupsd
 ha_platforms:
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 [Apcupsd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) on the APC device.

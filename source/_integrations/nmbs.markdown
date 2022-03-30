@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: nmbs
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `nmbs` platform will create sensors for monitoring travel time and information between 2 stations.

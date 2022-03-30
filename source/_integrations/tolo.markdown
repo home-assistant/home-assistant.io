@@ -18,9 +18,10 @@ ha_platforms:
   - fan
   - light
   - number
-  - sensor
   - select
+  - sensor
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The TOLO Sauna integration allows you to control your [TOLO Sauna and TOLO Steam Bath](https://www.tolosauna.com/) with Home Assistant.

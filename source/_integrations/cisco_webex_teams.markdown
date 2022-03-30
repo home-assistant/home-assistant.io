@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: cisco_webex_teams
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `cisco_webex_teams` notification platform allows you to deliver rich notifications from Home Assistant to [Cisco Webex Teams](https://www.webex.com/team-collaboration.html) (formerly known as Cisco Spark).

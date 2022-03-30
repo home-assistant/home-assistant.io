@@ -2,13 +2,13 @@
 title: Nest
 description: Instructions on how to integrate Nest into Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Camera
   - Climate
   - Doorbell
-  - Sensor
+  - Hub
   - Media Source
+  - Sensor
 ha_iot_class: Cloud Push
 ha_release: 0.7
 ha_config_flow: true
@@ -20,9 +20,10 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - camera
-  - diagnostics
   - climate
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.

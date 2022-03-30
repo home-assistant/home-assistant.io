@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: awair
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Awair integration will fetch data from your [Awair devices](https://getawair.com).

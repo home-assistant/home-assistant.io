@@ -2,10 +2,10 @@
 title: UniFi Protect
 description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
 ha_category:
-  - Hub
   - Binary Sensor
   - Button
   - Camera
+  - Hub
   - Light
   - Lock
   - Media Player
@@ -26,15 +26,16 @@ ha_codeowners:
 ha_domain: unifiprotect
 ha_platforms:
   - binary_sensor
-  - camera
   - button
+  - camera
   - light
   - lock
   - media_player
   - number
-  - sensor
   - select
+  - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The UniFi Protect integration adds support for retrieving Camera feeds and Sensor data from a [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on a UniFi OS Console.

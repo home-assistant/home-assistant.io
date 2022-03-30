@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.55
 ha_domain: duckdns
+ha_integration_type: integration
 ---
 
 With the DuckDNS integration you can keep your DuckDNS record up to date. DuckDNS is a free dynamic DNS service that allows you to point a subdomain under `duckdns.org` at your computer.

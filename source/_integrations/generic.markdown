@@ -9,6 +9,10 @@ ha_iot_class: Local Push
 ha_domain: generic
 ha_platforms:
   - camera
+ha_codeowners:
+  - '@davet2001'
+ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The `generic` camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.

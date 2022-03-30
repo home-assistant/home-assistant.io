@@ -7,6 +7,7 @@ ha_release: 0.65
 ha_domain: proxy
 ha_platforms:
   - camera
+ha_integration_type: integration
 ---
 
 The `proxy` camera platform allows you to pass another camera's output through post-processing routines and generate a new camera with the post-processed output.

@@ -15,6 +15,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 This integration connects with Risco Alarms over [Risco Cloud](https://riscocloud.com/).

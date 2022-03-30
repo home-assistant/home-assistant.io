@@ -15,6 +15,7 @@ ha_domain: luftdaten
 ha_platforms:
   - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The Sensor.Communtiy integration will query the open data API of [Sensor.Community](https://sensor.community) to monitor air quality and other weather data from a specific (self build) sensor station.

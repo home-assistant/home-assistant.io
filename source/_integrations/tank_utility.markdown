@@ -8,6 +8,7 @@ ha_release: 0.53
 ha_domain: tank_utility
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 Add [Tank Utility](https://www.tankutility.com/) propane tank monitors to Home Assistant.

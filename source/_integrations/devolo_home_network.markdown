@@ -14,6 +14,7 @@ ha_quality_scale: platinum
 ha_platforms:
   - sensor
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The devolo Home Network integration allows you to monitor your PLC network.

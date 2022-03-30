@@ -8,6 +8,7 @@ ha_release: 0.35
 ha_domain: flic
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The `flic` platform allows you to receive click events from [flic](https://flic.io) smart buttons.

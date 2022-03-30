@@ -10,6 +10,7 @@ ha_codeowners:
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 The `sky_hub` platform offers presence detection by looking at connected devices to a [Sky Hub router](https://www.sky.com/shop/broadband-talk/sky-hub/) based router.

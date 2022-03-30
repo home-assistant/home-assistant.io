@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.48
 ha_domain: snips
 ha_iot_class: Local Push
+ha_integration_type: integration
 ---
 
 <div class='note warning'>

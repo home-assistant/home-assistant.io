@@ -15,6 +15,7 @@ ha_platforms:
   - lock
 ha_config_flow: true
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The Nuki integration allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via a [Nuki Bridge](https://nuki.io/en/bridge/).

@@ -15,6 +15,7 @@ ha_platforms:
 ha_codeowners:
   - '@molobrakos'
   - '@decompil3d'
+ha_integration_type: integration
 ---
 
 The `volvooncall` integration offers integration with the [Volvo On Call](https://www.volvocars.com/intl/why-volvo/human-innovation/future-of-driving/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.

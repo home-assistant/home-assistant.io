@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: thethingsnetwork
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 <div class='note warning'>

@@ -10,6 +10,7 @@ ha_codeowners:
   - '@gcampax'
   - '@balloob'
 ha_domain: almond
+ha_integration_type: integration
 ---
 
 [Almond](https://almond.stanford.edu/) is an open, privacy-preserving virtual assistant by [Stanford Open Virtual Assistant Lab](https://oval.cs.stanford.edu/). It allows you, among other things, to control Home Assistant using natural language. Once installed, it will be available in the user interface via the microphone icon in the top right.

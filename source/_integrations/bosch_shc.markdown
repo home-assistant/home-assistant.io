@@ -19,6 +19,7 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The Bosch SHC integration allows you to connect your [Bosch Smart Home Controller](https://www.bosch-smarthome.com) to Home Assistant in order to control and monitor your Bosch Smart Home devices.

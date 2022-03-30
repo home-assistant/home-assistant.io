@@ -13,6 +13,7 @@ ha_domain: withings
 ha_platforms:
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 The `withings` sensor platform consumes data from various health products produced by [Withings](https://www.withings.com).

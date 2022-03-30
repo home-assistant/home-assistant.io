@@ -10,6 +10,7 @@ ha_codeowners:
   - '@mtdcr'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `edl21` integration lets you read German EDL21 smart meters using [SML](https://de.wikipedia.org/wiki/Smart_Message_Language) from Home Assistant.

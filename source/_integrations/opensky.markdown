@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: opensky
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `opensky` sensor allows one to track overhead flights in a given region. It uses crowd-sourced data from the [OpenSky Network](https://opensky-network.org/) public API. It will also fire Home Assistant events when flights enter and exit the defined region.

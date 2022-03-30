@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: ps4
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `ps4` integration allows you to control a

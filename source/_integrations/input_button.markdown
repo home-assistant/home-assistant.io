@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: input_button
+ha_integration_type: integration
 ---
 
 The Input Button helper integration allows you to define buttons that

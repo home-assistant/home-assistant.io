@@ -10,6 +10,7 @@ ha_platforms:
   - media_player
 ha_codeowners:
   - '@thrawnarn'
+ha_integration_type: integration
 ---
 
 The `bluesound` platform allows you to control your [Bluesound](https://www.bluesound.com/) HiFi wireless speakers and audio integrations from Home Assistant.

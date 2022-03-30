@@ -9,6 +9,7 @@ ha_quality_scale: internal
 ha_domain: universal
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 A Universal Media Player can combine multiple existing entities in Home Assistant into a single media player entity. This is used to create a single media player entity that can control an entire media center.

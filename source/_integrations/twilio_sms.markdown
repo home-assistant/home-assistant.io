@@ -8,6 +8,7 @@ ha_domain: twilio_sms
 ha_iot_class: Cloud Push
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `twilio` notification platform enables sending notifications via SMS, powered by [Twilio](https://twilio.com).

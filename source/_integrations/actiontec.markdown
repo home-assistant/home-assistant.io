@@ -8,6 +8,7 @@ ha_release: 0.7
 ha_domain: actiontec
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 This platform allows you to detect presence by looking at connected devices to an [Actiontec](https://www.actiontec.com/) device.

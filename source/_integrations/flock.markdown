@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: flock
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `flock` platform uses [Flock.com](https://flock.com) to deliver notifications from Home Assistant.

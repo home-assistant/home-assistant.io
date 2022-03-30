@@ -10,6 +10,7 @@ ha_codeowners:
   - '@fabaff'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `volkszaehler` sensor platform is consuming the system information provided by the [Volkszaehler](https://wiki.volkszaehler.org/) API.

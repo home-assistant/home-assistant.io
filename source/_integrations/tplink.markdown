@@ -3,9 +3,9 @@ title: TP-Link Kasa Smart
 description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
 ha_category:
   - Hub
-  - Switch
   - Light
   - Sensor
+  - Switch
 ha_release: 0.89
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -20,6 +20,7 @@ ha_platforms:
   - switch
 ha_dhcp: true
 ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
 The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as plugs, power strips, wall switches and bulbs.

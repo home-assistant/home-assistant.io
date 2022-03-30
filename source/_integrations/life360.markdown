@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: life360
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 The `life360` integration allows you to detect presence using the [unofficial API](#disclaimer) of [Life360](https://www.life360.com/).

@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: yeelightsunflower
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 The `yeelightsunflower` light platform allows you to control your Yeelight Sunflower light bulbs with Home Assistant.

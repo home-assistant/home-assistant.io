@@ -8,6 +8,7 @@ ha_release: 0.14
 ha_domain: steam_online
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `steam` sensor platform will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.

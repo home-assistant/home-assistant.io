@@ -14,6 +14,7 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@javicalle'
+ha_integration_type: integration
 ---
 
 The `rflink` integration supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).

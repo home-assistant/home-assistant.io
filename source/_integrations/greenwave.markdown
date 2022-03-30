@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: greenwave
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 This integration communicates with the Greenwave Reality (TCP Connected) Gateway to allow control of all lights and fixtures registered to the gateway. Bulbs and Fixtures can be created and modified inside the TCP Lighting App for Android and iOS.

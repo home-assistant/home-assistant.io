@@ -9,6 +9,9 @@ ha_config_flow: true
 ha_domain: google
 ha_platforms:
   - calendar
+ha_codeowners:
+  - '@allenporter'
+ha_integration_type: integration
 ---
 
 The Google integration allows you to connect to your [Google Calendars](https://calendar.google.com) to Home Assistant. The integration adds calendar entities that are shown on the *Calendar* dashboard, and can be used for automations based on any event, or limited to specific matching criteria.
@@ -286,5 +289,3 @@ For example, the actions following this condition will only be executed for even
 ```
 
 {% endraw %}
-
-

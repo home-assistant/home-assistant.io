@@ -17,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - button
   - sensor
+ha_integration_type: integration
 ---
 
 [OctoPrint](https://octoprint.org/) is a web interface for your 3D printer. This is the main integration to integrate OctoPrint sensors.

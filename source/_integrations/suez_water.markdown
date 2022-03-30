@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: suez_water
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `suez_water` sensor platform fetches your last day consumption of water from the French water provider [Tout Sur Mon Eau](https://www.toutsurmoneau.fr) website.

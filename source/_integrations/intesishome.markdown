@@ -1,7 +1,8 @@
 ---
 title: IntesisHome
 description: Instructions how to integrate IntesisHome AC devices with Home Assistant
-ha_category: Climate
+ha_category:
+  - Climate
 ha_release: 0.104
 ha_iot_class: Cloud Push
 ha_codeowners:
@@ -9,6 +10,7 @@ ha_codeowners:
 ha_domain: intesishome
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 The `IntesisHome` climate platform lets you control [IntesisHome](https://www.intesishome.com) and [Airconwithme](https://airconwithme.com) devices. IntesisHome provides integrations with air conditioners, including Panasonic, Daikin, Fujitsu, Toshiba, LG and more.

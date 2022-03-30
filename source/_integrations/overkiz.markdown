@@ -26,19 +26,21 @@ ha_domain: overkiz
 ha_dhcp: true
 ha_zeroconf: true
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
-  - diagnostics
   - climate
   - cover
+  - diagnostics
   - light
   - lock
   - number
   - scene
-  - sensor
   - select
+  - sensor
   - siren
   - switch
+ha_integration_type: integration
 ---
 
 The Overkiz (by Somfy) integration platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.

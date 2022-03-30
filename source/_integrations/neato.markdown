@@ -18,6 +18,7 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
+ha_integration_type: integration
 ---
 
 The Neato integration allows you to control your [Neato Botvac Connected Robots][botvac-connected].

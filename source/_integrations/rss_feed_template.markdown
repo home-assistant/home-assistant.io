@@ -7,6 +7,9 @@ ha_iot_class: Local Push
 ha_release: 0.44
 ha_quality_scale: internal
 ha_domain: rss_feed_template
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 The `rss_feed_template` integration can export any information from Home Assistant as a static RSS feed. This can be used to display that information on many types of devices using an RSS reader. While native apps for Home Assistant are not widely available, native RSS readers exist for almost any platform.

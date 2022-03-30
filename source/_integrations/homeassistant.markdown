@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: homeassistant
 ha_platforms:
   - scene
+ha_integration_type: integration
 ---
 
 The Home Assistant integration provides generic implementations like the generic `homeassistant.turn_on`.

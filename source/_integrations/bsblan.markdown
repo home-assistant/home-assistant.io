@@ -2,7 +2,8 @@
 title: BSB-Lan
 description: Instructions on how to integrate BSBLan device into Home Assistant.
 logo: bsblan.png
-ha_category: Climate
+ha_category:
+  - Climate
 ha_release: '0.110'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: bsblan
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 This integration integrates [BSBLan](https://github.com/fredlcore/bsb_lan) device into Home Assistant.

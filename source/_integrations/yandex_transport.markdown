@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: yandex_transport
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `yandex_tranport` sensor platform uses [Yandex Maps](https://maps.yandex.ru/) it will give you the time until the next departure time from a bus/tramway/etc stop.

@@ -2,8 +2,8 @@
 title: Trafikverket Train
 description: Instructions how to integrate Trafikverket Train within Home Assistant.
 ha_category:
-  - Transport
   - Sensor
+  - Transport
 ha_release: 0.96
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: trafikverket_train
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 Retrieve train departure information from [Trafikverket](https://www.trafikverket.se/).
@@ -43,4 +44,3 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 ## Train station names
 
 Click [here](https://www.trafikverket.se/trafikinformation/tag/?ArrDep=departure&) to see examples of train station names.
-

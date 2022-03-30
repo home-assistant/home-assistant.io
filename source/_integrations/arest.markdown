@@ -2,8 +2,8 @@
 title: aREST
 description: Instructions on how to integrate aREST within Home Assistant.
 ha_category:
-  - DIY
   - Binary Sensor
+  - DIY
   - Sensor
   - Switch
 ha_iot_class: Local Polling
@@ -15,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 There is currently support for the following device types within Home Assistant:

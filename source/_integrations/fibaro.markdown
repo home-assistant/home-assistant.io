@@ -2,14 +2,14 @@
 title: Fibaro
 description: Instructions on how to setup Fibaro Z-Wave hubs (HCL and HC2) and configure devices within Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Climate
   - Cover
+  - Hub
   - Light
   - Lock
-  - Sensor
   - Scene
+  - Sensor
   - Switch
 ha_release: 0.83
 ha_iot_class: Local Push
@@ -23,6 +23,10 @@ ha_platforms:
   - scene
   - sensor
   - switch
+ha_codeowners:
+  - '@rappenze'
+ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The [Fibaro](https://fibaro.com/) hub is a controller mainly connecting to Z-Wave devices.

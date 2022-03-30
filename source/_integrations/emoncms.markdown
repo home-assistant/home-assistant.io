@@ -10,6 +10,7 @@ ha_codeowners:
   - '@borpin'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `emoncms` sensor platform creates sensors for the feeds available in your local or cloud based version of [Emoncms](https://emoncms.org).

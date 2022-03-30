@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `flunearyou` sensor platform allows users in the United States and its

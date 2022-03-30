@@ -9,6 +9,7 @@ ha_domain: manual
 ha_iot_class: Calculated
 ha_platforms:
   - alarm_control_panel
+ha_integration_type: integration
 ---
 
 The `manual` alarm control panel platform enables you to create an alarm system in Home Assistant.

@@ -2,11 +2,11 @@
 title: HomematicIP Cloud
 description: Instructions for integrating HomematicIP into Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
   - Climate
   - Cover
+  - Hub
   - Light
   - Sensor
   - Switch
@@ -24,6 +24,7 @@ ha_platforms:
   - sensor
   - switch
   - weather
+ha_integration_type: integration
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.

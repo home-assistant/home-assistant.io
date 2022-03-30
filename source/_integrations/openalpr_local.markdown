@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.36
 ha_domain: openalpr_local
+ha_integration_type: integration
 ---
 
 The [OpenALPR](https://www.openalpr.com/) integration for Home Assistant allows you

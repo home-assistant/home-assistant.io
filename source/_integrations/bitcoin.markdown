@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: bitcoin
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `bitcoin` sensor platform displays various details about the [Bitcoin](https://bitcoin.org) network.

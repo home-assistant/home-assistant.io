@@ -9,6 +9,7 @@ ha_domain: recorder
 ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history`](/integrations/history/) integration.

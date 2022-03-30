@@ -1,14 +1,17 @@
 ---
-title: "PECO Outage Count"
-description: "Get how many outages are in your county"
+title: PECO Outage Counter
+description: Get how many outages are in your county
 ha_release: 2022.4
-ha_category: Sensor
-ha_iot_class: "Cloud Polling"
-ha_quality_scale: platinum
+ha_category:
+  - Sensor
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@IceBotYT'
 ha_domain: peco
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 PECO is a public utility company that provides electricity to the Philadelphia metro.

@@ -10,6 +10,7 @@ ha_domain: lifx
 ha_homekit: true
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.

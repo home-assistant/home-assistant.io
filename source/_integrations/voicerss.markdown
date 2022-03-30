@@ -8,6 +8,7 @@ ha_release: 0.35
 ha_domain: voicerss
 ha_platforms:
   - tts
+ha_integration_type: integration
 ---
 
 The `voicerss` text-to-speech platform uses [VoiceRSS](http://www.voicerss.org/) Text-to-Speech engine to read a text with natural sounding voices.

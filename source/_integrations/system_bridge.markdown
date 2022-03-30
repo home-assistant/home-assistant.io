@@ -15,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 [System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API as well as allowing commands to be sent to the device.

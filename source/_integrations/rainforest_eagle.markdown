@@ -15,6 +15,7 @@ ha_platforms:
   - sensor
 ha_config_flow: true
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 Integrate energy usage and price from the Rainforest Automation's [Eagle-200](https://rainforestautomation.com/rfa-z114-eagle-200/)

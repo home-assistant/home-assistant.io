@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: uscis
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `uscis` sensor integration allows you get updates on your USCIS case using your case/receipt number. The sensor gets the case information from the [USCIS Website](https://egov.uscis.gov/casestatus/landing.do).

@@ -14,6 +14,7 @@ ha_config_flow: true
 ha_platforms:
   - media_player
   - remote
+ha_integration_type: integration
 ---
 
 The `braviatv` platform allows you to control a [Sony Bravia TV](https://www.sony.com/).

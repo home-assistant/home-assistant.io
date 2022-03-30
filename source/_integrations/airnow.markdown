@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: airnow
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `airnow` integration uses the [AirNow](https://www.airnow.gov/) web service

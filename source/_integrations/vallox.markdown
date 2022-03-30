@@ -16,6 +16,7 @@ ha_codeowners:
   - '@andre-richter'
   - '@slovdahl'
   - '@viiru-'
+ha_integration_type: integration
 ---
 
 The `vallox` integration lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).

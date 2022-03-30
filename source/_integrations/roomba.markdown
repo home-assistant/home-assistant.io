@@ -17,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - vacuum
+ha_integration_type: integration
 ---
 
 The `roomba` integration allows you to control your [iRobot Roomba](https://www.irobot.com/roomba) vacuum or [iRobot Braava](https://www.irobot.com/braava) m-series mop.

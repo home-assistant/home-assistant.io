@@ -15,6 +15,7 @@ ha_platforms:
   - cover
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Somfy integration will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis).

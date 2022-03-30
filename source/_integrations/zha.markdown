@@ -2,20 +2,20 @@
 title: Zigbee Home Automation
 description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
   - Button
   - Climate
+  - Cover
   - Fan
+  - Hub
   - Light
   - Lock
+  - Number
   - Select
   - Sensor
   - Siren
   - Switch
-  - Cover
-  - Number
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
@@ -35,11 +35,12 @@ ha_platforms:
   - light
   - lock
   - number
-  - sensor
   - select
+  - sensor
   - siren
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://zigbeealliance.org) directly to Home Assistant, using one of the many available Zigbee coordinators.

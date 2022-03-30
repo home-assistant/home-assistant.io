@@ -2,13 +2,13 @@
 title: BMW Connected Drive
 description: Instructions on how to setup your BMW Connected Drive account with Home Assistant.
 ha_category:
-  - Car
   - Binary Sensor
   - Button
-  - Presence Detection
+  - Car
   - Lock
-  - Sensor
   - Notifications
+  - Presence Detection
+  - Sensor
 ha_release: 0.64
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -23,6 +23,7 @@ ha_platforms:
   - lock
   - notify
   - sensor
+ha_integration_type: integration
 ---
 
 The `bmw_connected_drive` integration lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account and a Connected Drive enabled vehicle for this to work.

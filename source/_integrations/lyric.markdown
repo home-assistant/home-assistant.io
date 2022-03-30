@@ -15,6 +15,7 @@ ha_platforms:
   - climate
   - sensor
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The Honeywell Lyric integration integrates the Lyric thermostat platform into Home Assistant.

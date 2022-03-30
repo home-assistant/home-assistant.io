@@ -3,8 +3,8 @@ title: Atag
 description: Instructions on how to setup Atag integration.
 ha_category:
   - Climate
-  - Water Heater
   - Sensor
+  - Water Heater
 ha_release: 0.109
 ha_iot_class: Local Polling
 ha_domain: atag
@@ -15,6 +15,7 @@ ha_platforms:
   - climate
   - sensor
   - water_heater
+ha_integration_type: integration
 ---
 
 The `Atag` integration allows Home Assistant to connect to [Atag One](https://atag-one.com) thermostats, reporting and setting its status.

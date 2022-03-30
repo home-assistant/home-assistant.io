@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: eq3btsmart
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 The `eq3btsmart` climate platform allows you to integrate EQ3 Bluetooth Smart Thermostats.

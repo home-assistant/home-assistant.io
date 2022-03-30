@@ -2,9 +2,10 @@
 title: Integration - Riemann sum integral
 description: Instructions on how to integrate Integration Sensor into Home Assistant.
 ha_category:
-  - Utility
   - Energy
+  - Helper
   - Sensor
+  - Utility
 ha_release: 0.87
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -14,6 +15,7 @@ ha_domain: integration
 ha_config_flow: true
 ha_platforms:
   - sensor
+ha_integration_type: helper
 ---
 
 This integrations provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum)

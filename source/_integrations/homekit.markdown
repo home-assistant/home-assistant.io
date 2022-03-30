@@ -13,6 +13,7 @@ ha_codeowners:
 ha_zeroconf: true
 ha_platforms:
   - diagnostics
+ha_integration_type: integration
 ---
 
 The HomeKit integration allows you to make your Home Assistant entities available in Apple HomeKit,

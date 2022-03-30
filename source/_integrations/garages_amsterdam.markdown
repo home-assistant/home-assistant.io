@@ -2,8 +2,8 @@
 title: Garages Amsterdam
 description: Instructions on how to integrate Garages Amsterdam within Home Assistant.
 ha_category:
-  - Sensor
   - Binary Sensor
+  - Sensor
 ha_release: 2021.6
 ha_codeowners:
   - '@klaasnicolaas'
@@ -13,6 +13,7 @@ ha_domain: garages_amsterdam
 ha_platforms:
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 The Garages Amsterdam integration uses an API provided by the municipality of Amsterdam, to measure the occupancy of Amsterdam parking garages in the Netherlands. You can track multiple garages by adding the integration multiple times.

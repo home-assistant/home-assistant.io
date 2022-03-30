@@ -1,7 +1,8 @@
 ---
 title: Google Cloud Platform
 description: Google Cloud Platform integration.
-ha_category: Text-to-speech
+ha_category:
+  - Text-to-speech
 ha_release: 0.95
 ha_iot_class: Cloud Push
 ha_codeowners:
@@ -9,6 +10,7 @@ ha_codeowners:
 ha_domain: google_cloud
 ha_platforms:
   - tts
+ha_integration_type: integration
 ---
 
 The `google_cloud` platform allows you to use [Google Cloud Platform](https://cloud.google.com/) API and integrate them into Home Assistant.

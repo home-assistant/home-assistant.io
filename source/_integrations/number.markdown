@@ -9,6 +9,7 @@ ha_domain: number
 ha_codeowners:
   - '@home-assistant/core'
   - '@Shulyaka'
+ha_integration_type: integration
 ---
 
 Keeps track on `number` entities in your environment, their state, and allows you to control them. This integration allows other integrations to get a value input from user within a range.

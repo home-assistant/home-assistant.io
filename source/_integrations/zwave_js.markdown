@@ -26,18 +26,19 @@ ha_domain: zwave_js
 ha_platforms:
   - binary_sensor
   - button
-  - diagnostics
   - climate
   - cover
+  - diagnostics
   - fan
   - humidifier
   - light
   - lock
   - number
-  - sensor
   - select
+  - sensor
   - siren
   - switch
+ha_integration_type: integration
 ---
 
 This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're migrating from the deprecated `zwave`, see [our migration instructions](#migrating-from-previous-z-wave-implementations).

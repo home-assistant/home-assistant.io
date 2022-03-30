@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: aquostv
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `aquostv` platform allows you to control a [Sharp Aquos TV](http://www.sharp-world.com/aquos/en/index.html).
