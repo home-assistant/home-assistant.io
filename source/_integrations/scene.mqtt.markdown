@@ -94,7 +94,6 @@ payload_on:
   description: The payload that will be sent to `command_topic` when activating the MQTT scene.
   required: false
   type: string
-  default: "ON"
 qos:
   description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
   required: false
