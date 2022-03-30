@@ -31,7 +31,8 @@ In the configuration use the probability of the observation (the sensor state in
    - `prob_given_true:` - Select the sensor in question over a time range when you think the `bayesian` sensor should have been `true`. `prob_given_true:` is the fraction of the time the sensor was in `to_state:`. 
    - `prob_given_false:` - Select the sensor in question over a time range when you think the `bayesian` sensor should have been `false`. `prob_given_false:` is the fraction of the time the sensor was in `to_state:`. 
 5. Define `prob_given_false:` where you can, this will force you to think.
-6. If your Bayesian sensor ends up triggering `on` too easily, re-check that the probabilities set and estimated make sense, then consider increasing `probability_threshold:` and vice-versa.
+6. Don't work backwards by tweaking `prob_given_true:` and `prob_given_false:` to give the results and behaviours you want, use #4 to try and get probabilities as close to the 'truth' as you can, if your behaviour is not as expected consider adding more sensors or see #7.
+7. If your Bayesian sensor ends up triggering `on` too easily, re-check that the probabilities set and estimated make sense, then consider increasing `probability_threshold:` and vice-versa.
 
 ## Configuration
 
@@ -125,13 +126,13 @@ binary_sensor:
       to_state: "off"
     - platform: "state"
       entity_id: "sensor.basement_motion"
-      prob_given_true: 0.5 # My sensor history shows, when I am asleep, my basement motion sensor is active about half the time because of my cat
-      prob_given_false: 0.3 # As above but my cat tends to spend more time upstairs or outside
+      prob_given_true: 0.5 # My sensor history shows, when I am in bed, my basement motion sensor is active about half the time because of my cat
+      prob_given_false: 0.3 # As above but my cat tends to spend more time upstairs or outside when I am awake and I rarely use the basement
       to_state: "off"
     - platform: "state"
       entity_id: "sensor.bedroom_motion"
       prob_given_true: 0.5 # My sensor history shows when I am in bed the sensor picks me up about half the time
-      prob_given_false: 0.1 # My sensor history shows I spend about 10% of my waking hours in bed
+      prob_given_false: 0.1 # My sensor history shows I spend about 10% of my waking hours in my bedroom
       to_state: "on"
     - platform: "state"
       entity_id: "sun.sun"
