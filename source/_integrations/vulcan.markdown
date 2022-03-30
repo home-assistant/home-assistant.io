@@ -4,7 +4,7 @@ description: Instructions on setting up Uonet+ Vulcan within Home Assistant.
 ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
-ha_release: 2021.6
+ha_release: 2022.4
 ha_domain: vulcan
 ha_codeowners:
   - '@Antoni-Czaplicki'
