@@ -6,6 +6,7 @@ ha_category:
   - Cover
   - Fan
   - Light
+  - Lock
   - Media Player
   - Notifications
   - Organization
@@ -22,6 +23,7 @@ ha_platforms:
   - cover
   - fan
   - light
+  - lock
   - switch
   - media_player
   - notify
@@ -32,7 +34,7 @@ The group integration lets you combine multiple entities into a single entity. E
 This can be useful for cases where you want to control, for example, the
 multiple bulbs in a light fixture as a single light in Home Assistant.
 
-Home Assistant can group multiple binary sensors, covers, fans, light, media players, switches as a single entity, with the option of hiding the individual member entities.
+Home Assistant can group multiple binary sensors, covers, fans, lights, locks, media players, switches as a single entity, with the option of hiding the individual member entities.
 
 {% include integrations/config_flow.md %}
 
@@ -107,6 +109,18 @@ light:
       - light.kitchen_under_cabinet_lights
       - light.kitchen_spot_lights
       - light.pendant_lights
+```
+
+Example YAML configuration of a lock group:
+
+```yaml
+# Example configuration.yaml entry
+lock:
+  - platform: group
+    name: "House Locks"
+    entities:
+      - lock.front_door
+      - lock.back_door
 ```
 
 Example YAML configuration of a media_player group:
