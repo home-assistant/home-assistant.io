@@ -120,7 +120,7 @@ binary_sensor:
     - platform: "state"
       entity_id: "sensor.living_room_motion"
       prob_given_true: 0.05 # If I am in bed then I shouldn't be in the living room, very occasionally I have guests, however
-      prob_given_false: My sensor history shows 0.2 If I am not in bed I spend about a fifth of my time in the living room
+      prob_given_false: 0.2 # My sensor history shows If I am not in bed I spend about a fifth of my time in the living room
       to_state: "off"
     - platform: "state"
       entity_id: "sensor.basement_motion"
