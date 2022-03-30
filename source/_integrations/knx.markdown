@@ -124,9 +124,7 @@ In order to use IP Secure you will have to chose "Tunneling" -> "TCP with IP Sec
 
 You can configure the IP Secure credentials either manually or by providing a `.knxkeys` file, which you can obtain by exporting the keyring in ETS as seen in the screenshot below.
 
-<p class='img'>
-  <img src='/images/integrations/knx/export_keyring_ets.png' alt='Screenshot: Export Keyring in ETS5'>
-</p>
+![Export Keyring in ETS5](/images/integrations/knx/export_keyring_ets.png)
 
 The `.knxkeys` file has to be placed in `config/.storage/knx/yourfile.knxkeys`.
 
@@ -136,15 +134,11 @@ The user id 0 is reserved and the user id 1 is used for management tasks, thus y
 
 The following screenshot will show how you can get the device authentication password in ETS.
 
-<p class='img'>
-  <img src='/images/integrations/knx/device_authentication_password.png' alt='Screenshot: Obtain device authentication password in ETS'>
-</p>
+![Obtain device authentication password in ETS](/images/integrations/knx/device_authentication_password.png)
 
 The user password can be obtained almost the same way as seen in the below screenshot.
 
-<p class='img'>
-  <img src='/images/integrations/knx/user_password.png' alt='Screenshot: Obtain the user password in ETS'>
-</p>
+![Obtain the user password in ETS](/images/integrations/knx/user_password.png)
 
 ## Events
 
