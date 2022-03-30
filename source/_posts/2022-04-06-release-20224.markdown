@@ -1347,15 +1347,15 @@ on older Python packages we can not provide.
 
 {% details "Discord" %}
 
-The Tankerkoenig integration migrated to configuration
-via the UI. Configuring Tankerkoenig via YAML configuration
+The Discord integration migrated to configuration
+via the UI. Configuring Discord via YAML configuration
 has been deprecated and will be removed in a future Home Assistant release.
 
 Your existing YAML configuration is automatically imported on upgrade to this
 release; and thus can be safely removed from your YAML configuration
 after upgrading.
 
-([@tkdrob] - [#61069]) ([documentation](/integrations/tankerkoenig))
+([@tkdrob] - [#61069]) ([documentation](/integrations/discord))
 
 [@tkdrob]: https://github.com/tkdrob
 [#61069]: https://github.com/home-assistant/core/pull/61069
