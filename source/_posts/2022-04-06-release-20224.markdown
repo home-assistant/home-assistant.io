@@ -124,7 +124,7 @@ useful for cases where you want to control, for example,
 the multiple bulbs in a light fixture as a single light in Home Assistant.
 
 Using groups, is a very common use case, but, until now, an advanced use case
-as it groups where only available for YAML configuration. As of today, groups
+as groups were only available for YAML configuration. As of today, groups
 have been added to the UI!
 
 You can group multiple binary sensors, covers, fans, lights, media players; and
