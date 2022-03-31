@@ -739,7 +739,8 @@ The select selector shows a list of available options from which the user can ch
 
 ![Screenshot of a select selector](/images/blueprints/selector-select.png)
 
-The selector requires a list of options that the user can choose from.
+When `custom_value` (which adds support for users to enter custom values) is `false`,
+the selector requires a list of options that the user can choose from.
 
 ```yaml
 select:
@@ -752,9 +753,10 @@ select:
 {% configuration select %}
 options:
   description: > 
-    List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used.
+    List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used. Required when `custom_value`
+    is `false`.
   type: list
-  required: true
+  required: false
 multiple:
   description: >
     Allows selecting multiple options. If set to `true`, the resulting value of
@@ -765,15 +767,17 @@ multiple:
 custom_value:
   description: >
     Allows the user to enter and select a custom value (or multiple custom values
-    in addition to the listed options if `multiple` is set to true).
+    in addition to the listed options if `multiple` is set to `true`).
   type: boolean
   required: false
   default: false
 mode:
   description: >
-    This can be either `list` or `dropdown` mode. When not specified, the frontend
-    decides what input type to use. If `custom_value` is true, this setting will be
-    ignored and the frontend will use a `dropdown` input.
+    This can be either `list` (radio button) or `dropdown` (combobox) mode.
+    When not specified, small lists (5 items or less), are displayed as
+    radio buttons. When more items are added, a dropdown list is used. If
+    `custom_value` is `true`, this setting will be ignored and the frontend
+    will use a `dropdown` input.
   type: string
   required: false
 {% endconfiguration %}
@@ -795,9 +799,10 @@ select:
 {% configuration select_map %}
 options:
   description: > 
-    List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used.
+    List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used. Required when `custom_value`
+    is `false`.
   type: map
-  required: true
+  required: false
   keys:
     label:
       description: The description to show in the UI for this item.
@@ -809,11 +814,11 @@ options:
       type: string
 {% endconfiguration %}
 
-When `multiple` is false, the output of this selector is the string of
+When `multiple` is `false`, the output of this selector is the string of
 the selected option value. When selecting `Green` in the last example,
 it returns: `g`, in the first example it would return `Green`.
 
-When `multiple` is true, the output of this selector is the list of selected
+When `multiple` is `true`, the output of this selector is the list of selected
 option values. In this case, if `Green` was selected, in the first example it
 would return ["Green"] and in the last example it returns ["g"].
 
