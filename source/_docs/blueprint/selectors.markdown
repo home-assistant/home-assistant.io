@@ -770,10 +770,11 @@ custom_value:
   required: false
   default: false
 mode:
-  description: This can be either `list` or `dropdown` mode.
+  description: >
+    This can be either `list` or `dropdown` mode. When not specified, the frontend
+    decides what input type to use.
   type: string
   required: false
-  default: The frontend decides.
 {% endconfiguration %}
 
 Alternatively, a mapping can be used for the options. When you want to return
