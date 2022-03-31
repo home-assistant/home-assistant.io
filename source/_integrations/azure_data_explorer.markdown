@@ -24,7 +24,7 @@ For Home Assistant to authenticate with Azure Data Explorer, it need a **Service
     * Directory (tenant) ID    <--From App registration owerwiev
     * Secret value             <--From when the secret was created in 1.7
 
-## Create Azure Dataexplorer cluster and Database
+## Create Free Azure Dataexplorer cluster and Database
 There are two ways of creating an Azure Data Explorer Cluster: **Pay as you go (PAYG)** or **Free**
 to create a paid cluster follow instructions from here: [Microsoft quickstart](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal)
 However Microsoft has released a free offer and this guide describes how to set up a free Azure Data Explorer Cluster and database:
