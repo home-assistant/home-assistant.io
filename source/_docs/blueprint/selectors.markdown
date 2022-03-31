@@ -772,7 +772,8 @@ custom_value:
 mode:
   description: >
     This can be either `list` or `dropdown` mode. When not specified, the frontend
-    decides what input type to use.
+    decides what input type to use. If `custom_value` is true, this setting will be
+    ignored and the frontend will use a `dropdown` input.
   type: string
   required: false
 {% endconfiguration %}
