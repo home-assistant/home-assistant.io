@@ -752,9 +752,7 @@ select:
 {% configuration select %}
 options:
   description: > 
-    List of options that the user can choose from. Small lists (5 items or less),
-    are displayed as radio buttons. When more items are added, a dropdown list
-    is used.
+    List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used.
   type: list
   required: true
 multiple:
@@ -799,9 +797,7 @@ select:
 {% configuration select_map %}
 options:
   description: > 
-    List of options that the user can choose from. Small lists (5 items or less),
-    are displayed as radio buttons. When more items are added, a dropdown list
-    is used.
+    List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used.
   type: map
   required: true
   keys:
