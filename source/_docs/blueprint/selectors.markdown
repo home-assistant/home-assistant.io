@@ -739,8 +739,7 @@ The select selector shows a list of available options from which the user can ch
 
 ![Screenshot of a select selector](/images/blueprints/selector-select.png)
 
-When `custom_value` (which adds support for users to enter custom values) is `false`,
-the selector requires a list of options that the user can choose from.
+When `custom_value` (which adds support for users to enter custom values) is `false`, the selector requires a list of options that the user can choose from.
 
 ```yaml
 select:
@@ -753,8 +752,9 @@ select:
 {% configuration select %}
 options:
   description: > 
-    List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used. Required when `custom_value`
-    is `false`.
+    List of options that the user can choose from. Small lists (5 items or less),
+    are displayed as radio buttons. When more items are added, a dropdown list
+    is used. Required when `custom_value` is `false`.
   type: list
   required: false
 multiple:
@@ -799,8 +799,9 @@ select:
 {% configuration select_map %}
 options:
   description: > 
-    List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used. Required when `custom_value`
-    is `false`.
+    List of options that the user can choose from. Small lists (5 items or less),
+    are displayed as radio buttons. When more items are added, a dropdown list
+    is used. Required when `custom_value` is `false`.
   type: map
   required: false
   keys:
