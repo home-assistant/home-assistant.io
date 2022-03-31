@@ -467,6 +467,7 @@
 /integrations/sensehat /more-info/removed-integration 301
 /integrations/sht31 /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
+/integrations/smarthab /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /integrations/srp_energy /more-info/removed-integration 301
@@ -479,6 +480,7 @@
 /integrations/trackr /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
+/integrations/updater /more-info/removed-integration 301
 /integrations/ups /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
@@ -488,4 +490,3 @@
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
 /components/zwave /integrations/zwave_js
-/integrations/smarthab /more-info/removed-integration 301
