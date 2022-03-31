@@ -773,7 +773,7 @@ custom_value:
   default: false
 mode:
   description: >
-    This can be either `list` (radio button) or `dropdown` (combobox) mode.
+    This can be either `list` (radio buttons) or `dropdown` (combobox) mode.
     When not specified, small lists (5 items or less), are displayed as
     radio buttons. When more items are added, a dropdown list is used. If
     `custom_value` is `true`, this setting will be ignored and the frontend
