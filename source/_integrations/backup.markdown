@@ -12,7 +12,7 @@ The Backup integration allow you to create and download backups for your Home As
 
 <div class="note">
 
-If you use Home Assistant Operating System or Home Assistant Supervised, [back up functionality is already built-in]](/common-tasks/os/#backups).
+If you use Home Assistant Operating System or Home Assistant Supervised, [back up functionality is already built-in](/common-tasks/os/#backups).
 
 </div>
 
