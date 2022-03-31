@@ -25,7 +25,7 @@ Assuming the [`recorder`](/integrations/recorder/) integration is running, histo
 
 <div class='note tip'>
 
-The `statistics` integration is different to a [Long-term Statistics](https://developers.home-assistant.io/docs/core/entity/sensor/#long-term-statistics). More details on the differences can be found in the [2021.8.0 release notes](https://www.home-assistant.io/blog/2021/08/04/release-20218/#long-term-statistics).
+The `statistics` integration is different to a [Long-term Statistics](https://developers.home-assistant.io/docs/core/entity/sensor/#long-term-statistics). More details on the differences can be found in the [2021.8.0 release notes](/blog/2021/08/04/release-20218/#long-term-statistics).
 
 </div>
 
