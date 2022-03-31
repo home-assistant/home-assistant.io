@@ -809,11 +809,13 @@ options:
       type: string
 {% endconfiguration %}
 
-The output of this selector is the string of the selected option value.
-When selecting `Green` in the last example, it returns: `g`, in the first
-example it would return `Green`.
+When `multiple` is false, the output of this selector is the string of
+the selected option value. When selecting `Green` in the last example,
+it returns: `g`, in the first example it would return `Green`.
 
-There are additional optional 
+When `multiple` is true, the output of this selector is the list of selected
+option values. In this case, if `Green` was selected, in the first example it
+would return ["Green"] and in the last example it returns ["g"].
 
 ## Target selector
 
