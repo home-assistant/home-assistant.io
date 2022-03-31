@@ -40,7 +40,7 @@ initial_state:
   required: false
   type: boolean
 trace:
-  description: 
+  description: Configuration values for the traces stored, currently only `stored_traces` can be configured.
   required: false
   default: {}
   type: map
