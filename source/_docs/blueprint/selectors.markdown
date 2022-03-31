@@ -755,6 +755,25 @@ options:
     List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used.
   type: list
   required: true
+multiple:
+  description: >
+    Allows selecting multiple options. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  required: false
+  default: false
+custom_value:
+  description: >
+    Allows the user to enter and select a custom value (or multiple custom values
+    in addition to the listed options if `multiple` is set to true).
+  type: boolean
+  required: false
+  default: false
+mode:
+  description: This can be either `list` or `dropdown` mode.
+  type: string
+  required: false
+  default: The frontend decides.
 {% endconfiguration %}
 
 Alternatively, a mapping can be used for the options. When you want to return
@@ -791,6 +810,8 @@ options:
 The output of this selector is the string of the selected option value.
 When selecting `Green` in the last example, it returns: `g`, in the first
 example it would return `Green`.
+
+There are additional optional 
 
 ## Target selector
 
