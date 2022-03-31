@@ -567,7 +567,7 @@ template:
 
 ### Self referencing
 
-This example demonstrates how the `this` varibale can be used in templates for self referencing.
+This example demonstrates how the `this` variable can be used in templates for self-referencing.
 
 {% raw %}
 
