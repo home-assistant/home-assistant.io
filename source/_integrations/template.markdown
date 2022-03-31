@@ -67,6 +67,10 @@ template:
 
 {% endraw %}
 
+### Template variables
+
+State-based template sensors have the special template variable `this` available in their teemplates. The `this` variable aids [self-referencing](#self_referencing) of an entity's state and attribute in templates.
+
 ## Trigger-based template sensors
 
 If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#storing-webhook-information)), or update entities based on a schedule.
@@ -557,6 +561,24 @@ template:
           {% else %}
             mdi:weather-sunset-down
           {% endif %}
+```
+
+{% endraw %}
+
+### Self referencing
+
+This example demonstrates how the `this` varibale can be used in templates for self referencing.
+
+{% raw %}
+
+```yaml
+template:
+  - sensor:
+      - name: test
+        state: "{{ this.attributes.test }}"
+        # not: "{{ state_attr('sensor.test', 'test' }}"
+        attributes:
+          test: "{{ now() }}"
 ```
 
 {% endraw %}
