@@ -49,7 +49,7 @@ information on the update state:
 - `title`: The title/name of the available software or firmware. As the device
   name or entity name can be changed in Home Assistant, this title will provide
   the actual name of the software or firmware.
-- `current_version`: The current version that is currently installed and in use.
+- `installed_version`: The current version that is currently installed and in use.
 - `latest_version`: The latest version that is available for installation.
 - `skipped_version`: If a version update is skipped, this attribute will be set
   and contains the actual version that was skipped.
