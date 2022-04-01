@@ -250,6 +250,15 @@ To cast media directly from a configured Plex server, set the fields [as documen
 
 This app doesn't retrieve its own metadata, so if you want the cast interface or media player card to show titles and/or images you will have to provide the data yourself. See the examples below.
 
+Note: Media ID is NOT the 8 digit alphanumeric in the URL, it can be found by right-clicking the playing audio clip. E.g., [this episode](https://www.bbc.co.uk/sounds/play/m0015vch) shows:
+
+|     |     |
+| --- | --- |
+| 96kbps | dash (mf_akamai_nonbidi_dash_http) |
+| m0015vcg |  |
+
+With m0015vcg being the `media_id`
+
 #### Media parameters
 
 Mandatory:
