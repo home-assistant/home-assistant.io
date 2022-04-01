@@ -30,7 +30,7 @@ Name:
 Input entities:
   description: At least two entities to monitor. All entities must use the same unit of measurement.
 Type:
-  description: The type of the sensor, this can be either "last", "max", "mean", "mean", or "median".
+  description: The type of the sensor, this can be either "min", "max", "last", "mean", or "median".
 Precision:
   description: Round the calculated mean or median value to at most N decimal places.
 {% endconfiguration_basic %}
