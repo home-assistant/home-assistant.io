@@ -21,6 +21,7 @@ ha_ssdp: true
 
 This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device and control the NETGEAR device.
 Both routers and access points can be used with this integration. Some access points will not be automatically discovered and need to be set up manually.
+Attaced devices schould only be tracked on the main router, otherwise duplicate entities will occur. Select the "Do not track devices" option for additional acces points.
 
 {% include integrations/config_flow.md %}
 
@@ -28,6 +29,8 @@ Both routers and access points can be used with this integration. Some access po
 {% configuration_basic %}
 Consider_home:
   description: "The consider home time is the number of seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. This option helps prevent false alarms in presence detection."
+Do not track devices:
+  description: "Do not track attached devices for this acces point, this option schould be selected for all additional acces points besides the main router to prevent duplicate entities."
 {% endconfiguration_basic %}
 
 ## Router entities
