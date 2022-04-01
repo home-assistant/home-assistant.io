@@ -11,9 +11,11 @@ ha_domain: advantage_air
 ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - climate
   - cover
   - sensor
+  - select
   - switch
 ---
 
@@ -51,6 +53,10 @@ The `advantage_air` binary sensor platform will create a binary sensor for each 
 ### Switch
 
 The `advantage_air` switch platform will create a switch entity to toggle fresh air mode, if it is supported.
+
+### Select
+
+The `advantage_air` select platform allows you to change the zone used for the "MyZone" feature.
 
 ## Services
 

@@ -1,7 +1,6 @@
 ---
 title: LaMetric
 description: Instructions on how to integrate LaMetric with Home Assistant.
-logo: lametric.png
 ha_category:
   - Hub
   - Notifications
@@ -9,6 +8,7 @@ ha_iot_class: Cloud Push
 ha_release: 0.49
 ha_codeowners:
   - '@robbiet480'
+  - '@frenck'
 ha_domain: lametric
 ha_platforms:
   - notify

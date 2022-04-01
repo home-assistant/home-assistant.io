@@ -47,4 +47,4 @@ Transfer playback from one player to another.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | id of the source player.
-| `transfer_name` | no | id of the destination player.
+| `transfer_id` | no | id of the destination player.

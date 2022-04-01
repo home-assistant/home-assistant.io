@@ -43,7 +43,7 @@ country:
   required: true
   type: string
 province:
-  description: Province/State code according to [holidays](https://pypi.org/project/holidays/) notation.
+  description: Subdivision code according to [holidays](https://pypi.org/project/holidays/) notation.
   required: false
   type: string
 workdays:
@@ -87,8 +87,7 @@ One other thing to watch is how the `holiday` keyword is used. Your first instin
 
 ## Full examples
 
-This example excludes Saturdays, Sundays but not a holiday. Two custom holidays are added.
-Even though `sat` and `sun` was not included in `workdays` and in theory, it would not need to be excluded, but because we do not what holidays excluded, we add them so exclude would not default and skip the holidays. Therefore as the note above, 2/17/2020 in the US would still be a workday.
+This example excludes Saturdays and Sundays but not holidays. Two custom holidays are added.
 
 ```yaml
 # Example 1 configuration.yaml entry
@@ -97,9 +96,12 @@ binary_sensor:
     country: US
     workdays: [mon, tue, wed, thu, fri]
     excludes: [sat, sun]
+    add_holidays:
+      - "2020-02-24"
+      - "2020-04-25"
 ```
 
-This example excludes Saturdays, Sundays and holidays. Two custom holidays are added.
+This example excludes Saturdays, Sundays and holidays. One custom holiday is added.
 The date February 24th, 2020 is a Monday but will be excluded because it was added to the `add_holidays` configuration.
 
 ```yaml

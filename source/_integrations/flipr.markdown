@@ -9,6 +9,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@cnico'
 ha_domain: flipr
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 [Flipr](https://www.goflipr.com) is a smart pool monitor that publishes data to the cloud via SigFox.
@@ -42,6 +45,6 @@ It is recommended that you create your own card with the following sensors where
 - `sensor.flipr_[fliprid]_ph`
 - `sensor.flipr_[fliprid]_red_ox`
 - `sensor.flipr_[fliprid]_water_temp`
-- `sensor.flipr_[fliprid]_date_measure`
+- `sensor.flipr_[fliprid]_last_measured`
 
 Leave `binary_sensor.flipr_[fliprid]_ph_status` and `binary_sensor.flipr_[fliprid]_chlorine_status` as badges.

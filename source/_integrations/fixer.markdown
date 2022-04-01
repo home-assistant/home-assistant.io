@@ -18,7 +18,7 @@ To get an overview about the available [currencies](https://fixer.io/symbols).
 
 ## Setup
 
-You need to create an [API key](https://fixer.io/product). There is a rate limit of 1000 calls per month.
+You need to create an [API key](https://fixer.io/product). The free account is limited to only EUR as a base currency, allows 250 requests per month, and updates every hour.
 
 ## Configuration
 

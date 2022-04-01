@@ -1,7 +1,6 @@
 ---
 title: Home Connect
 description: Instructions on how to set up the Home Connect integration within Home Assistant.
-logo: homeconnect.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -41,8 +40,8 @@ Note that it depends on the appliance and on API permissions which of the featur
 
 - Application ID: Home Assistant (or whatever name makes sense to you)
 - OAuth Flow: Authorization Code Grant Flow
-- Redirect URI: "`<INTERNAL_HOME_ASSISTANT_URL>/auth/external/callback`
-  Use your internal Home Assistant URL, if you didn't configure one manually, use your local IP address. Examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`."
+- Redirect URI: "`<HOME_ASSISTANT_URL>/auth/external/callback`
+  The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration / authentication process. Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
 
 Next, add the following to your `configuration.yaml` file:
 

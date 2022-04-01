@@ -11,10 +11,12 @@ ha_codeowners:
   - '@bramkragten'
   - '@bdraco'
   - '@mkeesey'
+  - '@Aohzan'
 ha_domain: harmony
 ha_ssdp: true
 ha_platforms:
   - remote
+  - select
   - switch
 ---
 
@@ -30,7 +32,9 @@ Supported units:
 
 {% include integrations/config_flow.md %}
 
-Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Configuration** >> **Integrations** >> **Your Logitech Harmony Hub**
+**Note:** Depending on the firmware, you may need to enable XMPP for this integration to work. From your Harmony app, go to: **Menu** > **Harmony Setup** > **Add/Edit Devices & Activities** > **Remote & Hub** > **Enable XMPP**.
+
+Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Configuration** >> **Devices & Services** >> **Your Logitech Harmony Hub**
 
 ### Configuration file
 
@@ -183,15 +187,14 @@ Template sensors can be utilized to display current activity in the frontend.
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: template
-    sensors:
-      family_room:
-        value_template: '{{ state_attr("remote.family_room", "current_activity") }}'
-        friendly_name: "Family Room"
-      bedroom:
-        value_template: '{{ state_attr("remote.bedroom", "current_activity") }}'
-        friendly_name: "bedroom"
+template:
+  - sensor:
+    - name: 'Family Room Harmony Remote'
+      state: >
+        {{ state_attr('remote.family_room', 'current_activity') }}
+    - name: 'Bedroom Harmony Remote'
+      state: >
+        {{ state_attr('remote.bedroom', 'current_activity') }}
 ```
 
 {% endraw %}

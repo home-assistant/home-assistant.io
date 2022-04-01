@@ -27,9 +27,18 @@ scene:
         state: "on"
 ```
 
+## How to configure your scene
+
+In the scene you define in your YAML files, please ensure you use
+all required parameters as listed below.
+
 {% configuration %}
-name:
-  description: Friendly name of scene.
+name: 
+  description: Friendly name of the scene.
+  required: true
+  type: string
+description:
+  description: Description of the scene.
   required: true
   type: string
 entities:

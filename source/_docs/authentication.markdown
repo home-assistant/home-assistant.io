@@ -20,6 +20,10 @@ When you start Home Assistant for the first time the _owner_ user account is cre
 For the moment, other user accounts will have the same access as the owner account. In the future, non-owner accounts will be able to have restrictions applied.
 </div>
 
+<div class="note">
+If you want to manage users and you're an owner but you do not see "Users" in your main configuration menu, make sure that "Advanced Mode" is enabled for your user in your profile. 
+</div>
+
 ### Your Account Profile
 
 Once you're logged in, you can see the details of your account at the _Profile_ page by clicking on the circular at the very bottom of the sidebar. 

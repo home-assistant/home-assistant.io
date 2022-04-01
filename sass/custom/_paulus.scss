@@ -79,6 +79,10 @@ $primary-color: #049cdb;
     display: inline-block;
     font-weight: 500;
   }
+
+  img {
+    display: block;
+  }
 }
 
 .material-card {
@@ -236,14 +240,28 @@ $primary-color: #049cdb;
     }
   }
 
+  .sponsors-and-press {
+    margin-top:24px;
+  }
+  
+  .sponsored-by {
+    img {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 15px;
+      max-width: 40%;
+      max-height: 80px;
+    }    
+
+  }
+  
   .seen-press {
-    margin-top: 24px;
 
     img {
       border: 0;
       box-shadow: none;
       margin: 15px;
-      width: 100%;
       max-width: 40%;
       max-height: 70px;
     }
@@ -273,7 +291,7 @@ dt:hover a.title-link {
     position: absolute;
     top: 5px;
     left: -25px;
-    padding-right: 5px;
+    padding-right: 10px;
     padding-left: 5px;
     font-family: "FontAwesome";
     font-size: 15px;

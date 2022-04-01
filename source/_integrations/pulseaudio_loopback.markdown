@@ -54,6 +54,6 @@ port:
 
 <div class='note warning'>
 
-This integration relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with this component, `module-native-protocol` must be loaded on the PulseAudio server.
+This integration relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with this component, `module-native-protocol-tcp auth-ip-acl=<homeassistant ip>` must be loaded on the PulseAudio server.
 
 </div>

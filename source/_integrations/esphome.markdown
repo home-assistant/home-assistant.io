@@ -15,12 +15,16 @@ ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - camera
+  - button
+  - diagnostics
   - climate
   - cover
   - fan
   - light
+  - lock
   - number
   - sensor
+  - select
   - switch
 ---
 

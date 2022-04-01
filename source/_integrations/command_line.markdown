@@ -72,7 +72,23 @@ command_timeout:
   required: false
   type: integer
   default: 15
+unique_id:
+  description: An ID that uniquely identifies this binary sensor. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 {% endconfiguration %}
+
+## Execution
+
+The `command` is executed within the [configuration directory](/docs/configuration/).
+
+<div class='note'>
+
+If you are using [Home Assistant Operating System](https://github.com/home-assistant/operating-system), the commands are executed in the `homeassistant` container context. So if you test or debug your script, it might make sense to do this in the context of this container to get the same runtime environment.
+
+</div>
+
+With a `0` exit code, the output (stdout) of the command is used as `value`. In case a command results in a non `0` exit code or is terminated by the `command_timeout`, the result is only logged to Home Assistant log and the sensors value is not updated.
 
 ## Examples
 
@@ -119,7 +135,7 @@ binary_sensor:
     payload_off: "fail"
 ```
 
-Consider to use the [`ping` sensor ](/integrations/ping#binary-sensor) as an alternative to the samples above.
+Consider to use the [ping sensor](/integrations/ping#binary-sensor) as an alternative to the samples above.
 
 ### Check if a system service is running
 

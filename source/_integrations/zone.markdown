@@ -71,7 +71,7 @@ To find the latitude/longitude of a certain place you can use [Google Maps](http
 
 ## Home zone
 
-If no configuration is given, the `zone` integration will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration and name it **'Home'**.
+If no configuration is given, the `zone` integration will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration in `configuration.yaml` (see above) and name it **'Home'**. Overriding the Home zone via the UI is not supported.
 
 <div class='note'>
 
@@ -85,4 +85,9 @@ It is preferred to pick an icon to use for your zone. Pick any icon that you can
 
 ## State
 
-`zoning` is the state a `zone` has when it is configured. A `zone` doesn't have another state; all configured zones are `zoning` all the time.
+The state of a zone is a number, which represends the number of
+{% my people title="persons" %} that are currently in a zone.
+
+The number of persons in a zone can be helpful for automations, for example,
+to determine if someone is home, or home alone, or no-one is at home at all.
+The same applies to all other zones.

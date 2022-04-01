@@ -53,15 +53,17 @@ binary_sensor.home_line_crossing_2
 This platform should work with all Hikvision cameras and nvrs,
 and has been confirmed to work with the following models:
 
-- DS-2CD3132-I
-- DS-2CD2232-I5
 - DS-2CD2032-I
 - DS-2CD2042WD-I
 - DS-2CD2142FWD-I
 - DS-2CD2155FWD-IS
+- DS-2CD2232-I5
 - DS-2CD2385G1
-- IPC-D140H(-M)
+- DS-2CD2387G2-LU
+- DS-2CD3132-I
 - DS-7616NI-K2 (NVR)
+- ERI-K104-PR (NVR)
+- IPC-D140H(-M)
 
 This platform also was confirmed to work with the following Hikvison-based NVRS
 
@@ -154,6 +156,12 @@ Supported sensor/event types are:
 - PIR Alarm
 - Face Detection
 - Scene Change Detection
+- I/O
+- Unattended Baggage
+- Attended Baggage
+- Recording Failure
+- Exiting Region
+- Entering Region
 
 ## Examples
 

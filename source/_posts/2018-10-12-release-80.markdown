@@ -15,8 +15,8 @@ October 12, 2018. 12 days into Hacktoberfest and it's been busier than ever on t
 
 Alright, new release, we got some cool stuff! Let's start with our [Lovelace UI](/lovelace). We have integrated into Lovelace UI some of the custom cards that our amazing community have built, making them easily accessible to all users. The cards are [Gauge][ll-gauge] and [Sensor][ll-sensor]:
 
-[ll-gauge]: /lovelace/gauge/
-[ll-sensor]: /lovelace/sensor/
+[ll-gauge]: /dashboards/gauge/
+[ll-sensor]: /dashboards/sensor/
 
 <img src='/images/blog/2018-10-release-80/lovelace-glance-sensor.png' alt='Screenshot of new Gauge and Sensor cards' style='border: 0;box-shadow: none;'>
 

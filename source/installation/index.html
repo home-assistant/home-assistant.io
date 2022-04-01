@@ -18,7 +18,7 @@ toc: true
     </p>
     <ul>
         <li><b>Home Assistant Operating System</b>: Minimal Operating System optimized to power Home Assistant.
-        It comes with Supervisor to manage Home Assistant Core and pre-installed add-ons. Recommended installation method.</li>
+        It comes with Supervisor to manage Home Assistant Core and Add-ons. Recommended installation method.</li>
         <li><b>Home Assistant Container</b>: Standalone container-based installation of Home Assistant Core (e.g. Docker).</li>
     </ul>
     <p>There are two alternative installation methods available for experienced users:</p>
@@ -204,7 +204,7 @@ toc: true
         <td>✅</td><td>✅</td><td>✅</td><td>✅</td>
     </tr>
     <tr>
-        <td><a href="/lovelace" target="_blank">Lovelace</a></td>
+        <td><a href="/dashboards" target="_blank">Dashboards</a></td>
         <td>✅</td><td>✅</td><td>✅</td><td>✅</td>
     </tr>
     <tr>
@@ -220,21 +220,23 @@ toc: true
         <td>✅</td><td>✅</td><td>❌</td><td>✅</td>
     </tr>
     <tr>
-        <td>Supervisor</td>
+        <td><a href="/docs/glossary/#home-assistant-supervisor" target="_blank">Supervisor</a></td>
         <td>✅</td><td>❌</td><td>❌</td><td>✅</td>
     </tr>
     <tr>
-        <td>Add-ons</td>
+        <td><a href="/addons" target="_blank">Add-ons<a></td>
         <td>✅</td><td>❌</td><td>❌</td><td>✅</td>
     </tr>
     <tr>
-        <td>Snapshots</td>
-        <td>✅</td><td>❌</td><td>❌</td><td>✅</td>
+        <td><a href="/common-tasks/os/#backups" target="_blank">Backups</a></td>
+        <td>✅</td><td>✅<sup>1</sup></td><td>✅<sup>1</sup></td><td>✅</td>
     </tr>
     <tr>
         <td>Managed OS</td>
         <td>✅</td><td>❌</td><td>❌</td><td>❌</td>
     </tr>
 </table>
+
+<sub>1: Backups for Home Assistant Core and Home Assistant Container is provided by the <a href="/integrations/backup" target="_blank"><code>backup</code> integration</a>.</sub>
 
 {% include getting-started/next_step.html step="onboarding" link="/getting-started/onboarding" %}

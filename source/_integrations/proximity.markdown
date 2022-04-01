@@ -29,7 +29,6 @@ The Proximity entity which is created has the following values:
   - `away_from`
   - `unknown`
   - `stationary`
-- `dist_to_zone`: Distance from the monitored zone (in km)
 - `unit_of_measurement`: Measurement of distance. Values are:
   - `km`
   - `m`

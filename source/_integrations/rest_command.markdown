@@ -40,7 +40,7 @@ service_name:
     headers:
       description: The headers for the requests.
       required: false
-      type: list
+      type: map
     payload:
       description: A string/template to send with request.
       required: false

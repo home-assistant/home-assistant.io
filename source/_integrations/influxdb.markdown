@@ -417,13 +417,17 @@ bucket:
   default: Home Assistant
 queries:
   type: list
-  description: 1.xx only - List of InfluxQL queries.
+  description: 1.xx only - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring an InfluxQL query.
   required: true
   keys:
     name:
       type: string
       description: The name of the sensor.
       required: true
+    unique_id:
+      type: string
+      description: The unique ID for this query. This allows changing the name, icon and entity_id from the web interface.
+      required: false
     unit_of_measurement:
       type: string
       description: Defines the units of measurement of the sensor, if any.
@@ -457,13 +461,17 @@ queries:
       default: value
 queries_flux:
   type: list
-  description: 2.xx only - List of Flux queries.
+  description: 2.xx only - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring a Flux query.
   required: true
   keys:
     name:
       type: string
       description: The name of the sensor.
       required: true
+    unique_id:
+      type: string
+      description: The unique ID for this query. This allows changing the name, icon and entity_id from the web interface.
+      required: false
     unit_of_measurement:
       type: string
       description: Defines the units of measurement of the sensor, if any.
