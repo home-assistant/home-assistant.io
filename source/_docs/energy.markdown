@@ -7,6 +7,10 @@ Home Assistant allows you to get on top of your energy use with its home energy 
 
 {% my energy badge %} {% my config_energy badge %}
 
+To enable the side bar throught the yaml add
+energy:
+to the configuration.yaml file.
+
 Home energy management works with three different types of information sources. You can start using it even if you just have one source connected to Home Assistant. Every source you add will complement the other sources, giving you even more insight into energy in your home.
 
 Home Assistant is an open platform and so home energy management is not restricted to specific hardware. Any energy monitoring hardware that integrates with Home Assistant can be used as a data source. Check out the following sections for in-depth explanations and hardware recommendations.
