@@ -2,10 +2,11 @@
 title: Plugwise
 description: Plugwise Smile platform integration.
 ha_category:
+  - Binary Sensor
   - Climate
+  - Select
   - Sensor
   - Switch
-  - Water Heater
 ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:
@@ -20,6 +21,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - climate
+  - select
   - sensor
   - switch
 ---
@@ -31,8 +33,9 @@ Platforms available - depending on your Smile and setup include:
 
  - `climate` (for the Anna and Lisa products, or a single Tom)
  - `sensor` (for all relevant products including the Smile P1)
- - `binary_sensor` (for domestic hot water and secondary heater)
+ - `binary_sensor` (for e.g. domestic hot water and secondary heater)
  - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
+ - `select` (for changing the thermostat schedule)
 
 The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
 
@@ -44,9 +47,9 @@ The password can be found on the bottom of your Smile or Stretch, the ID, it sho
 
 This integration will show all Plugwise entities present in your Plugwise configuration. In addition, you will see a 'Smile' entity representing your central Plugwise gateway (i.e., the Smile, Smile P1 or Adam).
 
-For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual entities. When there are more (than one) Plugwise thermostats present, an "Auxiliary Device" will be added, representing the active heating/cooling device present in your climate system. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as switches. Various other measures of your setup will be available as sensors or binary sensors.
+For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual entities. The heating/cooling device connected to your Smile will be shown as "OpenTherm" or "OnOff", depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as switches. Various other measures of your setup will be available as sensors or binary sensors.
 
-Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Smile will be assigned to your gateway entity. Auxiliary Heater(/Cooler) measurements such as 'boiler_temperature' will be assigned to the Auxiliary entity.
+Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Smile will be assigned to your gateway entity. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff entity.
 
 ## Configuration
 
@@ -54,11 +57,13 @@ The Plugwise Smile(s) present in your network will be automatically detected via
 
 Repeat the above procedure for each Smile gateway (i.e., if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
 
-After adding the Plugwise integration(s), the default Smile-data refresh-interval can be changed by pressing the "OPTIONS" button: change the number via the up- or down-button and press "SUBMIT".
-
 <div class='note warning'>
 When you have an Anna and an Adam, make sure to only configure the Adam integration. You can press the "IGNORE" button on the Anna integration to remove this integration. In case you need to rediscover the Adam integration, make sure to click the "STOP IGNORING" button on the Plugwise integration first, available via "show ignored integrations".
 </div>
+
+For a thermostat, the active schedule can be deactivated or reactivated via the climate card. Please note, when no schedule is active, one must be activated in the Plugwise App. Once that has been done the Plugwise Integration can manage the future operations.
+Auto means the schedule is active, Heat means it's not active. The active thermostat schedule can be changed via a select-entity. Please note: only schedules that have two or more schedule-points will be shown as select-options.
+
 
 ### Services
 
@@ -76,19 +81,19 @@ script:
           entity_id: climate.anna
 ```
 
-#### Set HVAC mode (schedule)
+#### Set HVAC mode (limited to schedule active / not active)
 
 Service: `climate.set_hvac_mode`
 
-Available options include `auto` or `off`. The meaning of `auto` is that a schedule is active and the thermostat will change presets accordingly. The meaning of `off` is that there is no schedule active, i.e., the active preset or manually set temperature is to be used to control the climate of your house or rooms.
+Available options include `auto`, `heat` and `cool` (only when there is a cooling option available). The meaning of `auto` is that a schedule is active and the thermostat will change presets accordingly. The meaning of `heat/cool` is that there is no schedule active, i.e., the active preset or manually set temperature is used to control the climate in your house or rooms.
 The last schedule that was active is determined the same way long-tapping the top of Anna works.
 
 Example:
 
 ```yaml
-# Example script change the temperature
+# Example script set hvac_mode to auto = schedule active
 script:
-  lisa_reactive_last_schedule:
+  lisa_reactivate_last_schedule:
     sequence:
       - service: climate.set_hvac_mode
         target:
@@ -97,12 +102,23 @@ script:
           hvac_mode: auto
 ```
 
-Changing the active schedule can be done, though not easily:
+#### Change climate schedule
 
-- Deactivate the schedule (press the power button on the UI-card).
-- Look up the available schemas in the `states` view (attribute `available_schemas`).
-- Change the attribute `active_schema` to the actual name of your schema as available from the above attribute or your Plugwise App.
-- Activate the schedule (press the calendar button on the UI-card).
+Service: `select.select_option`
+
+Changing the active schedule can be done via the available thermostat select, as described above.
+
+```yaml
+# Example script change the thermostat schedule
+script:
+  lisa_change_schedule:
+    sequence:
+      - service: select.select_option
+        target:
+          entity_id: select.lisa_bios_thermostat_schedule
+        data:
+          option: "Regulier"
+```
 
 #### Set temperature
 
