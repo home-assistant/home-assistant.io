@@ -27,15 +27,15 @@ ha_platforms:
 ---
 
 This enables [Plugwise](https://www.plugwise.com) components with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
-The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and the [Stretch](https://www.plugwise.com/nl_NL/het-systeem) product. See below list for more details.
+The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and the [Stretch](https://www.plugwise.com/nl_NL/het-systeem) products. See below list for more details.
 
 Platforms available - depending on your Smile and setup include:
 
  - `climate` (for the Anna and Lisa products, or a single Tom)
  - `sensor` (for all relevant products including the Smile P1)
- - `binary_sensor` (for e.g. domestic hot water and secondary heater)
+ - `binary_sensor` (for showing the status of e.g. domestic hot water heating or secondary heater)
  - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
- - `select` (for changing the thermostat schedule)
+ - `select` (for changing a thermostat schedule)
 
 The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
 
@@ -45,11 +45,11 @@ The password can be found on the bottom of your Smile or Stretch, the ID, it sho
 
 ## Entities
 
-This integration will show all Plugwise entities present in your Plugwise configuration. In addition, you will see a 'Smile' entity representing your central Plugwise gateway (i.e., the Smile, Smile P1 or Adam).
+This integration will show all Plugwise entities present in your Plugwise configuration. In addition, you will see a 'Smile' entity representing your central Plugwise gateway (i.e., the Smile Anna, Smile P1, Adam or Stretch).
 
-For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual entities. The heating/cooling device connected to your Smile will be shown as "OpenTherm" or "OnOff", depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as switches. Various other measures of your setup will be available as sensors or binary sensors.
+For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual entities. The heating/cooling device connected to your Smile will be shown as 'OpenTherm' or 'OnOff', depending on how the Smile communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as switches. Various other measurements of your setup will be available as sensors or as binary sensors.
 
-Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Smile will be assigned to your gateway entity. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff entity.
+Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Adam will be assigned to your gateway entity. Heating/cooling device measurements such as 'boiler_temperature' will be assigned to the OpenTherm/OnOff entity.
 
 ## Configuration
 
@@ -57,13 +57,10 @@ The Plugwise Smile(s) present in your network will be automatically detected via
 
 Repeat the above procedure for each Smile gateway (i.e., if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
 
-<div class='note warning'>
-When you have an Anna and an Adam, make sure to only configure the Adam integration. You can press the "IGNORE" button on the Anna integration to remove this integration. In case you need to rediscover the Adam integration, make sure to click the "STOP IGNORING" button on the Plugwise integration first, available via "show ignored integrations".
-</div>
+When you have an Anna and an Adam, make sure to only configure the Adam integration. You can press the "IGNORE" button on the Anna integration to remove this integration. In case you need to rediscover the Anna integration, make sure to click the "STOP IGNORING" button on the Plugwise integration first, available via "show ignored integrations".
 
 For a thermostat, the active schedule can be deactivated or reactivated via the climate card. Please note, when no schedule is active, one must be activated in the Plugwise App. Once that has been done the Plugwise Integration can manage the future operations.
 Auto means the schedule is active, Heat means it's not active. The active thermostat schedule can be changed via a select-entity. Please note: only schedules that have two or more schedule-points will be shown as select-options.
-
 
 ### Services
 
