@@ -61,7 +61,7 @@ Please note: when you have an Anna and an Adam, make sure to only configure the 
 
 For a thermostat, the active schedule can be deactivated or reactivated via the climate card. Please note, that when no schedule is active, one must first be activated in the Plugwise App. Once that has been done the Plugwise Integration can manage future operations.
 
-Auto means the schedule is active, Heat means it's not active. The active thermostat schedule can be changed via the connected thermostat select-entity. Please note: only schedules that have two or more schedule-points will be shown as select-options.
+Auto means the schedule is active, Heat means it's not active. The active thermostat schedule can be changed via the connected thermostat select-entity. Please note: that only schedules that have two or more schedule points will be shown as select options.
 
 ### Services
 
