@@ -57,10 +57,11 @@ The Plugwise Smile(s) present in your network will be automatically detected via
 
 Repeat the above procedure for each Smile gateway (i.e., if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
 
-When you have an Anna and an Adam, make sure to only configure the Adam integration. You can press the "IGNORE" button on the Anna integration to remove this integration. In case you need to rediscover the Anna integration, make sure to click the "STOP IGNORING" button on the Plugwise integration first, available via "show ignored integrations".
+Please note: when you have an Anna and an Adam, make sure to only configure the Adam integration. You can press the "IGNORE" button on the Anna integration to remove this integration. In case you need to rediscover the Anna integration, make sure to click the "STOP IGNORING" button on the Plugwise integration first, available via "show ignored integrations".
 
-For a thermostat, the active schedule can be deactivated or reactivated via the climate card. Please note, when no schedule is active, one must be activated in the Plugwise App. Once that has been done the Plugwise Integration can manage the future operations.
-Auto means the schedule is active, Heat means it's not active. The active thermostat schedule can be changed via a select-entity. Please note: only schedules that have two or more schedule-points will be shown as select-options.
+For a thermostat, the active schedule can be deactivated or reactivated via the climate card. Please note, when no schedule is active, one must first be activated in the Plugwise App. Once that has been done the Plugwise Integration can manage the future operations.
+
+Auto means the schedule is active, Heat means it's not active. The active thermostat schedule can be changed via the connected thermostat select-entity. Please note: only schedules that have two or more schedule-points will be shown as select-options.
 
 ### Services
 
@@ -102,8 +103,6 @@ script:
 #### Change climate schedule
 
 Service: `select.select_option`
-
-Changing the active schedule can be done via the available thermostat select, as described above.
 
 ```yaml
 # Example script change the thermostat schedule
@@ -159,10 +158,10 @@ The current implementation of the Python module (Plugwise-Smile) includes:
 
 Adam (zone_control):
 
- - v3.0
+ - v3.x
  - v2.3
 
- - Devices supported are Floor, Lisa, Tom, Koen and Plug - note a Koen always comes with a Plug (the active part) 
+ - Devices supported are Anna, Lisa, Jip, Floor, Tom, Koen and Plug - note a Koen always comes with a Plug (the active part) 
 
 Anna (thermostat):
 
