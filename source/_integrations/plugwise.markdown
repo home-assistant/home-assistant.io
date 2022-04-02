@@ -59,7 +59,7 @@ Repeat the above procedure for each Smile gateway (i.e., if you have an Adam set
 
 Please note: when you have an Anna and an Adam, make sure to only configure the Adam integration. You can press the "IGNORE" button on the Anna integration to remove this integration. In case you need to rediscover the Anna integration, make sure to click the "STOP IGNORING" button on the Plugwise integration first, available via "show ignored integrations".
 
-For a thermostat, the active schedule can be deactivated or reactivated via the climate card. Please note, when no schedule is active, one must first be activated in the Plugwise App. Once that has been done the Plugwise Integration can manage the future operations.
+For a thermostat, the active schedule can be deactivated or reactivated via the climate card. Please note, that when no schedule is active, one must first be activated in the Plugwise App. Once that has been done the Plugwise Integration can manage future operations.
 
 Auto means the schedule is active, Heat means it's not active. The active thermostat schedule can be changed via the connected thermostat select-entity. Please note: only schedules that have two or more schedule-points will be shown as select-options.
 
