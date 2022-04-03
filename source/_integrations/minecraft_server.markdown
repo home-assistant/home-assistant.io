@@ -39,3 +39,4 @@ This integration provides sensors for the following information from a Minecraft
 - Protocol version
 - Number of online players (player names are available in state attributes)
 - Number of maximum players
+- World Message / Message of the Day (MOTD)

@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` camera platform allows you to integrate the content of an image file sent through MQTT into Home Assistant as a camera. Every time a message under the `topic` in the configuration is received, the image displayed in Home Assistant will also be updated.
+The `mqtt` camera platform allows you to integrate the content of an image file sent through MQTT into Home Assistant as a camera. Every time a message under the `topic` in the configuration is received, the image displayed in Home Assistant will also be updated. Messages received on `topic` should contain the full contents of an image file, for example, a JPEG image, without any additional encoding or metadata.
 
 This can be used with an application or a service capable of sending images through MQTT.
 
@@ -21,6 +21,12 @@ To enable this camera in your installation, add the following to your `configura
 camera:
   - platform: mqtt
     topic: zanzito/shared_locations/my-device
+```
+
+The sample configuration above can be tested by publishing an image to the topic from the console:
+
+```shell
+mosquitto_pub -h <mqtt_broker> -t zanzito/shared_locations/my-device -f <camera_imaga.jpg>
 ```
 
 {% configuration %}

@@ -173,6 +173,8 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
       - targets: ['HOSTNAME:8123']
 ```
 
+Replace `your.longlived.token` with a Home Assistant [generated token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token).
+
 The format to configure the bearer token has changed in Prometheus 2.26, so if you have a newer version, you can use this configuration sample:
 
 ```yaml

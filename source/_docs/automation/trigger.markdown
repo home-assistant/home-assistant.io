@@ -54,6 +54,8 @@ The first variant allows you to define variables that will be set when the trigg
 
 The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](/docs/configuration/templating/#limited-templates). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
 
+{% raw %}
+
 ```yaml
 automation:
   trigger_variables:
@@ -66,6 +68,8 @@ automation:
       variables:
         name: "{{ trigger.event.data.name }}"
 ```
+
+{% endraw %}
 
 ## Event trigger
 

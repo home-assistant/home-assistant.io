@@ -4,7 +4,7 @@ description: Instructions on how to integrate a Samsung Smart TV into Home Assis
 ha_category:
   - Media Player
 ha_release: 0.13
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@escoand'
@@ -89,6 +89,7 @@ media_content_type: channel
 #### Selecting a source
 
 It's possible to switch between the 2 sources `TV` and `HDMI`.
+Some older models also expose the installed applications through the WebSocket, in which case the source list is adjusted accordingly.
 
 ### Known issues and restrictions
 
@@ -96,3 +97,7 @@ It's possible to switch between the 2 sources `TV` and `HDMI`.
 
 Samsung SmartTV does not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant this will fail.
 It may be possible to bypass this issue by using IP masquerading or a proxy.
+
+#### H and J models
+
+Some televisions from the H and J series use an encrypted protocol and require manual pairing with the TV. This should be detected automatically when attempting to send commands using the WebSocket connection, and trigger the corresponding authentication flow.
