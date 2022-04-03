@@ -14,7 +14,7 @@ The `caldav` platform allows you to connect to your WebDAV calendar and generate
 
 ## Prerequisites
 
-You need to have a CalDAV server and credentials for it. This integration was tested against [Baikal](http://sabre.io/baikal/) but any integration complying with the RFC4791 should work. [Nextcloud](https://nextcloud.com/) and [Owncloud](https://owncloud.org/) work fine.
+You need to have a CalDAV server and credentials for it. This integration was tested against [Baikal](http://sabre.io/baikal/) but any integration complying with the RFC4791 should work. [Nextcloud](https://nextcloud.com/) and [Owncloud](https://owncloud.org/) work partially, full day event or mulitple days events ane not synchronised and don't show up in Home Assistant.
 
 You might need some additional system packages to compile the Python CalDAV library. On a Debian based system, install them by:
 
