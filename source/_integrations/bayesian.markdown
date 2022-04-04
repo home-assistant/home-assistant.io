@@ -30,9 +30,8 @@ In the configuration use the probability of the observation (the sensor state in
 4. Use your Home Assistant history to help estimate the probabilities.
    - `prob_given_true:` - Select the sensor in question over a time range when you think the `bayesian` sensor should have been `true`. `prob_given_true:` is the fraction of the time the sensor was in `to_state:`. 
    - `prob_given_false:` - Select the sensor in question over a time range when you think the `bayesian` sensor should have been `false`. `prob_given_false:` is the fraction of the time the sensor was in `to_state:`. 
-5. Define `prob_given_false:` where you can, this will force you to think.
-6. Don't work backwards by tweaking `prob_given_true:` and `prob_given_false:` to give the results and behaviours you want, use #4 to try and get probabilities as close to the 'truth' as you can, if your behaviour is not as expected consider adding more sensors or see #7.
-7. If your Bayesian sensor ends up triggering `on` too easily, re-check that the probabilities set and estimated make sense, then consider increasing `probability_threshold:` and vice-versa.
+5. Don't work backwards by tweaking `prob_given_true:` and `prob_given_false:` to give the results and behaviours you want, use #4 to try and get probabilities as close to the 'truth' as you can, if your behaviour is not as expected consider adding more sensors or see #7.
+6. If your Bayesian sensor ends up triggering `on` too easily, re-check that the probabilities set and estimated make sense, then consider increasing `probability_threshold:` and vice-versa.
 
 ## Configuration
 
@@ -102,9 +101,8 @@ observations:
       type: float
     prob_given_false:
       description: Assuming the bayesian binary_sensor is `false` the probability of this entity state is occurring.
-      required: false
+      required: true
       type: float
-      default: "`1 - prob_given_true` if `prob_given_false` is not set"
 {% endconfiguration %}
 
 ## Full examples
