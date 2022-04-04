@@ -344,46 +344,81 @@ automation:
 
 ## Other noteworthy changes
 
-TODO:
-  - Process frontend changes
-  - Write out the changes
-
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- [Lorem] added support for ipsum! Thanks, [@frenck]
+- [@balloob] took a deep dive into the world of media players and made sure
+  many more of them now work the media browser and play media action!
+  If you use: [Bluesound], [Denon HEOS], [forked-daapd], [Linn / OpenHome],
+  [Logitech Squeezebox], [Music Player Daemon (MPD)], [Panasonic Viera],
+  [UniFi Protect] or [Yamaha MusicCast], you can now use the media browser!
+- Want to update the appearance of a binary sensor? You can now do that!
+  When you edit the entity in the UI, you can select how it would show up. No
+  need to customize `device_class` in YAML anymore. Thanks [@zsarnett]!
+- The [Material Design Icons] have been updated! Check out all 
+  [these beautiful new icons] we can use now! Thanks, [@goyney]!
+- Our analytics integration now sent if you are using SSL certificates 
+  in Home Assistant yes or no. Of course,
+  {% my general title="only if you have enabled Analytics" %}. Thanks for
+  enabling it 💙!
+- [Timers] can now restore/survive their state accross restarts, awesome work
+  [@raman325]! Each timer now has a configuration option to enable restore.
+- [@epenet] has been cranking out lot of improvement for the [Samsung TV]
+  integration this month! Shoutout to [@bdraco] for helping out on that one too.
+- Android 11 support for the [Android TV] integration is here!
+  Thanks [@JeffLIrion]!
+- Long awaited and finally there... Native [Hue] groups suppport! Thanks to
+  Signify who implemented our request for this. This means Home Assistant can
+  now control groups as a whole instead of per light. Nice and snappy now!
+  Thanks for adding support to Home Assistant for it [@marcelveldt]!
+- [@thecode] added support for the second generation [Shelly] cover devices,
+  thanks!
+- If your Solar inverter has a lower capacity compared to the combined capacity
+  of your panels, than [@klaasnicolaas] has good news for you. The
+  [Forecast.Solar] integration now supports this and can adjust the forecast
+  to take your inverter cap into account.
+- Media players now have a control for the repeat modes in the UI! Thanks,
+  [@NachtaktiverHalbaffe]!
+- [RFXCOM RFXtrx] now supports sirens and chimes! Thanks, [@elupus]!
+- The [GitHub] integration now uses event subscription instead of polling GitHub.
+  Nice work [@ludeeus]!
+- The [TP-Link Kasa Smart] integration now support effects for their light
+  strips. Thanks, [@bdraco]!
 
-[@frenck]: https://github.com/frenck
-[Lorem]: /integrations/ipsum
+[@balloob]: https://github.com/frenck 
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@epenet]: https://github.com/frenck
+[@goyney]: https://github.com/goyney 
+[@JeffLIrion]: https://github.com/JeffLIrion
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@ludeeus]: https://github.com/ludeeus
+[@marcelveldt]: https://github.com/marcelveldt
+[@NachtaktiverHalbaffe]: https://github.com/NachtaktiverHalbaffe
+[@raman325]: https://github.com/raman325
+[@thecode]: https://github.com/thecode
+[@zsarnett]: https://github.com/zsarnett 
+[Android TV]: /integrations/androidtv/
+[Bluesound]: /integrations/bluesound
+[Denon HEOS]: /integrations/heos
+[Forecast.Solar]: /integrations/forecast_solar
+[forked-daapd]: /integrations/forked-daapd
+[GitHub]: /integrations/github
+[Hue]: /integrations/hue
+[Linn / OpenHome]: /integrations/linn
+[Logitech Squeezebox]: /integrations/squeezebox
+[Material Design Icons]: https://materialdesignicons.com/
+[Music Player Daemon (MPD)]: /integrations/mpd
+[Panasonic Viera]: /integrations/panasonic_viera
+[RFXCOM RFXtrx]: /integrations/rfxtrx
+[Samsung TV]: /integrations/samsungtv
+[Shelly]: /integrations/shelly
+[these beautiful new icons]: https://pictogrammers.github.io/@mdi/font/6.6.96/
+[Timers]: /integration/timer
+[TP-Link Kasa Smart]: /integrations/tplink
+[UniFi Protect]: /integrations/unifiprotect
+[Yamaha MusicCast]: /integrations/yamaha_musiccast
 
-- Lots of updates for Samsung TV!
-- Media browser support for a lot more integrations
-  - Add media source support to panasonic_viera ([@balloob] - [#67568]) ([panasonic_viera docs]) (noteworthy)
-  - Add media source support to bluesound ([@balloob] - [#67563]) ([bluesound docs]) (noteworthy)
-  - Add media source support to mpd ([@balloob] - [#67565]) ([mpd docs]) (noteworthy)
-  - Add media browser support to forked_daapd ([@balloob] - [#67564]) ([forked_daapd docs]) (noteworthy)
-  - Add media source support to HeOS ([@balloob] - [#67562]) ([heos docs]) (noteworthy)
-  - Allow squeezebox to play media sources ([@balloob] - [#67561]) ([squeezebox docs]) (noteworthy)
-  - Add media source support to openhome ([@balloob] - [#67566]) ([openhome docs]) (noteworthy)
-  - Add media source support to unifiprotect ([@balloob] - [#67570]) ([unifiprotect docs]) (noteworthy)
-  - Add media source support to Yamaha MusicCast ([@balloob] - [#67572]) ([yamaha_musiccast docs]) (noteworthy)
-
-- Add support for rfxtrx sirens and chimes ([@elupus] - [#66416]) ([rfxtrx docs]) (noteworthy)
-- Repository event subscription ([@ludeeus] - [#67284]) ([github docs]) (noteworthy)
-- Restore state of template binary sensor with on or off delay ([@emontnemery] - [#67546]) ([template docs]) (breaking-change) (noteworthy)
-- Add homekit pm type sensor ([@lesterlo] - [#46060]) ([homekit docs]) (noteworthy)
-- Add Shelly gen2 cover support ([@thecode] - [#67705]) ([shelly docs]) (noteworthy)
-- Restore state of trigger based template binary sensor ([@emontnemery] - [#67538]) ([template docs]) (breaking-change) (noteworthy)
-- Add support for effects to tplink light strips ([@bdraco] - [#65166]) ([tplink docs]) (noteworthy)
-- Add basic support for SamsungTV encrypted models ([@epenet] - [#68500]) ([samsungtv docs]) (noteworthy)
-- Add boolean for certificate usage to analytics ([@ludeeus] - [#68254]) ([analytics docs]) (new-integration) (noteworthy)
-- Add inverter size to Forecast.Solar ([@klaasnicolaas] - [#68263]) ([forecast_solar docs]) (dependency) (noteworthy)
-- Hue aggregated control for grouped lights ([@marcelveldt] - [#68566]) ([hue docs]) (noteworthy)
-- Add effects feature to Hue lights ([@marcelveldt] - [#68567]) ([hue docs]) (noteworthy)
-- Add command support to SamsungTV H/J models ([@epenet] - [#68301]) ([samsungtv docs]) (noteworthy)
-- Bump androidtv to 0.0.66 (Android 11 support) ([@JeffLIrion] - [#68720]) (dependency) (noteworthy)
-- Allow timer state to be restored on restart ([@raman325] - [#67658]) ([timer docs]) (noteworthy)
-- 
 ## New Integrations
 
 We welcome the following new integrations this release:
