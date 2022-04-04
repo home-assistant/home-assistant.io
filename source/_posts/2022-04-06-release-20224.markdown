@@ -97,21 +97,22 @@ So, what does your Home Assistant Dashboard look like?
 
 ## Hide entities
 
-TODO:
-- Improve story
-- Add screenshot
-
 Besides enabling/disabling entities, it is now also possible to hide them.
 
-Hiding ententies will hide them from most places in the UI, but they are
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-04/entity-hidden.png' alt='Screenshot showing the new option to hide an entity'>
+You can now mark an entity as hidden in the entity settings.
+</p>
+
+Hiding entities will hide them from most places in the UI, but they are
 still there and are still being recorded.
 
-They are however, no longer shown on auto generated Dashboards; automatically
-hidden from HomeKit, Alexa & Google Assistant and also are not called
-when a service call is targeting the area they are in.
+However, they are no longer shown on auto-generated Dashboards; they are
+automatically hidden from HomeKit, Alexa & Google Assistant and aren't
+called when a service calls target their area.
 
-This can be used to clean up your automatically generated Dashboards; or
-to hide those light entities that you have put into groups. About groups...
+Hiding entities can be used to clean up your automatically generated Dashboard
+or hide those light entities that you have put into groups. About groups…
 
 ## Now available in the UI: Groups!
 
