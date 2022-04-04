@@ -31,11 +31,16 @@ Name:
 Input sensor:
   description: The sensor entity providing utility readings (energy, water, gas, heating).
 Meter reset cycle:
-  description: How often to reset the counter.
+  description: >
+    How often to reset the counter. If the offered reset cycles do not match
+    your use case, consider using the YAML configuration below, which allows
+    for creating CRON-style patterns.
 Meter reset offset:
   description: >
     Cycle reset occur at the beginning of the period. This option enables
-    the offsetting of these beginnings.
+    the offsetting of these beginnings, counted in days. If you need a more
+    finegranded offset, consider using the YAML configuration below, which
+    allows for that.
 Supported tariffs:
   description: >
     A comma separated list of supported tariffs, leave empty if only a single 
@@ -48,6 +53,10 @@ Delta values:
   description: >
     Enable this if the source values are delta values since the last reading instead of absolute values. When this option is enabled, each new value received will be added as-is to the utility meter instead of adding the _difference_ between the new value and previous value.
 {% endconfiguration_basic %}
+
+If the meter reset cycle and reset offsets are to limited for your use case,
+consider using the YAML configuration below, which support CRON-style patterns
+that provide a greater flexibility.
 
 ## YAML Configuration
 
