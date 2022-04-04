@@ -11,6 +11,7 @@ ha_codeowners:
   - '@guillempages'
   - '@mib1185'
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_config_flow: true
 ha_integration_type: integration
