@@ -82,19 +82,16 @@ Each time the trigger triggers it will be indicated in the UI.
 
 ## Goodbye Lovelace, Hello Dashboards
 
-TODO:
-  - Add screenshot? Or some graphic.
-
-This release, we finalize saying goodbye to "Lovelace"; we are
+In this release, we finalize saying goodbye to "Lovelace"; we are
 renaming it to "Dashboards".
 
-Over a long period, we have been slowly introducing the term "Dashboards" more
-and more, so everybody could get used to it. As of this release, the term
-"Lovelace" has been fully replaced by "Dashboards".
+Over an extended period, we have been slowly introducing the term "Dashboards"
+more and more, so everybody could get used to it. As of this release, the term
+"Lovelace" has been entirely replaced by "Dashboards".
 
-This is done to improve the user experience and streamline Home Assistant.
-For new users, the term "Lovelace" doesn't say much, and they would need to
-learn about it. "Dashboards", however, speaks for itself.
+This rename is done to improve the user experience and streamline Home
+Assistant. The term "Lovelace" doesn't say much for new users, and they
+would need to learn about it. "Dashboards", however, speaks for itself.
 
 So, what does your Home Assistant Dashboard look like?
 
