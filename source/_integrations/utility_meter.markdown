@@ -39,12 +39,11 @@ Meter reset offset:
   description: >
     Cycle reset occur at the beginning of the period. This option enables
     the offsetting of these beginnings, counted in days. If you need a more
-    finegranded offset, consider using the YAML configuration below, which
+    fine-grained offset, consider using the YAML configuration below, which
     allows for that.
 Supported tariffs:
   description: >
-    A comma separated list of supported tariffs, leave empty if only a single 
-    tariff is needed.
+    A list of supported tariffs, leave empty if only a single tariff is needed.
 Net consumption:
   description: >
     Enable this if you would like to treat the source as a net meter.
