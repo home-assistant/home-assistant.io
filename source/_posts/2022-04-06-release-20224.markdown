@@ -50,10 +50,14 @@ Enjoy the (beta) release!
 - [More helpers now available via the UI](#more-helpers-now-available-via-the-ui)
 - [Introducing update entities](#introducing-update-entities)
 - [Backups for Home Assistant Core & Container installs](#backups-for-home-assistant-core--container-installs)
+- [Testing your automation conditions](#testing-your-automation-conditions)
 - [Zones now have a state!](#zones-now-have-a-state)
+- [Adjusting unit of measurements for sensors](#adjusting-unit-of-measurements-for-sensors)
 - [Adjusting long-term statistics](#adjusting-long-term-statistics)
 - [Database Performance](#database-performance)
+- [Frontend data performance](#frontend-data-performance)
 - [New and updated selectors!](#new-and-updated-selectors)
+- [Variables on trigger](#variables-on-trigger)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -144,6 +148,8 @@ or click the my button below to add a new groups immediately:
 TODO:
   - Improve story line
   - Add screenshot(s)
+  - Focus on: Can be changed in Switch more info dialog
+  - Add switch as x to entity settings (#12161) @bramkragten
 
 The Switch as X integrations lets you convert any Home Assistant switch into
 a Home Assistant Light, Cover, Fan, Lock, or Siren.
@@ -218,6 +224,8 @@ Additionally, WLED has implemented update entities to install firmware directly
 from Home Assistant, and Pi-hole and Synology DSM can indicate if an update
 is available.
 
+* Add badge to configuration sidebar to indicate pending updates (#12146) @ludeeus
+
 ## Backups for Home Assistant Core & Container installs
 
 TODO:
@@ -235,6 +243,21 @@ Home Assistant OS installations. So, if you plan on migrating installation
 type in the future, that is also possible.
 
 You can find the backup dashboard in the configuration menu.
+
+## Testing your automation conditions
+
+Last release we added a small feature to see if the automation you are
+creating, triggers correctly. During the release livestream of that release
+we got questions: Can this be done for conditions too?
+
+Sure we can!
+
+TODO: Insert screenrecording.
+
+Additionally, the "triggered" bar got an additional feature to! If it shows,
+you can click on it, to get a raw view of all trigger data.
+
+TODO: Insert screenshot
 
 ## Zones now have a state!
 
@@ -254,6 +277,19 @@ on: Nobody is home, everybody is home, someone left home (or any other zone
 for that matter). But it can also be used in conditions for other automations.
 
 For example, don't run a certain automation when nobody is home anyways.
+
+## Adjusting unit of measurements for sensors
+
+TODO: 
+ - Extend story
+ - Add screenshot
+
+Unit of measurements for temperature and pressure sensors can now be adjusted,
+straight from the UI. Got that one Fahrenheit sensor, but you prefer it to be
+in Celsius? No problem!
+
+- Allow Sensor Units to be updated via Entity Registry (#12143) @zsarnett
+- Allow customizing unit for temperature and pressure sensors #64366 @emontnemery
 
 ## Adjusting long-term statistics
 
@@ -295,6 +331,16 @@ for energy sensors.
 
 For a few a complete set of changes to the underlying database,
 check out the [Data Science Portal](https://data.home-assistant.io/docs/states#database)
+
+## Frontend data performance
+
+TODO:
+- Extend story
+
+Communication between Home Assistant frontend and the Core is now sending
+a lot less data. This makes everything faster on first load, but also
+friendlier for when e.g., on a slow connection or mobile data plan.
+
 
 ## New and updated selectors!
 
