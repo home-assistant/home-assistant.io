@@ -157,10 +157,11 @@ binary_sensor:
     - platform: "numeric_state"
       entity_id: "sensor.outside_air_temperature_fahrenheit"
       prob_given_true: 0.95
+      prob_given_false: 0.05
       below: 50
 ```
 
-Finally, here's an example for `template` observation platform, as seen in the configuration it requires `value_template`.
+Finally, here's an example for `template` observation platform, as seen in the configuration it requires `value_template`. This template will evaluate to true if the device tracker `device_tracker.paulus` shows `not_home` and it last changed its status more than 5 minutes ago.
 
 {% raw %}
 
@@ -175,7 +176,8 @@ binary_sensor:
     - platform: template
       value_template: >
         {{is_state('device_tracker.paulus','not_home') and ((as_timestamp(now()) - as_timestamp(states.device_tracker.paulus.last_changed)) > 300)}}
-      prob_given_true: 0.95
+      prob_given_true: 0.05
+      prob_given_false: 0.99
 ```
 
 {% endraw %}
