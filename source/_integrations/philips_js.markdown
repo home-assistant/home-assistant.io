@@ -139,4 +139,4 @@ overload the event bus in Home Assistant.
 #### Ambilight+Hue
 
 Some TV's allow you to sync the processed ambilight color data to your Philips Hue bridge. This will make your Hue lights sync with the TV ambilight without the need to purchase a Hue Play HDMI Sync Box.
-The integration exposes a "Ambilight+Hue" switch entity when your TV supports it which enabled you to toggle this.
+The integration exposes a "Ambilight+Hue" switch entity when your TV supports it which enables you to toggle this.
