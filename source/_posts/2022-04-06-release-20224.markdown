@@ -83,8 +83,8 @@ Each time the trigger triggers it will be indicated in the UI.
 
 ## Goodbye Lovelace, Hello Dashboards
 
-In this release, we finalize saying goodbye to "Lovelace"; we are
-renaming it to "Dashboards".
+In this release, we are saying goodbye to "Lovelace"; we renamed it to
+"Dashboards".
 
 Over an extended period, we have been slowly introducing the term "Dashboards"
 more and more, so everybody could get used to it. As of this release, the term
