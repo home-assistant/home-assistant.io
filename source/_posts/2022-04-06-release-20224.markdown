@@ -81,20 +81,6 @@ Enjoy the release!
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-
-<!--<img class="no-shadow" src='/images/blog/2022-04/media-selector.png' alt='Screenshot showing the new media selector and play media action'>-->
-
-
-<!--<p class='img'>
-<img class="no-shadow" src='/images/blog/2022-04/triggered.gif' alt='Screen recording showing automation triggers triggering showing in the UI'>
-Each time the trigger triggers it will be indicated in the UI.
-</p>-->
-
-<!--<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/l2ppksDTq_w" frameborder="0" allowfullscreen></iframe>
-</div>-->
-
-
 ## Goodbye Lovelace, Hello Dashboards
 
 In this release, we are saying goodbye to "Lovelace"; we renamed it to
