@@ -345,34 +345,33 @@ for energy sensors.
 For a few a complete set of changes to the underlying database,
 check out the [Data Science Portal](https://data.home-assistant.io/docs/states#database)
 
-## Frontend data performance
-
-TODO:
-- Extend story
-
-Communication between Home Assistant frontend and the Core is now sending
-a lot less data. This makes everything faster on first load, but also
-friendlier for when e.g., on a slow connection or mobile data plan.
-
-
 ## New and updated selectors!
 
-TODO:
-  - Improve story
-  - Make visual
+Selectors are UI inputs used throughout Home Assistant. It powers our new UI
+helpers, automation editor, and provides UIs for Blueprints and scripts.
 
-Selectors are UI inputs that are used throughout Home Assistant. It is what
-powers our new UI helpers, but also what provides UIs for Blueprints and scripts.
-
-This release, we added a whole bunch of new selectors that can be used
-in your Blueprints; and extended the options for many existing selectors.
+We added a whole bunch of [new selectors][selectors] that are usable in your
+Blueprints, and extended the options for many [existing selectors][selectors].
 
 For example, we now have a location selector that lets you pick coordinates
 from a map. An RGB color and color temperature selector, an icon, theme, time,
-date, datetime selector; The entity, device and area select can now be
-configured to accept multiple entities, devices or areas!
+date, datetime selector; The entity, device, and area select can now be
+configured to accept multiple entities, devices, or areas!
 
-[Check out the updated selectors documentation](/docs/blueprint/selectors/)
+<p class='img'>
+<img class="no-shadow" src='/images/blueprints/selector-color-rgb.png' alt='Screenshot of the new color selector'>
+One of the new selector added: RGB Color; it can be used in Blueprints too!
+</p>
+
+We are looking forward to seeing new and improved Blueprints using these new
+selectors on the [Blueprints Exchange]!
+
+For the latest information about all available selectors and their options,
+[check out the updated selectors documentation][selectors].
+
+[Blueprints Exchange]: https://community.home-assistant.io/c/blueprints-exchange/53
+[Blueprints]: /docs/blueprint/
+[selectors]:/docs/blueprint/selectors/
 
 ## Variables on trigger
 
