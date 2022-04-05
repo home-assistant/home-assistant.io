@@ -109,35 +109,39 @@ still there and are still being recorded.
 
 However, they are no longer shown on auto-generated Dashboards; they are
 automatically hidden from HomeKit, Alexa & Google Assistant and aren't
-called when a service calls target their area.
+called when a service call targets their area.
 
 Hiding entities can be used to clean up your automatically generated Dashboard
 or hide those light entities that you have put into groups. About groups…
 
 ## Now available in the UI: Groups!
 
-TODO:
- - Improve story line
- - Add graphics
-
 A group lets you combine multiple entities into a single entity. Entities that
-are members of a group can be controlled and monitored as a whole. This can be
-useful for cases where you want to control, for example,
-the multiple bulbs in a light fixture as a single light in Home Assistant.
+are members of a group can be controlled and monitored as a whole. Useful for
+cases where you want to control, for example, the multiple bulbs in a light
+fixture as a single light in Home Assistant.
 
-Using groups, is a very common use case, but, until now, an advanced use case
-as groups were only available for YAML configuration. As of today, groups
-have been added to the UI!
+Using groups is a very common use case, but, until now, an advanced use case
+as groups were only available for YAML configuration. As of today, groups are
+available in the UI! 🎉
 
-You can group multiple binary sensors, covers, fans, lights, media players; and
-added this release is support for lock and switch groups.
+<img class="no-shadow" src='/images/blog/2022-04/groups.png' alt='Screenshot showing adding groups from the UI'>
 
-You know what is amazing? When you create a new group in the UI, you can
-select to automatically hide all group members. Super helpful for hiding
-those individual light entities of your light fixture.
+Select the type of entities you want to group and select the group members
+you want to add: Done! You can group multiple types of entities: binary sensors,
+covers, fans, lights, and media players; also added in this release is
+support for lock and switch groups.
+
+Remember the hide entities functionality described above? That is super helpful
+for hiding those individual light entities of your light fixture. So, when you
+create a new group in the UI, you can select to hide all group members
+automatically!
+
+<img class="no-shadow" src='/images/blog/2022-04/group-hide-members.png' alt='Screenshot showing how to hide group members'>
 
 Your groups can be found under {% my helpers title="Configuration > Automations & Scripts > Helpers" %},
-or click the my button below to add a new groups immediately:
+or, if you have updated to this release already, click the my button below to
+add a new group immediately:
 
 {% my config_flow_start badge domain="group" %}
 
