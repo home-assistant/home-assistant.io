@@ -69,6 +69,9 @@ This integration supports devices controllable by the VeSync App.  The following
 ### Humidifiers
 
 - LEVOIT Classic 300S Ultrasonic Smart Humidifier
+- LEVOIT Classic 200S Smart Ultrasonic Cool Mist Humidifier
+- LEVOIT Dual 200S Smart Top-Fill Humidifier
+- LEVOIT LV600S Smart Hybrid Ultrasonic Humidifier
 
 ## Prerequisite
 
@@ -138,7 +141,7 @@ alongside the humidifier itself.
 
 ### Light entities
 
-- Night light: the humidifier's night light
+- Night light: the humidifier's night light (Classic300S, LV600S)
 
 ### Switch entities
 
