@@ -391,11 +391,13 @@ For the latest information about all available selectors and their options,
 
 ## Variables on trigger
 
-TODO:
-  - Needs content
+For the more advanced uses cases, this release provides: variables on trigger.
+It is exactly what it says on the can: The possibility of setting variables
+on triggers that become available when that specific trigger triggers.
 
-We now support setting variables on trigger, that become available when that
-trigger triggers.
+These variables can be helpful to pass down specific information based on the
+trigger that fired. The automation example below shows how a message can be
+passed to the notify service based on its triggering motion sensor.
 
 {% raw %}
 
@@ -403,9 +405,15 @@ trigger triggers.
 automation:
   trigger:
     - platform: state
-      entity_id: binary_sensor.motion
+      entity_id: binary_sensor.motion_garage
+      to: "on"
       variables:
-        trigger_message: "Motion sensor got triggered!"
+        trigger_message: "Motion detected in the garage! 🚘"
+    - platform: state
+      entity_id: binary_sensor.motion_garden
+      to: "on"
+      variables:
+        trigger_message: "Motion detected in the garden! 🌷"
   action:
     - service: notify.iphone
       data:
@@ -414,7 +422,7 @@ automation:
 
 {% endraw %}
 
-[Updated selectors documentation](/docs/automation/trigger/#trigger-variables)
+Oh! And yes: these variables can use templates too!
 
 ## Other noteworthy changes
 
