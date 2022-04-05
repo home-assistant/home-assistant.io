@@ -257,7 +257,7 @@ we got questions: _"Can this be done for conditions too?"_; Sure we can!
 
 <p class='img'>
 <img class="no-shadow" src='/images/blog/2022-04/test-condition.gif' alt='Screen recording showing the new test button that allows you to test the condition'>
-Every condition now has a little test button, testing if the condition passes right now.
+Every condition now has a little test button, to test if the condition passes right now.
 </p>
 
 Additionally, the “triggered” bar got an additional feature too! You can click
@@ -302,25 +302,25 @@ Unit of measurements for temperature and pressure sensors can now be adjusted,
 straight from the UI. Got that one Fahrenheit sensor, but you prefer it to be
 in Celsius? No problem!
 
-- Allow Sensor Units to be updated via Entity Registry (#12143) @zsarnett
-- Allow customizing unit for temperature and pressure sensors #64366 @emontnemery
 
 ## Adjusting long-term statistics
 
-TODO:
-  - Improve story
-  - Screenshot
-
 Long-term statistics are great! Until... something went wrong 😅
 
-Unfortunately, things happens. For example, a big spike was registered, or
-your solar or electricity meter provided a one-off rogue measurement. This
-has impact on your long-term statistics; which might be forever have incorrect
-history.
+Unfortunately, things happen. For example, it registered a big spike, or your
+solar or electricity meter provided a one-off rogue measurement. These events
+impact your long-term statistics, which might forever have incorrect history.
 
-To solve this issue, we now have made available a little developer tool that
-allows you to correct/adjust long-term historical data. The new tool
-can be found in the developer statistics tools:
+We now have made available a little developer tool that allows you to
+correct/adjust long-term historical data to solve these issues.
+
+The new tool can be found at {% my developer_statistics title="Developer tools > Statistics" %},
+and click the
+<svg width="24" height="24" viewBox="0 0 24 24"><path d="M22,13V22H2V19L22,13M21.68,7.06L16.86,4.46L17.7,7.24L7.58,10.24C6.63,8.95 4.82,8.67 3.53,9.62C2.24,10.57 1.96,12.38 2.91,13.67C3.85,14.97 5.67,15.24 6.96,14.29C7.67,13.78 8.1,12.97 8.14,12.09L18.26,9.09L19.1,11.87L21.68,7.06Z" /></svg>
+icon, next to the statistic you'd like to adjust. Search for the incorrect
+datapoint by date & time and adjust the value.
+
+<img class="no-shadow" src='/images/blog/2022-04/adjust-statistics.png' alt='Screenshot showing adjusting the long-term statistic history value.'>
 
 {% my developer_statistics badge %}
 
