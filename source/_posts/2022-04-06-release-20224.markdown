@@ -232,21 +232,28 @@ is available.
 
 ## Backups for Home Assistant Core & Container installs
 
-TODO:
-  - Improve story
-  - Add screenshots
+If you are running Home Assistant OS or Supervised, you already have access to
+Home Assistant's really helpful backup capabilities. However, this feature was
+unavailable if you run Home Assistant Core in Python or use a Home Assistant
+Container in Docker.
 
-If you are running Home Assistant OS or Supervised, you already have access
-to some really helpful backup capabilities of Home Assistant. However,
-if you run Home Assistant Core in Python or used Home Assistant Container in,
-for example Docker, this feature was not available for you.
+That all changes this release: Introducing a Backup integration for Home
+Assistant Core and Container installation types!
 
-This release introduces a Backup integration for Home Assistant Core and
-Container installation types. These backups are compatible with 
-Home Assistant OS installations. So, if you plan on migrating installation
-type in the future, that is also possible.
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-04/backups.png' alt='Screenshot showing backup creating in progress on a Home Assistant Core installation type.'>
+Home Assistant Core and Container installations can now also back up their instance.
+</p>
 
-You can find the backup dashboard in the configuration menu.
+These backups can be downloaded and extracted if you want or need to restore one
+of the previous backups. Also, these backups are compatible with Home Assistant
+OS installations. So, if you plan on migrating installation types in the future,
+that is now super easy!
+
+You can find the backup dashboard in the configuration menu, or, if you have
+upgrade already, click the my button below to create a new backup right away:
+
+{% my backup badge %}
 
 ## Testing your automation conditions
 
