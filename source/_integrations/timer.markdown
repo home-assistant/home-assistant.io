@@ -54,6 +54,11 @@ timer:
       description: Set a custom icon for the state card.
       required: false
       type: icon
+    restore:
+      description: When true, active and paused timers will be restored to the right state on startup. If an active timer was supposed to end while Home Assistant is stopped, the `time.finished` event will fire on startup for that timer. The `finished_at` property in the event data will provide you with the time that the timer was actually supposed to fire which you can use in automation conditions to decide whether or not to act on it.
+      required: false
+      type: boolean
+      default: false
 {% endconfiguration %}
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
@@ -71,8 +76,8 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 |           Event | Description |
 | --------------- | ----------- |
 | `timer.cancelled` | Fired when a timer has been canceled |
-| `timer.finished` | Fired when a timer has completed |
-| `timer.started` | Fired when a timer has been started|
+| `timer.finished` | Fired when a timer has completed and includes `finished_at` date/time in event data. `finished_at` should usually be now, or within the last several seconds, but if the `restore` property is true, `finished_at` may be further in the past since this event will fire on startup for any timers that would have ended while Home Assistant was stopped. |
+| `timer.started` | Fired when a timer has been started |
 | `timer.restarted` | Fired when a timer has been restarted |
 | `timer.paused` | Fired when a timer has been paused |
 

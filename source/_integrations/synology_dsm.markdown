@@ -16,6 +16,8 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - camera
+  - button
+  - diagnostics
   - sensor
   - switch
 ---
@@ -83,7 +85,7 @@ Entities reporting status, total size (TB), used size (TB), % of volume used, av
 
 ### General sensors
 
-Entities reporting the update and security status of the NAS.
+Entity reporting the security status of the NAS.
 
 <div class='note'>
 
@@ -103,20 +105,12 @@ A switch is available to enable/disable the [Surveillance Station](https://www.s
 
 For each camera added in [Surveillance Station](https://www.synology.com/en-us/surveillance), a camera will be created in Home Assistant.
 
-## Services
+## Buttons
 
-### Service `synology_dsm.reboot`
+### Button `reboot`
 
-Reboot the specified NAS by `serial`. If only one DSM is configured, `serial` is optional.
+Reboot the NAS.
 
-  | Service data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
-  | `serial` | yes, when multiple NAS are configured | serial of DSM |
+### Button `shutdown`
 
-### Service `synology_dsm.shutdown`
-
-Shutdown the specified NAS by `serial`. If only one DSM is configured, `serial` is optional.
-
-  | Service data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
-  | `serial` | yes, when multiple NAS are configured | serial of DSM |
+Shutdown the NAS.

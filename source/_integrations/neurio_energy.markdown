@@ -1,7 +1,6 @@
 ---
 title: Neurio energy
 description: Instructions on how to integrate Neurio within Home Assistant.
-logo: neurio.png
 ha_category:
   - Energy
 ha_iot_class: Cloud Polling

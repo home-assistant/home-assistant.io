@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: rdw
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ---
 

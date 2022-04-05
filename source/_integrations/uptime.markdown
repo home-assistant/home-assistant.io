@@ -10,33 +10,10 @@ ha_quality_scale: internal
 ha_domain: uptime
 ha_platforms:
   - sensor
+ha_config_flow: true
 ---
 
-The `uptime` sensor stores the timestamp (date and time) when Home Assistant was last started.
+The uptime integration provides a sensor that stores the timestamp
+(date and time) when Home Assistant was last started.
 
-## Configuration
-
-To enable this sensor, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: uptime
-```
-
-{% configuration %}
-name:
-  description: Name to use in the frontend.
-  required: false
-  type: string
-  default: Uptime
-{% endconfiguration %}
-
-## Example
-
-```yaml
-# Example with configuration variables
-sensor:
-  - platform: uptime
-    name: Time Online
-````
+{% include integrations/config_flow.md %}

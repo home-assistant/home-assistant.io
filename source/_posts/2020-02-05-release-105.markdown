@@ -141,7 +141,7 @@ So if you have a light named "Living room lights" that is in the area "Living ro
 - We added many accessibility features to Lovelace; you can navigate almost everything with the tab key.
 We will continue to work on this so that people with disabilities can also enjoy Home Assistant.
 
-For a full list of changes, see the [Lovelace changelog](/lovelace/changelog/).
+For a full list of changes, see the Lovelace changelog.
 
 Even more frontend improvements:
 

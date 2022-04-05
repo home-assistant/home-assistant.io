@@ -9,6 +9,7 @@ ha_release: '0.30'
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
+  - '@ThomDietrich'
 ha_domain: statistics
 ha_platforms:
   - sensor
@@ -21,6 +22,12 @@ The statistics sensor updates with every source sensor update. The value of the 
 Both `sensor` and `binary_sensor` are supported as source sensor. A number of characteristics is supported by each, please check below.
 
 Assuming the [`recorder`](/integrations/recorder/) integration is running, historical sensor data is read from the database on startup and is available immediately after a restart of the platform. If the [`recorder`](/integrations/recorder/) integration is *not* running, it can take some time for the sensor to start reporting data because some characteristics calculations require more than one source sensor value.
+
+<div class='note tip'>
+
+The `statistics` integration is different to a [Long-term Statistics](https://developers.home-assistant.io/docs/core/entity/sensor/#long-term-statistics). More details on the differences can be found in the [2021.8.0 release notes](/blog/2021/08/04/release-20218/#long-term-statistics).
+
+</div>
 
 ## Characteristics
 

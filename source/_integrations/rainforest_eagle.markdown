@@ -11,6 +11,7 @@ ha_codeowners:
   - '@jcalbert'
 ha_domain: rainforest_eagle
 ha_platforms:
+  - diagnostics
   - sensor
 ha_config_flow: true
 ha_dhcp: true

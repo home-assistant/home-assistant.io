@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: ambient_station
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ---
 

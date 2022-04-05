@@ -109,18 +109,42 @@ If you want to support active reporting of state to Google's server (configurati
 
 ### Enable Local Fulfillment
 
+Google Assistant devices can send their commands locally to Home Assistant allowing them to respond faster.
+
+Your Home Assistant instance needs to be connected to the same network as the Google Assistant device that you’re talking to so that it can be discovered via mDNS discovery (UDP broadcasts).
+
+Your Google Assistant devices will still communicate via the internet to:
+- Sync entities.
+- Get credentials to establish a local connection.
+- Send commands that involve a [secure device](#secure-device).
+- Send commands if local fulfillment fails.
+
+<div class='note'>
+
+The [HTTP integration](/integrations/http) must **not** be configured to use an SSL certificate with the [`ssl_certificate` option](/integrations/http/#ssl_certificate).
+  
+This is because the Google Assistant device will connect directly to the IP of your Home Assistant instance and will fail if it encounters an invalid SSL certificate.
+  
+For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic straight to Home Assistant.
+
+</div>
+
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
 3. Upload [this Javascript file](/assets/integrations/google_assistant/app.js) for both Node and Chrome by clicking the `Upload Javascript files` button.
 4. Add device scan configuration:
-  1. Click `+ New scan config`
-  2. Select `MDNS`
-  3. set mDNS service name to `_home-assistant._tcp.local`
-5. `Save` your changes.
-6. Either wait for 30 minutes, or restart your connected Google device.
-7. Restart Home Assistant Core.
+   1. Click `+ New scan config` if no configuration exists
+   2. Select `MDNS`
+   3. Set `MDNS service name` to `_home-assistant._tcp.local`
+   4. Click `Add field`, then under `Select a field` choose `Name`
+   5. Enter a new `Value` field set to `.*\._home-assistant\._tcp\.local`
+5. Check the box `Support local query` under `Add capabilities`.
+6. `Save` your changes.
+7. Either wait for 30 minutes, or restart all your Google Assistant devices.
+8. Restart Home Assistant Core.
+9. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
 
-You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome)
+You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome).
 
 ### YAML Configuration
 

@@ -10,6 +10,7 @@ ha_codeowners:
   - '@balloob'
 ha_domain: evil_genius_labs
 ha_platforms:
+  - diagnostics
   - light
 ---
 

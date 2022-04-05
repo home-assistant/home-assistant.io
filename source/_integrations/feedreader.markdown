@@ -74,6 +74,8 @@ automation:
     trigger:
       platform: event
       event_type: feedreader
+      event_data:
+        feed_url: "https://hasspodcast.io/feed/podcast"
     action:
       service: persistent_notification.create
       data:

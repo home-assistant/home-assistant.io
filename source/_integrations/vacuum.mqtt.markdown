@@ -11,6 +11,7 @@ The `mqtt` vacuum integration allows you to control your MQTT-enabled vacuum.
 There are two possible message schemas - `legacy` and `state`, chosen by setting the `schema` configuration parameter.
 New installations should use the `state` schema as `legacy` is deprecated and might be removed someday in the future.
 The `state` schema is preferred because the vacuum will then be represented as a `StateVacuumDevice` which is the preferred parent vacuum entity.
+The initial state of the state vacuum entity will set to `unknown` and can be reset by a device by sending a `null` payload as state. The legacy `mqtt` vacuum does not support handling an `unknown` state.
 
 This documentation has 3 sections. Configuration for `legacy` vacuum with examples, configuration for `state` vacuum with examples and shared section with examples which are the same for both schemas.
 
