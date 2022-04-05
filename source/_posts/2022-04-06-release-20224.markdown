@@ -54,8 +54,9 @@ Enjoy the (beta) release!
 - [Zones now have a state!](#zones-now-have-a-state)
 - [Adjusting unit of measurements for sensors](#adjusting-unit-of-measurements-for-sensors)
 - [Adjusting long-term statistics](#adjusting-long-term-statistics)
-- [Database Performance](#database-performance)
-- [Frontend data performance](#frontend-data-performance)
+- [Optmizing performance](#optmizing-performance)
+  - [Frontend UI performance](#frontend-ui-performance)
+  - [Database performance](#database-performance)
 - [New and updated selectors!](#new-and-updated-selectors)
 - [Variables on trigger](#variables-on-trigger)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -323,11 +324,29 @@ can be found in the developer statistics tools:
 
 {% my developer_statistics badge %}
 
-## Database Performance
+## Optimizing performance
+
+This release brings significant performance optimizations to both Home
+Assistant's backend and frontend UI.
+
+### Frontend UI performance
+
+The communication layer between the Home Assistant frontend and its Core backend
+has been greatly improved. It now sends over a lot less data and is heavily
+optimized to send the least amount of data when first loading up the UI.
+
+The UI will load faster since less data is transferred over the wire,
+and there is less data for the web browser or app to process.
+
+Additionally, lessened data transmitted means Home Assistant will work better
+on slower data connections and, if essential for you, uses less data on your
+mobile data plan.
+
+### Database performance
 
 This release features write reductions intended to preserve SD card lifetimes,
 performance improvements designed to get data to the frontend faster, and
-database size reduction ranging from 10-35% for most installs. 
+database size reductions ranging from 10-35% for most installs. 
 
 When the same set of state attributes already exists in the database,
 newly recorded state changes now only store a reference to the state
@@ -343,7 +362,9 @@ attributes from the backend, and as a result, they load much faster after
 for energy sensors.  
 
 For a few a complete set of changes to the underlying database,
-check out the [Data Science Portal](https://data.home-assistant.io/docs/states#database)
+check out the [Data Science Portal].
+
+[Data Science Portal]: https://data.home-assistant.io/docs/states#database
 
 ## New and updated selectors!
 
