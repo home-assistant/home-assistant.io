@@ -36,10 +36,26 @@ Issues introduced in the beta are processed with priority.
 
 ---
 
-This part of the release notes is where I usually write an introduction,
-however, since we are still in beta... I got time :)
+👋 I'm not sure where to start with this release; It's April, and I can
+assure you: This release is no joke. Seriously, it is **packed** with features
+and incredible new things 🤯.
 
-Enjoy the (beta) release!
+The release focuses on adding features to the user interface by bringing
+in user experiences and features that were previously only available to users
+using YAML configuration and making them now accessible for all! It is a
+great step forward in streamlining all the user experiences.
+
+I could not fit more in these release notes, but there is more to tell!
+Zack and Paulus promised to add a couple of great (and exclusive)
+announcements to [the newsletter](/newsletter)! The newsletter has, by the way,
+been renamed: _[Building the Open Home](/newsletter)_. Be sure to check it out!
+
+I want to invite you to read the (long) release notes below. I'm sure there is
+a lot in there you will like and love ❤️.
+
+Let me know what you think the killer feature of this release is?
+
+Enjoy the release!
 
 ../Frenck
 
