@@ -178,9 +178,9 @@ The above Groups and Switch as X, are to be found in what we call: Helpers.
 Helpers are integrations that expose a way for a user to provide input or
 consume existing data in Home Assistant to provide a new entity.
 
-The latter category has been very much extended this release! Not just
-groups and switch as X, but we have a lot more helper integrations that
-are now availble!
+The latter category of helpers has very much extended in this release!
+Not just groups and switch as X, but we have many more helper integrations
+available in the UI now!
 
 This release brings the following helpers to the UI:
 
