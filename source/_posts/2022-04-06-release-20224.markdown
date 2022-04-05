@@ -54,9 +54,7 @@ Enjoy the (beta) release!
 - [Zones now have a state!](#zones-now-have-a-state)
 - [Adjusting unit of measurements for sensors](#adjusting-unit-of-measurements-for-sensors)
 - [Adjusting long-term statistics](#adjusting-long-term-statistics)
-- [Optmizing performance](#optmizing-performance)
-  - [Frontend UI performance](#frontend-ui-performance)
-  - [Database performance](#database-performance)
+- [Optimizing performance](#optimizing-performance)
 - [New and updated selectors!](#new-and-updated-selectors)
 - [Variables on trigger](#variables-on-trigger)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -326,7 +324,7 @@ datapoint by date & time and adjust the value.
 This release brings significant performance optimizations to both Home
 Assistant's backend and frontend UI.
 
-### Frontend UI performance
+### Frontend UI performance <!-- omit in toc -->
 
 The communication layer between the Home Assistant frontend and its Core backend
 has been greatly improved. It now sends over a lot less data and is heavily
@@ -339,7 +337,7 @@ Additionally, lessened data transmitted means Home Assistant will work better
 on slower data connections and, if essential for you, uses less data on your
 mobile data plan.
 
-### Database performance
+### Database performance <!-- omit in toc -->
 
 This release features write reductions intended to preserve SD card lifetimes,
 performance improvements designed to get data to the frontend faster, and
