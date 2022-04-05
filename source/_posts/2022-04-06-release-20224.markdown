@@ -632,7 +632,7 @@ changes and new features available for your integration: Be sure to read our
 If an entity is explicitly referenced as a target for a service that the
 entity doesn't support, we now raise an error instead of silently ignoring it.
 
-This helps resolving issues with not working automations or scripts, that now
+This helps resolving issues with not working automations or scripts that now
 just silently fail.
 
 ([@balloob] - [#68394])
@@ -644,14 +644,14 @@ just silently fail.
 
 {% details "Switches - Energy attributes" %}
 
-In the August 2021 release, we deprecated all energy related attributes from
+In the August 2021 release, we deprecated all energy-related attributes from
 switches. The attributes are: `current_power_w` and `today_energy_kwh`.
-Those attributes should have been seperate power and energy sensors instead.
+Those attributes should have been separate power and energy sensors instead.
 
-All integrations affected have been notified on July 22, 2021 of requiring
+All integrations affected were notified on July 22, 2021, of requiring
 a change.
 
-As of this release the attributes have been removed from the switch core
+As of this release, the attributes have been removed from the switch core
 entity platform, meaning the `current_power_w` and `today_energy_kwh` attributes
 are no longer available for the following:
 
@@ -765,7 +765,7 @@ new `tomorrowio` integration.
 
 For any `climacell` users using a v4 API key, the migration from the old
 integration to the new one will happen automatically. If you are a `climacell`
-user using a v3 API key, you will need to sign up for a v4 API key in order to
+user using a v3 API key, you will need to sign up for a v4 API key to
 complete the migration, but once you have provided the new key,
 your configuration (or configurations) will be migrated over automatically.
 
@@ -774,7 +774,7 @@ configurations before they submit the new API key so that your automations
 and dashboards still work.
 
 In a future release, we will be removing most of the code from the `climacell`
-integration so that the migrations will still happen
+integration so that the migrations will still happen,
 but the original integration will no longer work.
 
 ([@raman325] - [#68156]) ([documentation](/integrations/climacell))
@@ -868,11 +868,9 @@ can be safely removed from your YAML configuration.
 
 {% details "Eight Sleep" %}
 
-The `partner` parameter was deprecated in 2021 but having it in your
-configuration was still accepted. The `partner` option has now been removed
-please remove the `partner` parameter from your YAML configuration
-before updating.
-
+The `partner` parameter was deprecated in 2021, but it was still accepted
+in your configuration. The `partner` option has now been removed; please
+remove the `partner` parameter from your YAML configuration before updating.
 
 ([@raman325] - [#68381]) ([documentation](/integrations/eight_sleep))
 
@@ -1061,10 +1059,10 @@ removed from your YAML configuration files.
 
 {% details "Modbus" %}
 
-Setting `reverse_order` has not been allowed (or worked) for a long time,
+Setting `reverse_order` has not been allowed (or worked) for a long time
 and is removed.
 
-The previously deprecated `data_count` have been removed.
+The previously deprecated `data_count` has been removed.
 
 ([@janiversen] - [#67236]) ([documentation](/integrations/modbus))
 
@@ -1073,7 +1071,8 @@ The previously deprecated `data_count` have been removed.
 
 ---
 
-The previously deprecated data types `int`, `uint` and `float` have been removed.
+The previously deprecated data types `int`, `uint`, and `float` have been
+removed.
 
 For the devices that use non-standard register size, "count" can be used to
 overwrite the default count of registers.
@@ -1144,12 +1143,12 @@ SDM API OAuth signups are resolved (so this is an un-breaking change).
 
 {% details "Pi-hole" %}
 
-The binary sensor entities that would show if there was an update available
-for the Core, Web or FTL component has been deprecated and will be removed
-in Home Assistant Core 2022.6.
+The binary sensor entities that would show if an update is available for the
+Core, Web, or FTL component has been deprecated and will be removed in
+Home Assistant Core 2022.6.
 
-The PI-Hole integration now provides `update` entities as a replacement
-for the deprecated entities.
+The PI-Hole integration now provides `update` entities to replace
+the deprecated entities.
 
 ([@mib1185] - [#68749]) ([documentation](/integrations/pi_hole))
 
@@ -1193,7 +1192,7 @@ OpenTherm devices has been improved: `outdoor_air_temperature`.
 E.g. **former** `sensor.opentherm_outdoor_temperature` is now visible
 as `sensor.opentherm_outdoor_air_temperature`.
 
-Use of the zipcode based `outdoor_temperature` for other devices has
+The use of the zipcode-based `outdoor_temperature` for other devices has
 not changed.
 
 ([@CoMPaTech] - [#68303]) ([documentation](/integrations/plugwise))
@@ -1247,17 +1246,17 @@ to use the new separate sensors instead.
 
 The following breaking  changes are only breaking if you consume the Home
 Assistant Core database manually or in custom integrations; For example,
-when using custom queries or do data analytics on your database.
+when using custom queries or doing data analytics on your database.
 
 ---
 
-Attributes are now stored in a `state_attributes` table, which stores the
+Attributes are now stored in a `state_attributes` table, storing the
 same set of attributes once (many to one relationship).
 
 Attributes represent roughly 21% of the database size. (28% if you exclude
-statistics). On a few of of the analyzed production instances, attributes
+statistics). On a few of the analyzed production instances, attributes
 ranged from 82-88% duplicates of another set of attributes. Expected is
-that this change will reduce the size of the database roughly between 13-16%
+that this change will reduce the database size by roughly between 13-16%
 on average.
 
 ([@bdraco] - [#68224]) ([documentation](/integrations/recorder))
@@ -1291,15 +1290,15 @@ there as well since it frequently generates new attributes rows in the database.
 ---
 
 Integrations and platforms can now provide hints to the recorder to
-exclude certain entity state attributes from being recorded.
+exclude specific entity state attributes from being recorded.
 
-This is used to exclude attributes that hold little to no historical value,
-or are a static value. This can greatly reduce the amount of data stored.
+This excludes attributes that hold little to no historical value
+or are a static value. This significantly reduces the amount of data stored.
 
 The following attributes are no longer recorded:
 
 - For all entities: `attribution` and `supported_features`.
-- Camera: `token` and URL to the `entity_picture` URL.
+- Camera: `token` and `entity_picture`.
 - Climate: `hvac_modes`, `fan_modes`, `swing_modes`, `min_temp`, `max_temp`, `min_humidity`, `max_humidity`, `target_temp_step`, and `preset_modes`.
 - Fan: `preset_modes`.
 - Light: `color_modes`, `min_mireds`, `max_mireds`, and `effect_list`.
@@ -1348,7 +1347,7 @@ repeat packets as needed per protocol.
 
 {% details "Sensibo" %}
 
-Sensibo Air devices that has a room sensor active (as main measurement sensor)
+Sensibo Air devices with an active room sensor (as the main measurement sensor)
 will now retrieve the temperature and humidity from the room sensor.
 
 ([@gjohansson-ST] - [#66949]) ([documentation](/integrations/sensibo))
@@ -1386,9 +1385,9 @@ removed and now have their own sensors.
 
 {% details "SleepIQ" %}
 
-The sleep number firmness sensor entity in the SleepIQ integration is
-deprecated and will be removed in a future release. A number entity is available
-providing the same information, that can be used instead.
+The sleep number firmness sensor entity in the SleepIQ integration is deprecated
+and will be removed in a future release. A number entity is available,
+providing the same information and can be used instead.
 
 ([@mfugate1] - [#65841]) ([documentation](/integrations/sleepiq))
 
@@ -1436,10 +1435,10 @@ such as TV and line-in sources.
 
 The `media_player.select_source` service call will continue to accept
 favorite names. This compatibility feature may be removed in a future
-release but there are no current plans to do so.
+release, but there are no current plans to do so.
 
 This change was done to minimize writes to the database. Each modification
-to the favorites would rewrite the complete list of favorites to the database
+to the favorites would rewrite the complete list of favorites in the database
 for each Sonos device.
 
 ([@jjlawren] - [#67931]) ([documentation](/integrations/sonos))
@@ -1455,8 +1454,8 @@ The binary sensor entities for the Supervisor integration that would show if
 there was an update available for Home Assistant OS and add-ons have been
 deprecated and will be removed in Home Assistant 2022.6.
 
-The Supervisor integration now provides `update` entities as
-a replacement for the deprecated entities.
+The Supervisor integration now provides `update` entities to replace the
+deprecated entities.
 
 ([@ludeeus] - [#68475]) ([documentation](/integrations/hassio))
 
@@ -1487,8 +1486,8 @@ The binary sensor entity that would show if there was an update available for
 the Synology DSM firmware has been deprecated and will be removed in
 Home Assistant Core 2022.6.
 
-The Synology DSM integration now provides an `update` entity as
-a replacement for the deprecated entity.
+The Synology DSM integration now provides an `update` entity to replace
+the deprecated entity.
 
 ([@mib1185] - [#68664]) ([documentation](/integrations/synology_dsm))
 
@@ -1547,9 +1546,8 @@ The `frequency`, `current`, and `voltage` attributes on `powerwall` instant
 meter sensors are now their own entities.
 
 The `is_active` attribute has been removed as it can already be
-derived from the reading. As these sensors generated significant amount
-of state changes, the new sensors are not enabled by default.
-They can be enabled in the UI.
+derived from the reading. As these sensors generated significant state changes,
+the new sensors are not enabled by default. They can be enabled in the UI.
 
 ([@bdraco] - [#68345]) ([documentation](/integrations/powerwall))
 
@@ -1634,14 +1632,14 @@ on autogenerated Lovelace dashboards, Google Assistant, Alexa, or HomeKit.
 This integration now provides a switch entity that will let you pause/resume
 monitoring of a monitor.
 
-Because of that, you need to use the 'main' UptimeRobot API key, if you
+Because of that, you need to use the 'main' UptimeRobot API key; if you
 previously used that, you will not have to do anything, but if you used
 the read-only API or a monitor-specific API key, the integration will
 ask you to reauthorize on the first startup.
 
 To get your API key, go to
 [My Settings](https://uptimerobot.com/dashboard#mySettings) on the
-UptimeRobot website, at the bottom you will find your key.
+UptimeRobot website, at the bottom, you will find your key.
 
 ([@chemelli74] - [#68224]) ([documentation](/integrations/uptimerobot))
 
@@ -1724,7 +1722,7 @@ will be removed in Home Assistant 2022.6.
 
 Instead, the WLED integration now provides a brand new `update` entity
 that replaces the functionality provided by those entities
-(and provide more functionality).
+(and offers more functionality).
 
 ([@frenck] - [#68454]) ([documentation](/integrations/wled))
 
@@ -1767,12 +1765,12 @@ removed from your YAML configuration files.
 
 {% details "Z-Wave JS" %}
 
-The Z-Wave JS siren entities will now return `unknown` as state if the
+The Z-Wave JS siren entities will now return `unknown` as a state if the
 corresponding driver value is missing.
 
 Previously the state defaulted to `off` in these cases. You might need to
-take this into consideration in automations and scripts that rely on a
-Z-Wave JS siren entity state.
+consider thi in automations and scripts that rely on a Z-Wave JS siren
+entity state.
 
 ([@MartinHjelmare] - [#67172]) ([documentation](/integrations/zwave_js))
 
@@ -1781,10 +1779,9 @@ Z-Wave JS siren entity state.
 
 ---
 
-The selected fan speed at certain percentages for Inovelli LZW36
-fan controllers has changed. Setting the percentage to 1% will no longer
-enable the 'breeze' mode; that functionality is
-instead accessed through a preset.
+The selected fan speed has changed at specific percentages for Inovelli LZW36
+fan controllers. Setting the percentage to 1% will no longer enable
+the 'breeze' mode; that functionality is instead accessed through a preset.
 
 ([@mkowalchuk] - [#60947]) ([documentation](/integrations/zwave_js))
 
@@ -1829,14 +1826,14 @@ The following integrations are also no longer available as of this release:
   affect our mobile apps!
   ([@frenck] - [#67158])
 - **Media Player Classic Home Cinema (MPC-HC)**, the integration is using
-  webscraping, which is no longer allowed.
+  web scraping, which is no longer allowed.
   ([@frenck] - [#67189])
-- **OpenZWave**, was previously deprecated and now removed. Please use
+- **OpenZWave**, was previously deprecated and is now removed. Please use
   [Z-Wave JS] instead.
   ([@frenck] - [#68054])
 - **SmartHab** has been removed. The company behind it has been shut down.
   ([@outadoc] - [#67874])
-- **Z-Wave** (the old `zwave` integration), was previously deprecated and
+- **Z-Wave** (the old `zwave` integration), was previously deprecated and is
   now removed. Please use [Z-Wave JS] instead.
   ([@frenck] - [#67221])
 
