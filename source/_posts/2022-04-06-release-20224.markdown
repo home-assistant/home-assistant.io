@@ -294,14 +294,11 @@ The condition ensure this automation will only trigger if someone is home.
 
 ## Adjusting unit of measurements for sensors
 
-TODO: 
- - Extend story
- - Add screenshot
+Got that one sensor measuring a temperature in Celsius, but you prefer it to be
+in Fahrenheit? No problem! You can now change the unit of measurement for
+temperature and pressure sensors straight from the UI.
 
-Unit of measurements for temperature and pressure sensors can now be adjusted,
-straight from the UI. Got that one Fahrenheit sensor, but you prefer it to be
-in Celsius? No problem!
-
+<img class="no-shadow" src='/images/blog/2022-04/adjust-unit-of-measurement.png' alt='Screenshot showing adjusting the unit for measurement for an temperature entity'>
 
 ## Adjusting long-term statistics
 
