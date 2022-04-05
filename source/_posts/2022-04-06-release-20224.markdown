@@ -146,27 +146,28 @@ add a new group immediately:
 
 ## Switch as X
 
-TODO:
-  - Improve story line
-  - Add screenshot(s)
-  - Focus on: Can be changed in Switch more info dialog
-  - Add switch as x to entity settings (#12161) @bramkragten
-
-The Switch as X integrations lets you convert any Home Assistant switch into
-a Home Assistant Light, Cover, Fan, Lock, or Siren.
-
 In Home Assistant’s world, a wall plug is a switch. And while that is correct
-for a wall plug in general, those plugs are often used with e.g, a light
-fixture or a fan. General-purpose relays are similar, as they are sometimes
-used for things like locks or garage doors.
+for a wallplug in general, those plugs (or relays) are often used with a light
+fixture, a fan, garage door, or maybe your Christmas tree lights. 🎄
 
-Using the Switch as X integration, you can convert those switches into
-the entity types that best matches your use case.
-
-The newly created entity will appear in your original device.
+This release introduces the “Switch as X” helper, which lets you convert any
+Home Assistant switch into a light, cover, fan, lock, or siren to match your
+real-world use better.
 
 Switch as X can be found under {% my helpers title="Configuration > Automations & Scripts > Helpers" %},
-or click the my button below transform one of your switches right away:
+but wait! We made it easier: You can also change the switch itself when
+editing the switch entity:
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FLH4SXMAQS4" frameborder="0" allowfullscreen></iframe>
+</div>
+
+The video above shows the creating of the new light entity, which uses the
+original switch. The original switch is now automatically hidden from most of
+the Home Assistant UI but is still available on this device page
+
+If you have updated to this release already, click the my button below to
+transform one of your switches right away:
 
 {% my config_flow_start badge domain="switch_as_x" %}
 
