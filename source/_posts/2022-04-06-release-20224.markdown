@@ -208,8 +208,9 @@ This release brings the following helpers to the UI:
 
 Say "hi!" to a brand new entity type: `update`.
 
-Updates can tell you if an update is available for your device and service and,
-in some cases, allow you to install the update straight from Home Assistant!
+Update entities can tell you if an update is available for your device and
+service and, in some cases, allow you to install the update straight from
+Home Assistant!
 
 And the beautiful thing is: They show up in your configuration Dashboard, just
 like a Home Assistant, Home Assistant OS, or add-on update. As a matter of fact,
