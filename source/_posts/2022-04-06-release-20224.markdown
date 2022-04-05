@@ -430,38 +430,38 @@ noteworthy changes this release:
   many more of them now work the media browser and play media action!
   If you use: [Bluesound], [Denon HEOS], [forked-daapd], [Linn / OpenHome],
   [Logitech Squeezebox], [Music Player Daemon (MPD)], [Panasonic Viera],
-  [UniFi Protect] or [Yamaha MusicCast], you can now use the media browser!
+  [UniFi Protect], or [Yamaha MusicCast], you can now use the media browser!
 - Want to update the appearance of a binary sensor? You can now do that!
   When you edit the entity in the UI, you can select how it would show up. No
-  need to customize `device_class` in YAML anymore. Thanks [@zsarnett]!
+  need to customize `device_class` in YAML anymore. Thanks, [@zsarnett]!
 - The [Material Design Icons] have been updated! Check out all 
   [these beautiful new icons] we can use now! Thanks, [@goyney]!
-- Our analytics integration now sent if you are using SSL certificates 
-  in Home Assistant yes or no. Of course,
+- Our analytics integration now sends if you are using SSL certificates 
+  in Home Assistant (yes or no). Of course,
   {% my general title="only if you have enabled Analytics" %}. Thanks for
   enabling it 💙!
-- [Timers] can now restore/survive their state accross restarts, awesome work
+- [Timers] can now restore/survive their state across restarts. Awesome work
   [@raman325]! Each timer now has a configuration option to enable restore.
-- [@epenet] has been cranking out lot of improvement for the [Samsung TV]
+- [@epenet] has been cranking out a lot of improvements for the [Samsung TV]
   integration this month! Shoutout to [@bdraco] for helping out on that one too.
 - Android 11 support for the [Android TV] integration is here!
-  Thanks [@JeffLIrion]!
-- Long awaited and finally there... Native [Hue] groups suppport! Thanks to
-  Signify who implemented our request for this. This means Home Assistant can
+  Thanks, [@JeffLIrion]!
+- Long-awaited and finally there: Native [Hue] groups support! Thanks to
+  Signify, who implemented our request for this. This means Home Assistant can
   now control groups as a whole instead of per light. Nice and snappy now!
   Thanks for adding support to Home Assistant for it [@marcelveldt]!
-- [@thecode] added support for the second generation [Shelly] cover devices,
+- [@thecode] added support for the second generation [Shelly] cover devices;
   thanks!
-- If your Solar inverter has a lower capacity compared to the combined capacity
-  of your panels, than [@klaasnicolaas] has good news for you. The
+- If your Solar inverter has a lower capacity than your panels' combined
+  capacity, then [@klaasnicolaas] has good news for you. The
   [Forecast.Solar] integration now supports this and can adjust the forecast
   to take your inverter cap into account.
-- Media players now have a control for the repeat modes in the UI! Thanks,
+- Media players now have controls for the repeat modes in the UI! Thanks,
   [@NachtaktiverHalbaffe]!
 - [RFXCOM RFXtrx] now supports sirens and chimes! Thanks, [@elupus]!
-- The [GitHub] integration now uses event subscription instead of polling GitHub.
-  Nice work [@ludeeus]!
-- The [TP-Link Kasa Smart] integration now support effects for their light
+- The [GitHub] integration now uses event subscriptions instead of polling GitHub.
+  Excellent work, [@ludeeus]!
+- The [TP-Link Kasa Smart] integration now supports effects for their light
   strips. Thanks, [@bdraco]!
 
 [@balloob]: https://github.com/frenck 
