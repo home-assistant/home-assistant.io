@@ -206,31 +206,38 @@ This release brings the following helpers to the UI:
 
 ## Introducing update entities
 
-TODO:
- - Much better story
- - Needs screenshots/screenrecording of something updating
+Say "hi!" to a brand new entity type: `update`.
 
-This release we introduce a brand new entity type: `update` entities.
+Updates can tell you if an update is available for your device and service and,
+in some cases, allow you to install the update straight from Home Assistant!
 
-Update entities can be provided by integrations, and indicate if there is
-an update for your device or service pending. If an update is pending,
-information for this update is provided.
+And the beautiful thing is: They show up in your configuration Dashboard, just
+like a Home Assistant, Home Assistant OS, or add-on update. As a matter of fact,
+those are now update entities too!
 
-For example, it provides the version number of the new version available, links
-to release notes, and even summaries of release notes (if available).
+Now updates are entities other integrations can provide them too! For example,
+a WLED firmware update for your LED strip will show up and installs
+with a single click.
 
-If an integration can, it can also offer you to install the update! Directly
-from the Home Assistant UI; or you can choose to skip the update and thus
-dismiss it.
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-04/update-install.gif' alt='Screen recording showing a WLED firmware update can be installed with a click'>
+A WLED firmware update can now be installed just like any other update.
+</p>
 
-Update entities are now provided and available for the Supervisor, that provides
-an update entities for the Home Assistant Core, OS and all its installed add-ons.
+These `update` entities can be provided by integrations and provide more
+information about the update, like: Version information, links to release notes,
+and the possibility to skip that specific version offered.
 
-Additionally, WLED has implemented update entities to install firmware directly
-from Home Assistant, and Pi-hole and Synology DSM can indicate if an update
-is available.
+The blue number indicator on the configuration cog icon in your sidebar tells
+you how many updates are pending.
 
-* Add badge to configuration sidebar to indicate pending updates (#12146) @ludeeus
+The Home Assistant Supervisor (providing Core, OS, and add-on updates), WLED,
+Pi-hole, and Synology DSM integrations have implemented these brand new
+update entities in this release.
+
+And because they are all entities, it means you can automate with them. For
+example, you could send a notification when a new add-on update is available
+for installation.
 
 ## Backups for Home Assistant Core & Container installs
 
