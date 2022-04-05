@@ -275,7 +275,9 @@ it always said: _"Zoning"_. Not really helpful 🙃
 
 So, to improve on that, we changed that behavior. The state of a `zone` entity
 will now show the number of [persons] currently in that zone; that is more
-helpful!
+helpful! Additionally, it means that a zone has history now too!
+
+<img class="no-shadow" src='/images/blog/2022-04/zone-state.png' alt='Screenshot showing the new numeric state of our zones'>
 
 This will greatly simplify automations and scripts that, for example, trigger
 on: Nobody is home, everybody is home, someone left home (or any other zone 
