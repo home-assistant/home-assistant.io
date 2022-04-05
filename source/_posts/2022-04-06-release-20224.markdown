@@ -248,18 +248,23 @@ You can find the backup dashboard in the configuration menu.
 
 ## Testing your automation conditions
 
-Last release we added a small feature to see if the automation you are
-creating, triggers correctly. During the release livestream of that release
-we got questions: Can this be done for conditions too?
+In our previous release we [added a feature][triggered] to see if the automation
+you create triggers correctly. During the release party live stream,
+we got questions: _"Can this be done for conditions too?"_; Sure we can!
 
-Sure we can!
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-04/test-condition.gif' alt='Screen recording showing the new test button that allows you to test the condition'>
+Every condition now has a little test button, testing if the condition passes right now.
+</p>
 
-TODO: Insert screenrecording.
+Additionally, the “triggered” bar got an additional feature too! You can click
+on it to get a raw view of all trigger variable data if it shows. This data
+can be helpful in case you want to create an advanced condition or template
+using that information.
 
-Additionally, the "triggered" bar got an additional feature to! If it shows,
-you can click on it, to get a raw view of all trigger data.
+<img class="no-shadow" src='/images/blog/2022-04/triggered-variables.png' alt='Screenshot showing variable triggered data when the triggered notification is clicked'>
 
-TODO: Insert screenshot
+[triggered]: /blog/2022/03/02/release-20223/#triggered
 
 ## Zones now have a state!
 
