@@ -270,22 +270,24 @@ using that information.
 
 ## Zones now have a state!
 
-TODO:
-  - Needs better story
-  - Needs screenshot
-  - Could use some example automation/script/condition.
-
-If you have looked at a `zone` entity, you would have noticed it always said:
-_"Zoning"_. Not really helpful 🙃
+If you ever looked at the state of a `zone` entity, you would have noticed
+it always said: _"Zoning"_. Not really helpful 🙃
 
 So, to improve on that, we changed that behavior. The state of a `zone` entity
-will now show the number of persons that are in that zone; that is helpful!
+will now show the number of [persons] currently in that zone; that is more
+helpful!
 
 This will greatly simplify automations and scripts that, for example, trigger
 on: Nobody is home, everybody is home, someone left home (or any other zone 
-for that matter). But it can also be used in conditions for other automations.
+for that matter). Or use it as a condition to prevent an automation
+from running when nobody is home.
 
-For example, don't run a certain automation when nobody is home anyways.
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-04/zone-condition.png' alt='Screenshot showing how to use zone with in a numeric condition'>
+The condition ensure this automation will only trigger if someone is home.
+</p>
+
+[persons]: /integrations/person
 
 ## Adjusting unit of measurements for sensors
 
