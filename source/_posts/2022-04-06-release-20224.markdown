@@ -188,6 +188,7 @@ This release brings the following helpers to the UI:
 - [Groups]
 - [Integration - Riemann sum integral]
 - [Min/Max]
+- [Switch as X]
 - [Threshold]
 - [Times of day]
 - [Utility Meter]
@@ -196,6 +197,7 @@ This release brings the following helpers to the UI:
 [Groups]: /integrations/group
 [Integration - Riemann sum integral]: /integrations/integration
 [Min/Max]: /integrations/min_max
+[Switch as X]: /integrations/switch_as_x
 [Threshold]: /integrations/threshold
 [Times of Day]: /integrations/tod
 [Utility Meter]: /integrations/utility_meter
