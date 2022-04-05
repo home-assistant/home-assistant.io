@@ -374,7 +374,7 @@ attributes from the backend, and as a result, they load much faster after
 24 hours of running on 2022.4. This change is especially noticeable
 for energy sensors.  
 
-For a few a complete set of changes to the underlying database,
+For a complete set of changes to the underlying database,
 check out the [Data Science Portal].
 
 [Data Science Portal]: https://data.home-assistant.io/docs/states#database
@@ -633,8 +633,7 @@ changes and new features available for your integration: Be sure to read our
 If an entity is explicitly referenced as a target for a service that the
 entity doesn't support, we now raise an error instead of silently ignoring it.
 
-This helps resolving issues with not working automations or scripts that now
-just silently fail.
+This helps detect automations or scripts that used to silently fail.
 
 ([@balloob] - [#68394])
 
