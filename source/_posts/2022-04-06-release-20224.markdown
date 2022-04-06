@@ -1026,7 +1026,7 @@ removed from your YAML configuration files.
 {% details "Mazda" %}
 
 The Mazda services `start_engine`, `stop_engine`, `turn_on_hazard_lights`,
-and turn_off_hazard_lights are deprecated and have been replaced by button
+and `turn_off_hazard_lights` are deprecated and have been replaced by button
 entities. Please use the button entities instead.
 
 ([@bdr99] - [#67597]) ([documentation](/integrations/mazda))
