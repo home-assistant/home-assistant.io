@@ -64,6 +64,24 @@ There is currently support for the following device types within Home Assistant:
 
 There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created. As well as support for binding/unbinding (i.e. bind a remote to a lightbulb or group).
 
+## Introduction and dictionary (terminology vocabulary)
+
+ZHA is a native “Zigbee host application” for Home Assistant that via a Zigbee Coordinator adapter will setup and allow control of a single “Zigbee network” (using mesh topology). Once installed ZHA you will be able to directly join/pair most types of “Zigbee Router Device” and “Zigbee End Device” products to that Zigbee network, regardless of product manufacturer and brand.
+
+Zigbee Router Devices will interconnect with other devices to distribute and repeat transmission messages within the Zigbee network mesh, (they will therefor always need be available so are normally mains-powered).  Zigbee End Devices are usually but not always low-powered products such as battery-operated sensors, these will “sleep” most of the time to save power and only “wake” to report in when changes occur, (example sensor state change like temperature or open and close). 
+
+In most common Zigbee setups you will always need to first setup many Zigbee Router Devices to extend range and coverage of the Zigbee network, otherwise signals and/or messages to far way devices might be lost.
+
+#### ZHA and Zigbee limitations
+  - ZHA only support connecting one Zigbee Coordinator adapter / one Zigbee network.
+    - Zigbee devices can only be joined/paired to one Zigbee Coordinator / connected to one Zigbee network.
+    - Zigbee 3.x specification is limited to one Zigbee Coordinator per Zigbee network.
+  - Newer ZHA compatible Zigbee Coordinator adapters support Zigbee 3.x (dependecy on “zigpy” library)
+    - Recommendation is to buy a newer Zigbee Coordinator and flash latest firmware for best compatibility.
+    - ZHA’s dependency library “zigpy” does not yet support ZGP (Zigbee Green Power)
+  - Devices not following specifications might first need a custom ZHA Device Handler ("quirk") to work.
+    - ZHA support most devices out-of-the-box + already have "quirks" for many deviating from set standards.
+
 ## Compatible hardware
 
 ZHA integration uses a hardware independent Zigbee stack implementation with modular design, which means that it can support any one of the many Zigbee coordinator radio modules/adapters available from different manufacturers, as long as that module/adapter is compatible with [zigpy](https://github.com/zigpy/zigpy).
