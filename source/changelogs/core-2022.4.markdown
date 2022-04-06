@@ -210,7 +210,7 @@ For a summary in a more readable format:
 - Make google calendar loading API centric, not loading from yaml ([@allenporter] - [#67722]) ([google docs])
 - Allow discovery to update invalid unique_id in SamsungTV ([@epenet] - [#67859]) ([samsungtv docs])
 - Add Airzone HVAC Zoning Systems ([@Noltari] - [#67666]) ([airzone docs]) (new-integration)
-- Add button entities to Mazda integration ([@bdr99] - [#67597]) ([mazda docs])
+- Add button entities to Mazda integration ([@bdr99] - [#67597]) ([mazda docs]) (breaking-change)
 - Add Siren to Z-Wave.Me integration ([@PoltoS] - [#67200]) ([zwave_me docs])
 - Complete fan speed transition from #59781 ([@bdraco] - [#67743]) ([fan docs]) (breaking-change)
 - Timer code cleanup ([@raman325] - [#67604]) ([timer docs])
@@ -268,7 +268,7 @@ For a summary in a more readable format:
 - Migrate SleepIQ unique IDs that are using sleeper name instead of sleeper ID ([@mfugate1] - [#68062]) ([sleepiq docs])
 - Bump frontend to 20220312.0 ([@balloob] - [#68061]) ([frontend docs]) (dependency)
 - Add remote platform to Kaleidescape integration ([@SteveEasley] - [#67959]) ([kaleidescape docs]) (new-platform)
-- Add switch platform to the Mazda integration ([@bdr99] - [#68025]) ([mazda docs]) (new-platform)
+- Add switch platform to the Mazda integration ([@bdr99] - [#68025]) ([mazda docs]) (breaking-change) (new-platform)
 - Update google-cloud-pubsub to 2.11.0 ([@allenporter] - [#68074]) ([google_pubsub docs]) (dependency)
 - Add base entity to Switch as X ([@frenck] - [#68057]) ([switch_as_x docs])
 - Update sqlalchemy to 1.4.32 ([@frenck] - [#68075]) ([recorder docs]) ([webostv docs]) ([sql docs]) (dependency)
@@ -850,6 +850,38 @@ For a summary in a more readable format:
 - Unsubscribe from listeners when removing derivative sensor ([@emontnemery] - [#69234]) ([derivative docs]) (beta fix)
 - Unsubscribe from listeners when removing integration sensor ([@emontnemery] - [#69235]) ([integration docs]) (beta fix)
 - Unsubscribe from listeners when removing threshold binary sensor ([@emontnemery] - [#69236]) ([threshold docs]) (beta fix)
+- Fix network starting with no configured IPv4 addresses ([@tohojo] - [#69030]) ([network docs]) (beta fix)
+- Input binary sensors are not generated for Shelly 1 Pro ([@raducotescu] - [#69046]) ([shelly docs]) (beta fix)
+- Fix tomorrowio sensor units and conversions ([@raman325] - [#69166]) ([tomorrowio docs]) (beta fix)
+- Improve derivative translation strings ([@emontnemery] - [#69245]) ([derivative docs]) (beta fix)
+- Improve min_max translation strings ([@emontnemery] - [#69248]) ([min_max docs]) (beta fix)
+- Improve switch_as_x translation strings ([@emontnemery] - [#69249]) ([switch_as_x docs]) (beta fix)
+- Improve threshold translation strings ([@emontnemery] - [#69250]) ([threshold docs]) (beta fix)
+- Improve tod translation strings ([@emontnemery] - [#69251]) ([tod docs]) (beta fix)
+- Improve utility_meter translation strings ([@emontnemery] - [#69252]) ([utility_meter docs]) (beta fix)
+- Make hassio coordinator refresh data ([@ludeeus] - [#69272]) ([hassio docs]) (beta fix)
+- Correct unit_of_measurement for trigger-based template sensor ([@emontnemery] - [#69291]) ([template docs]) (beta fix)
+- bump pynetgear to 0.9.3 ([@starkillerOG] - [#69292]) ([netgear docs]) (beta fix) (dependency)
+- Update Tibber lib ([@Danielhiversen] - [#69300]) ([tibber docs]) (beta fix) (dependency)
+- Improve integration translation strings ([@emontnemery] - [#69246]) ([integration docs]) (beta fix)
+- Fix "Camera not found" error in microsoft_face integration ([@MoellerDi] - [#69295]) ([microsoft_face docs]) (beta fix)
+- Ensure state is restored when turning on tplink lights without a color mode ([@bdraco] - [#69308]) ([tplink docs]) (beta fix)
+- Use recorder executor in demo ([@MartinHjelmare] - [#69327]) ([demo docs]) (beta fix)
+- Bump pyhaversion from 22.02.0 to 22.04.0 ([@ludeeus] - [#69329]) ([version docs]) (beta fix) (dependency)
+- Prevent issues with config update of "Timer" integration (unknown "restore" key) ([@spacegaier] - [#69332]) ([timer docs]) (beta fix)
+- Try exact match first for update state ([@bdraco] - [#69335]) ([update docs]) (beta fix)
+- Fix roomba doing I/O in the event loop ([@bdraco] - [#69339]) ([roomba docs]) (beta fix)
+- Bump PyISY to 3.0.6 to fix group statuses ([@shbatm] - [#69345]) ([isy994 docs]) (beta fix)
+- bump pynetgear to 0.9.4 ([@starkillerOG] - [#69346]) ([netgear docs]) (beta fix) (dependency)
+- Update XKNX to version 0.20.1 ([@marvin-w] - [#69353]) ([knx docs]) (beta fix) (dependency)
+- Bump pyplaato to 0.0.16 ([@JohNan] - [#69361]) ([plaato docs]) (beta fix) (dependency)
+- Disable Spotify Media Player entity by default ([@frenck] - [#69372]) ([spotify docs]) (beta fix)
+- Abort samsungtv discovery of legacy devices when unique id not available ([@bdraco] - [#69376]) ([samsungtv docs]) (beta fix)
+- 20220405.0 ([@zsarnett] - [#69377]) ([frontend docs]) (beta fix)
+- Fix Wallbox charger status ([@hesselonline] - [#68708]) ([wallbox docs]) (beta fix)
+- Fix regression in zwave_js ([@raman325] - [#69312]) ([zwave_js docs]) (beta fix)
+- Restore attributes of template binary sensor ([@emontnemery] - [#69350]) ([template docs]) (beta fix)
+- Update pysma to 0.6.11 ([@rklomp] - [#69397]) ([sma docs]) (beta fix)
 
 [#46060]: https://github.com/home-assistant/core/pull/46060
 [#52360]: https://github.com/home-assistant/core/pull/52360
@@ -1473,6 +1505,7 @@ For a summary in a more readable format:
 [#68704]: https://github.com/home-assistant/core/pull/68704
 [#68705]: https://github.com/home-assistant/core/pull/68705
 [#68707]: https://github.com/home-assistant/core/pull/68707
+[#68708]: https://github.com/home-assistant/core/pull/68708
 [#68712]: https://github.com/home-assistant/core/pull/68712
 [#68715]: https://github.com/home-assistant/core/pull/68715
 [#68717]: https://github.com/home-assistant/core/pull/68717
@@ -1627,6 +1660,7 @@ For a summary in a more readable format:
 [#69025]: https://github.com/home-assistant/core/pull/69025
 [#69027]: https://github.com/home-assistant/core/pull/69027
 [#69028]: https://github.com/home-assistant/core/pull/69028
+[#69030]: https://github.com/home-assistant/core/pull/69030
 [#69031]: https://github.com/home-assistant/core/pull/69031
 [#69032]: https://github.com/home-assistant/core/pull/69032
 [#69033]: https://github.com/home-assistant/core/pull/69033
@@ -1634,6 +1668,7 @@ For a summary in a more readable format:
 [#69040]: https://github.com/home-assistant/core/pull/69040
 [#69042]: https://github.com/home-assistant/core/pull/69042
 [#69043]: https://github.com/home-assistant/core/pull/69043
+[#69046]: https://github.com/home-assistant/core/pull/69046
 [#69049]: https://github.com/home-assistant/core/pull/69049
 [#69054]: https://github.com/home-assistant/core/pull/69054
 [#69055]: https://github.com/home-assistant/core/pull/69055
@@ -1672,6 +1707,7 @@ For a summary in a more readable format:
 [#69159]: https://github.com/home-assistant/core/pull/69159
 [#69163]: https://github.com/home-assistant/core/pull/69163
 [#69165]: https://github.com/home-assistant/core/pull/69165
+[#69166]: https://github.com/home-assistant/core/pull/69166
 [#69169]: https://github.com/home-assistant/core/pull/69169
 [#69172]: https://github.com/home-assistant/core/pull/69172
 [#69192]: https://github.com/home-assistant/core/pull/69192
@@ -1691,6 +1727,34 @@ For a summary in a more readable format:
 [#69234]: https://github.com/home-assistant/core/pull/69234
 [#69235]: https://github.com/home-assistant/core/pull/69235
 [#69236]: https://github.com/home-assistant/core/pull/69236
+[#69245]: https://github.com/home-assistant/core/pull/69245
+[#69246]: https://github.com/home-assistant/core/pull/69246
+[#69248]: https://github.com/home-assistant/core/pull/69248
+[#69249]: https://github.com/home-assistant/core/pull/69249
+[#69250]: https://github.com/home-assistant/core/pull/69250
+[#69251]: https://github.com/home-assistant/core/pull/69251
+[#69252]: https://github.com/home-assistant/core/pull/69252
+[#69272]: https://github.com/home-assistant/core/pull/69272
+[#69291]: https://github.com/home-assistant/core/pull/69291
+[#69292]: https://github.com/home-assistant/core/pull/69292
+[#69295]: https://github.com/home-assistant/core/pull/69295
+[#69300]: https://github.com/home-assistant/core/pull/69300
+[#69308]: https://github.com/home-assistant/core/pull/69308
+[#69312]: https://github.com/home-assistant/core/pull/69312
+[#69327]: https://github.com/home-assistant/core/pull/69327
+[#69329]: https://github.com/home-assistant/core/pull/69329
+[#69332]: https://github.com/home-assistant/core/pull/69332
+[#69335]: https://github.com/home-assistant/core/pull/69335
+[#69339]: https://github.com/home-assistant/core/pull/69339
+[#69345]: https://github.com/home-assistant/core/pull/69345
+[#69346]: https://github.com/home-assistant/core/pull/69346
+[#69350]: https://github.com/home-assistant/core/pull/69350
+[#69353]: https://github.com/home-assistant/core/pull/69353
+[#69361]: https://github.com/home-assistant/core/pull/69361
+[#69372]: https://github.com/home-assistant/core/pull/69372
+[#69376]: https://github.com/home-assistant/core/pull/69376
+[#69377]: https://github.com/home-assistant/core/pull/69377
+[#69397]: https://github.com/home-assistant/core/pull/69397
 [@Antoni-Czaplicki]: https://github.com/Antoni-Czaplicki
 [@CoMPaTech]: https://github.com/CoMPaTech
 [@Danielhiversen]: https://github.com/Danielhiversen
@@ -1706,6 +1770,7 @@ For a summary in a more readable format:
 [@JeffLIrion]: https://github.com/JeffLIrion
 [@JeffResc]: https://github.com/JeffResc
 [@Jjbasso]: https://github.com/Jjbasso
+[@JohNan]: https://github.com/JohNan
 [@JonasClever]: https://github.com/JonasClever
 [@Junker]: https://github.com/Junker
 [@Kane610]: https://github.com/Kane610
@@ -1713,6 +1778,7 @@ For a summary in a more readable format:
 [@Ljzd-PRO]: https://github.com/Ljzd-PRO
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@MattWestb]: https://github.com/MattWestb
+[@MoellerDi]: https://github.com/MoellerDi
 [@Noltari]: https://github.com/Noltari
 [@PoltoS]: https://github.com/PoltoS
 [@SteveEasley]: https://github.com/SteveEasley
@@ -1799,6 +1865,7 @@ For a summary in a more readable format:
 [@pszafer]: https://github.com/pszafer
 [@puddly]: https://github.com/puddly
 [@r-t-s]: https://github.com/r-t-s
+[@raducotescu]: https://github.com/raducotescu
 [@raman325]: https://github.com/raman325
 [@rappenze]: https://github.com/rappenze
 [@rdfurman]: https://github.com/rdfurman
@@ -1807,8 +1874,10 @@ For a summary in a more readable format:
 [@rhpijnacker]: https://github.com/rhpijnacker
 [@rianadon]: https://github.com/rianadon
 [@rikroe]: https://github.com/rikroe
+[@rklomp]: https://github.com/rklomp
 [@sVnsation]: https://github.com/sVnsation
 [@scop]: https://github.com/scop
+[@shbatm]: https://github.com/shbatm
 [@slovdahl]: https://github.com/slovdahl
 [@slovenec88]: https://github.com/slovenec88
 [@spacegaier]: https://github.com/spacegaier
@@ -1817,6 +1886,7 @@ For a summary in a more readable format:
 [@syssi]: https://github.com/syssi
 [@thecode]: https://github.com/thecode
 [@tkdrob]: https://github.com/tkdrob
+[@tohojo]: https://github.com/tohojo
 [@tschamm]: https://github.com/tschamm
 [@ulmerkott]: https://github.com/ulmerkott
 [@uvjustin]: https://github.com/uvjustin
@@ -1950,6 +2020,7 @@ For a summary in a more readable format:
 [input_text docs]: /integrations/input_text/
 [integration docs]: /integrations/integration/
 [intellifire docs]: /integrations/intellifire/
+[isy994 docs]: /integrations/isy994/
 [jellyfin docs]: /integrations/jellyfin/
 [joaoapps_join docs]: /integrations/joaoapps_join/
 [juicenet docs]: /integrations/juicenet/
@@ -1971,6 +2042,7 @@ For a summary in a more readable format:
 [met docs]: /integrations/met/
 [mfi docs]: /integrations/mfi/
 [mhz19 docs]: /integrations/mhz19/
+[microsoft_face docs]: /integrations/microsoft_face/
 [min_max docs]: /integrations/min_max/
 [minecraft_server docs]: /integrations/minecraft_server/
 [mobile_app docs]: /integrations/mobile_app/
@@ -2012,6 +2084,7 @@ For a summary in a more readable format:
 [pi4ioe5v9xxxx docs]: /integrations/pi4ioe5v9xxxx/
 [pi_hole docs]: /integrations/pi_hole/
 [piglow docs]: /integrations/piglow/
+[plaato docs]: /integrations/plaato/
 [plant docs]: /integrations/plant/
 [plex docs]: /integrations/plex/
 [plugwise docs]: /integrations/plugwise/
@@ -2028,6 +2101,7 @@ For a summary in a more readable format:
 [rfxtrx docs]: /integrations/rfxtrx/
 [ridwell docs]: /integrations/ridwell/
 [roku docs]: /integrations/roku/
+[roomba docs]: /integrations/roomba/
 [rova docs]: /integrations/rova/
 [rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm/
 [rpi_pfio docs]: /integrations/rpi_pfio/
@@ -2057,6 +2131,7 @@ For a summary in a more readable format:
 [solax docs]: /integrations/solax/
 [sonarr docs]: /integrations/sonarr/
 [sonos docs]: /integrations/sonos/
+[spotify docs]: /integrations/spotify/
 [sql docs]: /integrations/sql/
 [squeezebox docs]: /integrations/squeezebox/
 [ssdp docs]: /integrations/ssdp/
