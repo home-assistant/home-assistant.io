@@ -1,8 +1,10 @@
 ---
 layout: post
-title: "2022.4: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2022.4"
-date: 2022-03-30 00:00:00
+title: "2022.4: Groups! Groups! Groups!"
+description: >
+  Welcoming new helpers to the UI, including groups! Helpers for switches
+  with an identity crisis, updates, backups, performance improvements, and more!
+date: 2022-04-06 00:00:00
 date_formatted: "April 06, 2022"
 author: Franck Nijhof
 author_twitter: frenck
@@ -14,27 +16,6 @@ og_image: /images/blog/2022-04/social.png
 ---
 
 <a href='/integrations/#version/2022.4'><img src='/images/blog/2022-04/social.png' style='border: 0;box-shadow: none;'></a>
-
-These are the beta release notes for Home Assistant Core 2022.4 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
 
 👋 I'm not sure where to start with this release; It's April, and I can
 assure you: This release is no joke. Seriously, it is **packed** with features
