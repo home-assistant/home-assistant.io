@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "2022.4: Groups! Groups! Groups!"
-description: >
-  Welcoming new helpers to the UI, including groups! Helpers for switches
-  with an identity crisis, updates, backups, performance improvements, and more!
+description: "Welcoming new helpers to the UI, including groups! Helpers for switches with an identity crisis, updates, backups, performance improvements, and more!"
 date: 2022-04-06 00:00:00
 date_formatted: "April 06, 2022"
 author: Franck Nijhof
