@@ -965,7 +965,7 @@ Your existing YAML configuration is automatically imported on upgrade to this
 release; and thus can be safely removed from your YAML configuration
 after upgrading.
 
-([@davet2001] - [#52360]) ([documentation](/integrations/huawei_lte))
+([@davet2001] - [#52360]) ([documentation](/integrations/generic))
 
 [@davet2001]: https://github.com/davet2001
 [#52360]: https://github.com/home-assistant/core/pull/52360
