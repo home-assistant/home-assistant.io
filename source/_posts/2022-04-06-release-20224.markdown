@@ -68,7 +68,7 @@ Enjoy the release!
 - [Backups for Home Assistant Core & Container installs](#backups-for-home-assistant-core--container-installs)
 - [Testing your automation conditions](#testing-your-automation-conditions)
 - [Zones now have a state!](#zones-now-have-a-state)
-- [Adjusting unit of measurements for sensors](#adjusting-unit-of-measurements-for-sensors)
+- [Adjusting unit of measurement for sensors](#adjusting-unit-of-measurement-for-sensors)
 - [Adjusting long-term statistics](#adjusting-long-term-statistics)
 - [Optimizing performance](#optimizing-performance)
 - [New and updated selectors!](#new-and-updated-selectors)
@@ -164,9 +164,9 @@ editing the switch entity:
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FLH4SXMAQS4" frameborder="0" allowfullscreen></iframe>
 </div>
 
-The video above shows the creating of the new light entity, which uses the
+The video above shows how to create a new light entity, which uses the
 original switch. The original switch is now automatically hidden from most of
-the Home Assistant UI but is still available on this device page
+the Home Assistant UI but is still available on this device page.
 
 If you have updated to this release already, click the my button below to
 transform one of your switches right away:
@@ -180,7 +180,7 @@ The above Groups and Switch as X, are to be found in what we call: Helpers.
 Helpers are integrations that expose a way for a user to provide input or
 consume existing data in Home Assistant to provide a new entity.
 
-The latter category of helpers has very much extended in this release!
+The latter category of helpers has very much been extended in this release!
 Not just groups and switch as X, but we have many more helper integrations
 available in the UI now!
 
@@ -216,7 +216,7 @@ And the beautiful thing is: They show up in your configuration Dashboard, just
 like a Home Assistant, Home Assistant OS, or add-on update. As a matter of fact,
 those are now update entities too!
 
-Now updates are entities other integrations can provide them too! For example,
+Now updates are entities, other integrations can provide them too! For example,
 a WLED firmware update for your LED strip will show up and installs
 with a single click.
 
@@ -251,7 +251,7 @@ That all changes this release: Introducing a Backup integration for Home
 Assistant Core and Container installation types!
 
 <p class='img'>
-<img class="no-shadow" src='/images/blog/2022-04/backups.png' alt='Screenshot showing backup creating in progress on a Home Assistant Core installation type.'>
+<img class="no-shadow" src='/images/blog/2022-04/backups.png' alt='Screenshot showing backup creation in progress on a Home Assistant Core installation type.'>
 Home Assistant Core and Container installations can now also back up their instance.
 </p>
 
@@ -261,7 +261,7 @@ OS installations. So, if you plan on migrating installation types in the future,
 that is now super easy!
 
 You can find the backup dashboard in the configuration menu, or, if you have
-upgrade already, click the my button below to create a new backup right away:
+upgraded already, click the my button below to create a new backup right away:
 
 {% my backup badge %}
 
@@ -277,11 +277,11 @@ Every condition now has a little test button, to test if the condition passes ri
 </p>
 
 Additionally, the “triggered” bar got an additional feature too! You can click
-on it to get a raw view of all trigger variable data if it shows. This data
+on it to get a raw view of all trigger variable data. This data
 can be helpful in case you want to create an advanced condition or template
 using that information.
 
-<img class="no-shadow" src='/images/blog/2022-04/triggered-variables.png' alt='Screenshot showing variable triggered data when the triggered notification is clicked'>
+<img class="no-shadow" src='/images/blog/2022-04/triggered-variables.png' alt='Screenshot showing variable trigger data when the triggered notification is clicked'>
 
 [triggered]: /blog/2022/03/02/release-20223/#triggered
 
@@ -303,18 +303,18 @@ from running when nobody is home.
 
 <p class='img'>
 <img class="no-shadow" src='/images/blog/2022-04/zone-condition.png' alt='Screenshot showing how to use zone with in a numeric condition'>
-The condition ensure this automation will only trigger if someone is home.
+The condition ensures this automation will only trigger if someone is home.
 </p>
 
 [persons]: /integrations/person
 
-## Adjusting unit of measurements for sensors
+## Adjusting unit of measurement for sensors
 
 Got that one sensor measuring a temperature in Celsius, but you prefer it to be
 in Fahrenheit? No problem! You can now change the unit of measurement for
 temperature and pressure sensors straight from the UI.
 
-<img class="no-shadow" src='/images/blog/2022-04/adjust-unit-of-measurement.png' alt='Screenshot showing adjusting the unit for measurement for an temperature entity'>
+<img class="no-shadow" src='/images/blog/2022-04/adjust-unit-of-measurement.png' alt='Screenshot showing adjusting the unit for measurement for a temperature entity'>
 
 ## Adjusting long-term statistics
 
@@ -330,7 +330,7 @@ correct/adjust long-term historical data to solve these issues.
 The new tool can be found at {% my developer_statistics title="Developer tools > Statistics" %},
 and click the
 <svg width="24" height="24" viewBox="0 0 24 24"><path d="M22,13V22H2V19L22,13M21.68,7.06L16.86,4.46L17.7,7.24L7.58,10.24C6.63,8.95 4.82,8.67 3.53,9.62C2.24,10.57 1.96,12.38 2.91,13.67C3.85,14.97 5.67,15.24 6.96,14.29C7.67,13.78 8.1,12.97 8.14,12.09L18.26,9.09L19.1,11.87L21.68,7.06Z" /></svg>
-icon, next to the statistic you'd like to adjust. Search for the incorrect
+icon, next to the statistic you'd like to adjust search for the incorrect
 datapoint by date & time and adjust the value.
 
 <img class="no-shadow" src='/images/blog/2022-04/adjust-statistics.png' alt='Screenshot showing adjusting the long-term statistic history value.'>
@@ -351,7 +351,7 @@ optimized to send the least amount of data when first loading up the UI.
 The UI will load faster since less data is transferred over the wire,
 and there is less data for the web browser or app to process.
 
-Additionally, lessened data transmitted means Home Assistant will work better
+Additionally, transmitting less data means Home Assistant will work better
 on slower data connections and, if essential for you, uses less data on your
 mobile data plan.
 
@@ -389,7 +389,7 @@ Blueprints, and extended the options for many [existing selectors][selectors].
 
 For example, we now have a location selector that lets you pick coordinates
 from a map. An RGB color and color temperature selector, an icon, theme, time,
-date, datetime selector; The entity, device, and area select can now be
+date, datetime selector; The entity, device, and area selectors can now be
 configured to accept multiple entities, devices, or areas!
 
 <p class='img'>
@@ -448,7 +448,7 @@ There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
 - [@balloob] took a deep dive into the world of media players and made sure
-  many more of them now work the media browser and play media action!
+  many more of them now work with the media browser and play media action!
   If you use: [Bluesound], [Denon HEOS], [forked-daapd], [Linn / OpenHome],
   [Logitech Squeezebox], [Music Player Daemon (MPD)], [Panasonic Viera],
   [UniFi Protect], or [Yamaha MusicCast], you can now use the media browser!
@@ -457,8 +457,8 @@ noteworthy changes this release:
   need to customize `device_class` in YAML anymore. Thanks, [@zsarnett]!
 - The [Material Design Icons] have been updated! Check out all 
   [these beautiful new icons] we can use now! Thanks, [@goyney]!
-- Our analytics integration now sends if you are using SSL certificates 
-  in Home Assistant (yes or no). Of course,
+- Our analytics integration now include data on using SSL certificates 
+  in Home Assistant (yes or no) in the analytics. Of course,
   {% my general title="only if you have enabled Analytics" %}. Thanks for
   enabling it 💙!
 - [Timers] can now restore/survive their state across restarts. Awesome work
@@ -949,7 +949,7 @@ Additional attributes for the File Size sensors has been extracted into
 their own sensors which are disabled by default.
 
 If you were previously using any of these attributes your automations,
-scripts etc. needs to be updated to use the new sensors.
+scripts etc. need to be updated to use the new sensors.
 
 ([@gjohansson-ST] - [#67668]) ([documentation](/integrations/filesize))
 
@@ -1131,7 +1131,7 @@ removed from your YAML configuration files.
 
 {% details "Nest" %}
 
-Legacy Works with Net API deprecation is put on hold until issues with
+Legacy Works with Nest API deprecation is put on hold until issues with
 SDM API OAuth signups are resolved (so this is an un-breaking change).
 
 ([@allenporter] - [#68715]) ([documentation](/integrations/nest))
@@ -1232,7 +1232,7 @@ This applies to the following PVOutput attributes:
 - `temperature`
 - `voltage`
 
-If you relied on these in your automation or scripts, you need to adopt those
+If you relied on these in your automations or scripts, you need to adopt those
 to use the new separate sensors instead.
 
 ([@bdraco] - [#68481]) ([documentation](/integrations/pvoutput))
@@ -1279,8 +1279,8 @@ be derived from the `entity_id`.
 The attributes for the `sun.sun` entity are no longer recorded in the database.
 
 As historical data can be derived from the `astral` library without the
-need to fetch it the database, it didn't seem like it needs to be copied
-there as well since it frequently generates new attributes rows in the database.
+need to fetch it from the database, it was decided to remove the sun attributes
+from the database since it frequently generates new attribute rows in the database.
 
 ([@bdraco] - [#68404]) ([documentation](/integrations/recorder))
 
@@ -1335,8 +1335,8 @@ The following attributes are no longer recorded:
 
 {% details "RFXCOM RFXtrx" %}
 
-Support for signal repetition for devices have been removed. RFXCOM internally
-repeat packets as needed per protocol.
+Support for signal repetition for devices has been removed. RFXCOM internally
+repeats packets as needed per protocol.
 
 ([@elupus] - [#67675]) ([documentation](/integrations/rfxtrx))
 
@@ -1357,10 +1357,10 @@ will now retrieve the temperature and humidity from the room sensor.
 
 ---
 
-The previously deprecated YAML configuration of the Version
+The previously deprecated YAML configuration of the Sensibo
 integration has been removed.
 
-Version is now configured via the UI, any existing YAML
+Sensibo is now configured via the UI, any existing YAML
 configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
@@ -1513,10 +1513,10 @@ after upgrading.
 
 ---
 
-The `is_open` attribute is removed from all entities and now exposed as own
+The `is_open` attribute is removed from all entities and now exposed as its own
 sensor.
 
-If you have automations or script relying on this attribute, you will need
+If you have automations or scripts relying on this attribute, you will need
 to adjust them for this change.
 
 ([@mib1185] - [#68925]) ([documentation](/integrations/tankerkoenig))
@@ -1590,8 +1590,8 @@ removed from your YAML configuration files.
 ---
 
 - The attribute for measure time is now a proper iso formatted string.
-- The attribute for available has been removed and is now setting the entity
-  available or not.
+- The attribute for available has been removed and the entity instead sets
+  its state to unavailable when not available.
 
 Any automation or script depending on these attributes has to be updated to
 reflect these changes.
@@ -1717,7 +1717,7 @@ removed from your YAML configuration files.
 
 {% details "WLED" %}
 
-The firm update `binary_sensor` and `button` entities are deprecated and
+The firmware update `binary_sensor` and `button` entities are deprecated and
 will be removed in Home Assistant 2022.6.
 
 Instead, the WLED integration now provides a brand new `update` entity
@@ -1769,7 +1769,7 @@ The Z-Wave JS siren entities will now return `unknown` as a state if the
 corresponding driver value is missing.
 
 Previously the state defaulted to `off` in these cases. You might need to
-consider thi in automations and scripts that rely on a Z-Wave JS siren
+consider this in automations and scripts that rely on a Z-Wave JS siren
 entity state.
 
 ([@MartinHjelmare] - [#67172]) ([documentation](/integrations/zwave_js))
