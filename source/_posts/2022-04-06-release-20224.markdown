@@ -1041,6 +1041,29 @@ removed from your YAML configuration files.
 
 {% enddetails %}
 
+{% details "Mazda" %}
+
+The Mazda services `start_engine`, `stop_engine`, `turn_on_hazard_lights`,
+and `turn_off_hazard_lights` are deprecated and have been replaced by button
+entities. Please use the button entities instead.
+
+([@bdr99] - [#67597]) ([documentation](/integrations/mazda))
+
+[@bdr99]: https://github.com/bdr99
+[#67597]: https://github.com/home-assistant/core/pull/67597
+
+---
+
+The Mazda services `start_charging` and `stop_charging` are deprecated and
+replaced by a charging switch entity. Please use the switch entity instead.
+
+([@bdr99] - [#68025]) ([documentation](/integrations/mazda))
+
+[@bdr99]: https://github.com/bdr99
+[#68025]: https://github.com/home-assistant/core/pull/68025
+
+{% enddetails %}
+
 {% details "Met.no" %}
 
 The previously deprecated YAML configuration of the Met.no
