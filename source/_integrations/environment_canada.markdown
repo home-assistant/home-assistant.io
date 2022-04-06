@@ -123,4 +123,4 @@ Sets the type of radar to retrieve for the camera.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | Camera to set the radar type for.
-| `radar_type` | no | One of "auto", "rain", or "snow".
+| `radar_type` | no | One of "Auto", "Rain", or "Snow".
