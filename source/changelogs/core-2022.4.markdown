@@ -6,7 +6,7 @@ description: Detailed changelog for the Home Assistant Core 2022.4 release
 These are all the changes included in the Home Assistant Core 2202.4 release.
 
 For a summary in a more readable format:
-[Release notes blog for this release](/blog/2022/03/30/release-20224/).
+[Release notes blog for this release](/blog/2022/04/06/release-20224/).
 
 ## Full Changelog
 
