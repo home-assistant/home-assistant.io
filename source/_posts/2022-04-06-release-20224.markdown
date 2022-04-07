@@ -601,6 +601,7 @@ The following integrations are now available via the Home Assistant UI:
 - Mark backgrounds optional for tplink random effects ([@bdraco] - [#69622]) ([tplink docs])
 - Fix ZHA group creation ([@puddly] - [#69629]) ([zha docs])
 - Fix tado default overlay for when set pre new overlay feature ([@north3221] - [#69584]) ([tado docs])
+- Move new `zha_event` command parameters into a `params` key to ensure backwards compatibility ([@puddly] - [#69631]) ([zha docs])
 
 [#67210]: https://github.com/home-assistant/core/pull/67210
 [#68975]: https://github.com/home-assistant/core/pull/68975
@@ -623,6 +624,7 @@ The following integrations are now available via the Home Assistant UI:
 [#69615]: https://github.com/home-assistant/core/pull/69615
 [#69622]: https://github.com/home-assistant/core/pull/69622
 [#69629]: https://github.com/home-assistant/core/pull/69629
+[#69631]: https://github.com/home-assistant/core/pull/69631
 [@Noltari]: https://github.com/Noltari
 [@allenporter]: https://github.com/allenporter
 [@balloob]: https://github.com/balloob
