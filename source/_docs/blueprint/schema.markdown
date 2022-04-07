@@ -55,6 +55,19 @@ domain:
     `automation` and `script` are supported.
   type: string
   required: true
+homeassistant:
+  description: >
+    Home Assistant requirements to be able to use the blueprint successfully.
+  type: map
+  required: false
+  keys:
+    min_version:
+      description: >
+        Minimum required version of Home Assistant to use the blueprint (e.g. 
+        `2022.4.0`. It is important to set this if the blueprint uses any features
+        introduced in recent releases to head off issues.
+      type: string
+      required: false
 input:
   description: >
     A dictionary of defined user inputs. These are the input fields that the
