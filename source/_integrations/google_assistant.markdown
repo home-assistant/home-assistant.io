@@ -337,3 +337,7 @@ If you're having trouble with *Account linking failed* after you unlinked your s
 ### Failed linking - Could not update the setting. Please check your connection
 
 If you're having trouble linking your account, with the error message `Could not update the setting. Please check your connection` after logging into your Home Assistant instance, try setting `expose_by_default: false` then exposing a single simple device (light or switch preferably). It is also worth checking if any home ad blocker is disabled if you are having issues.
+
+### Failed linking - `Could not reach [test] <your project>. Please try again.`
+
+If you're unable to link a new project, or relink an existing project, there may be something cached in the Google Actions project that needs refreshing (we're unsure the exact underlying cause). One way to force this refresh is to complete more of the details around the project under **Deploy** -> **Directory Information**. Fill this information out and then redeploy the test instance, as per Step 3 above.
