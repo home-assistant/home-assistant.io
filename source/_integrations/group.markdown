@@ -207,6 +207,8 @@ services:
 
 ## Old style groups
 
+This group is a special case of groups only available via YAML configuration.
+
 **We don't recommend using these old-style groups anymore.** They are still supported, but we recommend using the groups as described above.
 
 Back in the day, Home Assistant used groups to visually groups entities in the Home Assistant UI; it was the only way to tell which entities would show up in a single card on your Dashboard. This is no longer the case, as we now have fantastic UI editors and Dashboarding.
