@@ -202,12 +202,12 @@ automation:
   action:
     - service: select.select_option
       target:
-        entity_id: utility_meter.daily_energy
+        entity_id: select.daily_energy
       data:
         option: "{{ tariff }}"
     - service: select.select_option
       target:
-        entity_id: utility_meter.monthly_energy
+        entity_id: select.monthly_energy
       data:
         option: "{{ tariff }}"
 ```
