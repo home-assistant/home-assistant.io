@@ -55,6 +55,7 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2022.4.1 - April 6](#release-202241---april-6)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -276,7 +277,7 @@ helpful! Additionally, it means that a zone has history now too!
 <img class="no-shadow" src='/images/blog/2022-04/zone-state.png' alt='Screenshot showing the new numeric state of our zones'>
 
 This will greatly simplify automations and scripts that, for example, trigger
-on: Nobody is home, everybody is home, someone left home (or any other zone 
+on: Nobody is home, everybody is home, someone left home (or any other zone
 for that matter). Or use it as a condition to prevent an automation
 from running when nobody is home.
 
@@ -338,11 +339,11 @@ mobile data plan.
 
 This release features write reductions intended to preserve SD card lifetimes,
 performance improvements designed to get data to the frontend faster, and
-database size reductions ranging from 10-35% for most installs. 
+database size reductions ranging from 10-35% for most installs.
 
 When the same set of state attributes already exists in the database,
 newly recorded state changes now only store a reference to the state
-attributes instead of saving the whole set of state attributes.  
+attributes instead of saving the whole set of state attributes.
 
 As data stored in the database before 2022.4 does not get updated,
 the reduction in database size will occur over time with the recording
@@ -351,7 +352,7 @@ of new data and the purging of old data.
 On top of that, most entity history graphs no longer need to fetch the
 attributes from the backend, and as a result, they load much faster after
 24 hours of running on 2022.4. This change is especially noticeable
-for energy sensors.  
+for energy sensors.
 
 For a complete set of changes to the underlying database,
 check out the [Data Science Portal].
@@ -434,9 +435,9 @@ noteworthy changes this release:
 - Want to update the appearance of a binary sensor? You can now do that!
   When you edit the entity in the UI, you can select how it would show up. No
   need to customize `device_class` in YAML anymore. Thanks, [@zsarnett]!
-- The [Material Design Icons] have been updated! Check out all 
+- The [Material Design Icons] have been updated! Check out all
   [these beautiful new icons] we can use now! Thanks, [@goyney]!
-- Our analytics integration now include data on using SSL certificates 
+- Our analytics integration now include data on using SSL certificates
   in Home Assistant (yes or no) in the analytics. Of course,
   {% my general title="only if you have enabled Analytics" %}. Thanks for
   enabling it 💙!
@@ -446,7 +447,7 @@ noteworthy changes this release:
   integration this month! Shoutout to [@bdraco] for helping out on that one too.
 - Android 11 support for the [Android TV] integration is here!
   Thanks, [@JeffLIrion]!
-- Long-awaited and finally there: Native [Hue] groups support! Thanks to
+- Long-awaited and finally there: Native [Hue] groups support for brightness and other attributes! Thanks to
   Signify, who implemented our request for this. This means Home Assistant can
   now control groups as a whole instead of per light. Nice and snappy now!
   Thanks for adding support to Home Assistant for it [@marcelveldt]!
@@ -464,11 +465,11 @@ noteworthy changes this release:
 - The [TP-Link Kasa Smart] integration now supports effects for their light
   strips. Thanks, [@bdraco]!
 
-[@balloob]: https://github.com/frenck 
+[@balloob]: https://github.com/frenck
 [@bdraco]: https://github.com/bdraco
 [@elupus]: https://github.com/elupus
 [@epenet]: https://github.com/frenck
-[@goyney]: https://github.com/goyney 
+[@goyney]: https://github.com/goyney
 [@JeffLIrion]: https://github.com/JeffLIrion
 [@klaasnicolaas]: https://github.com/klaasnicolaas
 [@ludeeus]: https://github.com/ludeeus
@@ -476,7 +477,7 @@ noteworthy changes this release:
 [@NachtaktiverHalbaffe]: https://github.com/NachtaktiverHalbaffe
 [@raman325]: https://github.com/raman325
 [@thecode]: https://github.com/thecode
-[@zsarnett]: https://github.com/zsarnett 
+[@zsarnett]: https://github.com/zsarnett
 [Android TV]: /integrations/androidtv/
 [Bluesound]: /integrations/bluesound
 [Denon HEOS]: /integrations/heos
@@ -545,7 +546,7 @@ The following integrations are now available via the Home Assistant UI:
 - [Tankerkoenig], done by [@mib1185]
 - [Threshold], done by [@emontnemery]
 - [Times of day], done by [@emontnemery]
-- [Trafikverket Train], done by [@gjohansson-ST] 
+- [Trafikverket Train], done by [@gjohansson-ST]
 - [Uptime], done by [@frenck]
 - [Utility Meter], done by [@emontnemery]
 
@@ -576,6 +577,44 @@ The following integrations are now available via the Home Assistant UI:
 [Trafikverket Train]: /integrations/trafikverket_train
 [Uptime]: /integrations/uptime
 [Utility Meter]: /integrations/utility_meter
+
+## Release 2022.4.1 - April 6
+
+- Add comments to zwave_js node metadata WS API ([@raman325] - [#67210]) ([zwave_js docs])
+- Continue on template error during yaml import for generic ([@davet2001] - [#69440]) ([generic docs])
+- Fix telegram broadcast ([@balloob] - [#69452]) ([telegram_bot docs])
+- Fix elkm1 connection when panel drops VN request ([@bdraco] - [#69454]) ([elkm1 docs])
+- Ignore IPv6 link local address on ssdp discovery in Fritz!Smarthome ([@mib1185] - [#69455]) ([fritzbox docs])
+- Fix reload race in unifiprotect ([@bdraco] - [#69485]) ([unifiprotect docs])
+- Bump pyhaversion from 22.04.0 to 22.4.1 ([@ludeeus] - [#69486]) ([version docs])
+- Fix remote_rpi_gpio missing requirement ([@thecode] - [#69488]) ([remote_rpi_gpio docs])
+- Fix reloading the sun integration ([@bdraco] - [#69495]) ([sun docs])
+
+[#67210]: https://github.com/home-assistant/core/pull/67210
+[#69440]: https://github.com/home-assistant/core/pull/69440
+[#69452]: https://github.com/home-assistant/core/pull/69452
+[#69454]: https://github.com/home-assistant/core/pull/69454
+[#69455]: https://github.com/home-assistant/core/pull/69455
+[#69485]: https://github.com/home-assistant/core/pull/69485
+[#69486]: https://github.com/home-assistant/core/pull/69486
+[#69488]: https://github.com/home-assistant/core/pull/69488
+[#69495]: https://github.com/home-assistant/core/pull/69495
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@davet2001]: https://github.com/davet2001
+[@ludeeus]: https://github.com/ludeeus
+[@mib1185]: https://github.com/mib1185
+[@raman325]: https://github.com/raman325
+[@thecode]: https://github.com/thecode
+[elkm1 docs]: /integrations/elkm1/
+[fritzbox docs]: /integrations/fritzbox/
+[generic docs]: /integrations/generic/
+[remote_rpi_gpio docs]: /integrations/remote_rpi_gpio/
+[sun docs]: /integrations/sun/
+[telegram_bot docs]: /integrations/telegram_bot/
+[unifiprotect docs]: /integrations/unifiprotect/
+[version docs]: /integrations/version/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community!
 
@@ -1795,7 +1834,7 @@ the 'breeze' mode; that functionality is instead accessed through a preset.
 ## Farewell to the following
 
 The following GPIO Integrations have been previously deprecated and have now been removed.
- 
+
 - BeagleBone Black GPIO
 - BH1750
 - Blinkt!
