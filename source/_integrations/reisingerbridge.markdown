@@ -1,6 +1,6 @@
 ---
 title: ReisingerBridge
-description: Instructions on how to integrate OpenGarage.io covers within Home Assistant.
+description: Instructions on how to integrate Reisinger sliding doors within Home Assistant.
 ha_category:
   - Cover
 ha_iot_class: Local Polling
