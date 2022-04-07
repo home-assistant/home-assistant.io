@@ -586,9 +586,13 @@ The following integrations are now available via the Home Assistant UI:
 - Fix elkm1 connection when panel drops VN request ([@bdraco] - [#69454]) ([elkm1 docs])
 - Ignore IPv6 link local address on ssdp discovery in Fritz!Smarthome ([@mib1185] - [#69455]) ([fritzbox docs])
 - Fix reload race in unifiprotect ([@bdraco] - [#69485]) ([unifiprotect docs])
-- Bump pyhaversion from 22.04.0 to 22.4.1 ([@ludeeus] - [#69486]) ([version docs])
-- Fix remote_rpi_gpio missing requirement ([@thecode] - [#69488]) ([remote_rpi_gpio docs])
+- Bump pyhaversion from 22.04.0 to 22.4.1 ([@ludeeus] - [#69486]) ([version docs]) (dependency)
+- Fix remote_rpi_gpio missing requirement ([@thecode] - [#69488]) ([remote_rpi_gpio docs]) (dependency)
 - Fix reloading the sun integration ([@bdraco] - [#69495]) ([sun docs])
+- Gracefully handle empty summary in google calendar ([@allenporter] - [#69520]) ([google docs])
+- Fix adding OS entities for supervised installations ([@ludeeus] - [#69539]) ([hassio docs])
+- Fix registered entities without a category not being exclude-able in the HomeKit UI ([@bdraco] - [#69543]) ([homekit docs])
+- Run energy db calls in the db executor ([@bdraco] - [#69544]) ([energy docs])
 
 [#67210]: https://github.com/home-assistant/core/pull/67210
 [#69440]: https://github.com/home-assistant/core/pull/69440
@@ -599,6 +603,11 @@ The following integrations are now available via the Home Assistant UI:
 [#69486]: https://github.com/home-assistant/core/pull/69486
 [#69488]: https://github.com/home-assistant/core/pull/69488
 [#69495]: https://github.com/home-assistant/core/pull/69495
+[#69520]: https://github.com/home-assistant/core/pull/69520
+[#69539]: https://github.com/home-assistant/core/pull/69539
+[#69543]: https://github.com/home-assistant/core/pull/69543
+[#69544]: https://github.com/home-assistant/core/pull/69544
+[@allenporter]: https://github.com/allenporter
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
 [@davet2001]: https://github.com/davet2001
@@ -607,8 +616,12 @@ The following integrations are now available via the Home Assistant UI:
 [@raman325]: https://github.com/raman325
 [@thecode]: https://github.com/thecode
 [elkm1 docs]: /integrations/elkm1/
+[energy docs]: /integrations/energy/
 [fritzbox docs]: /integrations/fritzbox/
 [generic docs]: /integrations/generic/
+[google docs]: /integrations/google/
+[hassio docs]: /integrations/hassio/
+[homekit docs]: /integrations/homekit/
 [remote_rpi_gpio docs]: /integrations/remote_rpi_gpio/
 [sun docs]: /integrations/sun/
 [telegram_bot docs]: /integrations/telegram_bot/
