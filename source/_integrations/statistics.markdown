@@ -71,9 +71,9 @@ The following characteristic are supported for `binary_sensor` source sensors:
 | -------------------- | ----------- |
 | `average_step` | A percentage of time across all stored measurements, in which the binary source sensor was "On". If over the course of one hour, movement was detected for 6 minutes, the `average_step` is 10%.
 | `average_timeless` | The percentage of stored measurements, for which the binary source sensor was "On". Time in on/off states is ignored. If over the course of one hour, a single movement was detected, the `average_timeless` is 33.3% (assuming the stored measurements "Off", "On", "Off"). Equal to `mean`.
-| `count` | The number of stored source sensor readings. Be aware that only value changes are registered by default, except if the source sensor has the property `force_update`.
+| `count` | The number of stored source sensor readings.
 | `count_on` | The number of stored source sensor readings with the value "On". Be aware that only value changes are registered by default, except if the source sensor has the property `force_update`.
-| `count_off` | The number of stored source sensor readings with the value "Off".
+| `count_off` | The number of stored source sensor readings with the value "Off". Be aware that only value changes are registered by default, except if the source sensor has the property `force_update`.
 | `datetime_newest` | The timestamp of the newest measurement.
 | `datetime_oldest` | The timestamp of the oldest measurement.
 | `mean` | The percentage of stored measurements, for which the binary source sensor was "On". Time in on/off states is ignored. If over the course of one hour, a single movement was detected, the `average_timeless` is 33.3% (assuming the stored measurements "Off", "On", "Off").
