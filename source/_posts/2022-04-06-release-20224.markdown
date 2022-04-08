@@ -605,6 +605,7 @@ The following integrations are now available via the Home Assistant UI:
 - Bump ZHA quirks to 0.0.71 ([@dmulcahey] - [#69633]) ([zha docs])
 - Fix Samjin Multi acceleration in ZHA ([@dmulcahey] - [#69636]) ([zha docs])
 - [powerwall] Skip backup reserve sensor if data is unavailable ([@mdz] - [#69637]) ([powerwall docs])
+- Fix bugs calendar oauth token date handling ([@allenporter] - [#69641]) ([google docs])
 
 [#67210]: https://github.com/home-assistant/core/pull/67210
 [#68975]: https://github.com/home-assistant/core/pull/68975
@@ -631,6 +632,7 @@ The following integrations are now available via the Home Assistant UI:
 [#69633]: https://github.com/home-assistant/core/pull/69633
 [#69636]: https://github.com/home-assistant/core/pull/69636
 [#69637]: https://github.com/home-assistant/core/pull/69637
+[#69641]: https://github.com/home-assistant/core/pull/69641
 [@Noltari]: https://github.com/Noltari
 [@allenporter]: https://github.com/allenporter
 [@balloob]: https://github.com/balloob
