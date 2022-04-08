@@ -28,7 +28,7 @@ This integration is only for PECO customers. To see if your county is supported,
 
 ---
 
-# Description
+## Description
 
 The PECO Outage Counter integration allows you to get the current count of power outages for any county, and the total for the operating region too.
 
