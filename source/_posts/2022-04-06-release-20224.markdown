@@ -602,6 +602,7 @@ The following integrations are now available via the Home Assistant UI:
 - Fix ZHA group creation ([@puddly] - [#69629]) ([zha docs])
 - Fix tado default overlay for when set pre new overlay feature ([@north3221] - [#69584]) ([tado docs])
 - Move new `zha_event` command parameters into a `params` key to ensure backwards compatibility ([@puddly] - [#69631]) ([zha docs])
+- Bump ZHA quirks to 0.0.71 ([@dmulcahey] - [#69633]) ([zha docs])
 
 [#67210]: https://github.com/home-assistant/core/pull/67210
 [#68975]: https://github.com/home-assistant/core/pull/68975
@@ -625,12 +626,14 @@ The following integrations are now available via the Home Assistant UI:
 [#69622]: https://github.com/home-assistant/core/pull/69622
 [#69629]: https://github.com/home-assistant/core/pull/69629
 [#69631]: https://github.com/home-assistant/core/pull/69631
+[#69633]: https://github.com/home-assistant/core/pull/69633
 [@Noltari]: https://github.com/Noltari
 [@allenporter]: https://github.com/allenporter
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
 [@davet2001]: https://github.com/davet2001
 [@dgomes]: https://github.com/dgomes
+[@dmulcahey]: https://github.com/dmulcahey
 [@hunterjm]: https://github.com/hunterjm
 [@ludeeus]: https://github.com/ludeeus
 [@mib1185]: https://github.com/mib1185
