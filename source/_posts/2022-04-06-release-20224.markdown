@@ -603,6 +603,7 @@ The following integrations are now available via the Home Assistant UI:
 - Fix tado default overlay for when set pre new overlay feature ([@north3221] - [#69584]) ([tado docs])
 - Move new `zha_event` command parameters into a `params` key to ensure backwards compatibility ([@puddly] - [#69631]) ([zha docs])
 - Bump ZHA quirks to 0.0.71 ([@dmulcahey] - [#69633]) ([zha docs])
+- Fix Samjin Multi acceleration in ZHA ([@dmulcahey] - [#69636]) ([zha docs])
 
 [#67210]: https://github.com/home-assistant/core/pull/67210
 [#68975]: https://github.com/home-assistant/core/pull/68975
@@ -627,6 +628,7 @@ The following integrations are now available via the Home Assistant UI:
 [#69629]: https://github.com/home-assistant/core/pull/69629
 [#69631]: https://github.com/home-assistant/core/pull/69631
 [#69633]: https://github.com/home-assistant/core/pull/69633
+[#69636]: https://github.com/home-assistant/core/pull/69636
 [@Noltari]: https://github.com/Noltari
 [@allenporter]: https://github.com/allenporter
 [@balloob]: https://github.com/balloob
