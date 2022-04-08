@@ -604,6 +604,7 @@ The following integrations are now available via the Home Assistant UI:
 - Move new `zha_event` command parameters into a `params` key to ensure backwards compatibility ([@puddly] - [#69631]) ([zha docs])
 - Bump ZHA quirks to 0.0.71 ([@dmulcahey] - [#69633]) ([zha docs])
 - Fix Samjin Multi acceleration in ZHA ([@dmulcahey] - [#69636]) ([zha docs])
+- [powerwall] Skip backup reserve sensor if data is unavailable ([@mdz] - [#69637]) ([powerwall docs])
 
 [#67210]: https://github.com/home-assistant/core/pull/67210
 [#68975]: https://github.com/home-assistant/core/pull/68975
@@ -629,6 +630,7 @@ The following integrations are now available via the Home Assistant UI:
 [#69631]: https://github.com/home-assistant/core/pull/69631
 [#69633]: https://github.com/home-assistant/core/pull/69633
 [#69636]: https://github.com/home-assistant/core/pull/69636
+[#69637]: https://github.com/home-assistant/core/pull/69637
 [@Noltari]: https://github.com/Noltari
 [@allenporter]: https://github.com/allenporter
 [@balloob]: https://github.com/balloob
@@ -638,6 +640,7 @@ The following integrations are now available via the Home Assistant UI:
 [@dmulcahey]: https://github.com/dmulcahey
 [@hunterjm]: https://github.com/hunterjm
 [@ludeeus]: https://github.com/ludeeus
+[@mdz]: https://github.com/mdz
 [@mib1185]: https://github.com/mib1185
 [@north3221]: https://github.com/north3221
 [@puddly]: https://github.com/puddly
@@ -652,6 +655,7 @@ The following integrations are now available via the Home Assistant UI:
 [hassio docs]: /integrations/hassio/
 [homekit docs]: /integrations/homekit/
 [onvif docs]: /integrations/onvif/
+[powerwall docs]: /integrations/powerwall/
 [remote_rpi_gpio docs]: /integrations/remote_rpi_gpio/
 [sun docs]: /integrations/sun/
 [tado docs]: /integrations/tado/
