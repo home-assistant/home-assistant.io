@@ -24,6 +24,8 @@ This integration is only for PECO customers. To see if your county is supported,
 
 </div>
 
+{% include integrations/config_flow.md %}
+
 ---
 
 The PECO Outage Counter integration allows you to get the current count of power outages for any county, and the total for the operating region too.
@@ -34,5 +36,3 @@ This integration will create 4 entities.
 - A sensor that shows the total amount of customers with no power.
 - A sensor that shows the total amount of customers served in the county.
 - A sensor that shows the percentage of customers with no power.
-
-{% include integrations/config_flow.md %}
