@@ -76,10 +76,11 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 |           Event | Description |
 | --------------- | ----------- |
 | `timer.cancelled` | Fired when a timer has been canceled |
-| `timer.finished` | Fired when a timer has completed and includes `finished_at` date/time in event data. `finished_at` should usually be now, or within the last several seconds, but if the `restore` property is true, `finished_at` may be further in the past since this event will fire on startup for any timers that would have ended while Home Assistant was stopped. |
+| `timer.finished` | Fired when a timer has completed and includes `finished_at` date/time in event data. `finished_at` should usually be now, or within the last several seconds, but if the `restore` property is true, `finished_at` may be further in the past since this event will fire on startup for any timers that would have ended while Home Assistant was stopped. May also fire if a timer has been completed as a result of modifying its duration via the `timer.modify` service (by subtracting more time than is left for the timer). |
 | `timer.started` | Fired when a timer has been started |
 | `timer.restarted` | Fired when a timer has been restarted |
 | `timer.paused` | Fired when a timer has been paused |
+| `timer.modified` | Fired when a timer has been modified after calling the `timer.modify` service. Includes `duration` in event data, which is the duration given as the parameter to the service, in the `[-]HH:MM:SS` format. |
 
 ## Services
 
@@ -116,6 +117,15 @@ Manually finish a running timer earlier than scheduled. You can also use `entity
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
+
+### Service `timer.modify`
+
+Add / Subtract time from a timer. If a timer is idle, the modified duration will be the new default duration - same as when calling the `timer.start` service. 
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
+| `duration`             |      no  | Duration in seconds or `00:00:00' to add / subtract from the timer. To subtract use a negative value (e.g '-00:01:00' or '-60'. |
 
 ### Service `timer.reload`
 
