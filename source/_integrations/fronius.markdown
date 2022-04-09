@@ -104,26 +104,24 @@ Recommended energy dashboard configuration for meter location in consumption pat
 
 This configuration has been possible thanks to [@GianlucaCollot work](https://github.com/GianlucaCollot), honors and credit go to him as I have just reproduced his work and documented it here :)
 
-First you need to create the power entities in your `configuration.yaml`:
+First you need to create the power entities in your `configuration.yaml`. Make sure to replace the name of the sensor, you may only need to update the IP on the end if it was auto-detected:
 
 ```yaml
 template:
   - sensor:
-      # positive values are from grid
-      - name: "power_bought"
-        # friendly_name: 'Solar power production'
-        unit_of_measurement: W
-        state: >-
-          {{ max(states('sensor.power_grid_fronius_power_flow_0_XXX_XXX_XXX_XXX') | float, 0) }}
-        device_class: power
+    # Positive values are from grid
+    - name: "power_bought"
+      unit_of_measurement: W
+      state: >-
+        {{ max(states('sensor.power_grid_fronius_power_flow_0_XXX_XXX_XXX_XXX') | float, 0) }}
+      device_class: power
 
-      # negative values are to grid
-      - name: "power_sold"
-        # friendly_name: 'Solar power production'
-        unit_of_measurement: W
-        state: >-
-          {{ max((0 - states('sensor.power_grid_fronius_power_flow_0_XXX_XXX_XXX_XXX') | float), 0) }}
-        device_class: power
+    # Negative values are to grid
+    - name: "power_sold"
+      unit_of_measurement: W
+      state: >-
+        {{ max((0 - states('sensor.power_grid_fronius_power_flow_0_XXX_XXX_XXX_XXX') | float), 0) }}
+      device_class: power
 ```
 
 then, you need to create the energy entities that get data from the power ones (also in your `configuration.yaml` file):
@@ -134,13 +132,11 @@ sensor:
     source: sensor.power_sold
     name: energy_sold
     round: 2
-    #device_class: energy
     
   - platform: integration
     source: sensor.power_bought
     name: energy_bought
     round: 2
-    #device_class: energy
 ```
 
 Now, you only need to configure Energy dashboard's params using the UI (first to values use the newly created entities, other ones are just the same as in the _"feed in path"_ config):
