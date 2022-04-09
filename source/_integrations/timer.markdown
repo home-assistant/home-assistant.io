@@ -125,7 +125,7 @@ Add / Subtract time from a timer. If a timer is idle, the modified duration will
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
-| `duration`             |      no  | Duration in seconds or `00:00:00' to add / subtract from the timer. To subtract use a negative value (e.g '-00:01:00' or '-60'. |
+| `duration`             |      no  | Duration in seconds or `00:00:00' to add / subtract from the timer. To subtract use a negative value (e.g '-00:01:00' or '-60'). |
 
 ### Service `timer.reload`
 
