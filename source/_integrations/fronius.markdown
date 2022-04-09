@@ -80,7 +80,7 @@ When a device is not responding correctly the update interval will increase to 1
 
 Home Assistant's Energy Dashboard expects some sources of data to be configured for it to work properly. They mainly are the energy you get from the grid, the energy you send to the grid, the energy produced by your solar panels and others relative to batteries and devices you can see below.
 
-The meter integrated with de Fronius can be installed (and configured) in two different positions: _"feed in path"_ (`meter_location` = 0) or _"in consumption path"_ (`meter_location` = 1). In the first case, the meter provides all data you need but, in the second case, it doesn't so you need to calculate some of them by creating some entities in your configuration file.
+The meter integrated with de Fronius can be installed (and configured) in two different positions: _"feed in path"_ (`meter_location` = 0) or _"in consumption path"_ (`meter_location` = 1). In the first case, the meter provides all data you need but, in the second case, it doesn't so you need to calculate some of them by using helpers.
 
 How to know which is your case? Just go to your entities list and search `meter_location` to see the value it has.
 
