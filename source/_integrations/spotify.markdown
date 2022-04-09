@@ -101,15 +101,17 @@ You can send playlists to Spotify using the `"media_content_type": "playlist"`, 
 
 ```yaml
 # Example script to play playlist
-script:
-  play_jazz_guitar:
-    sequence:
-      - service: media_player.play_media
-        target:
-          entity_id: media_player.spotify
-        data:
-          media_content_id: "https://open.spotify.com/playlist/5xddIVAtLrZKtt4YGLM1SQ?si=YcvRqaKNTxOi043Qn4LYkg"
-          media_content_type: playlist
+play_cory_wong_radio_on_spotify:
+  alias: Play Cory Wong Radio on Spotify
+  sequence:
+  - service: media_player.play_media
+    data:
+      media_content_id: https://open.spotify.com/playlist/37i9dQZF1E4zWYQ2eXpHVu?si=dbf3701d30134257
+      media_content_type: playlist
+    target:
+      entity_id: media_player.spotify_geoff_rothman
+  mode: single
+  icon: mdi:spotify
 ```
 
 The `media_content_id` value can be obtained from the Spotify desktop app by clicking on the more options ("...") next to the album art picture, selecting "Share" and then "Copy Spotify URI" or "Copy Playlist Link" (also available in the Spotify phone and web app).
