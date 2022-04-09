@@ -78,6 +78,16 @@ When a device is not responding correctly the update interval will increase to 1
 
 ## Energy dashboard
 
+Home Assistant's Energy Dashboard expects some sources of data to be configured for it to work properly. They mainly are the energy you get from the grid, the energy you send to the grid, the energy produced by your solar panels and others relative to batteries and devices you can see below.
+
+The meter integrated with de Fronius can be installed (and configured) in two different positions: _"feed in path"_ (`meter_location` = 0) or _"in consumption path"_ (`meter_location` = 1). In the first case, the meter provides all data you need but, in the second case, it doesn't so you need to calculate some of them by creating some entities in your configuration file.
+
+How to know which is your case? Just go to your entities list and search `meter_location` to see the value it has.
+
+Below you can find instructions for configuring both cases.
+
+### Feed in path
+
 Recommended energy dashboard configuration for meter location in feed in path (`Meter location: 0`):
 
 - For `Grid consumption` use the meters `Energy real consumed` entity.
@@ -87,6 +97,62 @@ Recommended energy dashboard configuration for meter location in feed in path (`
   - If a battery is connected to an inverter: Use [Riemann sum](/integrations/integration/) over `Power photovoltaics` entity (from power_flow endpoint found in your `SolarNet` device)
 - `Battery systems` aren't supported directly. Use [Template](/integrations/template) to split and invert negative values of `Power battery` entity (from power_flow) for charging power (W) and positive values for discharging power (W). Then use [Riemann sum](/integrations/integration/) to integrate each into energy values (kWh).
 - For `Devices` use the Ohmpilots `Energy consumed` entity.
+
+### Consumption path
+
+Recommended energy dashboard configuration for meter location in consumption path (`Meter location: 1`):
+
+This configuration has been possible thanks to [@GianlucaCollot work](https://github.com/GianlucaCollot), honors and credit go to him as I have just reproduced his work and documented it here :)
+
+First you need to create the power entities in your `configuration.yaml`:
+
+```yaml
+template:
+  - sensor:
+      # positive values are from grid
+      - name: "power_bought"
+        # friendly_name: 'Solar power production'
+        unit_of_measurement: W
+        state: >-
+          {{ max(states('sensor.power_grid_fronius_power_flow_0_XXX_XXX_XXX_XXX') | float, 0) }}
+        device_class: power
+
+      # negative values are to grid
+      - name: "power_sold"
+        # friendly_name: 'Solar power production'
+        unit_of_measurement: W
+        state: >-
+          {{ max((0 - states('sensor.power_grid_fronius_power_flow_0_XXX_XXX_XXX_XXX') | float), 0) }}
+        device_class: power
+```
+
+then, you need to create the energy entities that get data from the power ones (also in your `configuration.yaml` file):
+
+```yaml
+sensor:
+  - platform: integration
+    source: sensor.power_sold
+    name: energy_sold
+    round: 2
+    #device_class: energy
+    
+  - platform: integration
+    source: sensor.power_bought
+    name: energy_bought
+    round: 2
+    #device_class: energy
+```
+
+Now, you only need to configure Energy dashboard's params using the UI (first to values use the newly created entities, other ones are just the same as in the _"feed in path"_ config):
+
+- For `Grid consumption` use the meters `energy_bough` entity.
+- For `Return to grid` use the meters `energy_sold` entity.using `energy_bough`.
+- For `Solar production`: 
+  - If no battery is connected to an inverter: Add each inverters `Energy total` entity.
+  - If a battery is connected to an inverter: Use [Riemann sum](/integrations/integration/) over `Power photovoltaics` entity (from power_flow endpoint found in your `SolarNet` device)
+- `Battery systems` aren't supported directly. Use [Template](/integrations/template) to split and invert negative values of `Power battery` entity (from power_flow) for charging power (W) and positive values for discharging power (W). Then use [Riemann sum](/integrations/integration/) to integrate each into energy values (kWh).
+- For `Devices` use the Ohmpilots `Energy consumed` entity.
+
 
 ## Note
 
