@@ -56,6 +56,7 @@ Enjoy the release!
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.4.1 - April 7](#release-202241---april-7)
+- [Release 2022.4.2 - April 11](#release-202242---april-11)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -667,6 +668,92 @@ The following integrations are now available via the Home Assistant UI:
 [utility_meter docs]: /integrations/utility_meter/
 [version docs]: /integrations/version/
 [zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.4.2 - April 11
+
+- Update python-mpd2 to 3.0.5 ([@azrdev] - [#69304]) ([mpd docs])
+- Fix Netgear switch state update ([@starkillerOG] - [#69597]) ([netgear docs])
+- Fix upnp subscription in SamsungTV ([@epenet] - [#69652]) ([samsungtv docs])
+- Fix soundtouch service calls ([@KNXBroker] - [#69655]) ([soundtouch docs])
+- Suppress Upnp parsing errors in SamsungTV ([@epenet] - [#69664]) ([samsungtv docs])
+- Add None guard for zwave_js humidifier entity ([@EiNSTeiN-] - [#69667]) ([zwave_js docs])
+- Fix Shelly gen2 cover unavailable when not calibrated ([@thecode] - [#69671]) ([shelly docs])
+- Refresh google calendar tokens with invalid expiration times ([@allenporter] - [#69679]) ([google docs])
+- Support webp still image format in generic camera ([@davet2001] - [#69718]) ([generic docs])
+- Increase tplink effects random seed allowed range to 1-600 ([@bdraco] - [#69725]) ([tplink docs])
+- Bump aio_georss_gdacs to 0.7 ([@exxamalte] - [#69743]) ([gdacs docs])
+- Fix SleepIQ firmness number step and min values ([@mfugate1] - [#69757]) ([sleepiq docs])
+- Fix unifiprotect for 2.0.0-beta2 of UniFi Protect ([@AngellusMortis] - [#69762]) ([unifiprotect docs])
+- Upgrade pynina to 0.1.8 ([@DeerMaximum] - [#69771]) ([nina docs])
+- Handle expired credentials in reauth in google calendar initialization ([@allenporter] - [#69772]) ([google docs])
+- Bump rtsp-to-webrtc to 0.5.1 ([@allenporter] - [#69776]) ([rtsp_to_webrtc docs])
+- Bump slixmpp to 1.8.2 ([@michaeldavie] - [#69794]) ([xmpp docs])
+- Fix converting (value, unit) tuples if value is None ([@rikroe] - [#69802]) ([bmw_connected_drive docs])
+- Reduce API limit for tomorrow.io ([@raman325] - [#69818]) ([tomorrowio docs])
+- Speed up Plex playback for multiple videos ([@jjlawren] - [#69821]) ([plex docs])
+- Retry on more Plex connection failures during startup ([@jjlawren] - [#69822]) ([plex docs])
+- Downgrade av to 8.1.0 to fix memory leak ([@bdraco] - [#69833]) ([stream docs]) ([generic docs])
+- Don't test config on yaml import for generic camera ([@davet2001] - [#69714]) ([generic docs])
+
+[#69304]: https://github.com/home-assistant/core/pull/69304
+[#69597]: https://github.com/home-assistant/core/pull/69597
+[#69652]: https://github.com/home-assistant/core/pull/69652
+[#69655]: https://github.com/home-assistant/core/pull/69655
+[#69664]: https://github.com/home-assistant/core/pull/69664
+[#69667]: https://github.com/home-assistant/core/pull/69667
+[#69671]: https://github.com/home-assistant/core/pull/69671
+[#69679]: https://github.com/home-assistant/core/pull/69679
+[#69714]: https://github.com/home-assistant/core/pull/69714
+[#69718]: https://github.com/home-assistant/core/pull/69718
+[#69725]: https://github.com/home-assistant/core/pull/69725
+[#69743]: https://github.com/home-assistant/core/pull/69743
+[#69757]: https://github.com/home-assistant/core/pull/69757
+[#69762]: https://github.com/home-assistant/core/pull/69762
+[#69771]: https://github.com/home-assistant/core/pull/69771
+[#69772]: https://github.com/home-assistant/core/pull/69772
+[#69776]: https://github.com/home-assistant/core/pull/69776
+[#69794]: https://github.com/home-assistant/core/pull/69794
+[#69802]: https://github.com/home-assistant/core/pull/69802
+[#69818]: https://github.com/home-assistant/core/pull/69818
+[#69821]: https://github.com/home-assistant/core/pull/69821
+[#69822]: https://github.com/home-assistant/core/pull/69822
+[#69833]: https://github.com/home-assistant/core/pull/69833
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@DeerMaximum]: https://github.com/DeerMaximum
+[@EiNSTeiN-]: https://github.com/EiNSTeiN-
+[@KNXBroker]: https://github.com/KNXBroker
+[@allenporter]: https://github.com/allenporter
+[@azrdev]: https://github.com/azrdev
+[@bdraco]: https://github.com/bdraco
+[@davet2001]: https://github.com/davet2001
+[@epenet]: https://github.com/epenet
+[@exxamalte]: https://github.com/exxamalte
+[@jjlawren]: https://github.com/jjlawren
+[@mfugate1]: https://github.com/mfugate1
+[@michaeldavie]: https://github.com/michaeldavie
+[@raman325]: https://github.com/raman325
+[@rikroe]: https://github.com/rikroe
+[@starkillerOG]: https://github.com/starkillerOG
+[@thecode]: https://github.com/thecode
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[gdacs docs]: /integrations/gdacs/
+[generic docs]: /integrations/generic/
+[google docs]: /integrations/google/
+[mpd docs]: /integrations/mpd/
+[netgear docs]: /integrations/netgear/
+[nina docs]: /integrations/nina/
+[plex docs]: /integrations/plex/
+[rtsp_to_webrtc docs]: /integrations/rtsp_to_webrtc/
+[samsungtv docs]: /integrations/samsungtv/
+[shelly docs]: /integrations/shelly/
+[sleepiq docs]: /integrations/sleepiq/
+[soundtouch docs]: /integrations/soundtouch/
+[stream docs]: /integrations/stream/
+[tomorrowio docs]: /integrations/tomorrowio/
+[tplink docs]: /integrations/tplink/
+[unifiprotect docs]: /integrations/unifiprotect/
+[xmpp docs]: /integrations/xmpp/
 [zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community!
