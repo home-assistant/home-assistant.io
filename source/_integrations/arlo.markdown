@@ -1,5 +1,5 @@
 ---
-title: Arlo
+title: Arlo - Not recomended! Not working offline
 description: Instructions on how to integrate your Netgear Arlo cameras within Home Assistant.
 ha_category:
   - Alarm
@@ -15,6 +15,7 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ---
+This is not recomended as it is not working offline.
 
 The `arlo` implementation allows you to integrate your [Arlo](https://arlo.netgear.com/) devices in Home Assistant.
 
