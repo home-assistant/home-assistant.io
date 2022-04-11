@@ -710,6 +710,29 @@ automation:
 
 {% endraw %}
 
+## Stopping a script sequence
+
+It is possible to halt a script sequence at any point. Using the `stop` or
+`error` action.
+
+Both actions take a text as input explaining the reason for halting the
+sequence. This text will be logged and shows up in the automations and
+script traces.
+
+`stop` can be useful to halt a script halfway through a sequence when,
+for example, a condition is not met.
+
+```yaml
+- stop: "Stop running the rest of the sequence"
+```
+
+The `error` action stops a script as well, but marks the automation
+or script as failed to run.
+
+```yaml
+- error: "Well, that was unexpected!"
+```
+
 [Script component]: /integrations/script/
 [automations]: /getting-started/automation-action/
 [Alexa/Amazon Echo]: /integrations/alexa/
