@@ -60,8 +60,30 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     <img src='/images/integrations/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 
 3. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App. If you don't see this option, go to the `Test` tab instead, click on the `Settings` button in the top right below the header, and ensure `On device testing` is enabled (if it isn't, enable it).
-4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
-5. Add services in the Google Home App (Note that app versions may be slightly different.)
+4. Enter Deployment details
+    1. Click on the Overview tab at the top of the page to go back.
+    2. Click on section "Get ready for deployment" and then click on "Enter information required for the Actions directory".
+    3. Enter the Description details:
+        1. Short Description - one line summary for the Action. For example "Connect Google Assistant to a private Home Assistant server"
+        2. Full Description - detailed description of the Action. For example "This Action is intended for personal use. It exposes smart home devices controlled by a local Home Assistant server to Google Assistant and by extension the Google Home mobile app."
+    4. Click on "Images" and then click on "Small Logo". Upload a logo file. For example, a Home Assistant logo.
+    5. Click on "Contact Details":
+        1. Developer email - Enter your email
+        2. Developer name - Enter your name or your company name
+    6. Click on "Privacy and consent". Click on "Learn More" to follow Google instructions to create a policy file:
+        1. Create an empty Google Doc file and name it "Your Action Private Policy"
+        2. Fill out the focument with Private Policy terms and conditions. For example:
+
+               <Action Name> Privacy Policy
+           This application is intended for the private use of its developer. Any unauthorized users which connect to this service should have no expectation of privacy or protection of their data.
+           
+        4. Save the file.
+        5. Set file share settings to “Anyone with the link can view”.
+        6. Copy the link.
+        7. Paste the link to "Privacy Policy"
+    7. Click Save
+5. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
+6. Add services in the Google Home App (Note that app versions may be slightly different.)
     1. Open the Google Home app.
     2. Click the `+` button on the top left corner, click `Set up device`, in the "Set up a device" screen click "Works with Google". You should have `[test] <Action Name>` listed under 'Add new'. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
 
