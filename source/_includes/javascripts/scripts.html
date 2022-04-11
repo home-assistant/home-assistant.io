@@ -17,6 +17,10 @@ docsearch({
   debug: false // Set debug to true if you want to inspect the dropdown
 });
 
+document.querySelector('.site-title').addEventListener('contextmenu', function(ev) {
+  ev.preventDefault();
+  document.location.assign("https://design.home-assistant.io/#brand/logo")
+});
 document.querySelector('.search .close').addEventListener('click', function(ev) {
   ev.preventDefault();
   document.querySelector('.search-container').style.display = 'none';
