@@ -95,7 +95,7 @@ Variables can be templated.
 
 Variables have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
 
-The following example will always say "There are 0 people home". Inside the `choose` sequence the `variables` action will only alter the `people` variable for that sequence.
+The following example will always say "There are 0 people home". Inside the `if` sequence the `variables` action will only alter the `people` variable for that sequence.
 
 {% raw %}
 
@@ -105,16 +105,15 @@ sequence:
   - variables:
       people: 0
   # Try to increment people if Paulus is home
-  - choose:
-    - conditions:
-        - condition: state
-          entity_id: device_tracker.paulus
-          state: "home"
-      sequence:
-        # At this scope and this point of the sequence, people == 0
-        - variables:
-            people: "{{ people + 1 }}"
-        # At this scope, people will now be 1 ...
+  - if:
+      - condition: state
+        entity_id: device_tracker.paulus
+        state: "home"
+    then:
+      # At this scope and this point of the sequence, people == 0
+      - variables:
+          people: "{{ people + 1 }}"
+      # At this scope, people will now be 1 ...
   # ... but at this scope it will still be 0
   # Announce the count of people home
   - service: notify.notify
@@ -279,11 +278,11 @@ This can be used to take different actions based on whether or not the condition
 # Take different actions depending on if condition was met.
 - wait_template: "{{ is_state('binary_sensor.door', 'on') }}"
   timeout: 10
-- choose:
-    - conditions: "{{ not wait.completed }}"
-      sequence:
-        - service: script.door_did_not_open
-  default:
+- if:
+    - "{{ not wait.completed }}"
+  then:
+    - service: script.door_did_not_open
+  else:
     - service: script.turn_on
       target:
         entity_id:
@@ -514,6 +513,35 @@ field | description
 `index` | The iteration number of the loop: 1, 2, 3, ...
 `last` | True during the last iteration of the repeat sequence, which is only valid for counted loops
 
+## If-then
+
+This action allow you to conditionally (`if`) run a sequence of actions (`then`)
+and optionally supports running other sequence when the condition didn't
+pass (`else`).
+
+```yaml
+script:
+  - if:
+      - alias: "If no one is home"
+        condition: state
+        entity_id: zone.home
+        state: 0
+    then:
+      - alias: "Then start cleaning already!"
+        service: vacuum.start
+        target:
+          area_id: living_room
+    # The `else` is fully optional and can be omitted
+    else:
+      - service: notify.notify
+        data:
+          message: "Skipped cleaning, someone is home!"
+```
+
+This action supports nesting, however, if you find yourself using nested if-then
+actions in the `else` part, you may want to consider using
+[choose](#choose-a-group-of-actions) instead.
+
 ## Choose a Group of Actions
 
 This action allows you to select a sequence of other actions from a list of sequences.
@@ -524,58 +552,9 @@ An _optional_ `default` sequence can be included which will be run only if none 
 
 An _optional_ `alias` can be added to each of the sequences, excluding the `default` sequence.
 
-The `choose` action can be used like an "if" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
+The `choose` action can be used like an "if/then/elseif/then.../else" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
 
 {% raw %}
-
-```yaml
-# Example with just an "if"
-automation:
-  - trigger:
-      - platform: state
-        entity_id: binary_sensor.motion
-        to: "on"
-    action:
-      - choose:
-          - alias: "IF nobody home, sound the alarm!"
-            conditions:
-              - condition: state
-                entity_id: group.family
-                state: not_home
-            sequence:
-              - service: script.siren
-                data:
-                  duration: 60
-      - service: light.turn_on
-        target:
-          entity_id: all
-```
-
-```yaml
-# Example with "if" and "else"
-automation:
-  - trigger:
-      - platform: state
-        entity_id: binary_sensor.motion
-    mode: queued
-    action:
-      - alias: "Turn on front lights if motion detected, else turn off"
-        choose:
-          # IF motion detected
-          - alias: "Motion detected"
-            conditions: "{{ trigger.to_state.state == 'on' }}"
-            sequence:
-              - service: script.turn_on
-                target:
-                  entity_id:
-                    - script.slowly_turn_on_front_lights
-                    - script.announce_someone_at_door
-        # ELSE (i.e., motion stopped)
-        default:
-          - service: light.turn_off
-            target:
-              entity_id: light.front_lights
-```
 
 ```yaml
 # Example with "if", "elif" and "else"
