@@ -53,7 +53,29 @@ The Viessmann API is rate-limited. If you exceed one of the limits below you wil
 - Limit 1: 120 calls for a time window of 10 minutes
 - Limit 2: 1450 calls for a time window of 24 hours
 
-The default `scan_interval` of 60 seconds will work within these limits. Note however that any additional requests to the API, e.g., by setting the temperature via the integration but also by interacting with the ViCare app also counts into those limits. It is therefore advised to adjust the scan_interval to your usage scenario.
+The default polling interval of 60 seconds will work within these limits. Note however that any additional requests to the API, e.g., by setting the temperature via the integration but also by interacting with the ViCare app also counts into those limits.
+
+### Customizing the poll interval
+
+To configure a different poll interval you can [disable polling](/docs/configuration/platform_options/#platforms_set_up_via_the_ui_) and create a custom polling automation like this:
+
+{% raw %}
+
+```yaml
+- alias: Update ViCare
+  description: Update Vicare Entities every 2 minutes
+  trigger:
+    - platform: time_pattern
+      minutes: /2
+  action:
+    - service: homeassistant.update_entity
+      data:
+        entity_id: '{{ integration_entities('vicare') }}'
+  mode: single
+```
+
+{% endraw %}
+
 
 ## Climate
 
