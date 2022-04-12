@@ -136,7 +136,7 @@ condition:
 {% endraw %}
 
 It is also possible to test the condition against multiple entities at once.
-The condition will pass if all entities match the thresholds.
+The condition will pass if **all** entities match the thresholds.
 
 ```yaml
 condition:
@@ -190,7 +190,7 @@ condition:
 ```
 
 It is also possible to test the condition against multiple entities at once.
-The condition will pass if all entities match the state.
+The condition will pass if **all** entities match the state.
 
 ```yaml
 condition:
@@ -198,6 +198,19 @@ condition:
   entity_id:
     - light.kitchen
     - light.living_room
+  state: "on"
+```
+
+Instead of matching all, it is also possible if one of the entities matches.
+In the following example the condition will pass if **any** entities match the state.
+
+```yaml
+condition:
+  condition: state
+  entity_id:
+    - binary_sensor.motion_sensor_left
+    - binary_sensor.motion_sensor_right
+  match: any
   state: "on"
 ```
 
