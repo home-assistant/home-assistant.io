@@ -26,7 +26,7 @@ When setting up the application you can use this [icon](/images/favicon-192x192-
 
 <div class='note'>
 
-Note that the name you give your application in the [Discord My Apps page](https://discordapp.com/developers/applications/me) will determine the name of the notify service. For example: if you enter "Discord", the service will be named notify.discord.
+The name you give your application on the [Discord My Apps page](https://discordapp.com/developers/applications/me) will determine the name of the notify service. For example: if you enter "Discord Chat", the service will be named `notify.discord_chat`.
 
 </div>
 
