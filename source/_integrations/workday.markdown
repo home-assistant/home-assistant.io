@@ -146,6 +146,20 @@ binary_sensor:
       - 'Christmas Day'
 ```
 
+This example has two workday sensors. The default mon-fri workday and a 2nd `schoolday-name` sensor for tue-thu.
+
+```yaml
+# Example 5 configuration.yaml entry
+binary_sensor:
+  - platform: workday
+    name: workday-default
+    country: US
+  - platform: workday
+    name: schoolday-name
+    country: US
+    workdays: [tue, wed, thu]
+```
+
 ## Automation example
 
 Example usage for automation:
