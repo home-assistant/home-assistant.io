@@ -631,6 +631,35 @@ metadata:
         media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
 ```
 
+### Example media selector
+
+An example media seletor in a simple script blueprint.
+
+```yaml
+blueprint:
+  name: Media Player Script Blueprint test
+  domain: script
+  input:
+    media:
+      name: Media File to play
+      selector:
+        media: {}
+variables:
+  _media: !input media
+  eid: '{{ _media.entity_id }}'
+  mid: '{{ _media.media_content_id }}'
+  mct: '{{ _media.media_content_type }}'
+sequence:
+- alias: Media Player Blueprint Script
+  service: media_player.play_media
+  target:
+    entity_id: "{{ eid }}"
+  data:
+    media_content_id:  "{{ mid }}"
+    media_content_type:  "{{ mct }}"
+mode: queued
+```
+
 ## Number selector
 
 The number selector shows either a number input or a slider input, that allows
