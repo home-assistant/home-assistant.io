@@ -42,7 +42,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     7. Click `Save`.
     8. Click the three little dots (more) icon in the upper right corner, select `Project settings`
     9. Make note of the `Project ID` that are listed on the `GENERAL` tab of the `Settings` page.
-2. `Account linking` is required for your app to interact with Home Assistant.
+1. `Account linking` is required for your app to interact with Home Assistant.
     1. Start by going back to the `Overview` tab.
     2. Click on `Setup account linking` under the `Quick Setup` section of the `Overview` page.
     3. If asked, leave options as they default `No, I only want to allow account creation on my website` and select `Next`.
@@ -59,11 +59,12 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
     <img src='/images/integrations/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 
-3. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App. If you don't see this option, go to the `Test` tab instead, click on the `Settings` button in the top right below the header, and ensure `On device testing` is enabled (if it isn't, enable it).
-4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
-5. Add services in the Google Home App (Note that app versions may be slightly different.)
+1. Select the `Overview` tab and click "Enter information required for the Actions directory". Fill in the information for description, logo, contact details, and privacy policy link
+1. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App. If you don't see this option, go to the `Test` tab instead, click on the `Settings` button in the top right below the header, and ensure `On device testing` is enabled (if it isn't, enable it).
+1. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
+1. Add services in the Google Home App (Note that app versions may be slightly different.)
     1. Open the Google Home app.
-    2. Click the `+` button on the top left corner, click `Set up device`, in the "Set up a device" screen click "Works with Google". You should have `[test] <Action Name>` listed under 'Add new'. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
+    1. Click the `+` button on the top left corner, click `Set up device`, in the "Set up a device" screen click "Works with Google". You should have `[test] <Action Name>` listed under 'Add new'. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
 
 <div class='note'>
 
@@ -333,6 +334,12 @@ When using NGINX, ensure that your `proxy_pass` line *does not* have a trailing 
 ### Unlink and relink
 
 If you're having trouble with *Account linking failed* after you unlinked your service, try clearing the browser history and cache.
+
+If you try to relink from an installation before deployment metadata was required, you may see a message like 
+
+> Could not reach [test] Home Assistant. Please try again.”
+
+in the Google Home app. In this case, you'll need to fill in the information on the Overview tab under "Enter information required for the Actions directory"
 
 ### Failed linking - Could not update the setting. Please check your connection
 
