@@ -52,7 +52,6 @@ Valid values for ignore are:
  * `enigma2`: Enigma2 media players
  * `frontier_silicon`: Frontier Silicon internet radios
  * `lg_smart_device`: LG Soundbars
- * `netgear_router`: NETGEAR routers
  * `openhome`: Linn / Openhome
  * `sabnzbd`: SABnzbd downloader
  * `yamaha`: Yamaha media player
