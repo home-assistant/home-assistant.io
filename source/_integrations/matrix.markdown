@@ -182,6 +182,24 @@ The target room has to be precreated, the room id can be obtained from the rooms
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
+
+### Message formats
+
+Matrix supports sending messages as HTML; as markdown can be rendered to HTML, it is supported as well. To specify the message format, add it in the notification `data`.
+
+Supported formats are: `text` (default), `html`, and `markdown`.
+
+```yaml
+# Example of notification as HTML
+action:
+  service: notify.matrix_notify
+  data:
+    message: >-
+      <h1>Hello, world!</h1>
+    data:
+      format: html
+```
+
 ### Images in notification
 
 It is possible to send images with notifications. To do so, add a list of paths in the notification `data`.
