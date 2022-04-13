@@ -115,7 +115,8 @@ When you run the `hass` command for the first time, it will download, install an
 
 Create a Systemd service file, copy the followings into /etc/systemd/system/home-assistant.service.
   
-```
+```text
+  
 [Unit]
 Description=Home Assistant
 After=network-online.target
@@ -126,13 +127,16 @@ User=homeassistant
 ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
 [Install]
 WantedBy=multi-user.target
+  
 ```
 Then you can enable it on boot
 
 ```bash
+  
 sudo systemctl daemon-reload
 sudo systemctl enable home-assistant
 sudo systemctl start home-assistant
+  
 ```
 Use the following command to check how is the running of Home Assistant
   
