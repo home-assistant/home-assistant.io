@@ -23,17 +23,17 @@ Additionally the following brands have been reported to also work with this inte
 - [Motion Blinds](https://motionblinds.com/)
 - [Smart Blinds](https://www.smartblinds.nl/)
 - [Dooya](http://www.dooya.com/)
+- [AMP Motorization](https://www.ampmotorization.com/)
+- [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
-- [Smart Home](https://www.smart-home.hu)
+- [3 Day Blinds](https://www.3dayblinds.com/)
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
-- [Raven Rock MRG](https://www.ravenrockmfg.com/)
-- [AMP Motorization](https://www.ampmotorization.com/)
-- [Uprise Smart Shades](http://uprisesmartshades.com)
-- [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
-- [3 Day Blinds](https://www.3dayblinds.com/)
 - [Martec](https://www.martec.co.nz/)
+- [Raven Rock MRG](https://www.ravenrockmfg.com/)
+- [Smart Home](https://www.smart-home.hu)
+- [Uprise Smart Shades](http://uprisesmartshades.com)
 
 {% include integrations/config_flow.md %}
 
