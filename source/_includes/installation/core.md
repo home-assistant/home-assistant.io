@@ -110,3 +110,33 @@ If this address doesn't work you may also try `http://localhost:8123` or `http:/
 When you run the `hass` command for the first time, it will download, install and cache the necessary libraries/dependencies. This procedure may take anywhere between 5 to 10 minutes. During that time, you may get "site cannot be reached" error when accessing the web interface. This will only happen for the first time, and subsequent restarts will be much faster.
 
 </div>
+  
+### Starting Home Assistant on boot
+
+Create a Systemd service file, copy the followings into /etc/systemd/system/home-assistant.service.
+  
+```
+[Unit]
+Description=Home Assistant
+After=network-online.target
+
+[Service]
+Type=simple
+User=homeassistant
+ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
+[Install]
+WantedBy=multi-user.target
+```
+Then you can enable it on boot
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable home-assistant
+sudo systemctl start home-assistant
+```
+Use the following command to check how is the running of Home Assistant
+  
+```bash
+sudo systemctl status home-assistant
+```
+
