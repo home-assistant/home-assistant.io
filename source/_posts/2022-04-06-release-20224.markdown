@@ -57,6 +57,7 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.4.1 - April 7](#release-202241---april-7)
 - [Release 2022.4.2 - April 11](#release-202242---april-11)
+- [Release 2022.4.3 - April 12](#release-202243---april-12)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -755,6 +756,83 @@ The following integrations are now available via the Home Assistant UI:
 [unifiprotect docs]: /integrations/unifiprotect/
 [xmpp docs]: /integrations/xmpp/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.4.3 - April 12
+
+- Update xknx to 0.20.2 (RC) ([@marvin-w] - [#69859]) ([knx docs])
+- Fix profiler object growth logging test ([@bdraco] - [#69211]) ([profiler docs])
+- Handle Squeezebox media ids that are not URLs ([@rajlaud] - [#69696]) ([squeezebox docs])
+- Add diagnostics support for ZHA ([@dmulcahey] - [#69756]) ([zha docs])
+- Bump devolo-home-control-api to 0.18.1 ([@Shutgun] - [#69840]) ([devolo_home_control docs])
+- Fix #69694 ([@iMicknl] - [#69850]) ([overkiz docs])
+- Fix google calendar timestamp out of range ([@allenporter] - [#69863]) ([google docs])
+- Use quickplay when casting splash for mediaplayer.turn_on ([@emontnemery] - [#69866]) ([cast docs])
+- Motion blinds fix set absolute position service ([@starkillerOG] - [#69873]) ([motion_blinds docs])
+- Bump zigpy to 0.44.2 and and zha-quirks to 0.0.72 ([@puddly] - [#69879]) ([zha docs])
+- Handle add-on issues ([@ludeeus] - [#69897]) ([hassio docs])
+- Fix unique id in SamsungTV config flow ([@epenet] - [#69899]) ([samsungtv docs])
+- Bump renault-api to 0.1.11 ([@epenet] - [#69900]) ([renault docs])
+- Fix climate HVAC device condition ([@frenck] - [#69908]) ([climate docs])
+- Fix adjusting 5-minute statistics ([@emontnemery] - [#69921]) ([recorder docs]) ([sensor docs])
+- Fix adjusting statistics in ft³ ([@emontnemery] - [#69913]) ([recorder docs]) ([sensor docs])
+- Downgrade ZHA dependency zigpy-deconz from 0.15.0 to 0.14.0 ([@puddly] - [#69927]) ([zha docs])
+- Fix fibaro light state for rgb lights and HC3 ([@rappenze] - [#69884]) ([fibaro docs])
+- Not all music are URLs ([@balloob] - [#69936]) ([mpd docs])
+- Guard against non http schemes ([@balloob] - [#69938]) ([media_player docs])
+
+[#69211]: https://github.com/home-assistant/core/pull/69211
+[#69696]: https://github.com/home-assistant/core/pull/69696
+[#69756]: https://github.com/home-assistant/core/pull/69756
+[#69840]: https://github.com/home-assistant/core/pull/69840
+[#69850]: https://github.com/home-assistant/core/pull/69850
+[#69859]: https://github.com/home-assistant/core/pull/69859
+[#69863]: https://github.com/home-assistant/core/pull/69863
+[#69866]: https://github.com/home-assistant/core/pull/69866
+[#69873]: https://github.com/home-assistant/core/pull/69873
+[#69879]: https://github.com/home-assistant/core/pull/69879
+[#69884]: https://github.com/home-assistant/core/pull/69884
+[#69897]: https://github.com/home-assistant/core/pull/69897
+[#69899]: https://github.com/home-assistant/core/pull/69899
+[#69900]: https://github.com/home-assistant/core/pull/69900
+[#69908]: https://github.com/home-assistant/core/pull/69908
+[#69913]: https://github.com/home-assistant/core/pull/69913
+[#69921]: https://github.com/home-assistant/core/pull/69921
+[#69927]: https://github.com/home-assistant/core/pull/69927
+[#69936]: https://github.com/home-assistant/core/pull/69936
+[#69938]: https://github.com/home-assistant/core/pull/69938
+[@Shutgun]: https://github.com/Shutgun
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@dmulcahey]: https://github.com/dmulcahey
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@iMicknl]: https://github.com/iMicknl
+[@ludeeus]: https://github.com/ludeeus
+[@marvin-w]: https://github.com/marvin-w
+[@puddly]: https://github.com/puddly
+[@rajlaud]: https://github.com/rajlaud
+[@rappenze]: https://github.com/rappenze
+[@starkillerOG]: https://github.com/starkillerOG
+[cast docs]: /integrations/cast/
+[climate docs]: /integrations/climate/
+[devolo_home_control docs]: /integrations/devolo_home_control/
+[fibaro docs]: /integrations/fibaro/
+[google docs]: /integrations/google/
+[hassio docs]: /integrations/hassio/
+[knx docs]: /integrations/knx/
+[media_player docs]: /integrations/media_player/
+[motion_blinds docs]: /integrations/motion_blinds/
+[mpd docs]: /integrations/mpd/
+[overkiz docs]: /integrations/overkiz/
+[profiler docs]: /integrations/profiler/
+[recorder docs]: /integrations/recorder/
+[renault docs]: /integrations/renault/
+[samsungtv docs]: /integrations/samsungtv/
+[sensor docs]: /integrations/sensor/
+[squeezebox docs]: /integrations/squeezebox/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
