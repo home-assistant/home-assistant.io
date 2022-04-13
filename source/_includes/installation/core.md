@@ -90,9 +90,12 @@ pip3 install homeassistant
 <div class='note'>
   
 If you encounter error *No space left on device*, probably there is limitation of /tmp, try moving this directory to elsewhere.
-```
-mkdir -p /home/<user>/tmp
-export TMPDIR=/home/<user>/tmp
+  
+```text
+  
+mkdir -p /home/homeassistant/tmp
+export TMPDIR=/home/homeassistant/tmp
+  
 ```  
 </div>
 Start Home Assistant Core for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
