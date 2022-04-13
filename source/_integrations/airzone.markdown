@@ -31,6 +31,8 @@ Host:
   description: "Network IP address"
 Port:
   description: "Network port"
+ID:
+  description: "Airzone System ID (only needed if System ID 0 is not supported on your device)"
 {% endconfiguration_basic %}
 
 ## Binary Sensors
