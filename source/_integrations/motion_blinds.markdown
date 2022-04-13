@@ -31,10 +31,9 @@ Additionally the following brands have been reported to also work with this inte
 - [Raven Rock MRG](https://www.ravenrockmfg.com/)
 - [AMP Motorization](https://www.ampmotorization.com/)
 - [Uprise Smart Shades](http://uprisesmartshades.com)
-- [Bliss Automation](https://www.altawindowfashions.com/product/automation/bliss-automation/)
+- [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
 - [3 Day Blinds](https://www.3dayblinds.com/)
 - [Martec](martec.co.nz)
-
 
 {% include integrations/config_flow.md %}
 
