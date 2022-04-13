@@ -185,7 +185,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 ### Message formats
 
-Matrix supports sending messages as HTML; as markdown can be rendered to HTML, it is supported as well. To specify the message format, add it in the notification `data`.
+Matrix supports sending messages using a [limited HTML subset](https://spec.matrix.org/v1.2/client-server-api/#mroommessage-msgtypes); Markdown is also supported as it can be rendered to HTML. To specify the message format, add it in the notification `data`.
 
 Supported formats are: `text` (default), `html`, and `markdown`.
 
