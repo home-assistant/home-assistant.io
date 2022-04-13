@@ -20,18 +20,18 @@ The integration allows you to control [Motion Blinds](https://motionblinds.com/)
 
 Additionally the following brands have been reported to also work with this integration:
 
-- [Motion Blinds](https://motionblinds.com/)
-- [Smart Blinds](https://www.smartblinds.nl/)
-- [Dooya](http://www.dooya.com/)
 - [AMP Motorization](https://www.ampmotorization.com/)
 - [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
 - [3 Day Blinds](https://www.3dayblinds.com/)
+- [Dooya](http://www.dooya.com/)
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
 - [Martec](https://www.martec.co.nz/)
+- [Motion Blinds](https://motionblinds.com/)
 - [Raven Rock MRG](https://www.ravenrockmfg.com/)
+- [Smart Blinds](https://www.smartblinds.nl/)
 - [Smart Home](https://www.smart-home.hu)
 - [Uprise Smart Shades](http://uprisesmartshades.com)
 
