@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-This is the legacy discovery integration for Home Assistant. It's use is no longer recommended. Use the [SSDP](/integrations/ssdp/), [Zeroconf](/integrations/zeroconf/ and [USB](/integrations/usb/) integrations instead.
+This is the legacy discovery integration for Home Assistant. It's use is no longer recommended. Use the [SSDP](/integrations/ssdp/), [Zeroconf](/integrations/zeroconf/) and [USB](/integrations/usb/) integrations instead.
 
 This integration is limited to detect:
 
