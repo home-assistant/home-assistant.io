@@ -16,8 +16,6 @@ ha_platforms:
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
-{% include integrations/config_flow.md %}
-
 ## Setup
 
 ### Bot posting as you
@@ -46,9 +44,13 @@ Slack uses the standard emoji sets used [here](https://www.webpagefx.com/tools/e
 
 <div class='note'>
 
-Note that in order to modify your Slack bot's username and icon, you must ensure your Slack app has the `chat:write.customize` OAuth scope. See [the Slack API documentation](https://api.slack.com/methods/chat.postMessage#authorship) for more information.
+In order to modify your Slack bot's username and icon, you must ensure your Slack app has the `chat:write.customize` OAuth scope. See [the Slack API documentation](https://api.slack.com/methods/chat.postMessage#authorship) for more information.
+
+The added `notify` service will be named after the chat server the app is installed on. For example, a server named "Slack Chat" wil display as `notify.slack_chat`.
 
 </div>
+
+{% include integrations/config_flow.md %}
 
 ### Slack Service Data
 
