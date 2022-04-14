@@ -97,7 +97,7 @@ Screenshot of Media Player Widget
 
 Big thank you to everyone involved. Please keep those bug reports and feature requests coming! Be sure to watch the State of the Open Home address for what to expect in 2022 and a live demo of some of the features above!
 
-<lite-youtube videoid="6ZMXE5PXPqU" videotitle="State of the Open Home 2021" videoStartAt="9291"></lite-youtube>
+<lite-youtube videoid="6ZMXE5PXPqU" videotitle="State of the Open Home 2021" videoStartAt="9291" posterquality="maxresdefault"></lite-youtube>
 
 ## Changelog
 

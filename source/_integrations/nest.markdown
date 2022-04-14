@@ -46,7 +46,7 @@ The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
 
 ## Video Walkthrough
 
-<lite-youtube videoid="wghcd9xDdMs" videotitle="EASIER NEST INTEGRATION in Home Assistant! No More SSH or SSL validation!"></lite-youtube>
+<lite-youtube videoid="wghcd9xDdMs" videotitle="EASIER NEST INTEGRATION in Home Assistant! No More SSH or SSL validation!" posterquality="maxresdefault"></lite-youtube>
 
 ## Device Access Registration
 

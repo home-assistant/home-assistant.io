@@ -21,7 +21,7 @@ After the talks, attendees will be able to join various sessions about different
 
 The conference is over! All talks have been [published online on YouTube](https://www.youtube.com/playlist?list=PLKsVm4cWHDQDGRXnybFUOLlcDWPsroGGB) and are also embedded below:
 
-<lite-youtube videoid="eh7BO_qro7c" playlistid="PLKsVm4cWHDQDGRXnybFUOLlcDWPsroGGB" videotitle="Home Assistant Conference 2020"></lite-youtube>
+<lite-youtube videoid="eh7BO_qro7c" playlistid="PLKsVm4cWHDQDGRXnybFUOLlcDWPsroGGB" videotitle="Home Assistant Conference 2020" posterquality="maxresdefault"></lite-youtube>
 
 ## Keynotes & Talks schedule
 

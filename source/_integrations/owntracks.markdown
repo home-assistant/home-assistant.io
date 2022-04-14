@@ -16,7 +16,7 @@ ha_integration_type: integration
 
 By default the integration will listen for incoming messages from OwnTracks via HTTP. It will also listen for MQTT messages if Home Assistant is configured to use MQTT. When a location is submitted via HTTP, Home Assistant will return all [Persons](/integrations/person/)' last known locations and they will be displayed within the OwnTracks app.
 
-<lite-youtube videoid="UieAQ8sC6GY" videotitle="Location Tracking with OwnTracks HTTP Mode and Home Assistant"></lite-youtube>
+<lite-youtube videoid="UieAQ8sC6GY" videotitle="Location Tracking with OwnTracks HTTP Mode and Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
 ## Configuration
 

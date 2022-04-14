@@ -17,4 +17,4 @@ Today we're releasing Home Assistant companion app for iOS 2021.12. The big new 
 
 At the State of the Open Home I gave a quick demo, which I have embedded below:
 
-<lite-youtube videoid="6ZMXE5PXPqU" videotitle="State of the Open Home 2021" videoStartAt="7589"></lite-youtube>
+<lite-youtube videoid="6ZMXE5PXPqU" videotitle="State of the Open Home 2021" videoStartAt="7589" posterquality="maxresdefault"></lite-youtube>

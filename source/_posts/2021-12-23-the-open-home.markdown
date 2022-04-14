@@ -43,4 +43,4 @@ As we install more and more devices in our home, durability is becoming more and
 
 At the State of the Open Home, we presented our vision and how we, together with our friends from open source and academia, are working towards achieving it.
 
-<lite-youtube videoid="6ZMXE5PXPqU" videotitle="State of the Open Home 2021" videoStartAt="512"></lite-youtube>
+<lite-youtube videoid="6ZMXE5PXPqU" videotitle="State of the Open Home 2021" videoStartAt="512" posterquality="maxresdefault"></lite-youtube>

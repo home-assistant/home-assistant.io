@@ -18,7 +18,7 @@ The RTSPtoWebRTC integration registers with [camera integration](/integrations/c
 
 The integration configuration requires the URL to your server (e.g. `http://example.com:8083`) and will automatically discover which type of server you have.
 
-<lite-youtube videoid="6hJXenSZJ5M" videotitle="Real Time Camera Viewing using RTSPtoWeb and Glance Cards in Home Assistant."></lite-youtube>
+<lite-youtube videoid="6hJXenSZJ5M" videotitle="Real Time Camera Viewing using RTSPtoWeb and Glance Cards in Home Assistant." posterquality="maxresdefault"></lite-youtube>
 
 {% include integrations/config_flow.md %}
 

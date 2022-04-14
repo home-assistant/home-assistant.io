@@ -13,7 +13,7 @@ Last week we hosted the [State of the Open Home](/state-of-the-open-home/) and i
 
 Genie is an open, privacy-preserving virtual assistant by [Stanford OVAL](https://oval.cs.stanford.edu/). During the impressive demo they showed it's latest capabilities. The demos run on a Baidu speaker with custom firmware and on a Pi Zero. In both cases it connects to the Genie server running as an official Home Assistant add-on to do it's magic.
 
-<lite-youtube videoid="6ZMXE5PXPqU" videotitle="State of the Open Home 2021" videoStartAt="9691"></lite-youtube>
+<lite-youtube videoid="6ZMXE5PXPqU" videotitle="State of the Open Home 2021" videoStartAt="9691" posterquality="maxresdefault"></lite-youtube>
 
 Genie is the successor to the Almond project. With the help of various grants and sponsors Stanford is working on making Genie ready for general use.
 
