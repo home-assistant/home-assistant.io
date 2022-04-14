@@ -60,6 +60,7 @@ Enjoy the release!
 - [Release 2022.4.1 - April 7](#release-202241---april-7)
 - [Release 2022.4.2 - April 11](#release-202242---april-11)
 - [Release 2022.4.3 - April 12](#release-202243---april-12)
+- [Release 2022.4.4 - April 14](#release-202244---april-14)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -834,6 +835,67 @@ The following integrations are now available via the Home Assistant UI:
 [samsungtv docs]: /integrations/samsungtv/
 [sensor docs]: /integrations/sensor/
 [squeezebox docs]: /integrations/squeezebox/
+[zha docs]: /integrations/zha/
+
+## Release 2022.4.4 - April 14
+
+- Remove duplicate program ([@golles] - [#69734]) ([home_connect docs])
+- Fix Prosegur availability through Alexa ([@dgomes] - [#69941]) ([prosegur docs])
+- Fix race during homekit controller pairing ([@bdraco] - [#69948]) ([homekit_controller docs])
+- Fix HomeKit Controller device class for CO Sensors ([@bdraco] - [#69949]) ([homekit_controller docs])
+- Fix available property in the base supervisor entity ([@ludeeus] - [#69966]) ([hassio docs])
+- Use ha-av instead of av and bump to v9.1.1-3 ([@uvjustin] - [#69974]) ([stream docs]) ([generic docs])
+- Fix config_flow error from dlna_dmr for UPnP discovery info containing a single service ([@chishm] - [#69977]) ([dlna_dmr docs])
+- Fix config_flow error for UPnP info with single service ([@chishm] - [#69979]) ([dlna_dms docs])
+- Suppress UpnpResponseError in SamsungTV ([@epenet] - [#69984]) ([samsungtv docs])
+- Fix missing interior battery sensor for Ambient PWS ([@bachya] - [#69994]) ([ambient_station docs])
+- ZHA diagnostics fixes ([@dmulcahey] - [#70000]) ([zha docs])
+- use newer version of openhomedevice ([@bazwilliams] - [#70022]) ([openhome docs])
+- Handle KeyError when loading backups ([@ludeeus] - [#70028]) ([backup docs])
+- Fix tomorrow.io units... again... ([@raman325] - [#70029]) ([tomorrowio docs])
+- Check supported features in media player reproduce state ([@balloob] - [#70055]) ([media_player docs])
+
+[#69734]: https://github.com/home-assistant/core/pull/69734
+[#69941]: https://github.com/home-assistant/core/pull/69941
+[#69948]: https://github.com/home-assistant/core/pull/69948
+[#69949]: https://github.com/home-assistant/core/pull/69949
+[#69966]: https://github.com/home-assistant/core/pull/69966
+[#69974]: https://github.com/home-assistant/core/pull/69974
+[#69977]: https://github.com/home-assistant/core/pull/69977
+[#69979]: https://github.com/home-assistant/core/pull/69979
+[#69984]: https://github.com/home-assistant/core/pull/69984
+[#69994]: https://github.com/home-assistant/core/pull/69994
+[#70000]: https://github.com/home-assistant/core/pull/70000
+[#70022]: https://github.com/home-assistant/core/pull/70022
+[#70028]: https://github.com/home-assistant/core/pull/70028
+[#70029]: https://github.com/home-assistant/core/pull/70029
+[#70055]: https://github.com/home-assistant/core/pull/70055
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bazwilliams]: https://github.com/bazwilliams
+[@bdraco]: https://github.com/bdraco
+[@chishm]: https://github.com/chishm
+[@dgomes]: https://github.com/dgomes
+[@dmulcahey]: https://github.com/dmulcahey
+[@epenet]: https://github.com/epenet
+[@golles]: https://github.com/golles
+[@ludeeus]: https://github.com/ludeeus
+[@raman325]: https://github.com/raman325
+[@uvjustin]: https://github.com/uvjustin
+[ambient_station docs]: /integrations/ambient_station/
+[backup docs]: /integrations/backup/
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[dlna_dms docs]: /integrations/dlna_dms/
+[generic docs]: /integrations/generic/
+[hassio docs]: /integrations/hassio/
+[home_connect docs]: /integrations/home_connect/
+[homekit_controller docs]: /integrations/homekit_controller/
+[media_player docs]: /integrations/media_player/
+[openhome docs]: /integrations/openhome/
+[prosegur docs]: /integrations/prosegur/
+[samsungtv docs]: /integrations/samsungtv/
+[stream docs]: /integrations/stream/
+[tomorrowio docs]: /integrations/tomorrowio/
 [zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
