@@ -46,9 +46,7 @@ The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
 
 ## Video Walkthrough
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wghcd9xDdMs" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="wghcd9xDdMs" videotitle="EASIER NEST INTEGRATION in Home Assistant! No More SSH or SSL validation!" posterquality="maxresdefault"></lite-youtube>
 
 ## Device Access Registration
 
@@ -476,7 +474,7 @@ This feature is enabled by the following permissions:
 - This most likely reason is the *OAuth Consent Screen* is set to *Testing* by default which expires the token after 7 days.
 - Follow the steps above to set it to *Production* to resolve this and reauthorize your integration one more time to get a new token.
 - You may also see this as the error message *invalid_grant: Token has been expired or revoked*.
-- See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for more reasons on why your token may have expired. 
+- See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for more reasons on why your token may have expired.
 
 {% enddetails %}
 
@@ -504,7 +502,7 @@ This feature is enabled by the following permissions:
 
 - You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all.
 
-- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 
+- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble:
 
 ```yaml
 

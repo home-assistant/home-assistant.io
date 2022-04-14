@@ -536,6 +536,22 @@ div.note {
   }
 }
 
+lite-youtube {
+  position: relative;
+  display: block;
+  padding-bottom: calc(100% / (16 / 9));
+  background-color: rgba(0,0,0,.1);
+}
+
+lite-youtube::before {
+  content: attr(videotitle) " video placeholder";
+  color: rgba(0, 0, 0, 0.82);
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  padding-top: calc(45% / (16 / 9));
+}
+
 // Responsive YouTube embeds.
 // https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
 .videoWrapper {
