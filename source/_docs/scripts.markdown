@@ -733,6 +733,40 @@ or script as failed to run.
 - error: "Well, that was unexpected!"
 ```
 
+## Continuing on error
+
+By default, a sequence of actions will be halted when one of the actions in
+that sequence encounters an error. The automation or script will be halted,
+an error is logged, and the automation or script run is marked as errored.
+
+Sometimes these errors are expected, for example, because you know the service
+you call can be problematic at times, and it doesn't matter if it fails.
+You can set `continue_on_error` for those cases on such an action.
+
+The `continue_on_error` is available on all actions and is set to
+`false`. You can set it to `true` if you'd like to continue the action
+sequence, regardless of whether that action encounters an error.
+
+The example below shows the `continue_on_error` set on the first action. If
+it encounters an error; it will continue to the next action.
+
+```yaml
+- alias: "If this one fails..."
+  continue_on_error: true
+  service: notify.super_unreliable_service_provider
+  data:
+    message: "I'm going to error out..."
+
+- alias: "This one will still run!"
+  service: persistent_notification.create
+  data:
+    title: "Hi there!"
+    message: "I'm fine..."
+```
+
+Please note that `continue_on_error` will not suppress/ignore misconfiguration
+or errors that Home Assistant does not handle.
+
 [Script component]: /integrations/script/
 [automations]: /getting-started/automation-action/
 [Alexa/Amazon Echo]: /integrations/alexa/
