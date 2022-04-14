@@ -6,9 +6,7 @@ description: December 11, 2021 we will host the State of the Open Home.
 og_image: /images/state-of-the-open-home/social.png
 ---
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6ZMXE5PXPqU?start=294" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="6ZMXE5PXPqU" videotitle="State of the Open Home 2021" videoStartAt="290"></lite-youtube>
 
 The State of the Open Home took place on December 11, 2021. Watch the recording of the event above. The following blog posts have been published based on State of the Open Home presentations:
 

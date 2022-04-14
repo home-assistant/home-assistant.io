@@ -24,9 +24,7 @@ The Somfy integration will allow users to integrate their Somfy devices into Hom
 
 Somfy is leveraging the new account linking service. This means that to set up Somfy, you only need to go to the integrations page and click on add new integration.
 
-<div class='videoWrapper'>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/y0SECWUVR-M" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="y0SECWUVR-M" videotitle="New OAuth2 account linking service"></lite-youtube>
 
 ## Installation with own developer account
 

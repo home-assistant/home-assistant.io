@@ -13,9 +13,7 @@ Two weeks ago we hosted the [State of the Open Home](/state-of-the-open-home/). 
 
 They presented about their research into lowering grid demand by reducing thermostat temperatures. They want to learn when and why a reduced temperature is too uncomfortable causing tenants to become thermally frustrated and reverting the reduction.
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6ZMXE5PXPqU?start=8042" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="6ZMXE5PXPqU" videotitle="State of the Open Home 2021" videoStartAt="8042"></lite-youtube>
 
 With Home Assistant we want every home to be about [privacy, choice and durability](/blog/2021/12/23/the-open-home/) and it's how we built Home Assistant. Because we believe in choice, all data in Home Assistant is accessible and one can extend or built on top of our platform.
 
