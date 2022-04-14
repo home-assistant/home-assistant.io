@@ -40,6 +40,8 @@ Enjoy the release!
 
 ../Frenck
 
+<!--more-->
+
 - [Updates from Nabu Casa](#updates-from-nabu-casa)
 - [Media improvements](#media-improvements)
 - [Check for updates](#check-for-updates)

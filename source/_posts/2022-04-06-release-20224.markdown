@@ -38,6 +38,8 @@ Enjoy the release!
 
 ../Frenck
 
+<!--more-->
+
 - [Goodbye Lovelace, Hello Dashboards](#goodbye-lovelace-hello-dashboards)
 - [Hide entities](#hide-entities)
 - [Now available in the UI: Groups!](#now-available-in-the-ui-groups)
