@@ -114,6 +114,29 @@ Even if an update is skipped and shows as `off` (meaning no update), if there
 is a newer version available, calling the `update.install` service on the entity
 will still install the latest version.
 
+### Service {% my developer_call_service service="update.clear_skipped" %}
+
+The {% my developer_call_service service="update.clear_skipped" %} service can
+be used to remove skipped version marker of a previously skipped an offered
+update to the device or service.
+
+After skipping an offered update, the entity will return to the `off` state,
+but will not return to it until a newer version becomes available again.
+
+Using the `update.clear_skipped` service, the skipped version marker can be
+removed and thus the entity will return to the `on` state and the update
+notification will return.
+
+```yaml
+service: update.clear_skipped
+target:
+  entity_id:
+    - update.my_light_bulb
+```
+
+This can be helpful to, for example, in an automation that weekly unskips
+all updates you have previously marked as skipped; as a reminder to update.
+
 ## Example: Sending update available notifications
 
 A common use case for using update entities is to notify you if an update
