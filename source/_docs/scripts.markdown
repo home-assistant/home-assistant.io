@@ -712,10 +712,9 @@ automation:
 
 ## Stopping a script sequence
 
-It is possible to halt a script sequence at any point. Using the `stop` or
-`error` action.
+It is possible to halt a script sequence at any point. Using the `stop` action.
 
-Both actions take a text as input explaining the reason for halting the
+The `stop` action takes a text as input explaining the reason for halting the
 sequence. This text will be logged and shows up in the automations and
 script traces.
 
@@ -726,11 +725,13 @@ for example, a condition is not met.
 - stop: "Stop running the rest of the sequence"
 ```
 
-The `error` action stops a script as well, but marks the automation
+There is also an `error` option, to indicate we are stopping because of
+an unexpected error. It stops the sequence as well, but marks the automation
 or script as failed to run.
 
 ```yaml
-- error: "Well, that was unexpected!"
+- stop: "Well, that was unexpected!"
+  error: true
 ```
 
 ## Continuing on error
