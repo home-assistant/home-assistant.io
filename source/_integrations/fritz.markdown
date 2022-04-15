@@ -21,6 +21,7 @@ ha_platforms:
   - device_tracker
   - sensor
   - switch
+  - update
 ha_ssdp: true
 ---
 
@@ -33,7 +34,7 @@ There is support for the following platform types within Home Assistant:
 - **Button** - reboot, reconnect, firmware_update.
 - **Sensor** - external IP address, uptime and network monitors.
 - **Switch** - call deflection, port forward, parental control and Wi-Fi networks.
-
+- **Update** - firmware status of the device.
 {% include integrations/config_flow.md %}
 
 <div class='note'>
