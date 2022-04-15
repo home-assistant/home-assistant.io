@@ -18,6 +18,6 @@ If this is not our Home Assistant OS, you need to re-run our
 
 You can also attempt to run the following command on the host:
 
-```
+```bash
 sudo systemctl restart hassio-supervisor.service
 ```
