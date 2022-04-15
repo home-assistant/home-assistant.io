@@ -412,6 +412,53 @@ script:
 
 {% endraw %}
 
+### For each
+
+This repeat form accepts a list of items to iterate over. The list of items
+can be a pre-defined list, or a list created by a template.
+
+The sequence is ran for each item in the list, and current item in the
+iteration is available as `repeat.item`.
+
+The following example will turn a list of lights:
+
+{% raw %}
+
+```yaml
+repeat:
+  for_each:
+    - "living_room"
+    - "kitchen"
+    - "office"
+  sequence:
+    - service: light.turn_off
+      target:
+        entity_id: "light.{{ repeat.item }}"
+```
+
+{% endraw %}
+
+Other types are accepted as list items, for example, each item can be a
+template, or even an mapping of key/value pairs. 
+
+{% raw %}
+
+```yaml
+repeat:
+  for_each:
+    - language: English
+      message: Hello World
+    - language: Dutch
+      hello: Hallo Wereld
+  sequence:
+    - service: notify.phone
+      data:
+        title: "Message in {{ repeat.item.language }}"
+        message: "{{ repeat.item.message }}!"
+```
+
+{% endraw %}
+
 ### While Loop
 
 This form accepts a list of conditions (see [conditions page] for available options) that are evaluated _before_ each time the sequence
@@ -513,6 +560,8 @@ field | description
 `first` | True during the first iteration of the repeat sequence
 `index` | The iteration number of the loop: 1, 2, 3, ...
 `last` | True during the last iteration of the repeat sequence, which is only valid for counted loops
+
+
 
 ## Choose a Group of Actions
 
