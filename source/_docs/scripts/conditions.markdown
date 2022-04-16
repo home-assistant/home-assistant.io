@@ -48,6 +48,20 @@ condition:
 
 Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
 
+The AND condition also has a shorthand form. The following configuration works the same as the ones listed above:
+
+```yaml
+condition:
+  alias: "Paulus home AND temperature below 20"
+  and:
+    - condition: state
+      entity_id: "device_tracker.paulus"
+      state: "home"
+    - condition: numeric_state
+      entity_id: "sensor.temperature"
+      below: 20
+```
+
 ### OR condition
 
 Test multiple conditions in one condition statement. Passes if any embedded condition is valid.
@@ -57,6 +71,20 @@ condition:
   alias: "Paulus home OR temperature below 20"
   condition: or
   conditions:
+    - condition: state
+      entity_id: "device_tracker.paulus"
+      state: "home"
+    - condition: numeric_state
+      entity_id: "sensor.temperature"
+      below: 20
+```
+
+The OR condition also has a shorthand form. The following configuration works the same as the one listed above:
+
+```yaml
+condition:
+  alias: "Paulus home OR temperature below 20"
+  or:
     - condition: state
       entity_id: "device_tracker.paulus"
       state: "home"
@@ -87,6 +115,23 @@ condition:
           below: 20
 ```
 
+Or in shorthand form:
+
+```yaml
+condition:
+  and:
+    - condition: state
+      entity_id: "device_tracker.paulus"
+      state: "home"
+    - or:
+      - condition: state
+        entity_id: sensor.weather_precip
+        state: "rain"
+      - condition: numeric_state
+        entity_id: "sensor.temperature"
+        below: 20
+```
+
 ### NOT condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** valid.
@@ -96,6 +141,20 @@ condition:
   alias: "Paulus not home AND alarm not disarmed"
   condition: not
   conditions:
+    - condition: state
+      entity_id: device_tracker.paulus
+      state: "home"
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: disarmed
+```
+
+The NOT condition also has a shorthand form. The following configuration works the same as the one listed above:
+
+```yaml
+condition:
+  alias: "Paulus not home AND alarm not disarmed"
+  not:
     - condition: state
       entity_id: device_tracker.paulus
       state: "home"

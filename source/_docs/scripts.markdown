@@ -141,6 +141,19 @@ The `condition` action only stops executing the current sequence block. When it 
   state: "home"
 ```
 
+`condition` can also be a list of conditions and execution will then only continue if ALL conditions return `true`.
+
+```yaml
+- alias: "Check if Paulus ishome AND temperature is below 20"
+  condition:
+    - condition: state
+      entity_id: "device_tracker.paulus"
+      state: "home"
+    - condition: numeric_state
+      entity_id: "sensor.temperature"
+      below: 20
+```
+
 ## Delay
 
 Delays are useful for temporarily suspending your script and start it at a later moment. We support different syntaxes for a delay as shown below.
