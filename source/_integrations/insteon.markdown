@@ -25,6 +25,8 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
+<p class='note warning'>The Insteon company has shut down and turned off their cloud as of April 2022. Do not factory reset your device under any circumstances as it will not be recoverable.</p>
+
 This integration adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
