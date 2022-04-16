@@ -689,6 +689,76 @@ automation:
 
 {% endraw %}
 
+## Parallelizing actions
+
+By default, all sequences of actions in Home Assistant run sequentially. This
+means the next action is started after the current action has been completed.
+
+This is not always needed, for example, if the sequence of actions doesn't rely
+on each other and order doesn't matter. For those cases, the `parallel` action
+can be used to run the actions in the sequence in parallel, meaning all
+the actions are started at the same time.
+
+The following example shows sending messages out at the time (in parallel):
+
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.motion
+        to: "on"
+    action:
+      - parallel:
+          - service: notify.person1
+            data:
+              message: "These messages are sent at the same time!"
+          - service: notify.person2
+            data:
+              message: "These messages are sent at the same time!"
+```
+
+It is also possible to run a group of actions sequantially inside the parallel
+actions. The example below demonstrates that:
+
+```yaml
+script:
+  example_script:
+    sequence:
+      - parallel:
+          - sequence:
+              - wait_for_trigger:
+                  - platform: state
+                    entity_id: binary_sensor.motion
+                    to: "on"
+              - service: notify.person1
+                data:
+                  message: "This message awaited the motion trigger"
+          - service: notify.person2
+            data:
+              message: "I am sent immediately and do not await the above action!"
+```
+
+<div class='note'>
+
+Running actions in parallel can be helpful in many cases, but use it with
+caution and only if you need it.
+
+There are some caveats (see below) when using parallel actions.
+
+While it sounds attractive to parallelize, most of the time, just the regular
+sequential actions will work just fine.
+
+</div>
+
+Some of the caveats of running actions in parallel:
+
+- There is no order guarantee. The actions will be started in parallel, but
+  there is no guarantee that they will be completed in the same order.
+- If one action fails or errors, the other actions will keep running until
+  they too have finished or errored.
+- Variables created/modified in one parallelized action are not available
+  in another parallelized action. Each step in a parallelized has its own scope.
+
 ## Stopping a script sequence
 
 It is possible to halt a script sequence at any point. Using the `stop` or
