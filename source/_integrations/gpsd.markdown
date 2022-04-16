@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: gpsd
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `gpsd` integration is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.

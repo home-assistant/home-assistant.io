@@ -2,8 +2,8 @@
 title: Workday
 description: Steps to configure the binary workday sensor.
 ha_category:
-  - Utility
   - Binary Sensor
+  - Utility
 ha_iot_class: Local Polling
 ha_release: 0.41
 ha_quality_scale: internal
@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: workday
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The `workday` binary sensor indicates whether the current day is a workday or not. It allows specifying which days of the week will count as workdays and also

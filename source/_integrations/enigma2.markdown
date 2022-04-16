@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: enigma2
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `enigma2` platform allows you to control a Linux based set-top box which is running [Enigma2](https://github.com/oe-alliance/oe-alliance-enigma2) with the OpenWebif plugin installed.

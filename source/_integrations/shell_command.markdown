@@ -9,6 +9,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: shell_command
+ha_integration_type: integration
 ---
 
 This integration can expose regular shell commands as services. Services can be called from a [script] or in [automation].

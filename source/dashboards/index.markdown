@@ -16,9 +16,7 @@ Home Assistant dashboards are a fast, customizable and powerful way for users to
 
 To start, go to the Home Assistant Overview page, click on the three dots at the top right of the screen and select 'Edit Dashboard'. Then click on the blue '+ Add Card' icon at the bottom right and select a card to add.
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XY3R0xI45wA" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="XY3R0xI45wA" videotitle="Editing the user interface" posterquality="maxresdefault"></lite-youtube>
 
 To try it yourself, check out [the demo](https://demo.home-assistant.io).
 

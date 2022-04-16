@@ -2,9 +2,9 @@
 title: Telldus Live
 description: Instructions on how to integrate Telldus Live into Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Cover
+  - Hub
   - Light
   - Sensor
   - Switch
@@ -21,6 +21,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `tellduslive` integration let you connect to [Telldus Live](https://live.telldus.com). It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.

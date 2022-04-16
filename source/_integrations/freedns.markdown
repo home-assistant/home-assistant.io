@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.67
 ha_domain: freedns
+ha_integration_type: integration
 ---
 
 With the `freedns` integration you can keep your [FreeDNS](https://freedns.afraid.org) record up to date.

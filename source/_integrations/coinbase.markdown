@@ -13,6 +13,7 @@ ha_platforms:
 ha_codeowners:
   - '@tombrien'
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The `coinbase` integration lets you access account balances and exchange rates from [Coinbase](https://coinbase.com).

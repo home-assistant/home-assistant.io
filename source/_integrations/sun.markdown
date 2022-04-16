@@ -10,6 +10,7 @@ ha_codeowners:
 ha_iot_class: Calculated
 ha_domain: sun
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The sun integration will use the location as

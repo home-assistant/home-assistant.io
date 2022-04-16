@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: fido
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 Integrate your [Fido](https://www.fido.ca/) account information into Home Assistant.

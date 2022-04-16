@@ -14,6 +14,7 @@ ha_domain: minecraft_server
 ha_platforms:
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 Minecraft servers allow players to play the sandbox video game [Minecraft](https://www.minecraft.net/en-us) by [Mojang AB](https://www.mojang.com) online or via a local area network with other players. The `Minecraft Server` integration lets you retrieve information from a Minecraft server (Java edition) within Home Assistant.

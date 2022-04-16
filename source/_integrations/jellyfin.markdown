@@ -9,6 +9,7 @@ ha_codeowners:
   - '@j-stienstra'
 ha_config_flow: true
 ha_domain: jellyfin
+ha_integration_type: integration
 ---
 
 The Jellyfin integration exposes a [Jellyfin](https://jellyfin.org/) server as a Media Source in Home Assistant.

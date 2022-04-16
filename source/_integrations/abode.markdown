@@ -2,11 +2,11 @@
 title: Abode
 description: Instructions on integrating Abode home security with Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
   - Camera
   - Cover
+  - Hub
   - Light
   - Lock
   - Sensor
@@ -27,6 +27,7 @@ ha_platforms:
   - lock
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.

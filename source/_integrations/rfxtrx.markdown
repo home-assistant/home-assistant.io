@@ -2,13 +2,13 @@
 title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
 ha_category:
-  - Hub
-  - Cover
-  - Light
-  - Switch
   - Binary Sensor
+  - Cover
+  - Hub
+  - Light
   - Sensor
   - Siren
+  - Switch
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_config_flow: true
@@ -20,10 +20,12 @@ ha_domain: rfxtrx
 ha_platforms:
   - binary_sensor
   - cover
+  - diagnostics
   - light
   - sensor
-  - switch
   - siren
+  - switch
+ha_integration_type: integration
 ---
 
 The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.

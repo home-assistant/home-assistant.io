@@ -13,6 +13,7 @@ ha_domain: honeywell
 ha_platforms:
   - climate
   - sensor
+ha_integration_type: integration
 ---
 
 The Honeywell integration integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/) climate systems.

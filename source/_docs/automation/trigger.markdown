@@ -879,3 +879,23 @@ automation:
         - sensor.two
         - sensor.three
 ```
+
+## Disabling a trigger
+
+Every individual trigger in an automation can be disabled, without removing it.
+To do so, add `enabled: false` to the trigger. For example:
+
+```yaml
+# Example script with a disabled trigger
+automation:
+  trigger:
+    # This trigger will not trigger, as it is disabled.
+    # This automation does not run when the sun is set.
+    - enabled: false
+      platform: sun
+      event: sunset
+
+    # This trigger will fire, as it is not disabled.
+    - platform: time
+      at: "15:32:00"
+```

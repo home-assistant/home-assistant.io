@@ -2,10 +2,10 @@
 title: Xbox
 description: Instructions on how to set up Xbox devices in Home Assistant.
 ha_category:
-  - Media Player
-  - Remote
   - Binary Sensor
+  - Media Player
   - Media Source
+  - Remote
 ha_iot_class: Cloud Polling
 ha_release: 0.117
 ha_codeowners:
@@ -17,6 +17,7 @@ ha_platforms:
   - media_player
   - remote
   - sensor
+ha_integration_type: integration
 ---
 
 The Xbox integration allows you to control Xbox One (or newer) consoles from Home Assistant.

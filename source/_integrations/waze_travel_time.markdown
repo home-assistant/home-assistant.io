@@ -11,6 +11,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@eifinger'
+ha_integration_type: integration
 ---
 
 The `waze_travel_time` sensor provides travel time from the [Waze](https://www.waze.com/).

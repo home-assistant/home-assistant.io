@@ -16,8 +16,8 @@ ha_domain: sleepiq
 ha_config_flow: true
 ha_dhcp: true
 ha_codeowners:
-  - '@kbickar'
   - '@mfugate1'
+  - '@kbickar'
 ha_platforms:
   - binary_sensor
   - button
@@ -26,6 +26,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The SleepIQ integration lets you integrate your SleepNumber Bed via [SleepIQ by SleepNumber](https://www.sleepnumber.com/sleepiq-sleep-tracker).

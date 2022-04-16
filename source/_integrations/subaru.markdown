@@ -14,6 +14,7 @@ ha_domain: subaru
 ha_platforms:
   - lock
   - sensor
+ha_integration_type: integration
 ---
 
 This integration retrieves vehicle information and actuates remote services provided by [Subaru STARLINK](https://www.subaru.com/engineering/starlink/safety-security.html) (currently only available in USA and Canada).

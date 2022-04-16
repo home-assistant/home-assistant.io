@@ -8,6 +8,7 @@ ha_iot_class: Assumed State
 ha_domain: prometheus
 ha_codeowners:
   - '@knyar'
+ha_integration_type: integration
 ---
 
 The `prometheus` integration exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
