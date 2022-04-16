@@ -816,6 +816,31 @@ it encounters an error; it will continue to the next action.
 Please note that `continue_on_error` will not suppress/ignore misconfiguration
 or errors that Home Assistant does not handle.
 
+## Disabling an action
+
+Every individual action in a sequence can be disabled, without removing it.
+To do so, add `enabled: false` to the action. For example:
+
+```yaml
+# Example script with a disabled action
+script:
+  example_script:
+    sequence:
+      # This action will not run, as it is disabled.
+      # The message will not be sent.
+      - enabled: false
+        alias: "Notify that ceiling light is being turned on"
+        service: notify.notify
+        data:
+          message: "Turning on the ceiling light!"
+
+      # This action will run, as it is not disabled
+      - alias: "Turn on ceiling light"
+        service: light.turn_on
+        target:
+          entity_id: light.ceiling
+```
+
 [Script component]: /integrations/script/
 [automations]: /getting-started/automation-action/
 [Alexa/Amazon Echo]: /integrations/alexa/

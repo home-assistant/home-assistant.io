@@ -630,3 +630,22 @@ condition:
 ```
 
 {% endraw %}
+
+## Disabling a condition
+
+Every individual condition can be disabled, without removing it.
+To do so, add `enabled: false` to the condition configuration.
+
+This can be useful if you want to temporarily disable a condition, for example,
+for testing. A disabled condition will always pass.
+
+For example:
+
+```yaml
+# This condition will always pass, as it is disabled.
+condition:
+  enabled: false
+  condition: state
+  entity_id: sun.sun
+  state: "above_horizon"
+```
