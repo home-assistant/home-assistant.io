@@ -61,6 +61,7 @@ Enjoy the release!
 - [Release 2022.4.2 - April 11](#release-202242---april-11)
 - [Release 2022.4.3 - April 12](#release-202243---april-12)
 - [Release 2022.4.4 - April 14](#release-202244---april-14)
+- [Release 2022.4.5 - April 16](#release-202245---april-16)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -897,6 +898,42 @@ The following integrations are now available via the Home Assistant UI:
 [stream docs]: /integrations/stream/
 [tomorrowio docs]: /integrations/tomorrowio/
 [zha docs]: /integrations/zha/
+
+## Release 2022.4.5 - April 16
+
+- Fix retry when Met config entry fails ([@chemelli74] - [#70012]) ([met docs])
+- Set source & sound mode at start in media player reproduce state ([@thecode] - [#70064]) ([media_player docs])
+- Limit Supervisor refresh updates ([@ludeeus] - [#70075]) ([hassio docs])
+- Correct tomorrowio weather units ([@raman325] - [#70107]) ([tomorrowio docs])
+- update xknx to 0.20.3 ([@farmio] - [#70123]) ([knx docs]) (dependency)
+- Bump pymazda to 0.3.3 ([@bdr99] - [#70136]) ([mazda docs]) (dependency)
+- Ensure powerwall retries setup when api returns too many requests ([@bdraco] - [#70143]) ([powerwall docs])
+- Fix StationInfo not string in Trafikverket Train ([@gjohansson-ST] - [#70153]) ([trafikverket_train docs])
+
+[#70012]: https://github.com/home-assistant/core/pull/70012
+[#70064]: https://github.com/home-assistant/core/pull/70064
+[#70075]: https://github.com/home-assistant/core/pull/70075
+[#70107]: https://github.com/home-assistant/core/pull/70107
+[#70123]: https://github.com/home-assistant/core/pull/70123
+[#70136]: https://github.com/home-assistant/core/pull/70136
+[#70143]: https://github.com/home-assistant/core/pull/70143
+[#70153]: https://github.com/home-assistant/core/pull/70153
+[@bdr99]: https://github.com/bdr99
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@farmio]: https://github.com/farmio
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@ludeeus]: https://github.com/ludeeus
+[@raman325]: https://github.com/raman325
+[@thecode]: https://github.com/thecode
+[hassio docs]: /integrations/hassio/
+[knx docs]: /integrations/knx/
+[mazda docs]: /integrations/mazda/
+[media_player docs]: /integrations/media_player/
+[met docs]: /integrations/met/
+[powerwall docs]: /integrations/powerwall/
+[tomorrowio docs]: /integrations/tomorrowio/
+[trafikverket_train docs]: /integrations/trafikverket_train/
 
 ## Need help? Join the community!
 
