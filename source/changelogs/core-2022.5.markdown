@@ -1,0 +1,14 @@
+---
+title: Full Changelog for Home Assistant Core 2022.5
+description: Detailed changelog for the Home Assistant Core 2022.5 release
+---
+
+These are all the changes included in the Home Assistant Core 2202.5 release.
+
+For a summary in a more readable format:
+[Release notes blog for this release](/blog/2022/04/27/release-20225/).
+
+## Full Changelog
+
+- Lorem ipsum
+
