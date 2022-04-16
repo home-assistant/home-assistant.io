@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_platforms:
   - media_player
   - remote
+ha_integration_type: integration
 ---
 
 The Panasonic Viera integration allows you to control a Panasonic Viera TV.

@@ -99,7 +99,7 @@ To use this method, follow the steps described in the procedure below: [Write th
 {% if page.installation_type == 'odroid' %}
    If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
 {% endif %}
-2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
+2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. (You may need to run it with administrator privileges on Windows).
 3. Select "Flash from URL"
 ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
 

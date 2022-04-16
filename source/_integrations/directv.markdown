@@ -13,6 +13,7 @@ ha_ssdp: true
 ha_platforms:
   - media_player
   - remote
+ha_integration_type: integration
 ---
 
 The DirecTV platform allows you to control a [DirecTV](https://www.directv.com) receiver and its client devices.

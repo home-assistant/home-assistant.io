@@ -11,8 +11,10 @@ ha_codeowners:
   - '@frenck'
 ha_domain: forecast_solar
 ha_platforms:
+  - diagnostics
   - sensor
 ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
 The [Forecast.Solar](https://forecast.solar/) service provides solar production

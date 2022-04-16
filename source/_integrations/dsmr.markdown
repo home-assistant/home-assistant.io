@@ -13,6 +13,7 @@ ha_codeowners:
   - '@frenck'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'. Swedish meters with a 'HAN port' are not supported by this integration.

@@ -2,9 +2,9 @@
 title: VeSync
 description: Instructions on how to set up VeSync switches, outlets, and fans within Home Assistant.
 ha_category:
+  - Fan
   - Light
   - Switch
-  - Fan
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -18,6 +18,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `vesync` integration enables you to control smart switches and outlets connected to the VeSync App.

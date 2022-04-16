@@ -2,8 +2,8 @@
 title: Apple TV
 description: Instructions on how to integrate Apple TV devices into Home Assistant.
 ha_category:
-  - Multimedia
   - Media Player
+  - Multimedia
   - Remote
 ha_iot_class: Local Push
 ha_release: 0.49
@@ -15,6 +15,7 @@ ha_zeroconf: true
 ha_platforms:
   - media_player
   - remote
+ha_integration_type: integration
 ---
 
 The Apple TV integration allows you to control an Apple TV (any generation).

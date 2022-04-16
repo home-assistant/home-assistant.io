@@ -2,6 +2,7 @@
 title: Utility Meter
 description: Instructions on how to integrate the Utility Meter into Home Assistant.
 ha_category:
+  - Helper
   - Sensor
 ha_release: 0.87
 ha_iot_class: Local Push
@@ -11,7 +12,10 @@ ha_codeowners:
   - '@dgomes'
 ha_domain: utility_meter
 ha_platforms:
+  - select
   - sensor
+ha_config_flow: true
+ha_integration_type: helper
 ---
 
 The Utility Meter integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
@@ -116,7 +120,7 @@ tariffs:
 {% endconfiguration %}
 
 <p class='note warning'>
-When using the `offset` configuration parameter, the defined period must not be longer then 28 days.
+When using the `offset` configuration parameter, the defined period must not be longer than 28 days.
 </p>
 
 ### Time period dictionary example
@@ -202,12 +206,12 @@ automation:
   action:
     - service: select.select_option
       target:
-        entity_id: utility_meter.daily_energy
+        entity_id: select.daily_energy
       data:
         option: "{{ tariff }}"
     - service: select.select_option
       target:
-        entity_id: utility_meter.monthly_energy
+        entity_id: select.monthly_energy
       data:
         option: "{{ tariff }}"
 ```

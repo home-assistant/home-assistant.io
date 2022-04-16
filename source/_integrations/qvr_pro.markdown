@@ -10,6 +10,7 @@ ha_codeowners:
   - '@oblogic7'
 ha_platforms:
   - camera
+ha_integration_type: integration
 ---
 
 [QVR Pro](https://www.qnap.com/en/software/qvr-pro) allows you to create 

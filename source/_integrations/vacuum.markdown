@@ -4,6 +4,10 @@ description: Instructions on how to setup and use vacuum's in Home Assistant.
 ha_release: 0.51
 ha_domain: vacuum
 ha_quality_scale: internal
+ha_category: []
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 The `vacuum` integration enables the ability to control home cleaning robots within Home Assistant.

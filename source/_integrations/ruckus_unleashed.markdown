@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: ruckus_unleashed
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 This platform allows you to connect to a [Ruckus Unleashed](https://support.ruckuswireless.com/product_families/19-ruckus-unleashed) access point.

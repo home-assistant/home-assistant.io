@@ -12,6 +12,7 @@ ha_codeowners:
   - '@Hummel95'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `dwd_weather_warnings` sensor platform uses the [Deutsche Wetter Dienst (DWD)](https://www.dwd.de) as a source for current and advance warnings.

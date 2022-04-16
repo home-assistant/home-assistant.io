@@ -8,6 +8,7 @@ ha_release: 0.48
 ha_domain: linksys_smart
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 The `linksys_smart` platform offers presence detection by looking at connected devices to a Linksys Smart Wi-Fi based router.

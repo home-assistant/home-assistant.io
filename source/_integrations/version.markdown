@@ -2,8 +2,8 @@
 title: Version
 description: Instructions on how to integrate the Version integration into Home Assistant.
 ha_category:
-  - Utility
   - Sensor
+  - Utility
 ha_iot_class: Local Push
 ha_release: 0.52
 ha_quality_scale: internal
@@ -16,6 +16,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The Version integration can display the current Home Assistant Core versions.

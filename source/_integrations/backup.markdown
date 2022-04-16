@@ -6,6 +6,10 @@ ha_category:
 ha_release: 2022.4
 ha_quality_scale: internal
 ha_domain: backup
+ha_codeowners:
+  - '@home-assistant/core'
+ha_iot_class: Calculated
+ha_integration_type: integration
 ---
 
 The Backup integration allow you to create and download backups for your Home Assistant Core and Home Assistant Container installations. This backup file can be used if you migrate to Home Assistant Operating System.

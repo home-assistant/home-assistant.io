@@ -9,6 +9,7 @@ ha_iot_class: Cloud Push
 ha_codeowners:
   - '@home-assistant/cloud'
 ha_domain: google_assistant
+ha_integration_type: integration
 ---
 
 The `google_assistant` integration allows you to control things via Google Assistant on your mobile, tablet or Google Home device.

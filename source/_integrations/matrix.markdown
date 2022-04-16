@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: matrix
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 This integration allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.

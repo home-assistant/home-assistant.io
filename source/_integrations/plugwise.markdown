@@ -19,11 +19,12 @@ ha_domain: plugwise
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
-  - diagnostics
   - climate
+  - diagnostics
   - select
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 This enables [Plugwise](https://www.plugwise.com) components with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.

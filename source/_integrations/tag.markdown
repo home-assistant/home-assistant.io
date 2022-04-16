@@ -9,6 +9,7 @@ ha_codeowners:
   - '@dmulcahey'
 ha_domain: tag
 ha_quality_scale: internal
+ha_integration_type: integration
 ---
 
 <p class='img'>
@@ -24,17 +25,13 @@ To make tags accessible to anyone in your house hold, there is also a [standalon
 
 The easiest way to get started with tags is to use NFC tags ([stickers](https://amzn.to/3bQU0nN), [cards](https://amzn.to/2RlqPzM)) with the official Home Assistant mobile apps. Once you have written a card, hover it with your phone to scan it.
 
-<div class="videoWrapper">
-  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/Xc120lClUgA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="Xc120lClUgA" videotitle="Writing a tag (iOS)" posterquality="maxresdefault"></lite-youtube>
 
 <div class='note' data-title='for iPhone users'>
 Only iPhone XS, XR and iPhone 11 or later support background NFC tag reading.
 </div>
 
-<div class="videoWrapper">
-  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/xE7wm1bxRLs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="xE7wm1bxRLs" videotitle="Writing a tag (Android)" posterquality="maxresdefault"></lite-youtube>
 
 ## Managing tags
 
@@ -91,7 +88,7 @@ automation:
 {% endraw %}
 
 To find your scanner's device ID, open Developer tools -> Events -> Listen to events and subscribe to `tag_scanned`.
-Then scan a tag on the reader and note down the `device_id` from the `data` section. 
+Then scan a tag on the reader and note down the `device_id` from the `data` section.
 
 ## Printing tags
 

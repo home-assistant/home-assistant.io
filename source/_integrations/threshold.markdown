@@ -2,8 +2,9 @@
 title: Threshold
 description: Instructions on how to integrate threshold binary sensors into Home Assistant.
 ha_category:
-  - Utility
   - Binary Sensor
+  - Helper
+  - Utility
 ha_iot_class: Local Polling
 ha_release: 0.34
 ha_quality_scale: internal
@@ -13,6 +14,7 @@ ha_domain: threshold
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+ha_integration_type: helper
 ---
 
 The threshold integration observes the state of another sensor. If the value is below or higher than the given threshold then state of the threshold sensor is changed. It support also a range both the upper and lower limits are given.

@@ -9,6 +9,9 @@ ha_config_flow: true
 ha_domain: google
 ha_platforms:
   - calendar
+ha_codeowners:
+  - '@allenporter'
+ha_integration_type: integration
 ---
 
 The Google integration allows you to connect to your [Google Calendars](https://calendar.google.com) to Home Assistant. The integration adds calendar entities that are shown on the *Calendar* dashboard, and can be used for automations based on any event, or limited to specific matching criteria.
@@ -225,7 +228,7 @@ entities:
 
 - **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset in the title in minutes is reached. So the title `Very important meeting #Important !!-10` would trigger this attribute to be `on` 10 minutes before the event starts.
 - **all_day**: `true`/`false` if this is an all day event. Will be `false` if there is no event found.
-- **message**: The event title with the `search` and `offset` values extracted. So in the above example for **offset_reached** the **message** would be set to `Very important meeting`
+- **message**: The event title with the `offset` value extracted. So in the above example for **offset_reached** the **message** would be set to `Very important meeting #Important`
 - **description**: The event description.
 - **location**: The event Location.
 - **start_time**: Start time of event.
@@ -286,5 +289,3 @@ For example, the actions following this condition will only be executed for even
 ```
 
 {% endraw %}
-
-
