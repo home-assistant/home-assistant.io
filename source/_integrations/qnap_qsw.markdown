@@ -20,9 +20,9 @@ This integration interacts with the local API of [QNAP QSW switches](https://www
 
 {% configuration_basic %}
 URL:
-  description: "Device URL" (usually "http://IP")
+  description: "Device URL (usually http://IP)"
 Username:
-  description: "Username" (usually "admin")
+  description: "Username (usually admin)"
 Password:
   description: "Password"
 {% endconfiguration_basic %}
