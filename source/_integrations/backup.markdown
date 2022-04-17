@@ -34,7 +34,7 @@ The backup files are stored in a new "backups" subdirectory in the root of your 
 
 ## Services
 
-The update entity exposes a services that can be used to automate the backup
+The backup integration exposes a service that can be used to automate the backup
 process.
 
 ### Service {% my developer_call_service service="backup.create" %}
