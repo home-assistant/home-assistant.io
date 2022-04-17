@@ -25,7 +25,7 @@ server.
 
 ## Connecting to the NUT Add-on
 
-To connect to the NUT add-on the slug of the add-on is required as the host address, in this case a0d7b954-nut.  You can then use the default port number (unless changed) and the username & password you entered under the add-on configuration.
+To connect to the NUT add-on the slug of the add-on is required as the host address, in this case a0d7b954-nut. You can then use the default port number (unless changed) and the username & password you entered under the add-on configuration.
 
 
 ## Example Resources
