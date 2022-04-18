@@ -25,7 +25,7 @@ The `weather` platform only knows the below listed conditions. The reason for th
 - 'hail'
 - 'lightning'
 - 'lightning-rainy'
-- 'partlycloudy'
+- 'partly-cloudy'
 - 'pouring'
 - 'rainy'
 - 'snowy'
