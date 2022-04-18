@@ -15,7 +15,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) information into Home Assistant. Sensors and BinarySensors will be created for most of the datapoints that the built-in Nextcloud [serverinfo app](https://github.com/nextcloud/serverinfo) provides. To see which datapoints your nextcloud instance exposes, browse to this url: `https://<your_nextcloud_url>/ocs/v2.php/apps/serverinfo/api/v1/info?format=json`.
+The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) information into Home Assistant.
+
+The integration provides sensors and binary sensors for most of the data points that the built-in Nextcloud [serverinfo app](https://github.com/nextcloud/serverinfo) provides.
+
+To see which datapoints your nextcloud instance exposes, browse to this url: `https://<your_nextcloud_url>/ocs/v2.php/apps/serverinfo/api/v1/info?format=json`.
 
 ![Nextcloud Example Sensor](/images/screenshots/nextcloud-sample-sensor.png)
 
