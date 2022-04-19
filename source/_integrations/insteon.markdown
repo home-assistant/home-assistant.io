@@ -25,7 +25,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-<p class='note warning'>The Insteon company has shut down and turned off their cloud as of April 2022. If you have factory reset your device please see the instructions  [Recovering After Factory Resetting The Hub](#recovering-after-factory-resetting-the-hub) for how to proceed.</p>
+<p class='note warning'>The Insteon company has shut down and turned off their cloud as of April 2022. If you have factory reset your device please see the instructions [Recovering After Factory Resetting The Hub](#recovering-after-factory-resetting-the-hub) for how to proceed.</p>
 
 This integration adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.
 
@@ -59,18 +59,9 @@ The first time autodiscovery runs, the duration may require up to 60 seconds per
 In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. The Insteon Modem module supports All-Linking through [Developer Tools] service calls. The following services are available:
 
 - **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
-- **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
-- **insteon.load_all_link_database**: Load the All-Link Database for a device. WARNING - Loading a device All-Link database may take a LONG time and may need to be repeated to obtain all records.
-- **insteon.print_all_link_database**: Print the All-Link Database for a device. Requires that the All-Link Database is loaded first.
-- **insteon.print_im_all_link_database**: Print the All-Link Database for the INSTEON Modem (IM).
-
-If you are looking for more advanced options, you can use the [insteon_tools] command-line tool that is distributed with the [pyinsteon] Python module. Please see the documentation on the [pyinsteon] GitHub site. Alternatively, you can download [HouseLinc], which runs on any Windows PC, or you can use [Insteon Terminal] which is open source and runs on most platforms. SmartHome no longer supports HouseLinc, but it still works. Insteon Terminal is a very useful tool but please read the disclaimers carefully, they are important.
 
 [understanding linking]: https://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
 [Developer Tools]: /docs/tools/dev-tools/
-[HouseLinc]: https://www.smarthome.com/houselinc.html
-[Insteon Terminal]: https://github.com/pfrommerd/insteon-terminal
-[insteon_tools]: https://github.com/pyinsteon/pyinsteon
 
 ## INSTEON Scenes
 
