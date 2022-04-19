@@ -14,7 +14,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-This integration interacts with the local API of [QNAP QSW switches](https://www.qnap.com/).
+This integration interacts with the local API of [QNAP QSW managed switches](https://www.qnap.com/en/product/series/qsw-managed-switches).
 
 {% include integrations/config_flow.md %}
 
