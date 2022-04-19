@@ -34,6 +34,8 @@ To activate the call monitor on your FRITZ!Box, dial **#96\*5\*** from any phone
 
 {% include integrations/config_flow.md %}
 
+If you want Home Assistant to resolve numbers to names based on your FRITZ!Box phone book, you have to configure the correct prefixes. Usually, you just need one single prefix, which equals your country calling code, e.g. `+49` for Germany or `+33` for France. Find the right prefix on [Wikipedia](https://en.wikipedia.org/wiki/List_of_country_calling_codes) and add it on the configurations page.
+
 ## Examples
 
 ### Send notifications on state change
