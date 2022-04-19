@@ -25,7 +25,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-<p class='note warning'>The Insteon company has shut down and turned off their cloud as of April 2022. If you have factory reset your device please see the instructions below for how to proceed. [Recovering After Factory Resetting The Hub]</p>
+<p class='note warning'>The Insteon company has shut down and turned off their cloud as of April 2022. If you have factory reset your device please see the instructions [Recovering After Factory Resetting The Hub](#recovering-after-factory-resetting-the-hub) for how to proceed.</p>
 
 This integration adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.
 
@@ -41,7 +41,7 @@ There is currently support for the following device types within Home Assistant:
 
 Device support is provided by the underlying [pyinsteon] package. It is known to work with the [2413U] USB and [2412S] RS242 flavors of PLM and the [2448A7] USB stick. It has also been tested to work with the [2242] and [2245] Hubs.
 
-You can configure the Insteon integration by going to the integrations page inside the configuration panel.
+{% include integrations/config_flow.md %}
 
 [pyinsteon]: https://github.com/pyinsteon/pyinsteon
 [2413U]: https://www.insteon.com/powerlinc-modem-usb
@@ -49,6 +49,7 @@ You can configure the Insteon integration by going to the integrations page insi
 [2448A7]: https://www.smarthome.com/insteon-2448a7-portable-usb-adapter.html
 [2245]: https://www.insteon.com/insteon-hub/
 [2242]: https://www.insteon.com/support-knowledgebase/2014/9/26/insteon-hub-owners-manual
+
 
 ## Autodiscovery
 
@@ -73,25 +74,6 @@ If you are looking for more advanced options, you can use the [insteon_tools] co
 [HouseLinc]: https://www.smarthome.com/houselinc.html
 [Insteon Terminal]: https://github.com/pfrommerd/insteon-terminal
 [insteon_tools]: https://github.com/pyinsteon/pyinsteon
-
-## Customization
-
-The only configuration item that is necessary is the PLM port or Hub IP address, username and password so that Home Assistant can connect to the INSTEON Modem. This will expose all the supported INSTEON devices which exist in the modem’s ALL-Link database. However, devices will only be shown by their INSTEON hex address (e.g., “1A.2B.3C”) which can be a bit unwieldy. As you link and unlink devices using the ‘Set’ buttons, they’ll be added and removed from Home Assistant automatically.
-
-You can use the normal Home Assistant [device customization] section of your configuration to assign friendly names and special icons to your devices. This is especially useful for setting device_class on your binary_sensor INSTEON devices.
-
-[device customization]: /getting-started/customizing-devices/
-
-## Device Overrides
-
-<p class='note warning'>Device overrides are not used to add a device to the Insteon integration. They are only used if a device that was linked correctly to the Insteon Modem but is not appearing in Home Assistant.
-
-There are two primary uses for the **device override** feature:
-
-- Devices that do not respond during autodiscovery. This is common for battery operated devices. Before using a device override, please trigger the device a few times and it will likely be discovered by Home Assistant.
-- Devices that have not been fully developed. This allows an unknown device to be mapped to a device that operates similarly to another device.
-
-Device overrides can be set up using the integrations page inside the configuration panel.
 
 ## INSTEON Scenes
 
@@ -163,6 +145,17 @@ automation:
           entity_id: light.some_light
 ```
 
+## Device Overrides
+
+<p class='note warning'>Device overrides are not used to add a device to the Insteon integration. They are only used if a device that was linked correctly to the Insteon Modem but is not appearing in Home Assistant.
+
+There are two primary uses for the **device override** feature:
+
+- Devices that do not respond during autodiscovery. This is common for battery operated devices. Before using a device override, please trigger the device a few times and it will likely be discovered by Home Assistant.
+- Devices that have not been fully developed. This allows an unknown device to be mapped to a device that operates similarly to another device.
+
+Device overrides can be set up using the integrations page inside the configuration panel.
+
 ## Recovering After Factory Resetting The Hub
 
 Many users tried to factory reset their Insteon Hub when the Insteon app stopped working in April 2022. If you are one of those users, you can perform the following steps to connect it to Home Assistant and get all of your devices up and working again.
@@ -172,6 +165,6 @@ Many users tried to factory reset their Insteon Hub when the Insteon app stopped
   b. Follow the instructions on screen to add the integration.
   c. You will need the IP address of the Hub which you should be able to find on your internet router. See the documentation for your specific router for instructions.
   d. If you have a Hub v2 you will need the default username and password which are printed on the bottom of the Hub
-2. Add devices to the Hub using the instructions above ([Adding Devices to the INSTEON Integration])
+2. Add devices to the Hub using the instructions for [Adding Devices to the INSTEON Integration](#adding-devices-to-the-insteon-integration)
 
 Once your devices are linked to the Hub again they will appear in Home Assistant automatically.
