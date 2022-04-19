@@ -157,11 +157,14 @@ Device overrides can be set up using the integrations page inside the configurat
 
 Many users tried to factory reset their Insteon Hub when the Insteon app stopped working in April 2022. If you are one of those users, you can perform the following steps to connect it to Home Assistant and get all of your devices up and working again.
 
-1. Log into Home Assistant and add the Insteon integration.
-  a. Select Insteon Hub v2 if you have a 2245-xxx or Hub V1 if you have a 2242-xxx.
-  b. Follow the instructions on screen to add the integration.
-  c. You will need the IP address of the Hub which you should be able to find on your internet router. See the documentation for your specific router for instructions.
-  d. If you have a Hub v2 you will need the default username and password which are printed on the bottom of the Hub
-2. Add devices to the Hub using the instructions for [Adding Devices to the INSTEON Integration](#adding-devices-to-the-insteon-integration)
+1. Log into Home Assistant and add the Insteon integration. Select Insteon Hub v2 if you have a 2245-xxx or Hub V1 if you have a 2242-xxx.
+
+2. Follow the instructions on screen to add the integration.
+
+    - You will need the IP address of the Hub which you should be able to find on your network router. See the documentation for your specific router for instructions.
+
+    - If you have a Hub v2 you will need the default username and password which are printed on the bottom of the Hub
+
+3. Add devices to the Hub using the instructions for [Adding Devices to the INSTEON Integration](#adding-devices-to-the-insteon-integration)
 
 Once your devices are linked to the Hub again they will appear in Home Assistant automatically.
