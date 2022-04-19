@@ -310,7 +310,7 @@ Note that if only `before` key is used, the condition will be `true` for the tim
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 
-For a 'when light' condition we can simply use both keys.  This is equivalent to a state condition on `sun.sun` of `above_horizon`.
+For a 'when light' condition we can use both keys. This is equivalent to a state condition on `sun.sun` of `above_horizon`.
 
 ```yaml
 condition:
