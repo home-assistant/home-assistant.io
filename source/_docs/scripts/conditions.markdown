@@ -19,6 +19,8 @@ All conditions support an optional `alias`.
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are valid.
 
+{% raw %}
+
 ```yaml
 condition:
   alias: "Paulus home AND temperature below 20"
@@ -32,9 +34,13 @@ condition:
       below: 20
 ```
 
+{% endraw %}
+
 If you do not want to combine AND and OR conditions, you can list them sequentially.
 
 The following configuration works the same as the one listed above:
+
+{% raw %}
 
 ```yaml
 condition:
@@ -46,11 +52,15 @@ condition:
     below: 20
 ```
 
+{% endraw %}
+
 Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
 
 ### OR condition
 
 Test multiple conditions in one condition statement. Passes if any embedded condition is valid.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -65,10 +75,14 @@ condition:
       below: 20
 ```
 
+{% endraw %}
+
 ### Mixed AND and OR conditions
 
 Test multiple AND and OR conditions in one condition statement. Passes if any embedded condition is valid.
 This allows you to mix several AND and OR conditions together.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -87,9 +101,13 @@ condition:
           below: 20
 ```
 
+{% endraw %}
+
 ### NOT condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** valid.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -104,11 +122,15 @@ condition:
       state: disarmed
 ```
 
+{% endraw %}
+
 ## Numeric state condition
 
 This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds.
 
 If both `below` and `above` are specified, both tests have to pass.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -118,6 +140,8 @@ condition:
   above: 17
   below: 25
 ```
+
+{% endraw %}
 
 You can optionally use a `value_template` to process the value of the state before testing it.
 
@@ -138,6 +162,8 @@ condition:
 It is also possible to test the condition against multiple entities at once.
 The condition will pass if all entities match the thresholds.
 
+{% raw %}
+
 ```yaml
 condition:
   condition: numeric_state
@@ -147,8 +173,12 @@ condition:
   below: 18
 ```
 
+{% endraw %}
+
 Alternatively, the condition can test against a state attribute.
 The condition will pass if the attribute value of the entity matches the thresholds.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -159,9 +189,13 @@ condition:
   below: 25
 ```
 
+{% endraw %}
+
 Number helpers (`input_number` entities), `number` and `sensor` entities that
 contain a numeric value, can be used in the `above` and `below`
 options to make the condition more dynamic.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -172,9 +206,13 @@ condition:
   below: input_number.temperature_threshold_high
 ```
 
+{% endraw %}
+
 ## State condition
 
 Tests if an entity is a specified state.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -189,8 +227,12 @@ condition:
     seconds: 5
 ```
 
+{% endraw %}
+
 It is also possible to test the condition against multiple entities at once.
 The condition will pass if all entities match the state.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -201,8 +243,12 @@ condition:
   state: "on"
 ```
 
+{% endraw %}
+
 Testing if an entity is matching a set of possible conditions;
 The condition will pass if the entity matches one of the states given.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -213,8 +259,12 @@ condition:
     - "armed_home"
 ```
 
+{% endraw %}
+
 Or, combine multiple entities with multiple states. In the following example,
 both media players need to be either paused or playing for the condition to pass.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -227,8 +277,12 @@ condition:
     - "paused"
 ```
 
+{% endraw %}
+
 Alternatively, the condition can test against a state attribute.
 The condition will pass if the attribute matches the given state.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -238,9 +292,13 @@ condition:
   state: "heat"
 ```
 
+{% endraw %}
+
 Finally, the `state` option accepts helper entities (also known as `input_*`
 entities). The condition will pass if the state of the entity matches the state
 of the given helper entity.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -249,11 +307,15 @@ condition:
   state: input_select.guest_mode
 ```
 
+{% endraw %}
+
 ### Sun condition
 
 #### Sun state condition
 
 The sun state can be used to test if the sun has set or risen.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -263,6 +325,10 @@ condition:
   state: "above_horizon"
 ```
 
+{% endraw %}
+
+{% raw %}
+
 ```yaml
 condition:
   alias: "Sun down"
@@ -270,6 +336,8 @@ condition:
   entity_id: sun.sun
   state: "below_horizon"
 ```
+
+{% endraw %}
 
 ### Sun elevation condition
 
@@ -316,6 +384,9 @@ The sunset/sunrise conditions do not work in locations inside the polar circles,
 In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
 </div>
 
+
+{% raw %}
+
 ```yaml
 condition:
   condition: sun
@@ -323,16 +394,11 @@ condition:
   after_offset: "-01:00:00"
 ```
 
+{% endraw %}
+
 This is an example of 1 hour offset after sunset.
 
-```yaml
-condition:
-  - condition: sun
-    after: sunset
-    before: sunrise
-```
-
-This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`.
+{% raw %}
 
 ```yaml
 condition:
@@ -341,9 +407,11 @@ condition:
     before: sunset
 ```
 
+{% endraw %}
+
 This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`.
 
-We cannot use both keys in this case as it will always be `false`.
+{% raw %}
 
 ```yaml
 condition:
@@ -354,6 +422,10 @@ condition:
     - condition: sun
       before: sunrise
 ```
+
+{% endraw %}
+
+This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`. We cannot use both keys without the `or` in this case as it will always be `false`.
 
 A visual timeline is provided below showing an example of when these conditions are true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are true.
 
@@ -464,6 +536,8 @@ It's also supported in script or automation `condition` actions:
 
 The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week.
 
+{% raw %}
+
 ```yaml
 condition:
   alias: "Time 15~02"
@@ -476,6 +550,8 @@ condition:
     - wed
     - fri
 ```
+
+{% endraw %}
 
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
 Note that if only `before` key is used, the condition will be `true` *from midnight* until the specified time.
@@ -492,6 +568,8 @@ For the `after` and `before` options a time helper (`input_datetime` entity)
 or another `sensor` entity containing a timestamp with the "timestamp" device
 class, can be used instead.
 
+{% raw %}
+
 ```yaml
 condition:
   - alias: "Example referencing a time helper"
@@ -502,6 +580,8 @@ condition:
   - alias: "Example referencing another sensor"
     after: sensor.groceries_delivery_time
 ```
+
+{% endraw %}
 
 <div class='note warning'>
 
@@ -515,18 +595,29 @@ date part is fully ignored.
 
 The trigger condition can test if an automation was triggered by a certain trigger, identified by the trigger's `id`.
 
+{% raw %}
+
 ```yaml
 condition:
   condition: trigger
   id: event_trigger
 ```
 
+{% endraw %}
+
 For a trigger identified by its index, both a string and integer is allowed:
+
+{% raw %}
+
 ```yaml
 condition:
   condition: trigger
   id: "0"
 ```
+
+{% endraw %}
+
+{% raw %}
 
 ```yaml
 condition:
@@ -534,7 +625,11 @@ condition:
   id: 0
 ```
 
+{% endraw %}
+
 It is possible to give a list of triggers:
+
+{% raw %}
 
 ```yaml
 condition:
@@ -544,9 +639,13 @@ condition:
     - event_2_trigger
 ```
 
+{% endraw %}
+
 ## Zone condition
 
 Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have set up a device tracker platform that supports reporting GPS coordinates.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -556,8 +655,12 @@ condition:
   zone: zone.home
 ```
 
+{% endraw %}
+
 It is also possible to test the condition against multiple entities at once.
 The condition will pass if all entities are in the specified zone.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -568,8 +671,12 @@ condition:
   zone: zone.home
 ```
 
+{% endraw %}
+
 Testing if an entity is matching a set of possible zones;
 The condition will pass if the entity is in one of the zones.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -580,9 +687,13 @@ condition:
     - zone.work
 ```
 
+{% endraw %}
+
 Or, combine multiple entities with multiple zones. In the following example,
 both entities need to be either in the home or the work zone for the condition
 to pass.
+
+{% raw %}
 
 ```yaml
 condition:
@@ -594,6 +705,8 @@ condition:
     - zone.home
     - zone.work
 ```
+
+{% endraw %}
 
 ## Examples
 
