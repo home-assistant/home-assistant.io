@@ -52,9 +52,7 @@ Device support is provided by the underlying [pyinsteon] package. It is known to
 
 ## Autodiscovery
 
-The first time autodiscovery runs, the duration may require up to 60 seconds per device. Subsequent startups will occur much quicker using cached device information. If a device is not recognized during autodiscovery, trigger the device, such as toggling a button, to force the device to send a message to the modem. The device will then be discovered. You may need to trigger the device a few times. If for any reason this approach does not work, you can add the device to a **device override** in configuration options from the integrations page inside the configuration panel.
-
-In order for a device to be discovered, it must be linked to the INSTEON Modem as either a responder or a controller.
+The first time autodiscovery runs, the duration may require up to 60 seconds per device. Subsequent startups will occur much quicker using cached device information. If a device is not recognized during autodiscovery, trigger the device, such as toggling a button, to force the device to send a message to the modem. The device will then be discovered. You may need to trigger the device a few times.
 
 ## Adding Devices to the INSTEON Integration
 
