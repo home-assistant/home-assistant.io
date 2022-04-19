@@ -11,13 +11,14 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `seventeentrack` sensor platform allows users to get package data tied to their [17track.net](https://www.17track.net/en) account. The platform creates both summary sensors, which show the number of packages in a current state (e.g., "In Transit"), as well as individual sensors for each package within the account.
+The `seventeentrack` sensor platform allows users to get package data tied to their [17track.net](https://api.17track.net/en) account. The platform creates both summary sensors, which show the number of packages in a current state (e.g., "In Transit"), as well as individual sensors for each package within the account.
 
-<div class='note warning'>
+## Getting Your API Token
 
-Although the 17track.net website states that account passwords cannot be longer than 16 characters, users can technically set longer-than-16-character passwords. These passwords **will not** work with the used API. Therefore, please ensure that your 17track.net password does not exceed 16 characters.
-
-</div>
+To get an API token:
+1. Login to your account on [17track.net](https://api.17track.net/en)
+2. Open the settings page from the menu
+3. API Token will be displayed under the Security tab
 
 ## Configuration
 
@@ -27,17 +28,12 @@ file:
 ```yaml
 sensor:
   - platform: seventeentrack
-    username: EMAIL_ADDRESS
-    password: YOUR_PASSWORD
+    token: API_TOKEN
 ```
 
 {% configuration %}
-username:
-  description: The email address associated with your 17track.net account.
-  required: true
-  type: string
-password:
-  description: The password associated with your 17track.net account.
+token:
+  description: The API token provided for your 17track.net account.
   required: true
   type: string
 show_archived:
