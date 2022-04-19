@@ -11,6 +11,7 @@ ha_domain: hassio
 ha_quality_scale: internal
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
   - update
 ha_codeowners:
