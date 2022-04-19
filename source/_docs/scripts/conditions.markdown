@@ -249,9 +249,9 @@ condition:
   state: input_select.guest_mode
 ```
 
-### Sun condition
+## Sun condition
 
-#### Sun state condition
+### Sun state condition
 
 The sun state can be used to test if the sun has set or risen.
 
@@ -306,33 +306,11 @@ condition:
 
 The sun condition can also test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger]. When both keys are used, the result is a logical `and` of separate conditions.
 
-Note that if only `before` key is used, the condition will be `true` _from midnight_ until sunrise/sunset. If only `after` key is used, the condition will be `true` from sunset/sunrise _until midnight_. Therefore, to cover time between sunset and sunrise one need to use `after: sunset` and `before: sunrise` as 2 separate conditions and combine them using `or`.
+Note that if only `before` key is used, the condition will be `true` for the time period _from midnight_ until sunrise/sunset. If only `after` key is used, the condition will be `true` from sunset/sunrise _until midnight_. Therefore, to cover time between sunset and sunrise one need to use `after: sunset` and `before: sunrise` as 2 separate conditions and combine them using `or`.
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 
-<div class='note warning'>
-The sunset/sunrise conditions do not work in locations inside the polar circles, and also not in locations with a highly skewed local time zone.
-
-In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
-</div>
-
-```yaml
-condition:
-  condition: sun
-  after: sunset
-  after_offset: "-01:00:00"
-```
-
-This is an example of 1 hour offset after sunset.
-
-```yaml
-condition:
-  - condition: sun
-    after: sunset
-    before: sunrise
-```
-
-This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`.
+For a 'when light' condition we can simply use both keys.  This is equivalent to a state condition on `sun.sun` of `above_horizon`.
 
 ```yaml
 condition:
@@ -341,9 +319,7 @@ condition:
     before: sunset
 ```
 
-This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`.
-
-We cannot use both keys in this case as it will always be `false`.
+However, we cannot use both keys in a single condition to create an equivalent 'when dark' conditon, as it would always be `false`. The equivalent to a state condition on `sun.sun` of `below_horizon`must use an `or`.
 
 ```yaml
 condition:
@@ -355,9 +331,39 @@ condition:
       before: sunrise
 ```
 
-A visual timeline is provided below showing an example of when these conditions are true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are true.
+#### Offsets
+Adding offsets allows us to modify the portion of the time period closest to the key. This is more easily understood using the visual timeline provided below. In the timeline, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are true.
 
 <img src='/images/docs/scripts/sun-conditions.svg' alt='Graphic showing an example of sun conditions' />
+
+The following example condition will be true from 1 hour before sunset _until midnight_.
+
+```yaml
+condition:
+  condition: sun
+  after: sunset
+  after_offset: "-01:00:00"
+```
+
+The following example condition will be true _from midngiht_ until 1 hour after sunrise and from 1 hour after sunset _until midnight_.
+
+```yaml
+condition:
+  condition: or
+  conditions:
+    - condition: sun
+      after: sunset
+      after_offset: "01:00:00"
+    - condition: sun
+      before: sunrise
+      before_offset: '01:00:00"
+```
+
+<div class='note warning'>
+The sunset/sunrise conditions do not work in locations inside the polar circles or in locations with a highly skewed local time zone.
+
+In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
+</div>
 
 ## Template condition
 
