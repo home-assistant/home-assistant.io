@@ -25,21 +25,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-<p class='note warning'>The Insteon company has shut down and turned off their cloud as of April 2022. Do not factory reset your device under any circumstances. If you have factory reset your device please see the instructions <a href="#recovering-after-factory-resetting-the-hub">Recovering After Factory Resetting The Hub</a> for how to proceed.</p>
+<p class='note warning'>The Insteon company has shut down and turned off their cloud as of April 2022.</p>
 
-This integration adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.
+This integration adds support for integrating your INSTEON network with Home Assistant. It is known to work with the [2413U] USB and [2412S] RS242 flavors of PLM and the [2448A7] USB stick. It has also been tested to work with the [2242] and [2245] Hubs. Device support is provided by the underlying [pyinsteon] package.
 
-There is currently support for the following device types within Home Assistant:
-
-- Binary Sensor
-- Climate
-- Cover
-- Fan
-- Light
-- Sensor
-- Switch
-
-Device support is provided by the underlying [pyinsteon] package. It is known to work with the [2413U] USB and [2412S] RS242 flavors of PLM and the [2448A7] USB stick. It has also been tested to work with the [2242] and [2245] Hubs.
+_If you have factory reset your device please see the instructions <a href="#recovering-after-factory-resetting-the-hub">Recovering After Factory Resetting The Hub</a> for how to proceed._
 
 {% include integrations/config_flow.md %}
 
