@@ -134,6 +134,10 @@ fan:
         default: 100
 {% endconfiguration %}
 
+### Template variables
+
+State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](integrations/template#self_referencing) of an entity's state and attribute in templates.
+
 ## Converting from speeds to percentage
 
 When converting a fan with 3 speeds from the old fan entity model, the following percentages can be used:
