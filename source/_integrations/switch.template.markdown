@@ -86,6 +86,10 @@ switch:
 
 If you are using the state of a platform that takes extra time to load, the Template Switch may get an `unknown` state during startup. This results in error messages in your log file until that platform has completed loading. If you use `is_state()` function in your template, you can avoid this situation. For example, you would replace {% raw %}`{{ states.switch.source.state == 'on') }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an unknown result: {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
+### Template variables
+
+State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](integrations/template#self_referencing) of an entity's state and attribute in templates.
+
 ## Examples
 
 In this section you find some real-life examples of how to use this switch.
