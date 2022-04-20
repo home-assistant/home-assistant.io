@@ -9,6 +9,7 @@ author_twitter: balloob
 comments: true
 categories:
 - Announcements
+og_image: /images/integrations/insteon/insteon-products.jpg
 ---
 
 _The US smart home company Insteon abruptly went dark and turned off its cloud. While Insteon products talk locally, the app and voice assistant integrations do not. Without this, users are not able to control and configure their hub and automations don't run._
