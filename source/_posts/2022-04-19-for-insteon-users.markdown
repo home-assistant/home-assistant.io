@@ -21,8 +21,8 @@ The good news is that Home Assistant is able to talk to your Insteon devices via
 The other good news is that Home Assistant works 100% local. There is no cloud necessary for any part of it to function and no one can remotely shut it down.
 
 <p class='img'>
-<img src='/images/integrations/insteon/insteon-products.jpg' alt='Overview of supported Insteon products'>
-Overview of supported Insteon products
+<img src='/images/integrations/insteon/insteon-products.jpg' alt='Overview of supported Insteon modems'>
+Overview of supported Insteon modems
 </p>
 
 There are many different ways to run Home Assistant. The easiest and best way is to [buy a dedicated device to run Home Assistant](/blog/2022/04/16/device-to-run-home-assistant/). Alternatively, if you have a server at home and are familiar with the technology, you can try our [virtual machine](/installation/alternative#install-home-assistant-operating-system) or [Docker container](/installation/alternative#install-home-assistant-container) installations.

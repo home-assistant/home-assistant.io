@@ -33,6 +33,11 @@ _If you have factory reset your device please see the instructions <a href="#rec
 
 {% include integrations/config_flow.md %}
 
+<p class='img'>
+<img src='/images/integrations/insteon/insteon-products.jpg' alt='Overview of supported Insteon modems'>
+Overview of supported Insteon modems
+</p>
+
 [pyinsteon]: https://github.com/pyinsteon/pyinsteon
 [2413U]: https://www.insteon.com/powerlinc-modem-usb
 [2412S]: https://www.insteon.com/powerlinc-modem-serial
