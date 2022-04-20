@@ -62,6 +62,7 @@ Enjoy the release!
 - [Release 2022.4.3 - April 12](#release-202243---april-12)
 - [Release 2022.4.4 - April 14](#release-202244---april-14)
 - [Release 2022.4.5 - April 16](#release-202245---april-16)
+- [Release 2022.4.6 - April 20](#release-202246---april-20)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -934,6 +935,68 @@ The following integrations are now available via the Home Assistant UI:
 [powerwall docs]: /integrations/powerwall/
 [tomorrowio docs]: /integrations/tomorrowio/
 [trafikverket_train docs]: /integrations/trafikverket_train/
+
+## Release 2022.4.6 - April 20
+
+- Fix bug in google calendar offset calculation (#70024) ([@allenporter] - [#70166]) ([google docs])
+- Improve roon integraton ([@pavoni] - [#66000]) ([roon docs])
+- Fix opening/closing for awning in Overkiz integration ([@tetienne] - [#68890]) ([overkiz docs])
+- Move handling of non-secure login to the elkm1 library ([@bdraco] - [#69483]) ([elkm1 docs])
+- Fix file size last_updated ([@chemelli74] - [#70114]) ([filesize docs])
+- Revert zigpy-zigate to 0.7.4 ([@doudz] - [#70184]) ([zha docs])
+- Fix handling of powerview stale state ([@bdraco] - [#70195]) ([hunterdouglas_powerview docs])
+- Auto set content type for stream-only in generic camera ([@davet2001] - [#70200]) ([generic docs])
+- Hide credentials from generated titles in generic camera ([@davet2001] - [#70204]) ([generic docs])
+- Bump aiodiscover to 1.4.9 ([@bdraco] - [#70213]) ([dhcp docs])
+- Screenlogic config: Filter unexpected host names ([@dieselrabbit] - [#70256]) ([screenlogic docs])
+- Fix handling unassigned areas in lutron_caseta ([@bdraco] - [#70258]) ([lutron_caseta docs])
+- Fix updating CameraZone coords for UniFi Protect ([@AngellusMortis] - [#70260]) ([unifiprotect docs])
+- Add Insteon USB discovery ([@balloob] - [#70306]) ([insteon docs])
+- Bump aiohomekit to 0.7.17 ([@bdraco] - [#70313]) ([homekit_controller docs])
+- Fix #69952: Daikin AC Temperature jumps after being set ([@vanackej] - [#70326]) ([daikin docs])
+
+[#66000]: https://github.com/home-assistant/core/pull/66000
+[#68890]: https://github.com/home-assistant/core/pull/68890
+[#69483]: https://github.com/home-assistant/core/pull/69483
+[#70114]: https://github.com/home-assistant/core/pull/70114
+[#70166]: https://github.com/home-assistant/core/pull/70166
+[#70184]: https://github.com/home-assistant/core/pull/70184
+[#70195]: https://github.com/home-assistant/core/pull/70195
+[#70200]: https://github.com/home-assistant/core/pull/70200
+[#70204]: https://github.com/home-assistant/core/pull/70204
+[#70213]: https://github.com/home-assistant/core/pull/70213
+[#70256]: https://github.com/home-assistant/core/pull/70256
+[#70258]: https://github.com/home-assistant/core/pull/70258
+[#70260]: https://github.com/home-assistant/core/pull/70260
+[#70306]: https://github.com/home-assistant/core/pull/70306
+[#70313]: https://github.com/home-assistant/core/pull/70313
+[#70326]: https://github.com/home-assistant/core/pull/70326
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@davet2001]: https://github.com/davet2001
+[@dieselrabbit]: https://github.com/dieselrabbit
+[@doudz]: https://github.com/doudz
+[@pavoni]: https://github.com/pavoni
+[@tetienne]: https://github.com/tetienne
+[@vanackej]: https://github.com/vanackej
+[daikin docs]: /integrations/daikin/
+[dhcp docs]: /integrations/dhcp/
+[elkm1 docs]: /integrations/elkm1/
+[filesize docs]: /integrations/filesize/
+[generic docs]: /integrations/generic/
+[google docs]: /integrations/google/
+[homekit_controller docs]: /integrations/homekit_controller/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[insteon docs]: /integrations/insteon/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[overkiz docs]: /integrations/overkiz/
+[roon docs]: /integrations/roon/
+[screenlogic docs]: /integrations/screenlogic/
+[unifiprotect docs]: /integrations/unifiprotect/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
