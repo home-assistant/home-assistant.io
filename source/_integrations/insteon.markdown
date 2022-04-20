@@ -34,8 +34,8 @@ _If you have factory reset your device please see the instructions <a href="#rec
 {% include integrations/config_flow.md %}
 
 <p class='img'>
-<img src='/images/integrations/insteon/insteon-products.jpg' alt='Overview of supported Insteon modems'>
-Overview of supported Insteon modems
+<img src='/images/integrations/insteon/insteon-products.jpg' alt='Overview of supported Insteon modems & hubs'>
+Overview of supported Insteon modems & hubs
 </p>
 
 [pyinsteon]: https://github.com/pyinsteon/pyinsteon
