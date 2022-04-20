@@ -70,7 +70,7 @@ template:
 
 ### Template variables
 
-State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](#self_referencing) of an entity's state and attribute in templates.
+State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](#self-referencing) of an entity's state and attribute in templates.
 
 ## Trigger-based template binary sensors, buttons, numbers, selects and sensors
 
