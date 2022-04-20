@@ -179,6 +179,10 @@ light:
         type: action
 {% endconfiguration %}
 
+### Template variables
+
+State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](integrations/template#self-referencing) of an entity's state and attribute in templates.
+
 ## Considerations
 
 If you are using the state of a platform that takes extra time to load, the
@@ -193,10 +197,6 @@ result:
 Transition doesn't have its own script, it will instead be passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color` or `white_value` scripts.
 Brightness will be passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color` or `white_value` scripts if the corresponding parameter is also in the call. In this case the brightness script (`set_level`) will not be called.
 If only brightness is passed to `light.turn_on` service call then `set_level` script is called.
-
-### Template variables
-
-State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](integrations/template#self_referencing) of an entity's state and attribute in templates.
 
 ## Examples
 
