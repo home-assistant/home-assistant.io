@@ -103,6 +103,10 @@ vacuum:
         type: [string, list]
 {% endconfiguration %}
 
+### Template variables
+
+State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](integrations/template#self_referencing) of an entity's state and attribute in templates.
+
 ## Examples
 
 ### Control vacuum with Harmony Hub
