@@ -31,11 +31,21 @@ Once you have Home Assistant up and running, see [the documentation](https://www
 
 [Tom Harris](https://github.com/teharris1) leads the development of the Insteon integration in Home Assistant and he is putting the final touches on a new Insteon page for the Home Assistant interface. This page makes it easier to manage your Insteon network, just like you would have done via the Insteon application. It's expected to be available in 1-2 weeks.
 
+<p class='img'>
+<img src='/images/blog/2022-04-for-insteon-users/insteon-panel-1.jpg' alt='Screenshot of the upcoming Insteon page'>
+Screenshot of the upcoming Insteon page
+</p>
+
 Home Assistant is an open and friendly community which is happy to help new users. Join us on [Discord chat](/join-chat/) or on [our forums](https://www.home-assistant.io/join-chat/) if you get stuck.
 
 If you're looking to connect with other Insteon users, we recommend the [/r/Insteon community on Reddit](https://www.reddit.com/r/insteon/).
 
 To stay up to date on the latest releases of Home Assistant, follow us in [Twitter](https://twitter.com/home_assistant), [Facebook](https://www.facebook.com/homeassistantio) or [subscribe to our newsletter](/newsletter/).
+
+<p class='img'>
+<img src='/images/blog/2022-04-for-insteon-users/insteon-panel-2.jpg' alt='Another screenshot of the upcoming Insteon page'>
+Another screenshot of the upcoming Insteon page
+</p>
 
 [2413U]: https://www.insteon.com/powerlinc-modem-usb
 [2412S]: https://www.insteon.com/powerlinc-modem-serial
