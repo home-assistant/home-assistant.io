@@ -25,7 +25,7 @@ The other good news is that Home Assistant works 100% local. There is no cloud n
 Overview of supported Insteon products
 </p>
 
-There are many different ways to run Home Assistant. The easiest and best way is to [buy a dedicated device to run Home Assistant](/blog/2022/04/16/device-to-run-home-assistant/). If you have a server at home and are familiar with the technology, you can try our [virtual machine](/installation/alternative#install-home-assistant-operating-system) or [Docker container](/installation/alternative#install-home-assistant-container) installations.
+There are many different ways to run Home Assistant. The easiest and best way is to [buy a dedicated device to run Home Assistant](/blog/2022/04/16/device-to-run-home-assistant/). Alternatively, if you have a server at home and are familiar with the technology, you can try our [virtual machine](/installation/alternative#install-home-assistant-operating-system) or [Docker container](/installation/alternative#install-home-assistant-container) installations.
 
 Once you have Home Assistant up and running, see [the documentation](https://www.home-assistant.io/integrations/insteon/) for the Insteon integration on how to set it up. It works with the [2413U] USB and [2412S] RS242 flavors of PLM and the [2448A7] USB stick. It has also been tested to work with the [2242] and [2245] Hubs.
 
