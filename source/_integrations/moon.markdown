@@ -8,10 +8,12 @@ ha_release: 0.38
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
+  - '@frenck'
 ha_domain: moon
 ha_platforms:
   - sensor
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The Moon integration tracks the phases of the moon.

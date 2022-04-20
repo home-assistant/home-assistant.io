@@ -7,12 +7,13 @@ ha_release: 2021.6
 ha_iot_class: Cloud Polling
 ha_domain: wallbox
 ha_platforms:
+  - lock
   - number
   - sensor
-  - lock
 ha_config_flow: true
 ha_codeowners:
   - '@hesselonline'
+ha_integration_type: integration
 ---
 
 The Wallbox integration pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station.

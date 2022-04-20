@@ -11,6 +11,9 @@ ha_codeowners:
   - '@uvjustin'
   - '@allenporter'
 ha_domain: stream
+ha_platforms:
+  - diagnostics
+ha_integration_type: integration
 ---
 
 The stream integration provides a way to proxy live streams through Home Assistant. Most users should not need to configure anything or interface with the component directly since it is an internal component used by the [camera integration](/integrations/camera).

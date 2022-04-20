@@ -13,6 +13,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
 The P1 Monitor integration integrates the [P1 Monitor](https://www.ztatz.nl/p1-monitor/)

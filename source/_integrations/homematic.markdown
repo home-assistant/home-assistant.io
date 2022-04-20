@@ -2,10 +2,10 @@
 title: Homematic
 description: Instructions for integrating Homematic into Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Climate
   - Cover
+  - Hub
   - Light
   - Lock
   - Notifications
@@ -26,6 +26,7 @@ ha_platforms:
   - notify
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The [Homematic](https://www.homematic.com/) integration provides bi-directional communication with your CCU/Homegear. It uses an XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.

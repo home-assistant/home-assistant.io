@@ -11,6 +11,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@eifinger'
+ha_integration_type: integration
 ---
 
 The `google_travel_time` sensor provides travel time from the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/).

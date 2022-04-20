@@ -2,10 +2,10 @@
 title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
-  - Remote
-  - Switch
-  - Sensor
   - Light
+  - Remote
+  - Sensor
+  - Switch
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -20,6 +20,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:

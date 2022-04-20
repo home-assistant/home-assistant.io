@@ -2,9 +2,9 @@
 title: Environment Canada
 description: Weather data from Environment Canada.
 ha_category:
-  - Weather
-  - Sensor
   - Camera
+  - Sensor
+  - Weather
 ha_platforms:
   - camera
   - sensor
@@ -16,6 +16,7 @@ ha_codeowners:
   - '@michaeldavie'
 ha_domain: environment_canada
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The Environment Canada integration provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
@@ -112,3 +113,15 @@ template:
 ```
 
 {% endraw %}
+
+
+## Services
+
+### Service `environment_canada.set_radar_type`
+
+Sets the type of radar to retrieve for the camera.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | Camera to set the radar type for.
+| `radar_type` | no | One of "Auto", "Rain", or "Snow".

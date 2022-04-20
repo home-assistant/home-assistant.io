@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: elmax
 ha_platforms:
   - switch
+ha_integration_type: integration
 ---
 
 The Elmax integration enables Home Assistant integration with 

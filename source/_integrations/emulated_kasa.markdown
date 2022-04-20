@@ -9,6 +9,7 @@ ha_codeowners:
   - '@kbickar'
 ha_domain: emulated_kasa
 ha_quality_scale: internal
+ha_integration_type: integration
 ---
 
 The Emulated Kasa integration emulates a TP-Link Kasa smart plug and announces the power usage of configured devices to any that might request it on the local network. 

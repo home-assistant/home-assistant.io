@@ -9,6 +9,7 @@ ha_release: 0.24
 ha_domain: joaoapps_join
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `joaoapps_join` integration exposes services from

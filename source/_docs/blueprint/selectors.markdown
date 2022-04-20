@@ -755,6 +755,29 @@ options:
     List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used.
   type: list
   required: true
+multiple:
+  description: >
+    Allows selecting multiple options. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  required: false
+  default: false
+custom_value:
+  description: >
+    Allows the user to enter and select a custom value (or multiple custom values
+    in addition to the listed options if `multiple` is set to `true`).
+  type: boolean
+  required: false
+  default: false
+mode:
+  description: >
+    This can be either `list` (radio buttons) or `dropdown` (combobox) mode.
+    When not specified, small lists (5 items or less), are displayed as
+    radio buttons. When more items are added, a dropdown list is used. If
+    `custom_value` is `true`, this setting will be ignored and the frontend
+    will use a `dropdown` input.
+  type: string
+  required: false
 {% endconfiguration %}
 
 Alternatively, a mapping can be used for the options. When you want to return
@@ -788,9 +811,13 @@ options:
       type: string
 {% endconfiguration %}
 
-The output of this selector is the string of the selected option value.
-When selecting `Green` in the last example, it returns: `g`, in the first
-example it would return `Green`.
+When `multiple` is `false`, the output of this selector is the string of
+the selected option value. When selecting `Green` in the last example,
+it returns: `g`, in the first example it would return `Green`.
+
+When `multiple` is `true`, the output of this selector is the list of selected
+option values. In this case, if `Green` was selected, in the first example it
+would return ["Green"] and in the last example it returns ["g"].
 
 ## Target selector
 
@@ -903,6 +930,21 @@ target:
     manufacturer: IKEA of Sweden
     model: TRADFRI remote control
 ```
+
+## Template selector
+
+The template selector can be used to input a Jinja2 template. This is useful
+for allowing more advanced user-input that use Jinja2 templates.
+
+![Screenshot of an template selector](/images/blueprints/selector-template.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+template:
+```
+
+The output of this selector is a template string.
 
 ## Text selector
 

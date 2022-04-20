@@ -1,13 +1,13 @@
 ---
 title: Update
 description: Instructions on how to use update entities with Home Assistant.
-ha_category:
-  - Updates
+ha_category: []
 ha_release: 2022.4
 ha_quality_scale: internal
 ha_domain: update
 ha_codeowners:
   - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 An update entity is an entity that indicates if an update is available for a
@@ -49,7 +49,7 @@ information on the update state:
 - `title`: The title/name of the available software or firmware. As the device
   name or entity name can be changed in Home Assistant, this title will provide
   the actual name of the software or firmware.
-- `current_version`: The current version that is currently installed and in use.
+- `installed_version`: The current version that is currently installed and in use.
 - `latest_version`: The latest version that is available for installation.
 - `skipped_version`: If a version update is skipped, this attribute will be set
   and contains the actual version that was skipped.
@@ -113,6 +113,29 @@ target:
 Even if an update is skipped and shows as `off` (meaning no update), if there
 is a newer version available, calling the `update.install` service on the entity
 will still install the latest version.
+
+### Service {% my developer_call_service service="update.clear_skipped" %}
+
+The {% my developer_call_service service="update.clear_skipped" %} service can
+be used to remove skipped version marker of a previously skipped an offered
+update to the device or service.
+
+After skipping an offered update, the entity will return to the `off` state,
+but will not return to it until a newer version becomes available again.
+
+Using the `update.clear_skipped` service, the skipped version marker can be
+removed and thus the entity will return to the `on` state and the update
+notification will return.
+
+```yaml
+service: update.clear_skipped
+target:
+  entity_id:
+    - update.my_light_bulb
+```
+
+This can be helpful to, for example, in an automation that weekly unskips
+all updates you have previously marked as skipped; as a reminder to update.
 
 ## Example: Sending update available notifications
 

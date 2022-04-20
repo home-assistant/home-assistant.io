@@ -6,15 +6,13 @@ ha_category:
 ha_release: 0.57
 ha_quality_scale: internal
 ha_domain: timer
+ha_integration_type: integration
 ---
 
 The `timer` integration aims to simplify automations based on (dynamic) durations.
 
 When a timer finishes or gets canceled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been canceled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restart the timer without triggering a canceled or finished event. This, for example, makes it easy to create timed lights that get triggered by motion. Starting a timer triggers a started event unless the timer is paused, in that case, it triggers a restarted event.
 
-<div class='note warning'>
-  With the current implementation timers don't persist over restarts. After a restart, they will be idle again, together with their initial configuration.
-</div>
 
 ## Configuration
 The preferred way to configure timer helpers is via the user interface. To add one, go to Configuration -> Automations & Scenes, select the "Helpers" tab and click the add button; next choose the “Timer” option.
@@ -55,7 +53,7 @@ timer:
       required: false
       type: icon
     restore:
-      description: When true, active and paused timers will be restored to the right state on startup. If an active timer was supposed to end while Home Assistant is stopped, the `time.finished` event will fire on startup for that timer. The `finished_at` property in the event data will provide you with the time that the timer was actually supposed to fire which you can use in automation conditions to decide whether or not to act on it.
+      description: When true, active and paused timers will be restored to the right state on startup. If an active timer was supposed to end while Home Assistant is stopped, the `timer.finished` event will fire on startup for that timer. The `finished_at` property in the event data will provide you with the time that the timer was actually supposed to fire which you can use in automation conditions to decide whether or not to act on it.
       required: false
       type: boolean
       default: false

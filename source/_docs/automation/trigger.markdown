@@ -326,7 +326,7 @@ If for your use case this is undesired, you could consider using the automation 
 ## State trigger
 
 Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
-If at least one of `from` or `to` are given, the trigger will fire on any matching state change, but not if only attributes change. To trigger on all state changes, but not on changed attributes, set at least one of `from` or `to` to `null`.
+If at least one of `from`, `to`, `not_from`, or `not_to` are given, the trigger will fire on any matching state change, but not if only attributes change. To trigger on all state changes, but not on changed attributes, set at least one of `from`, `to`, `not_from`, or `not_to` to `null`.
 
 <div class='note'>
 
@@ -369,6 +369,21 @@ automation:
       entity_id: vacuum.test
       to:
 ```
+
+The `not_from` and `not_to` options are the counter parts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state. This can be useful to  trigger on all state changes, except specific ones.
+
+```yaml
+automation:
+  trigger:
+    - platform: state
+      entity_id: vacuum.test
+      not_from:
+        - "unknown"
+        - "unavailable"
+      to: "on"
+```
+
+You cannot use `from` and `not_from` at the same time. The same applies to `to` and `not_to`.
 
 ### Triggering on attribute changes
 
@@ -863,4 +878,24 @@ automation:
         - sensor.one
         - sensor.two
         - sensor.three
+```
+
+## Disabling a trigger
+
+Every individual trigger in an automation can be disabled, without removing it.
+To do so, add `enabled: false` to the trigger. For example:
+
+```yaml
+# Example script with a disabled trigger
+automation:
+  trigger:
+    # This trigger will not trigger, as it is disabled.
+    # This automation does not run when the sun is set.
+    - enabled: false
+      platform: sun
+      event: sunset
+
+    # This trigger will fire, as it is not disabled.
+    - platform: time
+      at: "15:32:00"
 ```

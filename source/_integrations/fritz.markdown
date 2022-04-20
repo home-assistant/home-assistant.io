@@ -2,8 +2,8 @@
 title: AVM FRITZ!Box Tools
 description: Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant.
 ha_category:
-  - Presence Detection
   - Binary Sensor
+  - Presence Detection
   - Sensor
 ha_release: '0.10'
 ha_domain: fritz
@@ -17,11 +17,12 @@ ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
   - button
-  - diagnostics
   - device_tracker
+  - diagnostics
   - sensor
   - switch
 ha_ssdp: true
+ha_integration_type: integration
 ---
 
 The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://en.avm.de/products/fritzbox/) based router.
