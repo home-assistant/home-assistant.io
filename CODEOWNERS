@@ -448,6 +448,7 @@ source/_integrations/openuv.markdown @bachya
 source/_integrations/openweathermap.markdown @fabaff @freekode @nzapponi
 source/_integrations/opnsense.markdown @mtreinish
 source/_integrations/oru.markdown @bvlaicu
+source/_integrations/osoenergy @osohotwateriot
 source/_integrations/overkiz.markdown @imicknl @vlebourl @tetienne
 source/_integrations/ovo_energy.markdown @timmo001
 source/_integrations/p1_monitor.markdown @klaasnicolaas
