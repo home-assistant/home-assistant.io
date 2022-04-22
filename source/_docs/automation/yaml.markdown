@@ -85,9 +85,23 @@ max_exceeded:
   type: string
   default: warning
 trigger:
-  description: The triggers which will start this automation. Multiple triggers can be added. A trigger has to change from `false` to `true` to start the automation.
+  description: The trigger(s) which will start the automation. Multiple triggers can be added and the automation will start when any of these triggers changes from `false` to `true`.
   required: true
   type: list
+  keys:
+    id:
+      description: An id which can be used in the automatin to determine which trigger caused the automation to start
+      type: string
+      required: false
+    variables:
+      description: Variables which will be available in the conditions and action sequence.
+      required: false
+      default: {}
+      type: map
+      keys:
+        PARAMETER_NAME:
+          description: The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable.
+          type: any
 condition:
   description: Conditions which have to be `true` to start the automation. By default all conditions listed have to be `true`, you can use [logical conditions](https://www.home-assistant.io/docs/scripts/conditions/#logical-conditions) to change this default behaviour.
   required: false
