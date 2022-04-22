@@ -39,6 +39,7 @@ initial_state:
   description: Used to define the state of your automation at startup. When not set, the state will be restored from the last run.
   required: false
   type: boolean
+  default: Restored from last run
 trace:
   description: Configuration values for the traces stored, currently only `stored_traces` can be configured.
   required: false
