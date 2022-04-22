@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.45
 ha_domain: datadog
+ha_integration_type: integration
 ---
 
 The `datadog` integration sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](https://docs.datadoghq.com/guides/basic_agent_usage/).

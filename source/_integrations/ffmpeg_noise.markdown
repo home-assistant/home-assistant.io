@@ -8,6 +8,7 @@ ha_release: 0.27
 ha_domain: ffmpeg_noise
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The `ffmpeg` platform allows you to use any video or audio feed with [FFmpeg](https://www.ffmpeg.org/) for various sensors in Home Assistant.

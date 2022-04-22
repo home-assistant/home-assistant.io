@@ -21,6 +21,7 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
@@ -35,7 +36,7 @@ Speaker-level controls are exposed as `number` or `switch` entities. Additionall
 
 - **All devices**: Alarms, Bass, Treble, Crossfade, Status Light, Touch Controls
 - **Home theater devices**: Audio Delay (aka "Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled
-- **When paired with a sub**: Subwoofer Enabled
+- **When paired with a sub**: Subwoofer Enabled, Subwoofer Gain
 
 ### Sensors
 

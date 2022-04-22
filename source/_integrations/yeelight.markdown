@@ -19,6 +19,7 @@ ha_homekit: true
 ha_dhcp: true
 ha_quality_scale: platinum
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.

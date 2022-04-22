@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/en-gb/shop/networkmusicsystem/ceolpiccolon4) from Home Assistant. It might be that your device is supported by the [Denon] platform.
@@ -81,6 +82,7 @@ Known supported devices:
 - Marantz NR1606
 - Marantz NR1607
 - Marantz NR1710
+- Marantz NR1711
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
 
@@ -120,7 +122,7 @@ A few notes:
 
 Denon AVR receivers support a simple text-based network interface for sending commands to the receiver over the network. You can access this interface via the `denonavr.get_command` service. In addition, IR remote codes can also be sent to this interface.
 
-A list of network commands supported by the various Denon AVR receivers can be [found here](https://www.heimkinoraum.de/upload/files/product/IP_Protocol_AVR-Xx100.pdf). A list of IR codes can be [found here](https://www.heimkinoraum.de/upload/files/product/IP_Protocol_AVR-Xx100.pdf).
+A list of network commands supported by the various Denon AVR receivers can be [found here](https://www.heimkinoraum.de/upload/files/product/IP_Protocol_AVR-Xx100.pdf). A list of IR codes can be [found here](https://assets.denon.com/DocumentMaster/UK/AVR3313_IR_CODE_V01.pdf).
 
 To use these commands, call the `denonavr.get_command` service and append the specific command to the path `/goform/formiPhoneAppDirect.xml?`:
 

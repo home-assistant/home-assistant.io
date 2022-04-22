@@ -3,11 +3,13 @@ title: Input Select
 description: Instructions on how to integrate the Input Select integration into Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.13
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: input_select
+ha_integration_type: helper
 ---
 
 The `input_select` integration allows the user to define a list of values that can be selected via the frontend and can be used within conditions of an automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.

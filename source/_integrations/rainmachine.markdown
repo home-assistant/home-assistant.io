@@ -2,8 +2,8 @@
 title: RainMachine
 description: Instructions on how to integrate RainMachine units within Home Assistant.
 ha_category:
-  - Irrigation
   - Binary Sensor
+  - Irrigation
   - Sensor
   - Switch
 ha_release: 0.69
@@ -19,6 +19,7 @@ ha_platforms:
   - switch
 ha_zeroconf: true
 ha_homekit: true
+ha_integration_type: integration
 ---
 
 The RainMachine integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).

@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_domain: ifttt
 ha_platforms:
   - alarm_control_panel
+ha_integration_type: integration
 ---
 
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT component, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).

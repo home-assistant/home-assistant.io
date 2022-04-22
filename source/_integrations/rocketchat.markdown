@@ -8,6 +8,7 @@ ha_release: 0.56
 ha_domain: rocketchat
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `rocketchat` notify platform allows you to send messages to your [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.

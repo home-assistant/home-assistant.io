@@ -15,6 +15,7 @@ ha_platforms:
   - sensor
 ha_quality_scale: platinum
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The `fronius` integration polls a [Fronius](https://www.fronius.com/) solar inverter or datalogger to allow you to get details from your Fronius SolarNet setup and integrate it in your Home Assistant installation.
@@ -22,6 +23,7 @@ The `fronius` integration polls a [Fronius](https://www.fronius.com/) solar inve
 ## Prerequisites
 
 You will need to either set a static IP on the Fronius device or assign a static DHCP lease for it, or alternatively access it through the local DNS name if your network is properly configured for this.
+For Gen24 devices (delivered with Firmware >= 1.14.1) make sure to activate the "Solar API" in the inverters web interface.
 
 {% include integrations/config_flow.md %}
 

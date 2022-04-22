@@ -13,6 +13,7 @@ ha_platforms:
   - button
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `nissan_leaf` integration offers integration with the [NissanConnect EV](https://www.nissan.co.uk/dashboard.html) cloud service. NissanConnect EV was previously known as Nissan Carwings. It offers:

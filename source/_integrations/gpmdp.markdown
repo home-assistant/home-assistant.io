@@ -8,6 +8,7 @@ ha_release: '0.20'
 ha_domain: gpmdp
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `gpmdp` media player platform allows you to control a [GPMDP](https://www.googleplaymusicdesktopplayer.com/) instance running on a computer from Home Assistant.

@@ -3,8 +3,8 @@ title: Home Assistant Cloud
 description: Enable the Home Assistant Cloud integration.
 ha_release: '0.60'
 ha_category:
-  - Voice
   - Text-to-speech
+  - Voice
 ha_iot_class: Cloud Push
 ha_codeowners:
   - '@home-assistant/cloud'
@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - stt
   - tts
+ha_integration_type: integration
 ---
 
 The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services like Amazon Alexa and Google Assistant. [Learn more.](/cloud)

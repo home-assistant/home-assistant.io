@@ -16,6 +16,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - lock
+ha_integration_type: integration
 ---
 
 The Yale Smart Living integration provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.

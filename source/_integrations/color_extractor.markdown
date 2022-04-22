@@ -7,6 +7,7 @@ ha_category:
 ha_domain: color_extractor
 ha_codeowners:
   - '@GenericStudent'
+ha_integration_type: integration
 ---
 
 The `color_extractor` integration will extract the predominant color from a given image and apply that color to a target light.

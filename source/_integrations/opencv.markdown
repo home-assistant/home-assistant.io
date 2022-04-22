@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.47
 ha_domain: opencv
+ha_integration_type: integration
 ---
 
 [OpenCV](https://www.opencv.org/) is an open source computer vision image and video processing library.

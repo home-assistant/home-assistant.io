@@ -3,11 +3,13 @@ title: Input Datetime
 description: Instructions on how to integrate the Input Datetime integration into Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.55
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: input_datetime
+ha_integration_type: helper
 ---
 
 The `input_datetime` integration allows the user to define date and time values

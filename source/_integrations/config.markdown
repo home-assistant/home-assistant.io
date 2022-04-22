@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: config
 ha_platforms:
   - scene
+ha_integration_type: integration
 ---
 
 The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.
