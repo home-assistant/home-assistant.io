@@ -27,7 +27,7 @@ alias:
   required: false
   type: string
 id:
-  description: A unique id for your automation, will allow you to make changes to the name and entity_id in the GUI, and will enable debug traces.
+  description: A unique id for your automation, will allow you to make changes to the name and entity_id in the UI, and will enable debug traces.
   required: false
   type: string
 description:
