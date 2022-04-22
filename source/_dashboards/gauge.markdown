@@ -84,7 +84,7 @@ severity:
 segments:
   required: false
   description: List of colors and their corresponding start values.
-  type: map
+  type: list
   keys:
     from:
       required: true
