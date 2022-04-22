@@ -83,7 +83,7 @@ severity:
       type: integer
 segments:
   required: false
-  description: List of colors and their corresponding start values.
+  description: List of colors and their corresponding start values. Segments will override the severity settings.
   type: list
   keys:
     from:
