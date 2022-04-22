@@ -70,7 +70,7 @@ trigger_variables:
       description: The value of the variable. Any YAML is valid. Only [limited templates](/docs/configuration/templating/#limited-templates) can be used.
       type: any
 mode:
-  description: "Controls what happens when script is invoked while it is still running from one or more previous invocations. See [Automation Modes](#automation-modes)."
+  description: "Controls what happens when the script is invoked while it is still running from one or more previous invocations. See [Automation Modes](#automation-modes)."
   required: false
   type: string
   default: single
