@@ -85,7 +85,7 @@ max_exceeded:
   type: string
   default: warning
 trigger:
-  description: The trigger(s) which will start the automation. Multiple triggers can be added and the automation will start when any of these triggers changes from `false` to `true`.
+  description: The trigger(s) which will start the automation. Multiple triggers can be added and the automation will start when any of these triggers trigger.
   required: true
   type: list
   keys:
